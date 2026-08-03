@@ -1,0 +1,39 @@
+# Prohibited use — record template (Stage 0)
+#
+# Conclusions the system must NOT produce. These are tested as explicitly as the
+# positive cases: each record becomes a test in tests/ that fails if the system
+# ever produces the prohibited output.
+#
+# Expert-owned. An agent may not decide what is legally impermissible.
+
+id: PU-000
+
+prohibited: >
+  The conclusion, action or output that must not occur. State it as the system
+  would produce it, not as a policy abstraction.
+
+kind: evaluative_conclusion
+# evaluative_conclusion — a judgement reserved to a human examiner
+#   e.g. "the evidence establishes acquired distinctiveness"
+# authority_conflation — Manual practice presented as legislation, or vice versa (Q-12)
+# unsupported_inference — an assertion with no supporting passage
+# stale_source — an answer built on superseded or withdrawn material
+# overreach — advice, or a prediction of an examination outcome
+# ambiguity_collapse — an ambiguous citation silently resolved (Q-07)
+
+why: >
+  The reason it is impermissible: whose decision it is, what harm follows, or
+  which rule it breaks.
+
+detectable_by: test
+# test  — a deterministic check in tests/
+# shacl — a constraint in shapes/
+# eval  — measured as a rate over the gold set, with a threshold of zero
+# human — only catchable in review; state what the reviewer must look for
+
+test_ref:                       # path to the test that enforces this, once written
+
+related_questions: []           # CQ-nnn / GA-nnn ids this bounds
+
+approved_by:
+approved_date:

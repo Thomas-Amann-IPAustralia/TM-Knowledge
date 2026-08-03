@@ -1,0 +1,32 @@
+# Upstream snapshot and derived artefacts — fetched, never committed (ADR-0004)
+data/upstream/
+data/derived/
+!data/pin.json
+!data/README.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Models, embeddings, indexes — rebuildable, often large
+*.faiss
+*.npy
+*.pt
+.cache/
+
+# Local environment
+.env
+.env.local
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
