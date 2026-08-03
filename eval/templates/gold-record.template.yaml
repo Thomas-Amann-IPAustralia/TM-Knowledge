@@ -1,0 +1,92 @@
+# Gold-standard record — templates (Stage 0)
+#
+# The trusted examples every automated component is measured against. Five record
+# types, one schema each. Keep each type in its own file under eval/gold/.
+#
+# Rules that apply to all five:
+#   - Store upstream refs, never IRIs (docs/IDENTIFIERS.md §4).
+#   - Every record cites the exact passage it rests on, with character offsets
+#     into the upstream chunk `text`, and the `content_hash` that text had when
+#     the record was made. When the hash changes, the record is stale.
+#   - Content is expert-owned. Agents build and validate the container only.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 1. Recognised entity  (target: 100–300)   measures: precision / recall / F1
+# ─────────────────────────────────────────────────────────────────────────────
+entity:
+  id: GE-000
+  surface: "acquired distinctiveness"   # the text exactly as it appears
+  type: LegalConcept                    # LegalConcept | LegislativeProvision |
+                                        # JudicialDecision | EvidenceCategory |
+                                        # ManualInstruction | Role | Date | Other
+  source_ref: TMM/PartNN/n/n/n
+  span: [start, end]                    # char offsets into the chunk's `text`
+  source_content_hash: ""
+  resolves_to:                          # ref of the thing referred to, where one exists
+  notes: >
+    Anything that makes this case instructive — an abbreviation, an anaphor, a
+    form that a naive matcher will get wrong.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 2. Approved concept  (target: 50–100)     measures: clustering accuracy
+# ─────────────────────────────────────────────────────────────────────────────
+concept:
+  id: GC-000
+  pref_label: ""
+  alt_labels: []                        # surface forms that mean the same concept
+  not_labels: []                        # forms that look similar and are NOT the same.
+                                        # The most valuable field in this record —
+                                        # near-misses are where clustering fails.
+  broader: []                           # ids of broader concepts
+  narrower: []
+  related: []
+  definition_sources:                   # refs to passages that define or delimit it
+    - TMM/PartNN/n/n/n
+  legislative_basis: []                 # e.g. TMA1995/s41 — where the concept is grounded
+  notes: >
+    Where the term has shifted meaning over time, or means different things in
+    different Parts, say so here.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 3. Known relationship  (target: 50–100)   measures: relation precision / recall
+# ─────────────────────────────────────────────────────────────────────────────
+relationship:
+  id: GR-000
+  subject: ""                           # ref or concept id
+  predicate: interprets                 # from the approved relationship dictionary only
+  object: ""                            # ref or concept id
+  source_ref: TMM/PartNN/n/n/n
+  supporting_text: ""                   # the exact sentence, verbatim
+  span: [start, end]
+  source_content_hash: ""
+  tier: 3                               # 1 deterministic | 2 low-risk | 3 legally significant
+  modality:                             # must | may | should — where the relation is normative
+  notes: >
+    If this is a case where "may" is possibility rather than permission, or "must"
+    is explanatory rather than obligatory, that is exactly why it belongs here.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 4. Search question  (target: 20–50)       measures: Recall@10, P@10, MRR, nDCG
+# ─────────────────────────────────────────────────────────────────────────────
+search_question:
+  id: GS-000
+  query: ""                             # as a user would type it
+  uses_manual_terminology: false        # false = tests vocabulary expansion, which is the point
+  relevant:                             # graded relevance, for nDCG
+    - {ref: TMM/PartNN/n/n/n, grade: 3} # 3 highly relevant · 2 relevant · 1 marginal
+  irrelevant_but_tempting: []           # refs a keyword match will surface wrongly
+  must_exclude: []                      # superseded or withdrawn material
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 5. AI retrieval question  (target: 20–50) measures: coverage, grounding, citation
+# ─────────────────────────────────────────────────────────────────────────────
+retrieval_question:
+  id: GA-000
+  question: ""
+  required_evidence: []                 # refs that MUST be in the evidence package
+  required_provisions: []
+  required_cases: []                    # citation level only — no decision text exists (Q-11)
+  qualifications_expected: >
+    Exceptions, conditions or limits a correct answer must carry.
+  authority_distinction_required: true  # answer must distinguish law from Manual practice (Q-12)
+  prohibited_conclusions: []            # ids from eval/prohibited-uses.md

@@ -1,0 +1,49 @@
+# Competency question — record template (Stage 0)
+#
+# One question the finished system must be able to answer. Copy this block into
+# eval/competency-questions.md (or a YAML file alongside it) and fill it in.
+#
+# Content is expert-owned. An agent may structure, validate and report on these
+# records; an agent must not author the question's legal substance or its
+# expected answer (CLAUDE.md rule 1).
+
+id: CQ-000                      # stable, allocated once, never reused
+
+question: >
+  The question in ordinary language, as a user would ask it. Not a query, not a
+  paraphrase of a heading.
+
+asked_by: examiner              # examiner | applicant | AI assistant | maintainer | other
+                                # who actually needs this answered
+
+category: retrieval             # retrieval | search | reasoning | currency | impact | provenance
+
+pilot_in_scope: true            # false = recorded, but outside the pilot boundary
+
+# What a correct answer must contain. Refs, not prose — this is what the harness
+# checks against. Upstream ref form: TMM/Part22/1/1/2, TMA1995/s41(3)(a).
+expected_sources:
+  required:                     # answer is wrong if any of these is missing
+    - TMM/PartNN/n/n/n
+  supporting:                   # should appear; contributes to recall, not pass/fail
+    - TMA1995/sNN
+
+expected_concepts: []           # SKOS concept ids once vocab/ exists; labels before then
+
+must_not_include: []            # sources or claims whose presence makes the answer wrong
+                                # cross-reference eval/prohibited-uses.md where relevant
+
+answer_shape: >
+  What a good answer looks like structurally — must it distinguish legislation
+  from Manual guidance, must it cite, must it flag uncertainty. Not the answer
+  itself.
+
+# Known limits on answering this question. See docs/QUIRKS.md.
+caveats: >
+  e.g. point-in-time answers need upstream git history, not the snapshot (Q-05);
+  case questions stop at the citation, no decision text exists (Q-11).
+
+measured_by: [recall_at_10, citation_correctness]   # see eval/measures.md
+
+approved_by:                    # expert name or role
+approved_date:                  # YYYY-MM-DD
