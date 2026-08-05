@@ -139,6 +139,26 @@ only.
 **`DependencyMatcher`** — spaCy component matching patterns over dependency parse
 trees; used for recurring relation phrasing.
 
+**GLiNER** — "Generalist and Lightweight NER". A small bidirectional encoder
+(<500M parameters, CPU-viable) that takes the entity *type names* as input at
+inference time and extracts matching spans zero-shot, with no training data.
+**GLiNER2** extends this to a schema-driven interface covering extraction,
+classification and structured fields in one model. Relevant because it sits
+between the roadmap's rule-based extraction and its LLM step, and runs locally —
+see `roadmap/TECH-ALTERNATIVES.md` §2.1.
+
+**Constrained decoding** — forcing an LLM's output to conform to a grammar by
+masking invalid tokens *during* generation, so malformed JSON is impossible
+rather than retried. **XGrammar** and **llguidance** are the current engines;
+they are inference-server features, not application libraries. Guarantees syntax
+only: a schema-valid record can still contain an invented `source_span`, which is
+why this repo verifies spans against the upstream `text` regardless (ADR-0011).
+
+**Instructor / BAML** — application-layer libraries for typed LLM output.
+Instructor validates a response against a Pydantic model and re-asks on failure;
+BAML is a schema DSL that generates typed clients and parses tolerantly. Both
+are complements to constrained decoding, not substitutes for it.
+
 **Hybrid search** — combining BM25 keyword scoring with vector similarity, then
 fusing the scores (OpenSearch fusion, reciprocal rank fusion, or a cross-encoder
 rerank).
