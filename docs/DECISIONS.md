@@ -263,3 +263,39 @@ belongs there and what must not.
 **Rationale.** The last item is the one that matters: an empty directory with no
 README is an invitation for the next session to guess, and agent sessions guess
 consistently but not correctly.
+
+---
+
+## ADR-0013 — Stack components sit behind interfaces and are chosen by measurement
+
+**Date** 2026-08-05 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q8
+
+**Context.** The roadmap names a specific technology per function and states that
+"equivalent agency-approved products may be substituted". Reviewing that stack
+against the tools as they stand in 2026 (`docs/roadmap/TECH-ALTERNATIVES.md`)
+found nothing abandoned and nothing badly chosen, but several places where a
+credible alternative exists and no argument settles it — YAKE against KeyBERT
+being the clearest, and the one that prompted the review.
+
+**Decision.** No component is substituted now. Instead:
+
+1. Where two options are credible, the pipeline defines the **interface** first
+   (`KeyphraseExtractor`, `Retriever`, `RelationExtractor`) and both
+   implementations run behind it.
+2. `extraction_method` — already required on every record by ADR-0011 — carries
+   the implementation identity, so the comparison is a query over the output
+   rather than a separate experiment.
+3. The choice is made against the Stage 0 gold set at the stage that needs it,
+   and the result is recorded as a new ADR citing the measurement.
+
+**Rationale.** These are exactly the questions Stage 0 exists to answer
+(ADR-0010). Deciding them by argument in advance both wastes the harness and
+makes the decision unrevisitable, because nothing records why it was made. The
+interface requirement is what keeps the cost of the experiment near zero.
+
+**Consequences.** Slightly more scaffolding at each stage. In exchange, "should
+we use X instead?" becomes a benchmark run rather than a re-litigation. Note the
+one place this rule does not apply: where a substitution removes a *governance*
+dependency rather than improving a metric — a local encoder model instead of an
+external LLM sidesteps HANDOFF Q3 entirely — the argument is not about accuracy
+and measurement is not the deciding factor.

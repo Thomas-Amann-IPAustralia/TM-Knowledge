@@ -14,6 +14,7 @@ of all.
 | `GLOSSARY.md` | Domain and project terms | When you meet a term you had to look up |
 | `UPSTREAM.md` | The upstream data contract — record shapes, the join, its refusals | Only when upstream changes |
 | `roadmap/AUTOMATION-FIRST-ROADMAP.md` | The full programme, Stages 0–10 | **Never** — source document |
+| `roadmap/TECH-ALTERNATIVES.md` | The recommended stack reviewed against what the tools actually are. Read before proposing any substitution | When a stage picks an implementation |
 
 ## The two source documents
 

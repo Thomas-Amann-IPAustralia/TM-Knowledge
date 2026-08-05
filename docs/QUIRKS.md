@@ -203,3 +203,25 @@ required quoting in every shell command that touched it. Renamed in S001
 (ADR-0003). Mentioned here because the source documents arrive by upload from a
 human and the next one will probably have spaces too — rename on arrival, with
 `git mv`, and record it.
+
+### Q-16 — YAKE looks abandoned and is not; the repo also moved
+
+YAKE sat at 0.4.8 from April 2021 and acquired a reputation as dead software.
+It is not: 0.6.0 shipped June 2025 and 0.7.3 on 9 February 2026, and it now
+requires Python 3.10+. PyPI still carries `Development Status :: 3 - Alpha`,
+which is misleading in the other direction. The upstream repository is
+`INESCTEC/yake`; the widely-cited `LIAAD/yake` URL redirects.
+
+Do not drop it from the stack on a staleness argument — check PyPI, not
+recollection. The genuine trade-off against KeyBERT is in
+`docs/roadmap/TECH-ALTERNATIVES.md` §2.2.
+
+### Q-17 — The corpus is far too small to justify most of the stack's scale story
+
+2,460 chunks and 763 provisions. Every infrastructure decision in the roadmap —
+OpenSearch, Fuseki, a scheduler — is sized for a system that does not exist yet
+rather than for this corpus, which fits comfortably in memory. That is not a
+criticism of the roadmap; it is a warning about sequencing. Standing up the
+infrastructure early buys operational burden before there is a single relevance
+judgement to tune against, and RDFLib/pySHACL performance caveats found in
+general advice do not apply at this scale. See `TECH-ALTERNATIVES.md` §2.4.

@@ -83,3 +83,7 @@ to anyone who does not think in stages.
 - The pilot does not attempt to automate a final examination decision. Evaluative
   conclusions — "the evidence establishes acquired distinctiveness" — stay outside
   automated reasoning scope.
+- Implementation choices go behind an interface and are settled by measurement
+  against the Stage 0 gold set, not by argument (ADR-0013). The stack review is
+  `docs/roadmap/TECH-ALTERNATIVES.md`; it recommends no substitutions today and
+  names the four decisions each stage inherits.

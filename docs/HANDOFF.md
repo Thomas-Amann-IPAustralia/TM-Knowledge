@@ -3,7 +3,7 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-08-04 · session S001 · branch `claude/docs-handoff-structure-k2ei8j`
+**Last updated:** 2026-08-05 · session S002 · branch `claude/roadmap-tech-alternatives-0vkk98`
 
 ---
 
@@ -17,6 +17,15 @@ and is read-only from here — see `docs/UPSTREAM.md`.
 **This repo holds nothing but documentation and an empty skeleton.** No code, no
 data, no vocabulary, no ontology. Everything below the top-level directories is
 a `README.md` describing what will live there.
+
+**The technology stack has been reviewed and nothing was swapped.**
+`docs/roadmap/TECH-ALTERNATIVES.md` (S002) checks every component the roadmap
+names against what the tools actually are in 2026. Nothing is abandoned, nothing
+is badly chosen. Four items warrant a decision at the stage that uses them, and
+the rule for making those decisions is ADR-0013: interface first, both
+implementations behind it, gold set picks. Read that file before proposing any
+substitution — including the YAKE→KeyBERT one, which is a real trade-off and not
+a straightforward upgrade.
 
 **Stage 0 was never done.** No competency questions, no gold-standard set, no
 prohibited-use list, no evaluation harness. The upstream repo's own
@@ -62,8 +71,9 @@ agent-only work is: the harness skeleton, the upstream loader
 | Q5 | Does ADR-0005 (adopt upstream refs as canonical IDs, drop the roadmap's `tmem:manual/2026-01/...` form) hold? It contradicts the roadmap text. | Everything with an identifier | S001 |
 | Q6 | Case law is cited by the corpus but is not held as documents anywhere. Is acquiring decision texts in scope for this repo? | Stage 2 citation resolution, Stage 8 retrieval | S001 |
 | Q7 | What base IRI may the project mint under? `docs/IDENTIFIERS.md` proposes `https://data.ipaustralia.gov.au/tmk/`; persistent IRIs need control of that domain, which is an organisational call. | RDF serialisation only — deliberately not blocking anything else | S001 |
+| Q8 | Is any stack component already fixed by agency procurement or an existing platform — OpenSearch, a triple store, a scheduler, an annotation tool? If so it is not a measurement question and ADR-0013 does not apply to it. | Stages 6–10 infrastructure; procurement lead time is likely the long pole | S002 |
 
-Agent-proposed ADRs awaiting human confirmation: **0004, 0005, 0006, 0011, 0012**.
+Agent-proposed ADRs awaiting human confirmation: **0004, 0005, 0006, 0011, 0012, 0013**.
 
 ## 4. Do not redo these
 
@@ -77,7 +87,25 @@ Agent-proposed ADRs awaiting human confirmation: **0004, 0005, 0006, 0011, 0012*
 - **Do not move or rename the two source documents again.** They were relocated
   in S001 (ADR-0003); their content is unaltered.
 
+- **Do not swap a stack component on a staleness argument.** The review in
+  `docs/roadmap/TECH-ALTERNATIVES.md` already checked every one against current
+  releases. YAKE in particular looks dead and is not (Q-16).
+
 ## 5. Session log
+
+### S002 — 2026-08-05 — technology stack review
+
+Reviewed the roadmap's §3 stack against the state of each tool in 2026, prompted
+by a question about KeyBERT as a YAKE replacement. Wrote
+`docs/roadmap/TECH-ALTERNATIVES.md` and the missing `docs/roadmap/README.md`.
+
+Findings: nothing in the stack is abandoned or outclassed outright. Four items
+warrant a decision at their stage — custom spaCy NER (GLiNER-class models now sit
+between rules and an LLM, and sidestep Q3), YAKE vs KeyBERT (genuine trade-off,
+determinism against semantic coherence), WebProtégé (healthy tool, wrong workflow
+for a script-generated ontology under git-recorded approval), and OpenSearch
+(right choice, possibly too early for a 2,460-chunk corpus). Recorded ADR-0013,
+Q-16, Q-17 and open question Q8. No code, no dependencies, nothing executed.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
