@@ -263,3 +263,87 @@ belongs there and what must not.
 **Rationale.** The last item is the one that matters: an empty directory with no
 README is an invitation for the next session to guess, and agent sessions guess
 consistently but not correctly.
+
+---
+
+## ADR-0013 — The pilot area is s 43 of the Trade Marks Act 1995
+
+**Date** 2026-08-06 · **Authority** human · **Status** accepted
+
+**Context.** HANDOFF Q1 asked for the pilot scope and blocked all of Stage 0. The
+roadmap suggests distinctiveness (s 41) but states that the final selection
+should follow operational need, against five criteria: important to examiners,
+spread across multiple Manual sections, connected to legislation and case law,
+containing relationships and exceptions, and contained enough for a pilot.
+
+**Decision.** The pilot area is **s 43**. The repo owner selected it on expert
+advice, noting that it touches geographical indications — an area of growing
+discourse — while meeting the roadmap's other criteria.
+
+**Consequences.** Q1 is closed at the level of *which area*. The **boundary** is
+not yet fixed and is the first Stage 0 deliverable: which Manual Parts and chunks
+are in scope, which neighbouring provisions come with it, whether geographical
+indications are the centre of gravity or a sub-topic, and whether point-in-time
+questions are in scope. Those remain expert-owned and are prompted for in
+`eval/STAGE-0-INPUT-GUIDE.md` §2.
+
+Q-06 (superseded provision numbering) was logged against s 41 because s 41 was
+the roadmap's suggested pilot. It is no longer on the critical path for that
+reason, but the underlying trap is general: any in-scope ref appearing in
+upstream's unresolved set is suspect. Check s 43's refs against that set before
+gold records are finalised.
+
+---
+
+## ADR-0014 — Stage 0 gets an expert-facing input guide, distinct from the templates
+
+**Date** 2026-08-06 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** `eval/templates/` holds the record schemas and `eval/README.md`
+explains the directory, but both are written for an agent. The repo owner asked
+what Stage 0 actually requires of them, which the repo could not answer: the
+templates state field names, not what makes a record worth having, in what order
+to produce them, or what can be written without the snapshot.
+
+**Decision.** Add `eval/STAGE-0-INPUT-GUIDE.md` as the expert-facing document.
+It carries no legal content: every example is marked shape-only, ids are
+numbered `XXX`, and legal substance is a `«placeholder»`. It adds three things
+the templates do not have — a two-pass split (Pass A needs nothing, Pass B needs
+the pinned snapshot), the exhaustive-annotation rule for recall measurement, and
+a definition of done separating what a human must judge from what the harness
+asserts.
+
+**Rationale.** The plausible-example trap is real: an illustrative record with
+invented legal content gets copied forward and treated as approved. Marking every
+example as shape-only is what makes a worked walkthrough compatible with
+CLAUDE.md rule 1. Stating explicitly that the owner need not write YAML also
+removes a barrier that has nothing to do with the expertise being sought.
+
+**Consequences.** Two files now describe the same deliverables for two audiences
+and can drift. `eval/README.md` names the guide and says to keep them in step. A
+change to a template or a target size is a change to both.
+
+---
+
+## ADR-0015 — Expected reasoning results get their own record template
+
+**Date** 2026-08-06 · **Authority** derived · **Status** accepted
+
+**Context.** The roadmap lists seven gold-standard components. `eval/templates/`
+covered six: five in `gold-record.template.yaml` and prohibited uses in their
+own file. **Expected reasoning results had no template**, so a Stage 0 declared
+complete against the existing templates would have been missing a named roadmap
+deliverable.
+
+**Decision.** Add `eval/templates/reasoning-expectation.template.yaml`
+(`GX-nnn`). Kept separate from `gold-record.template.yaml` because it is tested
+by a different mechanism — Stage 9 inference rather than extraction or retrieval
+— and because it pairs one-to-one with `eval/prohibited-uses.md` through its
+`must_not_infer` field.
+
+**Consequences.** The record's scope is confined to inferences that follow from
+what the corpus states; anything needing evidence to be weighed or discretion
+exercised is a prohibited use instead. That boundary is expert-owned, and it is
+the most valuable judgement the record captures. The field list is an agent's
+proposal and should be reviewed against the eventual SHACL shapes alongside
+ADR-0011.

@@ -3,7 +3,7 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-08-04 · session S001 · branch `claude/docs-handoff-structure-k2ei8j`
+**Last updated:** 2026-08-06 · session S002 · branch `claude/stage-0-deliverables-doc-fqb8px`
 
 ---
 
@@ -18,44 +18,54 @@ and is read-only from here — see `docs/UPSTREAM.md`.
 data, no vocabulary, no ontology. Everything below the top-level directories is
 a `README.md` describing what will live there.
 
-**Stage 0 was never done.** No competency questions, no gold-standard set, no
-prohibited-use list, no evaluation harness. The upstream repo's own
-`ROADMAP-STAGE-1.md` names this as the real blocker on the programme, not any
-missing extraction capability. Nothing downstream can be *measured* until it
-exists, which means nothing downstream should be *built* first.
+**Stage 0 has an area and a container, and no content.** The pilot area is
+**s 43** (ADR-0013, human decision, S002) — that closes Q1 at the level of
+*which area*. `eval/templates/` now holds seven record types and
+`eval/STAGE-0-INPUT-GUIDE.md` explains to the owner exactly what to supply.
+Still missing: every piece of actual content — the scope boundary, competency
+questions, gold set, prohibited uses, thresholds — and the harness. The upstream
+repo's `ROADMAP-STAGE-1.md` names this as the real blocker on the programme, not
+any missing extraction capability.
 
 ## 2. The next action
 
-**Get the Stage 0 inputs out of a human's head and into `eval/`.**
+**The ball is with the owner for Pass A content.** Point them at
+`eval/STAGE-0-INPUT-GUIDE.md`; §10 gives the order of work and §3 explains why
+Pass A is not blocked on anything.
 
 Concretely, in order:
 
-1. Confirm the pilot scope with the repo owner. The roadmap suggests
-   distinctiveness (s 41) and says the real choice is operational — that is a
-   human decision, not an agent's. See open question Q1.
-2. Once scope is fixed, the owner drafts competency questions and the gold set
-   using the templates in `eval/templates/`. An agent may *prompt* for these,
-   structure them, and check them for internal consistency. An agent must not
-   author their content (CLAUDE.md rule 1).
-3. Build the evaluation harness (`eval/` + `tests/`) that runs the gold set
-   against whatever exists. It should be runnable and *failing* before Stage 2
-   work starts — a red harness is the point.
+1. Owner writes `eval/pilot-scope.md` — the s 43 **boundary**, especially the
+   exclusion list. Prompted for in guide §2. This is the only thing gating the
+   rest.
+2. Owner drafts competency questions and prohibited uses (Pass A — needs no
+   data). An agent may prompt, structure and consistency-check these. An agent
+   must not author their content (CLAUDE.md rule 1).
+3. Resolve Q2 and pin the upstream snapshot, then generate the **Pass B
+   worksheet**: every chunk in the s 43 scope, printed with `chunk_ref`,
+   `heading_path`, `content_hash` and text, in an annotation-friendly form. The
+   owner should never type a ref or a hash by hand. This is pure agent work and
+   is the highest-value thing to build next.
+4. Build the evaluation harness (`eval/` + `tests/`). It should be runnable and
+   *failing* before Stage 2 work starts — a red harness is the point. Guide §7
+   lists the mechanical checks it must assert.
 
-Do not start Stage 2 (YAKE/spaCy extraction) before step 3. It is tempting
+Do not start Stage 2 (YAKE/spaCy extraction) before step 4. It is tempting
 because it is the first thing that produces visible output, and it is exactly the
 mistake the roadmap's final recommendation warns against.
 
-If the owner is unavailable and you need to make progress, the useful
-agent-only work is: the harness skeleton, the upstream loader
-(`src/tm_knowledge/` — read `snapshot/` into Python records, preserving
-`extraction`/`certainty`), and the identifier minting module from
-`docs/IDENTIFIERS.md`. All three are pure plumbing with no legal content.
+If the owner is unavailable, the useful agent-only work is: step 3 above, the
+harness skeleton, the upstream loader (`src/tm_knowledge/` — read `snapshot/`
+into Python records, preserving `extraction`/`certainty`), and the identifier
+minting module from `docs/IDENTIFIERS.md`. All are pure plumbing with no legal
+content.
 
 ## 3. Open questions — need a human
 
 | # | Question | Blocks | Raised |
 |---|---|---|---|
-| Q1 | What is the pilot scope? Distinctiveness/s 41 is the roadmap's suggestion, not a decision. | All of Stage 0, and therefore everything | S001 |
+| ~~Q1~~ | ~~What is the pilot scope?~~ **Answered S002: s 43** (ADR-0013). The *boundary* is now deliverable 1 — see Q8. | — | S001 |
+| Q8 | What is the s 43 **boundary**? Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. | All remaining Stage 0 content | S002 |
 | Q2 | How does this repo get the upstream snapshot — git submodule, pinned release download, or vendored copy? ADR-0004 proposes pinned download; unconfirmed. | Any code that reads data | S001 |
 | Q3 | Which LLM is "agency-approved" for the Stage 2–4 extraction steps, and under what data-handling conditions may Manual text be sent to it? | Stages 2, 3, 4 | S001 |
 | Q4 | Who are the approving experts, and what does "approved" look like as a recorded artefact — a signed-off file in git, or an external register? | Stage 3 onward | S001 |
@@ -63,7 +73,11 @@ agent-only work is: the harness skeleton, the upstream loader
 | Q6 | Case law is cited by the corpus but is not held as documents anywhere. Is acquiring decision texts in scope for this repo? | Stage 2 citation resolution, Stage 8 retrieval | S001 |
 | Q7 | What base IRI may the project mint under? `docs/IDENTIFIERS.md` proposes `https://data.ipaustralia.gov.au/tmk/`; persistent IRIs need control of that domain, which is an organisational call. | RDF serialisation only — deliberately not blocking anything else | S001 |
 
-Agent-proposed ADRs awaiting human confirmation: **0004, 0005, 0006, 0011, 0012**.
+Agent-proposed ADRs awaiting human confirmation: **0004, 0005, 0006, 0011, 0012,
+0014**.
+
+Q2 has been promoted in priority: it now blocks the Pass B worksheet, which is
+the next substantial agent deliverable.
 
 ## 4. Do not redo these
 
@@ -81,6 +95,25 @@ Agent-proposed ADRs awaiting human confirmation: **0004, 0005, 0006, 0011, 0012*
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S002 — 2026-08-06 — pilot area fixed; Stage 0 input guide
+
+Owner selected **s 43** as the pilot area on expert advice (ADR-0013), closing
+Q1. Wrote `eval/STAGE-0-INPUT-GUIDE.md`: the expert-facing walkthrough of all
+Stage 0 deliverables, with shape-only worked examples, elicitation prompts, a
+definition of done and the order of work (ADR-0014).
+
+Found a gap while writing it — the roadmap names seven gold-standard components
+and the templates covered six. Added
+`eval/templates/reasoning-expectation.template.yaml` (ADR-0015).
+
+Two points in the guide are load-bearing and not obvious: recall is unmeasurable
+unless a bounded chunk set is annotated **exhaustively** rather than
+cherry-picked (§4), and Stage 0 splits into a pass that needs no data and a pass
+that cannot start until the snapshot is pinned (§3). The second makes Q2 the
+next agent-side blocker.
+
+No legal content authored. No code, no data. Nothing executed.
 
 ### S001 — 2026-08-04 — repo structure and agent documentation
 
