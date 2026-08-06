@@ -1,0 +1,55 @@
+# Expected reasoning result — record template (Stage 0)
+#
+# The roadmap lists "expected reasoning results" among the gold-standard
+# components. The other five gold record types live in gold-record.template.yaml;
+# this one is separate because it is tested by a different mechanism (Stage 9
+# inference, not extraction or retrieval) and because it pairs one-to-one with
+# eval/prohibited-uses.md.
+#
+# Scope: inferences that follow from what the corpus SAYS. Anything requiring the
+# weighing of evidence or the exercise of discretion is not a reasoning
+# expectation — it is a prohibited use. Drawing that line is the most valuable
+# judgement in this record.
+#
+# Expert-owned. An agent may structure and validate these records; an agent must
+# not decide what the system should or should not conclude (CLAUDE.md rule 1).
+
+id: GX-000                      # stable, allocated once, never reused
+
+# The starting position: refs, concept ids, or a stated fact pattern drawn from
+# the corpus. Not a hypothetical application — the system reasons over the
+# corpus, not over cases.
+given:
+  - TMM/PartNN/n/n/n
+
+expected_inferences:
+  - conclusion: >
+      What the system should derive, stated as it would state it.
+    basis:                      # the refs the derivation rests on
+      - TMA1995/sNN
+    kind: classification
+    # classification — a thing is an instance of a class, or falls under a concept
+    # impact         — what is affected if a provision or passage changes
+    # consistency    — two assertions in the corpus cannot both hold
+    # currency       — material is current, superseded or withdrawn
+
+must_not_infer: []              # PU-nnn ids from eval/prohibited-uses.md that
+                                # this fact pattern makes tempting
+
+tier: 3                         # 1 deterministic | 2 low-risk | 3 legally significant
+                                # (ADR-0008 — Tier 3 needs expert approval indefinitely)
+
+explanation_required: true      # must the system show the derivation chain,
+                                # not only the conclusion
+
+caveats: >
+  Known limits — e.g. a currency inference needs upstream git history, not the
+  snapshot (Q-05); an ambiguous provision edge must not be resolved to reach
+  this conclusion (Q-07).
+
+notes: >
+  Why this inference is safe to automate, or why the neighbouring one is not.
+  Where the boundary sits is the point of the record.
+
+approved_by:
+approved_date:

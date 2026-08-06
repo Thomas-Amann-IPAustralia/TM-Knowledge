@@ -17,6 +17,13 @@ facto standard purely because it arrived first.
 | `prohibited-uses.md` | Conclusions the system must **not** produce | not started |
 | `measures.md` | Which metric applies to which component, and the pass thresholds | not started |
 | `templates/` | Record shapes for the above | present |
+| `STAGE-0-INPUT-GUIDE.md` | **Expert-facing.** What the owner must supply, in what shape, with worked shape-only examples and elicitation prompts | present |
+
+`STAGE-0-INPUT-GUIDE.md` is the human companion to this file. Point the repo
+owner at it rather than at the templates — it explains the templates, the order
+of work, the two-pass split (what needs the snapshot open and what does not),
+and the definition of done. Keep the two in step: a change to a template or a
+target is a change to that guide.
 
 Target sizes, from the roadmap: 100–300 recognised entities, 50–100 approved
 concepts, 50–100 known relationships, 20–50 search questions, 20–50 AI retrieval

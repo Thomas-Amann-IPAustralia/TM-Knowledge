@@ -14,7 +14,7 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 
 | Stage | Name | Status | Owner |
 |---|---|---|---|
-| 0 | Pilot selection and evaluation set | **not started** | this repo — **the blocker** |
+| 0 | Pilot selection and evaluation set | **partial** — pilot area chosen (s 43, ADR-0013); no content yet | this repo — **the blocker** |
 | 1 | Ingest and structure source documents | **done** (4 of 6 named deliverables) | `manual-XtrACTor` |
 | 2 | Candidate terminology and entities | **not started** | this repo |
 | 3 | Controlled vocabulary (SKOS) | **not started** | this repo |
@@ -28,16 +28,20 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 
 ## Stage 0 — the blocker
 
-Nothing exists. ADR-0010 holds that no Stage 2+ work starts before this is done.
+The pilot **area** is settled: s 43 (ADR-0013). No Stage 0 content exists yet.
+ADR-0010 holds that no Stage 2+ work starts before this is done.
 
 | Deliverable | Status | Where it will live |
 |---|---|---|
-| Pilot scope | not started — HANDOFF Q1 | `eval/pilot-scope.md` |
+| Pilot area | **done** — s 43, ADR-0013 | `docs/DECISIONS.md` |
+| Pilot scope (the boundary) | not started — awaiting owner | `eval/pilot-scope.md` |
 | Competency-question catalogue | not started | `eval/competency-questions.md` |
 | Gold-standard dataset | not started | `eval/gold/` |
 | Prohibited-use list | not started | `eval/prohibited-uses.md` |
 | Evaluation measures | not started | `eval/measures.md` |
 | Evaluation harness | not started | `eval/` + `tests/` |
+| Record templates | **done** — 7 record types | `eval/templates/` |
+| Expert input guide | **done** — ADR-0014 | `eval/STAGE-0-INPUT-GUIDE.md` |
 
 Target sizes from the roadmap: 100–300 recognised entities, 50–100 approved
 concepts, 50–100 known relationships, 20–50 search questions, 20–50 AI retrieval
@@ -45,7 +49,8 @@ questions, expected reasoning results, and examples of conclusions the system mu
 not draw.
 
 Content is expert-owned (CLAUDE.md rule 1). Agents build the templates, the
-schemas and the harness.
+schemas and the harness. The full definition of done — including the checks the
+harness will assert mechanically — is in `eval/STAGE-0-INPUT-GUIDE.md` §7.
 
 ## Stage 1 — inherited, and what is missing from it
 
