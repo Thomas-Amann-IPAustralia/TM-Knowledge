@@ -42,6 +42,7 @@ ADR-0010 holds that no Stage 2+ work starts before this is done.
 | Evaluation harness | not started | `eval/` + `tests/` |
 | Record templates | **done** — 7 record types | `eval/templates/` |
 | Expert input guide | **done** — ADR-0014 | `eval/STAGE-0-INPUT-GUIDE.md` |
+| Parallel-track plan | **done** — ADR-0016 | `docs/roadmap/PARALLEL-TRACK-ROADMAP.md` |
 
 Target sizes from the roadmap: 100–300 recognised entities, 50–100 approved
 concepts, 50–100 known relationships, 20–50 search questions, 20–50 AI retrieval
@@ -51,6 +52,13 @@ not draw.
 Content is expert-owned (CLAUDE.md rule 1). Agents build the templates, the
 schemas and the harness. The full definition of done — including the checks the
 harness will assert mechanically — is in `eval/STAGE-0-INPUT-GUIDE.md` §7.
+
+**Stage 0 being the blocker does not mean the repo is blocked.** Which agent
+work proceeds without expert content, and at which of five gates expert input
+actually becomes required, is in `docs/roadmap/PARALLEL-TRACK-ROADMAP.md`
+(ADR-0016). Only the last gate — full Stage 0 completion — stops the programme.
+Track the packages there; record movement here only when a Stage 0 deliverable
+row above changes.
 
 ## Stage 1 — inherited, and what is missing from it
 

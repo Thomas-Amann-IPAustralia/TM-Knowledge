@@ -347,3 +347,117 @@ exercised is a prohibited use instead. That boundary is expert-owned, and it is
 the most valuable judgement the record captures. The field list is an agent's
 proposal and should be reviewed against the eventual SHACL shapes alongside
 ADR-0011.
+
+---
+
+## ADR-0016 — A parallel track is defined for work that does not need expert content
+
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q9
+
+**Context.** Stage 0's content is expert-owned (CLAUDE.md rule 1) and the
+experts advising the owner have not yet delivered. The repo held no statement of
+what could proceed meanwhile, which leaves two bad outcomes available: idling on
+the assumption that everything is blocked, or drifting into Stage 2 because it
+is the first thing that produces visible output — the mistake the roadmap's
+closing recommendation names.
+
+**Decision.** Add `docs/roadmap/PARALLEL-TRACK-ROADMAP.md`: twelve work packages
+(P1–P12) that require no legal judgement, a five-gate table stating exactly
+where expert input becomes required, an explicit list of what the track must not
+do, and a statement of where the track runs out. ADR-0010 is untouched — the
+track ends at Stage 0 completion and does not reach Stage 2.
+
+**Rationale.** Two things needed writing down and neither existed. First, the
+gates: the experts' content is not one undifferentiated blocker, and the
+distinction between "nothing agent-side is blocked" (G2–G4) and "the programme
+stops" (G5) is what lets the owner chase the right thing at the right time.
+Second, the leverage: four of the twelve packages exist to reduce expert effort
+rather than to advance the code, on the reasoning that a week of specialist time
+is itself a cause of the delay, and that shortening it is more useful than
+finding more plumbing to build.
+
+Also recorded deliberately: the track's finite length. A plan that cannot say
+where it ends invites manufactured work, and work no measurement justifies is
+what Stage 0 exists to prevent.
+
+**Consequences.** `docs/roadmap/` now mixes a source document with a
+project-authored one; a `README.md` there states which is which and their
+opposite editing rules. The package list will need revision as packages land —
+unlike its neighbour, this roadmap is editable. Sizes are agent-session
+estimates, not commitments.
+
+---
+
+## ADR-0017 — The Pass B worksheet is generated from an over-inclusive provisional scope rule
+
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q9
+
+**Context.** The Pass B worksheet — every in-scope chunk printed with its
+`chunk_ref`, `heading_path`, `content_hash` and text — is the artefact that lets
+the expert annotate without typing a ref or a hash by hand. It appears to
+require `eval/pilot-scope.md`, which does not exist and is the deliverable most
+clearly awaiting expert advice. That reading makes the single most useful
+expert-facing artefact wait on the very people it is meant to unblock.
+
+**Decision.** Generate the worksheet from a deliberately **over-inclusive**
+machine rule — chunks citing the pilot provision, plus their page-mates —
+approved by the owner alone, and mark the output provisional in its header
+alongside the rule used. The worksheet's scope is not the pilot's scope, and
+choosing it does not pre-empt the boundary decision.
+
+**Rationale.** The error costs are asymmetric. An over-inclusive worksheet costs
+the expert a scroll past rows they ignore. An under-inclusive one silently
+removes material from the annotated set, which breaks the exhaustive-annotation
+rule that recall measurement depends on (`STAGE-0-INPUT-GUIDE.md` §4) and does
+so invisibly. Given that asymmetry, printing too much early beats printing
+nothing until the boundary is settled.
+
+This does not breach CLAUDE.md rule 1. The rule governs what content is
+*printed for review*, not what is in scope for the pilot; it is derived
+mechanically from upstream's own `provisions[]` edges; and it is set by the
+owner, a human, not by an agent.
+
+**Consequences.** Two scope notions now coexist and must not be conflated —
+worksheet scope and pilot scope. The worksheet header carries the distinction.
+Annotations made against rows later ruled out of scope are not wasted: they are
+recorded and parked, exactly as `pilot_in_scope: false` handles competency
+questions. When the boundary lands, the worksheet is regenerated and the delta
+reported.
+
+---
+
+## ADR-0018 — Stage 0 incompleteness is a reported state; malformed data is a build failure
+
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q9
+
+**Context.** ADR-0010 and `STAGE-0-INPUT-GUIDE.md` §7 require the harness to run
+and **fail** before Stage 2 begins. Two problems follow. With no gold records,
+every mechanical check iterates an empty collection and passes **vacuously**, so
+the suite is green for the worst possible reason. And once the suite does fail
+by design, a permanently red pipeline trains everyone to ignore it, which is
+where a genuine regression hides.
+
+**Decision.** Separate the two failure kinds.
+
+- **The completeness gate** — a harness check that fails while any Stage 0
+  deliverable is absent or below its target band, naming what is missing. This
+  is what makes the suite red today rather than vacuously green, and its output
+  doubles as a status report. In CI it is surfaced as a reported state, not as a
+  broken build.
+- **Genuine failures** — a malformed record, a duplicated id, an unresolvable
+  `source_ref`, a `span` that does not land on its recorded text, a stale
+  `source_content_hash`, a broken IRI round-trip, or a loader that drops
+  `extraction`/`certainty`. These break the build.
+
+**Rationale.** Both signals are needed and they mean opposite things: one says
+"the expected work has not arrived yet", the other says "something that did
+arrive is wrong". Collapsing them loses the second, which is the one that costs
+money. Naming the missing deliverables also turns the red harness from an
+apparent lack of progress into a legible answer to "what is Stage 0 waiting
+on" — a defence the guide says the red harness will need.
+
+**Consequences.** The completeness gate encodes the target bands from
+`STAGE-0-INPUT-GUIDE.md` §7 and must be updated with them; it is a second place
+those numbers live. It must fail on *absence*, never on content quality, which
+stays expert-judged. When Stage 0 completes, the gate goes quiet on its own and
+the remaining failures are all real.

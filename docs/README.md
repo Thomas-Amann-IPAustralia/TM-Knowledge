@@ -14,6 +14,7 @@ of all.
 | `GLOSSARY.md` | Domain and project terms | When you meet a term you had to look up |
 | `UPSTREAM.md` | The upstream data contract — record shapes, the join, its refusals | Only when upstream changes |
 | `roadmap/AUTOMATION-FIRST-ROADMAP.md` | The full programme, Stages 0–10 | **Never** — source document |
+| `roadmap/PARALLEL-TRACK-ROADMAP.md` | What proceeds while Stage 0 content is pending, and the gates where expert input becomes required | As the track moves |
 
 ## The two source documents
 

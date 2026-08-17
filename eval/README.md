@@ -76,3 +76,18 @@ From roadmap §5. `measures.md` will fix the thresholds; these are the dimension
 Lives here plus `tests/`. It should be runnable, and **failing**, before any
 Stage 2 work begins — a red harness is the intended first output of this repo
 (ADR-0010).
+
+Note how it fails, because the obvious implementation gets it wrong. With no
+gold records, every mechanical check iterates an empty collection and passes
+**vacuously** — green for the worst possible reason. The redness has to come
+from an explicit **completeness gate** that fails while any Stage 0 deliverable
+is absent or under its target band, and names what is missing. That gate is a
+reported state; a malformed record, an unresolvable ref or a span that does not
+land on its recorded text is a genuine build failure. ADR-0018.
+
+## While Stage 0 content is pending
+
+`docs/roadmap/PARALLEL-TRACK-ROADMAP.md` (ADR-0016) lists the agent-side work
+that needs no expert content — schemas, harness, loader, worksheet, intake path
+— and the five gates at which expert input actually becomes required. Four of
+its packages exist specifically to reduce how much expert time Stage 0 costs.
