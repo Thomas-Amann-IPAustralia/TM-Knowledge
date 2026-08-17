@@ -108,6 +108,15 @@ The consequence is the desirable one: a re-run over unchanged input is a no-op,
 and any new identifier means something genuinely changed — the source text, the
 span, the method, or the extracted value.
 
+> **Under review — do not implement this formula yet. ADR-0020, HANDOFF Q10.**
+> ADR-0019 put three keyphrase extractors on the same text, so `method` in the
+> hash mints three ids for one span: three `review/` entries for one candidate,
+> and the cross-method agreement that the ensemble exists to capture invisible on
+> all of them. ADR-0020 proposes dropping `method` from the hash — identity
+> becomes `source_ref | span_start | span_end | normalised_value`, and the methods
+> that found it become a set-valued field carrying each one's score and model
+> version. Parallel-track P3 implements this module; it must wait on Q10.
+
 ## 4. Where refs live and where IRIs live
 
 - **Registers, review queues, CSV, JSON, config, test fixtures: store the ref.**

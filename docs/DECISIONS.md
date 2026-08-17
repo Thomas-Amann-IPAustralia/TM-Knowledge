@@ -461,3 +461,128 @@ on" — a defence the guide says the red harness will need.
 those numbers live. It must fail on *absence*, never on content quality, which
 stays expert-judged. When Stage 0 completes, the gate goes quiet on its own and
 the remaining failures are all real.
+
+---
+
+## ADR-0019 — Keyphrase extraction is an ensemble of TextRank, YAKE and KeyBERT; spaCy NER is metadata
+
+**Date** 2026-08-17 · **Authority** human · **Status** accepted
+
+**Context.** The roadmap's Stage 2 §2.1 names **YAKE** alone for keyphrase
+extraction, and puts a statistical spaCy NER model under §2.3 as one route to
+*new entity discovery*. `ARCHITECTURE.md` §5 carried that stack unchanged, noting
+that substitutions are ADR-worthy.
+
+**Decision.** The repo owner has decided the Stage 2 candidate-generation stack:
+
+- **Three keyphrase extractors run over the same text, in parallel:**
+  **TextRank** (graph-based, co-occurrence), **YAKE** (statistical, single
+  document), **KeyBERT** (embedding similarity to the document).
+- **spaCy NER output is attached to candidate terms as additional metadata.**
+  It is not a keyphrase extractor and it is not the entity taxonomy. It
+  annotates; it does not decide.
+
+This extends the roadmap rather than contradicting it — §2.1's YAKE is retained
+and joined, and §2.2's rule-based recognition (`EntityRuler`, `PhraseMatcher`,
+regex, authoritative lists) is untouched.
+
+**Rationale.** The three methods fail differently: YAKE on frequency and position
+statistics within one document, TextRank on graph centrality in a co-occurrence
+network, KeyBERT on distance in embedding space. That is the point of running
+all three — **agreement across methods is itself a confidence signal**, and it is
+a cheap one, available before any expert has graded anything. A term all three
+find is a different proposition from a term only KeyBERT finds, and Stage 3's
+review queue can be ordered by that without a model.
+
+The corpus argues for it too. Legal drafting is repetitive and formulaic, which
+flatters frequency-based methods and lets a boilerplate phrase outrank a term of
+art. An embedding-based method and a graph-based one fail in a different
+direction, so the disagreements are informative rather than noise.
+
+**Consequences.**
+
+1. **Provenance must record which extractor produced a candidate**, per CLAUDE.md
+   rule 8 and ADR-0011. `extraction_method` becomes an enum including
+   `textrank`, `yake`, `keybert` and the rule-based paths, and a term found by
+   several methods is **one record carrying several methods**, not several
+   records. That is not free: the candidate-id formula in `IDENTIFIERS.md` §3
+   hashes `method`, so as written it mints three ids for one span. ADR-0020
+   addresses it, and it must be settled before parallel-track P3 implements the
+   formula.
+
+2. **KeyBERT introduces an embedding model into a pipeline that was otherwise
+   deterministic.** TextRank and YAKE are deterministic; KeyBERT's output depends
+   on which sentence-transformer is loaded. The model **and its version must be
+   pinned** alongside the snapshot pin (ADR-0004) and recorded on every candidate,
+   because a silent model upgrade changes candidate output and therefore
+   invalidates every measured baseline taken before it. This is CLAUDE.md rule 7
+   holding: the deterministic methods stay deterministic and are not to be
+   replaced by the embedding one.
+
+3. **KeyBERT is local inference, not an LLM API call.** It does not engage
+   HANDOFF Q3, provided the model runs in the agency's own environment. If it is
+   ever served from a hosted endpoint, Manual text leaves the environment and Q3
+   applies in full.
+
+4. **spaCy NER must not be used for provisions, cases or internal refs.** Upstream
+   already extracts those deterministically, with `extraction` and `certainty`
+   attached. Re-deriving them from a statistical model would breach CLAUDE.md
+   rule 2 and would replace trust metadata with a confidence score — strictly
+   worse. Upstream's edges win wherever they exist; NER metadata is for the text
+   upstream says nothing about. See Q-16 for the label trap this creates.
+
+5. **Stage 0 measurement gains a dimension.** Entity precision, recall and F1 must
+   be computable **per method**, and for the union and the intersection, or there
+   is no evidence on which to weight the ensemble or to retire a method that is
+   not earning its place. Agents may propose these metrics; thresholds remain the
+   owner's (guide §5.9).
+
+6. The stack rows in `ARCHITECTURE.md` §5 are updated. The roadmap text is not —
+   it is a source document (ADR-0003), and the divergence is recorded here.
+
+---
+
+## ADR-0020 — The candidate id is content-addressed without the method
+
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q10
+
+**Context.** `IDENTIFIERS.md` §3 mints a machine-generated candidate id as
+`sha256(source_ref | span_start | span_end | method | normalised_value)`, so that
+re-running a pipeline over unchanged input is a no-op. With one extractor that
+works. ADR-0019 introduces three, plus rule-based paths, and the same term at the
+same span now mints a different id per method — three `review/` entries for one
+candidate, and the cross-method agreement that ADR-0019 exists to capture is
+invisible on every one of them.
+
+**Decision.** Drop `method` from the hash. A candidate is identified by
+**`source_ref | span_start | span_end | normalised_value`**, and the methods that
+found it are a **set-valued field** on the record — `extraction_methods: [yake,
+textrank]` — alongside each method's own score. One span, one candidate, N pieces
+of evidence for it.
+
+**Rationale.** The identifier should answer "which thing is this", and the thing
+is the term at that span. Which detectors fired is evidence *about* it, not part
+of its identity. Keeping method in the id also makes the no-op property false in
+the way that matters: adding a fourth extractor would re-mint every candidate in
+the repo rather than adding a method to existing ones.
+
+The alternative — per-method ids plus a merge step — was rejected because the
+merge would have to run before any human sees the queue, which makes it the real
+identity function while leaving a second, misleading one in the id.
+
+**Consequences.** Records gain a set field, so provenance is per method inside
+one record: each entry carries its own method, score and model version (ADR-0019
+consequence 2), while `source_span` and `review_status` stay at record level. An
+approval decision then attaches to the candidate, not to one detector's view of
+it, which is the correct grain — the reviewer is judging a term, not a detector.
+
+Re-running with a new extractor mutates existing records rather than creating
+new ones, so the byte-stability check becomes "unchanged input plus unchanged
+extractor set produces byte-identical output". Adding an extractor is a
+deliberate, visible change to every affected record, which is the honest
+representation of what it is.
+
+`IDENTIFIERS.md` §3 is annotated with this proposal rather than rewritten, since
+this is agent-proposed and provisional. Parallel-track **P3 must not implement
+the §3 formula until Q10 is closed** — it is one of the few genuinely
+order-dependent things on that track.

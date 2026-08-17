@@ -3,7 +3,8 @@
 **Status:** project-authored. Not a source document — unlike
 `AUTOMATION-FIRST-ROADMAP.md`, this file may be edited as the track moves.
 **Governing decisions:** ADR-0016 (this track exists), ADR-0017 (over-inclusive
-worksheet scope), ADR-0018 (how the harness fails).
+worksheet scope), ADR-0018 (how the harness fails). §6 records what ADR-0019's
+Stage 2 stack changes here.
 
 ---
 
@@ -23,7 +24,7 @@ set.
 
 It is **not indefinite runway.** The track holds roughly six to ten working
 sessions. After that the repo is genuinely blocked, and the honest report is
-that it is blocked rather than that it is busy. Section 6 says where the wall
+that it is blocked rather than that it is busy. Section 7 says where the wall
 is.
 
 There is also a third purpose, and on current evidence it is the most valuable
@@ -153,8 +154,8 @@ loss, the join reproduces upstream's 97% coverage figure exactly, and
 
 ### P3 — Identifier module
 
-**Size** S · **Blocked by** nothing · **Unblocks** every later package that
-writes an id
+**Size** S · **Blocked by** HANDOFF **Q10** for the candidate id only ·
+**Unblocks** every later package that writes an id
 
 `IDENTIFIERS.md` made fully executable: ref parsing and validation (including
 upstream's two invariants — instrument-can-hold-kind and
@@ -164,8 +165,15 @@ human-facing ids.
 
 Deliberately **not blocked by Q7** (the base IRI). The base is one configuration
 constant; nothing else hard-codes it, and refs — not IRIs — are what gets stored
-everywhere except RDF (`IDENTIFIERS.md` §4). This package can be finished in
-full while the domain question stays open.
+everywhere except RDF (`IDENTIFIERS.md` §4). Ref handling and IRI minting can be
+finished in full while the domain question stays open.
+
+**It is blocked by Q10 on one point.** The content-addressed candidate id in
+`IDENTIFIERS.md` §3 hashes `method`, and ADR-0019 put three extractors on the
+same text — as written the formula mints three ids for one span. ADR-0020
+proposes dropping `method`. Build the rest of the module; leave the candidate id
+until Q10 closes. This is one of the few genuinely order-dependent things on the
+track, and it is cheap now and expensive after `review/` has content.
 
 **Done when** the `ref → IRI → ref` round-trip test passes without
 percent-encoding, invalid refs are rejected with a loud error rather than
@@ -420,7 +428,33 @@ shorten the expert's critical path, because that is the binding constraint.
 
 ---
 
-## 6. Where the track runs out
+## 6. What the Stage 2 stack decision changes here
+
+ADR-0019 fixed the candidate-generation stack — TextRank, YAKE and KeyBERT in
+parallel, with spaCy NER as metadata on the candidates. **Stage 2 itself is
+still behind G5 and none of it may be built.** But three packages on this track
+have to be built to accommodate it, and getting that wrong is cheap to fix now
+and expensive later.
+
+- **P3** — the candidate id must not carry the method. See the package note and
+  ADR-0020. Blocked on Q10.
+- **P4, P12** — `extraction_method` is a set, not a scalar. A term found by all
+  three extractors is one record with three methods and three scores, because
+  **agreement across methods is the confidence signal the ensemble exists to
+  produce**, and it is only visible if the methods land on one record. The
+  schema must also carry the KeyBERT model identifier and version, since that
+  is what makes a candidate reproducible.
+- **P5, P10** — entity precision, recall and F1 need a **per-method** breakdown,
+  plus union and intersection. Without it there is no evidence for weighting the
+  ensemble or for retiring an extractor that is not earning its place, and the
+  ensemble becomes three tools nobody can compare. Agents propose these metrics;
+  the thresholds stay the owner's (guide §5.9).
+
+One thing this decision does **not** change: `data/upstream/` remains the source
+of provisions, cases and internal refs. spaCy NER does not go near them — Q-16
+and ADR-0019 consequence 4.
+
+## 7. Where the track runs out
 
 After P1–P12 the repo has: a pinned snapshot, a loader, identifiers, schemas, a
 red harness, CI, a worksheet, an intake path and a gap report. It has no
@@ -447,5 +481,5 @@ nobody has to write YAML, and an hour of expert time visibly moves a counter.
 `eval/STAGE-0-INPUT-GUIDE.md` (what the experts supply; §7 the definition of
 done, §10 the order of work) · `docs/ROADMAP-STATUS.md` (the status board) ·
 `docs/HANDOFF.md` §3 (the open questions, including Q2) ·
-`docs/DECISIONS.md` ADR-0010, ADR-0016, ADR-0017, ADR-0018 ·
-`docs/QUIRKS.md` Q-05, Q-06, Q-07, Q-11, Q-14
+`docs/DECISIONS.md` ADR-0010, ADR-0016, ADR-0017, ADR-0018, ADR-0019, ADR-0020 ·
+`docs/QUIRKS.md` Q-05, Q-06, Q-07, Q-11, Q-14, Q-16

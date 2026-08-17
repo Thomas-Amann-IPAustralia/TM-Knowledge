@@ -47,7 +47,10 @@ From roadmap §5. `measures.md` will fix the thresholds; these are the dimension
 
 - **Extraction** — entity precision/recall/F1, citation-resolution accuracy,
   relation precision/recall, synonym-clustering accuracy, share of records
-  requiring review, expert rejection rate.
+  requiring review, expert rejection rate. Entity figures need a **per-method**
+  breakdown plus union and intersection: ADR-0019 runs three keyphrase
+  extractors, and without per-method numbers there is no evidence for weighting
+  the ensemble or retiring an extractor that is not earning its place.
 - **Search** — Recall@10, Precision@10, MRR, nDCG, retrieval via *alternative*
   terminology, retrieval of current rather than superseded material.
 - **AI retrieval** — expected source coverage, precision, noise in the evidence

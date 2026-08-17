@@ -16,7 +16,7 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 |---|---|---|---|
 | 0 | Pilot selection and evaluation set | **partial** — pilot area chosen (s 43, ADR-0013); no content yet | this repo — **the blocker** |
 | 1 | Ingest and structure source documents | **done** (4 of 6 named deliverables) | `manual-XtrACTor` |
-| 2 | Candidate terminology and entities | **not started** | this repo |
+| 2 | Candidate terminology and entities | **not started** — stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019); blocked by ADR-0010 | this repo |
 | 3 | Controlled vocabulary (SKOS) | **not started** | this repo |
 | 4 | Relationships, propositions, candidate rules | **not started** | this repo |
 | 5 | Formalise the ontology | **not started** | this repo |

@@ -53,17 +53,21 @@ experts at all:
 questions and prohibited uses. Guide §3 explains why none of it is blocked.
 If only one hour is available, guide §10 says what to spend it on.
 
-**Thread C — agents.** Work the parallel track. P3 (identifiers), P4 (record
-schemas) and P12 (provenance model) are unblocked right now and need no
-decision from anyone. Then P1 → P2 → P6 → P9, which is the chain that ends in a
-printed worksheet the experts can annotate. Prioritise the four packages marked
+**Thread C — agents.** Work the parallel track, with §6 of it in mind — the
+Stage 2 stack is now fixed (ADR-0019) and three packages must be built to
+accommodate it, even though Stage 2 itself stays behind G5. P4 (record schemas)
+and P12 (provenance model) are unblocked right now and need no decision from
+anyone; so is P3 (identifiers) apart from the candidate id, which waits on Q10.
+Then P1 → P2 → P6 → P9, which is the chain that ends in a printed worksheet the
+experts can annotate. Prioritise the four packages marked
 *shortens the expert critical path* (P6, P7, P9, P10) over the ones that merely
 advance the code — a week of specialist time is itself part of why this is
 stuck.
 
-Do not start Stage 2 (YAKE/spaCy extraction). ADR-0010, and it is the mistake
-the roadmap's final recommendation warns against — it is tempting precisely
-because it is the first thing that produces visible output.
+Do not start Stage 2 extraction — no TextRank, YAKE, KeyBERT or spaCy run, not
+even "just to see the output". ADR-0010, and it is the mistake the roadmap's
+final recommendation warns against — tempting precisely because it is the first
+thing that produces visible output.
 
 ## 3. Open questions — need a human
 
@@ -78,9 +82,10 @@ because it is the first thing that produces visible output.
 | Q6 | Case law is cited by the corpus but is not held as documents anywhere. Is acquiring decision texts in scope for this repo? | Stage 2 citation resolution, Stage 8 retrieval | S001 |
 | Q7 | What base IRI may the project mint under? `docs/IDENTIFIERS.md` proposes `https://data.ipaustralia.gov.au/tmk/`; persistent IRIs need control of that domain, which is an organisational call. | RDF serialisation only — deliberately not blocking anything else | S001 |
 | Q9 | Does the owner accept the parallel track and its two load-bearing calls — ADR-0017 (worksheet printed from an over-inclusive provisional scope rule, approved by the owner without the experts) and ADR-0018 (Stage 0 incompleteness reported, malformed data fails the build)? ADR-0017 also needs the rule itself. | P9's real run (gate G1); the harness's CI semantics | S003 |
+| Q10 | Does ADR-0020 hold — drop `method` from the content-addressed candidate id, and carry the methods that found a span as a set field? Forced by ADR-0019 putting three extractors on the same text. | Parallel-track P3's candidate id, and every `review/` record after it | S003 |
 
 Agent-proposed ADRs awaiting human confirmation: **0004, 0005, 0006, 0011, 0012,
-0014, 0016, 0017, 0018**.
+0014, 0016, 0017, 0018, 0020**.
 
 Q2 has been promoted in priority: it now blocks the Pass B worksheet, which is
 the next substantial agent deliverable. It is an infrastructure decision, not a
@@ -104,7 +109,7 @@ board to close.
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
 
-### S003 — 2026-08-17 — the parallel track
+### S003 — 2026-08-17 — the parallel track; Stage 2 stack fixed
 
 Owner reported the experts are slow and asked what could proceed meanwhile.
 Wrote `docs/roadmap/PARALLEL-TRACK-ROADMAP.md` (ADR-0016): twelve agent-side
@@ -119,6 +124,16 @@ the error costs are asymmetric enough to make that clearly right (ADR-0017).
 And the red harness is not free: with no gold records every mechanical check
 passes vacuously, so the redness has to come from an explicit completeness gate,
 which also has to be distinguishable in CI from a genuine failure (ADR-0018).
+
+Owner then fixed the Stage 2 candidate-generation stack: TextRank + YAKE +
+KeyBERT in parallel, spaCy NER as metadata on candidates (ADR-0019, human).
+Recording it surfaced two consequences worth having before code exists. The
+candidate-id formula in `IDENTIFIERS.md` §3 hashes `method`, so three extractors
+mint three ids for one span and the cross-method agreement the ensemble exists
+to produce is invisible — ADR-0020 proposes dropping `method`, and P3 must wait
+on Q10. And spaCy's OntoNotes labels collide by name with two gold entity types
+while meaning something else (Q-16), which is how NER output would quietly
+become the taxonomy.
 
 No legal content authored. No code, no data. Nothing executed.
 
