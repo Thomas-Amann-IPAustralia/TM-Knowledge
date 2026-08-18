@@ -1,0 +1,15 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+id: GC-001
+pref_label: "«preferred label»"
+alt_labels: ["«a surface form meaning the same thing»"]
+not_labels: ["«a near-miss that is NOT the same concept»"]
+broader: [GC-002]
+narrower: []
+related: []
+definition_sources:
+  - TMM/Part22/1/1/2
+legislative_basis:
+  - TMA1995/s43
+notes: "«where the term shifts meaning»"
+approved_by: "«name»"
+approved_date: "2026-08-18"

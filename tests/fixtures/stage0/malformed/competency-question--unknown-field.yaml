@@ -1,0 +1,15 @@
+# Malformed on purpose: an extra field. `additionalProperties: false` everywhere,
+# so a field nobody agreed on cannot arrive by transcription.
+id: CQ-003
+question: "«question»"
+asked_by: examiner
+category: retrieval
+pilot_in_scope: true
+expected_sources:
+  required: []
+  supporting: []
+answer_shape: "«shape»"
+measured_by: [recall_at_10]
+difficulty_rating: 4
+approved_by: "«name»"
+approved_date: "2026-08-18"

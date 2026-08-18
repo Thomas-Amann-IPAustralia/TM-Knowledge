@@ -1,0 +1,10 @@
+# Malformed on purpose: a PU record carrying a CQ id. Ids are allocated once per
+# series and never reused across them.
+id: CQ-002
+prohibited: "«the output that must not occur»"
+kind: overreach
+why: "«why»"
+detectable_by: human
+related_questions: []
+approved_by: "«name»"
+approved_date: "2026-08-18"

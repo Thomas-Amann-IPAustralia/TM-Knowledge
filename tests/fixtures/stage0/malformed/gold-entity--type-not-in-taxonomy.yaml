@@ -1,0 +1,10 @@
+# Malformed on purpose: `type` is a spaCy OntoNotes label, not a gold entity
+# type. This is the Q-16 trap, and the schema is where it must stop.
+id: GE-002
+surface: "«surface»"
+type: LAW
+source_ref: TMM/Part22/1/1/2
+span: [0, 5]
+source_content_hash: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+approved_by: "«name»"
+approved_date: "2026-08-18"

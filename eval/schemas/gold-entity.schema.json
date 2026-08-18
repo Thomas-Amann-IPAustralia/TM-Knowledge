@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/stage0/gold-entity/1.0.0",
+  "title": "Gold entity",
+  "description": "A recognised entity, annotated exhaustively over a bounded chunk set — recall is unmeasurable otherwise (guide §4). Shape only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "surface", "type", "source_ref", "span", "source_content_hash", "approved_by", "approved_date"],
+  "properties": {
+    "id": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/entity_id" },
+    "surface": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The text exactly as it appears. The harness checks it against the snapshot at `span`, so a tidied-up surface form fails."
+    },
+    "type": {
+      "description": "The gold entity taxonomy. NOT spaCy's OntoNotes labels: `Date` here is a date that matters to examination, and `DATE` there is any temporal expression; `LegislativeProvision` here is `s 43`, and `LAW` there is the Act's title. Two vocabularies that share two spellings (Q-16).",
+      "enum": ["LegalConcept", "LegislativeProvision", "JudicialDecision", "EvidenceCategory", "ManualInstruction", "Role", "Date", "Other"]
+    },
+    "source_ref": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref" },
+    "span": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/span" },
+    "source_content_hash": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/content_hash" },
+    "resolves_to": {
+      "description": "The ref of the thing referred to, where one exists. Null where nothing is referred to, or where resolving it is the judgement the record is testing.",
+      "oneOf": [{ "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref" }, { "type": "null" }]
+    },
+    "notes": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/notes" },
+    "approved_by": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_by" },
+    "approved_date": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_date" }
+  }
+}

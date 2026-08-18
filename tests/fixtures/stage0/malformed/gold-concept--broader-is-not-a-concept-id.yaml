@@ -1,0 +1,11 @@
+# Malformed on purpose: `broader` holds a label instead of a GC id. Cross
+# references must resolve, and a label is not an identifier (IDENTIFIERS.md §3).
+id: GC-002
+pref_label: "«label»"
+alt_labels: []
+not_labels: []
+broader: ["«some broader label»"]
+definition_sources:
+  - TMM/Part22/1/1/2
+approved_by: "«name»"
+approved_date: "2026-08-18"

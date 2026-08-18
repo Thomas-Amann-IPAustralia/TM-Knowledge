@@ -1,0 +1,14 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+id: GR-001
+subject: "«subject: a ref or a concept id»"
+predicate: "«predicate from the approved dictionary»"
+object: "«object: a ref or a concept id»"
+source_ref: TMM/Part22/1/1/2
+supporting_text: "«the exact sentence, verbatim»"
+span: [0, 12]
+source_content_hash: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+tier: 3
+modality: null
+notes: "«why the modality is or is not obvious here»"
+approved_by: "«name»"
+approved_date: "2026-08-18"

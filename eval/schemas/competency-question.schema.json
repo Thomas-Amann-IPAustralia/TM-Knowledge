@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/stage0/competency-question/1.0.0",
+  "title": "Competency question",
+  "description": "One question the finished system must be able to answer. Shape only — the question, its expected sources and its answer shape are expert-owned (CLAUDE.md rule 1, guide §5.1).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "question", "asked_by", "category", "pilot_in_scope", "expected_sources", "answer_shape", "measured_by", "approved_by", "approved_date"],
+  "properties": {
+    "id": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/cq_id" },
+    "question": { "type": "string", "minLength": 1 },
+    "asked_by": {
+      "description": "Who needs this answered. Guide §5.1.",
+      "enum": ["examiner", "applicant", "AI assistant", "maintainer", "other"]
+    },
+    "category": {
+      "description": "The coverage checklist from the roadmap's eight illustrative questions. The set as a whole must span these, including the awkward ones a retrieval-only system silently fails.",
+      "enum": ["retrieval", "search", "reasoning", "currency", "impact", "provenance"]
+    },
+    "pilot_in_scope": { "type": "boolean" },
+    "expected_sources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "supporting"],
+      "properties": {
+        "required": {
+          "description": "The answer is wrong without these. Which passages those are is a legal judgement; that they are refs is not.",
+          "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/ref_list"
+        },
+        "supporting": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/ref_list" }
+      }
+    },
+    "expected_concepts": {
+      "type": "array",
+      "description": "Labels before vocab/ exists, SKOS concept ids after. Deliberately untyped between the two: fixing it early would make every early record invalid the day the vocabulary lands.",
+      "items": { "type": "string" }
+    },
+    "must_not_include": { "type": "array", "items": { "type": "string" } },
+    "answer_shape": { "type": "string", "minLength": 1 },
+    "caveats": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/notes" },
+    "measured_by": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "approved_by": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_by" },
+    "approved_date": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_date" }
+  }
+}

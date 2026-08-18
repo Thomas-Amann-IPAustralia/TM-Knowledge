@@ -1,0 +1,9 @@
+# Malformed on purpose: the relevance scale is 3/2/1, and nDCG computed over a
+# fourth grade is not comparable with anything.
+id: GS-002
+query: "«query»"
+uses_manual_terminology: false
+relevant:
+  - {ref: TMM/Part22/1/1/2, grade: 5}
+approved_by: "«name»"
+approved_date: "2026-08-18"

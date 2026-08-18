@@ -35,5 +35,9 @@ test_ref:                       # path to the test that enforces this, once writ
 
 related_questions: []           # CQ-nnn / GA-nnn ids this bounds
 
+notes: >
+  Anything that makes the boundary clearer — the neighbouring conclusion that IS
+  permissible, and why this one is not.
+
 approved_by:
 approved_date:

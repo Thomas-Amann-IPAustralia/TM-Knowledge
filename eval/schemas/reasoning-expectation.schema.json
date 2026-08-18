@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/stage0/reasoning-expectation/1.0.0",
+  "title": "Expected reasoning result",
+  "description": "An inference that follows from what the corpus says. Anything requiring the weighing of evidence or the exercise of discretion is not one of these — it is a prohibited use, and drawing that line is the most valuable judgement in the record. Shape only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "given", "expected_inferences", "must_not_infer", "tier", "explanation_required", "approved_by", "approved_date"],
+  "properties": {
+    "id": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/reasoning_id" },
+    "given": {
+      "type": "array",
+      "description": "The starting position: refs, concept ids, or a stated fact pattern drawn from the corpus. Not a hypothetical application — the system reasons over the corpus, not over cases.",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "expected_inferences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["conclusion", "basis", "kind"],
+        "properties": {
+          "conclusion": { "type": "string", "minLength": 1 },
+          "basis": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/ref_list" },
+          "kind": {
+            "enum": ["classification", "impact", "consistency", "currency"]
+          }
+        }
+      }
+    },
+    "must_not_infer": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/prohibited_id_list" },
+    "tier": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/tier" },
+    "explanation_required": { "type": "boolean" },
+    "caveats": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/notes" },
+    "notes": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/notes" },
+    "approved_by": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_by" },
+    "approved_date": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_date" }
+  }
+}

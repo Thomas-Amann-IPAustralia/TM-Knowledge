@@ -8,6 +8,9 @@
 #   - Every record cites the exact passage it rests on, with character offsets
 #     into the upstream chunk `text`, and the `content_hash` that text had when
 #     the record was made. When the hash changes, the record is stale.
+#   - Every record carries `approved_by` and `approved_date`. That recorded
+#     human decision is what separates approved knowledge from a candidate
+#     (CLAUDE.md rule 4) and it is what the harness checks for.
 #   - Content is expert-owned. Agents build and validate the container only.
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -26,6 +29,8 @@ entity:
   notes: >
     Anything that makes this case instructive — an abbreviation, an anaphor, a
     form that a naive matcher will get wrong.
+  approved_by:                          # expert name or role
+  approved_date:                        # YYYY-MM-DD
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 2. Approved concept  (target: 50–100)     measures: clustering accuracy
@@ -46,6 +51,8 @@ concept:
   notes: >
     Where the term has shifted meaning over time, or means different things in
     different Parts, say so here.
+  approved_by:
+  approved_date:
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 3. Known relationship  (target: 50–100)   measures: relation precision / recall
@@ -64,6 +71,8 @@ relationship:
   notes: >
     If this is a case where "may" is possibility rather than permission, or "must"
     is explanatory rather than obligatory, that is exactly why it belongs here.
+  approved_by:
+  approved_date:
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 4. Search question  (target: 20–50)       measures: Recall@10, P@10, MRR, nDCG
@@ -76,6 +85,11 @@ search_question:
     - {ref: TMM/PartNN/n/n/n, grade: 3} # 3 highly relevant · 2 relevant · 1 marginal
   irrelevant_but_tempting: []           # refs a keyword match will surface wrongly
   must_exclude: []                      # superseded or withdrawn material
+  notes: >
+    Why this query is instructive — the vocabulary gap it tests, or the tempting
+    wrong answer it is aimed at.
+  approved_by:
+  approved_date:
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 5. AI retrieval question  (target: 20–50) measures: coverage, grounding, citation
@@ -90,3 +104,7 @@ retrieval_question:
     Exceptions, conditions or limits a correct answer must carry.
   authority_distinction_required: true  # answer must distinguish law from Manual practice (Q-12)
   prohibited_conclusions: []            # ids from eval/prohibited-uses.md
+  notes: >
+    Anything about this question that makes it a hard case for grounding.
+  approved_by:
+  approved_date:

@@ -1,0 +1,11 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+id: GE-001
+surface: "«the text exactly as it appears»"
+type: LegalConcept
+source_ref: TMM/Part22/1/1/2
+span: [10, 34]
+source_content_hash: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+resolves_to: TMA1995/s43
+notes: "«what makes this case instructive»"
+approved_by: "«name»"
+approved_date: "2026-08-18"

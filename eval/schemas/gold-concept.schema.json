@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/stage0/gold-concept/1.0.0",
+  "title": "Gold concept",
+  "description": "An approved concept and the surface forms that do and do not mean it. Shape only — every label judgement is the expert's.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "pref_label", "alt_labels", "not_labels", "definition_sources", "approved_by", "approved_date"],
+  "properties": {
+    "id": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/concept_id" },
+    "pref_label": { "type": "string", "minLength": 1 },
+    "alt_labels": { "type": "array", "items": { "type": "string" } },
+    "not_labels": {
+      "type": "array",
+      "description": "Forms that look similar and are NOT the same concept. The most valuable field in the record — near-misses are where clustering fails — and an empty one is reported as a coverage gap rather than treated as an answer (guide §5.3, P10).",
+      "items": { "type": "string" }
+    },
+    "broader": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/concept_id_list" },
+    "narrower": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/concept_id_list" },
+    "related": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/concept_id_list" },
+    "definition_sources": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/ref_list" },
+    "legislative_basis": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/ref_list" },
+    "notes": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/notes" },
+    "approved_by": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_by" },
+    "approved_date": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_date" }
+  }
+}

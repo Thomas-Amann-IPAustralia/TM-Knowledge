@@ -1,0 +1,16 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+id: GX-001
+given:
+  - TMM/Part22/1/1/2
+expected_inferences:
+  - conclusion: "«what the system should derive, as it would state it»"
+    basis:
+      - TMA1995/s43
+    kind: classification
+must_not_infer: [PU-001]
+tier: 3
+explanation_required: true
+caveats: "«known limits — see QUIRKS»"
+notes: "«why this inference is safe to automate and the neighbouring one is not»"
+approved_by: "«name»"
+approved_date: "2026-08-18"

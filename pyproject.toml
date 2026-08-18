@@ -13,6 +13,7 @@ license = { file = "LICENSE" }
 # Adding a dependency here is a decision to raise, not to make. See CLAUDE.md.
 dependencies = [
     "jsonschema>=4.21",
+    "referencing>=0.35",
     "PyYAML>=6.0",
 ]
 

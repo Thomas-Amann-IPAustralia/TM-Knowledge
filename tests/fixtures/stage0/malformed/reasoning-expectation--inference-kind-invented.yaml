@@ -1,0 +1,15 @@
+# Malformed on purpose: an invented inference kind. The four are the ones the
+# system is built to derive; a fifth is a scope change, not a record.
+id: GX-002
+given:
+  - TMM/Part22/1/1/2
+expected_inferences:
+  - conclusion: "«conclusion»"
+    basis:
+      - TMA1995/s43
+    kind: evaluation
+must_not_infer: []
+tier: 3
+explanation_required: true
+approved_by: "«name»"
+approved_date: "2026-08-18"
