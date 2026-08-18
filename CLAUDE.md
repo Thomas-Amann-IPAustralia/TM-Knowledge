@@ -20,6 +20,7 @@ it: vocabulary, ontology, relationships, graph, search, retrieval, reasoning.
    - `docs/ROADMAP-STATUS.md` — stage-by-stage status board.
    - `docs/UPSTREAM.md` — the upstream data contract: record shapes, the join, what upstream refuses to do.
    - `docs/roadmap/AUTOMATION-FIRST-ROADMAP.md` — the full programme (Stages 0–10). Long; consult sections, don't re-read whole.
+   - `docs/roadmap/PARALLEL-TRACK-ROADMAP.md` — what proceeds while Stage 0 content is pending, and the gates where expert input becomes required. Read before concluding the repo is blocked.
    - `docs/GLOSSARY.md` — domain and project terms.
 
 ## 2. Hard rules

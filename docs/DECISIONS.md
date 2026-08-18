@@ -85,7 +85,7 @@ commits and no published links, so the cost is nil. Do not move them again.
 
 ## ADR-0004 — The upstream snapshot is fetched, pinned and not committed here
 
-**Date** 2026-08-04 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q2
+**Date** 2026-08-04 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0021** (was provisional, HANDOFF Q2)
 
 **Context.** Three options: git submodule, a pinned release archive downloaded
 into an ignored directory, or a vendored copy committed into this repo.
@@ -108,7 +108,7 @@ this repo's docs are only meaningful next to the pinned version.
 
 ## ADR-0005 — Upstream refs are the canonical identifiers; IRIs are minted from them
 
-**Date** 2026-08-04 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q5
+**Date** 2026-08-04 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0021** (was provisional, HANDOFF Q5)
 
 **Context.** The roadmap illustrates stable identifiers as
 `tmem:manual/2026-01/chapter-4/section-3/paragraph-12`. Upstream already emits
@@ -347,3 +347,325 @@ exercised is a prohibited use instead. That boundary is expert-owned, and it is
 the most valuable judgement the record captures. The field list is an agent's
 proposal and should be reviewed against the eventual SHACL shapes alongside
 ADR-0011.
+
+---
+
+## ADR-0016 — A parallel track is defined for work that does not need expert content
+
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q9
+
+**Context.** Stage 0's content is expert-owned (CLAUDE.md rule 1) and the
+experts advising the owner have not yet delivered. The repo held no statement of
+what could proceed meanwhile, which leaves two bad outcomes available: idling on
+the assumption that everything is blocked, or drifting into Stage 2 because it
+is the first thing that produces visible output — the mistake the roadmap's
+closing recommendation names.
+
+**Decision.** Add `docs/roadmap/PARALLEL-TRACK-ROADMAP.md`: twelve work packages
+(P1–P12) that require no legal judgement, a five-gate table stating exactly
+where expert input becomes required, an explicit list of what the track must not
+do, and a statement of where the track runs out. ADR-0010 is untouched — the
+track ends at Stage 0 completion and does not reach Stage 2.
+
+**Rationale.** Two things needed writing down and neither existed. First, the
+gates: the experts' content is not one undifferentiated blocker, and the
+distinction between "nothing agent-side is blocked" (G2–G4) and "the programme
+stops" (G5) is what lets the owner chase the right thing at the right time.
+Second, the leverage: four of the twelve packages exist to reduce expert effort
+rather than to advance the code, on the reasoning that a week of specialist time
+is itself a cause of the delay, and that shortening it is more useful than
+finding more plumbing to build.
+
+Also recorded deliberately: the track's finite length. A plan that cannot say
+where it ends invites manufactured work, and work no measurement justifies is
+what Stage 0 exists to prevent.
+
+**Consequences.** `docs/roadmap/` now mixes a source document with a
+project-authored one; a `README.md` there states which is which and their
+opposite editing rules. The package list will need revision as packages land —
+unlike its neighbour, this roadmap is editable. Sizes are agent-session
+estimates, not commitments.
+
+---
+
+## ADR-0017 — The Pass B worksheet is generated from an over-inclusive provisional scope rule
+
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0021**; the rule itself is ADR-0022 (was provisional, HANDOFF Q9)
+
+**Context.** The Pass B worksheet — every in-scope chunk printed with its
+`chunk_ref`, `heading_path`, `content_hash` and text — is the artefact that lets
+the expert annotate without typing a ref or a hash by hand. It appears to
+require `eval/pilot-scope.md`, which does not exist and is the deliverable most
+clearly awaiting expert advice. That reading makes the single most useful
+expert-facing artefact wait on the very people it is meant to unblock.
+
+**Decision.** Generate the worksheet from a deliberately **over-inclusive**
+machine rule — chunks citing the pilot provision, plus their page-mates —
+approved by the owner alone, and mark the output provisional in its header
+alongside the rule used. The worksheet's scope is not the pilot's scope, and
+choosing it does not pre-empt the boundary decision.
+
+**Rationale.** The error costs are asymmetric. An over-inclusive worksheet costs
+the expert a scroll past rows they ignore. An under-inclusive one silently
+removes material from the annotated set, which breaks the exhaustive-annotation
+rule that recall measurement depends on (`STAGE-0-INPUT-GUIDE.md` §4) and does
+so invisibly. Given that asymmetry, printing too much early beats printing
+nothing until the boundary is settled.
+
+This does not breach CLAUDE.md rule 1. The rule governs what content is
+*printed for review*, not what is in scope for the pilot; it is derived
+mechanically from upstream's own `provisions[]` edges; and it is set by the
+owner, a human, not by an agent.
+
+**Consequences.** Two scope notions now coexist and must not be conflated —
+worksheet scope and pilot scope. The worksheet header carries the distinction.
+Annotations made against rows later ruled out of scope are not wasted: they are
+recorded and parked, exactly as `pilot_in_scope: false` handles competency
+questions. When the boundary lands, the worksheet is regenerated and the delta
+reported.
+
+---
+
+## ADR-0018 — Stage 0 incompleteness is a reported state; malformed data is a build failure
+
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q9
+
+**Context.** ADR-0010 and `STAGE-0-INPUT-GUIDE.md` §7 require the harness to run
+and **fail** before Stage 2 begins. Two problems follow. With no gold records,
+every mechanical check iterates an empty collection and passes **vacuously**, so
+the suite is green for the worst possible reason. And once the suite does fail
+by design, a permanently red pipeline trains everyone to ignore it, which is
+where a genuine regression hides.
+
+**Decision.** Separate the two failure kinds.
+
+- **The completeness gate** — a harness check that fails while any Stage 0
+  deliverable is absent or below its target band, naming what is missing. This
+  is what makes the suite red today rather than vacuously green, and its output
+  doubles as a status report. In CI it is surfaced as a reported state, not as a
+  broken build.
+- **Genuine failures** — a malformed record, a duplicated id, an unresolvable
+  `source_ref`, a `span` that does not land on its recorded text, a stale
+  `source_content_hash`, a broken IRI round-trip, or a loader that drops
+  `extraction`/`certainty`. These break the build.
+
+**Rationale.** Both signals are needed and they mean opposite things: one says
+"the expected work has not arrived yet", the other says "something that did
+arrive is wrong". Collapsing them loses the second, which is the one that costs
+money. Naming the missing deliverables also turns the red harness from an
+apparent lack of progress into a legible answer to "what is Stage 0 waiting
+on" — a defence the guide says the red harness will need.
+
+**Consequences.** The completeness gate encodes the target bands from
+`STAGE-0-INPUT-GUIDE.md` §7 and must be updated with them; it is a second place
+those numbers live. It must fail on *absence*, never on content quality, which
+stays expert-judged. When Stage 0 completes, the gate goes quiet on its own and
+the remaining failures are all real.
+
+---
+
+## ADR-0019 — Keyphrase extraction is an ensemble of TextRank, YAKE and KeyBERT; spaCy NER is metadata
+
+**Date** 2026-08-17 · **Authority** human · **Status** accepted
+
+**Context.** The roadmap's Stage 2 §2.1 names **YAKE** alone for keyphrase
+extraction, and puts a statistical spaCy NER model under §2.3 as one route to
+*new entity discovery*. `ARCHITECTURE.md` §5 carried that stack unchanged, noting
+that substitutions are ADR-worthy.
+
+**Decision.** The repo owner has decided the Stage 2 candidate-generation stack:
+
+- **Three keyphrase extractors run over the same text, in parallel:**
+  **TextRank** (graph-based, co-occurrence), **YAKE** (statistical, single
+  document), **KeyBERT** (embedding similarity to the document).
+- **spaCy NER output is attached to candidate terms as additional metadata.**
+  It is not a keyphrase extractor and it is not the entity taxonomy. It
+  annotates; it does not decide.
+
+This extends the roadmap rather than contradicting it — §2.1's YAKE is retained
+and joined, and §2.2's rule-based recognition (`EntityRuler`, `PhraseMatcher`,
+regex, authoritative lists) is untouched.
+
+**Rationale.** The three methods fail differently: YAKE on frequency and position
+statistics within one document, TextRank on graph centrality in a co-occurrence
+network, KeyBERT on distance in embedding space. That is the point of running
+all three — **agreement across methods is itself a confidence signal**, and it is
+a cheap one, available before any expert has graded anything. A term all three
+find is a different proposition from a term only KeyBERT finds, and Stage 3's
+review queue can be ordered by that without a model.
+
+The corpus argues for it too. Legal drafting is repetitive and formulaic, which
+flatters frequency-based methods and lets a boilerplate phrase outrank a term of
+art. An embedding-based method and a graph-based one fail in a different
+direction, so the disagreements are informative rather than noise.
+
+**Consequences.**
+
+1. **Provenance must record which extractor produced a candidate**, per CLAUDE.md
+   rule 8 and ADR-0011. `extraction_method` becomes an enum including
+   `textrank`, `yake`, `keybert` and the rule-based paths, and a term found by
+   several methods is **one record carrying several methods**, not several
+   records. That is not free: the candidate-id formula in `IDENTIFIERS.md` §3
+   hashes `method`, so as written it mints three ids for one span. ADR-0020
+   addresses it, and it must be settled before parallel-track P3 implements the
+   formula.
+
+2. **KeyBERT introduces an embedding model into a pipeline that was otherwise
+   deterministic.** TextRank and YAKE are deterministic; KeyBERT's output depends
+   on which sentence-transformer is loaded. The model **and its version must be
+   pinned** alongside the snapshot pin (ADR-0004) and recorded on every candidate,
+   because a silent model upgrade changes candidate output and therefore
+   invalidates every measured baseline taken before it. This is CLAUDE.md rule 7
+   holding: the deterministic methods stay deterministic and are not to be
+   replaced by the embedding one.
+
+3. **KeyBERT is local inference, not an LLM API call.** It does not engage
+   HANDOFF Q3, provided the model runs in the agency's own environment. If it is
+   ever served from a hosted endpoint, Manual text leaves the environment and Q3
+   applies in full.
+
+4. **spaCy NER must not be used for provisions, cases or internal refs.** Upstream
+   already extracts those deterministically, with `extraction` and `certainty`
+   attached. Re-deriving them from a statistical model would breach CLAUDE.md
+   rule 2 and would replace trust metadata with a confidence score — strictly
+   worse. Upstream's edges win wherever they exist; NER metadata is for the text
+   upstream says nothing about. See Q-16 for the label trap this creates.
+
+5. **Stage 0 measurement gains a dimension.** Entity precision, recall and F1 must
+   be computable **per method**, and for the union and the intersection, or there
+   is no evidence on which to weight the ensemble or to retire a method that is
+   not earning its place. Agents may propose these metrics; thresholds remain the
+   owner's (guide §5.9).
+
+6. The stack rows in `ARCHITECTURE.md` §5 are updated. The roadmap text is not —
+   it is a source document (ADR-0003), and the divergence is recorded here.
+
+---
+
+## ADR-0020 — The candidate id is content-addressed without the method
+
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0021** (was provisional, HANDOFF Q10)
+
+**Context.** `IDENTIFIERS.md` §3 mints a machine-generated candidate id as
+`sha256(source_ref | span_start | span_end | method | normalised_value)`, so that
+re-running a pipeline over unchanged input is a no-op. With one extractor that
+works. ADR-0019 introduces three, plus rule-based paths, and the same term at the
+same span now mints a different id per method — three `review/` entries for one
+candidate, and the cross-method agreement that ADR-0019 exists to capture is
+invisible on every one of them.
+
+**Decision.** Drop `method` from the hash. A candidate is identified by
+**`source_ref | span_start | span_end | normalised_value`**, and the methods that
+found it are a **set-valued field** on the record — `extraction_methods: [yake,
+textrank]` — alongside each method's own score. One span, one candidate, N pieces
+of evidence for it.
+
+**Rationale.** The identifier should answer "which thing is this", and the thing
+is the term at that span. Which detectors fired is evidence *about* it, not part
+of its identity. Keeping method in the id also makes the no-op property false in
+the way that matters: adding a fourth extractor would re-mint every candidate in
+the repo rather than adding a method to existing ones.
+
+The alternative — per-method ids plus a merge step — was rejected because the
+merge would have to run before any human sees the queue, which makes it the real
+identity function while leaving a second, misleading one in the id.
+
+**Consequences.** Records gain a set field, so provenance is per method inside
+one record: each entry carries its own method, score and model version (ADR-0019
+consequence 2), while `source_span` and `review_status` stay at record level. An
+approval decision then attaches to the candidate, not to one detector's view of
+it, which is the correct grain — the reviewer is judging a term, not a detector.
+
+Re-running with a new extractor mutates existing records rather than creating
+new ones, so the byte-stability check becomes "unchanged input plus unchanged
+extractor set produces byte-identical output". Adding an extractor is a
+deliberate, visible change to every affected record, which is the honest
+representation of what it is.
+
+`IDENTIFIERS.md` §3 is annotated with this proposal rather than rewritten, since
+this is agent-proposed and provisional. Parallel-track **P3 must not implement
+the §3 formula until Q10 is closed** — it is one of the few genuinely
+order-dependent things on that track.
+
+---
+
+## ADR-0021 — Owner confirmations: ADR-0004, ADR-0005, ADR-0017 and ADR-0020
+
+**Date** 2026-08-18 · **Authority** human · **Status** accepted
+
+**Context.** Six agent-proposed ADRs stood provisional, each flagged in
+`HANDOFF.md` §3 as awaiting the owner. Provisional decisions are load-bearing —
+code gets written against them — so leaving them open indefinitely means the
+repo is built on assumptions nobody has ratified.
+
+**Decision.** The repo owner confirmed four, in session S003:
+
+| ADR | Now settled as | Closes |
+|---|---|---|
+| **0004** | The upstream snapshot is a **pinned release download** into `data/upstream/`, out of git, with `extractor_version` and the upstream commit SHA in a tracked manifest | **Q2** |
+| **0005** | **Upstream refs are canonical.** `TMM/Part22/1/1/2` and `TMA1995/s43` are the identifiers; IRIs are minted by prefixing them; the roadmap's `tmem:manual/2026-01/…` form is not used | **Q5** |
+| **0017** | The Pass B worksheet is printed **now**, from an over-inclusive provisional scope rule set by the owner, without waiting on the expert boundary. The rule itself is ADR-0022 | **Q9, in part** — gate G1 released |
+| **0020** | The content-addressed candidate id **drops `method`** from the hash; the methods that found a span become a set field | **Q10** |
+
+Each of the four keeps its original text and reasoning; what changed is its
+authority, from `agent-proposed` to confirmed. Rather than edit four past
+entries — `DECISIONS.md` is append-only — each carries a one-line
+`Confirmed by ADR-0021` annotation, which is the same mechanism the file's
+header already sanctions for `Superseded by`.
+
+**Still open, deliberately.** The owner was asked about ADR-0017 only, so the
+rest of Q9 stands: **ADR-0016** (the parallel track itself) and **ADR-0018**
+(Stage 0 incompleteness reported, malformed data fails the build) remain
+agent-proposed. So do **ADR-0006**, **ADR-0011**, **ADR-0012** and **ADR-0014**,
+which were not put. Q3, Q4, Q6, Q7 and Q8 are untouched.
+
+**Consequences.** Parallel-track **P1 is unblocked** and is now the critical
+path — it gates P2, P6 and P9. **P3 is unblocked in full**, candidate id
+included. `IDENTIFIERS.md` §3 is updated from a proposal to the operative
+formula. Nothing here touches Stage 0's content or ADR-0010: the wall at G5
+stands exactly where it did.
+
+---
+
+## ADR-0022 — The provisional worksheet scope rule
+
+**Date** 2026-08-18 · **Authority** human · **Status** accepted — provisional by design
+
+**Context.** ADR-0017 established that the Pass B worksheet is printed from a
+deliberately over-inclusive machine rule the owner sets alone, rather than
+waiting on `eval/pilot-scope.md`. It did not say what the rule is. Parallel-track
+P9 cannot run on a principle.
+
+**Decision.** The worksheet prints:
+
+1. Every chunk whose `provisions[]` contains a ref for **`TMA1995/s43`** —
+   matching the provision **and any unit beneath it**, so `TMA1995/s43(1)`,
+   `TMA1995/s43(1)(a)` and the bare `TMA1995/s43` all qualify. Matching is on
+   the ref grammar (`IDENTIFIERS.md` §1), not on a substring: `TMA1995/s430`
+   must not match if the corpus ever grows one.
+2. Plus **every other chunk sharing a `page_ref`** with a chunk selected by (1)
+   — the page-mates.
+
+Edges of **every** `extraction` and `certainty` value are included: `href` and
+`regex`, `explicit`, `default` and `ambiguous` alike. An `ambiguous` edge is a
+reason to print a chunk, never a reason to drop one.
+
+**Rationale.** Page-mates are in because the Manual's guidance frequently sits in
+the chunks around the one that carries the citation — an instruction, then its
+exceptions, then a worked example, with the provision named once at the top.
+Selecting only citing chunks would print the sentence and drop the practice.
+
+Including ambiguous and default edges follows Q-07: those are upstream refusing
+to guess, and a worksheet that silently omits them hides exactly the material a
+human is needed for.
+
+**Consequences.** Worksheet scope is **not** pilot scope, and the two must never
+be conflated — the worksheet header states the rule, the pinned
+`extractor_version`, and that it is provisional. When the expert boundary lands
+in `eval/pilot-scope.md`, the worksheet is regenerated and the delta reported;
+annotations made against rows later ruled out of scope are parked, not deleted,
+exactly as `pilot_in_scope: false` parks a competency question.
+
+The rule is expected to over-select, and that is the design. If P6's counts show
+it selecting an unworkable volume, the answer is to report the number and ask,
+not to quietly tighten the rule.

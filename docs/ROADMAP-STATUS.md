@@ -16,7 +16,7 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 |---|---|---|---|
 | 0 | Pilot selection and evaluation set | **partial** — pilot area chosen (s 43, ADR-0013); no content yet | this repo — **the blocker** |
 | 1 | Ingest and structure source documents | **done** (4 of 6 named deliverables) | `manual-XtrACTor` |
-| 2 | Candidate terminology and entities | **not started** | this repo |
+| 2 | Candidate terminology and entities | **not started** — stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019); blocked by ADR-0010 | this repo |
 | 3 | Controlled vocabulary (SKOS) | **not started** | this repo |
 | 4 | Relationships, propositions, candidate rules | **not started** | this repo |
 | 5 | Formalise the ontology | **not started** | this repo |
@@ -42,6 +42,7 @@ ADR-0010 holds that no Stage 2+ work starts before this is done.
 | Evaluation harness | not started | `eval/` + `tests/` |
 | Record templates | **done** — 7 record types | `eval/templates/` |
 | Expert input guide | **done** — ADR-0014 | `eval/STAGE-0-INPUT-GUIDE.md` |
+| Parallel-track plan | **done** — ADR-0016 | `docs/roadmap/PARALLEL-TRACK-ROADMAP.md` |
 
 Target sizes from the roadmap: 100–300 recognised entities, 50–100 approved
 concepts, 50–100 known relationships, 20–50 search questions, 20–50 AI retrieval
@@ -51,6 +52,13 @@ not draw.
 Content is expert-owned (CLAUDE.md rule 1). Agents build the templates, the
 schemas and the harness. The full definition of done — including the checks the
 harness will assert mechanically — is in `eval/STAGE-0-INPUT-GUIDE.md` §7.
+
+**Stage 0 being the blocker does not mean the repo is blocked.** Which agent
+work proceeds without expert content, and at which of five gates expert input
+actually becomes required, is in `docs/roadmap/PARALLEL-TRACK-ROADMAP.md`
+(ADR-0016). Only the last gate — full Stage 0 completion — stops the programme.
+Track the packages there; record movement here only when a Stage 0 deliverable
+row above changes.
 
 ## Stage 1 — inherited, and what is missing from it
 

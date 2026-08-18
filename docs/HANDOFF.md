@@ -3,7 +3,7 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-08-06 · session S002 · branch `claude/stage-0-deliverables-doc-fqb8px`
+**Last updated:** 2026-08-18 · session S003 · branch `claude/trademark-stage-0-dataset-gzmszn`
 
 ---
 
@@ -27,57 +27,72 @@ questions, gold set, prohibited uses, thresholds — and the harness. The upstre
 repo's `ROADMAP-STAGE-1.md` names this as the real blocker on the programme, not
 any missing extraction capability.
 
+**The experts are slow, so S003 wrote down what proceeds anyway.**
+`docs/roadmap/PARALLEL-TRACK-ROADMAP.md` (ADR-0016) holds twelve agent-side work
+packages needing no legal judgement, and — more usefully — the **gates** saying
+where expert input actually becomes required. Read that file before concluding
+the repo is blocked. It is not.
+
+**Four decisions were closed in S003** (ADR-0021, ADR-0022): the snapshot is a
+pinned download, upstream refs are canonical, the candidate id drops `method`,
+and the worksheet scope rule is set. Gate G1 is released and P1 is now the
+critical path. The corollary is worth seeing clearly: **every gate that remains
+is expert content**, so nothing but expert time is between here and Stage 0.
+
 ## 2. The next action
 
-**The ball is with the owner for Pass A content.** Point them at
-`eval/STAGE-0-INPUT-GUIDE.md`; §10 gives the order of work and §3 explains why
-Pass A is not blocked on anything.
+**Thread A is done.** The owner closed Q2, Q5 and Q10 and set the worksheet
+scope rule, in S003 (ADR-0021, ADR-0022). Nothing on the agent side is waiting
+on an owner decision any more. Two threads remain.
 
-Concretely, in order:
+**Thread B — the experts.** Now the *only* thread with a queue. Pass A content,
+in the order at `eval/STAGE-0-INPUT-GUIDE.md` §10: pilot scope boundary first,
+then competency questions and prohibited uses. Guide §3 explains why none of it
+is blocked. If only one hour is available, guide §10 says what to spend it on.
 
-1. Owner writes `eval/pilot-scope.md` — the s 43 **boundary**, especially the
-   exclusion list. Prompted for in guide §2. This is the only thing gating the
-   rest.
-2. Owner drafts competency questions and prohibited uses (Pass A — needs no
-   data). An agent may prompt, structure and consistency-check these. An agent
-   must not author their content (CLAUDE.md rule 1).
-3. Resolve Q2 and pin the upstream snapshot, then generate the **Pass B
-   worksheet**: every chunk in the s 43 scope, printed with `chunk_ref`,
-   `heading_path`, `content_hash` and text, in an annotation-friendly form. The
-   owner should never type a ref or a hash by hand. This is pure agent work and
-   is the highest-value thing to build next.
-4. Build the evaluation harness (`eval/` + `tests/`). It should be runnable and
-   *failing* before Stage 2 work starts — a red harness is the point. Guide §7
-   lists the mechanical checks it must assert.
+**Thread C — agents. Start with P1; it is now the critical path.** Q2 is
+closed, so pinning the snapshot is buildable today, and P2, P6 and P9 all wait
+behind it. P3 (identifiers, candidate id included — Q10 closed), P4 (record
+schemas) and P12 (provenance model) are unblocked in full and need no decision
+from anyone.
 
-Do not start Stage 2 (YAKE/spaCy extraction) before step 4. It is tempting
-because it is the first thing that produces visible output, and it is exactly the
-mistake the roadmap's final recommendation warns against.
+Then P1 → P2 → P6 → P9, which now runs all the way to a **printed worksheet**,
+because G1 is released and ADR-0022 states the rule. Prioritise the four
+packages marked *shortens the expert critical path* (P6, P7, P9, P10): with G1
+closed, every remaining gate is expert content, so the only lever left on the
+schedule is making that content cheaper to produce.
 
-If the owner is unavailable, the useful agent-only work is: step 3 above, the
-harness skeleton, the upstream loader (`src/tm_knowledge/` — read `snapshot/`
-into Python records, preserving `extraction`/`certainty`), and the identifier
-minting module from `docs/IDENTIFIERS.md`. All are pure plumbing with no legal
-content.
+Keep §6 of the parallel track in mind — the Stage 2 stack is fixed (ADR-0019)
+and three packages must be built to accommodate it, even though Stage 2 itself
+stays behind G5.
+
+Do not start Stage 2 extraction — no TextRank, YAKE, KeyBERT or spaCy run, not
+even "just to see the output". ADR-0010, and it is the mistake the roadmap's
+final recommendation warns against — tempting precisely because it is the first
+thing that produces visible output.
 
 ## 3. Open questions — need a human
 
 | # | Question | Blocks | Raised |
 |---|---|---|---|
 | ~~Q1~~ | ~~What is the pilot scope?~~ **Answered S002: s 43** (ADR-0013). The *boundary* is now deliverable 1 — see Q8. | — | S001 |
-| Q8 | What is the s 43 **boundary**? Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. | All remaining Stage 0 content | S002 |
-| Q2 | How does this repo get the upstream snapshot — git submodule, pinned release download, or vendored copy? ADR-0004 proposes pinned download; unconfirmed. | Any code that reads data | S001 |
+| Q8 | What is the s 43 **boundary**? Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. | All remaining Stage 0 **content**. Does not block the worksheet — ADR-0017, ADR-0022 | S002 |
+| ~~Q2~~ | ~~How does this repo get the upstream snapshot?~~ **Answered S003: pinned release download** (ADR-0004, confirmed by ADR-0021). | — | S001 |
 | Q3 | Which LLM is "agency-approved" for the Stage 2–4 extraction steps, and under what data-handling conditions may Manual text be sent to it? | Stages 2, 3, 4 | S001 |
 | Q4 | Who are the approving experts, and what does "approved" look like as a recorded artefact — a signed-off file in git, or an external register? | Stage 3 onward | S001 |
-| Q5 | Does ADR-0005 (adopt upstream refs as canonical IDs, drop the roadmap's `tmem:manual/2026-01/...` form) hold? It contradicts the roadmap text. | Everything with an identifier | S001 |
+| ~~Q5~~ | ~~Does ADR-0005 hold?~~ **Answered S003: yes** — upstream refs are canonical (confirmed by ADR-0021). | — | S001 |
 | Q6 | Case law is cited by the corpus but is not held as documents anywhere. Is acquiring decision texts in scope for this repo? | Stage 2 citation resolution, Stage 8 retrieval | S001 |
 | Q7 | What base IRI may the project mint under? `docs/IDENTIFIERS.md` proposes `https://data.ipaustralia.gov.au/tmk/`; persistent IRIs need control of that domain, which is an organisational call. | RDF serialisation only — deliberately not blocking anything else | S001 |
+| Q9 | **Narrowed S003.** ADR-0017 is confirmed and its rule is set (ADR-0022) — gate G1 released. Still open: does the owner accept **ADR-0016** (the parallel track itself) and **ADR-0018** (Stage 0 incompleteness reported as a state, malformed data fails the build)? | The harness's CI semantics only | S003 |
+| ~~Q10~~ | ~~Does ADR-0020 hold — drop `method` from the candidate id?~~ **Answered S003: yes** (confirmed by ADR-0021). `IDENTIFIERS.md` §3 now states the operative formula. | — | S003 |
 
-Agent-proposed ADRs awaiting human confirmation: **0004, 0005, 0006, 0011, 0012,
-0014**.
+Agent-proposed ADRs awaiting human confirmation: **0006, 0011, 0012, 0014,
+0016, 0018**. Confirmed in S003 by ADR-0021: **0004, 0005, 0017, 0020**.
 
-Q2 has been promoted in priority: it now blocks the Pass B worksheet, which is
-the next substantial agent deliverable.
+**No agent work is blocked on a human decision any more.** Every remaining open
+question is either expert content (Q8), organisational (Q3, Q4, Q7), a scope
+question for later (Q6), or narrow enough not to block (Q9 — it changes how CI
+reports, not what gets built).
 
 ## 4. Do not redo these
 
@@ -95,6 +110,45 @@ the next substantial agent deliverable.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S003 — 2026-08-17/18 — the parallel track; Stage 2 stack; four decisions closed
+
+Owner reported the experts are slow and asked what could proceed meanwhile.
+Wrote `docs/roadmap/PARALLEL-TRACK-ROADMAP.md` (ADR-0016): twelve agent-side
+packages P1–P12, five gates, an explicit not-to-do list, and a statement of
+where the track runs out. Added `docs/roadmap/README.md` because that directory
+now mixes a source document with an editable one.
+
+Two things fell out of writing it that are more useful than the package list.
+The Pass B worksheet does **not** have to wait on the pilot boundary — an
+over-inclusive provisional scope rule the owner can set alone releases it, and
+the error costs are asymmetric enough to make that clearly right (ADR-0017).
+And the red harness is not free: with no gold records every mechanical check
+passes vacuously, so the redness has to come from an explicit completeness gate,
+which also has to be distinguishable in CI from a genuine failure (ADR-0018).
+
+Owner then fixed the Stage 2 candidate-generation stack: TextRank + YAKE +
+KeyBERT in parallel, spaCy NER as metadata on candidates (ADR-0019, human).
+Recording it surfaced two consequences worth having before code exists. The
+candidate-id formula in `IDENTIFIERS.md` §3 hashes `method`, so three extractors
+mint three ids for one span and the cross-method agreement the ensemble exists
+to produce is invisible — ADR-0020 proposes dropping `method`, and P3 must wait
+on Q10. And spaCy's OntoNotes labels collide by name with two gold entity types
+while meaning something else (Q-16), which is how NER output would quietly
+become the taxonomy.
+
+Owner then answered four open questions when asked (ADR-0021, authority human):
+Q2 pinned release download, Q5 upstream refs canonical, Q10 drop `method` from
+the candidate id, and ADR-0017 confirmed with its rule set in ADR-0022 — every
+chunk citing `TMA1995/s43` or a unit beneath it, plus page-mates, at every
+`certainty` value. `IDENTIFIERS.md` §3 went from proposal to operative formula.
+
+That leaves the board in a shape worth noticing: **no agent work is blocked on a
+human decision**, P1 is the critical path, and all four remaining gates are
+expert content. From here the only lever on the schedule is making that content
+cheaper to produce — P6, P7, P9, P10.
+
+No legal content authored. No code, no data. Nothing executed.
 
 ### S002 — 2026-08-06 — pilot area fixed; Stage 0 input guide
 

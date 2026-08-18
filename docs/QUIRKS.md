@@ -171,6 +171,40 @@ qualifying general rules, evidence being *required* rather than merely relevant,
 instructions creating obligations. These are the judgements that look like
 extraction problems and are not.
 
+### Q-16 — spaCy NER labels are not the gold entity types, and two of them collide by name
+
+*Unverified — recorded when ADR-0019 added spaCy NER as candidate metadata, before
+any code exists.*
+
+A stock spaCy model emits OntoNotes labels: `PERSON`, `ORG`, `GPE`, `DATE`,
+`LAW`, `NORP`, `EVENT` and the rest. The gold entity taxonomy in
+`eval/templates/gold-record.template.yaml` is `LegalConcept`,
+`LegislativeProvision`, `JudicialDecision`, `EvidenceCategory`,
+`ManualInstruction`, `Role`, `Date`, `Other`. **These are different vocabularies
+that happen to share two spellings**, and the overlap is the trap rather than the
+convenience it looks like:
+
+- **`DATE` is not `Date`.** OntoNotes `DATE` covers any temporal expression,
+  including "recently", "the last three years" and "the 1990s". The gold `Date`
+  is a date that matters to examination. A 1:1 map imports the first as if it
+  were the second and inflates every entity count.
+- **`LAW` is not `LegislativeProvision`.** OntoNotes `LAW` means "named documents
+  made into laws" — it will happily tag *Trade Marks Act 1995* and miss "s 43"
+  entirely, which is the thing that actually needs recognising. Meanwhile
+  upstream has already extracted every provision edge deterministically, with
+  `extraction` and `certainty` attached.
+
+Hence ADR-0019 consequence 4: **NER metadata must not be used for provisions,
+cases or internal refs.** Upstream's edges win wherever they exist. Replacing
+`certainty: ambiguous` with a model's confidence score is not an upgrade — it is
+the loss of the only signal that distinguishes an author's assertion from an
+inference (CLAUDE.md rules 2 and 3).
+
+Treat NER output as what ADR-0019 calls it: metadata on a candidate, stored under
+its own key with its own label vocabulary, never written into an `entity.type`
+field. If a mapping between the two vocabularies is ever wanted, it is an
+expert-approved lookup, not a rename.
+
 ---
 
 ## D. Environment and tooling

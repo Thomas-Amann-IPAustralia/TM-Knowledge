@@ -105,7 +105,8 @@ ADR-worthy.
 |---|---|
 | Language | Python |
 | Basic NLP | spaCy |
-| Keyphrase extraction | YAKE |
+| Keyphrase extraction | **TextRank + YAKE + KeyBERT**, run in parallel over the same text (ADR-0019) |
+| Candidate-term metadata | spaCy NER — annotates candidates, never the entity taxonomy (ADR-0019, Q-16) |
 | Rule-based entity recognition | spaCy `EntityRuler`, `PhraseMatcher`, regex |
 | Relation patterns | spaCy `DependencyMatcher` |
 | Similarity and clustering | Sentence Transformers; agglomerative / HDBSCAN; cross-encoder rerank |
@@ -125,6 +126,14 @@ ADR-worthy.
 
 Docling, Tika and OCR appear in the roadmap for Stage 1 and are **not** used —
 see Q-03. They would only become relevant for new source formats.
+
+Two notes on the keyphrase row. The roadmap names YAKE alone; the owner extended
+it to three extractors because they fail differently and their **agreement is a
+confidence signal** available before any expert grading (ADR-0019). And KeyBERT
+is the one non-deterministic component in an otherwise deterministic candidate
+pipeline — its sentence-transformer and version are pinned alongside the snapshot
+pin and recorded on every candidate, because a silent model upgrade invalidates
+every baseline measured before it.
 
 ## 6. Design constraints that outrank convenience
 
