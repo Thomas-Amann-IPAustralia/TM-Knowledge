@@ -5,9 +5,12 @@ Things that will cost you time if you meet them cold. Append as you find them,
 entry is fixed or superseded, mark it rather than deleting it — the fact that it
 was once true is itself useful.
 
-Sources so far: the roadmap, `docs/UPSTREAM.md`, and this session's reading of
-both. Entries marked *unverified* were inferred from documentation and have not
-been checked against the actual snapshot, because this repo does not yet hold it.
+Sources: the roadmap, `docs/UPSTREAM.md`, and — from S004 — the pinned snapshot
+itself. Entries marked *unverified* were inferred from documentation and have
+not been checked against the corpus. **That excuse expired in S004**: the
+snapshot is fetchable in one command (`tmk-fetch-upstream`) and section E was
+measured against it. If you rely on an unverified entry from section B, check it
+and say so here.
 
 ---
 
@@ -222,6 +225,15 @@ exist.
 `docs/UPSTREAM.md` is a summary, not a substitute. It is accurate but it is
 roughly 200 lines standing in for several thousand.
 
+**Amended S004.** `manual-XtrACTor` is **public**, and this environment's git
+proxy serves anonymous clones and fetches of it with nothing attached — which is
+why `tmk-fetch-upstream` works from a bare checkout. What still needs a
+deliberate attachment is the GitHub **API**: `api.github.com` refuses
+releases, tags and issues for an unattached repo, so use `git ls-remote` for
+refs and `add_repo` only when the API is genuinely needed. The advice not to
+pre-check with `curl` stands, and now for a second reason: a 404 or a refusal
+from the API says nothing about whether git can read the repo.
+
 ### Q-14 — Agent containers are ephemeral; upstream history is the amendment log
 
 Two consequences that compound. Anything not committed and pushed is lost when the
@@ -237,3 +249,101 @@ required quoting in every shell command that touched it. Renamed in S001
 (ADR-0003). Mentioned here because the source documents arrive by upload from a
 human and the next one will probably have spaces too — rename on arrival, with
 `git mv`, and record it.
+
+---
+
+## E. Found by building against the snapshot (S004)
+
+*Everything in this section is **verified**: measured against the pinned
+snapshot, `manual-XtrACTor` @ `c490a99` (`ingest/0.11.0`, `legislation/0.2.0`),
+and asserted in `tests/unit/`. That is the difference between section B and this
+one — B was read out of documentation, E was run.*
+
+### Q-17 — A chunk ref can contain `#`, and `IDENTIFIERS.md` §2 breaks on it
+
+`IDENTIFIERS.md` §2 says to mint an IRI by concatenation and **never** to
+percent-encode. 498 of the corpus's 2,460 chunk refs contain a `#`
+(`TMM/Part9/2#1~1`, `TMM/Part26/6#3~2`), and 333 contain a `~`. A `#` opens an
+IRI fragment (RFC 3986 §3.5), so `<BASE>ref/TMM/Part26/6#3~2` names the resource
+`<BASE>ref/TMM/Part26/6` and a fragment of it — a *different subject*, and
+silently. One in five chunks in the corpus would have been given the wrong IRI.
+
+`~`, `(`, `)`, `.` and `-` are all legal in an IRI path and are left verbatim, so
+the no-encoding rule holds everywhere it can. Only `#` is escaped, as `%23`, and
+`from_iri` reverses it. ADR-0023, and
+`tests/unit/test_refs_corpus.py::test_percent_encoding_is_confined_to_the_hash`
+is what keeps the exception to one character.
+
+### Q-18 — A ref does not say what level it addresses
+
+Two collisions, both real and neither documented:
+
+- **Page vs chunk.** A page ref is a prefix of the chunk refs cut from it, both
+  admit slug segments (`TMM/Part9/x-relevant-legislation23`), and in the pinned
+  corpus page refs carry 2–3 slashes while chunk refs carry 2–7. `TMM/Part14/4/4/5`
+  cannot be placed by grammar.
+- **Provision vs unit.** `TMR1995/sch3/item1` is a provision record;
+  `TMA1995/s128/prescribed-period` is a *unit* — a defined term inside s 128 —
+  and they share a shape. 39 provisions and 189 units (228 refs) are undecidable
+  this way.
+
+`refs.parse_ref` reports `RefKind.MANUAL` / `RefKind.LEGISLATION` for these
+rather than guessing, and a caller that read the ref out of a known field may
+state the level. Resolving one otherwise needs the snapshot, which is the
+loader's job. ADR-0025.
+
+Related: the legislation ref grammar reaches well past the four forms
+`IDENTIFIERS.md` §1 tabulates. Real refs include `TMA1995/front`,
+`TMR1995/pt17a/div8`, `TMR1995/sch1/pt2`, `TMR1995/sch3/item1`,
+`TMR1995/sch3/item1/designated-owner(a)` and the `~N` ordinal form
+`TMA1995/front~1`. The instrument invariants only assert against section and
+regulation addresses, exactly as upstream's own `instrument_holds` does.
+
+### Q-19 — Upstream publishes no releases and no tags
+
+ADR-0004 and the parallel track both say "pinned release". `git ls-remote --tags`
+on `manual-XtrACTor` returns nothing, and the repo has no GitHub releases
+(checked 2026-08-18). So "pinned release" is realised as a **pinned commit**
+fetched by sha — which is what ADR-0004 records in the manifest anyway.
+
+Fetching by sha rather than cloning a branch is load-bearing, not stylistic: the
+default branch moves, and a branch clone would silently re-point the corpus under
+a repo whose entire provenance story rests on knowing which text an assertion was
+made against. Note also that `main` is not the newest branch — scheduled crawl
+branches (`crawl/2026-08-16-r9`) run ahead of it, so "latest" is ambiguous
+upstream and the pin has to be explicit. ADR-0026.
+
+### Q-20 — `UPSTREAM.md`'s join figure does not reproduce at the pinned commit
+
+`docs/UPSTREAM.md` §2 and §5 quote **2,611 of 2,687** in-scope provision edges
+resolving. Computed at `c490a99` by upstream's own definition — every
+`provisions[].id` whose instrument is `TMA1995` or `TMR1995`, matched by string
+equality against the provision and unit refs held — the figure is **2,615 of
+2,691 (97.2%)**. The unresolved count is identical at **76**; the difference is
+four more edges in scope.
+
+Nothing is wrong: the doc's number was measured against an earlier corpus.
+`UPSTREAM.md` is a source document (ADR-0003) and is annotated here rather than
+edited. Cite the measured figure from `Corpus.join_report()`, which is asserted
+in `tests/unit/test_loader.py`, and treat any quoted corpus count as meaningless
+without a pin beside it — ADR-0004 said exactly this and this is the first case
+of it biting.
+
+### Q-21 — s 43 has no numbered subsections, so "s 43(1)" resolves to nothing
+
+The pilot provision (ADR-0013) is a single unnumbered sentence. Its only unit is
+`TMA1995/s43~1` — the ordinal form — and there is no `TMA1995/s43(1)`,
+`s43(a)` or anything below it in the corpus.
+
+Two consequences for Stage 0. A gold record or competency question citing
+"s 43(1)" cites a ref the corpus cannot resolve, and the harness will say so
+rather than silently accept it. And ADR-0022's worksheet rule matches units
+beneath the provision, which for s 43 means the `~1` form and nothing else — the
+rule is right, but the "or any unit beneath it" clause does almost no work here
+and will do a great deal for a provision like s 41.
+
+Measured for the pilot area at the pinned commit: **67 chunks cite s 43** across
+**36 pages**, and ADR-0022's rule selects **216 chunks** (8.8% of the corpus,
+~40,000 words) once page-mates are included. 17 in-scope refs cited from those
+chunks resolve to nothing, 2 edges are `certainty: ambiguous`, and 58 distinct
+decisions are cited at citation level.

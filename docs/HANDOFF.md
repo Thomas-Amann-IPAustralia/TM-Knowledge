@@ -3,113 +3,163 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-08-18 · session S003 · branch `claude/trademark-stage-0-dataset-gzmszn`
+**Last updated:** 2026-08-18 · session S004 · branch `claude/phase-one-work-t1z6ks`
 
 ---
 
 ## 1. Where the project actually is
 
-**Stage 1 is done, upstream, in another repo.** `manual-XtrACTor` holds a
-deterministic snapshot of the Manual (500 pages, 2,460 chunks) and the
-legislation (763 provisions), joined at 97% coverage. That repo is finished work
-and is read-only from here — see `docs/UPSTREAM.md`.
+**The repo has code now, and it runs against the real corpus.** S004 built seven
+of the parallel track's twelve packages: P1 (pin and fetch), P2 (loader), P3
+(identifiers), P4 (record schemas), P6 (reconnaissance), P9 (worksheet) and P12
+(provenance). 165 tests pass. From a bare clone:
 
-**This repo holds nothing but documentation and an empty skeleton.** No code, no
-data, no vocabulary, no ontology. Everything below the top-level directories is
-a `README.md` describing what will live there.
+```bash
+pip install -e .        # or: pip install -e ".[test]"
+tmk-fetch-upstream      # pinned snapshot into data/upstream/ (~4s)
+tmk-worksheet           # the Pass B worksheet → data/derived/worksheet.md
+tmk-recon               # derived counts about s 43 → data/derived/reports/recon.md
+pytest -q
+```
 
-**Stage 0 has an area and a container, and no content.** The pilot area is
-**s 43** (ADR-0013, human decision, S002) — that closes Q1 at the level of
-*which area*. `eval/templates/` now holds seven record types and
-`eval/STAGE-0-INPUT-GUIDE.md` explains to the owner exactly what to supply.
-Still missing: every piece of actual content — the scope boundary, competency
-questions, gold set, prohibited uses, thresholds — and the harness. The upstream
-repo's `ROADMAP-STAGE-1.md` names this as the real blocker on the programme, not
-any missing extraction capability.
+**The Pass B worksheet exists.** ADR-0022's rule selects **216 chunks across 36
+pages** — 67 that cite s 43, plus 149 page-mates — printed with every ref,
+heading path, content hash, provision edge and case citation, and the full text.
+That is 8.8% of the corpus and about 40,000 words. **The expert can start
+annotating today.** Regenerate it with one command; it is deterministic, so the
+delta ADR-0022 promises when the real boundary lands is computable.
 
-**The experts are slow, so S003 wrote down what proceeds anyway.**
-`docs/roadmap/PARALLEL-TRACK-ROADMAP.md` (ADR-0016) holds twelve agent-side work
-packages needing no legal judgement, and — more usefully — the **gates** saying
-where expert input actually becomes required. Read that file before concluding
-the repo is blocked. It is not.
+**The volume question ADR-0022 left open is answered:** 216 chunks is workable,
+so the rule stands as written and nothing was tightened.
 
-**Four decisions were closed in S003** (ADR-0021, ADR-0022): the snapshot is a
-pinned download, upstream refs are canonical, the candidate id drops `method`,
-and the worksheet scope rule is set. Gate G1 is released and P1 is now the
-critical path. The corollary is worth seeing clearly: **every gate that remains
-is expert content**, so nothing but expert time is between here and Stage 0.
+**Stage 1 is done, upstream, in another repo,** and this repo now consumes it
+properly. The pin is `manual-XtrACTor` @ `c490a99` (`ingest/0.11.0`,
+`legislation/0.2.0`), fetched by commit sha, verified three ways: receipt,
+corpus counts, tree digest.
+
+**Stage 0 still has no expert content.** Nothing about that changed and nothing
+an agent can do will change it. What changed is that the container around it is
+mostly built, and the annotation surface is printed.
+
+**Building against the corpus contradicted the documents three times.** Each was
+invisible from prose and would have been expensive later:
+
+- `#` appears in 498 of 2,460 chunk refs, so `IDENTIFIERS.md` §2's
+  "never percent-encode" would have minted the wrong IRI for one chunk in five
+  (Q-17, ADR-0023).
+- 228 legislation refs cannot be placed as provision-or-unit by grammar
+  (Q-18, ADR-0025).
+- `UPSTREAM.md`'s join figure does not reproduce at the pinned commit — it is
+  2,615/2,691, not 2,611/2,687, with the same 76 unresolved (Q-20).
+
+The lesson generalises: **assert against the corpus, not against the prose about
+it.** The snapshot is one command away now, so there is no excuse not to.
 
 ## 2. The next action
 
-**Thread A is done.** The owner closed Q2, Q5 and Q10 and set the worksheet
-scope rule, in S003 (ADR-0021, ADR-0022). Nothing on the agent side is waiting
-on an owner decision any more. Two threads remain.
+**Thread B — the experts. Unchanged, and now cheaper to satisfy.** Pass A
+content in the order at `eval/STAGE-0-INPUT-GUIDE.md` §10: pilot scope boundary
+first, then competency questions and prohibited uses. What is new is that Pass B
+no longer needs anything from anyone before it starts — run `tmk-worksheet`, hand
+over `data/derived/worksheet.md`, and annotation can begin on 216 chunks.
 
-**Thread B — the experts.** Now the *only* thread with a queue. Pass A content,
-in the order at `eval/STAGE-0-INPUT-GUIDE.md` §10: pilot scope boundary first,
-then competency questions and prohibited uses. Guide §3 explains why none of it
-is blocked. If only one hour is available, guide §10 says what to spend it on.
+**Thread C — agents. P5 (the harness) is now the critical path.** P10 and P11 sit
+behind it, and it is the Stage 0 deliverable that is entirely agent-owned. P4 is
+done, so nothing blocks it.
 
-**Thread C — agents. Start with P1; it is now the critical path.** Q2 is
-closed, so pinning the snapshot is buildable today, and P2, P6 and P9 all wait
-behind it. P3 (identifiers, candidate id included — Q10 closed), P4 (record
-schemas) and P12 (provenance model) are unblocked in full and need no decision
-from anyone.
+Suggested order for the next session:
 
-Then P1 → P2 → P6 → P9, which now runs all the way to a **printed worksheet**,
-because G1 is released and ADR-0022 states the rule. Prioritise the four
-packages marked *shortens the expert critical path* (P6, P7, P9, P10): with G1
-closed, every remaining gate is expert content, so the only lever left on the
-schedule is making that content cheaper to produce.
+1. **P5 — the evaluation harness.** Structural checks (schema validation, id
+   uniqueness, cross-reference resolution, category coverage) and resolution
+   checks (every `source_ref` resolves, every `span` lands inside its chunk's
+   `text` and matches the recorded surface exactly, every `source_content_hash`
+   is current). The loader gives you all of these directly. **Remember why it
+   must be red**: with zero gold records every check passes vacuously, so the
+   redness has to come from an explicit completeness gate (ADR-0018).
+2. **P10 — coverage and gap reporter.** Small, and it is what makes an hour of
+   expert time visibly move a number.
+3. **P11 — CI wiring.** Note the design problem it exists to solve: Stage 0
+   incompleteness is a reported state, malformed data is a build failure.
+4. **P7, P8 — the intake path** (workbook out, validated records in), so
+   annotations have somewhere to land.
 
-Keep §6 of the parallel track in mind — the Stage 2 stack is fixed (ADR-0019)
-and three packages must be built to accommodate it, even though Stage 2 itself
-stays behind G5.
+Then the track is exhausted and §7 of the parallel track applies: the correct
+report at that point is *"the container is finished and empty; the programme is
+waiting on Stage 0 content"* — not a search for more plumbing.
 
-Do not start Stage 2 extraction — no TextRank, YAKE, KeyBERT or spaCy run, not
-even "just to see the output". ADR-0010, and it is the mistake the roadmap's
-final recommendation warns against — tempting precisely because it is the first
-thing that produces visible output.
+**Still do not start Stage 2.** No TextRank, YAKE, KeyBERT or spaCy run, not even
+"just to see the output". ADR-0010. It is more tempting now than it was, because
+the loader makes it a twenty-line script.
 
 ## 3. Open questions — need a human
 
 | # | Question | Blocks | Raised |
 |---|---|---|---|
-| ~~Q1~~ | ~~What is the pilot scope?~~ **Answered S002: s 43** (ADR-0013). The *boundary* is now deliverable 1 — see Q8. | — | S001 |
-| Q8 | What is the s 43 **boundary**? Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. | All remaining Stage 0 **content**. Does not block the worksheet — ADR-0017, ADR-0022 | S002 |
-| ~~Q2~~ | ~~How does this repo get the upstream snapshot?~~ **Answered S003: pinned release download** (ADR-0004, confirmed by ADR-0021). | — | S001 |
+| ~~Q1~~ | ~~What is the pilot scope?~~ **Answered S002: s 43** (ADR-0013). The *boundary* is deliverable 1 — see Q8. | — | S001 |
+| Q8 | What is the s 43 **boundary**? Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. **Now answerable against numbers** — `tmk-recon` reports where the citing chunks sit and what each candidate rule costs. | All remaining Stage 0 **content**. Does not block the worksheet — ADR-0017, ADR-0022 | S002 |
+| ~~Q2~~ | ~~How does this repo get the upstream snapshot?~~ **Answered S003, built S004** (ADR-0004, ADR-0021, ADR-0026). | — | S001 |
 | Q3 | Which LLM is "agency-approved" for the Stage 2–4 extraction steps, and under what data-handling conditions may Manual text be sent to it? | Stages 2, 3, 4 | S001 |
-| Q4 | Who are the approving experts, and what does "approved" look like as a recorded artefact — a signed-off file in git, or an external register? | Stage 3 onward | S001 |
-| ~~Q5~~ | ~~Does ADR-0005 hold?~~ **Answered S003: yes** — upstream refs are canonical (confirmed by ADR-0021). | — | S001 |
-| Q6 | Case law is cited by the corpus but is not held as documents anywhere. Is acquiring decision texts in scope for this repo? | Stage 2 citation resolution, Stage 8 retrieval | S001 |
-| Q7 | What base IRI may the project mint under? `docs/IDENTIFIERS.md` proposes `https://data.ipaustralia.gov.au/tmk/`; persistent IRIs need control of that domain, which is an organisational call. | RDF serialisation only — deliberately not blocking anything else | S001 |
-| Q9 | **Narrowed S003.** ADR-0017 is confirmed and its rule is set (ADR-0022) — gate G1 released. Still open: does the owner accept **ADR-0016** (the parallel track itself) and **ADR-0018** (Stage 0 incompleteness reported as a state, malformed data fails the build)? | The harness's CI semantics only | S003 |
-| ~~Q10~~ | ~~Does ADR-0020 hold — drop `method` from the candidate id?~~ **Answered S003: yes** (confirmed by ADR-0021). `IDENTIFIERS.md` §3 now states the operative formula. | — | S003 |
+| Q4 | Who are the approving experts, and what does "approved" look like as a recorded artefact — a signed-off file in git, or an external register? **Sharper now:** every record schema requires `approved_by` and `approved_date`, and the harness will fail on their absence, so the answer decides what goes in those two fields. | Stage 3 onward; the completeness gate | S001 |
+| ~~Q5~~ | ~~Does ADR-0005 hold?~~ **Answered S003: yes** (ADR-0021). | — | S001 |
+| Q6 | Case law is cited by the corpus but is not held as documents anywhere. Is acquiring decision texts in scope for this repo? **Costed for the pilot:** 58 distinct decisions are cited from the 216 in-scope chunks. | Stage 2 citation resolution, Stage 8 retrieval | S001 |
+| Q7 | What base IRI may the project mint under? `docs/IDENTIFIERS.md` proposes `https://data.ipaustralia.gov.au/tmk/`; persistent IRIs need control of that domain, which is an organisational call. Still not blocking: it is one constant in `config.py`, overridable by `TMK_BASE_IRI`. | RDF serialisation only | S001 |
+| Q9 | Does the owner accept **ADR-0016** (the parallel track itself) and **ADR-0018** (Stage 0 incompleteness reported as a state, malformed data fails the build)? ADR-0018 becomes load-bearing the moment P5 is built, which is next. | The harness's CI semantics | S003 |
+| Q11 | **New, S004.** Seven ADRs from this session are agent-proposed: **0024** (candidate normalisation), **0026** (pin shape and schema-drift failure), **0027** (schemas shape-only, judgement fields nullable), **0028** (generated artefacts not committed), **0029** (code layout). None blocks anything; all are cheap to change now and progressively less so. | Nothing yet | S004 |
 
-Agent-proposed ADRs awaiting human confirmation: **0006, 0011, 0012, 0014,
-0016, 0018**. Confirmed in S003 by ADR-0021: **0004, 0005, 0017, 0020**.
+Agent-proposed ADRs awaiting human confirmation: **0006, 0011, 0012, 0014, 0016,
+0018, 0024, 0026, 0027, 0028, 0029**. (ADR-0023 and ADR-0025 are `derived` — they
+are forced by the corpus and by RFC 3986, not judgement calls.)
 
-**No agent work is blocked on a human decision any more.** Every remaining open
-question is either expert content (Q8), organisational (Q3, Q4, Q7), a scope
-question for later (Q6), or narrow enough not to block (Q9 — it changes how CI
-reports, not what gets built).
+**No agent work is blocked on a human decision.** Every remaining open question
+is expert content (Q8), organisational (Q3, Q4, Q7), scope for later (Q6), or a
+confirmation that changes nothing structural (Q9, Q11).
 
 ## 4. Do not redo these
 
-- **Do not re-parse the Manual HTML or the legislation `.docx`.** Upstream does it
-  deterministically and better. ADR-0002.
-- **Do not design a new identifier scheme.** ADR-0005 settled it against the
-  roadmap's illustrative form; argue with the ADR, don't invent a third.
+- **Do not re-parse the Manual HTML or the legislation `.docx`.** ADR-0002.
+- **Do not design a new identifier scheme.** ADR-0005, and `refs.py` now
+  implements it. Argue with the ADR, don't invent a third.
+- **Do not write a second ref parser, IRI minter or snapshot reader.** There is
+  exactly one of each, and the join depends on it staying that way.
+- **Do not "fix" a ref that fails validation.** `InvalidRef` means the ref was
+  constructed rather than read. Find the construction.
+- **Do not commit anything under `data/`** except `pin.json` and the README.
+  The worksheet and the reports are rebuildable (ADR-0028).
 - **Do not build a vector store or search index yet.** Stage 7 is five stages
   away and untestable without Stage 0.
-- **Do not add LegalRuleML.** Explicitly deferred, roadmap §7 / ADR-0009.
-- **Do not move or rename the two source documents again.** They were relocated
-  in S001 (ADR-0003); their content is unaltered.
+- **Do not add LegalRuleML.** ADR-0009.
+- **Do not fill a judgement field to make a check pass.** Null is a reportable
+  gap; a plausible value is a lie the harness will then certify.
 
 ## 5. Session log
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S004 — 2026-08-18 — phase one of the parallel track: seven packages, and a worksheet
+
+Built P1, P2, P3, P4, P6, P9 and P12. The repo went from documentation and an
+empty skeleton to a package that fetches a pinned corpus, loads it without losing
+a field, validates eight record types, and prints an annotation worksheet. 165
+tests, of which the corpus-wide ones skip cleanly without a snapshot.
+
+The most useful output is not the code. It is that **the expert critical path is
+now one command shorter**: `tmk-worksheet` prints 216 chunks with every ref and
+hash already on the page, and `tmk-recon` costs each candidate boundary rule, so
+Q8 can be answered against numbers instead of impressions.
+
+Three documented facts turned out not to hold against the corpus (Q-17, Q-18,
+Q-20), and one small thing about the pilot is worth knowing before gold records
+are written: s 43 has no numbered subsections, so a citation to "s 43(1)"
+resolves to nothing at all (Q-21). None of these was visible from prose.
+
+Two mechanisms earned their place immediately. The pin's corpus-count check
+rejected a wrong number in the first pin written; the template/schema drift check
+found that five gold record templates had no `approved_by`/`approved_date`,
+though the definition of done requires them on every record.
+
+Recorded ADR-0023 to ADR-0029, and QUIRKS Q-17 to Q-21. No legal content
+authored. No Stage 2 extraction run.
 
 ### S003 — 2026-08-17/18 — the parallel track; Stage 2 stack; four decisions closed
 

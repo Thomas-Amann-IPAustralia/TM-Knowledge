@@ -14,10 +14,18 @@ not invent, reformat or normalise them.
 
 | Kind | Form | Example |
 |---|---|---|
-| Page | `TMM/Part<NN>/<n>` | `TMM/Part22/1` |
-| Chunk | `TMM/Part<NN>/<n>/<n>/<n>` | `TMM/Part22/1/1/2` |
+| Page | `TMM/Part<NN>/<n>` | `TMM/Part22/1`, `TMM/Part9/x-relevant-legislation23` |
+| Chunk | page ref + a suffix | `TMM/Part22/1/1/2`, `TMM/Part9/2#1~1`, `TMM/Part26/6#3~2` |
 | Provision | `<INSTRUMENT>/<kind><number>` | `TMA1995/s41`, `TMR1995/r3A.3`, `TMR1995/sch2` |
-| Unit | provision ref + subdivision | `TMA1995/s41(3)(a)` |
+| — also | container, Schedule and front-matter forms | `TMR1995/pt17a/div8`, `TMR1995/sch3/item1`, `TMA1995/front` |
+| Unit | provision ref + subdivision, or `~<n>` | `TMA1995/s41(3)(a)`, `TMA1995/s43~1`, `TMR1995/sch3/item1/designated-owner` |
+
+**A ref does not say what level it addresses** (Q-18, ADR-0025). A page ref is a
+prefix of its chunks' refs and both admit slug segments; `TMR1995/sch3/item1` is
+a provision while `TMA1995/s128/prescribed-period` is a unit inside one. 228
+legislation refs in the pinned corpus cannot be placed by grammar alone.
+`refs.parse_ref` says so rather than guessing; the field a ref came out of, or
+the snapshot, settles it.
 
 Two invariants upstream enforces, worth knowing because violating them means you
 have constructed a ref rather than read one: an instrument must be able to hold
@@ -43,9 +51,14 @@ TMM/Part22/1/1/2   →  <BASE>ref/TMM/Part22/1/1/2
 TMA1995/s41(3)(a)  →  <BASE>ref/TMA1995/s41(3)(a)
 ```
 
-- Do **not** percent-encode. `(` and `)` are legal in an IRI path. Some tooling
-  will encode them anyway; a round-trip test (`ref → IRI → ref`) belongs in
-  `tests/` from the first commit that mints an IRI.
+- Do **not** percent-encode — **except `#`, which must be** (ADR-0023, Q-17).
+  `(`, `)`, `~`, `.` and `-` are legal in an IRI path and stay verbatim; some
+  tooling encodes them anyway, and the round-trip test in
+  `tests/unit/test_refs_corpus.py` is what catches that. But 498 of the corpus's
+  2,460 chunk refs contain a `#` (`TMM/Part26/6#3~2`), and a `#` opens a
+  fragment — left verbatim the IRI names a *different resource* plus a fragment
+  of it, silently, for one chunk in five. `to_iri` escapes it as `%23` and
+  escapes nothing else; `from_iri` reverses it.
 - Do **not** case-fold, slugify or rewrite separators.
 - The mapping is a function in one module. Nothing else constructs IRIs by string
   concatenation.
