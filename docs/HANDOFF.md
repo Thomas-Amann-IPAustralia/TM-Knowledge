@@ -3,7 +3,7 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-08-17 · session S003 · branch `claude/trademark-stage-0-dataset-gzmszn`
+**Last updated:** 2026-08-18 · session S003 · branch `claude/trademark-stage-0-dataset-gzmszn`
 
 ---
 
@@ -29,40 +29,42 @@ any missing extraction capability.
 
 **The experts are slow, so S003 wrote down what proceeds anyway.**
 `docs/roadmap/PARALLEL-TRACK-ROADMAP.md` (ADR-0016) holds twelve agent-side work
-packages needing no legal judgement, and — more usefully — the five **gates**
-saying where expert input actually becomes required. Read that file before
-concluding the repo is blocked. It is not; not yet.
+packages needing no legal judgement, and — more usefully — the **gates** saying
+where expert input actually becomes required. Read that file before concluding
+the repo is blocked. It is not.
+
+**Four decisions were closed in S003** (ADR-0021, ADR-0022): the snapshot is a
+pinned download, upstream refs are canonical, the candidate id drops `method`,
+and the worksheet scope rule is set. Gate G1 is released and P1 is now the
+critical path. The corollary is worth seeing clearly: **every gate that remains
+is expert content**, so nothing but expert time is between here and Stage 0.
 
 ## 2. The next action
 
-Two threads run in parallel. Neither waits on the other.
+**Thread A is done.** The owner closed Q2, Q5 and Q10 and set the worksheet
+scope rule, in S003 (ADR-0021, ADR-0022). Nothing on the agent side is waiting
+on an owner decision any more. Two threads remain.
 
-**Thread A — the owner, and only the owner.** Two decisions that are
-engineering or organisational, not legal, and therefore not blocked on the
-experts at all:
+**Thread B — the experts.** Now the *only* thread with a queue. Pass A content,
+in the order at `eval/STAGE-0-INPUT-GUIDE.md` §10: pilot scope boundary first,
+then competency questions and prohibited uses. Guide §3 explains why none of it
+is blocked. If only one hour is available, guide §10 says what to spend it on.
 
-1. **Resolve Q2** — how the snapshot is acquired. ADR-0004 proposes the answer
-   and needs only confirmation. This blocks more agent work than anything else
-   in the repo.
-2. **Approve a provisional worksheet scope rule** (ADR-0017). Not the pilot
-   boundary — just which chunks get printed for annotation. Deliberately
-   over-inclusive. This releases gate G1 without the experts.
+**Thread C — agents. Start with P1; it is now the critical path.** Q2 is
+closed, so pinning the snapshot is buildable today, and P2, P6 and P9 all wait
+behind it. P3 (identifiers, candidate id included — Q10 closed), P4 (record
+schemas) and P12 (provenance model) are unblocked in full and need no decision
+from anyone.
 
-**Thread B — the experts.** Unchanged: Pass A content, in the order at
-`eval/STAGE-0-INPUT-GUIDE.md` §10. Pilot scope boundary first, then competency
-questions and prohibited uses. Guide §3 explains why none of it is blocked.
-If only one hour is available, guide §10 says what to spend it on.
+Then P1 → P2 → P6 → P9, which now runs all the way to a **printed worksheet**,
+because G1 is released and ADR-0022 states the rule. Prioritise the four
+packages marked *shortens the expert critical path* (P6, P7, P9, P10): with G1
+closed, every remaining gate is expert content, so the only lever left on the
+schedule is making that content cheaper to produce.
 
-**Thread C — agents.** Work the parallel track, with §6 of it in mind — the
-Stage 2 stack is now fixed (ADR-0019) and three packages must be built to
-accommodate it, even though Stage 2 itself stays behind G5. P4 (record schemas)
-and P12 (provenance model) are unblocked right now and need no decision from
-anyone; so is P3 (identifiers) apart from the candidate id, which waits on Q10.
-Then P1 → P2 → P6 → P9, which is the chain that ends in a printed worksheet the
-experts can annotate. Prioritise the four packages marked
-*shortens the expert critical path* (P6, P7, P9, P10) over the ones that merely
-advance the code — a week of specialist time is itself part of why this is
-stuck.
+Keep §6 of the parallel track in mind — the Stage 2 stack is fixed (ADR-0019)
+and three packages must be built to accommodate it, even though Stage 2 itself
+stays behind G5.
 
 Do not start Stage 2 extraction — no TextRank, YAKE, KeyBERT or spaCy run, not
 even "just to see the output". ADR-0010, and it is the mistake the roadmap's
@@ -74,23 +76,23 @@ thing that produces visible output.
 | # | Question | Blocks | Raised |
 |---|---|---|---|
 | ~~Q1~~ | ~~What is the pilot scope?~~ **Answered S002: s 43** (ADR-0013). The *boundary* is now deliverable 1 — see Q8. | — | S001 |
-| Q8 | What is the s 43 **boundary**? Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. | All remaining Stage 0 **content**. No longer blocks the Pass B worksheet — ADR-0017 | S002 |
-| Q2 | How does this repo get the upstream snapshot — git submodule, pinned release download, or vendored copy? ADR-0004 proposes pinned download; unconfirmed. | Any code that reads data | S001 |
+| Q8 | What is the s 43 **boundary**? Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. | All remaining Stage 0 **content**. Does not block the worksheet — ADR-0017, ADR-0022 | S002 |
+| ~~Q2~~ | ~~How does this repo get the upstream snapshot?~~ **Answered S003: pinned release download** (ADR-0004, confirmed by ADR-0021). | — | S001 |
 | Q3 | Which LLM is "agency-approved" for the Stage 2–4 extraction steps, and under what data-handling conditions may Manual text be sent to it? | Stages 2, 3, 4 | S001 |
 | Q4 | Who are the approving experts, and what does "approved" look like as a recorded artefact — a signed-off file in git, or an external register? | Stage 3 onward | S001 |
-| Q5 | Does ADR-0005 (adopt upstream refs as canonical IDs, drop the roadmap's `tmem:manual/2026-01/...` form) hold? It contradicts the roadmap text. | Everything with an identifier | S001 |
+| ~~Q5~~ | ~~Does ADR-0005 hold?~~ **Answered S003: yes** — upstream refs are canonical (confirmed by ADR-0021). | — | S001 |
 | Q6 | Case law is cited by the corpus but is not held as documents anywhere. Is acquiring decision texts in scope for this repo? | Stage 2 citation resolution, Stage 8 retrieval | S001 |
 | Q7 | What base IRI may the project mint under? `docs/IDENTIFIERS.md` proposes `https://data.ipaustralia.gov.au/tmk/`; persistent IRIs need control of that domain, which is an organisational call. | RDF serialisation only — deliberately not blocking anything else | S001 |
-| Q9 | Does the owner accept the parallel track and its two load-bearing calls — ADR-0017 (worksheet printed from an over-inclusive provisional scope rule, approved by the owner without the experts) and ADR-0018 (Stage 0 incompleteness reported, malformed data fails the build)? ADR-0017 also needs the rule itself. | P9's real run (gate G1); the harness's CI semantics | S003 |
-| Q10 | Does ADR-0020 hold — drop `method` from the content-addressed candidate id, and carry the methods that found a span as a set field? Forced by ADR-0019 putting three extractors on the same text. | Parallel-track P3's candidate id, and every `review/` record after it | S003 |
+| Q9 | **Narrowed S003.** ADR-0017 is confirmed and its rule is set (ADR-0022) — gate G1 released. Still open: does the owner accept **ADR-0016** (the parallel track itself) and **ADR-0018** (Stage 0 incompleteness reported as a state, malformed data fails the build)? | The harness's CI semantics only | S003 |
+| ~~Q10~~ | ~~Does ADR-0020 hold — drop `method` from the candidate id?~~ **Answered S003: yes** (confirmed by ADR-0021). `IDENTIFIERS.md` §3 now states the operative formula. | — | S003 |
 
-Agent-proposed ADRs awaiting human confirmation: **0004, 0005, 0006, 0011, 0012,
-0014, 0016, 0017, 0018, 0020**.
+Agent-proposed ADRs awaiting human confirmation: **0006, 0011, 0012, 0014,
+0016, 0018**. Confirmed in S003 by ADR-0021: **0004, 0005, 0017, 0020**.
 
-Q2 has been promoted in priority: it now blocks the Pass B worksheet, which is
-the next substantial agent deliverable. It is an infrastructure decision, not a
-legal one — it does not wait on the experts, and it is the cheapest thing on the
-board to close.
+**No agent work is blocked on a human decision any more.** Every remaining open
+question is either expert content (Q8), organisational (Q3, Q4, Q7), a scope
+question for later (Q6), or narrow enough not to block (Q9 — it changes how CI
+reports, not what gets built).
 
 ## 4. Do not redo these
 
@@ -109,7 +111,7 @@ board to close.
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
 
-### S003 — 2026-08-17 — the parallel track; Stage 2 stack fixed
+### S003 — 2026-08-17/18 — the parallel track; Stage 2 stack; four decisions closed
 
 Owner reported the experts are slow and asked what could proceed meanwhile.
 Wrote `docs/roadmap/PARALLEL-TRACK-ROADMAP.md` (ADR-0016): twelve agent-side
@@ -134,6 +136,17 @@ to produce is invisible — ADR-0020 proposes dropping `method`, and P3 must wai
 on Q10. And spaCy's OntoNotes labels collide by name with two gold entity types
 while meaning something else (Q-16), which is how NER output would quietly
 become the taxonomy.
+
+Owner then answered four open questions when asked (ADR-0021, authority human):
+Q2 pinned release download, Q5 upstream refs canonical, Q10 drop `method` from
+the candidate id, and ADR-0017 confirmed with its rule set in ADR-0022 — every
+chunk citing `TMA1995/s43` or a unit beneath it, plus page-mates, at every
+`certainty` value. `IDENTIFIERS.md` §3 went from proposal to operative formula.
+
+That leaves the board in a shape worth noticing: **no agent work is blocked on a
+human decision**, P1 is the critical path, and all four remaining gates are
+expert content. From here the only lever on the schedule is making that content
+cheaper to produce — P6, P7, P9, P10.
 
 No legal content authored. No code, no data. Nothing executed.
 

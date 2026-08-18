@@ -85,7 +85,7 @@ commits and no published links, so the cost is nil. Do not move them again.
 
 ## ADR-0004 — The upstream snapshot is fetched, pinned and not committed here
 
-**Date** 2026-08-04 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q2
+**Date** 2026-08-04 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0021** (was provisional, HANDOFF Q2)
 
 **Context.** Three options: git submodule, a pinned release archive downloaded
 into an ignored directory, or a vendored copy committed into this repo.
@@ -108,7 +108,7 @@ this repo's docs are only meaningful next to the pinned version.
 
 ## ADR-0005 — Upstream refs are the canonical identifiers; IRIs are minted from them
 
-**Date** 2026-08-04 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q5
+**Date** 2026-08-04 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0021** (was provisional, HANDOFF Q5)
 
 **Context.** The roadmap illustrates stable identifiers as
 `tmem:manual/2026-01/chapter-4/section-3/paragraph-12`. Upstream already emits
@@ -390,7 +390,7 @@ estimates, not commitments.
 
 ## ADR-0017 — The Pass B worksheet is generated from an over-inclusive provisional scope rule
 
-**Date** 2026-08-17 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q9
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0021**; the rule itself is ADR-0022 (was provisional, HANDOFF Q9)
 
 **Context.** The Pass B worksheet — every in-scope chunk printed with its
 `chunk_ref`, `heading_path`, `content_hash` and text — is the artefact that lets
@@ -544,7 +544,7 @@ direction, so the disagreements are informative rather than noise.
 
 ## ADR-0020 — The candidate id is content-addressed without the method
 
-**Date** 2026-08-17 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q10
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0021** (was provisional, HANDOFF Q10)
 
 **Context.** `IDENTIFIERS.md` §3 mints a machine-generated candidate id as
 `sha256(source_ref | span_start | span_end | method | normalised_value)`, so that
@@ -586,3 +586,86 @@ representation of what it is.
 this is agent-proposed and provisional. Parallel-track **P3 must not implement
 the §3 formula until Q10 is closed** — it is one of the few genuinely
 order-dependent things on that track.
+
+---
+
+## ADR-0021 — Owner confirmations: ADR-0004, ADR-0005, ADR-0017 and ADR-0020
+
+**Date** 2026-08-18 · **Authority** human · **Status** accepted
+
+**Context.** Six agent-proposed ADRs stood provisional, each flagged in
+`HANDOFF.md` §3 as awaiting the owner. Provisional decisions are load-bearing —
+code gets written against them — so leaving them open indefinitely means the
+repo is built on assumptions nobody has ratified.
+
+**Decision.** The repo owner confirmed four, in session S003:
+
+| ADR | Now settled as | Closes |
+|---|---|---|
+| **0004** | The upstream snapshot is a **pinned release download** into `data/upstream/`, out of git, with `extractor_version` and the upstream commit SHA in a tracked manifest | **Q2** |
+| **0005** | **Upstream refs are canonical.** `TMM/Part22/1/1/2` and `TMA1995/s43` are the identifiers; IRIs are minted by prefixing them; the roadmap's `tmem:manual/2026-01/…` form is not used | **Q5** |
+| **0017** | The Pass B worksheet is printed **now**, from an over-inclusive provisional scope rule set by the owner, without waiting on the expert boundary. The rule itself is ADR-0022 | **Q9, in part** — gate G1 released |
+| **0020** | The content-addressed candidate id **drops `method`** from the hash; the methods that found a span become a set field | **Q10** |
+
+Each of the four keeps its original text and reasoning; what changed is its
+authority, from `agent-proposed` to confirmed. Rather than edit four past
+entries — `DECISIONS.md` is append-only — each carries a one-line
+`Confirmed by ADR-0021` annotation, which is the same mechanism the file's
+header already sanctions for `Superseded by`.
+
+**Still open, deliberately.** The owner was asked about ADR-0017 only, so the
+rest of Q9 stands: **ADR-0016** (the parallel track itself) and **ADR-0018**
+(Stage 0 incompleteness reported, malformed data fails the build) remain
+agent-proposed. So do **ADR-0006**, **ADR-0011**, **ADR-0012** and **ADR-0014**,
+which were not put. Q3, Q4, Q6, Q7 and Q8 are untouched.
+
+**Consequences.** Parallel-track **P1 is unblocked** and is now the critical
+path — it gates P2, P6 and P9. **P3 is unblocked in full**, candidate id
+included. `IDENTIFIERS.md` §3 is updated from a proposal to the operative
+formula. Nothing here touches Stage 0's content or ADR-0010: the wall at G5
+stands exactly where it did.
+
+---
+
+## ADR-0022 — The provisional worksheet scope rule
+
+**Date** 2026-08-18 · **Authority** human · **Status** accepted — provisional by design
+
+**Context.** ADR-0017 established that the Pass B worksheet is printed from a
+deliberately over-inclusive machine rule the owner sets alone, rather than
+waiting on `eval/pilot-scope.md`. It did not say what the rule is. Parallel-track
+P9 cannot run on a principle.
+
+**Decision.** The worksheet prints:
+
+1. Every chunk whose `provisions[]` contains a ref for **`TMA1995/s43`** —
+   matching the provision **and any unit beneath it**, so `TMA1995/s43(1)`,
+   `TMA1995/s43(1)(a)` and the bare `TMA1995/s43` all qualify. Matching is on
+   the ref grammar (`IDENTIFIERS.md` §1), not on a substring: `TMA1995/s430`
+   must not match if the corpus ever grows one.
+2. Plus **every other chunk sharing a `page_ref`** with a chunk selected by (1)
+   — the page-mates.
+
+Edges of **every** `extraction` and `certainty` value are included: `href` and
+`regex`, `explicit`, `default` and `ambiguous` alike. An `ambiguous` edge is a
+reason to print a chunk, never a reason to drop one.
+
+**Rationale.** Page-mates are in because the Manual's guidance frequently sits in
+the chunks around the one that carries the citation — an instruction, then its
+exceptions, then a worked example, with the provision named once at the top.
+Selecting only citing chunks would print the sentence and drop the practice.
+
+Including ambiguous and default edges follows Q-07: those are upstream refusing
+to guess, and a worksheet that silently omits them hides exactly the material a
+human is needed for.
+
+**Consequences.** Worksheet scope is **not** pilot scope, and the two must never
+be conflated — the worksheet header states the rule, the pinned
+`extractor_version`, and that it is provisional. When the expert boundary lands
+in `eval/pilot-scope.md`, the worksheet is regenerated and the delta reported;
+annotations made against rows later ruled out of scope are parked, not deleted,
+exactly as `pilot_in_scope: false` parks a competency question.
+
+The rule is expected to over-select, and that is the design. If P6's counts show
+it selecting an unworkable volume, the answer is to report the number and ask,
+not to quietly tighten the rule.

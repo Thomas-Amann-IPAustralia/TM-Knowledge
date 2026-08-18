@@ -100,22 +100,37 @@ pipeline over unchanged input produces the same identifiers and does not litter
 `review/` with duplicates:
 
 ```
-id = first 16 hex of sha256( source_ref | span_start | span_end | method | normalised_value )
+id = first 16 hex of sha256( source_ref | span_start | span_end | normalised_value )
 tmka:cand-3f9a1c04e7b2d5a8
 ```
 
 The consequence is the desirable one: a re-run over unchanged input is a no-op,
 and any new identifier means something genuinely changed — the source text, the
-span, the method, or the extracted value.
+span, or the extracted value.
 
-> **Under review — do not implement this formula yet. ADR-0020, HANDOFF Q10.**
-> ADR-0019 put three keyphrase extractors on the same text, so `method` in the
-> hash mints three ids for one span: three `review/` entries for one candidate,
-> and the cross-method agreement that the ensemble exists to capture invisible on
-> all of them. ADR-0020 proposes dropping `method` from the hash — identity
-> becomes `source_ref | span_start | span_end | normalised_value`, and the methods
-> that found it become a set-valued field carrying each one's score and model
-> version. Parallel-track P3 implements this module; it must wait on Q10.
+**`method` is deliberately not in the hash** (ADR-0020, confirmed by ADR-0021).
+ADR-0019 runs three keyphrase extractors over the same text; hashing the method
+would mint three ids for one span, scatter one candidate across three `review/`
+entries, and hide the cross-method agreement the ensemble exists to produce.
+Identity answers *which thing is this* — the term at that span. Which detectors
+fired is evidence about it:
+
+```yaml
+id: tmka:cand-3f9a1c04e7b2d5a8
+extraction_methods:
+  - {method: yake,     score: 0.031}
+  - {method: textrank, score: 0.88}
+```
+
+Each entry carries its own score and, for model-backed methods, the model
+identifier and version (ADR-0019 consequence 2). `source_span` and
+`review_status` stay at record level, so an approval attaches to the candidate
+rather than to one detector's view of it.
+
+Adding a fourth extractor therefore *mutates* existing records instead of
+re-minting every candidate in the repo. Byte-stability is accordingly stated as:
+**unchanged input plus an unchanged extractor set produces byte-identical
+output.**
 
 ## 4. Where refs live and where IRIs live
 

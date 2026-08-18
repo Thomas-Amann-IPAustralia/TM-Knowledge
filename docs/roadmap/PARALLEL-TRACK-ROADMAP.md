@@ -2,9 +2,10 @@
 
 **Status:** project-authored. Not a source document — unlike
 `AUTOMATION-FIRST-ROADMAP.md`, this file may be edited as the track moves.
-**Governing decisions:** ADR-0016 (this track exists), ADR-0017 (over-inclusive
-worksheet scope), ADR-0018 (how the harness fails). §6 records what ADR-0019's
-Stage 2 stack changes here.
+**Governing decisions:** ADR-0016 (this track exists), ADR-0017 + ADR-0022
+(over-inclusive worksheet scope, and the rule), ADR-0018 (how the harness
+fails), ADR-0021 (the owner's confirmations). §6 records what ADR-0019's Stage 2
+stack changes here.
 
 ---
 
@@ -38,12 +39,13 @@ prioritising over the packages that merely advance the code.
 
 ## 2. The gates — when expert input actually becomes required
 
-The single most useful thing in this file. There is not one gate; there are
-five, and only the last is a hard wall.
+The single most useful thing in this file. There is not one gate; there were
+five, and only the last is a hard wall. **G1 was released on 2026-08-18** — four
+remain, all of them expert content.
 
 | Gate | Needs from a human | Releases | What stalls without it |
 |---|---|---|---|
-| **G1** | A scope rule for the worksheet — *not* the full boundary. The **owner** can set this alone; see §4, P9 and ADR-0017 | The real Pass B worksheet run | P9's output only. P9 itself can be built and tested before G1 |
+| ~~**G1**~~ | ~~A scope rule for the worksheet~~ **Released 2026-08-18** — owner set the rule, ADR-0022 | The real Pass B worksheet run | — |
 | **G2** | Pass A content: competency questions, prohibited uses, concept labels and `not_labels` | Content for the prohibited-inference tests; the first coverage report with anything in it | Nothing structural. The harness runs, and reports Stage 0 as incomplete |
 | **G3** | Pass B content: gold entities, relationships, graded relevance judgements | The harness's most valuable checks — ref resolution, span-lands-on-text, content-hash currency | Those checks exist but have nothing to check |
 | **G4** | Thresholds in `eval/measures.md` | Pass/fail semantics for every metric | Metrics can be computed but not judged. Nothing may be called "good enough" |
@@ -53,10 +55,12 @@ Read that table as: the experts' first deliverable does not block agent work at
 all, their content becomes *useful* at G2–G3, and the programme only actually
 stops at G5.
 
-**The cheapest unlock is G1, and it does not need the experts.** It needs the
-owner to approve a machine rule for which chunks get printed on the annotation
-worksheet. That is not the pilot boundary and does not pre-empt it — see
-ADR-0017.
+**G1 is closed and it never needed the experts.** The owner set a machine rule
+for which chunks get printed on the annotation worksheet (ADR-0022) —
+deliberately over-inclusive, and not the pilot boundary. What that leaves is
+worth stating plainly: **every remaining gate is expert content**, so from here
+the only lever on the schedule is making that content cheaper to produce, which
+is what P6, P7, P9 and P10 are for.
 
 ---
 
@@ -102,15 +106,15 @@ it is an engineering or organisational one, marked **owner decision**.
 
 ### P1 — Pin the upstream snapshot
 
-**Size** M · **Blocked by** HANDOFF Q2 (owner decision) · **Unblocks** P2, P6,
-P9, half of P5
+**Size** M · **Blocked by** nothing — **Q2 closed, ADR-0021** · **Unblocks** P2,
+P6, P9, half of P5 · **Now the critical path**
 
-Resolve Q2 and implement it. ADR-0004 already proposes the answer — fetch a
-pinned upstream release into `data/upstream/`, keep the directory out of git,
-record `extractor_version` and the upstream commit SHA in a tracked manifest —
-and it is provisional only because no human has confirmed it. Confirming or
-overturning it is an infrastructure call, not a trade marks one, so it does not
-wait on the experts.
+Settled and ready to build. ADR-0004, confirmed by ADR-0021: fetch a pinned
+upstream release into `data/upstream/`, keep the directory out of git, record
+`extractor_version` and the upstream commit SHA in a tracked manifest.
+
+This is now the **critical path**. Three packages and the worksheet run wait
+behind it, and nothing waits behind them except expert time.
 
 The fetch must be **scripted, not documented as manual steps** (ADR-0004's own
 consequence clause). A bare clone plus one command must produce a working
@@ -154,8 +158,8 @@ loss, the join reproduces upstream's 97% coverage figure exactly, and
 
 ### P3 — Identifier module
 
-**Size** S · **Blocked by** HANDOFF **Q10** for the candidate id only ·
-**Unblocks** every later package that writes an id
+**Size** S · **Blocked by** nothing — **Q10 closed, ADR-0021** · **Unblocks**
+every later package that writes an id
 
 `IDENTIFIERS.md` made fully executable: ref parsing and validation (including
 upstream's two invariants — instrument-can-hold-kind and
@@ -168,12 +172,11 @@ constant; nothing else hard-codes it, and refs — not IRIs — are what gets st
 everywhere except RDF (`IDENTIFIERS.md` §4). Ref handling and IRI minting can be
 finished in full while the domain question stays open.
 
-**It is blocked by Q10 on one point.** The content-addressed candidate id in
-`IDENTIFIERS.md` §3 hashes `method`, and ADR-0019 put three extractors on the
-same text — as written the formula mints three ids for one span. ADR-0020
-proposes dropping `method`. Build the rest of the module; leave the candidate id
-until Q10 closes. This is one of the few genuinely order-dependent things on the
-track, and it is cheap now and expensive after `review/` has content.
+**The candidate id is now settled** and `IDENTIFIERS.md` §3 states the
+operative formula: `source_ref | span_start | span_end | normalised_value`, with
+the methods that found a span as a set field. Implement it as written — the
+`method` term is out on purpose (ADR-0020), and putting it back scatters one
+candidate across three `review/` entries.
 
 **Done when** the `ref → IRI → ref` round-trip test passes without
 percent-encoding, invalid refs are rejected with a loud error rather than
@@ -314,7 +317,7 @@ rewrites nothing.
 
 ### P9 — Pass B worksheet generator
 
-**Size** M · **Blocked by** P1, P2 to build; **G1** to run for real ·
+**Size** M · **Blocked by** P1, P2 — **G1 is released** (ADR-0022) ·
 **Shortens the expert critical path**
 
 The highest-value expert-facing artefact in Stage 0: every in-scope chunk
@@ -322,12 +325,19 @@ printed with its `chunk_ref`, `heading_path`, `content_hash` and full text, in a
 form that can be highlighted and commented. The owner should never type a ref or
 a hash by hand, and with this they never do.
 
-**Build it now.** Run it against a deliberately over-inclusive provisional scope
-rule — every chunk citing the pilot provision, plus its page-mates — and mark
-the output provisional. An over-inclusive worksheet costs the expert a scroll
-past irrelevant rows; an under-inclusive one silently removes material from the
-gold set and corrupts the recall figure. Given that asymmetry, waiting for the
-exact boundary before printing anything is the wrong trade. ADR-0017.
+**The scope rule exists — build it and run it.** ADR-0022 sets it: every chunk
+whose `provisions[]` carries `TMA1995/s43` **or any unit beneath it**, matched on
+the ref grammar rather than by substring, plus every chunk sharing a `page_ref`
+with one of those. Edges of every `extraction` and `certainty` value are in —
+`ambiguous` is a reason to print a chunk, never a reason to drop one (Q-07).
+
+The output is marked provisional and its header states the rule and the pinned
+`extractor_version`. Worksheet scope is not pilot scope; when the expert
+boundary lands the worksheet is regenerated and the delta reported, and
+annotations against rows later ruled out are parked rather than deleted.
+
+If the volume comes out unworkable, report the number and ask — do not quietly
+tighten the rule (ADR-0022).
 
 **Done when** the worksheet regenerates deterministically, every printed ref
 resolves, every printed hash matches the pinned snapshot, and the header states
@@ -401,28 +411,29 @@ shorten the expert's critical path, because that is the binding constraint.
    ├─ P4 schemas ──────┤
    └─ P12 provenance ──┘
               │
-   P1 pin snapshot  ←── owner decision on Q2
+   P1 pin snapshot  ←── CRITICAL PATH (Q2 closed)
               │
    P2 loader
               │
       ┌───────┴────────┐
    P6 recon        P9 worksheet (build)
       │                │
-   ▶ owner sets scope rule (G1) ──▶ P9 (run) ──▶ expert annotation can begin
+   G1 released (ADR-0022) ────▶ P9 (run) ──▶ expert annotation can begin
       │
    P7 workbook ─▶ P8 transcription
               │
    P5 harness ─▶ P10 coverage ─▶ P11 CI
 ```
 
-1. **P3, P4, P12** — genuinely unblocked, start today, no decision needed.
-2. **P1** — needs one owner decision on Q2. Chase this before chasing the
-   experts; it blocks more.
+1. **P1** — now the critical path, and unblocked. Everything below waits on it.
+2. **P3, P4, P12** — unblocked, no decision needed, and P3's candidate id is
+   settled.
 3. **P2**, then **P6**. P6's volume numbers are what make the boundary decision
-   answerable.
-4. **P9 build**, then push for **G1** and run it. From here the experts have
-   something to annotate, which is the point at which Pass B stops being
-   hypothetical.
+   answerable — and they are now also the check on whether ADR-0022's rule
+   selects a workable number of chunks.
+4. **P9**, built and run. G1 is released, so this ends in a printed worksheet:
+   the point at which Pass B stops being hypothetical and the experts have
+   something in front of them.
 5. **P7, P8** — the intake path, so expert output has somewhere to land.
 6. **P5**, then **P10, P11**.
 
@@ -481,5 +492,5 @@ nobody has to write YAML, and an hour of expert time visibly moves a counter.
 `eval/STAGE-0-INPUT-GUIDE.md` (what the experts supply; §7 the definition of
 done, §10 the order of work) · `docs/ROADMAP-STATUS.md` (the status board) ·
 `docs/HANDOFF.md` §3 (the open questions, including Q2) ·
-`docs/DECISIONS.md` ADR-0010, ADR-0016, ADR-0017, ADR-0018, ADR-0019, ADR-0020 ·
+`docs/DECISIONS.md` ADR-0010, ADR-0016 to ADR-0022 ·
 `docs/QUIRKS.md` Q-05, Q-06, Q-07, Q-11, Q-14, Q-16
