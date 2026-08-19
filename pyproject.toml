@@ -18,7 +18,11 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-test = ["pytest>=8.0"]
+test = ["pytest>=8.0", "openpyxl>=3.1"]
+# The intake path (P7, P8) writes and reads .xlsx. Optional on purpose: it is
+# the only thing in the repo that needs a spreadsheet library, and the core
+# install stays at three dependencies. ADR-0035 — raise it if that is wrong.
+intake = ["openpyxl>=3.1"]
 
 [project.scripts]
 tmk-fetch-upstream = "tm_knowledge.upstream.fetch:main"
@@ -26,6 +30,8 @@ tmk-recon = "tm_knowledge.stage0.cli:recon"
 tmk-worksheet = "tm_knowledge.stage0.cli:worksheet"
 tmk-harness = "tm_knowledge.stage0.cli:harness"
 tmk-coverage = "tm_knowledge.stage0.cli:coverage"
+tmk-workbook = "tm_knowledge.stage0.cli:workbook"
+tmk-transcribe = "tm_knowledge.stage0.cli:transcribe"
 
 [project.urls]
 Homepage = "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge"

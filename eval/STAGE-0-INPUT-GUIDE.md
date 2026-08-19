@@ -573,10 +573,23 @@ an examiner rely on this without checking the source?*
 **Do not write YAML.** The shapes above are how records end up stored; they are
 not how you have to produce them.
 
-Any of these work, and an agent will transcribe, validate and file:
+**There is now a workbook.** Run `tmk-workbook` (or ask an agent to) and you get
+`data/derived/stage0-intake.xlsx`: one sheet per record type, in the order this
+section explains them, with every fixed-vocabulary field as a dropdown so an
+out-of-vocabulary value cannot be typed by accident. It ships **empty** — there
+are no example rows, deliberately, because a plausible filled row is the thing
+most likely to be copied. The rules for filling it in are on its first sheet.
+Hand it back and `tmk-transcribe` turns it into validated records, reporting
+every blank judgement field rather than filling one.
 
-- A spreadsheet, one sheet per record type. Probably the best fit for entities
-  and relationships.
+Two sheets are continuations rather than record types: `GS--relevant` holds a
+search question's graded passages and `GX--expected_inferences` holds a
+reasoning expectation's inferences, one row each, linked by `parent_id`.
+
+Any of these also work, and an agent will transcribe, validate and file:
+
+- A spreadsheet of your own, one sheet per record type. Probably the best fit
+  for entities and relationships.
 - Prose in a document, or a marked-up copy of the Pass B worksheet.
 - A recorded or transcribed conversation. Interview-style elicitation is often
   faster than form-filling for concepts and prohibited uses, and it captures the
@@ -585,7 +598,10 @@ Any of these work, and an agent will transcribe, validate and file:
 
 What the transcription **cannot** invent: any field that is a judgement. If you
 leave `not_labels` empty, it stays empty and gets reported as a coverage gap. If
-your relationship has no `modality`, an agent will ask rather than guess.
+your relationship has no `modality`, an agent will ask rather than guess. This is
+now enforced rather than promised: a row whose value sits outside a fixed
+vocabulary is rejected and listed by sheet and row number, never snapped to the
+nearest allowed value.
 
 Every record needs `approved_by` and `approved_date`. That is the recorded human
 decision required by CLAUDE.md rule 4 — it is what distinguishes this content
@@ -698,7 +714,9 @@ Order matters more than speed. Each step makes the next one cheaper.
    matter, which defines the Pass B worksheet.
 3. **Prohibited uses** — same session if possible. They are easier to elicit
    while the questions are fresh, and they bound the retrieval questions.
-4. *(Agents: pin the snapshot, generate the worksheet.)*
+4. *(Agents: pin the snapshot, generate the worksheet and the intake
+   workbook — `tmk-fetch-upstream`, `tmk-worksheet`, `tmk-workbook`. All three
+   are done and re-runnable.)*
 5. **Concepts** — Pass A labels first, then attach `definition_sources` from the
    worksheet.
 6. **Entities** — the bulk of the volume, but fast per record with the worksheet

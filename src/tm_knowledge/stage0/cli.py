@@ -1,4 +1,5 @@
-"""Commands: `tmk-recon`, `tmk-worksheet`, `tmk-harness` and `tmk-coverage`.
+"""Commands: `tmk-recon`, `tmk-worksheet`, `tmk-harness`, `tmk-coverage`,
+`tmk-workbook` and `tmk-transcribe`.
 
 All four write into `data/derived/`, which is git-ignored and always rebuildable
 — they are derivations of the pinned snapshot and of `eval/gold/`, so committing
@@ -17,6 +18,10 @@ because two of them mean opposite things (ADR-0018):
 CI passes `--allow-incomplete`, which maps 3 to 0 while still printing every
 gap. That is the whole of ADR-0018's separation, in one flag: a permanently red
 pipeline trains everyone to ignore it, and the failure that matters is 1.
+
+`tmk-transcribe` is the other one to read before running: it writes into
+`eval/gold/`, which is approved space, so it does a dry run unless given
+`--write`.
 """
 
 from __future__ import annotations
@@ -182,6 +187,82 @@ def coverage(argv: list[str] | None = None) -> int:
     print(report.summary())
     print(f"wrote {path}")
     return 1 if report.defects else 0
+
+
+def workbook(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        prog="tmk-workbook",
+        description=(
+            "Generate the Stage 0 intake workbook from eval/schemas/. One sheet per "
+            "record type, enum cells as dropdowns, and no example rows."
+        ),
+    )
+    parser.add_argument("--out", type=Path, default=DERIVED / "stage0-intake.xlsx")
+    args = parser.parse_args(argv)
+
+    from tm_knowledge.stage0 import workbook as workbook_module
+
+    args.out.parent.mkdir(parents=True, exist_ok=True)
+    path = workbook_module.write(args.out)
+    sheets = workbook_module.sheets()
+    print(
+        f"{len([s for s in sheets if not s.is_child])} record sheets and "
+        f"{len([s for s in sheets if s.is_child])} continuation sheets"
+    )
+    print(f"wrote {path}")
+    return 0
+
+
+def transcribe(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        prog="tmk-transcribe",
+        description=(
+            "Read a filled intake workbook into eval/gold/. Reshapes; never "
+            "supplies. Dry run unless --write is given."
+        ),
+    )
+    parser.add_argument("workbook", type=Path)
+    parser.add_argument("--gold-dir", type=Path, default=None)
+    parser.add_argument(
+        "--write",
+        action="store_true",
+        help="actually write into eval/gold/. Without it, nothing is written and "
+        "the command reports what would change.",
+    )
+    args = parser.parse_args(argv)
+
+    from tm_knowledge.stage0 import transcribe as transcribe_module
+
+    try:
+        result = transcribe_module.read_workbook(args.workbook)
+    except transcribe_module.WorkbookMismatch as error:
+        print(f"refusing to read: {error}", file=sys.stderr)
+        return 2
+
+    if result.problems:
+        print(f"\nREJECTED ROWS ({len(result.problems)}) — not written, and not guessed at")
+        for problem in result.problems:
+            print(f"  {problem}")
+
+    if result.blanks:
+        print(f"\nBLANK JUDGEMENT FIELDS ({len(result.blanks)}) — reported, never filled")
+        for record_type, identifier, name in result.blanks:
+            print(f"  {identifier} ({record_type}): {name}")
+
+    if result.empty_sheets:
+        print(
+            "\nEMPTY SHEETS — left untouched: "
+            + ", ".join(sorted(result.empty_sheets))
+        )
+
+    print(f"\n{result.summary()}")
+    for path, outcome in transcribe_module.write_records(
+        result, args.gold_dir, write=args.write
+    ):
+        print(f"  {outcome}: {path}")
+    if not args.write and result.records:
+        print("\nDry run. Re-run with --write to put these into eval/gold/.")
+    return 1 if result.problems else 0
 
 
 if __name__ == "__main__":  # pragma: no cover

@@ -1022,3 +1022,105 @@ means adding a ref field to a schema automatically puts it under the checks.
 express a ref — `$ref` by `$id`, `$ref` by fragment, `items`, `properties`,
 `oneOf`. A schema that expresses one some other way would go unchecked, so
 `test_ref_paths_find_the_nested_ones` pins the four shapes that exist today.
+
+---
+
+## ADR-0035 — `openpyxl` is an optional extra, not a core dependency
+
+**Date** 2026-08-19 · **Authority** agent-proposed · **Status** provisional — the dependency is the owner's call
+
+**Context.** P7 requires a spreadsheet workbook with enum dropdowns.
+`pyproject.toml` carries a standing note that adding a dependency is a decision
+to raise rather than to make, and the core install is three packages.
+
+**Decision.** `openpyxl` is declared under two optional extras — `intake`, for
+anyone using the workbook, and `test`, so CI exercises the round trip. Neither
+`pip install -e .` nor any module outside `workbook.py` and `transcribe.py`
+touches it, and both import it inside the function that needs it so a missing
+install produces one sentence of advice rather than an ImportError at startup.
+
+**Rationale.** `.xlsx` with real dropdowns is the format the guide's §6 promise
+depends on — "do not write YAML" is only true if the alternative validates as
+you type — and openpyxl is the only maintained pure-Python writer for it. CSV
+would drop the dropdowns, which is precisely the part that stops an
+out-of-vocabulary value being invented. But nothing else in the repo needs it,
+so it does not belong in the core install.
+
+**Consequences.** If the owner would rather not carry the dependency at all, the
+fallback is CSV plus a validation pass after the fact, which moves the error
+from the moment of typing to the moment of transcription. Raised in HANDOFF §3.
+
+---
+
+## ADR-0036 — How a record becomes a spreadsheet: dotted columns, newline lists, child sheets
+
+**Date** 2026-08-19 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** Three record shapes do not fit a flat grid: nested objects
+(`expected_sources.required`), arrays of scalars (`alt_labels`, every ref list),
+and arrays of objects (`relevant[]`, `expected_inferences[]`).
+
+**Decision.**
+
+- A nested object becomes **dotted columns** — `expected_sources.required`.
+- An array of scalars becomes **one cell, one value per line**.
+- An array of objects becomes **its own sheet**, one row per entry, linked by a
+  `parent_id` column (`GS--relevant`, `GX--expected_inferences`).
+- `span` is written as two integer columns, `span.start` and `span.end`, and a
+  row with one of them filled is rejected rather than half-read.
+
+The layout lives in `stage0/intake.py`, derived from the schemas, and both the
+generator and the transcriber read it — a column exists in exactly one place.
+
+**Rationale.** Newlines rather than a separator character because upstream refs
+contain `/`, `(`, `)`, `~`, `#` and `.`, and any separator that can occur inside
+a value is a data-loss bug waiting for the first value that uses it. A test
+covers a value containing both a comma and a semicolon.
+
+Child sheets rather than parallel lists in one cell because parallel lists pair
+the third ref with the third grade *by convention*, and nothing notices when
+that stops being true. A graded relevance judgement silently attached to the
+wrong passage is a corrupted measurement standard, and it would be invisible.
+
+**Consequences.** An expert filling in graded passages works across two sheets
+and repeats an id. That is the cost, and it buys a link a machine can check: a
+`parent_id` naming no record is rejected and reported.
+
+---
+
+## ADR-0037 — Transcription writes every required key, optional keys only when filled, and nothing at all without `--write`
+
+**Date** 2026-08-19 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** P8 writes into `eval/gold/`, which is approved space (CLAUDE.md
+rule 4). Three questions had to be answered before it could write anything: what
+to do with a blank cell, what to do with a row that is not yet a record, and
+whether writing should be the default.
+
+**Decision.**
+
+1. **A required key is always written, even as null.** That null is the gap the
+   coverage report names (ADR-0027). An **optional** key that arrived empty is
+   dropped, because `notes: null` on every record buries the real gaps.
+2. **A row is rejected, not stubbed,** when a non-nullable required field is
+   blank, when a value is outside its enum, when half a span is given, or when
+   the assembled record does not validate. Rejections are listed with the sheet
+   and row number.
+3. **`tmk-transcribe` is a dry run** and reports what would change. `--write` is
+   required to touch `eval/gold/`.
+4. **An empty sheet leaves its file untouched.** It means "I have nothing for
+   this yet", never "delete what is there".
+
+**Rationale.** (2) is the rule that keeps transcription honest: every rejection
+listed is a case where the only way to proceed would be to choose a value, and
+choosing between `must`, `may` and `should` is a legal reading (guide §5.4). A
+tool that stubs the row has made that reading and hidden it.
+
+(3) because a command that writes into the measurement standard should not do it
+as a side effect of being run to see what it would do.
+
+**Consequences.** Records are written in the schema's property order and compared
+before writing, so re-running over unchanged input leaves git status clean. A
+record type can only be *emptied* by editing its file directly, which is
+deliberate — deleting approved records is not something a spreadsheet import
+should be able to do by omission.

@@ -139,11 +139,30 @@ def validate_all(records: Iterable[dict[str, Any]], record_type: str) -> list[Sc
     return [error for record in records for error in validate(record, record_type)]
 
 
-def schema_properties(record_type: str) -> set[str]:
-    """Top-level property names a record type admits."""
+@lru_cache(maxsize=None)
+def required_fields(record_type: str) -> frozenset[str]:
+    """The top-level keys a record type's schema requires to be present."""
     path = SCHEMA_DIR / RECORD_TYPES[record_type]
     schema = json.loads(path.read_text(encoding="utf-8"))
-    return set(schema["properties"])
+    return frozenset(schema.get("required", ()))
+
+
+def schema_properties(record_type: str) -> set[str]:
+    """Top-level property names a record type admits."""
+    return set(property_order(record_type))
+
+
+@lru_cache(maxsize=None)
+def property_order(record_type: str) -> tuple[str, ...]:
+    """Top-level property names, in the order the schema declares them.
+
+    Which is the order the guide explains them in and the order the intake
+    workbook's columns are in. Records are written in this order so a diff of a
+    gold file reads like the template rather than like alphabetical soup.
+    """
+    path = SCHEMA_DIR / RECORD_TYPES[record_type]
+    schema = json.loads(path.read_text(encoding="utf-8"))
+    return tuple(schema["properties"])
 
 
 #: The `$id` of the shared definitions, and the only IRI any schema `$ref`s.

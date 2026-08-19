@@ -47,6 +47,8 @@ ADR-0010 holds that no Stage 2+ work starts before this is done.
 | Expert input guide | **done** — ADR-0014 | `eval/STAGE-0-INPUT-GUIDE.md` |
 | Coverage and gap report | **done** — S005, P10 | `tmk-coverage` → `data/derived/reports/` |
 | CI wiring | **done** — S005, P11, ADR-0018's split | `.github/workflows/harness.yml` |
+| Intake workbook | **done** — S005, P7 | `tmk-workbook` → `data/derived/` |
+| Transcription path | **done** — S005, P8 | `tmk-transcribe` → `eval/gold/` |
 | Parallel-track plan | **done** — ADR-0016 | `docs/roadmap/PARALLEL-TRACK-ROADMAP.md` |
 
 Target sizes from the roadmap: 100–300 recognised entities, 50–100 approved

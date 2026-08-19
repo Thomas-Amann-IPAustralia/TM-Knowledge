@@ -19,6 +19,7 @@ facto standard purely because it arrived first.
 | `templates/` | Record shapes for the above | present — now schema-checked |
 | `schemas/` | The machine-checkable form of the templates | present — S004, ADR-0027 |
 | the harness | `tmk-harness`, `tmk-coverage` in `src/tm_knowledge/stage0/` | present — S005, and **red by design** |
+| the intake path | `tmk-workbook` out, `tmk-transcribe` back in | present — S005 |
 | `STAGE-0-INPUT-GUIDE.md` | **Expert-facing.** What the owner must supply, in what shape, with worked shape-only examples and elicitation prompts | present |
 
 `STAGE-0-INPUT-GUIDE.md` is the human companion to this file. Point the repo
@@ -38,8 +39,10 @@ approvals, relationship judgements and the prohibited-use list are legal
 judgements. An agent must not author them (CLAUDE.md rule 1).
 
 **Agents own the container.** Templates, schemas, loaders, the harness, internal
-consistency checks, coverage reports, and prompting the expert for what is
-missing. An agent may also *draft the questions' structure* — "we need a question
+consistency checks, coverage reports, the intake workbook and the transcription
+back from it, and prompting the expert for what is missing. Transcription
+**reshapes and never supplies**: a blank judgement field stays blank and is
+reported. An agent may also *draft the questions' structure* — "we need a question
 covering point-in-time currency" — without writing the legal substance of an
 answer.
 
