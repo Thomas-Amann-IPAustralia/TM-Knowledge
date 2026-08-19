@@ -13,11 +13,12 @@ facto standard purely because it arrived first.
 |---|---|---|
 | `pilot-scope.md` | The bounded examination area the pilot covers, and what is out | not started — HANDOFF Q1 |
 | `competency-questions.md` | Ordinary questions the finished system must answer | not started |
-| `gold/` | The expert-created trusted examples | not started |
+| `gold/` | The expert-created trusted examples | not started — the filenames are fixed, see `gold/README.md` |
 | `prohibited-uses.md` | Conclusions the system must **not** produce | not started |
 | `measures.md` | Which metric applies to which component, and the pass thresholds | not started |
 | `templates/` | Record shapes for the above | present — now schema-checked |
 | `schemas/` | The machine-checkable form of the templates | present — S004, ADR-0027 |
+| the harness | `tmk-harness`, `tmk-coverage` in `src/tm_knowledge/stage0/` | present — S005, and **red by design** |
 | `STAGE-0-INPUT-GUIDE.md` | **Expert-facing.** What the owner must supply, in what shape, with worked shape-only examples and elicitation prompts | present |
 
 `STAGE-0-INPUT-GUIDE.md` is the human companion to this file. Point the repo
@@ -77,17 +78,34 @@ From roadmap §5. `measures.md` will fix the thresholds; these are the dimension
 
 ## The harness
 
-Lives here plus `tests/`. It should be runnable, and **failing**, before any
-Stage 2 work begins — a red harness is the intended first output of this repo
-(ADR-0010).
+**Built — S005.** `tmk-harness` runs every check, and it is **red today**:
+
+```bash
+tmk-harness      # exits 3: nothing is malformed, and Stage 0 has not arrived
+tmk-coverage     # the same findings as a worklist → data/derived/reports/
+```
+
+It should be runnable, and failing, before any Stage 2 work begins — a red
+harness is the intended first output of this repo (ADR-0010).
 
 Note how it fails, because the obvious implementation gets it wrong. With no
 gold records, every mechanical check iterates an empty collection and passes
-**vacuously** — green for the worst possible reason. The redness has to come
+**vacuously** — green for the worst possible reason. The redness comes instead
 from an explicit **completeness gate** that fails while any Stage 0 deliverable
 is absent or under its target band, and names what is missing. That gate is a
 reported state; a malformed record, an unresolvable ref or a span that does not
 land on its recorded text is a genuine build failure. ADR-0018.
+
+Three exit codes carry that distinction, and it is all they carry:
+
+| code | meaning |
+|---|---|
+| 0 | sound, and Stage 0 complete against §7's mechanical checklist |
+| 1 | **a defect** — something that arrived is wrong. Breaks the build |
+| 3 | sound, Stage 0 incomplete. Today's expected state |
+
+A run that never opened the pinned snapshot is never reported complete, whatever
+it found: unverified is not the same as sound.
 
 ## While Stage 0 content is pending
 

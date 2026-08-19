@@ -1,0 +1,92 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. Each record is broken in exactly one way.
+# See ../README.md.
+
+# type-not-in-taxonomy: `LAW` is spaCy's OntoNotes label, not this taxonomy's (Q-16).
+- id: GE-001
+  surface: "Section 39"
+  type: LAW
+  source_ref: TMM/Part20/5/5/1
+  span: [0, 10]
+  source_content_hash: "sha256:831405e7d7b931839c20bb89f61ec12a694ba556c60e342a9e1ef7faea210193"
+  approved_by: "«name»"
+  approved_date: "2026-08-19"
+
+# duplicate-id: GE-001 again.
+- id: GE-001
+  surface: "Section 39"
+  type: LegislativeProvision
+  source_ref: TMM/Part20/5/5/1
+  span: [0, 10]
+  source_content_hash: "sha256:831405e7d7b931839c20bb89f61ec12a694ba556c60e342a9e1ef7faea210193"
+  approved_by: "«name»"
+  approved_date: "2026-08-19"
+
+# wrong-prefix: a GC- id in the entities file.
+- id: GC-900
+  surface: "Section 39"
+  type: LegislativeProvision
+  source_ref: TMM/Part20/5/5/1
+  span: [0, 10]
+  source_content_hash: "sha256:831405e7d7b931839c20bb89f61ec12a694ba556c60e342a9e1ef7faea210193"
+  approved_by: "«name»"
+  approved_date: "2026-08-19"
+
+# retired-id-reused: GE-777 is withdrawn in retired-ids.yaml.
+- id: GE-777
+  surface: "Section 39"
+  type: LegislativeProvision
+  source_ref: TMM/Part20/5/5/1
+  span: [0, 10]
+  source_content_hash: "sha256:831405e7d7b931839c20bb89f61ec12a694ba556c60e342a9e1ef7faea210193"
+  approved_by: "«name»"
+  approved_date: "2026-08-19"
+
+# ref-resolves-to-nothing: no such chunk in the pinned snapshot.
+- id: GE-002
+  surface: "Section 39"
+  type: LegislativeProvision
+  source_ref: TMM/Part20/5/5/999
+  span: [0, 10]
+  source_content_hash: "sha256:831405e7d7b931839c20bb89f61ec12a694ba556c60e342a9e1ef7faea210193"
+  approved_by: "«name»"
+  approved_date: "2026-08-19"
+
+# span-outside-the-text: the chunk is 78 characters long.
+- id: GE-003
+  surface: "Section 39"
+  type: LegislativeProvision
+  source_ref: TMM/Part20/5/5/1
+  span: [0, 4000]
+  source_content_hash: "sha256:831405e7d7b931839c20bb89f61ec12a694ba556c60e342a9e1ef7faea210193"
+  approved_by: "«name»"
+  approved_date: "2026-08-19"
+
+# surface-does-not-match: the surface was tidied up, so it no longer lands.
+- id: GE-004
+  surface: "section 39"
+  type: LegislativeProvision
+  source_ref: TMM/Part20/5/5/1
+  span: [0, 10]
+  source_content_hash: "sha256:831405e7d7b931839c20bb89f61ec12a694ba556c60e342a9e1ef7faea210193"
+  approved_by: "«name»"
+  approved_date: "2026-08-19"
+
+# span-on-a-page: a page holds no text for a span to land in.
+- id: GE-005
+  surface: "Section 39"
+  type: LegislativeProvision
+  source_ref: TMM/Part20/5
+  span: [0, 10]
+  source_content_hash: null
+  approved_by: "«name»"
+  approved_date: "2026-08-19"
+
+# stale-source: the recorded hash is not the snapshot's current one.
+- id: GE-006
+  surface: "Section 39"
+  type: LegislativeProvision
+  source_ref: TMM/Part20/5/5/1
+  span: [0, 10]
+  source_content_hash: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  approved_by: "«name»"
+  approved_date: "2026-08-19"

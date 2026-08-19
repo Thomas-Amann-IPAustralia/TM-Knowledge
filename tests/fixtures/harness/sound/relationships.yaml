@@ -1,0 +1,15 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+# `supporting_text` is the whole text of the cited chunk, quoted exactly.
+- id: GR-001
+  subject: "«subject»"
+  predicate: "«predicate from the approved dictionary»"
+  object: "«object»"
+  source_ref: TMM/Part20/5/5/1
+  supporting_text: "Section 39 relates to certain signs that may not be registered as trade marks."
+  span: [0, 78]
+  source_content_hash: "sha256:831405e7d7b931839c20bb89f61ec12a694ba556c60e342a9e1ef7faea210193"
+  tier: 1
+  modality: must
+  notes: null
+  approved_by: "«name»"
+  approved_date: "2026-08-19"

@@ -24,6 +24,8 @@ test = ["pytest>=8.0"]
 tmk-fetch-upstream = "tm_knowledge.upstream.fetch:main"
 tmk-recon = "tm_knowledge.stage0.cli:recon"
 tmk-worksheet = "tm_knowledge.stage0.cli:worksheet"
+tmk-harness = "tm_knowledge.stage0.cli:harness"
+tmk-coverage = "tm_knowledge.stage0.cli:coverage"
 
 [project.urls]
 Homepage = "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge"

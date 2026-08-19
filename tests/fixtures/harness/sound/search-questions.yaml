@@ -1,0 +1,11 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+- id: GS-001
+  query: "«a question in an ordinary person's words»"
+  uses_manual_terminology: false
+  relevant:
+    - {ref: TMM/Part20/5/5/1, grade: 3}
+  irrelevant_but_tempting: []
+  must_exclude: []
+  notes: null
+  approved_by: "«name»"
+  approved_date: "2026-08-19"

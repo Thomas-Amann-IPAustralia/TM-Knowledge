@@ -1,0 +1,11 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+- id: PU-001
+  prohibited: "«a conclusion the system must not produce»"
+  kind: evaluative_conclusion
+  why: "«why it is out of bounds»"
+  detectable_by: eval
+  test_ref: null
+  related_questions: [CQ-001, GA-001]
+  notes: null
+  approved_by: "«name»"
+  approved_date: "2026-08-19"

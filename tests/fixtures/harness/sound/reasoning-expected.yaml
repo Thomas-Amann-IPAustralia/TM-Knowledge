@@ -1,0 +1,14 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+- id: GX-001
+  given: ["«the starting position»"]
+  expected_inferences:
+    - conclusion: "«what should follow»"
+      basis: [TMM/Part20/5/5/1]
+      kind: classification
+  must_not_infer: [PU-001]
+  tier: 1
+  explanation_required: true
+  caveats: null
+  notes: null
+  approved_by: "«name»"
+  approved_date: "2026-08-19"

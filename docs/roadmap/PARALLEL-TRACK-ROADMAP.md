@@ -2,9 +2,9 @@
 
 **Status:** project-authored. Not a source document — unlike
 `AUTOMATION-FIRST-ROADMAP.md`, this file may be edited as the track moves.
-**Progress:** S004 delivered **P1, P2, P3, P4, P6, P9 and P12** — see the
-per-package **Done** lines and `docs/HANDOFF.md` §5. Remaining: P5, P7, P8, P10,
-P11.
+**Progress:** S004 delivered **P1, P2, P3, P4, P6, P9 and P12**; S005 delivered
+**P5, P10 and P11** — see the per-package **Done** lines and `docs/HANDOFF.md`
+§5. Remaining: **P7 and P8**, the intake path.
 **Governing decisions:** ADR-0016 (this track exists), ADR-0017 + ADR-0022
 (over-inclusive worksheet scope, and the rule), ADR-0018 (how the harness
 fails), ADR-0021 (the owner's confirmations). §6 records what ADR-0019's Stage 2
@@ -220,6 +220,8 @@ guide §5 text exactly.
 
 ### P5 — Evaluation harness
 
+**DONE — S005.** `tmk-harness`. Three severities and three exit codes (ADR-0030); a run without the snapshot is never "complete" (ADR-0031).
+
 **Size** L · **Blocked by** P4; the resolution checks additionally need P1+P2 ·
 **Unblocks** P10, P11
 
@@ -362,6 +364,8 @@ the scope rule used and that it is provisional.
 
 ### P10 — Coverage and gap reporter
 
+**DONE — S005.** `tmk-coverage`. A board of every deliverable against its band, then the gaps as a worklist.
+
 **Size** S · **Blocked by** P4, P5 · **Shortens the expert critical path**
 
 Reports on whatever Stage 0 content exists, against the targets and the
@@ -384,6 +388,8 @@ to-do list, and against a partial one and produces a shorter one.
 ---
 
 ### P11 — CI wiring
+
+**DONE — S005.** `.github/workflows/harness.yml`, plus a canary job that fails if the harness ever accepts the deliberately corrupted fixture gold set.
 
 **Size** S · **Blocked by** P5
 

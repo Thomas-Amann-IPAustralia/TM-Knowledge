@@ -347,3 +347,31 @@ Measured for the pilot area at the pinned commit: **67 chunks cite s 43** across
 ~40,000 words) once page-mates are included. 17 in-scope refs cited from those
 chunks resolve to nothing, 2 edges are `certainty: ambiguous`, and 58 distinct
 decisions are cited at citation level.
+
+### Q-22 — The record schemas `$ref` the shared definitions two different ways
+
+`eval/schemas/*.schema.json` names shared definitions by their `$id`
+(`https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref`),
+but `common.schema.json` names its own by fragment alone (`#/$defs/upstream_ref`
+— that is how `ref_list` reaches `upstream_ref`). `jsonschema` resolves both
+without noticing; anything that walks the schemas itself must handle both, or it
+silently finds no refs inside a `ref_list` and reports a gold set it never fully
+checked.
+
+`schemas._deref` handles both spellings. This is the kind of failure that costs
+nothing to fix and everything to find: the walker returned fewer paths, the
+resolution checks ran over fewer fields, and every report still said "clean".
+
+### Q-23 — A green pytest and a red harness are two different signals; keep them apart
+
+The guide's §7 says "the suite runs and **fails**". The tempting reading is to
+leave a failing test in `pytest`. Do not: a permanently red `pytest` cannot
+distinguish "Stage 0 has not arrived" from "the code is broken", which is exactly
+the collapse ADR-0018 forbids, and it makes every future regression invisible.
+
+The split built in S005: `pytest` tests the harness and is green; `tmk-harness`
+runs the gate and exits 3. The test that guards the redness asserts the *gate*
+goes red on an empty gold set built in `tmp_path` and quiet on a full one — so it
+keeps working, unchanged, on the day Stage 0 finally completes. A test that
+asserts today's state has to be deleted the day the project succeeds, which is
+the worst possible day to be editing tests.

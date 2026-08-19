@@ -1,0 +1,134 @@
+# The Stage 0 harness, on every push (parallel track P11, ADR-0018).
+#
+# The design problem this file exists to solve: **this repo's harness is
+# supposed to fail.** Stage 0 has no expert content, so the completeness gate
+# is red by design and will stay red for weeks. A permanently red pipeline
+# trains everyone to ignore it, and that is exactly when a real regression slips
+# through.
+#
+# So the two signals are separated, and the separation is the whole file:
+#
+# - **Stage 0 incompleteness is a reported state.** `--allow-incomplete` maps
+#   the harness's exit 3 to 0, and the gap list is written to the run summary,
+#   where it reads as a status report rather than as a broken build.
+# - **A malformed record, an unresolvable ref, a span that does not land, a
+#   stale hash or a dropped `certainty` is a genuine failure.** Those exit 1 and
+#   break the build.
+#
+# The last job is what keeps the green badge worth anything: it runs the harness
+# over a deliberately corrupted gold set and fails if the harness *passes* it.
+
+name: harness
+
+on:
+  push:
+  pull_request:
+
+concurrency:
+  group: harness-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  harness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -e ".[test]"
+
+      # The snapshot is not in git (ADR-0004) and upstream may be private, so
+      # this is best-effort. When it fails the corpus-wide and resolution checks
+      # skip and say so; they never silently pass. `UPSTREAM_TOKEN` is optional:
+      # set it if upstream is private, leave it unset if it is not.
+      - name: Fetch the pinned upstream snapshot
+        id: snapshot
+        continue-on-error: true
+        env:
+          UPSTREAM_TOKEN: ${{ secrets.UPSTREAM_TOKEN }}
+        run: |
+          if [ -n "${UPSTREAM_TOKEN}" ]; then
+            git config --global \
+              url."https://x-access-token:${UPSTREAM_TOKEN}@github.com/".insteadOf \
+              "https://github.com/"
+          fi
+          tmk-fetch-upstream
+
+      - name: Report whether the snapshot is present
+        run: |
+          if [ -d data/upstream ]; then
+            echo "Snapshot present — resolution checks will run." >> "$GITHUB_STEP_SUMMARY"
+          else
+            {
+              echo "### ⚠️ No snapshot"
+              echo
+              echo "The pinned snapshot could not be fetched, so every check that"
+              echo "needs the corpus **skipped**. Nothing below verified a ref, a"
+              echo "span or a content hash."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      # Genuine failures. Anything red here is a defect in code or in data.
+      - name: Tests
+        run: pytest -q
+
+      # The reported state. Exit 3 (Stage 0 incomplete) is forgiven; exit 1
+      # (something that arrived is wrong) is not.
+      - name: Stage 0 harness
+        run: tmk-harness --allow-incomplete
+
+      - name: Stage 0 coverage report
+        if: always()
+        run: |
+          tmk-coverage --out data/derived/reports/coverage.md || true
+          {
+            echo
+            echo "---"
+            echo
+            cat data/derived/reports/coverage.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish the coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage0-coverage
+          path: data/derived/reports/coverage.md
+          if-no-files-found: warn
+
+  # The canary. A harness that has quietly stopped checking would leave every
+  # job above green, which is indistinguishable from a healthy repo. This fails
+  # the build if the harness accepts a gold set that is broken on purpose.
+  still-goes-red:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -e ".[test]"
+
+      # No snapshot: the structural defects in the fixture are enough to exit 1,
+      # and this job must not depend on reaching a private upstream.
+      - name: The harness must reject a deliberately corrupted gold set
+        run: |
+          set +e
+          tmk-harness \
+            --gold-dir tests/fixtures/harness/defective \
+            --no-resolution --allow-incomplete
+          code=$?
+          set -e
+          if [ "$code" -ne 1 ]; then
+            echo "::error::the harness exited ${code} on a gold set corrupted on purpose; it must exit 1"
+            exit 1
+          fi
+          echo "The harness still rejects a corrupted gold set." >> "$GITHUB_STEP_SUMMARY"

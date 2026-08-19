@@ -1,0 +1,5 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+# unknown-file-name: `entites.yaml` is a misspelling of `entities.yaml`. A gold
+# file quietly skipped is a set of expert judgements that silently did not count.
+- id: GE-800
+  surface: "Section 39"

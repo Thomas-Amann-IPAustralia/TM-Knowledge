@@ -1,6 +1,6 @@
 # tests/ — pytest, SPARQL regression, retrieval benchmarks
 
-Empty. Nothing to run yet — there is no code.
+`tests/unit/` and `tests/fixtures/` exist and run. The rest is still a sketch.
 
 ```
 tests/unit/            refs, IRI round-trip, loader, candidate generation
@@ -16,6 +16,14 @@ tests/fixtures/        small hand-built records — never a copy of the snapshot
 The evaluation harness, running the gold set, **failing**. That is the intended
 first output of this repo (ADR-0010), not a placeholder to be replaced by real
 work later — it *is* the work that makes everything after it measurable.
+
+**Built in S005**, and note where the failure lives. `pytest` is green: it tests
+the harness, and the harness works. The red thing is `tmk-harness`, which exits 3
+because Stage 0 has not arrived. Collapsing the two — a permanently failing
+pytest — would have meant a red suite that says nothing about whether the code is
+sound, which is the outcome ADR-0018 exists to avoid. `tests/unit/test_harness.py`
+therefore asserts *that the gate is red on an empty gold set and quiet on a full
+one*, rather than being red itself.
 
 ## Non-obvious requirements
 

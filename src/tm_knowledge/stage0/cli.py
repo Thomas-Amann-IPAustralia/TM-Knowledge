@@ -1,9 +1,22 @@
-"""Commands: `tmk-recon` and `tmk-worksheet`.
+"""Commands: `tmk-recon`, `tmk-worksheet`, `tmk-harness` and `tmk-coverage`.
 
-Both write into `data/derived/`, which is git-ignored and always rebuildable —
-they are derivations of the pinned snapshot, so committing one would be
-committing a second copy of the corpus with a stale date on it. Pass `--out` to
+All four write into `data/derived/`, which is git-ignored and always rebuildable
+— they are derivations of the pinned snapshot and of `eval/gold/`, so committing
+one would be committing a second copy with a stale date on it. Pass `--out` to
 put a copy somewhere a person will read it.
+
+`tmk-harness` is the one with an opinion about its exit code. Three outcomes,
+because two of them mean opposite things (ADR-0018):
+
+| code | meaning | what to do |
+|---|---|---|
+| 0 | sound and Stage 0 complete | nothing |
+| 1 | **defects** — something that arrived is wrong | fix it; this breaks a build |
+| 3 | sound, Stage 0 incomplete | nothing yet; this is the expected state |
+
+CI passes `--allow-incomplete`, which maps 3 to 0 while still printing every
+gap. That is the whole of ADR-0018's separation, in one flag: a permanently red
+pipeline trains everyone to ignore it, and the failure that matters is 1.
 """
 
 from __future__ import annotations
@@ -13,6 +26,8 @@ import sys
 from pathlib import Path
 
 from tm_knowledge.config import REPO_ROOT
+from tm_knowledge.stage0 import coverage as coverage_module
+from tm_knowledge.stage0 import harness as harness_module
 from tm_knowledge.stage0 import recon as recon_module
 from tm_knowledge.stage0 import worksheet as worksheet_module
 from tm_knowledge.stage0.worksheet import PILOT_PROVISION, ScopeRule
@@ -86,6 +101,87 @@ def worksheet(argv: list[str] | None = None) -> int:
     print(f"{len(selected)} chunks selected by ADR-0022's rule for {args.provision}")
     print(f"wrote {path}")
     return 0
+
+
+def _run_harness(
+    argv: list[str] | None, prog: str, description: str, *, gate_flag: bool
+):
+    """Shared argument parsing for the two commands that read `eval/gold/`."""
+    parser = argparse.ArgumentParser(prog=prog, description=description)
+    parser.add_argument(
+        "--gold-dir",
+        type=Path,
+        default=None,
+        help="the gold set to check. Defaults to eval/gold/.",
+    )
+    parser.add_argument(
+        "--no-resolution",
+        action="store_true",
+        help="skip the checks that need the pinned snapshot. The report then says "
+        "so, and never reports Stage 0 complete.",
+    )
+    if gate_flag:
+        parser.add_argument(
+            "--allow-incomplete",
+            action="store_true",
+            help="exit 0 when the only findings are gaps. For CI: Stage 0 "
+            "incompleteness is a reported state, not a broken build (ADR-0018).",
+        )
+    else:
+        parser.add_argument(
+            "--out", type=Path, default=DERIVED / "reports" / "coverage.md"
+        )
+    args = parser.parse_args(argv)
+    report = harness_module.run(
+        gold_dir=args.gold_dir, with_resolution=not args.no_resolution
+    )
+    return args, report
+
+
+def harness(argv: list[str] | None = None) -> int:
+    args, report = _run_harness(
+        argv,
+        "tmk-harness",
+        "The Stage 0 evaluation harness. Prints every defect and every gap, and "
+        "distinguishes them: a defect is something that arrived wrong, a gap is "
+        "something that has not arrived yet.",
+        gate_flag=True,
+    )
+
+    for severity, heading in (
+        (harness_module.Severity.DEFECT, "DEFECTS — something that arrived is wrong"),
+        (harness_module.Severity.GAP, "GAPS — Stage 0 is waiting on these"),
+        (harness_module.Severity.NOTE, "NOTES — worth an eye, gating nothing"),
+    ):
+        findings = report.of(severity)
+        if not findings:
+            continue
+        print(f"\n{heading} ({len(findings)})")
+        for finding in findings:
+            print(f"  {finding.check}: {finding.subject} — {finding.message}")
+
+    print(f"\n{report.summary()}")
+    code = report.exit_code
+    if code == 3 and args.allow_incomplete:
+        print(
+            "Stage 0 is incomplete and nothing is malformed. Reported, not failed "
+            "(--allow-incomplete, ADR-0018)."
+        )
+        return 0
+    return code
+
+
+def coverage(argv: list[str] | None = None) -> int:
+    args, report = _run_harness(
+        argv,
+        "tmk-coverage",
+        "The Stage 0 coverage and gap report. Reports gaps; never fills them.",
+        gate_flag=False,
+    )
+    path = _write(coverage_module.render(report), args.out)
+    print(report.summary())
+    print(f"wrote {path}")
+    return 1 if report.defects else 0
 
 
 if __name__ == "__main__":  # pragma: no cover

@@ -1,0 +1,12 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+- id: GA-001
+  question: "«a question put to the assistant»"
+  required_evidence: [TMM/Part20/5/5/1]
+  required_provisions: [TMA1995/s43]
+  required_cases: []
+  qualifications_expected: "«what the answer must qualify»"
+  authority_distinction_required: true
+  prohibited_conclusions: [PU-001]
+  notes: null
+  approved_by: "«name»"
+  approved_date: "2026-08-19"

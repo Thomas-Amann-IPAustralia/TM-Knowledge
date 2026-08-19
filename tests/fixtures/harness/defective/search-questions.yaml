@@ -1,0 +1,4 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+# not-a-list: a gold file holds a YAML list of records, and this one does not.
+id: GS-001
+query: "«a question in an ordinary person's words»"

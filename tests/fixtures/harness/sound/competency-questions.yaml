@@ -1,0 +1,13 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+- id: CQ-001
+  question: "«an ordinary question the finished system must answer»"
+  asked_by: examiner
+  category: retrieval
+  pilot_in_scope: true
+  expected_sources:
+    required: [TMM/Part20/5/5/1]
+    supporting: []
+  answer_shape: "«what a good answer looks like»"
+  measured_by: ["«metric»"]
+  approved_by: "«name»"
+  approved_date: "2026-08-19"
