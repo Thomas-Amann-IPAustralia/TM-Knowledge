@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0",
+  "title": "Stage 0 — shared definitions",
+  "description": "Definitions every Stage 0 record type draws on. Shape only: these say what a field looks like, never which value is correct. A schema that could reject a legally-correct answer has encoded a judgement and is out of scope for this repo to write (CLAUDE.md rule 1).",
+  "$defs": {
+    "upstream_ref": {
+      "type": "string",
+      "description": "An upstream ref, stored verbatim — `TMM/Part22/1/1/2`, `TMA1995/s43`, `TMA1995/s41(3)(a)`. Never an IRI (docs/IDENTIFIERS.md §4). The pattern here is a coarse gate; the authority is `tm_knowledge.refs.parse_ref`, which the validator applies to every field carrying `format: upstream-ref`.",
+      "format": "upstream-ref",
+      "pattern": "^(TMM/Part[0-9]{1,3}[A-Z]?/[A-Za-z0-9/#~.-]+|[A-Z]{2,8}[0-9]{4}/[A-Za-z0-9/~.()-]+|CASE/[0-9]{4}/[A-Za-z]{2,10}/[0-9]+(/[0-9]+)?)$"
+    },
+    "ref_list": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/upstream_ref" }
+    },
+    "span": {
+      "type": ["array", "null"],
+      "description": "Character offsets into the upstream `text`, `[start, end]`. Null while the record is being transcribed and the offsets have not been resolved — a gap to report, not a value to invent (P8).",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "type": "integer", "minimum": 0 }
+    },
+    "content_hash": {
+      "type": ["string", "null"],
+      "description": "The `content_hash` the source passage carried when this record was made. When it stops matching the pinned snapshot the record is stale and returns to review (docs/IDENTIFIERS.md §5).",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "approved_by": {
+      "type": ["string", "null"],
+      "description": "The expert who approved this record. Null is permitted by the *schema* and rejected by the completeness gate: a record without it is not approved knowledge (CLAUDE.md rule 4). The schema's job is to make the gap visible, not to make an unapproved record unwritable — an agent must be able to transcribe an expert's words into a well-formed record that is then reported as awaiting approval (P8, P10)."
+    },
+    "approved_date": {
+      "type": ["string", "null"],
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "notes": {
+      "type": ["string", "null"],
+      "description": "Free text. Never parsed, never validated for content."
+    },
+    "tier": {
+      "type": ["integer", "null"],
+      "description": "1 deterministic · 2 low-risk · 3 legally significant (ADR-0008). Which tier a statement belongs in is an expert's call; the schema only knows there are three.",
+      "enum": [1, 2, 3, null]
+    },
+    "cq_id": { "type": "string", "pattern": "^CQ-[0-9]{3,}$" },
+    "entity_id": { "type": "string", "pattern": "^GE-[0-9]{3,}$" },
+    "concept_id": { "type": "string", "pattern": "^GC-[0-9]{3,}$" },
+    "relationship_id": { "type": "string", "pattern": "^GR-[0-9]{3,}$" },
+    "search_id": { "type": "string", "pattern": "^GS-[0-9]{3,}$" },
+    "retrieval_id": { "type": "string", "pattern": "^GA-[0-9]{3,}$" },
+    "reasoning_id": { "type": "string", "pattern": "^GX-[0-9]{3,}$" },
+    "prohibited_id": { "type": "string", "pattern": "^PU-[0-9]{3,}$" },
+    "concept_id_list": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/concept_id" }
+    },
+    "prohibited_id_list": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/prohibited_id" }
+    }
+  }
+}

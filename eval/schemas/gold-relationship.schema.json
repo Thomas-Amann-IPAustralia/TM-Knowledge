@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/stage0/gold-relationship/1.0.0",
+  "title": "Gold relationship",
+  "description": "A known relationship, with the verbatim sentence that states it. Shape only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "subject", "predicate", "object", "source_ref", "supporting_text", "span", "source_content_hash", "tier", "modality", "approved_by", "approved_date"],
+  "properties": {
+    "id": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/relationship_id" },
+    "subject": { "type": "string", "minLength": 1 },
+    "predicate": {
+      "type": "string",
+      "minLength": 1,
+      "description": "From the approved relationship dictionary. NOT enumerated here: the dictionary is expert-owned and does not exist yet, and an agent listing plausible predicates would be authoring the vocabulary the dictionary is supposed to fix (CLAUDE.md rule 1). When the dictionary lands, this becomes an enum generated from it."
+    },
+    "object": { "type": "string", "minLength": 1 },
+    "source_ref": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref" },
+    "supporting_text": { "type": "string", "minLength": 1 },
+    "span": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/span" },
+    "source_content_hash": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/content_hash" },
+    "tier": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/tier" },
+    "modality": {
+      "description": "must | may | should, where the relation is normative. Null means not yet supplied, and is reported as a gap — never inferred from the sentence's grammar, because whether a 'may' is possibility or permission is a legal reading (guide §5.4, P8).",
+      "enum": ["must", "may", "should", null]
+    },
+    "notes": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/notes" },
+    "approved_by": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_by" },
+    "approved_date": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_date" }
+  }
+}

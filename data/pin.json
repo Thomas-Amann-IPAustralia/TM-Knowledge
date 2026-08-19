@@ -1,0 +1,25 @@
+{
+  "repo": "Thomas-Amann-IPAustralia/manual-XtrACTor",
+  "clone_url": "https://github.com/Thomas-Amann-IPAustralia/manual-XtrACTor",
+  "commit": "c490a9927f1ab67c1c2fe4afdc758c79f35430c8",
+  "manual_extractor_version": "ingest/0.11.0",
+  "legislation_extractor_version": "legislation/0.2.0",
+  "paths": [
+    "snapshot",
+    "exports",
+    "schema"
+  ],
+  "corpus": {
+    "pages": 500,
+    "parts": 54,
+    "chunks": 2460,
+    "links": 2218,
+    "instruments": 2,
+    "provisions": 763,
+    "units": 5813,
+    "page_files": 500,
+    "provision_files": 763
+  },
+  "tree_sha256": "cd069946fb4e2cbd8c48f916bb08a62e24b21e9e88d4283c3d0632b9181e89b8",
+  "note": "Upstream publishes no releases and no tags, so the pin is a commit on main (Q-19). This commit is the one docs/UPSTREAM.md §2 quotes: every count there reproduces from it exactly."
+}

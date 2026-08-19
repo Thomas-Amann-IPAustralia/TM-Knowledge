@@ -1,0 +1,10 @@
+# Malformed on purpose: an IRI where a ref belongs. Registers, queues, YAML and
+# fixtures store refs; only RDF holds IRIs (IDENTIFIERS.md §4).
+id: GE-004
+surface: "«surface»"
+type: LegalConcept
+source_ref: https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/1/1/2
+span: [0, 5]
+source_content_hash: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+approved_by: "«name»"
+approved_date: "2026-08-18"

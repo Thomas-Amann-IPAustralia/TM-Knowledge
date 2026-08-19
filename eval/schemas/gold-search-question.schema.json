@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/stage0/gold-search-question/1.0.0",
+  "title": "Gold search question",
+  "description": "A query with graded relevance judgements, for Recall@10, P@10, MRR and nDCG. Shape only — every grade is the expert's.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "query", "uses_manual_terminology", "relevant", "approved_by", "approved_date"],
+  "properties": {
+    "id": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/search_id" },
+    "query": { "type": "string", "minLength": 1 },
+    "uses_manual_terminology": {
+      "type": "boolean",
+      "description": "False tests vocabulary expansion, which is the point of the set. The guide asks for a majority of these; that target is a coverage report (P10), not a per-record rule."
+    },
+    "relevant": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ref", "grade"],
+        "properties": {
+          "ref": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref" },
+          "grade": {
+            "description": "3 highly relevant · 2 relevant · 1 marginal. Which grade a passage earns is a judgement; that there are three is not.",
+            "enum": [1, 2, 3]
+          }
+        }
+      }
+    },
+    "irrelevant_but_tempting": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/ref_list" },
+    "must_exclude": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/ref_list" },
+    "notes": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/notes" },
+    "approved_by": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_by" },
+    "approved_date": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_date" }
+  }
+}

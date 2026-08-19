@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tm-knowledge"
+version = "0.1.0"
+description = "Ontology and knowledge graph over the Australian trade marks examination corpus"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+
+# Adding a dependency here is a decision to raise, not to make. See CLAUDE.md.
+dependencies = [
+    "jsonschema>=4.21",
+    "referencing>=0.35",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+tmk-fetch-upstream = "tm_knowledge.upstream.fetch:main"
+tmk-recon = "tm_knowledge.stage0.cli:recon"
+tmk-worksheet = "tm_knowledge.stage0.cli:worksheet"
+
+[project.urls]
+Homepage = "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge"
+Upstream = "https://github.com/Thomas-Amann-IPAustralia/manual-XtrACTor"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Fixtures are data, not tests. Keep the collector out of them.
+norecursedirs = ["tests/fixtures"]
+markers = [
+    "snapshot: needs the pinned upstream snapshot in data/upstream/ (see data/README.md)",
+]

@@ -1,0 +1,18 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+id: CQ-001
+question: "«the question, in the words an examiner would use»"
+asked_by: examiner
+category: retrieval
+pilot_in_scope: true
+expected_sources:
+  required:
+    - TMM/Part22/1/1/2
+  supporting:
+    - TMA1995/s43
+expected_concepts: []
+must_not_include: []
+answer_shape: "«structural requirements for a correct answer»"
+caveats: "«known limits on answering this»"
+measured_by: [recall_at_10, citation_correctness]
+approved_by: "«name»"
+approved_date: "2026-08-18"

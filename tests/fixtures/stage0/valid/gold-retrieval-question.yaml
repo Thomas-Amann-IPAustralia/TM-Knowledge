@@ -1,0 +1,15 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+id: GA-001
+question: "«the question as asked of an assistant»"
+required_evidence:
+  - TMM/Part22/1/1/2
+required_provisions:
+  - TMA1995/s43
+required_cases:
+  - CASE/2018/FCAFC/109
+qualifications_expected: "«exceptions, conditions or limits a correct answer must carry»"
+authority_distinction_required: true
+prohibited_conclusions: [PU-001]
+notes: "«what makes grounding hard here»"
+approved_by: "«name»"
+approved_date: "2026-08-18"

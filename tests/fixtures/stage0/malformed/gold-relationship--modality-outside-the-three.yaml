@@ -1,0 +1,14 @@
+# Malformed on purpose: `modality` invented a fourth value. Null is allowed and
+# reported as a gap; "probably" is not a modality.
+id: GR-002
+subject: "«subject»"
+predicate: "«predicate»"
+object: "«object»"
+source_ref: TMM/Part22/1/1/2
+supporting_text: "«sentence»"
+span: [0, 5]
+source_content_hash: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+tier: 3
+modality: probably
+approved_by: "«name»"
+approved_date: "2026-08-18"

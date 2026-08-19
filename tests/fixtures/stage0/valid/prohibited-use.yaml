@@ -1,0 +1,11 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+id: PU-001
+prohibited: "«the output that must not occur, stated as the system would produce it»"
+kind: evaluative_conclusion
+why: "«whose decision this is, or what harm follows»"
+detectable_by: test
+test_ref: null
+related_questions: [CQ-001, GA-001]
+notes: "«the neighbouring conclusion that IS permissible»"
+approved_by: "«name»"
+approved_date: "2026-08-18"

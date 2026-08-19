@@ -669,3 +669,210 @@ exactly as `pilot_in_scope: false` parks a competency question.
 The rule is expected to over-select, and that is the design. If P6's counts show
 it selecting an unworkable volume, the answer is to report the number and ask,
 not to quietly tighten the rule.
+
+---
+
+## ADR-0023 — `#` is percent-encoded when minting an IRI; nothing else is
+
+**Date** 2026-08-18 · **Authority** derived · **Status** accepted
+
+**Context.** `IDENTIFIERS.md` §2 mints an IRI as `<BASE>ref/<ref verbatim>` and
+says explicitly not to percent-encode, because `(` and `)` are legal in an IRI
+path and some tooling encodes them anyway. That reasoning is right about
+parentheses. It is wrong about `#`, and 498 of the corpus's 2,460 chunk refs
+contain one (`TMM/Part26/6#3~2`). A `#` opens a fragment (RFC 3986 §3.5), so the
+minted IRI names `<BASE>ref/TMM/Part26/6` plus a fragment — a different subject,
+silently, for one chunk in five.
+
+**Decision.** `to_iri` escapes `#` as `%23` and escapes nothing else. `from_iri`
+reverses it. The round-trip is asserted over every ref in the pinned corpus, and
+a separate test asserts that no other character is ever encoded.
+
+**Rationale.** Forced, not chosen: an IRI containing an unescaped `#` is not an
+IRI for that resource, whatever anyone intends. Confining the exception to one
+character keeps `IDENTIFIERS.md` §2's actual point — that parentheses and tildes
+survive — intact, and keeps the encoding reversible so refs remain the stored
+form everywhere outside RDF (§4).
+
+**Consequences.** `IDENTIFIERS.md` §2's "do not percent-encode" is now "escape
+`#`, and nothing else". A future serialiser that percent-encodes more will fail
+`test_percent_encoding_is_confined_to_the_hash` rather than quietly producing a
+second set of IRIs for the same resources. Recorded as Q-17.
+
+---
+
+## ADR-0024 — Candidate value normalisation is mechanical and stops there
+
+**Date** 2026-08-18 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** `IDENTIFIERS.md` §3 hashes `normalised_value` into the candidate id
+without saying what normalisation is. It decides when two spans are one
+candidate, so it cannot be left undefined once code exists.
+
+**Decision.** NFKC, casefold, collapse internal whitespace, strip. Nothing else.
+No stemming, no lemmatising, no article-stripping, no synonym folding.
+
+**Rationale.** Anything cleverer is a claim that two surface forms *mean* the
+same thing, which is Stage 3's question and an expert's answer — not a hash
+function's. A blunt normaliser splits candidates that a human would merge, and
+that error is visible and cheap to fix in review; a clever one merges candidates
+a human would have kept apart, and that error is invisible and permanent.
+
+**Consequences.** "the marks" and "mark" mint different ids. Accept it. If a
+normalisation change is ever wanted it re-mints every affected candidate, so it
+is a deliberate, breaking act and belongs in its own ADR.
+
+---
+
+## ADR-0025 — A ref whose level the grammar cannot decide is reported, not guessed
+
+**Date** 2026-08-18 · **Authority** derived · **Status** accepted
+
+**Context.** Building `refs.py` against the corpus turned up two collisions the
+documents do not mention. A Manual page ref and a chunk ref share a grammar
+(`TMM/Part14/4/4/5` could be either). A provision ref and the ref of a defined
+term inside a provision share a grammar too — `TMR1995/sch3/item1` is a
+provision, `TMA1995/s128/prescribed-period` is a unit. 228 legislation refs in
+the pinned corpus are undecidable this way.
+
+**Decision.** `parse_ref` returns `RefKind.MANUAL` or `RefKind.LEGISLATION` for
+these — well-formed, level not settled — rather than picking the likelier
+reading. A caller that read the ref out of a known field (`page_ref`, `units[]`)
+may state the level and is believed. Deciding it otherwise requires the snapshot
+and belongs to the loader.
+
+**Rationale.** CLAUDE.md rule 6. The available heuristics all work until they
+do not: segment counts differ per ref, and telling `sch3/item1` from
+`s128/prescribed-period` means guessing that a slug with digits is structural
+and one without is a definition. A wrong guess here attaches an annotation to
+the wrong level of the corpus and nothing downstream would notice.
+
+**Consequences.** Consumers must handle a third answer. That is the honest
+shape of the data. Recorded as Q-18.
+
+---
+
+## ADR-0026 — The pin is a commit, a receipt and a tree digest
+
+**Date** 2026-08-18 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** ADR-0004 (confirmed by ADR-0021) fixes a "pinned release download".
+Upstream publishes no releases and no tags (Q-19), and its default branch is not
+even its newest state — scheduled crawl branches run ahead of `main`.
+
+**Decision.** The pin is a **commit sha**, fetched by sha with
+`git fetch --depth 1 origin <sha>`. `data/pin.json` is tracked and holds only
+properties of the pinned release — repo, commit, extractor versions, the paths
+taken, the corpus counts and a tree digest. What a given container actually
+fetched goes in a git-ignored receipt, `data/upstream/.fetch.json`. Verification
+checks all three: receipt commit, corpus counts, tree digest.
+
+Separately: an upstream field the loader does not know about **stops the load**.
+
+**Rationale.** Fetching by sha is what makes the pin a pin; cloning a branch and
+hoping is not. Splitting pin from receipt keeps a tracked file from churning on
+every fetch while still letting a session prove what it is reading. The tree
+digest is the only check that catches a hand edit inside `data/upstream/`, which
+`data/README.md` calls an invisible fork of the corpus. And schema drift is
+precisely the event the pin exists to make visible, so it should be loud rather
+than absorbed.
+
+**Consequences.** Bumping the pin means recomputing the digest and the counts
+(`tmk-fetch-upstream --write-digest`) in a deliberate commit that says what
+moved. The counts check earned itself immediately by rejecting a wrong number in
+the first pin written. `data/README.md`'s illustrative `pin.json` (which carried
+a `fetched_at`) is superseded by this shape.
+
+---
+
+## ADR-0027 — Stage 0 schemas check shape; judgement fields are required-but-nullable
+
+**Date** 2026-08-18 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** P4 asks for machine-checkable schemas that "must never encode a
+judgement". Two questions fall out immediately and neither is answered by the
+templates: what happens to a record an expert has not finished, and what
+constrains a field whose vocabulary is itself expert-owned.
+
+**Decision.**
+
+1. Every field is **required as a key**; judgement fields are **nullable as a
+   value**. A record missing `modality` fails validation; a record with
+   `modality: null` passes and is reported as a gap.
+2. `predicate` is **not enumerated**. The approved relationship dictionary does
+   not exist, and listing plausible predicates would be an agent writing it.
+   When the dictionary lands the enum is generated from it.
+3. Ref-shaped fields are checked by `tm_knowledge.refs`, via a `format:
+   upstream-ref` checker, so the grammar has one authority.
+4. Schema `$id`s sit under `https://ipaustralia.gov.au/schemas/tmk/…`, matching
+   upstream's convention and deliberately *not* the project base IRI, which is
+   unconfirmed (Q7) and belongs to resources rather than documents.
+
+**Rationale.** (1) is the difference between a schema that helps and one that
+makes transcription impossible: an agent must be able to write down exactly what
+an expert said, no more, and have the gaps counted (P8, P10). Making the key
+mandatory is what keeps the gap visible instead of absent. (2) is CLAUDE.md
+rule 1 applied to a vocabulary rather than to prose.
+
+**Consequences.** Schema validity and Stage 0 completeness are different checks,
+on purpose — the completeness gate (P5, ADR-0018) is where a null becomes a
+failure. Writing the drift check also found that five gold record templates had
+no `approved_by`/`approved_date` at all, though the guide's definition of done
+requires them everywhere; the templates now carry them.
+
+---
+
+## ADR-0028 — Generated artefacts live in `data/derived/` and are not committed
+
+**Date** 2026-08-18 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** P6's reconnaissance report and P9's worksheet are both documents
+for a human to read, and both are pure functions of the pinned snapshot plus the
+code.
+
+**Decision.** They are written to `data/derived/`, which is git-ignored, by
+`tmk-recon` and `tmk-worksheet`. `--out` puts a copy anywhere. Their rendering
+takes an injected date so that everything except that date is a function of the
+pin, and two runs are byte-identical.
+
+**Rationale.** `data/README.md`'s own rule: if it can be rebuilt from
+`data/upstream/` plus `src/`, it belongs in `data/derived/`. Committing a
+worksheet would put a second, dateable copy of 40,000 words of the corpus in
+this repo's history, and the copy would go stale silently the moment the pin
+moved. Determinism is what makes ADR-0022's promise — regenerate when the expert
+boundary lands and report the delta — actually computable.
+
+**Consequences.** The owner cannot read the worksheet from GitHub without
+running one command. That is the cost, and the alternative costs more. Headline
+numbers that inform a decision belong in `HANDOFF.md`, where they are read
+without running anything.
+
+---
+
+## ADR-0029 — Code layout: `upstream/` and `stage0/` subpackages
+
+**Date** 2026-08-18 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** `src/README.md` sketched `refs.py` and `loader.py` at package top
+level. The parallel track's P2 names `src/tm_knowledge/upstream/`, and Stage 0's
+apparatus (schemas, recon, worksheet, and later the harness and coverage report)
+is a second cluster with the same cohesion.
+
+**Decision.** `tm_knowledge/refs.py`, `config.py` and `provenance.py` stay at top
+level — they are used by everything. Snapshot reading lives in
+`tm_knowledge/upstream/` (`pin`, `fetch`, `records`, `loader`); the Stage 0
+apparatus lives in `tm_knowledge/stage0/` (`schemas`, `recon`, `worksheet`,
+`cli`). Python package directories document themselves in their `__init__.py`
+docstring rather than carrying a `README.md`.
+
+**Rationale.** The subpackage split follows the parallel track's own package
+boundaries, so a work package maps to a module rather than to a scattering of
+files. On the README point: ADR-0012 requires a README per directory so the next
+session does not have to guess what belongs there — a package whose `__init__.py`
+opens with that answer satisfies the intent, and a README beside it would be a
+second copy to drift. Non-package directories (`tests/unit/`, `eval/schemas/`,
+`tests/fixtures/stage0/`) carry READMEs as ADR-0012 requires.
+
+**Consequences.** `src/README.md` is updated to the real layout. If a future
+session finds a package whose purpose is not stated in its `__init__.py`, that
+is the bug — not the missing README.

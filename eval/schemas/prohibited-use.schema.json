@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/stage0/prohibited-use/1.0.0",
+  "title": "Prohibited use",
+  "description": "A conclusion the system must not produce, stated as the system would produce it. Each becomes a test that fails if the system ever does. Shape only — an agent may not decide what is legally impermissible.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "prohibited", "kind", "why", "detectable_by", "related_questions", "approved_by", "approved_date"],
+  "properties": {
+    "id": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/prohibited_id" },
+    "prohibited": { "type": "string", "minLength": 1 },
+    "kind": {
+      "description": "Guide §5.8. The definition of done requires all six to be represented across the set; which one a given prohibition is, is the expert's call.",
+      "enum": ["evaluative_conclusion", "authority_conflation", "unsupported_inference", "stale_source", "overreach", "ambiguity_collapse"]
+    },
+    "why": { "type": "string", "minLength": 1 },
+    "detectable_by": {
+      "description": "test — a deterministic check in tests/ · shacl — a constraint in shapes/ · eval — a rate over the gold set with a threshold of zero · human — only catchable in review.",
+      "enum": ["test", "shacl", "eval", "human"]
+    },
+    "test_ref": {
+      "type": ["string", "null"],
+      "description": "Path to the test that enforces this, once written. Null until then, and reported as a gap."
+    },
+    "related_questions": {
+      "type": "array",
+      "description": "CQ-nnn / GA-nnn ids this bounds.",
+      "items": { "type": "string", "pattern": "^(CQ|GA)-[0-9]{3,}$" }
+    },
+    "notes": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/notes" },
+    "approved_by": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_by" },
+    "approved_date": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_date" }
+  }
+}

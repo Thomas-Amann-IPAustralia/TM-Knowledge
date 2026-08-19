@@ -16,7 +16,8 @@ facto standard purely because it arrived first.
 | `gold/` | The expert-created trusted examples | not started |
 | `prohibited-uses.md` | Conclusions the system must **not** produce | not started |
 | `measures.md` | Which metric applies to which component, and the pass thresholds | not started |
-| `templates/` | Record shapes for the above | present |
+| `templates/` | Record shapes for the above | present — now schema-checked |
+| `schemas/` | The machine-checkable form of the templates | present — S004, ADR-0027 |
 | `STAGE-0-INPUT-GUIDE.md` | **Expert-facing.** What the owner must supply, in what shape, with worked shape-only examples and elicitation prompts | present |
 
 `STAGE-0-INPUT-GUIDE.md` is the human companion to this file. Point the repo

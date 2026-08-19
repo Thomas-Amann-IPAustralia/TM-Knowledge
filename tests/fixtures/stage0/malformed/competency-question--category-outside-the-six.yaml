@@ -1,0 +1,14 @@
+# Malformed on purpose: a seventh category. Category coverage is a definition-of-
+# done check, so the six are fixed and an invented one would hide a gap.
+id: CQ-004
+question: "«question»"
+asked_by: examiner
+category: interpretation
+pilot_in_scope: true
+expected_sources:
+  required: []
+  supporting: []
+answer_shape: "«shape»"
+measured_by: [recall_at_10]
+approved_by: "«name»"
+approved_date: "2026-08-18"

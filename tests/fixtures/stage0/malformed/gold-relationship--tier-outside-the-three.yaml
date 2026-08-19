@@ -1,0 +1,13 @@
+# Malformed on purpose: there are three tiers (ADR-0008), not four.
+id: GR-003
+subject: "«subject»"
+predicate: "«predicate»"
+object: "«object»"
+source_ref: TMM/Part22/1/1/2
+supporting_text: "«sentence»"
+span: [0, 5]
+source_content_hash: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+tier: 4
+modality: must
+approved_by: "«name»"
+approved_date: "2026-08-18"

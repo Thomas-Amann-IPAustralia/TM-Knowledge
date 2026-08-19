@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/stage0/gold-retrieval-question/1.0.0",
+  "title": "Gold AI retrieval question",
+  "description": "A question an AI assistant must answer from an evidence package, and what that package must contain. Shape only.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "question", "required_evidence", "qualifications_expected", "authority_distinction_required", "prohibited_conclusions", "approved_by", "approved_date"],
+  "properties": {
+    "id": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/retrieval_id" },
+    "question": { "type": "string", "minLength": 1 },
+    "required_evidence": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/ref_list" },
+    "required_provisions": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/ref_list" },
+    "required_cases": {
+      "description": "Citation level only. No decision text exists anywhere in the programme, so 'what did the court hold' is not answerable and must not be asked of the system (Q-11).",
+      "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/ref_list"
+    },
+    "qualifications_expected": { "type": "string", "minLength": 1 },
+    "authority_distinction_required": {
+      "type": "boolean",
+      "description": "Must the answer keep legislation and Manual practice visibly distinct (Q-12)."
+    },
+    "prohibited_conclusions": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/prohibited_id_list" },
+    "notes": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/notes" },
+    "approved_by": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_by" },
+    "approved_date": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/approved_date" }
+  }
+}

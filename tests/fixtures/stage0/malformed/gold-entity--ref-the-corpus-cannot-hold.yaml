@@ -1,0 +1,10 @@
+# Malformed on purpose: TMR1995/s224 is a section of the Regulations, which have
+# none. Caught by the ref format checker, which defers to tm_knowledge.refs.
+id: GE-003
+surface: "«surface»"
+type: LegalConcept
+source_ref: TMR1995/s224
+span: [0, 5]
+source_content_hash: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+approved_by: "«name»"
+approved_date: "2026-08-18"

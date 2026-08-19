@@ -1,0 +1,8 @@
+# Malformed on purpose: no `approved_by` / `approved_date` keys at all. Null is
+# permitted (the gap is then reported); the keys missing is not.
+id: GE-005
+surface: "«surface»"
+type: LegalConcept
+source_ref: TMM/Part22/1/1/2
+span: [0, 5]
+source_content_hash: "sha256:0000000000000000000000000000000000000000000000000000000000000000"

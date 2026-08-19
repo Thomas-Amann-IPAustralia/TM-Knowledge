@@ -1,0 +1,10 @@
+# Malformed on purpose: a seventh `kind`. The definition of done requires all six
+# to be covered, which is only checkable if the six are fixed.
+id: PU-002
+prohibited: "«the output that must not occur»"
+kind: bad_vibes
+why: "«why»"
+detectable_by: test
+related_questions: []
+approved_by: "«name»"
+approved_date: "2026-08-18"

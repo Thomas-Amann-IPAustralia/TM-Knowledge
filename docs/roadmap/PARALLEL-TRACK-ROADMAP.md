@@ -2,6 +2,9 @@
 
 **Status:** project-authored. Not a source document — unlike
 `AUTOMATION-FIRST-ROADMAP.md`, this file may be edited as the track moves.
+**Progress:** S004 delivered **P1, P2, P3, P4, P6, P9 and P12** — see the
+per-package **Done** lines and `docs/HANDOFF.md` §5. Remaining: P5, P7, P8, P10,
+P11.
 **Governing decisions:** ADR-0016 (this track exists), ADR-0017 + ADR-0022
 (over-inclusive worksheet scope, and the rule), ADR-0018 (how the harness
 fails), ADR-0021 (the owner's confirmations). §6 records what ADR-0019's Stage 2
@@ -106,6 +109,8 @@ it is an engineering or organisational one, marked **owner decision**.
 
 ### P1 — Pin the upstream snapshot
 
+**DONE — S004.** `tmk-fetch-upstream`; pin is a commit sha, no upstream releases exist (Q-19, ADR-0026).
+
 **Size** M · **Blocked by** nothing — **Q2 closed, ADR-0021** · **Unblocks** P2,
 P6, P9, half of P5 · **Now the critical path**
 
@@ -129,6 +134,8 @@ for the pinned version.
 ---
 
 ### P2 — Upstream loader
+
+**DONE — S004.** `tm_knowledge.upstream.loader`; round-trip byte-equal over the whole corpus; join measured at 2,615/2,691 (Q-20).
 
 **Size** L · **Blocked by** P1 for its acceptance tests · **Unblocks** P6, P9,
 the resolution half of P5
@@ -158,6 +165,8 @@ loss, the join reproduces upstream's 97% coverage figure exactly, and
 
 ### P3 — Identifier module
 
+**DONE — S004.** `tm_knowledge.refs`; `#` must be escaped in an IRI after all (Q-17, ADR-0023), and 228 refs are level-undecidable (Q-18, ADR-0025).
+
 **Size** S · **Blocked by** nothing — **Q10 closed, ADR-0021** · **Unblocks**
 every later package that writes an id
 
@@ -186,6 +195,8 @@ input, and no module outside this one constructs an IRI by concatenation.
 ---
 
 ### P4 — Machine-checkable record schemas
+
+**DONE — S004.** `eval/schemas/`, eight types; judgement fields required-but-nullable (ADR-0027).
 
 **Size** M · **Blocked by** nothing · **Unblocks** P5, P7, P8, P10
 
@@ -242,6 +253,8 @@ a status report, not just as a test failure.
 ---
 
 ### P6 — Corpus reconnaissance for the scope decision
+
+**DONE — S004.** `tmk-recon`. s 43: 67 citing chunks, 36 pages, 216 with page-mates, 17 unresolved refs, 2 ambiguous edges, 58 cases.
 
 **Size** M · **Blocked by** P1, P2 · **Unblocks** the owner's boundary decision
 (G1) · **Shortens the expert critical path**
@@ -317,6 +330,8 @@ rewrites nothing.
 
 ### P9 — Pass B worksheet generator
 
+**DONE — S004.** `tmk-worksheet`; 216 chunks printed, deterministic, header states the rule and its provisionality.
+
 **Size** M · **Blocked by** P1, P2 — **G1 is released** (ADR-0022) ·
 **Shortens the expert critical path**
 
@@ -389,6 +404,8 @@ incomplete, and goes red when a fixture is deliberately corrupted.
 
 ### P12 — Provenance record model
 
+**DONE — S004.** `tm_knowledge.provenance`; a candidate cannot be constructed without a complete block.
+
 **Size** S · **Blocked by** nothing
 
 ADR-0011's fields as a typed structure with tests: `extraction_method`, `model`,
@@ -401,28 +418,51 @@ provenance block, and a test asserts that.
 
 ---
 
+## 4a. What S004 changed about the track
+
+Seven of the twelve packages are built, and the two facts worth carrying forward
+are not in the package list.
+
+**The volume question ADR-0022 asked is answered.** Its rule selects 216 of the
+corpus's 2,460 chunks — 8.8%, about 40,000 words, on 36 pages. That is workable,
+so the rule stands as written and nothing needs tightening. The worksheet exists
+and regenerates deterministically, which is what makes the promised delta
+computable when the expert boundary lands.
+
+**Building against the corpus contradicted the documents three times**, and each
+would have been expensive later: `#` in 498 chunk refs breaks IRI minting as
+`IDENTIFIERS.md` §2 specified it, 228 legislation refs cannot be placed by
+grammar, and `UPSTREAM.md`'s join figure does not reproduce at the pinned commit.
+None was visible from documentation. The lesson for the remaining packages is the
+one the track already half-states: assert against the corpus, not against the
+prose about it.
+
+**P5, P7, P8, P10 and P11 remain**, and none is blocked. P5 (harness) is the
+critical path now — P10 and P11 sit behind it, and it is the Stage 0 deliverable
+that is entirely agent-owned.
+
 ## 5. Suggested order
 
 Dependencies allow several orders. This one front-loads the packages that
 shorten the expert's critical path, because that is the binding constraint.
 
 ```
-   ┌─ P3 identifiers ──┐         (unblocked — start immediately)
-   ├─ P4 schemas ──────┤
-   └─ P12 provenance ──┘
+   ┌─ P3 identifiers ──┐  DONE S004
+   ├─ P4 schemas ──────┤  DONE S004
+   └─ P12 provenance ──┘  DONE S004
               │
-   P1 pin snapshot  ←── CRITICAL PATH (Q2 closed)
+   P1 pin snapshot        DONE S004
               │
-   P2 loader
+   P2 loader              DONE S004
               │
       ┌───────┴────────┐
-   P6 recon        P9 worksheet (build)
+   P6 recon  DONE    P9 worksheet  DONE — 216 chunks printed
       │                │
-   G1 released (ADR-0022) ────▶ P9 (run) ──▶ expert annotation can begin
+      │                └──▶ expert annotation can begin NOW
       │
-   P7 workbook ─▶ P8 transcription
+   P7 workbook ─▶ P8 transcription        ← remaining
               │
-   P5 harness ─▶ P10 coverage ─▶ P11 CI
+   P5 harness ─▶ P10 coverage ─▶ P11 CI   ← remaining, P5 now the critical path
 ```
 
 1. **P1** — now the critical path, and unblocked. Everything below waits on it.
