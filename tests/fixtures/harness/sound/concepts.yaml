@@ -1,0 +1,20 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+- id: GC-001
+  pref_label: "«preferred label»"
+  alt_labels: []
+  not_labels: ["«a near-miss that is not this concept»"]
+  broader: [GC-002]
+  narrower: []
+  related: []
+  definition_sources: [TMM/Part20/5/5/1]
+  legislative_basis: [TMA1995/s43]
+  notes: null
+  approved_by: "«name»"
+  approved_date: "2026-08-19"
+- id: GC-002
+  pref_label: "«a broader preferred label»"
+  alt_labels: []
+  not_labels: []
+  definition_sources: [TMM/Part20/5/5/1]
+  approved_by: "«name»"
+  approved_date: "2026-08-19"

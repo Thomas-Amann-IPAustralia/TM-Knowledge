@@ -2,9 +2,10 @@
 
 **Status:** project-authored. Not a source document — unlike
 `AUTOMATION-FIRST-ROADMAP.md`, this file may be edited as the track moves.
-**Progress:** S004 delivered **P1, P2, P3, P4, P6, P9 and P12** — see the
-per-package **Done** lines and `docs/HANDOFF.md` §5. Remaining: P5, P7, P8, P10,
-P11.
+**Progress:** S004 delivered **P1, P2, P3, P4, P6, P9 and P12**; S005 delivered
+**P5, P7, P8, P10 and P11** — see the per-package **Done** lines and
+`docs/HANDOFF.md` §5. **All twelve packages are built.** §7 now applies: the
+container is finished and the programme is waiting on Stage 0 content.
 **Governing decisions:** ADR-0016 (this track exists), ADR-0017 + ADR-0022
 (over-inclusive worksheet scope, and the rule), ADR-0018 (how the harness
 fails), ADR-0021 (the owner's confirmations). §6 records what ADR-0019's Stage 2
@@ -220,6 +221,8 @@ guide §5 text exactly.
 
 ### P5 — Evaluation harness
 
+**DONE — S005.** `tmk-harness`. Three severities and three exit codes (ADR-0030); a run without the snapshot is never "complete" (ADR-0031).
+
 **Size** L · **Blocked by** P4; the resolution checks additionally need P1+P2 ·
 **Unblocks** P10, P11
 
@@ -288,6 +291,8 @@ the volume implication is expressed per candidate rule.
 
 ### P7 — Intake workbook generator
 
+**DONE — S005.** `tmk-workbook`. Ten sheets, dropdowns from the schema enums, no example rows. Layout in `stage0/intake.py` (ADR-0036); `openpyxl` is an optional extra (ADR-0035).
+
 **Size** M · **Blocked by** P4 · **Shortens the expert critical path**
 
 `STAGE-0-INPUT-GUIDE.md` §6 tells the owner not to write YAML. This package
@@ -307,6 +312,8 @@ round-trip through P8 preserves every field.
 ---
 
 ### P8 — Transcription and validation path
+
+**DONE — S005.** `tmk-transcribe`. Round trip preserves every populated field and is a fixed point; a blank judgement stays blank; a row that is not yet a record is rejected rather than stubbed; dry run unless `--write` (ADR-0037).
 
 **Size** M · **Blocked by** P4, P7; P3 for ref checks · **Shortens the expert
 critical path**
@@ -362,6 +369,8 @@ the scope rule used and that it is provisional.
 
 ### P10 — Coverage and gap reporter
 
+**DONE — S005.** `tmk-coverage`. A board of every deliverable against its band, then the gaps as a worklist.
+
 **Size** S · **Blocked by** P4, P5 · **Shortens the expert critical path**
 
 Reports on whatever Stage 0 content exists, against the targets and the
@@ -384,6 +393,8 @@ to-do list, and against a partial one and produces a shorter one.
 ---
 
 ### P11 — CI wiring
+
+**DONE — S005.** `.github/workflows/harness.yml`, plus a canary job that fails if the harness ever accepts the deliberately corrupted fixture gold set.
 
 **Size** S · **Blocked by** P5
 
@@ -460,10 +471,14 @@ shorten the expert's critical path, because that is the binding constraint.
       │                │
       │                └──▶ expert annotation can begin NOW
       │
-   P7 workbook ─▶ P8 transcription        ← remaining
+   P7 workbook  DONE ─▶ P8 transcription  DONE
               │
-   P5 harness ─▶ P10 coverage ─▶ P11 CI   ← remaining, P5 now the critical path
+   P5 harness  DONE ─▶ P10 coverage  DONE ─▶ P11 CI  DONE
 ```
+
+**All twelve are built as of S005.** §7 is now the operative section: the
+container is finished and empty, and the programme is waiting on Stage 0
+content.
 
 1. **P1** — now the critical path, and unblocked. Everything below waits on it.
 2. **P3, P4, P12** — unblocked, no decision needed, and P3's candidate id is
@@ -507,6 +522,8 @@ and ADR-0019 consequence 4.
 
 ## 7. Where the track runs out
 
+**This is where the repo now is — reached 2026-08-19, S005.**
+
 After P1–P12 the repo has: a pinned snapshot, a loader, identifiers, schemas, a
 red harness, CI, a worksheet, an intake path and a gap report. It has no
 vocabulary, no concepts, no relationships, no graph and no measurements —
@@ -519,10 +536,17 @@ Stage 0 content"* — not a search for further plumbing to build. Manufacturing
 work at that point means building things no measurement has justified, which is
 the failure mode the whole roadmap is arranged to avoid.
 
-The mitigation is not more agent work. It is that P6, P7, P9 and P10 will by
-then have cut the expert's cost substantially: the boundary decision comes with
-volume numbers attached, the annotation surface is printed and pre-populated,
-nobody has to write YAML, and an hour of expert time visibly moves a counter.
+The mitigation is not more agent work. It is that P6, P7, P9 and P10 have cut
+the expert's cost substantially, and all four are now runnable: the boundary
+decision comes with volume numbers attached (`tmk-recon`), the annotation
+surface is printed with every ref and hash already on the page
+(`tmk-worksheet`), nobody has to write YAML (`tmk-workbook`, `tmk-transcribe`),
+and an hour of expert time visibly moves a counter (`tmk-coverage`).
+
+What is left that an agent may legitimately do is maintenance, not construction:
+keep the pin current, re-run the reports, transcribe whatever arrives, and say
+plainly what is still missing. A session that finds itself designing new
+apparatus at this point should stop and re-read this section.
 
 ---
 

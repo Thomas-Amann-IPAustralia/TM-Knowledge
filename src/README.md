@@ -17,10 +17,16 @@ src/tm_knowledge/
     records.py    typed page / chunk / provision / unit, round-trip faithful
     loader.py     the one door to the corpus, and the join
   stage0/         the evaluation apparatus (container only — no legal content)
-    schemas.py    validation for the eight Stage 0 record types
+    schemas.py    validation for the eight Stage 0 record types; where the refs are
+    goldset.py    reading eval/gold/ — and refusing to skip a file it cannot name
+    intake.py     the workbook column layout, derived from the schemas — one copy
+    harness.py    `tmk-harness`: the checks, and the completeness gate (ADR-0018)
+    coverage.py   `tmk-coverage`: the gap worklist — reports gaps, never fills them
     recon.py      `tmk-recon`: derived counts about a candidate pilot area
     worksheet.py  `tmk-worksheet`: the Pass B annotation worksheet (ADR-0022)
-    cli.py        the two commands above
+    workbook.py   `tmk-workbook`: the intake workbook, with no example rows
+    transcribe.py `tmk-transcribe`: workbook in, validated records out
+    cli.py        the six commands above
   candidates/     Stage 2–4 candidate generation — NOT YET, and blocked by ADR-0010
   vocabulary/     Stage 3 clustering and SKOS emission — not yet
   graph/          Stage 6 RDF emission and named-graph assembly — not yet
@@ -36,8 +42,17 @@ tmk-fetch-upstream          # pinned snapshot into data/upstream/ (needs network
 tmk-fetch-upstream --verify # commit, counts and tree digest — no network
 tmk-recon                   # derived counts about s 43 → data/derived/reports/
 tmk-worksheet               # the Pass B worksheet → data/derived/
+tmk-harness                 # the Stage 0 harness. Exits 3 today, by design
+tmk-coverage                # the gap worklist → data/derived/reports/
+tmk-workbook                # the intake workbook → data/derived/ (needs [intake])
+tmk-transcribe FILE         # a filled workbook → eval/gold/. Dry run unless --write
 pytest -q                   # snapshot-marked tests skip without a fetch
 ```
+
+`tmk-harness` is the one whose exit code carries meaning: **0** sound and Stage 0
+complete, **1** a defect — something that arrived is wrong — and **3** sound but
+Stage 0 incomplete, which is today's expected state. CI passes
+`--allow-incomplete` to forgive 3 and never 1 (ADR-0018).
 
 ## Rules
 
@@ -57,7 +72,12 @@ pytest -q                   # snapshot-marked tests skip without a fetch
 - **Re-runs are idempotent.** Candidate ids are content-addressed
   (`docs/IDENTIFIERS.md` §3), so unchanged input produces no new records. A new
   id means something actually changed.
-- **Fail loud.** Ambiguity is recorded and queued, never silently resolved.
+- **Fail loud.** Ambiguity is recorded and queued, never silently resolved. A
+  gold file whose name is not recognised stops the harness rather than being
+  skipped — a file silently ignored is a set of expert judgements that did not
+  count.
+- **Report a gap; never close one.** `coverage.py` names every empty judgement
+  field and proposes nothing for any of them (guide §9, CLAUDE.md rule 1).
 
 ## Conventions
 

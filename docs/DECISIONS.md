@@ -876,3 +876,251 @@ second copy to drift. Non-package directories (`tests/unit/`, `eval/schemas/`,
 **Consequences.** `src/README.md` is updated to the real layout. If a future
 session finds a package whose purpose is not stated in its `__init__.py`, that
 is the bug — not the missing README.
+
+---
+
+## ADR-0030 — The harness has three severities, and three exit codes
+
+**Date** 2026-08-19 · **Authority** agent-proposed · **Status** provisional — implements ADR-0018
+
+**Context.** ADR-0018 fixed the principle: Stage 0 incompleteness is a reported
+state, malformed data is a build failure. P5 had to turn that into something a
+shell can act on. Two severities and two exit codes turned out to be one short.
+
+**Decision.** Every harness finding carries one of three severities:
+
+- **DEFECT** — something that arrived is wrong. A record that does not validate,
+  a duplicated or retired id, a dangling cross-reference, a `source_ref` that
+  resolves to nothing, a `span` that does not land on its recorded text, a stale
+  `source_content_hash`, a gold file whose name is not recognised.
+- **GAP** — something expected has not arrived. A deliverable missing, a count
+  under its band, an unapproved record, a judgement field still null.
+- **NOTE** — an observation no machine can judge. A concept with no `not_labels`;
+  a case ref, which no corpus in this programme can resolve (Q-11).
+
+`tmk-harness` exits **1** on any defect, **3** when the findings are only gaps,
+and **0** when there are none and the resolution checks actually ran. CI passes
+`--allow-incomplete`, which maps 3 to 0 and never touches 1.
+
+**Rationale.** The third severity exists because of `not_labels`. The guide asks
+for it "wherever a near-miss exists", and whether one exists is an expert's
+reading. Gating on it would make Stage 0 uncompletable; dropping it would lose
+the guide's most valuable field. A severity that reports and gates nothing is the
+honest third option, and once it existed the case refs wanted it too.
+
+The third *exit code* exists because `--allow-incomplete` has to forgive one
+thing and not the other, and a boolean cannot express "forgive the gaps and keep
+failing on the defects".
+
+**Consequences.** Anything reading the harness's exit status must treat 3 as a
+report, not a failure. The severity of a check is a decision, not an
+implementation detail: moving a check between DEFECT and GAP changes whether it
+breaks a build, and is an ADR-worthy change rather than a tweak.
+
+---
+
+## ADR-0031 — A run that did not open the snapshot never reports Stage 0 complete
+
+**Date** 2026-08-19 · **Authority** derived · **Status** accepted
+
+**Context.** Half the harness's checks need `data/upstream/`, which is
+git-ignored and may be absent — on a bare clone, or in CI when the fetch fails.
+The easy behaviour is to run the structural half, find nothing wrong, and report
+success.
+
+**Decision.** `Report.complete` is false whenever the resolution checks did not
+run, regardless of what the structural half found, and the absence is itself
+recorded as a gap naming what could not be checked.
+
+**Rationale.** This is the vacuity trap of ADR-0018 in a second costume. A
+gapless report from a run that never opened the corpus has verified no ref, no
+span and no hash; calling that "complete" is exactly the green-for-the-wrong-
+reason outcome the guide forbids. Unverified is not sound, and the distinction
+disappears the moment one report can mean both.
+
+**Consequences.** CI's snapshot fetch is best-effort and its failure is visible
+rather than silent: the tests that need the corpus skip, the harness says the
+resolution checks did not run, and the run summary carries a warning. A green CI
+run without a snapshot is a degraded run and reads as one.
+
+---
+
+## ADR-0032 — One gold file per record type, named; an unrecognised file is an error
+
+**Date** 2026-08-19 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** `eval/gold/README.md` named six files and the repo has eight record
+types. The harness has to find records before it can check them, and "whatever
+YAML is in the directory" is not a contract.
+
+**Decision.** `eval/gold/` holds exactly one file per record type, at a fixed
+name (`entities.yaml`, `concepts.yaml`, `relationships.yaml`,
+`search-questions.yaml`, `retrieval-questions.yaml`, `reasoning-expected.yaml`,
+and the two the README had not named: `competency-questions.yaml`,
+`prohibited-uses.yaml`). Each is a YAML list of records. A `.yaml` file whose
+name is not in that table is a **defect**, not a file to skip. `retired-ids.yaml`
+is the single exception and is optional.
+
+**Rationale.** Rule 6, applied to a directory listing. The failure mode being
+prevented is specific and silent: an expert's records land in `entites.yaml`, the
+harness sees no entities, the coverage report says `0 of 100–300`, and a day of
+specialist work reads as work never done. Refusing to guess makes that a
+one-line error instead.
+
+One file per type rather than a directory per type because `eval/gold/README.md`
+already asks for record changes to be reviewable as diffs, and a file per record
+makes a rename look like a deletion and an addition.
+
+**Consequences.** A gold set large enough to want splitting will need this ADR
+superseded rather than worked around. At the top of the entity band that is 300
+records in one file, which is a long file and still one diff.
+
+---
+
+## ADR-0033 — Withdrawn ids are recorded in a ledger, not remembered
+
+**Date** 2026-08-19 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** `IDENTIFIERS.md` §3 requires human-facing ids to be allocated by
+appending and never to fill a gap left by a withdrawal. The harness has to check
+non-reuse, and a withdrawn record is by definition not in `eval/gold/` any more —
+so nothing in the live data records that `GC-0042` was ever used.
+
+**Decision.** `eval/gold/retired-ids.yaml` lists withdrawn ids with the date and
+the reason. Reusing one is a defect. The file is optional: its absence means
+nothing has been withdrawn.
+
+**Rationale.** The alternative is deriving the highest allocated id from the live
+set, which silently re-issues the id of every record withdrawn from the tail. Git
+history holds the answer but no check can reasonably read it, and a rule that is
+only enforceable by archaeology is not enforced.
+
+**Consequences.** Withdrawing a record is two edits — remove it, and record the
+id. Forgetting the second is not detectable, which is why it belongs in the same
+commit and is stated in `eval/gold/README.md`.
+
+---
+
+## ADR-0034 — Ref-valued fields are read off the schemas, not listed
+
+**Date** 2026-08-19 · **Authority** derived · **Status** accepted
+
+**Context.** The resolution checks need to know where in a record an upstream ref
+sits. There are fourteen such places across the eight types, some nested two
+levels down (`relevant[].ref`, `expected_inferences[].basis[]`).
+
+**Decision.** `schemas.ref_paths(record_type)` walks the JSON Schema, follows its
+`$ref`s into `common.schema.json`, and returns every path whose definition
+carries `format: upstream-ref`. Nothing lists those fields by hand.
+
+**Rationale.** A hand-maintained list is a second place the schema lives, and its
+failure mode is silence: a new ref-valued field simply never gets resolved, and
+the harness reports a clean gold set it did not fully check. Deriving the list
+means adding a ref field to a schema automatically puts it under the checks.
+
+**Consequences.** The walker must understand every construct the schemas use to
+express a ref — `$ref` by `$id`, `$ref` by fragment, `items`, `properties`,
+`oneOf`. A schema that expresses one some other way would go unchecked, so
+`test_ref_paths_find_the_nested_ones` pins the four shapes that exist today.
+
+---
+
+## ADR-0035 — `openpyxl` is an optional extra, not a core dependency
+
+**Date** 2026-08-19 · **Authority** agent-proposed · **Status** provisional — the dependency is the owner's call
+
+**Context.** P7 requires a spreadsheet workbook with enum dropdowns.
+`pyproject.toml` carries a standing note that adding a dependency is a decision
+to raise rather than to make, and the core install is three packages.
+
+**Decision.** `openpyxl` is declared under two optional extras — `intake`, for
+anyone using the workbook, and `test`, so CI exercises the round trip. Neither
+`pip install -e .` nor any module outside `workbook.py` and `transcribe.py`
+touches it, and both import it inside the function that needs it so a missing
+install produces one sentence of advice rather than an ImportError at startup.
+
+**Rationale.** `.xlsx` with real dropdowns is the format the guide's §6 promise
+depends on — "do not write YAML" is only true if the alternative validates as
+you type — and openpyxl is the only maintained pure-Python writer for it. CSV
+would drop the dropdowns, which is precisely the part that stops an
+out-of-vocabulary value being invented. But nothing else in the repo needs it,
+so it does not belong in the core install.
+
+**Consequences.** If the owner would rather not carry the dependency at all, the
+fallback is CSV plus a validation pass after the fact, which moves the error
+from the moment of typing to the moment of transcription. Raised in HANDOFF §3.
+
+---
+
+## ADR-0036 — How a record becomes a spreadsheet: dotted columns, newline lists, child sheets
+
+**Date** 2026-08-19 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** Three record shapes do not fit a flat grid: nested objects
+(`expected_sources.required`), arrays of scalars (`alt_labels`, every ref list),
+and arrays of objects (`relevant[]`, `expected_inferences[]`).
+
+**Decision.**
+
+- A nested object becomes **dotted columns** — `expected_sources.required`.
+- An array of scalars becomes **one cell, one value per line**.
+- An array of objects becomes **its own sheet**, one row per entry, linked by a
+  `parent_id` column (`GS--relevant`, `GX--expected_inferences`).
+- `span` is written as two integer columns, `span.start` and `span.end`, and a
+  row with one of them filled is rejected rather than half-read.
+
+The layout lives in `stage0/intake.py`, derived from the schemas, and both the
+generator and the transcriber read it — a column exists in exactly one place.
+
+**Rationale.** Newlines rather than a separator character because upstream refs
+contain `/`, `(`, `)`, `~`, `#` and `.`, and any separator that can occur inside
+a value is a data-loss bug waiting for the first value that uses it. A test
+covers a value containing both a comma and a semicolon.
+
+Child sheets rather than parallel lists in one cell because parallel lists pair
+the third ref with the third grade *by convention*, and nothing notices when
+that stops being true. A graded relevance judgement silently attached to the
+wrong passage is a corrupted measurement standard, and it would be invisible.
+
+**Consequences.** An expert filling in graded passages works across two sheets
+and repeats an id. That is the cost, and it buys a link a machine can check: a
+`parent_id` naming no record is rejected and reported.
+
+---
+
+## ADR-0037 — Transcription writes every required key, optional keys only when filled, and nothing at all without `--write`
+
+**Date** 2026-08-19 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** P8 writes into `eval/gold/`, which is approved space (CLAUDE.md
+rule 4). Three questions had to be answered before it could write anything: what
+to do with a blank cell, what to do with a row that is not yet a record, and
+whether writing should be the default.
+
+**Decision.**
+
+1. **A required key is always written, even as null.** That null is the gap the
+   coverage report names (ADR-0027). An **optional** key that arrived empty is
+   dropped, because `notes: null` on every record buries the real gaps.
+2. **A row is rejected, not stubbed,** when a non-nullable required field is
+   blank, when a value is outside its enum, when half a span is given, or when
+   the assembled record does not validate. Rejections are listed with the sheet
+   and row number.
+3. **`tmk-transcribe` is a dry run** and reports what would change. `--write` is
+   required to touch `eval/gold/`.
+4. **An empty sheet leaves its file untouched.** It means "I have nothing for
+   this yet", never "delete what is there".
+
+**Rationale.** (2) is the rule that keeps transcription honest: every rejection
+listed is a case where the only way to proceed would be to choose a value, and
+choosing between `must`, `may` and `should` is a legal reading (guide §5.4). A
+tool that stubs the row has made that reading and hidden it.
+
+(3) because a command that writes into the measurement standard should not do it
+as a side effect of being run to see what it would do.
+
+**Consequences.** Records are written in the schema's property order and compared
+before writing, so re-running over unchanged input leaves git status clean. A
+record type can only be *emptied* by editing its file directly, which is
+deliberate — deleting approved records is not something a spreadsheet import
+should be able to do by omission.

@@ -1,0 +1,10 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+# dangling-cross-reference: PU-404 is in no prohibited-uses file.
+- id: GA-001
+  question: "«a question put to the assistant»"
+  required_evidence: [TMM/Part20/5/5/1]
+  qualifications_expected: "«what the answer must qualify»"
+  authority_distinction_required: true
+  prohibited_conclusions: [PU-404]
+  approved_by: "«name»"
+  approved_date: "2026-08-19"

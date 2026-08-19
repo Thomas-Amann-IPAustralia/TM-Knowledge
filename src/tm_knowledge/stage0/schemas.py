@@ -139,11 +139,30 @@ def validate_all(records: Iterable[dict[str, Any]], record_type: str) -> list[Sc
     return [error for record in records for error in validate(record, record_type)]
 
 
-def schema_properties(record_type: str) -> set[str]:
-    """Top-level property names a record type admits."""
+@lru_cache(maxsize=None)
+def required_fields(record_type: str) -> frozenset[str]:
+    """The top-level keys a record type's schema requires to be present."""
     path = SCHEMA_DIR / RECORD_TYPES[record_type]
     schema = json.loads(path.read_text(encoding="utf-8"))
-    return set(schema["properties"])
+    return frozenset(schema.get("required", ()))
+
+
+def schema_properties(record_type: str) -> set[str]:
+    """Top-level property names a record type admits."""
+    return set(property_order(record_type))
+
+
+@lru_cache(maxsize=None)
+def property_order(record_type: str) -> tuple[str, ...]:
+    """Top-level property names, in the order the schema declares them.
+
+    Which is the order the guide explains them in and the order the intake
+    workbook's columns are in. Records are written in this order so a diff of a
+    gold file reads like the template rather than like alphabetical soup.
+    """
+    path = SCHEMA_DIR / RECORD_TYPES[record_type]
+    schema = json.loads(path.read_text(encoding="utf-8"))
+    return tuple(schema["properties"])
 
 
 #: The `$id` of the shared definitions, and the only IRI any schema `$ref`s.
@@ -168,3 +187,97 @@ def enum_values(record_type: str, field: str) -> list[Any]:
     if "enum" not in prop:
         raise KeyError(f"{record_type}.{field} is not an enum")
     return list(prop["enum"])
+
+
+# ---------------------------------------------------------------------------
+# Where the refs are — read off the schema, never restated
+# ---------------------------------------------------------------------------
+
+#: Placeholder for an array index in a field path.
+EACH = "*"
+
+
+@lru_cache(maxsize=1)
+def _common_defs() -> dict[str, Any]:
+    return json.loads((SCHEMA_DIR / "common.schema.json").read_text(encoding="utf-8"))["$defs"]
+
+
+def _deref(node: dict[str, Any]) -> dict[str, Any]:
+    """Follow a `$ref` into the shared definitions.
+
+    Two spellings reach the same place: a record schema names the definitions by
+    their `$id`, and `common.schema.json` names its own by fragment alone. Both
+    are resolved here so `ref_list` — which is a common def whose items are a
+    fragment ref — reaches `upstream_ref` like any other.
+    """
+    reference = node.get("$ref")
+    if not reference:
+        return node
+    if reference.startswith(COMMON_ID + "#/$defs/"):
+        name = reference.rsplit("/", 1)[1]
+    elif reference.startswith("#/$defs/"):
+        name = reference.rsplit("/", 1)[1]
+        if name not in _common_defs():
+            raise KeyError(f"{reference} is not a shared definition")
+    else:
+        raise KeyError(f"{reference} points outside the shared definitions")
+    return _common_defs()[name]
+
+
+def _is_upstream_ref(node: dict[str, Any]) -> bool:
+    return _deref(node).get("format") == "upstream-ref"
+
+
+def _walk(node: dict[str, Any], path: tuple[str, ...]) -> Iterable[tuple[str, ...]]:
+    if _is_upstream_ref(node):
+        yield path
+        return
+    for branch in (*node.get("oneOf", ()), *node.get("anyOf", ())):
+        yield from _walk(branch, path)
+    node = _deref(node)
+    if "items" in node:
+        yield from _walk(node["items"], path + (EACH,))
+    for name, child in node.get("properties", {}).items():
+        yield from _walk(child, path + (name,))
+
+
+@lru_cache(maxsize=None)
+def ref_paths(record_type: str) -> tuple[tuple[str, ...], ...]:
+    """Every place in a record where an upstream ref sits.
+
+    Derived from the schema rather than listed by hand, so adding a ref-valued
+    field to a schema automatically puts it under the harness's resolution
+    checks. A path is a tuple of property names with `*` for an array index —
+    `("relevant", "*", "ref")`.
+    """
+    path = SCHEMA_DIR / RECORD_TYPES[record_type]
+    schema = json.loads(path.read_text(encoding="utf-8"))
+    found: list[tuple[str, ...]] = []
+    for name, child in schema["properties"].items():
+        found.extend(_walk(child, (name,)))
+    return tuple(dict.fromkeys(found))
+
+
+def read_path(record: Any, path: tuple[str, ...]) -> Iterable[tuple[str, Any]]:
+    """(pointer, value) for every value a field path reaches in one record.
+
+    Missing keys yield nothing — absence is the schema's business, not this
+    function's — and a null yields nothing, because a null ref is a gap the
+    completeness gate reports, not an unresolvable ref.
+    """
+    if not path:
+        if record is not None:
+            yield "", record
+        return
+    head, rest = path[0], path[1:]
+    if head == EACH:
+        if not isinstance(record, list):
+            return
+        for index, item in enumerate(record):
+            for pointer, value in read_path(item, rest):
+                yield f"[{index}]{pointer}", value
+        return
+    if not isinstance(record, dict) or head not in record:
+        return
+    for pointer, value in read_path(record[head], rest):
+        yield f".{head}{pointer}" if pointer.startswith((".", "[")) else f".{head}", value

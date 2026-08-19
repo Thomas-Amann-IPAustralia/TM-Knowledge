@@ -14,7 +14,7 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 
 | Stage | Name | Status | Owner |
 |---|---|---|---|
-| 0 | Pilot selection and evaluation set | **partial** — pilot area chosen (s 43, ADR-0013); apparatus built (S004); no expert content yet | this repo — **the blocker** |
+| 0 | Pilot selection and evaluation set | **partial** — pilot area chosen (s 43, ADR-0013); apparatus built (S004–S005); the harness runs and is red; no expert content yet | this repo — **the blocker** |
 | 1 | Ingest and structure source documents | **done** (4 of 6 named deliverables); consumed here since S004 — pinned, fetched and loaded | `manual-XtrACTor` |
 | 2 | Candidate terminology and entities | **not started** — stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019); blocked by ADR-0010 | this repo |
 | 3 | Controlled vocabulary (SKOS) | **not started** | this repo |
@@ -39,12 +39,16 @@ ADR-0010 holds that no Stage 2+ work starts before this is done.
 | Gold-standard dataset | not started | `eval/gold/` |
 | Prohibited-use list | not started | `eval/prohibited-uses.md` |
 | Evaluation measures | not started | `eval/measures.md` |
-| Evaluation harness | not started — P5, unblocked by P4 | `eval/` + `tests/` |
+| Evaluation harness | **done** — S005, P5. Runs, and exits 3 by design | `tmk-harness` |
 | Record templates | **done** — 7 record types, now schema-checked | `eval/templates/` |
 | Record schemas | **done** — S004, ADR-0027 | `eval/schemas/` |
 | Pass B worksheet | **done** — S004, prints 216 chunks (ADR-0022) | `tmk-worksheet` → `data/derived/` |
 | Corpus reconnaissance | **done** — S004, s 43 costed | `tmk-recon` → `data/derived/` |
 | Expert input guide | **done** — ADR-0014 | `eval/STAGE-0-INPUT-GUIDE.md` |
+| Coverage and gap report | **done** — S005, P10 | `tmk-coverage` → `data/derived/reports/` |
+| CI wiring | **done** — S005, P11, ADR-0018's split | `.github/workflows/harness.yml` |
+| Intake workbook | **done** — S005, P7 | `tmk-workbook` → `data/derived/` |
+| Transcription path | **done** — S005, P8 | `tmk-transcribe` → `eval/gold/` |
 | Parallel-track plan | **done** — ADR-0016 | `docs/roadmap/PARALLEL-TRACK-ROADMAP.md` |
 
 Target sizes from the roadmap: 100–300 recognised entities, 50–100 approved

@@ -6,7 +6,7 @@
 ```
 data/upstream/            pinned manual-XtrACTor snapshot   — git-ignored
 data/upstream/.fetch.json the receipt for THIS fetch        — git-ignored
-data/derived/             reports, worksheets, caches       — git-ignored, always rebuildable
+data/derived/             worksheet, recon, coverage, intake workbook — git-ignored, always rebuildable
 data/pin.json             the pinned upstream version       — tracked
 ```
 

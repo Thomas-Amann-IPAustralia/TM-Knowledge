@@ -3,138 +3,164 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-08-18 · session S004 · branch `claude/phase-one-work-t1z6ks`
+**Last updated:** 2026-08-19 · session S005 · branch `claude/next-phase-work-u1wycr`
 
 ---
 
 ## 1. Where the project actually is
 
-**The repo has code now, and it runs against the real corpus.** S004 built seven
-of the parallel track's twelve packages: P1 (pin and fetch), P2 (loader), P3
-(identifiers), P4 (record schemas), P6 (reconnaissance), P9 (worksheet) and P12
-(provenance). 165 tests pass. From a bare clone:
+**The agent-side track is finished.** All twelve parallel-track packages
+(P1–P12) are built. S005 delivered the last five: **P5** the evaluation harness,
+**P7** the intake workbook, **P8** the transcription path, **P10** the coverage
+report and **P11** CI. 219 tests pass. From a bare clone:
 
 ```bash
-pip install -e .        # or: pip install -e ".[test]"
-tmk-fetch-upstream      # pinned snapshot into data/upstream/ (~4s)
-tmk-worksheet           # the Pass B worksheet → data/derived/worksheet.md
-tmk-recon               # derived counts about s 43 → data/derived/reports/recon.md
+pip install -e ".[test,intake]"
+tmk-fetch-upstream    # pinned snapshot into data/upstream/ (~4s)
+tmk-worksheet         # 216 chunks to annotate → data/derived/worksheet.md
+tmk-workbook          # the intake workbook → data/derived/stage0-intake.xlsx
+tmk-harness           # every Stage 0 check. Exits 3 — see below
+tmk-coverage          # the same, as a worklist → data/derived/reports/
 pytest -q
 ```
 
-**The Pass B worksheet exists.** ADR-0022's rule selects **216 chunks across 36
-pages** — 67 that cite s 43, plus 149 page-mates — printed with every ref,
-heading path, content hash, provision edge and case citation, and the full text.
-That is 8.8% of the corpus and about 40,000 words. **The expert can start
-annotating today.** Regenerate it with one command; it is deterministic, so the
-delta ADR-0022 promises when the real boundary lands is computable.
+**The red harness exists and it is red for the right reason.** `tmk-harness`
+exits **3** and prints 22 gaps naming every absent Stage 0 deliverable. It exits
+**1** on a defect — a record that does not validate, a duplicated or retired id,
+a dangling cross-reference, a ref that resolves to nothing, a span that does not
+land on its recorded text, a stale hash. That separation is ADR-0018, realised in
+ADR-0030, and it is what stops a permanently red pipeline from training everyone
+to ignore it.
 
-**The volume question ADR-0022 left open is answered:** 216 chunks is workable,
-so the rule stands as written and nothing was tightened.
+Note where the failure lives, because it is easy to get backwards: **`pytest` is
+green** — it tests the harness, and the harness works. The red thing is
+`tmk-harness`. A permanently failing pytest would have been a suite that says
+nothing about whether the code is sound (Q-23).
 
-**Stage 1 is done, upstream, in another repo,** and this repo now consumes it
-properly. The pin is `manual-XtrACTor` @ `c490a99` (`ingest/0.11.0`,
-`legislation/0.2.0`), fetched by commit sha, verified three ways: receipt,
-corpus counts, tree digest.
+**The expert can now hand back a spreadsheet.** `tmk-workbook` generates an
+empty ten-sheet workbook from the schemas — dropdowns on every fixed vocabulary,
+no example rows anywhere — and `tmk-transcribe` reads it back into validated
+records, reporting every blank judgement field instead of filling one. The round
+trip preserves every populated field and is a fixed point. Guide §6's promise —
+"do not write YAML" — is now a command rather than an intention.
 
-**Stage 0 still has no expert content.** Nothing about that changed and nothing
-an agent can do will change it. What changed is that the container around it is
-mostly built, and the annotation surface is printed.
+**Stage 0 still has no expert content, and nothing an agent can do will change
+that.** What changed is that the last excuse is gone: the boundary decision is
+costed, the annotation surface is printed, the intake form exists, and an hour of
+expert time visibly moves a counter.
 
-**Building against the corpus contradicted the documents three times.** Each was
-invisible from prose and would have been expensive later:
-
-- `#` appears in 498 of 2,460 chunk refs, so `IDENTIFIERS.md` §2's
-  "never percent-encode" would have minted the wrong IRI for one chunk in five
-  (Q-17, ADR-0023).
-- 228 legislation refs cannot be placed as provision-or-unit by grammar
-  (Q-18, ADR-0025).
-- `UPSTREAM.md`'s join figure does not reproduce at the pinned commit — it is
-  2,615/2,691, not 2,611/2,687, with the same 76 unresolved (Q-20).
-
-The lesson generalises: **assert against the corpus, not against the prose about
-it.** The snapshot is one command away now, so there is no excuse not to.
+**The parallel track's §7 now applies.** Its own words for this moment: *"the
+container is finished and empty; the programme is waiting on Stage 0 content"* —
+not a search for further plumbing. A session that finds itself designing new
+apparatus should stop and read that section.
 
 ## 2. The next action
 
-**Thread B — the experts. Unchanged, and now cheaper to satisfy.** Pass A
+**Thread B — the experts. It is the only thread with work in it.** Pass A
 content in the order at `eval/STAGE-0-INPUT-GUIDE.md` §10: pilot scope boundary
-first, then competency questions and prohibited uses. What is new is that Pass B
-no longer needs anything from anyone before it starts — run `tmk-worksheet`, hand
-over `data/derived/worksheet.md`, and annotation can begin on 216 chunks.
+first (Q8), then competency questions and prohibited uses. Pass B needs nothing
+from anyone before it starts — hand over `data/derived/worksheet.md` and
+`data/derived/stage0-intake.xlsx` and annotation can begin on 216 chunks today.
 
-**Thread C — agents. P5 (the harness) is now the critical path.** P10 and P11 sit
-behind it, and it is the Stage 0 deliverable that is entirely agent-owned. P4 is
-done, so nothing blocks it.
+**Thread C — agents. Maintenance, not construction.** What is legitimately left:
 
-Suggested order for the next session:
+1. **Transcribe whatever arrives.** `tmk-transcribe FILE --write`, then
+   `tmk-harness` and `tmk-coverage`. This is the loop the whole track was built
+   to serve, and it is now one command per direction.
+2. **Report the state honestly.** `tmk-coverage` is the answer to "what is Stage
+   0 waiting on". It is a better status report than any prose a session could
+   write, and it is generated from the data rather than from an impression.
+3. **Keep the pin current if upstream moves** — and remember bumping it makes
+   every `source_content_hash` stale by design (`IDENTIFIERS.md` §5). The
+   harness will say so. Do not silently refresh a hash.
+4. **Confirm the agent-proposed ADRs** when a human is available (§3, Q11/Q12).
 
-1. **P5 — the evaluation harness.** Structural checks (schema validation, id
-   uniqueness, cross-reference resolution, category coverage) and resolution
-   checks (every `source_ref` resolves, every `span` lands inside its chunk's
-   `text` and matches the recorded surface exactly, every `source_content_hash`
-   is current). The loader gives you all of these directly. **Remember why it
-   must be red**: with zero gold records every check passes vacuously, so the
-   redness has to come from an explicit completeness gate (ADR-0018).
-2. **P10 — coverage and gap reporter.** Small, and it is what makes an hour of
-   expert time visibly move a number.
-3. **P11 — CI wiring.** Note the design problem it exists to solve: Stage 0
-   incompleteness is a reported state, malformed data is a build failure.
-4. **P7, P8 — the intake path** (workbook out, validated records in), so
-   annotations have somewhere to land.
-
-Then the track is exhausted and §7 of the parallel track applies: the correct
-report at that point is *"the container is finished and empty; the programme is
-waiting on Stage 0 content"* — not a search for more plumbing.
-
-**Still do not start Stage 2.** No TextRank, YAKE, KeyBERT or spaCy run, not even
-"just to see the output". ADR-0010. It is more tempting now than it was, because
-the loader makes it a twenty-line script.
+**Do not** build more apparatus. **Do not** start Stage 2 — no TextRank, YAKE,
+KeyBERT or spaCy run, not even "just to see the output" (ADR-0010). It is more
+tempting than ever now that the loader makes it a twenty-line script and the
+harness would give it a number to point at. The number would be meaningless: it
+would be measured against a gold set that does not exist.
 
 ## 3. Open questions — need a human
 
 | # | Question | Blocks | Raised |
 |---|---|---|---|
 | ~~Q1~~ | ~~What is the pilot scope?~~ **Answered S002: s 43** (ADR-0013). The *boundary* is deliverable 1 — see Q8. | — | S001 |
-| Q8 | What is the s 43 **boundary**? Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. **Now answerable against numbers** — `tmk-recon` reports where the citing chunks sit and what each candidate rule costs. | All remaining Stage 0 **content**. Does not block the worksheet — ADR-0017, ADR-0022 | S002 |
+| Q8 | What is the s 43 **boundary**? Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. **Answerable against numbers** — `tmk-recon` reports where the citing chunks sit and what each candidate rule costs. | All remaining Stage 0 **content**. Does not block the worksheet — ADR-0017, ADR-0022 | S002 |
 | ~~Q2~~ | ~~How does this repo get the upstream snapshot?~~ **Answered S003, built S004** (ADR-0004, ADR-0021, ADR-0026). | — | S001 |
 | Q3 | Which LLM is "agency-approved" for the Stage 2–4 extraction steps, and under what data-handling conditions may Manual text be sent to it? | Stages 2, 3, 4 | S001 |
-| Q4 | Who are the approving experts, and what does "approved" look like as a recorded artefact — a signed-off file in git, or an external register? **Sharper now:** every record schema requires `approved_by` and `approved_date`, and the harness will fail on their absence, so the answer decides what goes in those two fields. | Stage 3 onward; the completeness gate | S001 |
+| Q4 | Who are the approving experts, and what does "approved" look like as a recorded artefact — a signed-off file in git, or an external register? **Now concrete:** `approved_by` and `approved_date` are columns in the intake workbook and the harness reports every record where they are blank. The answer decides what goes in those two cells. | Stage 3 onward; the completeness gate | S001 |
 | ~~Q5~~ | ~~Does ADR-0005 hold?~~ **Answered S003: yes** (ADR-0021). | — | S001 |
-| Q6 | Case law is cited by the corpus but is not held as documents anywhere. Is acquiring decision texts in scope for this repo? **Costed for the pilot:** 58 distinct decisions are cited from the 216 in-scope chunks. | Stage 2 citation resolution, Stage 8 retrieval | S001 |
-| Q7 | What base IRI may the project mint under? `docs/IDENTIFIERS.md` proposes `https://data.ipaustralia.gov.au/tmk/`; persistent IRIs need control of that domain, which is an organisational call. Still not blocking: it is one constant in `config.py`, overridable by `TMK_BASE_IRI`. | RDF serialisation only | S001 |
-| Q9 | Does the owner accept **ADR-0016** (the parallel track itself) and **ADR-0018** (Stage 0 incompleteness reported as a state, malformed data fails the build)? ADR-0018 becomes load-bearing the moment P5 is built, which is next. | The harness's CI semantics | S003 |
-| Q11 | **New, S004.** Seven ADRs from this session are agent-proposed: **0024** (candidate normalisation), **0026** (pin shape and schema-drift failure), **0027** (schemas shape-only, judgement fields nullable), **0028** (generated artefacts not committed), **0029** (code layout). None blocks anything; all are cheap to change now and progressively less so. | Nothing yet | S004 |
+| Q6 | Case law is cited by the corpus but is not held as documents anywhere. Is acquiring decision texts in scope for this repo? **Costed for the pilot:** 58 distinct decisions are cited from the 216 in-scope chunks. The harness reports a case ref as a NOTE — checked for grammar, resolvable by nothing (Q-11). | Stage 2 citation resolution, Stage 8 retrieval | S001 |
+| Q7 | What base IRI may the project mint under? `docs/IDENTIFIERS.md` proposes `https://data.ipaustralia.gov.au/tmk/`; persistent IRIs need control of that domain, which is an organisational call. Still not blocking: one constant in `config.py`, overridable by `TMK_BASE_IRI`. | RDF serialisation only | S001 |
+| Q9 | Does the owner accept **ADR-0016** (the parallel track) and **ADR-0018** (Stage 0 incompleteness reported, malformed data fails the build)? **ADR-0018 is now load-bearing** — it is the harness's exit codes and CI's pass condition. | The harness's CI semantics | S003 |
+| Q11 | Five S004 ADRs are agent-proposed: **0024, 0026, 0027, 0028, 0029**. None blocks anything; all are cheap to change now and progressively less so. | Nothing yet | S004 |
+| Q12 | **New, S005.** Six more agent-proposed ADRs: **0030** (three severities, three exit codes), **0032** (one named gold file per record type), **0033** (the retired-id ledger), **0035** (`openpyxl` as an optional extra — *the only one that is a dependency decision*), **0036** (the workbook's cell encoding), **0037** (how transcription writes). ADR-0031 and ADR-0034 are `derived`. | Nothing | S005 |
+| Q13 | **Does upstream need a token in CI?** `.github/workflows/harness.yml` fetches the snapshot best-effort and reads an optional `UPSTREAM_TOKEN` secret. If `manual-XtrACTor` is public, nothing is needed and the step just works; if it is private, set the secret or accept that every corpus-dependent check skips in CI and the run summary says so. Ten minutes of a human's time either way. | Nothing — CI is green regardless, and degraded runs are visible | S005 |
 
 Agent-proposed ADRs awaiting human confirmation: **0006, 0011, 0012, 0014, 0016,
-0018, 0024, 0026, 0027, 0028, 0029**. (ADR-0023 and ADR-0025 are `derived` — they
-are forced by the corpus and by RFC 3986, not judgement calls.)
+0018, 0024, 0026, 0027, 0028, 0029, 0030, 0032, 0033, 0035, 0036, 0037**.
+(ADR-0023, ADR-0025, ADR-0031 and ADR-0034 are `derived`.)
 
 **No agent work is blocked on a human decision.** Every remaining open question
-is expert content (Q8), organisational (Q3, Q4, Q7), scope for later (Q6), or a
-confirmation that changes nothing structural (Q9, Q11).
+is expert content (Q8), organisational (Q3, Q4, Q7, Q13), scope for later (Q6),
+or a confirmation that changes nothing structural (Q9, Q11, Q12).
 
 ## 4. Do not redo these
 
 - **Do not re-parse the Manual HTML or the legislation `.docx`.** ADR-0002.
-- **Do not design a new identifier scheme.** ADR-0005, and `refs.py` now
-  implements it. Argue with the ADR, don't invent a third.
-- **Do not write a second ref parser, IRI minter or snapshot reader.** There is
-  exactly one of each, and the join depends on it staying that way.
+- **Do not design a new identifier scheme.** ADR-0005, and `refs.py` implements
+  it. Argue with the ADR, don't invent a third.
+- **Do not write a second ref parser, IRI minter, snapshot reader, gold-set
+  reader or workbook layout.** There is exactly one of each, and the whole point
+  of `stage0/intake.py` is that the workbook's columns exist in one place.
 - **Do not "fix" a ref that fails validation.** `InvalidRef` means the ref was
   constructed rather than read. Find the construction.
-- **Do not commit anything under `data/`** except `pin.json` and the README.
-  The worksheet and the reports are rebuildable (ADR-0028).
+- **Do not commit anything under `data/`** except `pin.json` and the README
+  (ADR-0028). The worksheet, the reports and the workbook are rebuildable.
+- **Do not put an example row in the intake workbook.** Not even a marked one.
+  In a spreadsheet, copying a row is one keystroke.
+- **Do not fill a judgement field to make a check pass.** Null is a reportable
+  gap; a plausible value is a lie the harness will then certify.
+- **Do not make `pytest` fail to satisfy "the suite must fail".** That is
+  `tmk-harness`'s job, and collapsing them hides every future regression (Q-23).
 - **Do not build a vector store or search index yet.** Stage 7 is five stages
   away and untestable without Stage 0.
 - **Do not add LegalRuleML.** ADR-0009.
-- **Do not fill a judgement field to make a check pass.** Null is a reportable
-  gap; a plausible value is a lie the harness will then certify.
 
 ## 5. Session log
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S005 — 2026-08-19 — the last five packages; the track is exhausted
+
+Built P5, P7, P8, P10 and P11. The repo went from a corpus it could read to a
+Stage 0 apparatus that is complete: a harness that checks everything §7 says is
+mechanically checkable, a workbook the expert fills in with dropdowns instead of
+YAML, a transcriber that reads it back without inventing anything, a coverage
+report that turns an hour of expert time into a moved counter, and CI that stays
+green while reporting Stage 0 as incomplete. 219 tests pass.
+
+Three things were decisions rather than implementations, and each has an ADR.
+The harness needed a **third severity** — `not_labels` is required "wherever a
+near-miss exists", which no machine can judge, so gating on it would have made
+Stage 0 uncompletable and dropping it would have lost the guide's best field
+(ADR-0030). A run that never opened the snapshot **must not report Stage 0
+complete**, because unverified is not sound and one report cannot mean both
+(ADR-0031). And an array of objects in a spreadsheet had to become its own sheet
+rather than parallel lists in one cell, because parallel lists pair the third
+grade with the third ref by convention and nothing notices when that stops being
+true (ADR-0036).
+
+The most useful output is not the harness. It is that **the expert's path is now
+two commands wide in each direction**: worksheet and workbook out,
+`tmk-transcribe` back in, `tmk-coverage` to see what moved. Nothing between the
+expert and the gold set requires anyone to type a ref, a hash or a line of YAML.
+
+Recorded ADR-0030 to ADR-0037 and QUIRKS Q-22, Q-23. One dependency raised for
+the owner rather than assumed: `openpyxl`, added as an optional extra (ADR-0035,
+Q12). No legal content authored. No Stage 2 extraction run.
 
 ### S004 — 2026-08-18 — phase one of the parallel track: seven packages, and a worksheet
 
