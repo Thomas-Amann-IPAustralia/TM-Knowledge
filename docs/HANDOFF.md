@@ -3,7 +3,7 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-08-19 · session S005 · branch `claude/next-phase-work-u1wycr`
+**Last updated:** 2026-08-19 · session S006 · branch `claude/trademark-expert-blockers-3x8zyc`
 
 ---
 
@@ -96,7 +96,7 @@ would be measured against a gold set that does not exist.
 | Q9 | Does the owner accept **ADR-0016** (the parallel track) and **ADR-0018** (Stage 0 incompleteness reported, malformed data fails the build)? **ADR-0018 is now load-bearing** — it is the harness's exit codes and CI's pass condition. | The harness's CI semantics | S003 |
 | Q11 | Five S004 ADRs are agent-proposed: **0024, 0026, 0027, 0028, 0029**. None blocks anything; all are cheap to change now and progressively less so. | Nothing yet | S004 |
 | Q12 | **New, S005.** Six more agent-proposed ADRs: **0030** (three severities, three exit codes), **0032** (one named gold file per record type), **0033** (the retired-id ledger), **0035** (`openpyxl` as an optional extra — *the only one that is a dependency decision*), **0036** (the workbook's cell encoding), **0037** (how transcription writes). ADR-0031 and ADR-0034 are `derived`. | Nothing | S005 |
-| Q13 | **Does upstream need a token in CI?** `.github/workflows/harness.yml` fetches the snapshot best-effort and reads an optional `UPSTREAM_TOKEN` secret. If `manual-XtrACTor` is public, nothing is needed and the step just works; if it is private, set the secret or accept that every corpus-dependent check skips in CI and the run summary says so. Ten minutes of a human's time either way. | Nothing — CI is green regardless, and degraded runs are visible | S005 |
+| ~~Q13~~ | ~~Does upstream need a token in CI?~~ **Answered S006: no.** `manual-XtrACTor` is public (QUIRKS Q-13, amended S004) and GitHub Actions clones public repos anonymously, so `tmk-fetch-upstream` works in CI with `UPSTREAM_TOKEN` unset. Leave the secret unset unless the repo's visibility changes. | — | S005 |
 
 Agent-proposed ADRs awaiting human confirmation: **0006, 0011, 0012, 0014, 0016,
 0018, 0024, 0026, 0027, 0028, 0029, 0030, 0032, 0033, 0035, 0036, 0037**.
@@ -132,6 +132,15 @@ or a confirmation that changes nothing structural (Q9, Q11, Q12).
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S006 — 2026-08-19 — closed Q13; asked the owner for the remaining organisational answers
+
+Owner asked what could be unblocked before the experts report back. Closed
+**Q13**: `manual-XtrACTor` is public (already established in QUIRKS Q-13,
+S004) and GitHub Actions clones public repos anonymously, so no CI secret is
+needed — the open question was stale, not open. No code, no data. Put the
+remaining organisational questions (Q4, Q7, Q9, Q11/Q12; Q3 noted as
+not-yet-urgent) to the owner directly rather than guessing at them.
 
 ### S005 — 2026-08-19 — the last five packages; the track is exhausted
 
