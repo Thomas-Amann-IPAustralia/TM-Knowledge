@@ -89,22 +89,23 @@ would be measured against a gold set that does not exist.
 | Q8 | What is the s 43 **boundary**? Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. **Answerable against numbers** — `tmk-recon` reports where the citing chunks sit and what each candidate rule costs. | All remaining Stage 0 **content**. Does not block the worksheet — ADR-0017, ADR-0022 | S002 |
 | ~~Q2~~ | ~~How does this repo get the upstream snapshot?~~ **Answered S003, built S004** (ADR-0004, ADR-0021, ADR-0026). | — | S001 |
 | Q3 | Which LLM is "agency-approved" for the Stage 2–4 extraction steps, and under what data-handling conditions may Manual text be sent to it? | Stages 2, 3, 4 | S001 |
-| Q4 | Who are the approving experts, and what does "approved" look like as a recorded artefact — a signed-off file in git, or an external register? **Now concrete:** `approved_by` and `approved_date` are columns in the intake workbook and the harness reports every record where they are blank. The answer decides what goes in those two cells. | Stage 3 onward; the completeness gate | S001 |
+| Q4 | ~~What does "approved" look like as a recorded artefact?~~ **Answered S006: the workbook's `approved_by`/`approved_date` columns are the artefact** — a name and a date, no separate signed-off file or external register (ADR-0039). **Still open: who are the approving experts?** — expected to arrive with the experts' own content. | Nothing structural; who-question blocks nothing today | S001 |
 | ~~Q5~~ | ~~Does ADR-0005 hold?~~ **Answered S003: yes** (ADR-0021). | — | S001 |
 | Q6 | Case law is cited by the corpus but is not held as documents anywhere. Is acquiring decision texts in scope for this repo? **Costed for the pilot:** 58 distinct decisions are cited from the 216 in-scope chunks. The harness reports a case ref as a NOTE — checked for grammar, resolvable by nothing (Q-11). | Stage 2 citation resolution, Stage 8 retrieval | S001 |
 | Q7 | What base IRI may the project mint under? `docs/IDENTIFIERS.md` proposes `https://data.ipaustralia.gov.au/tmk/`; persistent IRIs need control of that domain, which is an organisational call. Still not blocking: one constant in `config.py`, overridable by `TMK_BASE_IRI`. | RDF serialisation only | S001 |
-| Q9 | Does the owner accept **ADR-0016** (the parallel track) and **ADR-0018** (Stage 0 incompleteness reported, malformed data fails the build)? **ADR-0018 is now load-bearing** — it is the harness's exit codes and CI's pass condition. | The harness's CI semantics | S003 |
+| ~~Q9~~ | ~~Does the owner accept **ADR-0016** and **ADR-0018**?~~ **Answered S006: yes, both** (ADR-0038). | — | S003 |
 | Q11 | Five S004 ADRs are agent-proposed: **0024, 0026, 0027, 0028, 0029**. None blocks anything; all are cheap to change now and progressively less so. | Nothing yet | S004 |
 | Q12 | **New, S005.** Six more agent-proposed ADRs: **0030** (three severities, three exit codes), **0032** (one named gold file per record type), **0033** (the retired-id ledger), **0035** (`openpyxl` as an optional extra — *the only one that is a dependency decision*), **0036** (the workbook's cell encoding), **0037** (how transcription writes). ADR-0031 and ADR-0034 are `derived`. | Nothing | S005 |
 | ~~Q13~~ | ~~Does upstream need a token in CI?~~ **Answered S006: no.** `manual-XtrACTor` is public (QUIRKS Q-13, amended S004) and GitHub Actions clones public repos anonymously, so `tmk-fetch-upstream` works in CI with `UPSTREAM_TOKEN` unset. Leave the secret unset unless the repo's visibility changes. | — | S005 |
 
-Agent-proposed ADRs awaiting human confirmation: **0006, 0011, 0012, 0014, 0016,
-0018, 0024, 0026, 0027, 0028, 0029, 0030, 0032, 0033, 0035, 0036, 0037**.
-(ADR-0023, ADR-0025, ADR-0031 and ADR-0034 are `derived`.)
+Agent-proposed ADRs awaiting human confirmation: **0006, 0011, 0012, 0014, 0024,
+0026, 0027, 0028, 0029, 0030, 0032, 0033, 0035, 0036, 0037** (0016 and 0018
+confirmed S006, ADR-0038). (ADR-0023, ADR-0025, ADR-0031 and ADR-0034 are
+`derived`.)
 
 **No agent work is blocked on a human decision.** Every remaining open question
-is expert content (Q8), organisational (Q3, Q4, Q7, Q13), scope for later (Q6),
-or a confirmation that changes nothing structural (Q9, Q11, Q12).
+is expert content (Q8), organisational (Q3, Q7, the who-half of Q4), scope for
+later (Q6), or a confirmation that changes nothing structural (Q11, Q12).
 
 ## 4. Do not redo these
 
@@ -133,14 +134,30 @@ or a confirmation that changes nothing structural (Q9, Q11, Q12).
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
 
-### S006 — 2026-08-19 — closed Q13; asked the owner for the remaining organisational answers
+### S006 — 2026-08-19 — closed Q13, Q9 and the format-half of Q4; ADR-0038, ADR-0039
 
 Owner asked what could be unblocked before the experts report back. Closed
 **Q13**: `manual-XtrACTor` is public (already established in QUIRKS Q-13,
 S004) and GitHub Actions clones public repos anonymously, so no CI secret is
-needed — the open question was stale, not open. No code, no data. Put the
-remaining organisational questions (Q4, Q7, Q9, Q11/Q12; Q3 noted as
-not-yet-urgent) to the owner directly rather than guessing at them.
+needed — the open question was stale, not open, nothing needed asking.
+
+Put the genuinely organisational questions (Q4, Q7, Q9, Q11/Q12) to the owner
+directly rather than guessing at them, and recorded the answers:
+
+- **Q9** closed outright — owner confirmed **ADR-0016** and **ADR-0018**
+  (ADR-0038). Both were already load-bearing; this only lifts the provisional
+  flag.
+- **Q4** half-closed — the approval artefact **is** the workbook's
+  `approved_by`/`approved_date` columns, no separate file or register
+  (ADR-0039). *Who* the approving experts are is still open and expected to
+  arrive with the experts' own content.
+- **Q7** (base IRI) — owner not ready to decide; left open, no action taken.
+- **Q11/Q12** (15 remaining agent-proposed ADRs) — owner asked for a plain
+  summary rather than a yes/no; provided one in chat rather than in this file,
+  since nothing was actually confirmed. Still open.
+
+No code, no data touched beyond `DECISIONS.md` and this file. No legal
+content authored.
 
 ### S005 — 2026-08-19 — the last five packages; the track is exhausted
 

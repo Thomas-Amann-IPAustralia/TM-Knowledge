@@ -352,7 +352,7 @@ ADR-0011.
 
 ## ADR-0016 — A parallel track is defined for work that does not need expert content
 
-**Date** 2026-08-17 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q9
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0038** (was provisional, HANDOFF Q9)
 
 **Context.** Stage 0's content is expert-owned (CLAUDE.md rule 1) and the
 experts advising the owner have not yet delivered. The repo held no statement of
@@ -428,7 +428,7 @@ reported.
 
 ## ADR-0018 — Stage 0 incompleteness is a reported state; malformed data is a build failure
 
-**Date** 2026-08-17 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q9
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0038** (was provisional, HANDOFF Q9)
 
 **Context.** ADR-0010 and `STAGE-0-INPUT-GUIDE.md` §7 require the harness to run
 and **fail** before Stage 2 begins. Two problems follow. With no gold records,
@@ -1124,3 +1124,62 @@ before writing, so re-running over unchanged input leaves git status clean. A
 record type can only be *emptied* by editing its file directly, which is
 deliberate — deleting approved records is not something a spreadsheet import
 should be able to do by omission.
+
+---
+
+## ADR-0038 — Owner confirmations: ADR-0016 and ADR-0018
+
+**Date** 2026-08-19 · **Authority** human · **Status** accepted
+
+**Context.** ADR-0021 confirmed four of the six agent-proposed ADRs standing
+against HANDOFF Q9 in session S003; ADR-0016 (the parallel track itself) and
+ADR-0018 (the harness's completeness-gate/genuine-failure split) were left open
+because the owner was not asked about them at the time. Both are load-bearing —
+ADR-0018 is CI's actual pass/fail logic today — so leaving them open indefinitely
+means the repo runs on an assumption nobody has ratified.
+
+**Decision.** The repo owner confirmed both, asked directly in session S006:
+
+| ADR | Now settled as | Closes |
+|---|---|---|
+| **0016** | The parallel track exists as described: twelve work packages needing no legal judgement, the five-gate table, the not-to-do list | **Q9, remainder** |
+| **0018** | Stage 0 incompleteness is a reported state (the completeness gate); a malformed record, dangling ref, unlanded span or stale hash is a genuine build failure | **Q9, remainder** |
+
+Each keeps its original text and reasoning; only its authority changes, from
+`agent-proposed` to confirmed, via a one-line `confirmed by ADR-0038` annotation
+on its Status line — the same mechanism ADR-0021 used.
+
+**Consequences.** HANDOFF Q9 is fully closed. Nothing structural changes: both
+ADRs were already governing the build (P5, P11) as written: this removes their
+provisional flag, not their effect.
+
+---
+
+## ADR-0039 — The approval artefact is a name and a date, in the workbook's own columns
+
+**Date** 2026-08-19 · **Authority** human · **Status** accepted
+
+**Context.** HANDOFF Q4 asked what "approved" should look like as a recorded
+artefact — a signed-off file in git, or an external register — for the
+`approved_by`/`approved_date` fields every gold record schema already requires
+(ADR-0027) and every intake workbook sheet already carries as columns
+(ADR-0036). Nothing writes a meaningful value into either column without an
+answer.
+
+**Decision.** The approval record **is** the two columns: an approving expert's
+name in `approved_by` and a date in `approved_date`, carried straight through by
+`tmk-transcribe` into `eval/gold/*.yaml`. No separate signed-off file, no
+external register — the git history of the gold YAML (who committed the
+transcription, and the review that merged it) is the audit trail behind the two
+values, not a second artefact alongside them.
+
+**Rationale.** This is the option that needs no new tooling: P7 and P8 already
+build it exactly this way, so the decision confirms existing behaviour rather
+than requiring a change. It keeps the approval record next to the thing it
+approves rather than in a system this repo cannot version alongside its data.
+
+**Consequences.** A record with `approved_by`/`approved_date` both null is
+reported by the completeness gate (ADR-0018) as a gap, same as before — the
+mechanism does not change. **Still open:** *who* the approving experts are is
+unanswered — that half of Q4 stands and is expected to arrive with the experts'
+Stage 0 content itself.
