@@ -117,8 +117,11 @@ later (Q6), or a confirmation that changes nothing structural (Q11, Q12).
   of `stage0/intake.py` is that the workbook's columns exist in one place.
 - **Do not "fix" a ref that fails validation.** `InvalidRef` means the ref was
   constructed rather than read. Find the construction.
-- **Do not commit anything under `data/`** except `pin.json` and the README
-  (ADR-0028). The worksheet, the reports and the workbook are rebuildable.
+- **Do not commit anything under `data/upstream/`** (ADR-0004) — that would
+  vendor another repo's corpus into this one's history. `data/derived/` is the
+  opposite as of S006: it **is** committed, on purpose, as a paper trail
+  (ADR-0042, supersedes ADR-0028). Regenerate and commit the diff; don't
+  hand-edit what's on disk.
 - **Do not put an example row in the intake workbook.** Not even a marked one.
   In a spreadsheet, copying a row is one keystroke.
 - **Do not fill a judgement field to make a check pass.** Null is a reportable

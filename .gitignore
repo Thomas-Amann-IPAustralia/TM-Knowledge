@@ -1,8 +1,6 @@
-# Upstream snapshot and derived artefacts — fetched, never committed (ADR-0004)
+# Upstream snapshot — fetched, never committed (ADR-0004). data/derived/ IS
+# committed (ADR-0042, supersedes ADR-0028) — do not add it here.
 data/upstream/
-data/derived/
-!data/pin.json
-!data/README.md
 
 # Python
 __pycache__/
