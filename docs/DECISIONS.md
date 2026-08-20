@@ -134,7 +134,7 @@ should be annotated rather than rewritten — it is a source document.
 
 ## ADR-0006 — Organise by artefact type, not by roadmap stage
 
-**Date** 2026-08-04 · **Authority** agent-proposed · **Status** accepted
+**Date** 2026-08-04 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0040**
 
 **Decision.** Top-level directories are `eval/`, `vocab/`, `ontology/`, `shapes/`,
 `queries/`, `graph/`, `review/`, `src/`, `data/`, `tests/`, `docs/` — not
@@ -224,7 +224,7 @@ slow progress.
 
 ## ADR-0011 — Every assertion carries provenance; upstream signals pass through unchanged
 
-**Date** 2026-08-04 · **Authority** agent-proposed (field list) · **Status** provisional
+**Date** 2026-08-04 · **Authority** agent-proposed (field list) · **Status** provisional — **field list deferred by owner, see ADR-0041**
 
 **Decision.** Provenance uses PROV-O plus project fields. Every record this repo
 generates carries, at minimum:
@@ -252,7 +252,7 @@ agent's proposal and should be reviewed against the eventual SHACL shapes.
 
 ## ADR-0012 — Working conventions
 
-**Date** 2026-08-04 · **Authority** agent-proposed · **Status** accepted
+**Date** 2026-08-04 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0040**
 
 **Decision.** Australian English in all prose and in any extraction lexicon — the
 corpus is Australian government text and spelling variants matter to matching. No
@@ -297,7 +297,7 @@ gold records are finalised.
 
 ## ADR-0014 — Stage 0 gets an expert-facing input guide, distinct from the templates
 
-**Date** 2026-08-06 · **Authority** agent-proposed · **Status** accepted
+**Date** 2026-08-06 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0040**
 
 **Context.** `eval/templates/` holds the record schemas and `eval/README.md`
 explains the directory, but both are written for an agent. The repo owner asked
@@ -352,7 +352,7 @@ ADR-0011.
 
 ## ADR-0016 — A parallel track is defined for work that does not need expert content
 
-**Date** 2026-08-17 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q9
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0038** (was provisional, HANDOFF Q9)
 
 **Context.** Stage 0's content is expert-owned (CLAUDE.md rule 1) and the
 experts advising the owner have not yet delivered. The repo held no statement of
@@ -428,7 +428,7 @@ reported.
 
 ## ADR-0018 — Stage 0 incompleteness is a reported state; malformed data is a build failure
 
-**Date** 2026-08-17 · **Authority** agent-proposed · **Status** provisional — see HANDOFF Q9
+**Date** 2026-08-17 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0038** (was provisional, HANDOFF Q9)
 
 **Context.** ADR-0010 and `STAGE-0-INPUT-GUIDE.md` §7 require the harness to run
 and **fail** before Stage 2 begins. Two problems follow. With no gold records,
@@ -703,7 +703,7 @@ second set of IRIs for the same resources. Recorded as Q-17.
 
 ## ADR-0024 — Candidate value normalisation is mechanical and stops there
 
-**Date** 2026-08-18 · **Authority** agent-proposed · **Status** provisional
+**Date** 2026-08-18 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0040**
 
 **Context.** `IDENTIFIERS.md` §3 hashes `normalised_value` into the candidate id
 without saying what normalisation is. It decides when two spans are one
@@ -754,7 +754,7 @@ shape of the data. Recorded as Q-18.
 
 ## ADR-0026 — The pin is a commit, a receipt and a tree digest
 
-**Date** 2026-08-18 · **Authority** agent-proposed · **Status** provisional
+**Date** 2026-08-18 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0040**
 
 **Context.** ADR-0004 (confirmed by ADR-0021) fixes a "pinned release download".
 Upstream publishes no releases and no tags (Q-19), and its default branch is not
@@ -787,7 +787,7 @@ a `fetched_at`) is superseded by this shape.
 
 ## ADR-0027 — Stage 0 schemas check shape; judgement fields are required-but-nullable
 
-**Date** 2026-08-18 · **Authority** agent-proposed · **Status** provisional
+**Date** 2026-08-18 · **Authority** agent-proposed · **Status** **accepted for now — confirmed by ADR-0040**
 
 **Context.** P4 asks for machine-checkable schemas that "must never encode a
 judgement". Two questions fall out immediately and neither is answered by the
@@ -824,7 +824,7 @@ requires them everywhere; the templates now carry them.
 
 ## ADR-0028 — Generated artefacts live in `data/derived/` and are not committed
 
-**Date** 2026-08-18 · **Authority** agent-proposed · **Status** provisional
+**Date** 2026-08-18 · **Authority** agent-proposed · **Status** **superseded by ADR-0042** — owner wants a committed paper trail
 
 **Context.** P6's reconnaissance report and P9's worksheet are both documents
 for a human to read, and both are pure functions of the pinned snapshot plus the
@@ -1124,3 +1124,169 @@ before writing, so re-running over unchanged input leaves git status clean. A
 record type can only be *emptied* by editing its file directly, which is
 deliberate — deleting approved records is not something a spreadsheet import
 should be able to do by omission.
+
+---
+
+## ADR-0038 — Owner confirmations: ADR-0016 and ADR-0018
+
+**Date** 2026-08-19 · **Authority** human · **Status** accepted
+
+**Context.** ADR-0021 confirmed four of the six agent-proposed ADRs standing
+against HANDOFF Q9 in session S003; ADR-0016 (the parallel track itself) and
+ADR-0018 (the harness's completeness-gate/genuine-failure split) were left open
+because the owner was not asked about them at the time. Both are load-bearing —
+ADR-0018 is CI's actual pass/fail logic today — so leaving them open indefinitely
+means the repo runs on an assumption nobody has ratified.
+
+**Decision.** The repo owner confirmed both, asked directly in session S006:
+
+| ADR | Now settled as | Closes |
+|---|---|---|
+| **0016** | The parallel track exists as described: twelve work packages needing no legal judgement, the five-gate table, the not-to-do list | **Q9, remainder** |
+| **0018** | Stage 0 incompleteness is a reported state (the completeness gate); a malformed record, dangling ref, unlanded span or stale hash is a genuine build failure | **Q9, remainder** |
+
+Each keeps its original text and reasoning; only its authority changes, from
+`agent-proposed` to confirmed, via a one-line `confirmed by ADR-0038` annotation
+on its Status line — the same mechanism ADR-0021 used.
+
+**Consequences.** HANDOFF Q9 is fully closed. Nothing structural changes: both
+ADRs were already governing the build (P5, P11) as written: this removes their
+provisional flag, not their effect.
+
+---
+
+## ADR-0039 — The approval artefact is a name and a date, in the workbook's own columns
+
+**Date** 2026-08-19 · **Authority** human · **Status** accepted
+
+**Context.** HANDOFF Q4 asked what "approved" should look like as a recorded
+artefact — a signed-off file in git, or an external register — for the
+`approved_by`/`approved_date` fields every gold record schema already requires
+(ADR-0027) and every intake workbook sheet already carries as columns
+(ADR-0036). Nothing writes a meaningful value into either column without an
+answer.
+
+**Decision.** The approval record **is** the two columns: an approving expert's
+name in `approved_by` and a date in `approved_date`, carried straight through by
+`tmk-transcribe` into `eval/gold/*.yaml`. No separate signed-off file, no
+external register — the git history of the gold YAML (who committed the
+transcription, and the review that merged it) is the audit trail behind the two
+values, not a second artefact alongside them.
+
+**Rationale.** This is the option that needs no new tooling: P7 and P8 already
+build it exactly this way, so the decision confirms existing behaviour rather
+than requiring a change. It keeps the approval record next to the thing it
+approves rather than in a system this repo cannot version alongside its data.
+
+**Consequences.** A record with `approved_by`/`approved_date` both null is
+reported by the completeness gate (ADR-0018) as a gap, same as before — the
+mechanism does not change. **Still open:** *who* the approving experts are is
+unanswered — that half of Q4 stands and is expected to arrive with the experts'
+Stage 0 content itself.
+
+---
+
+## ADR-0040 — Owner confirmations: ADR-0006, ADR-0012, ADR-0014, ADR-0024, ADR-0026, ADR-0027
+
+**Date** 2026-08-19 · **Authority** human · **Status** accepted
+
+**Context.** Session S006 put the remaining agent-proposed ADRs to the owner as
+a plain-language summary rather than a yes/no form, per the owner's request.
+Six came back confirmed, each with its original text and reasoning kept intact;
+only the authority changes, via a one-line `confirmed by ADR-0040` annotation on
+each entry's Status line — the mechanism ADR-0021 and ADR-0038 already used.
+
+**Decision.**
+
+| ADR | Confirmed as | Owner's added note |
+|---|---|---|
+| **0006** | Organise by artefact type, not roadmap stage | none |
+| **0012** | Working conventions (Australian English, lowercase-hyphenated dirs, a README per directory) | none |
+| **0014** | A separate expert-facing Stage 0 input guide | **A work order referencing the guide has already been issued to the Trade Mark experts.** The owner also asked for more plain-language guidance on *constructing the ontology* specifically — that is new work, not yet scoped or drafted, and is logged as an open item in `HANDOFF.md` rather than written speculatively here |
+| **0024** | Candidate normalisation is mechanical only (NFKC, casefold, whitespace) | Owner's own words: normalisation "should occur mechanically and based on a consistent and explainable ruleset" — matches the decision as written |
+| **0026** | The pin is a commit sha, receipt and tree digest | **Standing invitation, not an action:** if a better pinning method exists — e.g. upstream adding releases or tags — the owner wants it proposed on the roadmap for consideration, since upstream infrastructure itself may be amended if the case is good enough. Nothing changes until such a case is made |
+| **0027** | Schemas check shape only; judgement fields required-but-nullable | **Conditional:** confirmed *for now*. If a CI/CD gating policy is added later, a null judgement field may become a loud failure instead of a silent gap — that would be a new ADR superseding this one, not a reinterpretation of it |
+
+**Consequences.** Two of the six carry a live trigger rather than a flat
+acceptance, and both are worth remembering rather than acting on now: ADR-0026
+stays as written until someone makes a documented case for a different upstream
+pinning mechanism; ADR-0027 stays nullable until a CI/CD policy decision is
+made and recorded as its own ADR. Neither is scheduled work.
+
+---
+
+## ADR-0041 — ADR-0011's provenance field list stays open until Stage 2's actual output is known
+
+**Date** 2026-08-19 · **Authority** human · **Status** deferred — revisit before the Stage 2 candidate schema is finalised
+
+**Context.** ADR-0011 proposed a fixed provenance field list —
+`extraction_method`, `model`, `confidence`, `source_span`, `source_content_hash`,
+`review_status`, `reviewer`, `review_date`, `created_at` — as an agent's best
+guess ahead of any extraction actually running. ADR-0019's ensemble decision
+already complicated it once: `extraction_method` has to become a set with a
+per-method score and model version (ADR-0019 consequence 1; ADR-0020's
+candidate-id rework is the identifier-side half of the same problem).
+
+**Decision.** The owner declined to confirm the field list now. **Wait until
+Stage 2's candidate generation actually runs** (TextRank, YAKE, KeyBERT,
+ADR-0019) and its real output shape is visible, and check whether any
+additional fields can be **derived deterministically** — rather than fixing
+the schema on a guess and having to revise it once real metadata exists.
+
+**Rationale.** This is not a rejection of the field list; it is a sequencing
+call the owner is better placed to make than an agent inventing plausible
+fields ahead of any evidence. It also keeps CLAUDE.md rule 7 (prefer
+deterministic derivation over judgement) live at the schema-design stage, not
+just at extraction time.
+
+**Consequences.** ADR-0011 stays `provisional` rather than moving to
+`accepted`, with a pointer to this entry. Nothing currently reads or writes
+against the field list — P12's provenance module (ADR-0011's own
+implementation) predates this deferral and should be reviewed against
+whatever Stage 2 actually emits before the field list is finalised, **not**
+before Stage 2 exists. ADR-0010's wall (no Stage 2 before Stage 0 is complete)
+means this cannot be revisited until then regardless.
+
+---
+
+## ADR-0042 — Stage 0's generated reports and derived artefacts are committed to the repository
+
+**Date** 2026-08-19 · **Authority** human · **Status** accepted — **supersedes ADR-0028**
+
+**Context.** ADR-0028 kept `data/derived/` (the worksheet, the recon report,
+the coverage report, the intake workbook) git-ignored and always rebuildable,
+on the reasoning that a committed copy would go stale silently and duplicate
+what `data/upstream/` plus `src/` can already regenerate. The owner wants the
+opposite: a committed paper trail of what these reports said and when.
+
+**Decision.** `data/derived/` is now **tracked**, not git-ignored. Every
+regeneration (`tmk-recon`, `tmk-worksheet`, `tmk-coverage`, `tmk-workbook`) is
+committed like any other change, and its diff — or its absence, when nothing
+moved — is the paper trail: when the worksheet's chunk count changed, when
+recon's volume numbers moved, when coverage's gap list shrank.
+
+**This does not touch `data/upstream/`**, which stays git-ignored. That is a
+different question — ADR-0004's decision not to vendor a second copy of
+another repo's corpus into this repo's git history — and nothing about wanting
+a paper trail of *this repo's own* generated output argues for duplicating
+*upstream's* data as well. The two directories now have different policies for
+different reasons, and that split is deliberate, not an oversight.
+
+**Consequences.**
+
+1. `.gitignore` drops the `data/derived/` line; `data/README.md` and the
+   `stage0/cli.py` module docstring — both of which stated the old "never
+   commit, always rebuildable" rule — are updated to match.
+2. Determinism (byte-identical output for unchanged input, already required by
+   P6/P9/P10's own "done when" criteria) now matters even more than it did
+   under ADR-0028: it is what keeps a re-run's diff clean when nothing
+   substantive changed, rather than noise from incidental reordering.
+3. The intake workbook (`stage0-intake.xlsx`) is a binary file generated
+   purely from the schemas — committing it is **agent-proposed**, not part of
+   what the owner asked for by name, on the reasoning that treating all of
+   `data/derived/` under one policy is simpler than splitting it further, and
+   it only changes when a schema changes. Flagged in `HANDOFF.md` in case the
+   owner would rather exclude it.
+4. `HANDOFF.md` §4's "do not commit anything under `data/` except `pin.json`
+   and the README" is now wrong and is corrected in the same commit as this
+   ADR.

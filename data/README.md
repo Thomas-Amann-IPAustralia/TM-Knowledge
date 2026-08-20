@@ -1,12 +1,16 @@
 # data/ — the pinned upstream snapshot and derived intermediates
 
-**Nothing in here is committed** except this README and the pin manifest
-(ADR-0004). One command fills it: `tmk-fetch-upstream`.
+Two different policies for two different reasons (ADR-0042).
+**`data/upstream/` is never committed** (ADR-0004) — it would duplicate
+another repo's corpus into this one's git history. **`data/derived/` *is*
+committed** (ADR-0042, supersedes ADR-0028) — the owner wants a paper trail of
+what Stage 0's generated reports said and when, so re-running a generator and
+committing its diff is the intended workflow, not an accident to avoid.
 
 ```
 data/upstream/            pinned manual-XtrACTor snapshot   — git-ignored
 data/upstream/.fetch.json the receipt for THIS fetch        — git-ignored
-data/derived/             worksheet, recon, coverage, intake workbook — git-ignored, always rebuildable
+data/derived/             worksheet, recon, coverage, intake workbook — tracked; commit a re-run's diff
 data/pin.json             the pinned upstream version       — tracked
 ```
 
@@ -45,9 +49,11 @@ the digest and the counts, and say what moved.
   data is wrong, log it in `docs/QUIRKS.md` and raise it upstream (ADR-0002).
 - **No hand edits, ever** — a local correction that is not in the snapshot is an
   invisible fork of the corpus.
-- `data/derived/` must be deletable at any moment without loss. If something in
-  there cannot be rebuilt from `data/upstream/` plus `src/`, it is in the wrong
-  directory.
+- `data/derived/` must still be *fully rebuildable* from `data/upstream/` plus
+  `src/` at any moment, even though it is now committed (ADR-0042). Committed
+  is not the same as authoritative: if a regeneration disagrees with what is on
+  disk, the regeneration wins and the diff is reviewed and committed, never
+  hand-edited to match.
 - Fetching is scripted, not documented as manual steps. A bare clone plus one
   command is enough, and that command is `tmk-fetch-upstream`.
 - An upstream field the loader does not recognise **stops the load** rather than

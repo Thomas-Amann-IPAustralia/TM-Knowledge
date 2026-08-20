@@ -1,10 +1,10 @@
 """Commands: `tmk-recon`, `tmk-worksheet`, `tmk-harness`, `tmk-coverage`,
 `tmk-workbook` and `tmk-transcribe`.
 
-All four write into `data/derived/`, which is git-ignored and always rebuildable
-— they are derivations of the pinned snapshot and of `eval/gold/`, so committing
-one would be committing a second copy with a stale date on it. Pass `--out` to
-put a copy somewhere a person will read it.
+All four write into `data/derived/`, which is tracked and committed (ADR-0042,
+supersedes ADR-0028) — they are derivations of the pinned snapshot and of
+`eval/gold/`, and committing each regeneration is the paper trail: the diff
+shows what moved and when. Pass `--out` to put a copy somewhere else instead.
 
 `tmk-harness` is the one with an opinion about its exit code. Three outcomes,
 because two of them mean opposite things (ADR-0018):

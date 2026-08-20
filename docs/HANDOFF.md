@@ -3,7 +3,7 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-08-19 · session S005 · branch `claude/next-phase-work-u1wycr`
+**Last updated:** 2026-08-19 · session S006 · branch `claude/trademark-expert-blockers-3x8zyc`
 
 ---
 
@@ -89,22 +89,26 @@ would be measured against a gold set that does not exist.
 | Q8 | What is the s 43 **boundary**? Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. **Answerable against numbers** — `tmk-recon` reports where the citing chunks sit and what each candidate rule costs. | All remaining Stage 0 **content**. Does not block the worksheet — ADR-0017, ADR-0022 | S002 |
 | ~~Q2~~ | ~~How does this repo get the upstream snapshot?~~ **Answered S003, built S004** (ADR-0004, ADR-0021, ADR-0026). | — | S001 |
 | Q3 | Which LLM is "agency-approved" for the Stage 2–4 extraction steps, and under what data-handling conditions may Manual text be sent to it? | Stages 2, 3, 4 | S001 |
-| Q4 | Who are the approving experts, and what does "approved" look like as a recorded artefact — a signed-off file in git, or an external register? **Now concrete:** `approved_by` and `approved_date` are columns in the intake workbook and the harness reports every record where they are blank. The answer decides what goes in those two cells. | Stage 3 onward; the completeness gate | S001 |
+| Q4 | ~~What does "approved" look like as a recorded artefact?~~ **Answered S006: the workbook's `approved_by`/`approved_date` columns are the artefact** — a name and a date, no separate signed-off file or external register (ADR-0039). **Still open: who are the approving experts?** — expected to arrive with the experts' own content. | Nothing structural; who-question blocks nothing today | S001 |
 | ~~Q5~~ | ~~Does ADR-0005 hold?~~ **Answered S003: yes** (ADR-0021). | — | S001 |
 | Q6 | Case law is cited by the corpus but is not held as documents anywhere. Is acquiring decision texts in scope for this repo? **Costed for the pilot:** 58 distinct decisions are cited from the 216 in-scope chunks. The harness reports a case ref as a NOTE — checked for grammar, resolvable by nothing (Q-11). | Stage 2 citation resolution, Stage 8 retrieval | S001 |
 | Q7 | What base IRI may the project mint under? `docs/IDENTIFIERS.md` proposes `https://data.ipaustralia.gov.au/tmk/`; persistent IRIs need control of that domain, which is an organisational call. Still not blocking: one constant in `config.py`, overridable by `TMK_BASE_IRI`. | RDF serialisation only | S001 |
-| Q9 | Does the owner accept **ADR-0016** (the parallel track) and **ADR-0018** (Stage 0 incompleteness reported, malformed data fails the build)? **ADR-0018 is now load-bearing** — it is the harness's exit codes and CI's pass condition. | The harness's CI semantics | S003 |
-| Q11 | Five S004 ADRs are agent-proposed: **0024, 0026, 0027, 0028, 0029**. None blocks anything; all are cheap to change now and progressively less so. | Nothing yet | S004 |
-| Q12 | **New, S005.** Six more agent-proposed ADRs: **0030** (three severities, three exit codes), **0032** (one named gold file per record type), **0033** (the retired-id ledger), **0035** (`openpyxl` as an optional extra — *the only one that is a dependency decision*), **0036** (the workbook's cell encoding), **0037** (how transcription writes). ADR-0031 and ADR-0034 are `derived`. | Nothing | S005 |
-| Q13 | **Does upstream need a token in CI?** `.github/workflows/harness.yml` fetches the snapshot best-effort and reads an optional `UPSTREAM_TOKEN` secret. If `manual-XtrACTor` is public, nothing is needed and the step just works; if it is private, set the secret or accept that every corpus-dependent check skips in CI and the run summary says so. Ten minutes of a human's time either way. | Nothing — CI is green regardless, and degraded runs are visible | S005 |
+| ~~Q9~~ | ~~Does the owner accept **ADR-0016** and **ADR-0018**?~~ **Answered S006: yes, both** (ADR-0038). | — | S003 |
+| ~~Q11~~ | ~~Five S004 ADRs are agent-proposed: 0024, 0026, 0027, 0028, 0029.~~ **Answered S006, in part:** 0024, 0026, 0027 confirmed (ADR-0040); 0028 reversed, not confirmed (ADR-0042, `data/derived/` is now committed). **0029 still open** — owner had no context for it ("I have no idea what this means"); it needs none, since it already reflects current practice and nothing hinges on ruling it either way. | Nothing | S004 |
+| Q12 | Six S005 ADRs are agent-proposed: **0030** (three severities, three exit codes), **0032** (one named gold file per record type), **0033** (the retired-id ledger), **0035** (`openpyxl` as an optional extra — *the only one that is a dependency decision*), **0036** (the workbook's cell encoding), **0037** (how transcription writes). ADR-0031 and ADR-0034 are `derived`. Owner has seen a plain summary of these (S006) but has not yet ruled on them. | Nothing | S005 |
+| ~~Q13~~ | ~~Does upstream need a token in CI?~~ **Answered S006: no.** `manual-XtrACTor` is public (QUIRKS Q-13, amended S004) and GitHub Actions clones public repos anonymously, so `tmk-fetch-upstream` works in CI with `UPSTREAM_TOKEN` unset. Leave the secret unset unless the repo's visibility changes. | — | S005 |
+| Q14 | **New, S006.** Owner asked for more plain-language guidance on **constructing the ontology**, beyond what `STAGE-0-INPUT-GUIDE.md` covers (which is scoped to Stage 0 elicitation, not Stage 5 ontology formalisation). Not scoped or drafted yet — needs its own session: who is the audience (the Trade Mark experts already working from the input guide, or a wider group?), and what specifically is unclear in the existing docs. | Nothing yet; would help the experts' ongoing work | S006 |
 
-Agent-proposed ADRs awaiting human confirmation: **0006, 0011, 0012, 0014, 0016,
-0018, 0024, 0026, 0027, 0028, 0029, 0030, 0032, 0033, 0035, 0036, 0037**.
-(ADR-0023, ADR-0025, ADR-0031 and ADR-0034 are `derived`.)
+Agent-proposed ADRs awaiting human confirmation: **0011** (deferred, not
+declined — see ADR-0041), **0029, 0030, 0032, 0033, 0035, 0036, 0037**.
+(0006, 0012, 0014, 0024, 0026, 0027 confirmed S006 — ADR-0040; 0016 and 0018
+confirmed S006 — ADR-0038; 0028 superseded S006 — ADR-0042. ADR-0023,
+ADR-0025, ADR-0031 and ADR-0034 are `derived`.)
 
 **No agent work is blocked on a human decision.** Every remaining open question
-is expert content (Q8), organisational (Q3, Q4, Q7, Q13), scope for later (Q6),
-or a confirmation that changes nothing structural (Q9, Q11, Q12).
+is expert content (Q8), organisational (Q3, Q7, the who-half of Q4), scope for
+later (Q6, Q14), or a confirmation that changes nothing structural (Q12, and
+0029/0030/0032/0033/0035/0036/0037 within it).
 
 ## 4. Do not redo these
 
@@ -116,8 +120,11 @@ or a confirmation that changes nothing structural (Q9, Q11, Q12).
   of `stage0/intake.py` is that the workbook's columns exist in one place.
 - **Do not "fix" a ref that fails validation.** `InvalidRef` means the ref was
   constructed rather than read. Find the construction.
-- **Do not commit anything under `data/`** except `pin.json` and the README
-  (ADR-0028). The worksheet, the reports and the workbook are rebuildable.
+- **Do not commit anything under `data/upstream/`** (ADR-0004) — that would
+  vendor another repo's corpus into this one's history. `data/derived/` is the
+  opposite as of S006: it **is** committed, on purpose, as a paper trail
+  (ADR-0042, supersedes ADR-0028). Regenerate and commit the diff; don't
+  hand-edit what's on disk.
 - **Do not put an example row in the intake workbook.** Not even a marked one.
   In a spreadsheet, copying a row is one keystroke.
 - **Do not fill a judgement field to make a check pass.** Null is a reportable
@@ -132,6 +139,53 @@ or a confirmation that changes nothing structural (Q9, Q11, Q12).
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S006 — 2026-08-19 — closed Q13, Q9, Q4's format-half and 6 more ADRs; reversed ADR-0028
+
+Owner asked what could be unblocked before the experts report back. Closed
+**Q13**: `manual-XtrACTor` is public (already established in QUIRKS Q-13,
+S004) and GitHub Actions clones public repos anonymously, so no CI secret is
+needed — the open question was stale, not open, nothing needed asking.
+
+Put the genuinely organisational questions (Q4, Q7, Q9, Q11/Q12) to the owner
+directly rather than guessing at them, and recorded the answers:
+
+- **Q9** closed outright — owner confirmed **ADR-0016** and **ADR-0018**
+  (ADR-0038). Both were already load-bearing; this only lifts the provisional
+  flag.
+- **Q4** half-closed — the approval artefact **is** the workbook's
+  `approved_by`/`approved_date` columns, no separate file or register
+  (ADR-0039). *Who* the approving experts are is still open and expected to
+  arrive with the experts' own content.
+- **Q7** (base IRI) — owner not ready to decide; left open, no action taken.
+- **Q11/Q12** — owner asked for a plain summary rather than a yes/no;
+  provided one in chat, then the owner ruled on eight of them directly:
+  **confirmed** ADR-0006, ADR-0012, ADR-0014, ADR-0024, ADR-0026, ADR-0027
+  (ADR-0040, with two live triggers worth remembering — ADR-0026 invites a
+  better upstream-pinning proposal if one exists, ADR-0027 may tighten if a
+  CI/CD gating policy is ever added); **deferred** ADR-0011's provenance field
+  list until Stage 2's actual output shape is known (ADR-0041); **reversed**
+  ADR-0028 outright — the owner wants `data/derived/` **committed** as a paper
+  trail, not git-ignored (ADR-0042). ADR-0029 stays open; the owner had no
+  context for it and none is needed — it already reflects current practice.
+
+Acted on ADR-0042 immediately rather than leaving it as a paper decision:
+updated `.gitignore`, `data/README.md`, `cli.py`'s docstring and this file's
+§4, then ran the full pipeline for the first time this session
+(`pip install -e ".[test,intake]"`, `tmk-fetch-upstream` — snapshot at
+`c490a9927f1a` — `tmk-recon`, `tmk-worksheet`, `tmk-coverage`, `tmk-workbook`)
+and committed the output: the s 43 worksheet, the recon report, the coverage
+report (0 defects, 22 gaps) and the empty intake workbook are now in git.
+219 tests pass; the harness is sound and exits 3, exactly as designed.
+
+The owner also asked (via ADR-0014) for more plain-language guidance on
+**constructing the ontology**, beyond the existing input guide. Not drafted
+this session — logged under §3 as a new open item needing its own scoping
+pass, not squeezed in alongside eight other decisions. And noted: a work
+order referencing `STAGE-0-INPUT-GUIDE.md` has already gone to the Trade Mark
+experts, so that guide is now live reference material, not a draft.
+
+No legal content authored.
 
 ### S005 — 2026-08-19 — the last five packages; the track is exhausted
 
