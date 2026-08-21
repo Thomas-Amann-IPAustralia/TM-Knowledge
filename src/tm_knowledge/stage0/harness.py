@@ -50,7 +50,16 @@ from tm_knowledge.stage0.schemas import (
 from tm_knowledge.upstream.loader import Corpus, load_corpus
 from tm_knowledge.upstream.pin import SnapshotMismatch, UnpinnedSnapshot
 
-__all__ = ["Severity", "Finding", "Report", "run", "band", "DELIVERABLES"]
+__all__ = [
+    "Severity",
+    "Finding",
+    "Report",
+    "run",
+    "band",
+    "DELIVERABLES",
+    "SPAN_SURFACE",
+    "passage_at",
+]
 
 
 class Severity(str, Enum):
@@ -399,6 +408,16 @@ def _passage(corpus: Corpus, ref: str) -> _Passage | None:
         return None
     kind = "provision" if ref in corpus.provisions else "unit"
     return _Passage(kind, resolved.text, resolved.content_hash)
+
+
+def passage_at(corpus: Corpus, ref: str) -> _Passage | None:
+    """The ref-to-passage resolution above, under a name other modules may use.
+
+    `review/seed/` has to resolve a ref and land a span exactly the way the
+    harness does, or a seed record could pass one check and fail the other for
+    no reason a reader could see. One resolver, two callers.
+    """
+    return _passage(corpus, ref)
 
 
 def _resolution(gold: GoldSet, corpus: Corpus) -> Iterator[Finding]:

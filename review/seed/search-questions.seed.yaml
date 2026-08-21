@@ -1,0 +1,654 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# SEED EXAMPLES — gold search questions.  NOT PROJECT CONTENT.  NOT APPROVED.
+#
+# Machine-written drafts over the s 43 pilot, for a Trade Mark expert to
+# correct. Guide: eval/STAGE-0-INPUT-GUIDE.md §5.5.
+#
+# Two fields carry almost all the value, and both are guesses here:
+#
+#   `relevant[].grade` — 3 highly relevant · 2 relevant · 1 marginal. Every
+#   grade below is a machine's opinion about what an examiner would want first.
+#   Regrading is the fastest correction in this whole seed set and the one that
+#   most directly moves the metrics (Recall@10, P@10, MRR, nDCG).
+#
+#   `irrelevant_but_tempting` — the passage that shares the query's words and
+#   is the wrong answer. It is the search set's equivalent of `not_labels`, and
+#   every one you add is a precision test that will actually fire.
+#
+# `uses_manual_terminology: false` on most of these on purpose. A query in the
+# Manual's own words tests string matching, which already works. If a query
+# below is not how anyone would really phrase it, rewriting it in the words
+# people do use is the most useful thing you can do to this file.
+# ═══════════════════════════════════════════════════════════════════════════
+
+defaults:
+  provenance:
+    extraction_method: llm
+    model: null
+    generator: tm-knowledge-agent-session-S007
+    generated_on: "2026-08-21"
+    confidence: null
+    review_status: candidate
+  review:
+    status: unreviewed
+    expert: null
+    reviewed_on: null
+    correction: null
+
+seeds:
+
+  - seed_id: SEED-GS-0001
+    record_type: gold_search_question
+    why_this_example: >
+      The plainest query in the pilot, in the Manual's own words. Included as a
+      control: if this one fails, nothing else is worth measuring.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GS-0001
+      query: "connotation likely to deceive or cause confusion"
+      uses_manual_terminology: true
+      relevant:
+        - {ref: "TMM/Part29/1#1", grade: 3}
+        - {ref: "TMM/Part29/3#1~1", grade: 3}
+        - {ref: "TMM/Part29/2/2/1~1", grade: 2}
+        - {ref: "TMM/Part29/3#1~2", grade: 2}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: >
+        No tempting wrong answers listed, which makes this a recall test only.
+        If there is a passage that matches these words and is the wrong one to
+        rely on, naming it turns this into a precision test as well.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0002
+    record_type: gold_search_question
+    why_this_example: >
+      An applicant's phrasing of the same need, with no Manual vocabulary in it
+      at all. This pair — GS-0001 and this — is what a vocabulary layer has to
+      earn its place on.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GS-0002
+      query: "will my logo be refused because of what it suggests"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/1#1", grade: 3}
+        - {ref: "TMM/Part29/2/2/2", grade: 2}
+        - {ref: "TMM/Part29/3#1~2", grade: 2}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0003
+    record_type: gold_search_question
+    why_this_example: >
+      The highest-value precision test in the pilot. "Confusion" without
+      qualification is the most ambiguous word in the corpus, and the tempting
+      wrong answers are the whole of Part 29.3.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GS-0003
+      query: "confusion with an existing registered trade mark"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/2/2/3", grade: 3}
+        - {ref: "TMM/Part29/3/3/3", grade: 3}
+      irrelevant_but_tempting:
+        - TMM/Part29/3#1~2
+        - TMM/Part29/3/3/1~1
+        - TMM/Part29/1#1
+      must_exclude: []
+      notes: >
+        The correct answers are the two passages that say this is *not* section
+        43's business. Every tempting passage is about confusion and none of
+        them is about this kind.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0004
+    record_type: gold_search_question
+    why_this_example: >
+      Examiner shorthand. If "celebrity" is not the word your examiners use,
+      replacing it is a correction that improves every downstream measurement.
+    provenance:
+      confidence: 0.5
+    record:
+      id: GS-0004
+      query: "celebrity name in a trade mark"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/6#1~1", grade: 3}
+        - {ref: "TMM/Part29/6#1~2", grade: 3}
+        - {ref: "TMM/Part29/6/6/1", grade: 2}
+        - {ref: "TMM/Part29/6/6/2~1", grade: 1}
+      irrelevant_but_tempting:
+        - TMM/Part22/17/17/5
+      must_exclude: []
+      notes: >
+        The tempting passage is Part 22's material on the signature of a
+        person, which is a distinctiveness question under section 41 and shares
+        most of its vocabulary.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0005
+    record_type: gold_search_question
+    why_this_example: >
+      A dead person's name, which has its own rule set and its own default. The
+      grading here is a judgement about whether the general material outranks
+      the specific.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GS-0005
+      query: "using a historical figure's name on products"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/6/6/2~1", grade: 3}
+        - {ref: "TMM/Part29/6/6/2~2", grade: 2}
+        - {ref: "TMM/Part29/6/6/2~3", grade: 2}
+        - {ref: "TMM/Part29/6#1~1", grade: 1}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: >
+        Grading the two worked cases at 2 rather than 3 assumes the rule
+        outranks the examples. An examiner may want the examples first.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0006
+    record_type: gold_search_question
+    why_this_example: >
+      A query using the commercial word for what the Manual calls a condition
+      of registration. The vocabulary gap is one term wide and total.
+    provenance:
+      confidence: 0.65
+    record:
+      id: GS-0006
+      query: "how to get an objection removed by limiting the goods"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/9/9/5", grade: 3}
+        - {ref: "TMM/Part29/9/9/2", grade: 2}
+        - {ref: "TMM/Part29/5/5/4", grade: 2}
+        - {ref: "TMM/Part29/5/5/5", grade: 1}
+      irrelevant_but_tempting:
+        - TMM/Part12/2#1
+      must_exclude: []
+      notes: >
+        Part 12 discusses excluding goods to overcome grounds and cites section
+        43 in a list. It matches the query's words and answers a different
+        question — the clearest scope-boundary case in the search set.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0007
+    record_type: gold_search_question
+    why_this_example: >
+      Two-word examiner shorthand for a whole practice area. Short queries are
+      where ranking matters most and where nDCG earns its place.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GS-0007
+      query: "INN stem"
+      uses_manual_terminology: true
+      relevant:
+        - {ref: "TMM/Part29/5/5/2", grade: 3}
+        - {ref: "TMM/Part29/5/5/5", grade: 3}
+        - {ref: "TMM/Part29/5/5/6~1", grade: 3}
+        - {ref: "TMM/Part29/5/5/3", grade: 2}
+        - {ref: "TMM/Part29/5/5/6~2", grade: 1}
+      irrelevant_but_tempting:
+        - TMM/Part29/x-annex-a1---table-of-inn-stems/a
+        - TMM/Part29/x-annex-a1---table-of-inn-stems/inn-stems
+      must_exclude: []
+      notes: >
+        The annex chunks are the tempting wrong answers: they are exactly on
+        topic, they are pure word lists, and an examiner who lands on them
+        learns nothing. Whether they should rank at all is a real decision.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0008
+    record_type: gold_search_question
+    why_this_example: >
+      A pharmacist's or applicant's phrasing of the same area, using the word
+      "drug" that the Manual never uses.
+    provenance:
+      confidence: 0.6
+    record:
+      id: GS-0008
+      query: "can I use a drug name ending in my brand"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/5/5/5", grade: 3}
+        - {ref: "TMM/Part29/5/5/6~1", grade: 3}
+        - {ref: "TMM/Part29/5/5/2", grade: 2}
+      irrelevant_but_tempting:
+        - TMM/Part22/24#1
+      must_exclude: []
+      notes: >
+        Part 22.24 is about trade marks for pharmaceutical goods under section
+        41 — same goods, different ground.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0009
+    record_type: gold_search_question
+    why_this_example: >
+      A query about a place name, phrased as a trader would. The Manual's
+      answer is spread over six chunks and none of them uses this wording.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GS-0009
+      query: "putting an Australian town in a brand name"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/9/9/3~1", grade: 3}
+        - {ref: "TMM/Part29/9#1", grade: 3}
+        - {ref: "TMM/Part29/9/9/4", grade: 2}
+        - {ref: "TMM/Part29/9/9/6", grade: 2}
+        - {ref: "TMM/Part29/9/9/2", grade: 1}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0010
+    record_type: gold_search_question
+    why_this_example: >
+      The same subject area with the term of art in it, which points somewhere
+      else entirely. GC-0017's not_labels record why.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GS-0010
+      query: "geographical indication protection wine"
+      uses_manual_terminology: true
+      relevant:
+        - {ref: "TMM/Part29/1/1/1", grade: 3}
+        - {ref: "TMM/Part32B/2/2#1", grade: 3}
+        - {ref: "TMM/Part29/11#1", grade: 2}
+        - {ref: "TMM/Part32B/1/1/1", grade: 2}
+      irrelevant_but_tempting:
+        - TMM/Part29/9/9/3~1
+        - TMM/Part29/9#1
+      must_exclude: []
+      notes: >
+        Part 29.9 is about geographical *references*, which is a different
+        thing, and it is the highest-scoring match on these words.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0011
+    record_type: gold_search_question
+    why_this_example: >
+      A query that should reach the exculpatory rule rather than the ground —
+      the examiner is looking for a reason not to object.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GS-0011
+      query: "place name that nobody would take literally"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/9#1", grade: 3}
+        - {ref: "TMM/Part29/9/9/3~2", grade: 2}
+        - {ref: "TMM/Part29/4#1", grade: 1}
+      irrelevant_but_tempting:
+        - TMM/Part29/9/9/2
+      must_exclude: []
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0012
+    record_type: gold_search_question
+    why_this_example: >
+      A phone number query, which will collide with every four-digit year in
+      the corpus. A retrieval problem created by the corpus's own contents.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GS-0012
+      query: "1300 number in a trade mark"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/7#1", grade: 3}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: >
+        A single-passage answer, which makes it a clean MRR test: the right
+        chunk should be first and there is nothing else it could be.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0013
+    record_type: gold_search_question
+    why_this_example: >
+      A domain-name query in the applicant's words, where the Manual's answer
+      depends on which level of the domain is involved.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GS-0013
+      query: "my brand is my website address"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/8#1", grade: 3}
+        - {ref: "TMM/Part29/8/8/2", grade: 2}
+        - {ref: "TMM/Part29/8/8/1", grade: 2}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0014
+    record_type: gold_search_question
+    why_this_example: >
+      A radio query that must reach both grounds — the section 43 material and
+      the section 41 warning attached to it. A single-ground answer is
+      incomplete.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GS-0014
+      query: "radio station call sign as a brand"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/8/8/3", grade: 3}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: >
+        Both grounds are in one chunk, so retrieval cannot fail this and
+        answering can. That contrast is worth keeping in the set.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0015
+    record_type: gold_search_question
+    why_this_example: >
+      A query about plant names, whose answer starts in Part 29 and finishes in
+      Part 32A. A boundary test for the pilot as much as for retrieval.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GS-0015
+      query: "naming a new plant variety as a trade mark"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/1/1/2", grade: 3}
+        - {ref: "TMM/Part32A/2/4/2/4/1", grade: 3}
+        - {ref: "TMM/Part32A/2/4/2/4/2", grade: 2}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0016
+    record_type: gold_search_question
+    why_this_example: >
+      A query about the presumption, phrased as a question about doubt. The
+      answer is one short chunk that is easy to miss because it is short.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GS-0016
+      query: "what if I am not sure whether there is a connotation"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/2/2/4", grade: 3}
+        - {ref: "TMM/Part29/1#1", grade: 2}
+        - {ref: "TMM/Part20/5/5/5", grade: 2}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: >
+        The right answer is 282 characters long. Length-normalised ranking will
+        bury it under passages that mention the presumption in passing.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0017
+    record_type: gold_search_question
+    why_this_example: >
+      A currency query in the marketplace sense. It must not reach the
+      point-in-time material, which the corpus cannot answer anyway.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GS-0017
+      query: "the word did not mean anything ten years ago"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/3/3/2", grade: 3}
+        - {ref: "TMM/Part29/3/3/4", grade: 2}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0018
+    record_type: gold_search_question
+    why_this_example: >
+      A query using the Manual's own quoted phrase, which appears in two
+      chunks for two different purposes. Duplicate-looking hits with different
+      contexts.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GS-0018
+      query: "real and tangible danger"
+      uses_manual_terminology: true
+      relevant:
+        - {ref: "TMM/Part29/3/3/1~1", grade: 3}
+        - {ref: "TMM/Part29/4#1", grade: 2}
+        - {ref: "TMM/Part29/3#1~1", grade: 2}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0019
+    record_type: gold_search_question
+    why_this_example: >
+      A query that should return the *negative* rule — descriptive matter does
+      not by itself trigger the section. Searching for a reason to object and
+      finding a reason not to.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GS-0019
+      query: "mark describes the goods is that enough for an objection"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/4#1", grade: 3}
+        - {ref: "TMM/Part29/3#1~1", grade: 2}
+      irrelevant_but_tempting:
+        - TMM/Part22/24#1
+        - TMM/Part23/2/2/2/2
+      must_exclude: []
+      notes: >
+        Both tempting passages are about descriptiveness under section 41,
+        where the answer is the opposite.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0020
+    record_type: gold_search_question
+    why_this_example: >
+      A query about Indigenous material in the words a trader would use.
+      Sensitive area, and the vocabulary an applicant uses may be very
+      different from the Manual's.
+    provenance:
+      confidence: 0.55
+    record:
+      id: GS-0020
+      query: "using Aboriginal artwork in a logo"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/10#1", grade: 3}
+      irrelevant_but_tempting:
+        - TMM/Part30/2/2/12
+        - TMM/Part31/4/4/2/2~2
+      must_exclude: []
+      notes: >
+        The tempting passages are the scandalous-signs and prescribed-signs
+        material, which are different grounds and cover neighbouring ground.
+        Whether either is in fact relevant here is a judgement.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0021
+    record_type: gold_search_question
+    why_this_example: >
+      A query for the endorsement wording itself — the examiner wants text to
+      paste, not a rule to apply. A different kind of need from every other
+      query in this file.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GS-0021
+      query: "endorsement wording for INN condition"
+      uses_manual_terminology: true
+      relevant:
+        - {ref: "TMM/Part29/5/5/4", grade: 3}
+        - {ref: "TMM/Part29/5/5/5", grade: 3}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: >
+        The two chunks carry two different endorsements — one for an INN, one
+        for an INN stem. Returning the wrong one puts wrong wording on a
+        register, so a 50% hit rate here is not half right.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0022
+    record_type: gold_search_question
+    why_this_example: >
+      A query asking what happens when the ground is missed. It reaches beyond
+      Part 29 into opposition and revocation material.
+    provenance:
+      confidence: 0.6
+    record:
+      id: GS-0022
+      query: "ground only became obvious after acceptance"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/3/3/4", grade: 3}
+        - {ref: "TMM/Part51/10#1~1", grade: 2}
+        - {ref: "TMM/Part47/1/1/2/2", grade: 1}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: >
+        Whether the Part 51 and Part 47 material is in the pilot at all is
+        deliverable 1's question. Grading them 2 and 1 assumes they are.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0023
+    record_type: gold_search_question
+    why_this_example: >
+      A query phrased as a case name, which is how practitioners often search.
+      The corpus holds the citation and not the decision, so what comes back is
+      the Manual's account of it.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GS-0023
+      query: "Primary Health Care denotation connotation"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/2/2/1~1", grade: 3}
+        - {ref: "TMM/Part29/2/2/1~2", grade: 3}
+        - {ref: "TMM/Part29/3#1~1", grade: 2}
+        - {ref: "TMM/Part29/3/3/3", grade: 1}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: >
+        Every result is the Manual quoting or summarising the decision. An
+        answer that presents any of it as the Court's holding is PU-0005.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0024
+    record_type: gold_search_question
+    why_this_example: >
+      A query about the whole-mark rule, phrased as the counter-argument an
+      applicant would make.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GS-0024
+      query: "the rest of the logo cancels out the problem word"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/3/3/5", grade: 3}
+        - {ref: "TMM/Part29/9/9/3~1", grade: 2}
+        - {ref: "TMM/Part29/9/9/3~2", grade: 2}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0025
+    record_type: gold_search_question
+    why_this_example: >
+      A query whose correct answer is that the corpus cannot answer it. Every
+      graded passage is at grade 1, because none of them is what was asked for.
+    provenance:
+      confidence: 0.65
+    record:
+      id: GS-0025
+      query: "what did the court decide in Southern Cross Refrigerating"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part29/3/3/1~1", grade: 1}
+        - {ref: "TMM/Part29/3#1~1", grade: 1}
+      irrelevant_but_tempting: []
+      must_exclude: []
+      notes: >
+        No decision text exists anywhere in the programme (Q-11). The Manual's
+        quotation of the case is not the case. Grading both at 1 says: this is
+        the closest the corpus gets, and it is not close.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GS-0026
+    record_type: gold_search_question
+    why_this_example: >
+      A query for material the pilot deliberately routes elsewhere. It is here
+      to test that the boundary holds under a plausible query rather than only
+      in the scope document.
+    provenance:
+      confidence: 0.6
+    record:
+      id: GS-0026
+      query: "evidence of use to overcome an objection"
+      uses_manual_terminology: false
+      relevant:
+        - {ref: "TMM/Part23/2/2/2/2", grade: 3}
+        - {ref: "TMM/Part29/3/3/4", grade: 2}
+      irrelevant_but_tempting:
+        - TMM/Part29/9/9/5
+        - TMM/Part29/5/5/4
+      must_exclude: []
+      notes: >
+        Evidence of use overcomes a section 41 ground. Under section 43 the
+        route is a condition or a limitation, and the tempting passages say so
+        in words that match the query.
+      approved_by: null
+      approved_date: null

@@ -3,7 +3,7 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-08-19 · session S006 · branch `claude/trademark-expert-blockers-3x8zyc`
+**Last updated:** 2026-08-21 · session S007 · branch `claude/trademark-experts-examples-xwff77`
 
 ---
 
@@ -12,13 +12,14 @@ disagrees with your reading of the tree, trust it and then fix it.
 **The agent-side track is finished.** All twelve parallel-track packages
 (P1–P12) are built. S005 delivered the last five: **P5** the evaluation harness,
 **P7** the intake workbook, **P8** the transcription path, **P10** the coverage
-report and **P11** CI. 219 tests pass. From a bare clone:
+report and **P11** CI. 247 tests pass. From a bare clone:
 
 ```bash
 pip install -e ".[test,intake]"
 tmk-fetch-upstream    # pinned snapshot into data/upstream/ (~4s)
 tmk-worksheet         # 216 chunks to annotate → data/derived/worksheet.md
-tmk-workbook          # the intake workbook → data/derived/stage0-intake.xlsx
+tmk-workbook          # the intake workbook, EMPTY → data/derived/stage0-intake.xlsx
+tmk-seed --pack --workbook   # the seed set, for correction → data/derived/ (S007)
 tmk-harness           # every Stage 0 check. Exits 3 — see below
 tmk-coverage          # the same, as a worklist → data/derived/reports/
 pytest -q
@@ -44,27 +45,68 @@ records, reporting every blank judgement field instead of filling one. The round
 trip preserves every populated field and is a fixed point. Guide §6's promise —
 "do not write YAML" — is now a command rather than an intention.
 
-**Stage 0 still has no expert content, and nothing an agent can do will change
-that.** What changed is that the last excuse is gone: the boundary decision is
-costed, the annotation surface is printed, the intake form exists, and an hour of
-expert time visibly moves a counter.
+**Stage 0 still has no *approved* content. What changed in S007 is the shape of
+the ask.** The owner reported why the experts had not produced any, and it was
+not availability: they could not readily *articulate* the judgements the record
+types want, because those judgements are the tacit part of their practice. A
+blank form is the wrong instrument for that. Recognising a wrong answer is a
+different and much cheaper act than composing a right one.
 
-**The parallel track's §7 now applies.** Its own words for this moment: *"the
+So S007 built a **seed example set**: 368 machine-written candidate records over
+s 43, in every Stage 0 shape, grounded in the pinned snapshot, deliberately
+fallible, for the experts to mark *correct*, *amend* or *reject*. It lives in
+`review/seed/` and it is **not project content** — see ADR-0043 for the decision
+and the six guards that keep it from becoming any.
+
+```bash
+tmk-seed                       # check the set. Exits 0: no defects today
+tmk-seed --pack --workbook     # the two things an expert can mark up
+```
+
+**The harness has not moved and must not.** `tmk-harness` still exits 3 and
+still names all 22 absent Stage 0 deliverables, because `eval/gold/` is still
+empty. A seed record counts for nothing until it comes back through
+`tmk-transcribe` with a name in `approved_by`.
+
+**The parallel track's §7 still applies to plumbing.** Its words — *"the
 container is finished and empty; the programme is waiting on Stage 0 content"* —
-not a search for further plumbing. A session that finds itself designing new
-apparatus should stop and read that section.
+remain true. S007 did not add plumbing; it filled the container with a draft to
+argue with. A session that finds itself designing new *apparatus* should still
+stop and read that section.
 
 ## 2. The next action
 
-**Thread B — the experts. It is the only thread with work in it.** Pass A
-content in the order at `eval/STAGE-0-INPUT-GUIDE.md` §10: pilot scope boundary
-first (Q8), then competency questions and prohibited uses. Pass B needs nothing
-from anyone before it starts — hand over `data/derived/worksheet.md` and
-`data/derived/stage0-intake.xlsx` and annotation can begin on 216 chunks today.
+**Thread B — the experts. It is the only thread with work in it, and the ask
+has changed.** Do not hand over a blank workbook again. Hand over:
+
+- `data/derived/seed-review-pack.md` — 368 records in reading order, each with
+  the Manual passage it rests on quoted underneath and the span in bold;
+- `data/derived/stage0-seed-review.xlsx` — the same records as a correctable
+  spreadsheet with `verdict` and `correction` columns;
+- `review/seed/HOW-TO-CORRECT.md` — the covering instructions, including where
+  an hour is best spent.
+
+The two highest-leverage corrections are stated at the tops of their files
+rather than buried in records: **the entity annotation rule**
+(`entities.seed.yaml`) and **the candidate predicate list**
+(`relationships.seed.yaml`). Each decides the shape of hundreds of later
+records. After those: `not_labels`, then `modality`, then
+`qualifications_expected`, then the relevance grades.
+
+Two documents in the same directory need no record-reading at all and unblock
+more than any number of corrections: `pilot-scope.seed.md` (the boundary, Q8)
+and `measures.seed.md` (the thresholds).
 
 **Thread C — agents. Maintenance, not construction.** What is legitimately left:
 
-1. **Transcribe whatever arrives.** `tmk-transcribe FILE --write`, then
+0. **Transcribe the corrected seed workbook when it comes back.**
+   `tmk-transcribe data/derived/stage0-seed-review.xlsx --write`, then
+   `tmk-harness` and `tmk-coverage`. The round trip is proven: 368 records read
+   back, zero rejected rows, every blank `approved_by` reported. **Then delete
+   the seed file for any record type that has been through review** — two
+   versions of the same records, one approved and one not, is worse than none
+   (ADR-0043 consequence 6).
+1. **Transcribe whatever else arrives.** `tmk-transcribe FILE --write`, then
    `tmk-harness` and `tmk-coverage`. This is the loop the whole track was built
    to serve, and it is now one command per direction.
 2. **Report the state honestly.** `tmk-coverage` is the answer to "what is Stage
@@ -86,9 +128,9 @@ would be measured against a gold set that does not exist.
 | # | Question | Blocks | Raised |
 |---|---|---|---|
 | ~~Q1~~ | ~~What is the pilot scope?~~ **Answered S002: s 43** (ADR-0013). The *boundary* is deliverable 1 — see Q8. | — | S001 |
-| Q8 | What is the s 43 **boundary**? Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. **Answerable against numbers** — `tmk-recon` reports where the citing chunks sit and what each candidate rule costs. | All remaining Stage 0 **content**. Does not block the worksheet — ADR-0017, ADR-0022 | S002 |
+| Q8 | What is the s 43 **boundary**? **A draft to correct now exists** at `review/seed/pilot-scope.seed.md` (S007), with the recon numbers and an exclusion list. Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. **Answerable against numbers** — `tmk-recon` reports where the citing chunks sit and what each candidate rule costs. | All remaining Stage 0 **content**. Does not block the worksheet — ADR-0017, ADR-0022 | S002 |
 | ~~Q2~~ | ~~How does this repo get the upstream snapshot?~~ **Answered S003, built S004** (ADR-0004, ADR-0021, ADR-0026). | — | S001 |
-| Q3 | Which LLM is "agency-approved" for the Stage 2–4 extraction steps, and under what data-handling conditions may Manual text be sent to it? | Stages 2, 3, 4 | S001 |
+| Q3 | Which LLM is "agency-approved" for the Stage 2–4 extraction steps, and under what data-handling conditions may Manual text be sent to it? **Now also touches Stage 0:** `review/seed/` records carry `model: null` because naming one would pre-empt this (ADR-0043 consequence 4). If the agency requires the model recorded, it is a provenance field and a one-line change. | Stages 2, 3, 4 | S001 |
 | Q4 | ~~What does "approved" look like as a recorded artefact?~~ **Answered S006: the workbook's `approved_by`/`approved_date` columns are the artefact** — a name and a date, no separate signed-off file or external register (ADR-0039). **Still open: who are the approving experts?** — expected to arrive with the experts' own content. | Nothing structural; who-question blocks nothing today | S001 |
 | ~~Q5~~ | ~~Does ADR-0005 hold?~~ **Answered S003: yes** (ADR-0021). | — | S001 |
 | Q6 | Case law is cited by the corpus but is not held as documents anywhere. Is acquiring decision texts in scope for this repo? **Costed for the pilot:** 58 distinct decisions are cited from the 216 in-scope chunks. The harness reports a case ref as a NOTE — checked for grammar, resolvable by nothing (Q-11). | Stage 2 citation resolution, Stage 8 retrieval | S001 |
@@ -97,10 +139,13 @@ would be measured against a gold set that does not exist.
 | ~~Q11~~ | ~~Five S004 ADRs are agent-proposed: 0024, 0026, 0027, 0028, 0029.~~ **Answered S006, in part:** 0024, 0026, 0027 confirmed (ADR-0040); 0028 reversed, not confirmed (ADR-0042, `data/derived/` is now committed). **0029 still open** — owner had no context for it ("I have no idea what this means"); it needs none, since it already reflects current practice and nothing hinges on ruling it either way. | Nothing | S004 |
 | Q12 | Six S005 ADRs are agent-proposed: **0030** (three severities, three exit codes), **0032** (one named gold file per record type), **0033** (the retired-id ledger), **0035** (`openpyxl` as an optional extra — *the only one that is a dependency decision*), **0036** (the workbook's cell encoding), **0037** (how transcription writes). ADR-0031 and ADR-0034 are `derived`. Owner has seen a plain summary of these (S006) but has not yet ruled on them. | Nothing | S005 |
 | ~~Q13~~ | ~~Does upstream need a token in CI?~~ **Answered S006: no.** `manual-XtrACTor` is public (QUIRKS Q-13, amended S004) and GitHub Actions clones public repos anonymously, so `tmk-fetch-upstream` works in CI with `UPSTREAM_TOKEN` unset. Leave the secret unset unless the repo's visibility changes. | — | S005 |
+| Q15 | **New, S007.** Does the owner confirm **ADR-0043** as recorded, including its six guards and its reversal condition? The decision to seed was the owner's; the *guards* — quarantine, the envelope, the null-and-checked `approved_by`, the single door out, the untouched harness, the delete-after-review rule — are the agent's reading of what makes it safe, and they are what an audit will be judged against. **ADR-0044** and **ADR-0045** are `derived` and need no ruling. | Nothing today; the seed set is usable either way | S007 |
 | Q14 | **New, S006.** Owner asked for more plain-language guidance on **constructing the ontology**, beyond what `STAGE-0-INPUT-GUIDE.md` covers (which is scoped to Stage 0 elicitation, not Stage 5 ontology formalisation). Not scoped or drafted yet — needs its own session: who is the audience (the Trade Mark experts already working from the input guide, or a wider group?), and what specifically is unclear in the existing docs. | Nothing yet; would help the experts' ongoing work | S006 |
 
 Agent-proposed ADRs awaiting human confirmation: **0011** (deferred, not
-declined — see ADR-0041), **0029, 0030, 0032, 0033, 0035, 0036, 0037**.
+declined — see ADR-0041), **0029, 0030, 0032, 0033, 0035, 0036, 0037**, and
+**0043's guards** (the decision to seed was the owner's; how it is fenced is
+Q15). ADR-0044 and ADR-0045 are `derived`.
 (0006, 0012, 0014, 0024, 0026, 0027 confirmed S006 — ADR-0040; 0016 and 0018
 confirmed S006 — ADR-0038; 0028 superseded S006 — ADR-0042. ADR-0023,
 ADR-0025, ADR-0031 and ADR-0034 are `derived`.)
@@ -126,7 +171,19 @@ later (Q6, Q14), or a confirmation that changes nothing structural (Q12, and
   (ADR-0042, supersedes ADR-0028). Regenerate and commit the diff; don't
   hand-edit what's on disk.
 - **Do not put an example row in the intake workbook.** Not even a marked one.
-  In a spreadsheet, copying a row is one keystroke.
+  In a spreadsheet, copying a row is one keystroke. The seed examples live in a
+  *different file* — `stage0-seed-review.xlsx` — for exactly this reason
+  (ADR-0044). `stage0-intake.xlsx` stays empty.
+- **Do not move a seed record into `eval/gold/` by hand**, and do not fill an
+  `approved_by` in `review/seed/` to make something pass. Both are defects that
+  `tmk-seed` catches, and the second is the specific failure ADR-0043's guards
+  exist to prevent.
+- **Do not hand-write a `span` or a `source_content_hash` in a seed record.**
+  They are computed from the snapshot at render time (ADR-0045). If a surface
+  will not locate, the surface was retyped rather than copied — fix the surface.
+- **Do not maintain a seed file after its record type has been reviewed.**
+  Delete it. Two versions of the same records, one approved and one not, is
+  worse than no seed file.
 - **Do not fill a judgement field to make a check pass.** Null is a reportable
   gap; a plausible value is a lie the harness will then certify.
 - **Do not make `pytest` fail to satisfy "the suite must fail".** That is
@@ -139,6 +196,64 @@ later (Q6, Q14), or a confirmation that changes nothing structural (Q12, and
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S007 — 2026-08-21 — a 368-record seed set, for the experts to correct rather than compose
+
+Owner reported the real blocker, and it was not availability: the Trade Mark
+experts could not readily **articulate** the judgements the Stage 0 record types
+ask for, because those judgements are the tacit part of their practice. A blank
+form is the wrong instrument for that. Recognising a wrong answer is a different
+and much cheaper act, so the owner asked for an extensive example set to be
+corrected, and accepted that it cuts against CLAUDE.md rule 1.
+
+Built `review/seed/`: **368 machine-written candidate records** over s 43 — 24
+competency questions, 18 prohibited uses (all six kinds), 52 concepts, 153
+entities exhaustively annotated over a bounded 14-chunk set, 58 relationships,
+26 search questions, 22 retrieval questions, 15 reasoning expectations — plus
+draft `pilot-scope` and `measures` documents. Every record is grounded in the
+pinned snapshot: every ref resolves, every span lands on its recorded text, every
+cross-reference points at something. `tmk-seed` exits 0.
+
+The decision is ADR-0043 and the *guards* are the substance of it, because the
+risk is not that the content is wrong — it is meant to be wrong in places — but
+that it stops looking like a candidate. Six: quarantine under `review/`;
+`.seed.yaml` names the gold loader will not read; an envelope carrying
+provenance and a verdict around every record; `approved_by` null **and checked**,
+with a test over the shipped directory; one door out (`tmk-transcribe`); and an
+untouched harness, which still exits 3 and still names all 22 absent
+deliverables. A seed record moves no counter.
+
+Two smaller decisions fell out. The seed workbook had to be a **separate file**
+from the intake workbook, because HANDOFF §4's no-example-row rule protects a
+blank form and does not argue against a differently-named file whose whole
+purpose is correction (ADR-0044) — `tmk-transcribe` now tolerates three review
+columns rather than a second reader existing. And seed **spans are computed,
+never written**: the tool locates the surface in the chunk and fills the offsets
+and the hash, and refuses to guess which mention is meant when a surface repeats
+(ADR-0045). That means an expert who corrects a surface gets a correct span for
+free.
+
+The round trip is proven end to end: the corrected workbook reads back through
+`tmk-transcribe` with 368 records, 0 rejected rows and 767 blank judgement
+fields reported rather than filled. 247 tests pass.
+
+Two corpus findings, both inside the pilot scope and both now in QUIRKS. **Q-24**:
+`TMM/Part29/3/3/1~2` cites section 114 of the *Trade Marks Act 1905* and only two
+instruments are held, so that ref resolves to nothing by construction — 35 such
+edges exist in the provisional scope, and it makes the `stale_source` prohibition
+a live risk rather than a hypothetical one. **Q-25**: a term of art arrives broken
+across a line as `International Non- Proprietary Name`, which is the sharpest
+instance of why a surface is copied and never retyped.
+
+The most useful output is not the record count. It is that **the two decisions
+that shape everything downstream are now stated at the tops of two files rather
+than implied by hundreds of records**: the entity annotation rule (which
+deliberately annotates one chunk under a stricter rule so the densities can be
+compared) and the candidate predicate list (fourteen predicates, invented in
+defiance of the guide's own advice, and labelled as such).
+
+Legal content authored — deliberately, as unapproved candidates, for the first
+time in this repo. No Stage 2 extraction run. `eval/gold/` untouched.
 
 ### S006 — 2026-08-19 — closed Q13, Q9, Q4's format-half and 6 more ADRs; reversed ADR-0028
 

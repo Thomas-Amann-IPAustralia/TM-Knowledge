@@ -1,6 +1,6 @@
 # review/ — candidates awaiting a human decision
 
-Empty. Everything the machines propose lands here and stays here until a person
+Everything the machines propose lands here and stays here until a person
 decides. This directory is the boundary that ADR-0007 exists to protect: nothing
 moves from `review/` into `vocab/`, `ontology/` or `graph/` without a recorded
 decision.
@@ -11,7 +11,15 @@ review/candidates/citations/      Stage 2 — unresolved and ambiguous citations
 review/candidates/clusters/       Stage 3 — proposed synonym groups and hierarchy edges
 review/candidates/relations/      Stage 4 — relationships, propositions, candidate rules
 review/decisions/                 the record of what was approved, rejected or deferred
+review/seed/                      Stage 0 — machine-written example records, for expert correction
 ```
+
+`seed/` is the one occupant today, and it is unusual enough to have its own
+ADR: it holds candidate **legal content**, written by an agent so that an
+expert can correct it rather than compose it from a blank form (ADR-0043).
+Read `seed/README.md` before touching it. The rules that keep it safe are the
+ones this directory exists for — quarantine, an envelope on every record, a
+null `approved_by` that is checked, and exactly one door out.
 
 ## What belongs here
 

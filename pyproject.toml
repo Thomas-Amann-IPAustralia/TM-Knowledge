@@ -32,6 +32,7 @@ tmk-harness = "tm_knowledge.stage0.cli:harness"
 tmk-coverage = "tm_knowledge.stage0.cli:coverage"
 tmk-workbook = "tm_knowledge.stage0.cli:workbook"
 tmk-transcribe = "tm_knowledge.stage0.cli:transcribe"
+tmk-seed = "tm_knowledge.stage0.cli:seed"
 
 [project.urls]
 Homepage = "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge"

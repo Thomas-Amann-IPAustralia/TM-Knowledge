@@ -1290,3 +1290,190 @@ different reasons, and that split is deliberate, not an oversight.
 4. `HANDOFF.md` §4's "do not commit anything under `data/` except `pin.json`
    and the README" is now wrong and is corrected in the same commit as this
    ADR.
+
+---
+
+## ADR-0043 — A machine-written seed example set is produced for expert correction
+
+**Date** 2026-08-21 · **Authority** human · **Status** accepted
+
+**Context.** Stage 0 has been unblocked on the agent side since S005: the
+worksheet prints 216 chunks, the intake workbook ships empty with a dropdown on
+every fixed vocabulary, the transcriber reads it back without inventing a field,
+and the coverage report turns an hour of expert time into a moved counter. None
+of that produced content. The owner reports the reason, and it is not
+availability: **the Trade Mark experts cannot readily articulate the judgements
+the record types ask for**, because those judgements are the tacit part of their
+practice. A blank form asks them to state — cold, in writing, in a schema — what
+they normally exercise without stating. Recognising a wrong answer is a
+different and much cheaper act.
+
+**Decision.** An agent produces a large **seed example set** over the s 43
+pilot: candidate records in every Stage 0 shape, grounded in the pinned
+snapshot, deliberately fallible, for the experts to mark *correct*, *amend* or
+*reject*. The corrected set becomes the gold set. A later, larger set is then
+generated in the same shapes and the experts' second pass is validation rather
+than correction.
+
+**This runs against CLAUDE.md rule 1** — "never invent legal content" — and the
+owner made that trade knowingly. The rule is not repealed. What changes is
+narrow and the boundary is enforced mechanically rather than promised:
+
+1. **Quarantine.** The set lives in `review/seed/`, inside the boundary ADR-0007
+   exists to protect. It is not in `eval/`, `vocab/`, `ontology/` or `graph/`.
+2. **Filenames that cannot be misread.** `*.seed.yaml`. `goldset.py` reads eight
+   fixed names and treats an unrecognised `.yaml` in `eval/gold/` as an error
+   (ADR-0032), so a misfiled seed file **stops the harness** rather than being
+   counted as expert judgement.
+3. **An envelope, not a bare record.** Every record sits inside a `seed_id`, a
+   `why_this_example`, a provenance block and a review verdict. A record cannot
+   be lifted out of the file and mistaken for one an expert wrote.
+4. **`approved_by` and `approved_date` are null, and checked.** A seed record
+   carrying either is a **defect** that stops `tmk-seed`, and a test asserts it
+   over the shipped directory. This is the load-bearing guard: the whole risk of
+   a seed set is that it quietly starts looking approved.
+5. **One door out.** A corrected record leaves only through
+   `tmk-transcribe --write`, with an expert's name in `approved_by`. Nothing is
+   promoted, copied or moved by any other route, and `tmk-seed` never writes to
+   `eval/gold/`.
+6. **The harness is untouched.** `tmk-harness` still exits 3 and still reports
+   all 22 Stage 0 deliverables as absent, because they are. The seed set moves
+   no counter.
+
+**Rationale.** The failure mode rule 1 guards against is a plausible-looking
+invented record being copied forward and treated as approved. That risk is
+highest when the invented content is *indistinguishable* from expert content —
+which is exactly what the six guards above prevent. Against it stands a
+programme that has been stalled at its first stage for four sessions with a
+complete apparatus and no content, and a named reason for the stall that more
+apparatus cannot fix.
+
+**Consequences.**
+
+1. `review/seed/` holds 368 records: 24 competency questions, 18 prohibited
+   uses, 52 concepts, 153 entities, 58 relationships, 26 search questions, 22
+   retrieval questions, 15 reasoning expectations, plus draft `pilot-scope` and
+   `measures` documents. All expert-owned content, none of it approved.
+2. `tmk-seed` checks the set, resolves every span against the snapshot and
+   renders it two ways — a Markdown review pack and a pre-filled review
+   workbook (ADR-0044).
+3. **The entity annotation rule and the relationship predicate list are the two
+   highest-value corrections**, and both are stated at the top of their files
+   rather than buried in records. `entities.seed.yaml` annotates one chunk under
+   a stricter rule than the rest so the two densities can be compared;
+   `relationships.seed.yaml` opens with fourteen invented predicates and says in
+   terms that the guide forbids inventing them.
+4. **`model` is null on every record.** HANDOFF Q3 — which LLM is
+   agency-approved, and under what data-handling conditions — is open, and
+   stamping a model name into the repository would pre-empt an organisational
+   decision. `generator` and `generated_on` identify the run; the session log
+   identifies the session. If the agency later requires the model recorded, it
+   is a provenance field, not a record change.
+5. `eval/STAGE-0-INPUT-GUIDE.md` §9's promise — "an agent may say *we have no
+   question testing point-in-time currency*; an agent may not write that
+   question" — is now qualified for `review/seed/` and holds everywhere else.
+   The guide is updated to say so rather than left to contradict the tree.
+6. **A seed file is deleted once its record type has been through review.** Two
+   versions of the same records, one approved and one not, is worse than no seed
+   file at all.
+
+**What would reverse this.** Evidence that the seed set is anchoring rather than
+prompting — an expert marking records `correct` at a rate that suggests reading
+rather than judging, or corrections that only ever adjust wording and never
+reject a shape. Both are visible in the verdict distribution, which is why the
+verdict is a recorded field rather than a marked-up document.
+
+---
+
+## ADR-0044 — The seed review workbook is a separate file; the intake workbook stays empty
+
+**Date** 2026-08-21 · **Authority** derived · **Status** accepted
+
+**Context.** ADR-0043 needs the seed set in a medium an expert will actually
+correct, and the intake workbook is already that medium — same layout, same
+dropdowns, and `tmk-transcribe` already reads it back. But P7's rule, restated
+in HANDOFF §4, is absolute: **no example row in the intake workbook, not even a
+marked one**, because in a spreadsheet copying a row is one keystroke.
+
+**Decision.** Two files, one layout.
+
+- `data/derived/stage0-intake.xlsx` — generated by `tmk-workbook`, **empty**,
+  unchanged. Still the right thing for someone composing from scratch.
+- `data/derived/stage0-seed-review.xlsx` — generated by `tmk-seed --workbook`,
+  the same sheets pre-filled with seed records, plus three columns at the
+  right-hand end: `seed_id`, `verdict`, `correction`. Different filename,
+  different first sheet, and a verdict cell on every row.
+
+`tmk-transcribe` is taught to **tolerate** those three headers rather than
+reject them as unknown columns. They are annotations *about* a record, never
+fields *of* one, so they are dropped on the way into `eval/gold/`: a verdict is
+how a record came to be approved, not something the record asserts.
+
+**Rationale.** P7's rule protects a blank form from being contaminated by a
+plausible filled row. It does not argue against a *differently named file whose
+entire purpose is to be corrected*, where every row carries a verdict column
+that is empty until a person fills it. Keeping one workbook and adding a mode
+flag would have collapsed the distinction the rule depends on.
+
+Teaching the transcriber three extra headers rather than writing a second reader
+follows the same reasoning as `intake.py` itself: there is exactly one place the
+workbook layout lives, and a second reader would eventually be a second layout.
+
+**Consequences.**
+
+1. `intake.REVIEW_COLUMNS` is the single definition of the three headers, read
+   by both `seedpack.py` and `transcribe.py`. A test asserts they collide with
+   no schema field name.
+2. The corrected seed workbook round-trips: 368 records read back with zero
+   rejected rows and every blank `approved_by` reported rather than filled.
+3. `tmk-seed --pack` renders the same records as Markdown with the source
+   passage quoted under each and the span in bold, for experts who would rather
+   mark up a document than a spreadsheet. Both are regenerated from the same
+   YAML and neither is authoritative over it.
+
+---
+
+## ADR-0045 — Seed spans are computed from the snapshot, never written by hand
+
+**Date** 2026-08-21 · **Authority** derived · **Status** accepted
+
+**Context.** A gold entity or relationship carries `span` — character offsets
+into the chunk `text` — and `source_content_hash`. The guide promises the expert
+will never type either (§3). The seed set creates the same problem in the other
+direction: an agent writing 211 span-bearing records by hand would get some of
+them wrong, and every correction to a `surface` would silently invalidate its
+offsets.
+
+**Decision.** Seed records carry `span: null` and `source_content_hash: null` on
+disk. `tmk-seed` locates the recorded `surface` (or `supporting_text`) in the
+chunk and fills both from the pinned snapshot at render time. Where a surface
+appears more than once, the envelope's `locate.occurrence` says which mention is
+meant; where the hint is **missing on an ambiguous surface, the tool reports it
+and stops** rather than resolving to the first hit (rule 6).
+
+`review/seed/*.seed.yaml` is never rewritten by the tool. The files carry the
+comments that make them readable, and a round trip through a YAML dumper would
+eat them; the resolved records live in the pack and the workbook instead.
+
+**Rationale.** Offsets are mechanical and a hand-written one is a defect waiting
+to be discovered by the harness. Making them derived means an expert who
+corrects a surface form gets a correct span for free — which is the difference
+between a correction costing ten seconds and costing a round trip.
+
+The refusal to guess an occurrence is the same refusal upstream makes on an
+ambiguous citation (Q-07): picking the first hit would be right most of the time
+and wrong invisibly.
+
+**Consequences.**
+
+1. `harness.passage_at` exists so the seed resolver and the harness's span check
+   use one resolver. A seed record that passes here cannot fail there for a
+   reason a reader could not see.
+2. A surface that has been retyped rather than copied fails loudly, naming the
+   record. The corpus contains typographic quotation marks, an en dash where a
+   hyphen appears elsewhere, a term broken across a line as "International Non-
+   Proprietary Name" (Q-25) and at least one sentence with a word missing
+   (`TMM/Part29/8/8/3`), and every one of those has to survive verbatim.
+3. Nothing in `review/seed/` needs regenerating when the pin moves — the spans
+   were never stored. The records go stale in the same way gold records do, and
+   the tool says so on the next run.

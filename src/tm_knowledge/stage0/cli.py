@@ -1,5 +1,5 @@
 """Commands: `tmk-recon`, `tmk-worksheet`, `tmk-harness`, `tmk-coverage`,
-`tmk-workbook` and `tmk-transcribe`.
+`tmk-workbook`, `tmk-transcribe` and `tmk-seed`.
 
 All four write into `data/derived/`, which is tracked and committed (ADR-0042,
 supersedes ADR-0028) — they are derivations of the pinned snapshot and of
@@ -22,6 +22,12 @@ pipeline trains everyone to ignore it, and the failure that matters is 1.
 `tmk-transcribe` is the other one to read before running: it writes into
 `eval/gold/`, which is approved space, so it does a dry run unless given
 `--write`.
+
+`tmk-seed` runs the other way round: it checks the machine-written example
+records in `review/seed/`, resolves their spans against the snapshot, and
+renders them as a review pack and a review workbook for an expert to correct
+(ADR-0043). It never writes into `eval/gold/` — the corrected workbook goes
+back through `tmk-transcribe`, which is the only door into approved space.
 """
 
 from __future__ import annotations
@@ -263,6 +269,95 @@ def transcribe(argv: list[str] | None = None) -> int:
     if not args.write and result.records:
         print("\nDry run. Re-run with --write to put these into eval/gold/.")
     return 1 if result.problems else 0
+
+
+def seed(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        prog="tmk-seed",
+        description=(
+            "Check the seed example set in review/seed/ and render it for expert "
+            "correction. Nothing here is approved; nothing here is written into "
+            "eval/gold/."
+        ),
+    )
+    parser.add_argument(
+        "--pack",
+        type=Path,
+        nargs="?",
+        const=DERIVED / "seed-review-pack.md",
+        default=None,
+        help="render the readable review pack (default: "
+        "data/derived/seed-review-pack.md)",
+    )
+    parser.add_argument(
+        "--workbook",
+        type=Path,
+        nargs="?",
+        const=DERIVED / "stage0-seed-review.xlsx",
+        default=None,
+        help="render the pre-filled review workbook (default: "
+        "data/derived/stage0-seed-review.xlsx). Never the intake workbook — that "
+        "one stays empty on purpose.",
+    )
+    parser.add_argument("--seed-dir", type=Path, default=None)
+    args = parser.parse_args(argv)
+
+    from tm_knowledge.stage0 import seed as seed_module
+    from tm_knowledge.stage0 import seedpack
+
+    seed_set = seed_module.load(args.seed_dir)
+    if not seed_set.envelopes and not seed_set.unreadable:
+        print(f"no seed records under {seed_set.root}")
+        return 0
+
+    corpus = None
+    try:
+        corpus = load_corpus()
+    except (UnpinnedSnapshot, SnapshotMismatch, FileNotFoundError) as error:
+        print(f"snapshot not open: {error}", file=sys.stderr)
+        print("spans and refs are unchecked. Run tmk-fetch-upstream.", file=sys.stderr)
+
+    findings = seed_module.check(seed_set, corpus) + seed_module.coverage(seed_set)
+    resolutions: tuple = ()
+    if corpus is not None:
+        resolutions, _ = seed_module.resolve(seed_set, corpus)
+
+    for severity in (
+        harness_module.Severity.DEFECT,
+        harness_module.Severity.GAP,
+        harness_module.Severity.NOTE,
+    ):
+        selected = [f for f in findings if f.severity is severity]
+        if not selected:
+            continue
+        print(f"\n{severity.value.upper()}S ({len(selected)})")
+        for finding in selected:
+            print(f"  {finding.check}: {finding.subject} — {finding.message}")
+
+    counts = ", ".join(
+        f"{seed_set.count(record_type)} {label}"
+        for record_type, (label, _) in seedpack.PACK_HEADINGS.items()
+        if seed_set.count(record_type)
+    )
+    print(f"\n{seed_set.total} seed records — {counts}")
+
+    defects = [f for f in findings if f.severity is harness_module.Severity.DEFECT]
+    if args.pack is not None:
+        if corpus is None:
+            print("cannot render the pack without the snapshot", file=sys.stderr)
+            return 2
+        path = _write(
+            seedpack.render_pack(seed_set, resolutions, corpus), args.pack
+        )
+        print(f"wrote {path}")
+    if args.workbook is not None:
+        if corpus is None:
+            print("cannot render the workbook without the snapshot", file=sys.stderr)
+            return 2
+        path = seedpack.write_workbook(args.workbook, seed_set, resolutions)
+        print(f"wrote {path}")
+
+    return 1 if defects else 0
 
 
 if __name__ == "__main__":  # pragma: no cover

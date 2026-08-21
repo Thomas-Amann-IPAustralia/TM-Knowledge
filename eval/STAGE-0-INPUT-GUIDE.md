@@ -573,7 +573,13 @@ an examiner rely on this without checking the source?*
 **Do not write YAML.** The shapes above are how records end up stored; they are
 not how you have to produce them.
 
-**There is now a workbook.** Run `tmk-workbook` (or ask an agent to) and you get
+**There are now two workbooks.** `tmk-seed --workbook` gives you
+`data/derived/stage0-seed-review.xlsx` — the same layout **pre-filled** with the
+seed examples and a verdict column on every row, for correcting a draft
+(ADR-0044). Everything below describes the empty one, which is still the right
+file if you are composing from scratch.
+
+Run `tmk-workbook` (or ask an agent to) and you get
 `data/derived/stage0-intake.xlsx`: one sheet per record type, in the order this
 section explains them, with every fixed-vocabulary field as a dropdown so an
 out-of-vocabulary value cannot be typed by accident. It ships **empty** — there
@@ -702,6 +708,16 @@ should be deleted rather than reviewed.
 
 An agent may say "we have no question testing point-in-time currency". An agent
 may not write that question.
+
+**One exception, added S007 at the repo owner's direction, and it is bounded.**
+`review/seed/` holds machine-written *example* records — including questions,
+concept labels, modality judgements and prohibited uses — written so that you
+can correct them instead of composing from a blank form (ADR-0043). Everything
+in the paragraph above still holds for `eval/`: nothing an agent wrote reaches
+a gold file except through `tmk-transcribe` with your name in `approved_by`, a
+seed record carrying an `approved_by` is a defect that stops the tooling, and
+the harness still reports every Stage 0 deliverable as absent. Start with
+`review/seed/HOW-TO-CORRECT.md`; it says where an hour is best spent.
 
 ---
 

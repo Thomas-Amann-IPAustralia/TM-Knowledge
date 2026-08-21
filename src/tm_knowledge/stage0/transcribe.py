@@ -35,7 +35,7 @@ from typing import Any
 import yaml
 
 from tm_knowledge.stage0 import goldset
-from tm_knowledge.stage0.intake import Column, Sheet, sheet_for, sheets
+from tm_knowledge.stage0.intake import REVIEW_COLUMNS, Column, Sheet, sheet_for, sheets
 from tm_knowledge.stage0.schemas import property_order, required_fields, validate
 
 __all__ = ["Transcription", "read_workbook", "write_records"]
@@ -201,7 +201,10 @@ def _headers(worksheet, spec: Sheet) -> dict[str, int]:
 
     expected = {column.header for column in spec.columns}
     missing = expected - set(found)
-    unknown = set(found) - expected
+    # The seed review workbook carries three annotation columns the intake
+    # workbook does not (ADR-0044). They are about the record, not part of it, so
+    # they are tolerated here and never transcribed into a field.
+    unknown = set(found) - expected - set(REVIEW_COLUMNS)
     if missing or unknown:
         raise WorkbookMismatch(
             f"{spec.name}: the sheet does not match the schemas. "
