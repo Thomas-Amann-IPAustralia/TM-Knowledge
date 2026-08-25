@@ -34,8 +34,11 @@ it sends you back to the corpus to check something.
 
 **The review workbook** — `data/derived/stage0-seed-review.xlsx`. The same
 records as a spreadsheet, one sheet per record type, every value in a cell you
-can type over. Three columns at the right-hand end are yours: `seed_id` (leave
-it alone), `verdict`, and `correction`.
+can type over. Five columns at the right-hand end. Two are yours — `verdict` and
+`correction`. The other three are printed for you to read and editing them does
+nothing: `seed_id` is the record's handle, `why_this_example` is what the record
+is there to test, and `passage` is the Manual text the row rests on with the
+exact words in bold. Everything you need to judge a row is on the row.
 
 Marking up the pack and handing it back is completely fine. Somebody will
 transcribe it. You do not have to open the spreadsheet.

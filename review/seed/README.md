@@ -124,8 +124,11 @@ tmk-seed --workbook         # → data/derived/stage0-seed-review.xlsx
 
 The pack is the readable version: every record with the passage it rests on
 quoted underneath and the span in bold. The workbook is the correctable
-version — the intake workbook's own layout, pre-filled, plus `seed_id`,
-`verdict` and `correction` columns at the right-hand end.
+version — the intake workbook's own layout, pre-filled, plus five columns at the
+right-hand end. Three are printed context and editing them changes nothing
+(`seed_id`, `why_this_example`, `passage`); two are the reviewer's (`verdict`,
+`correction`). The workbook stands alone: no row asks its reader to go and find
+the passage (ADR-0046).
 
 `stage0-intake.xlsx` stays **empty**. HANDOFF §4's rule against example rows in
 the intake workbook has not changed; this is a different file with a different

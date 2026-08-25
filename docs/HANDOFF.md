@@ -82,7 +82,9 @@ has changed.** Do not hand over a blank workbook again. Hand over:
 - `data/derived/seed-review-pack.md` — 368 records in reading order, each with
   the Manual passage it rests on quoted underneath and the span in bold;
 - `data/derived/stage0-seed-review.xlsx` — the same records as a correctable
-  spreadsheet with `verdict` and `correction` columns;
+  spreadsheet. It **stands alone**: every row prints the Manual passage it rests
+  on with the span in bold, and what the record is there to demonstrate, beside
+  the two cells the reviewer types in (ADR-0046);
 - `review/seed/HOW-TO-CORRECT.md` — the covering instructions, including where
   an hour is best spent.
 
@@ -251,6 +253,23 @@ than implied by hundreds of records**: the entity annotation rule (which
 deliberately annotates one chunk under a stricter rule so the densities can be
 compared) and the candidate predicate list (fourteen predicates, invented in
 defiance of the guide's own advice, and labelled as such).
+
+Owner then found the flaw in the hand-over and it was a real one: the workbook
+gave a reviewer two character offsets and no sentence, so the entity and
+relationship sheets were not judgeable without the pack open beside them. Fixed
+in the same session — `REVIEW_COLUMNS` grew from three to five, and every row now
+prints its passage (span in bold, via rich text) and its `why_this_example`
+alongside the verdict and correction cells (ADR-0046). The round trip is
+unaffected; 252 tests pass.
+
+**What to hand an expert is exactly two files** — the pack and the workbook.
+Everything else under `review/seed/` is supplementary: `README.md` is for agents,
+`HOW-TO-CORRECT.md` is the covering note, and `pilot-scope.seed.md` and
+`measures.seed.md` are separate one-hour tasks that beat record review on value.
+The two highest-leverage questions — the entity annotation rule and the
+predicate list — are still stated only in the YAML file headers, which is the one
+place an expert should not be sent. **Lifting them into the pack's front matter
+is the obvious next improvement** and was not done this session.
 
 Legal content authored — deliberately, as unapproved candidates, for the first
 time in this repo. No Stage 2 extraction run. `eval/gold/` untouched.

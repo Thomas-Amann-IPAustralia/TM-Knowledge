@@ -354,7 +354,7 @@ def seed(argv: list[str] | None = None) -> int:
         if corpus is None:
             print("cannot render the workbook without the snapshot", file=sys.stderr)
             return 2
-        path = seedpack.write_workbook(args.workbook, seed_set, resolutions)
+        path = seedpack.write_workbook(args.workbook, seed_set, resolutions, corpus)
         print(f"wrote {path}")
 
     return 1 if defects else 0

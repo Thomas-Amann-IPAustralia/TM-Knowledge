@@ -9,11 +9,17 @@ it. This module turns it into:
   expert needs to rule on a record is on the page, so nothing sends them back to
   the corpus;
 - **the review workbook** — the intake workbook's own layout, pre-filled with
-  the seed records, plus three review columns at the right-hand end. Correct a
+  the seed records, plus five review columns at the right-hand end. Correct a
   cell, set the verdict, put your name in `approved_by`, and `tmk-transcribe`
   reads it straight into `eval/gold/`. That is the whole point: the correction
   path and the authoring path are one path, so an expert who prefers to type
   over a draft never leaves the workflow the intake guide already describes.
+
+  Three of those five are printed context rather than input: `seed_id`,
+  `why_this_example`, and `passage` — the Manual text the row rests on, with the
+  recorded span in **bold** inside it. Without them the entity and relationship
+  sheets hand a reviewer two character offsets and no sentence, which is not a
+  judgeable row (ADR-0046).
 
 **The intake workbook stays empty.** HANDOFF §4 forbids an example row in
 `stage0-intake.xlsx` and that has not changed — a blank form is still the right
@@ -30,7 +36,8 @@ from pathlib import Path
 from typing import Any
 
 from tm_knowledge.stage0 import workbook as workbook_module
-from tm_knowledge.stage0.intake import REVIEW_COLUMNS, sheets
+from tm_knowledge.stage0.intake import REVIEW_COLUMNS, REVIEW_WRITABLE, sheets
+from tm_knowledge.stage0.harness import passage_at
 from tm_knowledge.stage0.schemas import RECORD_TYPES
 from tm_knowledge.stage0.seed import Resolution, SeedSet, VERDICTS
 from tm_knowledge.upstream.loader import Corpus
@@ -247,6 +254,130 @@ def _render_record(resolution: Resolution) -> list[str]:
 # The review workbook
 # ---------------------------------------------------------------------------
 
+#: How much passage to print in a cell either side of the span. Shorter than the
+#: pack's window: a spreadsheet row is read at a glance, not studied.
+_CELL_CONTEXT = 200
+
+#: How much of a whole passage to print where a record has no span to centre on.
+_CELL_WHOLE = 600
+
+
+def _runs(text: str, span: list[int] | None):
+    """The passage as (fragment, bold) pairs, with the span emphasised.
+
+    Bold rather than a bracket marker because the Manual's own text is full of
+    brackets — `[2000] FCA 720`, `(or authorised user)`, `<stem>` — and a marker
+    that can occur in the data is a reader's problem the first time it does.
+    """
+    if not text:
+        return []
+    if not span:
+        clipped = text[:_CELL_WHOLE]
+        if len(text) > _CELL_WHOLE:
+            clipped += "…"
+        return [(clipped, False)]
+    start, end = span
+    left = max(0, start - _CELL_CONTEXT)
+    right = min(len(text), end + _CELL_CONTEXT)
+    return [
+        (("…" if left else "") + text[left:start], False),
+        (text[start:end], True),
+        (text[end:right] + ("…" if right < len(text) else ""), False),
+    ]
+
+
+def _cell_text(runs):
+    """The runs as a cell value — rich text where openpyxl offers it, else plain.
+
+    The fallback is not cosmetic: a workbook that will not open is worse than one
+    without bold, and `tmk-transcribe` reads either form identically because it
+    ignores these columns entirely.
+    """
+    if not runs:
+        return None
+    plain = "".join(fragment for fragment, _ in runs)
+    if not any(bold for _, bold in runs):
+        return plain or None
+    try:
+        from openpyxl.cell.rich_text import CellRichText, TextBlock
+        from openpyxl.cell.text import InlineFont
+    except ImportError:  # pragma: no cover - depends on the installed openpyxl
+        return plain or None
+    return CellRichText(
+        [
+            TextBlock(InlineFont(b=True), fragment) if bold else fragment
+            for fragment, bold in runs
+            if fragment
+        ]
+    )
+
+
+#: Where to look for a passage on a record type that carries no span of its own.
+#: First ref wins, and the cell says which one it is — a concept with three
+#: definition sources must not read as though it had one.
+_CONTEXT_REF_FIELDS: dict[str, tuple[str, ...]] = {
+    "gold_concept": ("definition_sources",),
+    "competency_question": (),
+    "gold_retrieval_question": ("required_evidence", "required_provisions"),
+    "reasoning_expectation": ("given",),
+    "prohibited_use": (),
+    "gold_search_question": (),
+}
+
+
+def _first_context_ref(record: dict[str, Any], record_type: str):
+    """(ref, label) for the passage to print, or (None, None)."""
+    if record_type == "competency_question":
+        sources = record.get("expected_sources") or {}
+        for key in ("required", "supporting"):
+            values = sources.get(key) or []
+            if values:
+                label = f"expected_sources.{key}"
+                return values[0], f"{label} (1 of {len(values)})"
+        return None, None
+    if record_type == "gold_search_question":
+        graded = record.get("relevant") or []
+        if graded:
+            return graded[0].get("ref"), f"relevant (1 of {len(graded)})"
+        return None, None
+    for field_name in _CONTEXT_REF_FIELDS.get(record_type, ()):
+        values = record.get(field_name) or []
+        if values:
+            return values[0], f"{field_name} (1 of {len(values)})"
+    return None, None
+
+
+def _passage_runs(resolution: Resolution, corpus: Corpus | None):
+    """The runs for one parent row, span-centred where there is a span."""
+    record = resolution.record
+    record_type = resolution.envelope.record_type
+    if resolution.passage_text is not None:
+        return _runs(resolution.passage_text, record.get("span"))
+    if corpus is None:
+        return []
+    ref, label = _first_context_ref(record, record_type)
+    if not ref:
+        return []
+    found = passage_at(corpus, ref)
+    if found is None or found.text is None:
+        return []
+    return [(f"{ref} — {label}: ", False), *_runs(found.text, None)]
+
+
+def _child_passage_runs(entry: dict[str, Any], corpus: Corpus | None):
+    """The runs for a continuation row — a graded passage is judged on its text."""
+    if corpus is None:
+        return []
+    ref = entry.get("ref")
+    if not isinstance(ref, str):
+        return []
+    found = passage_at(corpus, ref)
+    if found is None or found.text is None:
+        return []
+    return _runs(found.text, None)
+
+
+
 
 def _review_guide() -> list[tuple[str, str]]:
     return [
@@ -256,11 +387,22 @@ def _review_guide() -> list[tuple[str, str]]:
             "approved and some of it is wrong. Correct it in place.",
         ),
         (
-            "Three columns at the right-hand end are yours",
-            "`verdict` is one of: " + ", ".join(VERDICTS) + ". `correction` is "
-            "free text — say what is wrong in your own words rather than trying "
-            "to write the field. `seed_id` is the record's handle in the review "
-            "pack; leave it alone.",
+            "Five columns at the right-hand end, and two of them are yours",
+            "You fill in `verdict` — one of: " + ", ".join(VERDICTS) + " — and "
+            "`correction`, which is free text: say what is wrong in your own "
+            "words rather than trying to write the field. The other three are "
+            "printed for you to read and editing them changes nothing: "
+            "`seed_id` is the record's handle in the review pack, "
+            "`why_this_example` says what the record is here to test, and "
+            "`passage` is the Manual text the row rests on with the recorded "
+            "span in bold.",
+        ),
+        (
+            "Judge the row against the passage beside it",
+            "Everything you need is on the row. The `passage` column is "
+            "regenerated from the pinned snapshot every time this file is built, "
+            "so it cannot drift from the record — and if you change a `surface` "
+            "or a `supporting_text`, it catches up on its own next run.",
         ),
         (
             "Correcting a cell is the same as writing it",
@@ -299,9 +441,60 @@ def _review_guide() -> list[tuple[str, str]]:
     ]
 
 
-def build_workbook(seed: SeedSet, resolutions: tuple[Resolution, ...], *,
-                   generated: str | None = None):
-    """The intake layout, pre-filled, plus the review columns."""
+#: Column widths and header colours for the five review columns. The read-only
+#: three are grey so they read as printed matter; the two a reviewer fills in
+#: are the only coloured ones on the sheet.
+_REVIEW_STYLE: dict[str, tuple[int, str]] = {
+    "seed_id": (16, "FFEFEFEF"),
+    "why_this_example": (58, "FFEFEFEF"),
+    "passage": (82, "FFEFEFEF"),
+    "verdict": (14, "FFFCE4D6"),
+    "correction": (58, "FFFCE4D6"),
+}
+
+#: Row height for a row carrying a quoted passage. Five or six wrapped lines —
+#: enough to read the sentence, short enough that 153 rows still scroll.
+_PASSAGE_ROW_HEIGHT = 78
+
+_REVIEW_NOTES: dict[str, str] = {
+    "seed_id": (
+        "The record's stable handle. Quote it in a correction — the record's own "
+        "id may change and this will not. Read-only: editing it changes nothing."
+    ),
+    "why_this_example": (
+        "What this record is here to demonstrate. If the record is wrong but the "
+        "point is right, amend it rather than rejecting it. Read-only."
+    ),
+    "passage": (
+        "The Manual text this row rests on, with the recorded span in bold. "
+        "Read-only, and regenerated from the pinned snapshot every run — if you "
+        "change a surface or a supporting_text, this catches up on its own."
+    ),
+    "verdict": (
+        "correct · amend · reject. Leave blank if you have not read this row yet "
+        "— a blank is reported honestly as unreviewed, a guess is not."
+    ),
+    "correction": (
+        "What is wrong, in your own words. You do not have to write the corrected "
+        "field — saying what the record gets wrong is the part only you can do."
+    ),
+}
+
+
+def build_workbook(
+    seed: SeedSet,
+    resolutions: tuple[Resolution, ...],
+    corpus: Corpus | None = None,
+    *,
+    generated: str | None = None,
+):
+    """The intake layout, pre-filled, plus the review columns.
+
+    `corpus` is what lets a row that carries no span of its own still print a
+    passage — a concept's first `definition_sources` entry, a search question's
+    first graded ref. Without it those cells are simply empty; the span-bearing
+    sheets are unaffected, because their text came through `resolve()`.
+    """
     from openpyxl.comments import Comment
     from openpyxl.styles import Alignment, Font, PatternFill
     from openpyxl.utils import get_column_letter
@@ -310,11 +503,19 @@ def build_workbook(seed: SeedSet, resolutions: tuple[Resolution, ...], *,
     records: dict[str, list[dict[str, Any]]] = {
         record_type: [] for record_type in RECORD_TYPES
     }
-    seeds_for: dict[str, list[str]] = {record_type: [] for record_type in RECORD_TYPES}
+    context: dict[str, list[tuple[str, str, Any]]] = {
+        record_type: [] for record_type in RECORD_TYPES
+    }
     for resolution in resolutions:
         record_type = resolution.envelope.record_type
         records.setdefault(record_type, []).append(resolution.record)
-        seeds_for.setdefault(record_type, []).append(resolution.envelope.seed_id)
+        context.setdefault(record_type, []).append(
+            (
+                resolution.envelope.seed_id,
+                " ".join(resolution.envelope.why_this_example.split()),
+                _cell_text(_passage_runs(resolution, corpus)),
+            )
+        )
 
     book = workbook_module.build(generated=generated)
     workbook_module.fill(book, records)
@@ -327,18 +528,15 @@ def build_workbook(seed: SeedSet, resolutions: tuple[Resolution, ...], *,
             index = first + offset
             cell = sheet.cell(row=1, column=index, value=header)
             cell.font = Font(bold=True)
-            cell.fill = PatternFill("solid", fgColor="FFFCE4D6")
+            width, colour = _REVIEW_STYLE[header]
+            cell.fill = PatternFill("solid", fgColor=colour)
             cell.alignment = Alignment(vertical="top", wrap_text=True)
             letter = get_column_letter(index)
-            sheet.column_dimensions[letter].width = 20 if header != "correction" else 60
+            sheet.column_dimensions[letter].width = width
+            cell.comment = Comment(
+                _REVIEW_NOTES[header], "tmk-seed", height=160, width=340
+            )
             if header == "verdict":
-                cell.comment = Comment(
-                    "correct · amend · reject. Leave blank if you have not read "
-                    "this row yet.",
-                    "tmk-seed",
-                    height=120,
-                    width=300,
-                )
                 validation = DataValidation(
                     type="list",
                     formula1='"' + ",".join(VERDICTS) + '"',
@@ -346,22 +544,24 @@ def build_workbook(seed: SeedSet, resolutions: tuple[Resolution, ...], *,
                 )
                 sheet.add_data_validation(validation)
                 validation.add(f"{letter}2:{letter}{max(rows, 2) + 200}")
-            if header == "correction":
-                cell.comment = Comment(
-                    "What is wrong, in your own words. You do not have to write "
-                    "the corrected field — saying what the record gets wrong is "
-                    "the part only you can do.",
-                    "tmk-seed",
-                    height=140,
-                    width=340,
-                )
 
+        wrapped = Alignment(vertical="top", wrap_text=True)
         if spec.is_child:
+            _fill_child_context(sheet, spec, first, corpus, wrapped)
             continue
-        ids = seeds_for.get(spec.record_type, [])
-        column = first + REVIEW_COLUMNS.index("seed_id")
-        for offset, seed_id in enumerate(ids):
-            sheet.cell(row=2 + offset, column=column, value=seed_id)
+
+        columns = {header: first + i for i, header in enumerate(REVIEW_COLUMNS)}
+        for offset, (seed_id, why, passage) in enumerate(
+            context.get(spec.record_type, [])
+        ):
+            row = 2 + offset
+            sheet.cell(row=row, column=columns["seed_id"], value=seed_id)
+            cell = sheet.cell(row=row, column=columns["why_this_example"], value=why)
+            cell.alignment = wrapped
+            cell = sheet.cell(row=row, column=columns["passage"], value=passage)
+            cell.alignment = wrapped
+            if passage is not None:
+                sheet.row_dimensions[row].height = _PASSAGE_ROW_HEIGHT
 
     _rewrite_guide(book, seed, generated=generated)
     book.properties.title = "TM-Knowledge — seed review (s 43)"
@@ -418,13 +618,43 @@ def _rewrite_guide(book, seed: SeedSet, *, generated: str | None = None) -> None
     ).alignment = Alignment(wrap_text=True, vertical="top")
 
 
+def _fill_child_context(sheet, spec, first: int, corpus: Corpus | None, wrapped) -> None:
+    """Print the passage on a continuation row that names a ref.
+
+    `GS--relevant` is the sheet this exists for: each row is a ref and a
+    relevance grade, and regrading without the passage in front of you is
+    guesswork. `GX--expected_inferences` names a list of bases rather than one
+    ref, so its rows stay blank and the parent's passage carries the context.
+    """
+    column = first + REVIEW_COLUMNS.index("passage")
+    ref_index = next(
+        (
+            i
+            for i, col in enumerate(spec.columns, start=1)
+            if col.header in ("ref", "relevant.ref")
+        ),
+        None,
+    )
+    if ref_index is None:
+        return
+    for row in range(2, sheet.max_row + 1):
+        ref = sheet.cell(row=row, column=ref_index).value
+        value = _cell_text(_child_passage_runs({"ref": ref}, corpus))
+        if value is None:
+            continue
+        cell = sheet.cell(row=row, column=column, value=value)
+        cell.alignment = wrapped
+        sheet.row_dimensions[row].height = _PASSAGE_ROW_HEIGHT
+
+
 def write_workbook(
     path: Path,
     seed: SeedSet,
     resolutions: tuple[Resolution, ...],
+    corpus: Corpus | None = None,
     *,
     generated: str | None = None,
 ) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
-    build_workbook(seed, resolutions, generated=generated).save(path)
+    build_workbook(seed, resolutions, corpus, generated=generated).save(path)
     return path

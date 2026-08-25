@@ -27,7 +27,7 @@
 | — AI retrieval questions | 22 |
 | — Reasoning expectations | 15 |
 | Pinned snapshot | `Thomas-Amann-IPAustralia/manual-XtrACTor` @ `c490a9927f1a` |
-| Generated | 2026-08-21 |
+| Generated | 2026-08-25 |
 
 ## How a record is laid out
 

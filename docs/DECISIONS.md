@@ -1387,7 +1387,7 @@ verdict is a recorded field rather than a marked-up document.
 
 ## ADR-0044 — The seed review workbook is a separate file; the intake workbook stays empty
 
-**Date** 2026-08-21 · **Authority** derived · **Status** accepted
+**Date** 2026-08-21 · **Authority** derived · **Status** accepted — **column list amended by ADR-0046**
 
 **Context.** ADR-0043 needs the seed set in a medium an expert will actually
 correct, and the intake workbook is already that medium — same layout, same
@@ -1477,3 +1477,67 @@ and wrong invisibly.
 3. Nothing in `review/seed/` needs regenerating when the pin moves — the spans
    were never stored. The records go stale in the same way gold records do, and
    the tool says so on the next run.
+
+---
+
+## ADR-0046 — The seed review workbook prints the passage and the reason beside every row
+
+**Date** 2026-08-21 · **Authority** human (owner asked for it) · **Status** accepted — **amends ADR-0044's column list**
+
+**Context.** ADR-0044 gave the seed review workbook three review columns:
+`seed_id`, `verdict`, `correction`. Handing the pair of artefacts to the owner
+exposed the flaw immediately. On the entity and relationship sheets a reviewer
+gets `surface`, `source_ref` and two integer character offsets — and no way to
+see the sentence those offsets point into. They would be judging blind. The
+passage and the record's rationale existed only in the Markdown review pack, so
+the honest instruction was "read in one file, write in the other", which is two
+windows and a lookup per row for 211 rows.
+
+That is not a documentation problem. A workbook that cannot be judged from is
+not a correction surface, and ADR-0043's whole premise is that correcting must
+be cheaper than composing.
+
+**Decision.** `intake.REVIEW_COLUMNS` becomes five, in this order:
+
+| Column | Written by | Holds |
+|---|---|---|
+| `seed_id` | the tool | the record's stable handle |
+| `why_this_example` | the tool | what the record is there to demonstrate |
+| `passage` | the tool | the Manual text the row rests on, span in **bold** |
+| `verdict` | the reviewer | correct · amend · reject |
+| `correction` | the reviewer | what is wrong, in their words |
+
+`intake.REVIEW_WRITABLE` names the last two. The read-only three are grey; the
+two a reviewer fills in are the only coloured columns on the sheet.
+
+**Where `passage` comes from, per row.** A span-bearing record (entity,
+relationship) gets its own passage centred on the span. A record with no span
+gets the text of its **first** ref, prefixed with that ref and a count —
+`TMM/Part29/2/2/1~1 — definition_sources (1 of 2): …` — because a concept with
+three definition sources must not read as though it had one. A `GS--relevant`
+continuation row gets the text at its own `ref`, which is what makes regrading
+possible at all. `GX--expected_inferences` rows name a list of bases rather than
+one ref and stay blank; the parent row's passage carries them.
+
+**Consequences.**
+
+1. **The span is bolded with rich text, not bracketed.** The Manual's own text
+   is full of brackets — `[2000] FCA 720`, `(or authorised user)`, `<stem>` — so
+   a marker that can occur in the data is a reader's problem the first time it
+   does. `openpyxl`'s `CellRichText` round-trips; where the module is absent the
+   cell falls back to plain text, because a workbook that will not open is worse
+   than one without bold, and `tmk-transcribe` reads either form identically.
+2. **Nothing about the round trip changes.** The transcriber already ignored the
+   review columns; it now ignores five instead of three. A test fills `verdict`
+   and `correction` and asserts neither reaches the transcribed record. 368
+   records still read back with zero rejected rows.
+3. **The passage is regenerated, never stored.** It is rebuilt from the pinned
+   snapshot on every `tmk-seed --workbook`, so it cannot drift from the record —
+   the same reasoning as ADR-0045, applied to the display rather than the offset.
+   A reviewer who corrects a `surface` sees the passage catch up next run.
+4. **The pack is still the better read and is no longer the only judgeable
+   artefact.** Both are regenerated from the same YAML; neither is authoritative
+   over it. An expert can now work entirely in the workbook, entirely in the
+   pack, or in both.
+5. Rows carrying a passage get a fixed height of 78 points — five or six wrapped
+   lines. Enough to read the sentence, short enough that 153 rows still scroll.

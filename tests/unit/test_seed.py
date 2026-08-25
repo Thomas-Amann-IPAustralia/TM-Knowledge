@@ -431,3 +431,103 @@ def test_the_schema_is_checked_without_a_snapshot(tmp_path):
     )
     findings = seed.check(seed.load(tmp_path), corpus=None)
     assert any(f.check == "seed-schema" for f in findings)
+
+
+# ---------------------------------------------------------------------------
+# The review workbook's printed context (ADR-0046)
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.snapshot
+def test_the_passage_column_carries_the_span_in_bold(tmp_path):
+    """A row that gives two offsets and no sentence is not a judgeable row."""
+    _skip_without_snapshot()
+    pytest.importorskip("openpyxl")
+    from openpyxl.cell.rich_text import CellRichText
+
+    from tm_knowledge.stage0 import seedpack
+
+    _write(tmp_path, "entities.seed.yaml", [_entity_seed()])
+    loaded = seed.load(tmp_path)
+    corpus = _corpus()
+    resolutions, _ = seed.resolve(loaded, corpus)
+    book = seedpack.build_workbook(loaded, resolutions, corpus)
+
+    sheet = book["entities"]
+    headers = [cell.value for cell in sheet[1] if cell.value]
+    passage = sheet.cell(row=2, column=headers.index("passage") + 1).value
+    assert isinstance(passage, CellRichText)
+    bold = [
+        block.text for block in passage if not isinstance(block, str)
+    ]
+    assert bold == ["decision maker"]
+    assert "".join(
+        block if isinstance(block, str) else block.text for block in passage
+    ).count("decision maker") == 1
+
+
+@pytest.mark.snapshot
+def test_a_row_with_no_span_still_prints_a_passage_and_names_its_ref(tmp_path):
+    """A concept has definition_sources, not a span. Say which one is shown."""
+    _skip_without_snapshot()
+    pytest.importorskip("openpyxl")
+    from tm_knowledge.stage0 import seedpack
+
+    _write(
+        tmp_path,
+        "concepts.seed.yaml",
+        [
+            {
+                "seed_id": "SEED-GC-9001",
+                "record_type": "gold_concept",
+                "why_this_example": "a fixture",
+                "record": {
+                    "id": "GC-9001",
+                    "pref_label": "connotation",
+                    "alt_labels": [],
+                    "not_labels": [],
+                    "definition_sources": ["TMM/Part29/2/2/2", "TMM/Part29/2/2/3"],
+                    "approved_by": None,
+                    "approved_date": None,
+                },
+            }
+        ],
+    )
+    loaded = seed.load(tmp_path)
+    corpus = _corpus()
+    resolutions, _ = seed.resolve(loaded, corpus)
+    book = seedpack.build_workbook(loaded, resolutions, corpus)
+
+    sheet = book["concepts"]
+    headers = [cell.value for cell in sheet[1] if cell.value]
+    passage = str(sheet.cell(row=2, column=headers.index("passage") + 1).value)
+    assert passage.startswith("TMM/Part29/2/2/2 — definition_sources (1 of 2): ")
+    assert "A connotation may result from the whole trade mark" in passage
+
+
+@pytest.mark.snapshot
+def test_a_filled_review_column_never_reaches_a_record(tmp_path):
+    """A verdict is how a record got approved, not something the record asserts."""
+    _skip_without_snapshot()
+    pytest.importorskip("openpyxl")
+    from tm_knowledge.stage0 import seedpack, transcribe
+
+    _write(tmp_path, "entities.seed.yaml", [_entity_seed()])
+    loaded = seed.load(tmp_path)
+    corpus = _corpus()
+    resolutions, _ = seed.resolve(loaded, corpus)
+    book = seedpack.build_workbook(loaded, resolutions, corpus)
+
+    sheet = book["entities"]
+    headers = [cell.value for cell in sheet[1] if cell.value]
+    for header, value in (("verdict", "amend"), ("correction", "wrong type")):
+        sheet.cell(row=2, column=headers.index(header) + 1, value=value)
+
+    path = tmp_path / "filled.xlsx"
+    book.save(path)
+    result = transcribe.read_workbook(path)
+
+    assert not result.problems
+    (record,) = result.records["gold_entity"]
+    assert set(REVIEW_COLUMNS).isdisjoint(record)
+    assert record["surface"] == "decision maker"
