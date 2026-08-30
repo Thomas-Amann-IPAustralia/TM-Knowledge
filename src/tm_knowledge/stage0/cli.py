@@ -223,6 +223,7 @@ def transcribe(argv: list[str] | None = None) -> int:
     )
     parser.add_argument("workbook", type=Path)
     parser.add_argument("--gold-dir", type=Path, default=None)
+    parser.add_argument("--decisions-dir", type=Path, default=None)
     parser.add_argument(
         "--write",
         action="store_true",
@@ -232,6 +233,7 @@ def transcribe(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     from tm_knowledge.stage0 import transcribe as transcribe_module
+    from tm_knowledge.stage0 import review as review_module
 
     try:
         result = transcribe_module.read_workbook(args.workbook)
@@ -243,6 +245,35 @@ def transcribe(argv: list[str] | None = None) -> int:
         print(f"\nREJECTED ROWS ({len(result.problems)}) — not written, and not guessed at")
         for problem in result.problems:
             print(f"  {problem}")
+
+    if result.decisions:
+        held = result.held
+        by_reason: dict[str, list[str]] = {}
+        for decision in held:
+            by_reason.setdefault(decision.reason, []).append(decision.record_id)
+        print(
+            f"\nHELD IN REVIEW ({len(held)} of {len(result.decisions)} reviewed "
+            "rows) — kept in review/decisions/, not written to eval/gold/"
+        )
+        for reason, ids in sorted(by_reason.items(), key=lambda kv: -len(kv[1])):
+            shown = ", ".join(sorted(ids)[:8])
+            more = f" … +{len(ids) - 8} more" if len(ids) > 8 else ""
+            print(f"  {len(ids):>4}  {reason}\n        {shown}{more}")
+
+        flagged = [d for d in result.decisions if d.flag]
+        if flagged:
+            print(f"\nFLAGGED FOR THE REVIEWER ({len(flagged)}) — a person must settle these")
+            for decision in flagged:
+                print(f"  {decision.record_id}: {decision.flag}")
+
+        amended = [d for d in result.decisions if d.verdict.lower() == "amend"]
+        if amended:
+            print(
+                f"\nCORRECTIONS TO APPLY ({len(amended)}) — prose, deliberately not "
+                "applied here (rule 1)"
+            )
+            for decision in amended:
+                print(f"  {decision.record_id}: {decision.correction}")
 
     if result.blanks:
         print(f"\nBLANK JUDGEMENT FIELDS ({len(result.blanks)}) — reported, never filled")
@@ -260,8 +291,19 @@ def transcribe(argv: list[str] | None = None) -> int:
         result, args.gold_dir, write=args.write
     ):
         print(f"  {outcome}: {path}")
-    if not args.write and result.records:
-        print("\nDry run. Re-run with --write to put these into eval/gold/.")
+    if result.decisions:
+        for path, outcome in review_module.write_decisions(
+            result.decisions,
+            args.decisions_dir,
+            source=args.workbook.name,
+            write=args.write,
+        ):
+            print(f"  {outcome}: {path}")
+    if not args.write and (result.records or result.decisions):
+        print(
+            "\nDry run. Re-run with --write to put the approved records into "
+            "eval/gold/ and the rest into review/decisions/."
+        )
     return 1 if result.problems else 0
 
 

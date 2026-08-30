@@ -21,6 +21,15 @@ Three things it refuses to do, all of them for the same reason — writing into
 - It will not write at all without `--write`. The default is a dry run that
   prints what would change.
 
+- It will not write a row a person has not accepted. This is the fourth refusal
+  and it arrived with the first returned workbook (S007). A *seed pack* — a
+  workbook of machine-written example records handed out for correction — looks
+  identical to an authored one once it is filled in: the records validate, the
+  refs resolve, the spans land. The only thing separating an expert's judgement
+  from LLM output is the `verdict` column, so that column is a gate rather than
+  a note. `review.py` holds it, and everything it stops goes to
+  `review/decisions/` rather than being dropped.
+
 Re-running over unchanged input rewrites nothing: the YAML is rendered
 deterministically and compared before writing, so an unchanged workbook produces
 an unchanged git status.
@@ -34,7 +43,9 @@ from typing import Any
 
 import yaml
 
+from tm_knowledge.provenance import ReviewStatus
 from tm_knowledge.stage0 import goldset
+from tm_knowledge.stage0 import review as review_module
 from tm_knowledge.stage0.intake import Column, Sheet, sheet_for, sheets
 from tm_knowledge.stage0.schemas import property_order, required_fields, validate
 
@@ -68,17 +79,28 @@ class Transcription:
     blanks: list[tuple[str, str, str]] = field(default_factory=list)
     #: Record types whose sheet held no rows at all.
     empty_sheets: list[str] = field(default_factory=list)
+    #: One per reviewed row, gold-bound or not. Empty for a workbook with no
+    #: review columns, which is the plain-intake case.
+    decisions: list[review_module.Decision] = field(default_factory=list)
 
     @property
     def total(self) -> int:
         return sum(len(records) for records in self.records.values())
 
+    @property
+    def held(self) -> list[review_module.Decision]:
+        """Reviewed rows that did not reach the gold set, and why."""
+        return [d for d in self.decisions if d.destination != "gold"]
+
     def summary(self) -> str:
-        return (
-            f"{self.total} record(s) from {len(self.records)} sheet(s); "
-            f"{len(self.problems)} rejected row(s); {len(self.blanks)} blank "
-            "judgement field(s)"
+        line = (
+            f"{self.total} record(s) into eval/gold/ from {len(self.records)} "
+            f"sheet(s); {len(self.problems)} rejected row(s); {len(self.blanks)} "
+            "blank judgement field(s)"
         )
+        if self.decisions:
+            line += f"; {len(self.held)} of {len(self.decisions)} reviewed row(s) held in review/"
+        return line
 
 
 # ---------------------------------------------------------------------------
@@ -189,7 +211,16 @@ def _collapse_spans(record: dict[str, Any]) -> None:
 
 
 def _headers(worksheet, spec: Sheet) -> dict[str, int]:
-    """Header name -> column index, checked against the layout in both directions."""
+    """Header name -> column index, checked against the layout in both directions.
+
+    The review columns of a seed pack (`review.REVIEW_HEADERS`) are the one
+    permitted extra. They are known to the reader and never written by
+    `tmk-workbook`, and that asymmetry is deliberate: they describe the review,
+    not the record, so a generator that emitted them would be inviting an expert
+    to review a blank form. Everything else unknown is still refused — the
+    guarantee this check exists for is that no column an expert filled in goes
+    uncollected, and admitting five named columns does not weaken it.
+    """
     found: dict[str, int] = {}
     for index, cell in enumerate(worksheet[1], start=1):
         name = _text(cell.value)
@@ -201,7 +232,7 @@ def _headers(worksheet, spec: Sheet) -> dict[str, int]:
 
     expected = {column.header for column in spec.columns}
     missing = expected - set(found)
-    unknown = set(found) - expected
+    unknown = set(found) - expected - set(review_module.REVIEW_HEADERS)
     if missing or unknown:
         raise WorkbookMismatch(
             f"{spec.name}: the sheet does not match the schemas. "
@@ -214,8 +245,40 @@ def _headers(worksheet, spec: Sheet) -> dict[str, int]:
     return found
 
 
+def _review(values: dict[str, Any], result: Transcription, sheet: str, row: int):
+    """The five review columns off one row, or None if the sheet has none.
+
+    An unreadable verdict is recorded as a problem and the row falls back to
+    `unreviewed` — it is carried to `review/decisions/` either way, so nothing is
+    lost, and the expert is told exactly which cell to retype.
+    """
+    if "verdict" not in values:
+        return None
+    raw = values.get("verdict")
+    try:
+        verdict = review_module.read_verdict(raw)
+        as_written = None
+    except review_module.UnreadableVerdict as error:
+        result.problems.append(Problem(sheet, row, str(error)))
+        verdict = "unreviewed"
+        as_written = _text(raw)
+    return review_module.Review(
+        seed_id=_text(values.get("seed_id")),
+        why_this_example=_text(values.get("why_this_example")),
+        passage=_text(values.get("passage")),
+        verdict=verdict,
+        correction=_text(values.get("correction")),
+        verdict_as_written=as_written,
+    )
+
+
 def _rows(worksheet, spec: Sheet, result: Transcription):
-    """(row number, record) for every row that became a record."""
+    """(row number, record, review) for every row that became a record.
+
+    `review` is None on a sheet with no review columns — a workbook straight out
+    of `tmk-workbook`, which is the case this function was originally written
+    for and which still behaves exactly as it did.
+    """
     positions = _headers(worksheet, spec)
     for number, row in enumerate(worksheet.iter_rows(min_row=2), start=2):
         values = {header: row[index - 1].value for header, index in positions.items()}
@@ -237,6 +300,21 @@ def _rows(worksheet, spec: Sheet, result: Transcription):
         except ValueError as error:
             result.problems.append(Problem(spec.name, number, str(error)))
             continue
+
+        # `approved_date` is read from the raw cell rather than the stringified
+        # one: Excel hands back a datetime for a date-typed cell, and the
+        # Australian day order the workbook came back in is not what the schema
+        # wants. `review.read_approved_date` converts only when the reading is
+        # forced and raises otherwise.
+        if "approved_date" in record:
+            try:
+                record["approved_date"] = review_module.read_approved_date(
+                    values["approved_date"]
+                )
+            except ValueError as error:
+                result.problems.append(Problem(spec.name, number, str(error)))
+                continue
+
         if not spec.is_child:
             _prune_optional(record, spec.record_type)
 
@@ -256,7 +334,7 @@ def _rows(worksheet, spec: Sheet, result: Transcription):
                 )
             )
             continue
-        yield number, record
+        yield number, record, _review(values, result, spec.name, number)
 
 
 def read_workbook(path: Path) -> Transcription:
@@ -272,15 +350,21 @@ def read_workbook(path: Path) -> Transcription:
     result = Transcription()
 
     parents: dict[str, dict[str, dict[str, Any]]] = {}
+    #: record type -> id -> (row number, review or None)
+    reviews: dict[str, dict[str, tuple[int, Any]]] = {}
+    #: record type -> parent id -> the verdicts of its child rows
+    child_verdicts: dict[str, dict[str, list[tuple[str, str, str | None]]]] = {}
+
     for spec in sheets():
         if spec.is_child or spec.name not in workbook.sheetnames:
             continue
-        rows = dict(_rows(workbook[spec.name], spec, result))
+        rows = list(_rows(workbook[spec.name], spec, result))
         if not rows:
             result.empty_sheets.append(spec.record_type)
             continue
         by_id: dict[str, dict[str, Any]] = {}
-        for number, record in rows.items():
+        seen: dict[str, tuple[int, Any]] = {}
+        for number, record, row_review in rows:
             identifier = record.get("id")
             if identifier in by_id:
                 result.problems.append(
@@ -288,7 +372,9 @@ def read_workbook(path: Path) -> Transcription:
                 )
                 continue
             by_id[identifier] = record
+            seen[identifier] = (number, row_review)
         parents[spec.record_type] = by_id
+        reviews[spec.record_type] = seen
 
     # Child sheets fill a repeating field on a parent that must already exist.
     for spec in sheets():
@@ -297,7 +383,7 @@ def read_workbook(path: Path) -> Transcription:
         by_id = parents.get(spec.record_type, {})
         for parent in by_id.values():
             parent.setdefault(spec.parent_field, [])
-        for number, entry in _rows(workbook[spec.name], spec, result):
+        for number, entry, row_review in _rows(workbook[spec.name], spec, result):
             parent_id = entry.pop("parent_id")
             parent = by_id.get(parent_id)
             if parent is None:
@@ -311,6 +397,15 @@ def read_workbook(path: Path) -> Transcription:
                 )
                 continue
             parent[spec.parent_field].append(entry)
+            # A child row's verdict is a verdict on part of its parent. It
+            # cannot be signed on its own — the child sheets carry no
+            # `approved_by` — so it is held against the parent and settled with
+            # it. A parent whose child rows are not all `correct` has a list
+            # that is still in dispute, whatever the parent row itself says.
+            if row_review is not None:
+                child_verdicts.setdefault(spec.record_type, {}).setdefault(
+                    parent_id, []
+                ).append((spec.name, row_review.verdict, row_review.correction))
 
     for record_type, by_id in parents.items():
         kept: list[dict[str, Any]] = []
@@ -322,6 +417,57 @@ def read_workbook(path: Path) -> Transcription:
                     result.problems.append(
                         Problem(_sheet_name(record_type), None, f"{identifier}: {error}")
                     )
+                continue
+
+            number, row_review = reviews[record_type].get(identifier, (0, None))
+            if row_review is None:
+                # No review columns: a plain intake workbook, transcribed as it
+                # always was. The expert authored the row rather than judging a
+                # machine's, so there is no verdict to gate on.
+                kept.append(record)
+                result.blanks.extend(
+                    (record_type, identifier, name) for name in _blank_fields(record)
+                )
+                continue
+
+            destination, status, reason, flag = review_module.route(
+                row_review, record.get("approved_by"), record.get("approved_date")
+            )
+            disputed = [
+                (sheet, verdict, correction)
+                for sheet, verdict, correction in child_verdicts.get(
+                    record_type, {}
+                ).get(identifier, ())
+                if verdict != "correct"
+            ]
+            if destination == "gold" and disputed:
+                sheets_named = ", ".join(sorted({sheet for sheet, _, _ in disputed}))
+                destination, status = "review", ReviewStatus.IN_REVIEW
+                reason = (
+                    f"the row is signed `correct`, but {len(disputed)} row(s) on "
+                    f"{sheets_named} are not; the list is still in dispute"
+                )
+                flag = "parent approved, child rows not"
+
+            result.decisions.append(
+                review_module.Decision(
+                    record_id=identifier,
+                    record_type=record_type,
+                    sheet=_sheet_name(record_type),
+                    row=number,
+                    verdict=row_review.verdict_as_written or row_review.verdict,
+                    review_status=status,
+                    destination=destination,
+                    reason=reason,
+                    correction=row_review.correction,
+                    approved_by=record.get("approved_by"),
+                    approved_date=record.get("approved_date"),
+                    seed_id=row_review.seed_id,
+                    record=record,
+                    flag=flag,
+                )
+            )
+            if destination != "gold":
                 continue
             kept.append(record)
             result.blanks.extend(
