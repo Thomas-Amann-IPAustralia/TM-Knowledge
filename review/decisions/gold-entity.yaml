@@ -1,0 +1,3868 @@
+# Seed-review decisions for gold_entity.
+# Source: 2026-08-25-stage0-seed-review.xlsx
+# Machine-written seed records with a human's verdict against each.
+# NOT approved knowledge. Approved records live in eval/gold/.
+- record_id: GE-0001
+  record_type: gold_entity
+  seed_id: SEED-GE-0001
+  sheet: entities
+  row: 2
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0001
+    surface: Section 43
+    type: LegislativeProvision
+    source_ref: TMM/Part29/1#1
+    span:
+    - 0
+    - 10
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    resolves_to: TMA1995/s43
+    notes: Upstream carries this edge as an authored link rather than as a regex read of the prose, which
+      is the strongest form of provenance available.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0002
+  record_type: gold_entity
+  seed_id: SEED-GE-0002
+  sheet: entities
+  row: 3
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0002
+    surface: the Act
+    type: LegislativeProvision
+    source_ref: TMM/Part29/1#1
+    span:
+    - 14
+    - 21
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    notes: 'Instrument-level mentions are the commonest thing a naive provision matcher gets wrong: it
+      either drops them or attaches them to whichever section was mentioned last.'
+    approved_by: null
+    approved_date: null
+- record_id: GE-0003
+  record_type: gold_entity
+  seed_id: SEED-GE-0003
+  sheet: entities
+  row: 4
+  verdict: reject
+  review_status: rejected
+  destination: review
+  reason: verdict is `reject`
+  approved_by: null
+  approved_date: null
+  correction: Better entity definition further down
+  origin: machine_seed
+  record:
+    id: GE-0003
+    surface: connotation
+    type: LegalConcept
+    source_ref: TMM/Part29/1#1
+    span:
+    - 172
+    - 183
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    notes: First of two mentions in this chunk. The first sits inside the quoted section; the second is
+      the Manual speaking.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0004
+  record_type: gold_entity
+  seed_id: SEED-GE-0004
+  sheet: entities
+  row: 5
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0004
+    surface: a sign contained in the trade mark
+    type: LegalConcept
+    source_ref: TMM/Part29/1#1
+    span:
+    - 207
+    - 241
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    approved_by: null
+    approved_date: null
+- record_id: GE-0005
+  record_type: gold_entity
+  seed_id: SEED-GE-0005
+  sheet: entities
+  row: 6
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0005
+    surface: likely to deceive or cause confusion
+    type: LegalConcept
+    source_ref: TMM/Part29/1#1
+    span:
+    - 321
+    - 357
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    notes: Two mentions in this chunk, both in the same words.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0006
+  record_type: gold_entity
+  seed_id: SEED-GE-0006
+  sheet: entities
+  row: 7
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0006
+    surface: likely to deceive or cause confusion
+    type: LegalConcept
+    source_ref: TMM/Part29/1#1
+    span:
+    - 740
+    - 776
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    approved_by: null
+    approved_date: null
+- record_id: GE-0007
+  record_type: gold_entity
+  seed_id: SEED-GE-0007
+  sheet: entities
+  row: 8
+  verdict: reject
+  review_status: rejected
+  destination: review
+  reason: verdict is `reject`
+  approved_by: null
+  approved_date: null
+  correction: duplicate
+  origin: machine_seed
+  record:
+    id: GE-0007
+    surface: section 43
+    type: LegislativeProvision
+    source_ref: TMM/Part29/1#1
+    span:
+    - 378
+    - 388
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    resolves_to: TMA1995/s43
+    approved_by: null
+    approved_date: null
+- record_id: GE-0008
+  record_type: gold_entity
+  seed_id: SEED-GE-0008
+  sheet: entities
+  row: 9
+  verdict: reject
+  review_status: rejected
+  destination: review
+  reason: verdict is `reject`
+  approved_by: null
+  approved_date: null
+  correction: Lacks specific context to be useful. The words This Section are contextually used throughout
+    the manual to describe different points.
+  origin: machine_seed
+  record:
+    id: GE-0008
+    surface: this section
+    type: LegislativeProvision
+    source_ref: TMM/Part29/1#1
+    span:
+    - 529
+    - 541
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    resolves_to: TMA1995/s43
+    notes: Upstream records provision edges from named citations; an anaphor like this produces no edge
+      at all, so nothing downstream knows it is here unless a gold record says so.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0009
+  record_type: gold_entity
+  seed_id: SEED-GE-0009
+  sheet: entities
+  row: 10
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0009
+    surface: There is, therefore, no discretion to accept a trade mark that is caught by the provisions
+      of this section.
+    type: ManualInstruction
+    source_ref: TMM/Part29/1#1
+    span:
+    - 435
+    - 542
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    resolves_to: TMA1995/s43
+    notes: Annotated as an instruction rather than as a concept because it tells the examiner what they
+      may not do. If it reads to you as a statement of law rather than an instruction, retyping it is
+      the correction.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0010
+  record_type: gold_entity
+  seed_id: SEED-GE-0010
+  sheet: entities
+  row: 11
+  verdict: amend
+  review_status: in_review
+  destination: review
+  reason: verdict is `amend`; the correction is prose and is not applied here
+  approved_by: null
+  approved_date: null
+  correction: The decision maker is the examiner and they must be satisified that use of the trade mark
+    for the specified goods and / or services would be likely to deceive or cause confusion.
+  origin: machine_seed
+  record:
+    id: GE-0010
+    surface: decision maker
+    type: Role
+    source_ref: TMM/Part29/1#1
+    span:
+    - 623
+    - 637
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    approved_by: null
+    approved_date: null
+- record_id: GE-0011
+  record_type: gold_entity
+  seed_id: SEED-GE-0011
+  sheet: entities
+  row: 12
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0011
+    surface: clearly satisfied
+    type: LegalConcept
+    source_ref: TMM/Part29/1#1
+    span:
+    - 644
+    - 661
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    notes: Sits alongside the presumption of registrability in TMM/Part29/2/2/4. Together they are the
+      pilot's rule for what to do under uncertainty.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0012
+  record_type: gold_entity
+  seed_id: SEED-GE-0012
+  sheet: entities
+  row: 13
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0012
+    surface: the specified goods and / or services
+    type: LegalConcept
+    source_ref: TMM/Part29/1#1
+    span:
+    - 693
+    - 730
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    notes: The corpus writes this as "goods/services", "goods and/or services", "goods or services" and
+      "goods and / or services" within a few paragraphs. All four mean the same thing and no two match
+      as strings.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0013
+  record_type: gold_entity
+  seed_id: SEED-GE-0013
+  sheet: entities
+  row: 14
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0013
+    surface: consumers within the relevant market
+    type: LegalConcept
+    source_ref: TMM/Part29/1#1
+    span:
+    - 895
+    - 931
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    approved_by: null
+    approved_date: null
+- record_id: GE-0014
+  record_type: gold_entity
+  seed_id: SEED-GE-0014
+  sheet: entities
+  row: 15
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0014
+    surface: ground for rejection
+    type: LegalConcept
+    source_ref: TMM/Part29/1#1
+    span:
+    - 940
+    - 960
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    approved_by: null
+    approved_date: null
+- record_id: GE-0015
+  record_type: gold_entity
+  seed_id: SEED-GE-0015
+  sheet: entities
+  row: 16
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0015
+    surface: If the trade mark, or some part of the trade mark, contains a connotation that would be likely
+      to deceive or confuse consumers within the relevant market, then a ground for rejection should be
+      raised.
+    type: ManualInstruction
+    source_ref: TMM/Part29/1#1
+    span:
+    - 778
+    - 978
+    source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+    resolves_to: TMA1995/s43
+    notes: Note that this sentence uses "deceive or confuse", not the statutory "deceive or cause confusion".
+      Whether the Manual is paraphrasing or stating a different thing is a reading only an expert can
+      give.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0016
+  record_type: gold_entity
+  seed_id: SEED-GE-0016
+  sheet: entities
+  row: 17
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0016
+    surface: a particular plant variety or other plant name
+    type: LegalConcept
+    source_ref: TMM/Part29/1/1/2
+    span:
+    - 61
+    - 107
+    source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+    approved_by: null
+    approved_date: null
+- record_id: GE-0017
+  record_type: gold_entity
+  seed_id: SEED-GE-0017
+  sheet: entities
+  row: 18
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0017
+    surface: connote
+    type: LegalConcept
+    source_ref: TMM/Part29/1/1/2
+    span:
+    - 53
+    - 60
+    source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+    approved_by: null
+    approved_date: null
+- record_id: GE-0018
+  record_type: gold_entity
+  seed_id: SEED-GE-0018
+  sheet: entities
+  row: 19
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0018
+    surface: the same or a closely related genus
+    type: LegalConcept
+    source_ref: TMM/Part29/1/1/2
+    span:
+    - 156
+    - 191
+    source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+    approved_by: null
+    approved_date: null
+- record_id: GE-0019
+  record_type: gold_entity
+  seed_id: SEED-GE-0019
+  sheet: entities
+  row: 20
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0019
+    surface: likely to deceive or cause confusion as to the true nature
+    type: LegalConcept
+    source_ref: TMM/Part29/1/1/2
+    span:
+    - 199
+    - 257
+    source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+    approved_by: null
+    approved_date: null
+- record_id: GE-0020
+  record_type: gold_entity
+  seed_id: SEED-GE-0020
+  sheet: entities
+  row: 21
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0020
+    surface: section 43 of the Act
+    type: LegislativeProvision
+    source_ref: TMM/Part29/1/1/2
+    span:
+    - 326
+    - 347
+    source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+    resolves_to: TMA1995/s43
+    notes: The span deliberately includes "of the Act". Whether the instrument belongs inside the entity
+      or beside it is a modelling decision that changes every provision annotation in the set.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0021
+  record_type: gold_entity
+  seed_id: SEED-GE-0021
+  sheet: entities
+  row: 22
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0021
+    surface: Part 32A
+    type: Other
+    source_ref: TMM/Part29/1/1/2
+    span:
+    - 511
+    - 519
+    source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+    notes: Upstream keeps only internal references that resolved to a page or chunk and drops the rest
+      (Q-08), so the absence of an internal-ref edge here is not evidence that the Manual made no reference.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0022
+  record_type: gold_entity
+  seed_id: SEED-GE-0022
+  sheet: entities
+  row: 23
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0022
+    surface: Part 32A - Examination of Trade Marks for Plants (in class 31)
+    type: Other
+    source_ref: TMM/Part29/1/1/2
+    span:
+    - 521
+    - 583
+    source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+    notes: If link titles should be excluded from annotation altogether, saying so is a rule-level correction
+      that applies across the corpus.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0023
+  record_type: gold_entity
+  seed_id: SEED-GE-0023
+  sheet: entities
+  row: 24
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0023
+    surface: class 31
+    type: Other
+    source_ref: TMM/Part29/1/1/2
+    span:
+    - 498
+    - 506
+    source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+    notes: If Nice classes deserve their own entity type, this record is the evidence for adding one —
+      the taxonomy is the expert's to set.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0024
+  record_type: gold_entity
+  seed_id: SEED-GE-0024
+  sheet: entities
+  row: 25
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0024
+    surface: a ground for rejection under section 43 of the Act will be appropriate
+    type: ManualInstruction
+    source_ref: TMM/Part29/1/1/2
+    span:
+    - 297
+    - 367
+    source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+    resolves_to: TMA1995/s43
+    notes: '"Will be appropriate" is the Manual''s most common way of stating an outcome. Which of must/may/should
+      it maps to is the modality judgement GR-0002 asks you for, and it is not a grammar question.'
+    approved_by: null
+    approved_date: null
+- record_id: GE-0025
+  record_type: gold_entity
+  seed_id: SEED-GE-0025
+  sheet: entities
+  row: 26
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0025
+    surface: For details of practice in examination of applications for registration of trade marks covering
+      plants and/or plant materials in class 31 see Part 32A.
+    type: ManualInstruction
+    source_ref: TMM/Part29/1/1/2
+    span:
+    - 369
+    - 520
+    source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+    approved_by: null
+    approved_date: null
+- record_id: GE-0026
+  record_type: gold_entity
+  seed_id: SEED-GE-0026
+  sheet: entities
+  row: 27
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0026
+    surface: plants or plant materials
+    type: LegalConcept
+    source_ref: TMM/Part29/1/1/2
+    span:
+    - 127
+    - 152
+    source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+    approved_by: null
+    approved_date: null
+- record_id: GE-0027
+  record_type: gold_entity
+  seed_id: SEED-GE-0027
+  sheet: entities
+  row: 28
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0027
+    surface: A connotation
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/2
+    span:
+    - 0
+    - 13
+    source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+    notes: The article is inside the span here and outside it in GE-0003. Whichever convention you prefer,
+      it has to be the same one everywhere or the offsets will not compare between annotators.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0028
+  record_type: gold_entity
+  seed_id: SEED-GE-0028
+  sheet: entities
+  row: 29
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0028
+    surface: the whole trade mark
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/2
+    span:
+    - 30
+    - 50
+    source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+    approved_by: null
+    approved_date: null
+- record_id: GE-0029
+  record_type: gold_entity
+  seed_id: SEED-GE-0029
+  sheet: entities
+  row: 30
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0029
+    surface: a part of the trade mark
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/2
+    span:
+    - 59
+    - 83
+    source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+    approved_by: null
+    approved_date: null
+- record_id: GE-0030
+  record_type: gold_entity
+  seed_id: SEED-GE-0030
+  sheet: entities
+  row: 31
+  verdict: reject
+  review_status: rejected
+  destination: review
+  reason: verdict is `reject`
+  approved_by: null
+  approved_date: null
+  correction: Too context dependent to be useful as an entity
+  origin: machine_seed
+  record:
+    id: GE-0030
+    surface: It
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/2
+    span:
+    - 85
+    - 87
+    source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+    notes: Deliberately included. Whether pronouns are annotated at all is a rule decision with a large
+      cost attached — coreference is where exhaustive annotation stops being cheap.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0031
+  record_type: gold_entity
+  seed_id: SEED-GE-0031
+  sheet: entities
+  row: 32
+  verdict: corrrect
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0031
+    surface: a dictionary meaning
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/2
+    span:
+    - 104
+    - 124
+    source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+    notes: Grounded in TMM/Part29/2/2/1~1, which quotes two dictionaries by name.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0032
+  record_type: gold_entity
+  seed_id: SEED-GE-0032
+  sheet: entities
+  row: 33
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0032
+    surface: a connection in the minds of the buying public with some person, place or thing
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/2
+    span:
+    - 133
+    - 212
+    source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+    notes: This span is the seed of the whole of Parts 29.6 (persons), 29.9 (places) and the INN material
+      (things). If the ontology has one organising relation, it is probably this one.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0033
+  record_type: gold_entity
+  seed_id: SEED-GE-0033
+  sheet: entities
+  row: 34
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0033
+    surface: the buying public
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/2
+    span:
+    - 162
+    - 179
+    source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+    approved_by: null
+    approved_date: null
+- record_id: GE-0034
+  record_type: gold_entity
+  seed_id: SEED-GE-0034
+  sheet: entities
+  row: 35
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0034
+    surface: person
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/2
+    span:
+    - 190
+    - 196
+    source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+    notes: 'Typed LegalConcept rather than Role: this is a person referred to by the mark, not a participant
+      in examination. The distinction matters and the word does not carry it.'
+    approved_by: null
+    approved_date: null
+- record_id: GE-0035
+  record_type: gold_entity
+  seed_id: SEED-GE-0035
+  sheet: entities
+  row: 36
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0035
+    surface: place
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/2
+    span:
+    - 198
+    - 203
+    source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+    approved_by: null
+    approved_date: null
+- record_id: GE-0036
+  record_type: gold_entity
+  seed_id: SEED-GE-0036
+  sheet: entities
+  row: 37
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0036
+    surface: thing
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/2
+    span:
+    - 207
+    - 212
+    source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+    approved_by: null
+    approved_date: null
+- record_id: GE-0037
+  record_type: gold_entity
+  seed_id: SEED-GE-0037
+  sheet: entities
+  row: 38
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0037
+    surface: may result from the whole trade mark or from a part of the trade mark
+    type: ManualInstruction
+    source_ref: TMM/Part29/2/2/2
+    span:
+    - 14
+    - 83
+    source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+    notes: Typed as an instruction is arguably wrong — it instructs nobody to do anything. If it is a
+      statement rather than an instruction, that is a correction worth making, because the same shape
+      recurs throughout.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0038
+  record_type: gold_entity
+  seed_id: SEED-GE-0038
+  sheet: entities
+  row: 39
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0038
+    surface: It may result from a dictionary meaning or from a connection in the minds of the buying public
+      with some person, place or thing.
+    type: ManualInstruction
+    source_ref: TMM/Part29/2/2/2
+    span:
+    - 85
+    - 213
+    source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+    approved_by: null
+    approved_date: null
+- record_id: GE-0039
+  record_type: gold_entity
+  seed_id: SEED-GE-0039
+  sheet: entities
+  row: 40
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0039
+    surface: A connotation must arise from the trade mark itself, and not through a comparison with another
+      trade mark.
+    type: ManualInstruction
+    source_ref: TMM/Part29/2/2/3
+    span:
+    - 0
+    - 106
+    source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+    resolves_to: TMA1995/s43
+    notes: 'This is the single most important sentence in the pilot for precision: it is what makes PU-0008
+      a prohibited inference.'
+    approved_by: null
+    approved_date: null
+- record_id: GE-0040
+  record_type: gold_entity
+  seed_id: SEED-GE-0040
+  sheet: entities
+  row: 41
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0040
+    surface: A connotation
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/3
+    span:
+    - 0
+    - 13
+    source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+    approved_by: null
+    approved_date: null
+- record_id: GE-0041
+  record_type: gold_entity
+  seed_id: SEED-GE-0041
+  sheet: entities
+  row: 42
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0041
+    surface: a comparison with another trade mark
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/3
+    span:
+    - 69
+    - 105
+    source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+    notes: A retrieval system that indexes this chunk under "comparison between trade marks" will surface
+      it for exactly the queries it should not.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0042
+  record_type: gold_entity
+  seed_id: SEED-GE-0042
+  sheet: entities
+  row: 43
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0042
+    surface: section 44 of the Act
+    type: LegislativeProvision
+    source_ref: TMM/Part29/2/2/3
+    span:
+    - 163
+    - 184
+    source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+    resolves_to: TMA1995/s44
+    approved_by: null
+    approved_date: null
+- record_id: GE-0043
+  record_type: gold_entity
+  seed_id: SEED-GE-0043
+  sheet: entities
+  row: 44
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0043
+    surface: Part 26 of this Manual
+    type: Other
+    source_ref: TMM/Part29/2/2/3
+    span:
+    - 213
+    - 235
+    source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+    approved_by: null
+    approved_date: null
+- record_id: GE-0044
+  record_type: gold_entity
+  seed_id: SEED-GE-0044
+  sheet: entities
+  row: 45
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0044
+    surface: Part 26 – Conflict with Other Signs
+    type: Other
+    source_ref: TMM/Part29/2/2/3
+    span:
+    - 237
+    - 272
+    source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+    notes: The dash here is an en dash (–). GE-0022's equivalent is a hyphen (-). If a surface is retyped
+      rather than copied, it will not land.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0045
+  record_type: gold_entity
+  seed_id: SEED-GE-0045
+  sheet: entities
+  row: 46
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0045
+    surface: Such comparisons are dealt with under the provisions of section 44 of the Act, and discussed
+      in detail in Part 26 of this Manual.
+    type: ManualInstruction
+    source_ref: TMM/Part29/2/2/3
+    span:
+    - 107
+    - 236
+    source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+    resolves_to: TMA1995/s44
+    approved_by: null
+    approved_date: null
+- record_id: GE-0046
+  record_type: gold_entity
+  seed_id: SEED-GE-0046
+  sheet: entities
+  row: 47
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0046
+    surface: The presumption of registrability
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/4
+    span:
+    - 0
+    - 33
+    source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+    approved_by: null
+    approved_date: null
+- record_id: GE-0047
+  record_type: gold_entity
+  seed_id: SEED-GE-0047
+  sheet: entities
+  row: 48
+  verdict: amend
+  review_status: in_review
+  destination: review
+  reason: verdict is `amend`; the correction is prose and is not applied here
+  approved_by: null
+  approved_date: null
+  correction: The registrar and the decision maker are different entities. The decision maker (examiner)
+    operates using delegated authority from the registrar but they are not the same.
+  origin: machine_seed
+  record:
+    id: GE-0047
+    surface: The Registrar
+    type: Role
+    source_ref: TMM/Part29/2/2/4
+    span:
+    - 57
+    - 70
+    source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+    notes: Two chunks apart, the same requirement is attributed to a "decision maker" and to "the Registrar".
+      If those are different people the difference matters; if they are the same, the vocabulary should
+      say so.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0048
+  record_type: gold_entity
+  seed_id: SEED-GE-0048
+  sheet: entities
+  row: 49
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0048
+    surface: section 33(3)
+    type: LegislativeProvision
+    source_ref: TMM/Part29/2/2/4
+    span:
+    - 131
+    - 144
+    source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+    resolves_to: TMA1995/s33(3)
+    notes: Resolves to a unit beneath a provision rather than to a provision. The ref grammar cannot tell
+      the two apart on its own (Q-18); the loader does it by trying both.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0049
+  record_type: gold_entity
+  seed_id: SEED-GE-0049
+  sheet: entities
+  row: 50
+  verdict: reject
+  review_status: rejected
+  destination: review
+  reason: verdict is `reject`
+  approved_by: null
+  approved_date: null
+  correction: duplicate
+  origin: machine_seed
+  record:
+    id: GE-0049
+    surface: section 43
+    type: LegislativeProvision
+    source_ref: TMM/Part29/2/2/4
+    span:
+    - 45
+    - 55
+    source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+    resolves_to: TMA1995/s43
+    approved_by: null
+    approved_date: null
+- record_id: GE-0050
+  record_type: gold_entity
+  seed_id: SEED-GE-0050
+  sheet: entities
+  row: 51
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0050
+    surface: If there is doubt that a connotation exists, then the ground for rejection should not be
+      raised.
+    type: ManualInstruction
+    source_ref: TMM/Part29/2/2/4
+    span:
+    - 186
+    - 282
+    source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+    resolves_to: TMA1995/s43
+    notes: 'Read together with GE-0009 this is the pilot''s whole treatment of uncertainty: no discretion
+      once the section bites, and no raising the ground while there is doubt that it does.'
+    approved_by: null
+    approved_date: null
+- record_id: GE-0051
+  record_type: gold_entity
+  seed_id: SEED-GE-0051
+  sheet: entities
+  row: 52
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0051
+    surface: The Registrar must be satisfied that a ground for rejection exists before section 33(3) can
+      be applied to reject the trade mark.
+    type: ManualInstruction
+    source_ref: TMM/Part29/2/2/4
+    span:
+    - 57
+    - 185
+    source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+    resolves_to: TMA1995/s33(3)
+    approved_by: null
+    approved_date: null
+- record_id: GE-0052
+  record_type: gold_entity
+  seed_id: SEED-GE-0052
+  sheet: entities
+  row: 53
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0052
+    surface: doubt that a connotation exists
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/4
+    span:
+    - 198
+    - 229
+    source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+    approved_by: null
+    approved_date: null
+- record_id: GE-0053
+  record_type: gold_entity
+  seed_id: SEED-GE-0053
+  sheet: entities
+  row: 54
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but a correction was written; the two disagree
+  approved_by: null
+  approved_date: null
+  correction: duplicate
+  flag: verdict and correction conflict — ask the reviewer which stands
+  origin: machine_seed
+  record:
+    id: GE-0053
+    surface: ground for rejection
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/4
+    span:
+    - 96
+    - 116
+    source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+    approved_by: null
+    approved_date: null
+- record_id: GE-0054
+  record_type: gold_entity
+  seed_id: SEED-GE-0054
+  sheet: entities
+  row: 55
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0054
+    surface: ground for rejection
+    type: LegalConcept
+    source_ref: TMM/Part29/2/2/4
+    span:
+    - 240
+    - 260
+    source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+    approved_by: null
+    approved_date: null
+- record_id: GE-0055
+  record_type: gold_entity
+  seed_id: SEED-GE-0055
+  sheet: entities
+  row: 56
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0055
+    surface: A mere possibility of deception or confusion
+    type: LegalConcept
+    source_ref: TMM/Part29/3/3/2
+    span:
+    - 0
+    - 44
+    source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+    approved_by: null
+    approved_date: null
+- record_id: GE-0056
+  record_type: gold_entity
+  seed_id: SEED-GE-0056
+  sheet: entities
+  row: 57
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0056
+    surface: at some indeterminate time
+    type: Date
+    source_ref: TMM/Part29/3/3/2
+    span:
+    - 45
+    - 71
+    source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+    notes: Compare GE-0061. Both are temporal expressions and only one of them matters to examination.
+      A stock NER model tags both `DATE` and cannot tell them apart (Q-16) — which is precisely why the
+      two taxonomies must not be mapped one to one.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0057
+  record_type: gold_entity
+  seed_id: SEED-GE-0057
+  sheet: entities
+  row: 58
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0057
+    surface: Each application must be considered as it stands in the current marketplace, not in the marketplace
+      as it was in the past and not as it may be in the future.
+    type: ManualInstruction
+    source_ref: TMM/Part29/3/3/2
+    span:
+    - 91
+    - 248
+    source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+    approved_by: null
+    approved_date: null
+- record_id: GE-0058
+  record_type: gold_entity
+  seed_id: SEED-GE-0058
+  sheet: entities
+  row: 59
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0058
+    surface: the current marketplace
+    type: LegalConcept
+    source_ref: TMM/Part29/3/3/2
+    span:
+    - 143
+    - 166
+    source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+    approved_by: null
+    approved_date: null
+- record_id: GE-0059
+  record_type: gold_entity
+  seed_id: SEED-GE-0059
+  sheet: entities
+  row: 60
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0059
+    surface: the previous legislation
+    type: LegislativeProvision
+    source_ref: TMM/Part29/3/3/2
+    span:
+    - 297
+    - 321
+    source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+    notes: Unresolvable by design rather than by error. A gold record that guessed an instrument here
+      would be asserting something the corpus does not say.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0060
+  record_type: gold_entity
+  seed_id: SEED-GE-0060
+  sheet: entities
+  row: 61
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0060
+    surface: the current Act
+    type: LegislativeProvision
+    source_ref: TMM/Part29/3/3/2
+    span:
+    - 409
+    - 424
+    source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+    approved_by: null
+    approved_date: null
+- record_id: GE-0061
+  record_type: gold_entity
+  seed_id: SEED-GE-0061
+  sheet: entities
+  row: 62
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0061
+    surface: 10 years ago
+    type: Date
+    source_ref: TMM/Part29/3/3/2
+    span:
+    - 519
+    - 531
+    source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+    notes: Arguably should not be annotated at all. If your rule is that only dates bearing on an application
+      are annotated, deleting this record is the correction — and that rule is worth stating explicitly.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0062
+  record_type: gold_entity
+  seed_id: SEED-GE-0062
+  sheet: entities
+  row: 63
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0062
+    surface: Examiners
+    type: Role
+    source_ref: TMM/Part29/3/3/2
+    span:
+    - 579
+    - 588
+    source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+    approved_by: null
+    approved_date: null
+- record_id: GE-0063
+  record_type: gold_entity
+  seed_id: SEED-GE-0063
+  sheet: entities
+  row: 64
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0063
+    surface: Examiners must ensure that they are considering the current marketplace when deciding whether
+      a sign is likely to offend under section 43, remembering there will be signs in that marketplace
+      which have kept their connotations over long periods of time.
+    type: ManualInstruction
+    source_ref: TMM/Part29/3/3/2
+    span:
+    - 579
+    - 831
+    source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+    resolves_to: TMA1995/s43
+    approved_by: null
+    approved_date: null
+- record_id: GE-0064
+  record_type: gold_entity
+  seed_id: SEED-GE-0064
+  sheet: entities
+  row: 65
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0064
+    surface: section 43
+    type: LegislativeProvision
+    source_ref: TMM/Part29/3/3/2
+    span:
+    - 706
+    - 716
+    source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+    resolves_to: TMA1995/s43
+    approved_by: null
+    approved_date: null
+- record_id: GE-0065
+  record_type: gold_entity
+  seed_id: SEED-GE-0065
+  sheet: entities
+  row: 66
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0065
+    surface: likely to offend
+    type: LegalConcept
+    source_ref: TMM/Part29/3/3/2
+    span:
+    - 683
+    - 699
+    source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+    notes: If this belongs as an `alt_label` on GC-0002, saying so is a valuable correction — it is not
+      currently there.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0066
+  record_type: gold_entity
+  seed_id: SEED-GE-0066
+  sheet: entities
+  row: 67
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0066
+    surface: have currency in a particular field
+    type: LegalConcept
+    source_ref: TMM/Part29/3/3/2
+    span:
+    - 542
+    - 577
+    source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+    approved_by: null
+    approved_date: null
+- record_id: GE-0067
+  record_type: gold_entity
+  seed_id: SEED-GE-0067
+  sheet: entities
+  row: 68
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0067
+    surface: At least at the examination stage
+    type: LegalConcept
+    source_ref: TMM/Part29/3/3/3
+    span:
+    - 0
+    - 33
+    source_content_hash: sha256:4a55810237a8dcf24587418ccacf418cc126ea299e516b2e35e8270f21d56352
+    notes: Read with TMM/Part29/3/3/4, which is about what emerges at opposition. The two together are
+      the Manual's account of why examination and opposition can reach different answers on the same mark.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0068
+  record_type: gold_entity
+  seed_id: SEED-GE-0068
+  sheet: entities
+  row: 69
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0068
+    surface: At least at the examination stage, deception and confusion must result from something within
+      the trade mark under consideration, not through a comparison with another trade mark.
+    type: ManualInstruction
+    source_ref: TMM/Part29/3/3/3
+    span:
+    - 0
+    - 178
+    source_content_hash: sha256:4a55810237a8dcf24587418ccacf418cc126ea299e516b2e35e8270f21d56352
+    resolves_to: TMA1995/s43
+    approved_by: null
+    approved_date: null
+- record_id: GE-0069
+  record_type: gold_entity
+  seed_id: SEED-GE-0069
+  sheet: entities
+  row: 70
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0069
+    surface: T.G.I. Friday's Australia Pty Ltd v TGI Friday's Inc [2000] FCA 720
+    type: JudicialDecision
+    source_ref: TMM/Part29/3/3/3
+    span:
+    - 246
+    - 313
+    source_content_hash: sha256:4a55810237a8dcf24587418ccacf418cc126ea299e516b2e35e8270f21d56352
+    resolves_to: CASE/2000/FCA/720
+    notes: The party names contain full stops and an apostrophe, and the same entity is written two ways
+      inside one citation — "T.G.I." and "TGI".
+    approved_by: null
+    approved_date: null
+- record_id: GE-0070
+  record_type: gold_entity
+  seed_id: SEED-GE-0070
+  sheet: entities
+  row: 71
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0070
+    surface: the full bench of the Federal Court
+    type: Other
+    source_ref: TMM/Part29/3/3/3
+    span:
+    - 207
+    - 242
+    source_content_hash: sha256:4a55810237a8dcf24587418ccacf418cc126ea299e516b2e35e8270f21d56352
+    approved_by: null
+    approved_date: null
+- record_id: GE-0071
+  record_type: gold_entity
+  seed_id: SEED-GE-0071
+  sheet: entities
+  row: 72
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0071
+    surface: Wilcox, Kiefel and Emmett JJ
+    type: Role
+    source_ref: TMM/Part29/3/3/3
+    span:
+    - 328
+    - 356
+    source_content_hash: sha256:4a55810237a8dcf24587418ccacf418cc126ea299e516b2e35e8270f21d56352
+    notes: Typed `Role` rather than `Other` on the view that a judge is a role in the corpus. If named
+      individuals should be `Other`, say so — the same question arises for Hearing Officers and Delegates.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0072
+  record_type: gold_entity
+  seed_id: SEED-GE-0072
+  sheet: entities
+  row: 73
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0072
+    surface: at [44]
+    type: Other
+    source_ref: TMM/Part29/3/3/3
+    span:
+    - 314
+    - 321
+    source_content_hash: sha256:4a55810237a8dcf24587418ccacf418cc126ea299e516b2e35e8270f21d56352
+    notes: 'Worth deciding: if pinpoints are never resolvable, they may still be worth recognising so
+      that a citation can be reproduced faithfully.'
+    approved_by: null
+    approved_date: null
+- record_id: GE-0073
+  record_type: gold_entity
+  seed_id: SEED-GE-0073
+  sheet: entities
+  row: 74
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0073
+    surface: s43
+    type: LegislativeProvision
+    source_ref: TMM/Part29/3/3/3
+    span:
+    - 749
+    - 752
+    source_content_hash: sha256:4a55810237a8dcf24587418ccacf418cc126ea299e516b2e35e8270f21d56352
+    resolves_to: TMA1995/s43
+    notes: This mention sits inside a quotation from the Court, not in the Manual's own voice. Whether
+      quoted mentions are annotated is the same question GE-0003 raises for quoted legislation.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0074
+  record_type: gold_entity
+  seed_id: SEED-GE-0074
+  sheet: entities
+  row: 75
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0074
+    surface: Primary Health Care Limited v Commonwealth of Australia [2017] FCAFC 174
+    type: JudicialDecision
+    source_ref: TMM/Part29/3/3/3
+    span:
+    - 797
+    - 869
+    source_content_hash: sha256:4a55810237a8dcf24587418ccacf418cc126ea299e516b2e35e8270f21d56352
+    resolves_to: CASE/2017/FCAFC/174
+    approved_by: null
+    approved_date: null
+- record_id: GE-0075
+  record_type: gold_entity
+  seed_id: SEED-GE-0075
+  sheet: entities
+  row: 76
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0075
+    surface: Pfizer Products Inc v Karam [2006] FCA 1663
+    type: JudicialDecision
+    source_ref: TMM/Part29/3/3/3
+    span:
+    - 886
+    - 929
+    source_content_hash: sha256:4a55810237a8dcf24587418ccacf418cc126ea299e516b2e35e8270f21d56352
+    resolves_to: CASE/2006/FCA/1663
+    approved_by: null
+    approved_date: null
+- record_id: GE-0076
+  record_type: gold_entity
+  seed_id: SEED-GE-0076
+  sheet: entities
+  row: 77
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0076
+    surface: its similarity to a name used by Big Country and others
+    type: LegalConcept
+    source_ref: TMM/Part29/3/3/3
+    span:
+    - 623
+    - 678
+    source_content_hash: sha256:4a55810237a8dcf24587418ccacf418cc126ea299e516b2e35e8270f21d56352
+    approved_by: null
+    approved_date: null
+- record_id: GE-0077
+  record_type: gold_entity
+  seed_id: SEED-GE-0077
+  sheet: entities
+  row: 78
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0077
+    surface: section 43
+    type: LegislativeProvision
+    source_ref: TMM/Part29/3/3/4
+    span:
+    - 45
+    - 55
+    source_content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+    resolves_to: TMA1995/s43
+    approved_by: null
+    approved_date: null
+- record_id: GE-0078
+  record_type: gold_entity
+  seed_id: SEED-GE-0078
+  sheet: entities
+  row: 79
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0078
+    surface: opposition
+    type: LegalConcept
+    source_ref: TMM/Part29/3/3/4
+    span:
+    - 139
+    - 149
+    source_content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+    approved_by: null
+    approved_date: null
+- record_id: GE-0079
+  record_type: gold_entity
+  seed_id: SEED-GE-0079
+  sheet: entities
+  row: 80
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0079
+    surface: the full facts of a case
+    type: EvidenceCategory
+    source_ref: TMM/Part29/3/3/4
+    span:
+    - 155
+    - 179
+    source_content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+    notes: Typed `EvidenceCategory` on the view that it names a class of material rather than a legal
+      test. If it is really a statement about the process, `Other` may be right.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0080
+  record_type: gold_entity
+  seed_id: SEED-GE-0080
+  sheet: entities
+  row: 81
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0080
+    surface: the decision maker
+    type: Role
+    source_ref: TMM/Part29/3/3/4
+    span:
+    - 197
+    - 215
+    source_content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+    approved_by: null
+    approved_date: null
+- record_id: GE-0081
+  record_type: gold_entity
+  seed_id: SEED-GE-0081
+  sheet: entities
+  row: 82
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0081
+    surface: This circumstance need not point to a fault in the examination process, but to the capacity
+      for a trade mark to develop a connotation over time.
+    type: ManualInstruction
+    source_ref: TMM/Part29/3/3/4
+    span:
+    - 217
+    - 361
+    source_content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+    approved_by: null
+    approved_date: null
+- record_id: GE-0082
+  record_type: gold_entity
+  seed_id: SEED-GE-0082
+  sheet: entities
+  row: 83
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0082
+    surface: develop a connotation over time
+    type: LegalConcept
+    source_ref: TMM/Part29/3/3/4
+    span:
+    - 329
+    - 360
+    source_content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+    approved_by: null
+    approved_date: null
+- record_id: GE-0083
+  record_type: gold_entity
+  seed_id: SEED-GE-0083
+  sheet: entities
+  row: 84
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0083
+    surface: secondary meaning
+    type: LegalConcept
+    source_ref: TMM/Part29/3/3/4
+    span:
+    - 385
+    - 402
+    source_content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+    approved_by: null
+    approved_date: null
+- record_id: GE-0084
+  record_type: gold_entity
+  seed_id: SEED-GE-0084
+  sheet: entities
+  row: 85
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0084
+    surface: the passage of time
+    type: Date
+    source_ref: TMM/Part29/3/3/4
+    span:
+    - 495
+    - 514
+    source_content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+    notes: Very likely a wrong typing. It is here so that the three `Date` records in this set can be
+      compared and a rule drawn from them.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0085
+  record_type: gold_entity
+  seed_id: SEED-GE-0085
+  sheet: entities
+  row: 86
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0085
+    surface: extensive use within a particular trade
+    type: EvidenceCategory
+    source_ref: TMM/Part29/3/3/4
+    span:
+    - 525
+    - 564
+    source_content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+    approved_by: null
+    approved_date: null
+- record_id: GE-0086
+  record_type: gold_entity
+  seed_id: SEED-GE-0086
+  sheet: entities
+  row: 87
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0086
+    surface: considerable evidence of use
+    type: EvidenceCategory
+    source_ref: TMM/Part29/3/3/4
+    span:
+    - 671
+    - 699
+    source_content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+    approved_by: null
+    approved_date: null
+- record_id: GE-0087
+  record_type: gold_entity
+  seed_id: SEED-GE-0087
+  sheet: entities
+  row: 88
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0087
+    surface: the opposing party
+    type: Role
+    source_ref: TMM/Part29/3/3/4
+    span:
+    - 721
+    - 739
+    source_content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+    approved_by: null
+    approved_date: null
+- record_id: GE-0088
+  record_type: gold_entity
+  seed_id: SEED-GE-0088
+  sheet: entities
+  row: 89
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0088
+    surface: George Schmidt v Down to Earth (Victoria) Co-operative Society Limited [1998] ATMO 10
+    type: JudicialDecision
+    source_ref: TMM/Part29/3/3/4
+    span:
+    - 745
+    - 830
+    source_content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+    resolves_to: CASE/1998/ATMO/10
+    notes: The party name contains its own brackets, so a citation matcher keyed on the bracket that opens
+      the neutral citation will cut the name in half.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0089
+  record_type: gold_entity
+  seed_id: SEED-GE-0089
+  sheet: entities
+  row: 90
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0089
+    surface: ‘Earthhaven Confest’
+    type: Other
+    source_ref: TMM/Part29/3/3/4
+    span:
+    - 832
+    - 852
+    source_content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+    resolves_to: CASE/1998/ATMO/10
+    notes: Typographic single quotation marks, not ASCII apostrophes. Retyping this surface will not land
+      it, which is the point of copying rather than transcribing.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0090
+  record_type: gold_entity
+  seed_id: SEED-GE-0090
+  sheet: entities
+  row: 91
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0090
+    surface: A ground for rejection under section 43 exists where a trade mark to be used in relation
+      to pharmaceuticals or veterinary substances consists of an INN stem, or contains a notified INN
+      stem in a meaningful way, and use of the trade mark in respect of the goods covered by the specification
+      are not restricted to substances indicated by the INN stem.
+    type: ManualInstruction
+    source_ref: TMM/Part29/5/5/5
+    span:
+    - 0
+    - 349
+    source_content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+    resolves_to: TMA1995/s43
+    notes: 'Note the number agreement: "use … are not restricted". Copied verbatim because a corrected
+      surface will not land on the text.'
+    approved_by: null
+    approved_date: null
+- record_id: GE-0091
+  record_type: gold_entity
+  seed_id: SEED-GE-0091
+  sheet: entities
+  row: 92
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0091
+    surface: section 43
+    type: LegislativeProvision
+    source_ref: TMM/Part29/5/5/5
+    span:
+    - 29
+    - 39
+    source_content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+    resolves_to: TMA1995/s43
+    approved_by: null
+    approved_date: null
+- record_id: GE-0092
+  record_type: gold_entity
+  seed_id: SEED-GE-0092
+  sheet: entities
+  row: 93
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0092
+    surface: pharmaceuticals or veterinary substances
+    type: LegalConcept
+    source_ref: TMM/Part29/5/5/5
+    span:
+    - 92
+    - 132
+    source_content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0093
+  record_type: gold_entity
+  seed_id: SEED-GE-0093
+  sheet: entities
+  row: 94
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0093
+    surface: INN stem
+    type: LegalConcept
+    source_ref: TMM/Part29/5/5/5
+    span:
+    - 148
+    - 156
+    source_content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0094
+  record_type: gold_entity
+  seed_id: SEED-GE-0094
+  sheet: entities
+  row: 95
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0094
+    surface: a notified INN stem
+    type: LegalConcept
+    source_ref: TMM/Part29/5/5/5
+    span:
+    - 170
+    - 189
+    source_content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0095
+  record_type: gold_entity
+  seed_id: SEED-GE-0095
+  sheet: entities
+  row: 96
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0095
+    surface: in a meaningful way
+    type: LegalConcept
+    source_ref: TMM/Part29/5/5/5
+    span:
+    - 190
+    - 209
+    source_content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0096
+  record_type: gold_entity
+  seed_id: SEED-GE-0096
+  sheet: entities
+  row: 97
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0096
+    surface: the specification
+    type: LegalConcept
+    source_ref: TMM/Part29/5/5/5
+    span:
+    - 272
+    - 289
+    source_content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0097
+  record_type: gold_entity
+  seed_id: SEED-GE-0097
+  sheet: entities
+  row: 98
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0097
+    surface: the applicant
+    type: Role
+    source_ref: TMM/Part29/5/5/5
+    span:
+    - 403
+    - 416
+    source_content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0098
+  record_type: gold_entity
+  seed_id: SEED-GE-0098
+  sheet: entities
+  row: 99
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0098
+    surface: a condition of registration
+    type: LegalConcept
+    source_ref: TMM/Part29/5/5/5
+    span:
+    - 429
+    - 456
+    source_content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0099
+  record_type: gold_entity
+  seed_id: SEED-GE-0099
+  sheet: entities
+  row: 100
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0099
+    surface: The endorsement suggested by the Registrar
+    type: LegalConcept
+    source_ref: TMM/Part29/5/5/5
+    span:
+    - 555
+    - 597
+    source_content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0100
+  record_type: gold_entity
+  seed_id: SEED-GE-0100
+  sheet: entities
+  row: 101
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0100
+    surface: the Registrar
+    type: Role
+    source_ref: TMM/Part29/5/5/5
+    span:
+    - 584
+    - 597
+    source_content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0101
+  record_type: gold_entity
+  seed_id: SEED-GE-0101
+  sheet: entities
+  row: 102
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0101
+    surface: It is a condition of registration that any use in respect of pharmaceuticals will be limited
+      to such goods containing substances belonging to the pharmacological group designated by the International
+      Non- Proprietary Name stem <stem>.
+    type: Other
+    source_ref: TMM/Part29/5/5/5
+    span:
+    - 625
+    - 859
+    source_content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+    notes: Copied exactly, including the broken term of art in the middle of it — see GE-0102 — and the
+      angle-bracket placeholder, which will be eaten by anything that treats the text as markup.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0102
+  record_type: gold_entity
+  seed_id: SEED-GE-0102
+  sheet: entities
+  row: 103
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0102
+    surface: International Non- Proprietary Name stem
+    type: LegalConcept
+    source_ref: TMM/Part29/5/5/5
+    span:
+    - 811
+    - 851
+    source_content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+    notes: 'A term split across a line is one of the forms guide §5.2 asks specifically to be annotated.
+      Nothing normalises this away safely: the same repair applied generally would join words that belong
+      apart.'
+    approved_by: null
+    approved_date: null
+- record_id: GE-0103
+  record_type: gold_entity
+  seed_id: SEED-GE-0103
+  sheet: entities
+  row: 104
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0103
+    surface: Elvis Presley Enterprises Inc v Jelcic [2008] ATMO 103
+    type: JudicialDecision
+    source_ref: TMM/Part29/6/6/2~3
+    span:
+    - 3
+    - 57
+    source_content_hash: sha256:e5bb46bbf0e798dffeeafe6ad0c45d69d82ebf91064a9f5037da93c0c4bc50df
+    resolves_to: CASE/2008/ATMO/103
+    approved_by: null
+    approved_date: null
+- record_id: GE-0104
+  record_type: gold_entity
+  seed_id: SEED-GE-0104
+  sheet: entities
+  row: 105
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0104
+    surface: ELVISFINANCE
+    type: Other
+    source_ref: TMM/Part29/6/6/2~3
+    span:
+    - 59
+    - 71
+    source_content_hash: sha256:e5bb46bbf0e798dffeeafe6ad0c45d69d82ebf91064a9f5037da93c0c4bc50df
+    notes: If trade marks under consideration deserve their own entity type, this record and GE-0110 are
+      the argument for it.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0105
+  record_type: gold_entity
+  seed_id: SEED-GE-0105
+  sheet: entities
+  row: 106
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0105
+    surface: section 43
+    type: LegislativeProvision
+    source_ref: TMM/Part29/6/6/2~3
+    span:
+    - 87
+    - 97
+    source_content_hash: sha256:e5bb46bbf0e798dffeeafe6ad0c45d69d82ebf91064a9f5037da93c0c4bc50df
+    resolves_to: TMA1995/s43
+    approved_by: null
+    approved_date: null
+- record_id: GE-0106
+  record_type: gold_entity
+  seed_id: SEED-GE-0106
+  sheet: entities
+  row: 107
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0106
+    surface: the Delegate
+    type: Role
+    source_ref: TMM/Part29/6/6/2~3
+    span:
+    - 117
+    - 129
+    source_content_hash: sha256:e5bb46bbf0e798dffeeafe6ad0c45d69d82ebf91064a9f5037da93c0c4bc50df
+    notes: Examiner, decision maker, Registrar, Delegate, Hearing Officer. Five names across the pilot
+      area, and whether they are five roles or two is the sort of thing that is obvious to you and invisible
+      in the text.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0107
+  record_type: gold_entity
+  seed_id: SEED-GE-0107
+  sheet: entities
+  row: 108
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0107
+    surface: the name ELVIS
+    type: Other
+    source_ref: TMM/Part29/6/6/2~3
+    span:
+    - 148
+    - 162
+    source_content_hash: sha256:e5bb46bbf0e798dffeeafe6ad0c45d69d82ebf91064a9f5037da93c0c4bc50df
+    approved_by: null
+    approved_date: null
+- record_id: GE-0108
+  record_type: gold_entity
+  seed_id: SEED-GE-0108
+  sheet: entities
+  row: 109
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0108
+    surface: Elvis Presley
+    type: Other
+    source_ref: TMM/Part29/6/6/2~3
+    span:
+    - 216
+    - 229
+    source_content_hash: sha256:e5bb46bbf0e798dffeeafe6ad0c45d69d82ebf91064a9f5037da93c0c4bc50df
+    notes: 'The trap is exact: occurrence 1 is a party, occurrence 2 is the well known person the connotation
+      is about, occurrence 3 is the same person again. A name matcher will find three and distinguish
+      none of them.'
+    approved_by: null
+    approved_date: null
+- record_id: GE-0109
+  record_type: gold_entity
+  seed_id: SEED-GE-0109
+  sheet: entities
+  row: 110
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0109
+    surface: the evidence
+    type: EvidenceCategory
+    source_ref: TMM/Part29/6/6/2~3
+    span:
+    - 240
+    - 252
+    source_content_hash: sha256:e5bb46bbf0e798dffeeafe6ad0c45d69d82ebf91064a9f5037da93c0c4bc50df
+    approved_by: null
+    approved_date: null
+- record_id: GE-0110
+  record_type: gold_entity
+  seed_id: SEED-GE-0110
+  sheet: entities
+  row: 111
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0110
+    surface: a relevant connection between Elvis Presley and the specified services
+    type: LegalConcept
+    source_ref: TMM/Part29/6/6/2~3
+    span:
+    - 271
+    - 341
+    source_content_hash: sha256:e5bb46bbf0e798dffeeafe6ad0c45d69d82ebf91064a9f5037da93c0c4bc50df
+    approved_by: null
+    approved_date: null
+- record_id: GE-0111
+  record_type: gold_entity
+  seed_id: SEED-GE-0111
+  sheet: entities
+  row: 112
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0111
+    surface: mortgage lending and home loans
+    type: Other
+    source_ref: TMM/Part29/6/6/2~3
+    span:
+    - 343
+    - 374
+    source_content_hash: sha256:e5bb46bbf0e798dffeeafe6ad0c45d69d82ebf91064a9f5037da93c0c4bc50df
+    approved_by: null
+    approved_date: null
+- record_id: GE-0112
+  record_type: gold_entity
+  seed_id: SEED-GE-0112
+  sheet: entities
+  row: 113
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0112
+    surface: Masterson
+    type: JudicialDecision
+    source_ref: TMM/Part29/6/6/2~3
+    span:
+    - 430
+    - 439
+    source_content_hash: sha256:e5bb46bbf0e798dffeeafe6ad0c45d69d82ebf91064a9f5037da93c0c4bc50df
+    resolves_to: CASE/2004/FCA/1247
+    notes: The best example in the bounded set of why exhaustive human annotation is irreplaceable. Upstream
+      extracts no case edge from this chunk for Masterson, because there is no citation in it to extract.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0113
+  record_type: gold_entity
+  seed_id: SEED-GE-0113
+  sheet: entities
+  row: 114
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0113
+    surface: Princess Diana
+    type: Other
+    source_ref: TMM/Part29/6/6/2~3
+    span:
+    - 402
+    - 416
+    source_content_hash: sha256:e5bb46bbf0e798dffeeafe6ad0c45d69d82ebf91064a9f5037da93c0c4bc50df
+    notes: The same person is "Diana, Princess of Wales" in TMM/Part29/6/6/2~1 and "the late Princess
+      Diana" in ~2. Three forms, one person, three chunks.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0114
+  record_type: gold_entity
+  seed_id: SEED-GE-0114
+  sheet: entities
+  row: 115
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0114
+    surface: a likelihood of deception or confusion
+    type: LegalConcept
+    source_ref: TMM/Part29/6/6/2~3
+    span:
+    - 604
+    - 642
+    source_content_hash: sha256:e5bb46bbf0e798dffeeafe6ad0c45d69d82ebf91064a9f5037da93c0c4bc50df
+    approved_by: null
+    approved_date: null
+- record_id: GE-0115
+  record_type: gold_entity
+  seed_id: SEED-GE-0115
+  sheet: entities
+  row: 116
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0115
+    surface: Phonewords and SMS words
+    type: LegalConcept
+    source_ref: TMM/Part29/7#1
+    span:
+    - 0
+    - 24
+    source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0116
+  record_type: gold_entity
+  seed_id: SEED-GE-0116
+  sheet: entities
+  row: 117
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0116
+    surface: 1300, 1800, 13 and 197 phone numbers
+    type: Other
+    source_ref: TMM/Part29/7#1
+    span:
+    - 33
+    - 69
+    source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+    notes: 'A four-digit number in a corpus full of legislation years is a genuine confusion: "1995" and
+      "1800" look alike to a pattern.'
+    approved_by: null
+    approved_date: null
+- record_id: GE-0117
+  record_type: gold_entity
+  seed_id: SEED-GE-0117
+  sheet: entities
+  row: 118
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0117
+    surface: 13 BAGS
+    type: Other
+    source_ref: TMM/Part29/7#1
+    span:
+    - 190
+    - 197
+    source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0118
+  record_type: gold_entity
+  seed_id: SEED-GE-0118
+  sheet: entities
+  row: 119
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0118
+    surface: The licence to use a phoneword or SMS words is for the actual numerals forming the operational
+      part of the phone number (not for the alphabetical segment).
+    type: ManualInstruction
+    source_ref: TMM/Part29/7#1
+    span:
+    - 200
+    - 355
+    source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0119
+  record_type: gold_entity
+  seed_id: SEED-GE-0119
+  sheet: entities
+  row: 120
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0119
+    surface: 13 2247
+    type: Other
+    source_ref: TMM/Part29/7#1
+    span:
+    - 428
+    - 435
+    source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0120
+  record_type: gold_entity
+  seed_id: SEED-GE-0120
+  sheet: entities
+  row: 121
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0120
+    surface: A section 43 ground for rejection will apply if the applicant for a trade mark containing
+      material likely to be viewed as a phoneword, or the numbers representing a phoneword, is not also
+      the owner (or authorised user) of that phoneword.
+    type: ManualInstruction
+    source_ref: TMM/Part29/7#1
+    span:
+    - 437
+    - 674
+    source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+    resolves_to: TMA1995/s43
+    approved_by: null
+    approved_date: null
+- record_id: GE-0121
+  record_type: gold_entity
+  seed_id: SEED-GE-0121
+  sheet: entities
+  row: 122
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0121
+    surface: the owner (or authorised user) of that phoneword
+    type: Role
+    source_ref: TMM/Part29/7#1
+    span:
+    - 625
+    - 673
+    source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+    notes: 'GC-0035''s not_labels record the collision: "owner" here and "owner of the trade mark" elsewhere
+      are different people and the same word.'
+    approved_by: null
+    approved_date: null
+- record_id: GE-0122
+  record_type: gold_entity
+  seed_id: SEED-GE-0122
+  sheet: entities
+  row: 123
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0122
+    surface: the applicant
+    type: Role
+    source_ref: TMM/Part29/7#1
+    span:
+    - 485
+    - 498
+    source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0123
+  record_type: gold_entity
+  seed_id: SEED-GE-0123
+  sheet: entities
+  row: 124
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0123
+    surface: 1800 RABBIT 1800 722248 1300 RABBIT 1800 RABBITS 4 U 1300 RABBITS 4 U 1800 RABBITS ARE THE
+      BEST PETS 1300 RABBITS ARE THE BEST PETS 13 BAGS 13 2247 13 BAGS 4 U
+    type: Other
+    source_ref: TMM/Part29/7#1
+    span:
+    - 835
+    - 994
+    source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+    notes: Annotated as one span because nothing in the text marks where one example ends and the next
+      begins. If these should be twelve records, that decision has to be made by someone who can read
+      the boundaries.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0124
+  record_type: gold_entity
+  seed_id: SEED-GE-0124
+  sheet: entities
+  row: 125
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0124
+    surface: information confirming that they are the owner or authorised user of the phoneword
+    type: EvidenceCategory
+    source_ref: TMM/Part29/7#1
+    span:
+    - 1077
+    - 1159
+    source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0125
+  record_type: gold_entity
+  seed_id: SEED-GE-0125
+  sheet: entities
+  row: 126
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0125
+    surface: Other phone numbers which do not appear to represent a phoneword should not be queried or
+      researched specifically in respect of section 43, unless other information before the examiner gives
+      them particular reason to suspect that the applicant may not be the licensed user of the number.
+    type: ManualInstruction
+    source_ref: TMM/Part29/7#1
+    span:
+    - 1161
+    - 1448
+    source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+    resolves_to: TMA1995/s43
+    notes: If an automated system is ever pointed at this Part, this sentence is the one that bounds it.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0126
+  record_type: gold_entity
+  seed_id: SEED-GE-0126
+  sheet: entities
+  row: 127
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0126
+    surface: the examiner
+    type: Role
+    source_ref: TMM/Part29/7#1
+    span:
+    - 1333
+    - 1345
+    source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+    approved_by: null
+    approved_date: null
+- record_id: GE-0127
+  record_type: gold_entity
+  seed_id: SEED-GE-0127
+  sheet: entities
+  row: 128
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0127
+    surface: an explicit claim about the goods which relates to a geographic location
+    type: LegalConcept
+    source_ref: TMM/Part29/9/9/2
+    span:
+    - 25
+    - 97
+    source_content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
+    notes: Note "geographic", not "geographical". The Manual uses both forms within one Part.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0128
+  record_type: gold_entity
+  seed_id: SEED-GE-0128
+  sheet: entities
+  row: 129
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0128
+    surface: the specification or an endorsement
+    type: LegalConcept
+    source_ref: TMM/Part29/9/9/2
+    span:
+    - 133
+    - 168
+    source_content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
+    approved_by: null
+    approved_date: null
+- record_id: GE-0129
+  record_type: gold_entity
+  seed_id: SEED-GE-0129
+  sheet: entities
+  row: 130
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0129
+    surface: likely to deceive consumers
+    type: LegalConcept
+    source_ref: TMM/Part29/9/9/2
+    span:
+    - 188
+    - 215
+    source_content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
+    approved_by: null
+    approved_date: null
+- record_id: GE-0130
+  record_type: gold_entity
+  seed_id: SEED-GE-0130
+  sheet: entities
+  row: 131
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0130
+    surface: “GROWN IN QUEENSLAND”
+    type: Other
+    source_ref: TMM/Part29/9/9/2
+    span:
+    - 312
+    - 333
+    source_content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
+    notes: Curly double quotes (“ ”), not ASCII. Any surface retyped rather than copied out of the worksheet
+      will fail to land.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0131
+  record_type: gold_entity
+  seed_id: SEED-GE-0131
+  sheet: entities
+  row: 132
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0131
+    surface: Dried coconut
+    type: Other
+    source_ref: TMM/Part29/9/9/2
+    span:
+    - 338
+    - 351
+    source_content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
+    approved_by: null
+    approved_date: null
+- record_id: GE-0132
+  record_type: gold_entity
+  seed_id: SEED-GE-0132
+  sheet: entities
+  row: 133
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0132
+    surface: “100% ITALIAN MARBLE”
+    type: Other
+    source_ref: TMM/Part29/9/9/2
+    span:
+    - 400
+    - 421
+    source_content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
+    approved_by: null
+    approved_date: null
+- record_id: GE-0133
+  record_type: gold_entity
+  seed_id: SEED-GE-0133
+  sheet: entities
+  row: 134
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0133
+    surface: The risk of deception can be mitigated by a suitably specific endorsement or an amendment
+      or limitation to the specification of goods or services.
+    type: ManualInstruction
+    source_ref: TMM/Part29/9/9/2
+    span:
+    - 440
+    - 586
+    source_content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
+    approved_by: null
+    approved_date: null
+- record_id: GE-0134
+  record_type: gold_entity
+  seed_id: SEED-GE-0134
+  sheet: entities
+  row: 135
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0134
+    surface: a suitably specific endorsement
+    type: LegalConcept
+    source_ref: TMM/Part29/9/9/2
+    span:
+    - 482
+    - 513
+    source_content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
+    approved_by: null
+    approved_date: null
+- record_id: GE-0135
+  record_type: gold_entity
+  seed_id: SEED-GE-0135
+  sheet: entities
+  row: 136
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0135
+    surface: if that claim turns out to be false
+    type: LegalConcept
+    source_ref: TMM/Part29/9/9/2
+    span:
+    - 216
+    - 251
+    source_content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
+    approved_by: null
+    approved_date: null
+- record_id: GE-0136
+  record_type: gold_entity
+  seed_id: SEED-GE-0136
+  sheet: entities
+  row: 137
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0136
+    surface: a geographical section 43 objection
+    type: LegalConcept
+    source_ref: TMM/Part29/9/9/5
+    span:
+    - 38
+    - 73
+    source_content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
+    approved_by: null
+    approved_date: null
+- record_id: GE-0137
+  record_type: gold_entity
+  seed_id: SEED-GE-0137
+  sheet: entities
+  row: 138
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0137
+    surface: section 43
+    type: LegislativeProvision
+    source_ref: TMM/Part29/9/9/5
+    span:
+    - 337
+    - 347
+    source_content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
+    resolves_to: TMA1995/s43
+    approved_by: null
+    approved_date: null
+- record_id: GE-0138
+  record_type: gold_entity
+  seed_id: SEED-GE-0138
+  sheet: entities
+  row: 139
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0138
+    surface: An applicant
+    type: Role
+    source_ref: TMM/Part29/9/9/5
+    span:
+    - 0
+    - 12
+    source_content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
+    approved_by: null
+    approved_date: null
+- record_id: GE-0139
+  record_type: gold_entity
+  seed_id: SEED-GE-0139
+  sheet: entities
+  row: 140
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0139
+    surface: a condition of registration or a specification amendment
+    type: LegalConcept
+    source_ref: TMM/Part29/9/9/5
+    span:
+    - 89
+    - 145
+    source_content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
+    approved_by: null
+    approved_date: null
+- record_id: GE-0140
+  record_type: gold_entity
+  seed_id: SEED-GE-0140
+  sheet: entities
+  row: 141
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0140
+    surface: This is the sole criterion for conditions or limitations applied in order to overcome grounds
+      for rejection raised under section 43.
+    type: ManualInstruction
+    source_ref: TMM/Part29/9/9/5
+    span:
+    - 216
+    - 348
+    source_content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
+    resolves_to: TMA1995/s43
+    notes: '"Sole criterion" is a closure statement — it says nothing else counts. A system that adds
+      a further consideration here contradicts the Manual rather than merely going beyond it.'
+    approved_by: null
+    approved_date: null
+- record_id: GE-0141
+  record_type: gold_entity
+  seed_id: SEED-GE-0141
+  sheet: entities
+  row: 142
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0141
+    surface: The condition of registration or specification amendment must directly address the connotation
+      in the trade mark.
+    type: ManualInstruction
+    source_ref: TMM/Part29/9/9/5
+    span:
+    - 349
+    - 462
+    source_content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
+    approved_by: null
+    approved_date: null
+- record_id: GE-0142
+  record_type: gold_entity
+  seed_id: SEED-GE-0142
+  sheet: entities
+  row: 143
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0142
+    surface: removes the likelihood of consumers being deceived or confused
+    type: LegalConcept
+    source_ref: TMM/Part29/9/9/5
+    span:
+    - 152
+    - 214
+    source_content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
+    approved_by: null
+    approved_date: null
+- record_id: GE-0143
+  record_type: gold_entity
+  seed_id: SEED-GE-0143
+  sheet: entities
+  row: 144
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0143
+    surface: 'Examples:'
+    type: Other
+    source_ref: TMM/Part29/9/9/5
+    span:
+    - 463
+    - 472
+    source_content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
+    notes: 'Worth noticing for retrieval: this chunk promises examples it does not contain. An answer
+      built from it alone will read as incomplete and be entirely faithful to its source.'
+    approved_by: null
+    approved_date: null
+- record_id: GE-0144
+  record_type: gold_entity
+  seed_id: SEED-GE-0144
+  sheet: entities
+  row: 145
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0144
+    surface: a reference to Indigenous people
+    type: LegalConcept
+    source_ref: TMM/Part29/10#1
+    span:
+    - 58
+    - 90
+    source_content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+    approved_by: null
+    approved_date: null
+- record_id: GE-0145
+  record_type: gold_entity
+  seed_id: SEED-GE-0145
+  sheet: entities
+  row: 146
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0145
+    surface: s43
+    type: LegislativeProvision
+    source_ref: TMM/Part29/10#1
+    span:
+    - 245
+    - 248
+    source_content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+    resolves_to: TMA1995/s43
+    notes: Upstream read this edge out of the prose and resolved the instrument by convention rather than
+      from anything the Manual said. The certainty on that edge is `default`, which is an inference (Q-07)
+      — and PU-0017 is about reporting it as though it were not.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0146
+  record_type: gold_entity
+  seed_id: SEED-GE-0146
+  sheet: entities
+  row: 147
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0146
+    surface: If a trade mark, or some part of the trade mark, contains a reference to Indigenous people
+      and a connotation arises from the mark that would be likely to deceive or confuse consumers within
+      the relevant market, then a ground for rejection under s43 should be raised.
+    type: ManualInstruction
+    source_ref: TMM/Part29/10#1
+    span:
+    - 0
+    - 266
+    source_content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+    resolves_to: TMA1995/s43
+    notes: Compare GE-0015 word for word. A system that treats them as duplicates loses the subject matter;
+      one that treats them as unrelated loses the general rule they share.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0147
+  record_type: gold_entity
+  seed_id: SEED-GE-0147
+  sheet: entities
+  row: 148
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0147
+    surface: ‘Aboriginal designed’
+    type: Other
+    source_ref: TMM/Part29/10#1
+    span:
+    - 311
+    - 332
+    source_content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+    approved_by: null
+    approved_date: null
+- record_id: GE-0148
+  record_type: gold_entity
+  seed_id: SEED-GE-0148
+  sheet: entities
+  row: 149
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0148
+    surface: ‘Product of the Ngunnawal people’
+    type: Other
+    source_ref: TMM/Part29/10#1
+    span:
+    - 334
+    - 367
+    source_content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+    notes: Note that this example also contains "Product of", which GC-0021 holds as a geographical qualifier.
+      The same words carry a different claim here.
+    approved_by: null
+    approved_date: null
+- record_id: GE-0149
+  record_type: gold_entity
+  seed_id: SEED-GE-0149
+  sheet: entities
+  row: 150
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0149
+    surface: ‘Ngunnawal Art’
+    type: Other
+    source_ref: TMM/Part29/10#1
+    span:
+    - 372
+    - 387
+    source_content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+    approved_by: null
+    approved_date: null
+- record_id: GE-0150
+  record_type: gold_entity
+  seed_id: SEED-GE-0150
+  sheet: entities
+  row: 151
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0150
+    surface: a source with an Indigenous connection
+    type: LegalConcept
+    source_ref: TMM/Part29/10#1
+    span:
+    - 579
+    - 617
+    source_content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+    approved_by: null
+    approved_date: null
+- record_id: GE-0151
+  record_type: gold_entity
+  seed_id: SEED-GE-0151
+  sheet: entities
+  row: 152
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0151
+    surface: the applicant’s mark
+    type: Other
+    source_ref: TMM/Part29/10#1
+    span:
+    - 548
+    - 568
+    source_content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+    approved_by: null
+    approved_date: null
+- record_id: GE-0152
+  record_type: gold_entity
+  seed_id: SEED-GE-0152
+  sheet: entities
+  row: 153
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0152
+    surface: the relevant market
+    type: LegalConcept
+    source_ref: TMM/Part29/10#1
+    span:
+    - 190
+    - 209
+    source_content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+    approved_by: null
+    approved_date: null
+- record_id: GE-0153
+  record_type: gold_entity
+  seed_id: SEED-GE-0153
+  sheet: entities
+  row: 154
+  verdict: unreviewed
+  review_status: candidate
+  destination: review
+  reason: no verdict; the row is machine-written and nobody has read it
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GE-0153
+    surface: lead consumers into being misled into thinking
+    type: LegalConcept
+    source_ref: TMM/Part29/10#1
+    span:
+    - 466
+    - 512
+    source_content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+    approved_by: null
+    approved_date: null

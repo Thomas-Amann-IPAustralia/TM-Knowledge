@@ -1,0 +1,1728 @@
+# Seed-review decisions for gold_concept.
+# Source: 2026-08-25-stage0-seed-review.xlsx
+# Machine-written seed records with a human's verdict against each.
+# NOT approved knowledge. Approved records live in eval/gold/.
+- record_id: GC-0001
+  record_type: gold_concept
+  seed_id: SEED-GC-0001
+  sheet: concepts
+  row: 2
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0001
+    pref_label: connotation
+    alt_labels:
+    - secondary meaning
+    - implied meaning
+    - secondary or implied meaning
+    not_labels:
+    - denotation
+    - deceptively similar
+    - descriptive meaning
+    narrower:
+    - GC-0045
+    related:
+    - GC-0005
+    - GC-0044
+    definition_sources:
+    - TMM/Part29/2/2/1~1
+    - TMM/Part29/2/2/2
+    legislative_basis:
+    - TMA1995/s43
+    notes: The Manual states that for section 43 the term has a wider meaning than the dictionary sense
+      and includes direct statements. That widening is a practice position, and whether it survives into
+      the ontology as one concept or two is a judgement.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0002
+  record_type: gold_concept
+  seed_id: SEED-GC-0002
+  sheet: concepts
+  row: 3
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0002
+    pref_label: likely to deceive or cause confusion
+    alt_labels:
+    - likelihood of deception or confusion
+    - deceive or confuse
+    - deception or confusion
+    not_labels:
+    - deceptively similar
+    - substantially identical
+    - likelihood of confusion between trade marks
+    narrower:
+    - GC-0003
+    - GC-0004
+    related:
+    - GC-0008
+    definition_sources:
+    - TMM/Part29/1#1
+    - TMM/Part29/3#1~2
+    legislative_basis:
+    - TMA1995/s43
+    notes: Whether this should be one concept or two is a real question. The Manual quotes Lord Denning
+      distinguishing them sharply, then applies them as a single threshold. We have kept them together
+      with the two narrower concepts underneath; splitting them is a defensible correction.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0003
+  record_type: gold_concept
+  seed_id: SEED-GC-0003
+  sheet: concepts
+  row: 4
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0003
+    pref_label: deception
+    alt_labels:
+    - deceive
+    - misled
+    - misdescriptive
+    not_labels:
+    - confusion
+    - scandalous
+    broader:
+    - GC-0002
+    related:
+    - GC-0004
+    definition_sources:
+    - TMM/Part29/3#1~2
+    legislative_basis:
+    - TMA1995/s43
+    notes: '"Misdescriptive" is listed as an alt label on the strength of one passage. It may be a related
+      but distinct idea rather than a synonym.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0004
+  record_type: gold_concept
+  seed_id: SEED-GC-0004
+  sheet: concepts
+  row: 5
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0004
+    pref_label: confusion
+    alt_labels:
+    - cause confusion
+    - confuse
+    - caused to wonder
+    not_labels:
+    - confusion between trade marks
+    - conflict with other signs
+    - deceptively similar
+    broader:
+    - GC-0002
+    related:
+    - GC-0003
+    definition_sources:
+    - TMM/Part29/3#1~2
+    - TMM/Part29/3/3/1~1
+    legislative_basis:
+    - TMA1995/s43
+    notes: '"Caused to wonder" comes from a passage quoted from a decision under earlier legislation.
+      Whether it is a synonym or a test is a reading.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0005
+  record_type: gold_concept
+  seed_id: SEED-GC-0005
+  sheet: concepts
+  row: 6
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0005
+    pref_label: denotation
+    alt_labels:
+    - primary meaning
+    - essential meaning
+    not_labels:
+    - connotation
+    related:
+    - GC-0001
+    definition_sources:
+    - TMM/Part29/2/2/1~1
+    - TMM/Part29/2/2/1~2
+    notes: The Manual gives the denotation of a mark as the connection in trade between the applicant
+      and the goods or services.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0006
+  record_type: gold_concept
+  seed_id: SEED-GC-0006
+  sheet: concepts
+  row: 7
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0006
+    pref_label: ground for rejection
+    alt_labels:
+    - ground of rejection
+    - objection
+    - s 43 objection
+    not_labels:
+    - ground of opposition
+    - ground for revocation
+    related:
+    - GC-0007
+    - GC-0040
+    definition_sources:
+    - TMM/Part20/5#1
+    - TMM/Part29/1#1
+    legislative_basis:
+    - TMA1995/s43
+    - TMA1995/s33
+    notes: The Manual uses "objection" and "ground for rejection" interchangeably in places. If they are
+      not interchangeable in practice, that is a correction with consequences across the whole entity
+      set.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0007
+  record_type: gold_concept
+  seed_id: SEED-GC-0007
+  sheet: concepts
+  row: 8
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0007
+    pref_label: presumption of registrability
+    alt_labels:
+    - presumption in favour of registrability
+    not_labels:
+    - onus on the applicant
+    related:
+    - GC-0006
+    definition_sources:
+    - TMM/Part29/2/2/4
+    - TMM/Part20/5/5/5
+    legislative_basis:
+    - TMA1995/s33(3)
+    notes: 'The not_label is a live one: a passage quoted in 29.3.1 places the onus on the applicant,
+      in the context of earlier legislation. Whether the two sit together is a legal question, not a drafting
+      one.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0008
+  record_type: gold_concept
+  seed_id: SEED-GC-0008
+  sheet: concepts
+  row: 9
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0008
+    pref_label: real and tangible danger
+    alt_labels:
+    - real tangible danger
+    - real and obvious danger
+    - finite and non-trivial probability
+    not_labels:
+    - mere possibility of confusion
+    - actual probability of deception
+    related:
+    - GC-0002
+    definition_sources:
+    - TMM/Part29/3/3/1~1
+    - TMM/Part29/4#1
+    notes: The not_labels are both phrases the Manual uses to say what the test is *not*, which makes
+      them unusually well-evidenced near-misses.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0009
+  record_type: gold_concept
+  seed_id: SEED-GC-0009
+  sheet: concepts
+  row: 10
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0009
+    pref_label: relevant market
+    alt_labels:
+    - buying public
+    - relevant sector of the public
+    - relevant Australian consumers
+    not_labels:
+    - trade
+    - relevant trade
+    narrower:
+    - GC-0010
+    related:
+    - GC-0049
+    definition_sources:
+    - TMM/Part29/1#1
+    - TMM/Part29/3#1~1
+    notes: Low confidence. These may be four distinct ideas that an examiner chooses between deliberately.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0010
+  record_type: gold_concept
+  seed_id: SEED-GC-0010
+  sheet: concepts
+  row: 11
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0010
+    pref_label: ordinary consumer
+    alt_labels:
+    - average consumer
+    - ordinary person
+    - reasonable consumer
+    not_labels:
+    - exceptionally stupid or careless consumer
+    - expert consumer
+    broader:
+    - GC-0009
+    definition_sources:
+    - TMM/Part29/3/3/1~1
+    - TMM/Part29/4#1
+    - TMM/Part29/9/9/3~1
+    notes: The first not_label is the Manual's own words, quoted from a decision. It is the clearest negative
+      boundary marker in the pilot area.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0011
+  record_type: gold_concept
+  seed_id: SEED-GC-0011
+  sheet: concepts
+  row: 12
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0011
+    pref_label: surrounding circumstances
+    alt_labels:
+    - all the surrounding circumstances
+    - relevant circumstances
+    not_labels:
+    - external considerations
+    - reputation in another trade mark
+    related:
+    - GC-0044
+    definition_sources:
+    - TMM/Part29/3#1~1
+    - TMM/Part29/9/9/3~1
+    notes: 'The not_labels matter: Part 29.9.7 says expressly that the connotation must come from the
+      mark itself and not from external considerations such as reputation in another mark. So "surrounding
+      circumstances" is admissible and "external considerations" is not, and the two phrases look alike.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0012
+  record_type: gold_concept
+  seed_id: SEED-GC-0012
+  sheet: concepts
+  row: 13
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0012
+    pref_label: specification of goods and services
+    alt_labels:
+    - specification
+    - goods/services claimed
+    - claimed goods and services
+    not_labels:
+    - class
+    - goods actually supplied
+    related:
+    - GC-0013
+    - GC-0015
+    definition_sources:
+    - TMM/Part29/4#1
+    - TMM/Part29/9/9/2
+    notes: The Manual reasons about what a specification "notionally includes", which is a different thing
+      from what the applicant sells.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0013
+  record_type: gold_concept
+  seed_id: SEED-GC-0013
+  sheet: concepts
+  row: 14
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0013
+    pref_label: condition of registration
+    alt_labels:
+    - condition
+    - conditions or limitations
+    not_labels:
+    - endorsement
+    - specification amendment
+    related:
+    - GC-0014
+    - GC-0015
+    definition_sources:
+    - TMM/Part29/5/5/4
+    - TMM/Part29/9/9/5
+    notes: Whether an endorsement is the record of a condition or a separate thing is exactly the sort
+      of tacit distinction this exercise is trying to surface.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0014
+  record_type: gold_concept
+  seed_id: SEED-GC-0014
+  sheet: concepts
+  row: 15
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0014
+    pref_label: endorsement
+    alt_labels:
+    - endorsement wording
+    - suggested endorsement
+    not_labels:
+    - condition of registration
+    - disclaimer
+    related:
+    - GC-0013
+    - GC-0029
+    definition_sources:
+    - TMM/Part29/5/5/4
+    - TMM/Part29/6#1~2
+    - TMM/Part29/6/6/1
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0015
+  record_type: gold_concept
+  seed_id: SEED-GC-0015
+  sheet: concepts
+  row: 16
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0015
+    pref_label: limitation of the specification
+    alt_labels:
+    - specification amendment
+    - amendment to the specification
+    - restriction of the specification
+    not_labels:
+    - divisional application
+    - deletion of goods
+    related:
+    - GC-0012
+    - GC-0013
+    - GC-0043
+    definition_sources:
+    - TMM/Part29/9/9/2
+    - TMM/Part29/9/9/5
+    notes: 'The second not_label is unsure: Part 12 discusses deleting goods and filing a divisional as
+      related moves, and whether deletion is a limitation or something else is a practice question.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0016
+  record_type: gold_concept
+  seed_id: SEED-GC-0016
+  sheet: concepts
+  row: 17
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0016
+    pref_label: priority date
+    alt_labels:
+    - date of the application
+    - as at the priority date
+    not_labels:
+    - filing date
+    - date of registration
+    - last amended date
+    related:
+    - GC-0049
+    definition_sources:
+    - TMM/Part29/6#1~2
+    - TMM/Part29/6/6/2~2
+    notes: Whether the filing date and the priority date are distinct enough to be a not_label here is
+      a practice question; they coincide in most applications and diverge in the ones that matter.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0017
+  record_type: gold_concept
+  seed_id: SEED-GC-0017
+  sheet: concepts
+  row: 18
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0017
+    pref_label: geographical reference
+    alt_labels:
+    - geographic reference
+    - place name
+    - reference to a geographical location
+    not_labels:
+    - geographical indication
+    - business identifier
+    narrower:
+    - GC-0019
+    related:
+    - GC-0018
+    - GC-0020
+    definition_sources:
+    - TMM/Part29/9#1
+    - TMM/Part29/9/9/3~1
+    legislative_basis:
+    - TMA1995/s43
+    notes: 'The first not_label is the important one: every geographical indication is a geographical
+      reference and the reverse is false, and the two terms are used within a few paragraphs of each other.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0018
+  record_type: gold_concept
+  seed_id: SEED-GC-0018
+  sheet: concepts
+  row: 19
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0018
+    pref_label: geographical indication
+    alt_labels:
+    - GI
+    - geographical indication for wine
+    - listed EU GI
+    not_labels:
+    - geographical reference
+    - geographical origin
+    - place name
+    broader:
+    - GC-0017
+    related:
+    - GC-0019
+    definition_sources:
+    - TMM/Part29/1/1/1
+    - TMM/Part29/11#1
+    - TMM/Part32B/1/1/1
+    notes: The pilot area's material on GIs mostly points elsewhere — Part 29.1.1 sends the reader to
+      Part 32B. Whether those destinations are in the pilot boundary is deliverable 1's question.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0019
+  record_type: gold_concept
+  seed_id: SEED-GC-0019
+  sheet: concepts
+  row: 20
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0019
+    pref_label: geographical origin
+    alt_labels:
+    - origin of the goods
+    - place of production
+    not_labels:
+    - geographical reference
+    - geographical indication
+    broader:
+    - GC-0017
+    related:
+    - GC-0021
+    definition_sources:
+    - TMM/Part29/9#1
+    - TMM/Part29/3#1~1
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0020
+  record_type: gold_concept
+  seed_id: SEED-GC-0020
+  sheet: concepts
+  row: 21
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0020
+    pref_label: business identifier
+    alt_labels:
+    - company name element
+    - trading name element
+    not_labels:
+    - geographical reference
+    - geographical origin
+    related:
+    - GC-0017
+    definition_sources:
+    - TMM/Part29/9/9/6
+    notes: The Manual's examples both contain place names, which is what makes this a genuine trap rather
+      than a distinction on paper.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0021
+  record_type: gold_concept
+  seed_id: SEED-GC-0021
+  sheet: concepts
+  row: 22
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0021
+    pref_label: geographical qualifier
+    alt_labels:
+    - qualifier
+    - qualifying information
+    - made in
+    - product of
+    not_labels:
+    - standalone geographical reference
+    related:
+    - GC-0017
+    - GC-0019
+    definition_sources:
+    - TMM/Part29/9/9/3~1
+    - TMM/Part29/9/9/2
+    notes: Whether "made in" and "product of" are labels for this concept or examples of it is a modelling
+      choice, not a legal one — but it changes how the entity annotations attach.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0022
+  record_type: gold_concept
+  seed_id: SEED-GC-0022
+  sheet: concepts
+  row: 23
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0022
+    pref_label: International Non-Proprietary Name
+    alt_labels:
+    - INN
+    - generic name for a pharmaceutical substance
+    - notified INN
+    not_labels:
+    - INN stem
+    - trade mark
+    - brand name
+    related:
+    - GC-0023
+    - GC-0025
+    definition_sources:
+    - TMM/Part29/5/5/1
+    notes: 'The first not_label is the whole difficulty of Part 29.5: an INN and an INN stem are governed
+      by different rules and named almost identically.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0023
+  record_type: gold_concept
+  seed_id: SEED-GC-0023
+  sheet: concepts
+  row: 24
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0023
+    pref_label: INN stem
+    alt_labels:
+    - stem
+    - common stem
+    - INN-stem
+    not_labels:
+    - International Non-Proprietary Name
+    - prefix
+    - suffix
+    related:
+    - GC-0022
+    - GC-0024
+    definition_sources:
+    - TMM/Part29/5/5/2
+    notes: '"Prefix" and "suffix" are listed as not_labels because the Manual uses them to describe a
+      stem''s *position*, not as names for it — a stem can be a prefix, a suffix or an infix.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0024
+  record_type: gold_concept
+  seed_id: SEED-GC-0024
+  sheet: concepts
+  row: 25
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0024
+    pref_label: meaningful inclusion of an INN stem
+    alt_labels:
+    - included in a meaningful way
+    - meaningful enough to give rise to a connotation
+    not_labels:
+    - contains an INN stem
+    - obvious derivation of an INN
+    related:
+    - GC-0023
+    definition_sources:
+    - TMM/Part29/5/5/5
+    - TMM/Part29/5/5/6~1
+    legislative_basis:
+    - TMA1995/s43
+    notes: The `pref_label` is our coinage, not the Manual's. If the practice has a name for this, using
+      it is a real improvement; if it does not, that is itself worth recording.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0025
+  record_type: gold_concept
+  seed_id: SEED-GC-0025
+  sheet: concepts
+  row: 26
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0025
+    pref_label: pharmaceutical or veterinary substance
+    alt_labels:
+    - pharmaceuticals
+    - veterinary substances
+    - class 5 goods
+    not_labels:
+    - dietary or nutritional supplement
+    - medical services
+    related:
+    - GC-0022
+    definition_sources:
+    - TMM/Part29/5/5/3
+    notes: 'The first not_label is deliberately provocative: the Manual names supplements as goods that
+      "could be pharmaceutical in nature", so they may be inside this concept rather than beside it.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0026
+  record_type: gold_concept
+  seed_id: SEED-GC-0026
+  sheet: concepts
+  row: 27
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0026
+    pref_label: well-known person
+    alt_labels:
+    - well known person
+    - person well known in relation to the goods or services
+    - celebrity
+    not_labels:
+    - name of a person
+    - signature
+    - surname
+    narrower:
+    - GC-0027
+    related:
+    - GC-0028
+    - GC-0030
+    definition_sources:
+    - TMM/Part29/6#1~1
+    - TMM/Part29/6#1~2
+    legislative_basis:
+    - TMA1995/s43
+    notes: '"Celebrity" is an alt label on the strength of ordinary usage, not of the corpus — the Manual
+      never uses the word. The not_labels point at Part 22 material, where a name is a distinctiveness
+      question under section 41 rather than a connotation question.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0027
+  record_type: gold_concept
+  seed_id: SEED-GC-0027
+  sheet: concepts
+  row: 28
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0027
+    pref_label: deceased person
+    alt_labels:
+    - long deceased historical figure
+    - deceased well-known person
+    not_labels:
+    - estate
+    - authorised entity
+    broader:
+    - GC-0026
+    related:
+    - GC-0028
+    definition_sources:
+    - TMM/Part29/6/6/2~1
+    - TMM/Part29/6/6/2~2
+    notes: The not_labels are the actors that continue to control a name after death. They are what makes
+      the exception operate, so they must not cluster with the person.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0028
+  record_type: gold_concept
+  seed_id: SEED-GC-0028
+  sheet: concepts
+  row: 29
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0028
+    pref_label: implied endorsement
+    alt_labels:
+    - endorsement or approval
+    - implied licensing
+    - connection with or approval of
+    not_labels:
+    - endorsement
+    - written permission
+    related:
+    - GC-0026
+    - GC-0029
+    definition_sources:
+    - TMM/Part29/6#1~2
+    - TMM/Part29/9/9/7
+    notes: 'The first not_label is a genuine collision inside one Part: an "endorsement" on a registration
+      and an "endorsement" by a celebrity are unrelated ideas sharing a word, two screens apart.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0029
+  record_type: gold_concept
+  seed_id: SEED-GC-0029
+  sheet: concepts
+  row: 30
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0029
+    pref_label: written permission
+    alt_labels:
+    - consent
+    - permission to use the name
+    - has consented
+    not_labels:
+    - letter of consent
+    - authorised user
+    related:
+    - GC-0014
+    - GC-0028
+    definition_sources:
+    - TMM/Part29/6#1~2
+    - TMM/Part29/6/6/1
+    notes: '"Letter of consent" is a not_label because it is a term of art used in the section 42 and
+      section 44 material for a different mechanism.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0030
+  record_type: gold_concept
+  seed_id: SEED-GC-0030
+  sheet: concepts
+  row: 31
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0030
+    pref_label: image of a person
+    alt_labels:
+    - representation of a person
+    - photograph
+    - portrait
+    - cartoon caricature
+    not_labels:
+    - device
+    - signature
+    related:
+    - GC-0026
+    definition_sources:
+    - TMM/Part29/6/6/1
+    - TMM/Part22/25/25/7
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0031
+  record_type: gold_concept
+  seed_id: SEED-GC-0031
+  sheet: concepts
+  row: 32
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0031
+    pref_label: phoneword
+    alt_labels:
+    - SMS word
+    - phone word
+    - alphabetic phone number
+    not_labels:
+    - phone number
+    - numeral
+    related:
+    - GC-0035
+    definition_sources:
+    - TMM/Part29/7#1
+    legislative_basis:
+    - TMA1995/s43
+    notes: 'The not_label is well evidenced: the Manual says other phone numbers that do not appear to
+      represent a phoneword should not be queried.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0032
+  record_type: gold_concept
+  seed_id: SEED-GC-0032
+  sheet: concepts
+  row: 33
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0032
+    pref_label: internet domain name
+    alt_labels:
+    - domain name
+    - internet domain name reference
+    not_labels:
+    - standard address code material
+    - website
+    narrower:
+    - GC-0033
+    related:
+    - GC-0035
+    definition_sources:
+    - TMM/Part29/8#1
+    - TMM/Part29/8/8/2
+    legislative_basis:
+    - TMA1995/s43
+    notes: '"Standard address code material" is the Manual''s own term for the common parts, which it
+      distinguishes from the identifier. Treating them as the same thing would make every mark containing
+      "com" a candidate.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0033
+  record_type: gold_concept
+  seed_id: SEED-GC-0033
+  sheet: concepts
+  row: 34
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0033
+    pref_label: top level domain
+    alt_labels:
+    - TLD
+    - generic TLD
+    - country-code TLD
+    not_labels:
+    - second level domain
+    - subdomain
+    broader:
+    - GC-0032
+    definition_sources:
+    - TMM/Part29/8/8/1
+    - TMM/Part29/8/8/2
+    notes: Generic and country-code TLDs are treated differently by the Manual, so holding them as alt
+      labels of one concept may be wrong.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0034
+  record_type: gold_concept
+  seed_id: SEED-GC-0034
+  sheet: concepts
+  row: 35
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0034
+    pref_label: radio call sign
+    alt_labels:
+    - call sign
+    - radio frequency
+    - radio call sign or frequency
+    not_labels:
+    - broadcasting services
+    - licence
+    related:
+    - GC-0035
+    definition_sources:
+    - TMM/Part29/8/8/3
+    legislative_basis:
+    - TMA1995/s43
+    - TMA1995/s41
+    notes: Holding call sign and frequency as one concept is a simplification. The Manual treats them
+      together but they are administered differently — the broadcaster may choose one and never chooses
+      the other.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0035
+  record_type: gold_concept
+  seed_id: SEED-GC-0035
+  sheet: concepts
+  row: 36
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0035
+    pref_label: owner or authorised user
+    alt_labels:
+    - registrant or authorised user
+    - licensed owner or operator
+    - authorised user
+    not_labels:
+    - applicant
+    - owner of the trade mark
+    related:
+    - GC-0031
+    - GC-0032
+    - GC-0034
+    definition_sources:
+    - TMM/Part29/7#1
+    - TMM/Part29/8#1
+    - TMM/Part29/8/8/3
+    notes: 'Low confidence, and deliberately included at low confidence. The not_labels are the point:
+      the owner of the phoneword and the owner of the trade mark are different roles that the same word
+      names.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0036
+  record_type: gold_concept
+  seed_id: SEED-GC-0036
+  sheet: concepts
+  row: 37
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0036
+    pref_label: plant variety name
+    alt_labels:
+    - plant variety denomination
+    - variety name
+    - other plant name
+    not_labels:
+    - genus
+    - plant materials
+    definition_sources:
+    - TMM/Part29/1/1/2
+    - TMM/Part32A/2/4/2/4/1
+    legislative_basis:
+    - TMA1995/s43
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0037
+  record_type: gold_concept
+  seed_id: SEED-GC-0037
+  sheet: concepts
+  row: 38
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0037
+    pref_label: claim to Indigenous origin
+    alt_labels:
+    - reference to Indigenous people
+    - Indigenous connection
+    - Aboriginal designed
+    not_labels:
+    - Indigenous applicant
+    - prescribed sign
+    related:
+    - GC-0028
+    definition_sources:
+    - TMM/Part29/10#1
+    legislative_basis:
+    - TMA1995/s43
+    notes: Low confidence and high sensitivity. The labelling here should be checked against how the office
+      actually speaks about this material, not just against the passage.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0038
+  record_type: gold_concept
+  seed_id: SEED-GC-0038
+  sheet: concepts
+  row: 39
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0038
+    pref_label: trade mark as a whole
+    alt_labels:
+    - the mark as a whole
+    - other features of the trade mark
+    - mitigating elements
+    not_labels:
+    - part of the trade mark
+    - essential feature
+    related:
+    - GC-0011
+    - GC-0001
+    definition_sources:
+    - TMM/Part29/3/3/5
+    - TMM/Part29/9/9/3~1
+    notes: The not_label matters because the Act itself contemplates a connotation arising from "a sign
+      contained in the trade mark" — so the whole and the part are both operative and must not merge.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0039
+  record_type: gold_concept
+  seed_id: SEED-GC-0039
+  sheet: concepts
+  row: 40
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0039
+    pref_label: connotation developed over time
+    alt_labels:
+    - developed secondary meaning
+    - meaning acquired through use in a trade
+    not_labels:
+    - acquired distinctiveness
+    - reputation
+    related:
+    - GC-0001
+    - GC-0040
+    definition_sources:
+    - TMM/Part29/3/3/4
+    notes: 'The first not_label is the most valuable one in this file: acquired distinctiveness is section
+      41 material and means something a system must never carry into section 43, but the two are described
+      in almost identical words.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0040
+  record_type: gold_concept
+  seed_id: SEED-GC-0040
+  sheet: concepts
+  row: 41
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0040
+    pref_label: opposition
+    alt_labels:
+    - opposition proceedings
+    - notice of intention to oppose
+    not_labels:
+    - examination
+    - hearing
+    - revocation of acceptance
+    related:
+    - GC-0041
+    - GC-0042
+    definition_sources:
+    - TMM/Part29/3/3/4
+    - TMM/Part47/1/1/2/2
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0041
+  record_type: gold_concept
+  seed_id: SEED-GC-0041
+  sheet: concepts
+  row: 42
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0041
+    pref_label: evidence of use
+    alt_labels:
+    - evidence
+    - considerable evidence of use
+    not_labels:
+    - research
+    - state of the Register
+    related:
+    - GC-0040
+    - GC-0052
+    definition_sources:
+    - TMM/Part29/3/3/4
+    - TMM/Part23/2/2/2/2
+    notes: The not_labels separate evidence a party files from material an examiner gathers. That distinction
+      is load-bearing under section 43, where the Manual asks examiners to research rather than to require
+      evidence.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0042
+  record_type: gold_concept
+  seed_id: SEED-GC-0042
+  sheet: concepts
+  row: 43
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0042
+    pref_label: revocation of acceptance
+    alt_labels:
+    - revoke acceptance
+    not_labels:
+    - revocation of registration
+    - opposition
+    related:
+    - GC-0040
+    definition_sources:
+    - TMM/Part51/10#1~1
+    notes: On the edge of the pilot. It is here mainly because the not_label — revocation of *registration*
+      — is a different thing under a different provision and the labels are one word apart.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0043
+  record_type: gold_concept
+  seed_id: SEED-GC-0043
+  sheet: concepts
+  row: 44
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0043
+    pref_label: divisional application
+    alt_labels:
+    - divisional
+    - parent application
+    not_labels:
+    - series application
+    - amendment
+    related:
+    - GC-0015
+    definition_sources:
+    - TMM/Part12/2#1
+    legislative_basis:
+    - TMA1995/s43
+    - TMA1995/s39
+    - TMA1995/s41
+    - TMA1995/s42
+    notes: This record exists to make the scope question concrete. If it is out of scope, saying so is
+      more useful than correcting its labels.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0044
+  record_type: gold_concept
+  seed_id: SEED-GC-0044
+  sheet: concepts
+  row: 45
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0044
+    pref_label: examiner
+    alt_labels:
+    - examiners
+    not_labels:
+    - decision maker
+    - delegate
+    - Registrar
+    related:
+    - GC-0045
+    - GC-0052
+    definition_sources:
+    - TMM/Part29/3/3/2
+    - TMM/Part29/5/5/3
+    notes: Deliberately separated from decision maker and delegate. The Manual switches between them and
+      it is not obvious whether the switch is meaningful. This is exactly the sort of thing that is innate
+      to your reading and invisible in the text.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0045
+  record_type: gold_concept
+  seed_id: SEED-GC-0045
+  sheet: concepts
+  row: 46
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0045
+    pref_label: decision maker
+    alt_labels:
+    - the decision maker
+    not_labels:
+    - examiner
+    - hearing officer
+    related:
+    - GC-0044
+    definition_sources:
+    - TMM/Part29/1#1
+    - TMM/Part29/3/3/4
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0046
+  record_type: gold_concept
+  seed_id: SEED-GC-0046
+  sheet: concepts
+  row: 47
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0046
+    pref_label: Registrar
+    alt_labels:
+    - Registrar of Trade Marks
+    - the Registrar's delegate
+    not_labels:
+    - examiner
+    - IP Australia
+    related:
+    - GC-0014
+    - GC-0045
+    definition_sources:
+    - TMM/Part29/2/2/4
+    - TMM/Part29/5/5/4
+    notes: Holding "the Registrar's delegate" as an alt label is probably wrong — a delegate exercises
+      the power and is not the Registrar. It is here to be corrected.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0047
+  record_type: gold_concept
+  seed_id: SEED-GC-0047
+  sheet: concepts
+  row: 48
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0047
+    pref_label: descriptive matter
+    alt_labels:
+    - descriptive term
+    - description of the goods or services
+    not_labels:
+    - connotation
+    - non-distinctive
+    related:
+    - GC-0001
+    - GC-0012
+    definition_sources:
+    - TMM/Part29/4#1
+    - TMM/Part29/2/2/1~1
+    notes: The second not_label points at section 41 territory. Descriptiveness is a distinctiveness question
+      there and a connotation question here, using the same word.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0048
+  record_type: gold_concept
+  seed_id: SEED-GC-0048
+  sheet: concepts
+  row: 49
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0048
+    pref_label: fanciful or ambiguous reference
+    alt_labels:
+    - fanciful description
+    - unrealistic description
+    - ambiguous geographic reference
+    not_labels:
+    - misdescriptive
+    - arbitrary mark
+    related:
+    - GC-0017
+    - GC-0003
+    definition_sources:
+    - TMM/Part29/9#1
+    - TMM/Part29/4#1
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0049
+  record_type: gold_concept
+  seed_id: SEED-GC-0049
+  sheet: concepts
+  row: 50
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0049
+    pref_label: current marketplace
+    alt_labels:
+    - the marketplace as it now is
+    - currency of a reference
+    not_labels:
+    - priority date
+    - the marketplace as it was
+    related:
+    - GC-0016
+    - GC-0009
+    definition_sources:
+    - TMM/Part29/3/3/2
+    - TMM/Part29/9/9/7
+    notes: 'The tension is real and worth a decision: 29.3.2 directs attention to the current marketplace,
+      29.6 asks how well known a person was at the priority date. Whether that is a difference in the
+      rules or a looseness in the drafting is a legal reading.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0050
+  record_type: gold_concept
+  seed_id: SEED-GC-0050
+  sheet: concepts
+  row: 51
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0050
+    pref_label: reputation
+    alt_labels:
+    - well known for
+    - noted for
+    - fame
+    not_labels:
+    - reputation in another trade mark
+    - acquired distinctiveness
+    related:
+    - GC-0011
+    - GC-0026
+    definition_sources:
+    - TMM/Part29/9/9/3~1
+    - TMM/Part29/9/9/7
+    notes: 'The first not_label is quoted practice: reputation in another mark is an external consideration
+      and expressly not the source of a connotation.'
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0051
+  record_type: gold_concept
+  seed_id: SEED-GC-0051
+  sheet: concepts
+  row: 52
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0051
+    pref_label: mandatory application of the section
+    alt_labels:
+    - no discretion to accept
+    - the application of section 43 is mandatory
+    not_labels:
+    - presumption of registrability
+    - discretion
+    related:
+    - GC-0007
+    - GC-0006
+    definition_sources:
+    - TMM/Part29/1#1
+    legislative_basis:
+    - TMA1995/s43
+    notes: This concept and GC-0007 pull in opposite directions and both are stated in the pilot area.
+      How they sit together is one of the most useful things an expert could write down here.
+    approved_by: TC
+    approved_date: '2026-08-25'
+- record_id: GC-0052
+  record_type: gold_concept
+  seed_id: SEED-GC-0052
+  sheet: concepts
+  row: 53
+  verdict: correct
+  review_status: approved
+  destination: gold
+  reason: reviewed `correct` and signed
+  approved_by: TC
+  approved_date: '2026-08-25'
+  correction: null
+  origin: machine_seed
+  record:
+    id: GC-0052
+    pref_label: examiner research
+    alt_labels:
+    - research
+    - informed by research
+    - research indicates
+    not_labels:
+    - evidence of use
+    - state of the Register
+    related:
+    - GC-0041
+    - GC-0044
+    definition_sources:
+    - TMM/Part29/6#1~1
+    - TMM/Part29/9/9/4
+    - TMM/Part29/6/6/2~1
+    notes: '"State of the Register" is a not_label because the Manual names it as a specific source in
+      the INN-stem discussion, where it is evidence of common use rather than research into a fact.'
+    approved_by: TC
+    approved_date: '2026-08-25'

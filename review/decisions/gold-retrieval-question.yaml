@@ -1,0 +1,709 @@
+# Seed-review decisions for gold_retrieval_question.
+# Source: 2026-08-25-stage0-seed-review.xlsx
+# Machine-written seed records with a human's verdict against each.
+# NOT approved knowledge. Approved records live in eval/gold/.
+- record_id: GA-0001
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0001
+  sheet: retrieval-questions
+  row: 2
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0001
+    question: What is the test under section 43 and where does it come from?
+    required_evidence:
+    - TMM/Part29/1#1
+    - TMM/Part29/3#1~2
+    required_provisions:
+    - TMA1995/s43
+    qualifications_expected: That "obvious, direct and immediate" is the Manual's formulation and not
+      the section's words. That the section is mandatory in application but engages only where the decision
+      maker is clearly satisfied. That the Manual states practice and does not bind the Registrar's discretion.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0004
+    - PU-0001
+    notes: 'A correct-sounding failure here reads: "Section 43 requires the connotation to be obvious,
+      direct and immediate." Every word of that is in the corpus and the attribution is wrong.'
+    approved_by: null
+    approved_date: null
+- record_id: GA-0002
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0002
+  sheet: retrieval-questions
+  row: 3
+  verdict: amend
+  review_status: in_review
+  destination: review
+  reason: verdict is `amend`; the correction is prose and is not applied here
+  approved_by: null
+  approved_date: null
+  correction: The provided response refers to the examiners judgement, this is not something that is often
+    floated to applicants. Rather the examiners assessed the trade amrk and identified the grounds for
+    rejection. Useage of the word judgement to customer invites arguements
+  origin: machine_seed
+  record:
+    id: GA-0002
+    question: My mark says GROWN IN QUEENSLAND. What are my options?
+    required_evidence:
+    - TMM/Part29/9/9/2
+    - TMM/Part29/9/9/5
+    required_provisions:
+    - TMA1995/s43
+    qualifications_expected: That whether a ground arises at all is the examiner's judgement on the particular
+      application. That a condition or amendment must directly address the connotation, and that this
+      is the sole criterion. That nothing said about section 43 speaks to any other ground.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0013
+    - PU-0014
+    - PU-0001
+    notes: The source passage is itself written in advisory language, so a model echoing it will produce
+      advice without inventing anything.
+    approved_by: null
+    approved_date: null
+- record_id: GA-0003
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0003
+  sheet: retrieval-questions
+  row: 4
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0003
+    question: Is this connotation strong enough for a ground for rejection?
+    required_evidence:
+    - TMM/Part29/2/2/4
+    - TMM/Part29/3#1~2
+    - TMM/Part29/1#1
+    required_provisions:
+    - TMA1995/s43
+    - TMA1995/s33(3)
+    qualifications_expected: That the assessment is the decision maker's. That where there is doubt a
+      connotation exists, the ground should not be raised. That the presumption of registrability applies
+      to this section.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0001
+    - PU-0002
+    - PU-0003
+    notes: 'Three prohibitions on one question, which is unusual and appropriate: this is the question
+      the system is most likely to be asked and least entitled to answer.'
+    approved_by: null
+    approved_date: null
+- record_id: GA-0004
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0004
+  sheet: retrieval-questions
+  row: 5
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0004
+    question: When does a place name in a mark cause confusion?
+    required_evidence:
+    - TMM/Part29/9/9/3~1
+    - TMM/Part29/9#1
+    required_provisions:
+    - TMA1995/s43
+    qualifications_expected: That the criteria are cumulative. That the third — no other elements or surrounding
+      circumstances mitigating the risk — is part of the test and not a footnote. That a qualifier such
+      as "made in" is not necessary for a connotation to arise.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0007
+    approved_by: null
+    approved_date: null
+- record_id: GA-0005
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0005
+  sheet: retrieval-questions
+  row: 6
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0005
+    question: What endorsement is used where a mark contains an INN stem?
+    required_evidence:
+    - TMM/Part29/5/5/5
+    required_provisions:
+    - TMA1995/s43
+    qualifications_expected: That the wording is the endorsement the Registrar suggests, not a prescribed
+      form. That the INN-stem endorsement differs from the INN endorsement in TMM/Part29/5/5/4 and the
+      two are not interchangeable. That the endorsement addresses the section 43 ground only.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0006
+    notes: The source text contains a line-break artefact — "International Non- Proprietary Name stem"
+      — which an answer should reproduce or silently repair, and it is not obvious which. See GE-0102.
+    approved_by: null
+    approved_date: null
+- record_id: GA-0006
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0006
+  sheet: retrieval-questions
+  row: 7
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0006
+    question: Does the INN endorsement dispose of the whole objection?
+    required_evidence:
+    - TMM/Part29/5/5/4
+    required_provisions:
+    - TMA1995/s43
+    - TMA1995/s41
+    - TMA1995/s44
+    qualifications_expected: That the endorsement is unlikely to assist with grounds raised for other
+      reasons, section 41 and section 44 being named. That the answer covers only section 43 and says
+      so.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0013
+    approved_by: null
+    approved_date: null
+- record_id: GA-0007
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0007
+  sheet: retrieval-questions
+  row: 8
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0007
+    question: Does a country name in a mark always need a limitation?
+    required_evidence:
+    - TMM/Part29/9/9/3~1
+    - TMM/Part29/9/9/3~2
+    - TMM/Part29/9#1
+    required_provisions:
+    - TMA1995/s43
+    required_cases:
+    - CASE/1968/HCA/72
+    - CASE/2003/ATMO/7
+    qualifications_expected: That the answer is no, and that the criteria rather than the presence of
+      the name decide it. That the Manual's examples are examples with stated reasons and not a rule.
+      That an ambiguous or fanciful reference, or a word not seen as geographical, does not give rise
+      to the ground.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0007
+    notes: The cases are cited at citation level only. What the tribunal actually held is not held anywhere
+      in the programme.
+    approved_by: null
+    approved_date: null
+- record_id: GA-0008
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0008
+  sheet: retrieval-questions
+  row: 9
+  verdict: amend
+  review_status: in_review
+  destination: review
+  reason: verdict is `amend`; the correction is prose and is not applied here
+  approved_by: null
+  approved_date: null
+  correction: I would include wording that says that it is assessed on a case-by-case basis
+  origin: machine_seed
+  record:
+    id: GA-0008
+    question: Can a long-dead person's name be registered as a trade mark?
+    required_evidence:
+    - TMM/Part29/6/6/2~1
+    - TMM/Part29/6/6/2~2
+    required_provisions:
+    - TMA1995/s43
+    required_cases:
+    - CASE/2004/FCA/1247
+    - CASE/2019/ATMO/41
+    qualifications_expected: That the general position is qualified by "generally". That the exception
+      turns on continued control by the estate or an authorised entity, on consumer awareness of that
+      control, and on a connection with the specified goods or services. That all three conditions are
+      stated together.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0001
+    - PU-0007
+    approved_by: null
+    approved_date: null
+- record_id: GA-0009
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0009
+  sheet: retrieval-questions
+  row: 10
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0009
+    question: How have the courts treated the difference between denotation and connotation?
+    required_evidence:
+    - TMM/Part29/2/2/1~1
+    - TMM/Part29/2/2/1~2
+    required_provisions:
+    - TMA1995/s43
+    required_cases:
+    - CASE/2017/FCAFC/174
+    - CASE/2010/ATMO/85
+    qualifications_expected: That what is held is the Manual's quotation of the decisions, not the decisions.
+      That the quotations are partial and edited by the Manual. That no decision text is available to
+      check them against.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0005
+    - PU-0015
+    notes: PU-0015 is attached because a question of this shape is where an invented citation is most
+      likely to appear — the answer wants more authority than the corpus holds.
+    approved_by: null
+    approved_date: null
+- record_id: GA-0010
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0010
+  sheet: retrieval-questions
+  row: 11
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0010
+    question: What does connotation mean for the purposes of section 43?
+    required_evidence:
+    - TMM/Part29/2/2/1~1
+    - TMM/Part29/2/2/2
+    required_provisions:
+    - TMA1995/s43
+    qualifications_expected: That the term is not defined in the Act. That the working meaning comes from
+      ordinary dictionary definitions as expanded by decisions. That for section 43 the Manual gives it
+      a wider meaning than the dictionary sense, including direct statements.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0004
+    approved_by: null
+    approved_date: null
+- record_id: GA-0011
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0011
+  sheet: retrieval-questions
+  row: 12
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0011
+    question: Two marks are similar and consumers may be confused. Is that section 43?
+    required_evidence:
+    - TMM/Part29/2/2/3
+    - TMM/Part29/3/3/3
+    required_provisions:
+    - TMA1995/s43
+    - TMA1995/s44
+    required_cases:
+    - CASE/2000/FCA/720
+    qualifications_expected: 'That the answer is no, and why: a connotation must arise from the mark itself.
+      That comparisons between marks are dealt with under section 44 and in Part 26. That the qualification
+      "at least at the examination stage" is part of the rule.'
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0008
+    - PU-0018
+    notes: The highest-traffic wrong answer in the pilot. Both the question and the wrong answer use the
+      corpus's most common words.
+    approved_by: null
+    approved_date: null
+- record_id: GA-0012
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0012
+  sheet: retrieval-questions
+  row: 13
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0012
+    question: Can other elements in the mark neutralise a problematic connotation?
+    required_evidence:
+    - TMM/Part29/3/3/5
+    - TMM/Part29/9/9/3~1
+    required_provisions:
+    - TMA1995/s43
+    required_cases:
+    - CASE/2009/FCA/428
+    qualifications_expected: That the mark as a whole is what is considered. That other features can diminish
+      the impact rather than automatically cure it. That the Act contemplates a connotation arising from
+      a sign contained in the mark, so the part and the whole are both operative.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0001
+    approved_by: null
+    approved_date: null
+- record_id: GA-0013
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0013
+  sheet: retrieval-questions
+  row: 14
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0013
+    question: The mark contains letters that appear on the INN stem list. What follows?
+    required_evidence:
+    - TMM/Part29/5/5/5
+    - TMM/Part29/5/5/6~1
+    required_provisions:
+    - TMA1995/s43
+    required_cases:
+    - CASE/2012/ATMO/117
+    qualifications_expected: That membership of the list is not sufficient. That the stem must be included
+      in a meaningful way, and that the Manual gives factors and counter-examples for when it is not.
+      That the goods must be pharmaceutical or veterinary for the practice to engage at all.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0009
+    - PU-0001
+    approved_by: null
+    approved_date: null
+- record_id: GA-0014
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0014
+  sheet: retrieval-questions
+  row: 15
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0014
+    question: Should every phone number in a trade mark be researched?
+    required_evidence:
+    - TMM/Part29/7#1
+    required_provisions:
+    - TMA1995/s43
+    qualifications_expected: That numbers not appearing to represent a phoneword should not be queried
+      or researched, and the exception where other information before the examiner gives reason to suspect
+      otherwise. That the licence sits in the numerals rather than the letters.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0014
+    approved_by: null
+    approved_date: null
+- record_id: GA-0015
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0015
+  sheet: retrieval-questions
+  row: 16
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0015
+    question: The term meant nothing when the mark was filed but means something now. Does that matter?
+    required_evidence:
+    - TMM/Part29/3/3/2
+    - TMM/Part29/3/3/4
+    required_provisions:
+    - TMA1995/s43
+    qualifications_expected: That the current marketplace is what is considered, not the past or the future.
+      That a connotation can develop over time and may emerge at opposition. That the Manual also asks,
+      in the person material, how well known someone was as at the priority date — and that the two temporal
+      rules are stated in different places.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0011
+    notes: Whether the two temporal rules conflict is a legal reading, not a drafting inconsistency. An
+      answer that harmonises them without saying so has made a judgement.
+    approved_by: null
+    approved_date: null
+- record_id: GA-0016
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0016
+  sheet: retrieval-questions
+  row: 17
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0016
+    question: Which section does this passage cite, and how confident are we that it is that one?
+    required_evidence:
+    - TMM/Part29/10#1
+    - TMM/Part29/1#1
+    required_provisions:
+    - TMA1995/s43
+    qualifications_expected: That one of the two passages carries a citation the Manual's authors linked
+      themselves and the other carries a bare "s43" resolved to the Act by convention. That a resolution
+      by convention is an inference, not a statement by IP Australia. That an ambiguous citation is never
+      resolved silently.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0016
+    - PU-0017
+    notes: PU-0017 flags this as arguably too strict — a qualification on every `default` resolution would
+      drown the reader. That tension is live and this question is where it will be settled.
+    approved_by: null
+    approved_date: null
+- record_id: GA-0017
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0017
+  sheet: retrieval-questions
+  row: 18
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0017
+    question: What is the test for reasonable doubt in this context?
+    required_evidence:
+    - TMM/Part29/3/3/1~1
+    - TMM/Part29/3/3/1~2
+    required_cases:
+    - CASE/1954/HCA/82
+    - CASE/1999/FCA/1020
+    qualifications_expected: That the principles were set out in the context of a comparison between marks
+      and under earlier legislation. That the Manual states how far they carry across. That the earlier
+      Act is not held anywhere in the programme, so the provision behind them cannot be displayed.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0010
+    - PU-0005
+    notes: '`required_provisions` is empty on purpose: the provision the passage turns on is section 114
+      of the Trade Marks Act 1905, which resolves to nothing (Q-24). Naming it in a ref-typed field would
+      fail the harness, which is the correct behaviour and an awkward one.'
+    approved_by: null
+    approved_date: null
+- record_id: GA-0018
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0018
+  sheet: retrieval-questions
+  row: 19
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0018
+    question: Are European Union geographical indications protected here?
+    required_evidence:
+    - TMM/Part29/11#1
+    required_provisions:
+    - TMA1995/s43
+    qualifications_expected: That protection is expressed as applying when the agreement enters into force.
+      That the passage does not say whether that has happened. That the practice described is to consider
+      whether use would deceive or confuse, not to reject automatically on a list match.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0012
+    - PU-0009
+    approved_by: null
+    approved_date: null
+- record_id: GA-0019
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0019
+  sheet: retrieval-questions
+  row: 20
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0019
+    question: What is the practice where a mark refers to Aboriginal or Torres Strait Islander people?
+    required_evidence:
+    - TMM/Part29/10#1
+    required_provisions:
+    - TMA1995/s43
+    qualifications_expected: That the ground turns on a connotation that would deceive or confuse the
+      relevant market, and not on the reference alone. That the Manual's examples are examples. That other
+      grounds may also be engaged and this answer covers section 43 only.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0013
+    - PU-0001
+    notes: Low confidence, deliberately. The question uses terms the Manual passage does not, and whether
+      that is the right phrasing is not an agent's call.
+    approved_by: null
+    approved_date: null
+- record_id: GA-0020
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0020
+  sheet: retrieval-questions
+  row: 21
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0020
+    question: What can an applicant offer to overcome a geographical section 43 ground?
+    required_evidence:
+    - TMM/Part29/9/9/5
+    - TMM/Part29/9/9/2
+    required_provisions:
+    - TMA1995/s43
+    qualifications_expected: That removing the likelihood of deception or confusion is the sole criterion.
+      That the condition or amendment must directly address the connotation. That evidence of use is not
+      the route here, whatever it does under other grounds.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0014
+    approved_by: null
+    approved_date: null
+- record_id: GA-0021
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0021
+  sheet: retrieval-questions
+  row: 22
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0021
+    question: Which Manual material would need reviewing if section 43 changed?
+    required_evidence:
+    - TMM/Part29/1#1
+    - TMM/Part32A/2/4/2/4/1
+    - TMM/Part32B/2/2#1
+    - TMM/Part20/5/5/5
+    required_provisions:
+    - TMA1995/s43
+    qualifications_expected: That some passages carry the section only because upstream read a bare reference
+      out of prose and resolved it by convention. That a mention in a list is not the same as material
+      that states the ground. That the list is derived from a pinned snapshot and is only as current as
+      that pin.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0017
+    - PU-0011
+    approved_by: null
+    approved_date: null
+- record_id: GA-0022
+  record_type: gold_retrieval_question
+  seed_id: SEED-GA-0022
+  sheet: retrieval-questions
+  row: 23
+  verdict: correct
+  review_status: in_review
+  destination: review
+  reason: verdict is `correct` but the row is unsigned; reviewed is not approved
+  approved_by: null
+  approved_date: null
+  correction: null
+  origin: machine_seed
+  record:
+    id: GA-0022
+    question: The mark was accepted. Can a section 43 problem still arise?
+    required_evidence:
+    - TMM/Part29/3/3/4
+    required_provisions:
+    - TMA1995/s43
+    required_cases:
+    - CASE/1998/ATMO/10
+    qualifications_expected: That a connotation may not be obvious during examination and may emerge at
+      opposition when the full facts are available. That this need not indicate a fault in examination.
+      That what happens procedurally after acceptance is outside the section 43 material and is dealt
+      with elsewhere in the Manual.
+    authority_distinction_required: true
+    prohibited_conclusions:
+    - PU-0013
+    notes: Whether the opposition and revocation-of-acceptance material is inside the pilot boundary decides
+      how much of this question is answerable.
+    approved_by: null
+    approved_date: null
