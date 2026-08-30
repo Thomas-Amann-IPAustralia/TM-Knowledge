@@ -14,7 +14,7 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 
 | Stage | Name | Status | Owner |
 |---|---|---|---|
-| 0 | Pilot selection and evaluation set | **partial** — pilot area chosen (s 43, ADR-0013); apparatus built (S004–S005); the harness runs and is red; no expert content yet | this repo — **the blocker** |
+| 0 | Pilot selection and evaluation set | **partial** — pilot area chosen (s 43, ADR-0013); apparatus built (S004–S005); first expert content transcribed S007 — 105 approved records, 0 defects, 18 gaps | this repo — **the blocker** |
 | 1 | Ingest and structure source documents | **done** (4 of 6 named deliverables); consumed here since S004 — pinned, fetched and loaded | `manual-XtrACTor` |
 | 2 | Candidate terminology and entities | **not started** — stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019); blocked by ADR-0010 | this repo |
 | 3 | Controlled vocabulary (SKOS) | **not started** | this repo |
@@ -28,17 +28,27 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 
 ## Stage 0 — the blocker
 
-The pilot **area** is settled: s 43 (ADR-0013). No Stage 0 content exists yet.
-ADR-0010 holds that no Stage 2+ work starts before this is done.
+The pilot **area** is settled: s 43 (ADR-0013). Stage 0 content now **exists but
+is incomplete**: 105 expert-approved records landed S007 and the harness reports
+0 defects over them. ADR-0010 holds that no Stage 2+ work starts before Stage 0
+is *done*, and it is not — five deliverables are still empty and `tmk-harness`
+still exits 3.
+
+**Read the counts with ADR-0043 in mind.** They count *approved* records only.
+A further 263 reviewed rows sit in `review/decisions/`, most of them well-formed
+machine writing that nobody has signed. Counting those would put four more rows
+in band and would mean nothing: they are the system's own output (Q-24).
 
 | Deliverable | Status | Where it will live |
 |---|---|---|
 | Pilot area | **done** — s 43, ADR-0013 | `docs/DECISIONS.md` |
 | Pilot scope (the boundary) | not started — awaiting owner | `eval/pilot-scope.md` |
-| Competency-question catalogue | not started | `eval/competency-questions.md` |
-| Gold-standard dataset | not started | `eval/gold/` |
-| Prohibited-use list | not started | `eval/prohibited-uses.md` |
+| Competency-question catalogue | **done** — 19 approved, all 6 categories covered (S007) | `eval/gold/competency-questions.yaml` |
+| Gold-standard dataset | **partial** — concepts 52 (in band); relationships 34 of 50–100; entities, search and retrieval questions, reasoning expectations still 0 | `eval/gold/` |
+| Prohibited-use list | not started — 18 reviewed, 0 signed (S007) | `eval/prohibited-uses.md` |
 | Evaluation measures | not started | `eval/measures.md` |
+| Seed-review decisions | **done** — 263 held rows with verdict and reason (S007, ADR-0043) | `review/decisions/` |
+| Received workbooks | **done** — the 2026-08-25 pack, tracked (ADR-0046) | `data/intake/` |
 | Evaluation harness | **done** — S005, P5. Runs, and exits 3 by design | `tmk-harness` |
 | Record templates | **done** — 7 record types, now schema-checked | `eval/templates/` |
 | Record schemas | **done** — S004, ADR-0027 | `eval/schemas/` |

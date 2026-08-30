@@ -1,16 +1,25 @@
-# data/ — the pinned upstream snapshot and derived intermediates
+# data/ — the pinned snapshot, what we derive, and what we receive
 
-Two different policies for two different reasons (ADR-0042).
+Three different policies for three different reasons (ADR-0042, ADR-0046).
 **`data/upstream/` is never committed** (ADR-0004) — it would duplicate
 another repo's corpus into this one's git history. **`data/derived/` *is*
 committed** (ADR-0042, supersedes ADR-0028) — the owner wants a paper trail of
 what Stage 0's generated reports said and when, so re-running a generator and
 committing its diff is the intended workflow, not an accident to avoid.
 
+**`data/intake/` is committed and is *not* rebuildable** (ADR-0046) — it holds
+the workbooks that came back from the experts, byte-for-byte as they arrived.
+`data/derived/` must stay fully rebuildable from the snapshot plus `src/`, and a
+workbook a person filled in is rebuildable from nothing, so it cannot live
+there. Never edit a file in `data/intake/`: it is the evidence of what someone
+actually sent, and it is what makes "who approved this record, and against what
+text" answerable from the repository alone.
+
 ```
 data/upstream/            pinned manual-XtrACTor snapshot   — git-ignored
 data/upstream/.fetch.json the receipt for THIS fetch        — git-ignored
 data/derived/             worksheet, recon, coverage, intake workbook — tracked; commit a re-run's diff
+data/intake/              workbooks received back           — tracked; never edited, never rebuilt
 data/pin.json             the pinned upstream version       — tracked
 ```
 

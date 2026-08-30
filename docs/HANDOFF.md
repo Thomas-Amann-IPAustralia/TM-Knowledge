@@ -3,83 +3,101 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-08-19 · session S006 · branch `claude/trademark-expert-blockers-3x8zyc`
+**Last updated:** 2026-08-30 · session S007 · branch `claude/workbook-next-phase-vcfmjx`
 
 ---
 
 ## 1. Where the project actually is
 
-**The agent-side track is finished.** All twelve parallel-track packages
-(P1–P12) are built. S005 delivered the last five: **P5** the evaluation harness,
-**P7** the intake workbook, **P8** the transcription path, **P10** the coverage
-report and **P11** CI. 219 tests pass. From a bare clone:
+**The gold set has content.** The first workbook came back on 2026-08-25 and
+was transcribed on 2026-08-30. `eval/gold/` now holds **105 expert-approved
+records** — 19 competency questions, 52 concepts, 34 relationships — and
+`tmk-harness` reports **0 defects** over them: every ref resolves, every span
+lands on the text it names, every `source_content_hash` matches the pinned
+snapshot. That is the first time the harness has had anything real to check,
+and it passed. Gaps fell from 22 to 18.
 
-```bash
-pip install -e ".[test,intake]"
-tmk-fetch-upstream    # pinned snapshot into data/upstream/ (~4s)
-tmk-worksheet         # 216 chunks to annotate → data/derived/worksheet.md
-tmk-workbook          # the intake workbook → data/derived/stage0-intake.xlsx
-tmk-harness           # every Stage 0 check. Exits 3 — see below
-tmk-coverage          # the same, as a worklist → data/derived/reports/
-pytest -q
-```
+**Stage 0 is not done.** Five deliverables are still empty (entities, search
+questions, retrieval questions, reasoning expectations, prohibited uses), the
+pilot scope and measures are still unwritten, and `tmk-harness` still exits 3.
+Relationships are 34 of 50–100.
 
-**The red harness exists and it is red for the right reason.** `tmk-harness`
-exits **3** and prints 22 gaps naming every absent Stage 0 deliverable. It exits
-**1** on a defect — a record that does not validate, a duplicated or retired id,
-a dangling cross-reference, a ref that resolves to nothing, a span that does not
-land on its recorded text, a stale hash. That separation is ADR-0018, realised in
-ADR-0030, and it is what stops a permanently red pipeline from training everyone
-to ignore it.
+**Read the workbook before you read the counts.** What arrived is not the empty
+form `tmk-workbook` produces. It is a **seed pack**: 368 machine-written example
+records over s 43, generated outside this repo and handed to an examiner for
+correction, on the reasoning that correcting a wrong answer is cheaper than
+composing a right one. That is a sound use of expert time and it introduced the
+hazard that shaped this session — **a filled-in seed pack cannot be told from an
+authored workbook by inspecting it** (Q-24). Every row validates, resolves,
+lands and hashes whether or not a person read it. Transcribing the file as if it
+were authored would have moved all 368 rows into `eval/gold/` and reported
+Stage 0 nearly complete; 165 of them carry no verdict at all.
 
-Note where the failure lives, because it is easy to get backwards: **`pytest` is
-green** — it tests the harness, and the harness works. The red thing is
-`tmk-harness`. A permanently failing pytest would have been a suite that says
-nothing about whether the code is sound (Q-23).
+So `verdict` is now a gate, not a note (**ADR-0043**). A row reaches
+`eval/gold/` only if the expert marked it `correct` *and* signed it with
+`approved_by` and `approved_date`. The other 263 rows are in
+`review/decisions/`, each with its verdict, the reason it was held, the
+correction verbatim and the whole record — rejections included, because
+`review/README.md` is right that they are as valuable as approvals.
 
-**The expert can now hand back a spreadsheet.** `tmk-workbook` generates an
-empty ten-sheet workbook from the schemas — dropdowns on every fixed vocabulary,
-no example rows anywhere — and `tmk-transcribe` reads it back into validated
-records, reporting every blank judgement field instead of filling one. The round
-trip preserves every populated field and is a fixed point. Guide §6's promise —
-"do not write YAML" — is now a command rather than an intention.
+Where the 368 rows went:
 
-**Stage 0 still has no expert content, and nothing an agent can do will change
-that.** What changed is that the last excuse is gone: the boundary decision is
-costed, the annotation surface is printed, the intake form exists, and an hour of
-expert time visibly moves a counter.
-
-**The parallel track's §7 now applies.** Its own words for this moment: *"the
-container is finished and empty; the programme is waiting on Stage 0 content"* —
-not a search for further plumbing. A session that finds itself designing new
-apparatus should stop and read that section.
+| Record type | approved | unread | reviewed, unsigned | amend | reject |
+|---|---|---|---|---|---|
+| competency questions | **19** | 2 | 1 | 1 | 1 |
+| concepts | **52** | 0 | 0 | 0 | 0 |
+| relationships | **34** | 20 | 0 | 3 | 0 |
+| entities | 0 | 92 | 53 | 2 | 5 |
+| retrieval questions | 0 | 0 | 20 | 2 | 0 |
+| search questions | 0 | 22 | 4 | 0 | 0 |
+| prohibited uses | 0 | 0 | 16 | 0 | 2 |
+| reasoning expectations | 0 | 15 | 0 | 0 | 0 |
+| **total** | **105** | **151** | **94** | **8** | **8** |
 
 ## 2. The next action
 
-**Thread B — the experts. It is the only thread with work in it.** Pass A
-content in the order at `eval/STAGE-0-INPUT-GUIDE.md` §10: pilot scope boundary
-first (Q8), then competency questions and prohibited uses. Pass B needs nothing
-from anyone before it starts — hand over `data/derived/worksheet.md` and
-`data/derived/stage0-intake.xlsx` and annotation can begin on 216 chunks today.
+**Thread B — the expert, and there is one cheap win sitting in the table
+above.** 94 rows are already marked `correct` and are held only because nobody
+signed them. They need a name and a date, not a re-reading. Signing them alone
+would take retrieval questions from 0 to 20 (in band), prohibited uses from 0 to
+16 (in band, if the six kinds are spanned), and entities from 0 to 53. **Ask
+first whether those 94 were reviewed and left unsigned, or never reviewed at
+all** — the answer decides whether this is ten minutes of work or a fortnight,
+and the file cannot say which.
 
-**Thread C — agents. Maintenance, not construction.** What is legitimately left:
+Then, in the order they cost:
 
-1. **Transcribe whatever arrives.** `tmk-transcribe FILE --write`, then
-   `tmk-harness` and `tmk-coverage`. This is the loop the whole track was built
-   to serve, and it is now one command per direction.
-2. **Report the state honestly.** `tmk-coverage` is the answer to "what is Stage
-   0 waiting on". It is a better status report than any prose a session could
-   write, and it is generated from the data rather than from an impression.
-3. **Keep the pin current if upstream moves** — and remember bumping it makes
-   every `source_content_hash` stale by design (`IDENTIFIERS.md` §5). The
-   harness will say so. Do not silently refresh a hash.
-4. **Confirm the agent-proposed ADRs** when a human is available (§3, Q11/Q12).
+1. **Sign or re-review the 94.** As above. Ask before assuming.
+2. **The 8 corrections** — printed by `tmk-transcribe` under "CORRECTIONS TO
+   APPLY". They are prose and are deliberately not applied (**ADR-0044**); they
+   come back as a verdict on a corrected row.
+3. **Two flagged rows** need a person: `GE-0053` is marked `correct` with the
+   correction "duplicate" — the two cells disagree; `GR-0017` has an
+   `approved_date` and no `approved_by`.
+4. **Two unreadable verdicts**: `corrrect` (entities row 32) and `rejext`
+   (`GS--relevant` row 24). Not repaired, by **ADR-0045**.
+5. **The 151 unread rows**, of which 92 are entities — the largest single
+   deliverable and the one furthest from its 100–300 target.
+6. **Q8, the pilot scope boundary**, still unanswered and still blocking
+   `eval/pilot-scope.md`.
 
-**Do not** build more apparatus. **Do not** start Stage 2 — no TextRank, YAKE,
-KeyBERT or spaCy run, not even "just to see the output" (ADR-0010). It is more
-tempting than ever now that the loader makes it a twenty-line script and the
-harness would give it a number to point at. The number would be meaningless: it
-would be measured against a gold set that does not exist.
+**Thread C — agents. Still maintenance.** The loop now works end to end:
+
+```bash
+tmk-transcribe data/intake/<new-workbook>.xlsx          # dry run; read the held list
+tmk-transcribe data/intake/<new-workbook>.xlsx --write  # gold + review/decisions/
+tmk-harness && tmk-coverage
+```
+
+Put each received workbook in `data/intake/` unaltered (**ADR-0046**) and never
+edit one. Do **not** hand-write into `eval/gold/`: approval enters through a
+workbook so that every approved record has a signed row behind it.
+
+**Do not** start Stage 2 (ADR-0010) — the gold set now has 105 records and a
+clean harness, which makes "just run YAKE to see" more tempting than it has
+ever been. It is still measuring against a set that is a third built and
+entirely unbounded on recall: entities, the deliverable recall is computed
+from, stands at zero.
 
 ## 3. Open questions — need a human
 
@@ -97,10 +115,17 @@ would be measured against a gold set that does not exist.
 | ~~Q11~~ | ~~Five S004 ADRs are agent-proposed: 0024, 0026, 0027, 0028, 0029.~~ **Answered S006, in part:** 0024, 0026, 0027 confirmed (ADR-0040); 0028 reversed, not confirmed (ADR-0042, `data/derived/` is now committed). **0029 still open** — owner had no context for it ("I have no idea what this means"); it needs none, since it already reflects current practice and nothing hinges on ruling it either way. | Nothing | S004 |
 | Q12 | Six S005 ADRs are agent-proposed: **0030** (three severities, three exit codes), **0032** (one named gold file per record type), **0033** (the retired-id ledger), **0035** (`openpyxl` as an optional extra — *the only one that is a dependency decision*), **0036** (the workbook's cell encoding), **0037** (how transcription writes). ADR-0031 and ADR-0034 are `derived`. Owner has seen a plain summary of these (S006) but has not yet ruled on them. | Nothing | S005 |
 | ~~Q13~~ | ~~Does upstream need a token in CI?~~ **Answered S006: no.** `manual-XtrACTor` is public (QUIRKS Q-13, amended S004) and GitHub Actions clones public repos anonymously, so `tmk-fetch-upstream` works in CI with `UPSTREAM_TOKEN` unset. Leave the secret unset unless the repo's visibility changes. | — | S005 |
+| Q15 | **New, S007. The most consequential open question in this table.** Were the 94 rows marked `correct` but unsigned actually *reviewed* and left unsigned, or never reached? The file cannot say, and the answer changes the remaining Stage 0 effort by an order of magnitude. Related and larger: **should the seed-pack method continue at all?** It produced 105 sound records fast, and it means the expert is correcting the system's own output rather than annotating independently — which is cheaper, and which biases the gold set toward what the generator already believed. Recall in particular cannot be measured against a set the generator wrote. | The size and the soundness of the remaining Stage 0 work | S007 |
+| Q16 | **New, S007.** Should the next pack carry a **structured correction column** — a `corrected_value` the expert fills in as a value — beside the free-text one? Eight corrections came back this round and several were near-machine-appliable (three name a `modality`, thirteen `GS--relevant` ones open with the corrected grade), but ADR-0044 refuses to parse prose. A typed column would collect them as data without anyone reading an expert's sentence. Not built; it is a change to a generator that does not live in this repo. | Nothing today; it would cut a round trip | S007 |
 | Q14 | **New, S006.** Owner asked for more plain-language guidance on **constructing the ontology**, beyond what `STAGE-0-INPUT-GUIDE.md` covers (which is scoped to Stage 0 elicitation, not Stage 5 ontology formalisation). Not scoped or drafted yet — needs its own session: who is the audience (the Trade Mark experts already working from the input guide, or a wider group?), and what specifically is unclear in the existing docs. | Nothing yet; would help the experts' ongoing work | S006 |
 
 Agent-proposed ADRs awaiting human confirmation: **0011** (deferred, not
 declined — see ADR-0041), **0029, 0030, 0032, 0033, 0035, 0036, 0037**.
+S007's four (**0043, 0044, 0045, 0046**) are `derived`, not agent-proposed —
+each is forced by rule 4, rule 1 or rule 6 applied to the artefact that
+arrived — so none is waiting on a confirmation. What *is* waiting is Q15: not
+whether the gate is right, but whether the seed-pack method that made it
+necessary should continue.
 (0006, 0012, 0014, 0024, 0026, 0027 confirmed S006 — ADR-0040; 0016 and 0018
 confirmed S006 — ADR-0038; 0028 superseded S006 — ADR-0042. ADR-0023,
 ADR-0025, ADR-0031 and ADR-0034 are `derived`.)
@@ -126,7 +151,17 @@ later (Q6, Q14), or a confirmation that changes nothing structural (Q12, and
   (ADR-0042, supersedes ADR-0028). Regenerate and commit the diff; don't
   hand-edit what's on disk.
 - **Do not put an example row in the intake workbook.** Not even a marked one.
-  In a spreadsheet, copying a row is one keystroke.
+  In a spreadsheet, copying a row is one keystroke. This is why `tmk-workbook`
+  emits no `verdict` column either, though the transcriber reads one: a
+  generator that shipped a verdict column would be asking an expert to review a
+  blank form (ADR-0043).
+- **Do not transcribe a seed pack as though it were authored.** The rows are
+  machine-written and look exactly like expert content once filled in (Q-24).
+  Establish where a workbook's rows came from before running `--write`.
+- **Do not apply a correction, however machine-appliable it looks.** ADR-0044.
+  Thirteen of them open with the corrected grade and it is still prose.
+- **Do not edit a file in `data/intake/`.** ADR-0046. It is evidence of what a
+  person sent, including their typos.
 - **Do not fill a judgement field to make a check pass.** Null is a reportable
   gap; a plausible value is a lie the harness will then certify.
 - **Do not make `pytest` fail to satisfy "the suite must fail".** That is
@@ -139,6 +174,48 @@ later (Q6, Q14), or a confirmation that changes nothing structural (Q12, and
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S007 — 2026-08-30 — the first workbook came back; the gold set has content
+
+The expert returned the s 43 pack and the return leg could not read it: five
+columns the schemas do not describe (`seed_id`, `why_this_example`, `passage`,
+`verdict`, `correction`), so `tmk-transcribe` refused every sheet.
+
+Teaching it those columns was the small half. The large half was noticing what
+the file *is*. It is a seed pack — 368 machine-written records handed out for
+correction — and a filled-in seed pack is indistinguishable from an authored
+one by every check this repo has: the records validate, the refs resolve, the
+spans land, the hashes match (Q-24). Reading it as authored would have put 368
+rows of LLM output into the standard every later stage is scored against, and
+the harness would have said 0 defects, because form is the one thing a model
+reliably gets right. 165 of those rows carry no verdict at all.
+
+So the verdict column became a gate (ADR-0043): `correct` **and** signed, or it
+goes to `review/decisions/` with its reason and its whole record. 105 rows
+cleared it. The harness reports 0 defects over them — the first real check it
+has ever run — and gaps fell 22 to 18. Competency questions and concepts are
+both in band; relationships are 34 of 50.
+
+Three refusals were judgement calls and each has an ADR. Corrections are not
+applied (ADR-0044) even where they are nearly machine-appliable — three name a
+`modality` outright and thirteen open with the corrected grade — because
+reading an expert's sentence as a field value is a legal reading made by
+whoever writes the parser. Unreadable verdicts are not repaired (ADR-0045):
+`corrrect` and `rejext` are unmistakable and are still reported, because
+otherwise a verdict in `review/` is not necessarily one a person gave. The same
+line put `25/08/2026` through (the day is past the twelfth, the reading is
+forced) and would refuse `05/08/2026`.
+
+Received workbooks now live in `data/intake/`, tracked and never edited
+(ADR-0046) — `data/derived/` must stay rebuildable and a filled-in workbook is
+rebuildable from nothing, and without the file in git the audit trail points at
+somebody's downloads folder.
+
+266 tests pass, 47 of them new; `tmk-harness` exits 3, correctly. No legal
+content authored, no correction applied, nothing promoted that a person had not
+signed. The sharpest thing found is not in the code: **94 rows are marked
+`correct` and unsigned**, and nobody can tell from the file whether they were
+reviewed. That is Q15, and it is worth asking before anything else.
 
 ### S006 — 2026-08-19 — closed Q13, Q9, Q4's format-half and 6 more ADRs; reversed ADR-0028
 

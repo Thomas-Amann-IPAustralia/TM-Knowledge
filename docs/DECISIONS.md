@@ -1290,3 +1290,191 @@ different reasons, and that split is deliberate, not an oversight.
 4. `HANDOFF.md` §4's "do not commit anything under `data/` except `pin.json`
    and the README" is now wrong and is corrected in the same commit as this
    ADR.
+
+---
+
+## ADR-0043 — A returned row reaches `eval/gold/` only if a person marked it `correct` and signed it
+
+**Date** 2026-08-30 · **Authority** derived · **Status** accepted
+
+**Context.** The first workbook came back on 2026-08-25 and it is not the
+artefact the return leg was designed for. `tmk-workbook` produces an *empty*
+form for an expert to author into (ADR-0036, and HANDOFF §4's standing "do not
+put an example row in the intake workbook"). What arrived instead is a **seed
+pack**: 368 machine-written example records over s 43, generated outside this
+repo, handed to a Trade Marks examiner for correction on the reasoning — stated
+on the workbook's own front sheet — that "correcting a wrong answer is easier
+than composing a right one from a blank form".
+
+That is a defensible way to spend scarce expert time. It also creates a hazard
+that has no analogue in the authored case: **a filled-in seed pack cannot be
+told from an authored workbook by inspecting it.** Every row validates against
+its schema, every ref parses and resolves, every span lands on the text it
+names, every `source_content_hash` matches the pinned snapshot. The harness
+confirms all of that and would have reported 0 defects either way. Nothing in a
+well-formed record says whether a human read it.
+
+The workbook bears this out. Of 368 rows, 165 carry no verdict at all, 94 more
+are marked `correct` but never signed, and the sheets are unevenly worked: all
+52 concepts are signed, all 153 entities are unsigned, and `reasoning-expected`
+was not reached. Transcribing the file as if it were authored would have moved
+368 rows of LLM output into `eval/gold/` — the standard every later stage is
+measured against — and the coverage report would have announced Stage 0 nearly
+complete.
+
+**Decision.** The `verdict` column is a **gate**, not an annotation. A row is
+written into `eval/gold/` only when both hold:
+
+1. `verdict` is `correct`; and
+2. `approved_by` **and** `approved_date` are both present — the approval
+   artefact of ADR-0039, which is a name and a date and nothing else.
+
+Every other row goes to `review/decisions/`, carrying its verdict, the reason it
+was held, the expert's `correction` verbatim, and the whole seed record.
+
+| verdict | signed | destination |
+|---|---|---|
+| `correct` | yes | `eval/gold/` |
+| `correct` | yes, but a correction was also written | `review/decisions/` — the two cells disagree; flagged |
+| `correct` | no, or half of the pair | `review/decisions/` — reviewed is not approved |
+| `amend` | either | `review/decisions/` |
+| `reject` | either | `review/decisions/` |
+| blank | either | `review/decisions/` |
+
+A parent record whose child rows (`GS--relevant`, `GX--expected_inferences`)
+are not all `correct` is held too, whatever the parent row says: the child
+sheets carry no `approved_by` of their own, so a disputed entry means the list
+is not settled.
+
+**Why not just trust the signature.** A signature at the sheet level would be a
+reasonable thing for a reviewer to give — "I looked at this lot" — and it is
+not a verdict on a row. Accepting it as one would promote unread machine
+writing under a real person's name, which is worse than promoting it
+anonymously.
+
+**Consequences.**
+
+1. 105 of 368 rows entered `eval/gold/` on 2026-08-30; 263 are in
+   `review/decisions/`. The harness reports 0 defects over the 105.
+2. The transcriber gains a fourth refusal, alongside the three in its
+   docstring: it will not write a row a person has not accepted.
+3. `tmk-workbook` still emits no review columns and no example rows. The
+   asymmetry — the reader knows five columns the writer never produces — is
+   deliberate: a generator that emitted `verdict` would be inviting an expert
+   to review a blank form. `_headers` admits exactly those five names and
+   still refuses every other unknown column.
+4. A workbook with no review columns transcribes exactly as it did before.
+   The gate applies to seed packs, not to authored workbooks, and the
+   difference is visible in the file.
+5. This is `derived` rather than `agent-proposed`: it is forced by CLAUDE.md
+   rule 4 and ADR-0007 applied to the artefact that actually arrived, not a
+   judgement call about how to proceed. What is genuinely open is whether the
+   *seed-pack method itself* should continue — see HANDOFF Q15.
+
+---
+
+## ADR-0044 — A correction is prose and is never applied by machine
+
+**Date** 2026-08-30 · **Authority** derived · **Status** accepted
+
+**Context.** Eight rows came back marked `amend` with a `correction` written by
+the examiner. Several are close to machine-appliable. Three relationship
+corrections say the `modality` is wrong and name the replacement — *"Should be
+Must, the presumption of registrability always applies unless the evidence
+demonstrates a grounds for rejection"*. Thirteen `GS--relevant` corrections open
+with a bare digit — *"3, the section hinges on the word connotation, highly
+relevant for a base understanding"* — which almost certainly means the grade
+should be 3 and the rest is the reason.
+
+**Decision.** No correction is parsed or applied. It is carried verbatim to
+`review/decisions/`, reported by `tmk-transcribe`, and returned to the expert to
+be re-issued as a verdict on a corrected row.
+
+**Why.** Reading *"Must, while the usage of the word should might be confusing
+here, if an examiner is clearly satisfied that confusion is likely to occur then
+they must raise a section 43 grounds for rejection"* as `modality: must` is a
+legal reading of an expert's sentence. The reading is probably right. It is
+still a reading, made by whoever wrote the parser, and the result would carry
+the examiner's name in `approved_by` (rule 1). "Almost certainly" is not a
+standard this repo writes into the artefact everything else is measured
+against — and the whole reason `modality` is a judgement field is that the
+guide (§5.4) says whether a "may" is possibility or permission cannot be read
+off the grammar.
+
+The `GS--relevant` case is the sharper one because the pattern is so regular
+that a three-line parser would work on all thirteen. That regularity is exactly
+what would make the failure silent on the fourteenth.
+
+**Consequences.**
+
+1. The eight amended rows are held, and `tmk-transcribe` prints them under
+   "CORRECTIONS TO APPLY" so the return trip is one screen, not a diff hunt.
+2. The cost is one more round trip. It is bounded and visible; the alternative
+   is unbounded and invisible.
+3. If corrections turn out to be systematically structured, the answer is a
+   **structured correction column** in the next pack — a `corrected_value` the
+   expert fills in as a value — not a parser over prose. Raised as HANDOFF Q16.
+
+---
+
+## ADR-0045 — A verdict that is not in the vocabulary is reported, never repaired
+
+**Date** 2026-08-30 · **Authority** derived · **Status** accepted
+
+**Context.** Two cells came back holding `corrrect` and `rejext`. Both are
+unmistakable typos; `rejext` even sits beside the correction "same as 22", which
+settles what was meant. Case and trailing whitespace also vary throughout
+(`Correct`, `Amend`, `amend `).
+
+**Decision.** Case and surrounding whitespace are normalised. Anything that is
+still not one of `unreviewed` / `correct` / `amend` / `reject` raises
+`UnreadableVerdict`: the row is reported by cell, carried to
+`review/decisions/` as unreviewed, and never guessed.
+
+**Why the two halves differ.** Case and whitespace carry no judgement —
+`Correct` and `correct` are one word typed by a person into a spreadsheet, and
+normalising them decides nothing. A typo is different in kind: repairing it
+means deciding what someone meant to say. The moment `corrrect` is read as
+`correct`, a verdict in `review/decisions/` is no longer necessarily a verdict a
+person gave, and that is the only thing the directory promises. Two rows cost
+the expert about a minute to retype; the guarantee is not recoverable once
+spent (rule 6).
+
+**Consequences.** The same reasoning governs `approved_date`. `25/08/2026` is
+converted to `2026-08-25` because the day is past the twelfth and the reading is
+forced; `05/08/2026` raises `AmbiguousDate` rather than being read as
+Australian day order, even though Australian order is this repo's convention and
+would almost always be right. An approval date is half of the approval
+artefact — a guessed one is a falsified audit trail, not a formatting
+inconvenience.
+
+---
+
+## ADR-0046 — Received workbooks live in `data/intake/`, tracked and never edited
+
+**Date** 2026-08-30 · **Authority** derived · **Status** accepted
+
+**Context.** The returned workbook is the source of every record in
+`eval/gold/` and every entry in `review/decisions/`. It had no home:
+`data/derived/` is committed (ADR-0042) but must stay *fully rebuildable* from
+`data/upstream/` plus `src/`, and a workbook a person filled in is rebuildable
+from nothing. `data/upstream/` is another repo's corpus and is never committed
+(ADR-0004).
+
+**Decision.** New directory `data/intake/`, tracked, holding each received
+workbook byte-for-byte as it arrived, named `YYYY-MM-DD-<what-it-is>.xlsx`.
+Never edited — not to fix a typo, not to add a missing `approved_by`. A
+correction comes back as a new workbook with a new date.
+
+**Why tracked.** Without it the audit trail points at a file in somebody's
+downloads folder, and "who approved GC-0001, and against what text" stops being
+answerable. With it the whole chain re-derives from the repository alone.
+
+**Why never edited.** The file is evidence of what a person actually sent.
+Editing it to fix an obvious mistake destroys the only record of what they
+actually said — including the two unreadable verdicts of ADR-0045, which are
+now a permanent part of the trail rather than something an agent tidied away.
+
+**Consequences.** `data/` now has three policies: `upstream/` never committed,
+`derived/` committed and rebuildable, `intake/` committed and not rebuildable
+at all. Each has its own README saying which it is.

@@ -1,7 +1,27 @@
 # eval/gold/ — the gold-standard dataset
 
-Empty. The expert-created trusted examples go here, one file per record type.
-The names are fixed, because `tm_knowledge.stage0.goldset` reads them by name:
+**Approved knowledge only.** As of 2026-08-30 it holds 105 records — 19
+competency questions, 52 concepts, 34 relationships — each one marked `correct`
+by a Trade Marks examiner *and* signed with `approved_by` and `approved_date`.
+Five of the eight files are still absent.
+
+Nothing reaches this directory except through `tmk-transcribe` reading a
+workbook in `data/intake/`, and only through the gate in ADR-0043. That matters
+more than it sounds: the records here were **machine-written first** and
+corrected by an expert (a "seed pack"), and a filled-in seed pack is
+indistinguishable from authored content by every mechanical check — the records
+validate, the refs resolve, the spans land, the hashes match (Q-24). The
+signature is the only difference. So:
+
+- **Do not hand-write a record here.** A record with no signed row behind it in
+  `data/intake/` cannot be traced to anyone, and it will read as approved
+  forever.
+- **Do not copy one up from `review/decisions/`.** Those 263 rows are held for
+  a reason that is recorded next to each of them.
+- Everything here is fair game to *measure against*. That is the point of it.
+
+The file names are fixed, because `tm_knowledge.stage0.goldset` reads them by
+name:
 
 | File | Record type | Target (guide §7) |
 |---|---|---|

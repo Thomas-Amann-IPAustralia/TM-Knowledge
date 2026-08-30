@@ -375,3 +375,49 @@ goes red on an empty gold set built in `tmp_path` and quiet on a full one — so
 keeps working, unchanged, on the day Stage 0 finally completes. A test that
 asserts today's state has to be deleted the day the project succeeds, which is
 the worst possible day to be editing tests.
+
+### Q-24 — A filled-in seed pack is indistinguishable from an authored workbook
+
+The trap that shaped S007, and the one most likely to be walked into again by
+someone doing the obvious thing.
+
+`tmk-transcribe` was built for a workbook an expert *authored*. What arrives in
+practice may be a **seed pack**: machine-written example records handed out for
+correction. Once filled in, the two are identical to every check this repo has.
+The records validate. The refs parse and resolve. The spans land on the recorded
+text. The hashes match the pinned snapshot. `tmk-harness` reports **0 defects**
+over unreviewed LLM output exactly as readily as over expert content, because
+every check it runs is a check of *form*, and form is the one thing a language
+model reliably gets right.
+
+The only signal is the `verdict` column, and it is only a signal because
+ADR-0043 made it a gate. If a future pack arrives without one — or with one an
+agent decides to treat as advisory — the gold set silently fills with machine
+writing and every downstream measurement becomes self-referential: the system
+scored against text the system wrote.
+
+Concretely, in the 2026-08-25 pack: 368 rows, of which **165 carried no verdict
+at all** and 94 more were marked `correct` but never signed. Reading the file as
+authored would have reported Stage 0 nearly complete. It is 105 rows in.
+
+**So:** before transcribing any workbook, establish where its rows came from. If
+they were machine-written, the gate applies and `--write` is not safe without
+it. The question "did a person write this row or judge it?" is not answerable
+from the file's contents, only from its provenance.
+
+### Q-25 — `openpyxl`'s `cell(..., value=None)` is a no-op, not a clear
+
+Cost twenty minutes in a test that looked correct and quietly did nothing.
+
+```python
+sheet.cell(row=2, column=11, value=None)   # does NOT clear the cell
+sheet.cell(row=2, column=11).value = None  # this clears it
+```
+
+`Worksheet.cell()` only assigns when `value is not None`, so passing `None`
+returns the cell untouched. Anything blanking cells programmatically — building
+a fixture for an *unsigned* row, stripping an approval to test the gate — reads
+as if it worked and leaves the old value in place. The failure surfaces as a
+test that passes for the wrong reason, or in this case an assertion that
+unsigned rows stayed out of the gold set while the rows were quietly still
+signed.
