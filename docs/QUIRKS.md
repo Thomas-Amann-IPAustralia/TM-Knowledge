@@ -375,3 +375,55 @@ goes red on an empty gold set built in `tmp_path` and quiet on a full one — so
 keeps working, unchanged, on the day Stage 0 finally completes. A test that
 asserts today's state has to be deleted the day the project succeeds, which is
 the worst possible day to be editing tests.
+
+### Q-24 — The Manual cites the *Trade Marks Act 1905* and only two instruments are held
+
+*Verified S007 against the pinned snapshot.*
+
+`TMM/Part29/3/3/1~2` — inside the s 43 pilot scope — carries a provision edge to
+`TMA1905/s114`, extracted by regex with `certainty: explicit`, because the
+Manual names the instrument in terms: *"these comments were made in deciding an
+opposition under section 114 of the Trade Marks Act 1905"*. The corpus holds
+exactly two instruments, `TMA1995` and `TMR1995`, so that ref **resolves to
+nothing** and cannot be made to.
+
+It is not the only one. Inside the 216-chunk provisional scope there are 35
+edges to instruments the programme does not hold or to units that do not exist,
+including `TMA1955/s28`, `TMA1955/s131(1)(a)`, `AIA1901/s13`, `DR2016/r74` and
+several `PBRA1994` sections.
+
+Three consequences worth having before Stage 8:
+
+- This is **unresolvable by construction, not by error**. Do not file it as an
+  upstream bug, and do not treat an unresolved foreign-instrument edge as a
+  citation defect.
+- A ref-typed schema field cannot hold it: putting `TMA1905/s114` in
+  `required_provisions` makes the harness report a defect, correctly. Where a
+  gold record needs to name it, it goes in a free-text field and the record says
+  why (see `SEED-GR-0021`, `SEED-GA-0017`).
+- It is a live `stale_source` risk on the critical path, not a hypothetical one:
+  a system that reports "section 114 provides the test" has handed an examiner a
+  test from a repealed Act, and every word of it came from the corpus.
+
+### Q-25 — A term of art in the corpus is broken across a line and arrives with a space in it
+
+*Verified S007 against the pinned snapshot.*
+
+`TMM/Part29/5/5/5` contains the string `International Non- Proprietary Name
+stem` — hyphen, space, capital P. It is the same term as the `International
+Non-Proprietary Names` in its own heading path and in `TMM/Part29/5/5/1`, broken
+across a line in the source and flattened into the chunk text with the break
+preserved as a space.
+
+Nothing normalises this away safely. Stripping a space after a hyphen would join
+words that belong apart elsewhere in the corpus, and the Manual's own INN-stem
+material is full of hyphens that are meaningful (`-profen`, `CEF-`, `-kef-`).
+
+The general lesson is the one guide §5.2 already states and this is the sharpest
+instance of: **a surface form is copied out of the corpus, never retyped.** The
+same trap is set by typographic quotation marks (`‘Earthhaven Confest’`), by an
+en dash in `Part 26 – Conflict with Other Signs` where a hyphen appears in
+`Part 32A - Examination of Trade Marks for Plants`, and by a missing word in
+`TMM/Part29/8/8/3` ("any trade mark which could viewed as a radio call sign").
+Each of them is annotated in `review/seed/entities.seed.yaml` so the trap is on
+the record rather than in someone's memory.

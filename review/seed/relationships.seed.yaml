@@ -1,0 +1,1471 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# SEED EXAMPLES — gold relationships.  NOT PROJECT CONTENT.  NOT APPROVED.
+#
+# Machine-written drafts over the s 43 pilot, for a Trade Mark expert to
+# correct. Guide: eval/STAGE-0-INPUT-GUIDE.md §5.4.
+#
+# ── READ THIS BEFORE CORRECTING ANY RECORD ────────────────────────────────
+# The guide says, in terms: *"Do not let an agent invent predicates and then
+# have you fit relationships to them."* This file does exactly that, because
+# the repo owner asked for a draft to correct rather than a blank form
+# (ADR-0043). The inversion is deliberate and it carries the exact risk the
+# guide names — so the predicate list below is the first thing to correct, and
+# correcting it is worth more than correcting any individual record.
+#
+# CANDIDATE PREDICATE LIST — none of these is approved:
+#
+#   requiresElement       X cannot be established without Y
+#   excludesBasis         X may not be established on the basis of Y
+#   mayGiveRiseTo         Y is a possible consequence of X, not a certain one
+#   doesNotGiveRiseTo     the Manual states expressly that X does not produce Y
+#   isOvercomeBy          Y removes or answers X
+#   appliesTo             X governs Y
+#   qualifies             X limits or conditions Y without displacing it
+#   interprets            X (a decision) construes Y (a provision or a term)
+#   citesAuthorityFor     X cites Y in support of a proposition
+#   allocatesTo           X says the subject matter belongs under Y instead
+#   statesThresholdFor    X states how much of Y is enough
+#   constrainsExaminerTo  X tells the examiner what they must or must not do
+#   extendsTo             the treatment of X also covers Y
+#   dependsOnExternalSource  X turns on material the programme does not hold
+#
+# If a predicate is wrong, missing, or two predicates are really one, say so
+# on any record that uses it. The list will be rebuilt from your words rather
+# than patched.
+#
+# ── MODALITY IS A LEGAL READING, NOT A PARSE ──────────────────────────────
+# Every `modality` below is a guess. Whether a "may" is possibility or
+# permission, and whether a "should" creates an obligation in practice, is the
+# judgement guide §5.4 calls the highest-value one in the whole gold set.
+# Records where the grammar and the reading come apart are marked in `notes`.
+#
+# ── WHAT YOU NEVER HAVE TO TYPE ───────────────────────────────────────────
+# `span` and `source_content_hash` are null. `tmk-seed` locates the verbatim
+# `supporting_text` in the chunk and fills both from the pinned snapshot.
+# ═══════════════════════════════════════════════════════════════════════════
+
+defaults:
+  provenance:
+    extraction_method: llm
+    model: null
+    generator: tm-knowledge-agent-session-S007
+    generated_on: "2026-08-21"
+    confidence: null
+    review_status: candidate
+  review:
+    status: unreviewed
+    expert: null
+    reviewed_on: null
+    correction: null
+
+seeds:
+
+  - seed_id: SEED-GR-0001
+    record_type: gold_relationship
+    why_this_example: >
+      The modality statement about the provision as a whole. The Manual says
+      the section's application is mandatory, which is a statement about how a
+      provision operates rather than about a mark — an unusual shape and the
+      first thing an examiner needs to know.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0001
+      subject: TMA1995/s43
+      predicate: appliesTo
+      object: GC-0006
+      source_ref: TMM/Part29/1#1
+      supporting_text: "The application of section 43 is, by the wording of the section, mandatory."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: >
+        Modality recorded as `must` on the reading that "mandatory" is
+        obligation. The sentence contains no modal verb at all, so nothing in
+        the grammar supports the reading — it is entirely a legal judgement.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0002
+    record_type: gold_relationship
+    why_this_example: >
+      The consequence of GR-0001, stated separately by the Manual: no
+      discretion. If GR-0001 and this are one relationship rather than two,
+      merging them is a useful correction.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0002
+      subject: TMA1995/s43
+      predicate: constrainsExaminerTo
+      object: GC-0051
+      source_ref: TMM/Part29/1#1
+      supporting_text: "There is, therefore, no discretion to accept a trade mark that is caught by the provisions of this section."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: >
+        Tier 3: a wrong reading here either removes a discretion that exists or
+        preserves one that does not.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0003
+    record_type: gold_relationship
+    why_this_example: >
+      The satisfaction threshold, which pulls against GR-0002. Mandatory once
+      caught; caught only once the decision maker is clearly satisfied.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GR-0003
+      subject: TMA1995/s43
+      predicate: requiresElement
+      object: GC-0002
+      source_ref: TMM/Part29/1#1
+      supporting_text: "However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the specified goods and / or services would be likely to deceive or cause confusion."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0004
+    record_type: gold_relationship
+    why_this_example: >
+      The operative instruction of the Part, whose modality is "should". Whether
+      "should" here is advisory or effectively obligatory is the single most
+      consequential modality judgement in the pilot, because it recurs.
+    provenance:
+      confidence: 0.65
+    record:
+      id: GR-0004
+      subject: GC-0001
+      predicate: mayGiveRiseTo
+      object: GC-0006
+      source_ref: TMM/Part29/1#1
+      supporting_text: "If the trade mark, or some part of the trade mark, contains a connotation that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection should be raised."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: should
+      notes: >
+        A "should" that reads as a "must" in practice would be recorded
+        differently, and the predicate would change with it — `mayGiveRiseTo`
+        would become something stronger. Both fields turn on one reading.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0005
+    record_type: gold_relationship
+    why_this_example: >
+      The rule that keeps section 43 out of section 44's territory. Stated with
+      a "must" and a negation, and the negation is the operative half.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GR-0005
+      subject: GC-0001
+      predicate: excludesBasis
+      object: TMA1995/s44
+      source_ref: TMM/Part29/2/2/3
+      supporting_text: "A connotation must arise from the trade mark itself, and not through a comparison with another trade mark."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: >
+        The object is arguably wrong: the excluded basis is the *comparison*,
+        not section 44 — section 44 is where the comparison belongs. GR-0006
+        records that half. If the two should be one record, say so.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0006
+    record_type: gold_relationship
+    why_this_example: >
+      The allocation half of the same rule: where the excluded material does
+      belong. Retrieval needs this to answer CQ-0007 correctly.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0006
+      subject: TMM/Part29/2/2/3
+      predicate: allocatesTo
+      object: TMA1995/s44
+      source_ref: TMM/Part29/2/2/3
+      supporting_text: "Such comparisons are dealt with under the provisions of section 44 of the Act, and discussed in detail in Part 26 of this Manual."
+      span: null
+      source_content_hash: null
+      tier: 2
+      modality: null
+      notes: >
+        Modality left null on purpose. The sentence states where something is
+        dealt with; it directs nobody to do anything, and inventing a modality
+        for it would be exactly the guess the schema forbids.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0007
+    record_type: gold_relationship
+    why_this_example: >
+      A "may" that is plainly possibility rather than permission — nobody is
+      being permitted to do anything. Guide §5.4 calls this the highest-value
+      kind of record in the set.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GR-0007
+      subject: GC-0001
+      predicate: mayGiveRiseTo
+      object: GC-0038
+      source_ref: TMM/Part29/2/2/2
+      supporting_text: "A connotation may result from the whole trade mark or from a part of the trade mark."
+      span: null
+      source_content_hash: null
+      tier: 2
+      modality: may
+      notes: >
+        Recording `may` here and `may` on GR-0034 flattens two different things
+        into one value. If the modality vocabulary needs a fourth value for
+        possibility, this record is the argument for it.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0008
+    record_type: gold_relationship
+    why_this_example: >
+      The two sources of a connotation, in the sentence that is arguably the
+      organising statement of the whole Part.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GR-0008
+      subject: GC-0001
+      predicate: requiresElement
+      object: GC-0050
+      source_ref: TMM/Part29/2/2/2
+      supporting_text: "It may result from a dictionary meaning or from a connection in the minds of the buying public with some person, place or thing."
+      span: null
+      source_content_hash: null
+      tier: 2
+      modality: may
+      notes: >
+        `requiresElement` is probably the wrong predicate — the sentence lists
+        sufficient sources, not necessary elements. Left in deliberately as an
+        example of a predicate that reads plausibly and says the wrong thing.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0009
+    record_type: gold_relationship
+    why_this_example: >
+      A general doctrine localised to the pilot provision by name. One of the
+      few explicit cross-provision statements in Part 29.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GR-0009
+      subject: GC-0007
+      predicate: appliesTo
+      object: TMA1995/s43
+      source_ref: TMM/Part29/2/2/4
+      supporting_text: "The presumption of registrability applies to section 43."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0010
+    record_type: gold_relationship
+    why_this_example: >
+      An ordering constraint: one thing must be established before another can
+      be applied. Sequencing is what a reasoning layer needs and what flat
+      extraction throws away.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0010
+      subject: GC-0006
+      predicate: requiresElement
+      object: TMA1995/s33(3)
+      source_ref: TMM/Part29/2/2/4
+      supporting_text: "The Registrar must be satisfied that a ground for rejection exists before section 33(3) can be applied to reject the trade mark."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: >
+        Subject and object may be the wrong way round: it is s 33(3) that
+        requires the ground, not the ground that requires s 33(3). Direction is
+        a common and invisible error in relationship extraction.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0011
+    record_type: gold_relationship
+    why_this_example: >
+      The rule for what to do under uncertainty, and the counterweight to
+      GR-0002. These two sentences are the pilot's whole doctrine of doubt.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0011
+      subject: GC-0007
+      predicate: constrainsExaminerTo
+      object: GC-0006
+      source_ref: TMM/Part29/2/2/4
+      supporting_text: "If there is doubt that a connotation exists, then the ground for rejection should not be raised."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: should
+      notes: >
+        A negative "should". Whether a negative should is weaker, stronger or
+        the same as a positive one is a reading, and the modality vocabulary
+        cannot express the difference.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0012
+    record_type: gold_relationship
+    why_this_example: >
+      A decision cited as construing the provision. The relationship is between
+      a case and a section and it is all the corpus can support — no decision
+      text exists anywhere in the programme (Q-11).
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0012
+      subject: CASE/2000/FCA/720
+      predicate: interprets
+      object: TMA1995/s43
+      source_ref: TMM/Part29/3/3/3
+      supporting_text: "At least at the examination stage, deception and confusion must result from something within the trade mark under consideration, not through a comparison with another trade mark."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: >
+        The supporting text is the Manual's proposition, not the Court's words.
+        The Court is cited in the next sentence. If a relationship's supporting
+        text must be the sentence naming the case, this record is wrong and the
+        rule should be stated.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0013
+    record_type: gold_relationship
+    why_this_example: >
+      A decision cited for a purposive proposition, with the citation inside
+      the supporting sentence — the cleanest citation shape in the pilot.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0013
+      subject: CASE/2006/FCA/1663
+      predicate: citesAuthorityFor
+      object: TMA1995/s43
+      source_ref: TMM/Part29/3#1~1
+      supporting_text: "The underlying purpose of section 43 is to prevent the public being deceived or confused as to the nature of the goods by reason of the secondary meaning connoted by the mark in question (Pfizer Products Inc v Karam [2006] FCA 1663, [53])."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        Direction again: the Manual cites the case, so `citesAuthorityFor` with
+        the case as subject may be backwards.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0014
+    record_type: gold_relationship
+    why_this_example: >
+      The trigger condition for the section, in the Manual's own formulation
+      rather than the Act's. Note it adds "reasonably be expected", which the
+      section does not say.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GR-0014
+      subject: TMA1995/s43
+      predicate: requiresElement
+      object: GC-0001
+      source_ref: TMM/Part29/3#1~1
+      supporting_text: "For a trade mark to trigger section 43 there must be some connotation within the trade mark that would reasonably be expected to cause deception or confusion in the mind of the relevant buying public."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: >
+        This is a candidate `authority_conflation` if reproduced as the
+        statutory test — see PU-0004. The Manual's formulation and the Act's
+        differ and both appear within one chunk.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0015
+    record_type: gold_relationship
+    why_this_example: >
+      A negative rule with a list of four things that do not, by themselves,
+      trigger the section. Negative rules are what a summariser drops and what
+      PU-0007 is about.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0015
+      subject: GC-0047
+      predicate: doesNotGiveRiseTo
+      object: GC-0001
+      source_ref: TMM/Part29/3#1~1
+      supporting_text: "However, the mere presence within a trade mark of a person's name, a descriptive term, a geographical place name or a reference to the size of packages or intended use of a product does not automatically demonstrate a connotation sufficient to trigger section 43."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        Four subjects in one sentence — a person's name, a descriptive term, a
+        place name, a size or use reference. Recording it as one relationship
+        loses three of them; recording it as four repeats the sentence four
+        times. Which is right is a modelling decision.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0016
+    record_type: gold_relationship
+    why_this_example: >
+      The three-part quality requirement on a connotation — obvious, direct and
+      immediate — plus the locational requirement. The most cited formulation
+      in the pilot and it is not in the Act.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GR-0016
+      subject: GC-0006
+      predicate: requiresElement
+      object: GC-0001
+      source_ref: TMM/Part29/3#1~2
+      supporting_text: "For a ground for rejection to be raised the connotation must be obvious, direct, and immediate and within the trade mark itself."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: >
+        Each of the three adjectives gets its own sub-section in Part 29.3.
+        Whether they are three requirements or one composite standard is worth
+        stating.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0017
+    record_type: gold_relationship
+    why_this_example: >
+      A factor relationship rather than a rule: prominence and context bear on
+      the outcome without determining it. The corpus is full of these and they
+      are hard to represent.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GR-0017
+      subject: GC-0038
+      predicate: qualifies
+      object: GC-0002
+      source_ref: TMM/Part29/3#1~2
+      supporting_text: "The prominence and context of the potentially deceptive or confusing element in the trade mark will be important in deciding whether the trade mark is likely to deceive or cause confusion."
+      span: null
+      source_content_hash: null
+      tier: 2
+      modality: null
+      notes: >
+        "Will be important" is not a modality the vocabulary has. Left null
+        rather than mapped to the nearest of must/may/should.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0018
+    record_type: gold_relationship
+    why_this_example: >
+      The threshold stated positively, in the strongest of its several
+      formulations.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0018
+      subject: GC-0006
+      predicate: statesThresholdFor
+      object: GC-0008
+      source_ref: TMM/Part29/3/3/1~1
+      supporting_text: "There must be a real and obvious danger of the buying public being deceived and/or confused by the secondary meaning within the trade mark."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0019
+    record_type: gold_relationship
+    why_this_example: >
+      The same threshold stated negatively, one sentence later. Both are needed
+      and a system that keeps only one has half the test.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0019
+      subject: GC-0008
+      predicate: doesNotGiveRiseTo
+      object: GC-0006
+      source_ref: TMM/Part29/3/3/1~1
+      supporting_text: "A possibility of confusion or a suggestion that deception might occur is not sufficient."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0020
+    record_type: gold_relationship
+    why_this_example: >
+      The Manual limiting how far a quoted authority carries. This is the
+      corpus doing its own currency management, and it is the kind of sentence
+      an answer must reproduce rather than summarise away.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0020
+      subject: TMA1995/s43
+      predicate: excludesBasis
+      object: GC-0004
+      source_ref: TMM/Part29/3/3/1~2
+      supporting_text: "While the relevant principles above were set out in the context of a comparison between trade marks, section 43 does not deal with this kind of comparison but only with an evaluation of material within the trade mark itself."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        The object is imprecise: what is excluded is comparison between marks,
+        which GC-0004's not_labels name but which has no concept id of its own.
+        If it needs one, that is a concept-set correction.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0021
+    record_type: gold_relationship
+    why_this_example: >
+      The stale-source relationship, and the only one in the pilot whose object
+      the programme cannot resolve at all: section 114 of the Trade Marks Act
+      1905 (Q-24).
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0021
+      subject: TMM/Part29/3/3/1~2
+      predicate: dependsOnExternalSource
+      object: "TMA1905/s114"
+      source_ref: TMM/Part29/3/3/1~2
+      supporting_text: "It is important to note that these comments were made in deciding an opposition under section 114 of the Trade Marks Act 1905 - marks likely to deceive or cause confusion."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        The object is written as a ref-shaped string in the `object` field,
+        which is free text — not in a ref-typed field, because it would fail to
+        resolve and be reported as a defect. Only two instruments are held.
+        This is the concrete case behind PU-0010 and CQ-0013.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0022
+    record_type: gold_relationship
+    why_this_example: >
+      A temporal constraint on the assessment, with two explicit exclusions.
+      Note it is about the market, not about the document — CQ-0015's point.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0022
+      subject: GC-0049
+      predicate: constrainsExaminerTo
+      object: GC-0002
+      source_ref: TMM/Part29/3/3/2
+      supporting_text: "Each application must be considered as it stands in the current marketplace, not in the marketplace as it was in the past and not as it may be in the future."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0023
+    record_type: gold_relationship
+    why_this_example: >
+      A relationship whose subject is legislation that no longer applies and
+      whose consequence is that a ground may fall away. It is a currency rule
+      expressed as a substantive one.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GR-0023
+      subject: GC-0049
+      predicate: qualifies
+      object: GC-0001
+      source_ref: TMM/Part29/3/3/2
+      supporting_text: "A sign regarded as deceptive or confusing under the previous legislation may no longer have the same connotation and a ground for rejection may not apply under the current Act."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: may
+      notes: >
+        Two unnumbered instrument references in one sentence, neither citable.
+        See GE-0059 and GE-0060.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0024
+    record_type: gold_relationship
+    why_this_example: >
+      Why a ground can be absent at examination and present at opposition. It
+      is a relationship between two stages of a process rather than between two
+      legal concepts.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GR-0024
+      subject: GC-0039
+      predicate: mayGiveRiseTo
+      object: GC-0040
+      source_ref: TMM/Part29/3/3/4
+      supporting_text: "In some cases a connotation giving rise to a section 43 ground for rejection may not be obvious during examination and will only emerge at opposition when the full facts of a case are available to the decision maker."
+      span: null
+      source_content_hash: null
+      tier: 2
+      modality: may
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0025
+    record_type: gold_relationship
+    why_this_example: >
+      Evidence relationship: the kind of material that resolves the question,
+      and the stage at which it appears.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GR-0025
+      subject: GC-0041
+      predicate: appliesTo
+      object: GC-0040
+      source_ref: TMM/Part29/3/3/4
+      supporting_text: "These kinds of cases are most appropriately identified and dealt with during opposition proceedings when considerable evidence of use is often supplied by the opposing party."
+      span: null
+      source_content_hash: null
+      tier: 2
+      modality: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0026
+    record_type: gold_relationship
+    why_this_example: >
+      The whole-mark rule, with a "should" that reads as a method instruction
+      rather than as a permission or an obligation.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0026
+      subject: GC-0038
+      predicate: constrainsExaminerTo
+      object: GC-0001
+      source_ref: TMM/Part29/3/3/5
+      supporting_text: "When determining the potential connotation within a trade mark, the trade mark as a whole should be considered."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: should
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0027
+    record_type: gold_relationship
+    why_this_example: >
+      The mitigation rule: other elements can neutralise an offending one. It
+      is an exception qualifying a general rule, which ADR-0008 puts in Tier 3
+      by name.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GR-0027
+      subject: GC-0038
+      predicate: qualifies
+      object: GC-0001
+      source_ref: TMM/Part29/3/3/5
+      supporting_text: "Other features incorporated as part of the trade mark can diminish the impact of the offending material and cast doubt as to how it will be seen and interpreted by the relevant consumer."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        "Can" is neither must, may nor should. Left null rather than mapped to
+        `may`, which would import permission into a statement of possibility.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0028
+    record_type: gold_relationship
+    why_this_example: >
+      The descriptive-matter rule, with its condition. It is the negative half
+      of Part 29.4 and the direct basis for CQ-0011.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0028
+      subject: GC-0047
+      predicate: doesNotGiveRiseTo
+      object: GC-0006
+      source_ref: TMM/Part29/4#1
+      supporting_text: "A term within a trade mark describing particular goods/services will not trigger section 43 as long as those goods/services are covered by the specification."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0029
+    record_type: gold_relationship
+    why_this_example: >
+      The positive half of the same rule, hinging on contradiction between the
+      connotation and the specification. Together with GR-0028 it is the whole
+      test, and each is useless alone.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0029
+      subject: GC-0012
+      predicate: mayGiveRiseTo
+      object: GC-0006
+      source_ref: TMM/Part29/4#1
+      supporting_text: "If, however, there is a connotation present within the trade mark that is directly contradicted by the specification, there is a high likelihood of consumers being deceived or confused."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0030
+    record_type: gold_relationship
+    why_this_example: >
+      An instruction *not* to require something. Rules that tell an examiner to
+      refrain are rarer than rules that tell them to act, and far more likely to
+      be lost.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0030
+      subject: GC-0044
+      predicate: constrainsExaminerTo
+      object: GC-0015
+      source_ref: TMM/Part29/4#1
+      supporting_text: "There is no need for an examiner to request the specification be restricted to meat free snack foods or to require an endorsement restricting the specification of goods when the trade mark is in use."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        The sentence is tied to its worked example — "meat free snack foods" —
+        so the general rule it states cannot be lifted out of it without
+        generalising. That is PU-0007's failure mode in miniature.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0031
+    record_type: gold_relationship
+    why_this_example: >
+      The INN ground in full, with the two limbs and the restriction condition.
+      The longest single rule in the pilot area.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0031
+      subject: GC-0022
+      predicate: mayGiveRiseTo
+      object: GC-0006
+      source_ref: TMM/Part29/5/5/4
+      supporting_text: "A ground for rejection under section 43 exists where a trade mark, or part of a trade mark, to be used in relation to pharmaceuticals or veterinary substances is the same as, or may connote, a notified INN and use of the trade mark in respect of the goods covered by the specification are not restricted to the particular substance indicated by the INN."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        Contains its own "may connote" inside the condition, which is not the
+        relationship's modality. Nested modals are where automated modality
+        detection fails.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0032
+    record_type: gold_relationship
+    why_this_example: >
+      The remedy for the INN ground. Paired with GR-0033, which says what the
+      remedy does *not* do — and that pairing is CQ-0004.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0032
+      subject: GC-0013
+      predicate: isOvercomeBy
+      object: GC-0006
+      source_ref: TMM/Part29/5/5/4
+      supporting_text: "A section 43 ground for rejection may be overcome by the applicant agreeing to a condition of registration limiting use of the trade mark to goods containing the substance indicated by the relevant INN."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: may
+      notes: >
+        Subject and object are the wrong way round if `isOvercomeBy` reads as
+        "X is overcome by Y". Left as written so the direction problem is
+        visible on at least one record.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0033
+    record_type: gold_relationship
+    why_this_example: >
+      The limit of the remedy, stated negatively and in a parenthesis. An
+      answer that carries GR-0032 and drops this is wrong in the most useful
+      possible way — every sentence in it is true.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GR-0033
+      subject: GC-0014
+      predicate: doesNotGiveRiseTo
+      object: TMA1995/s41
+      source_ref: TMM/Part29/5/5/4
+      supporting_text: "However such an endorsement is unlikely to assist in overcoming grounds for rejection which have been raised for other reasons (e.g. under section 41 or section 44 of the Trade Marks Act 1995)."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        `doesNotGiveRiseTo` is a poor fit — nothing is being given rise to. The
+        predicate list is missing something like `doesNotRemedy`, and this
+        record is the evidence for adding it.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0034
+    record_type: gold_relationship
+    why_this_example: >
+      A "may" that reads as permission rather than possibility — the applicant
+      is being told a route is open to them. Compare GR-0007, where the same
+      word means something else entirely.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GR-0034
+      subject: GC-0023
+      predicate: isOvercomeBy
+      object: GC-0013
+      source_ref: TMM/Part29/5/5/5
+      supporting_text: "A section 43 ground for rejection may be overcome by the applicant agreeing to a condition of registration limiting use of the trade mark to goods containing substances belonging to the relevant INN stem."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: may
+      notes: >
+        GR-0007 and this record carry the same modality value for two different
+        readings. If that is unacceptable, the vocabulary has to grow — and
+        that is a decision, not a bug report.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0035
+    record_type: gold_relationship
+    why_this_example: >
+      The meaningfulness qualification on INN stems, which is what stops the
+      annex list from being a rule. The direct basis for PU-0009.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0035
+      subject: GC-0024
+      predicate: qualifies
+      object: GC-0023
+      source_ref: TMM/Part29/5/5/6~1
+      supporting_text: "Some INN stems consist of simple two or three letter combinations and their presence in a larger word may not be meaningful and as a result would not lead to deception or confusion."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: may
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0036
+    record_type: gold_relationship
+    why_this_example: >
+      A relationship whose object is a list maintained outside the programme.
+      Structurally the same as the ICANN dependency in Part 29.8, and the basis
+      for CQ-0018.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GR-0036
+      subject: GC-0025
+      predicate: dependsOnExternalSource
+      object: GC-0022
+      source_ref: TMM/Part29/5/5/3
+      supporting_text: "Claims for specific pharmaceutical or veterinary goods in Class 5 may also trigger the provisions of section 43 in relation to INNs and INN stems."
+      span: null
+      source_content_hash: null
+      tier: 2
+      modality: may
+      notes: >
+        The external dependency is stated in the neighbouring chunk rather than
+        this one. If a relationship's support must come from the chunk that
+        states it, this record needs a different `source_ref`.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0037
+    record_type: gold_relationship
+    why_this_example: >
+      The person ground, with its two conditions — well known, and well known
+      in relation to the specified goods or services.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0037
+      subject: GC-0026
+      predicate: mayGiveRiseTo
+      object: GC-0006
+      source_ref: TMM/Part29/6#1~1
+      supporting_text: "If a trade mark contains a name of a person (or group of people) which is well known in relation to the specified goods or services, the provisions of section 43 may be triggered."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: may
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0038
+    record_type: gold_relationship
+    why_this_example: >
+      The negative condition: the ground does not arise where the applicant is
+      the person or has their permission. Stated as a fact about when the ground
+      does not exist, not as a remedy.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0038
+      subject: GC-0029
+      predicate: doesNotGiveRiseTo
+      object: GC-0006
+      source_ref: TMM/Part29/6#1~1
+      supporting_text: "If the trade mark application is submitted by the well-known person, or it is clear from other available information that the application was made with permission from the well-known person or their representative, a section 43 ground for rejection does not arise."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        Compare GR-0039, which treats permission as a way of *overcoming* a
+        ground that has arisen. The Manual describes both, and whether they are
+        the same mechanism at two stages is a practice question.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0039
+    record_type: gold_relationship
+    why_this_example: >
+      Permission as a remedy after the fact, with the typographic apostrophe in
+      "person’s" copied exactly.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0039
+      subject: GC-0006
+      predicate: isOvercomeBy
+      object: GC-0029
+      source_ref: TMM/Part29/6#1~2
+      supporting_text: "An applicant may overcome a section 43 ground for rejection in relation to a name by providing the well-known person’s written permission to use their name as a trade mark."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: may
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0040
+    record_type: gold_relationship
+    why_this_example: >
+      A gradient relationship — the more common the name, the less likely the
+      assumption. The corpus reasons in gradients constantly and no predicate
+      in the candidate list expresses one.
+    provenance:
+      confidence: 0.6
+    record:
+      id: GR-0040
+      subject: GC-0026
+      predicate: qualifies
+      object: GC-0028
+      source_ref: TMM/Part29/6#1~2
+      supporting_text: "The more common the name, whether it is a given name, surname, or combination of both, the less likely consumers will be to make this assumption, as many well-known people have names shared by many other people."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        Flagged deliberately: if the relationship model cannot hold "the more
+        X, the less Y", a large part of the Manual's reasoning cannot be
+        represented at all. Better to know that now than at Stage 4.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0041
+    record_type: gold_relationship
+    why_this_example: >
+      An extension relationship: one body of practice carried across to another
+      subject matter by a single sentence.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GR-0041
+      subject: GC-0026
+      predicate: extendsTo
+      object: GC-0030
+      source_ref: TMM/Part29/6/6/1
+      supporting_text: "The considerations applying to the names of well-known persons also apply to images of those persons."
+      span: null
+      source_content_hash: null
+      tier: 2
+      modality: null
+      notes: >
+        Tier 2 as a low-risk structural statement. If carrying a whole body of
+        practice across subject matter is a legally significant act, it is
+        Tier 3 and the record should say so.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0042
+    record_type: gold_relationship
+    why_this_example: >
+      A "should not … merely because" rule. The word "merely" is the whole
+      content and is the first thing a paraphrase loses.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0042
+      subject: GC-0030
+      predicate: doesNotGiveRiseTo
+      object: GC-0006
+      source_ref: TMM/Part29/6/6/1
+      supporting_text: "A section 43 ground for rejection should not be raised merely because a trade mark contains the image of a person."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: should
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0043
+    record_type: gold_relationship
+    why_this_example: >
+      A default rule with "generally" doing the qualifying. Paired with
+      GR-0044, which states the exception that reverses it.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0043
+      subject: GC-0027
+      predicate: doesNotGiveRiseTo
+      object: GC-0006
+      source_ref: TMM/Part29/6/6/2~1
+      supporting_text: "Generally, a section 43 ground for rejection will not arise in respect of long deceased historical figures, even if they were well known for the same field as the specified goods/services are in."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        A defeasible default. ADR-0009 defers LegalRuleML, so nothing in this
+        project can currently represent "generally X, unless Y" except as two
+        records that a reader has to notice belong together.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0044
+    record_type: gold_relationship
+    why_this_example: >
+      The exception that reverses GR-0043. This pair is the clearest defeasible
+      rule in the pilot and the best argument in the corpus for revisiting
+      ADR-0009 — or for accepting that the pair is all we can hold.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0044
+      subject: GC-0027
+      predicate: mayGiveRiseTo
+      object: GC-0001
+      source_ref: TMM/Part29/6/6/2~1
+      supporting_text: "However, a relevant connotation may arise if the deceased person’s estate (or other authorised entity) has continued to control the use of the person’s name/image after their death, e.g. by commercialising directly or licensing to third parties."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: may
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0045
+    record_type: gold_relationship
+    why_this_example: >
+      The phoneword ground, whose condition is a fact about the applicant
+      rather than about the mark.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0045
+      subject: GC-0031
+      predicate: mayGiveRiseTo
+      object: GC-0006
+      source_ref: TMM/Part29/7#1
+      supporting_text: "A section 43 ground for rejection will apply if the applicant for a trade mark containing material likely to be viewed as a phoneword, or the numbers representing a phoneword, is not also the owner (or authorised user) of that phoneword."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        "Will apply" is stronger than "may give rise to". If the predicate
+        should be a stronger one for this record and a weaker one for GR-0037,
+        the list needs the distinction.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0046
+    record_type: gold_relationship
+    why_this_example: >
+      A constraint on investigation rather than on decision: do not research
+      this unless something else is present. It is the sentence that would
+      bound an automated system pointed at Part 29.7.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0046
+      subject: GC-0052
+      predicate: constrainsExaminerTo
+      object: GC-0031
+      source_ref: TMM/Part29/7#1
+      supporting_text: "Other phone numbers which do not appear to represent a phoneword should not be queried or researched specifically in respect of section 43, unless other information before the examiner gives them particular reason to suspect that the applicant may not be the licensed user of the number."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: should
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0047
+    record_type: gold_relationship
+    why_this_example: >
+      The domain-name ground, structurally identical to the phoneword one.
+      Whether that identity should be represented — one rule, three subject
+      matters — is GC-0035's question.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0047
+      subject: GC-0032
+      predicate: mayGiveRiseTo
+      object: GC-0006
+      source_ref: TMM/Part29/8#1
+      supporting_text: "A section 43 ground for rejection will apply if the applicant for a trade mark consisting of, or containing, material likely to be viewed as an Internet domain name is not also the registrant or authorised user of that Internet domain name."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0048
+    record_type: gold_relationship
+    why_this_example: >
+      A cross-ground relationship: the same material may attract a section 41
+      ground as well. It is the clearest test of whether ground interaction is
+      inside the pilot boundary.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GR-0048
+      subject: GC-0034
+      predicate: mayGiveRiseTo
+      object: TMA1995/s41
+      source_ref: TMM/Part29/8/8/3
+      supporting_text: "Examiners will also need to consider raising a section 41 ground for rejection in relation to any trade mark which could viewed as a radio call sign or frequency that simply consists of that material or with other descriptive or non distinctive elements."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: >
+        The sentence reads "which could viewed as" — a missing word in the
+        source. Copied exactly; a corrected supporting text does not land on the
+        passage and the record fails.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0049
+    record_type: gold_relationship
+    why_this_example: >
+      The exculpatory rule for geographical references, with three worked
+      examples inside the sentence. It is the negative boundary of Part 29.9.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GR-0049
+      subject: GC-0048
+      predicate: doesNotGiveRiseTo
+      object: GC-0002
+      source_ref: TMM/Part29/9#1
+      supporting_text: "Deception or confusion is not likely to occur if the geographic reference is ambiguous or fanciful (FORGED IN THE OUTBACK on Vehicles, ANTARCTIC BERRIES for Frozen strawberries) or when a word will not be seen as a geographical reference in the eyes of an average consumer (MOCHA for confectionery)."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0050
+    record_type: gold_relationship
+    why_this_example: >
+      Three cumulative criteria in one sentence, presented as a list. CQ-0009
+      turns on whether a system keeps all three; this record is where the
+      answer is written down.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GR-0050
+      subject: GC-0017
+      predicate: statesThresholdFor
+      object: GC-0004
+      source_ref: TMM/Part29/9/9/3~1
+      supporting_text: "A trade mark containing a standalone geographical reference will cause confusion if each of the following criteria are met: Consumers would have reason to associate the goods/services with the geographical location; The association between the place and the goods/services would influence the purchasing decision of an average consumer of the goods/services. There are no other elements in the mark, or surrounding circumstances, which would mitigate the risk of confusion."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        The three criteria are separated by a semicolon, a full stop and
+        nothing — the list markup is gone. Whether they are cumulative is
+        stated ("each of the following"), which is lucky; most flattened lists
+        in the corpus do not say.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0051
+    record_type: gold_relationship
+    why_this_example: >
+      A negative statement about a necessary condition: qualifiers are not
+      needed. It removes a precondition a reader would otherwise assume.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0051
+      subject: GC-0021
+      predicate: doesNotGiveRiseTo
+      object: GC-0001
+      source_ref: TMM/Part29/9/9/3~1
+      supporting_text: "Qualifiers (e.g. “made in”, “product of”) are not necessary for a connotation to be present in a mark."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        The predicate is wrong and the record is kept to show it: the sentence
+        says a qualifier is not *required*, not that it produces nothing. The
+        list has no predicate for "is not a necessary condition of".
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0052
+    record_type: gold_relationship
+    why_this_example: >
+      An extension across goods and services with a caution attached. The
+      caution is what makes it a Tier 3 statement rather than a structural one.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GR-0052
+      subject: GC-0017
+      predicate: extendsTo
+      object: GC-0012
+      source_ref: TMM/Part29/9/9/4
+      supporting_text: "The same considerations apply to services as to goods, though careful consideration needs to be given to circumstances which may mitigate the risk of deception or confusion."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0053
+    record_type: gold_relationship
+    why_this_example: >
+      A closure statement — one criterion and no other. Exclusivity claims are
+      rare and a system that adds a consideration here contradicts the Manual
+      rather than merely exceeding it.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0053
+      subject: GC-0013
+      predicate: statesThresholdFor
+      object: GC-0006
+      source_ref: TMM/Part29/9/9/5
+      supporting_text: "This is the sole criterion for conditions or limitations applied in order to overcome grounds for rejection raised under section 43."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0054
+    record_type: gold_relationship
+    why_this_example: >
+      A directness requirement on the remedy, mirroring the directness
+      requirement on the ground in GR-0016.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0054
+      subject: GC-0013
+      predicate: requiresElement
+      object: GC-0001
+      source_ref: TMM/Part29/9/9/5
+      supporting_text: "The condition of registration or specification amendment must directly address the connotation in the trade mark."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0055
+    record_type: gold_relationship
+    why_this_example: >
+      The business-identifier carve-out. "Rarely" is a frequency claim rather
+      than a rule, and nothing in the vocabulary can hold it.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GR-0055
+      subject: GC-0020
+      predicate: doesNotGiveRiseTo
+      object: GC-0006
+      source_ref: TMM/Part29/9/9/6
+      supporting_text: "Where business identifiers are included in a trade mark (e.g. A TASMANIAN COMPANY, RIVERINA DAIRY CO.) this tends to indicate a characteristic of a business rather than the goods or services themselves."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: null
+      notes: >
+        The operative sentence — "A ground for rejection will rarely apply in
+        these cases" — is the next one. The supporting text chosen states the
+        reason rather than the rule, which may be the wrong choice.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0056
+    record_type: gold_relationship
+    why_this_example: >
+      The admissibility rule for external material, and the direct basis for
+      GC-0011's and GC-0050's not_labels: reputation in another mark is
+      expressly not a source of connotation.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0056
+      subject: GC-0001
+      predicate: excludesBasis
+      object: GC-0050
+      source_ref: TMM/Part29/9/9/7
+      supporting_text: "When faced with this type of reference it is important to remember that the connotation must be from the trade mark itself and not from any other external considerations such as a reputation in another trade mark."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: must
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0057
+    record_type: gold_relationship
+    why_this_example: >
+      The Indigenous-origin ground, structurally parallel to the general rule
+      in TMM/Part29/1#1 with one clause changed.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GR-0057
+      subject: GC-0037
+      predicate: mayGiveRiseTo
+      object: GC-0006
+      source_ref: TMM/Part29/10#1
+      supporting_text: "If a trade mark, or some part of the trade mark, contains a reference to Indigenous people and a connotation arises from the mark that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection under s43 should be raised."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: should
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GR-0058
+    record_type: gold_relationship
+    why_this_example: >
+      A relationship whose truth depends on a future external event. Its
+      supporting passage will not change when the event happens, so no content
+      hash will ever mark it stale — PU-0012's whole point.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GR-0058
+      subject: GC-0018
+      predicate: dependsOnExternalSource
+      object: GC-0006
+      source_ref: TMM/Part29/11#1
+      supporting_text: "If during examination of a new application research reveals that a trade mark is identical or similar to a listed EU GI, consideration should then be given to whether or not the use of the trade mark would potentially deceive or confuse Australian consumers and make grounds for rejection under s 43 appropriate."
+      span: null
+      source_content_hash: null
+      tier: 3
+      modality: should
+      notes: >
+        Note "s 43" with a space here, against "s43" in TMM/Part29/10#1 and
+        "section 43" elsewhere. Three spellings, one provision, one Part.
+      approved_by: null
+      approved_date: null

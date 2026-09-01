@@ -1,6 +1,6 @@
 # Stage 0 — coverage and gaps
 
-**Generated** 2026-08-20 · **Source** `eval/gold/` against the pinned snapshot `c490a9927f1a` · **Regenerate** `tmk-coverage`
+**Generated** 2026-08-21 · **Source** `eval/gold/` against the pinned snapshot `c490a9927f1a` · **Regenerate** `tmk-coverage`
 
 This report is **derived**. It counts what `eval/gold/` holds against the definition of done in `eval/STAGE-0-INPUT-GUIDE.md` §7, and it names what is absent. It does not propose content for any gap, and it must not be read as doing so: every field it reports as empty is one only a domain expert may fill (CLAUDE.md rule 1, guide §9).
 

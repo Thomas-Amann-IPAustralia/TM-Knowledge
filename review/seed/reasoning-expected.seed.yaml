@@ -1,0 +1,545 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# SEED EXAMPLES — expected reasoning results.  NOT PROJECT CONTENT. NOT APPROVED.
+#
+# Machine-written drafts over the s 43 pilot, for a Trade Mark expert to
+# correct. Guide: eval/STAGE-0-INPUT-GUIDE.md §5.7.
+#
+# ── THE LINE THIS RECORD TYPE EXISTS TO DRAW ──────────────────────────────
+# An expected inference is something that follows from what the corpus *says*.
+# Anything that requires weighing evidence or exercising discretion is not an
+# inference — it is a prohibited use. Drawing that line is the most valuable
+# judgement in this record type and every one of the fifteen below is a guess
+# at where it falls.
+#
+# If a record here should really be a prohibited use, moving it is the single
+# most useful correction you can make. The inverse matters too: a conclusion we
+# have refused to draw that in fact follows plainly from the text is a
+# capability given away for nothing.
+#
+# `given` is a starting position drawn from the corpus, not a hypothetical
+# application. The system reasons over the corpus; it does not decide cases.
+# ═══════════════════════════════════════════════════════════════════════════
+
+defaults:
+  provenance:
+    extraction_method: llm
+    model: null
+    generator: tm-knowledge-agent-session-S007
+    generated_on: "2026-08-21"
+    confidence: null
+    review_status: candidate
+  review:
+    status: unreviewed
+    expert: null
+    reviewed_on: null
+    correction: null
+
+seeds:
+
+  - seed_id: SEED-GX-0001
+    record_type: reasoning_expectation
+    why_this_example: >
+      The safest inference in the pilot: classifying a passage by the authority
+      it carries. It follows from where the text sits, not from what it means.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GX-0001
+      given:
+        - TMM/Part29/1#1
+      expected_inferences:
+        - conclusion: >
+            The passage contains both quoted legislative text and the
+            Registrar's practice, and the two must be distinguishable in any
+            output derived from it.
+          basis:
+            - TMM/Part29/1#1
+            - TMA1995/s43
+          kind: classification
+      must_not_infer:
+        - PU-0004
+      tier: 1
+      explanation_required: true
+      caveats: >
+        The chunk boundary is upstream's; the sentence boundary between the
+        quotation and the practice guidance is not marked in the text.
+      notes: >
+        Tier 1 on the view that this is structural. If deciding where the
+        quotation ends is a reading rather than a parse, it is Tier 3.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0002
+    record_type: reasoning_expectation
+    why_this_example: >
+      An impact inference over the citation graph. It is checkable against the
+      snapshot and needs no legal judgement — which is exactly why it is the
+      kind of automation worth having.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GX-0002
+      given:
+        - TMA1995/s43
+      expected_inferences:
+        - conclusion: >
+            Manual material outside Part 29 states practice under this
+            provision, including the plant and wine material, and would fall
+            within the scope of a review if the provision changed.
+          basis:
+            - TMM/Part32A/2/4/2/4/1
+            - TMM/Part32B/2/2#1
+            - TMM/Part29/1#1
+          kind: impact
+      must_not_infer:
+        - PU-0017
+      tier: 2
+      explanation_required: true
+      caveats: >
+        Some in-scope edges were read out of prose and resolved by convention
+        rather than asserted by IP Australia (Q-07). An impact list that does
+        not separate the two overstates its own reliability.
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0003
+    record_type: reasoning_expectation
+    why_this_example: >
+      A currency inference the corpus supports without any judgement: an
+      instrument is cited and the programme does not hold it.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GX-0003
+      given:
+        - TMM/Part29/3/3/1~2
+      expected_inferences:
+        - conclusion: >
+            This passage rests in part on an instrument that is not held
+            anywhere in the programme, so the provision behind the quoted
+            principles cannot be displayed or verified.
+          basis:
+            - TMM/Part29/3/3/1~2
+          kind: currency
+      must_not_infer:
+        - PU-0010
+      tier: 1
+      explanation_required: true
+      caveats: >
+        Only two instruments are held (Q-24). Every citation to an earlier Act
+        is unresolvable by construction, not by error.
+      notes: >
+        The cleanest example in this file of an inference that is entirely
+        mechanical and entirely worth making.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0004
+    record_type: reasoning_expectation
+    why_this_example: >
+      A consistency inference across two passages that pull in opposite
+      directions. Whether the system may say they are in tension, or must stay
+      silent about it, is a real question.
+    provenance:
+      confidence: 0.55
+    record:
+      id: GX-0004
+      given:
+        - TMM/Part29/1#1
+        - TMM/Part29/2/2/4
+      expected_inferences:
+        - conclusion: >
+            The Manual states both that the section's application is mandatory
+            with no discretion to accept, and that where there is doubt a
+            connotation exists the ground should not be raised. Both apply, at
+            different points of the assessment.
+          basis:
+            - TMM/Part29/1#1
+            - TMM/Part29/2/2/4
+          kind: consistency
+      must_not_infer:
+        - PU-0001
+        - PU-0007
+      tier: 3
+      explanation_required: true
+      caveats: >
+        The clause "at different points of the assessment" is a reconciliation.
+        If it is wrong, or if the two passages really do conflict, the
+        conclusion should be rewritten or the whole record moved to
+        prohibited-uses.
+      notes: >
+        Low confidence and high value. This is the record most likely to be in
+        the wrong file.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0005
+    record_type: reasoning_expectation
+    why_this_example: >
+      A classification inference over a query rather than a passage: deciding
+      that a question is about a different ground. It is the reasoning behind
+      CQ-0007 and GA-0011.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GX-0005
+      given:
+        - GC-0004
+        - TMM/Part29/2/2/3
+      expected_inferences:
+        - conclusion: >
+            A question about confusion arising from similarity between two
+            marks is not answered by the section 43 material, and the Manual
+            allocates it to section 44 and Part 26.
+          basis:
+            - TMM/Part29/2/2/3
+            - TMM/Part29/3/3/3
+          kind: classification
+      must_not_infer:
+        - PU-0008
+        - PU-0018
+      tier: 3
+      explanation_required: true
+      caveats: ~
+      notes: >
+        Tier 3 because misrouting a question sends an examiner to the wrong
+        test, and the misrouting is invisible: both destinations are about
+        confusion.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0006
+    record_type: reasoning_expectation
+    why_this_example: >
+      An inference about which remedy applies. The Manual states the remedy set
+      for section 43 exclusively, which makes the exclusion inferable.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GX-0006
+      given:
+        - GC-0006
+        - TMM/Part29/9/9/5
+      expected_inferences:
+        - conclusion: >
+            Where a section 43 ground has been raised, the routes the Manual
+            describes for overcoming it are a condition of registration or an
+            amendment or limitation of the specification, and the sole
+            criterion is removing the likelihood of deception or confusion.
+          basis:
+            - TMM/Part29/9/9/5
+            - TMM/Part29/9/9/2
+          kind: classification
+      must_not_infer:
+        - PU-0014
+        - PU-0001
+      tier: 3
+      explanation_required: true
+      caveats: >
+        The "sole criterion" statement appears in the geographical sub-section.
+        Whether it governs every section 43 ground or only geographical ones is
+        a reading, and this conclusion assumes the wider one.
+      notes: >
+        The caveat is the point of the record. If the narrow reading is right,
+        the conclusion as written is an overreach.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0007
+    record_type: reasoning_expectation
+    why_this_example: >
+      An impact inference about an external dependency. The system can see that
+      the practice rests on a list it does not hold; it cannot see when that
+      list changes.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GX-0007
+      given:
+        - GC-0022
+        - TMM/Part29/5/5/1
+      expected_inferences:
+        - conclusion: >
+            The INN practice depends on a list maintained outside the
+            programme, so the Manual text can be unchanged and the practice
+            outcome can still have moved.
+          basis:
+            - TMM/Part29/5/5/1
+            - TMM/Part29/5/5/3
+          kind: impact
+      must_not_infer:
+        - PU-0011
+      tier: 2
+      explanation_required: true
+      caveats: >
+        No content hash will ever mark this stale, because nothing in the
+        corpus changes when the list does.
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0008
+    record_type: reasoning_expectation
+    why_this_example: >
+      The same shape in a different Part — the ICANN dependency for generic top
+      level domains. Two instances make the pattern worth naming.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GX-0008
+      given:
+        - GC-0033
+        - TMM/Part29/8/8/1
+      expected_inferences:
+        - conclusion: >
+            The generic TLD practice turns on the status of an application in a
+            register the programme does not hold, so the Manual text alone
+            cannot decide the question it poses.
+          basis:
+            - TMM/Part29/8/8/1
+          kind: impact
+      must_not_infer:
+        - PU-0011
+      tier: 2
+      explanation_required: true
+      caveats: ~
+      notes: >
+        If external-source dependence deserves its own relationship predicate,
+        GX-0007 and this record are the evidence — `dependsOnExternalSource` is
+        in the candidate list on the strength of them.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0009
+    record_type: reasoning_expectation
+    why_this_example: >
+      A currency inference about a conditional statement. The system can
+      identify that the passage's truth depends on an event; it cannot
+      determine whether the event has occurred.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GX-0009
+      given:
+        - TMM/Part29/11#1
+      expected_inferences:
+        - conclusion: >
+            The protection this passage describes is stated as conditional on an
+            agreement entering into force, and the corpus does not record
+            whether that has happened.
+          basis:
+            - TMM/Part29/11#1
+          kind: currency
+      must_not_infer:
+        - PU-0012
+      tier: 2
+      explanation_required: true
+      caveats: ~
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0010
+    record_type: reasoning_expectation
+    why_this_example: >
+      A classification inference that stops short of the conclusion it is
+      pointed at. The system can say which practice applies without saying what
+      the outcome is, and the gap between those two is the whole design.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GX-0010
+      given:
+        - GC-0031
+        - TMM/Part29/7#1
+      expected_inferences:
+        - conclusion: >
+            Where a mark contains material likely to be viewed as a phoneword,
+            the applicable practice turns on whether the applicant is the owner
+            or authorised user, and the ground is reconsidered on information
+            establishing that they are.
+          basis:
+            - TMM/Part29/7#1
+          kind: classification
+      must_not_infer:
+        - PU-0001
+        - PU-0002
+      tier: 2
+      explanation_required: true
+      caveats: >
+        "Likely to be viewed as a phoneword" is itself an evaluative judgement.
+        The inference states the practice conditional on that judgement having
+        been made by a person.
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0011
+    record_type: reasoning_expectation
+    why_this_example: >
+      A consistency inference over two near-identical instructions in one Part.
+      They are the same rule with different subject matter, and a system that
+      deduplicates them loses one.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GX-0011
+      given:
+        - TMM/Part29/1#1
+        - TMM/Part29/10#1
+      expected_inferences:
+        - conclusion: >
+            These two passages state the same rule with different subject
+            matter, so neither is redundant and neither generalises the other.
+          basis:
+            - TMM/Part29/1#1
+            - TMM/Part29/10#1
+          kind: consistency
+      must_not_infer:
+        - PU-0007
+      tier: 2
+      explanation_required: true
+      caveats: ~
+      notes: >
+        See GE-0015 and GE-0146: the two sentences differ in one clause and are
+        otherwise word for word.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0012
+    record_type: reasoning_expectation
+    why_this_example: >
+      An inference about a default and its exception, holding both. The failure
+      mode is producing the default alone, which is fluent, sourced and wrong.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GX-0012
+      given:
+        - GC-0027
+        - TMM/Part29/6/6/2~1
+      expected_inferences:
+        - conclusion: >
+            The Manual's general position on long deceased historical figures
+            is qualified by an exception turning on continued control of the
+            name, consumer awareness of that control, and a connection with the
+            specified goods or services.
+          basis:
+            - TMM/Part29/6/6/2~1
+          kind: classification
+      must_not_infer:
+        - PU-0007
+        - PU-0001
+      tier: 3
+      explanation_required: true
+      caveats: >
+        Nothing in this project can currently represent "generally X, unless Y"
+        as a defeasible rule — LegalRuleML is deferred (ADR-0009). The
+        expectation is that both halves are stated, not that either is applied.
+      notes: >
+        If this record cannot be satisfied without defeasible rules, that is an
+        argument for revisiting ADR-0009 and worth saying so explicitly.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0013
+    record_type: reasoning_expectation
+    why_this_example: >
+      A negative inference: the system concluding that a passage does *not*
+      support a proposition. Rarely tested and highly valuable.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GX-0013
+      given:
+        - TMM/Part29/4#1
+      expected_inferences:
+        - conclusion: >
+            This passage does not support the proposition that descriptive
+            matter in a mark gives rise to a section 43 ground; it states the
+            opposite, subject to the specification covering the goods described.
+          basis:
+            - TMM/Part29/4#1
+          kind: consistency
+      must_not_infer:
+        - PU-0007
+      tier: 3
+      explanation_required: true
+      caveats: ~
+      notes: >
+        A system asked to find support for a proposition will find this passage
+        by word overlap and cite it. The expected inference is that it says the
+        opposite.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0014
+    record_type: reasoning_expectation
+    why_this_example: >
+      A currency inference about the corpus itself rather than about the law:
+      the answer is only as current as the pinned snapshot.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GX-0014
+      given:
+        - TMM/Part29/9#1
+      expected_inferences:
+        - conclusion: >
+            Any statement of current practice drawn from this passage is a
+            statement about a pinned snapshot at a particular commit, and
+            carries no assurance that the passage has not since been amended.
+          basis:
+            - TMM/Part29/9#1
+          kind: currency
+      must_not_infer:
+        - PU-0011
+      tier: 1
+      explanation_required: true
+      caveats: >
+        Versioning is per page and per instrument; there is no corpus-level
+        version stamp and the amendment log is the upstream repository's git
+        history (Q-05).
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GX-0015
+    record_type: reasoning_expectation
+    why_this_example: >
+      A deliberately borderline record. It is the closest thing in this file to
+      applying the law, and our reading is that it stays on the right side of
+      the line by stating what the Manual requires rather than whether it is
+      met. If that reading is wrong, this record belongs in prohibited-uses.
+    provenance:
+      confidence: 0.4
+    record:
+      id: GX-0015
+      given:
+        - GC-0017
+        - TMM/Part29/9/9/3~1
+      expected_inferences:
+        - conclusion: >
+            For a standalone geographical reference, the Manual requires all
+            three of its criteria to be met, so material addressing only
+            consumer association and reputation does not address the third
+            criterion.
+          basis:
+            - TMM/Part29/9/9/3~1
+          kind: consistency
+      must_not_infer:
+        - PU-0001
+        - PU-0007
+      tier: 3
+      explanation_required: true
+      caveats: >
+        The conclusion says what the Manual requires and observes that a body
+        of material is silent on one requirement. It does not say what follows.
+      notes: >
+        Lowest confidence in the file, and here on purpose: the boundary
+        between checking completeness against a stated test and applying that
+        test is exactly what §5.7 says is the most useful thing in this record
+        type.
+      approved_by: null
+      approved_date: null

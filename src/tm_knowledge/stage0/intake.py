@@ -32,7 +32,14 @@ from typing import Any
 
 from tm_knowledge.stage0.schemas import ID_PREFIXES, RECORD_TYPES, SCHEMA_DIR, _deref
 
-__all__ = ["Column", "Sheet", "sheets", "SHEET_NAMES"]
+__all__ = [
+    "Column",
+    "Sheet",
+    "sheets",
+    "SHEET_NAMES",
+    "REVIEW_COLUMNS",
+    "REVIEW_WRITABLE",
+]
 
 #: Record type -> the sheet a person sees. Kept short: Excel caps sheet names at
 #: 31 characters and truncates silently, and a child sheet's name is built from
@@ -47,6 +54,30 @@ SHEET_NAMES: dict[str, str] = {
     "reasoning_expectation": "reasoning-expected",
     "prohibited_use": "prohibited-uses",
 }
+
+
+#: Headers the seed review workbook adds at the right-hand end of every sheet,
+#: and the transcriber therefore has to tolerate rather than reject (ADR-0044,
+#: amended by ADR-0046). They are annotations *about* a record, never fields
+#: *of* one, so they are read by `tmk-seed` and dropped on the way into
+#: `eval/gold/` — a verdict is how a record got approved, not something the
+#: record asserts, and a quoted passage is context, not content.
+#:
+#: Order matters: the three read-only context columns come first so a reviewer
+#: scrolls right once and finds the reason, the passage and the two cells they
+#: type in, adjacent.
+REVIEW_COLUMNS: tuple[str, ...] = (
+    "seed_id",
+    "why_this_example",
+    "passage",
+    "verdict",
+    "correction",
+)
+
+#: The subset a reviewer fills in. The rest are printed for them to read, and
+#: an edit to one changes nothing — `tmk-seed` regenerates them from the seed
+#: files and the snapshot on the next run.
+REVIEW_WRITABLE: frozenset[str] = frozenset({"verdict", "correction"})
 
 
 @dataclass(frozen=True, slots=True)

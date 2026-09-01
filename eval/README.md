@@ -20,6 +20,7 @@ facto standard purely because it arrived first.
 | `schemas/` | The machine-checkable form of the templates | present — S004, ADR-0027 |
 | the harness | `tmk-harness`, `tmk-coverage` in `src/tm_knowledge/stage0/` | present — S005, and **red by design** |
 | the intake path | `tmk-workbook` out, `tmk-transcribe` back in | present — S005 |
+| the seed path | `review/seed/` + `tmk-seed` — machine-written examples for expert **correction**, never content | present — S007, ADR-0043 |
 | `STAGE-0-INPUT-GUIDE.md` | **Expert-facing.** What the owner must supply, in what shape, with worked shape-only examples and elicitation prompts | present |
 
 `STAGE-0-INPUT-GUIDE.md` is the human companion to this file. Point the repo
@@ -37,6 +38,13 @@ questions, expected reasoning results, and examples of prohibited conclusions.
 **Experts own the content.** Competency questions, gold answers, concept
 approvals, relationship judgements and the prohibited-use list are legal
 judgements. An agent must not author them (CLAUDE.md rule 1).
+
+**One qualified exception, and it does not live here.** `review/seed/` holds
+machine-written *example* records over the pilot area, for experts to correct
+rather than compose (ADR-0043). Nothing in it is approved, nothing in it counts
+toward a Stage 0 deliverable, and it reaches `eval/gold/` only through
+`tmk-transcribe` with an expert's name in `approved_by`. If you find
+agent-authored content anywhere under `eval/`, that is still a defect.
 
 **Agents own the container.** Templates, schemas, loaders, the harness, internal
 consistency checks, coverage reports, the intake workbook and the transcription

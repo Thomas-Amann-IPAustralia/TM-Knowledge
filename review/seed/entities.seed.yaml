@@ -1,0 +1,3227 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# SEED EXAMPLES — gold entities.  NOT PROJECT CONTENT.  NOT APPROVED.
+#
+# Machine-written drafts over the s 43 pilot, for a Trade Mark expert to
+# correct. Guide: eval/STAGE-0-INPUT-GUIDE.md §5.2.
+#
+# ── THE BOUNDED CHUNK SET ─────────────────────────────────────────────────
+# Recall is unmeasurable unless a bounded set of chunks is annotated
+# *exhaustively* rather than cherry-picked (guide §4). Fourteen chunks were
+# chosen, together about 9,600 characters:
+#
+#   TMM/Part29/1#1         TMM/Part29/1/1/2       TMM/Part29/2/2/2
+#   TMM/Part29/2/2/3       TMM/Part29/2/2/4       TMM/Part29/3/3/2
+#   TMM/Part29/3/3/3       TMM/Part29/3/3/4       TMM/Part29/5/5/5
+#   TMM/Part29/6/6/2~3     TMM/Part29/7#1         TMM/Part29/9/9/2
+#   TMM/Part29/9/9/5       TMM/Part29/10#1
+#
+# ── THE ANNOTATION RULE — CORRECT THIS BEFORE YOU CORRECT ANY RECORD ──────
+# Within those chunks, a mention is annotated where it is:
+#   · a legal concept carrying a test, a threshold or a defined meaning;
+#   · a legislative provision, at any level, however written;
+#   · a judicial or Registrar's decision;
+#   · a category of evidence or of research material;
+#   · an instruction to the examiner — the clause that tells them what to do;
+#   · a role (examiner, decision maker, applicant, Registrar, consumer);
+#   · a date or temporal expression that bears on examination;
+#   · anything else a system must recognise, as `Other`.
+#
+# Deliberately NOT annotated: the bare term "trade mark" and the pronouns
+# standing in for it. It appears up to eight times in a single chunk and
+# discriminates nothing, so annotating it would triple the set and flatter
+# every recall figure taken over it.
+#
+# **TMM/Part29/2/2/2 is annotated without that exclusion**, as a demonstration
+# of what fully exhaustive looks like. Compare it against the others and tell
+# us which rule you want. That single decision is worth more than any
+# correction to an individual record below, because it decides what the
+# hundreds of records after this seed set will look like.
+#
+# ── WHAT YOU NEVER HAVE TO TYPE ───────────────────────────────────────────
+# `span` and `source_content_hash` are null here on purpose. `tmk-seed`
+# locates the `surface` in the chunk and fills both from the pinned snapshot.
+# Correct a surface and the offsets follow it. Where a surface appears more
+# than once, `locate.occurrence` says which mention is meant — and where it is
+# missing on an ambiguous surface, the tool reports it rather than guessing.
+# ═══════════════════════════════════════════════════════════════════════════
+
+defaults:
+  provenance:
+    extraction_method: llm
+    model: null
+    generator: tm-knowledge-agent-session-S007
+    generated_on: "2026-08-21"
+    confidence: null
+    review_status: candidate
+  review:
+    status: unreviewed
+    expert: null
+    reviewed_on: null
+    correction: null
+
+seeds:
+
+  # ═══ TMM/Part29/1#1 — the section, and what the Manual makes of it ══════
+  - seed_id: SEED-GE-0001
+    record_type: gold_entity
+    why_this_example: >
+      A provision named in the Manual's own words at the head of the Part. The
+      surface is capitalised because the sentence begins with it — a form a
+      case-sensitive matcher tuned on "section 43" will miss entirely.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0001
+      surface: "Section 43"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        Upstream carries this edge as an authored link rather than as a regex
+        read of the prose, which is the strongest form of provenance available.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0002
+    record_type: gold_entity
+    why_this_example: >
+      An instrument named by an abbreviation the Manual defines elsewhere.
+      `resolves_to` is null because the identifier grammar has no ref for a
+      whole instrument — only for units within one.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0002
+      surface: "the Act"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Instrument-level mentions are the commonest thing a naive provision
+        matcher gets wrong: it either drops them or attaches them to whichever
+        section was mentioned last.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0003
+    record_type: gold_entity
+    why_this_example: >
+      The pivot concept, in the statutory quotation rather than in the Manual's
+      own voice. Whether a mention inside quoted legislation counts as a Manual
+      entity at all is a question for you.
+    provenance:
+      confidence: 0.8
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0003
+      surface: "connotation"
+      type: LegalConcept
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        First of two mentions in this chunk. The first sits inside the quoted
+        section; the second is the Manual speaking.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0004
+    record_type: gold_entity
+    why_this_example: >
+      A compound concept expressed as a noun phrase with no term of art in it.
+      No keyphrase extractor will propose this span, and it is the statutory
+      hook for every "part of the mark" argument in the pilot.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0004
+      surface: "a sign contained in the trade mark"
+      type: LegalConcept
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0005
+    record_type: gold_entity
+    why_this_example: >
+      The statutory threshold, first mention. Kept as one span rather than two
+      because the Manual applies it as a single test — a modelling choice that
+      GC-0002 records and that you may want to reverse.
+    provenance:
+      confidence: 0.85
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0005
+      surface: "likely to deceive or cause confusion"
+      type: LegalConcept
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Two mentions in this chunk, both in the same words.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0006
+    record_type: gold_entity
+    why_this_example: >
+      The second mention of the same threshold, this time in the Manual's own
+      sentence about what a decision maker must be satisfied of. Annotated
+      separately because an exhaustive set counts mentions, not types.
+    provenance:
+      confidence: 0.85
+    locate:
+      occurrence: 2
+    record:
+      id: GE-0006
+      surface: "likely to deceive or cause confusion"
+      type: LegalConcept
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0007
+    record_type: gold_entity
+    why_this_example: >
+      The same provision in lower case in the Manual's own voice. Paired with
+      GE-0001 deliberately: one string, two casings, one provision.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0007
+      surface: "section 43"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0008
+    record_type: gold_entity
+    why_this_example: >
+      An anaphoric reference to the same provision — "this section" — which
+      resolves only from context. This is the hardest class of provision
+      mention and the one an examiner reads without noticing.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0008
+      surface: "this section"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        Upstream records provision edges from named citations; an anaphor like
+        this produces no edge at all, so nothing downstream knows it is here
+        unless a gold record says so.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0009
+    record_type: gold_entity
+    why_this_example: >
+      An instruction that is also a statement about the whole provision's
+      modality. It is the clearest Tier 3 sentence in the pilot: read wrongly,
+      it removes a discretion that exists, or preserves one that does not.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0009
+      surface: "There is, therefore, no discretion to accept a trade mark that is caught by the provisions of this section."
+      type: ManualInstruction
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        Annotated as an instruction rather than as a concept because it tells
+        the examiner what they may not do. If it reads to you as a statement of
+        law rather than an instruction, retyping it is the correction.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0010
+    record_type: gold_entity
+    why_this_example: >
+      A role named in the Manual's voice, and one of at least three names the
+      corpus uses for the person deciding. GC-0044 to GC-0046 hold the
+      question of whether they are the same role.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0010
+      surface: "decision maker"
+      type: Role
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0011
+    record_type: gold_entity
+    why_this_example: >
+      An evaluative standard expressed in two ordinary words. It governs when
+      the section bites and nothing in the sentence marks it as a term of art.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0011
+      surface: "clearly satisfied"
+      type: LegalConcept
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Sits alongside the presumption of registrability in TMM/Part29/2/2/4.
+        Together they are the pilot's rule for what to do under uncertainty.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0012
+    record_type: gold_entity
+    why_this_example: >
+      A specification reference with the Manual's own irregular spacing —
+      "and / or" with spaces around the slash. Copied verbatim, typography and
+      all, because a tidied surface does not land on the text.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0012
+      surface: "the specified goods and / or services"
+      type: LegalConcept
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        The corpus writes this as "goods/services", "goods and/or services",
+        "goods or services" and "goods and / or services" within a few
+        paragraphs. All four mean the same thing and no two match as strings.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0013
+    record_type: gold_entity
+    why_this_example: >
+      The audience of the test, named in yet another form. GC-0009 holds four
+      candidate labels for what may be one concept or several.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0013
+      surface: "consumers within the relevant market"
+      type: LegalConcept
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0014
+    record_type: gold_entity
+    why_this_example: >
+      The outcome concept, in the phrase the Manual uses everywhere. Its
+      frequency is why it needs a concept record — it will dominate any
+      keyphrase ranking and mean nothing on its own.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0014
+      surface: "ground for rejection"
+      type: LegalConcept
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0015
+    record_type: gold_entity
+    why_this_example: >
+      The operative instruction of the whole Part, with its condition attached.
+      The modality is "should", and whether that is advisory or effectively
+      obligatory is the judgement GR-0004 records.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0015
+      surface: "If the trade mark, or some part of the trade mark, contains a connotation that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection should be raised."
+      type: ManualInstruction
+      source_ref: TMM/Part29/1#1
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        Note that this sentence uses "deceive or confuse", not the statutory
+        "deceive or cause confusion". Whether the Manual is paraphrasing or
+        stating a different thing is a reading only an expert can give.
+      approved_by: null
+      approved_date: null
+
+  # ═══ TMM/Part29/1/1/2 — plant variety names ════════════════════════════
+  - seed_id: SEED-GE-0016
+    record_type: gold_entity
+    why_this_example: >
+      A subject-matter concept that carries the section into another Part.
+      Annotated as a concept rather than as a category of goods.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0016
+      surface: "a particular plant variety or other plant name"
+      type: LegalConcept
+      source_ref: TMM/Part29/1/1/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0017
+    record_type: gold_entity
+    why_this_example: >
+      A verb form of the pivot concept. "Connote" and "connotation" are the
+      same idea in different parts of speech, and a lemmatiser will merge them
+      while a string matcher will not.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0017
+      surface: "connote"
+      type: LegalConcept
+      source_ref: TMM/Part29/1/1/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0018
+    record_type: gold_entity
+    why_this_example: >
+      A domain-specific test — same or closely related genus — that is
+      biological rather than legal, and that no legal vocabulary will contain.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0018
+      surface: "the same or a closely related genus"
+      type: LegalConcept
+      source_ref: TMM/Part29/1/1/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0019
+    record_type: gold_entity
+    why_this_example: >
+      The threshold again, this time with the thing deceived about attached to
+      it — "as to the true nature". The Manual's list of what deception can be
+      about lives in TMM/Part29/3#1~1; this is one item from it, inline.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0019
+      surface: "likely to deceive or cause confusion as to the true nature"
+      type: LegalConcept
+      source_ref: TMM/Part29/1/1/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0020
+    record_type: gold_entity
+    why_this_example: >
+      A provision cited with its instrument named in full. The commonest
+      citation form in the Manual, and the one that resolves most reliably.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0020
+      surface: "section 43 of the Act"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/1/1/2
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        The span deliberately includes "of the Act". Whether the instrument
+        belongs inside the entity or beside it is a modelling decision that
+        changes every provision annotation in the set.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0021
+    record_type: gold_entity
+    why_this_example: >
+      A cross-reference to another Part of the Manual, which is a different
+      kind of thing from a provision reference and needs its own treatment.
+    provenance:
+      confidence: 0.8
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0021
+      surface: "Part 32A"
+      type: Other
+      source_ref: TMM/Part29/1/1/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Upstream keeps only internal references that resolved to a page or
+        chunk and drops the rest (Q-08), so the absence of an internal-ref edge
+        here is not evidence that the Manual made no reference.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0022
+    record_type: gold_entity
+    why_this_example: >
+      The trailing link text, which the extractor keeps as part of the chunk's
+      body. It reads as prose and is really navigation — a category of noise
+      worth naming rather than silently tolerating.
+    provenance:
+      confidence: 0.65
+    record:
+      id: GE-0022
+      surface: "Part 32A - Examination of Trade Marks for Plants (in class 31)"
+      type: Other
+      source_ref: TMM/Part29/1/1/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        If link titles should be excluded from annotation altogether, saying so
+        is a rule-level correction that applies across the corpus.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0023
+    record_type: gold_entity
+    why_this_example: >
+      A class number, which is a classification fact rather than a legal
+      concept. Typed `Other` because none of the seven named types fits.
+    provenance:
+      confidence: 0.6
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0023
+      surface: "class 31"
+      type: Other
+      source_ref: TMM/Part29/1/1/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        If Nice classes deserve their own entity type, this record is the
+        evidence for adding one — the taxonomy is the expert's to set.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0024
+    record_type: gold_entity
+    why_this_example: >
+      The outcome-shaped instruction in this chunk, whose modality is "will be
+      appropriate" — neither must, may nor should on its face.
+    provenance:
+      confidence: 0.65
+    record:
+      id: GE-0024
+      surface: "a ground for rejection under section 43 of the Act will be appropriate"
+      type: ManualInstruction
+      source_ref: TMM/Part29/1/1/2
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        "Will be appropriate" is the Manual's most common way of stating an
+        outcome. Which of must/may/should it maps to is the modality judgement
+        GR-0002 asks you for, and it is not a grammar question.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0025
+    record_type: gold_entity
+    why_this_example: >
+      A referral instruction — do this by going somewhere else. Instructions of
+      this shape are the connective tissue of the Manual and are invisible to
+      any extraction aimed at legal tests.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0025
+      surface: "For details of practice in examination of applications for registration of trade marks covering plants and/or plant materials in class 31 see Part 32A."
+      type: ManualInstruction
+      source_ref: TMM/Part29/1/1/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0026
+    record_type: gold_entity
+    why_this_example: >
+      The goods concept, in the form this chunk uses. Compare GE-0012's
+      spacing: the same idea, four typographies.
+    provenance:
+      confidence: 0.7
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0026
+      surface: "plants or plant materials"
+      type: LegalConcept
+      source_ref: TMM/Part29/1/1/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  # ═══ TMM/Part29/2/2/2 — the fully exhaustive demonstration ═════════════
+  # Every mention of every listed type, including the bare term "trade mark"
+  # that the annotation rule above excludes elsewhere. Two sentences,
+  # 213 characters, twelve entities. Compare the density here against the
+  # chunks around it and tell us which rule you want.
+  - seed_id: SEED-GE-0027
+    record_type: gold_entity
+    why_this_example: >
+      Fully-exhaustive demonstration chunk. The pivot concept opening the
+      sentence.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0027
+      surface: "A connotation"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        The article is inside the span here and outside it in GE-0003.
+        Whichever convention you prefer, it has to be the same one everywhere
+        or the offsets will not compare between annotators.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0028
+    record_type: gold_entity
+    why_this_example: >
+      Fully-exhaustive demonstration: the bare term excluded by the annotation
+      rule elsewhere, annotated here so the two rules can be compared.
+    provenance:
+      confidence: 0.6
+    record:
+      id: GE-0028
+      surface: "the whole trade mark"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0029
+    record_type: gold_entity
+    why_this_example: >
+      Fully-exhaustive demonstration: the whole/part distinction, which the Act
+      itself makes and which GC-0038 records.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0029
+      surface: "a part of the trade mark"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0030
+    record_type: gold_entity
+    why_this_example: >
+      Fully-exhaustive demonstration: an anaphor standing in for the concept.
+      "It" is the subject of the second sentence and refers to the connotation.
+    provenance:
+      confidence: 0.55
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0030
+      surface: "It"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Deliberately included. Whether pronouns are annotated at all is a rule
+        decision with a large cost attached — coreference is where exhaustive
+        annotation stops being cheap.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0031
+    record_type: gold_entity
+    why_this_example: >
+      Fully-exhaustive demonstration: one of the two sources of a connotation
+      the Manual names.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0031
+      surface: "a dictionary meaning"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Grounded in TMM/Part29/2/2/1~1, which quotes two dictionaries by name.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0032
+    record_type: gold_entity
+    why_this_example: >
+      Fully-exhaustive demonstration: the second source, expressed as a
+      relation between the public and something outside the mark.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0032
+      surface: "a connection in the minds of the buying public with some person, place or thing"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        This span is the seed of the whole of Parts 29.6 (persons), 29.9
+        (places) and the INN material (things). If the ontology has one
+        organising relation, it is probably this one.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0033
+    record_type: gold_entity
+    why_this_example: >
+      Fully-exhaustive demonstration: the audience, in the form this chunk
+      uses.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0033
+      surface: "the buying public"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0034
+    record_type: gold_entity
+    why_this_example: >
+      Fully-exhaustive demonstration: a person as a source of connotation —
+      the hook Part 29.6 hangs on.
+    provenance:
+      confidence: 0.6
+    record:
+      id: GE-0034
+      surface: "person"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Typed LegalConcept rather than Role: this is a person referred to by the
+        mark, not a participant in examination. The distinction matters and the
+        word does not carry it.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0035
+    record_type: gold_entity
+    why_this_example: >
+      Fully-exhaustive demonstration: a place as a source of connotation, the
+      hook for Part 29.9.
+    provenance:
+      confidence: 0.6
+    record:
+      id: GE-0035
+      surface: "place"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0036
+    record_type: gold_entity
+    why_this_example: >
+      Fully-exhaustive demonstration: a thing as a source of connotation. The
+      weakest of the three and the one that carries the INN and domain-name
+      material.
+    provenance:
+      confidence: 0.5
+    record:
+      id: GE-0036
+      surface: "thing"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0037
+    record_type: gold_entity
+    why_this_example: >
+      Fully-exhaustive demonstration: the modality word on its own. "May
+      result" is possibility, not permission, and that reading is the whole
+      point of the modality field.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0037
+      surface: "may result from the whole trade mark or from a part of the trade mark"
+      type: ManualInstruction
+      source_ref: TMM/Part29/2/2/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Typed as an instruction is arguably wrong — it instructs nobody to do
+        anything. If it is a statement rather than an instruction, that is a
+        correction worth making, because the same shape recurs throughout.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0038
+    record_type: gold_entity
+    why_this_example: >
+      Fully-exhaustive demonstration: the second, weaker modality — a second
+      "may result" governing the two sources.
+    provenance:
+      confidence: 0.65
+    record:
+      id: GE-0038
+      surface: "It may result from a dictionary meaning or from a connection in the minds of the buying public with some person, place or thing."
+      type: ManualInstruction
+      source_ref: TMM/Part29/2/2/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  # ═══ TMM/Part29/2/2/3 — the boundary with section 44 ═══════════════════
+  - seed_id: SEED-GE-0039
+    record_type: gold_entity
+    why_this_example: >
+      The rule that keeps section 43 out of section 44's territory, stated as
+      an instruction with a negation in it. Negations are what summarisation
+      loses first.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0039
+      surface: "A connotation must arise from the trade mark itself, and not through a comparison with another trade mark."
+      type: ManualInstruction
+      source_ref: TMM/Part29/2/2/3
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        This is the single most important sentence in the pilot for precision:
+        it is what makes PU-0008 a prohibited inference.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0040
+    record_type: gold_entity
+    why_this_example: >
+      The concept in the Manual's voice, subject of the rule above.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0040
+      surface: "A connotation"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0041
+    record_type: gold_entity
+    why_this_example: >
+      The excluded operation, named. "Comparison with another trade mark" is
+      section 44's whole subject and is here only to be ruled out.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0041
+      surface: "a comparison with another trade mark"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        A retrieval system that indexes this chunk under "comparison between
+        trade marks" will surface it for exactly the queries it should not.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0042
+    record_type: gold_entity
+    why_this_example: >
+      A provision reference to a neighbouring ground, with the instrument
+      named. Whether section 44 is inside the pilot boundary is deliverable 1's
+      question; this record is here either way.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0042
+      surface: "section 44 of the Act"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/2/2/3
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s44
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0043
+    record_type: gold_entity
+    why_this_example: >
+      A cross-Part reference that defines where the excluded material lives.
+      It is the navigational half of the rule in GE-0039.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0043
+      surface: "Part 26 of this Manual"
+      type: Other
+      source_ref: TMM/Part29/2/2/3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0044
+    record_type: gold_entity
+    why_this_example: >
+      Link text again, this time carrying an en dash rather than a hyphen. The
+      Manual uses both within a few lines and a normaliser will merge them.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0044
+      surface: "Part 26 – Conflict with Other Signs"
+      type: Other
+      source_ref: TMM/Part29/2/2/3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        The dash here is an en dash (–). GE-0022's equivalent is a hyphen (-).
+        If a surface is retyped rather than copied, it will not land.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0045
+    record_type: gold_entity
+    why_this_example: >
+      The referral instruction, separated from the rule it follows. Two
+      sentences, two different kinds of content, one chunk.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0045
+      surface: "Such comparisons are dealt with under the provisions of section 44 of the Act, and discussed in detail in Part 26 of this Manual."
+      type: ManualInstruction
+      source_ref: TMM/Part29/2/2/3
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s44
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  # ═══ TMM/Part29/2/2/4 — the presumption ════════════════════════════════
+  - seed_id: SEED-GE-0046
+    record_type: gold_entity
+    why_this_example: >
+      A named doctrine applied to the pilot provision by name. One of the few
+      places in the pilot where a general principle is expressly localised.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0046
+      surface: "The presumption of registrability"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0047
+    record_type: gold_entity
+    why_this_example: >
+      The office holder, named where the satisfaction requirement sits. GE-0010
+      names a "decision maker" for what may be the same requirement.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0047
+      surface: "The Registrar"
+      type: Role
+      source_ref: TMM/Part29/2/2/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Two chunks apart, the same requirement is attributed to a "decision
+        maker" and to "the Registrar". If those are different people the
+        difference matters; if they are the same, the vocabulary should say so.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0048
+    record_type: gold_entity
+    why_this_example: >
+      A provision reference at subsection level. Q-21 records that s 43 itself
+      has no numbered subsections, so a citation like this one is only
+      resolvable because it is to a different section.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0048
+      surface: "section 33(3)"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/2/2/4
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s33(3)
+      notes: >
+        Resolves to a unit beneath a provision rather than to a provision. The
+        ref grammar cannot tell the two apart on its own (Q-18); the loader
+        does it by trying both.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0049
+    record_type: gold_entity
+    why_this_example: >
+      The pilot provision, plainly cited.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0049
+      surface: "section 43"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/2/2/4
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0050
+    record_type: gold_entity
+    why_this_example: >
+      The instruction that governs what to do under uncertainty, and the
+      strongest counterweight in the pilot to the mandatory-application
+      statement in GE-0009.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0050
+      surface: "If there is doubt that a connotation exists, then the ground for rejection should not be raised."
+      type: ManualInstruction
+      source_ref: TMM/Part29/2/2/4
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        Read together with GE-0009 this is the pilot's whole treatment of
+        uncertainty: no discretion once the section bites, and no raising the
+        ground while there is doubt that it does.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0051
+    record_type: gold_entity
+    why_this_example: >
+      A precondition instruction: one thing must be established before another
+      may be applied. Ordering constraints of this kind are exactly what a
+      reasoning layer would want and what flat extraction loses.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0051
+      surface: "The Registrar must be satisfied that a ground for rejection exists before section 33(3) can be applied to reject the trade mark."
+      type: ManualInstruction
+      source_ref: TMM/Part29/2/2/4
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s33(3)
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0052
+    record_type: gold_entity
+    why_this_example: >
+      The uncertainty condition on its own, separated from the instruction it
+      governs. Whether a condition is annotated separately from its consequent
+      is a rule question.
+    provenance:
+      confidence: 0.6
+    record:
+      id: GE-0052
+      surface: "doubt that a connotation exists"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0053
+    record_type: gold_entity
+    why_this_example: >
+      The outcome concept, second mention in this chunk. Included because the
+      set counts mentions.
+    provenance:
+      confidence: 0.85
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0053
+      surface: "ground for rejection"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0054
+    record_type: gold_entity
+    why_this_example: >
+      Second mention of the same phrase, three sentences later. The occurrence
+      hint is what separates them.
+    provenance:
+      confidence: 0.85
+    locate:
+      occurrence: 2
+    record:
+      id: GE-0054
+      surface: "ground for rejection"
+      type: LegalConcept
+      source_ref: TMM/Part29/2/2/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  # ═══ TMM/Part29/3/3/2 — immediacy, and two senses of "current" ═════════
+  - seed_id: SEED-GE-0055
+    record_type: gold_entity
+    why_this_example: >
+      A negative threshold — what is *not* enough. The Manual states the test
+      more often by exclusion than by definition, and exclusions are what an
+      extraction system drops.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0055
+      surface: "A mere possibility of deception or confusion"
+      type: LegalConcept
+      source_ref: TMM/Part29/3/3/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0056
+    record_type: gold_entity
+    why_this_example: >
+      A temporal expression that is doing legal work — it names the failure
+      mode the immediacy requirement excludes. Typed `Date` under the gold
+      taxonomy, where `Date` means a date that matters to examination.
+    provenance:
+      confidence: 0.6
+    record:
+      id: GE-0056
+      surface: "at some indeterminate time"
+      type: Date
+      source_ref: TMM/Part29/3/3/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Compare GE-0061. Both are temporal expressions and only one of them
+        matters to examination. A stock NER model tags both `DATE` and cannot
+        tell them apart (Q-16) — which is precisely why the two taxonomies must
+        not be mapped one to one.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0057
+    record_type: gold_entity
+    why_this_example: >
+      A "must" instruction with two explicit exclusions attached. The
+      exclusions are half the content and the shortest correct summary drops
+      them.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0057
+      surface: "Each application must be considered as it stands in the current marketplace, not in the marketplace as it was in the past and not as it may be in the future."
+      type: ManualInstruction
+      source_ref: TMM/Part29/3/3/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0058
+    record_type: gold_entity
+    why_this_example: >
+      One of two senses of "current" inside the pilot. This one is about the
+      market; TMM/Part29/6#1~2's priority date is about the application.
+    provenance:
+      confidence: 0.8
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0058
+      surface: "the current marketplace"
+      type: LegalConcept
+      source_ref: TMM/Part29/3/3/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0059
+    record_type: gold_entity
+    why_this_example: >
+      A provision mention with no number at all. "The previous legislation"
+      names an instrument the programme does not hold and cannot identify from
+      the sentence — the same trap as PU-0010, in a vaguer form.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0059
+      surface: "the previous legislation"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/3/3/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Unresolvable by design rather than by error. A gold record that guessed
+        an instrument here would be asserting something the corpus does not say.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0060
+    record_type: gold_entity
+    why_this_example: >
+      Its counterpart, and equally unnumbered. Two instrument mentions in one
+      sentence, neither citable, both load-bearing.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0060
+      surface: "the current Act"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/3/3/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0061
+    record_type: gold_entity
+    why_this_example: >
+      A temporal expression that is pure illustration. Annotated so that the
+      set contains a `Date`-shaped span that should *not* be treated as an
+      examination date — the negative case for the type.
+    provenance:
+      confidence: 0.5
+    record:
+      id: GE-0061
+      surface: "10 years ago"
+      type: Date
+      source_ref: TMM/Part29/3/3/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Arguably should not be annotated at all. If your rule is that only dates
+        bearing on an application are annotated, deleting this record is the
+        correction — and that rule is worth stating explicitly.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0062
+    record_type: gold_entity
+    why_this_example: >
+      The role in the plural, capitalised at the start of a sentence. Compare
+      GE-0010 and GE-0047: three names for the person deciding, in three chunks.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0062
+      surface: "Examiners"
+      type: Role
+      source_ref: TMM/Part29/3/3/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0063
+    record_type: gold_entity
+    why_this_example: >
+      An instruction addressed to examiners by name, with a "must" and a
+      trailing qualification that softens it. The qualification is the part a
+      summariser will cut.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0063
+      surface: "Examiners must ensure that they are considering the current marketplace when deciding whether a sign is likely to offend under section 43, remembering there will be signs in that marketplace which have kept their connotations over long periods of time."
+      type: ManualInstruction
+      source_ref: TMM/Part29/3/3/2
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0064
+    record_type: gold_entity
+    why_this_example: >
+      The pilot provision inside the instruction above. Overlapping spans are
+      permitted here; if your convention forbids them, that is a rule-level
+      correction affecting roughly a third of this file.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0064
+      surface: "section 43"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/3/3/2
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0065
+    record_type: gold_entity
+    why_this_example: >
+      A paraphrase of the statutory threshold in the Manual's own shorthand.
+      "Likely to offend" appears nowhere in the Act and means the same thing —
+      the exact case a vocabulary has to catch and string matching cannot.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0065
+      surface: "likely to offend"
+      type: LegalConcept
+      source_ref: TMM/Part29/3/3/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        If this belongs as an `alt_label` on GC-0002, saying so is a valuable
+        correction — it is not currently there.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0066
+    record_type: gold_entity
+    why_this_example: >
+      "Currency" in the sense of a term having taken on meaning in a trade — a
+      third sense of the word inside the pilot, and the one furthest from the
+      others.
+    provenance:
+      confidence: 0.6
+    record:
+      id: GE-0066
+      surface: "have currency in a particular field"
+      type: LegalConcept
+      source_ref: TMM/Part29/3/3/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  # ═══ TMM/Part29/3/3/3 — the mark itself, and three decisions ═══════════
+  - seed_id: SEED-GE-0067
+    record_type: gold_entity
+    why_this_example: >
+      A scope qualifier that limits the whole rule to one stage of the process.
+      Four words, and without them the sentence says something materially
+      broader.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0067
+      surface: "At least at the examination stage"
+      type: LegalConcept
+      source_ref: TMM/Part29/3/3/3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Read with TMM/Part29/3/3/4, which is about what emerges at opposition.
+        The two together are the Manual's account of why examination and
+        opposition can reach different answers on the same mark.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0068
+    record_type: gold_entity
+    why_this_example: >
+      The rule this chunk exists to state, in full, with its exclusion.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0068
+      surface: "At least at the examination stage, deception and confusion must result from something within the trade mark under consideration, not through a comparison with another trade mark."
+      type: ManualInstruction
+      source_ref: TMM/Part29/3/3/3
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0069
+    record_type: gold_entity
+    why_this_example: >
+      A decision cited in full, with party names, neutral citation and
+      pinpoint. `resolves_to` carries upstream's canonical case ref — which is
+      an identifier and not a document: no decision text exists anywhere in the
+      programme (Q-11).
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0069
+      surface: "T.G.I. Friday's Australia Pty Ltd v TGI Friday's Inc [2000] FCA 720"
+      type: JudicialDecision
+      source_ref: TMM/Part29/3/3/3
+      span: null
+      source_content_hash: null
+      resolves_to: CASE/2000/FCA/720
+      notes: >
+        The party names contain full stops and an apostrophe, and the same
+        entity is written two ways inside one citation — "T.G.I." and "TGI".
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0070
+    record_type: gold_entity
+    why_this_example: >
+      The court, named in a form no gazetteer will hold. Typed `Other` because
+      the gold taxonomy has no court type; whether it needs one is a decision.
+    provenance:
+      confidence: 0.6
+    record:
+      id: GE-0070
+      surface: "the full bench of the Federal Court"
+      type: Other
+      source_ref: TMM/Part29/3/3/3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0071
+    record_type: gold_entity
+    why_this_example: >
+      Judges named collectively with a shared honorific. A person-name matcher
+      will split this into three people and lose the "JJ".
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0071
+      surface: "Wilcox, Kiefel and Emmett JJ"
+      type: Role
+      source_ref: TMM/Part29/3/3/3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Typed `Role` rather than `Other` on the view that a judge is a role in
+        the corpus. If named individuals should be `Other`, say so — the same
+        question arises for Hearing Officers and Delegates.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0072
+    record_type: gold_entity
+    why_this_example: >
+      A pinpoint reference. It is the difference between citing a decision and
+      citing a passage in one, and no ref in this project can express it.
+    provenance:
+      confidence: 0.65
+    record:
+      id: GE-0072
+      surface: "at [44]"
+      type: Other
+      source_ref: TMM/Part29/3/3/3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Worth deciding: if pinpoints are never resolvable, they may still be
+        worth recognising so that a citation can be reproduced faithfully.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0073
+    record_type: gold_entity
+    why_this_example: >
+      The pilot provision written without a space, inside quoted judicial
+      reasoning. Three spellings of one provision now appear in this set —
+      "Section 43", "section 43" and "s43".
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0073
+      surface: "s43"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/3/3/3
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        This mention sits inside a quotation from the Court, not in the
+        Manual's own voice. Whether quoted mentions are annotated is the same
+        question GE-0003 raises for quoted legislation.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0074
+    record_type: gold_entity
+    why_this_example: >
+      A decision cited in a "subsequently applied in" list — the Manual's way
+      of stating that a proposition has been followed.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0074
+      surface: "Primary Health Care Limited v Commonwealth of Australia [2017] FCAFC 174"
+      type: JudicialDecision
+      source_ref: TMM/Part29/3/3/3
+      span: null
+      source_content_hash: null
+      resolves_to: CASE/2017/FCAFC/174
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0075
+    record_type: gold_entity
+    why_this_example: >
+      The second decision in the same list. Both are cited for the same
+      proposition, which is a relationship the graph should hold and which
+      GR-0012 records.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0075
+      surface: "Pfizer Products Inc v Karam [2006] FCA 1663"
+      type: JudicialDecision
+      source_ref: TMM/Part29/3/3/3
+      span: null
+      source_content_hash: null
+      resolves_to: CASE/2006/FCA/1663
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0076
+    record_type: gold_entity
+    why_this_example: >
+      The excluded basis, in the Court's words rather than the Manual's:
+      similarity to a name used by another trader. It is what section 44
+      addresses and section 43 does not.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0076
+      surface: "its similarity to a name used by Big Country and others"
+      type: LegalConcept
+      source_ref: TMM/Part29/3/3/3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  # ═══ TMM/Part29/3/3/4 — what emerges at opposition ═════════════════════
+  - seed_id: SEED-GE-0077
+    record_type: gold_entity
+    why_this_example: >
+      The pilot provision inside a compound noun phrase — "a section 43 ground
+      for rejection" — which is how the Manual most often names the outcome.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0077
+      surface: "section 43"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/3/3/4
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0078
+    record_type: gold_entity
+    why_this_example: >
+      A stage of the process, named as the place where something becomes
+      visible. Whether opposition material is inside the pilot boundary is
+      deliverable 1's question and this record is the concrete instance of it.
+    provenance:
+      confidence: 0.7
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0078
+      surface: "opposition"
+      type: LegalConcept
+      source_ref: TMM/Part29/3/3/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0079
+    record_type: gold_entity
+    why_this_example: >
+      An evidence category expressed as an absence at examination — "the full
+      facts of a case" are what examination does not have.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0079
+      surface: "the full facts of a case"
+      type: EvidenceCategory
+      source_ref: TMM/Part29/3/3/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Typed `EvidenceCategory` on the view that it names a class of material
+        rather than a legal test. If it is really a statement about the process,
+        `Other` may be right.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0080
+    record_type: gold_entity
+    why_this_example: >
+      The deciding role again, in its third form and in a chunk about
+      opposition rather than examination.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0080
+      surface: "the decision maker"
+      type: Role
+      source_ref: TMM/Part29/3/3/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0081
+    record_type: gold_entity
+    why_this_example: >
+      An exculpatory statement about the process itself — that a ground missed
+      at examination need not mean examination went wrong. Unusual content, and
+      exactly the sort a summary drops as non-substantive.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0081
+      surface: "This circumstance need not point to a fault in the examination process, but to the capacity for a trade mark to develop a connotation over time."
+      type: ManualInstruction
+      source_ref: TMM/Part29/3/3/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0082
+    record_type: gold_entity
+    why_this_example: >
+      The concept GC-0039 records, in the words the Manual uses for it. Its
+      near-miss — acquired distinctiveness under section 41 — is described in
+      almost identical language elsewhere in the Manual.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0082
+      surface: "develop a connotation over time"
+      type: LegalConcept
+      source_ref: TMM/Part29/3/3/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0083
+    record_type: gold_entity
+    why_this_example: >
+      The term the Manual treats as a synonym for connotation in this passage.
+      If it is not a synonym, GC-0001's `alt_labels` are wrong.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0083
+      surface: "secondary meaning"
+      type: LegalConcept
+      source_ref: TMM/Part29/3/3/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0084
+    record_type: gold_entity
+    why_this_example: >
+      A temporal expression naming a mechanism rather than a moment. Third
+      `Date`-typed span in the set and the third different kind of thing.
+    provenance:
+      confidence: 0.55
+    record:
+      id: GE-0084
+      surface: "the passage of time"
+      type: Date
+      source_ref: TMM/Part29/3/3/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Very likely a wrong typing. It is here so that the three `Date` records
+        in this set can be compared and a rule drawn from them.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0085
+    record_type: gold_entity
+    why_this_example: >
+      An evidence category that is really a pattern of conduct — use within a
+      trade — rather than a document. The type has to stretch to hold it.
+    provenance:
+      confidence: 0.65
+    record:
+      id: GE-0085
+      surface: "extensive use within a particular trade"
+      type: EvidenceCategory
+      source_ref: TMM/Part29/3/3/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0086
+    record_type: gold_entity
+    why_this_example: >
+      The evidence category the Manual names as characteristic of opposition,
+      with the quantifier attached. "Considerable" is doing work.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0086
+      surface: "considerable evidence of use"
+      type: EvidenceCategory
+      source_ref: TMM/Part29/3/3/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0087
+    record_type: gold_entity
+    why_this_example: >
+      A party role that exists only in opposition. It marks the boundary of the
+      examination-centred vocabulary the rest of the pilot uses.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0087
+      surface: "the opposing party"
+      type: Role
+      source_ref: TMM/Part29/3/3/4
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0088
+    record_type: gold_entity
+    why_this_example: >
+      A Registrar's decision rather than a court's, cited with a long corporate
+      party name and a bracketed short name after the citation.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0088
+      surface: "George Schmidt v Down to Earth (Victoria) Co-operative Society Limited [1998] ATMO 10"
+      type: JudicialDecision
+      source_ref: TMM/Part29/3/3/4
+      span: null
+      source_content_hash: null
+      resolves_to: CASE/1998/ATMO/10
+      notes: >
+        The party name contains its own brackets, so a citation matcher keyed on
+        the bracket that opens the neutral citation will cut the name in half.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0089
+    record_type: gold_entity
+    why_this_example: >
+      The short name the Manual gives the decision, in curly quotes. It is how
+      practitioners refer to the case and it is not a citation.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0089
+      surface: "‘Earthhaven Confest’"
+      type: Other
+      source_ref: TMM/Part29/3/3/4
+      span: null
+      source_content_hash: null
+      resolves_to: CASE/1998/ATMO/10
+      notes: >
+        Typographic single quotation marks, not ASCII apostrophes. Retyping this
+        surface will not land it, which is the point of copying rather than
+        transcribing.
+      approved_by: null
+      approved_date: null
+
+  # ═══ TMM/Part29/5/5/5 — INN stems, and a broken term of art ════════════
+  - seed_id: SEED-GE-0090
+    record_type: gold_entity
+    why_this_example: >
+      A complete conditional rule in one sentence: three conditions joined by
+      "or" and "and", with the negation carried at the end. The most
+      structurally complex instruction in the bounded set.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0090
+      surface: "A ground for rejection under section 43 exists where a trade mark to be used in relation to pharmaceuticals or veterinary substances consists of an INN stem, or contains a notified INN stem in a meaningful way, and use of the trade mark in respect of the goods covered by the specification are not restricted to substances indicated by the INN stem."
+      type: ManualInstruction
+      source_ref: TMM/Part29/5/5/5
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        Note the number agreement: "use … are not restricted". Copied verbatim
+        because a corrected surface will not land on the text.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0091
+    record_type: gold_entity
+    why_this_example: >
+      The pilot provision, first of two mentions in this chunk.
+    provenance:
+      confidence: 0.9
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0091
+      surface: "section 43"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/5/5/5
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0092
+    record_type: gold_entity
+    why_this_example: >
+      The goods category that bounds this practice. GC-0025 asks whether
+      supplements are inside it.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0092
+      surface: "pharmaceuticals or veterinary substances"
+      type: LegalConcept
+      source_ref: TMM/Part29/5/5/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0093
+    record_type: gold_entity
+    why_this_example: >
+      The term of art, first mention. Four mentions in this chunk, which is why
+      the occurrence hint exists.
+    provenance:
+      confidence: 0.9
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0093
+      surface: "INN stem"
+      type: LegalConcept
+      source_ref: TMM/Part29/5/5/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0094
+    record_type: gold_entity
+    why_this_example: >
+      The same term with a qualifier that changes its legal status — a stem is
+      only operative once notified. The qualifier is one word and carries the
+      whole external dependency.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0094
+      surface: "a notified INN stem"
+      type: LegalConcept
+      source_ref: TMM/Part29/5/5/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0095
+    record_type: gold_entity
+    why_this_example: >
+      The hinge test of Part 29.5, expressed as a four-word adverbial with no
+      noun to anchor it. GC-0024 gives it a label the Manual never uses.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0095
+      surface: "in a meaningful way"
+      type: LegalConcept
+      source_ref: TMM/Part29/5/5/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0096
+    record_type: gold_entity
+    why_this_example: >
+      The document the ground turns on, in its bare form.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0096
+      surface: "the specification"
+      type: LegalConcept
+      source_ref: TMM/Part29/5/5/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0097
+    record_type: gold_entity
+    why_this_example: >
+      The party role, in the sentence describing how the ground is overcome.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0097
+      surface: "the applicant"
+      type: Role
+      source_ref: TMM/Part29/5/5/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0098
+    record_type: gold_entity
+    why_this_example: >
+      The remedy concept, first mention. GC-0013 separates it from the
+      endorsement that records it, which this chunk uses in the next sentence.
+    provenance:
+      confidence: 0.85
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0098
+      surface: "a condition of registration"
+      type: LegalConcept
+      source_ref: TMM/Part29/5/5/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0099
+    record_type: gold_entity
+    why_this_example: >
+      The wording, attributed to the Registrar as a suggestion. PU-0006 turns
+      on whether "suggested" survives into the system's output.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0099
+      surface: "The endorsement suggested by the Registrar"
+      type: LegalConcept
+      source_ref: TMM/Part29/5/5/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0100
+    record_type: gold_entity
+    why_this_example: >
+      The office holder, inside the phrase above. A second overlapping span,
+      annotated on the same convention as GE-0064.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0100
+      surface: "the Registrar"
+      type: Role
+      source_ref: TMM/Part29/5/5/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0101
+    record_type: gold_entity
+    why_this_example: >
+      Template text with a fill-in placeholder. It is neither prose nor a legal
+      test, and reproducing it wrongly would put wrong wording on a register.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0101
+      surface: "It is a condition of registration that any use in respect of pharmaceuticals will be limited to such goods containing substances belonging to the pharmacological group designated by the International Non- Proprietary Name stem <stem>."
+      type: Other
+      source_ref: TMM/Part29/5/5/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Copied exactly, including the broken term of art in the middle of it —
+        see GE-0102 — and the angle-bracket placeholder, which will be eaten by
+        anything that treats the text as markup.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0102
+    record_type: gold_entity
+    why_this_example: >
+      The most instructive record in this chunk. The term of art is broken
+      across a line in the source and arrives as "Non- Proprietary", with a
+      space after the hyphen. It is the same concept as GC-0022 and matches
+      nothing.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0102
+      surface: "International Non- Proprietary Name stem"
+      type: LegalConcept
+      source_ref: TMM/Part29/5/5/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        A term split across a line is one of the forms guide §5.2 asks
+        specifically to be annotated. Nothing normalises this away safely: the
+        same repair applied generally would join words that belong apart.
+      approved_by: null
+      approved_date: null
+
+  # ═══ TMM/Part29/6/6/2~3 — a decision named by one word ═════════════════
+  - seed_id: SEED-GE-0103
+    record_type: gold_entity
+    why_this_example: >
+      A Registrar's decision cited in full, with the mark in brackets after it.
+    provenance:
+      confidence: 0.9
+    record:
+      id: GE-0103
+      surface: "Elvis Presley Enterprises Inc v Jelcic [2008] ATMO 103"
+      type: JudicialDecision
+      source_ref: TMM/Part29/6/6/2~3
+      span: null
+      source_content_hash: null
+      resolves_to: CASE/2008/ATMO/103
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0104
+    record_type: gold_entity
+    why_this_example: >
+      The trade mark at issue, given in the Manual's bracketed convention. A
+      mark is a thing the system must recognise and the taxonomy has no type
+      for it.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0104
+      surface: "ELVISFINANCE"
+      type: Other
+      source_ref: TMM/Part29/6/6/2~3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        If trade marks under consideration deserve their own entity type, this
+        record and GE-0110 are the argument for it.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0105
+    record_type: gold_entity
+    why_this_example: >
+      The provision, in a sentence stating that it was *not* satisfied. A
+      negative outcome cited as authority.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0105
+      surface: "section 43"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/6/6/2~3
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0106
+    record_type: gold_entity
+    why_this_example: >
+      A fourth name for the deciding role, capitalised. Two mentions in this
+      chunk.
+    provenance:
+      confidence: 0.8
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0106
+      surface: "the Delegate"
+      type: Role
+      source_ref: TMM/Part29/6/6/2~3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Examiner, decision maker, Registrar, Delegate, Hearing Officer. Five
+        names across the pilot area, and whether they are five roles or two is
+        the sort of thing that is obvious to you and invisible in the text.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0107
+    record_type: gold_entity
+    why_this_example: >
+      The mark element under consideration, quoted as a name.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0107
+      surface: "the name ELVIS"
+      type: Other
+      source_ref: TMM/Part29/6/6/2~3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0108
+    record_type: gold_entity
+    why_this_example: >
+      The person referred to, at the second occurrence. The first is part of a
+      company name in the case citation — the same characters meaning something
+      different forty words earlier.
+    provenance:
+      confidence: 0.75
+    locate:
+      occurrence: 2
+    record:
+      id: GE-0108
+      surface: "Elvis Presley"
+      type: Other
+      source_ref: TMM/Part29/6/6/2~3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        The trap is exact: occurrence 1 is a party, occurrence 2 is the well
+        known person the connotation is about, occurrence 3 is the same person
+        again. A name matcher will find three and distinguish none of them.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0109
+    record_type: gold_entity
+    why_this_example: >
+      Evidence in its barest form, as the thing that did not establish
+      something. It is the pivot of the whole passage.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0109
+      surface: "the evidence"
+      type: EvidenceCategory
+      source_ref: TMM/Part29/6/6/2~3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0110
+    record_type: gold_entity
+    why_this_example: >
+      The test the evidence failed: a relevant connection between the person
+      and the services. Compare GE-0032 — the same relation, stated abstractly
+      in Part 29.2.2 and applied here.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0110
+      surface: "a relevant connection between Elvis Presley and the specified services"
+      type: LegalConcept
+      source_ref: TMM/Part29/6/6/2~3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0111
+    record_type: gold_entity
+    why_this_example: >
+      The goods and services, given as a list after a colon. The colon is
+      inside the span, which will break any parser splitting on punctuation.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0111
+      surface: "mortgage lending and home loans"
+      type: Other
+      source_ref: TMM/Part29/6/6/2~3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0112
+    record_type: gold_entity
+    why_this_example: >
+      A decision referred to by one word — the short name of a case discussed
+      two chunks earlier and never re-cited here. Nothing in this chunk lets a
+      machine resolve it.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0112
+      surface: "Masterson"
+      type: JudicialDecision
+      source_ref: TMM/Part29/6/6/2~3
+      span: null
+      source_content_hash: null
+      resolves_to: CASE/2004/FCA/1247
+      notes: >
+        The best example in the bounded set of why exhaustive human annotation
+        is irreplaceable. Upstream extracts no case edge from this chunk for
+        Masterson, because there is no citation in it to extract.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0113
+    record_type: gold_entity
+    why_this_example: >
+      A person referred to by title and given name, as the comparator in the
+      reasoning.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0113
+      surface: "Princess Diana"
+      type: Other
+      source_ref: TMM/Part29/6/6/2~3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        The same person is "Diana, Princess of Wales" in TMM/Part29/6/6/2~1 and
+        "the late Princess Diana" in ~2. Three forms, one person, three chunks.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0114
+    record_type: gold_entity
+    why_this_example: >
+      The statutory threshold in a fourth wording — "a likelihood of deception
+      or confusion", nominalised. GC-0002 holds three of the four.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0114
+      surface: "a likelihood of deception or confusion"
+      type: LegalConcept
+      source_ref: TMM/Part29/6/6/2~3
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  # ═══ TMM/Part29/7#1 — phonewords ═══════════════════════════════════════
+  - seed_id: SEED-GE-0115
+    record_type: gold_entity
+    why_this_example: >
+      A domain concept with an ordinary-language name and no legal definition
+      anywhere. It exists in the Manual and nowhere in the Act.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0115
+      surface: "Phonewords and SMS words"
+      type: LegalConcept
+      source_ref: TMM/Part29/7#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0116
+    record_type: gold_entity
+    why_this_example: >
+      A list of number prefixes, which are neither dates nor citations and
+      which every numeric matcher in a pipeline will attempt to interpret.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0116
+      surface: "1300, 1800, 13 and 197 phone numbers"
+      type: Other
+      source_ref: TMM/Part29/7#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        A four-digit number in a corpus full of legislation years is a genuine
+        confusion: "1995" and "1800" look alike to a pattern.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0117
+    record_type: gold_entity
+    why_this_example: >
+      An illustrative phoneword. Four occurrences of "13 BAGS" in this chunk,
+      in three different roles — example, licence illustration, and prohibited
+      mark. This is the first.
+    provenance:
+      confidence: 0.7
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0117
+      surface: "13 BAGS"
+      type: Other
+      source_ref: TMM/Part29/7#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0118
+    record_type: gold_entity
+    why_this_example: >
+      A statement about where the licence actually sits — in the numerals, not
+      the letters. It is the reason the whole practice exists and it is stated
+      once, parenthetically.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0118
+      surface: "The licence to use a phoneword or SMS words is for the actual numerals forming the operational part of the phone number (not for the alphabetical segment)."
+      type: ManualInstruction
+      source_ref: TMM/Part29/7#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0119
+    record_type: gold_entity
+    why_this_example: >
+      The numeric form of the phoneword above — the same thing written two
+      ways, which is exactly the connotation the ground is about.
+    provenance:
+      confidence: 0.7
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0119
+      surface: "13 2247"
+      type: Other
+      source_ref: TMM/Part29/7#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0120
+    record_type: gold_entity
+    why_this_example: >
+      The operative rule, whose condition is a fact about the applicant rather
+      than about the mark. GC-0035 asks whether that generalises across the
+      three identifier concepts in the pilot.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0120
+      surface: "A section 43 ground for rejection will apply if the applicant for a trade mark containing material likely to be viewed as a phoneword, or the numbers representing a phoneword, is not also the owner (or authorised user) of that phoneword."
+      type: ManualInstruction
+      source_ref: TMM/Part29/7#1
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0121
+    record_type: gold_entity
+    why_this_example: >
+      The role the ground turns on, with the alternative in brackets. Not the
+      owner of the trade mark — a different owner entirely.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0121
+      surface: "the owner (or authorised user) of that phoneword"
+      type: Role
+      source_ref: TMM/Part29/7#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        GC-0035's not_labels record the collision: "owner" here and "owner of
+        the trade mark" elsewhere are different people and the same word.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0122
+    record_type: gold_entity
+    why_this_example: >
+      The party role, first of two mentions.
+    provenance:
+      confidence: 0.85
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0122
+      surface: "the applicant"
+      type: Role
+      source_ref: TMM/Part29/7#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0123
+    record_type: gold_entity
+    why_this_example: >
+      A worked list of marks that would attract the ground. Twelve of them run
+      together with no separators, which is what happens when a table is
+      flattened into text.
+    provenance:
+      confidence: 0.65
+    record:
+      id: GE-0123
+      surface: "1800 RABBIT 1800 722248 1300 RABBIT 1800 RABBITS 4 U 1300 RABBITS 4 U 1800 RABBITS ARE THE BEST PETS 1300 RABBITS ARE THE BEST PETS 13 BAGS 13 2247 13 BAGS 4 U"
+      type: Other
+      source_ref: TMM/Part29/7#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Annotated as one span because nothing in the text marks where one
+        example ends and the next begins. If these should be twelve records,
+        that decision has to be made by someone who can read the boundaries.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0124
+    record_type: gold_entity
+    why_this_example: >
+      The route back: the ground is reconsidered on information, not on
+      evidence in the technical sense. The word choice may be deliberate.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0124
+      surface: "information confirming that they are the owner or authorised user of the phoneword"
+      type: EvidenceCategory
+      source_ref: TMM/Part29/7#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0125
+    record_type: gold_entity
+    why_this_example: >
+      A negative instruction: do not research this unless something else is
+      present. Rare, and a direct constraint on what an automated system should
+      even attempt.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0125
+      surface: "Other phone numbers which do not appear to represent a phoneword should not be queried or researched specifically in respect of section 43, unless other information before the examiner gives them particular reason to suspect that the applicant may not be the licensed user of the number."
+      type: ManualInstruction
+      source_ref: TMM/Part29/7#1
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        If an automated system is ever pointed at this Part, this sentence is
+        the one that bounds it.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0126
+    record_type: gold_entity
+    why_this_example: >
+      The examiner, named in the exception to the negative instruction above.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0126
+      surface: "the examiner"
+      type: Role
+      source_ref: TMM/Part29/7#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  # ═══ TMM/Part29/9/9/2 — explicit geographic claims ═════════════════════
+  - seed_id: SEED-GE-0127
+    record_type: gold_entity
+    why_this_example: >
+      The condition for the explicit-claim limb of the geographical practice,
+      including the two things that would take it out — specification or
+      endorsement.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0127
+      surface: "an explicit claim about the goods which relates to a geographic location"
+      type: LegalConcept
+      source_ref: TMM/Part29/9/9/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Note "geographic", not "geographical". The Manual uses both forms
+        within one Part.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0128
+    record_type: gold_entity
+    why_this_example: >
+      Two remedies named together in one phrase. GC-0013 and GC-0014 separate
+      them; this passage does not.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0128
+      surface: "the specification or an endorsement"
+      type: LegalConcept
+      source_ref: TMM/Part29/9/9/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0129
+    record_type: gold_entity
+    why_this_example: >
+      The threshold with only the deception half — no confusion. The next
+      sub-section deals with confusion separately, so the omission is
+      structural rather than loose drafting.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0129
+      surface: "likely to deceive consumers"
+      type: LegalConcept
+      source_ref: TMM/Part29/9/9/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0130
+    record_type: gold_entity
+    why_this_example: >
+      A worked example in typographic double quotation marks. The quotation
+      marks are part of the surface because they are part of the text.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0130
+      surface: "“GROWN IN QUEENSLAND”"
+      type: Other
+      source_ref: TMM/Part29/9/9/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Curly double quotes (“ ”), not ASCII. Any surface retyped rather than
+        copied out of the worksheet will fail to land.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0131
+    record_type: gold_entity
+    why_this_example: >
+      The goods the example is claimed for. The pairing of mark and goods is
+      the whole example, and the two are separated only by the word "for".
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0131
+      surface: "Dried coconut"
+      type: Other
+      source_ref: TMM/Part29/9/9/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0132
+    record_type: gold_entity
+    why_this_example: >
+      A worked example carrying a percentage and an exclamation mark. Neither
+      is punctuation a tokeniser expects inside a name.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0132
+      surface: "“100% ITALIAN MARBLE”"
+      type: Other
+      source_ref: TMM/Part29/9/9/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0133
+    record_type: gold_entity
+    why_this_example: >
+      The mitigation sentence, naming all three remedies at once. It is the
+      shortest complete statement of the section 43 remedy set in the pilot.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0133
+      surface: "The risk of deception can be mitigated by a suitably specific endorsement or an amendment or limitation to the specification of goods or services."
+      type: ManualInstruction
+      source_ref: TMM/Part29/9/9/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0134
+    record_type: gold_entity
+    why_this_example: >
+      The qualifier on the endorsement — "suitably specific" — which is an
+      evaluative standard hidden inside a remedy.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0134
+      surface: "a suitably specific endorsement"
+      type: LegalConcept
+      source_ref: TMM/Part29/9/9/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0135
+    record_type: gold_entity
+    why_this_example: >
+      The failure condition, stated as a future contingency: the claim turning
+      out to be false. It is a fact about the world, not about the application.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0135
+      surface: "if that claim turns out to be false"
+      type: LegalConcept
+      source_ref: TMM/Part29/9/9/2
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  # ═══ TMM/Part29/9/9/5 — overcoming a geographical ground ═══════════════
+  - seed_id: SEED-GE-0136
+    record_type: gold_entity
+    why_this_example: >
+      The outcome named as an "objection" rather than a "ground for rejection",
+      with the subject-matter qualifier attached. GC-0006 asks whether the two
+      words are interchangeable.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0136
+      surface: "a geographical section 43 objection"
+      type: LegalConcept
+      source_ref: TMM/Part29/9/9/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0137
+    record_type: gold_entity
+    why_this_example: >
+      The provision at its second mention, in the plain citation rather than
+      inside the compound above.
+    provenance:
+      confidence: 0.9
+    locate:
+      occurrence: 2
+    record:
+      id: GE-0137
+      surface: "section 43"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/9/9/5
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0138
+    record_type: gold_entity
+    why_this_example: >
+      The party role, capitalised at the start of the chunk.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0138
+      surface: "An applicant"
+      type: Role
+      source_ref: TMM/Part29/9/9/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0139
+    record_type: gold_entity
+    why_this_example: >
+      The two remedies as alternatives, in the phrasing this sub-section uses
+      twice.
+    provenance:
+      confidence: 0.8
+    locate:
+      occurrence: 1
+    record:
+      id: GE-0139
+      surface: "a condition of registration or a specification amendment"
+      type: LegalConcept
+      source_ref: TMM/Part29/9/9/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0140
+    record_type: gold_entity
+    why_this_example: >
+      A statement that one criterion is the *only* criterion. Exclusivity
+      claims are rare in the Manual and this is the clearest one in the pilot.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0140
+      surface: "This is the sole criterion for conditions or limitations applied in order to overcome grounds for rejection raised under section 43."
+      type: ManualInstruction
+      source_ref: TMM/Part29/9/9/5
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        "Sole criterion" is a closure statement — it says nothing else counts.
+        A system that adds a further consideration here contradicts the Manual
+        rather than merely going beyond it.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0141
+    record_type: gold_entity
+    why_this_example: >
+      A "must" instruction constraining the remedy to the connotation that
+      caused the problem — a directness requirement on the fix, mirroring the
+      directness requirement on the ground.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0141
+      surface: "The condition of registration or specification amendment must directly address the connotation in the trade mark."
+      type: ManualInstruction
+      source_ref: TMM/Part29/9/9/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0142
+    record_type: gold_entity
+    why_this_example: >
+      The criterion itself, phrased as an outcome to be achieved rather than a
+      test to be applied.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0142
+      surface: "removes the likelihood of consumers being deceived or confused"
+      type: LegalConcept
+      source_ref: TMM/Part29/9/9/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0143
+    record_type: gold_entity
+    why_this_example: >
+      A dangling heading — the chunk ends on "Examples:" with the examples
+      themselves living in adjacent chunks that carry no provision edge.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0143
+      surface: "Examples:"
+      type: Other
+      source_ref: TMM/Part29/9/9/5
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Worth noticing for retrieval: this chunk promises examples it does not
+        contain. An answer built from it alone will read as incomplete and be
+        entirely faithful to its source.
+      approved_by: null
+      approved_date: null
+
+  # ═══ TMM/Part29/10#1 — claims to Indigenous origin ═════════════════════
+  - seed_id: SEED-GE-0144
+    record_type: gold_entity
+    why_this_example: >
+      The subject-matter concept of Part 29.10, expressed as a reference to a
+      people rather than to a place or a person.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0144
+      surface: "a reference to Indigenous people"
+      type: LegalConcept
+      source_ref: TMM/Part29/10#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0145
+    record_type: gold_entity
+    why_this_example: >
+      The provision written without a space, in the Manual's own voice this
+      time rather than inside a quotation. Compare GE-0073.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0145
+      surface: "s43"
+      type: LegislativeProvision
+      source_ref: TMM/Part29/10#1
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        Upstream read this edge out of the prose and resolved the instrument by
+        convention rather than from anything the Manual said. The certainty on
+        that edge is `default`, which is an inference (Q-07) — and PU-0017 is
+        about reporting it as though it were not.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0146
+    record_type: gold_entity
+    why_this_example: >
+      The operative instruction, structurally identical to GE-0015 in
+      TMM/Part29/1#1 with one clause swapped. Two near-identical rules in one
+      Part is a deduplication trap.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0146
+      surface: "If a trade mark, or some part of the trade mark, contains a reference to Indigenous people and a connotation arises from the mark that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection under s43 should be raised."
+      type: ManualInstruction
+      source_ref: TMM/Part29/10#1
+      span: null
+      source_content_hash: null
+      resolves_to: TMA1995/s43
+      notes: >
+        Compare GE-0015 word for word. A system that treats them as duplicates
+        loses the subject matter; one that treats them as unrelated loses the
+        general rule they share.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0147
+    record_type: gold_entity
+    why_this_example: >
+      A worked example of the material in question, in typographic single
+      quotes.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0147
+      surface: "‘Aboriginal designed’"
+      type: Other
+      source_ref: TMM/Part29/10#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0148
+    record_type: gold_entity
+    why_this_example: >
+      A second worked example naming a specific people. It is a proper noun a
+      general-purpose model will not hold and will mis-tag.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0148
+      surface: "‘Product of the Ngunnawal people’"
+      type: Other
+      source_ref: TMM/Part29/10#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: >
+        Note that this example also contains "Product of", which GC-0021 holds
+        as a geographical qualifier. The same words carry a different claim here.
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0149
+    record_type: gold_entity
+    why_this_example: >
+      A third example, shorter and without a qualifier — the harder case.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0149
+      surface: "‘Ngunnawal Art’"
+      type: Other
+      source_ref: TMM/Part29/10#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0150
+    record_type: gold_entity
+    why_this_example: >
+      The connotation this Part is about, named at the end of the chunk.
+    provenance:
+      confidence: 0.8
+    record:
+      id: GE-0150
+      surface: "a source with an Indigenous connection"
+      type: LegalConcept
+      source_ref: TMM/Part29/10#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0151
+    record_type: gold_entity
+    why_this_example: >
+      A possessive with a typographic apostrophe. It reads as an ordinary
+      apostrophe and is not one, and a surface retyped by hand will not land.
+    provenance:
+      confidence: 0.75
+    record:
+      id: GE-0151
+      surface: "the applicant’s mark"
+      type: Other
+      source_ref: TMM/Part29/10#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0152
+    record_type: gold_entity
+    why_this_example: >
+      The audience concept, in the same words as TMM/Part29/1#1 — one of the
+      few places in the pilot where two chunks use an identical phrase for the
+      same idea.
+    provenance:
+      confidence: 0.85
+    record:
+      id: GE-0152
+      surface: "the relevant market"
+      type: LegalConcept
+      source_ref: TMM/Part29/10#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-GE-0153
+    record_type: gold_entity
+    why_this_example: >
+      The harm, expressed as a process rather than a state — consumers being
+      led into being misled. Wordy, and not a phrase any vocabulary would
+      predict.
+    provenance:
+      confidence: 0.7
+    record:
+      id: GE-0153
+      surface: "lead consumers into being misled into thinking"
+      type: LegalConcept
+      source_ref: TMM/Part29/10#1
+      span: null
+      source_content_hash: null
+      resolves_to: null
+      notes: ~
+      approved_by: null
+      approved_date: null

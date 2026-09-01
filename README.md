@@ -37,7 +37,8 @@ content that no amount of engineering substitutes for.
 pip install -e ".[test,intake]"
 tmk-fetch-upstream    # the pinned corpus into data/upstream/ (~4s)
 tmk-worksheet         # 216 chunks to annotate → data/derived/worksheet.md
-tmk-workbook          # the intake workbook → data/derived/stage0-intake.xlsx
+tmk-workbook          # the intake workbook, EMPTY → data/derived/stage0-intake.xlsx
+tmk-seed --pack --workbook   # the seed examples, for expert correction (ADR-0043)
 tmk-harness           # every Stage 0 check. Exits 3: incomplete, by design
 tmk-coverage          # the same, as a worklist → data/derived/reports/
 pytest -q
@@ -56,6 +57,7 @@ eval/              Stage 0: pilot scope, competency questions, gold set, harness
 data/              pinned upstream snapshot (not committed)
 src/               tm_knowledge Python package
 review/            machine-generated candidates awaiting human decision
+  seed/            Stage 0 example records, written to be corrected — not content
 vocab/             approved SKOS controlled vocabulary
 ontology/          approved RDF/RDFS/OWL 2 RL modules
 graph/             generated RDF, by named graph

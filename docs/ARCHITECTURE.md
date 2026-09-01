@@ -68,6 +68,7 @@ recorded decision (ADR-0007). Nothing flows back into `data/upstream/`.
 | `data/` | Pinned upstream snapshot and derived intermediates | 1 (consumed) | Git-ignored except the pin manifest |
 | `src/` | `tm_knowledge` Python package — all pipeline code | 2–10 | No code yet |
 | `review/` | Candidate registers awaiting human decision | 2, 3, 4 | Never read as if approved |
+| `review/seed/` | Stage 0 example records, machine-written for expert correction (ADR-0043) | 0 | Not content; `approved_by` is null and checked |
 | `vocab/` | SKOS controlled vocabulary | 3 | Approved only |
 | `ontology/` | RDF/RDFS/OWL 2 RL modules | 5 | Approved only |
 | `graph/` | Generated RDF, by named graph | 6 | Generated; reproducible from `src/` + inputs |

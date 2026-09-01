@@ -1,0 +1,1014 @@
+# ═══════════════════════════════════════════════════════════════════════════
+# SEED EXAMPLES — competency questions.  NOT PROJECT CONTENT.  NOT APPROVED.
+#
+# Machine-written drafts over the s 43 pilot, for a Trade Mark expert to
+# correct. Every question below is a guess at what an examiner actually asks;
+# some of them are the wrong question, and finding those is the point. Nothing
+# here may be cited, promoted or counted until it comes back through
+# `tmk-transcribe` with a name in `approved_by` (CLAUDE.md rule 4, ADR-0043).
+#
+# Guide: eval/STAGE-0-INPUT-GUIDE.md §5.1.  Read that first if a field is
+# unclear — this file is the same shape, filled in.
+# ═══════════════════════════════════════════════════════════════════════════
+
+defaults:
+  provenance:
+    extraction_method: llm
+    # The specific model is not recorded here: HANDOFF Q3 — which LLM is
+    # agency-approved, and under what data-handling conditions — is still open,
+    # and stamping an unapproved model's name into the repo would pre-empt it.
+    # The generator and date below are what identify the run.
+    model: null
+    generator: tm-knowledge-agent-session-S007
+    generated_on: "2026-08-21"
+    confidence: null
+    review_status: candidate
+  review:
+    status: unreviewed
+    expert: null
+    reviewed_on: null
+    correction: null
+
+seeds:
+
+  # ── retrieval ────────────────────────────────────────────────────────────
+  - seed_id: SEED-CQ-0001
+    record_type: competency_question
+    why_this_example: >
+      The plainest retrieval question in the pilot, and the one every other
+      question is a variation on. It is here to be judged on `expected_sources`:
+      is 29.1 alone enough to be "not wrong without it", or does a correct
+      answer have to carry 29.2 (connotation) and 29.3 (deception and confusion)
+      as well? Where you draw that line sets the standard for every other record.
+    provenance:
+      confidence: 0.8
+    record:
+      id: CQ-0001
+      question: >
+        What guidance does the Manual give on when a ground for rejection under
+        section 43 should be raised?
+      asked_by: examiner
+      category: retrieval
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/1#1
+        supporting:
+          - TMA1995/s43
+          - TMM/Part29/2/2/4
+          - TMM/Part29/3#1~1
+      expected_concepts:
+        - connotation
+        - likely to deceive or cause confusion
+        - ground for rejection
+      must_not_include: []
+      answer_shape: >
+        Must state the statutory test in the words of s 43 and separately state
+        the Manual's practice guidance, marked as practice rather than as law.
+        Must convey that the section is mandatory in application while the
+        threshold question — whether the decision maker is clearly satisfied —
+        is an evaluative one.
+      caveats: >
+        The Manual's own text quotes s 43 in full inside TMM/Part29/1#1, so an
+        answer can appear to cite the Act while only having read the Manual.
+        That is a grounding failure that will not show up as a missing source.
+      measured_by:
+        - expected_source_coverage
+        - citation_correctness
+        - authority_weighting
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0002
+    record_type: competency_question
+    why_this_example: >
+      A retrieval question whose answer is spread across five separate chunks
+      that never name each other. It tests whether the system assembles a
+      practice area or just returns the best-matching passage. If you think the
+      list below is incomplete, adding to it is the most useful correction you
+      can make to this record.
+    provenance:
+      confidence: 0.65
+    record:
+      id: CQ-0002
+      question: >
+        In what situations does the Manual say a section 43 ground arises
+        because the applicant is not the owner or authorised user of something
+        referred to in the trade mark?
+      asked_by: examiner
+      category: retrieval
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/7#1
+          - TMM/Part29/8#1
+          - TMM/Part29/8/8/3
+        supporting:
+          - TMM/Part29/8/8/1
+          - TMM/Part29/8/8/2
+          - TMM/Part29/6#1~2
+      expected_concepts:
+        - phoneword
+        - internet domain name
+        - radio call sign
+        - authorised user
+      must_not_include: []
+      answer_shape: >
+        Must list the situations separately rather than generalising them into a
+        single rule, and must carry the qualification that each is reconsidered
+        if the applicant establishes ownership or authorisation.
+      caveats: >
+        These passages share a structure and almost no vocabulary. A retrieval
+        system matching on words will find one of them and stop.
+      measured_by:
+        - expected_source_coverage
+        - recall_at_10
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0003
+    record_type: competency_question
+    why_this_example: >
+      Asked by an applicant rather than an examiner, in an applicant's words.
+      The vocabulary gap is the test: nothing in the question uses the Manual's
+      terms. Judge whether this is a question your office actually receives.
+    provenance:
+      confidence: 0.6
+    record:
+      id: CQ-0003
+      question: >
+        My trade mark has a place name in it. Will that stop it being
+        registered?
+      asked_by: applicant
+      category: retrieval
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/9#1
+          - TMM/Part29/9/9/3~1
+        supporting:
+          - TMM/Part29/9/9/2
+          - TMM/Part29/9/9/4
+          - TMM/Part29/9/9/5
+      expected_concepts:
+        - geographical reference
+        - geographical origin
+        - condition of registration
+      must_not_include: []
+      answer_shape: >
+        Must not answer yes or no. Must set out the criteria the Manual applies
+        and state that the outcome depends on the specification and the
+        surrounding circumstances, and must point to the route by which such a
+        ground is overcome rather than leaving the applicant with a refusal.
+      caveats: >
+        An answer that reads as advice on this applicant's mark has crossed from
+        retrieval into an evaluative conclusion — see PU-0001.
+      measured_by:
+        - expected_source_coverage
+        - grounding
+        - prohibited_inferences
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0004
+    record_type: competency_question
+    why_this_example: >
+      A question about the interaction between s 43 and a neighbouring ground.
+      Whether this is in the pilot at all is a scope decision — `pilot_in_scope`
+      is set true here as a proposal, and setting it false is a legitimate
+      correction that parks the record rather than deleting it.
+    provenance:
+      confidence: 0.5
+    record:
+      id: CQ-0004
+      question: >
+        Where a trade mark contains an INN stem, what does the Manual say about
+        raising section 43 alongside a ground under section 41 or section 44?
+      asked_by: examiner
+      category: retrieval
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/5/5/4
+        supporting:
+          - TMM/Part29/5/5/5
+          - TMM/Part29/5/5/6~1
+          - TMA1995/s41
+          - TMA1995/s44
+      expected_concepts:
+        - International Non-Proprietary Name
+        - INN stem
+        - condition of registration
+      must_not_include: []
+      answer_shape: >
+        Must state that the endorsement limiting use to goods containing the
+        designated substance addresses the section 43 ground only, and must not
+        imply that it disposes of a section 41 or section 44 ground.
+      caveats: >
+        The Manual states this negatively — "unlikely to assist in overcoming
+        grounds… raised for other reasons". A summariser will drop the negation.
+      measured_by:
+        - expected_source_coverage
+        - grounding
+        - authority_weighting
+      approved_by: null
+      approved_date: null
+
+  # ── search ───────────────────────────────────────────────────────────────
+  - seed_id: SEED-CQ-0005
+    record_type: competency_question
+    why_this_example: >
+      A search-category question phrased in the shorthand examiners use to each
+      other rather than in the Manual's words. If "celebrity mark" is not the
+      shorthand your examiners actually use, replacing it with the one they do
+      is a high-value correction — the whole point of the search set is that it
+      uses the vocabulary of the person asking.
+    provenance:
+      confidence: 0.45
+    record:
+      id: CQ-0005
+      question: >
+        Where do I find the practice on celebrity names in trade marks?
+      asked_by: examiner
+      category: search
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/6#1~1
+          - TMM/Part29/6#1~2
+        supporting:
+          - TMM/Part29/6/6/1
+          - TMM/Part29/6/6/2~1
+      expected_concepts:
+        - well-known person
+        - endorsement
+        - written permission
+      must_not_include: []
+      answer_shape: >
+        Must reach Part 29.6 from a term Part 29.6 never uses. Ranking the
+        deceased-persons material above the general material would be a wrong
+        ordering rather than a wrong answer.
+      caveats: ~
+      measured_by:
+        - recall_at_10
+        - mrr
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0006
+    record_type: competency_question
+    why_this_example: >
+      The same practice area reached from the applicant's side, using the
+      commercial word for it. Two questions, one destination, no shared
+      vocabulary — that pairing is what a vocabulary-enhanced search has to earn.
+    provenance:
+      confidence: 0.5
+    record:
+      id: CQ-0006
+      question: >
+        Can I register a brand that uses a famous sportsperson's name if they
+        have signed off on it?
+      asked_by: applicant
+      category: search
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/6#1~2
+        supporting:
+          - TMM/Part29/6#1~1
+      expected_concepts:
+        - written permission
+        - endorsement
+      must_not_include: []
+      answer_shape: >
+        Must surface the permission route and the endorsement wording, and must
+        make clear that the endorsement is the Registrar's suggested form of
+        words rather than a statutory requirement.
+      caveats: ~
+      measured_by:
+        - recall_at_10
+        - authority_weighting
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0007
+    record_type: competency_question
+    why_this_example: >
+      A search question that must *not* reach the obvious passage. "Confusion"
+      is the single most frequent word in the pilot area and it is used in two
+      unrelated senses — s 43's connotation-based confusion, and s 44's
+      confusion between marks. Whether this belongs in the pilot at all is a
+      boundary decision for you.
+    provenance:
+      confidence: 0.7
+    record:
+      id: CQ-0007
+      question: >
+        Confusion between my mark and someone else's — which section is that?
+      asked_by: applicant
+      category: search
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/2/2/3
+        supporting:
+          - TMA1995/s44
+          - TMM/Part29/3/3/3
+      expected_concepts:
+        - deceptively similar
+        - connotation
+      must_not_include:
+        - TMM/Part29/3#1~2
+      answer_shape: >
+        Must send the reader to section 44, and must say why section 43 is not
+        the answer: a connotation arises from the mark itself, not from a
+        comparison with another mark.
+      caveats: >
+        This is the highest-frequency false positive in the pilot area. An
+        answer that lands anywhere in Part 29.3 is wrong in a way that reads
+        entirely plausibly.
+      measured_by:
+        - precision_at_10
+        - prohibited_inferences
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0008
+    record_type: competency_question
+    why_this_example: >
+      Search over an annex rather than body text. The INN stem tables are 20-odd
+      chunks of bare word fragments with no sentences in them; whether they
+      should be retrievable at all, or suppressed in favour of the practice
+      passage that explains them, is a design decision this question forces.
+    provenance:
+      confidence: 0.55
+    record:
+      id: CQ-0008
+      question: >
+        Is "-profen" on the restricted list?
+      asked_by: examiner
+      category: search
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/5/5/2
+        supporting:
+          - TMM/Part29/5/5/6~1
+      expected_concepts:
+        - INN stem
+      must_not_include: []
+      answer_shape: >
+        Must distinguish the fact that a stem is listed from the conclusion that
+        a ground arises, because the Manual makes the second turn on whether the
+        stem appears in the mark in a meaningful way.
+      caveats: >
+        The annex chunks carry no sentence context at all, so a retrieval system
+        can return a correct hit that tells the reader nothing.
+      measured_by:
+        - recall_at_10
+        - grounding
+      approved_by: null
+      approved_date: null
+
+  # ── reasoning ────────────────────────────────────────────────────────────
+  - seed_id: SEED-CQ-0009
+    record_type: competency_question
+    why_this_example: >
+      A reasoning question where the answer is a structure, not a passage: the
+      Manual states three cumulative criteria and a system that returns two of
+      them has produced a fluent wrong answer. Check the criteria as recorded —
+      whether they really are cumulative is exactly the sort of reading only you
+      can confirm.
+    provenance:
+      confidence: 0.6
+    record:
+      id: CQ-0009
+      question: >
+        What has to be established before a standalone geographical reference in
+        a trade mark is treated as likely to cause confusion?
+      asked_by: examiner
+      category: reasoning
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/9/9/3~1
+        supporting:
+          - TMM/Part29/9#1
+          - TMM/Part29/9/9/4
+      expected_concepts:
+        - geographical reference
+        - surrounding circumstances
+        - average consumer
+      must_not_include: []
+      answer_shape: >
+        Must present the criteria as a set that must all be met, must include
+        the mitigating-elements criterion, and must not compress them into a
+        single likelihood judgement.
+      caveats: ~
+      measured_by:
+        - expected_inferences_produced
+        - explanation_completeness
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0010
+    record_type: competency_question
+    why_this_example: >
+      Tests the line between what follows from the corpus and what requires
+      judgement. The Manual gives worked examples with stated outcomes; the
+      question is whether the system may generalise from them. Our reading is
+      that it may state the reasoning and may not extend it to a new mark —
+      correct that reading if it is wrong, because everything in
+      `reasoning-expected.seed.yaml` rests on it.
+    provenance:
+      confidence: 0.5
+    record:
+      id: CQ-0010
+      question: >
+        Why was no section 43 ground raised for BALI on bras, when one was
+        raised for SHETLAND on clothing?
+      asked_by: examiner
+      category: reasoning
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/9/9/3~1
+        supporting:
+          - TMM/Part29/9/9/3~2
+      expected_concepts:
+        - reputation
+        - geographical origin
+        - purchasing decision
+      must_not_include: []
+      answer_shape: >
+        Must attribute the difference to the reasons the Manual gives, and must
+        not offer a general rule about place names that the Manual does not
+        state.
+      caveats: >
+        Both examples are stated in the Manual with their outcomes. Answering
+        from the citations alone is impossible — no decision text exists in the
+        programme (Q-11).
+      measured_by:
+        - grounding
+        - explanation_completeness
+        - prohibited_inferences
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0011
+    record_type: competency_question
+    why_this_example: >
+      A reasoning question about a negative rule — what does *not* follow. The
+      Manual is explicit that descriptive matter in a mark does not by itself
+      trigger s 43, and that negation is the kind of thing extraction drops.
+    provenance:
+      confidence: 0.7
+    record:
+      id: CQ-0011
+      question: >
+        Does a descriptive term inside a trade mark trigger section 43 on its
+        own?
+      asked_by: examiner
+      category: reasoning
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/4#1
+          - TMM/Part29/3#1~1
+        supporting:
+          - TMM/Part29/2/2/1~1
+      expected_concepts:
+        - descriptive matter
+        - real and tangible danger
+        - specification
+      must_not_include: []
+      answer_shape: >
+        Must answer in the negative and state the condition under which it does
+        arise — a connotation directly contradicted by the specification. Must
+        keep the two worked PLATYPUS examples distinguishable rather than
+        merging them.
+      caveats: ~
+      measured_by:
+        - expected_inferences_produced
+        - grounding
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0012
+    record_type: competency_question
+    why_this_example: >
+      Where reasoning must stop. The honest answer is that the system cannot
+      decide this, and a question whose correct answer is a refusal is a test
+      most retrieval systems fail by being helpful. Judge whether the refusal we
+      describe is the right one.
+    provenance:
+      confidence: 0.75
+    record:
+      id: CQ-0012
+      question: >
+        Is the connotation in this trade mark strong enough to warrant a ground
+        for rejection?
+      asked_by: examiner
+      category: reasoning
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/2/2/4
+          - TMM/Part29/3#1~2
+        supporting:
+          - TMM/Part29/1#1
+      expected_concepts:
+        - presumption of registrability
+        - obvious, direct and immediate
+      must_not_include: []
+      answer_shape: >
+        Must decline to reach the conclusion, must state the considerations the
+        Manual says bear on it, and must surface the presumption of
+        registrability — that where there is doubt a connotation exists, the
+        ground should not be raised.
+      caveats: >
+        This question is deliberately one the system must not answer. It is
+        bounded by PU-0001 and PU-0004.
+      measured_by:
+        - prohibited_inferences
+        - explanation_completeness
+      approved_by: null
+      approved_date: null
+
+  # ── currency ─────────────────────────────────────────────────────────────
+  - seed_id: SEED-CQ-0013
+    record_type: competency_question
+    why_this_example: >
+      The currency category exists because a retrieval-only system fails it
+      silently. This one is grounded in a real trap inside the pilot:
+      TMM/Part29/3/3/1~2 cites section 114 of the *Trade Marks Act 1905*, and
+      that instrument is not held anywhere in the programme (Q-24), so the
+      citation resolves to nothing at all.
+    provenance:
+      confidence: 0.8
+    record:
+      id: CQ-0013
+      question: >
+        Which of the tests quoted in the section 43 material were decided under
+        earlier legislation, and does that limit how they are used now?
+      asked_by: examiner
+      category: currency
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/3/3/1~2
+        supporting:
+          - TMM/Part29/3/3/1~1
+      expected_concepts:
+        - reasonable doubt
+        - superseded legislation
+      must_not_include: []
+      answer_shape: >
+        Must name the earlier instrument explicitly, must not present the quoted
+        passage as authority on the current section without that qualification,
+        and must reproduce the Manual's own statement of how far the principles
+        carry across.
+      caveats: >
+        The 1905 Act is not in the corpus, so the system can name the citation
+        and can never verify or display it.
+      measured_by:
+        - currency
+        - citation_correctness
+        - authority_weighting
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0014
+    record_type: competency_question
+    why_this_example: >
+      A currency question the corpus cannot answer as posed. Guide §8 is blunt
+      about this: a snapshot holds current text and the amendment log is the
+      upstream repository's git history. Whether the pilot promises this at all
+      belongs in `pilot-scope.md`, and this record is here to force that call.
+    provenance:
+      confidence: 0.85
+    record:
+      id: CQ-0014
+      question: >
+        What did the Manual say about geographical references at the priority
+        date of an application filed two years ago?
+      asked_by: examiner
+      category: currency
+      pilot_in_scope: false
+      expected_sources:
+        required: []
+        supporting:
+          - TMM/Part29/9#1
+      expected_concepts:
+        - priority date
+      must_not_include: []
+      answer_shape: >
+        Must state that the held snapshot carries current text only, must not
+        present today's text as the text that was current then, and must say
+        what would be needed to answer properly.
+      caveats: >
+        Marked out of pilot scope as a proposal, not a decision (Q-05). If the
+        pilot does promise point-in-time answers, this becomes in scope and the
+        snapshot strategy has to change to support it.
+      measured_by:
+        - currency
+        - prohibited_inferences
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0015
+    record_type: competency_question
+    why_this_example: >
+      Currency in the marketplace sense rather than the document sense — the
+      Manual instructs examiners to consider the current market and not a past
+      or future one. Two different meanings of "current" inside one pilot area
+      is exactly the ambiguity a vocabulary has to resolve.
+    provenance:
+      confidence: 0.7
+    record:
+      id: CQ-0015
+      question: >
+        At what point in time is the marketplace assessed when deciding whether
+        a sign is likely to deceive or cause confusion?
+      asked_by: examiner
+      category: currency
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/3/3/2
+        supporting:
+          - TMM/Part29/3/3/4
+          - TMM/Part29/6#1~2
+      expected_concepts:
+        - current marketplace
+        - priority date
+      must_not_include: []
+      answer_shape: >
+        Must keep the currency of the Manual text and the currency of the market
+        separate, and must not present one as evidence about the other.
+      caveats: >
+        29.6 asks how well known a person is "as at the priority date", while
+        29.3.2 asks about the current marketplace. Whether those are the same
+        moment is a legal reading, not a drafting inconsistency to be smoothed
+        over.
+      measured_by:
+        - currency
+        - expected_source_coverage
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0016
+    record_type: competency_question
+    why_this_example: >
+      A currency question with a future-dated condition in the text itself.
+      TMM/Part29/11#1 describes protection that applies "when the Australia
+      European Union Free Trade Agreement enters into force" — a statement whose
+      truth changes without the passage changing.
+    provenance:
+      confidence: 0.65
+    record:
+      id: CQ-0016
+      question: >
+        Are the listed European Union geographical indications protected in
+        Australia now?
+      asked_by: examiner
+      category: currency
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/11#1
+        supporting: []
+      expected_concepts:
+        - geographical indication
+        - entry into force
+      must_not_include: []
+      answer_shape: >
+        Must reproduce the conditional as a conditional, and must not resolve it
+        into a present-tense statement in either direction. Must give the date
+        the passage was last amended if it gives any temporal assurance at all.
+      caveats: >
+        A passage whose truth value depends on an external event is not stale in
+        the content-hash sense, so no mechanical check in this repo will catch
+        it going wrong.
+      measured_by:
+        - currency
+        - grounding
+      approved_by: null
+      approved_date: null
+
+  # ── impact ───────────────────────────────────────────────────────────────
+  - seed_id: SEED-CQ-0017
+    record_type: competency_question
+    why_this_example: >
+      The maintenance question the whole graph is supposed to make cheap. The
+      answer is a list of affected material, and it is checkable: the pinned
+      snapshot knows which chunks cite the provision.
+    provenance:
+      confidence: 0.8
+    record:
+      id: CQ-0017
+      question: >
+        If section 43 were amended, which parts of the Manual would need
+        reviewing?
+      asked_by: maintainer
+      category: impact
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/1#1
+          - TMM/Part32A/2/4/2/4/1
+          - TMM/Part32B/2/2#1
+        supporting:
+          - TMM/Part20/5/5/5
+          - TMM/Part12/2#1
+          - TMM/Part34/5/5/2
+      expected_concepts:
+        - ground for rejection
+      must_not_include: []
+      answer_shape: >
+        Must reach beyond Part 29 into the Parts that apply s 43 to particular
+        subject matter, and must distinguish material that states the ground
+        from material that merely mentions it in a list.
+      caveats: >
+        Of the chunks citing the provision, some carry the edge only because
+        upstream read a bare "section 43" out of prose and resolved it by
+        convention. Those are inferences, not IP Australia's assertions (Q-07).
+      measured_by:
+        - impact_analysis_coverage
+        - precision_at_10
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0018
+    record_type: competency_question
+    why_this_example: >
+      Impact analysis where the trigger is external. The INN list is maintained
+      by the World Health Organisation and changes without anything in the
+      Manual changing — a dependency the corpus records in prose and nothing
+      monitors.
+    provenance:
+      confidence: 0.6
+    record:
+      id: CQ-0018
+      question: >
+        The WHO has notified a new International Non-Proprietary Name. What in
+        our practice material is affected?
+      asked_by: maintainer
+      category: impact
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/5/5/1
+          - TMM/Part29/5/5/4
+        supporting:
+          - TMM/Part29/5/5/3
+          - TMM/Part29/5/5/5
+      expected_concepts:
+        - International Non-Proprietary Name
+        - INN stem
+      must_not_include: []
+      answer_shape: >
+        Must identify that the practice depends on an externally maintained list
+        rather than on the Manual's own text, and must name the annex as a
+        derived artefact that goes stale silently.
+      caveats: ~
+      measured_by:
+        - impact_analysis_coverage
+        - explanation_completeness
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0019
+    record_type: competency_question
+    why_this_example: >
+      Impact running the other way — from a Manual passage outwards to the
+      practice that depends on it. Whether the cross-Part dependencies below are
+      the right ones is a judgement; we found them by following citations, which
+      is not the same as knowing which ones matter.
+    provenance:
+      confidence: 0.45
+    record:
+      id: CQ-0019
+      question: >
+        If the practice on connotation in Part 29.2 changed, what else would
+        have to change with it?
+      asked_by: maintainer
+      category: impact
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/2/2/1~1
+          - TMM/Part29/3#1~1
+        supporting:
+          - TMM/Part29/2/2/2
+          - TMM/Part29/2/2/3
+          - TMM/Part29/9/9/3~1
+          - TMM/Part32A/2/4/2/4/1
+      expected_concepts:
+        - connotation
+        - denotation
+      must_not_include: []
+      answer_shape: >
+        Must trace the dependency through passages that use the concept without
+        citing the passage that defines it, and must not limit itself to
+        passages that link.
+      caveats: >
+        Unresolvable internal references are dropped upstream rather than
+        recorded (Q-08), so the absence of a link is not evidence of the absence
+        of a dependency.
+      measured_by:
+        - impact_analysis_coverage
+        - relation_recall
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0020
+    record_type: competency_question
+    why_this_example: >
+      Impact on the practice-to-legislation join itself. This one exists to test
+      whether the system can say something honest about a citation it cannot
+      resolve, rather than quietly dropping it.
+    provenance:
+      confidence: 0.7
+    record:
+      id: CQ-0020
+      question: >
+        Which citations in the section 43 material point at legislation we do
+        not hold?
+      asked_by: maintainer
+      category: impact
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/3/3/1~2
+        supporting: []
+      expected_concepts:
+        - superseded legislation
+      must_not_include: []
+      answer_shape: >
+        Must name the citation and the instrument, must state that the
+        instrument is not held, and must not silently omit the citation from a
+        list of authorities.
+      caveats: >
+        Q-24. Only two instruments are held, so every citation to an earlier Act
+        is unresolvable by construction rather than by error.
+      measured_by:
+        - citation_correctness
+        - impact_analysis_coverage
+      approved_by: null
+      approved_date: null
+
+  # ── provenance ───────────────────────────────────────────────────────────
+  - seed_id: SEED-CQ-0021
+    record_type: competency_question
+    why_this_example: >
+      The provenance category in its plainest form: an answer is only usable if
+      the examiner can get to the passage behind it. Judge `answer_shape` here
+      rather than the question — it is the field that says what "cited properly"
+      means for this office.
+    provenance:
+      confidence: 0.8
+    record:
+      id: CQ-0021
+      question: >
+        Which exact passage does that statement come from, and is it the Act or
+        the Manual?
+      asked_by: examiner
+      category: provenance
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/1#1
+          - TMA1995/s43
+        supporting: []
+      expected_concepts: []
+      must_not_include: []
+      answer_shape: >
+        Must give a passage-level citation, not a Part-level one, and must
+        label each cited passage by authority type. An answer that cites "Part
+        29" has not answered.
+      caveats: >
+        TMM/Part29/1#1 quotes s 43 in full, so a system can satisfy a citation
+        check while never having opened the legislation.
+      measured_by:
+        - citation_correctness
+        - authority_weighting
+        - grounding
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0022
+    record_type: competency_question
+    why_this_example: >
+      Provenance about the *quality* of a link. Upstream distinguishes a
+      citation the Manual's authors made themselves from one inferred out of
+      prose, and that distinction is the only thing separating an assertion from
+      an inference (rule 3). This question asks whether the system surfaces it.
+    provenance:
+      confidence: 0.75
+    record:
+      id: CQ-0022
+      question: >
+        Did the Manual's authors link that section themselves, or did we work it
+        out from the wording?
+      asked_by: maintainer
+      category: provenance
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/10#1
+          - TMM/Part29/1#1
+        supporting: []
+      expected_concepts: []
+      must_not_include: []
+      answer_shape: >
+        Must report the extraction method and, where the citation was inferred,
+        the certainty attached to it — and must not present a `default`
+        resolution as though IP Australia had named the instrument.
+      caveats: >
+        TMM/Part29/1#1 carries an authored link; TMM/Part29/10#1 carries a bare
+        "s43" resolved by convention. The pair is the test.
+      measured_by:
+        - citation_correctness
+        - provenance_fidelity
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0023
+    record_type: competency_question
+    why_this_example: >
+      Provenance for case material, where the honest answer is bounded by what
+      the programme holds. Nothing anywhere in it contains a decision text
+      (Q-11), so "which cases" is answerable and "what was held" is not.
+    provenance:
+      confidence: 0.85
+    record:
+      id: CQ-0023
+      question: >
+        Which decisions does the Manual rely on for the proposition that a
+        connotation must arise from the mark itself?
+      asked_by: examiner
+      category: provenance
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/3/3/3
+        supporting:
+          - TMM/Part29/2/2/3
+      expected_concepts:
+        - connotation
+      must_not_include: []
+      answer_shape: >
+        Must list the decisions at citation level and must state that the
+        holdings are not held, rather than paraphrasing what the courts decided
+        from the Manual's summary of them.
+      caveats: >
+        The Manual's own characterisation of a decision is Manual text. Repeating
+        it as though it were the decision is an authority conflation — PU-0002.
+      measured_by:
+        - citation_correctness
+        - grounding
+        - prohibited_inferences
+      approved_by: null
+      approved_date: null
+
+  - seed_id: SEED-CQ-0024
+    record_type: competency_question
+    why_this_example: >
+      Provenance about the boundary between practice and discretion — the
+      distinction CLAUDE.md rule 5 exists to protect, asked as an ordinary
+      question. If an examiner would never phrase it this way, rewrite it in the
+      way they would; the underlying test is what matters.
+    provenance:
+      confidence: 0.55
+    record:
+      id: CQ-0024
+      question: >
+        Is that a requirement, or is it how we usually do it?
+      asked_by: examiner
+      category: provenance
+      pilot_in_scope: true
+      expected_sources:
+        required:
+          - TMM/Part29/1#1
+          - TMM/Part29/5/5/4
+        supporting:
+          - TMA1995/s43
+          - TMM/Part29/6#1~2
+      expected_concepts:
+        - endorsement
+        - condition of registration
+      must_not_include: []
+      answer_shape: >
+        Must separate what the Act requires from what the Manual records as
+        practice, including for the suggested endorsement wording, which is the
+        Registrar's suggestion rather than a prescribed form.
+      caveats: >
+        The Manual states practice; it does not bind the Registrar's discretion
+        and it is not legislation (Q-12). Every answer in the pilot has to keep
+        that visible, and this question tests it directly.
+      measured_by:
+        - authority_weighting
+        - citation_correctness
+      approved_by: null
+      approved_date: null
