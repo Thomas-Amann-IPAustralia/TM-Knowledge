@@ -19,7 +19,7 @@
 | Pages | 36 |
 | Pinned snapshot | `Thomas-Amann-IPAustralia/manual-XtrACTor` @ `c490a9927f1ab67c1c2fe4afdc758c79f35430c8` |
 | Extractor versions | `ingest/0.11.0`, `legislation/0.2.0` |
-| Generated | 2026-08-20 |
+| Generated | 2026-09-02 |
 
 
 ## How to use this

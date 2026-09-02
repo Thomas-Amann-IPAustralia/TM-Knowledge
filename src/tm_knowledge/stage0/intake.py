@@ -86,7 +86,7 @@ class Column:
 
     header: str
     path: tuple[str, ...]
-    #: text · number · boolean · enum · list — how a cell is read and written.
+    #: text · number · boolean · date · enum · list — how a cell is read and written.
     kind: str
     enum: tuple[Any, ...] | None = None
     required: bool = False
@@ -139,6 +139,13 @@ def _describe(node: dict[str, Any]) -> tuple[str, tuple[Any, ...] | None, bool]:
         return "boolean", None, nullable
     if types & {"integer", "number"}:
         return "number", None, nullable
+    if node.get("format") == "date":
+        # A date is text to the schema and a *value* to Excel, which is the whole
+        # problem: an expert types 25/08/2026 and the sheet hands back either
+        # that string or a datetime, neither of which is the ISO date the schema
+        # wants. The kind exists so both ends know to convert rather than to
+        # stringify (ADR-0047).
+        return "date", None, nullable
     return "text", None, nullable
 
 

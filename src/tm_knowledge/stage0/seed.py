@@ -62,6 +62,8 @@ from tm_knowledge.upstream.loader import Corpus
 
 __all__ = [
     "SEED_DIR",
+    "DECISIONS_DIR",
+    "recorded_verdicts",
     "SEED_FILES",
     "VERDICTS",
     "Envelope",
@@ -73,6 +75,9 @@ __all__ = [
 ]
 
 SEED_DIR = REPO_ROOT / "review" / "seed"
+
+#: Where a review round's verdicts are recorded once it has been reconciled.
+DECISIONS_DIR = REPO_ROOT / "review" / "decisions"
 
 #: Filename -> record type. Deliberately *not* `goldset.GOLD_FILES`' names: the
 #: `.seed.` infix is what makes a misfiled seed file loud instead of silent.
@@ -559,10 +564,22 @@ def _identifiers(seed: SeedSet) -> Iterator[Finding]:
 
 
 def _cross_references(seed: SeedSet) -> Iterator[Finding]:
-    """`PU-*`, `GC-*`, `CQ-*`/`GA-*` pointers resolve inside the seed set."""
+    """`PU-*`, `GC-*`, `CQ-*`/`GA-*` pointers resolve — here or in eval/gold/.
+
+    The gold set counts because of what happens after a review round: an
+    approved record leaves `review/seed/` for `eval/gold/` (ADR-0043
+    consequence 6, ADR-0049), and a seed record that pointed at it has not
+    become wrong — its target was promoted, not deleted. Checking only the seed
+    set would make every promotion break the records left behind, which would
+    make the delete-after-review rule impossible to follow.
+    """
     known: dict[str, set[str]] = {}
     for envelope in seed.envelopes:
         identifier = envelope.record.get("id")
+        if isinstance(identifier, str):
+            known.setdefault(identifier.split("-")[0], set()).add(identifier)
+    for _, record in goldset.load().all_records():
+        identifier = record.get("id")
         if isinstance(identifier, str):
             known.setdefault(identifier.split("-")[0], set()).add(identifier)
 
@@ -589,9 +606,9 @@ def _cross_references(seed: SeedSet) -> Iterator[Finding]:
                 if value not in pool:
                     yield Finding(
                         Severity.DEFECT, "seed-cross-reference", envelope.seed_id,
-                        f"{field_name} points at {value}, which no seed record "
-                        "defines. A dangling pointer in an example teaches the "
-                        "shape wrong",
+                        f"{field_name} points at {value}, which neither a seed "
+                        "record nor an approved one defines. A dangling pointer "
+                        "in an example teaches the shape wrong",
                     )
 
 
@@ -742,14 +759,57 @@ def coverage(seed: SeedSet) -> tuple[Finding, ...]:
             )
         )
 
-    unreviewed = [e for e in seed.envelopes if e.verdict == "unreviewed"]
+    ruled = recorded_verdicts()
+    unreviewed = [
+        e
+        for e in seed.envelopes
+        if e.verdict == "unreviewed" and e.seed_id not in ruled
+    ]
     if unreviewed:
+        held = seed.total - len(unreviewed)
+        settled = (
+            f" A further {held} carry a verdict in review/decisions/ and are "
+            "still here because that verdict was not an approval."
+            if held
+            else ""
+        )
         findings.append(
             Finding(
                 Severity.GAP, "seed-review", "verdicts",
                 f"{len(unreviewed)} of {seed.total} seed records are still "
                 "unreviewed. Until an expert rules on one, it is an illustration "
-                "of a shape and nothing more",
+                f"of a shape and nothing more.{settled}",
             )
         )
     return tuple(findings)
+
+
+def recorded_verdicts(root: Path | None = None) -> dict[str, str]:
+    """seed_id -> verdict, from every ledger in `review/decisions/`.
+
+    A verdict lives in the ledger, not in the seed file it came from: the file
+    is the expert's *input*, rewriting it to carry their answer would put two
+    authors in one document, and a record that was approved is not in the file
+    at all any more (ADR-0049). Without this the coverage report says every
+    surviving seed record is unreviewed, which is false the moment a round
+    comes back and rejects one.
+    """
+    root = root or DECISIONS_DIR
+    if not root.exists():
+        return {}
+    verdicts: dict[str, str] = {}
+    for path in sorted(root.glob("*.yaml")):
+        try:
+            document = yaml.safe_load(path.read_text(encoding="utf-8"))
+        except yaml.YAMLError:
+            continue
+        if not isinstance(document, dict):
+            continue
+        for entry in document.get("decisions") or ():
+            if not isinstance(entry, dict):
+                continue
+            seed_id = entry.get("seed_id")
+            verdict = entry.get("verdict")
+            if seed_id and verdict and verdict != "unreviewed":
+                verdicts[str(seed_id)] = str(verdict)
+    return verdicts

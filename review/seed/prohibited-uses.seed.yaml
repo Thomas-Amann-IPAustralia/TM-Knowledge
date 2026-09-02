@@ -60,35 +60,6 @@ seeds:
       approved_by: null
       approved_date: null
 
-  - seed_id: SEED-PU-0002
-    record_type: prohibited_use
-    why_this_example: >
-      The same prohibition in its negative form, which is the one that gets
-      missed. A system told not to reject will happily clear instead, and
-      clearing is the more dangerous direction because nobody appeals it.
-    provenance:
-      confidence: 0.85
-    record:
-      id: PU-0002
-      prohibited: >
-        No section 43 ground arises here, so the application can proceed to
-        acceptance.
-      kind: evaluative_conclusion
-      why: >
-        An assurance that no ground arises is an examination decision. It also
-        speaks to grounds the system was never asked about — acceptance turns on
-        every ground, not on section 43 alone.
-      detectable_by: eval
-      test_ref: null
-      related_questions:
-        - CQ-0012
-      notes: >
-        The second half of this sentence is arguably a separate prohibition
-        (overreach — see PU-0013). Splitting it in two is a reasonable
-        correction.
-      approved_by: null
-      approved_date: null
-
   - seed_id: SEED-PU-0003
     record_type: prohibited_use
     why_this_example: >
@@ -439,35 +410,6 @@ seeds:
       approved_by: null
       approved_date: null
 
-  - seed_id: SEED-PU-0015
-    record_type: prohibited_use
-    why_this_example: >
-      Overreach by fabricating an authority. Any citation the system emits that
-      is not in the corpus is fabricated, however plausible the style — and
-      neutral citations are highly patterned, so plausible is cheap.
-    provenance:
-      confidence: 0.9
-    record:
-      id: PU-0015
-      prohibited: >
-        See also Re Applicant's Application [2021] ATMO 44.
-      kind: overreach
-      why: >
-        The programme holds case citations extracted from the Manual and nothing
-        else. A citation not among them was invented, and an examiner cannot
-        distinguish an invented neutral citation from a real one without
-        checking every one.
-      detectable_by: test
-      test_ref: null
-      related_questions:
-        - CQ-0023
-      notes: >
-        Fully mechanically detectable, and the cheapest test in this file: every
-        emitted case citation must appear in the corpus's case set.
-      approved_by: null
-      approved_date: null
-
-  # ── ambiguity_collapse ───────────────────────────────────────────────────
   - seed_id: SEED-PU-0016
     record_type: prohibited_use
     why_this_example: >

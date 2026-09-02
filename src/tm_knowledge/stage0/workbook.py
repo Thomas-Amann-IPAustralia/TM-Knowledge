@@ -35,6 +35,12 @@ GUIDE_SHEET = "how to use this"
 _HEADER_FILL = "FFEFEFEF"
 _REQUIRED_FILL = "FFDCE9F5"
 
+#: ISO on the face of the sheet as well as in the file. A reviewer typing
+#: `25/08/2026` into a cell formatted this way sees it redisplayed as
+#: `2026-08-25`, which is the fastest possible way to notice that the sheet
+#: read the date the other way round.
+_DATE_FORMAT = "yyyy-mm-dd"
+
 
 def _guidance() -> list[tuple[str, str]]:
     """The rules that govern filling this in. Shape rules only — no content."""
@@ -139,6 +145,16 @@ def _write_sheet(workbook, spec: Sheet, ranges: dict[str, str]) -> None:
         letter = get_column_letter(index)
         sheet.column_dimensions[letter].width = _width(column)
 
+        if column.kind == "date":
+            # Format the *column*, not a block of cells: a block would
+            # materialise a thousand empty rows and the workbook must ship with
+            # none (`test_the_workbook_ships_with_no_example_rows`). The format
+            # is what makes Excel parse `25/08/2026` under the typist's locale
+            # and store a real date, so the ambiguity never reaches the reader.
+            # It is help, not a guarantee — the guarantee is that `transcribe`
+            # refuses a slashed date it cannot resolve (ADR-0047).
+            sheet.column_dimensions[letter].number_format = _DATE_FORMAT
+
         if column.enum:
             validation = DataValidation(
                 type="list",
@@ -168,6 +184,12 @@ def _note(column: Column) -> str:
     parts = []
     if column.kind == "list":
         parts.append("A list — one value per line (Alt+Enter).")
+    if column.kind == "date":
+        parts.append(
+            "A date. The column is formatted as one, so typing 25/08/2026 is "
+            "fine. If you type it as text, write it as 2026-08-25 — a slashed "
+            "date that could be read either way round is refused, not guessed."
+        )
     if column.enum:
         parts.append("One of: " + ", ".join(str(value) for value in column.enum) + ".")
     if column.required and column.nullable:
@@ -182,6 +204,8 @@ def _note(column: Column) -> str:
 
 
 def _width(column: Column) -> int:
+    if column.kind == "date":
+        return 16
     if column.kind in ("number", "boolean"):
         return 14
     if column.kind == "list":

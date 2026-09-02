@@ -28,6 +28,8 @@ an unchanged git status.
 
 from __future__ import annotations
 
+import datetime as _datetime
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -38,7 +40,7 @@ from tm_knowledge.stage0 import goldset
 from tm_knowledge.stage0.intake import REVIEW_COLUMNS, Column, Sheet, sheet_for, sheets
 from tm_knowledge.stage0.schemas import property_order, required_fields, validate
 
-__all__ = ["Transcription", "read_workbook", "write_records"]
+__all__ = ["Held", "Transcription", "read_workbook", "write_records"]
 
 
 class WorkbookMismatch(Exception):
@@ -58,6 +60,42 @@ class Problem:
         return f"{where}: {self.message}"
 
 
+#: The verdicts a review workbook's `verdict` column may carry, plus the empty
+#: cell that means the row was never reached. Anything else is a typo, and a
+#: typo is reported rather than guessed at — `corrrect` is obvious to a reader
+#: and is exactly the kind of thing rule 6 says not to interpret.
+VERDICTS: frozenset[str] = frozenset({"correct", "amend", "reject"})
+
+#: Why a row that arrived was not written into `eval/gold/`. Each is a state a
+#: person can act on, which is the point of separating them from `Problem`: a
+#: held row is not malformed, it is simply not approved yet (ADR-0048).
+NOT_REVIEWED = "not reviewed"
+REJECTED = "rejected by the reviewer"
+AMENDMENT_PENDING = "marked 'amend'; the amendment has not been applied"
+UNSIGNED = "marked 'correct' but approved_by is blank, so nobody has signed it"
+CHILD_UNSETTLED = "approved, but a row on its child sheet is not settled"
+DANGLING = "approved, but it names a record that is not"
+
+
+@dataclass(frozen=True, slots=True)
+class Held:
+    """A row that was read, understood, and deliberately not written."""
+
+    record_type: str
+    identifier: str
+    reason: str
+    #: What the reviewer wrote in `correction`, where they wrote anything.
+    correction: str | None = None
+    seed_id: str | None = None
+    #: Which child rows are unsettled, for the one reason that needs naming.
+    detail: str | None = None
+
+    def __str__(self) -> str:
+        tail = f" — {self.correction}" if self.correction else ""
+        where = f" [{self.detail}]" if self.detail else ""
+        return f"{self.identifier} ({self.record_type}): {self.reason}{where}{tail}"
+
+
 @dataclass
 class Transcription:
     """What came out of one workbook."""
@@ -68,15 +106,31 @@ class Transcription:
     blanks: list[tuple[str, str, str]] = field(default_factory=list)
     #: Record types whose sheet held no rows at all.
     empty_sheets: list[str] = field(default_factory=list)
+    #: Rows the review gate kept out of `eval/gold/`, and why.
+    held: list[Held] = field(default_factory=list)
+    #: (record type, parent id, where) for every child entry a reviewer rejected
+    #: and this run therefore left out of its parent's list.
+    dropped: list[tuple[str, str, str]] = field(default_factory=list)
+    #: True when the workbook carried a `verdict` column — i.e. it is a seed
+    #: review workbook and the gate applied. A plain intake workbook has none,
+    #: and behaves exactly as it did before the gate existed.
+    reviewed: bool = False
 
     @property
     def total(self) -> int:
         return sum(len(records) for records in self.records.values())
 
+    def held_by_reason(self) -> dict[str, list[Held]]:
+        grouped: dict[str, list[Held]] = {}
+        for entry in self.held:
+            grouped.setdefault(entry.reason, []).append(entry)
+        return grouped
+
     def summary(self) -> str:
+        gate = f"; {len(self.held)} row(s) held" if self.reviewed else ""
         return (
             f"{self.total} record(s) from {len(self.records)} sheet(s); "
-            f"{len(self.problems)} rejected row(s); {len(self.blanks)} blank "
+            f"{len(self.problems)} rejected row(s){gate}; {len(self.blanks)} blank "
             "judgement field(s)"
         )
 
@@ -93,8 +147,67 @@ def _text(value: Any) -> str | None:
     return text or None
 
 
+_ISO_DATE = re.compile(r"^[0-9]{4}-[0-9]{2}-[0-9]{2}$")
+_SLASHED_DATE = re.compile(r"^([0-9]{1,2})[/.-]([0-9]{1,2})[/.-]([0-9]{4})$")
+
+
+def _date(header: str, value: Any) -> str | None:
+    """An approval date to `YYYY-MM-DD`, or a loud refusal.
+
+    Three things arrive in this cell and only one of them is already right:
+
+    - a real Excel date, which openpyxl hands over as a `datetime`. Excel parsed
+      it under the typist's locale, so it is unambiguous by the time it gets
+      here and converts exactly;
+    - an ISO string, which passes through;
+    - a string somebody typed with slashes. `25/08/2026` can only be
+      day/month — no month is 25 — so it converts. `05/08/2026` cannot be
+      resolved by anything in this repo, and a wrong approval date is a
+      provenance defect that nothing downstream would ever catch, so it is
+      refused by name rather than read as Australian and hoped for (rule 6).
+    """
+    if isinstance(value, _datetime.datetime):
+        return value.date().isoformat()
+    if isinstance(value, _datetime.date):
+        return value.isoformat()
+
+    text = _text(value)
+    if text is None:
+        return None
+    if _ISO_DATE.match(text):
+        try:
+            _datetime.date.fromisoformat(text)
+        except ValueError as error:
+            raise ValueError(f"{header} is {text!r}, which is not a real date") from error
+        return text
+
+    slashed = _SLASHED_DATE.match(text)
+    if slashed:
+        first, second, year = (int(part) for part in slashed.groups())
+        if first > 12 and 1 <= second <= 12:
+            try:
+                return _datetime.date(year, second, first).isoformat()
+            except ValueError as error:
+                raise ValueError(
+                    f"{header} is {text!r}, which is not a real date"
+                ) from error
+        raise ValueError(
+            f"{header} is {text!r}. Written that way it is day/month to one "
+            "reader and month/day to another, and this one could be either. "
+            "Nothing here will guess at an approval date — write it as "
+            "YYYY-MM-DD, or type it into a cell Excel formats as a date"
+        )
+
+    raise ValueError(
+        f"{header} is {text!r}, which is not a date. Write it as YYYY-MM-DD"
+    )
+
+
 def _cell(column: Column, value: Any, sheet: str, row: int) -> Any:
     """One cell to one Python value. Raises on a value the schema cannot hold."""
+    if column.kind == "date":
+        return _date(column.header, value)
+
     if column.kind == "list":
         raw = _text(value)
         if raw is None:
@@ -201,9 +314,10 @@ def _headers(worksheet, spec: Sheet) -> dict[str, int]:
 
     expected = {column.header for column in spec.columns}
     missing = expected - set(found)
-    # The seed review workbook carries three annotation columns the intake
-    # workbook does not (ADR-0044). They are about the record, not part of it, so
-    # they are tolerated here and never transcribed into a field.
+    # The seed review workbook carries five annotation columns the intake
+    # workbook does not (ADR-0044, ADR-0046). They are about the record, not part
+    # of it, so they never become a field — but two of them decide whether the
+    # record is written at all (ADR-0048).
     unknown = set(found) - expected - set(REVIEW_COLUMNS)
     if missing or unknown:
         raise WorkbookMismatch(
@@ -217,13 +331,57 @@ def _headers(worksheet, spec: Sheet) -> dict[str, int]:
     return found
 
 
+@dataclass(frozen=True, slots=True)
+class _Annotation:
+    """The reviewer's marks on one row. Absent entirely on an intake workbook."""
+
+    present: bool = False
+    verdict: str | None = None
+    correction: str | None = None
+    seed_id: str | None = None
+    approved_by: str | None = None
+
+
+def _annotation(spec: Sheet, values: dict[str, Any]) -> _Annotation:
+    if "verdict" not in values:
+        return _Annotation()
+    verdict = _text(values.get("verdict"))
+    approved = None
+    for column in spec.columns:
+        if column.header == "approved_by":
+            approved = _text(values.get("approved_by"))
+    return _Annotation(
+        present=True,
+        verdict=verdict.strip().lower() if verdict else None,
+        correction=_text(values.get("correction")),
+        seed_id=_text(values.get("seed_id")),
+        approved_by=approved,
+    )
+
+
 def _rows(worksheet, spec: Sheet, result: Transcription):
-    """(row number, record) for every row that became a record."""
+    """(row number, record, annotation) for every row that became a record."""
     positions = _headers(worksheet, spec)
     for number, row in enumerate(worksheet.iter_rows(min_row=2), start=2):
         values = {header: row[index - 1].value for header, index in positions.items()}
         if all(_text(value) is None for value in values.values()):
             continue
+
+        marks = _annotation(spec, values)
+        if marks.present:
+            result.reviewed = True
+            if marks.verdict is not None and marks.verdict not in VERDICTS:
+                result.problems.append(
+                    Problem(
+                        spec.name,
+                        number,
+                        f"verdict is {marks.verdict!r}; it is one of "
+                        + ", ".join(sorted(VERDICTS))
+                        + ". A near-miss is not read as the value it resembles — "
+                        "fix the cell and hand the workbook back",
+                    )
+                )
+                continue
 
         record: dict[str, Any] = {}
         failed = False
@@ -259,7 +417,7 @@ def _rows(worksheet, spec: Sheet, result: Transcription):
                 )
             )
             continue
-        yield number, record
+        yield number, record, marks
 
 
 def read_workbook(path: Path) -> Transcription:
@@ -275,15 +433,17 @@ def read_workbook(path: Path) -> Transcription:
     result = Transcription()
 
     parents: dict[str, dict[str, dict[str, Any]]] = {}
+    marks: dict[str, dict[str, _Annotation]] = {}
     for spec in sheets():
         if spec.is_child or spec.name not in workbook.sheetnames:
             continue
-        rows = dict(_rows(workbook[spec.name], spec, result))
+        rows = list(_rows(workbook[spec.name], spec, result))
         if not rows:
             result.empty_sheets.append(spec.record_type)
             continue
         by_id: dict[str, dict[str, Any]] = {}
-        for number, record in rows.items():
+        annotations: dict[str, _Annotation] = {}
+        for number, record, annotation in rows:
             identifier = record.get("id")
             if identifier in by_id:
                 result.problems.append(
@@ -291,16 +451,22 @@ def read_workbook(path: Path) -> Transcription:
                 )
                 continue
             by_id[identifier] = record
+            annotations[identifier] = annotation
         parents[spec.record_type] = by_id
+        marks[spec.record_type] = annotations
 
     # Child sheets fill a repeating field on a parent that must already exist.
+    # A child row carries its own verdict and no `approved_by` — approval lives
+    # on the parent — so a rejected entry is dropped from the parent's list and
+    # anything else unresolved holds the parent whole (ADR-0048).
+    child_holds: dict[str, dict[str, list[str]]] = {}
     for spec in sheets():
         if not spec.is_child or spec.name not in workbook.sheetnames:
             continue
         by_id = parents.get(spec.record_type, {})
         for parent in by_id.values():
             parent.setdefault(spec.parent_field, [])
-        for number, entry in _rows(workbook[spec.name], spec, result):
+        for number, entry, annotation in _rows(workbook[spec.name], spec, result):
             parent_id = entry.pop("parent_id")
             parent = by_id.get(parent_id)
             if parent is None:
@@ -313,11 +479,47 @@ def read_workbook(path: Path) -> Transcription:
                     )
                 )
                 continue
+            if annotation.present:
+                if annotation.verdict == "reject":
+                    # The reviewer said this entry should not exist. Dropping it
+                    # applies their decision; it does not hold the parent, whose
+                    # own verdict is on its own row.
+                    result.dropped.append(
+                        (spec.record_type, str(parent_id), f"{spec.name} row {number}")
+                    )
+                    continue
+                if annotation.verdict != "correct":
+                    where = f"{spec.name} row {number}"
+                    reason = (
+                        AMENDMENT_PENDING
+                        if annotation.verdict == "amend"
+                        else NOT_REVIEWED
+                    )
+                    child_holds.setdefault(spec.record_type, {}).setdefault(
+                        parent_id, []
+                    ).append(f"{where}: {reason}")
             parent[spec.parent_field].append(entry)
 
     for record_type, by_id in parents.items():
         kept: list[dict[str, Any]] = []
+        annotations = marks.get(record_type, {})
+        holds = child_holds.get(record_type, {})
         for identifier, record in by_id.items():
+            annotation = annotations.get(identifier, _Annotation())
+            unsettled = holds.get(identifier, ())
+            reason = _gate(annotation, unsettled)
+            if reason is not None:
+                result.held.append(
+                    Held(
+                        record_type=record_type,
+                        identifier=str(identifier),
+                        reason=reason,
+                        correction=annotation.correction,
+                        seed_id=annotation.seed_id,
+                        detail="; ".join(unsettled) if reason is CHILD_UNSETTLED else None,
+                    )
+                )
+                continue
             _reorder(record, record_type)
             errors = validate(record, record_type)
             if errors:
@@ -333,6 +535,113 @@ def read_workbook(path: Path) -> Transcription:
         if kept:
             result.records[record_type] = kept
     return result
+
+
+def _gate(annotation: _Annotation, child_holds) -> str | None:
+    """Why this row must not enter `eval/gold/`, or None if it may.
+
+    Only reached for a workbook that carries a `verdict` column. A plain intake
+    workbook has none, `annotation.present` is False, and every row goes through
+    exactly as it did before this gate existed — an expert's own composed record
+    is awaiting approval, not awaiting review, and the coverage report is what
+    says so about it (ADR-0027, ADR-0039).
+
+    For a seed review workbook the rule is rule 4 with no softening: machine
+    output crosses into approved space only where a person said it was right
+    *and* put their name to it. `correct` without a name is the interesting
+    state — it is a judgement that was made and not signed — so it is reported
+    under its own reason rather than lumped in with the unread rows.
+    """
+    if not annotation.present:
+        return None
+    if annotation.verdict is None:
+        return NOT_REVIEWED
+    if annotation.verdict == "reject":
+        return REJECTED
+    if annotation.verdict == "amend":
+        return AMENDMENT_PENDING
+    if not annotation.approved_by:
+        return UNSIGNED
+    if child_holds:
+        return CHILD_UNSETTLED
+    return None
+
+
+def close_over_cross_references(
+    transcription: Transcription, approved_ids: frozenset[str] = frozenset()
+) -> None:
+    """Hold every approved record that names one nothing approved defines.
+
+    Approval of a set does not distribute over its members. A reviewer signs
+    `PU-0001` — a prohibition that is true on its own terms — and it carries
+    `related_questions: [CQ-0012, GA-0003]`; sign the prohibition and not the
+    question and the gold set acquires a pointer to nothing. `tmk-harness` calls
+    that a DEFECT and is right to: a measurement standard with a dangling
+    reference is not a standard, and the check cannot be relaxed to look in
+    `review/seed/` without letting approved knowledge rest on candidates
+    (CLAUDE.md rule 4).
+
+    So the gate is closed transitively — held to a fixed point, because holding
+    one record can dangle another's pointer to it. The cost is real and it is
+    the honest number: partial approval of an interlinked set yields less than
+    the row count suggests, and the coverage report now says which unsigned
+    record is holding which signed one (ADR-0048).
+
+    `approved_ids` is what is already in `eval/gold/` and not being rewritten by
+    this run. Applies only to a review workbook; an intake workbook has no
+    verdicts and is untouched.
+    """
+    if not transcription.reviewed:
+        return
+
+    from tm_knowledge.stage0.harness import CROSS_REFERENCES
+    from tm_knowledge.stage0.schemas import read_path
+
+    while True:
+        known = set(approved_ids)
+        for record_type, records in transcription.records.items():
+            known.update(
+                str(record["id"]) for record in records if record.get("id")
+            )
+
+        newly_held: list[Held] = []
+        for record_type, fields in CROSS_REFERENCES.items():
+            kept = transcription.records.get(record_type)
+            if not kept:
+                continue
+            survivors: list[dict[str, Any]] = []
+            for record in kept:
+                dangling = [
+                    f"{pointer} names {value}"
+                    for path, prefixes in fields.items()
+                    for pointer, value in read_path(record, path)
+                    if isinstance(value, str)
+                    and value.split("-")[0] in prefixes
+                    and value not in known
+                ]
+                if dangling:
+                    newly_held.append(
+                        Held(
+                            record_type=record_type,
+                            identifier=str(record.get("id")),
+                            reason=DANGLING,
+                            detail="; ".join(dangling),
+                        )
+                    )
+                else:
+                    survivors.append(record)
+            if survivors:
+                transcription.records[record_type] = survivors
+            else:
+                del transcription.records[record_type]
+
+        if not newly_held:
+            return
+        transcription.held.extend(newly_held)
+        dropped = {(h.record_type, h.identifier) for h in newly_held}
+        transcription.blanks = [
+            blank for blank in transcription.blanks if (blank[0], blank[1]) not in dropped
+        ]
 
 
 def _sheet_name(record_type: str) -> str:
