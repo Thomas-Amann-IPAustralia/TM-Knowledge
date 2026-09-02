@@ -501,3 +501,85 @@ anything.** A vocabulary built only from the pilot's citing set will be
 internally consistent and externally wrong. Whether the fix is a scope
 exception, a separate definitional pass, or a Part-2 glossary import is Q17 in
 `HANDOFF.md` and needs the expert, not an agent.
+
+---
+
+### Q-29 — `pytest` on `PATH` in the agent container is not the project's pytest
+
+Symptom, on a container that has just run `pip install -e ".[test,intake]"`
+successfully:
+
+```
+tests/unit/test_harness.py:25: in <module>
+    import yaml
+E   ModuleNotFoundError: No module named 'yaml'
+E   ModuleNotFoundError: No module named 'tm_knowledge'
+```
+
+Nine collection errors, and every one of them names a package that is plainly
+installed. `tmk-harness` runs fine in the same shell.
+
+The cause is not the project:
+
+```
+$ which pytest
+/root/.local/bin/pytest
+$ head -1 $(which pytest)
+#!/root/.local/share/uv/tools/pytest/bin/python
+```
+
+The image ships a `uv tool install pytest`, and its shim sits ahead of the
+environment `pip` installed into. That pytest runs against its own isolated
+interpreter, which has neither `tm_knowledge` nor `PyYAML` in it.
+
+**Run `python3 -m pytest -q`**, which uses the interpreter that owns the
+install. `pip install pytest` does not fix it — the shim still wins on `PATH`.
+Worth knowing before spending twenty minutes on an installation that was never
+broken: a `ModuleNotFoundError` for a package you can `import` in `python3` is
+an interpreter mismatch, not a packaging fault.
+
+`README.md` and the docs say `pytest -q` because that is what a normal checkout
+runs. On a container, prefix it.
+
+---
+
+### Q-30 — The seed set contains genuine reference cycles
+
+`GA-0002` names `PU-0013` in `prohibited_conclusions`; `PU-0013` names `GA-0002`
+back in `related_questions`. Same for `GA-0002` ↔ `PU-0014`, and `GA-0016` ↔
+`PU-0016`. These are not errors — a retrieval question naming the prohibition it
+must not conclude, and a prohibition naming the question it arises on, is the
+shape the schemas ask for.
+
+The consequence is that **any walk over `CROSS_REFERENCES` must be cycle-safe.**
+A plain recursive "what does this hold" over the real data does not terminate.
+`transcribe.close_over_cross_references` is safe because it iterates to a fixed
+point rather than recursing; `blockers._closure` is safe because it accumulates
+into a visited set. A third one written naively will hang, and it will hang on
+real content rather than on a fixture, so it will pass its tests first.
+
+A second consequence, subtler: **a record in a cycle cannot be released by
+anything outside the cycle.** `GA-0002`, `PU-0013` and `PU-0014` are held only by
+each other, and the amendment on `GA-0002` releases all three. Anything that
+looks for an "unblocked root" to start from will find none and report the
+largest chain on the queue as unreachable (ADR-0054).
+
+---
+
+### Q-31 — In a review dependency graph, a rejected record is a sink, not a source
+
+When inverting "who is waiting on whom" over review state, the temptation is to
+treat every unsatisfied pointer as an edge. That produces a report saying
+`GA-0016` *holds* `PU-0016` — because `PU-0016` names `GA-0016` and `PU-0016` is
+not in `eval/gold/`.
+
+It is exactly backwards. `PU-0016` was **rejected**; it is finished, negatively,
+and it is in `review/seed/` only so the rejection and the reviewer's reason
+survive (ADR-0049). It is not waiting for anything and nothing releases it. What
+is true is the reverse: the rejection is why `GA-0016` has to change.
+
+So: a record whose verdict is `reject` contributes no outgoing edges. It still
+receives them — the records that name it are exactly the ones that need a
+decision, and they are the point of the report. Getting this wrong does not
+crash anything; it inverts the direction of every chain that touches a rejected
+record, and the resulting table looks entirely plausible.

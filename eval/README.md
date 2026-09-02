@@ -18,7 +18,7 @@ facto standard purely because it arrived first.
 | `measures.md` | Which metric applies to which component, and the pass thresholds | not started |
 | `templates/` | Record shapes for the above | present — now schema-checked |
 | `schemas/` | The machine-checkable form of the templates | present — S004, ADR-0027 |
-| the harness | `tmk-harness`, `tmk-coverage` in `src/tm_knowledge/stage0/` | present — S005, and **red by design** |
+| the harness | `tmk-harness`, `tmk-coverage`, `tmk-blockers` in `src/tm_knowledge/stage0/` | present — S005, blocker report S009, and **red by design** |
 | the intake path | `tmk-workbook` out, `tmk-transcribe` back in | present — S005 |
 | the seed path | `review/seed/` + `tmk-seed` — machine-written examples for expert **correction**, never content | present — S007, ADR-0043 |
 | `STAGE-0-INPUT-GUIDE.md` | **Expert-facing.** What the owner must supply, in what shape, with worked shape-only examples and elicitation prompts | present |
@@ -94,6 +94,7 @@ From roadmap §5. `measures.md` will fix the thresholds; these are the dimension
 ```bash
 tmk-harness      # exits 3: nothing is malformed, and Stage 0 has not arrived
 tmk-coverage     # the same findings as a worklist → data/derived/reports/
+tmk-blockers     # which decision on the review queue releases the most
 ```
 
 It should be runnable, and failing, before any Stage 2 work begins — a red

@@ -22,11 +22,12 @@ src/tm_knowledge/
     intake.py     the workbook column layout, derived from the schemas — one copy
     harness.py    `tmk-harness`: the checks, and the completeness gate (ADR-0018)
     coverage.py   `tmk-coverage`: the gap worklist — reports gaps, never fills them
+    blockers.py   `tmk-blockers`: who is waiting on whom, and which decision frees most
     recon.py      `tmk-recon`: derived counts about a candidate pilot area
     worksheet.py  `tmk-worksheet`: the Pass B annotation worksheet (ADR-0022)
     workbook.py   `tmk-workbook`: the intake workbook, with no example rows
     transcribe.py `tmk-transcribe`: workbook in, validated records out
-    cli.py        the six commands above
+    cli.py        the commands above
   candidates/     Stage 2–4 candidate generation — NOT YET, and blocked by ADR-0010
   vocabulary/     Stage 3 clustering and SKOS emission — not yet
   graph/          Stage 6 RDF emission and named-graph assembly — not yet
@@ -44,9 +45,11 @@ tmk-recon                   # derived counts about s 43 → data/derived/reports
 tmk-worksheet               # the Pass B worksheet → data/derived/
 tmk-harness                 # the Stage 0 harness. Exits 3 today, by design
 tmk-coverage                # the gap worklist → data/derived/reports/
+tmk-blockers                # the review queue as a graph → data/derived/reports/
+tmk-blockers --ids          # just the record ids on the critical path
 tmk-workbook                # the intake workbook → data/derived/ (needs [intake])
 tmk-transcribe FILE         # a filled workbook → eval/gold/. Dry run unless --write
-pytest -q                   # snapshot-marked tests skip without a fetch
+python3 -m pytest -q        # snapshot-marked tests skip without a fetch (Q-29)
 ```
 
 `tmk-harness` is the one whose exit code carries meaning: **0** sound and Stage 0
