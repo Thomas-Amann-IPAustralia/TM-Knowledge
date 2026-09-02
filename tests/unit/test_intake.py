@@ -479,3 +479,90 @@ def test_a_pointer_into_what_is_already_approved_resolves(tmp_path):
     transcribe.close_over_cross_references(result, frozenset({"GA-0001"}))
     assert [record["id"] for record in result.records["prohibited_use"]] == ["PU-0009"]
     assert not result.held
+
+
+# ---------------------------------------------------------------------------
+# Addenda (ADR-0051)
+# ---------------------------------------------------------------------------
+
+
+def _addendum(tmp_path, body: str):
+    path = tmp_path / "confirmation.yaml"
+    path.write_text(body, encoding="utf-8")
+    return transcribe.read_addendum(path)
+
+
+def test_an_instruction_signs_only_a_blank_approved_by_on_a_correct_row(tmp_path):
+    """The narrowest thing that does the job (ADR-0051).
+
+    A reviewer saying "everything I marked correct is signed TC" is a recorded
+    human decision about a defined set of rows. It is not a decision about the
+    rows they amended, rejected or never reached, and it does not overwrite a
+    name already there.
+    """
+    addendum = _addendum(
+        tmp_path,
+        "reviewer: TC\nrecorded_on: 2026-09-02\nsign_unsigned_correct: true\n",
+    )
+    spec = next(s for s in sheets() if s.name == "concepts")
+
+    cases = [
+        ({"id": "GC-1", "verdict": "correct", "approved_by": None}, "TC"),
+        ({"id": "GC-2", "verdict": "correct", "approved_by": "AB"}, "AB"),
+        ({"id": "GC-3", "verdict": "amend", "approved_by": None}, None),
+        ({"id": "GC-4", "verdict": "reject", "approved_by": None}, None),
+        ({"id": "GC-5", "verdict": None, "approved_by": None}, None),
+    ]
+    for values, expected in cases:
+        values.setdefault("approved_date", None)
+        addendum.apply(spec, values)
+        assert values["approved_by"] == expected, values["id"]
+
+
+def test_an_instruction_settles_a_verdict_by_name_and_only_by_name(tmp_path):
+    """`corrrect` is read as `correct` because a person said so about GE-0031 —
+    not because it looks like it. There is no pattern and no typo table."""
+    addendum = _addendum(
+        tmp_path,
+        "reviewer: TC\nrecorded_on: 2026-09-02\nverdicts:\n  GE-0031: correct\n",
+    )
+    spec = next(s for s in sheets() if s.name == "entities")
+
+    named = {"id": "GE-0031", "verdict": "corrrect", "approved_by": None}
+    assert addendum.apply(spec, named)
+    assert named["verdict"] == "correct"
+
+    unnamed = {"id": "GE-0032", "verdict": "corrrect", "approved_by": None}
+    assert not addendum.apply(spec, unnamed)
+    assert unnamed["verdict"] == "corrrect"
+
+
+def test_an_instruction_does_not_reach_a_child_row(tmp_path):
+    """A child row has no id to name and no approved_by of its own. Changing one
+    costs a workbook, which is the right price for it."""
+    addendum = _addendum(
+        tmp_path,
+        "reviewer: TC\nrecorded_on: 2026-09-02\nsign_unsigned_correct: true\n"
+        "verdicts:\n  GS-0007: correct\n",
+    )
+    child = next(s for s in sheets() if s.is_child)
+    values = {"parent_id": "GS-0007", "verdict": "rejext"}
+    assert not addendum.apply(child, values)
+    assert values["verdict"] == "rejext"
+
+
+@pytest.mark.parametrize(
+    ("body", "because"),
+    [
+        ("recorded_on: 2026-09-02\n", "reviewer"),
+        ("reviewer: TC\n", "recorded_on"),
+        ("reviewer: TC\nrecorded_on: 05/08/2026\n", "recorded_on"),
+        ("reviewer: TC\nrecorded_on: 2026-09-02\nverdicts:\n  GE-1: corrrect\n", "GE-1"),
+    ],
+)
+def test_an_instruction_it_cannot_act_on_exactly_is_refused(tmp_path, body, because):
+    """Including a verdict *the instruction itself* misspells. Nothing here
+    reads through a near-miss, wherever it arrives from."""
+    with pytest.raises(transcribe.MalformedAddendum) as error:
+        _addendum(tmp_path, body)
+    assert because in str(error.value)

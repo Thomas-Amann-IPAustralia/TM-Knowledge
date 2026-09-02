@@ -42,7 +42,12 @@ import yaml
 from tm_knowledge.config import REPO_ROOT
 from tm_knowledge.stage0 import goldset, seed as seed_module
 from tm_knowledge.stage0.intake import sheets
-from tm_knowledge.stage0.transcribe import VERDICTS, _date as _iso_date, _text
+from tm_knowledge.stage0.transcribe import (
+    VERDICTS,
+    Addendum,
+    _date as _iso_date,
+    _text,
+)
 
 __all__ = [
     "DECISIONS_DIR",
@@ -77,6 +82,10 @@ class Outcome:
     #: `approved` · `held` · `rejected` · `unparseable`
     state: str
     note: str | None = None
+    #: True when an addendum supplied the verdict or the signature rather than
+    #: the reviewer's own cell. The ledger says so, because how a record came to
+    #: be approved is part of the record of its approval (ADR-0051).
+    by_instruction: bool = False
 
     @property
     def retire(self) -> bool:
@@ -88,6 +97,8 @@ class Round:
     """One returned workbook, read as a set of decisions."""
 
     workbook: Path
+    #: The instruction file applied to this reading, where one was.
+    addendum: Addendum | None = None
     outcomes: list[Outcome] = field(default_factory=list)
     #: (parent id, child sheet, row, verdict, correction) for every child row a
     #: reviewer marked anything other than `correct`.
@@ -109,7 +120,11 @@ class Round:
 # ---------------------------------------------------------------------------
 
 
-def read_round(path: Path, gold_ids: set[str] | None = None) -> Round:
+def read_round(
+    path: Path,
+    gold_ids: set[str] | None = None,
+    addendum: Addendum | None = None,
+) -> Round:
     """Read a returned review workbook into outcomes. Writes nothing.
 
     `gold_ids` decides `approved` from `held`: a row is approved when the record
@@ -123,7 +138,7 @@ def read_round(path: Path, gold_ids: set[str] | None = None) -> Round:
         gold_ids = _gold_ids()
 
     book = load_workbook(path, data_only=True)
-    result = Round(workbook=path)
+    result = Round(workbook=path, addendum=addendum)
     reviewers: set[str] = set()
 
     for spec in sheets():
@@ -161,6 +176,24 @@ def read_round(path: Path, gold_ids: set[str] | None = None) -> Round:
             if identifier is None:
                 continue
             approved_by = _text(cell(row, "approved_by"))
+            approved_date = _date_text(cell(row, "approved_date"))
+
+            # The same instruction the transcriber applied, applied here, so the
+            # ledger describes the run that produced `eval/gold/` rather than a
+            # second reading of the same workbook.
+            instructed = False
+            if addendum is not None:
+                ruled = addendum.verdict_for(identifier)
+                if ruled is not None and ruled != verdict:
+                    verdict, instructed = ruled, True
+                if (
+                    addendum.sign_unsigned_correct
+                    and verdict == "correct"
+                    and not approved_by
+                ):
+                    approved_by = addendum.reviewer
+                    approved_date = addendum.recorded_on
+                    instructed = True
             if approved_by:
                 reviewers.add(approved_by)
 
@@ -181,9 +214,10 @@ def read_round(path: Path, gold_ids: set[str] | None = None) -> Round:
                     verdict=verdict,
                     correction=correction,
                     approved_by=approved_by,
-                    approved_date=_date_text(cell(row, "approved_date")),
+                    approved_date=approved_date,
                     state=state,
                     note=note,
+                    by_instruction=instructed,
                 )
             )
 
@@ -223,6 +257,7 @@ def ledger_data(round_: Round, *, as_of: str | None = None) -> dict[str, Any]:
     """The machine-readable half. What Stage 10 active learning reads."""
     return {
         "source_workbook": round_.workbook.name,
+        "addendum": round_.addendum.source.name if round_.addendum and round_.addendum.source else None,
         "recorded_on": as_of or date.today().isoformat(),
         "reviewers": list(round_.reviewers),
         "counts": {
@@ -240,6 +275,7 @@ def ledger_data(round_: Round, *, as_of: str | None = None) -> dict[str, Any]:
                 "approved_date": outcome.approved_date,
                 "correction": outcome.correction,
                 "note": outcome.note,
+                "by_instruction": outcome.by_instruction,
             }
             for outcome in round_.outcomes
         ],
@@ -282,6 +318,18 @@ def render_ledger(round_: Round, *, as_of: str | None = None) -> str:
         "",
         f"{round_.reviewed} of {len(round_.outcomes)} records carry a verdict.",
         "",
+    ]
+    if round_.addendum is not None:
+        instructed = [o for o in round_.outcomes if o.by_instruction]
+        lines += [
+            f"**Addendum applied:** `{round_.addendum.source.name}`, recorded "
+            f"{round_.addendum.recorded_on} by {round_.addendum.reviewer} — "
+            f"{len(instructed)} record(s). A row marked *by instruction* below "
+            "took its verdict or its signature from that file rather than from "
+            "the reviewer's own cell (ADR-0051).",
+            "",
+        ]
+    lines += [
         "| outcome | records |",
         "|---|---|",
     ]
@@ -300,6 +348,8 @@ def render_ledger(round_: Round, *, as_of: str | None = None) -> str:
                 head += f", signed {outcome.approved_by}"
                 if outcome.approved_date:
                     head += f" {outcome.approved_date}"
+            if outcome.by_instruction:
+                head += " · *by instruction*"
             lines.append(head)
             if outcome.note:
                 lines.append(f"  - {outcome.note}")

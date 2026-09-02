@@ -41,6 +41,7 @@ tmk-workbook          # the intake workbook, EMPTY → data/derived/stage0-intak
 tmk-seed --pack --workbook   # the seed examples, for expert correction (ADR-0043)
 tmk-transcribe FILE --write  # a marked-up workbook back in — approved rows only
 tmk-reconcile FILE --write   # record the round, retire the seed copies it settled
+#   both take --addendum for a decision that arrived as words, not as cells
 tmk-harness           # every Stage 0 check. Exits 3: incomplete, by design
 tmk-coverage          # the same, as a worklist → data/derived/reports/
 pytest -q

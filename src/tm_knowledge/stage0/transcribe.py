@@ -40,7 +40,14 @@ from tm_knowledge.stage0 import goldset
 from tm_knowledge.stage0.intake import REVIEW_COLUMNS, Column, Sheet, sheet_for, sheets
 from tm_knowledge.stage0.schemas import property_order, required_fields, validate
 
-__all__ = ["Held", "Transcription", "read_workbook", "write_records"]
+__all__ = [
+    "Addendum",
+    "Held",
+    "Transcription",
+    "read_addendum",
+    "read_workbook",
+    "write_records",
+]
 
 
 class WorkbookMismatch(Exception):
@@ -115,6 +122,8 @@ class Transcription:
     #: review workbook and the gate applied. A plain intake workbook has none,
     #: and behaves exactly as it did before the gate existed.
     reviewed: bool = False
+    #: (record id, what was done) for every row an addendum stood in for.
+    instructed: list[tuple[str, str]] = field(default_factory=list)
 
     @property
     def total(self) -> int:
@@ -332,6 +341,117 @@ def _headers(worksheet, spec: Sheet) -> dict[str, int]:
 
 
 @dataclass(frozen=True, slots=True)
+class Addendum:
+    """A reviewer's instruction that arrived as words rather than as keystrokes.
+
+    ADR-0050 forbids editing a returned workbook, and it is right to: deciding
+    what somebody meant by a cell is the one thing an agent may never do. But a
+    reviewer can settle a question *after* handing the workbook back — "every row
+    I marked correct is signed TC", "the cell reading `corrrect` means correct" —
+    and refusing to act on that would be pedantry, not caution. The instruction
+    is a recorded human decision; it just is not in a spreadsheet.
+
+    So it is filed in `review/returned/` as its own artefact and applied as if
+    the reviewer had typed it, under three limits that keep it auditable
+    (ADR-0051):
+
+    - **`sign_unsigned_correct` fills blanks only.** It never overwrites a name
+      already in `approved_by`, and it signs nothing whose verdict is not
+      `correct` — not an `amend`, not a `reject`, not an unreviewed row.
+    - **`verdicts` names records one at a time.** There is no pattern, no fuzzy
+      match and no typo table. `corrrect` is not read as `correct` because it
+      looks like it; it is read that way because a person said so about that
+      record.
+    - **Every application is reported**, by record and by what was done, and the
+      ledger records which rows were signed by instruction rather than in the
+      cell.
+    """
+
+    reviewer: str
+    recorded_on: str
+    statement: str = ""
+    source: Path | None = None
+    sign_unsigned_correct: bool = False
+    verdicts: dict[str, str] = field(default_factory=dict)
+
+    def verdict_for(self, identifier: str | None) -> str | None:
+        return self.verdicts.get(identifier) if identifier else None
+
+    def apply(self, spec: Sheet, values: dict[str, Any]) -> list[tuple[str, str]]:
+        """Stand in for the keystrokes on one row. Mutates `values`; says what it did.
+
+        Child rows are out of scope: they carry no id to name in an instruction
+        and no `approved_by` of their own. A child verdict is changed by handing
+        a workbook back, which is the right cost for it.
+        """
+        if spec.is_child or "verdict" not in values:
+            return []
+        identifier = _text(values.get("id"))
+        done: list[tuple[str, str]] = []
+
+        ruled = self.verdict_for(identifier)
+        if ruled is not None:
+            was = _text(values.get("verdict"))
+            if (was or "").strip().lower() != ruled:
+                values["verdict"] = ruled
+                done.append((identifier, f"verdict {was!r} → {ruled!r} by instruction"))
+
+        verdict = (_text(values.get("verdict")) or "").strip().lower()
+        if (
+            self.sign_unsigned_correct
+            and verdict == "correct"
+            and not _text(values.get("approved_by"))
+        ):
+            values["approved_by"] = self.reviewer
+            values["approved_date"] = self.recorded_on
+            done.append((identifier, f"signed {self.reviewer} {self.recorded_on}"))
+        return done
+
+
+class MalformedAddendum(Exception):
+    """An instruction file this cannot act on. Nothing is applied."""
+
+
+def read_addendum(path: Path) -> Addendum:
+    """Read an instruction file, refusing anything it cannot act on exactly."""
+    document = yaml.safe_load(path.read_text(encoding="utf-8"))
+    if not isinstance(document, dict):
+        raise MalformedAddendum(f"{path.name}: expected a mapping")
+
+    reviewer = _text(document.get("reviewer"))
+    if not reviewer:
+        raise MalformedAddendum(
+            f"{path.name}: `reviewer` is who is signing. Without a name this "
+            "instruction cannot produce a recorded human decision (rule 4)"
+        )
+    try:
+        recorded_on = _date("recorded_on", document.get("recorded_on"))
+    except ValueError as error:
+        raise MalformedAddendum(f"{path.name}: {error}") from error
+    if not recorded_on:
+        raise MalformedAddendum(f"{path.name}: `recorded_on` is required")
+
+    verdicts: dict[str, str] = {}
+    for identifier, verdict in (document.get("verdicts") or {}).items():
+        ruled = str(verdict).strip().lower()
+        if ruled not in VERDICTS:
+            raise MalformedAddendum(
+                f"{path.name}: {identifier} is ruled {verdict!r}; an instruction "
+                "sets one of " + ", ".join(sorted(VERDICTS))
+            )
+        verdicts[str(identifier)] = ruled
+
+    return Addendum(
+        reviewer=reviewer,
+        recorded_on=recorded_on,
+        statement=str(document.get("statement") or "").strip(),
+        source=path,
+        sign_unsigned_correct=bool(document.get("sign_unsigned_correct")),
+        verdicts=verdicts,
+    )
+
+
+@dataclass(frozen=True, slots=True)
 class _Annotation:
     """The reviewer's marks on one row. Absent entirely on an intake workbook."""
 
@@ -356,13 +476,20 @@ def _annotation(values: dict[str, Any]) -> _Annotation:
     )
 
 
-def _rows(worksheet, spec: Sheet, result: Transcription):
+def _rows(worksheet, spec: Sheet, result: Transcription, addendum: Addendum | None = None):
     """(row number, record, annotation) for every row that became a record."""
     positions = _headers(worksheet, spec)
     for number, row in enumerate(worksheet.iter_rows(min_row=2), start=2):
         values = {header: row[index - 1].value for header, index in positions.items()}
         if all(_text(value) is None for value in values.values()):
             continue
+
+        if addendum is not None:
+            # Applied to the cell values, before anything reads them, because
+            # the instruction stands in for the keystrokes the reviewer would
+            # otherwise have made. The record and the verdict then come from one
+            # place, as they do for every unaided row.
+            result.instructed.extend(addendum.apply(spec, values))
 
         marks = _annotation(values)
         if marks.present:
@@ -417,7 +544,7 @@ def _rows(worksheet, spec: Sheet, result: Transcription):
         yield number, record, marks
 
 
-def read_workbook(path: Path) -> Transcription:
+def read_workbook(path: Path, addendum: Addendum | None = None) -> Transcription:
     """Read a filled workbook into records. Writes nothing."""
     try:
         from openpyxl import load_workbook
@@ -434,7 +561,7 @@ def read_workbook(path: Path) -> Transcription:
     for spec in sheets():
         if spec.is_child or spec.name not in workbook.sheetnames:
             continue
-        rows = list(_rows(workbook[spec.name], spec, result))
+        rows = list(_rows(workbook[spec.name], spec, result, addendum))
         if not rows:
             result.empty_sheets.append(spec.record_type)
             continue
@@ -463,7 +590,7 @@ def read_workbook(path: Path) -> Transcription:
         by_id = parents.get(spec.record_type, {})
         for parent in by_id.values():
             parent.setdefault(spec.parent_field, [])
-        for number, entry, annotation in _rows(workbook[spec.name], spec, result):
+        for number, entry, annotation in _rows(workbook[spec.name], spec, result, addendum):
             parent_id = entry.pop("parent_id")
             parent = by_id.get(parent_id)
             if parent is None:

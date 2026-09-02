@@ -1764,3 +1764,105 @@ first round are
 3. `review/` now holds three kinds of thing and each has a README saying which:
    `seed/` what we wrote for review, `returned/` what came back, `decisions/`
    what was decided.
+
+---
+
+## ADR-0051 — A reviewer's instruction is applied from `review/returned/`, never by editing a workbook
+
+**Date** 2026-09-02 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** The first round left 83 records marked `correct` with `approved_by`
+blank, and one verdict cell reading `corrrect`. The reviewer then settled both
+in words, relayed by the owner: those 83 are signed `TC`, and the misspelt cell
+means `correct`.
+
+Both are recorded human decisions. Neither is in a spreadsheet. Three ways to
+act on them were available and two are wrong:
+
+- **Edit the returned workbook.** Forbidden by ADR-0050, and rightly: a binary
+  file an agent has altered, sitting where the expert's own artefact sits, is
+  the exact confusion that directory exists to prevent.
+- **Generate a new "returned" workbook** with the 84 cells filled in. Same
+  problem wearing a different filename — `review/returned/` would then hold an
+  agent-authored artefact indistinguishable at a glance from a human one.
+- **Record the instruction as its own artefact and apply it.** The instruction
+  *is* what the person handed back; it is text rather than a spreadsheet.
+
+**Decision.** An **addendum** is a YAML file in `review/returned/` naming the
+reviewer, the date, the words as relayed, and exactly what is to be applied.
+`tmk-transcribe --addendum` and `tmk-reconcile --addendum` apply it as if the
+reviewer had typed it into the cells. Two operations, and no others:
+
+- `sign_unsigned_correct: true` — fill a **blank** `approved_by` on a row whose
+  verdict is `correct`, with the reviewer's name and the instruction's date.
+- `verdicts: {GE-0031: correct}` — settle a verdict on a **named** record.
+
+**Consequences.**
+
+1. **The signing rule is deliberately the narrowest thing that does the job.**
+   It never overwrites a name already present, and it signs nothing whose
+   verdict is not `correct` — not an `amend`, not a `reject`, not an unreviewed
+   row. Widening it to "sign everything" would make the instruction a blank
+   cheque rather than a decision about a defined set.
+2. **`verdicts` names records one at a time. There is no pattern, no fuzzy match
+   and no typo table.** `corrrect` is read as `correct` because a person said so
+   about `GE-0031`, not because it resembles it. ADR-0048's refusal to read
+   through a near-miss is unchanged and still fires for anything not named —
+   the `rejext` on a `GS--relevant` row is still a rejected row, because nobody
+   has ruled on it.
+3. **An addendum cannot reach a child row.** Child rows carry no id to name and
+   no `approved_by` of their own. Changing one costs a workbook, which is the
+   right price for it.
+4. **An instruction it cannot act on exactly is refused**, not partially
+   applied: no reviewer, no date, an ambiguous date, or a verdict the
+   instruction itself misspells. The strictness applies to the instruction as
+   much as to the workbook.
+5. **Every application is reported and recorded.** `tmk-transcribe` prints each
+   row and what was done to it; the ledger names the addendum in its front
+   matter and marks each affected row *by instruction*. How a record came to be
+   approved is part of the record of its approval.
+6. `--addendum` must be passed to **both** commands or the ledger describes a
+   different run from the one that produced `eval/gold/`.
+
+**Confirm.** `agent-proposed`. The mechanism follows from ADR-0050 plus the need
+to act on a real decision, but the two-operation limit is a judgement about what
+words may safely stand in for keystrokes. Flagged in `HANDOFF.md` §3 as Q20.
+
+---
+
+## ADR-0052 — Reviewer ruling: the 83 unsigned `correct` rows are signed TC; `GE-0031` reads `correct`
+
+**Date** 2026-09-02 · **Authority** human · **Status** accepted
+
+**Context.** Put to the owner after the first round: 83 records had a verdict and
+no signature, and one verdict cell was misspelt. `tmk-transcribe` had held all
+84 rather than guess.
+
+**Decision**, relayed by the owner from the reviewer:
+
+- every row marked `correct` with a blank `approved_by` is approved by **TC**;
+- the cell on `GE-0031` reading `corrrect` means `correct`.
+
+Recorded as `review/returned/260902-expert-confirmation.yaml` and applied under
+ADR-0051.
+
+**Consequences.**
+
+1. **The gold set went from 108 records to 190** — and the 82 extra approvals
+   released 8 more records that had been held only because they pointed at
+   unsigned ones. `eval/gold/entities.yaml` and `reasoning-expected.yaml` exist
+   for the first time.
+2. **This settles ADR-0048's third judgement call in practice rather than in
+   principle.** The tool still refuses a misspelt verdict; a person overrode it
+   by name. That is the arrangement the refusal was designed to produce, and it
+   cost one line in an instruction file. It is **not** a ruling that a near-miss
+   may be read through generally — if that is wanted it needs its own decision,
+   and it would be a worse one, because the set of things `corrrect` could mean
+   is only obvious to a reader who already knows the answer.
+3. **The remaining blockers are now six records, not eighty-three**: `CQ-0013`
+   and `CQ-0014` (never reviewed), `CQ-0016`, `PU-0016` and `PU-0017` (rejected,
+   so records pointing at them need the pointer changed) and `GA-0002` (an
+   amendment not yet applied). Between them they hold 20 records that are
+   otherwise ready.
+4. The `rejext` on a `GS--relevant` row is **not** covered by this ruling and
+   was left alone. It holds nothing — its parent `GS-0007` is unreviewed anyway.

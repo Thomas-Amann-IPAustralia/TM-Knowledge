@@ -38,6 +38,12 @@ Quote it; never paraphrase it into a tidier sentence.
 `held` is not a failure. It is the honest state of a partial round, and the
 coverage report turns it into the next ask.
 
+A row marked **by instruction** took its verdict or its signature from an
+addendum in `review/returned/` rather than from the reviewer's own cell
+(ADR-0051). How a record came to be approved is part of the record of its
+approval, so the ledger says so per row and names the instruction file in its
+front matter.
+
 ## What does not belong here
 
 The returned artefact itself (`review/returned/`). The records

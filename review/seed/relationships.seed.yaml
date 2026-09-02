@@ -108,31 +108,6 @@ seeds:
       approved_by: null
       approved_date: null
 
-  - seed_id: SEED-GR-0017
-    record_type: gold_relationship
-    why_this_example: >
-      A factor relationship rather than a rule: prominence and context bear on
-      the outcome without determining it. The corpus is full of these and they
-      are hard to represent.
-    provenance:
-      confidence: 0.7
-    record:
-      id: GR-0017
-      subject: GC-0038
-      predicate: qualifies
-      object: GC-0002
-      source_ref: TMM/Part29/3#1~2
-      supporting_text: "The prominence and context of the potentially deceptive or confusing element in the trade mark will be important in deciding whether the trade mark is likely to deceive or cause confusion."
-      span: null
-      source_content_hash: null
-      tier: 2
-      modality: null
-      notes: >
-        "Will be important" is not a modality the vocabulary has. Left null
-        rather than mapped to the nearest of must/may/should.
-      approved_by: null
-      approved_date: null
-
   - seed_id: SEED-GR-0019
     record_type: gold_relationship
     why_this_example: >

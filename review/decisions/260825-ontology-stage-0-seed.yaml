@@ -1,12 +1,13 @@
 source_workbook: 260825-ontology-stage-0-seed.xlsx
+addendum: 260902-expert-confirmation.yaml
 recorded_on: '2026-09-02'
 reviewers:
 - TC
 counts:
-  approved: 108
-  held: 251
+  approved: 190
+  held: 170
   rejected: 8
-  unparseable: 1
+  unparseable: 0
 decisions:
 - seed_id: SEED-CQ-0001
   id: CQ-0001
@@ -17,6 +18,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0002
   id: CQ-0002
   record_type: competency_question
@@ -27,6 +29,7 @@ decisions:
   correction: In what situations may an applicant overcome a section 43 grounds for rejection if the applicant
     is the owner or authorised user of an element within the trade mark
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0003
   id: CQ-0003
   record_type: competency_question
@@ -36,15 +39,17 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0004
   id: CQ-0004
   record_type: competency_question
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-CQ-0005
   id: CQ-0005
   record_type: competency_question
@@ -54,6 +59,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0006
   id: CQ-0006
   record_type: competency_question
@@ -63,6 +69,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0007
   id: CQ-0007
   record_type: competency_question
@@ -72,6 +79,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0008
   id: CQ-0008
   record_type: competency_question
@@ -81,6 +89,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0009
   id: CQ-0009
   record_type: competency_question
@@ -90,6 +99,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0010
   id: CQ-0010
   record_type: competency_question
@@ -99,6 +109,7 @@ decisions:
   approved_date: '2026-08-20'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0011
   id: CQ-0011
   record_type: competency_question
@@ -108,6 +119,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0012
   id: CQ-0012
   record_type: competency_question
@@ -117,6 +129,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0013
   id: CQ-0013
   record_type: competency_question
@@ -126,6 +139,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0014
   id: CQ-0014
   record_type: competency_question
@@ -135,6 +149,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0015
   id: CQ-0015
   record_type: competency_question
@@ -144,6 +159,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0016
   id: CQ-0016
   record_type: competency_question
@@ -153,6 +169,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0017
   id: CQ-0017
   record_type: competency_question
@@ -162,6 +179,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0018
   id: CQ-0018
   record_type: competency_question
@@ -171,6 +189,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0019
   id: CQ-0019
   record_type: competency_question
@@ -180,6 +199,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0020
   id: CQ-0020
   record_type: competency_question
@@ -189,6 +209,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0021
   id: CQ-0021
   record_type: competency_question
@@ -198,6 +219,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0022
   id: CQ-0022
   record_type: competency_question
@@ -207,6 +229,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0023
   id: CQ-0023
   record_type: competency_question
@@ -216,6 +239,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-CQ-0024
   id: CQ-0024
   record_type: competency_question
@@ -225,24 +249,27 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0001
   id: GE-0001
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0002
   id: GE-0002
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0003
   id: GE-0003
   record_type: gold_entity
@@ -252,33 +279,37 @@ decisions:
   approved_date: null
   correction: Better entity definition further down
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0004
   id: GE-0004
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0005
   id: GE-0005
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0006
   id: GE-0006
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0007
   id: GE-0007
   record_type: gold_entity
@@ -288,6 +319,7 @@ decisions:
   approved_date: null
   correction: duplicate
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0008
   id: GE-0008
   record_type: gold_entity
@@ -298,15 +330,17 @@ decisions:
   correction: Lacks specific context to be useful. The words This Section are contextually used throughout
     the manual to describe different points.
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0009
   id: GE-0009
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0010
   id: GE-0010
   record_type: gold_entity
@@ -317,177 +351,197 @@ decisions:
   correction: The decision maker is the examiner and they must be satisified that use of the trade mark
     for the specified goods and / or services would be likely to deceive or cause confusion.
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0011
   id: GE-0011
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0012
   id: GE-0012
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0013
   id: GE-0013
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0014
   id: GE-0014
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0015
   id: GE-0015
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0016
   id: GE-0016
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0017
   id: GE-0017
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0018
   id: GE-0018
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0019
   id: GE-0019
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0020
   id: GE-0020
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0021
   id: GE-0021
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0022
   id: GE-0022
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0023
   id: GE-0023
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0024
   id: GE-0024
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0025
   id: GE-0025
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0026
   id: GE-0026
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0027
   id: GE-0027
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0028
   id: GE-0028
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0029
   id: GE-0029
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0030
   id: GE-0030
   record_type: gold_entity
@@ -497,150 +551,167 @@ decisions:
   approved_date: null
   correction: Too context dependent to be useful as an entity
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0031
   id: GE-0031
   record_type: gold_entity
-  verdict: corrrect
-  outcome: unparseable
-  approved_by: null
-  approved_date: null
+  verdict: correct
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
-  note: verdict cell reads 'corrrect'
+  note: null
+  by_instruction: true
 - seed_id: SEED-GE-0032
   id: GE-0032
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0033
   id: GE-0033
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0034
   id: GE-0034
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0035
   id: GE-0035
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0036
   id: GE-0036
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0037
   id: GE-0037
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0038
   id: GE-0038
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0039
   id: GE-0039
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0040
   id: GE-0040
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0041
   id: GE-0041
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0042
   id: GE-0042
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0043
   id: GE-0043
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0044
   id: GE-0044
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0045
   id: GE-0045
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0046
   id: GE-0046
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0047
   id: GE-0047
   record_type: gold_entity
@@ -651,15 +722,17 @@ decisions:
   correction: The registrar and the decision maker are different entities. The decision maker (examiner)
     operates using delegated authority from the registrar but they are not the same.
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0048
   id: GE-0048
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0049
   id: GE-0049
   record_type: gold_entity
@@ -669,123 +742,137 @@ decisions:
   approved_date: null
   correction: duplicate
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0050
   id: GE-0050
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0051
   id: GE-0051
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0052
   id: GE-0052
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0053
   id: GE-0053
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: duplicate
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0054
   id: GE-0054
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0055
   id: GE-0055
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0056
   id: GE-0056
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0057
   id: GE-0057
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0058
   id: GE-0058
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0059
   id: GE-0059
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0060
   id: GE-0060
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0061
   id: GE-0061
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0062
   id: GE-0062
   record_type: gold_entity
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GE-0063
   id: GE-0063
   record_type: gold_entity
@@ -795,6 +882,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0064
   id: GE-0064
   record_type: gold_entity
@@ -804,6 +892,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0065
   id: GE-0065
   record_type: gold_entity
@@ -813,6 +902,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0066
   id: GE-0066
   record_type: gold_entity
@@ -822,6 +912,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0067
   id: GE-0067
   record_type: gold_entity
@@ -831,6 +922,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0068
   id: GE-0068
   record_type: gold_entity
@@ -840,6 +932,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0069
   id: GE-0069
   record_type: gold_entity
@@ -849,6 +942,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0070
   id: GE-0070
   record_type: gold_entity
@@ -858,6 +952,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0071
   id: GE-0071
   record_type: gold_entity
@@ -867,6 +962,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0072
   id: GE-0072
   record_type: gold_entity
@@ -876,6 +972,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0073
   id: GE-0073
   record_type: gold_entity
@@ -885,6 +982,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0074
   id: GE-0074
   record_type: gold_entity
@@ -894,6 +992,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0075
   id: GE-0075
   record_type: gold_entity
@@ -903,6 +1002,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0076
   id: GE-0076
   record_type: gold_entity
@@ -912,6 +1012,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0077
   id: GE-0077
   record_type: gold_entity
@@ -921,6 +1022,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0078
   id: GE-0078
   record_type: gold_entity
@@ -930,6 +1032,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0079
   id: GE-0079
   record_type: gold_entity
@@ -939,6 +1042,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0080
   id: GE-0080
   record_type: gold_entity
@@ -948,6 +1052,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0081
   id: GE-0081
   record_type: gold_entity
@@ -957,6 +1062,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0082
   id: GE-0082
   record_type: gold_entity
@@ -966,6 +1072,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0083
   id: GE-0083
   record_type: gold_entity
@@ -975,6 +1082,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0084
   id: GE-0084
   record_type: gold_entity
@@ -984,6 +1092,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0085
   id: GE-0085
   record_type: gold_entity
@@ -993,6 +1102,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0086
   id: GE-0086
   record_type: gold_entity
@@ -1002,6 +1112,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0087
   id: GE-0087
   record_type: gold_entity
@@ -1011,6 +1122,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0088
   id: GE-0088
   record_type: gold_entity
@@ -1020,6 +1132,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0089
   id: GE-0089
   record_type: gold_entity
@@ -1029,6 +1142,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0090
   id: GE-0090
   record_type: gold_entity
@@ -1038,6 +1152,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0091
   id: GE-0091
   record_type: gold_entity
@@ -1047,6 +1162,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0092
   id: GE-0092
   record_type: gold_entity
@@ -1056,6 +1172,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0093
   id: GE-0093
   record_type: gold_entity
@@ -1065,6 +1182,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0094
   id: GE-0094
   record_type: gold_entity
@@ -1074,6 +1192,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0095
   id: GE-0095
   record_type: gold_entity
@@ -1083,6 +1202,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0096
   id: GE-0096
   record_type: gold_entity
@@ -1092,6 +1212,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0097
   id: GE-0097
   record_type: gold_entity
@@ -1101,6 +1222,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0098
   id: GE-0098
   record_type: gold_entity
@@ -1110,6 +1232,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0099
   id: GE-0099
   record_type: gold_entity
@@ -1119,6 +1242,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0100
   id: GE-0100
   record_type: gold_entity
@@ -1128,6 +1252,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0101
   id: GE-0101
   record_type: gold_entity
@@ -1137,6 +1262,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0102
   id: GE-0102
   record_type: gold_entity
@@ -1146,6 +1272,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0103
   id: GE-0103
   record_type: gold_entity
@@ -1155,6 +1282,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0104
   id: GE-0104
   record_type: gold_entity
@@ -1164,6 +1292,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0105
   id: GE-0105
   record_type: gold_entity
@@ -1173,6 +1302,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0106
   id: GE-0106
   record_type: gold_entity
@@ -1182,6 +1312,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0107
   id: GE-0107
   record_type: gold_entity
@@ -1191,6 +1322,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0108
   id: GE-0108
   record_type: gold_entity
@@ -1200,6 +1332,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0109
   id: GE-0109
   record_type: gold_entity
@@ -1209,6 +1342,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0110
   id: GE-0110
   record_type: gold_entity
@@ -1218,6 +1352,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0111
   id: GE-0111
   record_type: gold_entity
@@ -1227,6 +1362,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0112
   id: GE-0112
   record_type: gold_entity
@@ -1236,6 +1372,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0113
   id: GE-0113
   record_type: gold_entity
@@ -1245,6 +1382,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0114
   id: GE-0114
   record_type: gold_entity
@@ -1254,6 +1392,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0115
   id: GE-0115
   record_type: gold_entity
@@ -1263,6 +1402,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0116
   id: GE-0116
   record_type: gold_entity
@@ -1272,6 +1412,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0117
   id: GE-0117
   record_type: gold_entity
@@ -1281,6 +1422,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0118
   id: GE-0118
   record_type: gold_entity
@@ -1290,6 +1432,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0119
   id: GE-0119
   record_type: gold_entity
@@ -1299,6 +1442,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0120
   id: GE-0120
   record_type: gold_entity
@@ -1308,6 +1452,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0121
   id: GE-0121
   record_type: gold_entity
@@ -1317,6 +1462,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0122
   id: GE-0122
   record_type: gold_entity
@@ -1326,6 +1472,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0123
   id: GE-0123
   record_type: gold_entity
@@ -1335,6 +1482,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0124
   id: GE-0124
   record_type: gold_entity
@@ -1344,6 +1492,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0125
   id: GE-0125
   record_type: gold_entity
@@ -1353,6 +1502,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0126
   id: GE-0126
   record_type: gold_entity
@@ -1362,6 +1512,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0127
   id: GE-0127
   record_type: gold_entity
@@ -1371,6 +1522,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0128
   id: GE-0128
   record_type: gold_entity
@@ -1380,6 +1532,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0129
   id: GE-0129
   record_type: gold_entity
@@ -1389,6 +1542,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0130
   id: GE-0130
   record_type: gold_entity
@@ -1398,6 +1552,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0131
   id: GE-0131
   record_type: gold_entity
@@ -1407,6 +1562,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0132
   id: GE-0132
   record_type: gold_entity
@@ -1416,6 +1572,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0133
   id: GE-0133
   record_type: gold_entity
@@ -1425,6 +1582,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0134
   id: GE-0134
   record_type: gold_entity
@@ -1434,6 +1592,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0135
   id: GE-0135
   record_type: gold_entity
@@ -1443,6 +1602,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0136
   id: GE-0136
   record_type: gold_entity
@@ -1452,6 +1612,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0137
   id: GE-0137
   record_type: gold_entity
@@ -1461,6 +1622,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0138
   id: GE-0138
   record_type: gold_entity
@@ -1470,6 +1632,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0139
   id: GE-0139
   record_type: gold_entity
@@ -1479,6 +1642,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0140
   id: GE-0140
   record_type: gold_entity
@@ -1488,6 +1652,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0141
   id: GE-0141
   record_type: gold_entity
@@ -1497,6 +1662,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0142
   id: GE-0142
   record_type: gold_entity
@@ -1506,6 +1672,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0143
   id: GE-0143
   record_type: gold_entity
@@ -1515,6 +1682,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0144
   id: GE-0144
   record_type: gold_entity
@@ -1524,6 +1692,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0145
   id: GE-0145
   record_type: gold_entity
@@ -1533,6 +1702,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0146
   id: GE-0146
   record_type: gold_entity
@@ -1542,6 +1712,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0147
   id: GE-0147
   record_type: gold_entity
@@ -1551,6 +1722,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0148
   id: GE-0148
   record_type: gold_entity
@@ -1560,6 +1732,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0149
   id: GE-0149
   record_type: gold_entity
@@ -1569,6 +1742,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0150
   id: GE-0150
   record_type: gold_entity
@@ -1578,6 +1752,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0151
   id: GE-0151
   record_type: gold_entity
@@ -1587,6 +1762,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0152
   id: GE-0152
   record_type: gold_entity
@@ -1596,6 +1772,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GE-0153
   id: GE-0153
   record_type: gold_entity
@@ -1605,6 +1782,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0001
   id: GC-0001
   record_type: gold_concept
@@ -1614,6 +1792,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0002
   id: GC-0002
   record_type: gold_concept
@@ -1623,6 +1802,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0003
   id: GC-0003
   record_type: gold_concept
@@ -1632,6 +1812,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0004
   id: GC-0004
   record_type: gold_concept
@@ -1641,6 +1822,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0005
   id: GC-0005
   record_type: gold_concept
@@ -1650,6 +1832,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0006
   id: GC-0006
   record_type: gold_concept
@@ -1659,6 +1842,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0007
   id: GC-0007
   record_type: gold_concept
@@ -1668,6 +1852,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0008
   id: GC-0008
   record_type: gold_concept
@@ -1677,6 +1862,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0009
   id: GC-0009
   record_type: gold_concept
@@ -1686,6 +1872,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0010
   id: GC-0010
   record_type: gold_concept
@@ -1695,6 +1882,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0011
   id: GC-0011
   record_type: gold_concept
@@ -1704,6 +1892,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0012
   id: GC-0012
   record_type: gold_concept
@@ -1713,6 +1902,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0013
   id: GC-0013
   record_type: gold_concept
@@ -1722,6 +1912,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0014
   id: GC-0014
   record_type: gold_concept
@@ -1731,6 +1922,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0015
   id: GC-0015
   record_type: gold_concept
@@ -1740,6 +1932,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0016
   id: GC-0016
   record_type: gold_concept
@@ -1749,6 +1942,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0017
   id: GC-0017
   record_type: gold_concept
@@ -1758,6 +1952,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0018
   id: GC-0018
   record_type: gold_concept
@@ -1767,6 +1962,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0019
   id: GC-0019
   record_type: gold_concept
@@ -1776,6 +1972,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0020
   id: GC-0020
   record_type: gold_concept
@@ -1785,6 +1982,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0021
   id: GC-0021
   record_type: gold_concept
@@ -1794,6 +1992,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0022
   id: GC-0022
   record_type: gold_concept
@@ -1803,6 +2002,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0023
   id: GC-0023
   record_type: gold_concept
@@ -1812,6 +2012,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0024
   id: GC-0024
   record_type: gold_concept
@@ -1821,6 +2022,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0025
   id: GC-0025
   record_type: gold_concept
@@ -1830,6 +2032,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0026
   id: GC-0026
   record_type: gold_concept
@@ -1839,6 +2042,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0027
   id: GC-0027
   record_type: gold_concept
@@ -1848,6 +2052,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0028
   id: GC-0028
   record_type: gold_concept
@@ -1857,6 +2062,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0029
   id: GC-0029
   record_type: gold_concept
@@ -1866,6 +2072,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0030
   id: GC-0030
   record_type: gold_concept
@@ -1875,6 +2082,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0031
   id: GC-0031
   record_type: gold_concept
@@ -1884,6 +2092,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0032
   id: GC-0032
   record_type: gold_concept
@@ -1893,6 +2102,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0033
   id: GC-0033
   record_type: gold_concept
@@ -1902,6 +2112,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0034
   id: GC-0034
   record_type: gold_concept
@@ -1911,6 +2122,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0035
   id: GC-0035
   record_type: gold_concept
@@ -1920,6 +2132,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0036
   id: GC-0036
   record_type: gold_concept
@@ -1929,6 +2142,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0037
   id: GC-0037
   record_type: gold_concept
@@ -1938,6 +2152,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0038
   id: GC-0038
   record_type: gold_concept
@@ -1947,6 +2162,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0039
   id: GC-0039
   record_type: gold_concept
@@ -1956,6 +2172,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0040
   id: GC-0040
   record_type: gold_concept
@@ -1965,6 +2182,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0041
   id: GC-0041
   record_type: gold_concept
@@ -1974,6 +2192,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0042
   id: GC-0042
   record_type: gold_concept
@@ -1983,6 +2202,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0043
   id: GC-0043
   record_type: gold_concept
@@ -1992,6 +2212,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0044
   id: GC-0044
   record_type: gold_concept
@@ -2001,6 +2222,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0045
   id: GC-0045
   record_type: gold_concept
@@ -2010,6 +2232,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0046
   id: GC-0046
   record_type: gold_concept
@@ -2019,6 +2242,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0047
   id: GC-0047
   record_type: gold_concept
@@ -2028,6 +2252,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0048
   id: GC-0048
   record_type: gold_concept
@@ -2037,6 +2262,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0049
   id: GC-0049
   record_type: gold_concept
@@ -2046,6 +2272,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0050
   id: GC-0050
   record_type: gold_concept
@@ -2055,6 +2282,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0051
   id: GC-0051
   record_type: gold_concept
@@ -2064,6 +2292,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GC-0052
   id: GC-0052
   record_type: gold_concept
@@ -2073,6 +2302,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0001
   id: GR-0001
   record_type: gold_relationship
@@ -2082,6 +2312,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0002
   id: GR-0002
   record_type: gold_relationship
@@ -2091,6 +2322,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0003
   id: GR-0003
   record_type: gold_relationship
@@ -2100,6 +2332,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0004
   id: GR-0004
   record_type: gold_relationship
@@ -2110,6 +2343,7 @@ decisions:
   correction: Must, while the usage of the word should might be confusing here, if an examiner is clearly
     satisified that confusion is likely to occur the they must raise a section 43 grounds for rejection.
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0005
   id: GR-0005
   record_type: gold_relationship
@@ -2119,6 +2353,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0006
   id: GR-0006
   record_type: gold_relationship
@@ -2128,6 +2363,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0007
   id: GR-0007
   record_type: gold_relationship
@@ -2137,6 +2373,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0008
   id: GR-0008
   record_type: gold_relationship
@@ -2146,6 +2383,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0009
   id: GR-0009
   record_type: gold_relationship
@@ -2156,6 +2394,7 @@ decisions:
   correction: Should be Must, the presumption of registrability always applies unless the evidence demonstrates
     a grounds for rejection
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0010
   id: GR-0010
   record_type: gold_relationship
@@ -2165,6 +2404,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0011
   id: GR-0011
   record_type: gold_relationship
@@ -2174,6 +2414,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0012
   id: GR-0012
   record_type: gold_relationship
@@ -2183,6 +2424,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0013
   id: GR-0013
   record_type: gold_relationship
@@ -2192,6 +2434,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0014
   id: GR-0014
   record_type: gold_relationship
@@ -2201,6 +2444,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0015
   id: GR-0015
   record_type: gold_relationship
@@ -2210,6 +2454,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0016
   id: GR-0016
   record_type: gold_relationship
@@ -2219,15 +2464,17 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0017
   id: GR-0017
   record_type: gold_relationship
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: '2026-08-25'
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GR-0018
   id: GR-0018
   record_type: gold_relationship
@@ -2237,6 +2484,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0019
   id: GR-0019
   record_type: gold_relationship
@@ -2246,6 +2494,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0020
   id: GR-0020
   record_type: gold_relationship
@@ -2255,6 +2504,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0021
   id: GR-0021
   record_type: gold_relationship
@@ -2264,6 +2514,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0022
   id: GR-0022
   record_type: gold_relationship
@@ -2273,6 +2524,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0023
   id: GR-0023
   record_type: gold_relationship
@@ -2282,6 +2534,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0024
   id: GR-0024
   record_type: gold_relationship
@@ -2291,6 +2544,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0025
   id: GR-0025
   record_type: gold_relationship
@@ -2300,6 +2554,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0026
   id: GR-0026
   record_type: gold_relationship
@@ -2310,6 +2565,7 @@ decisions:
   correction: Must, while the usage of the word should might be confusing, the trade mark as a whole must
     be considered in the examination process
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0027
   id: GR-0027
   record_type: gold_relationship
@@ -2319,6 +2575,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0028
   id: GR-0028
   record_type: gold_relationship
@@ -2328,6 +2585,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0029
   id: GR-0029
   record_type: gold_relationship
@@ -2337,6 +2595,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0030
   id: GR-0030
   record_type: gold_relationship
@@ -2346,6 +2605,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0031
   id: GR-0031
   record_type: gold_relationship
@@ -2355,6 +2615,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0032
   id: GR-0032
   record_type: gold_relationship
@@ -2364,6 +2625,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0033
   id: GR-0033
   record_type: gold_relationship
@@ -2373,6 +2635,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0034
   id: GR-0034
   record_type: gold_relationship
@@ -2382,6 +2645,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0035
   id: GR-0035
   record_type: gold_relationship
@@ -2391,6 +2655,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0036
   id: GR-0036
   record_type: gold_relationship
@@ -2400,6 +2665,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0037
   id: GR-0037
   record_type: gold_relationship
@@ -2409,6 +2675,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0038
   id: GR-0038
   record_type: gold_relationship
@@ -2418,6 +2685,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0039
   id: GR-0039
   record_type: gold_relationship
@@ -2427,6 +2695,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0040
   id: GR-0040
   record_type: gold_relationship
@@ -2436,6 +2705,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0041
   id: GR-0041
   record_type: gold_relationship
@@ -2445,6 +2715,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0042
   id: GR-0042
   record_type: gold_relationship
@@ -2454,6 +2725,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0043
   id: GR-0043
   record_type: gold_relationship
@@ -2463,6 +2735,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0044
   id: GR-0044
   record_type: gold_relationship
@@ -2472,6 +2745,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0045
   id: GR-0045
   record_type: gold_relationship
@@ -2481,6 +2755,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0046
   id: GR-0046
   record_type: gold_relationship
@@ -2490,6 +2765,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0047
   id: GR-0047
   record_type: gold_relationship
@@ -2499,6 +2775,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0048
   id: GR-0048
   record_type: gold_relationship
@@ -2508,6 +2785,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0049
   id: GR-0049
   record_type: gold_relationship
@@ -2517,6 +2795,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0050
   id: GR-0050
   record_type: gold_relationship
@@ -2526,6 +2805,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0051
   id: GR-0051
   record_type: gold_relationship
@@ -2535,6 +2815,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0052
   id: GR-0052
   record_type: gold_relationship
@@ -2544,6 +2825,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0053
   id: GR-0053
   record_type: gold_relationship
@@ -2553,6 +2835,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0054
   id: GR-0054
   record_type: gold_relationship
@@ -2562,6 +2845,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0055
   id: GR-0055
   record_type: gold_relationship
@@ -2571,6 +2855,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0056
   id: GR-0056
   record_type: gold_relationship
@@ -2580,6 +2865,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0057
   id: GR-0057
   record_type: gold_relationship
@@ -2589,6 +2875,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GR-0058
   id: GR-0058
   record_type: gold_relationship
@@ -2598,6 +2885,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0001
   id: GS-0001
   record_type: gold_search_question
@@ -2607,6 +2895,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0002
   id: GS-0002
   record_type: gold_search_question
@@ -2616,6 +2905,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0003
   id: GS-0003
   record_type: gold_search_question
@@ -2625,6 +2915,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0004
   id: GS-0004
   record_type: gold_search_question
@@ -2634,6 +2925,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0005
   id: GS-0005
   record_type: gold_search_question
@@ -2643,6 +2935,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0006
   id: GS-0006
   record_type: gold_search_question
@@ -2652,6 +2945,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0007
   id: GS-0007
   record_type: gold_search_question
@@ -2661,6 +2955,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0008
   id: GS-0008
   record_type: gold_search_question
@@ -2670,6 +2965,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0009
   id: GS-0009
   record_type: gold_search_question
@@ -2679,6 +2975,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0010
   id: GS-0010
   record_type: gold_search_question
@@ -2688,6 +2985,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0011
   id: GS-0011
   record_type: gold_search_question
@@ -2697,6 +2995,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0012
   id: GS-0012
   record_type: gold_search_question
@@ -2706,6 +3005,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0013
   id: GS-0013
   record_type: gold_search_question
@@ -2715,6 +3015,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0014
   id: GS-0014
   record_type: gold_search_question
@@ -2724,6 +3025,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0015
   id: GS-0015
   record_type: gold_search_question
@@ -2733,6 +3035,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0016
   id: GS-0016
   record_type: gold_search_question
@@ -2742,6 +3045,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0017
   id: GS-0017
   record_type: gold_search_question
@@ -2751,6 +3055,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0018
   id: GS-0018
   record_type: gold_search_question
@@ -2760,6 +3065,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0019
   id: GS-0019
   record_type: gold_search_question
@@ -2769,6 +3075,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0020
   id: GS-0020
   record_type: gold_search_question
@@ -2778,6 +3085,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0021
   id: GS-0021
   record_type: gold_search_question
@@ -2787,6 +3095,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0022
   id: GS-0022
   record_type: gold_search_question
@@ -2796,6 +3105,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0023
   id: GS-0023
   record_type: gold_search_question
@@ -2805,6 +3115,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0024
   id: GS-0024
   record_type: gold_search_question
@@ -2814,6 +3125,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0025
   id: GS-0025
   record_type: gold_search_question
@@ -2823,6 +3135,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GS-0026
   id: GS-0026
   record_type: gold_search_question
@@ -2832,15 +3145,17 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GA-0001
   id: GA-0001
   record_type: gold_retrieval_question
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0002
   id: GA-0002
   record_type: gold_retrieval_question
@@ -2852,51 +3167,57 @@ decisions:
     floated to applicants. Rather the examiners assessed the trade amrk and identified the grounds for
     rejection. Useage of the word judgement to customer invites arguements
   note: null
+  by_instruction: false
 - seed_id: SEED-GA-0003
   id: GA-0003
   record_type: gold_retrieval_question
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0004
   id: GA-0004
   record_type: gold_retrieval_question
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0005
   id: GA-0005
   record_type: gold_retrieval_question
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0006
   id: GA-0006
   record_type: gold_retrieval_question
   verdict: correct
   outcome: held
-  approved_by: null
-  approved_date: null
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0007
   id: GA-0007
   record_type: gold_retrieval_question
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0008
   id: GA-0008
   record_type: gold_retrieval_question
@@ -2906,96 +3227,107 @@ decisions:
   approved_date: null
   correction: I would include wording that says that it is assessed on a case-by-case basis
   note: null
+  by_instruction: false
 - seed_id: SEED-GA-0009
   id: GA-0009
   record_type: gold_retrieval_question
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0010
   id: GA-0010
   record_type: gold_retrieval_question
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0011
   id: GA-0011
   record_type: gold_retrieval_question
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0012
   id: GA-0012
   record_type: gold_retrieval_question
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0013
   id: GA-0013
   record_type: gold_retrieval_question
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0014
   id: GA-0014
   record_type: gold_retrieval_question
   verdict: correct
   outcome: held
-  approved_by: null
-  approved_date: null
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0015
   id: GA-0015
   record_type: gold_retrieval_question
   verdict: correct
   outcome: held
-  approved_by: null
-  approved_date: null
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0016
   id: GA-0016
   record_type: gold_retrieval_question
   verdict: correct
   outcome: held
-  approved_by: null
-  approved_date: null
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0017
   id: GA-0017
   record_type: gold_retrieval_question
   verdict: correct
   outcome: held
-  approved_by: null
-  approved_date: null
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0018
   id: GA-0018
   record_type: gold_retrieval_question
   verdict: correct
   outcome: held
-  approved_by: null
-  approved_date: null
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GA-0019
   id: GA-0019
   record_type: gold_retrieval_question
@@ -3005,6 +3337,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GA-0020
   id: GA-0020
   record_type: gold_retrieval_question
@@ -3014,6 +3347,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GA-0021
   id: GA-0021
   record_type: gold_retrieval_question
@@ -3023,6 +3357,7 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GA-0022
   id: GA-0022
   record_type: gold_retrieval_question
@@ -3032,51 +3367,57 @@ decisions:
   approved_date: '2026-08-25'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GX-0001
   id: GX-0001
   record_type: reasoning_expectation
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GX-0002
   id: GX-0002
   record_type: reasoning_expectation
   verdict: correct
   outcome: held
-  approved_by: null
-  approved_date: null
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GX-0003
   id: GX-0003
   record_type: reasoning_expectation
   verdict: correct
   outcome: held
-  approved_by: null
-  approved_date: null
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GX-0004
   id: GX-0004
   record_type: reasoning_expectation
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GX-0005
   id: GX-0005
   record_type: reasoning_expectation
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GX-0006
   id: GX-0006
   record_type: reasoning_expectation
@@ -3086,51 +3427,57 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GX-0007
   id: GX-0007
   record_type: reasoning_expectation
   verdict: correct
   outcome: held
-  approved_by: null
-  approved_date: null
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GX-0008
   id: GX-0008
   record_type: reasoning_expectation
   verdict: correct
   outcome: held
-  approved_by: null
-  approved_date: null
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GX-0009
   id: GX-0009
   record_type: reasoning_expectation
   verdict: correct
   outcome: held
-  approved_by: null
-  approved_date: null
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GX-0010
   id: GX-0010
   record_type: reasoning_expectation
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GX-0011
   id: GX-0011
   record_type: reasoning_expectation
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GX-0012
   id: GX-0012
   record_type: reasoning_expectation
@@ -3140,15 +3487,17 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GX-0013
   id: GX-0013
   record_type: reasoning_expectation
   verdict: correct
-  outcome: held
-  approved_by: null
-  approved_date: null
+  outcome: approved
+  approved_by: TC
+  approved_date: '2026-09-02'
   correction: null
   note: null
+  by_instruction: true
 - seed_id: SEED-GX-0014
   id: GX-0014
   record_type: reasoning_expectation
@@ -3158,6 +3507,7 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-GX-0015
   id: GX-0015
   record_type: reasoning_expectation
@@ -3167,15 +3517,17 @@ decisions:
   approved_date: null
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0001
   id: PU-0001
   record_type: prohibited_use
   verdict: correct
-  outcome: held
+  outcome: approved
   approved_by: TC
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0002
   id: PU-0002
   record_type: prohibited_use
@@ -3185,69 +3537,77 @@ decisions:
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0003
   id: PU-0003
   record_type: prohibited_use
   verdict: correct
-  outcome: held
+  outcome: approved
   approved_by: TC
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0004
   id: PU-0004
   record_type: prohibited_use
   verdict: correct
-  outcome: held
+  outcome: approved
   approved_by: TC
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0005
   id: PU-0005
   record_type: prohibited_use
   verdict: correct
-  outcome: held
+  outcome: approved
   approved_by: TC
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0006
   id: PU-0006
   record_type: prohibited_use
   verdict: correct
-  outcome: held
+  outcome: approved
   approved_by: TC
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0007
   id: PU-0007
   record_type: prohibited_use
   verdict: correct
-  outcome: held
+  outcome: approved
   approved_by: TC
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0008
   id: PU-0008
   record_type: prohibited_use
   verdict: correct
-  outcome: held
+  outcome: approved
   approved_by: TC
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0009
   id: PU-0009
   record_type: prohibited_use
   verdict: correct
-  outcome: held
+  outcome: approved
   approved_by: TC
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0010
   id: PU-0010
   record_type: prohibited_use
@@ -3257,6 +3617,7 @@ decisions:
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0011
   id: PU-0011
   record_type: prohibited_use
@@ -3266,6 +3627,7 @@ decisions:
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0012
   id: PU-0012
   record_type: prohibited_use
@@ -3275,6 +3637,7 @@ decisions:
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0013
   id: PU-0013
   record_type: prohibited_use
@@ -3284,6 +3647,7 @@ decisions:
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0014
   id: PU-0014
   record_type: prohibited_use
@@ -3293,6 +3657,7 @@ decisions:
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0015
   id: PU-0015
   record_type: prohibited_use
@@ -3302,6 +3667,7 @@ decisions:
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0016
   id: PU-0016
   record_type: prohibited_use
@@ -3312,6 +3678,7 @@ decisions:
   correction: In this case, inferring that the provided section is from the TM legislation is acceptable
     due to the TM focused nature of the tool.
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0017
   id: PU-0017
   record_type: prohibited_use
@@ -3322,15 +3689,17 @@ decisions:
   correction: The manual specifically does cite the legislation. The tool should be allowed to clarify
     if a passage is specifically sourced form the legislation
   note: null
+  by_instruction: false
 - seed_id: SEED-PU-0018
   id: PU-0018
   record_type: prohibited_use
   verdict: correct
-  outcome: held
+  outcome: approved
   approved_by: TC
   approved_date: '2026-08-26'
   correction: null
   note: null
+  by_instruction: false
 child_marks:
 - parent_id: GS-0001
   sheet: GS--relevant

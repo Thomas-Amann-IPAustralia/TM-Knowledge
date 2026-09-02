@@ -240,6 +240,23 @@
     or one composite standard is worth stating.
   approved_by: TC
   approved_date: '2026-08-25'
+- id: GR-0017
+  subject: GC-0038
+  predicate: qualifies
+  object: GC-0002
+  source_ref: TMM/Part29/3#1~2
+  supporting_text: The prominence and context of the potentially deceptive or confusing element in the
+    trade mark will be important in deciding whether the trade mark is likely to deceive or cause confusion.
+  span:
+  - 0
+  - 188
+  source_content_hash: sha256:e910adb71eb7f1d52d06e37ed7b46dc618fcc4f6c6df770466fce554ec158e85
+  tier: 2
+  modality: null
+  notes: '"Will be important" is not a modality the vocabulary has. Left null rather than mapped to the
+    nearest of must/may/should.'
+  approved_by: TC
+  approved_date: '2026-09-02'
 - id: GR-0018
   subject: GC-0006
   predicate: statesThresholdFor

@@ -8,34 +8,42 @@ that is expected.
 
 ## Round 2 — what changed since the first pass
 
-**Thank you: the first pass produced the project's first approved content.** 108
-records now carry your name and are in the gold set, and the harness runs over
-them cleanly.
+**Thank you: the first pass produced the project's first approved content.** 190
+records now carry your initials and are in the gold set — that is your 83
+unsigned `correct` rows, confirmed by your covering note, plus everything they
+released. The harness runs over all of it cleanly.
 
-Three things are worth two minutes before you start:
+**Six records are now holding twenty.** A record cannot go into the gold set
+while it points at one that is not there, so these are worth more than any
+number of new rows:
 
-1. **83 records are one keystroke from being approved.** You marked them
-   `correct` and left `approved_by` empty, so they were held rather than
-   approved. Filling in your initials on those rows is not a review task and it
-   nearly doubles the gold set. They are listed under *Held* in
-   `review/decisions/260825-ontology-stage-0-seed.md`.
-2. **A signed record is held if it points at an unsigned one.** That is why 14
-   prohibited uses you approved are not in the gold set: they name retrieval
-   questions you marked correct but did not sign. The fix is item 1.
-3. **Two records point at records you rejected** and cannot go in as they
-   stand: `PU-0012` names `CQ-0016`, and `GA-0021` names `PU-0017`. Each needs
-   its pointer changed or the record withdrawn — your call, not ours.
+1. **`CQ-0013` and `CQ-0014` were never reached.** They hold `PU-0010` and
+   `PU-0011`, and through them `GA-0015`, `GA-0017`, `GX-0003`, `GX-0007` and
+   `GX-0008`. Those three `PU`s are also the *only* `stale_source` prohibitions,
+   which is the one category the gold set is still missing entirely.
+2. **`GA-0002` needs its amendment worked in.** You wrote what is wrong with it;
+   the record still says the old thing. It holds `PU-0013`, `PU-0014`, and
+   through them `GA-0006`, `GA-0014`, `GA-0019`, `GA-0020` and `GA-0022`.
+3. **Four records point at records you rejected** and cannot go in as they
+   stand: `PU-0012` names `CQ-0016`; `GA-0016` and `GA-0021` name `PU-0016` and
+   `PU-0017`; `GX-0002` names `PU-0017`. Each needs its pointer changed or the
+   record withdrawn — your call, not ours.
 
-And two small things: a verdict cell reading `corrrect` (on `GE-0031`) and one
-reading `rejext` were left alone rather than read through, and a date typed
-`05/08/2026` would be refused as unreadable — the column is now formatted as a
-date, so typing one is enough.
+Then the 139 rows nobody reached, of which 91 are entities — the record type
+furthest from its target (55, where the roadmap asks for 100–300).
+
+Two small mechanical things. A verdict cell reading `rejext` was left alone
+rather than read through — nothing here guesses what a near-miss meant, which is
+why `corrrect` needed your say-so. And a date typed `05/08/2026` would be
+refused as unreadable, because it is the 5th of August to one reader and the
+8th of May to another; the column is now formatted as a date, so typing one is
+enough.
 
 ---
 
 ## What you have been handed
 
-**260** example records over section 43, written by a machine — what is left of
+**178** example records over section 43, written by a machine — what is left of
 the original 368 after the first round. They look exactly
 like the records the project actually needs — same fields, same shapes, same
 rules — but the legal content in them is unverified, and some of it is wrong.
@@ -91,8 +99,8 @@ unreviewed, which is honest. A guess is not.
 
 ## Where to spend your time
 
-**Before any of this: the 83 signatures described at the top.** They cost
-seconds each and they release more records than an hour of review will.
+**Before any of this: the six records described at the top.** They cost minutes
+and they release twenty records that are otherwise finished.
 
 Then, in this order. Each of these is worth more than a page of individual
 record corrections, because each one decides what hundreds of later records look

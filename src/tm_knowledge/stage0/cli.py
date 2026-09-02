@@ -230,6 +230,14 @@ def transcribe(argv: list[str] | None = None) -> int:
     parser.add_argument("workbook", type=Path)
     parser.add_argument("--gold-dir", type=Path, default=None)
     parser.add_argument(
+        "--addendum",
+        type=Path,
+        default=None,
+        help="an instruction file from review/returned/ that stands in for "
+        "keystrokes the reviewer settled after handing the workbook back "
+        "(ADR-0051). Every row it touches is reported.",
+    )
+    parser.add_argument(
         "--write",
         action="store_true",
         help="actually write into eval/gold/. Without it, nothing is written and "
@@ -239,11 +247,27 @@ def transcribe(argv: list[str] | None = None) -> int:
 
     from tm_knowledge.stage0 import transcribe as transcribe_module
 
+    addendum = None
+    if args.addendum is not None:
+        try:
+            addendum = transcribe_module.read_addendum(args.addendum)
+        except transcribe_module.MalformedAddendum as error:
+            print(f"refusing to read: {error}", file=sys.stderr)
+            return 2
+
     try:
-        result = transcribe_module.read_workbook(args.workbook)
+        result = transcribe_module.read_workbook(args.workbook, addendum)
     except transcribe_module.WorkbookMismatch as error:
         print(f"refusing to read: {error}", file=sys.stderr)
         return 2
+
+    if result.instructed:
+        print(
+            f"\nBY INSTRUCTION ({len(result.instructed)}) — {args.addendum}, "
+            f"recorded {addendum.recorded_on}"
+        )
+        for identifier, what in result.instructed:
+            print(f"  {identifier}: {what}")
 
     if result.problems:
         print(f"\nREJECTED ROWS ({len(result.problems)}) — not written, and not guessed at")
@@ -333,6 +357,14 @@ def reconcile(argv: list[str] | None = None) -> int:
         help="where the ledger goes (default: review/decisions/)",
     )
     parser.add_argument(
+        "--addendum",
+        type=Path,
+        default=None,
+        help="the same instruction file passed to `tmk-transcribe`, so the "
+        "ledger describes the run that produced eval/gold/ rather than a "
+        "second reading of the workbook.",
+    )
+    parser.add_argument(
         "--as-of",
         default=None,
         help="the date to stamp the ledger with (default: today). Given so a "
@@ -346,8 +378,17 @@ def reconcile(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     from tm_knowledge.stage0 import reconcile as reconcile_module
+    from tm_knowledge.stage0 import transcribe as transcribe_module
 
-    round_ = reconcile_module.read_round(args.workbook)
+    addendum = None
+    if args.addendum is not None:
+        try:
+            addendum = transcribe_module.read_addendum(args.addendum)
+        except transcribe_module.MalformedAddendum as error:
+            print(f"refusing to read: {error}", file=sys.stderr)
+            return 2
+
+    round_ = reconcile_module.read_round(args.workbook, addendum=addendum)
     print(
         f"{round_.reviewed} of {len(round_.outcomes)} records carry a verdict; "
         + ", ".join(

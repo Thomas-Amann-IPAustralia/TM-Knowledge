@@ -11,12 +11,14 @@ the content (`review/README.md`).
 
 229 of 368 records carry a verdict.
 
+**Addendum applied:** `260902-expert-confirmation.yaml`, recorded 2026-09-02 by TC — 84 record(s). A row marked *by instruction* below took its verdict or its signature from that file rather than from the reviewer's own cell (ADR-0051).
+
 | outcome | records |
 |---|---|
-| approved | 108 |
-| held | 251 |
+| approved | 190 |
+| held | 170 |
 | rejected | 8 |
-| unparseable | 1 |
+| unparseable | 0 |
 
 ## Rejected — the record should not exist
 
@@ -36,77 +38,16 @@ the content (`review/README.md`).
 - **PU-0017** (prohibited_use) — reject, signed TC 2026-08-26
   - > The manual specifically does cite the legislation. The tool should be allowed to clarify if a passage is specifically sourced form the legislation
 
-## Unreadable verdict — fix the cell and hand it back
-
-- **GE-0031** (gold_entity) — corrrect
-  - verdict cell reads 'corrrect'
-
 ## Held — read, not yet in the gold set
 
 - **CQ-0002** (competency_question) — amend
   - > In what situations may an applicant overcome a section 43 grounds for rejection if the applicant is the owner or authorised user of an element within the trade mark
-- **CQ-0004** (competency_question) — correct
 - **CQ-0013** (competency_question) — unreviewed, signed TC 2026-08-25
 - **CQ-0014** (competency_question) — unreviewed
-- **GE-0001** (gold_entity) — correct
-- **GE-0002** (gold_entity) — correct
-- **GE-0004** (gold_entity) — correct
-- **GE-0005** (gold_entity) — correct
-- **GE-0006** (gold_entity) — correct
-- **GE-0009** (gold_entity) — correct
 - **GE-0010** (gold_entity) — amend
   - > The decision maker is the examiner and they must be satisified that use of the trade mark for the specified goods and / or services would be likely to deceive or cause confusion.
-- **GE-0011** (gold_entity) — correct
-- **GE-0012** (gold_entity) — correct
-- **GE-0013** (gold_entity) — correct
-- **GE-0014** (gold_entity) — correct
-- **GE-0015** (gold_entity) — correct
-- **GE-0016** (gold_entity) — correct
-- **GE-0017** (gold_entity) — correct
-- **GE-0018** (gold_entity) — correct
-- **GE-0019** (gold_entity) — correct
-- **GE-0020** (gold_entity) — correct
-- **GE-0021** (gold_entity) — correct
-- **GE-0022** (gold_entity) — correct
-- **GE-0023** (gold_entity) — correct
-- **GE-0024** (gold_entity) — correct
-- **GE-0025** (gold_entity) — correct
-- **GE-0026** (gold_entity) — correct
-- **GE-0027** (gold_entity) — correct
-- **GE-0028** (gold_entity) — correct
-- **GE-0029** (gold_entity) — correct
-- **GE-0032** (gold_entity) — correct
-- **GE-0033** (gold_entity) — correct
-- **GE-0034** (gold_entity) — correct
-- **GE-0035** (gold_entity) — correct
-- **GE-0036** (gold_entity) — correct
-- **GE-0037** (gold_entity) — correct
-- **GE-0038** (gold_entity) — correct
-- **GE-0039** (gold_entity) — correct
-- **GE-0040** (gold_entity) — correct
-- **GE-0041** (gold_entity) — correct
-- **GE-0042** (gold_entity) — correct
-- **GE-0043** (gold_entity) — correct
-- **GE-0044** (gold_entity) — correct
-- **GE-0045** (gold_entity) — correct
-- **GE-0046** (gold_entity) — correct
 - **GE-0047** (gold_entity) — amend
   - > The registrar and the decision maker are different entities. The decision maker (examiner) operates using delegated authority from the registrar but they are not the same.
-- **GE-0048** (gold_entity) — correct
-- **GE-0050** (gold_entity) — correct
-- **GE-0051** (gold_entity) — correct
-- **GE-0052** (gold_entity) — correct
-- **GE-0053** (gold_entity) — correct
-  - > duplicate
-- **GE-0054** (gold_entity) — correct
-- **GE-0055** (gold_entity) — correct
-- **GE-0056** (gold_entity) — correct
-- **GE-0057** (gold_entity) — correct
-- **GE-0058** (gold_entity) — correct
-- **GE-0059** (gold_entity) — correct
-- **GE-0060** (gold_entity) — correct
-- **GE-0061** (gold_entity) — correct
-- **GE-0062** (gold_entity) — correct
 - **GE-0063** (gold_entity) — unreviewed
 - **GE-0064** (gold_entity) — unreviewed
 - **GE-0065** (gold_entity) — unreviewed
@@ -202,7 +143,6 @@ the content (`review/README.md`).
   - > Must, while the usage of the word should might be confusing here, if an examiner is clearly satisified that confusion is likely to occur the they must raise a section 43 grounds for rejection.
 - **GR-0009** (gold_relationship) — amend, signed TC 2026-08-25
   - > Should be Must, the presumption of registrability always applies unless the evidence demonstrates a grounds for rejection
-- **GR-0017** (gold_relationship) — correct
 - **GR-0019** (gold_relationship) — unreviewed
 - **GR-0020** (gold_relationship) — unreviewed
 - **GR-0021** (gold_relationship) — unreviewed
@@ -250,64 +190,40 @@ the content (`review/README.md`).
 - **GS-0024** (gold_search_question) — unreviewed
 - **GS-0025** (gold_search_question) — unreviewed
 - **GS-0026** (gold_search_question) — unreviewed
-- **GA-0001** (gold_retrieval_question) — correct
 - **GA-0002** (gold_retrieval_question) — amend
   - > The provided response refers to the examiners judgement, this is not something that is often floated to applicants. Rather the examiners assessed the trade amrk and identified the grounds for rejection. Useage of the word judgement to customer invites arguements
-- **GA-0003** (gold_retrieval_question) — correct
-- **GA-0004** (gold_retrieval_question) — correct
-- **GA-0005** (gold_retrieval_question) — correct
-- **GA-0006** (gold_retrieval_question) — correct
-- **GA-0007** (gold_retrieval_question) — correct
+- **GA-0006** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
 - **GA-0008** (gold_retrieval_question) — amend
   - > I would include wording that says that it is assessed on a case-by-case basis
-- **GA-0009** (gold_retrieval_question) — correct
-- **GA-0010** (gold_retrieval_question) — correct
-- **GA-0011** (gold_retrieval_question) — correct
-- **GA-0012** (gold_retrieval_question) — correct
-- **GA-0013** (gold_retrieval_question) — correct
-- **GA-0014** (gold_retrieval_question) — correct
-- **GA-0015** (gold_retrieval_question) — correct
-- **GA-0016** (gold_retrieval_question) — correct
-- **GA-0017** (gold_retrieval_question) — correct
-- **GA-0018** (gold_retrieval_question) — correct
+- **GA-0014** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GA-0015** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GA-0016** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GA-0017** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GA-0018** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
 - **GA-0019** (gold_retrieval_question) — correct, signed TC 2026-08-25
 - **GA-0020** (gold_retrieval_question) — correct, signed TC 2026-08-25
 - **GA-0021** (gold_retrieval_question) — correct, signed TC 2026-08-25
 - **GA-0022** (gold_retrieval_question) — correct, signed TC 2026-08-25
-- **GX-0001** (reasoning_expectation) — correct
-- **GX-0002** (reasoning_expectation) — correct
-- **GX-0003** (reasoning_expectation) — correct
-- **GX-0004** (reasoning_expectation) — correct
-- **GX-0005** (reasoning_expectation) — correct
+- **GX-0002** (reasoning_expectation) — correct, signed TC 2026-09-02 · *by instruction*
+- **GX-0003** (reasoning_expectation) — correct, signed TC 2026-09-02 · *by instruction*
 - **GX-0006** (reasoning_expectation) — unreviewed
-- **GX-0007** (reasoning_expectation) — correct
-- **GX-0008** (reasoning_expectation) — correct
-- **GX-0009** (reasoning_expectation) — correct
-- **GX-0010** (reasoning_expectation) — correct
-- **GX-0011** (reasoning_expectation) — correct
+- **GX-0007** (reasoning_expectation) — correct, signed TC 2026-09-02 · *by instruction*
+- **GX-0008** (reasoning_expectation) — correct, signed TC 2026-09-02 · *by instruction*
+- **GX-0009** (reasoning_expectation) — correct, signed TC 2026-09-02 · *by instruction*
 - **GX-0012** (reasoning_expectation) — unreviewed
-- **GX-0013** (reasoning_expectation) — correct
 - **GX-0014** (reasoning_expectation) — unreviewed
 - **GX-0015** (reasoning_expectation) — unreviewed
-- **PU-0001** (prohibited_use) — correct, signed TC 2026-08-26
-- **PU-0003** (prohibited_use) — correct, signed TC 2026-08-26
-- **PU-0004** (prohibited_use) — correct, signed TC 2026-08-26
-- **PU-0005** (prohibited_use) — correct, signed TC 2026-08-26
-- **PU-0006** (prohibited_use) — correct, signed TC 2026-08-26
-- **PU-0007** (prohibited_use) — correct, signed TC 2026-08-26
-- **PU-0008** (prohibited_use) — correct, signed TC 2026-08-26
-- **PU-0009** (prohibited_use) — correct, signed TC 2026-08-26
 - **PU-0010** (prohibited_use) — correct, signed TC 2026-08-26
 - **PU-0011** (prohibited_use) — correct, signed TC 2026-08-26
 - **PU-0012** (prohibited_use) — correct, signed TC 2026-08-26
 - **PU-0013** (prohibited_use) — correct, signed TC 2026-08-26
 - **PU-0014** (prohibited_use) — correct, signed TC 2026-08-26
-- **PU-0018** (prohibited_use) — correct, signed TC 2026-08-26
 
 ## Approved — now in eval/gold/
 
 - **CQ-0001** (competency_question) — correct, signed TC 2026-08-25
 - **CQ-0003** (competency_question) — correct, signed TC 2026-08-25
+- **CQ-0004** (competency_question) — correct, signed TC 2026-09-02 · *by instruction*
 - **CQ-0005** (competency_question) — correct, signed TC 2026-08-25
 - **CQ-0006** (competency_question) — correct, signed TC 2026-08-25
 - **CQ-0007** (competency_question) — correct, signed TC 2026-08-25
@@ -325,6 +241,62 @@ the content (`review/README.md`).
 - **CQ-0022** (competency_question) — correct, signed TC 2026-08-25
 - **CQ-0023** (competency_question) — correct, signed TC 2026-08-25
 - **CQ-0024** (competency_question) — correct, signed TC 2026-08-25
+- **GE-0001** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0002** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0004** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0005** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0006** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0009** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0011** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0012** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0013** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0014** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0015** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0016** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0017** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0018** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0019** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0020** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0021** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0022** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0023** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0024** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0025** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0026** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0027** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0028** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0029** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0031** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0032** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0033** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0034** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0035** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0036** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0037** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0038** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0039** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0040** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0041** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0042** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0043** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0044** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0045** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0046** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0048** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0050** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0051** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0052** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0053** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+  - > duplicate
+- **GE-0054** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0055** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0056** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0057** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0058** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0059** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0060** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0061** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
+- **GE-0062** (gold_entity) — correct, signed TC 2026-09-02 · *by instruction*
 - **GC-0001** (gold_concept) — correct, signed TC 2026-08-25
 - **GC-0002** (gold_concept) — correct, signed TC 2026-08-25
 - **GC-0003** (gold_concept) — correct, signed TC 2026-08-25
@@ -391,6 +363,7 @@ the content (`review/README.md`).
 - **GR-0014** (gold_relationship) — correct, signed TC 2026-08-25
 - **GR-0015** (gold_relationship) — correct, signed TC 2026-08-25
 - **GR-0016** (gold_relationship) — correct, signed TC 2026-08-25
+- **GR-0017** (gold_relationship) — correct, signed TC 2026-09-02 · *by instruction*
 - **GR-0018** (gold_relationship) — correct, signed TC 2026-08-25
 - **GR-0022** (gold_relationship) — correct, signed TC 2026-08-25
 - **GR-0023** (gold_relationship) — correct, signed TC 2026-08-25
@@ -412,8 +385,33 @@ the content (`review/README.md`).
 - **GR-0057** (gold_relationship) — correct, signed TC 2026-08-25
 - **GR-0058** (gold_relationship) — correct, signed TC 2026-08-25
 - **GS-0003** (gold_search_question) — correct, signed TC 2026-08-25
+- **GA-0001** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GA-0003** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GA-0004** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GA-0005** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GA-0007** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GA-0009** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GA-0010** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GA-0011** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GA-0012** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GA-0013** (gold_retrieval_question) — correct, signed TC 2026-09-02 · *by instruction*
+- **GX-0001** (reasoning_expectation) — correct, signed TC 2026-09-02 · *by instruction*
+- **GX-0004** (reasoning_expectation) — correct, signed TC 2026-09-02 · *by instruction*
+- **GX-0005** (reasoning_expectation) — correct, signed TC 2026-09-02 · *by instruction*
+- **GX-0010** (reasoning_expectation) — correct, signed TC 2026-09-02 · *by instruction*
+- **GX-0011** (reasoning_expectation) — correct, signed TC 2026-09-02 · *by instruction*
+- **GX-0013** (reasoning_expectation) — correct, signed TC 2026-09-02 · *by instruction*
+- **PU-0001** (prohibited_use) — correct, signed TC 2026-08-26
 - **PU-0002** (prohibited_use) — correct, signed TC 2026-08-26
+- **PU-0003** (prohibited_use) — correct, signed TC 2026-08-26
+- **PU-0004** (prohibited_use) — correct, signed TC 2026-08-26
+- **PU-0005** (prohibited_use) — correct, signed TC 2026-08-26
+- **PU-0006** (prohibited_use) — correct, signed TC 2026-08-26
+- **PU-0007** (prohibited_use) — correct, signed TC 2026-08-26
+- **PU-0008** (prohibited_use) — correct, signed TC 2026-08-26
+- **PU-0009** (prohibited_use) — correct, signed TC 2026-08-26
 - **PU-0015** (prohibited_use) — correct, signed TC 2026-08-26
+- **PU-0018** (prohibited_use) — correct, signed TC 2026-08-26
 
 ## Marks on child rows
 

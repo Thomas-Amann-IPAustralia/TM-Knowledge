@@ -14,9 +14,10 @@ anything in here.
 
 ## Where the set stands
 
-**Round 1 came back on 2026-08-26 and was reconciled on 2026-09-02.** Of 368
-records: 108 approved and now in `eval/gold/`, 8 rejected, 1 verdict unreadable,
-and the rest held. This directory holds the **260 that are left**;
+**Round 1 came back on 2026-08-26 and was reconciled on 2026-09-02**, then the
+reviewer settled the unsigned rows in a covering instruction the same day
+(ADR-0052). Of 368 records: **190 approved** and now in `eval/gold/`, 8
+rejected, and the rest held. This directory holds the **178 that are left**;
 `concepts.seed.yaml` is gone because all 52 of its records were approved.
 
 Two things follow that are easy to get wrong:

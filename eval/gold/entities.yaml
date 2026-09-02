@@ -1,0 +1,621 @@
+- id: GE-0001
+  surface: Section 43
+  type: LegislativeProvision
+  source_ref: TMM/Part29/1#1
+  span:
+  - 0
+  - 10
+  source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+  resolves_to: TMA1995/s43
+  notes: Upstream carries this edge as an authored link rather than as a regex read of the prose, which
+    is the strongest form of provenance available.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0002
+  surface: the Act
+  type: LegislativeProvision
+  source_ref: TMM/Part29/1#1
+  span:
+  - 14
+  - 21
+  source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+  notes: 'Instrument-level mentions are the commonest thing a naive provision matcher gets wrong: it either
+    drops them or attaches them to whichever section was mentioned last.'
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0004
+  surface: a sign contained in the trade mark
+  type: LegalConcept
+  source_ref: TMM/Part29/1#1
+  span:
+  - 207
+  - 241
+  source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0005
+  surface: likely to deceive or cause confusion
+  type: LegalConcept
+  source_ref: TMM/Part29/1#1
+  span:
+  - 321
+  - 357
+  source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+  notes: Two mentions in this chunk, both in the same words.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0006
+  surface: likely to deceive or cause confusion
+  type: LegalConcept
+  source_ref: TMM/Part29/1#1
+  span:
+  - 740
+  - 776
+  source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0009
+  surface: There is, therefore, no discretion to accept a trade mark that is caught by the provisions
+    of this section.
+  type: ManualInstruction
+  source_ref: TMM/Part29/1#1
+  span:
+  - 435
+  - 542
+  source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+  resolves_to: TMA1995/s43
+  notes: Annotated as an instruction rather than as a concept because it tells the examiner what they
+    may not do. If it reads to you as a statement of law rather than an instruction, retyping it is the
+    correction.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0011
+  surface: clearly satisfied
+  type: LegalConcept
+  source_ref: TMM/Part29/1#1
+  span:
+  - 644
+  - 661
+  source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+  notes: Sits alongside the presumption of registrability in TMM/Part29/2/2/4. Together they are the pilot's
+    rule for what to do under uncertainty.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0012
+  surface: the specified goods and / or services
+  type: LegalConcept
+  source_ref: TMM/Part29/1#1
+  span:
+  - 693
+  - 730
+  source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+  notes: The corpus writes this as "goods/services", "goods and/or services", "goods or services" and
+    "goods and / or services" within a few paragraphs. All four mean the same thing and no two match as
+    strings.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0013
+  surface: consumers within the relevant market
+  type: LegalConcept
+  source_ref: TMM/Part29/1#1
+  span:
+  - 895
+  - 931
+  source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0014
+  surface: ground for rejection
+  type: LegalConcept
+  source_ref: TMM/Part29/1#1
+  span:
+  - 940
+  - 960
+  source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0015
+  surface: If the trade mark, or some part of the trade mark, contains a connotation that would be likely
+    to deceive or confuse consumers within the relevant market, then a ground for rejection should be
+    raised.
+  type: ManualInstruction
+  source_ref: TMM/Part29/1#1
+  span:
+  - 778
+  - 978
+  source_content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+  resolves_to: TMA1995/s43
+  notes: Note that this sentence uses "deceive or confuse", not the statutory "deceive or cause confusion".
+    Whether the Manual is paraphrasing or stating a different thing is a reading only an expert can give.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0016
+  surface: a particular plant variety or other plant name
+  type: LegalConcept
+  source_ref: TMM/Part29/1/1/2
+  span:
+  - 61
+  - 107
+  source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0017
+  surface: connote
+  type: LegalConcept
+  source_ref: TMM/Part29/1/1/2
+  span:
+  - 53
+  - 60
+  source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0018
+  surface: the same or a closely related genus
+  type: LegalConcept
+  source_ref: TMM/Part29/1/1/2
+  span:
+  - 156
+  - 191
+  source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0019
+  surface: likely to deceive or cause confusion as to the true nature
+  type: LegalConcept
+  source_ref: TMM/Part29/1/1/2
+  span:
+  - 199
+  - 257
+  source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0020
+  surface: section 43 of the Act
+  type: LegislativeProvision
+  source_ref: TMM/Part29/1/1/2
+  span:
+  - 326
+  - 347
+  source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+  resolves_to: TMA1995/s43
+  notes: The span deliberately includes "of the Act". Whether the instrument belongs inside the entity
+    or beside it is a modelling decision that changes every provision annotation in the set.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0021
+  surface: Part 32A
+  type: Other
+  source_ref: TMM/Part29/1/1/2
+  span:
+  - 511
+  - 519
+  source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+  notes: Upstream keeps only internal references that resolved to a page or chunk and drops the rest (Q-08),
+    so the absence of an internal-ref edge here is not evidence that the Manual made no reference.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0022
+  surface: Part 32A - Examination of Trade Marks for Plants (in class 31)
+  type: Other
+  source_ref: TMM/Part29/1/1/2
+  span:
+  - 521
+  - 583
+  source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+  notes: If link titles should be excluded from annotation altogether, saying so is a rule-level correction
+    that applies across the corpus.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0023
+  surface: class 31
+  type: Other
+  source_ref: TMM/Part29/1/1/2
+  span:
+  - 498
+  - 506
+  source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+  notes: If Nice classes deserve their own entity type, this record is the evidence for adding one — the
+    taxonomy is the expert's to set.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0024
+  surface: a ground for rejection under section 43 of the Act will be appropriate
+  type: ManualInstruction
+  source_ref: TMM/Part29/1/1/2
+  span:
+  - 297
+  - 367
+  source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+  resolves_to: TMA1995/s43
+  notes: '"Will be appropriate" is the Manual''s most common way of stating an outcome. Which of must/may/should
+    it maps to is the modality judgement GR-0002 asks you for, and it is not a grammar question.'
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0025
+  surface: For details of practice in examination of applications for registration of trade marks covering
+    plants and/or plant materials in class 31 see Part 32A.
+  type: ManualInstruction
+  source_ref: TMM/Part29/1/1/2
+  span:
+  - 369
+  - 520
+  source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0026
+  surface: plants or plant materials
+  type: LegalConcept
+  source_ref: TMM/Part29/1/1/2
+  span:
+  - 127
+  - 152
+  source_content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0027
+  surface: A connotation
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/2
+  span:
+  - 0
+  - 13
+  source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+  notes: The article is inside the span here and outside it in GE-0003. Whichever convention you prefer,
+    it has to be the same one everywhere or the offsets will not compare between annotators.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0028
+  surface: the whole trade mark
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/2
+  span:
+  - 30
+  - 50
+  source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0029
+  surface: a part of the trade mark
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/2
+  span:
+  - 59
+  - 83
+  source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0031
+  surface: a dictionary meaning
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/2
+  span:
+  - 104
+  - 124
+  source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+  notes: Grounded in TMM/Part29/2/2/1~1, which quotes two dictionaries by name.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0032
+  surface: a connection in the minds of the buying public with some person, place or thing
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/2
+  span:
+  - 133
+  - 212
+  source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+  notes: This span is the seed of the whole of Parts 29.6 (persons), 29.9 (places) and the INN material
+    (things). If the ontology has one organising relation, it is probably this one.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0033
+  surface: the buying public
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/2
+  span:
+  - 162
+  - 179
+  source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0034
+  surface: person
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/2
+  span:
+  - 190
+  - 196
+  source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+  notes: 'Typed LegalConcept rather than Role: this is a person referred to by the mark, not a participant
+    in examination. The distinction matters and the word does not carry it.'
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0035
+  surface: place
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/2
+  span:
+  - 198
+  - 203
+  source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0036
+  surface: thing
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/2
+  span:
+  - 207
+  - 212
+  source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0037
+  surface: may result from the whole trade mark or from a part of the trade mark
+  type: ManualInstruction
+  source_ref: TMM/Part29/2/2/2
+  span:
+  - 14
+  - 83
+  source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+  notes: Typed as an instruction is arguably wrong — it instructs nobody to do anything. If it is a statement
+    rather than an instruction, that is a correction worth making, because the same shape recurs throughout.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0038
+  surface: It may result from a dictionary meaning or from a connection in the minds of the buying public
+    with some person, place or thing.
+  type: ManualInstruction
+  source_ref: TMM/Part29/2/2/2
+  span:
+  - 85
+  - 213
+  source_content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0039
+  surface: A connotation must arise from the trade mark itself, and not through a comparison with another
+    trade mark.
+  type: ManualInstruction
+  source_ref: TMM/Part29/2/2/3
+  span:
+  - 0
+  - 106
+  source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+  resolves_to: TMA1995/s43
+  notes: 'This is the single most important sentence in the pilot for precision: it is what makes PU-0008
+    a prohibited inference.'
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0040
+  surface: A connotation
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/3
+  span:
+  - 0
+  - 13
+  source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0041
+  surface: a comparison with another trade mark
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/3
+  span:
+  - 69
+  - 105
+  source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+  notes: A retrieval system that indexes this chunk under "comparison between trade marks" will surface
+    it for exactly the queries it should not.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0042
+  surface: section 44 of the Act
+  type: LegislativeProvision
+  source_ref: TMM/Part29/2/2/3
+  span:
+  - 163
+  - 184
+  source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+  resolves_to: TMA1995/s44
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0043
+  surface: Part 26 of this Manual
+  type: Other
+  source_ref: TMM/Part29/2/2/3
+  span:
+  - 213
+  - 235
+  source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0044
+  surface: Part 26 – Conflict with Other Signs
+  type: Other
+  source_ref: TMM/Part29/2/2/3
+  span:
+  - 237
+  - 272
+  source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+  notes: The dash here is an en dash (–). GE-0022's equivalent is a hyphen (-). If a surface is retyped
+    rather than copied, it will not land.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0045
+  surface: Such comparisons are dealt with under the provisions of section 44 of the Act, and discussed
+    in detail in Part 26 of this Manual.
+  type: ManualInstruction
+  source_ref: TMM/Part29/2/2/3
+  span:
+  - 107
+  - 236
+  source_content_hash: sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190
+  resolves_to: TMA1995/s44
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0046
+  surface: The presumption of registrability
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/4
+  span:
+  - 0
+  - 33
+  source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0048
+  surface: section 33(3)
+  type: LegislativeProvision
+  source_ref: TMM/Part29/2/2/4
+  span:
+  - 131
+  - 144
+  source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+  resolves_to: TMA1995/s33(3)
+  notes: Resolves to a unit beneath a provision rather than to a provision. The ref grammar cannot tell
+    the two apart on its own (Q-18); the loader does it by trying both.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0050
+  surface: If there is doubt that a connotation exists, then the ground for rejection should not be raised.
+  type: ManualInstruction
+  source_ref: TMM/Part29/2/2/4
+  span:
+  - 186
+  - 282
+  source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+  resolves_to: TMA1995/s43
+  notes: 'Read together with GE-0009 this is the pilot''s whole treatment of uncertainty: no discretion
+    once the section bites, and no raising the ground while there is doubt that it does.'
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0051
+  surface: The Registrar must be satisfied that a ground for rejection exists before section 33(3) can
+    be applied to reject the trade mark.
+  type: ManualInstruction
+  source_ref: TMM/Part29/2/2/4
+  span:
+  - 57
+  - 185
+  source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+  resolves_to: TMA1995/s33(3)
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0052
+  surface: doubt that a connotation exists
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/4
+  span:
+  - 198
+  - 229
+  source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0053
+  surface: ground for rejection
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/4
+  span:
+  - 96
+  - 116
+  source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0054
+  surface: ground for rejection
+  type: LegalConcept
+  source_ref: TMM/Part29/2/2/4
+  span:
+  - 240
+  - 260
+  source_content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0055
+  surface: A mere possibility of deception or confusion
+  type: LegalConcept
+  source_ref: TMM/Part29/3/3/2
+  span:
+  - 0
+  - 44
+  source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0056
+  surface: at some indeterminate time
+  type: Date
+  source_ref: TMM/Part29/3/3/2
+  span:
+  - 45
+  - 71
+  source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+  notes: Compare GE-0061. Both are temporal expressions and only one of them matters to examination. A
+    stock NER model tags both `DATE` and cannot tell them apart (Q-16) — which is precisely why the two
+    taxonomies must not be mapped one to one.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0057
+  surface: Each application must be considered as it stands in the current marketplace, not in the marketplace
+    as it was in the past and not as it may be in the future.
+  type: ManualInstruction
+  source_ref: TMM/Part29/3/3/2
+  span:
+  - 91
+  - 248
+  source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0058
+  surface: the current marketplace
+  type: LegalConcept
+  source_ref: TMM/Part29/3/3/2
+  span:
+  - 143
+  - 166
+  source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0059
+  surface: the previous legislation
+  type: LegislativeProvision
+  source_ref: TMM/Part29/3/3/2
+  span:
+  - 297
+  - 321
+  source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+  notes: Unresolvable by design rather than by error. A gold record that guessed an instrument here would
+    be asserting something the corpus does not say.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0060
+  surface: the current Act
+  type: LegislativeProvision
+  source_ref: TMM/Part29/3/3/2
+  span:
+  - 409
+  - 424
+  source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0061
+  surface: 10 years ago
+  type: Date
+  source_ref: TMM/Part29/3/3/2
+  span:
+  - 519
+  - 531
+  source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+  notes: Arguably should not be annotated at all. If your rule is that only dates bearing on an application
+    are annotated, deleting this record is the correction — and that rule is worth stating explicitly.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GE-0062
+  surface: Examiners
+  type: Role
+  source_ref: TMM/Part29/3/3/2
+  span:
+  - 579
+  - 588
+  source_content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+  approved_by: TC
+  approved_date: '2026-09-02'

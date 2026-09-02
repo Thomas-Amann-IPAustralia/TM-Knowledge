@@ -1,0 +1,119 @@
+- id: GX-0001
+  given:
+  - TMM/Part29/1#1
+  expected_inferences:
+  - conclusion: The passage contains both quoted legislative text and the Registrar's practice, and the
+      two must be distinguishable in any output derived from it.
+    basis:
+    - TMM/Part29/1#1
+    - TMA1995/s43
+    kind: classification
+  must_not_infer:
+  - PU-0004
+  tier: 1
+  explanation_required: true
+  caveats: The chunk boundary is upstream's; the sentence boundary between the quotation and the practice
+    guidance is not marked in the text.
+  notes: Tier 1 on the view that this is structural. If deciding where the quotation ends is a reading
+    rather than a parse, it is Tier 3.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GX-0004
+  given:
+  - TMM/Part29/1#1
+  - TMM/Part29/2/2/4
+  expected_inferences:
+  - conclusion: The Manual states both that the section's application is mandatory with no discretion
+      to accept, and that where there is doubt a connotation exists the ground should not be raised. Both
+      apply, at different points of the assessment.
+    basis:
+    - TMM/Part29/1#1
+    - TMM/Part29/2/2/4
+    kind: consistency
+  must_not_infer:
+  - PU-0001
+  - PU-0007
+  tier: 3
+  explanation_required: true
+  caveats: The clause "at different points of the assessment" is a reconciliation. If it is wrong, or
+    if the two passages really do conflict, the conclusion should be rewritten or the whole record moved
+    to prohibited-uses.
+  notes: Low confidence and high value. This is the record most likely to be in the wrong file.
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GX-0005
+  given:
+  - GC-0004
+  - TMM/Part29/2/2/3
+  expected_inferences:
+  - conclusion: A question about confusion arising from similarity between two marks is not answered by
+      the section 43 material, and the Manual allocates it to section 44 and Part 26.
+    basis:
+    - TMM/Part29/2/2/3
+    - TMM/Part29/3/3/3
+    kind: classification
+  must_not_infer:
+  - PU-0008
+  - PU-0018
+  tier: 3
+  explanation_required: true
+  notes: 'Tier 3 because misrouting a question sends an examiner to the wrong test, and the misrouting
+    is invisible: both destinations are about confusion.'
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GX-0010
+  given:
+  - GC-0031
+  - TMM/Part29/7#1
+  expected_inferences:
+  - conclusion: Where a mark contains material likely to be viewed as a phoneword, the applicable practice
+      turns on whether the applicant is the owner or authorised user, and the ground is reconsidered on
+      information establishing that they are.
+    basis:
+    - TMM/Part29/7#1
+    kind: classification
+  must_not_infer:
+  - PU-0001
+  - PU-0002
+  tier: 2
+  explanation_required: true
+  caveats: '"Likely to be viewed as a phoneword" is itself an evaluative judgement. The inference states
+    the practice conditional on that judgement having been made by a person.'
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GX-0011
+  given:
+  - TMM/Part29/1#1
+  - TMM/Part29/10#1
+  expected_inferences:
+  - conclusion: These two passages state the same rule with different subject matter, so neither is redundant
+      and neither generalises the other.
+    basis:
+    - TMM/Part29/1#1
+    - TMM/Part29/10#1
+    kind: consistency
+  must_not_infer:
+  - PU-0007
+  tier: 2
+  explanation_required: true
+  notes: 'See GE-0015 and GE-0146: the two sentences differ in one clause and are otherwise word for word.'
+  approved_by: TC
+  approved_date: '2026-09-02'
+- id: GX-0013
+  given:
+  - TMM/Part29/4#1
+  expected_inferences:
+  - conclusion: This passage does not support the proposition that descriptive matter in a mark gives
+      rise to a section 43 ground; it states the opposite, subject to the specification covering the goods
+      described.
+    basis:
+    - TMM/Part29/4#1
+    kind: consistency
+  must_not_infer:
+  - PU-0007
+  tier: 3
+  explanation_required: true
+  notes: A system asked to find support for a proposition will find this passage by word overlap and cite
+    it. The expected inference is that it says the opposite.
+  approved_by: TC
+  approved_date: '2026-09-02'

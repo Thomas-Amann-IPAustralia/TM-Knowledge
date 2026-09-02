@@ -79,51 +79,6 @@ seeds:
       approved_by: null
       approved_date: null
 
-  - seed_id: SEED-CQ-0004
-    record_type: competency_question
-    why_this_example: >
-      A question about the interaction between s 43 and a neighbouring ground.
-      Whether this is in the pilot at all is a scope decision — `pilot_in_scope`
-      is set true here as a proposal, and setting it false is a legitimate
-      correction that parks the record rather than deleting it.
-    provenance:
-      confidence: 0.5
-    record:
-      id: CQ-0004
-      question: >
-        Where a trade mark contains an INN stem, what does the Manual say about
-        raising section 43 alongside a ground under section 41 or section 44?
-      asked_by: examiner
-      category: retrieval
-      pilot_in_scope: true
-      expected_sources:
-        required:
-          - TMM/Part29/5/5/4
-        supporting:
-          - TMM/Part29/5/5/5
-          - TMM/Part29/5/5/6~1
-          - TMA1995/s41
-          - TMA1995/s44
-      expected_concepts:
-        - International Non-Proprietary Name
-        - INN stem
-        - condition of registration
-      must_not_include: []
-      answer_shape: >
-        Must state that the endorsement limiting use to goods containing the
-        designated substance addresses the section 43 ground only, and must not
-        imply that it disposes of a section 41 or section 44 ground.
-      caveats: >
-        The Manual states this negatively — "unlikely to assist in overcoming
-        grounds… raised for other reasons". A summariser will drop the negation.
-      measured_by:
-        - expected_source_coverage
-        - grounding
-        - authority_weighting
-      approved_by: null
-      approved_date: null
-
-  # ── search ───────────────────────────────────────────────────────────────
   - seed_id: SEED-CQ-0013
     record_type: competency_question
     why_this_example: >
