@@ -93,12 +93,30 @@ jobs:
             cat data/derived/reports/coverage.md
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Publish the coverage report
+      # The other half of the status report: coverage says what Stage 0 is
+      # missing, this says whose decision moves it (ADR-0053). It is also a
+      # check the harness cannot make -- the harness only reads eval/gold/, so
+      # a seed record naming an id that exists nowhere is invisible to it, and
+      # `tmk-blockers` exits 1 on one. That is a defect, not a gap: the id was
+      # constructed rather than read.
+      - name: Stage 0 blocker report
+        run: |
+          tmk-blockers --out data/derived/reports/blockers.md
+          {
+            echo
+            echo "---"
+            echo
+            cat data/derived/reports/blockers.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish the status reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: stage0-coverage
-          path: data/derived/reports/coverage.md
+          name: stage0-reports
+          path: |
+            data/derived/reports/coverage.md
+            data/derived/reports/blockers.md
           if-no-files-found: warn
 
   # The canary. A harness that has quietly stopped checking would leave every

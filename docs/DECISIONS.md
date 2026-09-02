@@ -1917,6 +1917,11 @@ says which decision on the queue releases the most.
    marks law (rule 1).
 4. `HANDOFF.md` §2 stops carrying a hand-maintained blocker list. It points at
    the report.
+5. **CI runs it**, beside `tmk-coverage`, and its exit 1 breaks the build. That
+   is not a duplicate of the harness: the harness reads `eval/gold/` only, so a
+   *seed* record naming an id that exists nowhere is invisible to it. Such an id
+   was constructed rather than read, which is a defect under ADR-0018's meaning
+   of the word, not a gap.
 
 ---
 
