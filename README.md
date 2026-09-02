@@ -39,6 +39,8 @@ tmk-fetch-upstream    # the pinned corpus into data/upstream/ (~4s)
 tmk-worksheet         # 216 chunks to annotate → data/derived/worksheet.md
 tmk-workbook          # the intake workbook, EMPTY → data/derived/stage0-intake.xlsx
 tmk-seed --pack --workbook   # the seed examples, for expert correction (ADR-0043)
+tmk-transcribe FILE --write  # a marked-up workbook back in — approved rows only
+tmk-reconcile FILE --write   # record the round, retire the seed copies it settled
 tmk-harness           # every Stage 0 check. Exits 3: incomplete, by design
 tmk-coverage          # the same, as a worklist → data/derived/reports/
 pytest -q
@@ -58,6 +60,8 @@ data/              pinned upstream snapshot (not committed)
 src/               tm_knowledge Python package
 review/            machine-generated candidates awaiting human decision
   seed/            Stage 0 example records, written to be corrected — not content
+  returned/        what an expert handed back, unmodified — never edited
+  decisions/       what each returned artefact was taken to mean
 vocab/             approved SKOS controlled vocabulary
 ontology/          approved RDF/RDFS/OWL 2 RL modules
 graph/             generated RDF, by named graph

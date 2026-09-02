@@ -3,127 +3,125 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-08-21 · session S007 · branch `claude/trademark-experts-examples-xwff77`
+**Last updated:** 2026-09-02 · session S008 · branch `claude/ontology-stage-0-loop-s7sruh`
 
 ---
 
 ## 1. Where the project actually is
 
-**The agent-side track is finished.** All twelve parallel-track packages
-(P1–P12) are built. S005 delivered the last five: **P5** the evaluation harness,
-**P7** the intake workbook, **P8** the transcription path, **P10** the coverage
-report and **P11** CI. 247 tests pass. From a bare clone:
+**Stage 0 has approved content for the first time.** The seed workbook came back
+from the Trade Mark expert marked up, went through the loop, and **108 records
+are now in `eval/gold/`** carrying a name and a date: 19 competency questions,
+52 concepts, 34 relationships, 1 search question, 2 prohibited uses.
+`tmk-harness` runs over them and reports **0 defects, 16 gaps, 1 note — exit 3**,
+which is the designed state: sound, and incomplete.
+
+Read that pair carefully, because it is the whole status report. *0 defects*
+means every ref resolves, every span lands on its recorded text, every hash
+matches the pin and nothing points at nothing. *16 gaps* means Stage 0 is a long
+way from done — no entities, no retrieval questions, no reasoning expectations,
+no scope document, no measures.
 
 ```bash
 pip install -e ".[test,intake]"
 tmk-fetch-upstream    # pinned snapshot into data/upstream/ (~4s)
-tmk-worksheet         # 216 chunks to annotate → data/derived/worksheet.md
-tmk-workbook          # the intake workbook, EMPTY → data/derived/stage0-intake.xlsx
-tmk-seed --pack --workbook   # the seed set, for correction → data/derived/ (S007)
-tmk-harness           # every Stage 0 check. Exits 3 — see below
+tmk-harness           # 0 defects, 16 gaps. Exit 3
 tmk-coverage          # the same, as a worklist → data/derived/reports/
-pytest -q
+tmk-seed              # the 260 seed records that are left. Exit 0
+pytest -q             # 280 pass
 ```
 
-**The red harness exists and it is red for the right reason.** `tmk-harness`
-exits **3** and prints 22 gaps naming every absent Stage 0 deliverable. It exits
-**1** on a defect — a record that does not validate, a duplicated or retired id,
-a dangling cross-reference, a ref that resolves to nothing, a span that does not
-land on its recorded text, a stale hash. That separation is ADR-0018, realised in
-ADR-0030, and it is what stops a permanently red pipeline from training everyone
-to ignore it.
+**The loop the last session promised did not work, and fixing it was the
+session.** Run as it stood, `tmk-transcribe --write` would have done the reverse
+of its job. Two faults, compounding:
 
-Note where the failure lives, because it is easy to get backwards: **`pytest` is
-green** — it tests the harness, and the harness works. The red thing is
-`tmk-harness`. A permanently failing pytest would have been a suite that says
-nothing about whether the code is sound (Q-23).
+- `approved_date` arrived as `25/08/2026` and as Excel date cells; both fail the
+  schema's ISO pattern. So every row the expert had **signed** was rejected —
+  only a signed row carries a date — and the 233 rows that would have been
+  written were exactly the ones nobody had approved (Q-26, ADR-0047).
+- The transcriber read `verdict` as an annotation and dropped it. A record the
+  expert had just **rejected** would have gone into approved space (ADR-0048).
 
-**The expert can now hand back a spreadsheet.** `tmk-workbook` generates an
-empty ten-sheet workbook from the schemas — dropdowns on every fixed vocabulary,
-no example rows anywhere — and `tmk-transcribe` reads it back into validated
-records, reporting every blank judgement field instead of filling one. The round
-trip preserves every populated field and is a fixed point. Guide §6's promise —
-"do not write YAML" — is now a command rather than an intention.
+Both are fixed, and the fixes are the interesting part of the repo now. Dates
+convert where they have one reading and are refused by name where they do not.
+The verdict is the gate: a row crosses only on a `correct` carrying a name in
+`approved_by`, and the gate is **transitive** — a signed record naming an
+unsigned one is held, because `eval/gold/` with a dangling pointer is not a
+measurement standard (Q-27).
 
-**Stage 0 still has no *approved* content. What changed in S007 is the shape of
-the ask.** The owner reported why the experts had not produced any, and it was
-not availability: they could not readily *articulate* the judgements the record
-types want, because those judgements are the tacit part of their practice. A
-blank form is the wrong instrument for that. Recognising a wrong answer is a
-different and much cheaper act than composing a right one.
+**`tmk-reconcile` is new and is the other half of the door.** It writes the
+round into `review/decisions/` — every verdict and every correction verbatim —
+and then retires the seed copies of whatever reached `eval/gold/`, so no record
+is ever present twice (ADR-0049). `review/seed/` went from 368 records to 260;
+`concepts.seed.yaml` is gone entirely.
 
-So S007 built a **seed example set**: 368 machine-written candidate records over
-s 43, in every Stage 0 shape, grounded in the pinned snapshot, deliberately
-fallible, for the experts to mark *correct*, *amend* or *reject*. It lives in
-`review/seed/` and it is **not project content** — see ADR-0043 for the decision
-and the six guards that keep it from becoming any.
+**The round in numbers.** 229 of 368 rows carried a verdict. 108 approved, 251
+held, 8 rejected, 1 unreadable. The held rows are not a failure — they are the
+honest state of a partial round, and they sort into reasons a person can act on:
 
-```bash
-tmk-seed                       # check the set. Exits 0: no defects today
-tmk-seed --pack --workbook     # the two things an expert can mark up
-```
+| held because | rows |
+|---|---|
+| never reached | 139 |
+| marked `correct`, nobody signed it | 83 |
+| approved, but names a record that is not | 18 |
+| marked `amend`, amendment not applied | 8 |
+| a child row is unsettled | 3 |
 
-**The harness has not moved and must not.** `tmk-harness` still exits 3 and
-still names all 22 absent Stage 0 deliverables, because `eval/gold/` is still
-empty. A seed record counts for nothing until it comes back through
-`tmk-transcribe` with a name in `approved_by`.
-
-**The parallel track's §7 still applies to plumbing.** Its words — *"the
-container is finished and empty; the programme is waiting on Stage 0 content"* —
-remain true. S007 did not add plumbing; it filled the container with a draft to
-argue with. A session that finds itself designing new *apparatus* should still
-stop and read that section.
+**The expert also sent a covering note**, filed verbatim at
+`review/returned/260826-expert-feedback.md`. Two points, both about content and
+neither answerable by an agent: the seed set has the *presumption of
+registrability* and "doubt" in it but not the office's actual bar for applying
+it (Q16), and the vocabulary was drawn from Part 29 alone, which gives a
+too-narrow view of nine named roles and office terms (Q17, Q-28).
 
 ## 2. The next action
 
-**Thread B — the experts. It is the only thread with work in it, and the ask
-has changed.** Do not hand over a blank workbook again. Hand over:
+**Thread B — the experts, and the ask is now very small.** Three things, in this
+order, and the first is not a review task at all:
 
-- `data/derived/seed-review-pack.md` — 368 records in reading order, each with
-  the Manual passage it rests on quoted underneath and the span in bold;
-- `data/derived/stage0-seed-review.xlsx` — the same records as a correctable
-  spreadsheet. It **stands alone**: every row prints the Manual passage it rests
-  on with the span in bold, and what the record is there to demonstrate, beside
-  the two cells the reviewer types in (ADR-0046);
-- `review/seed/HOW-TO-CORRECT.md` — the covering instructions, including where
-  an hour is best spent.
+1. **Put a name in `approved_by` on the 83 rows already marked `correct`.** No
+   new judgement — the verdict is already there, the signature is not. That
+   alone lands 83 records **and releases 9 prohibited uses** currently held on
+   them, taking the gold set from 108 to about 200. The rows are 54 entities,
+   16 retrieval questions, 11 reasoning expectations, 1 competency question and
+   1 relationship; the ledger at
+   `review/decisions/260825-ontology-stage-0-seed.md` names every one under
+   *Held*.
+2. **Apply the 8 amendments.** The expert wrote what is wrong; the record has
+   not been changed to match. `GA-0002` matters more than the other seven — it
+   holds `PU-0013` and `PU-0014`, which hold `GA-0019`, `GA-0020` and `GA-0022`.
+3. **Two records point at rejected records and cannot be signed as they stand:**
+   `PU-0012` names `CQ-0016` and `GA-0021` names `PU-0017`. Both need the
+   pointer changed or the record withdrawn. Expert call, not an agent's.
 
-The two highest-leverage corrections are stated at the tops of their files
-rather than buried in records: **the entity annotation rule**
-(`entities.seed.yaml`) and **the candidate predicate list**
-(`relationships.seed.yaml`). Each decides the shape of hundreds of later
-records. After those: `not_labels`, then `modality`, then
-`qualifications_expected`, then the relevance grades.
+The three from last session still stand and still beat record review per hour:
+`review/seed/pilot-scope.seed.md` (the boundary, Q8),
+`review/seed/measures.seed.md` (the thresholds), and — new — the nine
+definitions the expert asked for in their note.
 
-Two documents in the same directory need no record-reading at all and unblock
-more than any number of corrections: `pilot-scope.seed.md` (the boundary, Q8)
-and `measures.seed.md` (the thresholds).
+**Thread C — agents. Maintenance and one real gap.** What is legitimately left:
 
-**Thread C — agents. Maintenance, not construction.** What is legitimately left:
-
-0. **Transcribe the corrected seed workbook when it comes back.**
-   `tmk-transcribe data/derived/stage0-seed-review.xlsx --write`, then
-   `tmk-harness` and `tmk-coverage`. The round trip is proven: 368 records read
-   back, zero rejected rows, every blank `approved_by` reported. **Then delete
-   the seed file for any record type that has been through review** — two
-   versions of the same records, one approved and one not, is worse than none
-   (ADR-0043 consequence 6).
-1. **Transcribe whatever else arrives.** `tmk-transcribe FILE --write`, then
-   `tmk-harness` and `tmk-coverage`. This is the loop the whole track was built
-   to serve, and it is now one command per direction.
-2. **Report the state honestly.** `tmk-coverage` is the answer to "what is Stage
-   0 waiting on". It is a better status report than any prose a session could
-   write, and it is generated from the data rather than from an impression.
-3. **Keep the pin current if upstream moves** — and remember bumping it makes
-   every `source_content_hash` stale by design (`IDENTIFIERS.md` §5). The
-   harness will say so. Do not silently refresh a hash.
-4. **Confirm the agent-proposed ADRs** when a human is available (§3, Q11/Q12).
+0. **Run the loop when the next workbook arrives.** It is now three commands:
+   `tmk-transcribe FILE --write`, then `tmk-reconcile FILE --write`, then
+   `tmk-harness` and `tmk-coverage`. File the returned workbook in
+   `review/returned/` first and never edit it (ADR-0050).
+1. **Two verdict cells are misspelt** — `corrrect` on `GE-0031`, `rejext` on a
+   `GS--relevant` row. Nothing infers what they meant. They are named in the
+   ledger and cost the expert ten seconds.
+2. **Report the state honestly.** `tmk-coverage` is the answer to "what is
+   Stage 0 waiting on", and it is now generated from real content rather than
+   from an empty directory.
+3. **Keep the pin current if upstream moves** — bumping it makes every
+   `source_content_hash` stale by design (`IDENTIFIERS.md` §5). The harness will
+   say so. Do not silently refresh a hash.
+4. **Confirm the agent-proposed ADRs** when a human is available (§3, Q12, Q15,
+   Q18).
 
 **Do not** build more apparatus. **Do not** start Stage 2 — no TextRank, YAKE,
-KeyBERT or spaCy run, not even "just to see the output" (ADR-0010). It is more
-tempting than ever now that the loader makes it a twenty-line script and the
-harness would give it a number to point at. The number would be meaningless: it
-would be measured against a gold set that does not exist.
+KeyBERT or spaCy run, not even "just to see the output" (ADR-0010). The
+temptation is sharper now than it has ever been, because there is finally a gold
+set to measure against. It is 108 records with no entities in it; a Stage 2
+number measured against it would be measuring the wrong half.
 
 ## 3. Open questions — need a human
 
@@ -142,20 +140,30 @@ would be measured against a gold set that does not exist.
 | Q12 | Six S005 ADRs are agent-proposed: **0030** (three severities, three exit codes), **0032** (one named gold file per record type), **0033** (the retired-id ledger), **0035** (`openpyxl` as an optional extra — *the only one that is a dependency decision*), **0036** (the workbook's cell encoding), **0037** (how transcription writes). ADR-0031 and ADR-0034 are `derived`. Owner has seen a plain summary of these (S006) but has not yet ruled on them. | Nothing | S005 |
 | ~~Q13~~ | ~~Does upstream need a token in CI?~~ **Answered S006: no.** `manual-XtrACTor` is public (QUIRKS Q-13, amended S004) and GitHub Actions clones public repos anonymously, so `tmk-fetch-upstream` works in CI with `UPSTREAM_TOKEN` unset. Leave the secret unset unless the repo's visibility changes. | — | S005 |
 | Q15 | **New, S007.** Does the owner confirm **ADR-0043** as recorded, including its six guards and its reversal condition? The decision to seed was the owner's; the *guards* — quarantine, the envelope, the null-and-checked `approved_by`, the single door out, the untouched harness, the delete-after-review rule — are the agent's reading of what makes it safe, and they are what an audit will be judged against. **ADR-0044** and **ADR-0045** are `derived` and need no ruling. | Nothing today; the seed set is usable either way | S007 |
+| Q16 | **New, S008. Expert content.** The expert's note says the seed set carries the *presumption of registrability* and the idea of "doubt", but not the office's actual bar for applying it: it is not enough for the individual examiner to doubt a connotation exists — the Registrar as a whole must, and an examiner is expected to consult their team leader and the s 43 SMEs before accepting on that basis. They cite *Blount Inc v Registrar of Trade Marks* (1998) 40 IPR 498, 503 (*Oregon*) on s 33 and the reversed burden. **This is a rule about examiner conduct, and no record type currently holds it**: it is not a concept, not a relationship between provisions and not a prohibited use. Whether it becomes one, a new record type, or an entry in the scope document is an expert-and-owner call. Full text at `review/returned/260826-expert-feedback.md`. | The s 43 vocabulary's usefulness, and any later rule modelling | S008 |
+| Q17 | **New, S008. Expert content.** The same note: the seed vocabulary was drawn from Part 29 alone, which is "not wrong" but gives "a limited view on what some of the roles are". Nine terms named as needing high-level definitions — Registrar, Delegate, Examiner, Decision Maker, Office Practise, Subject Matter Expert (SME), Oppositions, Grounds for Rejection, Adverse Report — "and there are likely more". Two row corrections say the same thing sharply (`GE-0010`, `GE-0047` on decision maker vs the Registrar). **The structural trap is Q-28**: ADR-0022's scope rule selects passages that *cite* s 43, and a term's definition is usually not in a passage that cites anything. Fix is a scope exception, a separate definitional pass, or a glossary import — expert and owner, not an agent. | Stage 3's vocabulary, and the entity type taxonomy | S008 |
+| Q18 | **New, S008.** Does the owner confirm **ADR-0048**'s three judgement calls? That a signed record is held when it names an unsigned one; that a parent is held when a child row is unsettled; and that a misspelt verdict (`corrrect`) is a rejected row rather than a typo to read through. The rule they sit under — signed `correct` only — follows from rule 4 and ADR-0039 and needs no ruling. **ADR-0047, ADR-0049 and ADR-0050 are `derived`.** | Nothing today; the loop works either way, the yield changes | S008 |
+| Q19 | **New, S008.** The expert rejected both `ambiguity_collapse` prohibitions on a principle worth recording: inferring that a bare "section 15(1)" means the *Trade Marks Act 1995* "is acceptable due to the TM focused nature of the tool", and the tool "should be allowed to clarify if a passage is specifically sourced from the legislation". That sits against Q-07 and upstream's refusal to auto-resolve an ambiguous edge. They are not quite the same claim — upstream's `ambiguous` is about *which of several instruments in scope*, not about a bare section in a TM-only tool — but a session must not quietly assume either reading. Does the distinction hold, and where is the line? | Stage 2 citation resolution; the prohibited-use set's sixth kind now rests on one record | S008 |
 | Q14 | **New, S006.** Owner asked for more plain-language guidance on **constructing the ontology**, beyond what `STAGE-0-INPUT-GUIDE.md` covers (which is scoped to Stage 0 elicitation, not Stage 5 ontology formalisation). Not scoped or drafted yet — needs its own session: who is the audience (the Trade Mark experts already working from the input guide, or a wider group?), and what specifically is unclear in the existing docs. | Nothing yet; would help the experts' ongoing work | S006 |
 
 Agent-proposed ADRs awaiting human confirmation: **0011** (deferred, not
-declined — see ADR-0041), **0029, 0030, 0032, 0033, 0035, 0036, 0037**, and
+declined — see ADR-0041), **0029, 0030, 0032, 0033, 0035, 0036, 0037**,
 **0043's guards** (the decision to seed was the owner's; how it is fenced is
-Q15). ADR-0044 and ADR-0045 are `derived`.
+Q15) and **0048's three judgement calls** (Q18). ADR-0044, ADR-0045, ADR-0047,
+ADR-0049 and ADR-0050 are `derived`.
 (0006, 0012, 0014, 0024, 0026, 0027 confirmed S006 — ADR-0040; 0016 and 0018
 confirmed S006 — ADR-0038; 0028 superseded S006 — ADR-0042. ADR-0023,
 ADR-0025, ADR-0031 and ADR-0034 are `derived`.)
 
 **No agent work is blocked on a human decision.** Every remaining open question
-is expert content (Q8), organisational (Q3, Q7, the who-half of Q4), scope for
-later (Q6, Q14), or a confirmation that changes nothing structural (Q12, and
-0029/0030/0032/0033/0035/0036/0037 within it).
+is expert content (Q8, Q16, Q17, Q19), organisational (Q3, Q7, the who-half of
+Q4 — though Q4's who-half is now half-answered: the workbook is signed `TC`),
+scope for later (Q6, Q14), or a confirmation that changes nothing structural
+(Q12, Q18, and 0029/0030/0032/0033/0035/0036/0037 within them).
+
+**What is blocked is the gold set, and not on a decision — on a signature.** 83
+records are one keystroke each from being approved (§2). That is the whole
+critical path this week.
 
 ## 4. Do not redo these
 
@@ -184,8 +192,25 @@ later (Q6, Q14), or a confirmation that changes nothing structural (Q12, and
   They are computed from the snapshot at render time (ADR-0045). If a surface
   will not locate, the surface was retyped rather than copied — fix the surface.
 - **Do not maintain a seed file after its record type has been reviewed.**
-  Delete it. Two versions of the same records, one approved and one not, is
-  worse than no seed file.
+  `tmk-reconcile` does this — per *record*, not per file, because a round is
+  partial (ADR-0049). Do not delete a seed record by hand.
+- **Do not remove a rejected seed record.** It has no approved twin, so it is
+  not the duplication the rule is about, and things point at it
+  (`must_not_infer: PU-0017`). The rejection is recorded in
+  `review/decisions/`; the record stays where the pointers are.
+- **Do not edit anything in `review/returned/`.** Not a typo, not a verdict, not
+  a date. `corrrect` stays typed and the ledger reports it; deciding what a
+  reviewer meant is the one thing an agent may never do here (ADR-0050).
+- **Do not re-serialise a seed file.** Its comments carry the entity annotation
+  rule and the candidate predicate list. `tmk-reconcile` removes lines and then
+  parses the result back and compares it before writing, and that verification
+  is the only reason line surgery is acceptable.
+- **Do not relax the harness's cross-reference check to look in `review/seed/`.**
+  That would let approved knowledge rest on unapproved candidates — rule 4
+  inverted. The gate holds the record instead (ADR-0048).
+- **Do not read through a misspelt verdict or an ambiguous date.** Both are
+  refused by name on purpose (ADR-0047, ADR-0048), and both cost a reviewer
+  seconds to fix.
 - **Do not fill a judgement field to make a check pass.** Null is a reportable
   gap; a plausible value is a lie the harness will then certify.
 - **Do not make `pytest` fail to satisfy "the suite must fail".** That is
@@ -198,6 +223,75 @@ later (Q6, Q14), or a confirmation that changes nothing structural (Q12, and
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S008 — 2026-09-02 — the first workbook back, and a loop that would have run backwards
+
+The marked-up seed workbook arrived and the loop was one command from doing the
+opposite of its job. Two faults, and they compounded into the same failure.
+`approved_date` came back as `25/08/2026` and as Excel date cells; both fail the
+schema's ISO pattern, and **only a signed row carries a date**, so every row the
+expert had approved was rejected and the 233 that would have been written into
+`eval/gold/` were exactly the ones nobody had approved. Underneath that, the
+transcriber read `verdict` as an annotation and dropped it — so a record the
+expert had just *rejected* would have been written into approved space alongside
+one they had signed.
+
+That second one is the interesting failure, because nothing was wrong. ADR-0044
+correctly called the review columns "annotations about a record, never fields of
+one", the transcriber correctly ignored them, and `HOW-TO-CORRECT.md` had
+already promised the opposite — "the records that carry your name become the
+gold set". Nobody had implemented the sentence. A guard described in three
+documents and present in none.
+
+Fixed both. Dates are a schema-derived column kind that converts what has one
+reading and refuses what does not, by name (ADR-0047). The verdict is now the
+gate, and the gate is **transitive**: approval does not distribute over an
+interlinked set, so a signed prohibition naming an unsigned question is held
+too, to a fixed point (ADR-0048). That cost 18 records this round and is the
+honest number — `eval/gold/` with a pointer to nothing is not a measurement
+standard, and the alternative, letting the harness resolve pointers into
+`review/seed/`, is rule 4 inverted.
+
+Added `tmk-reconcile`, the missing half of the door (ADR-0049). It records the
+round in `review/decisions/` — every verdict and every correction verbatim,
+because a rejection with a reason is what Stage 10 reads and a deleted row is
+nothing — then retires the seed copies of what reached `eval/gold/`. Per record,
+not per file: a partial round makes ADR-0043 consequence 6 unfollowable as
+written. Rejected records stay, because they have no approved twin and other
+records point at them. The prune removes lines rather than re-serialising, since
+the seed files' comments carry the entity annotation rule and the predicate
+list, and every rewrite is parsed back and compared field by field before it is
+written.
+
+**Result: 108 approved records, and `tmk-harness` at 0 defects / 16 gaps.** The
+red harness is still red and now for a much better reason — it is red about real
+content rather than about an empty directory. `review/seed/` is down to 260.
+280 tests pass.
+
+The most useful output is not the 108. It is the **83**: rows the expert marked
+`correct` and did not sign. No judgement is missing from them, only a name, and
+signing them lands 83 records plus 9 prohibited uses held on them. The next ask
+is a keystroke per row rather than a review, and it nearly doubles the gold set.
+
+Two corpus-independent lessons, both in QUIRKS. **Q-26**: a validation rule on a
+field that only appears on approved records fails closed for the approved and
+open for the rest — check that before trusting any gate. **Q-27**: partial
+approval of an interlinked set yields less than its verdict count, concentrated
+in the record types that point outward, so ask for review in closed clusters
+rather than in sheet order.
+
+The expert's covering note is filed verbatim at
+`review/returned/260826-expert-feedback.md` and raises two things an agent may
+not touch: the office's real bar for the presumption of registrability, which no
+record type currently holds (Q16), and a vocabulary drawn from Part 29 alone
+(Q17, Q-28) — the structural half of which is that ADR-0022 selects passages
+that *cite* s 43, and a definition is rarely in a passage that cites anything.
+A third fell out of two rejections: the expert holds that resolving a bare
+"section 15(1)" to the Act is acceptable in a TM-focused tool, which sits close
+enough to Q-07's never-auto-resolve rule to need a ruling (Q19).
+
+Returned artefacts moved to `review/returned/` and are never edited (ADR-0050).
+No legal content authored. No Stage 2 extraction run.
 
 ### S007 — 2026-08-21 — a 368-record seed set, for the experts to correct rather than compose
 

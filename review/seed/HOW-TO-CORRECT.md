@@ -6,9 +6,37 @@ that is expected.
 
 ---
 
+## Round 2 — what changed since the first pass
+
+**Thank you: the first pass produced the project's first approved content.** 108
+records now carry your name and are in the gold set, and the harness runs over
+them cleanly.
+
+Three things are worth two minutes before you start:
+
+1. **83 records are one keystroke from being approved.** You marked them
+   `correct` and left `approved_by` empty, so they were held rather than
+   approved. Filling in your initials on those rows is not a review task and it
+   nearly doubles the gold set. They are listed under *Held* in
+   `review/decisions/260825-ontology-stage-0-seed.md`.
+2. **A signed record is held if it points at an unsigned one.** That is why 14
+   prohibited uses you approved are not in the gold set: they name retrieval
+   questions you marked correct but did not sign. The fix is item 1.
+3. **Two records point at records you rejected** and cannot go in as they
+   stand: `PU-0012` names `CQ-0016`, and `GA-0021` names `PU-0017`. Each needs
+   its pointer changed or the record withdrawn — your call, not ours.
+
+And two small things: a verdict cell reading `corrrect` (on `GE-0031`) and one
+reading `rejext` were left alone rather than read through, and a date typed
+`05/08/2026` would be refused as unreadable — the column is now formatted as a
+date, so typing one is enough.
+
+---
+
 ## What you have been handed
 
-368 example records over section 43, written by a machine. They look exactly
+**260** example records over section 43, written by a machine — what is left of
+the original 368 after the first round. They look exactly
 like the records the project actually needs — same fields, same shapes, same
 rules — but the legal content in them is unverified, and some of it is wrong.
 
@@ -63,8 +91,12 @@ unreviewed, which is honest. A guess is not.
 
 ## Where to spend your time
 
-In this order. Each of these is worth more than a page of individual record
-corrections, because each one decides what hundreds of later records look like.
+**Before any of this: the 83 signatures described at the top.** They cost
+seconds each and they release more records than an hour of review will.
+
+Then, in this order. Each of these is worth more than a page of individual
+record corrections, because each one decides what hundreds of later records look
+like.
 
 **1. The annotation rule at the top of `entities.seed.yaml`.** It says which
 mentions get annotated and which do not — and it deliberately annotates one
@@ -79,7 +111,10 @@ this file does it anyway, because a list you can argue with beats a blank page.
 Argue with it. If two predicates are really one, or one is missing, say so on
 any record that uses it.
 
-**3. `not_labels` in `concepts.seed.yaml`.** The near-miss that shares most of
+**3. `not_labels`.** *(All 52 concepts were approved in round 1 and
+`concepts.seed.yaml` is gone, so this no longer applies to the seed set — but
+the field is still the one that matters most in any concept you add later.)*
+The near-miss that shares most of
 its words and means something materially different. Everything clusters the
 obvious synonyms correctly; systems fail on these. A wrong `not_label` teaches
 the system a distinction that does not exist. A missing one leaves a real
@@ -96,7 +131,17 @@ whose *absence* makes an answer wrong even though every sentence in it is true.
 A qualification we have missed is a hole in the test, not a small error.
 
 **6. The relevance grades in `search-questions.seed.yaml`.** Fast to correct,
-and they move the numbers directly.
+and they move the numbers directly. Note that a graded row you mark `amend`
+holds its whole search question until the grade is changed — three questions you
+approved in round 1 are waiting on exactly that.
+
+**7. The two things your covering note raised**, which nobody here can write:
+the office's real bar for applying the presumption of registrability (not merely
+the examiner's doubt, but the Registrar's, with the SME and team-leader
+consultation that implies), and high-level definitions for Registrar, Delegate,
+Examiner, Decision Maker, Office Practise, SME, Oppositions, Grounds for
+Rejection and Adverse Report. Both are recorded as open questions and neither
+needs a record read first.
 
 ## Things worth knowing before you start
 

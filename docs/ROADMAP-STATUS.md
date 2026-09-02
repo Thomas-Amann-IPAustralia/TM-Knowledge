@@ -14,7 +14,7 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 
 | Stage | Name | Status | Owner |
 |---|---|---|---|
-| 0 | Pilot selection and evaluation set | **partial** — pilot area chosen (s 43, ADR-0013); apparatus built (S004–S005); the harness runs and is red; a 368-record seed set awaits expert correction (S007, ADR-0043); no *approved* content yet | this repo — **the blocker** |
+| 0 | Pilot selection and evaluation set | **partial** — pilot area chosen (s 43, ADR-0013); apparatus built (S004–S005); **first approved content landed S008: 108 records over 5 types, harness 0 defects / 16 gaps**; 260 seed records still await correction | this repo — **the blocker** |
 | 1 | Ingest and structure source documents | **done** (4 of 6 named deliverables); consumed here since S004 — pinned, fetched and loaded | `manual-XtrACTor` |
 | 2 | Candidate terminology and entities | **not started** — stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019); blocked by ADR-0010 | this repo |
 | 3 | Controlled vocabulary (SKOS) | **not started** | this repo |
@@ -28,16 +28,19 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 
 ## Stage 0 — the blocker
 
-The pilot **area** is settled: s 43 (ADR-0013). No Stage 0 content exists yet.
-ADR-0010 holds that no Stage 2+ work starts before this is done.
+The pilot **area** is settled: s 43 (ADR-0013). **Stage 0 content now exists**:
+108 approved records landed in S008 from the first review round, and the harness
+runs over them with 0 defects. It is nowhere near complete — no entities, no
+retrieval questions, no reasoning expectations, no scope document and no
+measures — so ADR-0010 still holds and no Stage 2+ work starts.
 
 | Deliverable | Status | Where it will live |
 |---|---|---|
 | Pilot area | **done** — s 43, ADR-0013 | `docs/DECISIONS.md` |
 | Pilot scope (the boundary) | not started — awaiting owner; **draft to correct** at `review/seed/pilot-scope.seed.md` | `eval/pilot-scope.md` |
-| Competency-question catalogue | not started — 24 seed drafts await correction | `eval/competency-questions.md` |
-| Gold-standard dataset | not started — 326 seed records across six types await correction | `eval/gold/` |
-| Prohibited-use list | not started — 18 seed drafts await correction | `eval/prohibited-uses.md` |
+| Competency-question catalogue | **partial** — 19 approved (S008); 5 seed drafts left | `eval/gold/competency-questions.yaml` |
+| Gold-standard dataset | **partial** — 87 approved: 52 concepts, 34 relationships, 1 search question. Entities, retrieval questions and reasoning expectations still at 0 | `eval/gold/` |
+| Prohibited-use list | **partial** — 2 approved of a required 6 kinds; 14 more signed but held on unsigned questions (Q-27) | `eval/gold/prohibited-uses.yaml` |
 | Evaluation measures | not started — **draft thresholds to correct** at `review/seed/measures.seed.md` | `eval/measures.md` |
 | Evaluation harness | **done** — S005, P5. Runs, and exits 3 by design | `tmk-harness` |
 | Record templates | **done** — 7 record types, now schema-checked | `eval/templates/` |
@@ -48,10 +51,12 @@ ADR-0010 holds that no Stage 2+ work starts before this is done.
 | Coverage and gap report | **done** — S005, P10 | `tmk-coverage` → `data/derived/reports/` |
 | CI wiring | **done** — S005, P11, ADR-0018's split | `.github/workflows/harness.yml` |
 | Intake workbook | **done** — S005, P7 | `tmk-workbook` → `data/derived/` |
-| Transcription path | **done** — S005, P8 | `tmk-transcribe` → `eval/gold/` |
+| Transcription path | **done** — S005, P8; gated on the verdict S008 (ADR-0047, ADR-0048) | `tmk-transcribe` → `eval/gold/` |
 | Parallel-track plan | **done** — ADR-0016 | `docs/roadmap/PARALLEL-TRACK-ROADMAP.md` |
-| Seed example set | **done, awaiting review** — S007, ADR-0043. 368 machine-written records over s 43, none approved | `review/seed/` → `tmk-seed` |
-| Seed review pack and workbook | **done** — S007, ADR-0044 | `tmk-seed --pack --workbook` → `data/derived/` |
+| Seed example set | **in review** — S007, ADR-0043. 260 left of 368; 108 promoted, 8 rejected, 139 never reached | `review/seed/` → `tmk-seed` |
+| Seed review pack and workbook | **done** — S007, ADR-0044; regenerated S008 over the 260 that remain | `tmk-seed --pack --workbook` → `data/derived/` |
+| Review round 1 | **done** — S008. 229 of 368 rows carried a verdict | `review/returned/`, `review/decisions/` |
+| Reconciliation path | **done** — S008, ADR-0049 | `tmk-reconcile` |
 
 Target sizes from the roadmap: 100–300 recognised entities, 50–100 approved
 concepts, 50–100 known relationships, 20–50 search questions, 20–50 AI retrieval

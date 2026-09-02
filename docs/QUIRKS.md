@@ -427,3 +427,77 @@ en dash in `Part 26 – Conflict with Other Signs` where a hyphen appears in
 `TMM/Part29/8/8/3` ("any trade mark which could viewed as a radio call sign").
 Each of them is annotated in `review/seed/entities.seed.yaml` so the trap is on
 the record rather than in someone's memory.
+
+### Q-26 — A signed row is the *only* row carrying a date, so a date bug inverts the gate
+
+*Found S008, on the first returned workbook.*
+
+`approved_date` arrived as `25/08/2026` on some sheets and as an Excel date cell
+on others. Both fail the schema's ISO pattern, so `tmk-transcribe` rejected 270
+rows — and every one of them was a row the expert had **signed**, because an
+unsigned row has no date to be malformed. The 233 rows that passed and would
+have been written into `eval/gold/` were exactly the ones nobody had approved.
+
+The general shape is worth carrying into any future gate: **a validation rule on
+a field that only appears on approved records fails closed for the approved ones
+and open for the rest.** If a check can only fire on the rows you want, satisfy
+yourself that failing it does not admit the rows you do not. Fixed in ADR-0047;
+the read side now converts what it can read exactly and refuses what it cannot.
+
+Two smaller facts from the same file, both live traps:
+
+- **`openpyxl` returns a `datetime`, not a string, from a date-formatted cell.**
+  `str()` on it gives `2026-08-25 00:00:00`, which passes a "is it text" check
+  and fails every date pattern. Convert before stringifying, not after.
+- **Excel writes a date under the typist's locale.** The same keystrokes give a
+  different stored value in a different Windows region setting. That is why the
+  column is formatted `yyyy-mm-dd` in the generated workbook — so the ambiguity
+  is resolved by Excel, at typing time, rather than guessed at here.
+
+### Q-27 — Approval does not distribute over an interlinked record set
+
+*Found S008, measured against the first round.*
+
+108 of 368 seed records were approvable row by row. 18 of those could not be
+written anyway, because they named records that were not approved:
+`prohibited_use.related_questions` pointing at unsigned retrieval questions, and
+then retrieval questions pointing back at the prohibitions that had just been
+held. The cascade needs a fixed point, not one pass.
+
+This is not a defect in anyone's review. It is a property of a gold set whose
+record types reference each other: a reviewer signs records, and what
+`eval/gold/` needs is a **closed set**. Expect a partial round to yield fewer
+records than its verdict count suggests, and expect the shortfall to be
+concentrated in the record types that point outward most —
+`prohibited_use` (`related_questions`), `gold_retrieval_question`
+(`prohibited_conclusions`), `reasoning_expectation` (`must_not_infer`).
+
+The practical consequence for planning: **ask for review in closed clusters, not
+in sheet order.** Signing `GA-0001`–`GA-0018` releases 18 already-signed records
+that are currently held, which is a better hour than reviewing 18 new ones.
+
+### Q-28 — The seed set reads Part 29 and only Part 29, and the expert says that is too narrow
+
+*Reported by the reviewing expert, S008. Not yet acted on.*
+
+The seed concepts and entities were drawn from the s 43 citing chunks, which are
+overwhelmingly `TMM/Part29/*`. The expert's covering note
+(`review/returned/260826-expert-feedback.md`) names the consequence: roles and
+office terms are defined *as Part 29 uses them*, which is "not wrong" but gives
+"a limited view on what some of the roles are". They name nine that need
+high-level definitions instead — Registrar, Delegate, Examiner, Decision Maker,
+Office Practise, Subject Matter Expert (SME), Oppositions, Grounds for
+Rejection, Adverse Report — and say there are likely more.
+
+Two row-level corrections in the same round say the same thing sharply:
+`GE-0010` and `GE-0047` both amend the machine's treatment of *decision maker*
+and *the Registrar*, and the expert's words are "The registrar and the decision
+maker are different entities. The decision maker (examiner) operates using
+delegated authority from the registrar but they are not the same."
+
+The trap for a later session: **ADR-0022's scope rule selects passages that
+*cite* s 43, and a term's definition is usually not in a passage that cites
+anything.** A vocabulary built only from the pilot's citing set will be
+internally consistent and externally wrong. Whether the fix is a scope
+exception, a separate definitional pass, or a Part-2 glossary import is Q17 in
+`HANDOFF.md` and needs the expert, not an agent.
