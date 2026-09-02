@@ -1,7 +1,7 @@
 """Commands: `tmk-recon`, `tmk-worksheet`, `tmk-harness`, `tmk-coverage`,
-`tmk-workbook`, `tmk-transcribe` and `tmk-seed`.
+`tmk-blockers`, `tmk-workbook`, `tmk-transcribe` and `tmk-seed`.
 
-All four write into `data/derived/`, which is tracked and committed (ADR-0042,
+They write into `data/derived/`, which is tracked and committed (ADR-0042,
 supersedes ADR-0028) — they are derivations of the pinned snapshot and of
 `eval/gold/`, and committing each regeneration is the paper trail: the diff
 shows what moved and when. Pass `--out` to put a copy somewhere else instead.
@@ -28,6 +28,18 @@ records in `review/seed/`, resolves their spans against the snapshot, and
 renders them as a review pack and a review workbook for an expert to correct
 (ADR-0043). It never writes into `eval/gold/` — the corrected workbook goes
 back through `tmk-transcribe`, which is the only door into approved space.
+
+`tmk-blockers` is the pair to `tmk-coverage`. Coverage says what Stage 0 is
+missing; this says which decision on the review queue releases the most, because
+approval does not distribute over an interlinked set and the queue is therefore
+not a list (ADR-0048, ADR-0053). The two compose:
+
+```
+tmk-blockers                                   # the worklist
+tmk-seed --only "$(tmk-blockers --ids)" \
+         --pack data/derived/blockers-review-pack.md \
+         --workbook data/derived/stage0-blockers-review.xlsx
+```
 """
 
 from __future__ import annotations
@@ -193,6 +205,71 @@ def coverage(argv: list[str] | None = None) -> int:
     print(report.summary())
     print(f"wrote {path}")
     return 1 if report.defects else 0
+
+
+def blockers(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        prog="tmk-blockers",
+        description=(
+            "Why each remaining seed record is not in eval/gold/, and what each "
+            "one releases if it is settled. Reads the ledgers, the seed set and "
+            "the gold set; writes nothing but the report."
+        ),
+    )
+    parser.add_argument("--out", type=Path, default=DERIVED / "reports" / "blockers.md")
+    parser.add_argument("--seed-dir", type=Path, default=None)
+    parser.add_argument("--gold-dir", type=Path, default=None)
+    parser.add_argument("--decisions-dir", type=Path, default=None)
+    parser.add_argument(
+        "--ids",
+        action="store_true",
+        help="print only the record ids on the critical path, comma-separated, "
+        "and write nothing. Feed them to `tmk-seed --only` to render a review "
+        "round scoped to exactly those records.",
+    )
+    args = parser.parse_args(argv)
+
+    from tm_knowledge.stage0 import blockers as blockers_module
+    from tm_knowledge.stage0 import goldset as goldset_module
+    from tm_knowledge.stage0 import seed as seed_module
+
+    analysis = blockers_module.analyse(
+        seed=seed_module.load(args.seed_dir),
+        gold=goldset_module.load(args.gold_dir),
+        decisions_dir=args.decisions_dir,
+    )
+
+    if args.ids:
+        print(",".join(blockers_module.identifiers(analysis)))
+        return 0
+
+    if not analysis.total:
+        print("review/seed/ is empty — nothing is holding the gold set")
+        return 0
+
+    print(
+        f"{analysis.total} record(s) still in review/seed/; "
+        f"{len(analysis.ranked)} of them hold at least one other; "
+        f"{len(analysis.actionable)} decision(s) on the critical path"
+    )
+    for entry in analysis.actionable:
+        held = analysis.holds.get(entry.record_id, ())
+        releases = f"releases {len(held)}" if held else "releases nothing further"
+        print(f"  {entry.record_id}: {entry.reason} — {releases}")
+    if analysis.unparseable_marks:
+        print(
+            f"\n{len(analysis.unparseable_marks)} verdict cell(s) nothing can read — "
+            "a person must rule on them by name (ADR-0051)"
+        )
+    if analysis.unknown_targets:
+        print(
+            f"\nDEFECT: {len(analysis.unknown_targets)} pointer(s) name an id that "
+            "is neither approved nor waiting"
+        )
+
+    path = _write(blockers_module.render(analysis), args.out)
+    print(f"\nwrote {path}")
+    return 1 if analysis.unknown_targets else 0
 
 
 def workbook(argv: list[str] | None = None) -> int:
@@ -458,6 +535,17 @@ def seed(argv: list[str] | None = None) -> int:
         "one stays empty on purpose.",
     )
     parser.add_argument("--seed-dir", type=Path, default=None)
+    parser.add_argument(
+        "--only",
+        default=None,
+        metavar="ID,ID,…",
+        help="render the pack and the workbook over just these records — record "
+        "ids (CQ-0013) or seed ids (SEED-CQ-0013). Use it to put a short, "
+        "targeted round in front of a reviewer: `tmk-blockers --ids` prints the "
+        "records on the critical path in exactly this form. The checks still run "
+        "over the whole seed set, because a subset cannot tell you the set is "
+        "sound.",
+    )
     args = parser.parse_args(argv)
 
     from tm_knowledge.stage0 import seed as seed_module
@@ -500,19 +588,43 @@ def seed(argv: list[str] | None = None) -> int:
     print(f"\n{seed_set.total} seed records — {counts}")
 
     defects = [f for f in findings if f.severity is harness_module.Severity.DEFECT]
+
+    # The narrowing happens here and nowhere earlier: `check` and `coverage` ran
+    # over the whole of `review/seed/` above, because a subset cannot tell you
+    # whether the set is sound, and a round scoped to six records must not also
+    # quietly scope the defect report to six records.
+    rendering, missing, scoped = seed_set, (), None
+    if args.only is not None:
+        rendering, missing = seed_set.subset(args.only.split(","))
+        if missing:
+            print(
+                f"\nno such record in {seed_set.root}: {', '.join(missing)}",
+                file=sys.stderr,
+            )
+            return 2
+        wanted = {e.seed_id for e in rendering.envelopes}
+        resolutions = tuple(
+            r for r in resolutions if r.envelope.seed_id in wanted
+        )
+        scoped = seed_set.total
+        print(f"rendering {rendering.total} of {seed_set.total} records")
+
     if args.pack is not None:
         if corpus is None:
             print("cannot render the pack without the snapshot", file=sys.stderr)
             return 2
         path = _write(
-            seedpack.render_pack(seed_set, resolutions, corpus), args.pack
+            seedpack.render_pack(rendering, resolutions, corpus, subset_of=scoped),
+            args.pack,
         )
         print(f"wrote {path}")
     if args.workbook is not None:
         if corpus is None:
             print("cannot render the workbook without the snapshot", file=sys.stderr)
             return 2
-        path = seedpack.write_workbook(args.workbook, seed_set, resolutions, corpus)
+        path = seedpack.write_workbook(
+            args.workbook, rendering, resolutions, corpus, subset_of=scoped
+        )
         print(f"wrote {path}")
 
     return 1 if defects else 0

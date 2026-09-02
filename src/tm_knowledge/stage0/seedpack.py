@@ -145,8 +145,15 @@ def render_pack(
     corpus: Corpus | None = None,
     *,
     generated: str | None = None,
+    subset_of: int | None = None,
 ) -> str:
-    """The whole seed set as one readable document."""
+    """The seed set as one readable document.
+
+    `subset_of` is the size of the set this pack was narrowed from, and it is
+    stated on the page. A scoped round that does not say it is scoped is the
+    same document as a complete one, and a reviewer who thinks they have seen
+    everything stops looking.
+    """
     stamp = generated or datetime.now(timezone.utc).strftime("%Y-%m-%d")
     by_type: dict[str, list[Resolution]] = {}
     for resolution in resolutions:
@@ -171,6 +178,15 @@ def render_pack(
         "> the shape was wrong, not just the wording. You do not have to finish.",
         "",
     ]
+    if subset_of is not None and subset_of > len(resolutions):
+        out += [
+            f"> **This is a scoped round: {len(resolutions)} records of",
+            f"> {subset_of}.** They were chosen because each one is holding other",
+            "> records out of the gold set — `data/derived/reports/blockers.md`",
+            "> says which, and what each decision releases. The rest of the queue",
+            "> is unchanged and is in `data/derived/seed-review-pack.md`.",
+            "",
+        ]
 
     rows = [
         "| | |",
@@ -487,6 +503,7 @@ def build_workbook(
     corpus: Corpus | None = None,
     *,
     generated: str | None = None,
+    subset_of: int | None = None,
 ):
     """The intake layout, pre-filled, plus the review columns.
 
@@ -563,7 +580,7 @@ def build_workbook(
             if passage is not None:
                 sheet.row_dimensions[row].height = _PASSAGE_ROW_HEIGHT
 
-    _rewrite_guide(book, seed, generated=generated)
+    _rewrite_guide(book, seed, generated=generated, subset_of=subset_of)
     book.properties.title = "TM-Knowledge — seed review (s 43)"
     book.properties.description = (
         "Machine-written example records over s 43, for expert correction. "
@@ -573,7 +590,9 @@ def build_workbook(
     return book
 
 
-def _rewrite_guide(book, seed: SeedSet, *, generated: str | None = None) -> None:
+def _rewrite_guide(
+    book, seed: SeedSet, *, generated: str | None = None, subset_of: int | None = None
+) -> None:
     from openpyxl.styles import Alignment, Font
 
     name = workbook_module.GUIDE_SHEET
@@ -585,15 +604,23 @@ def _rewrite_guide(book, seed: SeedSet, *, generated: str | None = None) -> None
 
     sheet["A1"] = "Stage 0 seed review — s 43"
     sheet["A1"].font = Font(bold=True, size=14)
+    scoped = (
+        f" This is a scoped round: {seed.total} of {subset_of}, chosen because "
+        "each one is holding other records out of the gold set. "
+        "data/derived/reports/blockers.md says which, and what each decision "
+        "releases."
+        if subset_of is not None and subset_of > seed.total
+        else ""
+    )
     sheet["A2"] = (
         f"{seed.total} machine-written example records, for correction. Nothing "
         "here is approved and none of it is project content. It exists because "
         "correcting a wrong answer is easier than composing a right one from a "
-        "blank form — your corrections are what becomes the gold set."
+        f"blank form — your corrections are what becomes the gold set.{scoped}"
     )
     sheet["A2"].alignment = Alignment(wrap_text=True, vertical="top")
     sheet.merge_cells("A2:B2")
-    sheet.row_dimensions[2].height = 48
+    sheet.row_dimensions[2].height = 48 if not subset_of else 76
 
     row = 4
     for heading, body in _review_guide():
@@ -654,7 +681,10 @@ def write_workbook(
     corpus: Corpus | None = None,
     *,
     generated: str | None = None,
+    subset_of: int | None = None,
 ) -> Path:
     path.parent.mkdir(parents=True, exist_ok=True)
-    build_workbook(seed, resolutions, corpus, generated=generated).save(path)
+    build_workbook(
+        seed, resolutions, corpus, generated=generated, subset_of=subset_of
+    ).save(path)
     return path
