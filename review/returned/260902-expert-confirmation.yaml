@@ -1,0 +1,41 @@
+# An instruction from the reviewer, arriving as words rather than as keystrokes.
+#
+# This is a returned artefact like the workbook beside it: it records what a
+# person decided, and it is not edited afterwards. It is read by
+# `tmk-transcribe --addendum` and `tmk-reconcile --addendum`, which apply it as
+# if the reviewer had typed it into the cells (ADR-0051).
+#
+# Everything it may do is in this file. There is no pattern matching, no typo
+# table and no inference: a signature is added only where a row already says
+# `correct` and `approved_by` is blank, and a verdict is changed only for a
+# record named here, one at a time.
+
+source_workbook: 260825-ontology-stage-0-seed.xlsx
+reviewer: TC
+recorded_on: 2026-09-02
+relayed_by: the repo owner, in session S008
+
+statement: >
+  Two confirmations from the reviewer of
+  260825-ontology-stage-0-seed.xlsx, relayed by the repo owner:
+
+  (1) "They've confirmed the 83 records can be marked with their initial TC."
+  Those are the rows the reviewer marked `correct` and left `approved_by`
+  empty. The verdict was already recorded; only the signature was missing.
+
+  (2) "'corrrect' may be treated as 'correct'." One verdict cell, on GE-0031,
+  was typed `corrrect`. The transcriber refused to read through it and reported
+  it as unreadable; the reviewer has now said what it meant.
+
+# Fills a blank `approved_by` on any row whose verdict is `correct`. It never
+# overwrites a name already there, and it signs nothing that is not `correct` —
+# not an `amend`, not a `reject`, not an unreviewed row.
+sign_unsigned_correct: true
+
+# Verdicts settled by name, one record at a time. GE-0031's cell reads
+# `corrrect`; the reviewer confirms it means `correct`. This is a ruling about
+# this record, not a licence to read through a near-miss anywhere else — the
+# `rejext` on a GS--relevant row is deliberately not listed, because nobody has
+# ruled on it and a child row carries no id to rule on.
+verdicts:
+  GE-0031: correct

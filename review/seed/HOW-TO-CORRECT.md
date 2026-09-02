@@ -6,9 +6,45 @@ that is expected.
 
 ---
 
+## Round 2 — what changed since the first pass
+
+**Thank you: the first pass produced the project's first approved content.** 190
+records now carry your initials and are in the gold set — that is your 83
+unsigned `correct` rows, confirmed by your covering note, plus everything they
+released. The harness runs over all of it cleanly.
+
+**Six records are now holding twenty.** A record cannot go into the gold set
+while it points at one that is not there, so these are worth more than any
+number of new rows:
+
+1. **`CQ-0013` and `CQ-0014` were never reached.** They hold `PU-0010` and
+   `PU-0011`, and through them `GA-0015`, `GA-0017`, `GX-0003`, `GX-0007` and
+   `GX-0008`. Those three `PU`s are also the *only* `stale_source` prohibitions,
+   which is the one category the gold set is still missing entirely.
+2. **`GA-0002` needs its amendment worked in.** You wrote what is wrong with it;
+   the record still says the old thing. It holds `PU-0013`, `PU-0014`, and
+   through them `GA-0006`, `GA-0014`, `GA-0019`, `GA-0020` and `GA-0022`.
+3. **Four records point at records you rejected** and cannot go in as they
+   stand: `PU-0012` names `CQ-0016`; `GA-0016` and `GA-0021` name `PU-0016` and
+   `PU-0017`; `GX-0002` names `PU-0017`. Each needs its pointer changed or the
+   record withdrawn — your call, not ours.
+
+Then the 139 rows nobody reached, of which 91 are entities — the record type
+furthest from its target (55, where the roadmap asks for 100–300).
+
+Two small mechanical things. A verdict cell reading `rejext` was left alone
+rather than read through — nothing here guesses what a near-miss meant, which is
+why `corrrect` needed your say-so. And a date typed `05/08/2026` would be
+refused as unreadable, because it is the 5th of August to one reader and the
+8th of May to another; the column is now formatted as a date, so typing one is
+enough.
+
+---
+
 ## What you have been handed
 
-368 example records over section 43, written by a machine. They look exactly
+**178** example records over section 43, written by a machine — what is left of
+the original 368 after the first round. They look exactly
 like the records the project actually needs — same fields, same shapes, same
 rules — but the legal content in them is unverified, and some of it is wrong.
 
@@ -63,8 +99,12 @@ unreviewed, which is honest. A guess is not.
 
 ## Where to spend your time
 
-In this order. Each of these is worth more than a page of individual record
-corrections, because each one decides what hundreds of later records look like.
+**Before any of this: the six records described at the top.** They cost minutes
+and they release twenty records that are otherwise finished.
+
+Then, in this order. Each of these is worth more than a page of individual
+record corrections, because each one decides what hundreds of later records look
+like.
 
 **1. The annotation rule at the top of `entities.seed.yaml`.** It says which
 mentions get annotated and which do not — and it deliberately annotates one
@@ -79,7 +119,10 @@ this file does it anyway, because a list you can argue with beats a blank page.
 Argue with it. If two predicates are really one, or one is missing, say so on
 any record that uses it.
 
-**3. `not_labels` in `concepts.seed.yaml`.** The near-miss that shares most of
+**3. `not_labels`.** *(All 52 concepts were approved in round 1 and
+`concepts.seed.yaml` is gone, so this no longer applies to the seed set — but
+the field is still the one that matters most in any concept you add later.)*
+The near-miss that shares most of
 its words and means something materially different. Everything clusters the
 obvious synonyms correctly; systems fail on these. A wrong `not_label` teaches
 the system a distinction that does not exist. A missing one leaves a real
@@ -96,7 +139,17 @@ whose *absence* makes an answer wrong even though every sentence in it is true.
 A qualification we have missed is a hole in the test, not a small error.
 
 **6. The relevance grades in `search-questions.seed.yaml`.** Fast to correct,
-and they move the numbers directly.
+and they move the numbers directly. Note that a graded row you mark `amend`
+holds its whole search question until the grade is changed — three questions you
+approved in round 1 are waiting on exactly that.
+
+**7. The two things your covering note raised**, which nobody here can write:
+the office's real bar for applying the presumption of registrability (not merely
+the examiner's doubt, but the Registrar's, with the SME and team-leader
+consultation that implies), and high-level definitions for Registrar, Delegate,
+Examiner, Decision Maker, Office Practise, SME, Oppositions, Grounds for
+Rejection and Adverse Report. Both are recorded as open questions and neither
+needs a record read first.
 
 ## Things worth knowing before you start
 

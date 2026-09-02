@@ -12,6 +12,33 @@ anything in here.
 
 ---
 
+## Where the set stands
+
+**Round 1 came back on 2026-08-26 and was reconciled on 2026-09-02**, then the
+reviewer settled the unsigned rows in a covering instruction the same day
+(ADR-0052). Of 368 records: **190 approved** and now in `eval/gold/`, 8
+rejected, and the rest held. This directory holds the **178 that are left**;
+`concepts.seed.yaml` is gone because all 52 of its records were approved.
+
+Two things follow that are easy to get wrong:
+
+- **A record that was approved is not here any more.** `tmk-reconcile` retires
+  it, because one record present twice — approved in `eval/gold/` and
+  unapproved here — is the state ADR-0043 consequence 6 forbids. Do not put one
+  back.
+- **A record that was rejected *is* still here**, carrying no special marking in
+  the file itself. Its rejection lives in
+  `review/decisions/260825-ontology-stage-0-seed.md`, with the reviewer's own
+  words. It stays because it has no approved twin and because other records
+  point at it (`must_not_infer: PU-0017`), so removing it would turn a recorded
+  rejection into a dangling pointer.
+
+**The verdicts are not in these files.** They are in `review/decisions/`. This
+directory is the expert's *input*; the ledger is the record of their answer, and
+keeping them apart means one author per document.
+
+---
+
 ## Why this exists
 
 The Stage 0 record types ask experts to write down judgements that are the tacit

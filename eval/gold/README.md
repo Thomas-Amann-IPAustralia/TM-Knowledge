@@ -1,7 +1,9 @@
 # eval/gold/ — the gold-standard dataset
 
-Empty. The expert-created trusted examples go here, one file per record type.
-The names are fixed, because `tm_knowledge.stage0.goldset` reads them by name:
+The expert-approved trusted examples, one file per record type. **No longer
+empty** — the first review round landed 108 records here on 2026-09-02
+(ADR-0048). The names are fixed, because `tm_knowledge.stage0.goldset` reads
+them by name:
 
 | File | Record type | Target (guide §7) |
 |---|---|---|
@@ -35,6 +37,13 @@ state.
 
 **Belongs here:** records approved by a domain expert, each citing an exact
 passage by upstream ref, span and `content_hash`.
+
+**How a record gets here.** One door only: `tmk-transcribe` reading a workbook
+in which a person wrote `correct` in the `verdict` column **and** put their name
+in `approved_by`. Nothing else — not a hand copy out of `review/seed/`, not an
+agent deciding a candidate is obviously fine. And a record is refused even with
+a signature if it names a record that is not itself approved, because a gold set
+with a dangling pointer is not a measurement standard (ADR-0048).
 
 **Does not belong here:** machine-generated candidates (they go to `review/`),
 records without a supporting passage, records an agent authored. A gold set

@@ -520,7 +520,12 @@ def test_a_filled_review_column_never_reaches_a_record(tmp_path):
 
     sheet = book["entities"]
     headers = [cell.value for cell in sheet[1] if cell.value]
-    for header, value in (("verdict", "amend"), ("correction", "wrong type")):
+    for header, value in (
+        ("verdict", "correct"),
+        ("correction", "reads correctly"),
+        ("approved_by", "TC"),
+        ("approved_date", "2026-08-25"),
+    ):
         sheet.cell(row=2, column=headers.index(header) + 1, value=value)
 
     path = tmp_path / "filled.xlsx"
@@ -531,3 +536,45 @@ def test_a_filled_review_column_never_reaches_a_record(tmp_path):
     (record,) = result.records["gold_entity"]
     assert set(REVIEW_COLUMNS).isdisjoint(record)
     assert record["surface"] == "decision maker"
+
+
+@pytest.mark.snapshot
+def test_the_gate_holds_every_row_the_reviewer_did_not_approve(tmp_path):
+    """The seed set's one door out only opens for a signed `correct` (ADR-0048).
+
+    Run before this gate existed, `tmk-transcribe --write` would have put the
+    machine's own drafts into `eval/gold/` — including the ones an expert had
+    just rejected — because the transcriber read the record columns and ignored
+    the two the reviewer actually filled in.
+    """
+    _skip_without_snapshot()
+    pytest.importorskip("openpyxl")
+    from tm_knowledge.stage0 import seedpack, transcribe
+
+    _write(tmp_path, "entities.seed.yaml", [_entity_seed()])
+    loaded = seed.load(tmp_path)
+    corpus = _corpus()
+    resolutions, _ = seed.resolve(loaded, corpus)
+
+    cases = {
+        transcribe.NOT_REVIEWED: {},
+        transcribe.REJECTED: {"verdict": "reject"},
+        transcribe.AMENDMENT_PENDING: {"verdict": "amend", "correction": "wrong type"},
+        transcribe.UNSIGNED: {"verdict": "correct"},
+    }
+    for expected, marks in cases.items():
+        book = seedpack.build_workbook(loaded, resolutions, corpus)
+        sheet = book["entities"]
+        headers = [cell.value for cell in sheet[1] if cell.value]
+        for header, value in marks.items():
+            sheet.cell(row=2, column=headers.index(header) + 1, value=value)
+
+        path = tmp_path / "filled.xlsx"
+        book.save(path)
+        result = transcribe.read_workbook(path)
+
+        assert result.reviewed
+        assert not result.records, f"{expected}: the row reached eval/gold/"
+        (held,) = result.held
+        assert held.reason == expected
+        assert held.identifier == "GE-9001"

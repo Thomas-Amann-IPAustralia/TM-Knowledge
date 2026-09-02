@@ -230,6 +230,14 @@ def transcribe(argv: list[str] | None = None) -> int:
     parser.add_argument("workbook", type=Path)
     parser.add_argument("--gold-dir", type=Path, default=None)
     parser.add_argument(
+        "--addendum",
+        type=Path,
+        default=None,
+        help="an instruction file from review/returned/ that stands in for "
+        "keystrokes the reviewer settled after handing the workbook back "
+        "(ADR-0051). Every row it touches is reported.",
+    )
+    parser.add_argument(
         "--write",
         action="store_true",
         help="actually write into eval/gold/. Without it, nothing is written and "
@@ -239,16 +247,71 @@ def transcribe(argv: list[str] | None = None) -> int:
 
     from tm_knowledge.stage0 import transcribe as transcribe_module
 
+    addendum = None
+    if args.addendum is not None:
+        try:
+            addendum = transcribe_module.read_addendum(args.addendum)
+        except transcribe_module.MalformedAddendum as error:
+            print(f"refusing to read: {error}", file=sys.stderr)
+            return 2
+
     try:
-        result = transcribe_module.read_workbook(args.workbook)
+        result = transcribe_module.read_workbook(args.workbook, addendum)
     except transcribe_module.WorkbookMismatch as error:
         print(f"refusing to read: {error}", file=sys.stderr)
         return 2
+
+    if result.instructed:
+        print(
+            f"\nBY INSTRUCTION ({len(result.instructed)}) — {args.addendum}, "
+            f"recorded {addendum.recorded_on}"
+        )
+        for identifier, what in result.instructed:
+            print(f"  {identifier}: {what}")
 
     if result.problems:
         print(f"\nREJECTED ROWS ({len(result.problems)}) — not written, and not guessed at")
         for problem in result.problems:
             print(f"  {problem}")
+
+    from tm_knowledge.stage0 import goldset
+
+    gold_dir = args.gold_dir or goldset.GOLD_DIR
+    if result.reviewed:
+        # What is already approved and not being rewritten by this run. Without
+        # it, a second review round would hold every record pointing at one the
+        # first round approved.
+        existing = goldset.load(gold_dir)
+        transcribe_module.close_over_cross_references(
+            result,
+            frozenset(
+                str(record["id"])
+                for record_type, record in existing.all_records()
+                if record.get("id") and record_type not in result.records
+            ),
+        )
+
+    if result.held:
+        grouped = result.held_by_reason()
+        print(
+            f"\nHELD ({len(result.held)}) — read, understood, and kept out of "
+            "eval/gold/"
+        )
+        for reason in sorted(grouped, key=lambda r: (-len(grouped[r]), r)):
+            entries = grouped[reason]
+            print(f"  {reason} — {len(entries)}")
+            print("    " + ", ".join(sorted(entry.identifier for entry in entries)))
+            for entry in entries:
+                if entry.detail:
+                    print(f"      {entry.identifier}: {entry.detail}")
+
+    if result.dropped:
+        print(
+            f"\nDROPPED ENTRIES ({len(result.dropped)}) — a reviewer rejected the "
+            "entry, so it is not in its parent's list"
+        )
+        for record_type, parent_id, where in result.dropped:
+            print(f"  {parent_id} ({record_type}): {where}")
 
     if result.blanks:
         print(f"\nBLANK JUDGEMENT FIELDS ({len(result.blanks)}) — reported, never filled")
@@ -263,12 +326,107 @@ def transcribe(argv: list[str] | None = None) -> int:
 
     print(f"\n{result.summary()}")
     for path, outcome in transcribe_module.write_records(
-        result, args.gold_dir, write=args.write
+        result, gold_dir, write=args.write
     ):
         print(f"  {outcome}: {path}")
     if not args.write and result.records:
         print("\nDry run. Re-run with --write to put these into eval/gold/.")
+    if args.write and result.reviewed and result.records:
+        print(
+            "\nA record now exists in both eval/gold/ and review/seed/. Run "
+            "`tmk-reconcile` to record the round's verdicts and retire the seed "
+            "copies — two versions of one record is the state ADR-0043 forbids."
+        )
     return 1 if result.problems else 0
+
+
+def reconcile(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(
+        prog="tmk-reconcile",
+        description=(
+            "Record a review round in review/decisions/ and retire the seed "
+            "copies of whatever reached eval/gold/. Run it after "
+            "`tmk-transcribe --write`. Dry run unless --write is given."
+        ),
+    )
+    parser.add_argument("workbook", type=Path)
+    parser.add_argument(
+        "--decisions-dir",
+        type=Path,
+        default=None,
+        help="where the ledger goes (default: review/decisions/)",
+    )
+    parser.add_argument(
+        "--addendum",
+        type=Path,
+        default=None,
+        help="the same instruction file passed to `tmk-transcribe`, so the "
+        "ledger describes the run that produced eval/gold/ rather than a "
+        "second reading of the workbook.",
+    )
+    parser.add_argument(
+        "--as-of",
+        default=None,
+        help="the date to stamp the ledger with (default: today). Given so a "
+        "re-run produces the same file rather than a dated near-duplicate.",
+    )
+    parser.add_argument(
+        "--write",
+        action="store_true",
+        help="actually write the ledger and prune review/seed/.",
+    )
+    args = parser.parse_args(argv)
+
+    from tm_knowledge.stage0 import reconcile as reconcile_module
+    from tm_knowledge.stage0 import transcribe as transcribe_module
+
+    addendum = None
+    if args.addendum is not None:
+        try:
+            addendum = transcribe_module.read_addendum(args.addendum)
+        except transcribe_module.MalformedAddendum as error:
+            print(f"refusing to read: {error}", file=sys.stderr)
+            return 2
+
+    round_ = reconcile_module.read_round(args.workbook, addendum=addendum)
+    print(
+        f"{round_.reviewed} of {len(round_.outcomes)} records carry a verdict; "
+        + ", ".join(
+            f"{len(round_.of(state))} {state}"
+            for state in ("approved", "held", "rejected", "unparseable")
+        )
+    )
+    if round_.of("unparseable"):
+        print("\nUNREADABLE VERDICTS — nothing was inferred from these")
+        for outcome in round_.of("unparseable"):
+            print(f"  {outcome.identifier}: {outcome.note}")
+
+    markdown, data = reconcile_module.write_ledger(
+        round_, args.decisions_dir, as_of=args.as_of, write=args.write
+    )
+    print(f"\n{'wrote' if args.write else 'would write'} {markdown}")
+    print(f"{'wrote' if args.write else 'would write'} {data}")
+
+    try:
+        pruned = reconcile_module.prune(write=args.write)
+    except reconcile_module.ReconcileRefused as error:
+        print(f"\nrefusing to prune: {error}", file=sys.stderr)
+        return 1
+
+    changed = [entry for entry in pruned if entry.outcome != "unchanged"]
+    if changed:
+        print("\nreview/seed/ — retiring the records that are now approved")
+        for entry in changed:
+            print(
+                f"  {entry.outcome}: {entry.path.name} "
+                f"(-{len(entry.retired)}, {entry.remaining} left)"
+            )
+    else:
+        print("\nreview/seed/ — nothing to retire")
+
+    if not args.write:
+        print("\nDry run. Re-run with --write to record the round.")
+    return 0
 
 
 def seed(argv: list[str] | None = None) -> int:

@@ -1,24 +1,24 @@
 # Stage 0 — coverage and gaps
 
-**Generated** 2026-08-21 · **Source** `eval/gold/` against the pinned snapshot `c490a9927f1a` · **Regenerate** `tmk-coverage`
+**Generated** 2026-09-02 · **Source** `eval/gold/` against the pinned snapshot `c490a9927f1a` · **Regenerate** `tmk-coverage`
 
 This report is **derived**. It counts what `eval/gold/` holds against the definition of done in `eval/STAGE-0-INPUT-GUIDE.md` §7, and it names what is absent. It does not propose content for any gap, and it must not be read as doing so: every field it reports as empty is one only a domain expert may fill (CLAUDE.md rule 1, guide §9).
 
-**Status:** 0 defect(s), 22 gap(s), 0 note(s); Stage 0 incomplete.
+**Status:** 0 defect(s), 12 gap(s), 10 note(s); Stage 0 incomplete.
 
 ## 1. The board
 
 | Deliverable | Target | Have | Status |
 |---|---|---|---|
 | Pilot scope, with exclusions | eval/pilot-scope.md | — | not written |
-| Competency questions, covering all six categories | at least 6 | 0 | 6 short |
-| Prohibited uses, covering all six kinds | at least 6 | 0 | 6 short |
-| Gold concepts | 50–100 | 0 | 50 short |
-| Gold entities, over an exhaustively annotated chunk set | 100–300 | 0 | 100 short |
-| Gold relationships | 50–100 | 0 | 50 short |
-| Search questions | 20–50 | 0 | 20 short |
-| AI retrieval questions | 20–50 | 0 | 20 short |
-| Reasoning expectations | at least 1 | 0 | 1 short |
+| Competency questions, covering all six categories | at least 6 | 20 | in band |
+| Prohibited uses, covering all six kinds | at least 6 | 11 | in band |
+| Gold concepts | 50–100 | 52 | in band |
+| Gold entities, over an exhaustively annotated chunk set | 100–300 | 55 | 45 short |
+| Gold relationships | 50–100 | 35 | 15 short |
+| Search questions | 20–50 | 1 | 19 short |
+| AI retrieval questions | 20–50 | 10 | 10 short |
+| Reasoning expectations | at least 1 | 6 | in band |
 | A threshold against every metric | eval/measures.md | — | not written |
 
 ## 2. Defects
@@ -30,30 +30,23 @@ None. Everything in `eval/gold/` is well formed and lands where it says.
 ### Deliverables not yet delivered
 
 - **eval/pilot-scope.md** — Pilot scope, with exclusions — not written
-- **competency-questions.yaml** — Competency questions, covering all six categories — 0 of at least 6
-- **prohibited-uses.yaml** — Prohibited uses, covering all six kinds — 0 of at least 6
-- **concepts.yaml** — Gold concepts — 0 of 50–100
-- **entities.yaml** — Gold entities, over an exhaustively annotated chunk set — 0 of 100–300
-- **relationships.yaml** — Gold relationships — 0 of 50–100
-- **search-questions.yaml** — Search questions — 0 of 20–50
-- **retrieval-questions.yaml** — AI retrieval questions — 0 of 20–50
-- **reasoning-expected.yaml** — Reasoning expectations — 0 of at least 1
+- **entities.yaml** — Gold entities, over an exhaustively annotated chunk set — 55 of 100–300
+- **relationships.yaml** — Gold relationships — 35 of 50–100
+- **search-questions.yaml** — Search questions — 1 of 20–50
+- **retrieval-questions.yaml** — AI retrieval questions — 10 of 20–50
 - **eval/measures.md** — A threshold against every metric — not written
 
 ### Coverage the definition of done requires
 
-- **competency-question category 'retrieval'** — no record carries it. §7 requires the set to span all 6
-- **competency-question category 'search'** — no record carries it. §7 requires the set to span all 6
-- **competency-question category 'reasoning'** — no record carries it. §7 requires the set to span all 6
-- **competency-question category 'currency'** — no record carries it. §7 requires the set to span all 6
-- **competency-question category 'impact'** — no record carries it. §7 requires the set to span all 6
-- **competency-question category 'provenance'** — no record carries it. §7 requires the set to span all 6
-- **prohibited-use kind 'evaluative_conclusion'** — no record carries it. §7 requires the set to span all 6
-- **prohibited-use kind 'authority_conflation'** — no record carries it. §7 requires the set to span all 6
-- **prohibited-use kind 'unsupported_inference'** — no record carries it. §7 requires the set to span all 6
 - **prohibited-use kind 'stale_source'** — no record carries it. §7 requires the set to span all 6
-- **prohibited-use kind 'overreach'** — no record carries it. §7 requires the set to span all 6
-- **prohibited-use kind 'ambiguity_collapse'** — no record carries it. §7 requires the set to span all 6
+
+### Judgement fields left empty — only an expert may close these
+
+- **GR-0006** — modality is null — it needs the expert, and nothing here may supply it
+- **GR-0013** — modality is null — it needs the expert, and nothing here may supply it
+- **GR-0015** — modality is null — it needs the expert, and nothing here may supply it
+- **GR-0017** — modality is null — it needs the expert, and nothing here may supply it
+- **GR-0040** — modality is null — it needs the expert, and nothing here may supply it
 
 ## 4. Coverage by category
 
@@ -63,38 +56,47 @@ Both lists are read from the schemas, not restated here. §7 requires the set as
 
 | `category` | records |
 |---|---|
-| retrieval | 0 |
-| search | 0 |
-| reasoning | 0 |
-| currency | 0 |
-| impact | 0 |
-| provenance | 0 |
+| retrieval | 3 |
+| search | 4 |
+| reasoning | 4 |
+| currency | 1 |
+| impact | 4 |
+| provenance | 4 |
 
 **Prohibited uses**
 
 | `kind` | records |
 |---|---|
-| evaluative_conclusion | 0 |
-| authority_conflation | 0 |
-| unsupported_inference | 0 |
+| evaluative_conclusion | 3 |
+| authority_conflation | 3 |
+| unsupported_inference | 3 |
 | stale_source | 0 |
-| overreach | 0 |
-| ambiguity_collapse | 0 |
+| overreach | 1 |
+| ambiguity_collapse | 1 |
 
 ## 5. Worth an eye, gating nothing
 
-Nothing.
+- **PU-0003** (test_ref) — detectable_by: test, but no test_ref yet
+- **PU-0005** (test_ref) — detectable_by: test, but no test_ref yet
+- **PU-0015** (test_ref) — detectable_by: test, but no test_ref yet
+- **GA-0007** (resolution) — .required_cases[0] = CASE/1968/HCA/72 is a case citation. No decision text exists anywhere in the programme, so it is checked for grammar only (Q-11)
+- **GA-0007** (resolution) — .required_cases[1] = CASE/2003/ATMO/7 is a case citation. No decision text exists anywhere in the programme, so it is checked for grammar only (Q-11)
+- **GA-0009** (resolution) — .required_cases[0] = CASE/2017/FCAFC/174 is a case citation. No decision text exists anywhere in the programme, so it is checked for grammar only (Q-11)
+- **GA-0009** (resolution) — .required_cases[1] = CASE/2010/ATMO/85 is a case citation. No decision text exists anywhere in the programme, so it is checked for grammar only (Q-11)
+- **GA-0011** (resolution) — .required_cases[0] = CASE/2000/FCA/720 is a case citation. No decision text exists anywhere in the programme, so it is checked for grammar only (Q-11)
+- **GA-0012** (resolution) — .required_cases[0] = CASE/2009/FCA/428 is a case citation. No decision text exists anywhere in the programme, so it is checked for grammar only (Q-11)
+- **GA-0013** (resolution) — .required_cases[0] = CASE/2012/ATMO/117 is a case citation. No decision text exists anywhere in the programme, so it is checked for grammar only (Q-11)
 
 ## 6. Where the records are
 
 | Record type | File | Records |
 |---|---|---|
-| competency_question | `eval/gold/competency-questions.yaml` (absent) | 0 |
-| gold_concept | `eval/gold/concepts.yaml` (absent) | 0 |
-| gold_entity | `eval/gold/entities.yaml` (absent) | 0 |
-| gold_relationship | `eval/gold/relationships.yaml` (absent) | 0 |
-| gold_retrieval_question | `eval/gold/retrieval-questions.yaml` (absent) | 0 |
-| gold_search_question | `eval/gold/search-questions.yaml` (absent) | 0 |
-| prohibited_use | `eval/gold/prohibited-uses.yaml` (absent) | 0 |
-| reasoning_expectation | `eval/gold/reasoning-expected.yaml` (absent) | 0 |
+| competency_question | `eval/gold/competency-questions.yaml` (present) | 20 |
+| gold_concept | `eval/gold/concepts.yaml` (present) | 52 |
+| gold_entity | `eval/gold/entities.yaml` (present) | 55 |
+| gold_relationship | `eval/gold/relationships.yaml` (present) | 35 |
+| gold_retrieval_question | `eval/gold/retrieval-questions.yaml` (present) | 10 |
+| gold_search_question | `eval/gold/search-questions.yaml` (present) | 1 |
+| prohibited_use | `eval/gold/prohibited-uses.yaml` (present) | 11 |
+| reasoning_expectation | `eval/gold/reasoning-expected.yaml` (present) | 6 |
 

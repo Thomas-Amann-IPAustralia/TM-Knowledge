@@ -1,3 +1,22 @@
+<!-- Provenance. Added on filing; nothing below this block was altered. -->
+
+# Expert feedback on the seed review workbook
+
+**From:** the Trade Mark expert who reviewed
+`260825-ontology-stage-0-seed.xlsx` (signs the workbook `TC`).
+**Received:** 2026-08-26, with the marked-up workbook.
+**Filed:** 2026-09-02, session S008.
+
+General observations offered alongside the row-by-row verdicts. Two points, both
+about the *content* of the seed set rather than its shape, and neither of them
+answerable by an agent: they are recorded here verbatim and carried into
+`docs/HANDOFF.md` as open questions Q16 and Q17.
+
+The text below is the expert's own, unedited. Australian spelling, punctuation
+and typing are theirs.
+
+---
+
 There is theme within the workbook that may cause issues with the ontology project. This is the common occurrence of the idea of Presumption of Registrability. Justice Branson discusses the concept of the Registrar being ‘satisfied’ which is an expression used in section 33 and 41 (prior to Raising the Bar). In Blount Inc v Registrar of Trade Marks (1998) 40 IPR 498, 503 (‘Oregon’) she said:
 
 "[Section] 33 of the Act ... has, in effect, altered the burden of proof generally so far as acceptance of applications is concerned. Section 33(1) provides that the Registrar must accept the application unless satisfied that the application has not been made in accordance with the Act, or that there are grounds for rejecting it."

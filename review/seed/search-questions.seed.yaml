@@ -84,33 +84,6 @@ seeds:
       approved_by: null
       approved_date: null
 
-  - seed_id: SEED-GS-0003
-    record_type: gold_search_question
-    why_this_example: >
-      The highest-value precision test in the pilot. "Confusion" without
-      qualification is the most ambiguous word in the corpus, and the tempting
-      wrong answers are the whole of Part 29.3.
-    provenance:
-      confidence: 0.85
-    record:
-      id: GS-0003
-      query: "confusion with an existing registered trade mark"
-      uses_manual_terminology: false
-      relevant:
-        - {ref: "TMM/Part29/2/2/3", grade: 3}
-        - {ref: "TMM/Part29/3/3/3", grade: 3}
-      irrelevant_but_tempting:
-        - TMM/Part29/3#1~2
-        - TMM/Part29/3/3/1~1
-        - TMM/Part29/1#1
-      must_exclude: []
-      notes: >
-        The correct answers are the two passages that say this is *not* section
-        43's business. Every tempting passage is about confusion and none of
-        them is about this kind.
-      approved_by: null
-      approved_date: null
-
   - seed_id: SEED-GS-0004
     record_type: gold_search_question
     why_this_example: >

@@ -1541,3 +1541,328 @@ one ref and stay blank; the parent row's passage carries them.
    pack, or in both.
 5. Rows carrying a passage get a fixed height of 78 points — five or six wrapped
    lines. Enough to read the sentence, short enough that 153 rows still scroll.
+
+---
+
+## ADR-0047 — `approved_date` is a typed date column, and an ambiguous one is refused
+
+**Date** 2026-09-02 · **Authority** derived · **Status** accepted
+
+**Context.** The first marked-up workbook came back and `tmk-transcribe` rejected
+270 rows. Every rejection was the same field: the schema wants
+`^[0-9]{4}-[0-9]{2}-[0-9]{2}$`, and the sheet held `25/08/2026` on some sheets
+and a real Excel date cell — which `openpyxl` hands over as a `datetime` and
+`str()` renders as `2026-08-25 00:00:00` — on others.
+
+The consequence was worse than a failed run, and it is the reason this has an
+ADR rather than a one-line fix. The rows that failed were **exactly the rows the
+expert had signed**, because only a signed row carries a date at all. The 233
+rows that passed and would have been written into `eval/gold/` were precisely
+the ones nobody had approved. A field intended to record authority had inverted
+the gate.
+
+Three readings were available for `25/08/2026`: day/month (Australian, and what
+the reviewer meant), month/day, or refuse. The repo is Australian throughout
+(CLAUDE.md §5), which argues for the first. Rule 6 argues for the third.
+
+**Decision.** `approved_date` becomes a `date` column kind, derived from the
+schema's `format: "date"` rather than from the field's name, and it is read in
+this order:
+
+1. a `datetime`/`date` object — Excel already parsed it under the typist's
+   locale, so it is unambiguous by the time it arrives; convert it;
+2. an ISO string — pass it through, after checking it is a real date;
+3. a slashed string whose first number **cannot** be a month (`25/08/2026`) —
+   convert it, because it has only one reading;
+4. anything else, `05/08/2026` included — **refuse**, naming the cell and saying
+   to write `YYYY-MM-DD`.
+
+The generated workbook formats the column `yyyy-mm-dd`, so Excel resolves the
+ambiguity at typing time and case 4 rarely arises.
+
+**Consequences.**
+
+1. **Australian-first is a reading rule, not a parsing rule.** Case 3 supplies
+   nothing — it reformats a value with one possible meaning. Case 4 is the one
+   where being Australian would be a guess, and a wrong `approved_date` is the
+   worst kind of provenance defect: nothing downstream cross-checks it, so it
+   would look correct for ever. Refusing costs one email; guessing costs the
+   audit.
+2. **The column format is help, not a guarantee.** `openpyxl` writes the column
+   style but not `customFormat`, and a reviewer can always paste text over a
+   formatted cell. The guarantee stays on the read side.
+3. **The format is set on the column dimension, not on a block of cells.**
+   Formatting a thousand cells materialises a thousand rows, and the intake
+   workbook must ship with none (ADR-0044).
+4. The same kind now covers any future `format: "date"` field, because it is
+   read from the schema. Nothing hard-codes `approved_date`.
+
+---
+
+## ADR-0048 — The verdict column is the gate into `eval/gold/`, and the gate is transitive
+
+**Date** 2026-09-02 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** ADR-0044 called the review columns "annotations *about* a record,
+never fields *of* one", and the transcriber implemented that by tolerating them
+and dropping them. Correct as far as it went, and it left the actual door
+unlocked: `tmk-transcribe --write` wrote every row that validated, so a record
+an expert had just marked **reject** would have gone into `eval/gold/` alongside
+one they had approved. `review/seed/HOW-TO-CORRECT.md` had already promised the
+opposite — "the records that carry your name become the gold set" — and nothing
+implemented it.
+
+The first returned workbook made the shape of the problem concrete: 368 rows,
+229 carrying a verdict, 8 rejections, 8 amendments, 83 marked correct with
+nobody's name against them, and 139 never reached.
+
+**Decision.** When a workbook carries a `verdict` column it is a seed review
+workbook, and a row enters `eval/gold/` only on a `correct` verdict **with a
+name in `approved_by`**. Every other row is *held* — read, understood, and
+deliberately not written — under one of five reasons:
+
+| reason | what it means |
+|---|---|
+| not reviewed | the verdict cell is empty |
+| rejected by the reviewer | the record should not exist |
+| amendment not applied | marked `amend`; the correction has not been worked in |
+| correct but unsigned | a judgement was made and not signed |
+| names a record that is not approved | see below |
+
+A verdict cell holding anything else — `corrrect` — is a **rejected row**, not a
+held one: nothing infers the value it resembles (rule 6).
+
+On a child sheet, where approval lives on the parent, a `reject` **drops the
+entry** from the parent's list, because that is what the reviewer decided; any
+other unsettled verdict **holds the parent whole**, because the list is part of
+the record.
+
+The gate is closed **transitively**. Approval does not distribute over an
+interlinked set: `PU-0001` is a true prohibition on its own terms, and its
+`related_questions` names `GA-0003`, which is unsigned. Sign the first and not
+the second and `eval/gold/` acquires a pointer to nothing — which `tmk-harness`
+reports as a DEFECT, correctly, because a measurement standard with a dangling
+reference is not one. So any record naming an unapproved record is held too, to
+a fixed point.
+
+**A workbook with no `verdict` column is unaffected.** The plain intake workbook
+has none, and every row goes through as before.
+
+**Consequences.**
+
+1. **The first run cost 18 records to the transitive rule** — 15 prohibited uses
+   pointing at unsigned questions, and 3 retrieval questions that then pointed
+   at those prohibitions. 126 records passed the per-row gate; 108 landed. That
+   gap is the honest number and it makes the next ask precise: signing
+   `GA-0001`–`GA-0018` and `CQ-0013`/`CQ-0014` releases 18 more records with no
+   further judgement.
+2. **"Correct but unsigned" is reported as its own state**, not lumped in with
+   the unread rows. It is a judgement that was made and not recorded, which is a
+   different and much cheaper thing to fix — and 83 of the round's rows are in
+   it.
+3. **The alternative was worse.** Relaxing the harness's cross-reference check
+   to also look in `review/seed/` would let approved knowledge rest on
+   unapproved candidates, which is rule 4 inverted.
+4. This is not the harness's job. The harness reports the state of what is in
+   `eval/gold/`; the gate decides what gets there. A defect the gate can prevent
+   should not be left for the harness to find.
+
+**Confirm.** `agent-proposed`. The rule "signed `correct` only" follows from
+rule 4 and ADR-0039, but three choices inside it are judgements: holding a
+signed record because an unsigned one is pointed at, holding a parent for an
+unsettled child, and treating a misspelt verdict as a rejected row rather than
+reading through the typo. Flagged in `HANDOFF.md` §3 as Q18.
+
+---
+
+## ADR-0049 — A review round is recorded in `review/decisions/`; the seed copies are then retired
+
+**Date** 2026-09-02 · **Authority** derived · **Status** accepted
+
+**Context.** ADR-0043 consequence 6 says to delete a seed file once its record
+type has been reviewed, because two versions of one record — approved and not —
+is worse than none. `tmk-seed` enforces it: a seed record whose id is in
+`eval/gold/` is a DEFECT, since an id is never used twice (`IDENTIFIERS.md` §3).
+
+A partial round breaks the rule as stated. 108 of 368 records were approved, so
+whole-file deletion applies to one record type and leaves collisions in five.
+And two things resist deletion at all: a **rejection with a reason** is the
+round's most expensive output and would vanish with the row, and other seed
+records point at rejected ones (`must_not_infer: PU-0017`).
+
+**Decision.** `tmk-reconcile WORKBOOK --write`, run after
+`tmk-transcribe --write`:
+
+1. writes the round into `review/decisions/<workbook slug>.md` and `.yaml` —
+   every record, its verdict, the reviewer's correction **verbatim**, and what
+   became of it;
+2. removes from `review/seed/` every record whose id is now in `eval/gold/`,
+   and only those. Unreviewed, amended, unsigned and **rejected** records all
+   stay;
+3. deletes a seed file left holding nothing.
+
+Two supporting changes. `seed._cross_references` now resolves a pointer against
+`eval/gold/` as well as `review/seed/` — a promoted target was not deleted, and
+without this every promotion would break the records left behind. And
+`seed.coverage` reads the ledgers, so it reports 139 unreviewed of 242 rather
+than 242 of 242, which was false the moment a round came back.
+
+**Consequences.**
+
+1. **Rejected records stay, on purpose.** They have no approved twin, so they
+   are not the duplication the rule is about, and removing them would turn a
+   recorded rejection into a dangling pointer. The rejection lives in the
+   ledger; the record stays where things point at it.
+2. **The prune is line surgery, and it is verified.** Seed files are
+   hand-written and their comments carry the entity annotation rule and the
+   candidate predicate list — the two decisions the whole set turns on — so
+   re-serialising the YAML would destroy the most valuable part of the file.
+   Entries are removed by line range instead; the result is parsed back and
+   every surviving record compared field by field before anything is written. A
+   mismatch refuses the file and writes nothing.
+3. **A verdict is not written back into the seed file.** The file is the
+   expert's input; the ledger is the record of their answer. Keeping them apart
+   means one author per document, and it is the only arrangement that still
+   works once an approved record has left the seed file entirely.
+4. **The ledger regenerates.** It is derived from the returned workbook, which
+   is kept unmodified in `review/returned/`, so a re-run reproduces it. Nothing
+   in `review/decisions/` is hand-edited.
+
+---
+
+## ADR-0050 — A returned artefact lives in `review/returned/`, unmodified
+
+**Date** 2026-09-02 · **Authority** derived · **Status** accepted
+
+**Context.** The marked-up workbook and the expert's covering note arrived in
+`data/derived/`. That directory is committed on purpose (ADR-0042), but for one
+reason: it holds **derivations** — what `tmk-*` regenerates from the pinned
+snapshot and from `eval/gold/` — and the diff of each regeneration is the paper
+trail. An inbound artefact is the opposite. Nothing regenerates it, a tool run
+must never overwrite it, and "delete `data/derived/` and rebuild" is a thing
+somebody will eventually do.
+
+`review/seed/` is not right either: `tmk-seed` reads that directory and would
+report a returned workbook as a file it does not recognise.
+
+**Decision.** `review/returned/` holds what a person outside this repo produced
+and handed back, unmodified and dated in the filename. The two artefacts of the
+first round are
+`review/returned/260825-ontology-stage-0-seed.xlsx` and
+`review/returned/260826-expert-feedback.md`.
+
+**Consequences.**
+
+1. **A returned artefact is not edited, ever** — not to fix a typo, not to
+   correct a verdict. `corrrect` in a verdict cell stays typed; the ledger
+   reports it as unreadable and the correction comes back from the reviewer,
+   because nobody here may decide what they meant. A second pass arrives as a
+   new file with its own date.
+2. The covering note gained a provenance header — who, when, filed when — above
+   the untouched text. Provenance about an artefact is not a modification of it,
+   but the header says explicitly that nothing below it changed.
+3. `review/` now holds three kinds of thing and each has a README saying which:
+   `seed/` what we wrote for review, `returned/` what came back, `decisions/`
+   what was decided.
+
+---
+
+## ADR-0051 — A reviewer's instruction is applied from `review/returned/`, never by editing a workbook
+
+**Date** 2026-09-02 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** The first round left 83 records marked `correct` with `approved_by`
+blank, and one verdict cell reading `corrrect`. The reviewer then settled both
+in words, relayed by the owner: those 83 are signed `TC`, and the misspelt cell
+means `correct`.
+
+Both are recorded human decisions. Neither is in a spreadsheet. Three ways to
+act on them were available and two are wrong:
+
+- **Edit the returned workbook.** Forbidden by ADR-0050, and rightly: a binary
+  file an agent has altered, sitting where the expert's own artefact sits, is
+  the exact confusion that directory exists to prevent.
+- **Generate a new "returned" workbook** with the 84 cells filled in. Same
+  problem wearing a different filename — `review/returned/` would then hold an
+  agent-authored artefact indistinguishable at a glance from a human one.
+- **Record the instruction as its own artefact and apply it.** The instruction
+  *is* what the person handed back; it is text rather than a spreadsheet.
+
+**Decision.** An **addendum** is a YAML file in `review/returned/` naming the
+reviewer, the date, the words as relayed, and exactly what is to be applied.
+`tmk-transcribe --addendum` and `tmk-reconcile --addendum` apply it as if the
+reviewer had typed it into the cells. Two operations, and no others:
+
+- `sign_unsigned_correct: true` — fill a **blank** `approved_by` on a row whose
+  verdict is `correct`, with the reviewer's name and the instruction's date.
+- `verdicts: {GE-0031: correct}` — settle a verdict on a **named** record.
+
+**Consequences.**
+
+1. **The signing rule is deliberately the narrowest thing that does the job.**
+   It never overwrites a name already present, and it signs nothing whose
+   verdict is not `correct` — not an `amend`, not a `reject`, not an unreviewed
+   row. Widening it to "sign everything" would make the instruction a blank
+   cheque rather than a decision about a defined set.
+2. **`verdicts` names records one at a time. There is no pattern, no fuzzy match
+   and no typo table.** `corrrect` is read as `correct` because a person said so
+   about `GE-0031`, not because it resembles it. ADR-0048's refusal to read
+   through a near-miss is unchanged and still fires for anything not named —
+   the `rejext` on a `GS--relevant` row is still a rejected row, because nobody
+   has ruled on it.
+3. **An addendum cannot reach a child row.** Child rows carry no id to name and
+   no `approved_by` of their own. Changing one costs a workbook, which is the
+   right price for it.
+4. **An instruction it cannot act on exactly is refused**, not partially
+   applied: no reviewer, no date, an ambiguous date, or a verdict the
+   instruction itself misspells. The strictness applies to the instruction as
+   much as to the workbook.
+5. **Every application is reported and recorded.** `tmk-transcribe` prints each
+   row and what was done to it; the ledger names the addendum in its front
+   matter and marks each affected row *by instruction*. How a record came to be
+   approved is part of the record of its approval.
+6. `--addendum` must be passed to **both** commands or the ledger describes a
+   different run from the one that produced `eval/gold/`.
+
+**Confirm.** `agent-proposed`. The mechanism follows from ADR-0050 plus the need
+to act on a real decision, but the two-operation limit is a judgement about what
+words may safely stand in for keystrokes. Flagged in `HANDOFF.md` §3 as Q20.
+
+---
+
+## ADR-0052 — Reviewer ruling: the 83 unsigned `correct` rows are signed TC; `GE-0031` reads `correct`
+
+**Date** 2026-09-02 · **Authority** human · **Status** accepted
+
+**Context.** Put to the owner after the first round: 83 records had a verdict and
+no signature, and one verdict cell was misspelt. `tmk-transcribe` had held all
+84 rather than guess.
+
+**Decision**, relayed by the owner from the reviewer:
+
+- every row marked `correct` with a blank `approved_by` is approved by **TC**;
+- the cell on `GE-0031` reading `corrrect` means `correct`.
+
+Recorded as `review/returned/260902-expert-confirmation.yaml` and applied under
+ADR-0051.
+
+**Consequences.**
+
+1. **The gold set went from 108 records to 190** — and the 82 extra approvals
+   released 8 more records that had been held only because they pointed at
+   unsigned ones. `eval/gold/entities.yaml` and `reasoning-expected.yaml` exist
+   for the first time.
+2. **This settles ADR-0048's third judgement call in practice rather than in
+   principle.** The tool still refuses a misspelt verdict; a person overrode it
+   by name. That is the arrangement the refusal was designed to produce, and it
+   cost one line in an instruction file. It is **not** a ruling that a near-miss
+   may be read through generally — if that is wanted it needs its own decision,
+   and it would be a worse one, because the set of things `corrrect` could mean
+   is only obvious to a reader who already knows the answer.
+3. **The remaining blockers are now six records, not eighty-three**: `CQ-0013`
+   and `CQ-0014` (never reviewed), `CQ-0016`, `PU-0016` and `PU-0017` (rejected,
+   so records pointing at them need the pointer changed) and `GA-0002` (an
+   amendment not yet applied). Between them they hold 20 records that are
+   otherwise ready.
+4. The `rejext` on a `GS--relevant` row is **not** covered by this ruling and
+   was left alone. It holds nothing — its parent `GS-0007` is unreviewed anyway.

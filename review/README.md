@@ -11,12 +11,17 @@ review/candidates/citations/      Stage 2 — unresolved and ambiguous citations
 review/candidates/clusters/       Stage 3 — proposed synonym groups and hierarchy edges
 review/candidates/relations/      Stage 4 — relationships, propositions, candidate rules
 review/decisions/                 the record of what was approved, rejected or deferred
+review/returned/                  what a person handed back, unmodified
 review/seed/                      Stage 0 — machine-written example records, for expert correction
 ```
 
-`seed/` is the one occupant today, and it is unusual enough to have its own
-ADR: it holds candidate **legal content**, written by an agent so that an
-expert can correct it rather than compose it from a blank form (ADR-0043).
+Three of those are occupied, and together they are the round trip: `seed/` is
+what we sent, `returned/` is what came back, `decisions/` is what it was taken
+to mean. Each has its own README.
+
+`seed/` is unusual enough to have its own ADR: it holds candidate **legal
+content**, written by an agent so that an expert can correct it rather than
+compose it from a blank form (ADR-0043).
 Read `seed/README.md` before touching it. The rules that keep it safe are the
 ones this directory exists for — quarantine, an envelope on every record, a
 null `approved_by` that is checked, and exactly one door out.

@@ -17,9 +17,13 @@ No snapshot needed: nothing here resolves a ref.
 
 from __future__ import annotations
 
+import datetime
+
 import pytest
 
 pytest.importorskip("openpyxl", reason="the intake path needs `pip install -e '.[intake]'`")
+
+from openpyxl.utils import get_column_letter  # noqa: E402
 
 from tm_knowledge.config import REPO_ROOT  # noqa: E402
 from tm_knowledge.stage0 import goldset, transcribe, workbook  # noqa: E402
@@ -347,3 +351,218 @@ def test_an_empty_sheet_leaves_its_file_alone(tmp_path):
     assert "gold_concept" in result.empty_sheets
     transcribe.write_records(result, gold, write=True)
     assert (gold / "concepts.yaml").read_text(encoding="utf-8") == "- {id: GC-001}\n"
+
+
+# ---------------------------------------------------------------------------
+# Dates (ADR-0047)
+# ---------------------------------------------------------------------------
+
+
+def _date_column():
+    for spec in sheets():
+        for column in spec.columns:
+            if column.header == "approved_date":
+                return column
+    raise AssertionError("no approved_date column")
+
+
+@pytest.mark.parametrize(
+    ("value", "expected"),
+    [
+        ("2026-08-25", "2026-08-25"),
+        (datetime.datetime(2026, 8, 25, 0, 0), "2026-08-25"),
+        (datetime.date(2026, 8, 25), "2026-08-25"),
+        ("25/08/2026", "2026-08-25"),
+        ("25-08-2026", "2026-08-25"),
+        (None, None),
+        ("", None),
+    ],
+)
+def test_a_date_the_sheet_can_only_mean_one_way_is_read(value, expected):
+    """An Excel date cell and an unambiguous Australian one both convert.
+
+    `25/08/2026` has no other reading — there is no month 25 — so converting it
+    supplies nothing. It is the shape the schema wants, in the words that
+    arrived.
+    """
+    assert transcribe._cell(_date_column(), value, "concepts", 2) == expected
+
+
+@pytest.mark.parametrize("value", ["05/08/2026", "08/25/2026", "25 August 2026", "45890"])
+def test_a_date_that_could_be_read_two_ways_is_refused_by_name(value):
+    """Rule 6, on the one field where a silent misreading is invisible.
+
+    A wrong `approved_date` looks exactly like a right one for ever: nothing
+    downstream cross-checks it, so a day/month guess would be a provenance
+    defect that never surfaces. The refusal names the cell and says what to
+    write instead.
+    """
+    with pytest.raises(ValueError) as error:
+        transcribe._cell(_date_column(), value, "concepts", 2)
+    assert "approved_date" in str(error.value)
+    assert "YYYY-MM-DD" in str(error.value)
+
+
+def test_the_date_column_is_formatted_as_a_date(tmp_path):
+    """So Excel parses what the reviewer types instead of storing the string."""
+    from openpyxl import load_workbook
+
+    path = tmp_path / "empty.xlsx"
+    workbook.write(path, generated="2026-09-02")
+    book = load_workbook(path)
+    for spec in sheets():
+        headers = [cell.value for cell in book[spec.name][1]]
+        if "approved_date" not in headers:
+            continue
+        letter = get_column_letter(headers.index("approved_date") + 1)
+        assert book[spec.name].column_dimensions[letter].number_format == "yyyy-mm-dd"
+
+
+# ---------------------------------------------------------------------------
+# The review gate (ADR-0048)
+# ---------------------------------------------------------------------------
+
+
+def test_an_intake_workbook_has_no_gate(tmp_path, source_records):
+    """A workbook with no `verdict` column behaves exactly as it always did.
+
+    The gate is about machine-written seed records crossing into approved space.
+    An expert's own composed record is awaiting *approval*, not review, and the
+    coverage report is what says so about it — holding it here would report the
+    same gap twice and write nothing anybody could act on.
+    """
+    path = tmp_path / "filled.xlsx"
+    book = workbook.build(generated="2026-09-02")
+    workbook.fill(book, source_records)
+    book.save(path)
+
+    result = transcribe.read_workbook(path)
+    assert not result.reviewed
+    assert not result.held
+    assert result.total == sum(len(records) for records in source_records.values())
+
+
+def test_an_approved_record_may_not_point_at_an_unapproved_one(tmp_path):
+    """Approval does not distribute over an interlinked set (ADR-0048).
+
+    Sign a prohibition and not the question it bounds, and `eval/gold/` acquires
+    a pointer to nothing — which `tmk-harness` calls a DEFECT, correctly, since
+    a measurement standard with a dangling reference is not one. The gate closes
+    transitively rather than letting the harness catch it afterwards.
+    """
+    result = transcribe.Transcription(reviewed=True)
+    result.records = {
+        "prohibited_use": [
+            {"id": "PU-0001", "related_questions": ["GA-0001"]},
+            {"id": "PU-0003", "related_questions": []},
+        ],
+        "gold_retrieval_question": [
+            {"id": "GA-0002", "prohibited_conclusions": ["PU-0001"]},
+        ],
+    }
+    transcribe.close_over_cross_references(result)
+
+    # PU-0001 dangles on the unsigned GA-0001; GA-0002 then dangles on PU-0001.
+    # PU-0003 names nothing and stands.
+    assert [record["id"] for record in result.records["prohibited_use"]] == ["PU-0003"]
+    assert "gold_retrieval_question" not in result.records
+    assert {held.identifier for held in result.held} == {"PU-0001", "GA-0002"}
+    assert all(held.reason == transcribe.DANGLING for held in result.held)
+
+
+def test_a_pointer_into_what_is_already_approved_resolves(tmp_path):
+    """A second round must not hold everything the first round approved."""
+    result = transcribe.Transcription(reviewed=True)
+    result.records = {
+        "prohibited_use": [{"id": "PU-0009", "related_questions": ["GA-0001"]}],
+    }
+    transcribe.close_over_cross_references(result, frozenset({"GA-0001"}))
+    assert [record["id"] for record in result.records["prohibited_use"]] == ["PU-0009"]
+    assert not result.held
+
+
+# ---------------------------------------------------------------------------
+# Addenda (ADR-0051)
+# ---------------------------------------------------------------------------
+
+
+def _addendum(tmp_path, body: str):
+    path = tmp_path / "confirmation.yaml"
+    path.write_text(body, encoding="utf-8")
+    return transcribe.read_addendum(path)
+
+
+def test_an_instruction_signs_only_a_blank_approved_by_on_a_correct_row(tmp_path):
+    """The narrowest thing that does the job (ADR-0051).
+
+    A reviewer saying "everything I marked correct is signed TC" is a recorded
+    human decision about a defined set of rows. It is not a decision about the
+    rows they amended, rejected or never reached, and it does not overwrite a
+    name already there.
+    """
+    addendum = _addendum(
+        tmp_path,
+        "reviewer: TC\nrecorded_on: 2026-09-02\nsign_unsigned_correct: true\n",
+    )
+    spec = next(s for s in sheets() if s.name == "concepts")
+
+    cases = [
+        ({"id": "GC-1", "verdict": "correct", "approved_by": None}, "TC"),
+        ({"id": "GC-2", "verdict": "correct", "approved_by": "AB"}, "AB"),
+        ({"id": "GC-3", "verdict": "amend", "approved_by": None}, None),
+        ({"id": "GC-4", "verdict": "reject", "approved_by": None}, None),
+        ({"id": "GC-5", "verdict": None, "approved_by": None}, None),
+    ]
+    for values, expected in cases:
+        values.setdefault("approved_date", None)
+        addendum.apply(spec, values)
+        assert values["approved_by"] == expected, values["id"]
+
+
+def test_an_instruction_settles_a_verdict_by_name_and_only_by_name(tmp_path):
+    """`corrrect` is read as `correct` because a person said so about GE-0031 —
+    not because it looks like it. There is no pattern and no typo table."""
+    addendum = _addendum(
+        tmp_path,
+        "reviewer: TC\nrecorded_on: 2026-09-02\nverdicts:\n  GE-0031: correct\n",
+    )
+    spec = next(s for s in sheets() if s.name == "entities")
+
+    named = {"id": "GE-0031", "verdict": "corrrect", "approved_by": None}
+    assert addendum.apply(spec, named)
+    assert named["verdict"] == "correct"
+
+    unnamed = {"id": "GE-0032", "verdict": "corrrect", "approved_by": None}
+    assert not addendum.apply(spec, unnamed)
+    assert unnamed["verdict"] == "corrrect"
+
+
+def test_an_instruction_does_not_reach_a_child_row(tmp_path):
+    """A child row has no id to name and no approved_by of its own. Changing one
+    costs a workbook, which is the right price for it."""
+    addendum = _addendum(
+        tmp_path,
+        "reviewer: TC\nrecorded_on: 2026-09-02\nsign_unsigned_correct: true\n"
+        "verdicts:\n  GS-0007: correct\n",
+    )
+    child = next(s for s in sheets() if s.is_child)
+    values = {"parent_id": "GS-0007", "verdict": "rejext"}
+    assert not addendum.apply(child, values)
+    assert values["verdict"] == "rejext"
+
+
+@pytest.mark.parametrize(
+    ("body", "because"),
+    [
+        ("recorded_on: 2026-09-02\n", "reviewer"),
+        ("reviewer: TC\n", "recorded_on"),
+        ("reviewer: TC\nrecorded_on: 05/08/2026\n", "recorded_on"),
+        ("reviewer: TC\nrecorded_on: 2026-09-02\nverdicts:\n  GE-1: corrrect\n", "GE-1"),
+    ],
+)
+def test_an_instruction_it_cannot_act_on_exactly_is_refused(tmp_path, body, because):
+    """Including a verdict *the instruction itself* misspells. Nothing here
+    reads through a near-miss, wherever it arrives from."""
+    with pytest.raises(transcribe.MalformedAddendum) as error:
+        _addendum(tmp_path, body)
+    assert because in str(error.value)

@@ -11,7 +11,7 @@ expert judgements and this file cannot make them (CLAUDE.md rule 1).
 |---|---|
 | Pinned snapshot | `Thomas-Amann-IPAustralia/manual-XtrACTor` @ `c490a9927f1ab67c1c2fe4afdc758c79f35430c8` |
 | Extractor versions | `ingest/0.11.0`, `legislation/0.2.0` |
-| Generated | 2026-08-20 |
+| Generated | 2026-09-02 |
 
 
 ## 1. Volume, per candidate rule
