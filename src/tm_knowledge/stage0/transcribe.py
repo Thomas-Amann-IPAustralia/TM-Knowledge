@@ -342,20 +342,17 @@ class _Annotation:
     approved_by: str | None = None
 
 
-def _annotation(spec: Sheet, values: dict[str, Any]) -> _Annotation:
+def _annotation(values: dict[str, Any]) -> _Annotation:
     if "verdict" not in values:
         return _Annotation()
     verdict = _text(values.get("verdict"))
-    approved = None
-    for column in spec.columns:
-        if column.header == "approved_by":
-            approved = _text(values.get("approved_by"))
     return _Annotation(
         present=True,
         verdict=verdict.strip().lower() if verdict else None,
         correction=_text(values.get("correction")),
         seed_id=_text(values.get("seed_id")),
-        approved_by=approved,
+        # Absent on a child sheet, where approval lives on the parent.
+        approved_by=_text(values.get("approved_by")),
     )
 
 
@@ -367,7 +364,7 @@ def _rows(worksheet, spec: Sheet, result: Transcription):
         if all(_text(value) is None for value in values.values()):
             continue
 
-        marks = _annotation(spec, values)
+        marks = _annotation(values)
         if marks.present:
             result.reviewed = True
             if marks.verdict is not None and marks.verdict not in VERDICTS:
