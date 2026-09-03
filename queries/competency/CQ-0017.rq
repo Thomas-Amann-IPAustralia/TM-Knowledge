@@ -1,0 +1,22 @@
+# question: CQ-0017
+# answers: If section 43 were amended, which parts of the Manual would need reviewing?
+# limits: Reviewing effort, not reviewing outcome. A Part appears because a passage in it cites the provision, not because an amendment would change what that passage means. The `inferred` column matters: those citations are upstream reading a bare "section 43" out of prose, not a link IP Australia wrote, so a Part carried only by inferred edges is a weaker claim than its count suggests.
+
+PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
+PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+
+SELECT ?part (COUNT(DISTINCT ?chunk) AS ?passages)
+       (SUM(IF(?extraction = "href", 1, 0)) AS ?authored)
+       (SUM(IF(BOUND(?certainty) && ?certainty = "default", 1, 0)) AS ?inferred)
+WHERE {
+  GRAPH tmkg:source {
+    ?citation a tmk:Citation ;
+              tmk:citingPassage ?chunk ;
+              tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
+              tmk:extraction ?extraction .
+    OPTIONAL { ?citation tmk:certainty ?certainty }
+    ?chunk tmk:partId ?part .
+  }
+}
+GROUP BY ?part
+ORDER BY DESC(?passages) ?part

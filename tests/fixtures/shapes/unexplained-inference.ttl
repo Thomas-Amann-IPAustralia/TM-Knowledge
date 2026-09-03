@@ -1,0 +1,26 @@
+# An inference that cannot explain itself, and one that derives an evidentiary
+# proposition.
+#
+# The first names no rule and no premises. The second stays inside the shape's
+# other constraint: "the evidence establishes acquired distinctiveness" is an
+# evaluative conclusion and stays outside automated reasoning scope, so a class
+# holding such propositions is fine and a rule deriving one is not.
+#
+# Expected: tmk:InferredAssertionShape fires on :mute;
+# tmk:BoundedReasoningShape fires on :overreaching.
+
+@prefix tmk: <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix :    <https://example.org/fixture/> .
+
+:mute a tmk:InferredAssertion ;
+    tmk:assertionSubject :x ;
+    tmk:assertionObject :y .
+
+:overreaching a tmk:InferredAssertion ;
+    tmk:producedByRule :some-rule ;
+    tmk:derivedFrom :x ;
+    tmk:reviewStatus "candidate" ;
+    tmk:assertionSubject :x ;
+    tmk:assertionObject :conclusion .
+
+:conclusion a tmk:EvidentiaryProposition .

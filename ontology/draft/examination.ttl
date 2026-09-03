@@ -1,0 +1,95 @@
+@prefix tmk:     <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix tmkc:    <https://data.ipaustralia.gov.au/tmk/concept/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/examination>
+    a owl:Ontology ;
+    rdfs:label "TM-Knowledge — examination module"@en-AU ;
+    rdfs:comment """Who does what, and to what.
+
+Almost entirely **declared and unpopulated**, and that is the honest state: the
+approved set describes what the Manual says about section 43, not a process
+model of examination, and inventing one would be authoring practice.
+
+The role classes below are here for a specific reason. The reviewer's covering
+note (`review/returned/260826-expert-feedback.md`, HANDOFF Q17) named nine terms
+that need high-level definitions — Registrar, Delegate, Examiner, Decision
+Maker, Office Practice, Subject Matter Expert, Oppositions, Grounds for
+Rejection, Adverse Report — because the seed vocabulary was drawn from Part 29
+alone and gives a narrow view of the roles. Declaring the classes empty is how
+that gap is made visible in the model rather than only in a document. Note also
+Q-28: a term's definition is usually not in a passage that cites anything, so
+ADR-0022's scope rule will not find these on its own."""@en-AU ;
+    owl:imports <https://data.ipaustralia.gov.au/tmk/ns/legal-concepts> ;
+    owl:versionInfo "draft — not approved" .
+
+tmk:TradeMarkApplication a owl:Class ;
+    rdfs:label "Trade mark application"@en-AU ;
+    rdfs:comment "UNPOPULATED. The thing being examined. No application data exists in this programme and none is in scope."@en-AU .
+
+tmk:Examination a owl:Class ;
+    rdfs:label "Examination"@en-AU ;
+    rdfs:comment "UNPOPULATED. The process applied to an application."@en-AU .
+
+tmk:Objection a owl:Class ;
+    rdfs:label "Objection"@en-AU ;
+    rdfs:comment "UNPOPULATED. A ground raised against an application in an examination."@en-AU .
+
+tmk:ExaminationOutcome a owl:Class ;
+    rdfs:label "Examination outcome"@en-AU ;
+    rdfs:comment """UNPOPULATED, and it must stay that way for this pilot.
+
+Deciding an examination outcome is explicitly out of scope (CLAUDE.md §6), and
+the prohibited-use set exists to keep it there: PU-0001 and PU-0002 are the two
+outputs that state one."""@en-AU .
+
+# --- roles: declared, undefined, and the gap is the point -------------------
+
+tmk:Role a owl:Class ;
+    rdfs:label "Role"@en-AU ;
+    rdfs:comment "A person or office acting in the examination system."@en-AU .
+
+tmk:Registrar a owl:Class ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "Registrar"@en-AU ;
+    rdfs:comment "UNDEFINED — named in HANDOFF Q17 as needing a definition. Load-bearing here: the Manual states practice and does not bind this office's discretion."@en-AU .
+
+tmk:Delegate a owl:Class ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "Delegate"@en-AU ;
+    rdfs:comment "UNDEFINED — HANDOFF Q17."@en-AU .
+
+tmk:Examiner a owl:Class ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "Examiner"@en-AU ;
+    rdfs:comment "UNDEFINED — HANDOFF Q17."@en-AU .
+
+tmk:DecisionMaker a owl:Class ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "Decision maker"@en-AU ;
+    rdfs:comment """UNDEFINED — HANDOFF Q17, and the reviewer corrected two records on precisely
+this point (GE-0010, GE-0047: decision maker vs the Registrar).
+
+It matters for Q16: the office's bar for applying the presumption of
+registrability is not that the individual examiner doubts a connotation exists,
+but that the Registrar as a whole does. A model that equates the two roles
+loses that distinction silently."""@en-AU .
+
+tmk:SubjectMatterExpert a owl:Class ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "Subject matter expert"@en-AU ;
+    rdfs:comment "UNDEFINED — HANDOFF Q17."@en-AU .
+
+tmk:TeamLeader a owl:Class ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "Team leader"@en-AU ;
+    rdfs:comment "UNDEFINED — named in the reviewer's note as part of the consultation the office expects before a connotation is accepted on the basis of doubt (Q16)."@en-AU .
+
+tmk:decidedBy a owl:ObjectProperty ;
+    rdfs:range tmk:Role ;
+    rdfs:label "decided by"@en-AU .
+
+tmk:constrainsRole a owl:ObjectProperty ;
+    rdfs:range tmk:Role ;
+    rdfs:label "constrains role"@en-AU ;
+    rdfs:comment "Links a proposition to the role whose conduct it governs. The hook Q16's rule about examiner conduct would attach to — no record type currently holds such a rule, and whether one should is an expert-and-owner call."@en-AU .

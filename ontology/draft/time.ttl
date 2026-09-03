@@ -1,0 +1,71 @@
+@prefix tmk:     <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix tmkc:    <https://data.ipaustralia.gov.au/tmk/concept/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/time>
+    a owl:Ontology ;
+    rdfs:label "TM-Knowledge — time module"@en-AU ;
+    rdfs:comment """Dates, currency and what this corpus cannot answer about time.
+
+The honest headline: **point-in-time questions are out of the pilot scope draft
+and the snapshot cannot support them.** There is no corpus-level version stamp
+(Q-05); the amendment history is the upstream repository's git history, and
+answering 'what guidance was current on «date»' properly needs a full-history
+clone, which is a different data strategy rather than a different query. CQ-0014
+is marked out of scope on the strength of that line.
+
+What the module does carry is the currency mechanism that actually works:
+staleness by content hash. An assertion whose source hash no longer matches the
+pin is stale and returns to review. That is Stage 10's whole incremental
+mechanism and it needs no version stamp."""@en-AU ;
+    owl:imports <https://data.ipaustralia.gov.au/tmk/ns/provenance> ;
+    owl:versionInfo "draft — not approved" .
+
+tmk:AuthorityStatus a owl:Class ;
+    rdfs:label "Authority status"@en-AU ;
+    rdfs:comment "Whether an authority is current, superseded or repealed."@en-AU .
+
+tmk:Current a tmk:AuthorityStatus ; rdfs:label "current"@en-AU .
+
+tmk:Superseded a tmk:AuthorityStatus ; rdfs:label "superseded"@en-AU ;
+    rdfs:comment "'Every superseded instruction has a status date' — one of the six starting SHACL rules."@en-AU .
+
+tmk:NotHeld a tmk:AuthorityStatus ; rdfs:label "not held"@en-AU ;
+    rdfs:comment """Cited by the corpus and held nowhere in the programme.
+
+Not a defect and not a gap to be filled by guessing: s 114 of the *Trade Marks
+Act 1905* is cited by Part 29.3.1, the instrument is not in this corpus, and it
+can be neither excluded (the Manual relies on it) nor resolved (Q-24). 17
+distinct refs cited from the in-scope chunks are in this state, and CQ-0020 asks
+for exactly this list."""@en-AU .
+
+tmk:authorityStatus a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:range tmk:AuthorityStatus ;
+    rdfs:label "authority status"@en-AU .
+
+tmk:statusDate a owl:DatatypeProperty ;
+    rdfs:range xsd:date ;
+    rdfs:label "status date"@en-AU .
+
+tmk:capturedAt a owl:DatatypeProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "captured at"@en-AU ;
+    rdfs:comment "When upstream captured the passage. The nearest thing this corpus has to a currency date, and it is a capture time, not an in-force date."@en-AU .
+
+tmk:lastAmended a owl:DatatypeProperty ;
+    rdfs:domain tmk:Page ;
+    rdfs:range xsd:string ;
+    rdfs:label "last amended"@en-AU ;
+    rdfs:comment "The Manual page's own amendment note where it carries one. Page-level and self-reported — not a version stamp, and not comparable across pages."@en-AU .
+
+tmk:isStale a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "is stale"@en-AU ;
+    rdfs:comment "The assertion's `tmk:sourceContentHash` no longer matches the pinned snapshot: the passage under it moved. Computed at build time, never asserted by hand."@en-AU .

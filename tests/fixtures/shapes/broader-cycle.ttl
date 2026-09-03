@@ -1,0 +1,25 @@
+# A cycle in skos:broader, and a not-label that is also a label.
+#
+# The cycle makes every hierarchy walk non-terminating — the seed set already
+# contains real reference cycles (Q-30), so this is not hypothetical. The
+# not-label collision is worse than it looks: the record says at once that a
+# term means this concept and that it must never be read as this concept.
+#
+# Expected: tmk:NoBroaderCycleShape fires on :a and :b; tmk:NotLabelShape fires
+# on :c.
+
+@prefix tmk:  <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix :     <https://example.org/fixture/> .
+
+:scheme a tmk:ConceptScheme .
+
+:a a tmk:LegalConcept ; tmk:goldRecord "GC-9001" ; skos:inScheme :scheme ;
+   skos:prefLabel "alpha"@en-AU ; skos:broader :b .
+:b a tmk:LegalConcept ; tmk:goldRecord "GC-9002" ; skos:inScheme :scheme ;
+   skos:prefLabel "beta"@en-AU ; skos:broader :a .
+
+:c a tmk:LegalConcept ; tmk:goldRecord "GC-9003" ; skos:inScheme :scheme ;
+   skos:prefLabel "gamma"@en-AU ;
+   skos:altLabel "delta"@en-AU ;
+   tmk:notLabel "delta"@en-AU .

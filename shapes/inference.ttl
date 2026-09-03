@@ -1,0 +1,42 @@
+@prefix tmk:  <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Every inferred result identifies the rule that produced it. An inference that
+# cannot explain itself does not get published (graph/README.md).
+
+tmk:InferredAssertionShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:InferredAssertion ;
+    rdfs:label "An inference names its rule and its premises"@en-AU ;
+    sh:property [
+        sh:path tmk:producedByRule ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "Sixth of the six starting rules: every inferred result identifies the rule that produced it." ;
+    ] ;
+    sh:property [
+        sh:path tmk:derivedFrom ;
+        sh:minCount 1 ;
+        sh:message "An explanation that names none of its premises is not an explanation." ;
+    ] ;
+    sh:property [
+        sh:path tmk:reviewStatus ;
+        sh:minCount 1 ;
+        sh:message "An inferred assertion with no review status reads as approved knowledge." ;
+    ] .
+
+tmk:BoundedReasoningShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:InferredAssertion ;
+    rdfs:label "Reasoning stays inside its bounds"@en-AU ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "An evidentiary proposition was derived by a rule. 'The evidence establishes acquired distinctiveness' is an evaluative conclusion and stays outside automated reasoning scope (queries/README.md); a class that holds such propositions is fine, a rule that derives one is not." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this <https://data.ipaustralia.gov.au/tmk/ns/assertionObject> ?object .
+                ?object a <https://data.ipaustralia.gov.au/tmk/ns/EvidentiaryProposition> .
+            }
+        """ ;
+    ] .

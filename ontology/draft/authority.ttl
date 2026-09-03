@@ -1,0 +1,188 @@
+@prefix tmk:     <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix tmkc:    <https://data.ipaustralia.gov.au/tmk/concept/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/authority>
+    a owl:Ontology ;
+    rdfs:label "TM-Knowledge — authority module"@en-AU ;
+    rdfs:comment """What kind of thing is speaking, and with what force.
+
+This is the module CLAUDE.md rule 5 lives in. The Manual states the Registrar's
+practice; it does not bind the Registrar's discretion and it is not legislation.
+The distinction is carried here as a class disjointness rather than as a flag,
+because a flag can be dropped by a projection and a disjointness cannot be
+satisfied by an assertion that ignores it."""@en-AU ;
+    owl:imports <https://data.ipaustralia.gov.au/tmk/ns/document> ;
+    owl:versionInfo "draft — not approved" .
+
+# --- what can speak --------------------------------------------------------
+
+tmk:Authority a owl:Class ;
+    rdfs:label "Authority"@en-AU ;
+    rdfs:comment "Something that can be cited in support of a proposition. Legislation, a decision, or the Registrar's own practice material — all three, and the point of the module is that they are not interchangeable."@en-AU .
+
+tmk:Legislation a owl:Class ;
+    rdfs:subClassOf tmk:Document ;
+    rdfs:label "Legislation"@en-AU ;
+    rdfs:comment "An instrument. This corpus holds two: the Trade Marks Act 1995 and the Trade Marks Regulations 1995."@en-AU .
+
+tmk:LegislativeProvision a owl:Class ;
+    rdfs:subClassOf tmk:Passage , tmk:Authority ;
+    rdfs:label "Legislative provision"@en-AU ;
+    rdfs:comment "A section, regulation, Schedule clause or container of an instrument, keyed by its provision ref. It is law."@en-AU .
+
+tmk:LegislativeUnit a owl:Class ;
+    rdfs:subClassOf tmk:LegislativeProvision ;
+    rdfs:label "Legislative unit"@en-AU ;
+    rdfs:comment """A numbered unit inside a provision — subsection, paragraph, definition.
+
+Modelled as a subclass rather than as a sibling because a ref does not say what
+level it addresses: 228 legislation refs in the pinned corpus cannot be placed
+by grammar alone (Q-18, ADR-0025). Anything true of a provision is true of a
+unit of one, so the subclass licenses nothing the corpus cannot support."""@en-AU .
+
+tmk:ManualInstruction a owl:Class ;
+    rdfs:subClassOf tmk:Authority ;
+    rdfs:label "Manual instruction"@en-AU ;
+    rdfs:comment """A statement of the Registrar's practice, sourced from the Manual.
+
+It is **not law**. It does not bind the Registrar's discretion. A system that
+lets a Manual instruction be read as a statutory requirement has committed the
+error PU-0004 names, and that error is a live one in this corpus: the Manual
+quotes s 43 in full inside TMM/Part29/1#1, so an answer can appear to cite the
+Act while having read only the Manual (CQ-0001's caveat)."""@en-AU .
+
+tmk:JudicialDecision a owl:Class ;
+    rdfs:subClassOf tmk:Authority ;
+    rdfs:label "Judicial decision"@en-AU ;
+    rdfs:comment """A decided case. **Citation level only.** No decision text exists anywhere in
+this programme (Q-11, HANDOFF Q6), so a decision node carries a citation, party
+names where the Manual gives them, and the Manual's own account of it — never
+the reasons. 'Which cases interpret this test' is answerable; 'what did the
+court hold' is not, and PU-0005 is the output that pretends otherwise."""@en-AU .
+
+tmk:Guidance a owl:Class ;
+    rdfs:subClassOf tmk:Authority ;
+    rdfs:label "Guidance"@en-AU ;
+    rdfs:comment "Non-binding material that is neither legislation nor a decision. Declared for the roadmap's model; nothing in the approved set is classified into it yet."@en-AU .
+
+# --- the disjointness that must survive into retrieval output --------------
+
+tmk:ManualInstruction owl:disjointWith tmk:LegislativeProvision .
+
+# --- what an authority does ------------------------------------------------
+
+tmk:authorityKind a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Authority ;
+    rdfs:range xsd:string ;
+    rdfs:label "authority kind"@en-AU ;
+    rdfs:comment """`law` | `practice` | `decision`. Redundant with the class, on purpose: it is
+what a retrieval projection carries when it has dropped the types, and it is
+what a shape checks when it wants to catch a projection that dropped them
+silently. A SPARQL result that names a passage without this is missing the one
+fact CLAUDE.md rule 5 requires it to carry."""@en-AU .
+
+tmk:statedIn a owl:ObjectProperty ;
+    rdfs:range tmk:Passage ;
+    rdfs:label "stated in"@en-AU ;
+    rdfs:comment "The exact passage a proposition was read out of. Not 'about' — 'is written here'."@en-AU .
+
+tmk:attributedTo a owl:ObjectProperty ;
+    rdfs:domain tmk:LegalProposition ;
+    rdfs:range tmk:Authority ;
+    rdfs:label "attributed to"@en-AU ;
+    rdfs:comment """The authority a proposition is being *presented as coming from*.
+
+Separate from tmk:statedIn, which is where the words are, and the separation is
+the whole point. PU-0004 — "Section 43 of the Act requires the connotation to be
+obvious, direct and immediate" — is a proposition stated in a Manual passage and
+attributed to the Act. Every word of it is in the corpus and the attribution is
+wrong, which is why it is worth a constraint rather than a test: a shape blocks
+publication, a test only reports (shapes/README.md).
+
+`shapes/authority.ttl` fails any proposition stated in a practice passage and
+attributed to a legislative provision."""@en-AU .
+
+tmk:hasCitation a owl:ObjectProperty ;
+    rdfs:domain tmk:Passage ;
+    rdfs:range tmk:Citation ;
+    rdfs:label "has citation"@en-AU .
+
+# --- the citation edge, kept as an object -----------------------------------
+
+tmk:Citation a owl:Class ;
+    rdfs:label "Citation"@en-AU ;
+    rdfs:comment """One reference from a passage to an authority, reified so that upstream's
+trust metadata survives (CLAUDE.md rule 3).
+
+A bare triple `chunk -> provision` throws away the two things that separate an
+author's assertion from a machine's inference, and once thrown away they cannot
+be recovered from the graph. So the edge is a node: it carries how it was found
+and how certain that was, and `tmk:citesProvision` exists beside it only as a
+convenience for queries that genuinely do not care."""@en-AU .
+
+tmk:citingPassage a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Citation ;
+    rdfs:range tmk:Passage ;
+    rdfs:label "citing passage"@en-AU .
+
+tmk:citedAuthority a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Citation ;
+    rdfs:label "cited authority"@en-AU ;
+    rdfs:comment "Deliberately without an `rdfs:range`. 17 refs cited from the in-scope chunks land on no provision this corpus holds (recon §4); a range of tmk:LegislativeProvision would classify those targets as provisions on the strength of being cited, which is exactly the inference the unresolved list exists to prevent."@en-AU .
+
+tmk:extraction a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Citation ;
+    rdfs:range xsd:string ;
+    rdfs:label "extraction"@en-AU ;
+    rdfs:comment "`href` — the Manual's authors linked it themselves, the strongest provenance the corpus has. `regex` — upstream read it out of the prose. Upstream's word, never reinterpreted (CLAUDE.md rule 3)."@en-AU .
+
+tmk:certainty a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Citation ;
+    rdfs:range xsd:string ;
+    rdfs:label "certainty"@en-AU ;
+    rdfs:comment """`explicit` | `default` | `ambiguous`, present on `regex` edges only.
+
+`default` is upstream's inference from a bare 'section 43' — an inference, not a
+statement by IP Australia. `ambiguous` is upstream refusing to choose between
+instruments, and it is never resolved here: an ambiguous edge is a reason to put
+a passage in front of a person, never a reason to drop it (Q-07)."""@en-AU .
+
+tmk:mention a owl:DatatypeProperty ;
+    rdfs:domain tmk:Citation ;
+    rdfs:range xsd:string ;
+    rdfs:label "mention"@en-AU ;
+    rdfs:comment "The surface text upstream matched, where it recorded one."@en-AU .
+
+tmk:citationResolves a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Citation ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "citation resolves"@en-AU ;
+    rdfs:comment "Whether the cited ref lands on something this corpus holds. False is a fact about the corpus, not a defect in the citation — s 114 of the 1905 Act is cited by Part 29.3.1 and is held nowhere in the programme (Q-24)."@en-AU .
+
+tmk:citesProvision a owl:ObjectProperty ;
+    rdfs:domain tmk:Passage ;
+    rdfs:label "cites provision"@en-AU ;
+    rdfs:comment "Convenience shortcut past the Citation node. Safe for 'which passages mention s 43'; wrong for anything that turns on how the edge was found, which is what tmk:Citation is for."@en-AU .
+
+tmk:citesCase a owl:ObjectProperty ;
+    rdfs:domain tmk:Passage ;
+    rdfs:range tmk:JudicialDecision ;
+    rdfs:label "cites case"@en-AU .
+
+tmk:citesPassage a owl:ObjectProperty ;
+    rdfs:domain tmk:Passage ;
+    rdfs:range tmk:Passage ;
+    rdfs:label "cites passage"@en-AU ;
+    rdfs:comment "A Manual-internal cross reference. Upstream drops targets it cannot resolve rather than recording them, so absence here is not evidence the source made no reference (Q-08)."@en-AU .
+
+tmk:caseCitation a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:JudicialDecision ;
+    rdfs:range xsd:string ;
+    rdfs:label "case citation"@en-AU .

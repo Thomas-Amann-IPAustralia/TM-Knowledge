@@ -1,0 +1,16 @@
+# Superseded material with no status date. Superseded-since-when is the whole
+# content of the claim: without it a point-in-time query cannot exclude the
+# passage and a currency answer cannot qualify it.
+#
+# Expected: tmk:SupersededShape fires on :retired.
+
+@prefix tmk: <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix :    <https://example.org/fixture/> .
+
+:retired a tmk:Chunk ;
+    tmk:authorityKind "practice" ;
+    tmk:contentHash "sha256:4444444444444444444444444444444444444444444444444444444444444444" ;
+    tmk:capturedIn :snapshot ;
+    tmk:authorityStatus tmk:Superseded .
+
+:snapshot a tmk:DocumentVersion .

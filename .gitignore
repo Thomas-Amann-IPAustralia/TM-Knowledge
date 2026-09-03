@@ -2,6 +2,19 @@
 # committed (ADR-0042, supersedes ADR-0028) — do not add it here.
 data/upstream/
 
+# The graph, split by what it restates (ADR-0060).
+#
+# `graph/approved.ttl` and `graph/inferred.ttl` ARE committed: they are this
+# repo's own work, they are small enough to read, and a diff of approved.ttl is
+# a diff of what a reviewer changed.
+#
+# `graph/source.ttl` and `graph/dataset.nq` are not. They restate the pinned
+# upstream corpus, and committing 6.5MB of it here is `data/upstream/` by
+# another route — the thing ADR-0004 exists to prevent. Both rebuild in one
+# command: `tmk-fetch-upstream && tmk-graph --write --rules`.
+graph/source.ttl
+graph/dataset.nq
+
 # Python
 __pycache__/
 *.py[cod]

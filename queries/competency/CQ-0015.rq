@@ -1,0 +1,28 @@
+# question: CQ-0015
+# answers: At what point in time is the marketplace assessed when deciding whether a sign is likely to deceive or cause confusion?
+# limits: Returns the Manual's statement about *which* marketplace is assessed. It does not answer "what did the Manual say on «date»" — that is a different question, it is marked out of scope in the pilot scope draft, and the snapshot cannot support it: there is no corpus-level version stamp and the amendment history is the upstream repository's git history (Q-05). CQ-0014 is the record that carries that limitation.
+
+PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
+PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?record ?subjectLabel ?predicate ?objectLabel ?modality ?statement ?sourceRef
+WHERE {
+  GRAPH tmkg:approved {
+    ?assertion a tmk:ApprovedAssertion ;
+               tmk:goldRecord ?record ;
+               tmk:assertionPredicate ?predicate ;
+               tmk:assertionSubject ?subject ;
+               tmk:assertionObject ?object ;
+               tmk:supportingText ?statement ;
+               tmk:sourcePassage ?passage .
+    OPTIONAL { ?assertion tmk:modality ?modality }
+    ?subject skos:prefLabel ?subjectLabel .
+    OPTIONAL { ?object skos:prefLabel ?objectLabel }
+    FILTER (CONTAINS(LCASE(?subjectLabel), "marketplace")
+            || CONTAINS(LCASE(?subjectLabel), "time")
+            || CONTAINS(LCASE(COALESCE(?objectLabel, "")), "marketplace"))
+  }
+  GRAPH tmkg:source { ?passage tmk:upstreamRef ?sourceRef }
+}
+ORDER BY ?record

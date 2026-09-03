@@ -1,0 +1,94 @@
+@prefix tmk:  <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+
+# Manual instruction vs legislative provision. CLAUDE.md rule 5, made blocking.
+#
+# The Manual states the Registrar's practice. It is not law and it does not bind
+# the Registrar's discretion. These shapes are what stops that distinction being
+# lost between the graph and whatever reads it.
+
+tmk:AuthorityKindShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:Passage , tmk:JudicialDecision ;
+    rdfs:label "Every passage says what kind of authority it is"@en-AU ;
+    sh:property [
+        sh:path tmk:authorityKind ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:in ( "law" "practice" "decision" ) ;
+        sh:message "A passage with no authority kind can be quoted without anyone being able to say whether it is law or practice (CLAUDE.md rule 5)." ;
+    ] .
+
+tmk:PassageVersionShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:Chunk , tmk:Page , tmk:LegislativeProvision ;
+    rdfs:label "Every source passage identifies a document version"@en-AU ;
+    sh:property [
+        sh:path tmk:capturedIn ;
+        sh:minCount 1 ;
+        sh:message "Second of the six starting rules: a passage that cannot name the snapshot it came from cannot be checked for staleness." ;
+    ] ;
+    sh:property [
+        sh:path tmk:contentHash ;
+        sh:minCount 1 ;
+        sh:pattern "^sha256:[0-9a-f]{64}$" ;
+        sh:message "No content hash, so nothing can detect that the passage moved." ;
+    ] .
+
+# --- the disjointness, checked rather than merely declared -------------------
+
+tmk:DisjointAuthorityShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:ManualInstruction ;
+    rdfs:label "Nothing is both practice and law"@en-AU ;
+    sh:not [
+        sh:class tmk:LegislativeProvision ;
+    ] ;
+    sh:message "A node typed both tmk:ManualInstruction and tmk:LegislativeProvision. The classes are owl:disjointWith; under OWL RL that makes the graph inconsistent, and an inconsistent graph entails everything." .
+
+# --- PU-0004, as a constraint that blocks publication -----------------------
+
+tmk:AuthorityConflationShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:LegalProposition ;
+    rdfs:label "A practice statement is not attributed to the Act (PU-0004)"@en-AU ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "PU-0004 — authority conflation: this proposition's words are in a passage that states practice, and it is attributed to a legislative provision. The section requires no such thing; that formulation is the Manual's. Attributing it to the Act gives an examiner a statutory requirement that does not exist and removes the Registrar's discretion in the same sentence." ;
+        sh:prefixes tmk: ;
+        sh:select """
+            SELECT $this ?value
+            WHERE {
+                $this <https://data.ipaustralia.gov.au/tmk/ns/statedIn> ?passage .
+                ?passage <https://data.ipaustralia.gov.au/tmk/ns/authorityKind> "practice" .
+                $this <https://data.ipaustralia.gov.au/tmk/ns/attributedTo> ?value .
+                ?value <https://data.ipaustralia.gov.au/tmk/ns/authorityKind> "law" .
+            }
+        """ ;
+    ] .
+
+tmk:ProvisionSubjectShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:ApprovedAssertion ;
+    rdfs:label "An assertion about a provision keeps the passage it was read from"@en-AU ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "This assertion's subject is a legislative provision but it names no source passage. Drop the passage and the assertion reads as something the Act says — which is how PU-0004 happens by omission rather than by claim." ;
+        sh:prefixes tmk: ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this <https://data.ipaustralia.gov.au/tmk/ns/assertionSubject> ?subject .
+                ?subject a <https://data.ipaustralia.gov.au/tmk/ns/LegislativeProvision> .
+                FILTER NOT EXISTS { $this <https://data.ipaustralia.gov.au/tmk/ns/sourcePassage> ?passage }
+            }
+        """ ;
+    ] .
+
+tmk: sh:declare [
+    sh:prefix "tmk" ;
+    sh:namespace "https://data.ipaustralia.gov.au/tmk/ns/"^^xsd:anyURI ;
+] .

@@ -1,0 +1,79 @@
+@prefix tmk:  <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# SKOS well-formedness, plus the one constraint SKOS has no vocabulary for.
+
+tmk:ConceptShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:LegalConcept ;
+    rdfs:label "A concept has exactly one preferred label and belongs to a scheme"@en-AU ;
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "A concept with two preferred labels is two concepts that have not been separated yet." ;
+    ] ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:minCount 1 ;
+        sh:message "A concept outside every scheme cannot be found by anything that walks a scheme." ;
+    ] ;
+    sh:property [
+        sh:path tmk:goldRecord ;
+        sh:minCount 1 ;
+        sh:message "No route from the concept back to the record and the reviewer who approved it." ;
+    ] .
+
+tmk:NoBroaderCycleShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:LegalConcept ;
+    rdfs:label "No cycles in broader/narrower"@en-AU ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "This concept is its own ancestor. A cycle in the hierarchy makes every hierarchy walk non-terminating and every broader-than query meaningless." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this <http://www.w3.org/2004/02/skos/core#broader>+ $this .
+            }
+        """ ;
+    ] .
+
+# The constraint SKOS cannot express, and the one most worth having.
+
+tmk:NotLabelShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:LegalConcept ;
+    rdfs:label "A not-label is not also a label"@en-AU ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "This concept carries the same string as both a label and a not-label. The record says at once that the term means this concept and that it must never be read as this concept, and a retrieval system reading the first will route an examiner to the wrong test." ;
+        sh:select """
+            SELECT $this ?value
+            WHERE {
+                $this <https://data.ipaustralia.gov.au/tmk/ns/notLabel> ?value .
+                { $this <http://www.w3.org/2004/02/skos/core#prefLabel> ?value }
+                UNION
+                { $this <http://www.w3.org/2004/02/skos/core#altLabel> ?value }
+            }
+        """ ;
+    ] .
+
+tmk:NotLabelCollisionShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:LegalConcept ;
+    rdfs:label "A not-label naming another concept's label is reported, not failed"@en-AU ;
+    sh:severity sh:Info ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "This concept's not-label is another concept's label. That is usually correct and is exactly what a not-label is for — 'deceptively similar' belongs to section 44 and must not be read as this concept. Reported so the pairs are visible, never failed." ;
+        sh:select """
+            SELECT $this ?value
+            WHERE {
+                $this <https://data.ipaustralia.gov.au/tmk/ns/notLabel> ?label .
+                ?value <http://www.w3.org/2004/02/skos/core#prefLabel> ?label .
+                FILTER (?value != $this)
+            }
+        """ ;
+    ] .

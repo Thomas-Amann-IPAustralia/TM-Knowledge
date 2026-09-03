@@ -1,0 +1,138 @@
+@prefix tmk:  <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# Every assertion has method, span, hash and review status. ADR-0011, and
+# CLAUDE.md rule 8: no output goes anywhere unlabelled.
+
+tmk:ApprovedAssertionShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:ApprovedAssertion ;
+    rdfs:label "An approved assertion carries its whole provenance block"@en-AU ;
+    sh:property [
+        sh:path tmk:goldRecord ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "No route back to the approved record, so no route back to the reviewer who signed it." ;
+    ] ;
+    sh:property [
+        sh:path tmk:sourcePassage ;
+        sh:minCount 1 ;
+        sh:message "First of the six starting rules: every approved proposition has a source passage." ;
+    ] ;
+    sh:property [
+        sh:path tmk:extractionMethod ;
+        sh:minCount 1 ;
+        sh:message "Third of the six starting rules: every extracted relationship identifies its extraction method." ;
+    ] ;
+    sh:property [
+        sh:path tmk:reviewStatus ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "approved" "candidate" "rejected" "stale" ) ;
+        sh:message "Review status absent or outside the vocabulary. It is never defaulted to approved." ;
+    ] ;
+    sh:property [
+        sh:path tmk:approvedBy ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:minLength 1 ;
+        sh:message "A name and a date are the approval artefact (ADR-0039). Without a name this is a candidate sitting in approved space, which is rule 4 inverted." ;
+    ] ;
+    sh:property [
+        sh:path tmk:approvedDate ;
+        sh:minCount 1 ;
+        sh:datatype xsd:date ;
+        sh:message "No approval date, or one that is not a date." ;
+    ] ;
+    sh:property [
+        sh:path tmk:sourceContentHash ;
+        sh:pattern "^sha256:[0-9a-f]{64}$" ;
+        sh:message "A content hash that is not one. Staleness detection reads this and nothing else." ;
+    ] ;
+    sh:property [
+        sh:path tmk:confidence ;
+        sh:maxCount 1 ;
+        sh:minInclusive 0.0 ; sh:maxInclusive 1.0 ;
+        sh:message "Confidence outside [0,1]. Note this is confidence in the *extraction*; a confidence attached to a legal conclusion is PU-0003." ;
+    ] .
+
+tmk:SpanShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf tmk:spanStart ;
+    rdfs:label "A span is a well-formed interval"@en-AU ;
+    sh:property [
+        sh:path tmk:spanEnd ;
+        sh:minCount 1 ;
+        sh:message "A span with a start and no end locates nothing." ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Span end is not after its start. The offsets were constructed rather than measured against the snapshot (ADR-0045)." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this <https://data.ipaustralia.gov.au/tmk/ns/spanStart> ?start ;
+                      <https://data.ipaustralia.gov.au/tmk/ns/spanEnd> ?end .
+                FILTER (?end <= ?start)
+            }
+        """ ;
+    ] .
+
+# The direct triple and the assertion beside it are one fact recorded twice.
+# If either can exist alone, the graph can carry an approved-looking edge that
+# nobody signed — which is the whole reason both are emitted (ADR-0058).
+
+tmk:UnreifiedRelationShape
+    a sh:NodeShape ;
+    sh:target [
+        a sh:SPARQLTarget ;
+        sh:select """
+            SELECT ?this
+            WHERE { ?this a <https://data.ipaustralia.gov.au/tmk/ns/ApprovedRelation> }
+        """ ;
+    ] ;
+    rdfs:label "Every approved relation edge has an assertion behind it"@en-AU ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A direct triple uses this approved predicate with no tmk:Assertion recording who approved it and from which passage. An edge nobody signed is sitting in the approved graph." ;
+        sh:select """
+            SELECT $this ?value
+            WHERE {
+                ?subject $this ?object .
+                BIND (?subject AS ?value)
+                FILTER NOT EXISTS {
+                    ?assertion <https://data.ipaustralia.gov.au/tmk/ns/assertionSubject> ?subject ;
+                               <https://data.ipaustralia.gov.au/tmk/ns/assertionPredicate> $this ;
+                               <https://data.ipaustralia.gov.au/tmk/ns/assertionObject> ?object .
+                }
+            }
+        """ ;
+    ] .
+
+tmk:StaleAssertionShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:ApprovedAssertion ;
+    rdfs:label "A stale assertion does not stay in the approved graph"@en-AU ;
+    sh:property [
+        sh:path tmk:isStale ;
+        sh:not [ sh:hasValue true ] ;
+        sh:severity sh:Warning ;
+        sh:message "The passage under this assertion has moved since it was approved. It returns to review rather than being carried forward, and the hash is never silently refreshed (IDENTIFIERS.md §5)." ;
+    ] .
+
+# Absence of tmk:isStale is a different finding from staleness, and saying so
+# takes a second constraint. An assertion the build could not check — because
+# the passage it names is not in the graph at all — is not known to be current;
+# it is unknown, and reporting it as stale would be as wrong as reporting it as
+# fresh.
+
+tmk:UncheckedStalenessShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:ApprovedAssertion ;
+    rdfs:label "Staleness was actually checked"@en-AU ;
+    sh:property [
+        sh:path tmk:isStale ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "No staleness verdict on this assertion: the build could not find the passage it names in the graph, so nothing has confirmed the text under it is still there." ;
+    ] .

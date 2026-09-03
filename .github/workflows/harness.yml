@@ -119,6 +119,102 @@ jobs:
             data/derived/reports/blockers.md
           if-no-files-found: warn
 
+  # Stages 5, 6 and 9: the ontology draft, the graph built under it, and the
+  # SHACL gate. Separate job because it needs the snapshot to say anything at
+  # all -- without the corpus there is no source graph, so a "pass" here would
+  # mean the checks did not run rather than that they passed.
+  #
+  # The severities are the harness's (ADR-0030), so the same rule applies: a
+  # defect breaks the build, a gap is a reported state. Unlike Stage 0, the
+  # graph currently has neither -- so `tmk-shacl` is expected to exit 0, and if
+  # it stops doing so, something in the approved content or the model moved.
+  ontology:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -e ".[test,rdf]"
+
+      - name: Fetch the pinned upstream snapshot
+        id: snapshot
+        continue-on-error: true
+        env:
+          UPSTREAM_TOKEN: ${{ secrets.UPSTREAM_TOKEN }}
+        run: |
+          if [ -n "${UPSTREAM_TOKEN}" ]; then
+            git config --global \
+              url."https://x-access-token:${UPSTREAM_TOKEN}@github.com/".insteadOf \
+              "https://github.com/"
+          fi
+          tmk-fetch-upstream
+
+      # The generated dictionary must match a regeneration. A hand-edit to
+      # relations.ttl would be an agent choosing the vocabulary (rule 1), and
+      # this is where that gets caught rather than reviewed.
+      - name: The relation dictionary is not hand-edited
+        run: tmk-ontology-relations
+
+      - name: Halt if the snapshot is missing
+        if: steps.snapshot.outcome != 'success'
+        run: |
+          {
+            echo "### ⚠️ Ontology checks skipped"
+            echo
+            echo "No snapshot, so there is no source graph to build or validate."
+            echo "Nothing below ran. This is not a pass."
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit 1
+
+      - name: Build the graph
+        run: tmk-graph --rules
+
+      # The publication gate. Exit 1 is a defect and breaks the build; exit 3
+      # would be a gap. Today it is 0.
+      - name: SHACL gate
+        run: tmk-shacl --rules
+
+      - name: Answer the competency questions
+        if: always()
+        run: |
+          tmk-ask > /tmp/answers.txt || true
+          {
+            echo
+            echo "---"
+            echo
+            echo "<details><summary>Competency question answers</summary>"
+            echo
+            echo '```'
+            cat /tmp/answers.txt
+            echo '```'
+            echo
+            echo "</details>"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Ontology status report
+        if: always()
+        run: |
+          tmk-ontology-report --write
+          {
+            echo
+            echo "---"
+            echo
+            cat data/derived/reports/ontology.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish the ontology report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ontology-report
+          path: data/derived/reports/ontology.md
+          if-no-files-found: warn
+
   # The canary. A harness that has quietly stopped checking would leave every
   # job above green, which is indistinguishable from a healthy repo. This fails
   # the build if the harness accepts a gold set that is broken on purpose.

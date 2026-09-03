@@ -1,0 +1,23 @@
+# question: CQ-0020
+# answers: Which citations in the section 43 material point at legislation we do not hold?
+# limits: Says the ref lands on nothing this corpus holds. 17 of these are TMA1995/TMR1995 — the figure `tmk-recon` reports, because recon counts only the two instruments the corpus holds. The rest name instruments held nowhere in the programme at all (the 1905 and 1955 Acts, the Plant Breeder's Rights Act, the Designs Regulations), and they are unresolvable by construction rather than by omission. It does not say the citation is wrong — s 114 of the Trade Marks Act 1905 is cited by Part 29.3.1, the Manual relies on it, and the instrument is simply not in the programme (Q-24). Some of these are the s 41 renumbering trap (Q-06). None may be repaired by guessing.
+
+PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
+PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+
+SELECT ?instrument ?ref (COUNT(DISTINCT ?chunk) AS ?citedFrom) (SAMPLE(?part) AS ?egPart)
+WHERE {
+  GRAPH tmkg:source {
+    ?citation a tmk:Citation ;
+              tmk:citingPassage ?chunk ;
+              tmk:citedAuthority ?target ;
+              tmk:citationResolves false .
+    ?target tmk:upstreamRef ?ref ;
+            tmk:authorityStatus tmk:NotHeld .
+    ?chunk tmk:partId ?part .
+    FILTER (!STRSTARTS(?ref, "CASE/"))
+    BIND (STRBEFORE(?ref, "/") AS ?instrument)
+  }
+}
+GROUP BY ?instrument ?ref
+ORDER BY ?instrument DESC(?citedFrom) ?ref

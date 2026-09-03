@@ -1,0 +1,33 @@
+# question: CQ-0019
+# answers: If the practice on connotation in Part 29.2 changed, what else would have to change with it?
+# limits: Impact by explicit dependency: concepts whose recorded definition sources sit in Part 29.2, and the approved statements read out of those same passages. It finds what is *linked*, not what is *about* the same thing — a passage that discusses connotation without citing anything and without a gold record on it is invisible here, and that is the known shape of the gap (Q-28).
+
+PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
+PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT DISTINCT ?affected ?kind ?label ?sourceRef
+WHERE {
+  GRAPH tmkg:source {
+    ?passage tmk:upstreamRef ?sourceRef .
+    FILTER (STRSTARTS(?sourceRef, "TMM/Part29/2"))
+  }
+  {
+    GRAPH tmkg:approved {
+      ?concept tmk:definitionSource ?passage ;
+               tmk:goldRecord ?affected ;
+               skos:prefLabel ?label .
+      BIND ("concept" AS ?kind)
+    }
+  } UNION {
+    GRAPH tmkg:approved {
+      ?assertion tmk:sourcePassage ?passage ;
+                 tmk:goldRecord ?affected .
+      OPTIONAL { ?assertion tmk:supportingText ?sentence }
+      OPTIONAL { ?assertion tmk:surface ?surface }
+      BIND (COALESCE(?sentence, ?surface, "?") AS ?label)
+      BIND (IF(BOUND(?sentence), "statement", "term") AS ?kind)
+    }
+  }
+}
+ORDER BY ?kind ?affected

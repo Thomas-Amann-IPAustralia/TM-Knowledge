@@ -1,0 +1,19 @@
+# question: CQ-0024
+# answers: Is that a requirement, or is it how we usually do it?
+# limits: The modality is the reviewer's reading, recorded on the record — never inferred from the sentence's grammar. Five approved relationships carry no modality at all and appear here with none: that blank is a reportable gap, and filling it would be exactly the guess the schema forbids (guide §5.4). `authority` is practice on every row, because every one of these sentences is the Manual's.
+
+PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
+PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+
+SELECT ?modality (COUNT(?assertion) AS ?statements) (GROUP_CONCAT(?record; separator=", ") AS ?records)
+WHERE {
+  GRAPH tmkg:approved {
+    ?assertion a tmk:ApprovedAssertion ;
+               tmk:goldRecord ?record ;
+               tmk:assertionPredicate ?predicate .
+    OPTIONAL { ?assertion tmk:modality ?m }
+    BIND (COALESCE(?m, "«not supplied — a gap, not a default»") AS ?modality)
+  }
+}
+GROUP BY ?modality
+ORDER BY ?modality
