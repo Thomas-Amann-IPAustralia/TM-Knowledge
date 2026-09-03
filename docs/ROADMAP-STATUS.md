@@ -16,11 +16,11 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 |---|---|---|---|
 | 0 | Pilot selection and evaluation set | **partial** — pilot area chosen (s 43, ADR-0013); apparatus built (S004–S005); **first approved content landed S008: 190 records over all 8 types, harness 0 defects / 12 gaps**; 178 seed records still await correction, of which **10 decisions hold the other 168** (S009, `tmk-blockers`) | this repo — **the blocker** |
 | 1 | Ingest and structure source documents | **done** (4 of 6 named deliverables); consumed here since S004 — pinned, fetched and loaded | `manual-XtrACTor` |
-| 2 | Candidate terminology and entities | **not started** — stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019); blocked by ADR-0010 | this repo |
-| 3 | Controlled vocabulary (SKOS) | **not started** | this repo |
+| 2 | Candidate terminology and entities | **not started** — stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019); blocked by ADR-0010, which S010 did **not** touch. Stages 3/5/6 ran ahead of it from approved content instead (ADR-0056) | this repo |
+| 3 | Controlled vocabulary (SKOS) | **draft — S010.** 52 approved concepts as a SKOS scheme in `vocab/s43-concepts.ttl`, with `tmk:notLabel` for the non-synonyms SKOS cannot express. Built from the gold set, not from extraction (ADR-0056) | this repo |
 | 4 | Relationships, propositions, candidate rules | **not started** | this repo |
-| 5 | Formalise the ontology | **not started** | this repo |
-| 6 | Populate and validate the knowledge graph | **not started** | this repo |
+| 5 | Formalise the ontology | **draft — S010.** Six modules in `ontology/`, incl. the `LegislativeProvision`/`ManualInstruction` disjointness. Four classes declared and **deliberately empty** — membership is a legal judgement | this repo |
+| 6 | Populate and validate the knowledge graph | **draft — S010.** 2,545 triples over five named graphs; SHACL shapes written but not run as a gate (pySHACL is not a dependency — ADR-0060) | this repo |
 | 7 | Ontology-enhanced search | **not started** | this repo |
 | 8 | Graph-aware AI retrieval | **not started** | this repo |
 | 9 | Automated reasoning | **not started** | this repo |
@@ -59,7 +59,8 @@ no measures — so ADR-0010 still holds and no Stage 2+ work starts.
 | Review round 1 | **done** — S008. 229 of 368 rows carried a verdict, plus an addendum settling 84 (ADR-0051, ADR-0052) | `review/returned/`, `review/decisions/` |
 | Reconciliation path | **done** — S008, ADR-0049 | `tmk-reconcile` |
 | Blocker and dependency report | **done** — S009, ADR-0053/0054 | `tmk-blockers` → `data/derived/reports/` |
-| Review round 2 (scoped) | **rendered, not sent** — S009, ADR-0055. 10 decisions holding 168 records | `data/derived/stage0-blockers-review.xlsx` |
+| Review round 2 (scoped) | **rendered, not sent** — S009, ADR-0055; now optional (ADR-0061) | `data/derived/stage0-blockers-review.xlsx` |
+| Ontology demonstration | **done** — S010, ADR-0056. 2,545 triples, 10 queries, generated report | `tmk-graph --report` → `data/derived/reports/` |
 
 Target sizes from the roadmap: 100–300 recognised entities, 50–100 approved
 concepts, 50–100 known relationships, 20–50 search questions, 20–50 AI retrieval
@@ -78,6 +79,13 @@ The queue is not a list. Approval does not distribute over an interlinked set
 the critical path, 12 records that need no decision at all, and 149 in the
 ordinary queue.** `data/derived/reports/blockers.md` is the live version — this
 board records only what has moved into `eval/gold/`.
+
+**Stage 0 is still the blocker, and S010 shows what it is blocking.** The
+ontology built from 190 approved records is a working demonstration and an
+honestly small one: 52 concepts, 35 relationships, four ontology classes empty
+because nobody has classified anything into them. Every gap in the board above is
+now visible as a gap in a graph rather than as a missing row in a file, which is
+the most useful thing the demonstration does.
 
 **Stage 0 being the blocker does not mean the repo is blocked.** Which agent
 work proceeds without expert content, and at which of five gates expert input

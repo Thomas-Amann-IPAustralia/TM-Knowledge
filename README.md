@@ -47,6 +47,7 @@ tmk-coverage          # the same, as a worklist → data/derived/reports/
 tmk-blockers          # what is holding the gold set, and what each decision frees
 tmk-seed --only "$(tmk-blockers --ids)" --pack PACK --workbook BOOK
 #   a review round scoped to the records on the critical path (ADR-0055)
+tmk-graph --report    # the s 43 ontology and knowledge graph, from approved records
 python3 -m pytest -q  # `python3 -m`, not bare `pytest`, in a container (QUIRKS Q-29)
 ```
 
@@ -66,11 +67,11 @@ review/            machine-generated candidates awaiting human decision
   seed/            Stage 0 example records, written to be corrected — not content
   returned/        what an expert handed back, unmodified — never edited
   decisions/       what each returned artefact was taken to mean
-vocab/             approved SKOS controlled vocabulary
-ontology/          approved RDF/RDFS/OWL 2 RL modules
-graph/             generated RDF, by named graph
-shapes/            SHACL shapes
-queries/           SPARQL queries and CONSTRUCT rules
+vocab/             approved SKOS controlled vocabulary — 52 s 43 concepts
+ontology/          approved RDF/RDFS/OWL 2 RL modules — six, generated
+graph/             generated RDF, by named graph — 2,545 triples
+shapes/            SHACL shapes — written, not yet run as a gate
+queries/           SPARQL queries and CONSTRUCT rules — ten demonstrations
 tests/             pytest, SPARQL regression, retrieval benchmarks
 .github/           CI: the harness on every push
 ```

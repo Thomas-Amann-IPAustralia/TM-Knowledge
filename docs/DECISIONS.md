@@ -2019,3 +2019,190 @@ matters: the alternative — a scoped workbook that looks exactly like a full on
    pair, which stay as they are.
 3. Nothing about `--only` may be used to narrow what the harness or the seed
    checks look at. If a future flag wants that, it is a different decision.
+
+---
+
+## ADR-0056 — Formalising approved content is not Stage 2, and may proceed
+
+**Date** 2026-09-03 · **Authority** derived · **Status** accepted
+
+**Context.** ADR-0010 stops Stage 2 and everything after it until Stage 0 is
+complete, and it is right to: the first plausible output becomes the standard by
+arriving first, which is the failure the whole roadmap is arranged around. But
+Stage 0 now holds **190 approved records** — 52 concepts with synonyms and
+non-synonyms, 55 typed mentions with character spans, 35 relationships with
+modality and tier — and the owner needs a working demonstration of what an
+ontology buys, over one section, without waiting on further expert time.
+
+**Decision.** Building the vocabulary, the ontology and the knowledge graph
+**from records that already carry a name and a date** is a different activity
+from Stage 2 extraction, and is permitted. `tmk-graph` does it.
+
+**The distinction, stated so it cannot be blurred later.** Stage 2 *creates*
+content: it runs an extractor over raw text and produces candidates nobody has
+seen. This *changes the form* of content a person already signed. The test is
+whether the output could contain a proposition no reviewer approved. For an
+extractor the answer is yes and that is the point of it; for this build the
+answer is no, and three guards keep it no:
+
+1. `tmk-graph` **refuses to run** against a gold set holding any record with a
+   blank `approved_by`, and a test asserts the refusal.
+2. Every emitted node carries `tmk:approvedBy`, `tmk:approvedDate` and
+   `tmk:goldRecord`, so any triple can be traced to the row that was signed.
+3. The classes whose membership would be a legal judgement are declared and
+   **provably empty**, with a test that they stay that way.
+
+**Consequences.**
+
+1. **ADR-0010 is untouched.** No TextRank, YAKE, KeyBERT or spaCy run has
+   happened or may happen. `docs/ROADMAP-STATUS.md` still reports Stage 2 as not
+   started, because it has not started.
+2. **The stage order is departed from, deliberately.** The roadmap assumes Stage
+   2 supplies the vocabulary that Stage 3 organises. Here Stage 3's input is the
+   approved gold set instead. That is a smaller and better-founded vocabulary
+   than an extractor would produce, and it is 52 concepts rather than hundreds.
+3. **The demonstration is exactly as complete as the review got**, and the
+   report says so at the top rather than in a footnote.
+4. What this does **not** license: populating a class, resolving a conflict
+   between two approved records, or filling a judgement field. All three stay
+   with a person.
+
+---
+
+## ADR-0057 — A concept keeps its gold id; there is no second register
+
+**Date** 2026-09-03 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** `IDENTIFIERS.md` §3 sketches SKOS concepts as `tmkc:c-0042`,
+allocated sequentially in a register file. The approved concepts already have
+stable ids — `GC-0001` and up — allocated in `eval/gold/concepts.yaml`.
+
+**Decision.** The concept IRI is `tmkc:GC-0001`. No `c-nnnn` register is created.
+
+**Why.** The rule in §3 exists so that a label can be revised without the
+identifier moving. `GC-0001` already satisfies that. Minting a second identifier
+for the same concept would create two registers with no allocator between them
+and one obvious failure mode: they drift, and then a query returns half a
+vocabulary. One register, one identifier, nothing to reconcile.
+
+**The judgement being flagged.** This is a deviation from a governing document,
+and the argument against it is real: gold records are *evaluation* records, and
+using their ids as vocabulary ids conflates the thing being measured with the
+measuring stick. Today they are the same thing, because the gold concepts are
+the only concepts. If Stage 3 ever produces concepts that are not gold records,
+this has to be revisited — and it is one function, `model.concept_iri`, and a
+rebuild. Flagged in `HANDOFF.md` §3 as Q23.
+
+---
+
+## ADR-0058 — Turtle is emitted without a library; rdflib is optional
+
+**Date** 2026-09-03 · **Authority** derived · **Status** accepted
+
+**Context.** `graph/` is committed (ADR-0042) so that the diff between two
+builds is the paper trail. Serialisers do not promise stable output ordering.
+
+**Decision.** A small deterministic writer in `graph/turtle.py` emits every
+generated `.ttl`: subjects sorted, `a` first, then predicates alphabetically,
+then objects. `rdflib` is an **optional extra** (`[graph]`), used to read the
+result back, validate it and run SPARQL — never to write it.
+
+**Consequences.**
+
+1. Two builds over unchanged input are byte-identical, and a test asserts it. A
+   one-concept change is a one-concept diff.
+2. The core install stays at three dependencies. Emitting needs nothing;
+   querying needs the extra. Same shape as `openpyxl` and `[intake]` (ADR-0035).
+3. **The risk is a file that looks right and will not parse**, so every module
+   and every named graph is parsed back in the test suite, and the writer's
+   reported triple count is asserted equal to what rdflib finds.
+4. One trap paid for immediately: Turtle's `PN_LOCAL` does not admit `/`, so
+   `tmkr:TMM/Part29/1` is not valid Turtle. Everything derived from a ref is
+   written as a full IRI in angle brackets and `PN` refuses an unsafe local
+   name (QUIRKS Q-32).
+
+---
+
+## ADR-0059 — The ontology is generated from Python, and there is no Protégé round trip
+
+**Date** 2026-09-03 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** `ARCHITECTURE.md` §5 names Protégé for ontology editing, which
+implies hand-authored Turtle. But `IDENTIFIERS.md` says the base IRI lives in
+one constant and that changing it must be a config change and a rebuild, "not a
+find-and-replace across serialised RDF" (HANDOFF Q7, still unconfirmed) — and a
+hand-authored `.ttl` bakes the base into its `@prefix` line.
+
+**Decision.** The ontology design lives in `src/tm_knowledge/graph/ontology.py`
+and `ontology/*.ttl` is generated from it.
+
+**Consequences.**
+
+1. Q7 stays a one-line change. Set `TMK_BASE_IRI`, rebuild, done.
+2. Each class and property carries its reasoning next to it, which a `.ttl`
+   comment would not have held as well.
+3. **The cost is real: opening the ontology in Protégé now means editing a
+   generated file, and edits do not come back.** For a pilot of 21 classes and
+   32 properties that is acceptable. It stops being acceptable the moment a
+   domain expert wants to edit the ontology directly, and the fix then is a
+   reader that parses `ontology/*.ttl` back into the module — not to start
+   hand-editing and lose the guarantee quietly. Flagged as Q24.
+
+---
+
+## ADR-0060 — Endpoint constraints go in SHACL, never in `rdfs:domain`
+
+**Date** 2026-09-03 · **Authority** derived · **Status** accepted
+
+**Context.** The fourteen approved predicates stand between concepts,
+provisions, cases and Manual passages. The obvious thing is to declare
+`rdfs:domain` and `rdfs:range` on each.
+
+**Decision.** No relation property declares either. The endpoints are
+constrained in `shapes/s43-shapes.ttl` instead, and a test asserts that no
+domain or range appears in the relations module.
+
+**Why this is `derived` and not a preference.** `rdfs:domain` is an inference
+rule, not a check. Declaring `tmk:requiresElement rdfs:domain tmk:LegalConcept`
+does not verify that subjects are legal concepts — it asserts that everything
+appearing there **is** one. Over this graph, whose subjects include
+`TMA1995/s43` and `CASE/2000/FCA/720`, that would silently manufacture the claim
+that a section of the Act is a legal concept: content no reviewer approved,
+produced by an ontology axiom, indistinguishable in the output from content they
+did. That is CLAUDE.md rule 1 broken by a modelling convenience.
+
+**Consequences.** A violation is reported and names the node, rather than being
+believed or turning the whole graph inconsistent. pySHACL is **not** a
+dependency — running the shapes as a gate is a decision to raise, and the shapes
+are written and waiting.
+
+---
+
+## ADR-0061 — The pilot proceeds without further expert review, and the owner is the reviewer of record
+
+**Date** 2026-09-03 · **Authority** human · **Status** accepted
+
+**Context.** The first review round returned 190 approved records and left ten
+decisions holding another 30 (ADR-0054). The owner has decided not to go back to
+the Trade Mark expert for now, and to develop a working draft over one section
+themselves in order to demonstrate the value of a full ontology.
+
+**Decision**, the owner's: the programme continues on the content that exists.
+Anything approved from here is approved by the owner, who is not a specialist and
+has said so.
+
+**Consequences, and they matter more than the decision.**
+
+1. **`approved_by` already carries this.** The gold set records *who* signed each
+   record, so records signed `TC` and records signed by the owner are
+   distinguishable for ever, without a new field. Nothing is lost and nothing
+   needs migrating. An expert can re-review later and the diff will be visible.
+2. **The unreviewed 149 stay unreviewed.** Not going back to the expert is not
+   the same as approving what they did not reach, and nothing may be promoted
+   because the queue is now inconvenient.
+3. **The demonstration must state its own provenance.** A graph built from
+   190 records signed by one Trade Mark expert is a different artefact from one
+   signed by a non-specialist, and any report that goes further than this repo
+   must say which it is.
+4. This does **not** relax rule 1 for agents. Content is still expert-owned;
+   what has changed is who the approving human is, not that there is one.

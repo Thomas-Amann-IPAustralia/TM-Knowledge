@@ -583,3 +583,83 @@ receives them — the records that name it are exactly the ones that need a
 decision, and they are the point of the report. Getting this wrong does not
 crash anything; it inverts the direction of every chain that touches a rejected
 record, and the resulting table looks entirely plausible.
+
+---
+
+### Q-32 — `tmkr:TMM/Part29/1` is not valid Turtle, and it looks like it should be
+
+Turtle's `PN_LOCAL` production — the bit after the colon in a prefixed name —
+does not admit `/`. Every Manual chunk ref in this corpus is full of them, so
+the natural-looking abbreviation is a parse error:
+
+```turtle
+tmkr:TMM/Part29/1/1/2  a  tmk:ManualPassage .   # will not parse
+<https://…/ref/TMM/Part29/1/1/2>  a  tmk:ManualPassage .   # correct
+```
+
+Worse, it does not fail where you wrote it. A writer that abbreviates by string
+concatenation produces a file that reads perfectly and dies in the parser, and
+the error points at a line number rather than at the decision.
+
+`graph/turtle.py` handles this by making the two cases different types: `IRI`
+always writes angle brackets, and `PN` is the caller *promising* the local name
+is legal. `model.tmk()` refuses a name that is not alphanumeric, so the promise
+cannot be made by accident. The rule to carry: **anything derived from corpus
+data is a full IRI; only fixed vocabulary terms get a prefixed name.**
+
+Related: `#` must be percent-escaped in an IRI (Q-17, ADR-0023), which is a
+different problem with the same shape — the ref is legal, the IRI made from it
+naively is not.
+
+---
+
+### Q-33 — A passage that declines a topic uses fewer of its words than one that discusses it
+
+Approved search question `GS-0003` asks about "confusion with an existing
+registered trade mark". Ranking the 216 in-scope chunks by term frequency puts
+the reviewer's two **correct** answers 72nd and 107th, and all three of their
+*tempting and wrong* passages above them, at 14th, 26th and 42nd.
+
+This is not a tuning problem and no reranker fixes it. The correct answers are
+the passages that say *this is section 44's business, not section 43's*, and a
+passage that sends a topic elsewhere says the topic's words once. The passages
+that discuss confusion at length are the wrong ones, and they win on every
+lexical signal there is.
+
+The consequence for Stages 7 and 8: **a retrieval evaluation that only measures
+lexical or embedding similarity will look fine and be wrong on exactly the
+questions that matter**, because the questions that matter are the ones where a
+user has come to the wrong section. What resolves it is not in the text at all —
+it is `GC-0002`'s `not_labels` and the approved `allocatesTo` edge on
+`TMM/Part29/2/2/3`, both written down by a person.
+
+One approved search question is an illustration, not a measurement. The gold set
+holds one of a target 20–50.
+
+---
+
+### Q-34 — `HAVING` over a `GROUP_CONCAT` alias silently returns nothing
+
+In rdflib's SPARQL engine this returns zero rows, with no error and no warning:
+
+```sparql
+SELECT ?c (GROUP_CONCAT(DISTINCT ?not; separator=" | ") AS ?never)
+WHERE { ... OPTIONAL { ?c tmk:notLabel ?not } }
+GROUP BY ?c
+HAVING(BOUND(?never) && ?never != "")
+```
+
+An unmatched `OPTIONAL` inside `GROUP_CONCAT` does not make the alias unbound —
+it concatenates to the empty string — and referring to the alias from `HAVING`
+does not behave the way the equivalent `SELECT` expression does. Write the
+condition over the underlying variable instead:
+
+```sparql
+HAVING(COUNT(DISTINCT ?not) > 0)
+```
+
+The reason this is worth a quirk rather than a shrug: **a demonstration query
+that returns nothing looks exactly like a graph that contains nothing.** The
+first reading of the empty result was that `not_labels` had not been emitted.
+Every query in `queries/` now has a test asserting it returns at least one row,
+for precisely this reason.

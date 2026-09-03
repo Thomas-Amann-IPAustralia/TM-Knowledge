@@ -28,9 +28,17 @@ src/tm_knowledge/
     workbook.py   `tmk-workbook`: the intake workbook, with no example rows
     transcribe.py `tmk-transcribe`: workbook in, validated records out
     cli.py        the commands above
+  graph/          Stages 3, 5 and 6 — built S010, from APPROVED records only
+    turtle.py     a deterministic Turtle writer; no library, so the diff stays readable
+    model.py      namespaces and the one place a gold id becomes an IRI
+    ontology.py   the six ontology modules, as data with their reasons attached
+    build.py      vocab + assertions + provenance + mentions + bounds, from eval/gold/
+    shapes.py     SHACL — constraints that report rather than infer (ADR-0060)
+    queries.py    the ten demonstration queries, each with why an index cannot serve it
+    report.py     the demonstration, with every number computed at render time
+    cli.py        `tmk-graph`
   candidates/     Stage 2–4 candidate generation — NOT YET, and blocked by ADR-0010
-  vocabulary/     Stage 3 clustering and SKOS emission — not yet
-  graph/          Stage 6 RDF emission and named-graph assembly — not yet
+  vocabulary/     Stage 3 clustering over *extracted* candidates — not yet
   validate/       SHACL runs and validation reporting — not yet
   retrieval/      Stages 7–8 index build, query expansion, evidence packages — not yet
 ```
@@ -47,6 +55,9 @@ tmk-harness                 # the Stage 0 harness. Exits 3 today, by design
 tmk-coverage                # the gap worklist → data/derived/reports/
 tmk-blockers                # the review queue as a graph → data/derived/reports/
 tmk-blockers --ids          # just the record ids on the critical path
+tmk-graph                   # vocab/, ontology/, graph/, shapes/, queries/ from eval/gold/
+tmk-graph --demo            # run the demonstration queries (needs [graph])
+tmk-graph --report          # the demonstration write-up → data/derived/reports/
 tmk-workbook                # the intake workbook → data/derived/ (needs [intake])
 tmk-transcribe FILE         # a filled workbook → eval/gold/. Dry run unless --write
 python3 -m pytest -q        # snapshot-marked tests skip without a fetch (Q-29)

@@ -18,11 +18,16 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-test = ["pytest>=8.0", "openpyxl>=3.1"]
+test = ["pytest>=8.0", "openpyxl>=3.1", "rdflib>=7.0"]
 # The intake path (P7, P8) writes and reads .xlsx. Optional on purpose: it is
 # the only thing in the repo that needs a spreadsheet library, and the core
 # install stays at three dependencies. ADR-0035 — raise it if that is wrong.
 intake = ["openpyxl>=3.1"]
+# Stages 3, 5 and 6 emit Turtle without a library — `graph/` is committed and a
+# serialiser whose output order is an implementation detail destroys the diff
+# (ADR-0058). rdflib is for reading the result back, validating it and running
+# SPARQL, which is why it is optional and why the emitter does not import it.
+graph = ["rdflib>=7.0"]
 
 [project.scripts]
 tmk-fetch-upstream = "tm_knowledge.upstream.fetch:main"
@@ -31,6 +36,7 @@ tmk-worksheet = "tm_knowledge.stage0.cli:worksheet"
 tmk-harness = "tm_knowledge.stage0.cli:harness"
 tmk-coverage = "tm_knowledge.stage0.cli:coverage"
 tmk-blockers = "tm_knowledge.stage0.cli:blockers"
+tmk-graph = "tm_knowledge.graph.cli:main"
 tmk-workbook = "tm_knowledge.stage0.cli:workbook"
 tmk-transcribe = "tm_knowledge.stage0.cli:transcribe"
 tmk-seed = "tm_knowledge.stage0.cli:seed"

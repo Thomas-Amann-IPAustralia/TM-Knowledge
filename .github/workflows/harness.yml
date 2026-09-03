@@ -109,6 +109,22 @@ jobs:
             cat data/derived/reports/blockers.md
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # vocab/, ontology/, graph/, shapes/ and queries/ are generated and
+      # committed, so the diff between two builds is the paper trail (ADR-0042,
+      # ADR-0058). A build that no longer reproduces what is committed means
+      # either the emitter changed or somebody hand-edited RDF, and both need to
+      # be seen rather than discovered three sessions later.
+      - name: The graph rebuilds to what is committed
+        run: |
+          tmk-graph
+          if ! git diff --quiet -- vocab ontology graph shapes queries; then
+            echo "::error::tmk-graph no longer reproduces the committed artefacts. Run tmk-graph and commit the diff."
+            git diff --stat -- vocab ontology graph shapes queries
+            git diff -- vocab ontology graph shapes queries | head -100
+            exit 1
+          fi
+          echo "The graph rebuilds byte-identically." >> "$GITHUB_STEP_SUMMARY"
+
       - name: Publish the status reports
         if: always()
         uses: actions/upload-artifact@v4

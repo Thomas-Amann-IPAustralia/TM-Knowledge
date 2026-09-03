@@ -3,7 +3,7 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-02 · session S009 · branch `claude/next-phase-work-8xg7ct`
+**Last updated:** 2026-09-03 · session S010 · branch `claude/next-phase-work-8xg7ct`
 
 ---
 
@@ -38,7 +38,8 @@ tmk-harness           # 0 defects, 12 gaps. Exit 3
 tmk-coverage          # the same, as a worklist → data/derived/reports/
 tmk-blockers          # what is holding the gold set, and what each decision frees
 tmk-seed              # the 178 seed records that are left. Exit 0
-python3 -m pytest -q  # 312 pass — `python3 -m`, not bare `pytest`, in a container (Q-29)
+tmk-graph --report    # the vocabulary, ontology and graph, and the demonstration
+python3 -m pytest -q  # 347 pass — `python3 -m`, not bare `pytest`, in a container (Q-29)
 ```
 
 **The loop the last session promised did not work, and fixing it was the
@@ -106,6 +107,36 @@ exactly those 10 records, with the `GS--relevant` child rows for the three searc
 questions, and both say on their face that they are a scoped round and where the
 reasoning is (ADR-0055).
 
+**S010 built the ontology, and it is the first thing in this repo that shows
+what the programme is for.** The owner decided not to go back to the expert for
+now (ADR-0061) and asked for a working draft over one section. `tmk-graph` builds
+it: **2,545 triples** over five named graphs, six ontology modules, SHACL shapes
+and ten demonstration queries — **all of it from the 190 records that carry a
+name and a date**. No extraction happened; ADR-0010 is untouched and Stage 2 is
+still not started. What changed is the *form* of approved content (ADR-0056).
+
+The demonstration is `data/derived/reports/ontology-demonstration.md`, generated
+so it stays true. Two findings in it are worth more than the triple count:
+
+- **Approved search question `GS-0003` defeats keyword search completely.**
+  Term frequency over the 216 in-scope chunks ranks the reviewer's two correct
+  passages 72nd and 107th, with all three of their *tempting and wrong* passages
+  above them. The correct answers are the passages saying "this is section 44's
+  business", and a passage that declines a topic uses fewer of its words than one
+  that discusses it (Q-33). What resolves it is not in the text: it is `GC-0002`'s
+  `not_labels` and the approved `allocatesTo` edge, both written by a person.
+- **The graph is a reviewer of the review.** `GR-0008` and `GR-0056` are both
+  signed and say opposite things about the same pair — connotation *requires*
+  reputation, and connotation *excludes* it. `GR-0032` has its subject and object
+  reversed and its own note says so; it was approved anyway. Neither is resolved
+  here: choosing between two things a reviewer approved is not an agent's call.
+
+**Four ontology classes are declared and provably empty** — `GroundOfRefusal`,
+`LegalTest`, `RelevantFactor`, `Exception` — because deciding that a concept is a
+ground rather than a test is a legal judgement no approved record carries. A test
+asserts they stay empty. **Filling one is the highest-value hour available to a
+person on this repo** and nothing else is blocked on it.
+
 **The expert also sent a covering note**, filed verbatim at
 `review/returned/260826-expert-feedback.md`. Two points, both about content and
 neither answerable by an agent: the seed set has the *presumption of
@@ -115,7 +146,27 @@ too-narrow view of nine named roles and office terms (Q17, Q-28).
 
 ## 2. The next action
 
-**Thread B — the experts. Send the scoped round.** It is rendered and it is on
+**Thread A — the ontology, and it now wants a person rather than an agent.**
+The container is built and populated. What it needs next is judgement, and three
+of the four items are an hour each:
+
+1. **Populate one of the four empty classes.** Which of the 52 approved concepts
+   are grounds of refusal, which are legal tests, which are relevant factors,
+   which are exceptions. This turns a taxonomy into a model, it is the single
+   highest-value hour on the board, and an agent may not do it (rule 1). The
+   owner is now the reviewer of record (ADR-0061), so it is theirs to make.
+2. **Rule on the two opposed pairs.** `GR-0008` against `GR-0056`, and the
+   reversed `GR-0032`. One line each; `queries/opposed-statements.rq` and
+   `queries/both-sides.rq` find them and will keep finding them.
+3. **Decide whether the graph should be reasoned over.** No OWL reasoner runs and
+   nothing infers new triples. That is deliberate and it should stay that way
+   until somebody has said what inferences are wanted — a reasoner over a legal
+   ontology produces conclusions, and conclusions here are the thing the
+   programme is careful about.
+4. **Run the shapes as a gate** — the constraints are written and pySHACL is not
+   a dependency. Adding one is a decision to raise (ADR-0060).
+
+**Thread B — the experts. The scoped round is rendered, and now optional.** It is rendered and it is on
 disk: `data/derived/stage0-blockers-review.xlsx`, ten records, with
 `data/derived/reports/blockers.md` as the covering note that says what each one
 needs and what it releases. Do not re-derive that list here — the report is
@@ -161,7 +212,11 @@ furthest from its target count.
    hand-edit either (ADR-0042).
 3. **Keep the pin current if upstream moves** — bumping it makes every
    `source_content_hash` stale by design (`IDENTIFIERS.md` §5). The harness will
-   say so. Do not silently refresh a hash.
+   say so. Do not silently refresh a hash. The graph carries the same hashes, so
+   a moved pin ages the graph too; `tmk-graph` rebuilds it.
+3a. **Rebuild the graph whenever `eval/gold/` changes.** `tmk-graph` is
+   deterministic — two builds over unchanged input are byte-identical — so the
+   diff is the record of what a review round actually moved.
 4. **Confirm the agent-proposed ADRs** when a human is available (§3, Q12, Q15,
    Q18, Q20, Q21, Q22).
 
@@ -196,6 +251,9 @@ result and be an artefact of how far the review got.
 | Q19 | **New, S008.** The expert rejected both `ambiguity_collapse` prohibitions on a principle worth recording: inferring that a bare "section 15(1)" means the *Trade Marks Act 1995* "is acceptable due to the TM focused nature of the tool", and the tool "should be allowed to clarify if a passage is specifically sourced from the legislation". That sits against Q-07 and upstream's refusal to auto-resolve an ambiguous edge. They are not quite the same claim — upstream's `ambiguous` is about *which of several instruments in scope*, not about a bare section in a TM-only tool — but a session must not quietly assume either reading. Does the distinction hold, and where is the line? | Stage 2 citation resolution; the prohibited-use set's sixth kind now rests on one record | S008 |
 | Q21 | **New, S009.** Does the owner confirm **ADR-0054** — what counts as a decision on the critical path? Three kinds are on the worklist (holds something and is directly resolvable; names a rejected record; held only by a marked child row) and two things are deliberately off it (a record dangling on something merely unreviewed, and a rejected record as a source of edges). The judgement being flagged is that a root need **not** be unblocked: `GA-0002`, `PU-0013` and `PU-0014` name each other in a triangle, an "unblocked roots only" rule finds none of them, and that would have hidden the largest chain on the queue. | Nothing; the report is right either way, the worklist changes length | S009 |
 | Q22 | **New, S009.** Does the owner confirm **ADR-0055**'s third guard? A scoped round's pack and workbook state on their face that they are scoped, with the count they were narrowed from. The alternative — a ten-record workbook that looks exactly like a 368-record one — is how a partial review comes to be filed as a complete one. Guards 1 (the checks never narrow) and 2 (an unmatched name refuses the run) follow from rule 6 and need no ruling. | Nothing; every scoped round from here | S009 |
+| Q23 | **New, S010.** Does the owner confirm **ADR-0057** — a SKOS concept keeps its gold id (`tmkc:GC-0001`) rather than getting a freshly allocated `c-nnnn` as `IDENTIFIERS.md` §3 sketches? One register instead of two that can drift. The argument against is real: gold records are *evaluation* records, and using their ids as vocabulary ids conflates the thing being measured with the measuring stick. Today they are the same thing. If Stage 3 ever mints a concept that is not a gold record, this has to be revisited — one function and a rebuild. | Nothing today | S010 |
+| Q24 | **New, S010.** Does the owner accept **ADR-0059**'s cost — the ontology is generated from Python, so opening `ontology/*.ttl` in Protégé means editing a generated file and the edits do not come back? It buys HANDOFF Q7 staying a one-line change. It stops being the right trade the moment a domain expert wants to edit the ontology directly, and the fix then is a reader that parses the Turtle back — **not** to start hand-editing and lose the guarantee quietly. | Ontology editing by anyone who is not an agent | S010 |
+| Q25 | **New, S010.** Should the graph be **reasoned over**, and with what? Nothing infers today: the OWL is a taxonomy plus one disjointness axiom, the SHACL reports rather than infers, and no reasoner runs. A reasoner over a legal ontology produces conclusions, and the roadmap keeps evaluative conclusions outside automated reasoning scope on purpose. Separately: running the shapes as a gate needs pySHACL, which is a dependency decision (ADR-0060). | Stage 6's validation gate, and all of Stage 9 | S010 |
 | Q14 | **New, S006.** Owner asked for more plain-language guidance on **constructing the ontology**, beyond what `STAGE-0-INPUT-GUIDE.md` covers (which is scoped to Stage 0 elicitation, not Stage 5 ontology formalisation). Not scoped or drafted yet — needs its own session: who is the audience (the Trade Mark experts already working from the input guide, or a wider group?), and what specifically is unclear in the existing docs. | Nothing yet; would help the experts' ongoing work | S006 |
 
 Agent-proposed ADRs awaiting human confirmation: **0011** (deferred, not
@@ -205,6 +263,11 @@ Q15), **0048's first two judgement calls** (Q18; the third is answered by
 ADR-0052), **0051's two-operation limit** (Q20), **0054** (Q21) and **0055's
 third guard** (Q22). ADR-0044, ADR-0045, ADR-0047, ADR-0049, ADR-0050 and
 **ADR-0053** are `derived`. **ADR-0052 is `human`.**
+
+**S010 adds:** **ADR-0057** (Q23), **ADR-0059** (Q24) are `agent-proposed`.
+**ADR-0056**, **ADR-0058** and **ADR-0060** are `derived`. **ADR-0061 is
+`human`** — the owner's decision to proceed without further expert review, and
+to be the reviewer of record for anything signed from here.
 (0006, 0012, 0014, 0024, 0026, 0027 confirmed S006 — ADR-0040; 0016 and 0018
 confirmed S006 — ADR-0038; 0028 superseded S006 — ADR-0042. ADR-0023,
 ADR-0025, ADR-0031 and ADR-0034 are `derived`.)
@@ -293,6 +356,26 @@ relevance grade each. The scoped workbook for all ten is rendered.
 - **Do not run bare `pytest` in a container.** The image's `uv`-installed pytest
   shadows the project environment and reports `ModuleNotFoundError` for packages
   that are installed. `python3 -m pytest -q` (Q-29).
+- **Do not populate `GroundOfRefusal`, `LegalTest`, `RelevantFactor` or
+  `Exception`.** They are declared and empty on purpose, a test asserts it, and
+  putting a concept in one is a legal judgement (ADR-0056). The empty class is
+  the question, not a bug.
+- **Do not resolve an opposed pair.** `GR-0008`/`GR-0056` and the reversed
+  `GR-0032` were all approved by a reviewer. Noticing they cannot both be right
+  is the graph's job; choosing between them is not an agent's.
+- **Do not hand-edit anything in `vocab/`, `ontology/`, `graph/`, `shapes/` or
+  `queries/`.** All of it is generated by `tmk-graph`; edit the module under
+  `src/tm_knowledge/graph/` and rebuild. The base IRI is configuration, and a
+  prefix line is exactly where a find-and-replace would break Q7 (ADR-0059).
+- **Do not put `rdfs:domain` or `rdfs:range` on a relation property.** In RDFS
+  they infer rather than check, and over this graph they would assert that a
+  section of the Act is a legal concept — content nobody approved, produced by an
+  axiom (ADR-0060). Constrain endpoints in `shapes/`.
+- **Do not abbreviate a ref as a prefixed name in Turtle.** `PN_LOCAL` has no
+  `/`, so `tmkr:TMM/Part29/1` will not parse, and it fails in the parser rather
+  than where it was written (Q-32).
+- **Do not quote the GS-0003 numbers as a precision figure.** One approved search
+  question is an illustration. The gold set holds one of a target 20–50 (Q-33).
 - **Do not build a vector store or search index yet.** Stage 7 is five stages
   away and untestable without Stage 0.
 - **Do not add LegalRuleML.** ADR-0009.
@@ -301,6 +384,46 @@ relevance grade each. The scoped workbook for all ten is rendered.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S010 — 2026-09-03 — the ontology, out of what was already signed
+
+The owner stopped waiting on the expert (ADR-0061) and asked for a working draft
+over one section. The question that made it possible: **is formalising approved
+content the same activity as extracting candidates?** It is not, and the
+difference is testable — an extractor can output a proposition nobody approved,
+and this build cannot. Three guards make that hold rather than being a claim:
+`tmk-graph` refuses a gold set with any blank `approved_by`, every node carries
+the approver and the gold record it came from, and the classes whose membership
+would be a legal judgement are provably empty (ADR-0056). ADR-0010 is untouched.
+
+**2,545 triples from 190 records**: a SKOS scheme with the synonyms *and* the
+non-synonyms, six ontology modules, reified assertions carrying modality, tier,
+span, hash and approver, 55 mentions with exact character offsets, the 11
+prohibited uses in the graph rather than in a fixture, SHACL shapes and ten
+queries. Turtle is emitted without a library so the committed diff stays
+readable (ADR-0058); rdflib reads it back and is what proves it parses.
+
+**The demonstration found two things nobody had.** `GS-0003` defeats keyword
+search outright — the reviewer's correct passages rank 72nd and 107th of 216 and
+every trap outranks them, because a passage that sends a topic to section 44 uses
+the topic's words once (Q-33). And the graph is a reviewer of the review:
+`GR-0008` and `GR-0056` are both signed and contradict each other, and `GR-0032`
+is reversed and says so in its own note. Both were invisible in a 368-row
+workbook and immediate once the rows were edges.
+
+Rule 1 was the thing to be careful about all session, and the line held in the
+place it mattered most: the ontology has slots for grounds, tests, factors and
+exceptions, and **all four are empty with a test keeping them that way.** Filling
+one is now the highest-value hour a person could spend here.
+
+The other decision worth flagging is ADR-0060, which was nearly a mistake.
+`rdfs:domain` on the relation properties would have been the obvious modelling
+move and would have silently asserted that `TMA1995/s43` is a legal concept —
+invented content, produced by an axiom, indistinguishable in the output from the
+approved kind. RDFS domains infer; they do not check. The constraints went to
+SHACL instead.
+
+347 tests. Harness unchanged at 0 defects / 12 gaps.
 
 ### S009 — 2026-09-02 — the queue was a graph and nobody could see it
 
