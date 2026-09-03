@@ -1866,3 +1866,156 @@ ADR-0051.
    otherwise ready.
 4. The `rejext` on a `GS--relevant` row is **not** covered by this ruling and
    was left alone. It holds nothing — its parent `GS-0007` is unreviewed anyway.
+
+---
+
+## ADR-0053 — The review queue is a graph, and the report that says so is generated
+
+**Date** 2026-09-02 · **Authority** derived · **Status** accepted
+
+**Context.** ADR-0048 made the gate transitive, and the arithmetic stopped being
+readable. After round 1: 213 records carried `correct`, 190 reached
+`eval/gold/`, and the 23 that did not were held by six records scattered
+elsewhere in a 368-row workbook. S008 worked out which six **by hand**, wrote
+them into `HANDOFF.md` §2, and got two of the three chains slightly wrong — the
+list under `GA-0002` omitted `GX-0006`, and the list under `CQ-0014` omitted
+`GA-0021` and `GX-0014`. A hand-derived dependency analysis over an interlinked
+set is wrong on arrival and stale by the next round.
+
+**Decision.** `tmk-blockers` computes it. It reads three committed artefacts —
+the ledgers in `review/decisions/`, the survivors in `review/seed/`, and
+`eval/gold/` — and reports, for every record not yet approved: the gate's own
+reason for holding it, what it names that is not approved, and the transitive
+set of records it is holding. Output: `data/derived/reports/blockers.md`.
+
+It is the pair to `tmk-coverage`. Coverage says what Stage 0 is missing; this
+says which decision on the queue releases the most.
+
+**Why this is `derived` and not a judgement.** Three things force it:
+
+- ADR-0048 made holding transitive, so the queue is a graph rather than a list.
+  Nothing else in the repo reports a graph.
+- ADR-0042 made `data/derived/` committed, so a generated report is the repo's
+  established way of stating a fact about itself.
+- Rule 6. The hand-written version was wrong in two of three chains, and nothing
+  detected that, because nothing was checking.
+
+**Consequences.**
+
+1. **It reads no workbook.** The ledger already carries every parent verdict,
+   every reviewer sentence, and every child-row mark including the unreadable
+   one — `tmk-reconcile` was writing all of it and nothing was reading it back.
+   So the report needs no `.xlsx` reader, runs from a bare checkout with no
+   optional extra, and stays true after the workbook that produced it is closed.
+2. **It imports the gate's reason constants from `transcribe`** rather than
+   restating them. A report describing a gate that does not exist is worse than
+   no report, and `test_every_gate_reason_has_a_statement_of_what_is_needed`
+   fails the moment a seventh reason appears.
+3. **It proposes nothing.** Where a record names one that was rejected it gives
+   the two options the gate allows — repoint or withdraw — and says the choice
+   is an expert's. That is arithmetic about the door, not an opinion about trade
+   marks law (rule 1).
+4. `HANDOFF.md` §2 stops carrying a hand-maintained blocker list. It points at
+   the report.
+5. **CI runs it**, beside `tmk-coverage`, and its exit 1 breaks the build. That
+   is not a duplicate of the harness: the harness reads `eval/gold/` only, so a
+   *seed* record naming an id that exists nowhere is invisible to it. Such an id
+   was constructed rather than read, which is a defect under ADR-0018's meaning
+   of the word, not a gap.
+
+---
+
+## ADR-0054 — What counts as a decision on the critical path
+
+**Date** 2026-09-02 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** A report that lists 178 held records has told a reviewer nothing.
+The useful output is the much smaller set where *their* pen changes something,
+and picking that set is a judgement about what "actionable" means.
+
+**Decision.** A held record is on the critical path when any of three things is
+true, and only then:
+
+1. **It holds at least one other record and its own state is one a reviewer
+   resolves directly** — unreviewed, awaiting an amendment, or unsigned.
+2. **It names a record the reviewer rejected.** No amount of reviewing anything
+   else can satisfy that pointer, so this record repoints or it withdraws.
+3. **It is signed and held only by a marked row on its own child sheet.** The
+   cheapest kind there is: the parent is already approved.
+
+Two exclusions carry as much weight as the rule:
+
+- **A record held only by a pointer at something merely unreviewed is not a
+  decision.** It is correct, signed, and it enters `eval/gold/` on the next
+  transcription after the record it names does. Twelve records are in that
+  position; putting them on a worklist asks a reviewer to read records that are
+  already answered. The report lists them separately, under *Carried by a
+  decision above*, with the decision that settles each.
+- **A rejected record is not waiting on anything.** It is finished, negatively.
+  It stays in `review/seed/` so the rejection and its reason survive, and it is a
+  sink in the dependency graph, never a source. Counting it as a dependent
+  reported `GA-0016` as *holding* `PU-0016`, which is backwards: the rejection is
+  why `GA-0016` has to change, not something `GA-0016` releases.
+
+**The judgement being flagged.** Rule 1 does **not** require the root to be
+unblocked. `GA-0002` awaits an amendment and names `PU-0013` and `PU-0014`, both
+of which name `GA-0002` straight back; nothing outside that triangle releases any
+of it, and the amendment releases all of it. An "unblocked roots only" rule is
+simpler, defensible, and would have hidden the largest single decision on the
+queue. Flagged in `HANDOFF.md` §3 as Q21.
+
+**Consequences.**
+
+1. Round 1's queue of 178 becomes **10 decisions**, and the report says what each
+   one releases: `GA-0002` (8), `CQ-0014` (6), `CQ-0013` (3), `PU-0012` (2), then
+   six that release nothing further but are themselves stuck.
+2. `tmk-blockers --ids` prints exactly those ten, in that form, so the scoped
+   round is one shell pipeline rather than a transcribed list.
+3. **Three search questions surface that no hand analysis had found.** `GS-0001`,
+   `GS-0002` and `GS-0004` are signed and held only by relevance-grade rows the
+   reviewer marked `amend`. Search questions stand at 1 of a target 20–50, so
+   three child rows are worth four times the current count of the record type
+   furthest from its band.
+4. Any change to what "actionable" means changes what a reviewer is asked to do.
+   It is a decision, not a tuning parameter.
+
+---
+
+## ADR-0055 — A review round may be scoped, and both artefacts must say so
+
+**Date** 2026-09-02 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** The blocker analysis is only worth having if the reviewer can be
+handed the ten records rather than the 178. `tmk-seed` rendered the whole of
+`review/seed/` or nothing.
+
+**Decision.** `tmk-seed --only ID,ID,…` narrows the **rendering** to the named
+records, accepting either id form (`CQ-0013` or `SEED-CQ-0013`). Three guards:
+
+1. **The checks never narrow.** `check()` and `coverage()` run over the whole of
+   `review/seed/` regardless, because a subset cannot tell you the set is sound,
+   and a round scoped to ten records must not also scope the defect report to
+   ten records.
+2. **A name that matches nothing refuses the run.** A round scoped to ten records
+   and silently rendered over nine is a loss nobody looks at again (rule 6).
+3. **Both artefacts declare the scope on their face** — the pack in its banner,
+   the workbook on its `how to use this` sheet — with the count it was narrowed
+   from and a pointer to `blockers.md` for why these records. A scoped round that
+   does not say it is scoped is indistinguishable from a complete one, and a
+   reviewer who believes they have seen everything stops looking.
+
+**The judgement being flagged.** Guard 3 is the agent's, and it is the one that
+matters: the alternative — a scoped workbook that looks exactly like a full one
+— is how a partial review comes to be recorded as a complete one. Flagged in
+`HANDOFF.md` §3 as Q22.
+
+**Consequences.**
+
+1. The return leg is unchanged. A scoped workbook goes back through
+   `tmk-transcribe` and `tmk-reconcile` like any other, because ADR-0049 already
+   reconciles per record rather than per file.
+2. `data/derived/` gains two artefacts per scoped round —
+   `blockers-review-pack.md` and `stage0-blockers-review.xlsx` — beside the full
+   pair, which stay as they are.
+3. Nothing about `--only` may be used to narrow what the harness or the seed
+   checks look at. If a future flag wants that, it is a different decision.

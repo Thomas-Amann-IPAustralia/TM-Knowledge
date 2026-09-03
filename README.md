@@ -44,7 +44,10 @@ tmk-reconcile FILE --write   # record the round, retire the seed copies it settl
 #   both take --addendum for a decision that arrived as words, not as cells
 tmk-harness           # every Stage 0 check. Exits 3: incomplete, by design
 tmk-coverage          # the same, as a worklist → data/derived/reports/
-pytest -q
+tmk-blockers          # what is holding the gold set, and what each decision frees
+tmk-seed --only "$(tmk-blockers --ids)" --pack PACK --workbook BOOK
+#   a review round scoped to the records on the critical path (ADR-0055)
+python3 -m pytest -q  # `python3 -m`, not bare `pytest`, in a container (QUIRKS Q-29)
 ```
 
 `tmk-harness` exiting non-zero is the intended state, not a broken checkout: **0**

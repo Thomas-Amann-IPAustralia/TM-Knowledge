@@ -3,7 +3,7 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-02 · session S008 · branch `claude/ontology-stage-0-loop-s7sruh`
+**Last updated:** 2026-09-02 · session S009 · branch `claude/next-phase-work-8xg7ct`
 
 ---
 
@@ -36,8 +36,9 @@ pip install -e ".[test,intake]"
 tmk-fetch-upstream    # pinned snapshot into data/upstream/ (~4s)
 tmk-harness           # 0 defects, 12 gaps. Exit 3
 tmk-coverage          # the same, as a worklist → data/derived/reports/
+tmk-blockers          # what is holding the gold set, and what each decision frees
 tmk-seed              # the 178 seed records that are left. Exit 0
-pytest -q             # 287 pass
+python3 -m pytest -q  # 312 pass — `python3 -m`, not bare `pytest`, in a container (Q-29)
 ```
 
 **The loop the last session promised did not work, and fixing it was the
@@ -84,6 +85,27 @@ held, 8 rejected. The held rows sort into reasons a person can act on:
 | rejected by the reviewer | 8 |
 | a child row is unsettled | 3 |
 
+**S009 made the queue readable.** The blocker analysis S008 did by hand is now
+`tmk-blockers`, generated from the ledgers, the seed set and the gold set —
+`data/derived/reports/blockers.md` (ADR-0053). It was worth generating: the
+hand-written version in this file was wrong in two of its three chains, omitting
+`GX-0006` under `GA-0002` and `GA-0021`/`GX-0014` under `CQ-0014`. It also found
+something no reading had: **`GS-0001`, `GS-0002` and `GS-0004` are signed and
+held only by relevance-grade rows marked `amend`** — three child rows, on the
+record type furthest from its band (search questions, 1 of 20–50).
+
+The queue of 178 sorts into **10 decisions and 168 records waiting on them**
+(ADR-0054). Twelve of those 168 need nothing at all: they are correct, signed,
+and held only by a pointer at a record on the worklist, so they land on the next
+transcription after it does. The other 149 are the ordinary queue and can be
+done in any order.
+
+**The scoped round is rendered and ready to send.**
+`data/derived/stage0-blockers-review.xlsx` and `blockers-review-pack.md` hold
+exactly those 10 records, with the `GS--relevant` child rows for the three search
+questions, and both say on their face that they are a scoped round and where the
+reasoning is (ADR-0055).
+
 **The expert also sent a covering note**, filed verbatim at
 `review/returned/260826-expert-feedback.md`. Two points, both about content and
 neither answerable by an agent: the seed set has the *presumption of
@@ -93,47 +115,55 @@ too-narrow view of nine named roles and office terms (Q17, Q-28).
 
 ## 2. The next action
 
-**Thread B — the experts. Six records now hold twenty.** The signature backlog
-is gone; what is left is small and specific:
+**Thread B — the experts. Send the scoped round.** It is rendered and it is on
+disk: `data/derived/stage0-blockers-review.xlsx`, ten records, with
+`data/derived/reports/blockers.md` as the covering note that says what each one
+needs and what it releases. Do not re-derive that list here — the report is
+generated and this file will go stale before it does. In summary:
 
-1. **`CQ-0013` and `CQ-0014` were never reviewed.** They hold `PU-0010` and
-   `PU-0011`, which hold `GA-0015`, `GA-0017`, `GX-0003`, `GX-0007` and
-   `GX-0008`. `PU-0010`–`PU-0012` are also the only `stale_source` prohibitions,
-   which is the one kind the gold set is still missing entirely.
-2. **`GA-0002` needs its amendment applied** — the expert wrote what is wrong
-   with it, the record has not been changed to match. It holds `PU-0013` and
-   `PU-0014`, and through them `GA-0006`, `GA-0014`, `GA-0019`, `GA-0020` and
-   `GA-0022`.
-3. **Three records point at rejected records and cannot go in as they stand:**
-   `PU-0012` names `CQ-0016`; `GA-0016` and `GA-0021` name `PU-0016`/`PU-0017`;
-   `GX-0002` names `PU-0017`. Each needs its pointer changed or the record
-   withdrawn. Expert call, not an agent's.
-4. **The remaining 139 unreviewed rows**, of which 91 are entities — the record
-   type furthest from its target (55 of 100–300).
+| decision | state | releases |
+|---|---|---|
+| `GA-0002` | amendment recorded, not applied | 8 |
+| `CQ-0014` | never reviewed | 6 |
+| `CQ-0013` | never reviewed | 3 |
+| `PU-0012` | names the rejected `CQ-0016` | 2 |
+| `GA-0016`, `GA-0021`, `GX-0002` | name the rejected `PU-0016`/`PU-0017` | — |
+| `GS-0001`, `GS-0002`, `GS-0004` | signed; a relevance grade marked `amend` | — |
 
-The three from earlier still stand and still beat record review per hour:
+The last three are the cheapest thing on the board and were invisible until the
+analysis was generated: each is a signed search question held by one or two
+grade rows. Settling them takes `search-questions.yaml` from 1 to 4, on the
+record type furthest from its band.
+
+Then, still expert-owned and still ahead of record review per hour:
 `review/seed/pilot-scope.seed.md` (the boundary, Q8),
 `review/seed/measures.seed.md` (the thresholds), and the nine definitions the
-expert asked for in their note.
+expert asked for in their note (Q17). After the scoped round, the remaining
+**149 records are the ordinary queue** — 98 entities among them, the record type
+furthest from its target count.
 
 **Thread C — agents. Maintenance.** What is legitimately left:
 
 0. **Run the loop when the next workbook arrives.** Three commands:
    `tmk-transcribe FILE --write`, `tmk-reconcile FILE --write`, then
-   `tmk-harness` and `tmk-coverage`. File the returned workbook in
-   `review/returned/` first and never edit it (ADR-0050). If a decision arrives
-   as words rather than as cells, write an addendum — do not edit a workbook,
-   and do not generate one (ADR-0051).
-1. **One verdict cell is still misspelt** — `rejext` on a `GS--relevant` row.
-   Nothing infers what it meant, and nobody has ruled on it. It holds nothing:
-   its parent `GS-0007` is unreviewed anyway.
-2. **Report the state honestly.** `tmk-coverage` is the answer to "what is
-   Stage 0 waiting on", and it is now generated from real content.
+   `tmk-harness`, `tmk-coverage` and `tmk-blockers`. A scoped workbook goes back
+   the same way as a full one — ADR-0049 reconciles per record, not per file.
+   File the returned workbook in `review/returned/` first and never edit it
+   (ADR-0050). If a decision arrives as words rather than as cells, write an
+   addendum — do not edit a workbook, and do not generate one (ADR-0051).
+1. **One verdict cell is still misspelt** — `rejext` on a `GS--relevant` row
+   under `GS-0007`. `tmk-blockers` prints it under *Verdict cells nothing can
+   read*. Nothing infers what it meant, and nobody has ruled on it. It holds
+   nothing: its parent is unreviewed anyway.
+2. **Report the state honestly.** `tmk-coverage` answers "what is Stage 0
+   waiting on"; `tmk-blockers` answers "and whose decision moves it". Both are
+   generated from real content. Regenerate and commit the diff; do not
+   hand-edit either (ADR-0042).
 3. **Keep the pin current if upstream moves** — bumping it makes every
    `source_content_hash` stale by design (`IDENTIFIERS.md` §5). The harness will
    say so. Do not silently refresh a hash.
 4. **Confirm the agent-proposed ADRs** when a human is available (§3, Q12, Q15,
-   Q18, Q20).
+   Q18, Q20, Q21, Q22).
 
 **Do not** build more apparatus. **Do not** start Stage 2 — no TextRank, YAKE,
 KeyBERT or spaCy run, not even "just to see the output" (ADR-0010). The
@@ -164,14 +194,17 @@ result and be an artefact of how far the review got.
 | Q18 | **New, S008. Partly answered.** ADR-0048 gates `eval/gold/` on the reviewer's verdict. The rule itself — *a row crosses only on `correct` **with a name in `approved_by`*** — follows from rule 4 and ADR-0039 and needs no ruling. Three things inside it were the agent's judgement, and in plain terms they are: **(a)** if a record you signed points at one you did not, the signed one is held too — because a gold record naming a record that is not in the gold set is a pointer to nothing, which the harness calls a defect; **(b)** if a record is signed but one of its *sub-rows* (a relevance grade, an expected inference) is marked `amend` or left blank, the whole record is held — because that sub-row is part of the record, so writing it would certify a value the reviewer said was wrong; **(c)** a verdict cell that is not exactly `correct`/`amend`/`reject` — `corrrect` — stops the row rather than being read as the value it resembles. **(c) is now settled in practice** (ADR-0052): the tool stayed strict and a person overrode that one cell by name, which cost one line. (a) and (b) still stand as written and are what "18 held, then 20" in §1 is measuring. **ADR-0047, ADR-0049 and ADR-0050 are `derived`.** | Nothing today; the loop works either way, the yield changes | S008 |
 | Q20 | **New, S008.** Does the owner confirm **ADR-0051**? A reviewer's decision that arrives as words is applied from an instruction file in `review/returned/`, never by editing or generating a workbook, and the instruction may do exactly two things: sign a **blank** `approved_by` on a row already marked `correct`, and settle a verdict on a **named** record. The two-operation limit is the judgement — it is what stops "they confirmed the corrections" becoming a blank cheque over 368 rows. Widening it (a pattern, a typo table, "sign everything") should be a decision, not a convenience. | Nothing; every future round that settles anything by email | S008 |
 | Q19 | **New, S008.** The expert rejected both `ambiguity_collapse` prohibitions on a principle worth recording: inferring that a bare "section 15(1)" means the *Trade Marks Act 1995* "is acceptable due to the TM focused nature of the tool", and the tool "should be allowed to clarify if a passage is specifically sourced from the legislation". That sits against Q-07 and upstream's refusal to auto-resolve an ambiguous edge. They are not quite the same claim — upstream's `ambiguous` is about *which of several instruments in scope*, not about a bare section in a TM-only tool — but a session must not quietly assume either reading. Does the distinction hold, and where is the line? | Stage 2 citation resolution; the prohibited-use set's sixth kind now rests on one record | S008 |
+| Q21 | **New, S009.** Does the owner confirm **ADR-0054** — what counts as a decision on the critical path? Three kinds are on the worklist (holds something and is directly resolvable; names a rejected record; held only by a marked child row) and two things are deliberately off it (a record dangling on something merely unreviewed, and a rejected record as a source of edges). The judgement being flagged is that a root need **not** be unblocked: `GA-0002`, `PU-0013` and `PU-0014` name each other in a triangle, an "unblocked roots only" rule finds none of them, and that would have hidden the largest chain on the queue. | Nothing; the report is right either way, the worklist changes length | S009 |
+| Q22 | **New, S009.** Does the owner confirm **ADR-0055**'s third guard? A scoped round's pack and workbook state on their face that they are scoped, with the count they were narrowed from. The alternative — a ten-record workbook that looks exactly like a 368-record one — is how a partial review comes to be filed as a complete one. Guards 1 (the checks never narrow) and 2 (an unmatched name refuses the run) follow from rule 6 and need no ruling. | Nothing; every scoped round from here | S009 |
 | Q14 | **New, S006.** Owner asked for more plain-language guidance on **constructing the ontology**, beyond what `STAGE-0-INPUT-GUIDE.md` covers (which is scoped to Stage 0 elicitation, not Stage 5 ontology formalisation). Not scoped or drafted yet — needs its own session: who is the audience (the Trade Mark experts already working from the input guide, or a wider group?), and what specifically is unclear in the existing docs. | Nothing yet; would help the experts' ongoing work | S006 |
 
 Agent-proposed ADRs awaiting human confirmation: **0011** (deferred, not
 declined — see ADR-0041), **0029, 0030, 0032, 0033, 0035, 0036, 0037**,
 **0043's guards** (the decision to seed was the owner's; how it is fenced is
 Q15), **0048's first two judgement calls** (Q18; the third is answered by
-ADR-0052) and **0051's two-operation limit** (Q20). ADR-0044, ADR-0045,
-ADR-0047, ADR-0049 and ADR-0050 are `derived`. **ADR-0052 is `human`.**
+ADR-0052), **0051's two-operation limit** (Q20), **0054** (Q21) and **0055's
+third guard** (Q22). ADR-0044, ADR-0045, ADR-0047, ADR-0049, ADR-0050 and
+**ADR-0053** are `derived`. **ADR-0052 is `human`.**
 (0006, 0012, 0014, 0024, 0026, 0027 confirmed S006 — ADR-0040; 0016 and 0018
 confirmed S006 — ADR-0038; 0028 superseded S006 — ADR-0042. ADR-0023,
 ADR-0025, ADR-0031 and ADR-0034 are `derived`.)
@@ -182,9 +215,13 @@ Q4 — though Q4's who-half is now half-answered: the reviewer signs `TC`), scop
 for later (Q6, Q14), or a confirmation that changes nothing structural (Q12,
 Q18, Q20, and 0029/0030/0032/0033/0035/0036/0037 within them).
 
-**What is blocked is the gold set, and it is now blocked on six records.**
-`CQ-0013`, `CQ-0014`, `CQ-0016`, `GA-0002`, `PU-0016` and `PU-0017` between them
-hold 20 records that are otherwise ready (§2). That is the whole critical path.
+**What is blocked is the gold set, and the critical path is ten decisions.**
+`data/derived/reports/blockers.md` is the live version and this file is not —
+read it there. In outline: `GA-0002`, `CQ-0013` and `CQ-0014` are three chains
+holding 17 records between them; `PU-0012`, `GA-0016`, `GA-0021` and `GX-0002`
+name records the reviewer rejected and so must repoint or withdraw; and
+`GS-0001`, `GS-0002` and `GS-0004` are signed search questions held by a
+relevance grade each. The scoped workbook for all ten is rendered.
 
 ## 4. Do not redo these
 
@@ -241,6 +278,21 @@ hold 20 records that are otherwise ready (§2). That is the whole critical path.
   gap; a plausible value is a lie the harness will then certify.
 - **Do not make `pytest` fail to satisfy "the suite must fail".** That is
   `tmk-harness`'s job, and collapsing them hides every future regression (Q-23).
+- **Do not hand-maintain a blocker list.** `tmk-blockers` computes it, and the
+  hand-written one in this file was wrong in two of three chains before anything
+  was checking (ADR-0053). Quote the report; do not restate it.
+- **Do not walk `CROSS_REFERENCES` recursively.** The real seed set contains
+  reference cycles — `GA-0002` ↔ `PU-0013` (Q-30) — so a naive walk hangs on
+  content rather than on a fixture and passes its tests first.
+- **Do not treat a rejected record as waiting on what it names.** It is a sink in
+  the dependency graph, not a source. Getting it backwards inverts every chain
+  that touches a rejection and looks entirely plausible (Q-31).
+- **Do not let `--only` narrow a check.** It narrows what is *rendered* and
+  nothing else. A round scoped to ten records must not scope the defect report to
+  ten records (ADR-0055).
+- **Do not run bare `pytest` in a container.** The image's `uv`-installed pytest
+  shadows the project environment and reports `ModuleNotFoundError` for packages
+  that are installed. `python3 -m pytest -q` (Q-29).
 - **Do not build a vector store or search index yet.** Stage 7 is five stages
   away and untestable without Stage 0.
 - **Do not add LegalRuleML.** ADR-0009.
@@ -249,6 +301,53 @@ hold 20 records that are otherwise ready (§2). That is the whole critical path.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S009 — 2026-09-02 — the queue was a graph and nobody could see it
+
+S008 left the critical path stated as six records in a paragraph of this file.
+Generating the same analysis found the paragraph wrong in two of its three
+chains — `GX-0006` missing under `GA-0002`, `GA-0021` and `GX-0014` missing
+under `CQ-0014` — and nothing had detected that, because nothing was checking. A
+hand-derived dependency analysis over an interlinked set is wrong on arrival and
+stale by the next round, which is the whole argument for ADR-0053.
+
+`tmk-blockers` reads three committed artefacts — the ledgers, `review/seed/`,
+`eval/gold/` — and needs no workbook, because `tmk-reconcile` had been writing
+every child-row mark into the ledger since S008 and nothing had ever read them
+back. That is where the session's most useful finding came from: **`GS-0001`,
+`GS-0002` and `GS-0004` are signed search questions held by nothing but a
+relevance grade the reviewer marked `amend`.** Three child rows, on the record
+type at 1 of a target 20–50. No reading of the workbook had surfaced them.
+
+The judgement in it is ADR-0054 — what counts as a decision. Ten, out of 178.
+The two exclusions carry as much weight as the rule: twelve records are correct,
+signed and held only by a pointer at something already on the worklist, so
+asking a reviewer to look at them is asking them to answer an answered question;
+and a rejected record is a **sink** in the graph, not a source (Q-31) — the first
+version of the table reported `GA-0016` as *holding* `PU-0016`, which is exactly
+backwards and looked entirely plausible.
+
+Rule 1 was the thing to be careful about, and the line held: the report says a
+record names one that was rejected and that the gate allows two responses —
+repoint or withdraw — and that choosing is an expert's call. It quotes the
+reviewer's own words and paraphrases none of them.
+
+Then `tmk-seed --only` (ADR-0055), so the ten can be handed over as ten rather
+than as 178. The checks still run over the whole set; only the rendering
+narrows; and both artefacts say on their face that they are scoped, because a
+scoped workbook that looks complete is how a partial review gets filed as a
+finished one.
+
+**Result: 10 decisions on the board instead of a 178-row workbook, a scoped
+round rendered and ready to send, 312 tests passing, harness unchanged at 0
+defects / 12 gaps.** Nothing moved in `eval/gold/` and nothing was meant to —
+every record on that worklist needs a person.
+
+Two container lessons in QUIRKS. **Q-29**: the image's `uv`-installed `pytest`
+shadows the project environment, so nine collection errors named packages that
+were plainly installed; `python3 -m pytest`. **Q-30**: the seed set contains real
+reference cycles, so every walk over `CROSS_REFERENCES` must be cycle-safe or it
+hangs on content rather than on a fixture.
 
 ### S008 — 2026-09-02 — the first workbook back, and a loop that would have run backwards
 

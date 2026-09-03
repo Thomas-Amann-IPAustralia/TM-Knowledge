@@ -19,6 +19,15 @@ Three of those are occupied, and together they are the round trip: `seed/` is
 what we sent, `returned/` is what came back, `decisions/` is what it was taken
 to mean. Each has its own README.
 
+**The round trip is partial by design, so the queue is a graph rather than a
+list.** A round settles some records and not others, and approval does not
+distribute over an interlinked set (ADR-0048): a signed record naming an unsigned
+one is held too. `tmk-blockers` reads all three directories and reports who is
+waiting on whom, which decision releases the most, and which records need no
+decision at all — `data/derived/reports/blockers.md` (ADR-0053). Read it before
+assembling a round; `tmk-seed --only` renders one scoped to exactly the records
+it names (ADR-0055).
+
 `seed/` is unusual enough to have its own ADR: it holds candidate **legal
 content**, written by an agent so that an expert can correct it rather than
 compose it from a blank form (ADR-0043).

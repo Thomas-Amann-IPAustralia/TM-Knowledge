@@ -43,7 +43,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Any, Iterable, Iterator
 
 import yaml
 
@@ -171,6 +171,35 @@ class SeedSet:
     def records(self, record_type: str) -> list[dict[str, Any]]:
         """The bare records of one type — for the workbook, and nothing else."""
         return [dict(envelope.record) for envelope in self[record_type]]
+
+    def subset(self, identifiers: Iterable[str]) -> tuple["SeedSet", tuple[str, ...]]:
+        """A narrower set holding only the named records, plus what was not found.
+
+        Both id forms are accepted — the record's own `CQ-0013` and the envelope's
+        `SEED-CQ-0013` — because a reviewer quoting a blocker from a report has the
+        first and a reviewer quoting a correction has the second, and refusing
+        either would be a trap rather than a rule.
+
+        The names that matched nothing come back rather than being dropped. A
+        review round scoped to six records, silently rendered over five, is a
+        record nobody looks at again (rule 6).
+        """
+        wanted = {str(name).strip() for name in identifiers if str(name).strip()}
+        kept = tuple(
+            envelope
+            for envelope in self.envelopes
+            if envelope.record_id in wanted or envelope.seed_id in wanted
+        )
+        found = {e.record_id for e in kept} | {e.seed_id for e in kept}
+        return (
+            SeedSet(
+                root=self.root,
+                envelopes=kept,
+                files=dict(self.files),
+                unreadable=self.unreadable,
+            ),
+            tuple(sorted(wanted - found)),
+        )
 
 
 # ---------------------------------------------------------------------------
