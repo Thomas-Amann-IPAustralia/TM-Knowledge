@@ -11,10 +11,13 @@ it: vocabulary, ontology, relationships, graph, search, retrieval, reasoning.
 ## 1. Read order for a new session
 
 1. This file.
-2. `docs/HANDOFF.md` — **where the last session stopped and what to do next.**
-3. `docs/DECISIONS.md` — what has already been settled, and why. Do not relitigate.
-4. `docs/QUIRKS.md` — traps that have already cost someone time.
-5. Then, only what your task needs:
+2. `review/rulings/` — **anything the owner has decided and nobody has acted on.**
+   A ruling outranks any `agent-proposed` ADR it touches. Empty is the normal
+   state; a file with `applied: null` is work waiting for you.
+3. `docs/HANDOFF.md` — **where the last session stopped and what to do next.**
+4. `docs/DECISIONS.md` — what has already been settled, and why. Do not relitigate.
+5. `docs/QUIRKS.md` — traps that have already cost someone time.
+6. Then, only what your task needs:
    - `docs/ARCHITECTURE.md` — intended shape of the system and what lives where.
    - `docs/IDENTIFIERS.md` — the identifier and IRI rules. Read before writing any ID.
    - `docs/ROADMAP-STATUS.md` — stage-by-stage status board.
@@ -71,7 +74,16 @@ assumption, write it into `docs/QUIRKS.md` *when you find it*, not at the end.
 2. Add any decision you made to `docs/DECISIONS.md` as a new numbered ADR.
    Include the ones you made implicitly by choosing an approach.
 3. Update the relevant row of `docs/ROADMAP-STATUS.md` if a deliverable moved.
-4. Commit and push. An unpushed container is a lost container.
+4. If you acted on a ruling, close it out: `applied:` in the ruling file, an ADR
+   with authority `human`, and `status: answered` on the question.
+5. If anything you changed is on the dashboard — a gold record, the ontology, the
+   graph, an ADR, the status board — run `tmk-dashboard --write` and commit the
+   result. CI fails on drift, because the published site reads only what is
+   committed.
+6. Ask the owner anything you needed and could not get: add it to
+   `review/questions/open-questions.yaml`, in the plain language its README sets
+   out. That file is the only route from this repo to a decision.
+7. Commit and push. An unpushed container is a lost container.
 
 A session that produced work but left `HANDOFF.md` stale has failed the next
 session. Treat step 1 as part of the task, not as paperwork.

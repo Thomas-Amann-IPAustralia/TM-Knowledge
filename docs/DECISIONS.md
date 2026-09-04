@@ -2243,3 +2243,224 @@ rather than what it says. Flagged in `HANDOFF.md` §3 as Q24.
    most important row is a blank one.
 3. A query nobody can write a limits line for is a query that has not been
    understood, and refusing it is the right outcome rather than an obstacle.
+
+---
+
+## ADR-0062 — There is a public dashboard, and it has exactly two jobs
+
+**Date** 2026-09-04 · **Authority** human · **Status** accepted
+
+**Context.** Everything this repo produces is a file: YAML records, Turtle, a
+SHACL report, four generated Markdown reports and 61 ADRs. That is right for the
+work and wrong for the reader. Two audiences cannot use it. Trade marks experts
+cannot see what the ontology says or why a decision was made without reading
+Turtle. And the owner, who is the only person who can settle a growing list of
+questions, has had those questions delivered as a table inside a 400-line handoff
+document written for the next agent.
+
+**Decision.** The owner's instruction, in their words: a dashboard at
+`https://thomas-amann-ipaustralia.github.io/TM-Knowledge/`, *"beautiful, clean
+and fun"*, with two core functions —
+
+1. **Explain the shape of the ontology, the graph and the related data**, simply
+   and elegantly, easy to amend as the ontology changes, with tooltips and
+   explanatory features for readers who are trade marks experts and not systems
+   engineers.
+2. **Let the owner respond to outstanding issues** through a templated form with
+   radio buttons, dropdowns and free text, whose answers are saved where the next
+   session can read them. The items must be written in straightforward language:
+   *"I'm becoming more knowledgeable, but I'm far from being a system engineer."*
+
+They also set the constraint that shapes ADR-0065: the form will be updated after
+almost every session, so the part that changes must stay lightweight — their own
+suggestion was static scripts reading a dynamic JSON or YAML file.
+
+**Consequences.**
+
+1. The dashboard is a deliverable of this repo, not a side artefact. It has a
+   directory, a README, generated data, tests and CI like anything else.
+2. Its audience is not an agent. Language that is precise for a session — "the
+   TBox is drafted, not promoted" — is a failure on the page.
+3. It is published, so a wrong number on it is worse than a missing page. Every
+   figure is generated (ADR-0063) and CI fails when the published data no longer
+   matches the repository.
+4. Publishing needs one repository setting the agent cannot make: **Settings →
+   Pages → Build and deployment → Source: GitHub Actions**. Without it the
+   workflow runs green and publishes nothing.
+
+## ADR-0063 — The dashboard is generated from committed artefacts only, and never from the snapshot
+
+**Date** 2026-09-04 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** The site needs numbers. Some of them — 52 concepts, 2,942 approved
+triples, 49 classes, 61 decisions — come from files this repo commits. Others —
+216 in-scope chunks, 529 citations, 16,405 source triples — exist only in
+`graph/source.ttl`, which is deliberately not committed (ADR-0060) and is rebuilt
+from the pinned upstream snapshot.
+
+Three options. Fetch the snapshot during the page build and report everything;
+hard-code the figures the snapshot would give; or report only what the committed
+artefacts support and say so.
+
+**Decision.** `tm_knowledge.dashboard` reads **committed artefacts only**:
+`eval/gold/`, `ontology/draft/`, `graph/approved.ttl`, `graph/inferred.ttl`,
+`shapes/`, `queries/`, `data/pin.json`, and the three documents in `docs/` that
+the site restates. It never fetches or reads the snapshot.
+
+Figures that only the source graph holds are **not restated on the site at all**.
+Instead the site renders `data/derived/reports/` — produced by the runs that do
+have the snapshot — in full, in place, unsummarised.
+
+`tmk-dashboard --check` regenerates in memory and fails if what is committed
+under `site/data/` differs, ignoring only the build stamp. CI runs it.
+
+**The judgement being flagged.** Refusing the snapshot costs the site its most
+striking single figure — the five Manual Parts carried into the section 43 impact
+set entirely by inferred citations. It is recoverable in prose, and the report
+that computes it is one click away. Flagged in `HANDOFF.md` §3 as Q25.
+
+**Consequences.**
+
+1. A deploy cannot fail because upstream was unreachable, and cannot take four
+   seconds plus a clone on every push.
+2. The site cannot show a figure it did not measure. Where a count is over a
+   subset — classes populated in the *approved* graph, not the source graph — the
+   page says which subset, because "39 classes hold nothing" and "30 classes hold
+   nothing" are both true over different scopes and neither is wrong.
+3. The drift check is a real cost: a session that moves a record and does not run
+   `tmk-dashboard --write` fails CI. That is the intended trade — the alternative
+   is a public page quoting a number the repository no longer holds.
+4. `site/data/reports/` is git-ignored: those four files are byte copies of files
+   already committed under `data/derived/reports/`, and committing them would put
+   the same text in the history twice.
+
+## ADR-0064 — A page is a list of blocks; the JavaScript knows nothing about trade marks
+
+**Date** 2026-09-04 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** The owner asked for a site that is easy to amend, *"because the
+ontology is in its infancy and will certainly undergo changes."* The failure mode
+to design against is the ordinary one: a change to what the ontology holds
+becoming a change to markup, so that the site drifts behind the data because
+updating it is a chore.
+
+**Decision.** Every page is `{id, title, lede, blocks: [...]}`, and every block is
+one of eight kinds — `stats`, `prose`, `callout`, `table`, `cards`, `bars`,
+`list`, `report`. `site/blocks.js` has one renderer per kind and contains no
+domain vocabulary. All content is composed in
+`src/tm_knowledge/dashboard/build.py`.
+
+Tooltips come from `docs/GLOSSARY.md`, parsed at build time: prose carries
+`{{term}}` markers, and **a marker naming a term the glossary does not define
+fails the build**.
+
+The site is hand-written HTML, CSS and ES modules — no framework, no package
+manager, no build step, and nothing loaded from a CDN. A test asserts the last of
+those.
+
+**The judgement being flagged.** Eight block kinds is a guess at what the site
+will need. A ninth is cheap; the risk is the opposite — a page that wants a real
+visualisation and gets a table because the vocabulary made a table easy. Flagged
+in `HANDOFF.md` §3 as Q25.
+
+**Consequences.**
+
+1. Changing what a page says is a change to one Python function. Adding a page is
+   a builder plus a line in `PAGES`. Neither touches JavaScript.
+2. One glossary, two readers: the term a session reads on arriving cold is the
+   term an expert sees in a tooltip, so an explanation cannot drift into two.
+   Adding a term to the site means adding it to `docs/GLOSSARY.md`.
+3. No supply chain. Everything served is in this repository, which matters for
+   something published under a government domain.
+4. A silently-missing tooltip is impossible: the marker is either defined or the
+   build fails.
+
+## ADR-0065 — Questions for the owner live in one validated, plain-language file
+
+**Date** 2026-09-04 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** `HANDOFF.md` §3 holds 24 open questions in a table, written for the
+next agent, in the repo's own vocabulary — "does the owner confirm ADR-0055's
+third guard?" The owner cannot act on that, and it is not their failing: nothing
+in the sentence says what would change if they answered it. The owner asked for
+the form to stay lightweight to update, since it changes after nearly every
+session.
+
+**Decision.** `review/questions/open-questions.yaml`, validated against
+`review/questions/schema.json`. Each entry carries `plain` (what is going on),
+`why_you` (why nobody else can settle it), `if_unanswered` (what stays stuck),
+and an answer control — single choice, multiple choice, short text or long text —
+plus optional background links and a notes prompt. The schema enforces what a
+machine can: a question put to the owner must carry a control; `plain` cannot be
+one line; a parked question must not carry one.
+
+`status` and `needs` decide what reaches the form. `needs: expert` and
+`needs: organisation` are shown as context and never acquire a radio button,
+because a control under something the owner cannot decide invites an answer that
+then has to be unpicked.
+
+**The judgement being flagged.** The initial 17 entries are an agent's reading of
+which of the 24 handoff questions are the owner's to settle and how to phrase
+them. The phrasing carries an option list, and an option list can steer.
+Flagged in `HANDOFF.md` §3 as Q25.
+
+**Consequences.**
+
+1. Updating what is asked is editing one YAML file — the lightweight path the
+   owner asked for. `HANDOFF.md` §3 stays the agent-facing record; this is the
+   owner-facing one, and the two cross-reference by `tracked_as`.
+2. Every realistic answer must be on the list, including *leave it alone*, *I
+   have no view* and *show me an example first*. An option list that only allows
+   agreement is an agent deciding.
+3. Legal content may be *asked about* and never answered here. "Is 'connotation'
+   a legal test or a relevant factor?" is a question; an option asserting the
+   answer would be rule 1 violated through a form control.
+4. A question is not deleted when answered — it is marked `answered`, so the
+   ruling and the question it settles stay readable side by side.
+
+## ADR-0066 — An answer returns as a GitHub issue and is transcribed; the issue is the artefact
+
+**Date** 2026-09-04 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** The dashboard is a static page on GitHub Pages. It cannot write to
+the repository, and any design where it could would need a credential sitting in
+a browser. The owner suggested a button that fires a GitHub Action, and left the
+mechanism open. Three candidates: a prefilled "new file" URL committing straight
+through GitHub's web editor; a token pasted into the page; or a prefilled issue
+with a workflow behind it.
+
+**Decision.** The form composes a GitHub issue: a human-readable summary, and the
+machine-readable answers in a fenced block behind a `<!-- tmk-ruling:v1 -->`
+marker. The owner presses submit. `.github/workflows/ruling.yml` transcribes it
+with `tmk-ruling` into `review/rulings/<date>-issue-<n>.yaml`, commits it, links
+the file back on the issue and closes it.
+
+The **issue is the artefact** and is never edited by this repo; the YAML file is
+a transcription that names its issue — the same split ADR-0050 draws between
+`review/returned/` and `review/decisions/`, and the reason a generated file is
+allowed in `review/rulings/` and forbidden in `review/returned/`.
+
+Two refusals are load-bearing. A submission from an account **without write
+access** is left as an issue with a comment and nothing is written: a ruling
+becomes repository content, so it must come from someone who could have committed
+it anyway. And a submission naming a question or an option that does not exist is
+**reported and refused**, never matched to the nearest one — that would be an
+agent deciding what a person meant (rule 6).
+
+**The judgement being flagged.** Also flagged as Q25. A prefilled issue URL has a
+practical length limit; past it the form switches to copy-and-paste rather than
+silently truncating. And `author_association` is GitHub's own answer to "may this
+person write here", which is the right question but not a fine-grained one.
+
+**Consequences.**
+
+1. No token in the browser, and no write credential anywhere near the page. The
+   owner's own account, their own words, GitHub's timestamp.
+2. An edited submission **replaces** its earlier transcription rather than
+   sitting beside it: two files for one issue would be two versions of one
+   decision with nothing saying which the owner meant.
+3. `applied: null` and `status: answered` are two states on purpose. Decided-but-
+   not-yet-acted-on is a real and common condition; collapsing them hides it.
+4. A session's first act is now to read `review/rulings/`. A ruling is a `human`
+   decision and outranks any `agent-proposed` ADR it touches; acting on one means
+   a new ADR with authority `human` quoting the answer.

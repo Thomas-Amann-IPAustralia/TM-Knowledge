@@ -122,6 +122,34 @@ vocabulary into a hierarchy the later stages can generalise over.
 closer: this work generated no candidate, ran no extractor, and measured no
 recall. Modelling approved records is not extraction.
 
+## The dashboard — not a stage, and worth a row anyway
+
+S011, on the owner's instruction (ADR-0062). A static site at
+<https://thomas-amann-ipaustralia.github.io/TM-Knowledge/> with two jobs: make
+the ontology, vocabulary and graph legible to a trade marks expert, and put the
+decisions waiting on the owner in front of them as a form they can answer.
+
+| Deliverable | Status | Where it lives |
+|---|---|---|
+| The site | **done** — 9 pages, no framework, no CDN, no build step | `site/` |
+| Site data generator | **done** — generated, drift-checked in CI | `tmk-dashboard` → `site/data/` |
+| Publication | **done** — needs one repo setting (Pages source: GitHub Actions) | `.github/workflows/pages.yml` |
+| Owner question queue | **done** — 13 asked, 4 parked, schema-validated | `review/questions/open-questions.yaml` |
+| Answer round trip | **done** — form → issue → workflow → file | `tmk-ruling`, `.github/workflows/ruling.yml` |
+| Recorded rulings | **none yet** — the queue has not been answered | `review/rulings/` |
+
+**This is not the roadmap's review interface.** Release 1 names one, and that is
+for triaging Stage 2 extraction candidates — terms, citations, clusters — none of
+which exist. This one reviews nothing: it renders approved content and collects
+the owner's decisions. When the Stage 2 review interface is built it is a
+different tool with a different audience, and reusing this one for it would put
+unapproved candidates on a public page.
+
+**It restates and never derives** (ADR-0063). Every figure on it is a count of
+something already committed; where the number needs the snapshot the site renders
+the generated report instead of paraphrasing it. That is also why moving a record
+without running `tmk-dashboard --write` fails CI.
+
 ## Stage 1 — inherited, and what is missing from it
 
 Complete as data. Measured at `ingest/0.11.0` and `legislation/0.2.0`:
