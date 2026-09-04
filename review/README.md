@@ -13,6 +13,8 @@ review/candidates/relations/      Stage 4 — relationships, propositions, candi
 review/decisions/                 the record of what was approved, rejected or deferred
 review/returned/                  what a person handed back, unmodified
 review/seed/                      Stage 0 — machine-written example records, for expert correction
+review/questions/                 what is waiting on a person, in plain language
+review/rulings/                   what the owner decided, transcribed from the dashboard
 ```
 
 Three of those are occupied, and together they are the round trip: `seed/` is
@@ -27,6 +29,15 @@ waiting on whom, which decision releases the most, and which records need no
 decision at all — `data/derived/reports/blockers.md` (ADR-0053). Read it before
 assembling a round; `tmk-seed --only` renders one scoped to exactly the records
 it names (ADR-0055).
+
+`questions/` and `rulings/` are the owner's half of the same round trip, and
+they are new in S011. `questions/open-questions.yaml` is the queue the dashboard
+renders as a form; a submitted answer becomes a GitHub issue, and
+`.github/workflows/ruling.yml` transcribes it into `rulings/` (ADR-0065,
+ADR-0066). **A session reads `rulings/` before it does anything else** — a ruling
+is a `human` decision and outranks any `agent-proposed` ADR it touches. The issue
+is the artefact and the file is the transcription, exactly as with `returned/`
+and `decisions/`.
 
 `seed/` is unusual enough to have its own ADR: it holds candidate **legal
 content**, written by an agent so that an expert can correct it rather than

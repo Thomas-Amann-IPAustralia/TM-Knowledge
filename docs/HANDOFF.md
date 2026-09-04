@@ -3,7 +3,7 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-03 · session S010 · branch `claude/trademark-ontology-draft-ou3vnj`
+**Last updated:** 2026-09-04 · session S011 · branch `claude/tm-knowledge-dashboard-1c0i43`
 
 ---
 
@@ -14,6 +14,12 @@ instruction, in their words: *"I'm not going to go back to the TM expert for
 now. We're just going to have to work with what we have… Our goal is to
 demonstrate the value and feasibility of a full ontology. We need to make
 progress on this."*
+
+**S011 built the way to ask them.** The four rulings S010 named are now in front
+of the owner as a form on a published page, along with nine more, each written in
+language that assumes no engineering. Nothing about the ontology moved; what
+moved is that the queue of decisions is no longer a table inside this file.
+Details in §5. The rest of §1 is S010's and still holds.
 
 So S010 built the thing the programme was waiting to build. **There is a section
 43 ontology, a knowledge graph under it, a SHACL gate that passes, and thirteen
@@ -30,7 +36,9 @@ tmk-ask                                 # 13 competency questions, answered
 tmk-ask CQ-0017                         # just one
 tmk-ontology-report --write             # what it holds and what it cannot do
 tmk-harness                             # unchanged: 0 defects, 12 gaps. Exit 3
-python3 -m pytest -q                    # 409 pass (312 before, 97 new) — `python3 -m` (Q-29)
+tmk-dashboard --write                   # S011: the dashboard's data → site/data/
+python3 -m http.server -d site 8000     # …and read it at http://localhost:8000
+python3 -m pytest -q                    # 432 pass (409 before, 23 new) — `python3 -m` (Q-29)
 ```
 
 | | |
@@ -97,9 +105,16 @@ will not go stale the way this file will.
 
 ## 2. The next action
 
-**Thread A — the owner, and it is four rulings.** These are the things only a
-person can settle, ordered by how much each unblocks. None needs the TM expert;
-all four are judgement calls the owner said they were willing to make.
+**Thread A — the owner, and it is now thirteen questions, asked.** As of S011
+these are on the dashboard at
+<https://thomas-amann-ipaustralia.github.io/TM-Knowledge/#/inbox>, written in
+plain language with an answer control under each, and an answer comes back as a
+file in `review/rulings/`. **Do not re-ask them in this file.** The queue is
+`review/questions/open-questions.yaml`; add to it there, in the style its README
+sets out.
+
+The four below are the top of that queue and the reason it exists. None needs the
+TM expert; all four are judgement calls the owner said they were willing to make.
 
 | # | Ruling | Effect |
 |---|---|---|
@@ -107,6 +122,11 @@ all four are judgement calls the owner said they were willing to make.
 | 2 | **Rule on the four unmatched question labels** (Q-37) — `deceptively similar` first | `CQ-0007` names as an expected concept a term `GC-0002` records as a **not-label**. Either the vocabulary needs the s 44 concept, or the question is using it as a boundary marker |
 | 3 | **Approve or reject the two CONSTRUCT rules** | Both `PENDING`; everything they produce is quarantined until one way or the other |
 | 4 | **Confirm or overturn ADR-0060 and ADR-0061** (Q23, Q24) | What gets committed under `graph/`, and whether a query file must declare its limits |
+
+The dashboard tracks them as `OQ-0001` (types), `OQ-0002` (the unmatched label),
+`OQ-0003`/`OQ-0004` (one per rule) and `OQ-0005`/`OQ-0006` (the two ADRs). It also
+puts eight more to the owner, including the organisational ones — Q3, Q4's
+who-half, Q6, Q7, Q14 — and the provisional ADRs, batched as two tick-lists.
 
 Ruling 1 has a shape to fill: the concept record has no `type` field today, so
 taking it needs either a schema addition or a separate register. That is one
@@ -137,6 +157,13 @@ exist.
    the three.
 4. **Keep the pin current.** Bumping it makes every `source_content_hash` stale by
    design — and now the graph says so too, per-assertion, via `tmk:isStale`.
+5. **Regenerate the dashboard whenever anything it reads moves.** `tmk-dashboard
+   --write`, then commit. CI fails on drift (ADR-0063), and the failure is the
+   point: the published page reads only what is committed.
+6. **Turn on GitHub Pages.** One repository setting the agent cannot make:
+   Settings → Pages → Build and deployment → **Source: GitHub Actions**. Until
+   then `.github/workflows/pages.yml` runs green and publishes nothing, and the
+   URL 404s.
 
 **Do not** build a retrieval layer, a search index or a vector store. Stages 7
 and 8 are what the six deferred competency questions need, and building either
@@ -171,6 +198,7 @@ decision (ADR-0057).
 | Q22 | **New, S009.** Does the owner confirm **ADR-0055**'s third guard? A scoped round's pack and workbook state on their face that they are scoped, with the count they were narrowed from. The alternative — a ten-record workbook that looks exactly like a 368-record one — is how a partial review comes to be filed as a complete one. Guards 1 (the checks never narrow) and 2 (an unmatched name refuses the run) follow from rule 6 and need no ruling. | Nothing; every scoped round from here | S009 |
 | Q23 | **New, S010.** Does the owner confirm **ADR-0060** — that `graph/approved.ttl` and `graph/inferred.ttl` are committed while `graph/source.ttl` and `graph/dataset.nq` are not? The line drawn is *what a file restates*: the first two are this repo's own decisions in RDF, the second two are 6.5MB of the pinned corpus, and committing those is `data/upstream/` by another route (ADR-0004). Arguable the other way — committing everything would make the graph reviewable without a snapshot fetch, at 6.5MB per rebuild in the history. | Nothing; it is one line of `.gitignore` either way | S010 |
 | Q24 | **New, S010.** Does the owner confirm **ADR-0061** — that a competency query is *refused* without a `limits:` header saying what it does not answer? The requirement is the agent's reading of what `queries/README.md` implies rather than what it says, and the 60-character threshold is arbitrary. What argues for it: three limits lines are load-bearing today and each would have been a wrong answer without one — CQ-0017 measures reviewing effort and not outcome, CQ-0019 finds recorded dependencies and not subject matter, CQ-0023's most important row is a blank one. | Nothing today; every query written from here | S010 |
+| Q25 | **New, S011. Four dashboard judgements.** All are `agent-proposed` and none blocks anything. **(a) ADR-0063** — the site reads committed artefacts only and never the snapshot, which costs it the best single figure in the corpus (five Manual Parts carried into the s 43 impact set entirely by inferred citations) in exchange for a build that cannot fail on a network. **(b) ADR-0064** — eight block kinds is a guess at what the site will need; the risk is a page that wanted a real visualisation getting a table because a table was easy. **(c) ADR-0065** — the 17 entries in `open-questions.yaml` are an agent's reading of which handoff questions are the owner's and how to phrase them, and an option list can steer. **(d) ADR-0066** — a prefilled issue URL has a length limit, and `author_association` is a coarse answer to "may this person write here". Each is answerable by using the thing and saying what is wrong with it. | Nothing | S011 |
 | Q14 | **New, S006.** Owner asked for more plain-language guidance on **constructing the ontology**, beyond what `STAGE-0-INPUT-GUIDE.md` covers (which is scoped to Stage 0 elicitation, not Stage 5 ontology formalisation). Not scoped or drafted yet — needs its own session: who is the audience (the Trade Mark experts already working from the input guide, or a wider group?), and what specifically is unclear in the existing docs. | Nothing yet; would help the experts' ongoing work | S006 |
 
 **S010 changed which thread is blocked, and it is worth being precise about
@@ -189,7 +217,9 @@ declined — see ADR-0041), **0029, 0030, 0032, 0033, 0035, 0036, 0037**,
 **0043's guards** (the decision to seed was the owner's; how it is fenced is
 Q15), **0048's first two judgement calls** (Q18; the third is answered by
 ADR-0052), **0051's two-operation limit** (Q20), **0054** (Q21), **0055's
-third guard** (Q22), **0060** (Q23) and **0061** (Q24). ADR-0044, ADR-0045, ADR-0047, ADR-0049, ADR-0050 and
+third guard** (Q22), **0060** (Q23), **0061** (Q24) and **0063, 0064, 0065,
+0066** (Q25). **ADR-0062 is `human`** — the dashboard is the owner's
+instruction, quoted in the ADR. ADR-0044, ADR-0045, ADR-0047, ADR-0049, ADR-0050 and
 **ADR-0053** are `derived`. **ADR-0052 is `human`.**
 (0006, 0012, 0014, 0024, 0026, 0027 confirmed S006 — ADR-0040; 0016 and 0018
 confirmed S006 — ADR-0038; 0028 superseded S006 — ADR-0042. ADR-0023,
@@ -330,11 +360,80 @@ relevance grade each. The scoped workbook for all ten is rendered.
   and a query that returned rows for them would measure the wrong thing while
   looking like coverage.
 - **Do not add LegalRuleML.** ADR-0009.
+- **Do not hand-edit anything under `site/data/`.** It is regenerated by
+  `tmk-dashboard --write` on every deploy, so an edit there is a change that
+  vanishes on the next push. Change `src/tm_knowledge/dashboard/build.py`.
+- **Do not put a number on the dashboard that the committed artefacts do not
+  support.** ADR-0063. If a figure needs the snapshot, render the generated
+  report that computes it — the site restates nothing it can render.
+- **Do not add a page's content to the JavaScript.** `blocks.js` renders eight
+  kinds of block and knows nothing about trade marks; all content is composed in
+  Python (ADR-0064). A ninth block kind is fine; a domain word in `blocks.js` is
+  not.
+- **Do not put a jargon word in `open-questions.yaml`.** Not SHACL, not TBox, not
+  ADR-nnnn as a bare reference. The owner said it plainly: *"I'm far from being a
+  system engineer."* A question they cannot act on is a question that was not
+  asked.
+- **Do not write an option that asserts legal content.** Asking whether
+  "connotation" is a test or a factor is a question. An option reading *yes, it
+  is a legal test — approve this* is rule 1 broken through a form control.
+- **Do not generate a file into `review/rulings/` by hand** to record something
+  said in a meeting. That directory holds transcriptions of dashboard
+  submissions, produced by `tmk-ruling` from an issue. Words arriving another way
+  go to `review/returned/` under ADR-0051's two-operation rule.
+- **Do not act on a ruling and leave it open.** `applied:` in the ruling file, an
+  ADR with authority `human`, and `status: answered` on the question. Three
+  places, because "decided" and "acted on" are different states and the queue is
+  the only thing the owner sees.
 
 ## 5. Session log
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S011 — 2026-09-04 — the questions got a front door
+
+The owner asked for a dashboard: explain the shape of the work to people who are
+trade marks experts and not engineers, and let them answer what is waiting on
+them without reading the repo. Both jobs, on GitHub Pages, at
+`thomas-amann-ipaustralia.github.io/TM-Knowledge/`.
+
+**Nothing about the ontology moved.** No record was added, no concept typed, no
+rule approved; `tmk-harness` and `tmk-shacl` are exactly where S010 left them.
+432 tests pass, 23 of them new.
+
+Built: a nine-page static site (`site/`, no framework, no package manager, no
+CDN — a test asserts the last one), a generator (`tmk-dashboard`), a validated
+plain-language question queue (`review/questions/open-questions.yaml` — 13 asked,
+4 parked), and a round trip that brings an answer back (form → prefilled GitHub
+issue → `.github/workflows/ruling.yml` → `review/rulings/`).
+
+**Three decisions are the substance of it.** The site reads **committed artefacts
+only** and never the snapshot (ADR-0063), so a deploy cannot fail on a network
+and the page cannot show a figure it did not measure — the cost is that the best
+number in the corpus lives in a rendered report rather than on a card. A page is
+**a list of blocks** and the JavaScript holds no domain vocabulary (ADR-0064), so
+changing what the dashboard says is a change to one Python function. And an
+answer comes back as **an issue that is transcribed** (ADR-0066), with the issue
+as the artefact and the file as the transcription — the same split ADR-0050 draws
+for `review/returned/`, which is why a generated file is allowed in
+`review/rulings/` and forbidden in `returned/`.
+
+**The part that took the longest was the language, not the code.** Turning *"does
+the owner confirm ADR-0055's third guard?"* into a sentence someone can act on
+means saying what would change if they answered — and several of the honest
+answers are "nothing is blocked", which is why the queue carries an urgency and
+not a uniform alarm. Two questions became tick-lists where every unticked box is
+a confirmation, because twelve provisional ADRs are twelve confirmations and one
+page of prose.
+
+Three quirks, and two of them are the same shape as Q-38: a number that is right
+twice. "How many classes hold nothing" is 30 or 39 depending on which graph it
+was counted over (Q-40), and the site labels its scope rather than picking one.
+
+**Result: the dashboard is done and published on the next push to `main`; one
+repository setting is needed to make the URL live; the thirteen questions are the
+next thing to happen and none of them is an agent's.**
 
 ### S010 — 2026-09-03 — the owner stopped waiting, and there was enough to build with
 

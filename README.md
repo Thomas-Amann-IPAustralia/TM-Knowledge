@@ -29,7 +29,15 @@ content that no amount of engineering substitutes for.
   plausible extraction output becomes the standard by arriving first, which is
   what Stage 0 exists to prevent.
 
-`docs/ROADMAP-STATUS.md` has the full board.
+`docs/ROADMAP-STATUS.md` has the full board, and the **dashboard** shows the same
+thing in a form you can read without opening a file:
+
+### 📊 [The dashboard](https://thomas-amann-ipaustralia.github.io/TM-Knowledge/)
+
+The vocabulary, the model, the graph, what the system can answer, what it must
+never say, every decision on the record — and the questions currently waiting on
+the repo owner, as a form they can answer. Generated from this repository on
+every push; it restates committed artefacts and authors nothing (ADR-0062).
 
 ## Quickstart
 
@@ -48,6 +56,10 @@ tmk-blockers          # what is holding the gold set, and what each decision fre
 tmk-seed --only "$(tmk-blockers --ids)" --pack PACK --workbook BOOK
 #   a review round scoped to the records on the critical path (ADR-0055)
 python3 -m pytest -q  # `python3 -m`, not bare `pytest`, in a container (QUIRKS Q-29)
+
+tmk-dashboard --write             # the dashboard's data → site/data/
+python3 -m http.server -d site 8000   # then open http://localhost:8000
+tmk-dashboard --check             # fails if the published site has gone stale
 ```
 
 `tmk-harness` exiting non-zero is the intended state, not a broken checkout: **0**

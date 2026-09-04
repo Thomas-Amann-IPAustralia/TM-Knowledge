@@ -696,3 +696,39 @@ Restrict to the same scope and they agree exactly — `CQ-0020` returns 17 rows
 for `TMA1995`/`TMR1995`. Before asserting one figure against the other, check
 which scope each was computed over; `test_ambiguous_edges_are_not_resolved`
 carries the working.
+
+### Q-39 — The ADR metadata line is not fixed-width: the authority can carry a qualifier
+
+`docs/DECISIONS.md` entries carry
+`**Date** … · **Authority** … · **Status** …`, and a parser that reads the
+authority as "everything up to the next `·`" works on 60 of the 61 entries and
+fails on ADR-0011, which reads `**Authority** agent-proposed (field list)`. The
+qualifier is legitimate — it says which *part* of the decision is provisional —
+and it will happen again.
+
+`dashboard/sources.py` reads the authority as the leading `[a-z-]+` and lets the
+rest fall into the status prose. It also **raises** on an ADR with no metadata
+line rather than skipping it: the dashboard's decisions page is generated from
+these headings, and a reformat that quietly emptied the page would be worse than
+one that broke the build.
+
+### Q-40 — "How many classes hold nothing" has two right answers
+
+`data/derived/reports/ontology.md` says 30 declared classes are unpopulated; the
+dashboard says 39. Both are correct and they measure different things. The report
+counts over the whole built dataset, which includes the source graph and
+therefore populates `Chunk`, `Page`, `Citation`, `JudicialDecision` and the rest.
+The dashboard reads committed artefacts only (ADR-0063), so it counts over
+`graph/approved.ttl` alone.
+
+Neither is the number to quote without its scope. The site labels its column
+*approved instances* and says so in the note under the table; before asserting
+one figure against the other, check which graph it was computed over. Same shape
+as Q-38.
+
+### Q-41 — The dashboard will not run from `file://`
+
+Opening `site/index.html` by double-clicking it gives a page that renders its
+chrome and then reports that the data is missing. The site fetches
+`data/*.json`, and browsers block `fetch` on `file://` origins. It is not a
+broken build: `python3 -m http.server -d site 8000` and the same files work.

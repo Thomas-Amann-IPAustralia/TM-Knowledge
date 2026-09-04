@@ -46,6 +46,8 @@ tmk-shacl = "tm_knowledge.ontology.cli:shacl"
 tmk-ask = "tm_knowledge.ontology.cli:ask"
 tmk-ontology-relations = "tm_knowledge.ontology.cli:relations"
 tmk-ontology-report = "tm_knowledge.ontology.cli:ontology_report"
+tmk-dashboard = "tm_knowledge.dashboard.cli:dashboard"
+tmk-ruling = "tm_knowledge.dashboard.cli:ruling"
 
 [project.urls]
 Homepage = "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge"

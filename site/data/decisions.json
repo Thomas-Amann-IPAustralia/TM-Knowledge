@@ -1,0 +1,1934 @@
+{
+ "id": "decisions",
+ "title": "Every decision on the record",
+ "lede": "66 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "blocks": [
+  {
+   "kind": "stats",
+   "items": [
+    {
+     "label": "Decisions recorded",
+     "value": 66,
+     "note": null,
+     "tone": null,
+     "href": null
+    },
+    {
+     "label": "Made by you",
+     "value": 15,
+     "note": "yours, and not overturnable by an agent",
+     "tone": "good",
+     "href": null
+    },
+    {
+     "label": "Forced by the evidence",
+     "value": 14,
+     "note": "defensible without a human",
+     "tone": null,
+     "href": null
+    },
+    {
+     "label": "Inherited from the roadmap",
+     "value": 5,
+     "note": null,
+     "tone": null,
+     "href": null
+    },
+    {
+     "label": "An agent's call, still provisional",
+     "value": 22,
+     "note": "waiting on you to confirm or overturn",
+     "tone": "warn",
+     "href": null
+    }
+   ],
+   "note": null
+  },
+  {
+   "kind": "callout",
+   "tone": "warn",
+   "title": "22 decisions are marked provisional",
+   "text": "They were made by an agent so that work could continue rather than stop. Provisional means a person has not looked at them. Two questions in your queue put them to you in batches, in plain language, with a tick box each.",
+   "links": [
+    {
+     "label": "Go to your decisions",
+     "href": "#/inbox"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "columns": [
+    {
+     "key": "id",
+     "label": "ID"
+    },
+    {
+     "key": "title",
+     "label": "Decision"
+    },
+    {
+     "key": "authority",
+     "label": "Made by"
+    },
+    {
+     "key": "date",
+     "label": "Date"
+    }
+   ],
+   "rows": [
+    {
+     "id": "`ADR-0066`",
+     "title": "An answer returns as a GitHub issue and is transcribed; the issue is the artefact",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-04",
+     "search": "ADR-0066 An answer returns as a GitHub issue and is transcribed; the issue is the artefact agent-proposed provisional",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional"
+      },
+      {
+       "kind": "prose",
+       "text": "The dashboard is a static page on GitHub Pages. It cannot write to the repository, and any design where it could would need a credential sitting in a browser. The owner suggested a button that fires a GitHub Action, and left the mechanism open. Three candidates: a prefilled \"new file\" URL committing straight through…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0066-an-answer-returns-as-a-github-issue-and-is-transcribed-the-issue-is-the-artefact)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0065`",
+     "title": "Questions for the owner live in one validated, plain-language file",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-04",
+     "search": "ADR-0065 Questions for the owner live in one validated, plain-language file agent-proposed provisional",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional"
+      },
+      {
+       "kind": "prose",
+       "text": "`HANDOFF.md` §3 holds 24 open questions in a table, written for the next agent, in the repo's own vocabulary — \"does the owner confirm ADR-0055's third guard?\" The owner cannot act on that, and it is not their failing: nothing in the sentence says what would change if they answered it. The owner asked for the form to…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0065-questions-for-the-owner-live-in-one-validated-plain-language-file)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0064`",
+     "title": "A page is a list of blocks; the JavaScript knows nothing about trade marks",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-04",
+     "search": "ADR-0064 A page is a list of blocks; the JavaScript knows nothing about trade marks agent-proposed provisional",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner asked for a site that is easy to amend, *\"because the ontology is in its infancy and will certainly undergo changes.\"* The failure mode to design against is the ordinary one: a change to what the ontology holds becoming a change to markup, so that the site drifts behind the data because updating it is a…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0064-a-page-is-a-list-of-blocks-the-javascript-knows-nothing-about-trade-marks)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0063`",
+     "title": "The dashboard is generated from committed artefacts only, and never from the snapshot",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-04",
+     "search": "ADR-0063 The dashboard is generated from committed artefacts only, and never from the snapshot agent-proposed provisional",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional"
+      },
+      {
+       "kind": "prose",
+       "text": "The site needs numbers. Some of them — 52 concepts, 2,942 approved triples, 49 classes, 61 decisions — come from files this repo commits. Others — 216 in-scope chunks, 529 citations, 16,405 source triples — exist only in `graph/source.ttl`, which is deliberately not committed (ADR-0060) and is rebuilt from the pinned…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0063-the-dashboard-is-generated-from-committed-artefacts-only-and-never-from-the-snapshot)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0062`",
+     "title": "There is a public dashboard, and it has exactly two jobs",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-04",
+     "search": "ADR-0062 There is a public dashboard, and it has exactly two jobs human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "Everything this repo produces is a file: YAML records, Turtle, a SHACL report, four generated Markdown reports and 61 ADRs. That is right for the work and wrong for the reader. Two audiences cannot use it. Trade marks experts cannot see what the ontology says or why a decision was made without reading Turtle. And the…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0062-there-is-a-public-dashboard-and-it-has-exactly-two-jobs)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0061`",
+     "title": "A competency query declares what it does not answer, and is refused without it",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-03",
+     "search": "ADR-0061 A competency query declares what it does not answer, and is refused without it agent-proposed provisional",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional"
+      },
+      {
+       "kind": "prose",
+       "text": "`queries/README.md` requires one query per competency question. It does not say what a query file must contain, and the failure mode is specific and quiet: **a query that returns rows always looks like an answer.** CQ-0017 returns a Part distribution, and the natural reading is \"these are the Parts an amendment would…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0061-a-competency-query-declares-what-it-does-not-answer-and-is-refused-without-it)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0060`",
+     "title": "`graph/approved.ttl` and `graph/inferred.ttl` are committed; `source.ttl` and `dataset.nq` are not",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-03",
+     "search": "ADR-0060 `graph/approved.ttl` and `graph/inferred.ttl` are committed; `source.ttl` and `dataset.nq` are not agent-proposed provisional",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0042 committed `data/derived/`, generated reports included, as a paper trail — `worksheet.md` carries 40,000 words of Manual text and is in git. ADR-0004 keeps `data/upstream/` out of git, so that another repo's corpus is not vendored into this one's history. The graph sits across that line: `source.ttl` is 1.3MB…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0060-graphapprovedttl-and-graphinferredttl-are-committed-sourcettl-and-datasetnq-are-not)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0059`",
+     "title": "A SKOS concept's IRI uses its gold-set id, not a newly minted one",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-03",
+     "search": "ADR-0059 A SKOS concept's IRI uses its gold-set id, not a newly minted one derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "`IDENTIFIERS.md` §3 illustrates a concept IRI as `tmkc:c-0042`, allocated sequentially from a register file. The concepts already have identifiers — `GC-0001` … `GC-0052` — allocated once in `eval/gold/concepts.yaml` under exactly the rule §3 states: allocate by appending, never reuse, never derive from the label."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0059-a-skos-concepts-iri-uses-its-gold-set-id-not-a-newly-minted-one)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0058`",
+     "title": "Every approved relationship is emitted twice: as a triple and as an assertion",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-03",
+     "search": "ADR-0058 Every approved relationship is emitted twice: as a triple and as an assertion derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "`graph/README.md` requires every assertion to carry its source passage, version, hash, method, confidence, review status, reviewer and date. A plain RDF triple carries none of that. The usual answers are RDF-star, which is outside OWL 2 RL and unevenly supported, or reification, which makes every query traverse three…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0058-every-approved-relationship-is-emitted-twice-as-a-triple-and-as-an-assertion)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0057`",
+     "title": "The ontology draft lives in `ontology/draft/` and is promoted one module at a time",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-03",
+     "search": "ADR-0057 The ontology draft lives in `ontology/draft/` and is promoted one module at a time human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "`ontology/` holds approved content (ADR-0007, CLAUDE.md rule 4) and `ontology/README.md` requires approval by an ontology specialist *and* a domain expert. The draft has neither. Writing it into `ontology/` would need an ADR overturning that rule; the owner chose the alternative when asked."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0057-the-ontology-draft-lives-in-ontologydraft-and-is-promoted-one-module-at-a-time)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0056`",
+     "title": "Ontology drafting proceeds from approved Stage 0 content, ahead of Stage 2",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-03",
+     "search": "ADR-0056 Ontology drafting proceeds from approved Stage 0 content, ahead of Stage 2 human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner's instruction, in their words: *\"I'm not going to go back to the TM expert for now. We're just going to have to work with what we have… Our goal is to demonstrate the value and feasibility of a full ontology.\"*"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0056-ontology-drafting-proceeds-from-approved-stage-0-content-ahead-of-stage-2)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0055`",
+     "title": "A review round may be scoped, and both artefacts must say so",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-02",
+     "search": "ADR-0055 A review round may be scoped, and both artefacts must say so agent-proposed provisional",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional"
+      },
+      {
+       "kind": "prose",
+       "text": "The blocker analysis is only worth having if the reviewer can be handed the ten records rather than the 178. `tmk-seed` rendered the whole of `review/seed/` or nothing."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0055-a-review-round-may-be-scoped-and-both-artefacts-must-say-so)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0054`",
+     "title": "What counts as a decision on the critical path",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-02",
+     "search": "ADR-0054 What counts as a decision on the critical path agent-proposed provisional",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional"
+      },
+      {
+       "kind": "prose",
+       "text": "A report that lists 178 held records has told a reviewer nothing. The useful output is the much smaller set where *their* pen changes something, and picking that set is a judgement about what \"actionable\" means."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0054-what-counts-as-a-decision-on-the-critical-path)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0053`",
+     "title": "The review queue is a graph, and the report that says so is generated",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-02",
+     "search": "ADR-0053 The review queue is a graph, and the report that says so is generated derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0048 made the gate transitive, and the arithmetic stopped being readable. After round 1: 213 records carried `correct`, 190 reached `eval/gold/`, and the 23 that did not were held by six records scattered elsewhere in a 368-row workbook. S008 worked out which six **by hand**, wrote them into `HANDOFF.md` §2, and…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0053-the-review-queue-is-a-graph-and-the-report-that-says-so-is-generated)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0052`",
+     "title": "Reviewer ruling: the 83 unsigned `correct` rows are signed TC; `GE-0031` reads `correct`",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-02",
+     "search": "ADR-0052 Reviewer ruling: the 83 unsigned `correct` rows are signed TC; `GE-0031` reads `correct` human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "Put to the owner after the first round: 83 records had a verdict and no signature, and one verdict cell was misspelt. `tmk-transcribe` had held all 84 rather than guess."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0052-reviewer-ruling-the-83-unsigned-correct-rows-are-signed-tc-ge-0031-reads-correct)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0051`",
+     "title": "A reviewer's instruction is applied from `review/returned/`, never by editing a workbook",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-02",
+     "search": "ADR-0051 A reviewer's instruction is applied from `review/returned/`, never by editing a workbook agent-proposed accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The first round left 83 records marked `correct` with `approved_by` blank, and one verdict cell reading `corrrect`. The reviewer then settled both in words, relayed by the owner: those 83 are signed `TC`, and the misspelt cell means `correct`."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0051-a-reviewers-instruction-is-applied-from-reviewreturned-never-by-editing-a-workbook)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0050`",
+     "title": "A returned artefact lives in `review/returned/`, unmodified",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-02",
+     "search": "ADR-0050 A returned artefact lives in `review/returned/`, unmodified derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The marked-up workbook and the expert's covering note arrived in `data/derived/`. That directory is committed on purpose (ADR-0042), but for one reason: it holds **derivations** — what `tmk-*` regenerates from the pinned snapshot and from `eval/gold/` — and the diff of each regeneration is the paper trail. An inbound…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0050-a-returned-artefact-lives-in-reviewreturned-unmodified)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0049`",
+     "title": "A review round is recorded in `review/decisions/`; the seed copies are then retired",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-02",
+     "search": "ADR-0049 A review round is recorded in `review/decisions/`; the seed copies are then retired derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0043 consequence 6 says to delete a seed file once its record type has been reviewed, because two versions of one record — approved and not — is worse than none. `tmk-seed` enforces it: a seed record whose id is in `eval/gold/` is a DEFECT, since an id is never used twice (`IDENTIFIERS.md` §3)."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0049-a-review-round-is-recorded-in-reviewdecisions-the-seed-copies-are-then-retired)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0048`",
+     "title": "The verdict column is the gate into `eval/gold/`, and the gate is transitive",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-02",
+     "search": "ADR-0048 The verdict column is the gate into `eval/gold/`, and the gate is transitive agent-proposed accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0044 called the review columns \"annotations *about* a record, never fields *of* one\", and the transcriber implemented that by tolerating them and dropping them. Correct as far as it went, and it left the actual door unlocked: `tmk-transcribe --write` wrote every row that validated, so a record an expert had just…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0048-the-verdict-column-is-the-gate-into-evalgold-and-the-gate-is-transitive)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0047`",
+     "title": "`approved_date` is a typed date column, and an ambiguous one is refused",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-02",
+     "search": "ADR-0047 `approved_date` is a typed date column, and an ambiguous one is refused derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The first marked-up workbook came back and `tmk-transcribe` rejected 270 rows. Every rejection was the same field: the schema wants `^[0-9]{4}-[0-9]{2}-[0-9]{2}$`, and the sheet held `25/08/2026` on some sheets and a real Excel date cell — which `openpyxl` hands over as a `datetime` and `str()` renders as `2026-08-25…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0047-approved_date-is-a-typed-date-column-and-an-ambiguous-one-is-refused)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0046`",
+     "title": "The seed review workbook prints the passage and the reason beside every row",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-08-21",
+     "search": "ADR-0046 The seed review workbook prints the passage and the reason beside every row human accepted — **amends ADR-0044's column list**",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted — **amends ADR-0044's column list**"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0044 gave the seed review workbook three review columns: `seed_id`, `verdict`, `correction`. Handing the pair of artefacts to the owner exposed the flaw immediately. On the entity and relationship sheets a reviewer gets `surface`, `source_ref` and two integer character offsets — and no way to see the sentence…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0046-the-seed-review-workbook-prints-the-passage-and-the-reason-beside-every-row)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0045`",
+     "title": "Seed spans are computed from the snapshot, never written by hand",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-08-21",
+     "search": "ADR-0045 Seed spans are computed from the snapshot, never written by hand derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "A gold entity or relationship carries `span` — character offsets into the chunk `text` — and `source_content_hash`. The guide promises the expert will never type either (§3). The seed set creates the same problem in the other direction: an agent writing 211 span-bearing records by hand would get some of them wrong,…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0045-seed-spans-are-computed-from-the-snapshot-never-written-by-hand)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0044`",
+     "title": "The seed review workbook is a separate file; the intake workbook stays empty",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-08-21",
+     "search": "ADR-0044 The seed review workbook is a separate file; the intake workbook stays empty derived accepted — **column list amended by ADR-0046**",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted — **column list amended by ADR-0046**"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0043 needs the seed set in a medium an expert will actually correct, and the intake workbook is already that medium — same layout, same dropdowns, and `tmk-transcribe` already reads it back. But P7's rule, restated in HANDOFF §4, is absolute: **no example row in the intake workbook, not even a marked one**,…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0044-the-seed-review-workbook-is-a-separate-file-the-intake-workbook-stays-empty)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0043`",
+     "title": "A machine-written seed example set is produced for expert correction",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-08-21",
+     "search": "ADR-0043 A machine-written seed example set is produced for expert correction human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "Stage 0 has been unblocked on the agent side since S005: the worksheet prints 216 chunks, the intake workbook ships empty with a dropdown on every fixed vocabulary, the transcriber reads it back without inventing a field, and the coverage report turns an hour of expert time into a moved counter. None of that produced…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0043-a-machine-written-seed-example-set-is-produced-for-expert-correction)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0042`",
+     "title": "Stage 0's generated reports and derived artefacts are committed to the repository",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-08-19",
+     "search": "ADR-0042 Stage 0's generated reports and derived artefacts are committed to the repository human accepted — **supersedes ADR-0028**",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted — **supersedes ADR-0028**"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0028 kept `data/derived/` (the worksheet, the recon report, the coverage report, the intake workbook) git-ignored and always rebuildable, on the reasoning that a committed copy would go stale silently and duplicate what `data/upstream/` plus `src/` can already regenerate. The owner wants the opposite: a committed…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0042-stage-0s-generated-reports-and-derived-artefacts-are-committed-to-the-repository)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0041`",
+     "title": "ADR-0011's provenance field list stays open until Stage 2's actual output is known",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-08-19",
+     "search": "ADR-0041 ADR-0011's provenance field list stays open until Stage 2's actual output is known human deferred — revisit before the Stage 2 candidate schema is finalised",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** deferred — revisit before the Stage 2 candidate schema is finalised"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0011 proposed a fixed provenance field list — `extraction_method`, `model`, `confidence`, `source_span`, `source_content_hash`, `review_status`, `reviewer`, `review_date`, `created_at` — as an agent's best guess ahead of any extraction actually running. ADR-0019's ensemble decision already complicated it once:…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0041-adr-0011s-provenance-field-list-stays-open-until-stage-2s-actual-output-is-known)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0040`",
+     "title": "Owner confirmations: ADR-0006, ADR-0012, ADR-0014, ADR-0024, ADR-0026, ADR-0027",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-08-19",
+     "search": "ADR-0040 Owner confirmations: ADR-0006, ADR-0012, ADR-0014, ADR-0024, ADR-0026, ADR-0027 human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "Session S006 put the remaining agent-proposed ADRs to the owner as a plain-language summary rather than a yes/no form, per the owner's request. Six came back confirmed, each with its original text and reasoning kept intact; only the authority changes, via a one-line `confirmed by ADR-0040` annotation on each entry's…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0040-owner-confirmations-adr-0006-adr-0012-adr-0014-adr-0024-adr-0026-adr-0027)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0039`",
+     "title": "The approval artefact is a name and a date, in the workbook's own columns",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-08-19",
+     "search": "ADR-0039 The approval artefact is a name and a date, in the workbook's own columns human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "HANDOFF Q4 asked what \"approved\" should look like as a recorded artefact — a signed-off file in git, or an external register — for the `approved_by`/`approved_date` fields every gold record schema already requires (ADR-0027) and every intake workbook sheet already carries as columns (ADR-0036). Nothing writes a…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0039-the-approval-artefact-is-a-name-and-a-date-in-the-workbooks-own-columns)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0038`",
+     "title": "Owner confirmations: ADR-0016 and ADR-0018",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-08-19",
+     "search": "ADR-0038 Owner confirmations: ADR-0016 and ADR-0018 human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0021 confirmed four of the six agent-proposed ADRs standing against HANDOFF Q9 in session S003; ADR-0016 (the parallel track itself) and ADR-0018 (the harness's completeness-gate/genuine-failure split) were left open because the owner was not asked about them at the time. Both are load-bearing — ADR-0018 is CI's…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0038-owner-confirmations-adr-0016-and-adr-0018)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0037`",
+     "title": "Transcription writes every required key, optional keys only when filled, and nothing at all without `--write`",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-19",
+     "search": "ADR-0037 Transcription writes every required key, optional keys only when filled, and nothing at all without `--write` agent-proposed provisional",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional"
+      },
+      {
+       "kind": "prose",
+       "text": "P8 writes into `eval/gold/`, which is approved space (CLAUDE.md rule 4). Three questions had to be answered before it could write anything: what to do with a blank cell, what to do with a row that is not yet a record, and whether writing should be the default."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0037-transcription-writes-every-required-key-optional-keys-only-when-filled-and-nothing-at-all-without---write)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0036`",
+     "title": "How a record becomes a spreadsheet: dotted columns, newline lists, child sheets",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-19",
+     "search": "ADR-0036 How a record becomes a spreadsheet: dotted columns, newline lists, child sheets agent-proposed provisional",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional"
+      },
+      {
+       "kind": "prose",
+       "text": "Three record shapes do not fit a flat grid: nested objects (`expected_sources.required`), arrays of scalars (`alt_labels`, every ref list), and arrays of objects (`relevant[]`, `expected_inferences[]`)."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0036-how-a-record-becomes-a-spreadsheet-dotted-columns-newline-lists-child-sheets)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0035`",
+     "title": "`openpyxl` is an optional extra, not a core dependency",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-19",
+     "search": "ADR-0035 `openpyxl` is an optional extra, not a core dependency agent-proposed provisional — the dependency is the owner's call",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional — the dependency is the owner's call"
+      },
+      {
+       "kind": "prose",
+       "text": "P7 requires a spreadsheet workbook with enum dropdowns. `pyproject.toml` carries a standing note that adding a dependency is a decision to raise rather than to make, and the core install is three packages."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0035-openpyxl-is-an-optional-extra-not-a-core-dependency)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0034`",
+     "title": "Ref-valued fields are read off the schemas, not listed",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-08-19",
+     "search": "ADR-0034 Ref-valued fields are read off the schemas, not listed derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The resolution checks need to know where in a record an upstream ref sits. There are fourteen such places across the eight types, some nested two levels down (`relevant[].ref`, `expected_inferences[].basis[]`)."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0034-ref-valued-fields-are-read-off-the-schemas-not-listed)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0033`",
+     "title": "Withdrawn ids are recorded in a ledger, not remembered",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-19",
+     "search": "ADR-0033 Withdrawn ids are recorded in a ledger, not remembered agent-proposed provisional",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional"
+      },
+      {
+       "kind": "prose",
+       "text": "`IDENTIFIERS.md` §3 requires human-facing ids to be allocated by appending and never to fill a gap left by a withdrawal. The harness has to check non-reuse, and a withdrawn record is by definition not in `eval/gold/` any more — so nothing in the live data records that `GC-0042` was ever used."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0033-withdrawn-ids-are-recorded-in-a-ledger-not-remembered)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0032`",
+     "title": "One gold file per record type, named; an unrecognised file is an error",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-19",
+     "search": "ADR-0032 One gold file per record type, named; an unrecognised file is an error agent-proposed provisional",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional"
+      },
+      {
+       "kind": "prose",
+       "text": "`eval/gold/README.md` named six files and the repo has eight record types. The harness has to find records before it can check them, and \"whatever YAML is in the directory\" is not a contract."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0032-one-gold-file-per-record-type-named-an-unrecognised-file-is-an-error)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0031`",
+     "title": "A run that did not open the snapshot never reports Stage 0 complete",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-08-19",
+     "search": "ADR-0031 A run that did not open the snapshot never reports Stage 0 complete derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "Half the harness's checks need `data/upstream/`, which is git-ignored and may be absent — on a bare clone, or in CI when the fetch fails. The easy behaviour is to run the structural half, find nothing wrong, and report success."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0031-a-run-that-did-not-open-the-snapshot-never-reports-stage-0-complete)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0030`",
+     "title": "The harness has three severities, and three exit codes",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-19",
+     "search": "ADR-0030 The harness has three severities, and three exit codes agent-proposed provisional — implements ADR-0018",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional — implements ADR-0018"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0018 fixed the principle: Stage 0 incompleteness is a reported state, malformed data is a build failure. P5 had to turn that into something a shell can act on. Two severities and two exit codes turned out to be one short."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0030-the-harness-has-three-severities-and-three-exit-codes)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0029`",
+     "title": "Code layout: `upstream/` and `stage0/` subpackages",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-18",
+     "search": "ADR-0029 Code layout: `upstream/` and `stage0/` subpackages agent-proposed provisional",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional"
+      },
+      {
+       "kind": "prose",
+       "text": "`src/README.md` sketched `refs.py` and `loader.py` at package top level. The parallel track's P2 names `src/tm_knowledge/upstream/`, and Stage 0's apparatus (schemas, recon, worksheet, and later the harness and coverage report) is a second cluster with the same cohesion."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0029-code-layout-upstream-and-stage0-subpackages)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0028`",
+     "title": "Generated artefacts live in `data/derived/` and are not committed",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-18",
+     "search": "ADR-0028 Generated artefacts live in `data/derived/` and are not committed agent-proposed **superseded by ADR-0042** — owner wants a committed paper trail",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **superseded by ADR-0042** — owner wants a committed paper trail"
+      },
+      {
+       "kind": "prose",
+       "text": "P6's reconnaissance report and P9's worksheet are both documents for a human to read, and both are pure functions of the pinned snapshot plus the code."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0028-generated-artefacts-live-in-dataderived-and-are-not-committed)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0027`",
+     "title": "Stage 0 schemas check shape; judgement fields are required-but-nullable",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-18",
+     "search": "ADR-0027 Stage 0 schemas check shape; judgement fields are required-but-nullable agent-proposed **accepted for now — confirmed by ADR-0040**",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **accepted for now — confirmed by ADR-0040**"
+      },
+      {
+       "kind": "prose",
+       "text": "P4 asks for machine-checkable schemas that \"must never encode a judgement\". Two questions fall out immediately and neither is answered by the templates: what happens to a record an expert has not finished, and what constrains a field whose vocabulary is itself expert-owned."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0027-stage-0-schemas-check-shape-judgement-fields-are-required-but-nullable)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0026`",
+     "title": "The pin is a commit, a receipt and a tree digest",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-18",
+     "search": "ADR-0026 The pin is a commit, a receipt and a tree digest agent-proposed **accepted — confirmed by ADR-0040**",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **accepted — confirmed by ADR-0040**"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0004 (confirmed by ADR-0021) fixes a \"pinned release download\". Upstream publishes no releases and no tags (Q-19), and its default branch is not even its newest state — scheduled crawl branches run ahead of `main`."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0026-the-pin-is-a-commit-a-receipt-and-a-tree-digest)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0025`",
+     "title": "A ref whose level the grammar cannot decide is reported, not guessed",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-08-18",
+     "search": "ADR-0025 A ref whose level the grammar cannot decide is reported, not guessed derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "Building `refs.py` against the corpus turned up two collisions the documents do not mention. A Manual page ref and a chunk ref share a grammar (`TMM/Part14/4/4/5` could be either). A provision ref and the ref of a defined term inside a provision share a grammar too — `TMR1995/sch3/item1` is a provision,…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0025-a-ref-whose-level-the-grammar-cannot-decide-is-reported-not-guessed)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0024`",
+     "title": "Candidate value normalisation is mechanical and stops there",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-18",
+     "search": "ADR-0024 Candidate value normalisation is mechanical and stops there agent-proposed **accepted — confirmed by ADR-0040**",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **accepted — confirmed by ADR-0040**"
+      },
+      {
+       "kind": "prose",
+       "text": "`IDENTIFIERS.md` §3 hashes `normalised_value` into the candidate id without saying what normalisation is. It decides when two spans are one candidate, so it cannot be left undefined once code exists."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0024-candidate-value-normalisation-is-mechanical-and-stops-there)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0023`",
+     "title": "`#` is percent-encoded when minting an IRI; nothing else is",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-08-18",
+     "search": "ADR-0023 `#` is percent-encoded when minting an IRI; nothing else is derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "`IDENTIFIERS.md` §2 mints an IRI as `<BASE>ref/<ref verbatim>` and says explicitly not to percent-encode, because `(` and `)` are legal in an IRI path and some tooling encodes them anyway. That reasoning is right about parentheses. It is wrong about `#`, and 498 of the corpus's 2,460 chunk refs contain one…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0023-is-percent-encoded-when-minting-an-iri-nothing-else-is)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0022`",
+     "title": "The provisional worksheet scope rule",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-08-18",
+     "search": "ADR-0022 The provisional worksheet scope rule human accepted — provisional by design",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted — provisional by design"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0017 established that the Pass B worksheet is printed from a deliberately over-inclusive machine rule the owner sets alone, rather than waiting on `eval/pilot-scope.md`. It did not say what the rule is. Parallel-track P9 cannot run on a principle."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0022-the-provisional-worksheet-scope-rule)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0021`",
+     "title": "Owner confirmations: ADR-0004, ADR-0005, ADR-0017 and ADR-0020",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-08-18",
+     "search": "ADR-0021 Owner confirmations: ADR-0004, ADR-0005, ADR-0017 and ADR-0020 human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "Six agent-proposed ADRs stood provisional, each flagged in `HANDOFF.md` §3 as awaiting the owner. Provisional decisions are load-bearing — code gets written against them — so leaving them open indefinitely means the repo is built on assumptions nobody has ratified."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0021-owner-confirmations-adr-0004-adr-0005-adr-0017-and-adr-0020)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0020`",
+     "title": "The candidate id is content-addressed without the method",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-17",
+     "search": "ADR-0020 The candidate id is content-addressed without the method agent-proposed **accepted — confirmed by ADR-0021** (was provisional, HANDOFF Q10)",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **accepted — confirmed by ADR-0021** (was provisional, HANDOFF Q10)"
+      },
+      {
+       "kind": "prose",
+       "text": "`IDENTIFIERS.md` §3 mints a machine-generated candidate id as `sha256(source_ref | span_start | span_end | method | normalised_value)`, so that re-running a pipeline over unchanged input is a no-op. With one extractor that works. ADR-0019 introduces three, plus rule-based paths, and the same term at the same span now…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0020-the-candidate-id-is-content-addressed-without-the-method)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0019`",
+     "title": "Keyphrase extraction is an ensemble of TextRank, YAKE and KeyBERT; spaCy NER is metadata",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-08-17",
+     "search": "ADR-0019 Keyphrase extraction is an ensemble of TextRank, YAKE and KeyBERT; spaCy NER is metadata human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The roadmap's Stage 2 §2.1 names **YAKE** alone for keyphrase extraction, and puts a statistical spaCy NER model under §2.3 as one route to *new entity discovery*. `ARCHITECTURE.md` §5 carried that stack unchanged, noting that substitutions are ADR-worthy."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0019-keyphrase-extraction-is-an-ensemble-of-textrank-yake-and-keybert-spacy-ner-is-metadata)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0018`",
+     "title": "Stage 0 incompleteness is a reported state; malformed data is a build failure",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-17",
+     "search": "ADR-0018 Stage 0 incompleteness is a reported state; malformed data is a build failure agent-proposed **accepted — confirmed by ADR-0038** (was provisional, HANDOFF Q9)",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **accepted — confirmed by ADR-0038** (was provisional, HANDOFF Q9)"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0010 and `STAGE-0-INPUT-GUIDE.md` §7 require the harness to run and **fail** before Stage 2 begins. Two problems follow. With no gold records, every mechanical check iterates an empty collection and passes **vacuously**, so the suite is green for the worst possible reason. And once the suite does fail by design, a…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0018-stage-0-incompleteness-is-a-reported-state-malformed-data-is-a-build-failure)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0017`",
+     "title": "The Pass B worksheet is generated from an over-inclusive provisional scope rule",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-17",
+     "search": "ADR-0017 The Pass B worksheet is generated from an over-inclusive provisional scope rule agent-proposed **accepted — confirmed by ADR-0021**; the rule itself is ADR-0022 (was provisional, HANDOFF Q9)",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **accepted — confirmed by ADR-0021**; the rule itself is ADR-0022 (was provisional, HANDOFF Q9)"
+      },
+      {
+       "kind": "prose",
+       "text": "The Pass B worksheet — every in-scope chunk printed with its `chunk_ref`, `heading_path`, `content_hash` and text — is the artefact that lets the expert annotate without typing a ref or a hash by hand. It appears to require `eval/pilot-scope.md`, which does not exist and is the deliverable most clearly awaiting expert…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0017-the-pass-b-worksheet-is-generated-from-an-over-inclusive-provisional-scope-rule)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0016`",
+     "title": "A parallel track is defined for work that does not need expert content",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-17",
+     "search": "ADR-0016 A parallel track is defined for work that does not need expert content agent-proposed **accepted — confirmed by ADR-0038** (was provisional, HANDOFF Q9)",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **accepted — confirmed by ADR-0038** (was provisional, HANDOFF Q9)"
+      },
+      {
+       "kind": "prose",
+       "text": "Stage 0's content is expert-owned (CLAUDE.md rule 1) and the experts advising the owner have not yet delivered. The repo held no statement of what could proceed meanwhile, which leaves two bad outcomes available: idling on the assumption that everything is blocked, or drifting into Stage 2 because it is the first…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0016-a-parallel-track-is-defined-for-work-that-does-not-need-expert-content)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0015`",
+     "title": "Expected reasoning results get their own record template",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-08-06",
+     "search": "ADR-0015 Expected reasoning results get their own record template derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The roadmap lists seven gold-standard components. `eval/templates/` covered six: five in `gold-record.template.yaml` and prohibited uses in their own file. **Expected reasoning results had no template**, so a Stage 0 declared complete against the existing templates would have been missing a named roadmap deliverable."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0015-expected-reasoning-results-get-their-own-record-template)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0014`",
+     "title": "Stage 0 gets an expert-facing input guide, distinct from the templates",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-06",
+     "search": "ADR-0014 Stage 0 gets an expert-facing input guide, distinct from the templates agent-proposed **accepted — confirmed by ADR-0040**",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **accepted — confirmed by ADR-0040**"
+      },
+      {
+       "kind": "prose",
+       "text": "`eval/templates/` holds the record schemas and `eval/README.md` explains the directory, but both are written for an agent. The repo owner asked what Stage 0 actually requires of them, which the repo could not answer: the templates state field names, not what makes a record worth having, in what order to produce them,…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0014-stage-0-gets-an-expert-facing-input-guide-distinct-from-the-templates)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0013`",
+     "title": "The pilot area is s 43 of the Trade Marks Act 1995",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-08-06",
+     "search": "ADR-0013 The pilot area is s 43 of the Trade Marks Act 1995 human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "HANDOFF Q1 asked for the pilot scope and blocked all of Stage 0. The roadmap suggests distinctiveness (s 41) but states that the final selection should follow operational need, against five criteria: important to examiners, spread across multiple Manual sections, connected to legislation and case law, containing…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0013-the-pilot-area-is-s-43-of-the-trade-marks-act-1995)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0012`",
+     "title": "Working conventions",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-04",
+     "search": "ADR-0012 Working conventions agent-proposed **accepted — confirmed by ADR-0040**",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **accepted — confirmed by ADR-0040**"
+      },
+      {
+       "kind": "prose",
+       "text": "**Date** 2026-08-04 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0040** **Decision.** Australian English in all prose and in any extraction lexicon — the corpus is Australian government text and spelling variants matter to matching. No spaces in filenames. Lowercase hyphenated directory…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0012-working-conventions)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0011`",
+     "title": "Every assertion carries provenance; upstream signals pass through unchanged",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-04",
+     "search": "ADR-0011 Every assertion carries provenance; upstream signals pass through unchanged agent-proposed provisional — **field list deferred by owner, see ADR-0041**",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** provisional — **field list deferred by owner, see ADR-0041**"
+      },
+      {
+       "kind": "prose",
+       "text": "**Date** 2026-08-04 · **Authority** agent-proposed (field list) · **Status** provisional — **field list deferred by owner, see ADR-0041** **Decision.** Provenance uses PROV-O plus project fields. Every record this repo generates carries, at minimum: `extraction_method` · `model` (and version, where a model was used) ·…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0011-every-assertion-carries-provenance-upstream-signals-pass-through-unchanged)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0010`",
+     "title": "Stage 0 is completed before any Stage 2 extraction work",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-08-04",
+     "search": "ADR-0010 Stage 0 is completed before any Stage 2 extraction work derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The upstream repo's `ROADMAP-STAGE-1.md` reaches a blunt verdict: Stage 1 is substantially complete, but **Stage 0 was skipped entirely** — no competency questions, no gold standard, no prohibited-use list, no evaluation harness anywhere in the programme. It argues that this, not any extraction gap, is the real…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0010-stage-0-is-completed-before-any-stage-2-extraction-work)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0009`",
+     "title": "LegalRuleML is deferred",
+     "authority": {
+      "chips": [
+       {
+        "label": "inherited",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-08-04",
+     "search": "ADR-0009 LegalRuleML is deferred inherited accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "**Date** 2026-08-04 · **Authority** inherited · **Status** accepted **Decision.** Not in the initial implementation. Reasoning uses OWL 2 RL for classification, SHACL for validation, SPARQL (including `CONSTRUCT`) for explicit derivations, and decision tables for bounded procedural logic. **Consequences.** Before…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0009-legalruleml-is-deferred)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0008`",
+     "title": "Three-tier confidence policy; Tier 3 always needs a human",
+     "authority": {
+      "chips": [
+       {
+        "label": "inherited",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-08-04",
+     "search": "ADR-0008 Three-tier confidence policy; Tier 3 always needs a human inherited accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "**Date** 2026-08-04 · **Authority** inherited · **Status** accepted **Decision.** Tier 1 (deterministic: citations, identifiers, dates, versions) may be auto-accepted once the method has demonstrated accuracy. Tier 2 (probabilistic, low risk: keyphrases, topics, proposed synonyms) may be auto-accepted above a…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0008-three-tier-confidence-policy-tier-3-always-needs-a-human)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0007`",
+     "title": "Candidates and approved knowledge are physically separated",
+     "authority": {
+      "chips": [
+       {
+        "label": "inherited",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-08-04",
+     "search": "ADR-0007 Candidates and approved knowledge are physically separated inherited accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "**Date** 2026-08-04 · **Authority** inherited · **Status** accepted **Decision.** Machine-generated candidates live in `review/`. Approved knowledge lives in `vocab/`, `ontology/` and `graph/`. In RDF, the separation is by named graph: authoritative source data, machine-extracted candidates, expert-approved…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0007-candidates-and-approved-knowledge-are-physically-separated)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0006`",
+     "title": "Organise by artefact type, not by roadmap stage",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-04",
+     "search": "ADR-0006 Organise by artefact type, not by roadmap stage agent-proposed **accepted — confirmed by ADR-0040**",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **accepted — confirmed by ADR-0040**"
+      },
+      {
+       "kind": "prose",
+       "text": "**Date** 2026-08-04 · **Authority** agent-proposed · **Status** **accepted — confirmed by ADR-0040** **Decision.** Top-level directories are `eval/`, `vocab/`, `ontology/`, `shapes/`, `queries/`, `graph/`, `review/`, `src/`, `data/`, `tests/`, `docs/` — not `stage2/`, `stage3/`, and so on. **Rationale.** Stages are a…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0006-organise-by-artefact-type-not-by-roadmap-stage)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0005`",
+     "title": "Upstream refs are the canonical identifiers; IRIs are minted from them",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-04",
+     "search": "ADR-0005 Upstream refs are the canonical identifiers; IRIs are minted from them agent-proposed **accepted — confirmed by ADR-0021** (was provisional, HANDOFF Q5)",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **accepted — confirmed by ADR-0021** (was provisional, HANDOFF Q5)"
+      },
+      {
+       "kind": "prose",
+       "text": "The roadmap illustrates stable identifiers as `tmem:manual/2026-01/chapter-4/section-3/paragraph-12`. Upstream already emits `TMM/Part22/1/1/2` for a chunk and `TMA1995/s41(3)(a)` for a legislative unit, and the join between the two corpora *is* string equality on those refs. The two schemes cannot both be canonical."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0005-upstream-refs-are-the-canonical-identifiers-iris-are-minted-from-them)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0004`",
+     "title": "The upstream snapshot is fetched, pinned and not committed here",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-04",
+     "search": "ADR-0004 The upstream snapshot is fetched, pinned and not committed here agent-proposed **accepted — confirmed by ADR-0021** (was provisional, HANDOFF Q2)",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **accepted — confirmed by ADR-0021** (was provisional, HANDOFF Q2)"
+      },
+      {
+       "kind": "prose",
+       "text": "Three options: git submodule, a pinned release archive downloaded into an ignored directory, or a vendored copy committed into this repo."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0004-the-upstream-snapshot-is-fetched-pinned-and-not-committed-here)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0003`",
+     "title": "Documentation-first repo, with the two source documents relocated",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-08-04",
+     "search": "ADR-0003 Documentation-first repo, with the two source documents relocated agent-proposed accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The repo contained exactly three files: the roadmap, an index of the upstream repo, and a licence. Nothing told a new agent session what to do, what had been decided, or where anything should go."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0003-documentation-first-repo-with-the-two-source-documents-relocated)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0002`",
+     "title": "Consume upstream; never re-derive it",
+     "authority": {
+      "chips": [
+       {
+        "label": "inherited",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-08-04",
+     "search": "ADR-0002 Consume upstream; never re-derive it inherited accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "**Date** 2026-08-04 · **Authority** inherited · **Status** accepted **Decision.** `chunk_ref` (`TMM/Part22/1/1/2`) and provision `ref` (`TMA1995/s41`, `TMA1995/s41(3)(a)`) are treated as stable foreign keys. Enrichment is keyed on them and regenerated on this repo's own cadence. Nothing here writes back into…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0002-consume-upstream-never-re-derive-it)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0001`",
+     "title": "This repo is the interpretive layer; `manual-XtrACTor` is the source",
+     "authority": {
+      "chips": [
+       {
+        "label": "inherited",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-08-04",
+     "search": "ADR-0001 This repo is the interpretive layer; `manual-XtrACTor` is the source inherited accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The programme has two repos. `manual-XtrACTor` produced Stage 1: a committed, offline, deterministically extracted snapshot of the Manual and the legislation, with no embeddings, no retrieval, no API and no LLM anywhere in its pipeline. Its own documentation states that everything interpretive is \"deliberately left to…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0001-this-repo-is-the-interpretive-layer-manual-xtractor-is-the-source)"
+      }
+     ]
+    }
+   ],
+   "search": true,
+   "note": "Newest first. Click a row for the context and a link to the full entry.",
+   "empty": "Nothing here yet."
+  }
+ ]
+}

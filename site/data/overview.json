@@ -1,0 +1,345 @@
+{
+ "id": "overview",
+ "title": "A knowledge base for section 43",
+ "lede": "This project is turning the part of the Trade Marks Manual that deals with **section 43** — marks with a connotation likely to deceive or cause confusion — into something a machine can reason over without ever deciding a case. Everything here was signed off by a person before it was modelled. Nothing on this page was written by an AI as legal content.",
+ "blocks": [
+  {
+   "kind": "callout",
+   "tone": "warn",
+   "title": "13 decisions are waiting on you",
+   "text": "Six of them unblock the next piece of work. Each is written to be answerable without reading anything else, and your answers come back into the repository as a file the next session reads.",
+   "links": [
+    {
+     "label": "Go to your decisions",
+     "href": "#/inbox"
+    }
+   ]
+  },
+  {
+   "kind": "stats",
+   "items": [
+    {
+     "label": "Approved records",
+     "value": 190,
+     "note": "every one signed by a named reviewer, with a date",
+     "tone": "good",
+     "href": null
+    },
+    {
+     "label": "Legal ideas",
+     "value": 52,
+     "note": "target 50–100",
+     "tone": "good",
+     "href": "#/vocabulary"
+    },
+    {
+     "label": "Relationships",
+     "value": 35,
+     "note": "target 50–100",
+     "tone": "gap",
+     "href": null
+    },
+    {
+     "label": "Named things found in the text",
+     "value": 55,
+     "note": "target 100–300",
+     "tone": "gap",
+     "href": null
+    },
+    {
+     "label": "Questions it must answer",
+     "value": 20,
+     "note": "13 answerable today",
+     "tone": null,
+     "href": "#/questions"
+    },
+    {
+     "label": "Things it must never say",
+     "value": 11,
+     "note": "tested as explicitly as the right answers",
+     "tone": null,
+     "href": "#/limits"
+    }
+   ],
+   "note": "Counts are read from `eval/gold/` at build time. A target band comes from the roadmap; a number below its band is shown as a gap, not smoothed over."
+  },
+  {
+   "kind": "prose",
+   "text": "### How to read this site\n\n**Approved** means a named person signed a record on a date. That is the only kind of knowledge this project treats as true. Everything a machine proposes is a {{Candidate}} and is kept in a separate place, in a separate file, with a label on it.\n\n**Draft** means the model itself has not been approved. The nine {{Ontology}} modules are a proposal about how to describe this material; the content underneath them is signed, the shape around it is not.\n\n**The Manual is practice, not law.** It records what the Registrar does; it does not bind the Registrar's discretion and it is not legislation. Keeping those two apart is the single constraint most of this design exists to protect."
+  },
+  {
+   "kind": "stats",
+   "items": [
+    {
+     "label": "Model modules",
+     "value": 9,
+     "note": "all draft, none approved",
+     "tone": null,
+     "href": null
+    },
+    {
+     "label": "Classes declared",
+     "value": 49,
+     "note": "10 hold approved content",
+     "tone": null,
+     "href": null
+    },
+    {
+     "label": "Predicates",
+     "value": 14,
+     "note": "generated from approved relationships, never hand-written",
+     "tone": null,
+     "href": null
+    },
+    {
+     "label": "Statements stored",
+     "value": 2942,
+     "note": "each traceable to a signed record",
+     "tone": "good",
+     "href": null
+    },
+    {
+     "label": "Machine-derived statements",
+     "value": 2315,
+     "note": "all quarantined — no rule is approved",
+     "tone": "warn",
+     "href": null
+    },
+    {
+     "label": "Checks in the publication gate",
+     "value": 18,
+     "note": "each with a fixture built to violate it",
+     "tone": null,
+     "href": null
+    }
+   ],
+   "note": null
+  },
+  {
+   "kind": "prose",
+   "text": "### Where each stage of the programme stands"
+  },
+  {
+   "kind": "table",
+   "columns": [
+    {
+     "key": "stage",
+     "label": "Stage"
+    },
+    {
+     "key": "name",
+     "label": "What it is"
+    },
+    {
+     "key": "status",
+     "label": "Status"
+    },
+    {
+     "key": "owner",
+     "label": "Owned by"
+    }
+   ],
+   "rows": [
+    {
+     "stage": "0",
+     "name": "Pilot selection and evaluation set",
+     "status": {
+      "chips": [
+       {
+        "label": "partial",
+        "tone": "note"
+       }
+      ]
+     },
+     "owner": "this repo — **the blocker**",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "pilot area chosen (s 43, ADR-0013); apparatus built (S004–S005); **first approved content landed S008: 190 records over all 8 types, harness 0 defects / 12 gaps**; 178 seed records still await correction, of which **10 decisions hold the other 168** (S009, `tmk-blockers`)"
+      }
+     ]
+    },
+    {
+     "stage": "1",
+     "name": "Ingest and structure source documents",
+     "status": {
+      "chips": [
+       {
+        "label": "done",
+        "tone": "good"
+       }
+      ]
+     },
+     "owner": "`manual-XtrACTor`",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "(4 of 6 named deliverables); consumed here since S004 — pinned, fetched and loaded"
+      }
+     ]
+    },
+    {
+     "stage": "2",
+     "name": "Candidate terminology and entities",
+     "status": {
+      "chips": [
+       {
+        "label": "not started",
+        "tone": "gap"
+       }
+      ]
+     },
+     "owner": "this repo",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019); blocked by ADR-0010"
+      }
+     ]
+    },
+    {
+     "stage": "3",
+     "name": "Controlled vocabulary (SKOS)",
+     "status": {
+      "chips": [
+       {
+        "label": "not started",
+        "tone": "gap"
+       }
+      ]
+     },
+     "owner": "this repo",
+     "detail": []
+    },
+    {
+     "stage": "4",
+     "name": "Relationships, propositions, candidate rules",
+     "status": {
+      "chips": [
+       {
+        "label": "not started",
+        "tone": "gap"
+       }
+      ]
+     },
+     "owner": "this repo",
+     "detail": []
+    },
+    {
+     "stage": "5",
+     "name": "Formalise the ontology",
+     "status": {
+      "chips": [
+       {
+        "label": "partial",
+        "tone": "note"
+       }
+      ]
+     },
+     "owner": "this repo",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "S010. Nine OWL 2 RL modules **drafted** in `ontology/draft/` from the 190 approved records; nothing approved, so `ontology/` is still empty (ADR-0056, ADR-0057)"
+      }
+     ]
+    },
+    {
+     "stage": "6",
+     "name": "Populate and validate the knowledge graph",
+     "status": {
+      "chips": [
+       {
+        "label": "partial",
+        "tone": "note"
+       }
+      ]
+     },
+     "owner": "this repo",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "S010. Graph built (16,405 source + 2,942 approved triples) and the SHACL gate runs: **0 defects, 0 gaps, 29 notes**. Built against a *draft* TBox"
+      }
+     ]
+    },
+    {
+     "stage": "7",
+     "name": "Ontology-enhanced search",
+     "status": {
+      "chips": [
+       {
+        "label": "not started",
+        "tone": "gap"
+       }
+      ]
+     },
+     "owner": "this repo",
+     "detail": []
+    },
+    {
+     "stage": "8",
+     "name": "Graph-aware AI retrieval",
+     "status": {
+      "chips": [
+       {
+        "label": "not started",
+        "tone": "gap"
+       }
+      ]
+     },
+     "owner": "this repo",
+     "detail": []
+    },
+    {
+     "stage": "9",
+     "name": "Automated reasoning",
+     "status": {
+      "chips": [
+       {
+        "label": "partial",
+        "tone": "note"
+       }
+      ]
+     },
+     "owner": "this repo",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "S010. Two CONSTRUCT rules written, **neither approved**; everything they produce is quarantined as `review_status: candidate`"
+      }
+     ]
+    },
+    {
+     "stage": "10",
+     "name": "Automated maintenance",
+     "status": {
+      "chips": [
+       {
+        "label": "not started",
+        "tone": "gap"
+       }
+      ]
+     },
+     "owner": "this repo",
+     "detail": []
+    }
+   ],
+   "search": false,
+   "note": "From `docs/ROADMAP-STATUS.md`. Click a row for the detail behind the status.",
+   "empty": "Nothing here yet."
+  },
+  {
+   "kind": "callout",
+   "tone": "note",
+   "title": "Where the numbers come from",
+   "text": "Built from the repository at `main`, against the pinned upstream snapshot `c490a9927f1a` (500 Manual pages, 2,460 passages, 763 legislative provisions). This site reads only files that are committed, so nothing here depends on a download succeeding — and figures that can only be measured with the full corpus are left to the generated reports rather than restated from memory.",
+   "links": [
+    {
+     "label": "The generated reports",
+     "href": "#/reports"
+    }
+   ]
+  }
+ ]
+}

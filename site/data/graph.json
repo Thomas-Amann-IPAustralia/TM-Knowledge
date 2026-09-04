@@ -1,0 +1,405 @@
+{
+ "id": "graph",
+ "title": "The graph",
+ "lede": "A {{Knowledge graph}} stores knowledge as small statements — a subject, a relationship, an object — rather than as rows in a table. Each one is a {{Triple}}. The point is not the format; it is that every statement can carry, alongside itself, the record of where it came from and who stands behind it.",
+ "blocks": [
+  {
+   "kind": "stats",
+   "items": [
+    {
+     "label": "Approved statements",
+     "value": 2942,
+     "note": "each traceable to a signed record",
+     "tone": "good",
+     "href": null
+    },
+    {
+     "label": "Machine-derived statements",
+     "value": 2315,
+     "note": "every one marked 'needs a human'",
+     "tone": "warn",
+     "href": null
+    },
+    {
+     "label": "Kinds of thing held",
+     "value": 11,
+     "note": "of the classes the model declares",
+     "tone": null,
+     "href": null
+    }
+   ],
+   "note": "Counted from `graph/approved.ttl` and `graph/inferred.ttl` as committed."
+  },
+  {
+   "kind": "prose",
+   "text": "### What the approved half holds"
+  },
+  {
+   "kind": "table",
+   "columns": [
+    {
+     "key": "thing",
+     "label": "Kind of thing"
+    },
+    {
+     "key": "count",
+     "label": "How many"
+    }
+   ],
+   "rows": [
+    {
+     "thing": "`EntityMention`",
+     "count": "55"
+    },
+    {
+     "thing": "`Concept`",
+     "count": "52"
+    },
+    {
+     "thing": "`LegalConcept`",
+     "count": "52"
+    },
+    {
+     "thing": "`ApprovedAssertion`",
+     "count": "35"
+    },
+    {
+     "thing": "`CompetencyQuestion`",
+     "count": "20"
+    },
+    {
+     "thing": "`ProhibitedUse`",
+     "count": "11"
+    },
+    {
+     "thing": "`RetrievalQuestion`",
+     "count": "10"
+    },
+    {
+     "thing": "`ReasoningExpectation`",
+     "count": "6"
+    },
+    {
+     "thing": "`RelevanceJudgement`",
+     "count": "2"
+    },
+    {
+     "thing": "`SearchQuestion`",
+     "count": "1"
+    },
+    {
+     "thing": "`ConceptScheme`",
+     "count": "1"
+    }
+   ],
+   "search": false,
+   "note": "Read off the committed file, so this table cannot claim something the data does not contain.",
+   "empty": "Nothing here yet."
+  },
+  {
+   "kind": "prose",
+   "text": "### Four separate compartments, and the separation is the governance\n\nThe store is divided into {{Named graph}}s, and nothing is in two of them. **Source** restates what the upstream extraction already recorded. **Approved** restates what a reviewer already signed. **Inferred** holds what a rule worked out, and everything in it is labelled as needing a human. A fourth compartment for machine-proposed candidates exists in the design and is empty, because no extraction has been run.\n\nKeeping them apart is what makes it possible to answer *who says so* about any statement in the system — and to answer it differently for a fact the Manual's authors wrote and a fact we worked out from their wording."
+  },
+  {
+   "kind": "callout",
+   "tone": "good",
+   "title": "The trust metadata survived, and it changed an answer",
+   "text": "Upstream records, for every citation, whether it read an actual link the authors wrote (`href`) or inferred it from the wording (`regex`), and how certain that reading is. Those two facts are carried into the graph as part of the citation rather than flattened away.\n\nIt paid off immediately. Asked which parts of the Manual an amendment to section 43 would affect, five Parts turn out to be in the list **entirely** on citations inferred from a bare mention of \"section 43\" — not on links anyone wrote. \"This Part needs reviewing\" is a materially weaker claim there, and without the trust metadata there would be no way to know.",
+   "links": [
+    {
+     "label": "The full report",
+     "href": "#/reports?open=ontology"
+    }
+   ]
+  },
+  {
+   "kind": "prose",
+   "text": "### What the corpus underneath it looks like"
+  },
+  {
+   "kind": "stats",
+   "items": [
+    {
+     "label": "Manual pages",
+     "value": 500,
+     "note": null,
+     "tone": null,
+     "href": null
+    },
+    {
+     "label": "Passages",
+     "value": 2460,
+     "note": null,
+     "tone": null,
+     "href": null
+    },
+    {
+     "label": "Parts",
+     "value": 54,
+     "note": null,
+     "tone": null,
+     "href": null
+    },
+    {
+     "label": "Legislative provisions",
+     "value": 763,
+     "note": null,
+     "tone": null,
+     "href": null
+    },
+    {
+     "label": "Numbered units",
+     "value": 5813,
+     "note": null,
+     "tone": null,
+     "href": null
+    }
+   ],
+   "note": "The pinned upstream extraction, commit `c490a9927f1a`. It is read-only here: this project consumes it and never re-derives it. The section 43 slice of it — how many passages, how many citations — is measured by the generated reports, which run with the full corpus present."
+  },
+  {
+   "kind": "prose",
+   "text": "### The two rules, and why nothing they produce is trusted\n\nA rule is an explicit, fixed derivation — not a model, and not something that learns. The programme requires an expert to approve every one before its output may be used. Neither of these has been approved, so the code enforces the consequence rather than trusting the file: everything they produce is written into the inferred compartment with a *candidate* label and a *requires human review* flag."
+  },
+  {
+   "kind": "cards",
+   "items": [
+    {
+     "title": "RULE-0001",
+     "subtitle": "tmk:mixedAuthority on a Manual passage that carries both quoted legislative text and the Registrar's own practice, so that any output derived from it is required to keep the two apart.",
+     "text": "**Stands on:** GX-0001 — the approved reasoning expectation over TMM/Part29/1#1: \"The passage contains both quoted legislative text and the Registrar's practice, and the two must be distinguishable in any output derived from it.\"\n\n**Does not establish:** Detects the mixture from the expert's own entity typing — a mention typed LegislativeProvision and a mention typed ManualInstruction in the same chunk. It does not find the sentence boundary between the quotation and the guidance, and that boundary is not marked in the text (GX-0001's caveat). It says \"these two things are both in here\", not \"the quotation ends at character N\".",
+     "badges": [
+      {
+       "label": "not approved",
+       "tone": "warn"
+      },
+      {
+       "label": "output quarantined",
+       "tone": "note"
+      }
+     ],
+     "links": [
+      {
+       "label": "Read the rule",
+       "href": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/queries/rules/RULE-0001-mixed-authority.rq"
+      }
+     ]
+    },
+    {
+     "title": "RULE-0002",
+     "subtitle": "tmk:impactedBy — every approved record that would have to be re-read if a given Manual passage changed, because the record was read out of that passage or names it as a definition source.",
+     "text": "**Stands on:** CQ-0017 and CQ-0019, the two impact-category competency questions. The edges it walks are the ones already in the approved graph; the rule materialises the closure so an impact answer is a lookup rather than a traversal written afresh each time.\n\n**Does not establish:** Impact by *recorded dependency*, and nothing else. A passage that discusses the same subject without being cited by a record is invisible to it, which is the known shape of the gap (Q-28): a term's definition is usually not in a passage that cites anything, so the material a scope rule finds and the material a topic actually spans are not the same set. Reading a nil result as \"nothing is affected\" is the error this limits line exists to prevent.",
+     "badges": [
+      {
+       "label": "not approved",
+       "tone": "warn"
+      },
+      {
+       "label": "output quarantined",
+       "tone": "note"
+      }
+     ],
+     "links": [
+      {
+       "label": "Read the rule",
+       "href": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/queries/rules/RULE-0002-change-impact.rq"
+      }
+     ]
+    }
+   ],
+   "note": null
+  },
+  {
+   "kind": "prose",
+   "text": "### The checks that block publication"
+  },
+  {
+   "kind": "table",
+   "columns": [
+    {
+     "key": "shape",
+     "label": "Check"
+    },
+    {
+     "key": "file",
+     "label": "Where"
+    },
+    {
+     "key": "what",
+     "label": "What it stops"
+    }
+   ],
+   "rows": [
+    {
+     "shape": "An approved assertion carries its whole provenance block",
+     "file": "`shapes/provenance.ttl`",
+     "what": "No route back to the approved record, so no route back to the reviewer who signed it.",
+     "detail": [
+      {
+       "kind": "list",
+       "items": [
+        "No route back to the approved record, so no route back to the reviewer who signed it.",
+        "First of the six starting rules: every approved proposition has a source passage.",
+        "Third of the six starting rules: every extracted relationship identifies its extraction method.",
+        "Review status absent or outside the vocabulary. It is never defaulted to approved.",
+        "A name and a date are the approval artefact (ADR-0039). Without a name this is a candidate sitting in approved space, which is rule 4 inverted.",
+        "No approval date, or one that is not a date.",
+        "A content hash that is not one. Staleness detection reads this and nothing else.",
+        "Confidence outside [0,1]. Note this is confidence in the *extraction*; a confidence attached to a legal conclusion is PU-0003."
+       ],
+       "ordered": false,
+       "note": null
+      }
+     ]
+    },
+    {
+     "shape": "A span is a well-formed interval",
+     "file": "`shapes/provenance.ttl`",
+     "what": "A span with a start and no end locates nothing.",
+     "detail": [
+      {
+       "kind": "list",
+       "items": [
+        "A span with a start and no end locates nothing.",
+        "Span end is not after its start. The offsets were constructed rather than measured against the snapshot (ADR-0045)."
+       ],
+       "ordered": false,
+       "note": null
+      }
+     ]
+    },
+    {
+     "shape": "A stale assertion does not stay in the approved graph",
+     "file": "`shapes/provenance.ttl`",
+     "what": "The passage under this assertion has moved since it was approved. It returns to review rather than being carried forward, and the hash is never silently refreshed (IDENTIFIERS.md §5).",
+     "detail": []
+    },
+    {
+     "shape": "Staleness was actually checked",
+     "file": "`shapes/provenance.ttl`",
+     "what": "No staleness verdict on this assertion: the build could not find the passage it names in the graph, so nothing has confirmed the text under it is still there.",
+     "detail": []
+    },
+    {
+     "shape": "Every approved relation edge has an assertion behind it",
+     "file": "`shapes/provenance.ttl`",
+     "what": "A direct triple uses this approved predicate with no tmk:Assertion recording who approved it and from which passage. An edge nobody signed is sitting in the approved graph.",
+     "detail": []
+    },
+    {
+     "shape": "A practice statement is not attributed to the Act (PU-0004)",
+     "file": "`shapes/authority.ttl`",
+     "what": "PU-0004 — authority conflation: this proposition's words are in a passage that states practice, and it is attributed to a legislative provision. The section requires no such thing; that formulation is the Manual's. Attributing it to the Act gives an examiner a statutory requirement that does not exist and removes the Registrar's discretion in the same sentence.",
+     "detail": []
+    },
+    {
+     "shape": "Every passage says what kind of authority it is",
+     "file": "`shapes/authority.ttl`",
+     "what": "A passage with no authority kind can be quoted without anyone being able to say whether it is law or practice (CLAUDE.md rule 5).",
+     "detail": []
+    },
+    {
+     "shape": "Nothing is both practice and law",
+     "file": "`shapes/authority.ttl`",
+     "what": "A node typed both tmk:ManualInstruction and tmk:LegislativeProvision. The classes are owl:disjointWith; under OWL RL that makes the graph inconsistent, and an inconsistent graph entails everything.",
+     "detail": []
+    },
+    {
+     "shape": "Every source passage identifies a document version",
+     "file": "`shapes/authority.ttl`",
+     "what": "Second of the six starting rules: a passage that cannot name the snapshot it came from cannot be checked for staleness.",
+     "detail": [
+      {
+       "kind": "list",
+       "items": [
+        "Second of the six starting rules: a passage that cannot name the snapshot it came from cannot be checked for staleness.",
+        "No content hash, so nothing can detect that the passage moved."
+       ],
+       "ordered": false,
+       "note": null
+      }
+     ]
+    },
+    {
+     "shape": "An assertion about a provision keeps the passage it was read from",
+     "file": "`shapes/authority.ttl`",
+     "what": "This assertion's subject is a legislative provision but it names no source passage. Drop the passage and the assertion reads as something the Act says — which is how PU-0004 happens by omission rather than by claim.",
+     "detail": []
+    },
+    {
+     "shape": "A concept has exactly one preferred label and belongs to a scheme",
+     "file": "`shapes/vocabulary.ttl`",
+     "what": "A concept with two preferred labels is two concepts that have not been separated yet.",
+     "detail": [
+      {
+       "kind": "list",
+       "items": [
+        "A concept with two preferred labels is two concepts that have not been separated yet.",
+        "A concept outside every scheme cannot be found by anything that walks a scheme.",
+        "No route from the concept back to the record and the reviewer who approved it."
+       ],
+       "ordered": false,
+       "note": null
+      }
+     ]
+    },
+    {
+     "shape": "No cycles in broader/narrower",
+     "file": "`shapes/vocabulary.ttl`",
+     "what": "This concept is its own ancestor. A cycle in the hierarchy makes every hierarchy walk non-terminating and every broader-than query meaningless.",
+     "detail": []
+    },
+    {
+     "shape": "A not-label naming another concept's label is reported, not failed",
+     "file": "`shapes/vocabulary.ttl`",
+     "what": "This concept's not-label is another concept's label. That is usually correct and is exactly what a not-label is for — 'deceptively similar' belongs to section 44 and must not be read as this concept. Reported so the pairs are visible, never failed.",
+     "detail": []
+    },
+    {
+     "shape": "A not-label is not also a label",
+     "file": "`shapes/vocabulary.ttl`",
+     "what": "This concept carries the same string as both a label and a not-label. The record says at once that the term means this concept and that it must never be read as this concept, and a retrieval system reading the first will route an examiner to the wrong test.",
+     "detail": []
+    },
+    {
+     "shape": "Nothing held is also marked not-held",
+     "file": "`shapes/temporal.ttl`",
+     "what": "A provision carries text from the snapshot and is also marked tmk:NotHeld. One of the two is wrong, and the not-held marker is what CQ-0020 counts.",
+     "detail": []
+    },
+    {
+     "shape": "Superseded material carries a status date",
+     "file": "`shapes/temporal.ttl`",
+     "what": "This passage is marked superseded and carries no status date. Superseded-since-when is the whole content of the claim; without it, a point-in-time query cannot exclude it and a currency answer cannot qualify it.",
+     "detail": []
+    },
+    {
+     "shape": "Reasoning stays inside its bounds",
+     "file": "`shapes/inference.ttl`",
+     "what": "An evidentiary proposition was derived by a rule. 'The evidence establishes acquired distinctiveness' is an evaluative conclusion and stays outside automated reasoning scope (queries/README.md); a class that holds such propositions is fine, a rule that derives one is not.",
+     "detail": []
+    },
+    {
+     "shape": "An inference names its rule and its premises",
+     "file": "`shapes/inference.ttl`",
+     "what": "Sixth of the six starting rules: every inferred result identifies the rule that produced it.",
+     "detail": [
+      {
+       "kind": "list",
+       "items": [
+        "Sixth of the six starting rules: every inferred result identifies the rule that produced it.",
+        "An explanation that names none of its premises is not an explanation.",
+        "An inferred assertion with no review status reads as approved knowledge."
+       ],
+       "ordered": false,
+       "note": null
+      }
+     ]
+    }
+   ],
+   "search": false,
+   "note": "These are {{SHACL}} constraints. Every one has a fixture built to violate it, because an untested check that never matches anything is worse than no check: it reads as coverage. Against the real content they report 0 defects.",
+   "empty": "Nothing here yet."
+  }
+ ]
+}
