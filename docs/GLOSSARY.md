@@ -144,3 +144,46 @@ fusing the scores (OpenSearch fusion, reciprocal rank fusion, or a cross-encoder
 rerank).
 
 **ADR** — architecture decision record. `docs/DECISIONS.md`. Append-only.
+
+## Modelling
+
+Added S011 so the dashboard's tooltips and this file draw on one set of words.
+Ordinary technical vocabulary, aimed at a reader who knows trade marks and not
+knowledge engineering.
+
+**Knowledge graph** — the data itself, held as a web of small statements rather
+than as rows in a table. Its shape comes from the ontology.
+
+**Ontology** — the model: which kinds of thing exist, what may be said about
+each, and what may be inferred. It says nothing about any particular trade mark;
+it says what a statement about one is allowed to look like.
+
+**Triple** — one statement, in three parts: subject, predicate, object.
+*TMM/Part29/1#1 — states — connotation.* Everything in the graph is triples, and
+counting them is how its size is reported.
+
+**Class** — a kind of thing the ontology declares: a legal concept, a passage, a
+citation. A class with nothing in it is a slot nobody has filled.
+
+**Predicate** — the middle part of a triple: the relationship being asserted.
+This project keeps a closed list of them, generated from approved relationships,
+so extraction cannot invent a new one.
+
+**IRI** — the globally unique name of something in the graph, written as a web
+address. It need not open a page; it needs to be unambiguous and stable
+(`docs/IDENTIFIERS.md`, HANDOFF Q7).
+
+**TBox / ABox** — the two halves of a graph: the TBox is the model (classes and
+predicates), the ABox is the content said with it. `ontology/draft/` is the
+TBox; `graph/` is the ABox.
+
+**RDF** — the W3C standard the graph is written in. Triples, IRIs and named
+graphs are its vocabulary, and SKOS, OWL and SHACL are all layered on it.
+
+**SPARQL** — the query language for RDF. A competency query is a SPARQL query
+stored in a file with a header saying what it does and does not answer
+(ADR-0061).
+
+**Inference** — a statement derived from others by a rule rather than read from
+a source. Everything inferred here names the rule that produced it and stays
+quarantined until an expert approves the rule (Stage 9).

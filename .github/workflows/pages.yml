@@ -1,0 +1,94 @@
+# The dashboard, published to GitHub Pages.
+#
+# https://thomas-amann-ipaustralia.github.io/TM-Knowledge/
+#
+# The site is regenerated here rather than deployed from what is committed, so
+# the published page can never be older than the branch it was built from. It
+# reads committed artefacts only — no upstream snapshot, no network — which is
+# why this job has no fetch step and cannot fail because upstream was
+# unreachable.
+#
+# One-time repository setting: Settings → Pages → Build and deployment →
+# Source: **GitHub Actions**. Without it this workflow runs and publishes
+# nothing.
+
+name: pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "src/tm_knowledge/dashboard/**"
+      - "eval/gold/**"
+      - "ontology/draft/**"
+      - "graph/**"
+      - "shapes/**"
+      - "queries/**"
+      - "review/questions/**"
+      - "review/rulings/**"
+      - "data/derived/reports/**"
+      - "data/pin.json"
+      - "docs/DECISIONS.md"
+      - "docs/ROADMAP-STATUS.md"
+      - "docs/GLOSSARY.md"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time, and never cancel one halfway: a cancelled deploy
+# leaves the previous site up, which is fine, but a cancelled *queued* one loses
+# the newest content.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -e ".[rdf]"
+
+      # Regenerate rather than trust the committed copies. If this step fails,
+      # nothing publishes — a dashboard that cannot be rebuilt from the repo is
+      # a dashboard making claims the repo no longer supports.
+      - name: Generate the site data
+        run: tmk-dashboard --write
+
+      - name: Say what was published
+        run: |
+          {
+            echo "### Dashboard"
+            echo
+            echo "Built from \`${GITHUB_SHA:0:12}\`."
+            echo
+            tmk-dashboard | sed 's/^/    /'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

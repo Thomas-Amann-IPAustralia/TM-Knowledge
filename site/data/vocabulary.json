@@ -1,0 +1,3262 @@
+{
+ "id": "vocabulary",
+ "title": "The vocabulary",
+ "lede": "52 legal ideas, each drawn from the section 43 material and each signed off by a named reviewer. Held as {{SKOS}} — a standard for controlled vocabularies: a preferred label, the variants that mean the same thing, and the ones that do not.",
+ "blocks": [
+  {
+   "kind": "stats",
+   "items": [
+    {
+     "label": "Approved ideas",
+     "value": 52,
+     "note": "target 50–100",
+     "tone": "good",
+     "href": null
+    },
+    {
+     "label": "With a definition written down",
+     "value": 0,
+     "note": "sources recorded, text never authored",
+     "tone": "note",
+     "href": null
+    },
+    {
+     "label": "Standing outside any hierarchy",
+     "value": 39,
+     "note": "a flat list is a list with extra steps",
+     "tone": "gap",
+     "href": null
+    },
+    {
+     "label": "Sorted into a kind",
+     "value": 0,
+     "note": "ground of refusal / test / factor / exception",
+     "tone": "gap",
+     "href": null
+    }
+   ],
+   "note": null
+  },
+  {
+   "kind": "callout",
+   "tone": "gap",
+   "title": "The biggest single gap, and it needs one pass by one person",
+   "text": "All 52 ideas sit in the model as a bare *legal concept*. Whether *connotation* is a **test** the decision maker applies or a **factor** feeding into one is a legal judgement, so the four slots for it are declared and empty. Filling them is one pass over a list for someone who knows the domain, and it is what turns a flat vocabulary into something later stages can generalise over.",
+   "links": [
+    {
+     "label": "This is question 1 in your queue",
+     "href": "#/inbox"
+    }
+   ]
+  },
+  {
+   "kind": "table",
+   "columns": [
+    {
+     "key": "id",
+     "label": "ID"
+    },
+    {
+     "key": "label",
+     "label": "Preferred label"
+    },
+    {
+     "key": "alt",
+     "label": "Also called"
+    },
+    {
+     "key": "place",
+     "label": "Placement"
+    }
+   ],
+   "rows": [
+    {
+     "id": "`GC-0001`",
+     "label": "connotation",
+     "alt": {
+      "chips": [
+       {
+        "label": "secondary meaning",
+        "tone": "muted"
+       },
+       {
+        "label": "implied meaning",
+        "tone": "muted"
+       },
+       {
+        "label": "secondary or implied meaning",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "in a hierarchy",
+        "tone": "good"
+       }
+      ]
+     },
+     "anchor": "GC-0001",
+     "search": "GC-0001 connotation secondary meaning implied meaning secondary or implied meaning denotation deceptively similar descriptive meaning",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *secondary meaning*, *implied meaning*, *secondary or implied meaning*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*denotation*, *deceptively similar*, *descriptive meaning*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Contains:** decision maker"
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** denotation, examiner"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/2/2/1~1`, `TMM/Part29/2/2/2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The Manual states that for section 43 the term has a wider meaning than the dictionary sense and includes direct statements. That widening is a practice position, and whether it survives into the ontology as one concept or two is a judgement.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0002`",
+     "label": "likely to deceive or cause confusion",
+     "alt": {
+      "chips": [
+       {
+        "label": "likelihood of deception or confusion",
+        "tone": "muted"
+       },
+       {
+        "label": "deceive or confuse",
+        "tone": "muted"
+       },
+       {
+        "label": "deception or confusion",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "in a hierarchy",
+        "tone": "good"
+       }
+      ]
+     },
+     "anchor": "GC-0002",
+     "search": "GC-0002 likely to deceive or cause confusion likelihood of deception or confusion deceive or confuse deception or confusion deceptively similar substantially identical likelihood of confusion between trade marks",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *likelihood of deception or confusion*, *deceive or confuse*, *deception or confusion*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*deceptively similar*, *substantially identical*, *likelihood of confusion between trade marks*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Contains:** deception, confusion"
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** real and tangible danger"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/1#1`, `TMM/Part29/3#1~2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "Whether this should be one concept or two is a real question. The Manual quotes Lord Denning distinguishing them sharply, then applies them as a single threshold. We have kept them together with the two narrower concepts underneath; splitting them is a defensible correction.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0003`",
+     "label": "deception",
+     "alt": {
+      "chips": [
+       {
+        "label": "deceive",
+        "tone": "muted"
+       },
+       {
+        "label": "misled",
+        "tone": "muted"
+       },
+       {
+        "label": "misdescriptive",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "in a hierarchy",
+        "tone": "good"
+       }
+      ]
+     },
+     "anchor": "GC-0003",
+     "search": "GC-0003 deception deceive misled misdescriptive confusion scandalous",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *deceive*, *misled*, *misdescriptive*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*confusion*, *scandalous*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Sits under:** likely to deceive or cause confusion"
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** confusion"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/3#1~2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "\"Misdescriptive\" is listed as an alt label on the strength of one passage. It may be a related but distinct idea rather than a synonym.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0004`",
+     "label": "confusion",
+     "alt": {
+      "chips": [
+       {
+        "label": "cause confusion",
+        "tone": "muted"
+       },
+       {
+        "label": "confuse",
+        "tone": "muted"
+       },
+       {
+        "label": "caused to wonder",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "in a hierarchy",
+        "tone": "good"
+       }
+      ]
+     },
+     "anchor": "GC-0004",
+     "search": "GC-0004 confusion cause confusion confuse caused to wonder confusion between trade marks conflict with other signs deceptively similar",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *cause confusion*, *confuse*, *caused to wonder*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*confusion between trade marks*, *conflict with other signs*, *deceptively similar*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Sits under:** likely to deceive or cause confusion"
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** deception"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/3#1~2`, `TMM/Part29/3/3/1~1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "\"Caused to wonder\" comes from a passage quoted from a decision under earlier legislation. Whether it is a synonym or a test is a reading.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0005`",
+     "label": "denotation",
+     "alt": {
+      "chips": [
+       {
+        "label": "primary meaning",
+        "tone": "muted"
+       },
+       {
+        "label": "essential meaning",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0005",
+     "search": "GC-0005 denotation primary meaning essential meaning connotation",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *primary meaning*, *essential meaning*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*connotation*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** connotation"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/2/2/1~1`, `TMM/Part29/2/2/1~2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The Manual gives the denotation of a mark as the connection in trade between the applicant and the goods or services.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0006`",
+     "label": "ground for rejection",
+     "alt": {
+      "chips": [
+       {
+        "label": "ground of rejection",
+        "tone": "muted"
+       },
+       {
+        "label": "objection",
+        "tone": "muted"
+       },
+       {
+        "label": "s 43 objection",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0006",
+     "search": "GC-0006 ground for rejection ground of rejection objection s 43 objection ground of opposition ground for revocation",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *ground of rejection*, *objection*, *s 43 objection*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*ground of opposition*, *ground for revocation*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** presumption of registrability, opposition"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part20/5#1`, `TMM/Part29/1#1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`, `TMA1995/s33`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The Manual uses \"objection\" and \"ground for rejection\" interchangeably in places. If they are not interchangeable in practice, that is a correction with consequences across the whole entity set.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0007`",
+     "label": "presumption of registrability",
+     "alt": {
+      "chips": [
+       {
+        "label": "presumption in favour of registrability",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0007",
+     "search": "GC-0007 presumption of registrability presumption in favour of registrability onus on the applicant",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *presumption in favour of registrability*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*onus on the applicant*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** ground for rejection"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/2/2/4`, `TMM/Part20/5/5/5`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s33(3)`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The not_label is a live one: a passage quoted in 29.3.1 places the onus on the applicant, in the context of earlier legislation. Whether the two sit together is a legal question, not a drafting one.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0008`",
+     "label": "real and tangible danger",
+     "alt": {
+      "chips": [
+       {
+        "label": "real tangible danger",
+        "tone": "muted"
+       },
+       {
+        "label": "real and obvious danger",
+        "tone": "muted"
+       },
+       {
+        "label": "finite and non-trivial probability",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0008",
+     "search": "GC-0008 real and tangible danger real tangible danger real and obvious danger finite and non-trivial probability mere possibility of confusion actual probability of deception",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *real tangible danger*, *real and obvious danger*, *finite and non-trivial probability*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*mere possibility of confusion*, *actual probability of deception*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** likely to deceive or cause confusion"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/3/3/1~1`, `TMM/Part29/4#1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The not_labels are both phrases the Manual uses to say what the test is *not*, which makes them unusually well-evidenced near-misses.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0009`",
+     "label": "relevant market",
+     "alt": {
+      "chips": [
+       {
+        "label": "buying public",
+        "tone": "muted"
+       },
+       {
+        "label": "relevant sector of the public",
+        "tone": "muted"
+       },
+       {
+        "label": "relevant Australian consumers",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "in a hierarchy",
+        "tone": "good"
+       }
+      ]
+     },
+     "anchor": "GC-0009",
+     "search": "GC-0009 relevant market buying public relevant sector of the public relevant Australian consumers trade relevant trade",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *buying public*, *relevant sector of the public*, *relevant Australian consumers*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*trade*, *relevant trade*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Contains:** ordinary consumer"
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** current marketplace"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/1#1`, `TMM/Part29/3#1~1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "Low confidence. These may be four distinct ideas that an examiner chooses between deliberately.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0010`",
+     "label": "ordinary consumer",
+     "alt": {
+      "chips": [
+       {
+        "label": "average consumer",
+        "tone": "muted"
+       },
+       {
+        "label": "ordinary person",
+        "tone": "muted"
+       },
+       {
+        "label": "reasonable consumer",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "in a hierarchy",
+        "tone": "good"
+       }
+      ]
+     },
+     "anchor": "GC-0010",
+     "search": "GC-0010 ordinary consumer average consumer ordinary person reasonable consumer exceptionally stupid or careless consumer expert consumer",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *average consumer*, *ordinary person*, *reasonable consumer*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*exceptionally stupid or careless consumer*, *expert consumer*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Sits under:** relevant market"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/3/3/1~1`, `TMM/Part29/4#1`, `TMM/Part29/9/9/3~1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The first not_label is the Manual's own words, quoted from a decision. It is the clearest negative boundary marker in the pilot area.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0011`",
+     "label": "surrounding circumstances",
+     "alt": {
+      "chips": [
+       {
+        "label": "all the surrounding circumstances",
+        "tone": "muted"
+       },
+       {
+        "label": "relevant circumstances",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0011",
+     "search": "GC-0011 surrounding circumstances all the surrounding circumstances relevant circumstances external considerations reputation in another trade mark",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *all the surrounding circumstances*, *relevant circumstances*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*external considerations*, *reputation in another trade mark*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** examiner"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/3#1~1`, `TMM/Part29/9/9/3~1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The not_labels matter: Part 29.9.7 says expressly that the connotation must come from the mark itself and not from external considerations such as reputation in another mark. So \"surrounding circumstances\" is admissible and \"external considerations\" is not, and the two phrases look alike.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0012`",
+     "label": "specification of goods and services",
+     "alt": {
+      "chips": [
+       {
+        "label": "specification",
+        "tone": "muted"
+       },
+       {
+        "label": "goods/services claimed",
+        "tone": "muted"
+       },
+       {
+        "label": "claimed goods and services",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0012",
+     "search": "GC-0012 specification of goods and services specification goods/services claimed claimed goods and services class goods actually supplied",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *specification*, *goods/services claimed*, *claimed goods and services*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*class*, *goods actually supplied*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** condition of registration, limitation of the specification"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/4#1`, `TMM/Part29/9/9/2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The Manual reasons about what a specification \"notionally includes\", which is a different thing from what the applicant sells.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0013`",
+     "label": "condition of registration",
+     "alt": {
+      "chips": [
+       {
+        "label": "condition",
+        "tone": "muted"
+       },
+       {
+        "label": "conditions or limitations",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0013",
+     "search": "GC-0013 condition of registration condition conditions or limitations endorsement specification amendment",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *condition*, *conditions or limitations*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*endorsement*, *specification amendment*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** endorsement, limitation of the specification"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/5/5/4`, `TMM/Part29/9/9/5`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "Whether an endorsement is the record of a condition or a separate thing is exactly the sort of tacit distinction this exercise is trying to surface.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0014`",
+     "label": "endorsement",
+     "alt": {
+      "chips": [
+       {
+        "label": "endorsement wording",
+        "tone": "muted"
+       },
+       {
+        "label": "suggested endorsement",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0014",
+     "search": "GC-0014 endorsement endorsement wording suggested endorsement condition of registration disclaimer",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *endorsement wording*, *suggested endorsement*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*condition of registration*, *disclaimer*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** condition of registration, written permission"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/5/5/4`, `TMM/Part29/6#1~2`, `TMM/Part29/6/6/1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0015`",
+     "label": "limitation of the specification",
+     "alt": {
+      "chips": [
+       {
+        "label": "specification amendment",
+        "tone": "muted"
+       },
+       {
+        "label": "amendment to the specification",
+        "tone": "muted"
+       },
+       {
+        "label": "restriction of the specification",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0015",
+     "search": "GC-0015 limitation of the specification specification amendment amendment to the specification restriction of the specification divisional application deletion of goods",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *specification amendment*, *amendment to the specification*, *restriction of the specification*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*divisional application*, *deletion of goods*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** specification of goods and services, condition of registration, divisional application"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/9/9/2`, `TMM/Part29/9/9/5`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The second not_label is unsure: Part 12 discusses deleting goods and filing a divisional as related moves, and whether deletion is a limitation or something else is a practice question.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0016`",
+     "label": "priority date",
+     "alt": {
+      "chips": [
+       {
+        "label": "date of the application",
+        "tone": "muted"
+       },
+       {
+        "label": "as at the priority date",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0016",
+     "search": "GC-0016 priority date date of the application as at the priority date filing date date of registration last amended date",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *date of the application*, *as at the priority date*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*filing date*, *date of registration*, *last amended date*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** current marketplace"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/6#1~2`, `TMM/Part29/6/6/2~2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "Whether the filing date and the priority date are distinct enough to be a not_label here is a practice question; they coincide in most applications and diverge in the ones that matter.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0017`",
+     "label": "geographical reference",
+     "alt": {
+      "chips": [
+       {
+        "label": "geographic reference",
+        "tone": "muted"
+       },
+       {
+        "label": "place name",
+        "tone": "muted"
+       },
+       {
+        "label": "reference to a geographical location",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "in a hierarchy",
+        "tone": "good"
+       }
+      ]
+     },
+     "anchor": "GC-0017",
+     "search": "GC-0017 geographical reference geographic reference place name reference to a geographical location geographical indication business identifier",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *geographic reference*, *place name*, *reference to a geographical location*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*geographical indication*, *business identifier*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Contains:** geographical origin"
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** geographical indication, business identifier"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/9#1`, `TMM/Part29/9/9/3~1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The first not_label is the important one: every geographical indication is a geographical reference and the reverse is false, and the two terms are used within a few paragraphs of each other.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0018`",
+     "label": "geographical indication",
+     "alt": {
+      "chips": [
+       {
+        "label": "GI",
+        "tone": "muted"
+       },
+       {
+        "label": "geographical indication for wine",
+        "tone": "muted"
+       },
+       {
+        "label": "listed EU GI",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "in a hierarchy",
+        "tone": "good"
+       }
+      ]
+     },
+     "anchor": "GC-0018",
+     "search": "GC-0018 geographical indication GI geographical indication for wine listed EU GI geographical reference geographical origin place name",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *GI*, *geographical indication for wine*, *listed EU GI*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*geographical reference*, *geographical origin*, *place name*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Sits under:** geographical reference"
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** geographical origin"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/1/1/1`, `TMM/Part29/11#1`, `TMM/Part32B/1/1/1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The pilot area's material on GIs mostly points elsewhere — Part 29.1.1 sends the reader to Part 32B. Whether those destinations are in the pilot boundary is deliverable 1's question.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0019`",
+     "label": "geographical origin",
+     "alt": {
+      "chips": [
+       {
+        "label": "origin of the goods",
+        "tone": "muted"
+       },
+       {
+        "label": "place of production",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "in a hierarchy",
+        "tone": "good"
+       }
+      ]
+     },
+     "anchor": "GC-0019",
+     "search": "GC-0019 geographical origin origin of the goods place of production geographical reference geographical indication",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *origin of the goods*, *place of production*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*geographical reference*, *geographical indication*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Sits under:** geographical reference"
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** geographical qualifier"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/9#1`, `TMM/Part29/3#1~1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0020`",
+     "label": "business identifier",
+     "alt": {
+      "chips": [
+       {
+        "label": "company name element",
+        "tone": "muted"
+       },
+       {
+        "label": "trading name element",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0020",
+     "search": "GC-0020 business identifier company name element trading name element geographical reference geographical origin",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *company name element*, *trading name element*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*geographical reference*, *geographical origin*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** geographical reference"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/9/9/6`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The Manual's examples both contain place names, which is what makes this a genuine trap rather than a distinction on paper.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0021`",
+     "label": "geographical qualifier",
+     "alt": {
+      "chips": [
+       {
+        "label": "qualifier",
+        "tone": "muted"
+       },
+       {
+        "label": "qualifying information",
+        "tone": "muted"
+       },
+       {
+        "label": "made in",
+        "tone": "muted"
+       },
+       {
+        "label": "product of",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0021",
+     "search": "GC-0021 geographical qualifier qualifier qualifying information made in product of standalone geographical reference",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *qualifier*, *qualifying information*, *made in*, *product of*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*standalone geographical reference*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** geographical reference, geographical origin"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/9/9/3~1`, `TMM/Part29/9/9/2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "Whether \"made in\" and \"product of\" are labels for this concept or examples of it is a modelling choice, not a legal one — but it changes how the entity annotations attach.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0022`",
+     "label": "International Non-Proprietary Name",
+     "alt": {
+      "chips": [
+       {
+        "label": "INN",
+        "tone": "muted"
+       },
+       {
+        "label": "generic name for a pharmaceutical substance",
+        "tone": "muted"
+       },
+       {
+        "label": "notified INN",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0022",
+     "search": "GC-0022 International Non-Proprietary Name INN generic name for a pharmaceutical substance notified INN INN stem trade mark brand name",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *INN*, *generic name for a pharmaceutical substance*, *notified INN*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*INN stem*, *trade mark*, *brand name*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** INN stem, pharmaceutical or veterinary substance"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/5/5/1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The first not_label is the whole difficulty of Part 29.5: an INN and an INN stem are governed by different rules and named almost identically.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0023`",
+     "label": "INN stem",
+     "alt": {
+      "chips": [
+       {
+        "label": "stem",
+        "tone": "muted"
+       },
+       {
+        "label": "common stem",
+        "tone": "muted"
+       },
+       {
+        "label": "INN-stem",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0023",
+     "search": "GC-0023 INN stem stem common stem INN-stem International Non-Proprietary Name prefix suffix",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *stem*, *common stem*, *INN-stem*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*International Non-Proprietary Name*, *prefix*, *suffix*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** International Non-Proprietary Name, meaningful inclusion of an INN stem"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/5/5/2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "\"Prefix\" and \"suffix\" are listed as not_labels because the Manual uses them to describe a stem's *position*, not as names for it — a stem can be a prefix, a suffix or an infix.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0024`",
+     "label": "meaningful inclusion of an INN stem",
+     "alt": {
+      "chips": [
+       {
+        "label": "included in a meaningful way",
+        "tone": "muted"
+       },
+       {
+        "label": "meaningful enough to give rise to a connotation",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0024",
+     "search": "GC-0024 meaningful inclusion of an INN stem included in a meaningful way meaningful enough to give rise to a connotation contains an INN stem obvious derivation of an INN",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *included in a meaningful way*, *meaningful enough to give rise to a connotation*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*contains an INN stem*, *obvious derivation of an INN*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** INN stem"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/5/5/5`, `TMM/Part29/5/5/6~1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The `pref_label` is our coinage, not the Manual's. If the practice has a name for this, using it is a real improvement; if it does not, that is itself worth recording.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0025`",
+     "label": "pharmaceutical or veterinary substance",
+     "alt": {
+      "chips": [
+       {
+        "label": "pharmaceuticals",
+        "tone": "muted"
+       },
+       {
+        "label": "veterinary substances",
+        "tone": "muted"
+       },
+       {
+        "label": "class 5 goods",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0025",
+     "search": "GC-0025 pharmaceutical or veterinary substance pharmaceuticals veterinary substances class 5 goods dietary or nutritional supplement medical services",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *pharmaceuticals*, *veterinary substances*, *class 5 goods*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*dietary or nutritional supplement*, *medical services*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** International Non-Proprietary Name"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/5/5/3`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The first not_label is deliberately provocative: the Manual names supplements as goods that \"could be pharmaceutical in nature\", so they may be inside this concept rather than beside it.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0026`",
+     "label": "well-known person",
+     "alt": {
+      "chips": [
+       {
+        "label": "well known person",
+        "tone": "muted"
+       },
+       {
+        "label": "person well known in relation to the goods or services",
+        "tone": "muted"
+       },
+       {
+        "label": "celebrity",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "in a hierarchy",
+        "tone": "good"
+       }
+      ]
+     },
+     "anchor": "GC-0026",
+     "search": "GC-0026 well-known person well known person person well known in relation to the goods or services celebrity name of a person signature surname",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *well known person*, *person well known in relation to the goods or services*, *celebrity*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*name of a person*, *signature*, *surname*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Contains:** deceased person"
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** implied endorsement, image of a person"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/6#1~1`, `TMM/Part29/6#1~2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "\"Celebrity\" is an alt label on the strength of ordinary usage, not of the corpus — the Manual never uses the word. The not_labels point at Part 22 material, where a name is a distinctiveness question under section 41 rather than a connotation question.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0027`",
+     "label": "deceased person",
+     "alt": {
+      "chips": [
+       {
+        "label": "long deceased historical figure",
+        "tone": "muted"
+       },
+       {
+        "label": "deceased well-known person",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "in a hierarchy",
+        "tone": "good"
+       }
+      ]
+     },
+     "anchor": "GC-0027",
+     "search": "GC-0027 deceased person long deceased historical figure deceased well-known person estate authorised entity",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *long deceased historical figure*, *deceased well-known person*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*estate*, *authorised entity*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Sits under:** well-known person"
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** implied endorsement"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/6/6/2~1`, `TMM/Part29/6/6/2~2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The not_labels are the actors that continue to control a name after death. They are what makes the exception operate, so they must not cluster with the person.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0028`",
+     "label": "implied endorsement",
+     "alt": {
+      "chips": [
+       {
+        "label": "endorsement or approval",
+        "tone": "muted"
+       },
+       {
+        "label": "implied licensing",
+        "tone": "muted"
+       },
+       {
+        "label": "connection with or approval of",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0028",
+     "search": "GC-0028 implied endorsement endorsement or approval implied licensing connection with or approval of endorsement written permission",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *endorsement or approval*, *implied licensing*, *connection with or approval of*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*endorsement*, *written permission*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** well-known person, written permission"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/6#1~2`, `TMM/Part29/9/9/7`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The first not_label is a genuine collision inside one Part: an \"endorsement\" on a registration and an \"endorsement\" by a celebrity are unrelated ideas sharing a word, two screens apart.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0029`",
+     "label": "written permission",
+     "alt": {
+      "chips": [
+       {
+        "label": "consent",
+        "tone": "muted"
+       },
+       {
+        "label": "permission to use the name",
+        "tone": "muted"
+       },
+       {
+        "label": "has consented",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0029",
+     "search": "GC-0029 written permission consent permission to use the name has consented letter of consent authorised user",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *consent*, *permission to use the name*, *has consented*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*letter of consent*, *authorised user*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** endorsement, implied endorsement"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/6#1~2`, `TMM/Part29/6/6/1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "\"Letter of consent\" is a not_label because it is a term of art used in the section 42 and section 44 material for a different mechanism.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0030`",
+     "label": "image of a person",
+     "alt": {
+      "chips": [
+       {
+        "label": "representation of a person",
+        "tone": "muted"
+       },
+       {
+        "label": "photograph",
+        "tone": "muted"
+       },
+       {
+        "label": "portrait",
+        "tone": "muted"
+       },
+       {
+        "label": "cartoon caricature",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0030",
+     "search": "GC-0030 image of a person representation of a person photograph portrait cartoon caricature device signature",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *representation of a person*, *photograph*, *portrait*, *cartoon caricature*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*device*, *signature*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** well-known person"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/6/6/1`, `TMM/Part22/25/25/7`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0031`",
+     "label": "phoneword",
+     "alt": {
+      "chips": [
+       {
+        "label": "SMS word",
+        "tone": "muted"
+       },
+       {
+        "label": "phone word",
+        "tone": "muted"
+       },
+       {
+        "label": "alphabetic phone number",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0031",
+     "search": "GC-0031 phoneword SMS word phone word alphabetic phone number phone number numeral",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *SMS word*, *phone word*, *alphabetic phone number*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*phone number*, *numeral*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** owner or authorised user"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/7#1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The not_label is well evidenced: the Manual says other phone numbers that do not appear to represent a phoneword should not be queried.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0032`",
+     "label": "internet domain name",
+     "alt": {
+      "chips": [
+       {
+        "label": "domain name",
+        "tone": "muted"
+       },
+       {
+        "label": "internet domain name reference",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "in a hierarchy",
+        "tone": "good"
+       }
+      ]
+     },
+     "anchor": "GC-0032",
+     "search": "GC-0032 internet domain name domain name internet domain name reference standard address code material website",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *domain name*, *internet domain name reference*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*standard address code material*, *website*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Contains:** top level domain"
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** owner or authorised user"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/8#1`, `TMM/Part29/8/8/2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "\"Standard address code material\" is the Manual's own term for the common parts, which it distinguishes from the identifier. Treating them as the same thing would make every mark containing \"com\" a candidate.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0033`",
+     "label": "top level domain",
+     "alt": {
+      "chips": [
+       {
+        "label": "TLD",
+        "tone": "muted"
+       },
+       {
+        "label": "generic TLD",
+        "tone": "muted"
+       },
+       {
+        "label": "country-code TLD",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "in a hierarchy",
+        "tone": "good"
+       }
+      ]
+     },
+     "anchor": "GC-0033",
+     "search": "GC-0033 top level domain TLD generic TLD country-code TLD second level domain subdomain",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *TLD*, *generic TLD*, *country-code TLD*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*second level domain*, *subdomain*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Sits under:** internet domain name"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/8/8/1`, `TMM/Part29/8/8/2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "Generic and country-code TLDs are treated differently by the Manual, so holding them as alt labels of one concept may be wrong.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0034`",
+     "label": "radio call sign",
+     "alt": {
+      "chips": [
+       {
+        "label": "call sign",
+        "tone": "muted"
+       },
+       {
+        "label": "radio frequency",
+        "tone": "muted"
+       },
+       {
+        "label": "radio call sign or frequency",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0034",
+     "search": "GC-0034 radio call sign call sign radio frequency radio call sign or frequency broadcasting services licence",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *call sign*, *radio frequency*, *radio call sign or frequency*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*broadcasting services*, *licence*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** owner or authorised user"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/8/8/3`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`, `TMA1995/s41`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "Holding call sign and frequency as one concept is a simplification. The Manual treats them together but they are administered differently — the broadcaster may choose one and never chooses the other.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0035`",
+     "label": "owner or authorised user",
+     "alt": {
+      "chips": [
+       {
+        "label": "registrant or authorised user",
+        "tone": "muted"
+       },
+       {
+        "label": "licensed owner or operator",
+        "tone": "muted"
+       },
+       {
+        "label": "authorised user",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0035",
+     "search": "GC-0035 owner or authorised user registrant or authorised user licensed owner or operator authorised user applicant owner of the trade mark",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *registrant or authorised user*, *licensed owner or operator*, *authorised user*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*applicant*, *owner of the trade mark*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** phoneword, internet domain name, radio call sign"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/7#1`, `TMM/Part29/8#1`, `TMM/Part29/8/8/3`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "Low confidence, and deliberately included at low confidence. The not_labels are the point: the owner of the phoneword and the owner of the trade mark are different roles that the same word names.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0036`",
+     "label": "plant variety name",
+     "alt": {
+      "chips": [
+       {
+        "label": "plant variety denomination",
+        "tone": "muted"
+       },
+       {
+        "label": "variety name",
+        "tone": "muted"
+       },
+       {
+        "label": "other plant name",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0036",
+     "search": "GC-0036 plant variety name plant variety denomination variety name other plant name genus plant materials",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *plant variety denomination*, *variety name*, *other plant name*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*genus*, *plant materials*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/1/1/2`, `TMM/Part32A/2/4/2/4/1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`"
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0037`",
+     "label": "claim to Indigenous origin",
+     "alt": {
+      "chips": [
+       {
+        "label": "reference to Indigenous people",
+        "tone": "muted"
+       },
+       {
+        "label": "Indigenous connection",
+        "tone": "muted"
+       },
+       {
+        "label": "Aboriginal designed",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0037",
+     "search": "GC-0037 claim to Indigenous origin reference to Indigenous people Indigenous connection Aboriginal designed Indigenous applicant prescribed sign",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *reference to Indigenous people*, *Indigenous connection*, *Aboriginal designed*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*Indigenous applicant*, *prescribed sign*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** implied endorsement"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/10#1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "Low confidence and high sensitivity. The labelling here should be checked against how the office actually speaks about this material, not just against the passage.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0038`",
+     "label": "trade mark as a whole",
+     "alt": {
+      "chips": [
+       {
+        "label": "the mark as a whole",
+        "tone": "muted"
+       },
+       {
+        "label": "other features of the trade mark",
+        "tone": "muted"
+       },
+       {
+        "label": "mitigating elements",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0038",
+     "search": "GC-0038 trade mark as a whole the mark as a whole other features of the trade mark mitigating elements part of the trade mark essential feature",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *the mark as a whole*, *other features of the trade mark*, *mitigating elements*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*part of the trade mark*, *essential feature*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** surrounding circumstances, connotation"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/3/3/5`, `TMM/Part29/9/9/3~1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The not_label matters because the Act itself contemplates a connotation arising from \"a sign contained in the trade mark\" — so the whole and the part are both operative and must not merge.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0039`",
+     "label": "connotation developed over time",
+     "alt": {
+      "chips": [
+       {
+        "label": "developed secondary meaning",
+        "tone": "muted"
+       },
+       {
+        "label": "meaning acquired through use in a trade",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0039",
+     "search": "GC-0039 connotation developed over time developed secondary meaning meaning acquired through use in a trade acquired distinctiveness reputation",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *developed secondary meaning*, *meaning acquired through use in a trade*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*acquired distinctiveness*, *reputation*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** connotation, opposition"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/3/3/4`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The first not_label is the most valuable one in this file: acquired distinctiveness is section 41 material and means something a system must never carry into section 43, but the two are described in almost identical words.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0040`",
+     "label": "opposition",
+     "alt": {
+      "chips": [
+       {
+        "label": "opposition proceedings",
+        "tone": "muted"
+       },
+       {
+        "label": "notice of intention to oppose",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0040",
+     "search": "GC-0040 opposition opposition proceedings notice of intention to oppose examination hearing revocation of acceptance",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *opposition proceedings*, *notice of intention to oppose*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*examination*, *hearing*, *revocation of acceptance*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** evidence of use, revocation of acceptance"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/3/3/4`, `TMM/Part47/1/1/2/2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0041`",
+     "label": "evidence of use",
+     "alt": {
+      "chips": [
+       {
+        "label": "evidence",
+        "tone": "muted"
+       },
+       {
+        "label": "considerable evidence of use",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0041",
+     "search": "GC-0041 evidence of use evidence considerable evidence of use research state of the Register",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *evidence*, *considerable evidence of use*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*research*, *state of the Register*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** opposition, examiner research"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/3/3/4`, `TMM/Part23/2/2/2/2`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The not_labels separate evidence a party files from material an examiner gathers. That distinction is load-bearing under section 43, where the Manual asks examiners to research rather than to require evidence.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0042`",
+     "label": "revocation of acceptance",
+     "alt": {
+      "chips": [
+       {
+        "label": "revoke acceptance",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0042",
+     "search": "GC-0042 revocation of acceptance revoke acceptance revocation of registration opposition",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *revoke acceptance*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*revocation of registration*, *opposition*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** opposition"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part51/10#1~1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "On the edge of the pilot. It is here mainly because the not_label — revocation of *registration* — is a different thing under a different provision and the labels are one word apart.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0043`",
+     "label": "divisional application",
+     "alt": {
+      "chips": [
+       {
+        "label": "divisional",
+        "tone": "muted"
+       },
+       {
+        "label": "parent application",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0043",
+     "search": "GC-0043 divisional application divisional parent application series application amendment",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *divisional*, *parent application*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*series application*, *amendment*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** limitation of the specification"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part12/2#1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`, `TMA1995/s39`, `TMA1995/s41`, `TMA1995/s42`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "This record exists to make the scope question concrete. If it is out of scope, saying so is more useful than correcting its labels.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0044`",
+     "label": "examiner",
+     "alt": {
+      "chips": [
+       {
+        "label": "examiners",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0044",
+     "search": "GC-0044 examiner examiners decision maker delegate Registrar",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *examiners*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*decision maker*, *delegate*, *Registrar*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** decision maker, examiner research"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/3/3/2`, `TMM/Part29/5/5/3`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "Deliberately separated from decision maker and delegate. The Manual switches between them and it is not obvious whether the switch is meaningful. This is exactly the sort of thing that is innate to your reading and invisible in the text.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0045`",
+     "label": "decision maker",
+     "alt": {
+      "chips": [
+       {
+        "label": "the decision maker",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0045",
+     "search": "GC-0045 decision maker the decision maker examiner hearing officer",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *the decision maker*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*examiner*, *hearing officer*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** examiner"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/1#1`, `TMM/Part29/3/3/4`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0046`",
+     "label": "Registrar",
+     "alt": {
+      "chips": [
+       {
+        "label": "Registrar of Trade Marks",
+        "tone": "muted"
+       },
+       {
+        "label": "the Registrar's delegate",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0046",
+     "search": "GC-0046 Registrar Registrar of Trade Marks the Registrar's delegate examiner IP Australia",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *Registrar of Trade Marks*, *the Registrar's delegate*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*examiner*, *IP Australia*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** endorsement, decision maker"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/2/2/4`, `TMM/Part29/5/5/4`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "Holding \"the Registrar's delegate\" as an alt label is probably wrong — a delegate exercises the power and is not the Registrar. It is here to be corrected.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0047`",
+     "label": "descriptive matter",
+     "alt": {
+      "chips": [
+       {
+        "label": "descriptive term",
+        "tone": "muted"
+       },
+       {
+        "label": "description of the goods or services",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0047",
+     "search": "GC-0047 descriptive matter descriptive term description of the goods or services connotation non-distinctive",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *descriptive term*, *description of the goods or services*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*connotation*, *non-distinctive*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** connotation, specification of goods and services"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/4#1`, `TMM/Part29/2/2/1~1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The second not_label points at section 41 territory. Descriptiveness is a distinctiveness question there and a connotation question here, using the same word.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0048`",
+     "label": "fanciful or ambiguous reference",
+     "alt": {
+      "chips": [
+       {
+        "label": "fanciful description",
+        "tone": "muted"
+       },
+       {
+        "label": "unrealistic description",
+        "tone": "muted"
+       },
+       {
+        "label": "ambiguous geographic reference",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0048",
+     "search": "GC-0048 fanciful or ambiguous reference fanciful description unrealistic description ambiguous geographic reference misdescriptive arbitrary mark",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *fanciful description*, *unrealistic description*, *ambiguous geographic reference*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*misdescriptive*, *arbitrary mark*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** geographical reference, deception"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/9#1`, `TMM/Part29/4#1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0049`",
+     "label": "current marketplace",
+     "alt": {
+      "chips": [
+       {
+        "label": "the marketplace as it now is",
+        "tone": "muted"
+       },
+       {
+        "label": "currency of a reference",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0049",
+     "search": "GC-0049 current marketplace the marketplace as it now is currency of a reference priority date the marketplace as it was",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *the marketplace as it now is*, *currency of a reference*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*priority date*, *the marketplace as it was*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** priority date, relevant market"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/3/3/2`, `TMM/Part29/9/9/7`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The tension is real and worth a decision: 29.3.2 directs attention to the current marketplace, 29.6 asks how well known a person was at the priority date. Whether that is a difference in the rules or a looseness in the drafting is a legal reading.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0050`",
+     "label": "reputation",
+     "alt": {
+      "chips": [
+       {
+        "label": "well known for",
+        "tone": "muted"
+       },
+       {
+        "label": "noted for",
+        "tone": "muted"
+       },
+       {
+        "label": "fame",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0050",
+     "search": "GC-0050 reputation well known for noted for fame reputation in another trade mark acquired distinctiveness",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *well known for*, *noted for*, *fame*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*reputation in another trade mark*, *acquired distinctiveness*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** surrounding circumstances, well-known person"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/9/9/3~1`, `TMM/Part29/9/9/7`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "The first not_label is quoted practice: reputation in another mark is an external consideration and expressly not the source of a connotation.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0051`",
+     "label": "mandatory application of the section",
+     "alt": {
+      "chips": [
+       {
+        "label": "no discretion to accept",
+        "tone": "muted"
+       },
+       {
+        "label": "the application of section 43 is mandatory",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0051",
+     "search": "GC-0051 mandatory application of the section no discretion to accept the application of section 43 is mandatory presumption of registrability discretion",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *no discretion to accept*, *the application of section 43 is mandatory*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*presumption of registrability*, *discretion*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** presumption of registrability, ground for rejection"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/1#1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "prose",
+       "text": "**Legislative basis:** `TMA1995/s43`"
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "This concept and GC-0007 pull in opposite directions and both are stated in the pilot area. How they sit together is one of the most useful things an expert could write down here.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    },
+    {
+     "id": "`GC-0052`",
+     "label": "examiner research",
+     "alt": {
+      "chips": [
+       {
+        "label": "research",
+        "tone": "muted"
+       },
+       {
+        "label": "informed by research",
+        "tone": "muted"
+       },
+       {
+        "label": "research indicates",
+        "tone": "muted"
+       }
+      ]
+     },
+     "place": {
+      "chips": [
+       {
+        "label": "standalone",
+        "tone": "gap"
+       }
+      ]
+     },
+     "anchor": "GC-0052",
+     "search": "GC-0052 examiner research research informed by research research indicates evidence of use state of the Register",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Also called:** *research*, *informed by research*, *research indicates*"
+      },
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Must not be confused with",
+       "text": "*evidence of use*, *state of the Register*\n\nA not-label is a term this concept is **not**. It is the part of the vocabulary that stops a search quietly widening a legal test.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Related to:** evidence of use, examiner"
+      },
+      {
+       "kind": "prose",
+       "text": "**Meaning drawn from:** `TMM/Part29/6#1~1`, `TMM/Part29/9/9/4`, `TMM/Part29/6/6/2~1`\n\nThe passages the meaning comes from are recorded; **the meaning itself is not written down anywhere.** Writing a definition would be authoring legal content, so the record carries sources and no text."
+      },
+      {
+       "kind": "callout",
+       "tone": "note",
+       "title": "Reviewer's note",
+       "text": "\"State of the Register\" is a not_label because the Manual names it as a specific source in the INN-stem discussion, where it is evidence of common use rather than research into a fact.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Approved by **TC** on 2026-08-25._"
+      }
+     ]
+    }
+   ],
+   "search": true,
+   "note": "Search matches the label, its variants and the terms it must not be confused with. Click a row for the full record.",
+   "empty": "Nothing here yet."
+  }
+ ]
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TM-Knowledge — the section 43 knowledge base</title>
+<meta name="description" content="Explore the ontology, vocabulary and knowledge graph built over the Australian trade marks examination corpus — and answer the decisions waiting on a person.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129513;</text></svg>">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <button class="menu" id="menu" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <a class="brand" href="#/overview">
+    <span class="brand-mark" aria-hidden="true">§43</span>
+    <span class="brand-text">
+      <strong>TM-Knowledge</strong>
+      <small>Trade marks examination knowledge base</small>
+    </span>
+  </a>
+  <div class="topbar-right">
+    <a class="waiting" id="waiting" href="#/inbox" hidden></a>
+    <button class="theme" id="theme" aria-label="Switch between light and dark">◐</button>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="nav" id="nav" aria-label="Sections"></nav>
+  <main id="main" tabindex="-1">
+    <div id="view" class="view" aria-live="polite"></div>
+    <footer class="foot" id="foot"></footer>
+  </main>
+</div>
+
+<div class="tip" id="tip" role="tooltip" hidden></div>
+
+<script type="module" src="app.js"></script>
+<noscript>
+  <p style="padding:2rem;max-width:40rem">
+    This dashboard renders data files in the browser, so it needs JavaScript.
+    Everything it shows is also readable in the repository itself — the generated
+    reports are in <code>data/derived/reports/</code> and the questions waiting on
+    a person are in <code>review/questions/open-questions.yaml</code>.
+  </p>
+</noscript>
+</body>
+</html>

@@ -1,0 +1,666 @@
+# The queue of decisions waiting on a person.
+#
+# This is the file a session edits to put something in front of the owner. It is
+# rendered as the "Your decisions" form on the dashboard, and an answer comes
+# back as a file in `review/rulings/`.
+#
+# Writing a good entry is the whole job. Assume the reader has not read the repo
+# and does not want to. Say what is going on, why only they can settle it, and
+# what stays stuck until they do. No acronym survives without being unpacked in
+# place. `review/questions/README.md` has the house style; `schema.json` enforces
+# the parts a machine can check.
+
+version: 1
+updated: '2026-09-04'
+
+themes:
+  - id: unblocks
+    title: Decisions that unblock the next piece of work
+    blurb: >
+      Six things nothing can move past. Each is a judgement call, not a research
+      task — if you have a view, that view is the answer.
+  - id: scope
+    title: Scope and permissions
+    blurb: >
+      Questions about what this project is allowed to do and how far it reaches.
+      Some need an answer from elsewhere in the agency; you are the one who can
+      go and get it.
+  - id: confirm
+    title: Calls made so work could continue
+    blurb: >
+      Judgements an agent made rather than stopping. Each one is provisional
+      until you look at it. Leaving a box unticked confirms it — you do not have
+      to agree with reasons you have not read.
+  - id: expert
+    title: Waiting on a trade marks expert
+    blurb: >
+      Paused at your instruction, not abandoned. These are questions about trade
+      marks law and practice, and nothing here — you, or an agent — should answer
+      them from general knowledge. Shown so nothing quietly disappears.
+
+questions:
+
+  # ---------------------------------------------------------------- unblocks
+
+  - id: OQ-0001
+    theme: unblocks
+    status: open
+    needs: owner
+    urgency: high
+    raised: S010
+    tracked_as: ['HANDOFF §2 ruling 1', 'ADR-0056']
+    title: Are these four groups the right way to sort the 52 legal ideas?
+    plain: >
+      We hold 52 ideas drawn from the section 43 material — connotation, likely to
+      deceive or cause confusion, goods of a particular geographical origin, and
+      49 more. They currently sit in one flat list. The draft model proposes
+      sorting each one into one of four groups: a ground of refusal (a reason an
+      application can be refused), a legal test (a question the decision maker has
+      to answer), a relevant factor (something that feeds into that answer), or an
+      exception (something that takes a case out of the rule). Those four groups
+      exist in the model and every one of them is empty.
+    why_you: >
+      Deciding that "connotation" is a test rather than a factor is a legal
+      judgement. An agent filling those groups would produce a taxonomy that reads
+      as authoritative and was written by nobody. You said you were willing to make
+      calls like this one; it is the single largest gap in the draft.
+    if_unanswered: >
+      The vocabulary stays a flat list. Search and retrieval later have nothing to
+      generalise over — no way to ask "show me every relevant factor" — and 39 of
+      the 52 also sit outside any hierarchy, so the list is close to unstructured.
+    background:
+      - label: What the draft cannot do — the generated report, section 5
+        href: '#/reports?open=ontology'
+      - label: The 52 ideas, as they stand now
+        href: '#/vocabulary'
+    answer:
+      kind: choice
+      prompt: What should happen to the four groups?
+      options:
+        - value: four_groups_right
+          label: Use those four groups — come back to me with the list of 52 to sort
+          help: >
+            The next session builds somewhere to record the sorting and returns
+            with the 52 as a single pass of dropdowns.
+        - value: different_groups
+          label: The idea is right but the groups are wrong — I will describe better ones
+          help: Say what the groups should be in the notes box.
+        - value: not_a_taxonomy
+          label: Do not sort them — a flat list is honest for now
+          help: >
+            The empty groups come out of the model and the gap stops being
+            reported as a gap.
+        - value: need_examples
+          label: Show me five worked examples first, then ask me again
+          help: >
+            A session picks five concepts, proposes a group for each with the
+            passage it read, and marks all of it unapproved.
+    notes_prompt: Anything that would change the answer, or a group you would add.
+
+  - id: OQ-0002
+    theme: unblocks
+    status: open
+    needs: owner
+    urgency: high
+    raised: S010
+    tracked_as: ['Q-37', 'HANDOFF §2 ruling 2']
+    title: '"Deceptively similar" — a section 43 idea, or a section 44 one?'
+    plain: >
+      Two approved records disagree. One of the test questions we measure the
+      system against expects a good answer about confusion to mention "deceptively
+      similar". The vocabulary record for "likely to deceive or cause confusion"
+      lists "deceptively similar" as a term that specifically does *not* mean the
+      same thing — on the reading that it belongs to the section 44 comparison
+      between two traders' marks, not to the section 43 question about what a mark
+      says to the public. Both records were signed off. They cannot both stand as
+      written.
+    why_you: >
+      Which of the two is wrong is a question about trade marks law. An agent
+      resolving it either invents a concept or edits an expert's approved record,
+      and both are out of bounds.
+    if_unanswered: >
+      One approved test question keeps naming a term the vocabulary deliberately
+      excludes. Any measurement that uses that question will report a miss that
+      is not a miss.
+    background:
+      - label: The vocabulary record and its not-labels
+        href: '#/vocabulary?open=GC-0002'
+      - label: The test question
+        href: '#/questions?open=CQ-0007'
+    answer:
+      kind: choice
+      prompt: Which way does it go?
+      options:
+        - value: not_in_scope
+          label: It belongs to section 44 — keep it out, the question is using it as a boundary marker
+        - value: add_concept
+          label: Add it to the vocabulary as its own concept, even though it is a section 44 idea
+        - value: change_question
+          label: Change the test question so it no longer expects that term
+        - value: ask_expert
+          label: Hold it for the trade marks expert
+    notes_prompt: If you picked "add it", say what it should be recorded as meaning.
+
+  - id: OQ-0003
+    theme: unblocks
+    status: open
+    needs: owner
+    urgency: high
+    raised: S010
+    tracked_as: ['RULE-0001', 'HANDOFF §2 ruling 3']
+    title: 'Approve or reject the first automatic rule: the mixed-authority flag'
+    plain: >
+      A rule here is a small, fixed instruction that adds a labelled note to the
+      data — not a model, and not anything that changes over time. This one finds
+      passages that quote the Act and state IP Australia's own practice in the same
+      breath, and flags them. It matters because an answer drawn from such a
+      passage can look like it is quoting the law when it has only read the Manual.
+      It produced 71 flags, and it does find the main section 43 passage, where the
+      Manual quotes the section in full. Nothing it produces is trusted today:
+      every flag is stored as "candidate — needs a human".
+    why_you: >
+      The programme requires a person to approve every reasoning template before
+      it is used. Nobody has, so its output stays quarantined however well it
+      works.
+    if_unanswered: >
+      The flags exist and nothing may rely on them. Any later feature that would
+      warn "this passage mixes law and practice" cannot be built on a rule that is
+      still pending.
+    background:
+      - label: What the rule does and what it stands on
+        href: '#/graph'
+    answer:
+      kind: choice
+      prompt: What is your call on RULE-0001?
+      options:
+        - value: approve
+          label: Approve it — its flags may be relied on
+        - value: approve_pending_expert
+          label: Approve it for now, with a trade marks expert to confirm later
+        - value: reject
+          label: Reject it — delete the rule
+        - value: show_me
+          label: Show me the 71 flagged passages first
+    notes_prompt: Optional.
+
+  - id: OQ-0004
+    theme: unblocks
+    status: open
+    needs: owner
+    urgency: high
+    raised: S010
+    tracked_as: ['RULE-0002', 'HANDOFF §2 ruling 3']
+    title: 'Approve or reject the second automatic rule: the change-impact links'
+    plain: >
+      The second rule answers "if this passage changed, what else would have to be
+      looked at?" It follows two kinds of link — the ones the Manual's authors
+      wrote themselves, and the ones that were worked out from the wording — and it
+      keeps them distinguishable, which matters because a whole Part of the Manual
+      can be pulled into an impact list purely by inferred links. It produced 2,244
+      of them. Same status as the first: everything it produces is marked
+      "candidate — needs a human".
+    why_you: >
+      Same reason as the first rule. It is also the one most likely to be used to
+      say "these parts of the Manual need reviewing", which is a claim someone will
+      act on.
+    if_unanswered: >
+      Impact analysis stays a demonstration. It cannot be quoted to anyone as a
+      basis for planning a review.
+    background:
+      - label: What the rule does and what it stands on
+        href: '#/graph'
+    answer:
+      kind: choice
+      prompt: What is your call on RULE-0002?
+      options:
+        - value: approve
+          label: Approve it — its links may be relied on
+        - value: approve_pending_expert
+          label: Approve it for now, with a trade marks expert to confirm later
+        - value: reject
+          label: Reject it — delete the rule
+        - value: show_me
+          label: Show me a worked example first
+    notes_prompt: Optional.
+
+  - id: OQ-0005
+    theme: unblocks
+    status: open
+    needs: owner
+    urgency: medium
+    raised: S010
+    tracked_as: ['ADR-0060', 'HANDOFF Q23']
+    title: Should the large generated data files be stored in the repository?
+    plain: >
+      The graph is built into four files. Two are stored in Git and two are not.
+      The two that are stored are this project's own decisions written out as data,
+      about 290KB. The two that are not are a restatement of the upstream corpus —
+      about 6.5MB, rebuilt from scratch in a few seconds — and storing those would
+      mean carrying a copy of another repository's content in this one's history
+      permanently.
+    why_you: >
+      It is a trade-off with no technically correct answer. Leaving them out keeps
+      the history clean; putting them in means someone can review the graph without
+      building anything first.
+    if_unanswered: >
+      Nothing is blocked. It is one line of configuration either way, and the
+      question exists so the choice is yours rather than an agent's.
+    answer:
+      kind: choice
+      prompt: How should it be?
+      options:
+        - value: keep_as_is
+          label: Leave it — store our own decisions, rebuild the rest
+        - value: commit_everything
+          label: Store everything, so the graph can be read without building it
+        - value: no_view
+          label: I have no view — use your judgement and stop asking
+    notes_prompt: Optional.
+
+  - id: OQ-0006
+    theme: unblocks
+    status: open
+    needs: owner
+    urgency: medium
+    raised: S010
+    tracked_as: ['ADR-0061', 'HANDOFF Q24']
+    title: Should a saved question be refused unless it says what it cannot answer?
+    plain: >
+      Each question the system can answer is stored as a small saved query. A rule
+      was introduced: a query is refused unless it carries a line saying what it
+      does *not* establish. The reason is that a query returning a neat table
+      always looks like an answer, even when it measured something narrower than
+      the question asked. One of ours counts which parts of the Manual cite section
+      43 — which is not the same as which parts would need changing if section 43
+      changed, though it reads that way. The cost is that writing a query takes
+      longer, and the extra time goes on writing down what it does not prove.
+    why_you: >
+      The rule was an agent's reading of what the project's own standard implies
+      rather than what it says. It should be your call before more queries are
+      written against it.
+    if_unanswered: >
+      Nothing is blocked. Every query written from here carries the requirement
+      unless you say otherwise.
+    answer:
+      kind: choice
+      prompt: Keep the rule?
+      options:
+        - value: keep_rule
+          label: Keep it — a query with no stated limits is refused
+        - value: soften_rule
+          label: Require the line, but warn rather than refuse
+        - value: drop_rule
+          label: Drop it — it is overhead
+    notes_prompt: Optional.
+
+  # ------------------------------------------------------------------- scope
+
+  - id: OQ-0007
+    theme: scope
+    status: open
+    needs: owner
+    urgency: medium
+    raised: S001
+    tracked_as: ['HANDOFF Q3']
+    title: Which AI model may we use, and may Manual text be sent to it?
+    plain: >
+      Later stages want to use a language model to propose candidate terms and
+      relationships from Manual text — always as suggestions a person checks, never
+      as final answers. Before any of that runs we need to know which model the
+      agency permits and whether Manual text may leave our systems to reach it.
+      Everything built so far avoids the question deliberately: records carry no
+      model name rather than one that might turn out to be off-limits.
+    why_you: >
+      It is an agency policy question, and you are the person who can go and get
+      the answer.
+    if_unanswered: >
+      Three of the eleven stages cannot start. Nothing already built is affected —
+      the ontology, the graph and the checks all run without a model.
+    answer:
+      kind: choice
+      prompt: Where does this stand?
+      options:
+        - value: named_model
+          label: There is an approved model — I will name it in the notes
+        - value: none_yet
+          label: Nothing is approved yet — keep avoiding the question
+        - value: finding_out
+          label: I am asking — do not wait on me
+        - value: no_external
+          label: No text may leave our network at all
+    notes_prompt: The model, the conditions, or who you have asked.
+
+  - id: OQ-0008
+    theme: scope
+    status: open
+    needs: owner
+    urgency: low
+    raised: S001
+    tracked_as: ['HANDOFF Q7', 'docs/IDENTIFIERS.md §2']
+    title: What web address may this project's data use as its permanent name?
+    plain: >
+      Every item in the graph needs a globally unique name, and by convention that
+      name is written as a web address — for example
+      https://data.ipaustralia.gov.au/tmk/concept/GC-0001. It does not have to open
+      a real page, but it should be an address the agency genuinely controls,
+      because changing it later means rewriting every stored name. We use that
+      address as a placeholder today. It is held in exactly one setting, so
+      switching it is a one-line change and a rebuild.
+    why_you: >
+      Who controls a gov.au address is an organisational fact, not a technical one.
+    if_unanswered: >
+      Nothing is blocked. The placeholder works; it simply should not be the
+      published answer.
+    answer:
+      kind: choice
+      prompt: What should the base address be?
+      options:
+        - value: use_proposed
+          label: The proposed one is fine — data.ipaustralia.gov.au/tmk/
+        - value: different
+          label: Use a different one — I will give it in the notes
+        - value: dont_know_yet
+          label: Nobody has decided — keep the placeholder and flag it
+    notes_prompt: The address, if you have one.
+
+  - id: OQ-0009
+    theme: scope
+    status: open
+    needs: owner
+    urgency: low
+    raised: S001
+    tracked_as: ['HANDOFF Q6', 'Q-11']
+    title: Should we obtain the actual court decisions the Manual cites?
+    plain: >
+      The section 43 material names 58 distinct court decisions. We hold the
+      citations — case name, year, court — but not a word of what any court
+      actually said, and nothing in the plan acquires them. The consequence is
+      permanent and worth stating plainly: "which cases interpret this test" is
+      answerable, and "what did the court hold" is not.
+    why_you: >
+      It is a scope and possibly a licensing decision, and it changes what the
+      finished system can honestly claim to do.
+    if_unanswered: >
+      Nothing is blocked. The limitation is recorded, and a prohibition already
+      exists to stop the system pretending otherwise.
+    answer:
+      kind: choice
+      prompt: Where do the decision texts sit?
+      options:
+        - value: out_of_scope
+          label: Out of scope — citations only, and say so plainly
+        - value: in_scope_later
+          label: In scope, but later — not for the pilot
+        - value: investigate
+          label: Find out what we may lawfully hold, then ask me again
+    notes_prompt: Optional.
+
+  - id: OQ-0010
+    theme: scope
+    status: open
+    needs: owner
+    urgency: low
+    raised: S001
+    tracked_as: ['HANDOFF Q4', 'ADR-0039']
+    title: Who may sign knowledge off as approved?
+    plain: >
+      Every approved record carries a name and a date, and that pair *is* the
+      approval — there is no separate sign-off document. So far every name in the
+      files is the same reviewer's initials. As more people review, we need to know
+      who may sign. There is a second half to it: you chose that your own approvals
+      should look exactly like a trade marks expert's, with no separate marker. It
+      is worth confirming now you have seen it written down, because once a record
+      is signed the two become indistinguishable.
+    why_you: >
+      Who may approve knowledge on behalf of the agency is not an agent's call.
+    if_unanswered: >
+      Nothing is blocked today. It becomes a real problem the first time two
+      people disagree and the record cannot say who signed which half.
+    answer:
+      kind: choice
+      prompt: How should approvals be attributed?
+      options:
+        - value: same_as_expert
+          label: Keep it as it is — my approvals look the same as an expert's
+        - value: mark_owner_separately
+          label: Mark mine differently, so the two can be told apart later
+        - value: list_of_approvers
+          label: There is a list of people who may sign — I will name them
+    notes_prompt: Names, roles, or the rule you want applied.
+
+  - id: OQ-0011
+    theme: scope
+    status: open
+    needs: owner
+    urgency: low
+    raised: S006
+    tracked_as: ['HANDOFF Q14']
+    title: Who is the plain-English guide to building an ontology for?
+    plain: >
+      You asked for more guidance on how an ontology actually gets built, beyond
+      the guide that exists — which only covers collecting examples, not building
+      the model. Before it gets written it needs an audience, because the same
+      material for you, for the trade marks experts, and for a steering group are
+      three different documents.
+    why_you: >
+      You asked for it, so you are the one who knows what is currently unclear.
+    if_unanswered: >
+      Nothing is blocked. The guide does not get written, or gets written for the
+      wrong reader.
+    answer:
+      kind: choice
+      prompt: Who is it for?
+      options:
+        - value: for_me
+          label: Me
+        - value: for_experts
+          label: The trade marks experts working from the existing guide
+        - value: for_wider
+          label: A wider audience — a steering group or an executive
+        - value: not_now
+          label: Not a priority — park it
+    notes_prompt: >
+      If there is a specific thing that has not clicked, name it. That is the most
+      useful sentence you can write here.
+
+  # ----------------------------------------------------------------- confirm
+
+  - id: OQ-0012
+    theme: confirm
+    status: open
+    needs: owner
+    urgency: low
+    raised: S005
+    tracked_as: ['HANDOFF Q11', 'HANDOFF Q12']
+    title: Seven small technical calls — tick any you want revisited
+    plain: >
+      Seven decisions were made so that work could continue rather than stop for an
+      answer. None of them changes anything the system says about trade marks; they
+      are about how files and tools behave. Leave a box unticked to confirm it.
+      Tick one and it goes back on the list for a proper look.
+    why_you: >
+      They were recorded as provisional, and provisional means a person has not
+      seen them. Confirming is what turns them into settled ground.
+    if_unanswered: >
+      Nothing is blocked. They stay marked provisional, and every future session
+      has to keep flagging them.
+    answer:
+      kind: multi
+      prompt: Tick anything you want revisited. Unticked means confirmed.
+      options:
+        - value: code_layout
+          label: How the code is split into folders
+          help: 'Two subpackages, one for the upstream reader and one for the evaluation set (ADR-0029).'
+        - value: exit_codes
+          label: Three severities, and a different exit code for each
+          help: >
+            A defect (something arrived wrong) fails a build; a gap (something is
+            missing) reports and does not (ADR-0030).
+        - value: one_file_per_type
+          label: One file per kind of record, named — an unrecognised file is an error
+          help: >
+            A misspelt filename would otherwise silently exclude a set of expert
+            judgements from every count (ADR-0032).
+        - value: retired_ids
+          label: Withdrawn identifiers are written down and never reused
+          help: 'So a later allocator cannot walk into a gap left by a withdrawal (ADR-0033).'
+        - value: optional_spreadsheet
+          label: The spreadsheet library is an optional install
+          help: 'The core tool stays at three dependencies; only the review path needs it (ADR-0035).'
+        - value: workbook_cells
+          label: How a record is laid out as spreadsheet columns
+          help: 'Dotted column names, lists as newlines, sub-rows on child sheets (ADR-0036).'
+        - value: transcription
+          label: How an approved row gets written into the gold set
+          help: >
+            Every required field written, optional ones only when filled, and
+            nothing at all without an explicit instruction to write (ADR-0037).
+    notes_prompt: If you ticked one, say what bothers you about it.
+
+  - id: OQ-0013
+    theme: confirm
+    status: open
+    needs: owner
+    urgency: low
+    raised: S009
+    tracked_as: ['HANDOFF Q15', 'Q18', 'Q20', 'Q21', 'Q22']
+    title: Five rules that fence the review process — tick any you want revisited
+    plain: >
+      The review round — we draft examples, an expert corrects them, the
+      corrections become approved knowledge — is fenced by five rules that decide
+      what may cross from draft to approved. Each was an agent's judgement about
+      what makes the process safe to audit, and they are what an audit would be
+      judged against. Leave a box unticked to confirm it.
+    why_you: >
+      These decide when a machine may treat something as approved. That is exactly
+      the boundary the whole project rests on.
+    if_unanswered: >
+      Nothing is blocked. The rules hold either way; they stay marked provisional
+      and keep being flagged.
+    answer:
+      kind: multi
+      prompt: Tick anything you want revisited. Unticked means confirmed.
+      options:
+        - value: seed_guards
+          label: The six guards around machine-drafted examples
+          help: >
+            Drafts are quarantined, each carries a statement of what it is, the
+            approval field starts empty and is checked, there is exactly one route
+            out, and a draft is deleted once reviewed (ADR-0043).
+        - value: transitive_hold
+          label: A signed record that points at an unsigned one is held back too
+          help: >
+            Otherwise approved knowledge would rest on a record nobody checked
+            (ADR-0048).
+        - value: child_row_hold
+          label: A signed record with one sub-row marked wrong is held whole
+          help: >
+            Writing it would certify a value the reviewer said was wrong
+            (ADR-0048).
+        - value: two_operations
+          label: A decision that arrives as an email may do only two things
+          help: >
+            Sign a row already marked correct, or settle one named record.
+            Anything wider — "they confirmed the corrections" — would be a blank
+            cheque over hundreds of rows (ADR-0051).
+        - value: critical_path
+          label: What counts as being on the critical path
+          help: >
+            Which held records are counted as blocking, including a group of three
+            that all wait on each other (ADR-0054).
+        - value: scoped_round
+          label: A partial review round must say on its face that it is partial
+          help: >
+            So a ten-record review is never filed as if it were the whole set
+            (ADR-0055).
+    notes_prompt: If you ticked one, say what bothers you about it.
+
+  # ------------------------------------------------------------------ expert
+
+  - id: OQ-0014
+    theme: expert
+    status: parked
+    needs: expert
+    urgency: high
+    raised: S002
+    tracked_as: ['HANDOFF Q8', 'ADR-0022']
+    title: Where exactly does section 43 stop?
+    plain: >
+      The pilot area is section 43. The boundary is not drawn: which parts of the
+      Manual count as in, which neighbouring provisions come with it, whether
+      geographical indications are the centre of the topic or a corner of it, and
+      whether questions about how the law stood at an earlier date are in scope. A
+      draft boundary exists for an expert to correct, with the numbers behind each
+      choice.
+    why_you: >
+      Drawing it needs someone who knows what an examiner actually reaches for.
+    if_unanswered: >
+      Every remaining piece of expert content stays unscoped. It does not block the
+      review round, which was designed not to depend on it.
+
+  - id: OQ-0015
+    theme: expert
+    status: parked
+    needs: expert
+    urgency: medium
+    raised: S008
+    tracked_as: ['HANDOFF Q16']
+    title: The office's actual bar for the presumption of registrability
+    plain: >
+      An expert's note said the draft examples capture the presumption of
+      registrability and the idea of doubt, but not the bar the office actually
+      applies: it is not enough for the individual examiner to doubt, and an
+      examiner is expected to consult a team leader and the section 43 specialists
+      before accepting on that basis. That is a rule about how examiners behave,
+      and no kind of record we hold is shaped to store it.
+    why_you: >
+      Whether it becomes a new kind of record, an entry in the scope document, or
+      something else is a call for the expert and you together.
+    if_unanswered: >
+      A materially important piece of practice sits in a note and not in the
+      knowledge base.
+
+  - id: OQ-0016
+    theme: expert
+    status: parked
+    needs: expert
+    urgency: medium
+    raised: S008
+    tracked_as: ['HANDOFF Q17', 'Q-28']
+    title: Nine role terms with no definitions — Registrar, Delegate, Examiner and more
+    plain: >
+      The same expert note said the draft vocabulary was drawn from one Part of the
+      Manual, which gives a narrow view of who does what. Nine terms were named as
+      needing high-level definitions — Registrar, Delegate, Examiner, Decision
+      Maker, Office Practice, Subject Matter Expert, Oppositions, Grounds for
+      Rejection, Adverse Report — "and there are likely more". There is a trap
+      underneath: the rule that selects passages picks ones that cite section 43,
+      and a term's definition is usually not in a passage that cites anything.
+    why_you: >
+      Whether the fix is an exception to that rule, a separate definitions pass, or
+      importing an existing glossary is an expert and owner call.
+    if_unanswered: >
+      The vocabulary keeps describing the test and not the people applying it.
+
+  - id: OQ-0017
+    theme: expert
+    status: parked
+    needs: expert
+    urgency: low
+    raised: S008
+    tracked_as: ['HANDOFF Q19', 'Q-07']
+    title: May a bare "section 15(1)" be read as the Trade Marks Act?
+    plain: >
+      The expert rejected two draft prohibitions on a principle worth recording:
+      that inferring a bare "section 15(1)" means the Trade Marks Act is acceptable
+      given what this tool is for, and that the tool should be able to say when a
+      passage is quoting legislation. That sits against the upstream position,
+      which refuses to resolve an ambiguous reference at all. The two are not quite
+      the same claim — upstream's ambiguity is about which of several instruments
+      is meant — but a session must not quietly assume either reading.
+    why_you: >
+      Where the line sits between a safe inference and an invented one is a
+      judgement about the corpus, not about code.
+    if_unanswered: >
+      Citation resolution in a later stage has no agreed rule, and one kind of
+      prohibited use rests on a single record.

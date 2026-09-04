@@ -1,0 +1,1688 @@
+{
+ "id": "ontology",
+ "title": "The model",
+ "lede": "An {{Ontology}} is the shape, not the content: which kinds of thing may exist, what may be said about each, and what may safely be inferred. Nine modules make up this one. **None of them is approved** — they live in `ontology/draft/` and move out one at a time, by a recorded human decision.",
+ "blocks": [
+  {
+   "kind": "callout",
+   "tone": "note",
+   "title": "In one paragraph, for a reader who does not do this for a living",
+   "text": "The model is written in {{OWL 2 RL}}, a standard language for describing kinds of thing and the rules between them. The **RL** part is a deliberate restriction: it trades expressive power for the guarantee that reasoning finishes quickly and predictably. Separately, {{SHACL}} states constraints that must hold before anything is published — think of {{OWL 2 RL}} as what the model *means* and {{SHACL}} as what it *refuses to let through*.",
+   "links": []
+  },
+  {
+   "kind": "stats",
+   "items": [
+    {
+     "label": "Modules",
+     "value": 9,
+     "note": "all draft",
+     "tone": null,
+     "href": null
+    },
+    {
+     "label": "Classes declared",
+     "value": 49,
+     "note": null,
+     "tone": null,
+     "href": null
+    },
+    {
+     "label": "Classes with no approved content",
+     "value": 39,
+     "note": "measured over the approved graph alone",
+     "tone": "gap",
+     "href": null
+    },
+    {
+     "label": "Predicates",
+     "value": 14,
+     "note": "the closed list extraction may use",
+     "tone": null,
+     "href": null
+    },
+    {
+     "label": "Predicates used once",
+     "value": 6,
+     "note": "a term seen once is a term nobody has tested",
+     "tone": "warn",
+     "href": null
+    }
+   ],
+   "note": null
+  },
+  {
+   "kind": "prose",
+   "text": "### The nine modules"
+  },
+  {
+   "kind": "table",
+   "columns": [
+    {
+     "key": "module",
+     "label": "File"
+    },
+    {
+     "key": "what",
+     "label": "What it covers"
+    },
+    {
+     "key": "classes",
+     "label": "Classes"
+    },
+    {
+     "key": "holds",
+     "label": "Currently holds"
+    }
+   ],
+   "rows": [
+    {
+     "module": "`document.ttl`",
+     "what": "document module",
+     "classes": 5,
+     "holds": {
+      "chips": [
+       {
+        "label": "nothing yet",
+        "tone": "gap"
+       }
+      ]
+     },
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "The addressable shapes of the corpus. Maps onto upstream's page / chunk / provision / unit, NOT onto an idealised chapter-section-paragraph tree. Chapter and Paragraph appear in the roadmap's module list and are deliberately absent here. Some Manual subsections are bold text that was never marked up as a heading, so `heading_path` is a retrieval signal and a weak structural guarantee (Q-10). The addressable unit is `chunk_ref`, and a class named Paragraph would promise a structure the corpus does not carry."
+      },
+      {
+       "kind": "list",
+       "items": [
+        "`Chunk` — empty",
+        "`Document` — empty",
+        "`DocumentVersion` — empty",
+        "`Page` — empty",
+        "`Passage` — empty"
+       ],
+       "ordered": false,
+       "note": null
+      }
+     ]
+    },
+    {
+     "module": "`authority.ttl`",
+     "what": "authority module",
+     "classes": 8,
+     "holds": {
+      "chips": [
+       {
+        "label": "nothing yet",
+        "tone": "gap"
+       }
+      ]
+     },
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "What kind of thing is speaking, and with what force. This is the module CLAUDE.md rule 5 lives in. The Manual states the Registrar's practice; it does not bind the Registrar's discretion and it is not legislation. The distinction is carried here as a class disjointness rather than as a flag, because a flag can be dropped by a projection and a disjointness cannot be satisfied by an assertion that ignores it."
+      },
+      {
+       "kind": "list",
+       "items": [
+        "`Authority` — empty",
+        "`Citation` — empty",
+        "`Guidance` — empty",
+        "`JudicialDecision` — empty",
+        "`Legislation` — empty",
+        "`LegislativeProvision` — empty",
+        "`LegislativeUnit` — empty",
+        "`ManualInstruction` — empty"
+       ],
+       "ordered": false,
+       "note": null
+      }
+     ]
+    },
+    {
+     "module": "`legal-concepts.ttl`",
+     "what": "legal concepts module",
+     "classes": 9,
+     "holds": {
+      "chips": [
+       {
+        "label": "53 things",
+        "tone": "good"
+       }
+      ]
+     },
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "The concept layer, and the module with the largest declared-but-unpopulated part of the model. Every approved concept in `eval/gold/concepts.yaml` becomes a `tmk:LegalConcept` and nothing narrower. The subclasses below — GroundOfRefusal, LegalTest, RelevantFactor, Exception — are the roadmap's model and they are **empty**, because the gold concept record has no type field and deciding that 'connotation' is a LegalTest rather than a RelevantFactor is a legal judgement this repo may not make (CLAUDE.md rule 1). That emptiness is the honest state and it is reported as a gap, not hidden. The slots exist so an expert can fill them in one pass; a machine filling them would produce a taxonomy that reads as authoritative and was authored by nobody."
+      },
+      {
+       "kind": "list",
+       "items": [
+        "`ApprovedRelation` — empty",
+        "`ConceptScheme` — 1",
+        "`Exception` — empty",
+        "`GroundOfRefusal` — empty",
+        "`LegalConcept` — 52",
+        "`LegalMatter` — empty",
+        "`LegalProposition` — empty",
+        "`LegalTest` — empty",
+        "`RelevantFactor` — empty"
+       ],
+       "ordered": false,
+       "note": null
+      }
+     ]
+    },
+    {
+     "module": "`provenance.ttl`",
+     "what": "provenance module",
+     "classes": 4,
+     "holds": {
+      "chips": [
+       {
+        "label": "35 things",
+        "tone": "good"
+       }
+      ]
+     },
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "ADR-0011's field list as RDF, over PROV-O. The rule this module exists to make enforceable: an assertion that cannot say where it came from does not get published. Every approved relationship in the graph appears twice — once as a direct triple so SPARQL is natural, and once as a tmk:Assertion carrying the passage, the span, the hash, the reviewer and the date. A SHACL shape fails if the first exists without the second (ADR-0058). The field list is deliberately open (ADR-0041): Stage 2 has not run, so what a machine-generated candidate needs to carry is not yet known from evidence. What is here is what the approved records actually carry today."
+      },
+      {
+       "kind": "list",
+       "items": [
+        "`ApprovedAssertion` — 35",
+        "`Assertion` — empty",
+        "`CandidateAssertion` — empty",
+        "`InferredAssertion` — empty"
+       ],
+       "ordered": false,
+       "note": null
+      }
+     ]
+    },
+    {
+     "module": "`relations.ttl`",
+     "what": "relation dictionary",
+     "classes": 0,
+     "holds": {
+      "chips": [
+       {
+        "label": "nothing yet",
+        "tone": "gap"
+       }
+      ]
+     },
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "The closed list of predicates extraction may propose. Derived from the 35 approved relationships in `eval/gold/relationships.yaml`: 14 distinct predicates, of which 6 are used exactly once. That last number is the one to read before treating this dictionary as settled — a term seen once is a term whose boundaries nobody has tested. Domain and range are `tmk:LegalMatter` throughout. The narrow types each predicate has actually been seen with are annotations and infer nothing; see tmk:LegalMatter in the legal-concepts module for why."
+      },
+      {
+       "kind": "prose",
+       "text": "Declares no classes."
+      }
+     ]
+    },
+    {
+     "module": "`examination.ttl`",
+     "what": "examination module",
+     "classes": 11,
+     "holds": {
+      "chips": [
+       {
+        "label": "nothing yet",
+        "tone": "gap"
+       }
+      ]
+     },
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Who does what, and to what. Almost entirely **declared and unpopulated**, and that is the honest state: the approved set describes what the Manual says about section 43, not a process model of examination, and inventing one would be authoring practice. The role classes below are here for a specific reason. The reviewer's covering note (`review/returned/260826-expert-feedback.md`, HANDOFF Q17) named nine terms that need high-level definitions — Registrar, Delegate, Examiner, Decision Maker, Office Practice, Subject Matter Expert, Oppositions, Grounds for Rejection, Adverse Report — because the seed vocabulary was drawn from Part 29 alone and gives a narrow view of the roles. Declaring the classes empty is how that gap is made visible in the model rather than only in a document. Note also Q-28: a term's definition is usually not in a passage that cites anything, so ADR-0022's scope rule will not find these on its own."
+      },
+      {
+       "kind": "list",
+       "items": [
+        "`DecisionMaker` — empty",
+        "`Delegate` — empty",
+        "`Examination` — empty",
+        "`ExaminationOutcome` — empty",
+        "`Examiner` — empty",
+        "`Objection` — empty",
+        "`Registrar` — empty",
+        "`Role` — empty",
+        "`SubjectMatterExpert` — empty",
+        "`TeamLeader` — empty",
+        "`TradeMarkApplication` — empty"
+       ],
+       "ordered": false,
+       "note": null
+      }
+     ]
+    },
+    {
+     "module": "`evidence.ttl`",
+     "what": "evidence module",
+     "classes": 4,
+     "holds": {
+      "chips": [
+       {
+        "label": "nothing yet",
+        "tone": "gap"
+       }
+      ]
+     },
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Entirely unpopulated, and the emptiest module in the draft on purpose.** The roadmap names it and the approved section 43 set says almost nothing about evidence: the pilot's material is about what a sign connotes, not about what an applicant files to establish something. Two records touch it — written permission overcoming a ground (GR-0039), information establishing that an applicant is the owner of a phoneword (GX-0010) — and neither is enough to model an evidence taxonomy from. Populating this is a Part 22/23 job (evidence of use under s 41), and Part 22 is explicitly out of the pilot scope draft. Left declared so the module list is complete and so nobody builds a second one."
+      },
+      {
+       "kind": "list",
+       "items": [
+        "`Evidence` — empty",
+        "`EvidenceCategory` — empty",
+        "`EvidenceSubmission` — empty",
+        "`EvidentiaryProposition` — empty"
+       ],
+       "ordered": false,
+       "note": null
+      }
+     ]
+    },
+    {
+     "module": "`time.ttl`",
+     "what": "time module",
+     "classes": 1,
+     "holds": {
+      "chips": [
+       {
+        "label": "nothing yet",
+        "tone": "gap"
+       }
+      ]
+     },
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Dates, currency and what this corpus cannot answer about time. The honest headline: **point-in-time questions are out of the pilot scope draft and the snapshot cannot support them.** There is no corpus-level version stamp (Q-05); the amendment history is the upstream repository's git history, and answering 'what guidance was current on «date»' properly needs a full-history clone, which is a different data strategy rather than a different query. CQ-0014 is marked out of scope on the strength of that line. What the module does carry is the currency mechanism that actually works: staleness by content hash. An assertion whose source hash no longer matches the pin is stale and returns to review. That is Stage 10's whole incremental mechanism and it needs no version stamp."
+      },
+      {
+       "kind": "list",
+       "items": [
+        "`AuthorityStatus` — empty"
+       ],
+       "ordered": false,
+       "note": null
+      }
+     ]
+    },
+    {
+     "module": "`evaluation.ttl`",
+     "what": "evaluation module",
+     "classes": 7,
+     "holds": {
+      "chips": [
+       {
+        "label": "105 things",
+        "tone": "good"
+       }
+      ]
+     },
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "The Stage 0 measurement artefacts, in the graph rather than beside it. This module is not in the roadmap's module list and it earns its place: it is what lets a prohibited output be a node with edges instead of a paragraph in a YAML file. PU-0004 says that attributing the Manual's 'obvious, direct and immediate' formulation to the Act is prohibited and that the error is structurally detectable. It is only structurally detectable if the prohibition, the question it attaches to, and the passages involved are all in the same graph. Here they are, and `shapes/prohibited-use.ttl` reads them."
+      },
+      {
+       "kind": "list",
+       "items": [
+        "`CompetencyQuestion` — 20",
+        "`EntityMention` — 55",
+        "`ProhibitedUse` — 11",
+        "`ReasoningExpectation` — 6",
+        "`RelevanceJudgement` — 2",
+        "`RetrievalQuestion` — 10",
+        "`SearchQuestion` — 1"
+       ],
+       "ordered": false,
+       "note": null
+      }
+     ]
+    }
+   ],
+   "search": false,
+   "note": "Click a row for the module's own description and the classes it declares.",
+   "empty": "Nothing here yet."
+  },
+  {
+   "kind": "prose",
+   "text": "### The predicates\n\nA {{Predicate}} is the middle of a statement — *this passage **states** that concept*. The list is **generated** from the relationships an expert approved, and a test compares the file against a regeneration. That is deliberate: a hand-written list of allowed relationships would be an agent choosing the vocabulary of the domain. To add one, have a reviewer approve a relationship that uses it."
+  },
+  {
+   "kind": "table",
+   "columns": [
+    {
+     "key": "label",
+     "label": "Reads as"
+    },
+    {
+     "key": "name",
+     "label": "In the data"
+    },
+    {
+     "key": "uses",
+     "label": "Approved uses"
+    },
+    {
+     "key": "seen",
+     "label": "Seen connecting"
+    }
+   ],
+   "rows": [
+    {
+     "label": "may give rise to",
+     "name": "`mayGiveRiseTo`",
+     "uses": {
+      "chips": [
+       {
+        "label": "6",
+        "tone": "good"
+       }
+      ]
+     },
+     "seen": "LegalConcept → LegalConcept/LegislativeProvision",
+     "search": "may give rise to mayGiveRiseTo",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 6 relationships (GR-0007, GR-0024, GR-0037, GR-0044, GR-0048, GR-0057)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0007`, `GR-0024`, `GR-0037`, `GR-0044`, `GR-0048`, `GR-0057`"
+      }
+     ]
+    },
+    {
+     "label": "requires element",
+     "name": "`requiresElement`",
+     "uses": {
+      "chips": [
+       {
+        "label": "6",
+        "tone": "good"
+       }
+      ]
+     },
+     "seen": "LegalConcept/LegislativeProvision → LegalConcept/LegislativeProvision",
+     "search": "requires element requiresElement",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 6 relationships (GR-0003, GR-0008, GR-0010, GR-0014, GR-0016, GR-0054)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0003`, `GR-0008`, `GR-0010`, `GR-0014`, `GR-0016`, `GR-0054`"
+      }
+     ]
+    },
+    {
+     "label": "constrains examiner to",
+     "name": "`constrainsExaminerTo`",
+     "uses": {
+      "chips": [
+       {
+        "label": "4",
+        "tone": "good"
+       }
+      ]
+     },
+     "seen": "LegalConcept/LegislativeProvision → LegalConcept",
+     "search": "constrains examiner to constrainsExaminerTo",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 4 relationships (GR-0002, GR-0011, GR-0022, GR-0046)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0002`, `GR-0011`, `GR-0022`, `GR-0046`"
+      }
+     ]
+    },
+    {
+     "label": "qualifies",
+     "name": "`qualifies`",
+     "uses": {
+      "chips": [
+       {
+        "label": "4",
+        "tone": "good"
+       }
+      ]
+     },
+     "seen": "LegalConcept → LegalConcept",
+     "search": "qualifies qualifies",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 4 relationships (GR-0017, GR-0023, GR-0035, GR-0040)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0017`, `GR-0023`, `GR-0035`, `GR-0040`"
+      }
+     ]
+    },
+    {
+     "label": "is overcome by",
+     "name": "`isOvercomeBy`",
+     "uses": {
+      "chips": [
+       {
+        "label": "3",
+        "tone": "good"
+       }
+      ]
+     },
+     "seen": "LegalConcept → LegalConcept",
+     "search": "is overcome by isOvercomeBy",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 3 relationships (GR-0032, GR-0034, GR-0039)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0032`, `GR-0034`, `GR-0039`"
+      }
+     ]
+    },
+    {
+     "label": "depends on external source",
+     "name": "`dependsOnExternalSource`",
+     "uses": {
+      "chips": [
+       {
+        "label": "2",
+        "tone": "good"
+       }
+      ]
+     },
+     "seen": "LegalConcept → LegalConcept",
+     "search": "depends on external source dependsOnExternalSource",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 2 relationships (GR-0036, GR-0058)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0036`, `GR-0058`"
+      }
+     ]
+    },
+    {
+     "label": "does not give rise to",
+     "name": "`doesNotGiveRiseTo`",
+     "uses": {
+      "chips": [
+       {
+        "label": "2",
+        "tone": "good"
+       }
+      ]
+     },
+     "seen": "LegalConcept → LegalConcept",
+     "search": "does not give rise to doesNotGiveRiseTo",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 2 relationships (GR-0015, GR-0042)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0015`, `GR-0042`"
+      }
+     ]
+    },
+    {
+     "label": "excludes basis",
+     "name": "`excludesBasis`",
+     "uses": {
+      "chips": [
+       {
+        "label": "2",
+        "tone": "good"
+       }
+      ]
+     },
+     "seen": "LegalConcept → LegalConcept/LegislativeProvision",
+     "search": "excludes basis excludesBasis",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 2 relationships (GR-0005, GR-0056)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0005`, `GR-0056`"
+      }
+     ]
+    },
+    {
+     "label": "allocates to",
+     "name": "`allocatesTo`",
+     "uses": {
+      "chips": [
+       {
+        "label": "1",
+        "tone": "warn"
+       }
+      ]
+     },
+     "seen": "Chunk → LegislativeProvision",
+     "search": "allocates to allocatesTo",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 1 relationship (GR-0006)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0006`"
+      }
+     ]
+    },
+    {
+     "label": "applies to",
+     "name": "`appliesTo`",
+     "uses": {
+      "chips": [
+       {
+        "label": "1",
+        "tone": "warn"
+       }
+      ]
+     },
+     "seen": "LegislativeProvision → LegalConcept",
+     "search": "applies to appliesTo",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 1 relationship (GR-0001)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0001`"
+      }
+     ]
+    },
+    {
+     "label": "cites authority for",
+     "name": "`citesAuthorityFor`",
+     "uses": {
+      "chips": [
+       {
+        "label": "1",
+        "tone": "warn"
+       }
+      ]
+     },
+     "seen": "JudicialDecision → LegislativeProvision",
+     "search": "cites authority for citesAuthorityFor",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 1 relationship (GR-0013)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0013`"
+      }
+     ]
+    },
+    {
+     "label": "extends to",
+     "name": "`extendsTo`",
+     "uses": {
+      "chips": [
+       {
+        "label": "1",
+        "tone": "warn"
+       }
+      ]
+     },
+     "seen": "LegalConcept → LegalConcept",
+     "search": "extends to extendsTo",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 1 relationship (GR-0052)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0052`"
+      }
+     ]
+    },
+    {
+     "label": "interprets",
+     "name": "`interprets`",
+     "uses": {
+      "chips": [
+       {
+        "label": "1",
+        "tone": "warn"
+       }
+      ]
+     },
+     "seen": "JudicialDecision → LegislativeProvision",
+     "search": "interprets interprets",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 1 relationship (GR-0012)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0012`"
+      }
+     ]
+    },
+    {
+     "label": "states threshold for",
+     "name": "`statesThresholdFor`",
+     "uses": {
+      "chips": [
+       {
+        "label": "1",
+        "tone": "warn"
+       }
+      ]
+     },
+     "seen": "LegalConcept → LegalConcept",
+     "search": "states threshold for statesThresholdFor",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Approved usage: 1 relationship (GR-0018)."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by: `GR-0018`"
+      }
+     ]
+    }
+   ],
+   "search": true,
+   "note": "The types in the last column are **observations**, not rules. Asserting them as rules would silently reclassify everything they touch, so they are recorded and infer nothing. Tightening one is an expert's ruling.",
+   "empty": "Nothing here yet."
+  },
+  {
+   "kind": "prose",
+   "text": "### Every class in the model"
+  },
+  {
+   "kind": "table",
+   "columns": [
+    {
+     "key": "name",
+     "label": "Class"
+    },
+    {
+     "key": "label",
+     "label": "Reads as"
+    },
+    {
+     "key": "holds",
+     "label": "Approved instances"
+    }
+   ],
+   "rows": [
+    {
+     "name": "`ApprovedAssertion`",
+     "label": "Approved assertion",
+     "holds": {
+      "chips": [
+       {
+        "label": "35",
+        "tone": "good"
+       }
+      ]
+     },
+     "search": "ApprovedAssertion Approved assertion An assertion a named human approved on a date. The only kind that may sit in the approved named graph (CLAUDE.md rule 4).",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "An assertion a named human approved on a date. The only kind that may sit in the approved named graph (CLAUDE.md rule 4)."
+      }
+     ]
+    },
+    {
+     "name": "`ApprovedRelation`",
+     "label": "Approved relation",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "ApprovedRelation Approved relation A predicate on the closed list in `relations.ttl`. Extraction may only propose relationships from this list. An open predicate set makes precision unmeasurable — with no fixed vocabulary, a wrong predicate and a new one are the same event, so nothing can be scored (ontology/README.md).",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "A predicate on the closed list in `relations.ttl`. Extraction may only propose relationships from this list. An open predicate set makes precision unmeasurable — with no fixed vocabulary, a wrong predicate and a new one are the same event, so nothing can be scored (ontology/README.md)."
+      }
+     ]
+    },
+    {
+     "name": "`Assertion`",
+     "label": "Assertion",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Assertion Assertion This project's record that something was extracted from a passage, by some method, and reviewed by someone. Not the proposition itself — the act of asserting it, with everything an audit needs.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "This project's record that something was extracted from a passage, by some method, and reviewed by someone. Not the proposition itself — the act of asserting it, with everything an audit needs."
+      }
+     ]
+    },
+    {
+     "name": "`Authority`",
+     "label": "Authority",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Authority Authority Something that can be cited in support of a proposition. Legislation, a decision, or the Registrar's own practice material — all three, and the point of the module is that they are not interchangeable.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Something that can be cited in support of a proposition. Legislation, a decision, or the Registrar's own practice material — all three, and the point of the module is that they are not interchangeable."
+      }
+     ]
+    },
+    {
+     "name": "`AuthorityStatus`",
+     "label": "Authority status",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "AuthorityStatus Authority status Whether an authority is current, superseded or repealed.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Whether an authority is current, superseded or repealed."
+      }
+     ]
+    },
+    {
+     "name": "`CandidateAssertion`",
+     "label": "Candidate assertion",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "CandidateAssertion Candidate assertion UNPOPULATED. Machine output awaiting a human. Kept in the candidates named graph and never in the approved one; if the two mix once, no later audit can unmix them (ADR-0007).",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED. Machine output awaiting a human. Kept in the candidates named graph and never in the approved one; if the two mix once, no later audit can unmix them (ADR-0007)."
+      }
+     ]
+    },
+    {
+     "name": "`Chunk`",
+     "label": "Manual chunk",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Chunk Manual chunk One retrievable passage of the Manual — the addressable unit of this repo, keyed by `chunk_ref`.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "One retrievable passage of the Manual — the addressable unit of this repo, keyed by `chunk_ref`."
+      }
+     ]
+    },
+    {
+     "name": "`Citation`",
+     "label": "Citation",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Citation Citation One reference from a passage to an authority, reified so that upstream's trust metadata survives (CLAUDE.md rule 3). A bare triple `chunk -> provision` throws away the two things that separate an author's assertion from a machine's inference, and once thrown away they cannot be recovered from the graph. So the edge is a node: it carries how it was found and how certain that was, and `tmk:citesProvision` exists beside it only as a convenience for queries that genuinely do not care.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "One reference from a passage to an authority, reified so that upstream's trust metadata survives (CLAUDE.md rule 3). A bare triple `chunk -> provision` throws away the two things that separate an author's assertion from a machine's inference, and once thrown away they cannot be recovered from the graph. So the edge is a node: it carries how it was found and how certain that was, and `tmk:citesProvision` exists beside it only as a convenience for queries that genuinely do not care."
+      }
+     ]
+    },
+    {
+     "name": "`CompetencyQuestion`",
+     "label": "Competency question",
+     "holds": {
+      "chips": [
+       {
+        "label": "20",
+        "tone": "good"
+       }
+      ]
+     },
+     "search": "CompetencyQuestion Competency question A question the finished system must be able to answer. If a question has no query and no query has a question, one of the two is wrong (queries/README.md).",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "A question the finished system must be able to answer. If a question has no query and no query has a question, one of the two is wrong (queries/README.md)."
+      }
+     ]
+    },
+    {
+     "name": "`ConceptScheme`",
+     "label": "TM-Knowledge concept scheme",
+     "holds": {
+      "chips": [
+       {
+        "label": "1",
+        "tone": "good"
+       }
+      ]
+     },
+     "search": "ConceptScheme TM-Knowledge concept scheme ",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "_No description recorded._"
+      }
+     ]
+    },
+    {
+     "name": "`DecisionMaker`",
+     "label": "Decision maker",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "DecisionMaker Decision maker UNDEFINED — HANDOFF Q17, and the reviewer corrected two records on precisely this point (GE-0010, GE-0047: decision maker vs the Registrar). It matters for Q16: the office's bar for applying the presumption of registrability is not that the individual examiner doubts a connotation exists, but that the Registrar as a whole does. A model that equates the two roles loses that distinction silently.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNDEFINED — HANDOFF Q17, and the reviewer corrected two records on precisely this point (GE-0010, GE-0047: decision maker vs the Registrar). It matters for Q16: the office's bar for applying the presumption of registrability is not that the individual examiner doubts a connotation exists, but that the Registrar as a whole does. A model that equates the two roles loses that distinction silently."
+      }
+     ]
+    },
+    {
+     "name": "`Delegate`",
+     "label": "Delegate",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Delegate Delegate UNDEFINED — HANDOFF Q17.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNDEFINED — HANDOFF Q17."
+      }
+     ]
+    },
+    {
+     "name": "`Document`",
+     "label": "Document",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Document Document A source document: the Manual, an Act, a set of Regulations. Identified independently of any particular capture of it.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "A source document: the Manual, an Act, a set of Regulations. Identified independently of any particular capture of it."
+      }
+     ]
+    },
+    {
+     "name": "`DocumentVersion`",
+     "label": "Document version",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "DocumentVersion Document version One capture of a Document. In this repo a version is the pinned upstream snapshot: an extractor version and a commit sha, recorded in `data/pin.json`. There is no corpus-level month stamp. The roadmap's `2026-01` form implies one and none exists (Q-05); the amendment history is the upstream repository's git history and is not held here.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "One capture of a Document. In this repo a version is the pinned upstream snapshot: an extractor version and a commit sha, recorded in `data/pin.json`. There is no corpus-level month stamp. The roadmap's `2026-01` form implies one and none exists (Q-05); the amendment history is the upstream repository's git history and is not held here."
+      }
+     ]
+    },
+    {
+     "name": "`EntityMention`",
+     "label": "Entity mention",
+     "holds": {
+      "chips": [
+       {
+        "label": "55",
+        "tone": "good"
+       }
+      ]
+     },
+     "search": "EntityMention Entity mention One occurrence of a term in a passage, at an offset. Two mentions of the same words in the same chunk are two records (GE-0005 and GE-0006), because recall is measured over occurrences.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "One occurrence of a term in a passage, at an offset. Two mentions of the same words in the same chunk are two records (GE-0005 and GE-0006), because recall is measured over occurrences."
+      }
+     ]
+    },
+    {
+     "name": "`Evidence`",
+     "label": "Evidence",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Evidence Evidence UNPOPULATED. Material put before the decision maker.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED. Material put before the decision maker."
+      }
+     ]
+    },
+    {
+     "name": "`EvidenceCategory`",
+     "label": "Evidence category",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "EvidenceCategory Evidence category UNPOPULATED. A kind of evidence, as the practice material groups them.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED. A kind of evidence, as the practice material groups them."
+      }
+     ]
+    },
+    {
+     "name": "`EvidenceSubmission`",
+     "label": "Evidence submission",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "EvidenceSubmission Evidence submission UNPOPULATED. The act of filing evidence in a matter.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED. The act of filing evidence in a matter."
+      }
+     ]
+    },
+    {
+     "name": "`EvidentiaryProposition`",
+     "label": "Evidentiary proposition",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "EvidentiaryProposition Evidentiary proposition UNPOPULATED, and it must stay unpopulated while automated reasoning is bounded as it is. 'The evidence establishes acquired distinctiveness' is an evaluative conclusion and stays outside automated reasoning scope (queries/README.md). A class that holds such propositions is fine; a rule that derives one is not.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED, and it must stay unpopulated while automated reasoning is bounded as it is. 'The evidence establishes acquired distinctiveness' is an evaluative conclusion and stays outside automated reasoning scope (queries/README.md). A class that holds such propositions is fine; a rule that derives one is not."
+      }
+     ]
+    },
+    {
+     "name": "`Examination`",
+     "label": "Examination",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Examination Examination UNPOPULATED. The process applied to an application.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED. The process applied to an application."
+      }
+     ]
+    },
+    {
+     "name": "`ExaminationOutcome`",
+     "label": "Examination outcome",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "ExaminationOutcome Examination outcome UNPOPULATED, and it must stay that way for this pilot. Deciding an examination outcome is explicitly out of scope (CLAUDE.md §6), and the prohibited-use set exists to keep it there: PU-0001 and PU-0002 are the two outputs that state one.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED, and it must stay that way for this pilot. Deciding an examination outcome is explicitly out of scope (CLAUDE.md §6), and the prohibited-use set exists to keep it there: PU-0001 and PU-0002 are the two outputs that state one."
+      }
+     ]
+    },
+    {
+     "name": "`Examiner`",
+     "label": "Examiner",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Examiner Examiner UNDEFINED — HANDOFF Q17.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNDEFINED — HANDOFF Q17."
+      }
+     ]
+    },
+    {
+     "name": "`Exception`",
+     "label": "Exception",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Exception Exception UNPOPULATED — needs an expert. A condition under which a general position does not hold, or is reversed.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED — needs an expert. A condition under which a general position does not hold, or is reversed."
+      }
+     ]
+    },
+    {
+     "name": "`GroundOfRefusal`",
+     "label": "Ground of refusal",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "GroundOfRefusal Ground of refusal UNPOPULATED — needs an expert. A statutory basis on which registration may be refused.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED — needs an expert. A statutory basis on which registration may be refused."
+      }
+     ]
+    },
+    {
+     "name": "`Guidance`",
+     "label": "Guidance",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Guidance Guidance Non-binding material that is neither legislation nor a decision. Declared for the roadmap's model; nothing in the approved set is classified into it yet.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Non-binding material that is neither legislation nor a decision. Declared for the roadmap's model; nothing in the approved set is classified into it yet."
+      }
+     ]
+    },
+    {
+     "name": "`InferredAssertion`",
+     "label": "Inferred assertion",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "InferredAssertion Inferred assertion Produced by an approved CONSTRUCT rule, never authored. Must identify its source facts and the rule that produced it: an inference that cannot explain itself does not get published.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Produced by an approved CONSTRUCT rule, never authored. Must identify its source facts and the rule that produced it: an inference that cannot explain itself does not get published."
+      }
+     ]
+    },
+    {
+     "name": "`JudicialDecision`",
+     "label": "Judicial decision",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "JudicialDecision Judicial decision A decided case. **Citation level only.** No decision text exists anywhere in this programme (Q-11, HANDOFF Q6), so a decision node carries a citation, party names where the Manual gives them, and the Manual's own account of it — never the reasons. 'Which cases interpret this test' is answerable; 'what did the court hold' is not, and PU-0005 is the output that pretends otherwise.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "A decided case. **Citation level only.** No decision text exists anywhere in this programme (Q-11, HANDOFF Q6), so a decision node carries a citation, party names where the Manual gives them, and the Manual's own account of it — never the reasons. 'Which cases interpret this test' is answerable; 'what did the court hold' is not, and PU-0005 is the output that pretends otherwise."
+      }
+     ]
+    },
+    {
+     "name": "`LegalConcept`",
+     "label": "Legal concept",
+     "holds": {
+      "chips": [
+       {
+        "label": "52",
+        "tone": "good"
+       }
+      ]
+     },
+     "search": "LegalConcept Legal concept A concept in the examination vocabulary, with a preferred label, its variants, and — crucially — the labels it must not be confused with.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "A concept in the examination vocabulary, with a preferred label, its variants, and — crucially — the labels it must not be confused with."
+      }
+     ]
+    },
+    {
+     "name": "`LegalMatter`",
+     "label": "Legal matter",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "LegalMatter Legal matter Anything an approved relation may hold between: a concept, a provision, a Manual passage, a decision. It exists because the approved relationships do not agree on narrower types. `requiresElement` runs Provision→Concept twice, Concept→Concept three times and Concept→Provision once; `excludesBasis` runs both ways. Asserting a narrow `rdfs:domain` on that evidence would, under OWL RL, silently reclassify every subject of the property — a careless range assertion manufactures classifications (ontology/README.md). So the asserted domain and range are this union superclass, which licenses only 'this is a legal matter', and the narrow types each predicate has actually been seen with are recorded as annotations that infer nothing. Tightening them is an expert ruling, and `tmk-ontology-report` lists the candidates.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Anything an approved relation may hold between: a concept, a provision, a Manual passage, a decision. It exists because the approved relationships do not agree on narrower types. `requiresElement` runs Provision→Concept twice, Concept→Concept three times and Concept→Provision once; `excludesBasis` runs both ways. Asserting a narrow `rdfs:domain` on that evidence would, under OWL RL, silently reclassify every subject of the property — a careless range assertion manufactures classifications (ontology/README.md). So the asserted domain and range are this union superclass, which licenses only 'this is a legal matter', and the narrow types each predicate has actually been seen with are recorded as annotations that infer nothing. Tightening them is an expert ruling, and `tmk-ontology-report` lists the candidates."
+      }
+     ]
+    },
+    {
+     "name": "`LegalProposition`",
+     "label": "Legal proposition",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "LegalProposition Legal proposition A statement that something is so, held together with the passage that states it and the authority of that passage. Distinct from tmk:Assertion, which is this repo's record *that* a proposition was extracted and approved. The proposition is what the corpus says; the assertion is what this project did about it.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "A statement that something is so, held together with the passage that states it and the authority of that passage. Distinct from tmk:Assertion, which is this repo's record *that* a proposition was extracted and approved. The proposition is what the corpus says; the assertion is what this project did about it."
+      }
+     ]
+    },
+    {
+     "name": "`LegalTest`",
+     "label": "Legal test",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "LegalTest Legal test UNPOPULATED — needs an expert. A question the decision maker must answer, with a stated threshold.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED — needs an expert. A question the decision maker must answer, with a stated threshold."
+      }
+     ]
+    },
+    {
+     "name": "`Legislation`",
+     "label": "Legislation",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Legislation Legislation An instrument. This corpus holds two: the Trade Marks Act 1995 and the Trade Marks Regulations 1995.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "An instrument. This corpus holds two: the Trade Marks Act 1995 and the Trade Marks Regulations 1995."
+      }
+     ]
+    },
+    {
+     "name": "`LegislativeProvision`",
+     "label": "Legislative provision",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "LegislativeProvision Legislative provision A section, regulation, Schedule clause or container of an instrument, keyed by its provision ref. It is law.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "A section, regulation, Schedule clause or container of an instrument, keyed by its provision ref. It is law."
+      }
+     ]
+    },
+    {
+     "name": "`LegislativeUnit`",
+     "label": "Legislative unit",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "LegislativeUnit Legislative unit A numbered unit inside a provision — subsection, paragraph, definition. Modelled as a subclass rather than as a sibling because a ref does not say what level it addresses: 228 legislation refs in the pinned corpus cannot be placed by grammar alone (Q-18, ADR-0025). Anything true of a provision is true of a unit of one, so the subclass licenses nothing the corpus cannot support.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "A numbered unit inside a provision — subsection, paragraph, definition. Modelled as a subclass rather than as a sibling because a ref does not say what level it addresses: 228 legislation refs in the pinned corpus cannot be placed by grammar alone (Q-18, ADR-0025). Anything true of a provision is true of a unit of one, so the subclass licenses nothing the corpus cannot support."
+      }
+     ]
+    },
+    {
+     "name": "`ManualInstruction`",
+     "label": "Manual instruction",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "ManualInstruction Manual instruction A statement of the Registrar's practice, sourced from the Manual. It is **not law**. It does not bind the Registrar's discretion. A system that lets a Manual instruction be read as a statutory requirement has committed the error PU-0004 names, and that error is a live one in this corpus: the Manual quotes s 43 in full inside TMM/Part29/1#1, so an answer can appear to cite the Act while having read only the Manual (CQ-0001's caveat).",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "A statement of the Registrar's practice, sourced from the Manual. It is **not law**. It does not bind the Registrar's discretion. A system that lets a Manual instruction be read as a statutory requirement has committed the error PU-0004 names, and that error is a live one in this corpus: the Manual quotes s 43 in full inside TMM/Part29/1#1, so an answer can appear to cite the Act while having read only the Manual (CQ-0001's caveat)."
+      }
+     ]
+    },
+    {
+     "name": "`Objection`",
+     "label": "Objection",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Objection Objection UNPOPULATED. A ground raised against an application in an examination.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED. A ground raised against an application in an examination."
+      }
+     ]
+    },
+    {
+     "name": "`Page`",
+     "label": "Manual page",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Page Manual page One page of the Manual, as crawled. Holds everything constant across the chunks cut from it.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "One page of the Manual, as crawled. Holds everything constant across the chunks cut from it."
+      }
+     ]
+    },
+    {
+     "name": "`Passage`",
+     "label": "Passage",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Passage Passage Anything in the corpus that bears text at a stable address and carries a content hash. The superclass of everything a citation can point at.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Anything in the corpus that bears text at a stable address and carries a content hash. The superclass of everything a citation can point at."
+      }
+     ]
+    },
+    {
+     "name": "`ProhibitedUse`",
+     "label": "Prohibited use",
+     "holds": {
+      "chips": [
+       {
+        "label": "11",
+        "tone": "good"
+       }
+      ]
+     },
+     "search": "ProhibitedUse Prohibited use An output the system must never produce, with the reason. The roadmap requires examples of conclusions the system must NOT draw, and they are as important as the positive ones. Six kinds: evaluative_conclusion, authority_conflation, unsupported_inference, overreach, ambiguity_collapse and stale_source.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "An output the system must never produce, with the reason. The roadmap requires examples of conclusions the system must NOT draw, and they are as important as the positive ones. Six kinds: evaluative_conclusion, authority_conflation, unsupported_inference, overreach, ambiguity_collapse and stale_source."
+      }
+     ]
+    },
+    {
+     "name": "`ReasoningExpectation`",
+     "label": "Reasoning expectation",
+     "holds": {
+      "chips": [
+       {
+        "label": "6",
+        "tone": "good"
+       }
+      ]
+     },
+     "search": "ReasoningExpectation Reasoning expectation What a correct system should conclude from a stated set of facts, and what it must not.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "What a correct system should conclude from a stated set of facts, and what it must not."
+      }
+     ]
+    },
+    {
+     "name": "`Registrar`",
+     "label": "Registrar",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Registrar Registrar UNDEFINED — named in HANDOFF Q17 as needing a definition. Load-bearing here: the Manual states practice and does not bind this office's discretion.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNDEFINED — named in HANDOFF Q17 as needing a definition. Load-bearing here: the Manual states practice and does not bind this office's discretion."
+      }
+     ]
+    },
+    {
+     "name": "`RelevanceJudgement`",
+     "label": "Relevance judgement",
+     "holds": {
+      "chips": [
+       {
+        "label": "2",
+        "tone": "good"
+       }
+      ]
+     },
+     "search": "RelevanceJudgement Relevance judgement ",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "_No description recorded._"
+      }
+     ]
+    },
+    {
+     "name": "`RelevantFactor`",
+     "label": "Relevant factor",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "RelevantFactor Relevant factor UNPOPULATED — needs an expert. Something the decision maker weighs, which does not on its own decide the question.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED — needs an expert. Something the decision maker weighs, which does not on its own decide the question."
+      }
+     ]
+    },
+    {
+     "name": "`RetrievalQuestion`",
+     "label": "AI retrieval question",
+     "holds": {
+      "chips": [
+       {
+        "label": "10",
+        "tone": "good"
+       }
+      ]
+     },
+     "search": "RetrievalQuestion AI retrieval question A question with the evidence a correct answer must rest on, and the conclusions it must not reach.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "A question with the evidence a correct answer must rest on, and the conclusions it must not reach."
+      }
+     ]
+    },
+    {
+     "name": "`Role`",
+     "label": "Role",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "Role Role A person or office acting in the examination system.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "A person or office acting in the examination system."
+      }
+     ]
+    },
+    {
+     "name": "`SearchQuestion`",
+     "label": "Search question",
+     "holds": {
+      "chips": [
+       {
+        "label": "1",
+        "tone": "good"
+       }
+      ]
+     },
+     "search": "SearchQuestion Search question A query with graded relevance judgements, and — the valuable half — the passages that are tempting and wrong.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "A query with graded relevance judgements, and — the valuable half — the passages that are tempting and wrong."
+      }
+     ]
+    },
+    {
+     "name": "`SubjectMatterExpert`",
+     "label": "Subject matter expert",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "SubjectMatterExpert Subject matter expert UNDEFINED — HANDOFF Q17.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNDEFINED — HANDOFF Q17."
+      }
+     ]
+    },
+    {
+     "name": "`TeamLeader`",
+     "label": "Team leader",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "TeamLeader Team leader UNDEFINED — named in the reviewer's note as part of the consultation the office expects before a connotation is accepted on the basis of doubt (Q16).",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNDEFINED — named in the reviewer's note as part of the consultation the office expects before a connotation is accepted on the basis of doubt (Q16)."
+      }
+     ]
+    },
+    {
+     "name": "`TradeMarkApplication`",
+     "label": "Trade mark application",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "TradeMarkApplication Trade mark application UNPOPULATED. The thing being examined. No application data exists in this programme and none is in scope.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED. The thing being examined. No application data exists in this programme and none is in scope."
+      }
+     ]
+    }
+   ],
+   "search": true,
+   "note": "Counted over the approved graph only — the one this repository commits. The source graph, which is rebuilt rather than stored, populates several more (passages, citations, decisions); the ontology report counts those. An empty class is a slot waiting for content, not a bug: the four that matter most — ground of refusal, legal test, relevant factor, exception — are empty because sorting the 52 legal ideas into them is a legal judgement.",
+   "empty": "Nothing here yet."
+  }
+ ]
+}

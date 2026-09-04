@@ -1,0 +1,475 @@
+{
+ "id": "limits",
+ "title": "What it cannot do",
+ "lede": "The honest half of the demonstration. Every gap on this page is counted by the same run that produces the successes, and every prohibition was written and signed by a person as a thing the system must never say.",
+ "blocks": [
+  {
+   "kind": "prose",
+   "text": "### Things it must never say\n\nA {{Prohibited use / prohibited inference}} is a conclusion the system is not allowed to produce, recorded as explicitly as the right answers and tested just as hard. They are not warnings on an interface — three of them are enforced by code, and one has become a constraint that blocks publication outright."
+  },
+  {
+   "kind": "bars",
+   "items": [
+    {
+     "label": "evaluative conclusion",
+     "value": 3,
+     "note": "3 recorded"
+    },
+    {
+     "label": "authority conflation",
+     "value": 3,
+     "note": "3 recorded"
+    },
+    {
+     "label": "unsupported inference",
+     "value": 3,
+     "note": "3 recorded"
+    },
+    {
+     "label": "overreach",
+     "value": 1,
+     "note": "1 recorded"
+    },
+    {
+     "label": "ambiguity collapse",
+     "value": 1,
+     "note": "1 recorded"
+    }
+   ],
+   "note": "Six kinds were specified; five are represented. The missing one is *stale source* — all three of its draft records are held behind decisions nobody has made yet."
+  },
+  {
+   "kind": "table",
+   "columns": [
+    {
+     "key": "quote",
+     "label": "The system must not say"
+    },
+    {
+     "key": "kind",
+     "label": "Kind"
+    }
+   ],
+   "rows": [
+    {
+     "quote": "“This trade mark should be rejected under section 43 because the connotation is likely to deceive or cause confusion.”",
+     "kind": {
+      "chips": [
+       {
+        "label": "evaluative conclusion",
+        "tone": "warn"
+       }
+      ]
+     },
+     "search": "PU-0001 This trade mark should be rejected under section 43 because the connotation is likely to deceive or cause confusion. evaluative_conclusion",
+     "detail": [
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Why it must not be said",
+       "text": "Whether a connotation exists and whether it is likely to deceive is the decision maker's evaluative judgement on the material before them. The Manual requires the decision maker to be clearly satisfied; a system that states the conclusion has substituted itself for that person.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Distinguish from a permitted output: setting out the considerations, the criteria and the passages, and stopping._"
+      },
+      {
+       "kind": "prose",
+       "text": "**Caught by:** eval · **Approved by:** TC on 2026-08-26"
+      }
+     ]
+    },
+    {
+     "quote": "“No section 43 ground arises here, so the application can proceed to acceptance.”",
+     "kind": {
+      "chips": [
+       {
+        "label": "evaluative conclusion",
+        "tone": "warn"
+       }
+      ]
+     },
+     "search": "PU-0002 No section 43 ground arises here, so the application can proceed to acceptance. evaluative_conclusion",
+     "detail": [
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Why it must not be said",
+       "text": "An assurance that no ground arises is an examination decision. It also speaks to grounds the system was never asked about — acceptance turns on every ground, not on section 43 alone.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_The second half of this sentence is arguably a separate prohibition (overreach — see PU-0013). Splitting it in two is a reasonable correction._"
+      },
+      {
+       "kind": "prose",
+       "text": "**Caught by:** eval · **Approved by:** TC on 2026-08-26"
+      }
+     ]
+    },
+    {
+     "quote": "“Confidence that a section 43 ground applies: 82%.”",
+     "kind": {
+      "chips": [
+       {
+        "label": "evaluative conclusion",
+        "tone": "warn"
+       }
+      ]
+     },
+     "search": "PU-0003 Confidence that a section 43 ground applies: 82%. evaluative_conclusion",
+     "detail": [
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Why it must not be said",
+       "text": "No probability in this system is calibrated against examination outcomes, and none could be without a decision corpus. A number invites reliance that the underlying evidence does not support.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_A confidence attached to an *extraction* is legitimate and required (rule 8). A confidence attached to a legal conclusion is this._"
+      },
+      {
+       "kind": "prose",
+       "text": "**Caught by:** test · **Approved by:** TC on 2026-08-26"
+      }
+     ]
+    },
+    {
+     "quote": "“Section 43 of the Act requires the connotation to be obvious, direct and immediate.”",
+     "kind": {
+      "chips": [
+       {
+        "label": "authority conflation",
+        "tone": "warn"
+       }
+      ]
+     },
+     "search": "PU-0004 Section 43 of the Act requires the connotation to be obvious, direct and immediate. authority_conflation",
+     "detail": [
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Why it must not be said",
+       "text": "The section requires no such thing. That formulation is the Manual's statement of practice. Attributing it to the Act gives an examiner a statutory requirement that does not exist and takes away the Registrar's discretion in the same sentence.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Structurally detectable: the claim attaches a Manual-sourced proposition to a legislative ref. That is a constraint a shape can express._"
+      },
+      {
+       "kind": "prose",
+       "text": "**Caught by:** shacl · **Approved by:** TC on 2026-08-26"
+      }
+     ]
+    },
+    {
+     "quote": "“The Federal Court held in Primary Health Care that a distinction must be drawn between the denotation of a mark and its connotation.”",
+     "kind": {
+      "chips": [
+       {
+        "label": "authority conflation",
+        "tone": "warn"
+       }
+      ]
+     },
+     "search": "PU-0005 The Federal Court held in Primary Health Care that a distinction must be drawn between the denotation of a mark and its connotation. authority_conflation",
+     "detail": [
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Why it must not be said",
+       "text": "The system holds the Manual's account of the decision and a citation. It does not hold the reasons. Stating a holding as fact represents a source the programme has never seen.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_A permitted form: \"the Manual, at TMM/Part29/2/2/1~1, quotes Katzmann J in Primary Health Care as saying…\". The provenance survives._"
+      },
+      {
+       "kind": "prose",
+       "text": "**Caught by:** test · **Approved by:** TC on 2026-08-26"
+      }
+     ]
+    },
+    {
+     "quote": "“To overcome the ground you must use the following endorsement.”",
+     "kind": {
+      "chips": [
+       {
+        "label": "authority conflation",
+        "tone": "warn"
+       }
+      ]
+     },
+     "search": "PU-0006 To overcome the ground you must use the following endorsement. authority_conflation",
+     "detail": [
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Why it must not be said",
+       "text": "The Manual records the endorsement the Registrar suggests. Presenting a suggestion as a requirement converts practice into obligation, which is exactly the Tier 3 reading an extraction system gets wrong while looking well-formed.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_The modality judgement on GR-0021 and GR-0022 is the same judgement in the relationship set. If you change one, change both._"
+      },
+      {
+       "kind": "prose",
+       "text": "**Caught by:** eval · **Approved by:** TC on 2026-08-26"
+      }
+     ]
+    },
+    {
+     "quote": "“A trade mark containing the name of a country will attract a section 43 ground unless the specification is limited to goods from that country.”",
+     "kind": {
+      "chips": [
+       {
+        "label": "unsupported inference",
+        "tone": "warn"
+       }
+      ]
+     },
+     "search": "PU-0007 A trade mark containing the name of a country will attract a section 43 ground unless the specification is limited to goods from that country. unsupported_inference",
+     "detail": [
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Why it must not be said",
+       "text": "The Manual sets criteria and gives examples on both sides — SHETLAND attracting a ground, BALI not. A general rule extracted from them discards the criteria that decided each one.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_This one is deliberately plausible. It would pass a fluency check and a citation check, because every source it cites is real and relevant._"
+      },
+      {
+       "kind": "prose",
+       "text": "**Caught by:** eval · **Approved by:** TC on 2026-08-26"
+      }
+     ]
+    },
+    {
+     "quote": "“Because the mark closely resembles an earlier registered mark, a connotation arises that will deceive or confuse consumers.”",
+     "kind": {
+      "chips": [
+       {
+        "label": "unsupported inference",
+        "tone": "warn"
+       }
+      ]
+     },
+     "search": "PU-0008 Because the mark closely resembles an earlier registered mark, a connotation arises that will deceive or confuse consumers. unsupported_inference",
+     "detail": [
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Why it must not be said",
+       "text": "This reasons from a comparison between marks, which the Manual and the cited authority both put outside section 43. It is the most likely cross-contamination in the pilot, because Part 26 and Part 29 share almost all of their vocabulary.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "**Caught by:** shacl · **Approved by:** TC on 2026-08-26"
+      }
+     ]
+    },
+    {
+     "quote": "“The mark contains the INN stem \"-ast\", so a section 43 ground applies.”",
+     "kind": {
+      "chips": [
+       {
+        "label": "unsupported inference",
+        "tone": "warn"
+       }
+      ]
+     },
+     "search": "PU-0009 The mark contains the INN stem \"-ast\", so a section 43 ground applies. unsupported_inference",
+     "detail": [
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Why it must not be said",
+       "text": "The Manual requires the stem to be present in a meaningful way and gives counter-examples where it is not, including one built on this very stem. Treating list membership as sufficient inverts the guidance.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_The Manual's own counter-example for this stem is a mark in which the letters appear inside an ordinary English word._"
+      },
+      {
+       "kind": "prose",
+       "text": "**Caught by:** eval · **Approved by:** TC on 2026-08-26"
+      }
+     ]
+    },
+    {
+     "quote": "“See also Re Applicant's Application [2021] ATMO 44.”",
+     "kind": {
+      "chips": [
+       {
+        "label": "overreach",
+        "tone": "warn"
+       }
+      ]
+     },
+     "search": "PU-0015 See also Re Applicant's Application [2021] ATMO 44. overreach",
+     "detail": [
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Why it must not be said",
+       "text": "The programme holds case citations extracted from the Manual and nothing else. A citation not among them was invented, and an examiner cannot distinguish an invented neutral citation from a real one without checking every one.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_Fully mechanically detectable, and the cheapest test in this file: every emitted case citation must appear in the corpus's case set._"
+      },
+      {
+       "kind": "prose",
+       "text": "**Caught by:** test · **Approved by:** TC on 2026-08-26"
+      }
+     ]
+    },
+    {
+     "quote": "“Confusion under section 43 and confusion under section 44 are assessed the same way.”",
+     "kind": {
+      "chips": [
+       {
+        "label": "ambiguity collapse",
+        "tone": "warn"
+       }
+      ]
+     },
+     "search": "PU-0018 Confusion under section 43 and confusion under section 44 are assessed the same way. ambiguity_collapse",
+     "detail": [
+      {
+       "kind": "callout",
+       "tone": "warn",
+       "title": "Why it must not be said",
+       "text": "One is confusion arising from a connotation within the mark; the other is confusion between the mark and another sign. The Manual keeps them apart expressly, and a distributional model will not.",
+       "links": []
+      },
+      {
+       "kind": "prose",
+       "text": "_The `not_labels` on GC-0002 encode the same distinction in the concept set. If this record survives, that one should too._"
+      },
+      {
+       "kind": "prose",
+       "text": "**Caught by:** eval · **Approved by:** TC on 2026-08-26"
+      }
+     ]
+    }
+   ],
+   "search": true,
+   "note": null,
+   "empty": "Nothing here yet."
+  },
+  {
+   "kind": "prose",
+   "text": "### Gaps in the model, counted"
+  },
+  {
+   "kind": "cards",
+   "items": [
+    {
+     "title": "The taxonomy is empty",
+     "subtitle": "the largest single gap",
+     "text": "*Ground of refusal*, *legal test*, *relevant factor* and *exception* are declared and hold nothing. All 52 legal ideas sit as a bare concept, because the record has no field for the kind and deciding which one applies is a legal judgement.",
+     "badges": [
+      {
+       "label": "needs one pass by one person",
+       "tone": "gap"
+      }
+     ],
+     "links": [
+      {
+       "label": "Question 1 in your queue",
+       "href": "#/inbox"
+      }
+     ]
+    },
+    {
+     "title": "No idea has a definition",
+     "subtitle": "by design, not by omission",
+     "text": "The records carry the passages a meaning is drawn from and no definition text. Writing one would be authoring legal content. The absence is reported and counted rather than filled with something plausible.",
+     "badges": [
+      {
+       "label": "expert-owned",
+       "tone": "note"
+      }
+     ]
+    },
+    {
+     "title": "Most of the vocabulary is flat",
+     "subtitle": "39 of 52 ideas",
+     "text": "No broader term, no narrower term. The hierarchy is where a search system gets its ability to generalise, so a mostly-flat vocabulary is a list with extra steps.",
+     "badges": [
+      {
+       "label": "measured",
+       "tone": "gap"
+      }
+     ]
+    },
+    {
+     "title": "Point-in-time questions are unanswerable",
+     "subtitle": "and will stay that way",
+     "text": "There is no version stamp across the corpus; the amendment history is the upstream repository's own history. *What did the practice say in 2019* is out of reach under this approach, and the question that asks it carries that limitation on its face.",
+     "badges": [
+      {
+       "label": "structural",
+       "tone": "warn"
+      }
+     ]
+    },
+    {
+     "title": "No court decision text exists anywhere",
+     "subtitle": "58 decisions cited, none held",
+     "text": "*Which cases interpret this test* is answerable. *What did the court hold* is not, and one of the prohibitions exists to stop the system pretending otherwise.",
+     "badges": [
+      {
+       "label": "a scope decision",
+       "tone": "note"
+      }
+     ],
+     "links": [
+      {
+       "label": "It is question 9 in your queue",
+       "href": "#/inbox"
+      }
+     ]
+    },
+    {
+     "title": "Six predicates have been used once each",
+     "subtitle": "out of fourteen",
+     "text": "A relationship term seen a single time is a term whose boundaries nobody has tested. One reviewer's own note says a predicate \"reads plausibly and says the wrong thing\" on the record that uses it — and it was left in as an example rather than quietly fixed.",
+     "badges": [
+      {
+       "label": "measured",
+       "tone": "warn"
+      }
+     ]
+    }
+   ],
+   "note": null
+  },
+  {
+   "kind": "callout",
+   "tone": "note",
+   "title": "Read the generated report for the full list",
+   "text": "Section 5 of the ontology report is produced by the same run that builds the graph, so it cannot drift out of date the way a hand-written page can.",
+   "links": [
+    {
+     "label": "Open the report",
+     "href": "#/reports?open=ontology"
+    }
+   ]
+  }
+ ]
+}

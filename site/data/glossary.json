@@ -1,0 +1,334 @@
+{
+ "terms": {
+  "TMA1995": {
+   "term": "Trade Marks Act 1995 (`TMA1995`)",
+   "section": "Domain",
+   "text": "the governing Commonwealth Act. Upstream holds 316 provisions from the compiled version."
+  },
+  "Trade Marks Act 1995": {
+   "term": "Trade Marks Act 1995 (`TMA1995`)",
+   "section": "Domain",
+   "text": "the governing Commonwealth Act. Upstream holds 316 provisions from the compiled version."
+  },
+  "Trade Marks Act 1995 (`TMA1995`)": {
+   "term": "Trade Marks Act 1995 (`TMA1995`)",
+   "section": "Domain",
+   "text": "the governing Commonwealth Act. Upstream holds 316 provisions from the compiled version."
+  },
+  "TMR1995": {
+   "term": "Trade Marks Regulations 1995 (`TMR1995`)",
+   "section": "Domain",
+   "text": "the regulations made under the Act. 447 provisions. Regulation numbers always contain dots (`r 3A.3`); Act sections never do — this is an enforced invariant, not a stylistic habit."
+  },
+  "Trade Marks Regulations 1995": {
+   "term": "Trade Marks Regulations 1995 (`TMR1995`)",
+   "section": "Domain",
+   "text": "the regulations made under the Act. 447 provisions. Regulation numbers always contain dots (`r 3A.3`); Act sections never do — this is an enforced invariant, not a stylistic habit."
+  },
+  "Trade Marks Regulations 1995 (`TMR1995`)": {
+   "term": "Trade Marks Regulations 1995 (`TMR1995`)",
+   "section": "Domain",
+   "text": "the regulations made under the Act. 447 provisions. Regulation numbers always contain dots (`r 3A.3`); Act sections never do — this is an enforced invariant, not a stylistic habit."
+  },
+  "The Manual": {
+   "term": "The Manual",
+   "section": "Domain",
+   "text": "the IP Australia *Trade Marks Manual of Practice and Procedure*. Records the Registrar's examination practice. **It is not law**, and it does not bind the Registrar's discretion (Q-12). Published as HTML; 500 pages across 54 Parts."
+  },
+  "Registrar": {
+   "term": "Registrar",
+   "section": "Domain",
+   "text": "the Registrar of Trade Marks. Examination is conducted under delegated authority."
+  },
+  "Examination": {
+   "term": "Examination",
+   "section": "Domain",
+   "text": "the process of assessing whether a filed application meets the requirements of the Act, including whether any ground of refusal applies."
+  },
+  "Ground of refusal": {
+   "term": "Ground of refusal",
+   "section": "Domain",
+   "text": "a statutory basis on which an application may be refused."
+  },
+  "Objection": {
+   "term": "Objection",
+   "section": "Domain",
+   "text": "an examiner's raised concern, which must identify a legislative basis."
+  },
+  "Distinctiveness": {
+   "term": "Distinctiveness / s 41",
+   "section": "Domain",
+   "text": "whether a sign is capable of distinguishing the applicant's goods or services. The roadmap's suggested pilot area (unconfirmed — HANDOFF Q1). Note that s 41 was renumbered in 2012, so older Manual text may cite numbering that no longer resolves (Q-06)."
+  },
+  "Distinctiveness / s 41": {
+   "term": "Distinctiveness / s 41",
+   "section": "Domain",
+   "text": "whether a sign is capable of distinguishing the applicant's goods or services. The roadmap's suggested pilot area (unconfirmed — HANDOFF Q1). Note that s 41 was renumbered in 2012, so older Manual text may cite numbering that no longer resolves (Q-06)."
+  },
+  "s 41": {
+   "term": "Distinctiveness / s 41",
+   "section": "Domain",
+   "text": "whether a sign is capable of distinguishing the applicant's goods or services. The roadmap's suggested pilot area (unconfirmed — HANDOFF Q1). Note that s 41 was renumbered in 2012, so older Manual text may cite numbering that no longer resolves (Q-06)."
+  },
+  "Acquired distinctiveness": {
+   "term": "Acquired distinctiveness",
+   "section": "Domain",
+   "text": "distinctiveness established through use rather than inherent in the sign. Appears in the roadmap as a worked example of a concept with several surface forms (\"distinctiveness acquired through use\", \"factual distinctiveness\")."
+  },
+  "Evidence of use": {
+   "term": "Evidence of use",
+   "section": "Domain",
+   "text": "evidence going to how a sign has actually been used in trade. A category, not a conclusion."
+  },
+  "Neutral citation": {
+   "term": "Neutral citation",
+   "section": "Domain",
+   "text": "court-assigned, medium-independent: `[2018] FCAFC 109`."
+  },
+  "Reported citation": {
+   "term": "Reported citation",
+   "section": "Domain",
+   "text": "series-based: `(1954) 71 RPC 43`. Upstream records both styles and a canonical `case_id`."
+  },
+  "AustLII": {
+   "term": "AustLII / TimeBase",
+   "section": "Domain",
+   "text": "legal publishers whose links appear in Manual text. Upstream reads AustLII path-form and TimeBase query-form hrefs as provision evidence; Federal Register links are deliberately not read."
+  },
+  "AustLII / TimeBase": {
+   "term": "AustLII / TimeBase",
+   "section": "Domain",
+   "text": "legal publishers whose links appear in Manual text. Upstream reads AustLII path-form and TimeBase query-form hrefs as provision evidence; Federal Register links are deliberately not read."
+  },
+  "TimeBase": {
+   "term": "AustLII / TimeBase",
+   "section": "Domain",
+   "text": "legal publishers whose links appear in Manual text. Upstream reads AustLII path-form and TimeBase query-form hrefs as provision evidence; Federal Register links are deliberately not read."
+  },
+  "Federal Register of Legislation": {
+   "term": "Federal Register of Legislation",
+   "section": "Domain",
+   "text": "the authoritative source for compiled Commonwealth legislation, and the API upstream uses to fetch `.docx` compilations."
+  },
+  "OPC": {
+   "term": "OPC",
+   "section": "Domain",
+   "text": "the Office of Parliamentary Counsel, whose Word stylesheet (`w:pStyle`) upstream uses to derive provision structure. The style name travels with each unit as evidence."
+  },
+  "Snapshot": {
+   "term": "Snapshot",
+   "section": "Corpus and upstream",
+   "text": "the committed, offline, deterministically extracted corpus produced by `manual-XtrACTor`. The deliverable of Stage 1; read-only from here."
+  },
+  "Page": {
+   "term": "Page",
+   "section": "Corpus and upstream",
+   "text": "one Manual page. `page_ref` = `TMM/Part22/1`. Part membership comes from the nav tree, never from the URL."
+  },
+  "Chunk": {
+   "term": "Chunk",
+   "section": "Corpus and upstream",
+   "text": "one retrievable passage, normally the prose under one heading. `chunk_ref` = `TMM/Part22/1/1/2`. The addressable unit for retrieval. Kinds: `body` (1,683), `annex` (725), `landing` (52), plus `note` and `table`."
+  },
+  "Block": {
+   "term": "Block",
+   "section": "Corpus and upstream",
+   "text": "the structural pieces a chunk's flat `text` was flattened from: paragraph, list_item, table, heading, image, text."
+  },
+  "Provision": {
+   "term": "Provision",
+   "section": "Corpus and upstream",
+   "text": "a section, regulation or Schedule clause. `ref` = `TMA1995/s41`."
+  },
+  "Unit": {
+   "term": "Unit",
+   "section": "Corpus and upstream",
+   "text": "a numbered subdivision of a provision. `ref` = `TMA1995/s41(3)(a)`."
+  },
+  "The join": {
+   "term": "The join",
+   "section": "Corpus and upstream",
+   "text": "a chunk's `provisions[].id` is literally a provision `ref`. No transformation, no lookup table. 97% of in-scope edges resolve."
+  },
+  "extraction": {
+   "term": "`extraction`",
+   "section": "Corpus and upstream",
+   "text": "how an edge was found: `href` (the Manual's authors linked it) or `regex` (upstream inferred it from prose)."
+  },
+  "certainty": {
+   "term": "`certainty`",
+   "section": "Corpus and upstream",
+   "text": "for regex edges only: `explicit` (instrument named adjacent), `default` (bare \"section N\", resolved to the Act by convention — an inference), `ambiguous` (several instruments in scope; human queue only). See Q-07."
+  },
+  "content_hash": {
+   "term": "`content_hash`",
+   "section": "Corpus and upstream",
+   "text": "per-page, per-chunk, per-provision, per-unit. The mechanism for detecting that an assertion's supporting passage has changed (ADR-0011)."
+  },
+  "Candidate": {
+   "term": "Candidate",
+   "section": "Project",
+   "text": "machine-generated, unapproved. Lives in `review/`. Never read as if approved (ADR-0007)."
+  },
+  "Assertion": {
+   "term": "Assertion",
+   "section": "Project",
+   "text": "a statement in the graph, carrying provenance: method, confidence, source ref, source span, source content hash, review status."
+  },
+  "Competency question": {
+   "term": "Competency question",
+   "section": "Project",
+   "text": "an ordinary question the finished system must be able to answer. Stage 0; the basis of every later measurement."
+  },
+  "Gold standard": {
+   "term": "Gold standard",
+   "section": "Project",
+   "text": "the expert-created set of trusted examples that every automated component is measured against. Stage 0."
+  },
+  "Prohibited use": {
+   "term": "Prohibited use / prohibited inference",
+   "section": "Project",
+   "text": "conclusions the system must *not* produce. Tested as explicitly as the positive cases."
+  },
+  "Prohibited use / prohibited inference": {
+   "term": "Prohibited use / prohibited inference",
+   "section": "Project",
+   "text": "conclusions the system must *not* produce. Tested as explicitly as the positive cases."
+  },
+  "prohibited inference": {
+   "term": "Prohibited use / prohibited inference",
+   "section": "Project",
+   "text": "conclusions the system must *not* produce. Tested as explicitly as the positive cases."
+  },
+  "2": {
+   "term": "Tier 1 / 2 / 3",
+   "section": "Project",
+   "text": "the confidence-and-risk tiers governing what may be auto-accepted. Tier 3 always needs a human (ADR-0008)."
+  },
+  "3": {
+   "term": "Tier 1 / 2 / 3",
+   "section": "Project",
+   "text": "the confidence-and-risk tiers governing what may be auto-accepted. Tier 3 always needs a human (ADR-0008)."
+  },
+  "Tier 1": {
+   "term": "Tier 1 / 2 / 3",
+   "section": "Project",
+   "text": "the confidence-and-risk tiers governing what may be auto-accepted. Tier 3 always needs a human (ADR-0008)."
+  },
+  "Tier 1 / 2 / 3": {
+   "term": "Tier 1 / 2 / 3",
+   "section": "Project",
+   "text": "the confidence-and-risk tiers governing what may be auto-accepted. Tier 3 always needs a human (ADR-0008)."
+  },
+  "SKOS": {
+   "term": "SKOS",
+   "section": "Project",
+   "text": "W3C model for controlled vocabularies: preferred label, alternative labels, broader, narrower, related."
+  },
+  "OWL 2 RL": {
+   "term": "OWL 2 RL",
+   "section": "Project",
+   "text": "the OWL profile chosen for scalable rule-based reasoning, trading expressiveness for tractability."
+  },
+  "SHACL": {
+   "term": "SHACL",
+   "section": "Project",
+   "text": "W3C constraint language for validating RDF, run via pySHACL before publication."
+  },
+  "PROV-O": {
+   "term": "PROV-O",
+   "section": "Project",
+   "text": "W3C provenance ontology: entities, activities, agents."
+  },
+  "Named graph": {
+   "term": "Named graph",
+   "section": "Project",
+   "text": "a subdivision of the triple store used here to keep source data, candidates, approved assertions, inferred assertions and superseded assertions apart."
+  },
+  "SPARQL `CONSTRUCT` rule": {
+   "term": "SPARQL `CONSTRUCT` rule",
+   "section": "Project",
+   "text": "an explicit, approved derivation producing new triples from existing ones. Each needs an approval record and a test."
+  },
+  "YAKE": {
+   "term": "YAKE",
+   "section": "Project",
+   "text": "unsupervised statistical keyphrase extraction. Produces candidates only."
+  },
+  "DependencyMatcher": {
+   "term": "`DependencyMatcher`",
+   "section": "Project",
+   "text": "spaCy component matching patterns over dependency parse trees; used for recurring relation phrasing."
+  },
+  "Hybrid search": {
+   "term": "Hybrid search",
+   "section": "Project",
+   "text": "combining BM25 keyword scoring with vector similarity, then fusing the scores (OpenSearch fusion, reciprocal rank fusion, or a cross-encoder rerank)."
+  },
+  "ADR": {
+   "term": "ADR",
+   "section": "Project",
+   "text": "architecture decision record. `docs/DECISIONS.md`. Append-only."
+  },
+  "Knowledge graph": {
+   "term": "Knowledge graph",
+   "section": "Modelling",
+   "text": "the data itself, held as a web of small statements rather than as rows in a table. Its shape comes from the ontology."
+  },
+  "Ontology": {
+   "term": "Ontology",
+   "section": "Modelling",
+   "text": "the model: which kinds of thing exist, what may be said about each, and what may be inferred. It says nothing about any particular trade mark; it says what a statement about one is allowed to look like."
+  },
+  "Triple": {
+   "term": "Triple",
+   "section": "Modelling",
+   "text": "one statement, in three parts: subject, predicate, object. *TMM/Part29/1#1 — states — connotation.* Everything in the graph is triples, and counting them is how its size is reported."
+  },
+  "Class": {
+   "term": "Class",
+   "section": "Modelling",
+   "text": "a kind of thing the ontology declares: a legal concept, a passage, a citation. A class with nothing in it is a slot nobody has filled."
+  },
+  "Predicate": {
+   "term": "Predicate",
+   "section": "Modelling",
+   "text": "the middle part of a triple: the relationship being asserted. This project keeps a closed list of them, generated from approved relationships, so extraction cannot invent a new one."
+  },
+  "IRI": {
+   "term": "IRI",
+   "section": "Modelling",
+   "text": "the globally unique name of something in the graph, written as a web address. It need not open a page; it needs to be unambiguous and stable (`docs/IDENTIFIERS.md`, HANDOFF Q7)."
+  },
+  "ABox": {
+   "term": "TBox / ABox",
+   "section": "Modelling",
+   "text": "the two halves of a graph: the TBox is the model (classes and predicates), the ABox is the content said with it. `ontology/draft/` is the TBox; `graph/` is the ABox."
+  },
+  "TBox": {
+   "term": "TBox / ABox",
+   "section": "Modelling",
+   "text": "the two halves of a graph: the TBox is the model (classes and predicates), the ABox is the content said with it. `ontology/draft/` is the TBox; `graph/` is the ABox."
+  },
+  "TBox / ABox": {
+   "term": "TBox / ABox",
+   "section": "Modelling",
+   "text": "the two halves of a graph: the TBox is the model (classes and predicates), the ABox is the content said with it. `ontology/draft/` is the TBox; `graph/` is the ABox."
+  },
+  "RDF": {
+   "term": "RDF",
+   "section": "Modelling",
+   "text": "the W3C standard the graph is written in. Triples, IRIs and named graphs are its vocabulary, and SKOS, OWL and SHACL are all layered on it."
+  },
+  "SPARQL": {
+   "term": "SPARQL",
+   "section": "Modelling",
+   "text": "the query language for RDF. A competency query is a SPARQL query stored in a file with a header saying what it does and does not answer (ADR-0061)."
+  },
+  "Inference": {
+   "term": "Inference",
+   "section": "Modelling",
+   "text": "a statement derived from others by a rule rather than read from a source. Everything inferred here names the rule that produced it and stays quarantined until an expert approves the rule (Stage 9)."
+  }
+ }
+}

@@ -1,0 +1,275 @@
+"""The dashboard reads the repo faithfully, and refuses when it cannot.
+
+Two things are being protected here.
+
+**The site must not be able to say something the repository does not hold.**
+Every page is generated from committed artefacts, so the failure mode is not a
+wrong number typed by hand — it is a *stale* number, left behind when a record
+moved and nobody rebuilt. `test_committed_data_is_current` is that guard, and it
+is the same check CI runs.
+
+**An answer coming back must be transcribed or refused, never guessed.** A
+submission naming a question that does not exist, or an option that is not on
+the form, means the form and the question file have diverged. The tests below
+fix that as a refusal, because the alternative — picking the nearest match — is
+an agent deciding what a person meant (CLAUDE.md rule 6).
+"""
+
+from __future__ import annotations
+
+import json
+
+import pytest
+
+from tm_knowledge.config import REPO_ROOT
+from tm_knowledge.dashboard import blocks, questions, ruling, sources
+
+pytestmark = []
+
+SITE = REPO_ROOT / "site"
+
+
+# ------------------------------------------------------- reading the documents
+
+
+def test_every_adr_parses_with_an_authority():
+    """The decisions page is generated from the log's own headings. A reformat
+    that broke the parser would empty the page rather than fail, so it fails."""
+    adrs = sources.read_decisions()
+    assert len(adrs) > 50
+    assert {adr.authority for adr in adrs} <= {"inherited", "derived", "agent-proposed", "human"}
+    assert all(adr.title and adr.date for adr in adrs)
+
+
+def test_a_decision_log_without_headings_is_refused(tmp_path):
+    path = tmp_path / "DECISIONS.md"
+    path.write_text("# DECISIONS\n\nnothing here yet.\n", encoding="utf-8")
+    with pytest.raises(sources.MalformedDocument):
+        sources.read_decisions(path)
+
+
+def test_an_adr_without_its_metadata_line_is_refused(tmp_path):
+    path = tmp_path / "DECISIONS.md"
+    path.write_text("## ADR-0001 — A decision\n\nNo metadata line.\n", encoding="utf-8")
+    with pytest.raises(sources.MalformedDocument):
+        sources.read_decisions(path)
+
+
+def test_the_stage_board_has_all_eleven_stages():
+    stages = sources.read_stage_board()
+    assert [stage.number for stage in stages] == [str(n) for n in range(11)]
+
+
+def test_a_short_stage_board_is_refused(tmp_path):
+    """A row that stopped parsing would disappear from the site silently."""
+    path = tmp_path / "ROADMAP-STATUS.md"
+    path.write_text(
+        "## Board\n\n| Stage | Name | Status | Owner |\n|---|---|---|---|\n"
+        "| 0 | Something | **partial** | this repo |\n\n## Next\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(sources.MalformedDocument):
+        sources.read_stage_board(path)
+
+
+def test_the_glossary_covers_the_terms_a_reader_needs():
+    """The tooltips are the project's own glossary, not a second one."""
+    glossary = sources.read_glossary()
+    for term in ("SHACL", "OWL 2 RL", "SKOS", "Triple", "IRI", "Named graph", "Ontology"):
+        assert term in glossary, f"{term} is not in docs/GLOSSARY.md"
+        assert len(glossary[term]["text"]) > 30
+
+
+# ------------------------------------------------------------ the question set
+
+
+def test_the_question_queue_validates():
+    question_set = questions.load()
+    assert question_set.questions
+    assert question_set.asked, "nothing is being asked, which is itself a claim"
+
+
+def test_every_asked_question_can_actually_be_answered():
+    """A question with no control is a question the owner cannot answer from the
+    dashboard, which is the one thing the dashboard is for."""
+    for question in questions.load().asked:
+        answer = question.raw["answer"]
+        assert answer["kind"] in {"choice", "multi", "text", "long_text"}
+        if answer["kind"] in {"choice", "multi"}:
+            assert len(answer["options"]) >= 2
+            values = [option["value"] for option in answer["options"]]
+            assert len(values) == len(set(values)), f"{question.identifier}: duplicate option value"
+
+
+def test_a_parked_question_is_not_put_to_the_owner():
+    """Expert content is shown for context. A radio button under something the
+    owner cannot decide invites an answer that then has to be unpicked."""
+    for question in questions.load().by_status("parked"):
+        assert not question.is_asked
+
+
+def test_a_question_missing_its_plain_language_framing_is_refused(tmp_path):
+    path = tmp_path / "open-questions.yaml"
+    path.write_text(
+        "version: 1\nupdated: '2026-09-04'\n"
+        "themes: [{id: a, title: A theme, blurb: A blurb long enough}]\n"
+        "questions:\n"
+        "  - id: OQ-0001\n    theme: a\n    status: open\n    needs: owner\n"
+        "    urgency: high\n    title: A title long enough to pass\n"
+        "    plain: too short\n    why_you: because it is yours to decide\n"
+        "    if_unanswered: nothing moves until it is answered\n    raised: S011\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(questions.MalformedQuestions):
+        questions.load(path)
+
+
+# ------------------------------------------------------------------- the build
+
+
+@pytest.mark.rdf
+def test_build_produces_every_page():
+    from tm_knowledge.dashboard import build as build_module
+
+    pages = build_module.build(generated="2026-01-01")
+    for page, _, _ in build_module.PAGES:
+        assert f"{page}.json" in pages, f"{page} has a nav entry and no data"
+    assert set(pages) - {"site.json", "glossary.json"} == {
+        f"{page}.json" for page, _, _ in build_module.PAGES
+    }, "a data file exists with no nav entry, or the other way round"
+
+
+@pytest.mark.rdf
+def test_a_glossary_marker_naming_an_unknown_term_is_refused():
+    """A marker that silently renders as plain text is an explanation quietly
+    withdrawn from the reader who needed it."""
+    from tm_knowledge.dashboard import build as build_module
+
+    page = {"a.json": {"blocks": [blocks.prose("See {{Nonexistent Term}}.")]}}
+    with pytest.raises(build_module.BuildError):
+        build_module.check_glossary(page, sources.read_glossary())
+
+
+@pytest.mark.rdf
+def test_committed_data_is_current():
+    """The site reads only what is committed, so a stale file is a number on a
+    public page that this repository no longer holds. `tmk-dashboard --write`."""
+    from tm_knowledge.dashboard import build as build_module
+
+    assert build_module.check() == []
+
+
+def test_an_unknown_tone_is_refused():
+    with pytest.raises(ValueError):
+        blocks.callout("urgent", "A title", "Some text")
+
+
+# ------------------------------------------------------------------- the site
+
+
+def test_the_site_is_self_contained():
+    """No package manager, no build step, and nothing loaded from a CDN — this
+    is published by a government agency and every byte should be in the repo."""
+    html = (SITE / "index.html").read_text(encoding="utf-8")
+    for name in ("app.css", "app.js"):
+        assert name in html
+        assert (SITE / name).exists()
+    assert "http://" not in html.replace("http://www.w3.org", "")
+    for module in ("app.js", "blocks.js", "inbox.js", "md.js"):
+        source = (SITE / module).read_text(encoding="utf-8")
+        assert "cdn" not in source.lower()
+        assert "import(" not in source
+
+
+def test_every_nav_entry_has_a_data_file():
+    site = json.loads((SITE / "data" / "site.json").read_text(encoding="utf-8"))
+    for entry in site["nav"]:
+        assert (SITE / "data" / f"{entry['id']}.json").exists()
+
+
+# ---------------------------------------------------------- answers coming back
+
+
+def _body(payload: str) -> str:
+    return f"{ruling.MARKER}\nAnswers.\n\n```yaml\n{payload}\n```\n"
+
+
+def _submission(question_id: str, value: str) -> str:
+    return _body(
+        "form: tmk-ruling/1\nquestions_updated: '2026-09-04'\n"
+        f"answers:\n  - id: {question_id}\n    value: {value}\n"
+    )
+
+
+def _first_choice() -> tuple[str, str]:
+    for question in questions.load().asked:
+        if question.raw["answer"]["kind"] == "choice":
+            return question.identifier, question.raw["answer"]["options"][0]["value"]
+    raise AssertionError("the queue has no single-choice question to test with")
+
+
+def test_an_ordinary_issue_is_not_a_submission():
+    with pytest.raises(ruling.MalformedSubmission):
+        ruling.parse("Hi, the site looks great.")
+
+
+def test_a_submission_without_its_answer_block_is_refused():
+    with pytest.raises(ruling.MalformedSubmission):
+        ruling.parse(f"{ruling.MARKER}\nI deleted the block by accident.")
+
+
+def test_a_round_trip_keeps_the_question_and_the_wording():
+    identifier, value = _first_choice()
+    document = ruling.transcribe(
+        ruling.parse(_submission(identifier, value)),
+        issue={"number": 1, "url": "https://example.invalid/1", "author": "someone"},
+        received="2026-09-04T00:00:00Z",
+    )
+    assert document["schema"] == questions.RULING_SCHEMA
+    assert document["applied"] is None
+    answer = document["answers"][0]
+    assert answer["id"] == identifier and answer["value"] == value
+    assert answer["question"] and answer["label"], "the file must read on its own"
+
+
+def test_an_unknown_question_is_refused():
+    with pytest.raises(ruling.MalformedSubmission):
+        ruling.transcribe(
+            ruling.parse(_submission("OQ-9999", "anything")),
+            issue={"number": 1, "url": "u", "author": "a"},
+        )
+
+
+def test_an_option_that_is_not_on_the_form_is_refused():
+    """Means the form and the question file diverged, or the body was edited.
+    Picking the nearest option would be deciding what a person meant."""
+    identifier, _ = _first_choice()
+    with pytest.raises(ruling.MalformedSubmission):
+        ruling.transcribe(
+            ruling.parse(_submission(identifier, "not_an_option")),
+            issue={"number": 1, "url": "u", "author": "a"},
+        )
+
+
+def test_an_edited_submission_replaces_its_earlier_transcription(tmp_path):
+    """Two files for one issue would be two versions of one decision, with
+    nothing saying which one the owner meant."""
+    identifier, value = _first_choice()
+    payload = ruling.parse(_submission(identifier, value))
+    issue = {"number": 12, "url": "u", "author": "a"}
+    first = ruling.write(
+        ruling.transcribe(payload, issue=issue, received="2026-09-04T00:00:00Z"), tmp_path
+    )
+    second = ruling.write(
+        ruling.transcribe(payload, issue=issue, received="2026-09-06T00:00:00Z"), tmp_path
+    )
+    assert not first.exists() and second.exists()
+    assert len(list(tmp_path.glob("*.yaml"))) == 1
+
+
+def test_recorded_rulings_load():
+    """A ruling that will not parse is a decision silently dropped, so reading
+    the directory raises rather than skipping the file."""
+    for entry in questions.load_rulings():
+        assert entry.answers
+        assert entry.issue.get("url")

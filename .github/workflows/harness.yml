@@ -109,6 +109,14 @@ jobs:
             cat data/derived/reports/blockers.md
           } >> "$GITHUB_STEP_SUMMARY"
 
+      # The dashboard restates committed artefacts. If a record moved and the
+      # site data was not regenerated, the published page is showing a number
+      # this repository no longer holds -- which is worse than showing none.
+      - name: The published dashboard matches the repository
+        run: |
+          pip install -e ".[rdf]"
+          tmk-dashboard --check
+
       - name: Publish the status reports
         if: always()
         uses: actions/upload-artifact@v4

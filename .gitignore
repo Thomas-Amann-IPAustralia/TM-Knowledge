@@ -15,6 +15,15 @@ data/upstream/
 graph/source.ttl
 graph/dataset.nq
 
+# The dashboard's copies of the generated reports.
+#
+# `site/data/*.json` IS committed — it is what the site reads, and a diff of it
+# is a diff of what the published page now says. These four are different: they
+# are byte copies of files already committed under `data/derived/reports/`, put
+# beside the site so a block can fetch them. Committing them would put the same
+# text in the history twice. `tmk-dashboard --write` recreates them.
+site/data/reports/
+
 # Python
 __pycache__/
 *.py[cod]

@@ -1,0 +1,59 @@
+{
+ "generated": "2026-09-04",
+ "repo": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge",
+ "pin": {
+  "commit": "c490a9927f1ab67c1c2fe4afdc758c79f35430c8",
+  "short": "c490a9927f1a",
+  "repo": "Thomas-Amann-IPAustralia/manual-XtrACTor",
+  "manual_version": "ingest/0.11.0",
+  "legislation_version": "legislation/0.2.0"
+ },
+ "waiting": 13,
+ "nav": [
+  {
+   "id": "overview",
+   "label": "Overview",
+   "blurb": "What this is, and where it stands today"
+  },
+  {
+   "id": "inbox",
+   "label": "Your decisions",
+   "blurb": "Questions waiting on you, and what happens to your answers"
+  },
+  {
+   "id": "vocabulary",
+   "label": "Vocabulary",
+   "blurb": "The 52 approved legal ideas and how they relate"
+  },
+  {
+   "id": "ontology",
+   "label": "The model",
+   "blurb": "Classes, predicates and the nine draft modules"
+  },
+  {
+   "id": "graph",
+   "label": "The graph",
+   "blurb": "What is stored, and the trust metadata on every claim"
+  },
+  {
+   "id": "questions",
+   "label": "Questions",
+   "blurb": "What the system must answer, and what it can answer today"
+  },
+  {
+   "id": "limits",
+   "label": "Limits",
+   "blurb": "What it cannot do, and what it must never say"
+  },
+  {
+   "id": "decisions",
+   "label": "Decisions",
+   "blurb": "Every choice on the record, and who made it"
+  },
+  {
+   "id": "reports",
+   "label": "Reports",
+   "blurb": "The generated status reports, rendered in full"
+  }
+ ]
+}
