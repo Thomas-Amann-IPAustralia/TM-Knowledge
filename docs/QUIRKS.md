@@ -583,3 +583,116 @@ receives them — the records that name it are exactly the ones that need a
 decision, and they are the point of the report. Getting this wrong does not
 crash anything; it inverts the direction of every chain that touches a rejected
 record, and the resulting table looks entirely plausible.
+
+---
+
+## F. Found by building the RDF layer (S010)
+
+### Q-32 — An upstream ref cannot be a prefixed name in SPARQL or Turtle
+
+`tmkr:TMM/Part29/1#1` does not work and does not fail loudly. A SPARQL prefixed
+local name may not contain `/`, and `#` starts a comment in Turtle and a
+fragment in an IRI. rdflib parses `tmkr:TMA1995\/s43` without complaint, warns
+once on stderr that the result "does not look like a valid URI", and then matches
+nothing — so the query returns zero rows and reads as a fact about the data.
+
+Every ref-addressed node in a `.rq` file or a fixture is therefore written as a
+full IRI:
+
+```sparql
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>
+```
+
+with `#` percent-encoded exactly as `refs.to_iri` encodes it (ADR-0023). That
+puts the base IRI into every query file, which is why `ask.py` rewrites it when
+`TMK_BASE_IRI` differs — the base still lives in one constant.
+
+**The symptom to recognise:** a query you are confident about returning `(no
+rows)`. Check for a `\/` in a prefixed name before you doubt the data.
+
+### Q-33 — `sh:severity` on a SPARQL constraint is ignored; it belongs on the shape
+
+Written inside the `sh:sparql [ … ]` block, `sh:severity sh:Info` has no effect
+and every result comes back as `sh:Violation`. Severity is a property of the
+*shape*, and the shape is the node the constraint hangs off.
+
+This turned a deliberately informational check — a concept whose not-label is
+another concept's preferred label, which is what a not-label is *for* — into 29
+build-breaking defects. The fix is one line moved up a level. The reason it
+matters is that the obvious response to 29 spurious defects is to delete the
+constraint.
+
+### Q-34 — A SHACL property violation names a blank node as its source shape
+
+`sh:sourceShape` on a property-constraint result is the **property shape**, and a
+property shape is a blank node with no `rdfs:label`. A report built by looking up
+the label of the source shape is a list of `n4ce10a23afba4c278f1435132c36e502b3`,
+which tells a reviewer nothing.
+
+`validate._label_for` walks up the `sh:property` (and `sh:sparql`) link to the
+node shape that carries the name. Any future reporting over pySHACL results needs
+the same walk.
+
+### Q-35 — `sh:targetClass` needs the class hierarchy in the data graph
+
+SHACL target selection follows `rdfs:subClassOf`, but only over triples the
+validator can see. A fixture asserting `:x a tmk:Chunk` is invisible to a shape
+targeting `tmk:Passage` unless the TBox is loaded alongside it.
+
+The trap is that the fixture then **passes**, for a reason that has nothing to do
+with the constraint — which is precisely the "reads as coverage" failure
+`shapes/README.md` warns about, arriving through the test rather than through the
+shape. `tests/unit/test_shapes_fire.py::check` loads the TBox with every fixture,
+as the real gate does.
+
+### Q-36 — `sh:hasValue false` fires on absence as well as on `true`
+
+`sh:hasValue` requires at least one matching value, so a node with **no** value
+for the path violates it. A staleness constraint written as
+`sh:path tmk:isStale ; sh:hasValue false` therefore reports "this passage has
+moved" about an assertion whose staleness was never checked — two different
+findings under one message, and the wrong one on the more common case.
+
+Split them: `sh:not [ sh:hasValue true ]` for "not stale", and a separate
+`sh:minCount 1` for "staleness was actually checked". An assertion the build
+could not check is *unknown*, and reporting it as stale is as wrong as reporting
+it as fresh.
+
+### Q-37 — `deceptively similar` is both a not-label and an expected concept
+
+`GC-0002` records `deceptively similar` as a **not-label** — it belongs to
+section 44, and a retrieval system treating it as a synonym of *likely to deceive
+or cause confusion* routes an examiner to the wrong test (GX-0005). `CQ-0007`
+lists the same string in `expected_concepts`.
+
+So a competency question names a concept the vocabulary deliberately excludes.
+Both records are approved and neither is obviously wrong: the question may be
+using the term as a boundary marker ("the answer must say this is *not* it"), or
+the vocabulary may need the s 44 concept — which the pilot scope draft puts out
+of scope. **Do not resolve this by adding the concept, and do not resolve it by
+editing the question.** It is an expert's call; `tmk-ontology-report` §5 names it
+alongside three other unmatched labels (`purchasing decision`, `obvious, direct
+and immediate`, `superseded legislation`).
+
+### Q-38 — `tmk-recon`'s counts are s 43-scoped; the graph's are not, and both are right
+
+Two pairs of numbers that look like they should match and do not:
+
+| | recon | graph |
+|---|---:|---:|
+| ambiguous citation edges | 2 | 42 |
+| refs resolving to nothing | 17 | 35 |
+
+Neither is wrong. `tmk-recon` §5 counts ambiguous edges **to s 43**, because the
+report is about that provision. The graph holds every citation on all 216
+in-scope chunks, so it also carries ambiguous edges to s 15, s 42 and s 83. And
+recon §4 counts unresolved refs in the **held instruments** only (`TMA1995`,
+`TMR1995` — the loader's `HELD_INSTRUMENTS`), because a citation to the Acts
+Interpretation Act is not a coverage failure; the graph's 35 additionally
+includes the 1905 and 1955 Acts, the *Plant Breeder's Rights Act* and the
+Designs Regulations, which are unresolvable by construction.
+
+Restrict to the same scope and they agree exactly — `CQ-0020` returns 17 rows
+for `TMA1995`/`TMR1995`. Before asserting one figure against the other, check
+which scope each was computed over; `test_ambiguous_edges_are_not_resolved`
+carries the working.

@@ -1,0 +1,2660 @@
+@prefix tmk: <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix tmka: <https://data.ipaustralia.gov.au/tmk/assertion/> .
+@prefix tmkc: <https://data.ipaustralia.gov.au/tmk/concept/> .
+@prefix tmkp: <https://data.ipaustralia.gov.au/tmk/prop/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0001-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:mixedAuthority ;
+    tmk:assertionSubject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:derivedFrom tmka:GE-0001,
+        tmka:GE-0002,
+        tmka:GE-0009,
+        tmka:GE-0015,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "classification" ;
+    tmk:producedByRule tmkp:RULE-0001 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0001-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionPredicate tmk:mixedAuthority ;
+    tmk:assertionSubject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:derivedFrom tmka:GE-0020,
+        tmka:GE-0024,
+        tmka:GE-0025,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "classification" ;
+    tmk:producedByRule tmkp:RULE-0001 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0001-TMM/Part29/2/2/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:assertionPredicate tmk:mixedAuthority ;
+    tmk:assertionSubject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:derivedFrom tmka:GE-0039,
+        tmka:GE-0042,
+        tmka:GE-0045,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "classification" ;
+    tmk:producedByRule tmkp:RULE-0001 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0001-TMM/Part29/2/2/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:assertionPredicate tmk:mixedAuthority ;
+    tmk:assertionSubject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:derivedFrom tmka:GE-0048,
+        tmka:GE-0050,
+        tmka:GE-0051,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "classification" ;
+    tmk:producedByRule tmkp:RULE-0001 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0001-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionPredicate tmk:mixedAuthority ;
+    tmk:assertionSubject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:derivedFrom tmka:GE-0057,
+        tmka:GE-0059,
+        tmka:GE-0060,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "classification" ;
+    tmk:producedByRule tmkp:RULE-0001 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0001-TMM/Part29/2/2/1~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0001 ;
+    tmk:derivedFrom tmkc:GC-0001,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0001-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0001 ;
+    tmk:derivedFrom tmkc:GC-0001,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0002-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0002 ;
+    tmk:derivedFrom tmkc:GC-0002,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0002-TMM/Part29/3%231~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0002 ;
+    tmk:derivedFrom tmkc:GC-0002,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0003-TMM/Part29/3%231~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0003 ;
+    tmk:derivedFrom tmkc:GC-0003,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0004-TMM/Part29/3%231~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0004 ;
+    tmk:derivedFrom tmkc:GC-0004,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0004-TMM/Part29/3/3/1~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0004 ;
+    tmk:derivedFrom tmkc:GC-0004,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0005-TMM/Part29/2/2/1~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0005 ;
+    tmk:derivedFrom tmkc:GC-0005,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0005-TMM/Part29/2/2/1~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0005 ;
+    tmk:derivedFrom tmkc:GC-0005,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0006-TMM/Part20/5%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0006 ;
+    tmk:derivedFrom tmkc:GC-0006,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0006-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0006 ;
+    tmk:derivedFrom tmkc:GC-0006,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0007-TMM/Part20/5/5/5> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5/5/5> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0007 ;
+    tmk:derivedFrom tmkc:GC-0007,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5/5/5> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0007-TMM/Part29/2/2/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0007 ;
+    tmk:derivedFrom tmkc:GC-0007,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0008-TMM/Part29/3/3/1~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0008 ;
+    tmk:derivedFrom tmkc:GC-0008,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0008-TMM/Part29/4%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0008 ;
+    tmk:derivedFrom tmkc:GC-0008,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0009-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0009 ;
+    tmk:derivedFrom tmkc:GC-0009,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0009-TMM/Part29/3%231~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0009 ;
+    tmk:derivedFrom tmkc:GC-0009,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0010-TMM/Part29/3/3/1~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0010 ;
+    tmk:derivedFrom tmkc:GC-0010,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0010-TMM/Part29/4%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0010 ;
+    tmk:derivedFrom tmkc:GC-0010,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0010-TMM/Part29/9/9/3~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0010 ;
+    tmk:derivedFrom tmkc:GC-0010,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0011-TMM/Part29/3%231~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0011 ;
+    tmk:derivedFrom tmkc:GC-0011,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0011-TMM/Part29/9/9/3~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0011 ;
+    tmk:derivedFrom tmkc:GC-0011,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0012-TMM/Part29/4%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0012 ;
+    tmk:derivedFrom tmkc:GC-0012,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0012-TMM/Part29/9/9/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0012 ;
+    tmk:derivedFrom tmkc:GC-0012,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0013-TMM/Part29/5/5/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0013 ;
+    tmk:derivedFrom tmkc:GC-0013,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0013-TMM/Part29/9/9/5> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0013 ;
+    tmk:derivedFrom tmkc:GC-0013,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0014-TMM/Part29/5/5/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0014 ;
+    tmk:derivedFrom tmkc:GC-0014,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0014-TMM/Part29/6%231~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0014 ;
+    tmk:derivedFrom tmkc:GC-0014,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0014-TMM/Part29/6/6/1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0014 ;
+    tmk:derivedFrom tmkc:GC-0014,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0015-TMM/Part29/9/9/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0015 ;
+    tmk:derivedFrom tmkc:GC-0015,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0015-TMM/Part29/9/9/5> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0015 ;
+    tmk:derivedFrom tmkc:GC-0015,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0016-TMM/Part29/6%231~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0016 ;
+    tmk:derivedFrom tmkc:GC-0016,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0016-TMM/Part29/6/6/2~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0016 ;
+    tmk:derivedFrom tmkc:GC-0016,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0017-TMM/Part29/9%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0017 ;
+    tmk:derivedFrom tmkc:GC-0017,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0017-TMM/Part29/9/9/3~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0017 ;
+    tmk:derivedFrom tmkc:GC-0017,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0018-TMM/Part29/1/1/1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0018 ;
+    tmk:derivedFrom tmkc:GC-0018,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0018-TMM/Part29/11%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/11%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0018 ;
+    tmk:derivedFrom tmkc:GC-0018,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/11%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0018-TMM/Part32B/1/1/1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0018 ;
+    tmk:derivedFrom tmkc:GC-0018,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0019-TMM/Part29/3%231~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0019 ;
+    tmk:derivedFrom tmkc:GC-0019,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0019-TMM/Part29/9%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0019 ;
+    tmk:derivedFrom tmkc:GC-0019,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0020-TMM/Part29/9/9/6> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/6> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0020 ;
+    tmk:derivedFrom tmkc:GC-0020,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/6> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0021-TMM/Part29/9/9/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0021 ;
+    tmk:derivedFrom tmkc:GC-0021,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0021-TMM/Part29/9/9/3~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0021 ;
+    tmk:derivedFrom tmkc:GC-0021,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0022-TMM/Part29/5/5/1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0022 ;
+    tmk:derivedFrom tmkc:GC-0022,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0023-TMM/Part29/5/5/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0023 ;
+    tmk:derivedFrom tmkc:GC-0023,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0024-TMM/Part29/5/5/5> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/5> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0024 ;
+    tmk:derivedFrom tmkc:GC-0024,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/5> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0024-TMM/Part29/5/5/6~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0024 ;
+    tmk:derivedFrom tmkc:GC-0024,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0025-TMM/Part29/5/5/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0025 ;
+    tmk:derivedFrom tmkc:GC-0025,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0026-TMM/Part29/6%231~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0026 ;
+    tmk:derivedFrom tmkc:GC-0026,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0026-TMM/Part29/6%231~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0026 ;
+    tmk:derivedFrom tmkc:GC-0026,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0027-TMM/Part29/6/6/2~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0027 ;
+    tmk:derivedFrom tmkc:GC-0027,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0027-TMM/Part29/6/6/2~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0027 ;
+    tmk:derivedFrom tmkc:GC-0027,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0028-TMM/Part29/6%231~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0028 ;
+    tmk:derivedFrom tmkc:GC-0028,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0028-TMM/Part29/9/9/7> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0028 ;
+    tmk:derivedFrom tmkc:GC-0028,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0029-TMM/Part29/6%231~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0029 ;
+    tmk:derivedFrom tmkc:GC-0029,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0029-TMM/Part29/6/6/1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0029 ;
+    tmk:derivedFrom tmkc:GC-0029,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0030-TMM/Part22/25/25/7> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/25/25/7> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0030 ;
+    tmk:derivedFrom tmkc:GC-0030,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/25/25/7> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0030-TMM/Part29/6/6/1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0030 ;
+    tmk:derivedFrom tmkc:GC-0030,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0031-TMM/Part29/7%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0031 ;
+    tmk:derivedFrom tmkc:GC-0031,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0032-TMM/Part29/8%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0032 ;
+    tmk:derivedFrom tmkc:GC-0032,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0032-TMM/Part29/8/8/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0032 ;
+    tmk:derivedFrom tmkc:GC-0032,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0033-TMM/Part29/8/8/1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0033 ;
+    tmk:derivedFrom tmkc:GC-0033,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0033-TMM/Part29/8/8/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0033 ;
+    tmk:derivedFrom tmkc:GC-0033,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0034-TMM/Part29/8/8/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0034 ;
+    tmk:derivedFrom tmkc:GC-0034,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0035-TMM/Part29/7%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0035 ;
+    tmk:derivedFrom tmkc:GC-0035,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0035-TMM/Part29/8%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0035 ;
+    tmk:derivedFrom tmkc:GC-0035,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0035-TMM/Part29/8/8/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0035 ;
+    tmk:derivedFrom tmkc:GC-0035,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0036-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0036 ;
+    tmk:derivedFrom tmkc:GC-0036,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0036-TMM/Part32A/2/4/2/4/1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32A/2/4/2/4/1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0036 ;
+    tmk:derivedFrom tmkc:GC-0036,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32A/2/4/2/4/1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0037-TMM/Part29/10%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0037 ;
+    tmk:derivedFrom tmkc:GC-0037,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0038-TMM/Part29/3/3/5> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/5> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0038 ;
+    tmk:derivedFrom tmkc:GC-0038,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/5> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0038-TMM/Part29/9/9/3~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0038 ;
+    tmk:derivedFrom tmkc:GC-0038,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0039-TMM/Part29/3/3/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0039 ;
+    tmk:derivedFrom tmkc:GC-0039,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0040-TMM/Part29/3/3/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0040 ;
+    tmk:derivedFrom tmkc:GC-0040,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0040-TMM/Part47/1/1/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1/1/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0040 ;
+    tmk:derivedFrom tmkc:GC-0040,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1/1/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0041-TMM/Part23/2/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/2/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0041 ;
+    tmk:derivedFrom tmkc:GC-0041,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/2/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0041-TMM/Part29/3/3/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0041 ;
+    tmk:derivedFrom tmkc:GC-0041,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0042-TMM/Part51/10%231~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part51/10%231~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0042 ;
+    tmk:derivedFrom tmkc:GC-0042,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part51/10%231~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0043-TMM/Part12/2%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/2%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0043 ;
+    tmk:derivedFrom tmkc:GC-0043,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/2%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0044-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0044 ;
+    tmk:derivedFrom tmkc:GC-0044,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0044-TMM/Part29/5/5/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0044 ;
+    tmk:derivedFrom tmkc:GC-0044,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0045-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0045 ;
+    tmk:derivedFrom tmkc:GC-0045,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0045-TMM/Part29/3/3/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0045 ;
+    tmk:derivedFrom tmkc:GC-0045,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0046-TMM/Part29/2/2/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0046 ;
+    tmk:derivedFrom tmkc:GC-0046,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0046-TMM/Part29/5/5/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0046 ;
+    tmk:derivedFrom tmkc:GC-0046,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0047-TMM/Part29/2/2/1~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0047 ;
+    tmk:derivedFrom tmkc:GC-0047,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0047-TMM/Part29/4%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0047 ;
+    tmk:derivedFrom tmkc:GC-0047,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0048-TMM/Part29/4%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0048 ;
+    tmk:derivedFrom tmkc:GC-0048,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0048-TMM/Part29/9%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0048 ;
+    tmk:derivedFrom tmkc:GC-0048,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0049-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0049 ;
+    tmk:derivedFrom tmkc:GC-0049,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0049-TMM/Part29/9/9/7> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0049 ;
+    tmk:derivedFrom tmkc:GC-0049,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0050-TMM/Part29/9/9/3~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0050 ;
+    tmk:derivedFrom tmkc:GC-0050,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0050-TMM/Part29/9/9/7> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0050 ;
+    tmk:derivedFrom tmkc:GC-0050,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0051-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0051 ;
+    tmk:derivedFrom tmkc:GC-0051,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0052-TMM/Part29/6%231~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0052 ;
+    tmk:derivedFrom tmkc:GC-0052,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0052-TMM/Part29/6/6/2~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0052 ;
+    tmk:derivedFrom tmkc:GC-0052,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GC-0052-TMM/Part29/9/9/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmkc:GC-0052 ;
+    tmk:derivedFrom tmkc:GC-0052,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0001-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0001 ;
+    tmk:derivedFrom tmka:GE-0001,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0002-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0002 ;
+    tmk:derivedFrom tmka:GE-0002,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0004-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0004 ;
+    tmk:derivedFrom tmka:GE-0004,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0005-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0005 ;
+    tmk:derivedFrom tmka:GE-0005,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0006-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0006 ;
+    tmk:derivedFrom tmka:GE-0006,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0009-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0009 ;
+    tmk:derivedFrom tmka:GE-0009,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0011-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0011 ;
+    tmk:derivedFrom tmka:GE-0011,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0012-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0012 ;
+    tmk:derivedFrom tmka:GE-0012,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0013-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0013 ;
+    tmk:derivedFrom tmka:GE-0013,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0014-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0014 ;
+    tmk:derivedFrom tmka:GE-0014,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0015-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0015 ;
+    tmk:derivedFrom tmka:GE-0015,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0016-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0016 ;
+    tmk:derivedFrom tmka:GE-0016,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0017-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0017 ;
+    tmk:derivedFrom tmka:GE-0017,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0018-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0018 ;
+    tmk:derivedFrom tmka:GE-0018,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0019-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0019 ;
+    tmk:derivedFrom tmka:GE-0019,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0020-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0020 ;
+    tmk:derivedFrom tmka:GE-0020,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0021-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0021 ;
+    tmk:derivedFrom tmka:GE-0021,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0022-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0022 ;
+    tmk:derivedFrom tmka:GE-0022,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0023-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0023 ;
+    tmk:derivedFrom tmka:GE-0023,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0024-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0024 ;
+    tmk:derivedFrom tmka:GE-0024,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0025-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0025 ;
+    tmk:derivedFrom tmka:GE-0025,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0026-TMM/Part29/1/1/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0026 ;
+    tmk:derivedFrom tmka:GE-0026,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0027-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0027 ;
+    tmk:derivedFrom tmka:GE-0027,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0028-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0028 ;
+    tmk:derivedFrom tmka:GE-0028,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0029-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0029 ;
+    tmk:derivedFrom tmka:GE-0029,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0031-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0031 ;
+    tmk:derivedFrom tmka:GE-0031,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0032-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0032 ;
+    tmk:derivedFrom tmka:GE-0032,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0033-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0033 ;
+    tmk:derivedFrom tmka:GE-0033,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0034-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0034 ;
+    tmk:derivedFrom tmka:GE-0034,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0035-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0035 ;
+    tmk:derivedFrom tmka:GE-0035,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0036-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0036 ;
+    tmk:derivedFrom tmka:GE-0036,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0037-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0037 ;
+    tmk:derivedFrom tmka:GE-0037,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0038-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0038 ;
+    tmk:derivedFrom tmka:GE-0038,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0039-TMM/Part29/2/2/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0039 ;
+    tmk:derivedFrom tmka:GE-0039,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0040-TMM/Part29/2/2/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0040 ;
+    tmk:derivedFrom tmka:GE-0040,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0041-TMM/Part29/2/2/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0041 ;
+    tmk:derivedFrom tmka:GE-0041,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0042-TMM/Part29/2/2/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0042 ;
+    tmk:derivedFrom tmka:GE-0042,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0043-TMM/Part29/2/2/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0043 ;
+    tmk:derivedFrom tmka:GE-0043,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0044-TMM/Part29/2/2/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0044 ;
+    tmk:derivedFrom tmka:GE-0044,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0045-TMM/Part29/2/2/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0045 ;
+    tmk:derivedFrom tmka:GE-0045,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0046-TMM/Part29/2/2/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0046 ;
+    tmk:derivedFrom tmka:GE-0046,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0048-TMM/Part29/2/2/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0048 ;
+    tmk:derivedFrom tmka:GE-0048,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0050-TMM/Part29/2/2/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0050 ;
+    tmk:derivedFrom tmka:GE-0050,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0051-TMM/Part29/2/2/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0051 ;
+    tmk:derivedFrom tmka:GE-0051,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0052-TMM/Part29/2/2/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0052 ;
+    tmk:derivedFrom tmka:GE-0052,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0053-TMM/Part29/2/2/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0053 ;
+    tmk:derivedFrom tmka:GE-0053,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0054-TMM/Part29/2/2/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0054 ;
+    tmk:derivedFrom tmka:GE-0054,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0055-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0055 ;
+    tmk:derivedFrom tmka:GE-0055,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0056-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0056 ;
+    tmk:derivedFrom tmka:GE-0056,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0057-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0057 ;
+    tmk:derivedFrom tmka:GE-0057,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0058-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0058 ;
+    tmk:derivedFrom tmka:GE-0058,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0059-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0059 ;
+    tmk:derivedFrom tmka:GE-0059,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0060-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0060 ;
+    tmk:derivedFrom tmka:GE-0060,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0061-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0061 ;
+    tmk:derivedFrom tmka:GE-0061,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GE-0062-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GE-0062 ;
+    tmk:derivedFrom tmka:GE-0062,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0001-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0001 ;
+    tmk:derivedFrom tmka:GR-0001,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0002-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0002 ;
+    tmk:derivedFrom tmka:GR-0002,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0003-TMM/Part29/1%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0003 ;
+    tmk:derivedFrom tmka:GR-0003,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0005-TMM/Part29/2/2/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0005 ;
+    tmk:derivedFrom tmka:GR-0005,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0006-TMM/Part29/2/2/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0006 ;
+    tmk:derivedFrom tmka:GR-0006,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0007-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0007 ;
+    tmk:derivedFrom tmka:GR-0007,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0008-TMM/Part29/2/2/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0008 ;
+    tmk:derivedFrom tmka:GR-0008,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0010-TMM/Part29/2/2/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0010 ;
+    tmk:derivedFrom tmka:GR-0010,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0011-TMM/Part29/2/2/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0011 ;
+    tmk:derivedFrom tmka:GR-0011,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0012-TMM/Part29/3/3/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0012 ;
+    tmk:derivedFrom tmka:GR-0012,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0013-TMM/Part29/3%231~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0013 ;
+    tmk:derivedFrom tmka:GR-0013,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0014-TMM/Part29/3%231~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0014 ;
+    tmk:derivedFrom tmka:GR-0014,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0015-TMM/Part29/3%231~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0015 ;
+    tmk:derivedFrom tmka:GR-0015,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0016-TMM/Part29/3%231~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0016 ;
+    tmk:derivedFrom tmka:GR-0016,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0017-TMM/Part29/3%231~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0017 ;
+    tmk:derivedFrom tmka:GR-0017,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0018-TMM/Part29/3/3/1~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0018 ;
+    tmk:derivedFrom tmka:GR-0018,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0022-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0022 ;
+    tmk:derivedFrom tmka:GR-0022,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0023-TMM/Part29/3/3/2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0023 ;
+    tmk:derivedFrom tmka:GR-0023,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0024-TMM/Part29/3/3/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0024 ;
+    tmk:derivedFrom tmka:GR-0024,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0032-TMM/Part29/5/5/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0032 ;
+    tmk:derivedFrom tmka:GR-0032,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0034-TMM/Part29/5/5/5> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/5> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0034 ;
+    tmk:derivedFrom tmka:GR-0034,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/5> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0035-TMM/Part29/5/5/6~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0035 ;
+    tmk:derivedFrom tmka:GR-0035,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0036-TMM/Part29/5/5/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0036 ;
+    tmk:derivedFrom tmka:GR-0036,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0037-TMM/Part29/6%231~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0037 ;
+    tmk:derivedFrom tmka:GR-0037,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0039-TMM/Part29/6%231~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0039 ;
+    tmk:derivedFrom tmka:GR-0039,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0040-TMM/Part29/6%231~2> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0040 ;
+    tmk:derivedFrom tmka:GR-0040,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0042-TMM/Part29/6/6/1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0042 ;
+    tmk:derivedFrom tmka:GR-0042,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0044-TMM/Part29/6/6/2~1> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0044 ;
+    tmk:derivedFrom tmka:GR-0044,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0046-TMM/Part29/7%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0046 ;
+    tmk:derivedFrom tmka:GR-0046,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0048-TMM/Part29/8/8/3> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0048 ;
+    tmk:derivedFrom tmka:GR-0048,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0052-TMM/Part29/9/9/4> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0052 ;
+    tmk:derivedFrom tmka:GR-0052,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0054-TMM/Part29/9/9/5> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0054 ;
+    tmk:derivedFrom tmka:GR-0054,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0056-TMM/Part29/9/9/7> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0056 ;
+    tmk:derivedFrom tmka:GR-0056,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0057-TMM/Part29/10%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0057 ;
+    tmk:derivedFrom tmka:GR-0057,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+<https://data.ipaustralia.gov.au/tmk/assertion/inf-RULE-0002-GR-0058-TMM/Part29/11%231> a tmk:InferredAssertion ;
+    tmk:assertionObject <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/11%231> ;
+    tmk:assertionPredicate tmk:impactedBy ;
+    tmk:assertionSubject tmka:GR-0058 ;
+    tmk:derivedFrom tmka:GR-0058,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/11%231> ;
+    tmk:extractionMethod "construct_rule" ;
+    tmk:inferenceKind "impact" ;
+    tmk:producedByRule tmkp:RULE-0002 ;
+    tmk:requiresHumanReview true ;
+    tmk:reviewStatus "candidate" .
+
+tmka:GE-0004 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GE-0005 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GE-0006 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GE-0011 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GE-0012 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GE-0013 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GE-0014 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GE-0016 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> .
+
+tmka:GE-0017 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> .
+
+tmka:GE-0018 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> .
+
+tmka:GE-0019 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> .
+
+tmka:GE-0021 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> .
+
+tmka:GE-0022 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> .
+
+tmka:GE-0023 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> .
+
+tmka:GE-0026 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> .
+
+tmka:GE-0027 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmka:GE-0028 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmka:GE-0029 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmka:GE-0031 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmka:GE-0032 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmka:GE-0033 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmka:GE-0034 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmka:GE-0035 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmka:GE-0036 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmka:GE-0037 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmka:GE-0038 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmka:GE-0040 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> .
+
+tmka:GE-0041 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> .
+
+tmka:GE-0043 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> .
+
+tmka:GE-0044 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> .
+
+tmka:GE-0046 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
+
+tmka:GE-0052 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
+
+tmka:GE-0053 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
+
+tmka:GE-0054 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
+
+tmka:GE-0055 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
+
+tmka:GE-0056 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
+
+tmka:GE-0058 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
+
+tmka:GE-0061 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
+
+tmka:GE-0062 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
+
+tmka:GR-0001 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GR-0002 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GR-0003 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GR-0005 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> .
+
+tmka:GR-0006 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> .
+
+tmka:GR-0007 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmka:GR-0008 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmka:GR-0010 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
+
+tmka:GR-0011 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
+
+tmka:GR-0012 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/3> .
+
+tmka:GR-0013 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> .
+
+tmka:GR-0014 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> .
+
+tmka:GR-0015 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> .
+
+tmka:GR-0016 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> .
+
+tmka:GR-0017 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> .
+
+tmka:GR-0018 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> .
+
+tmka:GR-0022 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
+
+tmka:GR-0023 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
+
+tmka:GR-0024 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> .
+
+tmka:GR-0032 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> .
+
+tmka:GR-0034 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/5> .
+
+tmka:GR-0035 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> .
+
+tmka:GR-0036 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> .
+
+tmka:GR-0037 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1> .
+
+tmka:GR-0039 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> .
+
+tmka:GR-0040 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> .
+
+tmka:GR-0042 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> .
+
+tmka:GR-0044 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> .
+
+tmka:GR-0046 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> .
+
+tmka:GR-0048 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> .
+
+tmka:GR-0052 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> .
+
+tmka:GR-0054 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> .
+
+tmka:GR-0056 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
+
+tmka:GR-0057 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> .
+
+tmka:GR-0058 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/11%231> .
+
+tmkc:GC-0003 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> .
+
+tmkc:GC-0020 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/6> .
+
+tmkc:GC-0022 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/1> .
+
+tmkc:GC-0023 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/2> .
+
+tmkc:GC-0025 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> .
+
+tmkc:GC-0031 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> .
+
+tmkc:GC-0034 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> .
+
+tmkc:GC-0037 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> .
+
+tmkc:GC-0039 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> .
+
+tmkc:GC-0042 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part51/10%231~1> .
+
+tmkc:GC-0043 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/2%231> .
+
+tmkc:GC-0051 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GE-0001 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GE-0002 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GE-0009 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GE-0015 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GE-0020 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> .
+
+tmka:GE-0024 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> .
+
+tmka:GE-0025 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> .
+
+tmka:GE-0039 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> .
+
+tmka:GE-0042 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> .
+
+tmka:GE-0045 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> .
+
+tmka:GE-0048 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
+
+tmka:GE-0050 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
+
+tmka:GE-0051 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
+
+tmka:GE-0057 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
+
+tmka:GE-0059 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
+
+tmka:GE-0060 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
+
+tmkc:GC-0001 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+
+tmkc:GC-0002 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> .
+
+tmkc:GC-0004 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> .
+
+tmkc:GC-0005 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~2> .
+
+tmkc:GC-0006 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmkc:GC-0007 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5/5/5>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
+
+tmkc:GC-0008 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> .
+
+tmkc:GC-0009 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> .
+
+tmkc:GC-0011 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> .
+
+tmkc:GC-0012 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> .
+
+tmkc:GC-0013 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> .
+
+tmkc:GC-0015 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> .
+
+tmkc:GC-0016 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~2> .
+
+tmkc:GC-0017 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> .
+
+tmkc:GC-0019 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> .
+
+tmkc:GC-0021 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> .
+
+tmkc:GC-0024 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/5>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> .
+
+tmkc:GC-0026 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> .
+
+tmkc:GC-0027 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~2> .
+
+tmkc:GC-0028 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
+
+tmkc:GC-0029 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> .
+
+tmkc:GC-0030 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/25/25/7>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> .
+
+tmkc:GC-0032 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/2> .
+
+tmkc:GC-0033 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/2> .
+
+tmkc:GC-0036 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32A/2/4/2/4/1> .
+
+tmkc:GC-0038 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/5>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> .
+
+tmkc:GC-0040 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1/1/2/2> .
+
+tmkc:GC-0041 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/2/2/2/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> .
+
+tmkc:GC-0044 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> .
+
+tmkc:GC-0045 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> .
+
+tmkc:GC-0046 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> .
+
+tmkc:GC-0047 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> .
+
+tmkc:GC-0048 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> .
+
+tmkc:GC-0049 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
+
+tmkc:GC-0050 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
+
+tmkc:GC-0010 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> .
+
+tmkc:GC-0014 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> .
+
+tmkc:GC-0018 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/11%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/1> .
+
+tmkc:GC-0035 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> .
+
+tmkc:GC-0052 tmk:impactedBy <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> tmk:mixedAuthority true .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> tmk:mixedAuthority true .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> tmk:mixedAuthority true .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> tmk:mixedAuthority true .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> tmk:mixedAuthority true .
+

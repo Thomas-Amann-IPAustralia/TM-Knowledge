@@ -18,11 +18,17 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-test = ["pytest>=8.0", "openpyxl>=3.1"]
+test = ["pytest>=8.0", "openpyxl>=3.1", "rdflib>=7.0", "pyshacl>=0.26"]
 # The intake path (P7, P8) writes and reads .xlsx. Optional on purpose: it is
 # the only thing in the repo that needs a spreadsheet library, and the core
 # install stays at three dependencies. ADR-0035 — raise it if that is wrong.
 intake = ["openpyxl>=3.1"]
+# The RDF layer (Stages 5, 6, 9). Optional for the same reason as `intake`:
+# the core install stays at three dependencies and a session that only runs the
+# Stage 0 harness does not need a triple store. Both libraries are the roadmap's
+# own choices — ARCHITECTURE.md §5 names RDFLib and pySHACL — so this is the
+# reference stack, not a substitution (ADR-0056).
+rdf = ["rdflib>=7.0", "pyshacl>=0.26"]
 
 [project.scripts]
 tmk-fetch-upstream = "tm_knowledge.upstream.fetch:main"
@@ -35,6 +41,11 @@ tmk-workbook = "tm_knowledge.stage0.cli:workbook"
 tmk-transcribe = "tm_knowledge.stage0.cli:transcribe"
 tmk-seed = "tm_knowledge.stage0.cli:seed"
 tmk-reconcile = "tm_knowledge.stage0.cli:reconcile"
+tmk-graph = "tm_knowledge.ontology.cli:graph"
+tmk-shacl = "tm_knowledge.ontology.cli:shacl"
+tmk-ask = "tm_knowledge.ontology.cli:ask"
+tmk-ontology-relations = "tm_knowledge.ontology.cli:relations"
+tmk-ontology-report = "tm_knowledge.ontology.cli:ontology_report"
 
 [project.urls]
 Homepage = "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge"
@@ -49,4 +60,13 @@ testpaths = ["tests"]
 norecursedirs = ["tests/fixtures"]
 markers = [
     "snapshot: needs the pinned upstream snapshot in data/upstream/ (see data/README.md)",
+    "rdf: needs the optional [rdf] extra — rdflib and pySHACL",
+]
+filterwarnings = [
+    # rdflib 7.6 deprecated Dataset.default_context in favour of default_graph
+    # and then kept calling it itself, from Graph.__str__ and from query(). The
+    # project's own uses are migrated; these are rdflib's, and 5,000 lines of
+    # them hide real warnings.
+    "ignore:Dataset.default_context is deprecated:DeprecationWarning",
+    "ignore:Dataset.identifier is deprecated:DeprecationWarning",
 ]

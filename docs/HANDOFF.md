@@ -3,174 +3,147 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-02 · session S009 · branch `claude/next-phase-work-8xg7ct`
+**Last updated:** 2026-09-03 · session S010 · branch `claude/trademark-ontology-draft-ou3vnj`
 
 ---
 
 ## 1. Where the project actually is
 
-**Stage 0 has approved content, and it nearly doubled on the day it arrived.**
-The seed workbook came back from the Trade Mark expert, went through the loop,
-and **190 records are now in `eval/gold/`** carrying a name and a date:
+**The owner changed the plan, and the plan was right to change.** Their
+instruction, in their words: *"I'm not going to go back to the TM expert for
+now. We're just going to have to work with what we have… Our goal is to
+demonstrate the value and feasibility of a full ontology. We need to make
+progress on this."*
 
-| file | records | target (guide §7) |
-|---|---|---|
-| `concepts.yaml` | 52 | 50–100 ✅ |
-| `entities.yaml` | 55 | 100–300 |
-| `relationships.yaml` | 35 | 50–100 |
-| `competency-questions.yaml` | 20 | all six categories |
-| `prohibited-uses.yaml` | 11 | all six kinds — 5 of 6 |
-| `retrieval-questions.yaml` | 10 | 20–50 |
-| `reasoning-expected.yaml` | 6 | at least 1 ✅ |
-| `search-questions.yaml` | 1 | 20–50 |
-
-`tmk-harness` reports **0 defects, 12 gaps, 10 notes — exit 3**, which is the
-designed state: sound, and incomplete. Read that pair carefully, because it is
-the whole status report. *0 defects* means every ref resolves, every span lands
-on its recorded text, every hash matches the pin and nothing points at nothing.
-*12 gaps* means four record types are still short of the roadmap's targets and
-neither the scope document nor the measures exists.
+So S010 built the thing the programme was waiting to build. **There is a section
+43 ontology, a knowledge graph under it, a SHACL gate that passes, and thirteen
+competency questions answered by SPARQL with citations.** Not approved — see
+below — but running, tested and reproducible from a clean checkout in three
+commands.
 
 ```bash
-pip install -e ".[test,intake]"
-tmk-fetch-upstream    # pinned snapshot into data/upstream/ (~4s)
-tmk-harness           # 0 defects, 12 gaps. Exit 3
-tmk-coverage          # the same, as a worklist → data/derived/reports/
-tmk-blockers          # what is holding the gold set, and what each decision frees
-tmk-seed              # the 178 seed records that are left. Exit 0
-python3 -m pytest -q  # 312 pass — `python3 -m`, not bare `pytest`, in a container (Q-29)
+pip install -e ".[test,intake,rdf]"     # note the new `rdf` extra
+tmk-fetch-upstream                      # the pinned snapshot (~4s)
+tmk-graph --write --rules               # build the graph, run the candidate rules
+tmk-shacl                               # the gate. 0 defects, 0 gaps, 29 notes. Exit 0
+tmk-ask                                 # 13 competency questions, answered
+tmk-ask CQ-0017                         # just one
+tmk-ontology-report --write             # what it holds and what it cannot do
+tmk-harness                             # unchanged: 0 defects, 12 gaps. Exit 3
+python3 -m pytest -q                    # 409 pass (312 before, 97 new) — `python3 -m` (Q-29)
 ```
 
-**The loop the last session promised did not work, and fixing it was the
-session.** Run as it stood, `tmk-transcribe --write` would have done the reverse
-of its job. Two faults, compounding:
-
-- `approved_date` arrived as `25/08/2026` and as Excel date cells; both fail the
-  schema's ISO pattern. So every row the expert had **signed** was rejected —
-  only a signed row carries a date — and the 233 rows that would have been
-  written were exactly the ones nobody had approved (Q-26, ADR-0047).
-- The transcriber read `verdict` as an annotation and dropped it. A record the
-  expert had just **rejected** would have gone into approved space (ADR-0048).
-
-Both fixed. Dates convert where they have one reading and are refused by name
-where they do not. The verdict is the gate: a row crosses only on a `correct`
-carrying a name in `approved_by`, and the gate is **transitive** — a signed
-record naming an unsigned one is held, because `eval/gold/` with a dangling
-pointer is not a measurement standard (Q-27).
-
-**`tmk-reconcile` is new and is the other half of the door.** It writes the
-round into `review/decisions/` — every verdict and every correction verbatim —
-and then retires the seed copies of whatever reached `eval/gold/`, so no record
-is ever present twice (ADR-0049). `review/seed/` went from 368 records to 178.
-
-**Then the reviewer settled two things in words**, and that is why the number is
-190 rather than 108. They confirmed that every row they marked `correct` and
-left unsigned is approved by **TC**, and that the one cell reading `corrrect`
-means `correct` (ADR-0052). A returned workbook is never edited (ADR-0050), so
-the instruction is filed as its own artefact —
-`review/returned/260902-expert-confirmation.yaml` — and applied by
-`--addendum` under two narrow operations: sign a **blank** `approved_by` on a
-`correct` row, and settle a verdict on a **named** record (ADR-0051). 84 rows
-were touched; each is printed by the tool and marked *by instruction* in the
-ledger.
-
-**The round in numbers.** 229 of 368 rows carried a verdict. 190 approved, 170
-held, 8 rejected. The held rows sort into reasons a person can act on:
-
-| held because | rows |
+| | |
 |---|---|
-| never reached | 139 |
-| approved, but names a record that is not | 20 |
-| marked `amend`, amendment not applied | 8 |
-| rejected by the reviewer | 8 |
-| a child row is unsettled | 3 |
+| Ontology modules | 9, OWL 2 RL, in `ontology/draft/` — **none approved** |
+| Classes declared | 49 · **30 of them hold nothing**, and that is reported not hidden |
+| Predicates | 14, **generated** from the 35 approved relationships, regeneration-checked |
+| Source graph | 16,405 triples over 216 chunks, 529 reified citations |
+| Approved graph | 2,942 triples, every one traceable to a signed record |
+| SHACL | 0 defects, 0 gaps, 29 notes |
+| Competency queries | 13 of 20 questions; 6 need Stages 7–8; 1 could be written |
+| CONSTRUCT rules | 2, **both PENDING approval**, output quarantined as `candidate` |
 
-**S009 made the queue readable.** The blocker analysis S008 did by hand is now
-`tmk-blockers`, generated from the ledgers, the seed set and the gold set —
-`data/derived/reports/blockers.md` (ADR-0053). It was worth generating: the
-hand-written version in this file was wrong in two of its three chains, omitting
-`GX-0006` under `GA-0002` and `GA-0021`/`GX-0014` under `CQ-0014`. It also found
-something no reading had: **`GS-0001`, `GS-0002` and `GS-0004` are signed and
-held only by relevance-grade rows marked `amend`** — three child rows, on the
-record type furthest from its band (search questions, 1 of 20–50).
+**Nothing in Stage 0 moved and nothing was meant to.** `tmk-harness` still reports
+0 defects and 12 gaps. 190 approved records, 178 seed records still awaiting
+correction, 10 decisions holding 168 of them — all exactly as S009 left it. The
+ontology work is a *transformation* of the 190, not an addition to them.
 
-The queue of 178 sorts into **10 decisions and 168 records waiting on them**
-(ADR-0054). Twelve of those 168 need nothing at all: they are correct, signed,
-and held only by a pointer at a record on the worklist, so they land on the next
-transcription after it does. The other 149 are the ordinary queue and can be
-done in any order.
+**How this stayed inside rule 1.** Every node in the graph came out of
+`eval/gold/`, where a named reviewer signed it on a date. No concept was defined,
+no modality inferred, no relationship authored. `relations.ttl` is generated
+rather than written for exactly this reason — a hand-written predicate dictionary
+would be an agent choosing the vocabulary — and a test compares the committed
+file against a regeneration. ADR-0056 is the owner's decision to proceed and sets
+out why this is not the Stage 2 work ADR-0010 forbids: **that prohibition is on
+extraction, not on modelling**, and nothing here generated a candidate or
+measured a recall.
 
-**The scoped round is rendered and ready to send.**
-`data/derived/stage0-blockers-review.xlsx` and `blockers-review-pack.md` hold
-exactly those 10 records, with the `GS--relevant` child rows for the three search
-questions, and both say on their face that they are a scoped round and where the
-reasoning is (ADR-0055).
+**Three things are worth looking at before anything else.**
 
-**The expert also sent a covering note**, filed verbatim at
-`review/returned/260826-expert-feedback.md`. Two points, both about content and
-neither answerable by an agent: the seed set has the *presumption of
-registrability* and "doubt" in it but not the office's actual bar for applying
-it (Q16), and the vocabulary was drawn from Part 29 alone, which gives a
-too-narrow view of nine named roles and office terms (Q17, Q-28).
+*The trust metadata paid off.* Citations are nodes carrying upstream's
+`extraction` and `certainty`, not flattened edges — and CQ-0017 shows why that
+mattered. It reproduces `tmk-recon`'s Part distribution exactly (33 Part 29, 10
+Part 32A, 5 and 5 …) and adds a column recon does not have: **Parts 12, 23, 31,
+47 and 52 are carried into the section 43 impact set entirely by citations
+upstream inferred from a bare "section 43"**, not by links the Manual's authors
+wrote. "This Part needs reviewing" is a materially weaker claim there.
+
+*A prohibition became a constraint.* PU-0004 — *"Section 43 of the Act requires
+the connotation to be obvious, direct and immediate"* — was marked
+`detectable_by: shacl` and was a paragraph in a YAML file. It now blocks a
+publish. The model separates where words are (`tmk:statedIn`) from what they are
+presented as coming from (`tmk:attributedTo`), and the shape fails a proposition
+stated in a practice passage and attributed to the Act. Its fixture carries a
+**conforming twin** — the same words, the same passage, honestly attributed —
+because a constraint that fires on both passes a fires-test and is useless.
+
+*CQ-0023 returns a blank first row on purpose.* Asked which decisions the Manual
+relies on for the proposition that a connotation must arise from the mark itself,
+the answer is: **none.** The passage stating it, `TMM/Part29/2/2/3`, cites no
+decision at all. An inner join would have hidden that by returning only the rows
+that happened to have cases.
+
+**The largest gap the work exposed was not on any list.** `GroundOfRefusal`,
+`LegalTest`, `RelevantFactor` and `Exception` are declared and **empty**. All 52
+approved concepts are bare `tmk:LegalConcept`, because the gold concept record
+has no type field and deciding that *connotation* is a test rather than a factor
+is a legal judgement. 39 of the 52 also sit outside any hierarchy — no broader,
+no narrower. A vocabulary that is mostly flat is a list with extra steps.
+
+Read `data/derived/reports/ontology.md` §5 rather than this paragraph: it is
+generated from the same run that builds the graph, it counts every gap, and it
+will not go stale the way this file will.
 
 ## 2. The next action
 
-**Thread B — the experts. Send the scoped round.** It is rendered and it is on
-disk: `data/derived/stage0-blockers-review.xlsx`, ten records, with
-`data/derived/reports/blockers.md` as the covering note that says what each one
-needs and what it releases. Do not re-derive that list here — the report is
-generated and this file will go stale before it does. In summary:
+**Thread A — the owner, and it is four rulings.** These are the things only a
+person can settle, ordered by how much each unblocks. None needs the TM expert;
+all four are judgement calls the owner said they were willing to make.
 
-| decision | state | releases |
+| # | Ruling | Effect |
 |---|---|---|
-| `GA-0002` | amendment recorded, not applied | 8 |
-| `CQ-0014` | never reviewed | 6 |
-| `CQ-0013` | never reviewed | 3 |
-| `PU-0012` | names the rejected `CQ-0016` | 2 |
-| `GA-0016`, `GA-0021`, `GX-0002` | name the rejected `PU-0016`/`PU-0017` | — |
-| `GS-0001`, `GS-0002`, `GS-0004` | signed; a relevance grade marked `amend` | — |
+| 1 | **Type the 52 concepts** into `GroundOfRefusal` / `LegalTest` / `RelevantFactor` / `Exception` — or say the taxonomy is wrong | The single largest gap. One pass over a list, no new records, and it is what turns a flat vocabulary into a hierarchy the retrieval stages can generalise over |
+| 2 | **Rule on the four unmatched question labels** (Q-37) — `deceptively similar` first | `CQ-0007` names as an expected concept a term `GC-0002` records as a **not-label**. Either the vocabulary needs the s 44 concept, or the question is using it as a boundary marker |
+| 3 | **Approve or reject the two CONSTRUCT rules** | Both `PENDING`; everything they produce is quarantined until one way or the other |
+| 4 | **Confirm or overturn ADR-0060 and ADR-0061** (Q23, Q24) | What gets committed under `graph/`, and whether a query file must declare its limits |
 
-The last three are the cheapest thing on the board and were invisible until the
-analysis was generated: each is a signed search question held by one or two
-grade rows. Settling them takes `search-questions.yaml` from 1 to 4, on the
-record type furthest from its band.
+Ruling 1 has a shape to fill: the concept record has no `type` field today, so
+taking it needs either a schema addition or a separate register. That is one
+session's work once the answer exists, and **it should not be built before the
+answer exists** — building the container first is how the container ends up
+shaping the content.
 
-Then, still expert-owned and still ahead of record review per hour:
-`review/seed/pilot-scope.seed.md` (the boundary, Q8),
-`review/seed/measures.seed.md` (the thresholds), and the nine definitions the
-expert asked for in their note (Q17). After the scoped round, the remaining
-**149 records are the ordinary queue** — 98 entities among them, the record type
-furthest from its target count.
+**Thread B — the experts. Paused by the owner, not abandoned.**
+`data/derived/stage0-blockers-review.xlsx` is still rendered and still correct:
+ten records, with `data/derived/reports/blockers.md` as the covering note. When
+the expert is back in the loop it goes out unchanged. Nothing in S010 invalidated
+it, and nothing in S010 should be read as replacing it — the 178 seed records
+still need a person, and `eval/pilot-scope.md` and `eval/measures.md` still do not
+exist.
 
-**Thread C — agents. Maintenance.** What is legitimately left:
+**Thread C — agents.** In rough order of value:
 
-0. **Run the loop when the next workbook arrives.** Three commands:
-   `tmk-transcribe FILE --write`, `tmk-reconcile FILE --write`, then
-   `tmk-harness`, `tmk-coverage` and `tmk-blockers`. A scoped workbook goes back
-   the same way as a full one — ADR-0049 reconciles per record, not per file.
-   File the returned workbook in `review/returned/` first and never edit it
-   (ADR-0050). If a decision arrives as words rather than as cells, write an
-   addendum — do not edit a workbook, and do not generate one (ADR-0051).
-1. **One verdict cell is still misspelt** — `rejext` on a `GS--relevant` row
-   under `GS-0007`. `tmk-blockers` prints it under *Verdict cells nothing can
-   read*. Nothing infers what it meant, and nobody has ruled on it. It holds
-   nothing: its parent is unreviewed anyway.
-2. **Report the state honestly.** `tmk-coverage` answers "what is Stage 0
-   waiting on"; `tmk-blockers` answers "and whose decision moves it". Both are
-   generated from real content. Regenerate and commit the diff; do not
-   hand-edit either (ADR-0042).
-3. **Keep the pin current if upstream moves** — bumping it makes every
-   `source_content_hash` stale by design (`IDENTIFIERS.md` §5). The harness will
-   say so. Do not silently refresh a hash.
-4. **Confirm the agent-proposed ADRs** when a human is available (§3, Q12, Q15,
-   Q18, Q20, Q21, Q22).
+1. **Write `CQ-0010`'s query, or record why it cannot be written.** It is the one
+   answerable question with no query. (*Why BALI on bras raised no ground and
+   SHETLAND on clothing did* — it may genuinely need case reasoning the corpus
+   cannot support, in which case saying so is the deliverable.)
+2. **Run the loop if a workbook arrives.** Unchanged: `tmk-transcribe FILE
+   --write`, `tmk-reconcile FILE --write`, then `tmk-harness`, `tmk-coverage`,
+   `tmk-blockers` — and now also `tmk-graph --write`, `tmk-shacl`,
+   `tmk-ontology-report --write`, because new approved records change the graph.
+3. **Regenerate and commit the reports.** `tmk-ontology-report` joins
+   `tmk-coverage` and `tmk-blockers` as generated status. Do not hand-edit any of
+   the three.
+4. **Keep the pin current.** Bumping it makes every `source_content_hash` stale by
+   design — and now the graph says so too, per-assertion, via `tmk:isStale`.
 
-**Do not** build more apparatus. **Do not** start Stage 2 — no TextRank, YAKE,
-KeyBERT or spaCy run, not even "just to see the output" (ADR-0010). The
-temptation is sharper than ever now that entities exist in the gold set. 55 of a
-target 100–300, over a chunk set that is not yet exhaustively annotated, is not
-a recall denominator; a Stage 2 number measured against it would look like a
-result and be an artefact of how far the review got.
+**Do not** build a retrieval layer, a search index or a vector store. Stages 7
+and 8 are what the six deferred competency questions need, and building either
+now fixes design choices no measurement has justified. **Do not** start Stage 2 —
+ADR-0010 is untouched by ADR-0056 and the temptation is unchanged. **Do not**
+promote a module from `ontology/draft/` to `ontology/` without a recorded human
+decision (ADR-0057).
 
 ## 3. Open questions — need a human
 
@@ -196,14 +169,27 @@ result and be an artefact of how far the review got.
 | Q19 | **New, S008.** The expert rejected both `ambiguity_collapse` prohibitions on a principle worth recording: inferring that a bare "section 15(1)" means the *Trade Marks Act 1995* "is acceptable due to the TM focused nature of the tool", and the tool "should be allowed to clarify if a passage is specifically sourced from the legislation". That sits against Q-07 and upstream's refusal to auto-resolve an ambiguous edge. They are not quite the same claim — upstream's `ambiguous` is about *which of several instruments in scope*, not about a bare section in a TM-only tool — but a session must not quietly assume either reading. Does the distinction hold, and where is the line? | Stage 2 citation resolution; the prohibited-use set's sixth kind now rests on one record | S008 |
 | Q21 | **New, S009.** Does the owner confirm **ADR-0054** — what counts as a decision on the critical path? Three kinds are on the worklist (holds something and is directly resolvable; names a rejected record; held only by a marked child row) and two things are deliberately off it (a record dangling on something merely unreviewed, and a rejected record as a source of edges). The judgement being flagged is that a root need **not** be unblocked: `GA-0002`, `PU-0013` and `PU-0014` name each other in a triangle, an "unblocked roots only" rule finds none of them, and that would have hidden the largest chain on the queue. | Nothing; the report is right either way, the worklist changes length | S009 |
 | Q22 | **New, S009.** Does the owner confirm **ADR-0055**'s third guard? A scoped round's pack and workbook state on their face that they are scoped, with the count they were narrowed from. The alternative — a ten-record workbook that looks exactly like a 368-record one — is how a partial review comes to be filed as a complete one. Guards 1 (the checks never narrow) and 2 (an unmatched name refuses the run) follow from rule 6 and need no ruling. | Nothing; every scoped round from here | S009 |
+| Q23 | **New, S010.** Does the owner confirm **ADR-0060** — that `graph/approved.ttl` and `graph/inferred.ttl` are committed while `graph/source.ttl` and `graph/dataset.nq` are not? The line drawn is *what a file restates*: the first two are this repo's own decisions in RDF, the second two are 6.5MB of the pinned corpus, and committing those is `data/upstream/` by another route (ADR-0004). Arguable the other way — committing everything would make the graph reviewable without a snapshot fetch, at 6.5MB per rebuild in the history. | Nothing; it is one line of `.gitignore` either way | S010 |
+| Q24 | **New, S010.** Does the owner confirm **ADR-0061** — that a competency query is *refused* without a `limits:` header saying what it does not answer? The requirement is the agent's reading of what `queries/README.md` implies rather than what it says, and the 60-character threshold is arbitrary. What argues for it: three limits lines are load-bearing today and each would have been a wrong answer without one — CQ-0017 measures reviewing effort and not outcome, CQ-0019 finds recorded dependencies and not subject matter, CQ-0023's most important row is a blank one. | Nothing today; every query written from here | S010 |
 | Q14 | **New, S006.** Owner asked for more plain-language guidance on **constructing the ontology**, beyond what `STAGE-0-INPUT-GUIDE.md` covers (which is scoped to Stage 0 elicitation, not Stage 5 ontology formalisation). Not scoped or drafted yet — needs its own session: who is the audience (the Trade Mark experts already working from the input guide, or a wider group?), and what specifically is unclear in the existing docs. | Nothing yet; would help the experts' ongoing work | S006 |
+
+**S010 changed which thread is blocked, and it is worth being precise about
+what it did not change.** The owner's instruction paused the expert round; it did
+not answer Q8, Q16, Q17 or Q19, and those four are still expert content that
+nothing here may write. What it did do is make Q4's who-half answerable in a new
+way — the owner has now signed nothing, but has undertaken to rule, and their
+approvals go in `approved_by` exactly like the expert's, with no separate marker
+(their choice, S010). **A consequence worth stating plainly: once the owner signs
+a record, owner review and TM-expert review become indistinguishable in the
+record.** That was the owner's call, made knowing it; it is recorded here rather
+than in an ADR because nothing has been signed yet.
 
 Agent-proposed ADRs awaiting human confirmation: **0011** (deferred, not
 declined — see ADR-0041), **0029, 0030, 0032, 0033, 0035, 0036, 0037**,
 **0043's guards** (the decision to seed was the owner's; how it is fenced is
 Q15), **0048's first two judgement calls** (Q18; the third is answered by
-ADR-0052), **0051's two-operation limit** (Q20), **0054** (Q21) and **0055's
-third guard** (Q22). ADR-0044, ADR-0045, ADR-0047, ADR-0049, ADR-0050 and
+ADR-0052), **0051's two-operation limit** (Q20), **0054** (Q21), **0055's
+third guard** (Q22), **0060** (Q23) and **0061** (Q24). ADR-0044, ADR-0045, ADR-0047, ADR-0049, ADR-0050 and
 **ADR-0053** are `derived`. **ADR-0052 is `human`.**
 (0006, 0012, 0014, 0024, 0026, 0027 confirmed S006 — ADR-0040; 0016 and 0018
 confirmed S006 — ADR-0038; 0028 superseded S006 — ADR-0042. ADR-0023,
@@ -213,7 +199,12 @@ ADR-0025, ADR-0031 and ADR-0034 are `derived`.)
 is expert content (Q8, Q16, Q17, Q19), organisational (Q3, Q7, the who-half of
 Q4 — though Q4's who-half is now half-answered: the reviewer signs `TC`), scope
 for later (Q6, Q14), or a confirmation that changes nothing structural (Q12,
-Q18, Q20, and 0029/0030/0032/0033/0035/0036/0037 within them).
+Q18, Q20, Q23, Q24, and 0029/0030/0032/0033/0035/0036/0037 within them).
+
+**But the highest-value work now *is* blocked on a human, and that is new.** The
+four rulings in §2 are the shortest path to a better ontology, and none of them
+is an agent's to make. Typing the 52 concepts is one pass over a list for someone
+who knows the domain; it is unavailable to any amount of agent time.
 
 **What is blocked is the gold set, and the critical path is ten decisions.**
 `data/derived/reports/blockers.md` is the live version and this file is not —
@@ -295,12 +286,113 @@ relevance grade each. The scoped workbook for all ten is rendered.
   that are installed. `python3 -m pytest -q` (Q-29).
 - **Do not build a vector store or search index yet.** Stage 7 is five stages
   away and untestable without Stage 0.
+- **Do not hand-edit `ontology/draft/relations.ttl`.** It is generated from
+  `eval/gold/relationships.yaml` and a test compares the committed file against a
+  regeneration. To add a predicate, have a reviewer approve a relationship that
+  uses it, then `tmk-ontology-relations --write`.
+- **Do not write a `skos:definition`.** Anywhere. The approved concept records
+  carry definition *sources* and no definition text, so the graph carries sources
+  and no text. The absence is the honest report and `tmk-ontology-report` counts
+  it.
+- **Do not type a concept into `GroundOfRefusal`, `LegalTest`, `RelevantFactor`
+  or `Exception`.** The classes are empty on purpose. Which one a concept belongs
+  in is a legal judgement (ADR-0056 consequence 4), and a machine-filled taxonomy
+  reads as authoritative and was authored by nobody.
+- **Do not assert a narrow `rdfs:domain` or `rdfs:range` from observed usage.**
+  Under OWL 2 RL a domain assertion reclassifies every subject of the property.
+  The observed types are annotations that infer nothing; the asserted domain and
+  range are `tmk:LegalMatter`. Tightening one is an expert ruling.
+- **Do not promote a module out of `ontology/draft/`** without a recorded human
+  decision, and not the directory as a block — one module at a time (ADR-0057).
+- **Do not loosen a SHACL shape to make a run pass.** A failing shape is a
+  finding. If a constraint is wrong, that is an ADR.
+- **Do not add a shape, a rule or an ontology module without adding it to its
+  fixed list** — `tbox.MODULES`, `validate.SHAPE_FILES`. None of the three is a
+  glob, because a file picked up silently is how an unreviewed constraint joins
+  the gate and a deleted one stops being noticed.
+- **Do not write a competency query without a `limits:` line.** It is refused
+  rather than run (ADR-0061), and the reason is that a query returning rows
+  always looks like an answer.
+- **Do not mark a CONSTRUCT rule approved** because it works. Stage 9 requires an
+  expert to approve every reasoning template; `approved-by: PENDING` is the
+  current state of both and the runner quarantines their output accordingly.
+- **Do not write a ref as a prefixed name in SPARQL or Turtle.** `tmkr:TMM/Part29/1#1`
+  parses, warns once, and matches nothing — so the query returns no rows and
+  reads as a fact about the data (Q-32). Full IRI, `#` as `%23`.
+- **Do not resolve the `deceptively similar` collision** by adding the concept or
+  by editing the question. Both records are approved, neither is obviously wrong,
+  and it is an expert's call (Q-37).
+- **Do not assert `tmk-recon`'s counts against the graph's.** Recon is s 43-scoped
+  and held-instrument-scoped; the graph is neither. Both are right and they do not
+  match (Q-38).
+- **Do not build a retrieval layer or a search index to close the six deferred
+  competency questions.** They are deferred because Stages 7 and 8 do not exist,
+  and a query that returned rows for them would measure the wrong thing while
+  looking like coverage.
 - **Do not add LegalRuleML.** ADR-0009.
 
 ## 5. Session log
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S010 — 2026-09-03 — the owner stopped waiting, and there was enough to build with
+
+The instruction was to stop going back to the expert and demonstrate that a full
+ontology is feasible. Reading the repo cold, the answer looked like *no*: the
+parallel track says the container is finished and empty, ADR-0010 forbids Stage
+2, Stage 0 is 12 gaps short.
+
+That reading was out of date by two sessions. **Stage 0 has 190 approved
+records** — concepts with not-labels and a hierarchy, relationships with verbatim
+sentences and tiers and modalities, prohibited uses with reasons, reasoning
+expectations — all signed, all resolving, 0 defects. Enough to build an ontology
+from, and building one is not the thing ADR-0010 forbids: **that prohibition is
+on extraction, not on modelling.** Stage 2 generates new candidate knowledge and
+would anchor a measurement by arriving first; transforming records a person
+already signed generates no candidate and measures nothing new. ADR-0056 is the
+owner's decision and states that distinction, because a future session will read
+`ontology/` existing and reach for YAKE.
+
+Built: 9 OWL 2 RL modules in `ontology/draft/` (not `ontology/` — nothing is
+approved, ADR-0057), a graph of 16,405 source and 2,942 approved triples, 5 SHACL
+files, 13 competency queries, 2 CONSTRUCT rules, and 97 tests. `tmk-shacl` reports
+**0 defects, 0 gaps, 29 notes**; `tmk-harness` is unchanged at 0 and 12, because
+nothing in Stage 0 moved.
+
+**Three results the work produced that reading the records would not have.**
+CQ-0017 reproduces `tmk-recon`'s Part distribution exactly and then adds the
+column recon lacks: five Manual Parts are in the s 43 impact set *entirely* on
+citations upstream inferred from a bare "section 43" — that is what preserving
+`extraction` and `certainty` as a node instead of an edge bought. CQ-0023 returns
+a blank first row: the passage stating that a connotation must arise from the
+mark itself cites no decision at all, which an inner join would have hidden.
+And **PU-0004 stopped being a paragraph** — the reviewer marked it
+`detectable_by: shacl` and it now blocks a publish, with a fixture carrying a
+conforming twin, because a constraint that fires on both passes its test and is
+useless.
+
+**The finding that matters most is a gap nobody had stated.** `GroundOfRefusal`,
+`LegalTest`, `RelevantFactor` and `Exception` are declared and empty: all 52
+concepts are bare `tmk:LegalConcept` because the record has no type field, and 39
+of them sit outside any hierarchy. That is the single largest thing wrong with
+the draft, it is one pass over a list for someone who knows the domain, and it is
+now the top of §2.
+
+The build also caught a live inconsistency in the approved set: **`CQ-0007` names
+`deceptively similar` as an expected concept and `GC-0002` records it as a
+not-label** (Q-37). Both approved, neither obviously wrong, and not an agent's to
+resolve.
+
+Seven quirks, five of them SHACL and SPARQL traps that fail *silently* — a ref
+written as a prefixed name matches nothing and reads as a fact about the data
+(Q-32); `sh:severity` inside a SPARQL constraint is ignored and turned an
+informational check into 29 build-breaking defects (Q-33); a fixture without the
+TBox **passes**, for a reason unrelated to the constraint (Q-35). Each of those
+is the "reads as coverage" failure arriving by a different door.
+
+**Result: Stages 5, 6 and 9 move to partial; Stage 0 unchanged; 409 tests pass;
+the next four decisions are the owner's and none of them needs the expert.**
 
 ### S009 — 2026-09-02 — the queue was a graph and nobody could see it
 

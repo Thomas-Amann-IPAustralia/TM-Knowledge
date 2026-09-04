@@ -1,0 +1,26 @@
+# question: CQ-0007
+# answers: Confusion between my mark and someone else's — which section is that?
+# limits: Answers by routing, not by deciding. The Manual allocates the comparison elsewhere and this returns the sentence that says so with its passage; it does not assess any mark. Note the concepts named in `notLabel` — the retrieval trap here is that both destinations are about confusion, so a match on the word alone sends an examiner to the wrong test (GX-0005).
+
+PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
+PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?record ?statement ?sourceRef ?allocatedTo ?modality
+WHERE {
+  GRAPH tmkg:approved {
+    ?assertion a tmk:ApprovedAssertion ;
+               tmk:goldRecord ?record ;
+               tmk:assertionPredicate ?predicate ;
+               tmk:assertionObject ?target ;
+               tmk:supportingText ?statement ;
+               tmk:sourcePassage ?passage .
+    OPTIONAL { ?assertion tmk:modality ?modality }
+    VALUES ?predicate { tmk:allocatesTo tmk:excludesBasis }
+  }
+  GRAPH tmkg:source {
+    ?passage tmk:upstreamRef ?sourceRef .
+    ?target tmk:upstreamRef ?allocatedTo .
+  }
+}
+ORDER BY ?record

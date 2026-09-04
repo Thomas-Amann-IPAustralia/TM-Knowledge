@@ -1,0 +1,143 @@
+@prefix tmk:     <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix tmkc:    <https://data.ipaustralia.gov.au/tmk/concept/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/evaluation>
+    a owl:Ontology ;
+    rdfs:label "TM-Knowledge — evaluation module"@en-AU ;
+    rdfs:comment """The Stage 0 measurement artefacts, in the graph rather than beside it.
+
+This module is not in the roadmap's module list and it earns its place: it is
+what lets a prohibited output be a node with edges instead of a paragraph in a
+YAML file. PU-0004 says that attributing the Manual's 'obvious, direct and
+immediate' formulation to the Act is prohibited and that the error is
+structurally detectable. It is only structurally detectable if the prohibition,
+the question it attaches to, and the passages involved are all in the same
+graph. Here they are, and `shapes/prohibited-use.ttl` reads them."""@en-AU ;
+    owl:imports <https://data.ipaustralia.gov.au/tmk/ns/provenance> ;
+    owl:versionInfo "draft — not approved" .
+
+tmk:CompetencyQuestion a owl:Class ;
+    rdfs:label "Competency question"@en-AU ;
+    rdfs:comment "A question the finished system must be able to answer. If a question has no query and no query has a question, one of the two is wrong (queries/README.md)."@en-AU .
+
+tmk:RetrievalQuestion a owl:Class ;
+    rdfs:label "AI retrieval question"@en-AU ;
+    rdfs:comment "A question with the evidence a correct answer must rest on, and the conclusions it must not reach."@en-AU .
+
+tmk:SearchQuestion a owl:Class ;
+    rdfs:label "Search question"@en-AU ;
+    rdfs:comment "A query with graded relevance judgements, and — the valuable half — the passages that are tempting and wrong."@en-AU .
+
+tmk:ReasoningExpectation a owl:Class ;
+    rdfs:subClassOf tmk:Assertion ;
+    rdfs:label "Reasoning expectation"@en-AU ;
+    rdfs:comment "What a correct system should conclude from a stated set of facts, and what it must not."@en-AU .
+
+tmk:ProhibitedUse a owl:Class ;
+    rdfs:label "Prohibited use"@en-AU ;
+    rdfs:comment """An output the system must never produce, with the reason.
+
+The roadmap requires examples of conclusions the system must NOT draw, and they
+are as important as the positive ones. Six kinds: evaluative_conclusion,
+authority_conflation, unsupported_inference, overreach, ambiguity_collapse and
+stale_source."""@en-AU .
+
+# --- properties -------------------------------------------------------------
+
+tmk:questionText a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:label "question"@en-AU .
+tmk:queryText a owl:DatatypeProperty ; rdfs:domain tmk:SearchQuestion ; rdfs:range xsd:string ; rdfs:label "query"@en-AU .
+tmk:questionCategory a owl:DatatypeProperty ; rdfs:domain tmk:CompetencyQuestion ; rdfs:range xsd:string ; rdfs:label "category"@en-AU ;
+    rdfs:comment "retrieval | search | reasoning | currency | impact | provenance. The six the set must span."@en-AU .
+tmk:askedBy a owl:DatatypeProperty ; rdfs:domain tmk:CompetencyQuestion ; rdfs:range xsd:string ; rdfs:label "asked by"@en-AU .
+tmk:pilotInScope a owl:DatatypeProperty ; rdfs:range xsd:boolean ; rdfs:label "in pilot scope"@en-AU .
+tmk:answerShape a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:label "answer shape"@en-AU ;
+    rdfs:comment "What a correct answer must and must not do. Not the answer — the shape of one."@en-AU .
+tmk:caveat a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:label "caveat"@en-AU .
+
+tmk:requiresSource a owl:ObjectProperty ; rdfs:range tmk:Passage ; rdfs:label "requires source"@en-AU ;
+    rdfs:comment "A passage a correct answer must cite. Absence of one of these is a grounding failure."@en-AU .
+tmk:supportingSource a owl:ObjectProperty ; rdfs:range tmk:Passage ; rdfs:label "supporting source"@en-AU .
+tmk:requiresProvision a owl:ObjectProperty ; rdfs:label "requires provision"@en-AU .
+tmk:requiresCase a owl:ObjectProperty ; rdfs:range tmk:JudicialDecision ; rdfs:label "requires case"@en-AU .
+tmk:expectsConcept a owl:ObjectProperty ; rdfs:range tmk:LegalConcept ; rdfs:label "expects concept"@en-AU ;
+    rdfs:comment """The concept a question expects an answer to engage, resolved from the label the
+record carries.
+
+Resolution is exact string equality against a `skos:prefLabel` or a
+`skos:altLabel` — a lookup, not a reading. A label that matches nothing gets
+tmk:expectsConceptLabel and no edge, and is reported: an approximate match here
+would silently attach a question to the wrong concept, and `deceptively similar`
+against `likely to deceive or cause confusion` is exactly the pair that would
+go wrong first."""@en-AU .
+
+tmk:expectsConceptLabel a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:label "expects concept label"@en-AU ;
+    rdfs:comment "The label as the record wrote it, kept whether or not it resolved. The unresolved ones are a worklist: either the vocabulary is missing a concept or the question names one by a variant nobody has recorded as an alt label."@en-AU .
+
+tmk:authorityDistinctionRequired a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:RetrievalQuestion ; rdfs:range xsd:boolean ;
+    rdfs:label "authority distinction required"@en-AU ;
+    rdfs:comment """True where an answer must keep the Act and the Manual visibly apart.
+
+This is CLAUDE.md rule 5 expressed as a per-question requirement, and it is the
+flag `shapes/authority.ttl` reads: a question carrying it whose required
+evidence is entirely Manual passages is a question whose correct answer must say
+so in words, because nothing in the sources will say it for them."""@en-AU .
+
+tmk:qualificationsExpected a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:label "qualifications expected"@en-AU .
+
+tmk:mustNotConclude a owl:ObjectProperty ; rdfs:range tmk:ProhibitedUse ; rdfs:label "must not conclude"@en-AU ;
+    rdfs:comment "The prohibited outputs this question is most likely to provoke. The edge that turns a prohibition from a document into a test."@en-AU .
+
+tmk:prohibitedOutput a owl:DatatypeProperty ; rdfs:domain tmk:ProhibitedUse ; rdfs:range xsd:string ;
+    rdfs:label "prohibited output"@en-AU ;
+    rdfs:comment "The output itself, written out. Kept verbatim because a paraphrase of a prohibited output is not the thing being prohibited."@en-AU .
+tmk:prohibitionKind a owl:DatatypeProperty ; rdfs:domain tmk:ProhibitedUse ; rdfs:range xsd:string ; rdfs:label "kind"@en-AU .
+tmk:prohibitionReason a owl:DatatypeProperty ; rdfs:domain tmk:ProhibitedUse ; rdfs:range xsd:string ; rdfs:label "why"@en-AU .
+tmk:detectableBy a owl:DatatypeProperty ; rdfs:domain tmk:ProhibitedUse ; rdfs:range xsd:string ; rdfs:label "detectable by"@en-AU ;
+    rdfs:comment "shacl | test | eval. `shacl` means the prohibition is expressible as a constraint, which blocks publication; `test` and `eval` only report."@en-AU .
+
+tmk:given a owl:ObjectProperty ; rdfs:domain tmk:ReasoningExpectation ; rdfs:label "given"@en-AU .
+tmk:expectedConclusion a owl:DatatypeProperty ; rdfs:domain tmk:ReasoningExpectation ; rdfs:range xsd:string ; rdfs:label "expected conclusion"@en-AU .
+tmk:inferenceKind a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:label "inference kind"@en-AU .
+tmk:explanationRequired a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:range xsd:boolean ; rdfs:label "explanation required"@en-AU .
+
+tmk:relevantPassage a owl:ObjectProperty ; rdfs:domain tmk:SearchQuestion ; rdfs:label "relevant passage"@en-AU ;
+    rdfs:comment "Points at a graded judgement, not straight at the passage, because the grade is the content."@en-AU .
+tmk:RelevanceJudgement a owl:Class ; rdfs:label "Relevance judgement"@en-AU .
+tmk:judgedPassage a owl:ObjectProperty ; rdfs:domain tmk:RelevanceJudgement ; rdfs:range tmk:Passage ; rdfs:label "judged passage"@en-AU .
+tmk:relevanceGrade a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:domain tmk:RelevanceJudgement ; rdfs:range xsd:integer ; rdfs:label "grade"@en-AU .
+tmk:temptingButIrrelevant a owl:ObjectProperty ; rdfs:domain tmk:SearchQuestion ; rdfs:range tmk:Passage ;
+    rdfs:label "tempting but irrelevant"@en-AU ;
+    rdfs:comment "A passage a naive matcher will surface and that is wrong. The most valuable field on a search record — it is what separates a retrieval score from a retrieval result."@en-AU .
+tmk:usesManualTerminology a owl:DatatypeProperty , owl:FunctionalProperty ; rdfs:domain tmk:SearchQuestion ; rdfs:range xsd:boolean ; rdfs:label "uses Manual terminology"@en-AU .
+
+# --- the entity mention -----------------------------------------------------
+
+tmk:EntityMention a owl:Class ;
+    rdfs:subClassOf tmk:Assertion ;
+    rdfs:label "Entity mention"@en-AU ;
+    rdfs:comment "One occurrence of a term in a passage, at an offset. Two mentions of the same words in the same chunk are two records (GE-0005 and GE-0006), because recall is measured over occurrences."@en-AU .
+
+tmk:surface a owl:DatatypeProperty ; rdfs:domain tmk:EntityMention ; rdfs:range xsd:string ; rdfs:label "surface"@en-AU .
+tmk:mentionClass a owl:ObjectProperty ; rdfs:domain tmk:EntityMention ;
+    rdfs:label "mention class"@en-AU ;
+    rdfs:comment """The expert's type for the mention, as the class itself rather than as a string.
+
+Asserted on the *mention*, never on the thing mentioned. A mention typed
+ManualInstruction says a person read that span as a statement of practice; it
+does not say the chunk containing it is one, and it must not, because
+tmk:ManualInstruction and tmk:LegislativeProvision are disjoint and a chunk
+quoting the Act contains both."""@en-AU .
+
+tmk:mentionType a owl:DatatypeProperty ; rdfs:domain tmk:EntityMention ; rdfs:range xsd:string ; rdfs:label "mention type"@en-AU ;
+    rdfs:comment "The expert's type for the mention: LegalConcept, ManualInstruction, LegislativeProvision, Role, Date, Other. Recorded as given — an agent may not retype a mention."@en-AU .
+tmk:resolvesTo a owl:ObjectProperty ; rdfs:domain tmk:EntityMention ; rdfs:label "resolves to"@en-AU ;
+    rdfs:comment "Where the mention points, when it points somewhere the corpus holds. Absent on the many mentions that resolve to nothing — 'the Act' names an instrument and no provision."@en-AU .

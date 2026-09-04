@@ -1,0 +1,21 @@
+# question: CQ-0022
+# answers: Did the Manual's authors link that section themselves, or did we work it out from the wording?
+# limits: Answers the provenance of the *edge*, not the correctness of it. `href` is the authors' own link and is the strongest evidence this corpus has; `regex`+`default` is upstream inferring the Act from a bare "section 43"; `regex`+`ambiguous` is upstream refusing to choose an instrument, and those two rows must never be resolved here (Q-07).
+
+PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
+PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+
+SELECT ?chunkRef ?extraction ?certainty ?mention
+WHERE {
+  GRAPH tmkg:source {
+    ?citation a tmk:Citation ;
+              tmk:citingPassage ?chunk ;
+              tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
+              tmk:extraction ?extraction .
+    ?chunk tmk:upstreamRef ?chunkRef .
+    OPTIONAL { ?citation tmk:certainty ?certainty }
+    OPTIONAL { ?citation tmk:mention ?mention }
+    FILTER (?extraction != "href")
+  }
+}
+ORDER BY ?certainty ?chunkRef

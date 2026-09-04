@@ -1,0 +1,26 @@
+# question: CQ-0023
+# answers: Which decisions does the Manual rely on for the proposition that a connotation must arise from the mark itself?
+# limits: The first row is the answer and it is a blank one: GR-0005 states the proposition, its passage is TMM/Part29/2/2/3, and that passage cites no decision at all. The Manual asserts it without authority on the page. The OPTIONAL is deliberate — an inner join would have hidden that by returning only the rows that happened to have cases. Citation level only. These are the decisions cited by the passage that states the proposition — no decision text exists anywhere in the programme, so "which cases interpret this test" is answerable and "what did the court hold" is not (Q-11). Reading the Manual's account of a case as the court's reasons is PU-0005.
+
+PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
+PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+
+SELECT ?record ?statement ?sourceRef ?case ?citation
+WHERE {
+  GRAPH tmkg:approved {
+    ?assertion a tmk:ApprovedAssertion ;
+               tmk:goldRecord ?record ;
+               tmk:assertionPredicate tmk:excludesBasis ;
+               tmk:supportingText ?statement ;
+               tmk:sourcePassage ?passage .
+  }
+  GRAPH tmkg:source {
+    ?passage tmk:upstreamRef ?sourceRef .
+    OPTIONAL {
+      ?passage tmk:citesCase ?caseNode .
+      ?caseNode tmk:upstreamRef ?case ;
+                tmk:caseCitation ?citation .
+    }
+  }
+}
+ORDER BY ?record ?case

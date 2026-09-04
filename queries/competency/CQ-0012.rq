@@ -1,0 +1,18 @@
+# question: CQ-0012
+# answers: Is the connotation in this trade mark strong enough to warrant a ground for rejection? — and the answer is that the system must not say.
+# limits: This query returns considerations and stops, which is the whole point of it. The question is an evaluative judgement for the decision maker on the material before them; PU-0001 and PU-0003 are the two outputs that answer it, and the last column names the prohibitions this question provokes. A row count here is not a score.
+
+PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
+PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+
+SELECT ?prohibited ?kind ?detectableBy ?output
+WHERE {
+  GRAPH tmkg:approved {
+    <https://data.ipaustralia.gov.au/tmk/prop/CQ-0012> tmk:mustNotConclude ?pu .
+    ?pu tmk:goldRecord ?prohibited ;
+        tmk:prohibitionKind ?kind ;
+        tmk:detectableBy ?detectableBy ;
+        tmk:prohibitedOutput ?output .
+  }
+}
+ORDER BY ?prohibited

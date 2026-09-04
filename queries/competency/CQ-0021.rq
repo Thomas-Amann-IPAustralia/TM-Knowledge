@@ -1,0 +1,25 @@
+# question: CQ-0021
+# answers: Which exact passage does that statement come from, and is it the Act or the Manual?
+# limits: Every row is a statement about section 43 whose words were read out of a Manual passage. `authority` says practice for all of them — that is the answer, and it is the one CQ-0001's caveat warns about: the Manual quotes s 43 in full inside TMM/Part29/1#1, so a passage can look like the Act and be the Manual quoting it.
+
+PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
+PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?record ?statement ?sourceRef ?authority ?modality ?approvedBy
+WHERE {
+  GRAPH tmkg:approved {
+    ?assertion a tmk:ApprovedAssertion ;
+               tmk:goldRecord ?record ;
+               tmk:assertionSubject <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
+               tmk:supportingText ?statement ;
+               tmk:sourcePassage ?passage ;
+               tmk:approvedBy ?approvedBy .
+    OPTIONAL { ?assertion tmk:modality ?modality }
+  }
+  GRAPH tmkg:source {
+    ?passage tmk:upstreamRef ?sourceRef ;
+             tmk:authorityKind ?authority .
+  }
+}
+ORDER BY ?record

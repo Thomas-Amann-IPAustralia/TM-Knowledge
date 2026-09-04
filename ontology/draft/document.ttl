@@ -1,0 +1,121 @@
+@prefix tmk:     <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix tmkc:    <https://data.ipaustralia.gov.au/tmk/concept/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/document>
+    a owl:Ontology ;
+    rdfs:label "TM-Knowledge — document module"@en-AU ;
+    rdfs:comment """The addressable shapes of the corpus. Maps onto upstream's page /
+chunk / provision / unit, NOT onto an idealised chapter-section-paragraph tree.
+
+Chapter and Paragraph appear in the roadmap's module list and are deliberately
+absent here. Some Manual subsections are bold text that was never marked up as a
+heading, so `heading_path` is a retrieval signal and a weak structural guarantee
+(Q-10). The addressable unit is `chunk_ref`, and a class named Paragraph would
+promise a structure the corpus does not carry."""@en-AU ;
+    owl:versionInfo "draft — not approved" .
+
+# --- classes ---------------------------------------------------------------
+
+tmk:Passage a owl:Class ;
+    rdfs:label "Passage"@en-AU ;
+    rdfs:comment "Anything in the corpus that bears text at a stable address and carries a content hash. The superclass of everything a citation can point at."@en-AU .
+
+tmk:Document a owl:Class ;
+    rdfs:label "Document"@en-AU ;
+    rdfs:comment "A source document: the Manual, an Act, a set of Regulations. Identified independently of any particular capture of it."@en-AU .
+
+tmk:DocumentVersion a owl:Class ;
+    rdfs:label "Document version"@en-AU ;
+    rdfs:comment """One capture of a Document. In this repo a version is the pinned upstream
+snapshot: an extractor version and a commit sha, recorded in `data/pin.json`.
+
+There is no corpus-level month stamp. The roadmap's `2026-01` form implies one
+and none exists (Q-05); the amendment history is the upstream repository's git
+history and is not held here."""@en-AU .
+
+tmk:Page a owl:Class ;
+    rdfs:subClassOf tmk:Passage ;
+    rdfs:label "Manual page"@en-AU ;
+    rdfs:comment "One page of the Manual, as crawled. Holds everything constant across the chunks cut from it."@en-AU .
+
+tmk:Chunk a owl:Class ;
+    rdfs:subClassOf tmk:Passage ;
+    rdfs:label "Manual chunk"@en-AU ;
+    rdfs:comment "One retrievable passage of the Manual — the addressable unit of this repo, keyed by `chunk_ref`."@en-AU .
+
+# --- properties ------------------------------------------------------------
+
+tmk:upstreamRef a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "upstream ref"@en-AU ;
+    rdfs:range xsd:string ;
+    rdfs:comment """The canonical key, stored verbatim (ADR-0005). Present on every node minted
+from a ref so that a query result can be read back to a human without reversing
+an IRI, and so that the string-equality join survives into the graph."""@en-AU .
+
+tmk:contentHash a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "content hash"@en-AU ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The `sha256:` hash the passage carried in the pinned snapshot. When it stops matching, everything asserted over the passage is stale and returns to review (IDENTIFIERS.md §5)."@en-AU .
+
+tmk:text a owl:DatatypeProperty ;
+    rdfs:domain tmk:Passage ;
+    rdfs:range xsd:string ;
+    rdfs:label "text"@en-AU ;
+    rdfs:comment "The passage's text exactly as upstream emitted it. Never normalised here — spans are offsets into this string."@en-AU .
+
+tmk:headingPath a owl:DatatypeProperty ;
+    rdfs:domain tmk:Passage ;
+    rdfs:range xsd:string ;
+    rdfs:label "heading path"@en-AU ;
+    rdfs:comment "Upstream's heading trail, one value per level, in order. A retrieval signal, not a structural guarantee (Q-10)."@en-AU .
+
+tmk:ordinal a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:range xsd:integer ;
+    rdfs:label "ordinal"@en-AU ;
+    rdfs:comment "Position of a chunk within its page, or a unit within its provision. Reading order, nothing more."@en-AU .
+
+tmk:chunkKind a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Chunk ;
+    rdfs:range xsd:string ;
+    rdfs:label "chunk kind"@en-AU ;
+    rdfs:comment """`body`, `annex` or `landing`. Kept because the corpus is lopsided — 725 of its
+2,460 chunks are annex material — and retrieval that treats every chunk alike
+surfaces a great deal of it (Q-10)."""@en-AU .
+
+tmk:onPage a owl:ObjectProperty ;
+    rdfs:domain tmk:Chunk ;
+    rdfs:range tmk:Page ;
+    rdfs:label "on page"@en-AU .
+
+tmk:partId a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "Manual Part"@en-AU ;
+    rdfs:comment "`Part29`. Comes from the nav tree by way of the ref, never from the URL — deriving it from anything else is how a chunk lands in the wrong Part (Q-09)."@en-AU .
+
+tmk:sourceUrl a owl:DatatypeProperty ;
+    rdfs:domain tmk:Page ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "source URL"@en-AU .
+
+tmk:capturedIn a owl:ObjectProperty ;
+    rdfs:range tmk:DocumentVersion ;
+    rdfs:label "captured in"@en-AU ;
+    rdfs:comment "The snapshot version this passage was read from. Every Passage carries one — 'every source passage identifies a document version' is one of the six starting SHACL rules."@en-AU .
+
+tmk:extractorVersion a owl:DatatypeProperty ;
+    rdfs:domain tmk:DocumentVersion ;
+    rdfs:range xsd:string ;
+    rdfs:label "extractor version"@en-AU .
+
+tmk:upstreamCommit a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:DocumentVersion ;
+    rdfs:range xsd:string ;
+    rdfs:label "upstream commit"@en-AU ;
+    rdfs:comment "The pinned `manual-XtrACTor` commit sha. This, plus the extractor versions, is what makes a rebuild reproducible."@en-AU .

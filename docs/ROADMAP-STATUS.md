@@ -19,11 +19,11 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 | 2 | Candidate terminology and entities | **not started** — stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019); blocked by ADR-0010 | this repo |
 | 3 | Controlled vocabulary (SKOS) | **not started** | this repo |
 | 4 | Relationships, propositions, candidate rules | **not started** | this repo |
-| 5 | Formalise the ontology | **not started** | this repo |
-| 6 | Populate and validate the knowledge graph | **not started** | this repo |
+| 5 | Formalise the ontology | **partial** — S010. Nine OWL 2 RL modules **drafted** in `ontology/draft/` from the 190 approved records; nothing approved, so `ontology/` is still empty (ADR-0056, ADR-0057) | this repo |
+| 6 | Populate and validate the knowledge graph | **partial** — S010. Graph built (16,405 source + 2,942 approved triples) and the SHACL gate runs: **0 defects, 0 gaps, 29 notes**. Built against a *draft* TBox | this repo |
 | 7 | Ontology-enhanced search | **not started** | this repo |
 | 8 | Graph-aware AI retrieval | **not started** | this repo |
-| 9 | Automated reasoning | **not started** | this repo |
+| 9 | Automated reasoning | **partial** — S010. Two CONSTRUCT rules written, **neither approved**; everything they produce is quarantined as `review_status: candidate` | this repo |
 | 10 | Automated maintenance | **not started** | this repo |
 
 ## Stage 0 — the blocker
@@ -59,7 +59,7 @@ no measures — so ADR-0010 still holds and no Stage 2+ work starts.
 | Review round 1 | **done** — S008. 229 of 368 rows carried a verdict, plus an addendum settling 84 (ADR-0051, ADR-0052) | `review/returned/`, `review/decisions/` |
 | Reconciliation path | **done** — S008, ADR-0049 | `tmk-reconcile` |
 | Blocker and dependency report | **done** — S009, ADR-0053/0054 | `tmk-blockers` → `data/derived/reports/` |
-| Review round 2 (scoped) | **rendered, not sent** — S009, ADR-0055. 10 decisions holding 168 records | `data/derived/stage0-blockers-review.xlsx` |
+| Review round 2 (scoped) | **rendered, not sent** — S009, ADR-0055. 10 decisions holding 168 records. **Superseded as the next action by the owner's S010 instruction**: no further expert round for now | `data/derived/stage0-blockers-review.xlsx` |
 
 Target sizes from the roadmap: 100–300 recognised entities, 50–100 approved
 concepts, 50–100 known relationships, 20–50 search questions, 20–50 AI retrieval
@@ -86,6 +86,42 @@ actually becomes required, is in `docs/roadmap/PARALLEL-TRACK-ROADMAP.md`
 Track the packages there; record movement here only when a Stage 0 deliverable
 row above changes.
 
+## Stages 5, 6 and 9 — the draft, and what "partial" means here
+
+S010, on the owner's instruction to stop waiting for the expert and build
+something from what exists (ADR-0056). **Read `data/derived/reports/ontology.md`
+rather than this section** — it is generated from the same run that builds the
+graph and it will not go stale.
+
+| Deliverable | Status | Where it lives |
+|---|---|---|
+| Ontology modules | **drafted, none approved** — 9 modules, 49 classes, OWL 2 RL | `ontology/draft/` |
+| Relation dictionary | **generated** — 14 predicates, derived from 35 approved relationships, regeneration-checked | `ontology/draft/relations.ttl` |
+| Ontology guide | **done** | `ontology/draft/GUIDE.md` |
+| Knowledge graph | **built** — `tmk-graph --write --rules` | `graph/approved.ttl`, `graph/inferred.ttl` |
+| SHACL shapes | **done** — 5 files, every shape with a violating fixture | `shapes/`, `tests/fixtures/shapes/` |
+| Publication gate | **done** — 0 defects, 0 gaps, 29 notes | `tmk-shacl` |
+| Competency queries | **partial** — 13 of 20 questions; 6 need Stages 7–8, 1 could be written | `queries/competency/` |
+| CONSTRUCT rules | **written, both PENDING approval** | `queries/rules/` |
+| Ontology status report | **done** — generated | `tmk-ontology-report` → `data/derived/reports/` |
+
+**Why these are `partial` and not `done`, in one line each.** Stage 5 is a draft
+nobody has approved. Stage 6 is built against that draft, and `candidates.nq` and
+`superseded.nq` do not exist because there are no candidates and nothing has been
+retired. Stage 9 has two rules and neither is an approved reasoning template,
+which is what the stage actually requires.
+
+**The largest gap the draft exposed**, and it was not on any list before:
+`GroundOfRefusal`, `LegalTest`, `RelevantFactor` and `Exception` are declared and
+**empty**. All 52 approved concepts are bare `tmk:LegalConcept`, because the gold
+concept record has no type field and typing them is a legal judgement. It is one
+pass over a list for someone who knows the domain, and it is what turns a flat
+vocabulary into a hierarchy the later stages can generalise over.
+
+**ADR-0010 is untouched.** Stage 2 has not started and nothing here brings it
+closer: this work generated no candidate, ran no extractor, and measured no
+recall. Modelling approved records is not extraction.
+
 ## Stage 1 — inherited, and what is missing from it
 
 Complete as data. Measured at `ingest/0.11.0` and `legislation/0.2.0`:
@@ -109,9 +145,9 @@ to anyone who does not think in stages.
 | Release | Contains | Status |
 |---|---|---|
 | 1 — Automated discovery | parsing, YAKE, citation detection, entity matching, term clustering, review interface | parsing done upstream; rest not started |
-| 2 — Vocabulary and knowledge graph | SKOS, ontology modules, relation extraction, provenance, RDF, SHACL, Fuseki | not started |
+| 2 — Vocabulary and knowledge graph | SKOS, ontology modules, relation extraction, provenance, RDF, SHACL, Fuseki | **partial** — SKOS, modules, provenance, RDF and SHACL all exist in draft over the s 43 pilot; relation *extraction* has not started (that is Stage 2/4) and no triple store is deployed |
 | 3 — Search and AI retrieval | OpenSearch index, hybrid search, vocabulary expansion, graph traversal, evidence packages, citations | not started |
-| 4 — Bounded reasoning | OWL 2 RL, impact analysis, consistency checks, approved SPARQL rules, explanations | not started |
+| 4 — Bounded reasoning | OWL 2 RL, impact analysis, consistency checks, approved SPARQL rules, explanations | **partial** — the profile is OWL 2 RL, impact analysis answers CQ-0017/0019, and every inference explains itself. The rules are **not approved**, which is the substance of the release |
 | 5 — Continuous maintenance | change detection, incremental reprocessing, active learning, regression testing, monitoring | not started |
 
 ## Standing constraints on any stage

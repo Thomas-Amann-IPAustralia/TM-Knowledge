@@ -1,8 +1,13 @@
 # ARCHITECTURE — intended shape of the system
 
 What the system is meant to become, where each piece lives, and which roadmap
-stage produces it. Nothing here is built yet; this is the target that the
-directory skeleton is holding open. Status per stage: `ROADMAP-STATUS.md`.
+stage produces it. This is the target; `ROADMAP-STATUS.md` says how much of it
+exists.
+
+**Since S010 it is no longer all target.** Stages 5, 6 and 9 have a working
+draft over the section 43 pilot — modules in `ontology/draft/`, a built graph, a
+SHACL gate that passes and thirteen competency queries (ADR-0056). Nothing is
+approved. Stages 2, 3, 4, 7, 8 and 10 remain unbuilt.
 
 ## 1. Position in the programme
 
@@ -71,11 +76,12 @@ recorded decision (ADR-0007). Nothing flows back into `data/upstream/`.
 | `review/seed/` | Stage 0 example records, machine-written for expert correction (ADR-0043) | 0 | Not content; `approved_by` is null and checked |
 | `review/returned/` | Marked-up artefacts a person handed back (ADR-0050) | 0 | Inputs. Never edited, never regenerated |
 | `review/decisions/` | What each returned artefact was taken to mean (ADR-0049) | 0, and 10 | Derived from `returned/`; verdicts and corrections verbatim |
-| `vocab/` | SKOS controlled vocabulary | 3 | Approved only |
-| `ontology/` | RDF/RDFS/OWL 2 RL modules | 5 | Approved only |
-| `graph/` | Generated RDF, by named graph | 6 | Generated; reproducible from `src/` + inputs |
-| `shapes/` | SHACL shapes | 6 | Gate before publication |
-| `queries/` | SPARQL queries, `CONSTRUCT` rules, regression queries | 6, 9 | Each rule needs an approval record |
+| `vocab/` | SKOS controlled vocabulary | 3 | Approved only. Empty — the s 43 concepts are in `graph/approved.ttl`, built from `eval/gold/`, not promoted here |
+| `ontology/` | RDF/RDFS/OWL 2 RL modules | 5 | Approved only. **Empty** |
+| `ontology/draft/` | The candidate ontology — 9 modules, none approved | 5 | ADR-0057. Promoted one module at a time, on a recorded decision |
+| `graph/` | Generated RDF, by named graph | 6 | Generated. `approved.ttl` and `inferred.ttl` committed; `source.ttl` and `dataset.nq` are not (ADR-0060) |
+| `shapes/` | SHACL shapes | 6 | Gate before publication. Every shape has a violating fixture |
+| `queries/` | SPARQL queries, `CONSTRUCT` rules, regression queries | 6, 9 | Each rule needs an approval record; both current rules are `PENDING` |
 | `tests/` | pytest: unit, SPARQL regression, retrieval benchmarks | all | Includes the prohibited-inference tests |
 
 ## 4. Ontology modules (Stage 5)
@@ -99,6 +105,19 @@ Two constraints that fall out of the corpus rather than the roadmap:
   onto an idealised chapter tree. Upstream headings are unreliable as structure
   (Q-10); `chunk_ref` is the addressable unit, not "paragraph 4.3.12".
 
+The draft in `ontology/draft/` implements all seven, plus two the roadmap does
+not name. `relations.ttl` holds the closed predicate list and is generated from
+the approved relationship register. `evaluation.ttl` holds the competency
+questions, prohibited uses and relevance judgements, and it earns its place by
+making PU-0004 structurally detectable: the prohibition, the question it attaches
+to and the passages involved all have to be in one graph before a shape can see
+the conflation.
+
+The Document module also drops `Chapter` and `Paragraph` outright. They are in
+the roadmap's list and the corpus does not carry them — some Manual subsections
+are bold text that was never marked up as a heading (Q-10), so a class named
+`Paragraph` would promise a structure that is not there.
+
 ## 5. Reference technology stack
 
 From roadmap §3. Agency-approved equivalents may be substituted; substitutions are
@@ -116,10 +135,10 @@ ADR-worthy.
 | Complex structured extraction | Agency-approved LLM, schema-constrained JSON (HANDOFF Q3) |
 | Vocabulary | SKOS |
 | Ontology | RDF, RDFS, OWL 2 RL |
-| Ontology editing | Protégé / WebProtégé |
+| Ontology editing | Protégé / WebProtégé — not used; the modules are hand-written Turtle and `relations.ttl` is generated |
 | Provenance | PROV-O + project fields |
-| Graph processing | RDFLib |
-| Validation | SHACL via pySHACL |
+| Graph processing | RDFLib — **in use since S010**, as the optional `[rdf]` extra (ADR-0056) |
+| Validation | SHACL via pySHACL — **in use since S010** |
 | Triple store | Apache Jena Fuseki (prototype) |
 | Query | SPARQL |
 | Search and vectors | OpenSearch (BM25 + vector, hybrid) |

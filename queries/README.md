@@ -1,20 +1,33 @@
 # queries/ — SPARQL
 
-**Roadmap Stages 6 and 9.** Empty.
+**Roadmap Stages 6 and 9.** Written and running: `tmk-ask`.
 
 ```
-queries/competency/    one query per competency question in eval/
-queries/rules/         approved CONSTRUCT rules — explicit derivations
-queries/regression/    queries whose results are asserted in tests/
-queries/reports/       coverage, review-queue depth, staleness, quality dashboard
+queries/competency/    13 queries, one per answerable competency question
+queries/rules/         2 CONSTRUCT rules — both PENDING approval
+queries/regression/    does not exist yet; the assertions live in tests/unit/
+queries/reports/       does not exist yet; tmk-ontology-report does this job
 ```
+
+13 of the 20 competency questions have a query. One more (CQ-0010) could and does
+not. The remaining six are search and retrieval questions, which a graph query
+cannot answer at all — a search question needs a ranked index (Stage 7) and a
+retrieval question needs a generated answer over retrieved passages (Stage 8).
+`tmk-ask` reports those two categories separately, because counting them as
+coverage gaps would report a shortfall against work that is deliberately five
+stages away.
 
 ## `queries/competency/` is the link to Stage 0
 
 Each competency question that is answerable as a graph query gets a query here,
-named for its id (`CQ-007.rq`). This is how the graph is measured rather than
+named for its id (`CQ-0017.rq`). This is how the graph is measured rather than
 admired: if a question has no query and no query has a question, one of the two is
-wrong.
+wrong. Both directions are checked — `tmk-ask` reports the first,
+`tests/unit/test_competency_queries.py` refuses the second.
+
+Every query carries a `limits:` header saying what it does **not** answer, and
+a file without one is refused rather than run. That is the field that does the
+work: a query returning rows always looks like an answer.
 
 ## `queries/rules/` — derivations are approvals
 

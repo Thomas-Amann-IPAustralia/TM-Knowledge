@@ -1,6 +1,14 @@
 # ontology/ — the approved ontology
 
-**Roadmap Stage 5.** Empty.
+**Roadmap Stage 5.** Still empty — and no longer for want of a draft.
+
+**The draft is in `ontology/draft/`** (ADR-0057): nine OWL 2 RL modules over the
+section 43 pilot, built from the 190 approved records in `eval/gold/`. Nothing
+has been approved, so nothing has moved up here. A module arrives when a person
+signs it, one at a time.
+
+Read `ontology/draft/GUIDE.md` for what it says, and
+`data/derived/reports/ontology.md` for what it counts.
 
 Modular RDF / RDFS / OWL 2 RL. One file per module so that reasoning scope can be
 controlled per module:
@@ -14,8 +22,14 @@ ontology/document.ttl         Document, DocumentVersion, Chapter, Paragraph, Pas
 ontology/time.ttl             effective / superseded / decision dates, version applicability
 ontology/provenance.ttl       PROV-O plus the project fields in ADR-0011
 ontology/relations.ttl        the approved relationship dictionary — the closed list
+ontology/evaluation.ttl       competency questions, prohibited uses, relevance judgements
 ontology/GUIDE.md             the human-readable ontology guide
 ```
+
+`evaluation.ttl` is not in the roadmap's list and the draft adds it. It earns its
+place by letting a prohibited output be a node with edges rather than a paragraph
+in a YAML file — PU-0004 is only structurally detectable if the prohibition, the
+question it attaches to and the passages involved are in one graph.
 
 ## Two constraints that come from the corpus, not the roadmap
 

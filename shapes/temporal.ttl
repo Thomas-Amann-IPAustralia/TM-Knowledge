@@ -1,0 +1,40 @@
+@prefix tmk:  <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# Superseded material carries a status date. Fifth of the six starting rules.
+
+tmk:SupersededShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:Passage ;
+    rdfs:label "Superseded material carries a status date"@en-AU ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "This passage is marked superseded and carries no status date. Superseded-since-when is the whole content of the claim; without it, a point-in-time query cannot exclude it and a currency answer cannot qualify it." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this <https://data.ipaustralia.gov.au/tmk/ns/authorityStatus>
+                      <https://data.ipaustralia.gov.au/tmk/ns/Superseded> .
+                FILTER NOT EXISTS { $this <https://data.ipaustralia.gov.au/tmk/ns/statusDate> ?date }
+            }
+        """ ;
+    ] .
+
+tmk:NotHeldShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:LegislativeProvision ;
+    rdfs:label "Nothing held is also marked not-held"@en-AU ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "A provision carries text from the snapshot and is also marked tmk:NotHeld. One of the two is wrong, and the not-held marker is what CQ-0020 counts." ;
+        sh:select """
+            SELECT $this
+            WHERE {
+                $this <https://data.ipaustralia.gov.au/tmk/ns/authorityStatus>
+                      <https://data.ipaustralia.gov.au/tmk/ns/NotHeld> ;
+                      <https://data.ipaustralia.gov.au/tmk/ns/text> ?text .
+            }
+        """ ;
+    ] .

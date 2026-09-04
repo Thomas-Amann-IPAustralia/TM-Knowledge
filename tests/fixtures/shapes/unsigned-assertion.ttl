@@ -1,0 +1,32 @@
+# An approved-looking assertion nobody signed, with no source passage and no
+# method. Every property the provenance shape requires is missing, one per
+# violation, so the fixture proves each branch of the shape rather than only
+# that the shape exists.
+#
+# Expected: tmk:ApprovedAssertionShape reports Violations for the missing
+# goldRecord, sourcePassage, extractionMethod, reviewStatus, approvedBy and
+# approvedDate on :unsigned. :signed conforms.
+
+@prefix tmk:  <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix :     <https://example.org/fixture/> .
+
+:unsigned a tmk:ApprovedAssertion ;
+    tmk:supportingText "A sentence with nothing behind it." .
+
+:signed a tmk:ApprovedAssertion ;
+    tmk:goldRecord "GR-9999" ;
+    tmk:sourcePassage :passage ;
+    tmk:extractionMethod "expert_elicitation" ;
+    tmk:reviewStatus "approved" ;
+    tmk:approvedBy "TC" ;
+    tmk:approvedDate "2026-08-25"^^xsd:date ;
+    tmk:sourceContentHash "sha256:3333333333333333333333333333333333333333333333333333333333333333" ;
+    tmk:supportingText "A sentence with a name and a date behind it." .
+
+:passage a tmk:Chunk ;
+    tmk:authorityKind "practice" ;
+    tmk:contentHash "sha256:3333333333333333333333333333333333333333333333333333333333333333" ;
+    tmk:capturedIn :snapshot .
+
+:snapshot a tmk:DocumentVersion .

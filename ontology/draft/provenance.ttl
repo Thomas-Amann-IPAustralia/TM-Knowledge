@@ -1,0 +1,201 @@
+@prefix tmk:     <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix tmkc:    <https://data.ipaustralia.gov.au/tmk/concept/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/provenance>
+    a owl:Ontology ;
+    rdfs:label "TM-Knowledge — provenance module"@en-AU ;
+    rdfs:comment """ADR-0011's field list as RDF, over PROV-O.
+
+The rule this module exists to make enforceable: an assertion that cannot say
+where it came from does not get published. Every approved relationship in the
+graph appears twice — once as a direct triple so SPARQL is natural, and once as
+a tmk:Assertion carrying the passage, the span, the hash, the reviewer and the
+date. A SHACL shape fails if the first exists without the second (ADR-0058).
+
+The field list is deliberately open (ADR-0041): Stage 2 has not run, so what a
+machine-generated candidate needs to carry is not yet known from evidence. What
+is here is what the approved records actually carry today."""@en-AU ;
+    owl:imports <https://data.ipaustralia.gov.au/tmk/ns/document> ;
+    owl:versionInfo "draft — not approved" .
+
+tmk:Assertion a owl:Class ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:label "Assertion"@en-AU ;
+    rdfs:comment "This project's record that something was extracted from a passage, by some method, and reviewed by someone. Not the proposition itself — the act of asserting it, with everything an audit needs."@en-AU .
+
+tmk:ApprovedAssertion a owl:Class ;
+    rdfs:subClassOf tmk:Assertion ;
+    rdfs:label "Approved assertion"@en-AU ;
+    rdfs:comment "An assertion a named human approved on a date. The only kind that may sit in the approved named graph (CLAUDE.md rule 4)."@en-AU .
+
+tmk:CandidateAssertion a owl:Class ;
+    rdfs:subClassOf tmk:Assertion ;
+    rdfs:label "Candidate assertion"@en-AU ;
+    rdfs:comment "UNPOPULATED. Machine output awaiting a human. Kept in the candidates named graph and never in the approved one; if the two mix once, no later audit can unmix them (ADR-0007)."@en-AU .
+
+tmk:InferredAssertion a owl:Class ;
+    rdfs:subClassOf tmk:Assertion ;
+    rdfs:label "Inferred assertion"@en-AU ;
+    rdfs:comment "Produced by an approved CONSTRUCT rule, never authored. Must identify its source facts and the rule that produced it: an inference that cannot explain itself does not get published."@en-AU .
+
+# --- what an assertion says -------------------------------------------------
+
+tmk:assertionSubject a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:label "assertion subject"@en-AU .
+
+tmk:assertionPredicate a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:label "assertion predicate"@en-AU ;
+    rdfs:comment "The relation asserted, as a node. Restricted to tmk:ApprovedRelation by a shape, which is how relations.ttl stays a closed list in practice and not only in prose."@en-AU .
+
+tmk:assertionObject a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:label "assertion object"@en-AU .
+
+# --- where it came from -----------------------------------------------------
+
+tmk:sourcePassage a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range tmk:Passage ;
+    rdfs:label "source passage"@en-AU ;
+    rdfs:comment "'Every approved proposition has a source passage' — the first of the six starting SHACL rules."@en-AU .
+
+tmk:supportingText a owl:DatatypeProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "supporting text"@en-AU ;
+    rdfs:comment "The sentence that states it, verbatim. Checked against the snapshot at the recorded offsets: if the text at the span is not this string, the record is stale or the surface was retyped rather than copied (ADR-0045)."@en-AU .
+
+tmk:spanStart a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:integer ;
+    rdfs:label "span start"@en-AU .
+
+tmk:spanEnd a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:integer ;
+    rdfs:label "span end"@en-AU .
+
+tmk:sourceContentHash a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "source content hash"@en-AU ;
+    rdfs:comment "The hash the passage carried when the assertion was made. Staleness is this not matching the pinned snapshot, and a stale assertion returns to review rather than being carried forward — the whole mechanism behind Stage 10."@en-AU .
+
+# --- how it was made --------------------------------------------------------
+
+tmk:extractionMethod a owl:DatatypeProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "extraction method"@en-AU ;
+    rdfs:comment """A **set**, not a scalar: a term found by three extractors is one assertion with
+three methods, because agreement across methods is the confidence signal the
+ensemble exists to produce, and it is only visible if the methods land on one
+record (ADR-0019, ADR-0020).
+
+Today every value is `expert_elicitation` — no Stage 2 run has happened
+(ADR-0010)."""@en-AU .
+
+tmk:model a owl:DatatypeProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "model"@en-AU ;
+    rdfs:comment "The model that produced the assertion, with its version. Absent on an expert-elicited record. HANDOFF Q3 is the question of which model may be named here at all."@en-AU .
+
+tmk:confidence a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:decimal ;
+    rdfs:label "confidence"@en-AU ;
+    rdfs:comment """A confidence in the **extraction**. Legitimate and required (CLAUDE.md rule 8).
+
+A confidence attached to a legal conclusion is PU-0003 and is prohibited: no
+probability in this system is calibrated against examination outcomes, and none
+could be without a decision corpus."""@en-AU .
+
+tmk:reviewStatus a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "review status"@en-AU ;
+    rdfs:comment "`approved` | `candidate` | `rejected` | `stale`. Never absent, and never defaulted to `approved`."@en-AU .
+
+tmk:approvedBy a owl:DatatypeProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "approved by"@en-AU ;
+    rdfs:comment "The name of the person who approved it. A name and a date are the approval artefact, and there is no separate register (ADR-0039)."@en-AU .
+
+tmk:approvedDate a owl:DatatypeProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:date ;
+    rdfs:label "approved date"@en-AU .
+
+tmk:tier a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:integer ;
+    rdfs:label "tier"@en-AU ;
+    rdfs:comment "1 deterministic · 2 low-risk · 3 legally significant (ADR-0008). An expert's call; the ontology only knows there are three."@en-AU .
+
+tmk:modality a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "modality"@en-AU ;
+    rdfs:comment """`must` | `may` | `should`, where the relation is normative.
+
+**Absent means not supplied**, and is reported as a gap. It is never inferred
+from the sentence's grammar: whether a 'may' is possibility or permission is a
+legal reading. Five approved relationships carry no modality today and the graph
+carries none for them."""@en-AU .
+
+# --- inference --------------------------------------------------------------
+
+tmk:producedByRule a owl:ObjectProperty ;
+    rdfs:domain tmk:InferredAssertion ;
+    rdfs:label "produced by rule"@en-AU ;
+    rdfs:comment "'Every inferred result identifies the rule that produced it' — one of the six starting SHACL rules, and the reason a rule file carries an id."@en-AU .
+
+tmk:derivedFrom a owl:ObjectProperty ;
+    rdfs:subPropertyOf prov:wasDerivedFrom ;
+    rdfs:domain tmk:InferredAssertion ;
+    rdfs:label "derived from"@en-AU ;
+    rdfs:comment "The source facts the inference stands on. Plural, and complete: an explanation that names some of its premises is not an explanation."@en-AU .
+
+tmk:requiresHumanReview a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:InferredAssertion ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "requires human review"@en-AU .
+
+
+# --- properties the candidate rules derive ---------------------------------
+# Declared here rather than in the module the rule reads from, because they are
+# produced by inference and exist nowhere else. A rule deriving an undeclared
+# property is a rule writing into a vocabulary nobody agreed.
+
+tmk:mixedAuthority a owl:DatatypeProperty ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "carries both law and practice"@en-AU ;
+    rdfs:comment """Derived by RULE-0001. The passage contains both quoted legislative text and
+the Registrar's own practice, so any output derived from it must keep the two
+distinguishable.
+
+This is GX-0001's expected inference, and the reason it matters is CQ-0001's
+caveat: the Manual quotes s 43 in full inside TMM/Part29/1#1, so an answer can
+appear to cite the Act while having read only the Manual. That is a grounding
+failure that will not show up as a missing source."""@en-AU .
+
+tmk:impactedBy a owl:ObjectProperty ;
+    rdfs:label "impacted by"@en-AU ;
+    rdfs:comment """Derived by RULE-0002. This approved record would have to be re-read if that
+passage changed, because the record was read out of it or names it as a
+definition source.
+
+Recorded dependency only. A passage that discusses the same subject without
+being cited by any record is invisible to it (Q-28), so a nil result means
+'nothing recorded depends on this', never 'nothing is affected'."""@en-AU .

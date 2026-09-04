@@ -1,6 +1,7 @@
 # graph/ — the generated knowledge graph
 
-**Roadmap Stage 6.** Empty.
+**Roadmap Stage 6.** Built, against a **draft** ontology (`ontology/draft/`).
+`tmk-graph --write --rules`.
 
 **Everything here is generated.** Given the pinned upstream snapshot, the approved
 inputs in `vocab/` and `ontology/`, and the code in `src/`, a rebuild produces the
@@ -14,15 +15,29 @@ never become indistinguishable from approved knowledge; if they mix once, no lat
 audit can unmix them.
 
 ```
-graph/source.nq        assertions derived deterministically from the snapshot
-graph/candidates.nq    machine-extracted, unapproved  (mirrors review/)
-graph/approved.nq      expert-approved assertions
-graph/inferred.nq      produced by reasoning — never authored directly
-graph/superseded.nq    retired assertions, kept for audit and point-in-time queries
+graph/source.ttl       assertions derived deterministically from the snapshot   NOT COMMITTED
+graph/approved.ttl     expert-approved assertions                               committed
+graph/inferred.ttl     produced by the candidate rules — never authored         committed
+graph/dataset.nq       all of the above as quads                                NOT COMMITTED
+graph/candidates.nq    machine-extracted, unapproved  (mirrors review/)         does not exist
+graph/superseded.nq    retired assertions, kept for audit                       does not exist
 ```
 
-`.nq` because named graphs must survive serialisation. Use `.ttl` only for
-single-graph files a human is expected to read.
+`candidates` does not exist because no Stage 2 run has happened (ADR-0010) and
+there are therefore no candidates. `superseded` does not exist because nothing
+has been retired.
+
+**Why `.ttl` and not `.nq` for the three that exist.** Each is a single named
+graph, and this README already reserves `.ttl` for single-graph files a human
+reads — a reviewer reading `approved.ttl` should not have to parse N-Quads.
+`dataset.nq` is the quad form, and it is generated for tools that want it.
+
+**What is committed, and why the split** (ADR-0060). `approved.ttl` and
+`inferred.ttl` are this repo's own work: small enough to read, and a diff of
+`approved.ttl` is a diff of what a reviewer changed. `source.ttl` and
+`dataset.nq` are not committed — they restate the pinned upstream corpus, and
+putting 6.5MB of it in this history is `data/upstream/` by another route, which
+is what ADR-0004 exists to prevent. Both rebuild in one command.
 
 ## Every assertion carries
 

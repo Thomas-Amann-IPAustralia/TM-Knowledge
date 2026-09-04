@@ -1,0 +1,153 @@
+@prefix tmk:     <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix tmkc:    <https://data.ipaustralia.gov.au/tmk/concept/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/legal-concepts>
+    a owl:Ontology ;
+    rdfs:label "TM-Knowledge — legal concepts module"@en-AU ;
+    rdfs:comment """The concept layer, and the module with the largest declared-but-unpopulated
+part of the model.
+
+Every approved concept in `eval/gold/concepts.yaml` becomes a `tmk:LegalConcept`
+and nothing narrower. The subclasses below — GroundOfRefusal, LegalTest,
+RelevantFactor, Exception — are the roadmap's model and they are **empty**,
+because the gold concept record has no type field and deciding that
+'connotation' is a LegalTest rather than a RelevantFactor is a legal judgement
+this repo may not make (CLAUDE.md rule 1).
+
+That emptiness is the honest state and it is reported as a gap, not hidden. The
+slots exist so an expert can fill them in one pass; a machine filling them would
+produce a taxonomy that reads as authoritative and was authored by nobody."""@en-AU ;
+    owl:imports <https://data.ipaustralia.gov.au/tmk/ns/authority> ;
+    owl:versionInfo "draft — not approved" .
+
+tmk:LegalConcept a owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Legal concept"@en-AU ;
+    rdfs:comment "A concept in the examination vocabulary, with a preferred label, its variants, and — crucially — the labels it must not be confused with."@en-AU .
+
+tmk:GroundOfRefusal a owl:Class ;
+    rdfs:subClassOf tmk:LegalConcept ;
+    rdfs:label "Ground of refusal"@en-AU ;
+    rdfs:comment "UNPOPULATED — needs an expert. A statutory basis on which registration may be refused."@en-AU .
+
+tmk:LegalTest a owl:Class ;
+    rdfs:subClassOf tmk:LegalConcept ;
+    rdfs:label "Legal test"@en-AU ;
+    rdfs:comment "UNPOPULATED — needs an expert. A question the decision maker must answer, with a stated threshold."@en-AU .
+
+tmk:RelevantFactor a owl:Class ;
+    rdfs:subClassOf tmk:LegalConcept ;
+    rdfs:label "Relevant factor"@en-AU ;
+    rdfs:comment "UNPOPULATED — needs an expert. Something the decision maker weighs, which does not on its own decide the question."@en-AU .
+
+tmk:Exception a owl:Class ;
+    rdfs:subClassOf tmk:LegalConcept ;
+    rdfs:label "Exception"@en-AU ;
+    rdfs:comment "UNPOPULATED — needs an expert. A condition under which a general position does not hold, or is reversed."@en-AU .
+
+tmk:LegalProposition a owl:Class ;
+    rdfs:label "Legal proposition"@en-AU ;
+    rdfs:comment """A statement that something is so, held together with the passage that states
+it and the authority of that passage.
+
+Distinct from tmk:Assertion, which is this repo's record *that* a proposition
+was extracted and approved. The proposition is what the corpus says; the
+assertion is what this project did about it."""@en-AU .
+
+# --- the scheme ------------------------------------------------------------
+
+tmk:ConceptScheme a owl:Class ;
+    rdfs:subClassOf skos:ConceptScheme ;
+    rdfs:label "TM-Knowledge concept scheme"@en-AU .
+
+# --- properties on a concept ------------------------------------------------
+
+tmk:notLabel a owl:DatatypeProperty ;
+    rdfs:domain tmk:LegalConcept ;
+    rdfs:range xsd:string ;
+    rdfs:label "not label"@en-AU ;
+    rdfs:comment """A term this concept must NOT be conflated with. There is no SKOS property for
+this and it is the most valuable field on the record.
+
+`deceptively similar` is a not-label of `likely to deceive or cause confusion`
+because the two belong to different sections; a retrieval system that treats
+them as synonyms routes an examiner to the wrong test, and the misrouting is
+invisible because both destinations are about confusion (GX-0005)."""@en-AU .
+
+tmk:definitionSource a owl:ObjectProperty ;
+    rdfs:domain tmk:LegalConcept ;
+    rdfs:range tmk:Passage ;
+    rdfs:label "definition source"@en-AU ;
+    rdfs:comment """The passages from which the concept's meaning is drawn.
+
+Note what is NOT asserted alongside it: `skos:definition`. The approved records
+carry definition *sources* and no definition text, so the graph carries sources
+and no definition text. Writing one would be authoring the vocabulary
+(CLAUDE.md rule 1); the absence is reported by `tmk-ontology-report`."""@en-AU .
+
+tmk:legislativeBasis a owl:ObjectProperty ;
+    rdfs:domain tmk:LegalConcept ;
+    rdfs:range tmk:LegislativeProvision ;
+    rdfs:label "legislative basis"@en-AU ;
+    rdfs:comment "The provision the concept operates under. A concept can have a legislative basis and still be a creature of practice — the basis says which ground it belongs to, not that the Act uses the word."@en-AU .
+
+tmk:goldRecord a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:range xsd:string ;
+    rdfs:label "gold record id"@en-AU ;
+    rdfs:comment "The `eval/gold/` record this node was built from — `GC-0001`, `GR-0007`. The route back from any node in the graph to the approved record and the reviewer who signed it."@en-AU .
+
+# --- the domain and range that licenses nothing false ----------------------
+
+tmk:LegalMatter a owl:Class ;
+    rdfs:label "Legal matter"@en-AU ;
+    rdfs:comment """Anything an approved relation may hold between: a concept, a provision, a
+Manual passage, a decision.
+
+It exists because the approved relationships do not agree on narrower types.
+`requiresElement` runs Provision→Concept twice, Concept→Concept three times and
+Concept→Provision once; `excludesBasis` runs both ways. Asserting a narrow
+`rdfs:domain` on that evidence would, under OWL RL, silently reclassify every
+subject of the property — a careless range assertion manufactures
+classifications (ontology/README.md).
+
+So the asserted domain and range are this union superclass, which licenses only
+'this is a legal matter', and the narrow types each predicate has actually been
+seen with are recorded as annotations that infer nothing. Tightening them is an
+expert ruling, and `tmk-ontology-report` lists the candidates."""@en-AU .
+
+tmk:LegalConcept rdfs:subClassOf tmk:LegalMatter .
+tmk:LegislativeProvision rdfs:subClassOf tmk:LegalMatter .
+tmk:ManualInstruction rdfs:subClassOf tmk:LegalMatter .
+tmk:JudicialDecision rdfs:subClassOf tmk:LegalMatter .
+tmk:Chunk rdfs:subClassOf tmk:LegalMatter .
+
+tmk:ApprovedRelation a owl:Class ;
+    rdfs:label "Approved relation"@en-AU ;
+    rdfs:comment """A predicate on the closed list in `relations.ttl`.
+
+Extraction may only propose relationships from this list. An open predicate set
+makes precision unmeasurable — with no fixed vocabulary, a wrong predicate and a
+new one are the same event, so nothing can be scored (ontology/README.md)."""@en-AU .
+
+tmk:observedSubjectType a owl:AnnotationProperty ;
+    rdfs:label "observed subject type"@en-AU ;
+    rdfs:comment "A type this predicate's subject has actually taken in the approved set, with no claim that it is the only one. An annotation, so it licenses no inference."@en-AU .
+
+tmk:observedObjectType a owl:AnnotationProperty ;
+    rdfs:label "observed object type"@en-AU ;
+    rdfs:comment "As tmk:observedSubjectType, for the object."@en-AU .
+
+tmk:usageCount a owl:AnnotationProperty ;
+    rdfs:label "usage count"@en-AU ;
+    rdfs:comment "How many approved relationships use this predicate. Six of the fourteen are used exactly once, which is worth seeing before anyone treats the dictionary as settled."@en-AU .
+
+tmk:usedBy a owl:AnnotationProperty ;
+    rdfs:label "used by"@en-AU ;
+    rdfs:comment "The gold record ids that use this predicate. The route from a term in the dictionary back to the sentences that put it there."@en-AU .

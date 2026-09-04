@@ -1,0 +1,26 @@
+# question: CQ-0018
+# answers: The WHO has notified a new International Non-Proprietary Name. What in our practice material is affected?
+# limits: Finds the material that depends on the external register, by the approved `dependsOnExternalSource` edges and the concepts around them. It cannot tell you whether the new INN actually affects any particular mark, and it does not include the INN stem annex — twenty-odd chunks of bare word fragments with no sentences, which GS-0007 treats as tempting wrong answers rather than as answers.
+
+PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
+PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?record ?subjectLabel ?predicate ?objectLabel ?statement ?sourceRef
+WHERE {
+  GRAPH tmkg:approved {
+    ?assertion a tmk:ApprovedAssertion ;
+               tmk:goldRecord ?record ;
+               tmk:assertionPredicate ?predicate ;
+               tmk:assertionSubject ?subject ;
+               tmk:assertionObject ?object ;
+               tmk:supportingText ?statement ;
+               tmk:sourcePassage ?passage .
+    ?subject skos:prefLabel ?subjectLabel .
+    OPTIONAL { ?object skos:prefLabel ?objectLabel }
+    FILTER (CONTAINS(LCASE(CONCAT(?subjectLabel, " ", COALESCE(?objectLabel, ""))), "inn")
+            || CONTAINS(LCASE(CONCAT(?subjectLabel, " ", COALESCE(?objectLabel, ""))), "non-proprietary"))
+  }
+  GRAPH tmkg:source { ?passage tmk:upstreamRef ?sourceRef }
+}
+ORDER BY ?record

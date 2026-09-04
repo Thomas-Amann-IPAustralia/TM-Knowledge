@@ -1,0 +1,54 @@
+@prefix tmk:     <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix tmkc:    <https://data.ipaustralia.gov.au/tmk/concept/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/evidence>
+    a owl:Ontology ;
+    rdfs:label "TM-Knowledge — evidence module"@en-AU ;
+    rdfs:comment """**Entirely unpopulated, and the emptiest module in the draft on purpose.**
+
+The roadmap names it and the approved section 43 set says almost nothing about
+evidence: the pilot's material is about what a sign connotes, not about what an
+applicant files to establish something. Two records touch it — written
+permission overcoming a ground (GR-0039), information establishing that an
+applicant is the owner of a phoneword (GX-0010) — and neither is enough to
+model an evidence taxonomy from.
+
+Populating this is a Part 22/23 job (evidence of use under s 41), and Part 22 is
+explicitly out of the pilot scope draft. Left declared so the module list is
+complete and so nobody builds a second one."""@en-AU ;
+    owl:imports <https://data.ipaustralia.gov.au/tmk/ns/legal-concepts> ;
+    owl:versionInfo "draft — not approved · unpopulated" .
+
+tmk:Evidence a owl:Class ;
+    rdfs:label "Evidence"@en-AU ;
+    rdfs:comment "UNPOPULATED. Material put before the decision maker."@en-AU .
+
+tmk:EvidenceCategory a owl:Class ;
+    rdfs:label "Evidence category"@en-AU ;
+    rdfs:comment "UNPOPULATED. A kind of evidence, as the practice material groups them."@en-AU .
+
+tmk:EvidenceSubmission a owl:Class ;
+    rdfs:label "Evidence submission"@en-AU ;
+    rdfs:comment "UNPOPULATED. The act of filing evidence in a matter."@en-AU .
+
+tmk:EvidentiaryProposition a owl:Class ;
+    rdfs:subClassOf tmk:LegalProposition ;
+    rdfs:label "Evidentiary proposition"@en-AU ;
+    rdfs:comment """UNPOPULATED, and it must stay unpopulated while automated reasoning is bounded
+as it is.
+
+'The evidence establishes acquired distinctiveness' is an evaluative conclusion
+and stays outside automated reasoning scope (queries/README.md). A class that
+holds such propositions is fine; a rule that derives one is not."""@en-AU .
+
+tmk:establishes a owl:ObjectProperty ;
+    rdfs:domain tmk:Evidence ;
+    rdfs:label "establishes"@en-AU ;
+    rdfs:comment "UNUSED. Declared to name the shape of the relation, not to license it: nothing in this repo may derive this edge."@en-AU .

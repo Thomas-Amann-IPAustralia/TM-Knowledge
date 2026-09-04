@@ -1,0 +1,25 @@
+# question: CQ-0011
+# answers: Does a descriptive term inside a trade mark trigger section 43 on its own?
+# limits: Returns what the Manual states, and the statement is a negative one — the `doesNotGiveRiseTo` edges. This is the case a word-overlap system gets backwards: asked to support "descriptive matter gives rise to a section 43 ground", it finds the passage that says the opposite and cites it (GX-0013). The qualification in the sentence is part of the answer and must travel with it.
+
+PREFIX tmk:  <https://data.ipaustralia.gov.au/tmk/ns/>
+PREFIX tmkg: <https://data.ipaustralia.gov.au/tmk/graph/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?record ?subjectLabel ?objectLabel ?statement ?sourceRef ?modality
+WHERE {
+  GRAPH tmkg:approved {
+    ?assertion a tmk:ApprovedAssertion ;
+               tmk:goldRecord ?record ;
+               tmk:assertionPredicate tmk:doesNotGiveRiseTo ;
+               tmk:assertionSubject ?subject ;
+               tmk:assertionObject ?object ;
+               tmk:supportingText ?statement ;
+               tmk:sourcePassage ?passage .
+    OPTIONAL { ?assertion tmk:modality ?modality }
+    OPTIONAL { ?subject skos:prefLabel ?subjectLabel }
+    OPTIONAL { ?object skos:prefLabel ?objectLabel }
+  }
+  GRAPH tmkg:source { ?passage tmk:upstreamRef ?sourceRef }
+}
+ORDER BY ?record

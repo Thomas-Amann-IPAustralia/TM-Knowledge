@@ -1,0 +1,45 @@
+# A graph that commits PU-0004, so that the shape which forbids it can be shown
+# to fire. This is the prohibited output written as RDF:
+#
+#     "Section 43 of the Act requires the connotation to be obvious, direct and
+#      immediate."
+#
+# Every word of that formulation is in the corpus. It is the Manual's, in
+# TMM/Part29/3#1~2, and the Act requires no such thing. Attributing it to the
+# Act gives an examiner a statutory requirement that does not exist and removes
+# the Registrar's discretion in the same sentence.
+#
+# Expected: tmk:AuthorityConflationShape reports one Violation on :bad-claim.
+# Expected: :good-claim conforms — same words, same passage, honest attribution.
+
+@prefix tmk:  <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix tmkr: <https://data.ipaustralia.gov.au/tmk/ref/> .
+@prefix :     <https://example.org/fixture/> .
+
+tmkr:TMA1995\/s43
+    a tmk:LegislativeProvision ;
+    tmk:authorityKind "law" ;
+    tmk:contentHash "sha256:0000000000000000000000000000000000000000000000000000000000000000" ;
+    tmk:capturedIn :snapshot .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2>
+    a tmk:Chunk ;
+    tmk:authorityKind "practice" ;
+    tmk:contentHash "sha256:1111111111111111111111111111111111111111111111111111111111111111" ;
+    tmk:capturedIn :snapshot .
+
+:snapshot a tmk:DocumentVersion .
+
+# VIOLATES. Stated in a practice passage; attributed to the Act.
+:bad-claim
+    a tmk:LegalProposition ;
+    tmk:statedIn <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:attributedTo tmkr:TMA1995\/s43 .
+
+# CONFORMS. The same words, from the same passage, attributed to the Manual —
+# which is where they are. The difference between the two is the whole of
+# CLAUDE.md rule 5.
+:good-claim
+    a tmk:LegalProposition ;
+    tmk:statedIn <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:attributedTo <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> .

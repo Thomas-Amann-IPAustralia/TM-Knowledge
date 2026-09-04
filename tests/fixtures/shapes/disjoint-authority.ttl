@@ -1,0 +1,16 @@
+# A node typed both practice and law. The classes are owl:disjointWith, and
+# under OWL RL an inconsistent graph entails everything — so this must be caught
+# at the gate rather than discovered as a strange query result.
+#
+# Expected: tmk:DisjointAuthorityShape reports a Violation on :confused.
+
+@prefix tmk: <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix :    <https://example.org/fixture/> .
+
+:confused
+    a tmk:ManualInstruction , tmk:LegislativeProvision ;
+    tmk:authorityKind "practice" ;
+    tmk:contentHash "sha256:2222222222222222222222222222222222222222222222222222222222222222" ;
+    tmk:capturedIn :snapshot .
+
+:snapshot a tmk:DocumentVersion .
