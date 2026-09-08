@@ -37,32 +37,50 @@ tmk:LegalConcept a owl:Class ;
 tmk:GroundOfRefusal a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
     rdfs:label "Ground of refusal"@en-AU ;
-    rdfs:comment "Filled only from a signed record in eval/gold/concept-types.yaml. A statutory basis on which registration may be refused."@en-AU .
+    rdfs:comment "Filled from a concept-types.yaml record and from nothing else — never from a label or a heuristic. In the approved graph that record is one a named expert signed; in the authored graph it is one a machine wrote and nobody has read, and the two never share a graph (ADR-0080). A statutory basis on which registration may be refused."@en-AU .
 
 tmk:LegalTest a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
     rdfs:label "Legal test"@en-AU ;
-    rdfs:comment "Filled only from a signed record in eval/gold/concept-types.yaml. A question the decision maker must answer, with a stated threshold."@en-AU .
+    rdfs:comment "Filled from a concept-types.yaml record and from nothing else — never from a label or a heuristic. In the approved graph that record is one a named expert signed; in the authored graph it is one a machine wrote and nobody has read, and the two never share a graph (ADR-0080). A question the decision maker must answer, with a stated threshold."@en-AU .
 
 tmk:RelevantFactor a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
     rdfs:label "Relevant factor"@en-AU ;
-    rdfs:comment "Filled only from a signed record in eval/gold/concept-types.yaml. Something the decision maker weighs, which does not on its own decide the question."@en-AU .
+    rdfs:comment "Filled from a concept-types.yaml record and from nothing else — never from a label or a heuristic. In the approved graph that record is one a named expert signed; in the authored graph it is one a machine wrote and nobody has read, and the two never share a graph (ADR-0080). Something the decision maker weighs, which does not on its own decide the question."@en-AU .
 
 tmk:Exception a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
     rdfs:label "Exception"@en-AU ;
-    rdfs:comment "Filled only from a signed record in eval/gold/concept-types.yaml. A condition under which a general position does not hold, or is reversed."@en-AU .
+    rdfs:comment "Filled from a concept-types.yaml record and from nothing else — never from a label or a heuristic. In the approved graph that record is one a named expert signed; in the authored graph it is one a machine wrote and nobody has read, and the two never share a graph (ADR-0080). A condition under which a general position does not hold, or is reversed."@en-AU .
 
 tmk:typedBy a owl:ObjectProperty ;
     rdfs:label "typed by"@en-AU ;
     rdfs:domain tmk:LegalConcept ;
-    rdfs:comment """The signed record that put this concept in one of the four groups.
+    rdfs:comment """The record that put this concept in one of the four groups.
 
-Present so a typed concept can be traced to the person and the date that typed
-it, rather than appearing to have always been a LegalTest. The four classes are
-the one place in this model where a class membership is a human judgement rather
-than a structural fact, so the judgement carries its provenance."""@en-AU .
+Present so a typed concept can be traced to whoever or whatever typed it and the
+date they did, rather than appearing to have always been a LegalTest. The four
+classes are the one place in this model where a class membership is a judgement
+rather than a structural fact, so the judgement carries its provenance — and
+since ADR-0079 that provenance is load-bearing rather than merely tidy, because
+the typing may have been written by a model no expert has read.
+
+Follow it and read what you find: the assertion node carries tmk:origin and
+tmk:reviewStatus, and a concept whose only typing is authored has been sorted by
+nobody."""@en-AU .
+
+tmk:conceptGroup a owl:DatatypeProperty ;
+    rdfs:label "concept group"@en-AU ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:comment """The group the typing record names, verbatim — including "none_of_these".
+
+Redundant with the concept's class for the four groups that have one, and the
+only record of the fifth. A concept typed none_of_these asserts no class on
+purpose: the four groups do not fit it. Without this property that decision is
+indistinguishable in the graph from a concept nobody has typed at all, and the
+two are opposites — one is an answer about the taxonomy, the other is a
+gap (ADR-0093)."""@en-AU .
 
 tmk:LegalProposition a owl:Class ;
     rdfs:label "Legal proposition"@en-AU ;

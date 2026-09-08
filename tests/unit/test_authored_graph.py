@@ -213,3 +213,64 @@ def test_the_built_graph_still_validates_with_authored_content(built_with_author
     assert report.by_severity("defect") == [], "\n".join(
         str(finding) for finding in report.by_severity("defect")
     )
+
+
+# ---------------------------------------------------------------------------
+# `none_of_these` — the answer that asserts no class and is still an answer
+# ---------------------------------------------------------------------------
+
+
+def _typings(*records) -> authored_store.AuthoredSet:
+    """An authored store holding exactly these concept typings."""
+    from pathlib import Path
+
+    envelope = {
+        "review_status": "unreviewed",
+        "authored_by": "«model»-0.0",
+        "authored_date": "2026-09-08",
+        "authoring_basis": "corpus_inferred",
+        "reasoning": "«why this group»",
+    }
+    return authored_store.AuthoredSet(
+        root=Path("«not read»"),
+        entries=tuple(
+            authored_store.AuthoredRecord(
+                record_type="concept_type",
+                record=dict(record),
+                envelope=dict(envelope),
+                source_file=Path("«not read»"),
+                position=position,
+            )
+            for position, record in enumerate(records)
+        ),
+    )
+
+
+def test_none_of_these_is_recorded_as_an_answer_and_asserts_no_class():
+    """`none_of_these` says the four groups do not fit this concept. That is
+    evidence about the taxonomy, and the opposite of a concept nobody has
+    sorted — so the typing node, its record and its group are written, and only
+    the `rdf:type` is withheld (ADR-0093, Q-50).
+
+    Before this the record was skipped outright, which made 'sorted into
+    none_of_these' and 'never sorted' the same state in the graph and undercounted
+    the pass by every such record.
+    """
+    dataset, report = build(
+        authored=_typings(
+            {"id": "GT-9001", "concept": "GC-0020", "type": "exception"},
+            {"id": "GT-9002", "concept": "GC-0044", "type": "none_of_these"},
+        )
+    )
+    authored = dataset.graph(AUTHORED_GRAPH)
+    groups = {str(value) for _, value in authored.subject_objects(TMK.conceptGroup)}
+    assert groups == {"exception", "none_of_these"}
+
+    typed = {str(s) for s, _ in authored.subject_objects(TMK.typedBy)}
+    assert len(typed) == 2, "both concepts are linked to the typing that sorted them"
+    assert (None, RDF.type, TMK.Exception) in authored
+    # There is no tmk:NoneOfThese and there must not be one: the concept stays a
+    # bare tmk:LegalConcept and the graph says so by saying nothing.
+    assert not list(authored.subjects(RDF.type, TMK.NoneOfThese))
+
+    assert report.authored.concept_types == 2, "both count as sorted, not one"
