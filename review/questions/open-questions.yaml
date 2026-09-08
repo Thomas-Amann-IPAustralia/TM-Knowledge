@@ -17,7 +17,7 @@ themes:
   - id: unblocks
     title: Decisions that unblock the next piece of work
     blurb: >
-      Six things nothing can move past. Each is a judgement call, not a research
+      Things nothing can move past. Each is a judgement call, not a research
       task — if you have a view, that view is the answer.
   - id: scope
     title: Scope and permissions
@@ -817,6 +817,11 @@ questions:
     theme: expert
     status: answered
     # Answered 2026-09-08 (issue #12, by hand): one hop, on the chunk. Follow-on is OQ-0021.
+    answered:
+      date: '2026-09-08'
+      how: 'You typed the answer into issue #12 by hand, outside the form.'
+      record: review/returned/260908-owner-notes-issue-12.md
+      applied: true
     needs: expert
     urgency: high
     raised: S002
@@ -839,6 +844,11 @@ questions:
     theme: expert
     status: answered
     # Answered 2026-09-08 (issue #12, by hand): glossary, plus Must/May. Follow-on is OQ-0022.
+    answered:
+      date: '2026-09-08'
+      how: 'You typed the answer into issue #12 by hand, outside the form.'
+      record: review/returned/260908-owner-notes-issue-12.md
+      applied: true
     needs: expert
     urgency: medium
     raised: S008
@@ -862,6 +872,11 @@ questions:
     theme: expert
     status: answered
     # Answered 2026-09-08 (issue #12, by hand): scope covers what the ontology needs; three named sources.
+    answered:
+      date: '2026-09-08'
+      how: 'You typed the answer into issue #12 by hand, outside the form.'
+      record: review/returned/260908-owner-notes-issue-12.md
+      applied: true
     needs: expert
     urgency: medium
     raised: S008

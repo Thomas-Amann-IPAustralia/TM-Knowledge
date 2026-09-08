@@ -90,7 +90,30 @@
               }
             ]
           },
-          "notes_prompt": { "type": "string" }
+          "notes_prompt": { "type": "string" },
+          "answered": {
+            "description": "Where the answer is recorded, for a question settled outside the dashboard form — typed into the issue by hand, or decided somewhere the form never saw. A question with `status: answered` and no entry in a ruling file must carry this: without it the site shows it as answered and offers no trace of an answer, which reads as an open question that has lost its control.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["date", "how", "record"],
+            "properties": {
+              "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+              "how": {
+                "description": "One sentence on how the answer arrived, in the reader's terms.",
+                "type": "string",
+                "minLength": 10
+              },
+              "record": {
+                "description": "Repository-relative path to the file holding the answer itself.",
+                "type": "string",
+                "minLength": 3
+              },
+              "applied": {
+                "description": "False while the answer is recorded but not yet acted on.",
+                "type": "boolean"
+              }
+            }
+          }
         },
         "allOf": [
           {

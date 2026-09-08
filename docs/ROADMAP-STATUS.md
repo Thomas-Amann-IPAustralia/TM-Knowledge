@@ -134,10 +134,10 @@ decisions waiting on the owner in front of them as a form they can answer.
 |---|---|---|
 | The site | **done** — 9 pages, no framework, no CDN, no build step | `site/` |
 | Site data generator | **done** — generated, drift-checked in CI | `tmk-dashboard` → `site/data/` |
-| Publication | **done** — needs one repo setting (Pages source: GitHub Actions) | `.github/workflows/pages.yml` |
-| Owner question queue | **done** — 13 asked, 4 parked, schema-validated | `review/questions/open-questions.yaml` |
+| Publication | **done and live** — Pages source is GitHub Actions; deploying, and manually re-runnable from the Actions tab | `.github/workflows/pages.yml` |
+| Owner question queue | **done** — 10 asked, 2 parked, 10 answered, schema-validated | `review/questions/open-questions.yaml` |
 | Answer round trip | **done** — form → issue → workflow → file | `tmk-ruling`, `.github/workflows/ruling.yml` |
-| Recorded rulings | **none yet** — the queue has not been answered | `review/rulings/` |
+| Recorded rulings | **done** — one ruling (issue #12), applied; three further answers given by hand and recorded on the questions themselves | `review/rulings/`, `review/returned/` |
 
 **This is not the roadmap's review interface.** Release 1 names one, and that is
 for triaging Stage 2 extraction candidates — terms, citations, clusters — none of

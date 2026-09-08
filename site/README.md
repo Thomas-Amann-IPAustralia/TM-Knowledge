@@ -71,8 +71,24 @@ Opening `index.html` from disk will not work: the browser blocks `fetch` on
 
 `.github/workflows/pages.yml` regenerates the data and publishes on every push
 to `main` that touches anything the site reads. It needs the repository setting
-**Settings → Pages → Build and deployment → Source: GitHub Actions**; without
-it the workflow runs green and publishes nothing.
+**Settings → Pages → Build and deployment → Source: GitHub Actions** — which is
+set — and without it the workflow would run green and publish nothing.
+
+It also carries `workflow_dispatch`, so the site can be rebuilt on demand from
+**Actions → pages → Run workflow** without pushing a commit.
+
+**Before concluding the site is stale, check.** A page showing something the
+repository no longer holds is a real failure mode, and a page that merely *looks*
+wrong is more often a rendering bug. These two answer it:
+
+```bash
+curl -s https://thomas-amann-ipaustralia.github.io/TM-Knowledge/data/inbox.json \
+  | diff - site/data/inbox.json          # what is published vs what is committed
+tmk-dashboard --write && git status --short site/data/   # committed vs regenerated
+```
+
+The footer's *"Generated …"* stamp answers the same question for a reader who has
+no checkout.
 
 The build reads committed artefacts only — no upstream snapshot, no network —
 so a deploy cannot fail because upstream was unreachable, and the page cannot

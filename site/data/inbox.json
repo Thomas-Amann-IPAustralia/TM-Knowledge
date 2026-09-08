@@ -8,7 +8,7 @@
   {
    "id": "unblocks",
    "title": "Decisions that unblock the next piece of work",
-   "blurb": "Six things nothing can move past. Each is a judgement call, not a research task — if you have a view, that view is the answer.\n"
+   "blurb": "Things nothing can move past. Each is a judgement call, not a research task — if you have a view, that view is the answer.\n"
   },
   {
    "id": "scope",
@@ -787,6 +787,12 @@
    "id": "OQ-0014",
    "theme": "expert",
    "status": "answered",
+   "answered": {
+    "date": "2026-09-08",
+    "how": "You typed the answer into issue #12 by hand, outside the form.",
+    "record": "review/returned/260908-owner-notes-issue-12.md",
+    "applied": true
+   },
    "needs": "expert",
    "urgency": "high",
    "raised": "S002",
@@ -803,6 +809,12 @@
    "id": "OQ-0015",
    "theme": "expert",
    "status": "answered",
+   "answered": {
+    "date": "2026-09-08",
+    "how": "You typed the answer into issue #12 by hand, outside the form.",
+    "record": "review/returned/260908-owner-notes-issue-12.md",
+    "applied": true
+   },
    "needs": "expert",
    "urgency": "medium",
    "raised": "S008",
@@ -818,6 +830,12 @@
    "id": "OQ-0016",
    "theme": "expert",
    "status": "answered",
+   "answered": {
+    "date": "2026-09-08",
+    "how": "You typed the answer into issue #12 by hand, outside the form.",
+    "record": "review/returned/260908-owner-notes-issue-12.md",
+    "applied": true
+   },
    "needs": "expert",
    "urgency": "medium",
    "raised": "S008",

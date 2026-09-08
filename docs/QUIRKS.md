@@ -807,3 +807,43 @@ written sorted; `test_the_quads_file_is_sorted` checks the committed one.
 
 Worth knowing before committing any other rdflib output: check reproducibility
 across *processes*, not across calls.
+
+### Q-46 — a count and the list under it can disagree, and only the list is read
+
+The dashboard's decision form said **"10 waiting on you"**, and it was right: ten
+questions carry `status: open`, `needs: owner`. Under that heading it then
+rendered every question in the theme — answered, parked and open alike — in file
+order, with the same chips and no state on the collapsed row. `OQ-0001` was
+answered in issue #12 and sat first. Opening it said *"You answered this."*
+
+The owner's reading was the obvious one: the number must be stale, so the
+published site must be behind the branch. It was not. `pages` had run on the
+merge commit and the deployed `data/inbox.json` matched the repository byte for
+byte. **The build was correct, the count was correct, and the page was still
+wrong** — which is why the first instinct was to go looking at the pipeline.
+
+Two lessons worth more than the fix:
+
+- A summary count and the list beneath it are two renderings of one fact, and
+  nothing was checking they agreed. The count filtered on state; the list did
+  not filter at all.
+- A stale-looking page is not evidence of a stale build. Check what the site is
+  actually serving — `curl <site>/data/<page>.json` against the committed file —
+  before touching the workflow. The footer's *"Generated …"* stamp answers the
+  same question in one glance.
+
+The theme blurb had the same shape of error in prose: *"Six things nothing can
+move past"*, hand-written when there were six, still saying it when five were
+answered. Counts belong in the renderer, which cannot go stale.
+
+### Q-47 — an unquoted `#` in YAML eats the rest of the line
+
+`how: You typed the answer into issue #12 by hand, outside the form.` loads as
+`You typed the answer into issue`. A `#` preceded by whitespace opens a comment
+anywhere in a plain scalar, so the sentence lost its second half silently — no
+error, valid YAML, schema satisfied because the truncated string still cleared
+`minLength`.
+
+It was caught only because the generated JSON was read back after writing. Quote
+any scalar containing `#`, and be aware that issue and pull request references
+(`#12`) are the common way this arrives in a repository's own prose.

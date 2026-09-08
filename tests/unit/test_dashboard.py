@@ -110,6 +110,53 @@ def test_a_parked_question_is_not_put_to_the_owner():
         assert not question.is_asked
 
 
+def test_an_answered_question_can_show_what_the_answer_was():
+    """`status: answered` is a claim about the owner, and the card has to be able
+    to back it.
+
+    Three questions were marked answered on the strength of a YAML comment. A
+    comment is invisible to the schema, to this test and to the dashboard, so the
+    site rendered them as answered with no answer under them — indistinguishable
+    from an open question that has lost its control. The evidence is either an
+    entry in a ruling file, or an `answered:` block naming the record.
+    """
+    recorded = {
+        identifier
+        for ruling_file in questions.load_rulings()
+        for identifier in ruling_file.answered_ids
+    }
+    for question in questions.load().by_status("answered"):
+        note = question.raw.get("answered")
+        assert question.identifier in recorded or note, (
+            f"{question.identifier} is marked answered and nothing in the repository "
+            f"says what the answer was — no ruling entry, no `answered:` block"
+        )
+        if note:
+            record = REPO_ROOT / note["record"]
+            assert record.exists(), f"{question.identifier}: {note['record']} does not exist"
+
+
+def test_no_theme_blurb_hardcodes_a_count_of_its_questions():
+    """A count written into prose is right on the day it is typed.
+
+    The `unblocks` blurb said "Six things nothing can move past" and went on
+    saying it after five of the six were answered, which is the same failure as a
+    stale number on a generated page — just typed by a person instead (Q-46). The
+    dashboard counts each theme itself.
+    """
+    numbers = re.compile(
+        r"\b(one|two|three|four|five|six|seven|eight|nine|ten|\d+)\s+"
+        r"(things?|questions?|decisions?|items?)\b",
+        re.IGNORECASE,
+    )
+    for theme in questions.load().themes:
+        found = numbers.search(theme["blurb"])
+        assert not found, (
+            f"theme {theme['id']}: blurb counts its own questions "
+            f"({found.group(0)!r}); the dashboard does that, and does not go stale"
+        )
+
+
 @pytest.mark.snapshot
 @pytest.mark.rdf
 def test_no_question_quotes_a_rule_triple_count_as_a_finding_count():
