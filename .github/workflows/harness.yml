@@ -261,3 +261,24 @@ jobs:
             exit 1
           fi
           echo "The harness still rejects a corrupted gold set." >> "$GITHUB_STEP_SUMMARY"
+
+      # The same canary for the other store. `authored/` is empty today, so
+      # every authored check would iterate nothing and pass — which is exactly
+      # the vacuous green ADR-0018 exists to prevent, and it would stay vacuous
+      # right up until the first real record was written. The gold set is the
+      # sound fixture here, so the only thing that can make this exit 1 is the
+      # authored store.
+      - name: The harness must reject a deliberately corrupted authored store
+        run: |
+          set +e
+          tmk-harness \
+            --gold-dir tests/fixtures/harness/sound \
+            --authored-dir tests/fixtures/authored/defective \
+            --no-resolution --allow-incomplete
+          code=$?
+          set -e
+          if [ "$code" -ne 1 ]; then
+            echo "::error::the harness exited ${code} on an authored store corrupted on purpose; it must exit 1"
+            exit 1
+          fi
+          echo "The harness still rejects a corrupted authored store." >> "$GITHUB_STEP_SUMMARY"

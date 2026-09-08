@@ -1,0 +1,39 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+- id: GC-901
+  pref_label: "«preferred label»"
+  alt_labels: []
+  not_labels: ["«a near-miss that is not this concept»"]
+  definition_sources: [TMM/Part20/5/5/1]
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: "«model»-0.0"
+    authored_date: "2026-09-08"
+    authoring_basis: corpus_explicit
+    evidence:
+      - ref: TMM/Part20/5/5/1
+        span: [0, 10]
+        content_hash: "sha256:831405e7d7b931839c20bb89f61ec12a694ba556c60e342a9e1ef7faea210193"
+        quote: "Section 39"
+    confidence: 0.8
+    reasoning: "«why this reading and not the obvious alternative»"
+    alternatives_considered: ["«the reading rejected, and what would make it right»"]
+    expert_should_check: "«the thing most likely to be wrong»"
+
+# The honest label for a judgement the corpus does not support. Permitted, and
+# carries no evidence by definition — a note, never a defect.
+- id: GC-902
+  pref_label: "«a preferred label the corpus does not define»"
+  alt_labels: []
+  not_labels: []
+  definition_sources: []
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: "«model»-0.0"
+    authored_date: "2026-09-08"
+    authoring_basis: general_knowledge
+    reasoning: "«written from what the model knows; the corpus does not say it»"
+    expert_should_check: "«whether this belongs in the vocabulary at all»"

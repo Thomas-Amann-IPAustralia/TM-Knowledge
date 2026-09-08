@@ -1,14 +1,14 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "88 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "91 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 88,
+     "value": 91,
      "note": null,
      "tone": null,
      "href": null
@@ -22,7 +22,7 @@
     },
     {
      "label": "Forced by the evidence",
-     "value": 19,
+     "value": 21,
      "note": "defensible without a human",
      "tone": null,
      "href": null
@@ -77,6 +77,90 @@
     }
    ],
    "rows": [
+    {
+     "id": "`ADR-0091`",
+     "title": "The graph reads both stores through one mapping, into a fourth named graph",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0091 The graph reads both stores through one mapping, into a fourth named graph derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0080: *\"The graph reads both and stamps every node with where it came from.\"* Two shapes were available. A flag on nodes in the existing approved graph, or a separate named graph."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0091-the-graph-reads-both-stores-through-one-mapping-into-a-fourth-named-graph)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0090`",
+     "title": "The harness checks both stores, and three checks exist only for the authored one",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0090 The harness checks both stores, and three checks exist only for the authored one agent-proposed accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "`tmk-harness` asserted `eval/STAGE-0-INPUT-GUIDE.md` §7 over `eval/gold/`. ADR-0080 requires the two stores to be reported separately and never summed, which needs the harness to read both. Most checks transfer unchanged — an authored concept is the same shape as a signed one. Three do not, and one inverts."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0090-the-harness-checks-both-stores-and-three-checks-exist-only-for-the-authored-one)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0089`",
+     "title": "`authored/` gets one reader, and it refuses rather than skips",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0089 `authored/` gets one reader, and it refuses rather than skips derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0080 created `authored/` and specified what a record in it must carry. It did not say what reads the directory. S015 created the directory, its README and its envelope schema, and stopped there; the store had a contract and no code, which meant the contract was aspirational — a record could be written into…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0089-authored-gets-one-reader-and-it-refuses-rather-than-skips)"
+      }
+     ]
+    },
     {
      "id": "`ADR-0088`",
      "title": "Corpus text may go to the model API; spend is justified per call",

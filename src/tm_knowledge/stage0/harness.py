@@ -4,6 +4,14 @@ It asserts the mechanical list in `eval/STAGE-0-INPUT-GUIDE.md` §7 over whateve
 `eval/gold/` holds, and reports what §7 still wants. Two kinds of finding, and
 the distinction is the whole design (ADR-0018):
 
+**Since ADR-0080 it checks two stores.** `eval/gold/` holds what an expert
+signed; `authored/` holds what a machine wrote and nobody has read. Every
+finding names which store it came from, and no count in this module adds them
+together — the completeness gate measures the signed set alone, because a band
+met by authored records would report Stage 0 finished on the strength of
+records nobody has looked at. The authored checks are gathered under
+`AUTHORED_CHECKS` below.
+
 - **DEFECT** — something that arrived is wrong: a record that does not validate,
   a duplicated id, a dangling cross-reference, a `source_ref` that resolves to
   nothing, a `span` that does not land on its recorded text, a stale
@@ -30,11 +38,13 @@ remaining finding is real.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
 from typing import Any, Iterator
 
+from tm_knowledge.authored import store as authored_store
+from tm_knowledge.authored.store import AuthoredRecord, AuthoredSet
 from tm_knowledge.config import REPO_ROOT
 from tm_knowledge.refs import InvalidRef, RefKind, parse_ref
 from tm_knowledge.stage0 import goldset
@@ -59,6 +69,7 @@ __all__ = [
     "DELIVERABLES",
     "SPAN_SURFACE",
     "passage_at",
+    "AUTHORED_CHECKS",
 ]
 
 
@@ -178,6 +189,12 @@ class Report:
     resolution_skipped: str | None = None
     #: The snapshot commit the resolution checks ran against, when they ran.
     pin_commit: str | None = None
+    #: What `authored/` holds. A second store, never added to the first
+    #: (ADR-0080 consequence 3) — `Report` deliberately has no property that
+    #: sums them, because the moment one exists something will print it.
+    authored: AuthoredSet = field(
+        default_factory=lambda: AuthoredSet(root=authored_store.AUTHORED_DIR)
+    )
 
     def of(self, severity: Severity) -> tuple[Finding, ...]:
         return tuple(f for f in self.findings if f.severity is severity)
@@ -222,6 +239,24 @@ class Report:
             f"{len(self.notes)} note(s); Stage 0 "
             f"{'complete' if self.complete else 'incomplete'}"
         )
+
+    def stores(self) -> str:
+        """The two record counts, side by side and never added.
+
+        One line, printed wherever the summary is, because the number a reader
+        wants — how much of this has a person read — is not derivable from
+        either figure alone (ADR-0080 consequence 4).
+        """
+        line = (
+            f"{self.gold.total} signed record(s) in eval/gold/ · "
+            f"{self.authored.total} authored record(s) in authored/, none validated"
+        )
+        if self.authored.refused:
+            line += f" ({len(self.authored.refused)} refused)"
+        unevidenced = self.authored.by_basis().get("general_knowledge", 0)
+        if unevidenced:
+            line += f", {unevidenced} of them unevidenced"
+        return line
 
 
 # ---------------------------------------------------------------------------
@@ -508,6 +543,314 @@ def _staleness(gold: GoldSet, corpus: Corpus) -> Iterator[Finding]:
 
 
 # ---------------------------------------------------------------------------
+# The authored store — the same checks, plus the ones that keep it honest
+# ---------------------------------------------------------------------------
+#
+# `eval/gold/` is checked as a set of expert judgements that arrived; `authored/`
+# is checked as a set of machine judgements that must never be mistaken for them
+# (ADR-0079, ADR-0080). Most checks transfer unchanged — an authored concept is
+# the same shape as a signed one, and is validated against the same schema. Four
+# do not, and they are the reason this section exists rather than a second call
+# to the same functions with a different directory:
+#
+# - **`approved_by` filled in is a defect, not a gap.** On a gold record a null
+#   `approved_by` is the thing waiting to happen. On an authored record it is the
+#   only correct value, and a name in it is the one failure the whole scheme was
+#   built to prevent (ADR-0079 guard 3).
+# - **An id in both stores is a defect.** One sequence, one `GC-0123`, wherever
+#   it lives (ADR-0080 consequence 1). Two records under one id is two answers to
+#   "what did the project decide", and the graph would hold whichever it read
+#   second.
+# - **`review_status: approved` in `authored/` is a defect.** Approval moves a
+#   record to `eval/gold/` through `tmk-transcribe` and by no other route, so an
+#   approved record sitting here is either a transcription that did not finish or
+#   a status an agent wrote. `rejected` is *not* a defect: a rejected record stays
+#   here, because `eval/gold/` holds no rejections. This one is the section's only
+#   judgement call — HANDOFF Q27, ADR-0090.
+# - **`general_knowledge` is a note, counted and listed, never a defect.** It is
+#   the honest label for an unevidenced judgement and forbidding it would only
+#   buy a dishonest `corpus_inferred`. What it must never be is invisible: a
+#   store quietly filling with unevidenced records is the failure ADR-0079's
+#   consequence 2 says to watch for, and a proportion is the only way to see it.
+
+#: The checks in this section, by the `check` name they report under. Named so a
+#: caller can group the authored findings without matching on message text, and
+#: so a check that stops firing is visible as a name nobody produces.
+AUTHORED_CHECKS: tuple[str, ...] = (
+    "authored-file",
+    "authored-envelope",
+    "authored-schema",
+    "authored-approval",
+    "authored-ids",
+    "authored-basis",
+    "authored-evidence",
+)
+
+
+def _authored_files(authored: AuthoredSet) -> Iterator[Finding]:
+    for path, reason in authored.unreadable:
+        yield Finding(Severity.DEFECT, "authored-file", path.name, reason)
+
+
+def _authored_envelopes(authored: AuthoredSet) -> Iterator[Finding]:
+    """Every record that cannot say who wrote it, why, or on what evidence.
+
+    Reported one finding per schema error and never collapsed to "N records are
+    malformed": the record is refused, so this message is the only description
+    of it that reaches anybody.
+    """
+    for entry in authored.refused:
+        for error in entry.envelope_errors:
+            yield Finding(
+                Severity.DEFECT,
+                "authored-envelope",
+                entry.record_id,
+                f"at {error.path}: {error.message}. Refused — it is not counted, "
+                f"not built into the graph, and not lost "
+                f"({entry.source_file.name} record {entry.position})",
+            )
+
+
+def _authored_schema(authored: AuthoredSet) -> Iterator[Finding]:
+    """The record itself, against its own record-type schema.
+
+    The envelope is stripped before this runs, so an authored concept is checked
+    against exactly the schema a signed concept is checked against. That is the
+    point: same shape, different provenance, and nothing in the shape says which
+    store a record came from.
+    """
+    for record_type, record in authored.all_records():
+        for error in validate(record, record_type):
+            yield Finding(
+                Severity.DEFECT,
+                "authored-schema",
+                str(record.get("id") or f"<{record_type} with no id>"),
+                f"at {error.path or '<root>'}: {error.message}",
+            )
+
+
+def _authored_approval(authored: AuthoredSet) -> Iterator[Finding]:
+    """Nothing in here is signed, and nothing in here may say that it is."""
+    for entry in authored.all_entries():
+        for approval_field in ("approved_by", "approved_date"):
+            value = entry.record.get(approval_field)
+            if value is not None:
+                yield Finding(
+                    Severity.DEFECT,
+                    "authored-approval",
+                    entry.record_id,
+                    f"{approval_field} is {value!r}. It means a person read this "
+                    f"record and signed it, and no agent writes it — not with a "
+                    f"name, not with a model id, not with initials (ADR-0079 "
+                    f"guard 3). A signed record lives in eval/gold/ and gets "
+                    f"there through tmk-transcribe alone",
+                )
+        if entry.review_status == "approved":
+            yield Finding(
+                Severity.DEFECT,
+                "authored-approval",
+                entry.record_id,
+                "review_status is 'approved' in authored/. Approval moves a "
+                "record to eval/gold/ through tmk-transcribe and by no other "
+                "route (ADR-0080), so an approved record sitting here is either "
+                "a transcription that did not finish or a status an agent wrote",
+            )
+
+
+def _authored_identifiers(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
+    """One sequence across both stores (ADR-0080 consequence 1)."""
+    signed = {
+        str(record["id"]): record_type
+        for record_type, record in gold.all_records()
+        if isinstance(record.get("id"), str)
+    }
+    seen: dict[str, str] = {}
+    for entry in authored.all_entries():
+        identifier = entry.record.get("id")
+        if not isinstance(identifier, str):
+            continue  # the schema check has already said so
+        prefix = ID_PREFIXES[entry.record_type]
+        if not identifier.startswith(prefix + "-"):
+            yield Finding(
+                Severity.DEFECT, "authored-ids", identifier,
+                f"an authored {entry.record_type} must carry a {prefix}- id, and "
+                f"this one is in {authored_store.FILE_FOR[entry.record_type]}",
+            )
+        if identifier in seen:
+            yield Finding(
+                Severity.DEFECT, "authored-ids", identifier,
+                "used by two records in authored/"
+                if seen[identifier] == entry.record_type
+                else f"used twice — once as a {seen[identifier]}, once as a "
+                f"{entry.record_type}",
+            )
+        seen[identifier] = entry.record_type
+        if identifier in signed:
+            yield Finding(
+                Severity.DEFECT, "authored-ids", identifier,
+                f"also names a signed {signed[identifier]} in "
+                f"{goldset.FILE_FOR[signed[identifier]]}. Ids are allocated from "
+                "one sequence across both stores, so this is two records under "
+                "one name and the graph would hold whichever it read second "
+                "(ADR-0080 consequence 1). Where an authored record covers ground "
+                "a signed one already holds, the signed one wins and the authored "
+                "one is retired — it does not share its id",
+            )
+        if identifier in gold.retired_ids:
+            entry_meta = gold.retired_ids[identifier]
+            yield Finding(
+                Severity.DEFECT, "authored-ids", identifier,
+                "reuses a retired id"
+                + (f" (withdrawn {entry_meta['retired_on']})"
+                   if entry_meta.get("retired_on") else "")
+                + ". A gap left by a withdrawal is never filled "
+                "(IDENTIFIERS.md §3)",
+            )
+
+
+def _authored_basis(authored: AuthoredSet) -> Iterator[Finding]:
+    """What each record rests on — and the count of the ones resting on nothing."""
+    unevidenced = [
+        entry for entry in authored.all_entries()
+        if entry.sound and entry.authoring_basis == "general_knowledge"
+    ]
+    for entry in unevidenced:
+        yield Finding(
+            Severity.NOTE, "authored-basis", entry.record_id,
+            "authoring_basis: general_knowledge — the corpus does not say this "
+            "and it was written from what the model knows. Not wrong, and not "
+            "evidenced. A reviewer reaches this before an evidenced record",
+        )
+    if unevidenced:
+        yield Finding(
+            Severity.NOTE, "authored-basis", "authored/",
+            f"{len(unevidenced)} of {authored.total} authored record(s) carry no "
+            "evidence at all. Watch the proportion rather than the number: a "
+            "store filling with general_knowledge is ADR-0079 consequence 2 "
+            "happening quietly",
+        )
+    # `expert_should_check` per record only where the record is tier 3 — the
+    # schema says it is required in practice there and cannot enforce it,
+    # because tier lives on the record and not in the envelope. Everywhere else
+    # it is one aggregate line: at volume, a note per record is a page of
+    # identical text that nobody reads, and the thing worth knowing is the
+    # proportion.
+    blank: list[AuthoredRecord] = []
+    for entry in authored.all_entries():
+        if not entry.sound or entry.authoring_basis == "general_knowledge":
+            continue
+        if entry.envelope and entry.envelope.get("expert_should_check"):
+            continue
+        blank.append(entry)
+        if entry.record.get("tier") == 3:
+            yield Finding(
+                Severity.NOTE, "authored-basis", entry.record_id,
+                "expert_should_check is empty on a tier 3 record. Tier 3 is the "
+                "judgement the guide says is most likely to be contested, and "
+                "this is the field that tells a reviewer where to start",
+            )
+    if blank:
+        yield Finding(
+            Severity.NOTE, "authored-basis", "authored/",
+            f"{len(blank)} evidenced authored record(s) name nothing under "
+            "expert_should_check. It is a pointer at the thing most likely to be "
+            "wrong, and an empty one usually means the alternatives were not "
+            "looked for",
+        )
+
+
+def _authored_evidence(authored: AuthoredSet, corpus: Corpus) -> Iterator[Finding]:
+    """Does the evidence exist, and does it say what the record says it says.
+
+    The check the authored store lives or dies on. `authored/README.md`: *"A
+    `corpus_explicit` claim whose span does not support it is the worst thing
+    that can be written here, because it is a lie a machine will later
+    certify."* This is what stops that being a matter of good intentions.
+    """
+    for entry in authored.all_entries():
+        if not entry.sound:
+            continue
+        for index, item in enumerate(entry.evidence()):
+            where = f"authored.evidence[{index}]"
+            ref = item.get("ref")
+            if not isinstance(ref, str):
+                continue  # the envelope schema has already said so
+            passage = _passage(corpus, ref)
+            if passage is None:
+                yield Finding(
+                    Severity.DEFECT, "authored-evidence", entry.record_id,
+                    f"{where}.ref = {ref} resolves to nothing in the pinned "
+                    f"snapshot ({corpus.pin.commit[:12]}). An authored record "
+                    "cites the corpus by the corpus's own keys or it cites "
+                    "nothing",
+                )
+                continue
+            if passage.kind == "case":
+                yield Finding(
+                    Severity.NOTE, "authored-evidence", entry.record_id,
+                    f"{where}.ref = {ref} is a case citation, checked for grammar "
+                    "only — no decision text exists anywhere in the programme "
+                    "(Q-11)",
+                )
+                continue
+
+            recorded_hash = item.get("content_hash")
+            if (
+                isinstance(recorded_hash, str)
+                and passage.content_hash
+                and recorded_hash != passage.content_hash
+            ):
+                yield Finding(
+                    Severity.DEFECT, "authored-evidence", entry.record_id,
+                    f"{where}.content_hash was taken against {recorded_hash[:19]}… "
+                    f"and {ref} now hashes to {passage.content_hash[:19]}…. The "
+                    "passage under this record has moved, so the record is stale "
+                    "and is re-authored rather than silently refreshed "
+                    "(IDENTIFIERS.md §5)",
+                )
+
+            span = item.get("span")
+            if span is None:
+                continue
+            if passage.text is None:
+                yield Finding(
+                    Severity.DEFECT, "authored-evidence", entry.record_id,
+                    f"{where}.ref {ref} is a {passage.kind}, which holds no text "
+                    "for a span to land in. Spans address a chunk, a provision or "
+                    "a unit",
+                )
+                continue
+            start, end = span
+            if end > len(passage.text) or start > end:
+                yield Finding(
+                    Severity.DEFECT, "authored-evidence", entry.record_id,
+                    f"{where}.span [{start}, {end}] falls outside {ref}, which is "
+                    f"{len(passage.text)} characters",
+                )
+                continue
+            quote = item.get("quote")
+            if isinstance(quote, str) and passage.text[start:end] != quote:
+                yield Finding(
+                    Severity.DEFECT, "authored-evidence", entry.record_id,
+                    f"{where}.quote is {quote!r} but {ref}[{start}:{end}] is "
+                    f"{passage.text[start:end]!r}. A quote is copied from the "
+                    "snapshot character for character; one that will not land "
+                    "means the passage was retyped, and a retyped passage is not "
+                    "evidence (ADR-0045)",
+                )
+
+
+def _authored(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
+    """Every authored check that needs no snapshot."""
+    yield from _authored_files(authored)
+    yield from _authored_envelopes(authored)
+    yield from _authored_schema(authored)
+    yield from _authored_approval(authored)
+    yield from _authored_identifiers(authored, gold)
+    yield from _authored_basis(authored)
+
+
+# ---------------------------------------------------------------------------
 # The completeness gate
 # ---------------------------------------------------------------------------
 
@@ -569,6 +912,7 @@ def band(deliverable: Deliverable) -> str:
 def run(
     *,
     gold_dir: Path | None = None,
+    authored_dir: Path | None = None,
     root: Path | None = None,
     corpus: Corpus | None = None,
     with_resolution: bool = True,
@@ -579,9 +923,16 @@ def run(
     that will not load does not raise here: it is recorded as a gap, because a
     harness that cannot open the corpus has not verified Stage 0 and must not
     report it complete.
+
+    Both stores are read and both are checked, and no finding merges them. The
+    completeness gate below still counts `eval/gold/` alone: §7's bands measure
+    what an expert delivered, and an authored record is not that — counting one
+    towards them would report Stage 0 finished on the strength of records
+    nobody has read (ADR-0080 consequence 3).
     """
     root = root or REPO_ROOT
     gold = goldset.load(gold_dir or (root / "eval" / "gold"))
+    authored = authored_store.load(authored_dir or (root / "authored"))
 
     findings: list[Finding] = []
     findings.extend(_readable(gold))
@@ -591,6 +942,7 @@ def run(
     findings.extend(_approval(gold))
     findings.extend(_judgement_gaps(gold))
     findings.extend(_coverage(gold))
+    findings.extend(_authored(authored, gold))
     findings.extend(_gate(gold, root))
 
     skipped: str | None = None
@@ -607,6 +959,7 @@ def run(
         findings.extend(_resolution(gold, corpus))
         findings.extend(_spans(gold, corpus))
         findings.extend(_staleness(gold, corpus))
+        findings.extend(_authored_evidence(authored, corpus))
     else:
         findings.append(
             Finding(
@@ -623,4 +976,5 @@ def run(
         resolution_ran=corpus is not None,
         resolution_skipped=skipped,
         pin_commit=corpus.pin.commit if corpus is not None else None,
+        authored=authored,
     )

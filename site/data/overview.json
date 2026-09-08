@@ -19,53 +19,60 @@
    "kind": "stats",
    "items": [
     {
-     "label": "Approved records",
+     "label": "Records a person signed",
      "value": 190,
      "note": "every one signed by a named reviewer, with a date",
      "tone": "good",
      "href": null
     },
     {
+     "label": "Records a machine wrote",
+     "value": 0,
+     "note": "none of them read by an expert — usable, never validated",
+     "tone": "muted",
+     "href": null
+    },
+    {
      "label": "Legal ideas",
      "value": 52,
-     "note": "target 50–100",
+     "note": "target 50–100 · 52 signed · 0 authored",
      "tone": "good",
      "href": "#/vocabulary"
     },
     {
      "label": "Relationships",
      "value": 35,
-     "note": "target 50–100",
+     "note": "target 50–100 · 35 signed · 0 authored",
      "tone": "gap",
      "href": null
     },
     {
      "label": "Named things found in the text",
      "value": 55,
-     "note": "target 100–300",
+     "note": "target 100–300 · 55 signed · 0 authored",
      "tone": "gap",
      "href": null
     },
     {
      "label": "Questions it must answer",
      "value": 20,
-     "note": "13 answerable today",
+     "note": "13 answerable today · 20 signed · 0 authored",
      "tone": null,
      "href": "#/questions"
     },
     {
      "label": "Things it must never say",
      "value": 11,
-     "note": "tested as explicitly as the right answers",
+     "note": "tested as explicitly as the right answers · 11 signed · 0 authored",
      "tone": null,
      "href": "#/limits"
     }
    ],
-   "note": "Counts are read from `eval/gold/` at build time. A target band comes from the roadmap; a number below its band is shown as a gap, not smoothed over."
+   "note": "The headline number on every record row is the **signed** count, read from `eval/gold/`; the note beside it says how many more a machine wrote and nobody has read, from `authored/`. The two are never added — a single figure would answer *how much of this has a person checked* in the one direction that matters (ADR-0080). A target band comes from the roadmap, is measured against the signed count alone, and a number below its band is shown as a gap rather than smoothed over."
   },
   {
    "kind": "prose",
-   "text": "### How to read this site\n\n**Approved** means a named person signed a record on a date. That is the only kind of knowledge this project treats as true. Everything a machine proposes is a {{Candidate}} and is kept in a separate place, in a separate file, with a label on it.\n\n**Draft** means the model itself has not been approved. The nine {{Ontology}} modules are a proposal about how to describe this material; the content underneath them is signed, the shape around it is not.\n\n**The Manual is practice, not law.** It records what the Registrar does; it does not bind the Registrar's discretion and it is not legislation. Keeping those two apart is the single constraint most of this design exists to protect."
+   "text": "### How to read this site\n\n**Approved** means a named person signed a record on a date. It is the only thing on this site that a human being has checked.\n\n**Unreviewed** means a machine wrote it and nobody has read it. Since 2026-09-08 that is most of what the system knows, and it is deliberate: an expert corrects a populated ontology far faster than they fill an empty one (ADR-0079). Unreviewed content may be relied on and may be shown — it never becomes approved by being old, by being unchallenged, or by having been in a review round somebody worked through. Only a signature moves it (ADR-0086). It lives in its own directory and its own named graph, and every count on this site reports it apart from the signed one.\n\n**Draft** means the model itself has not been approved. The nine {{Ontology}} modules are a proposal about how to describe this material; the content underneath them is signed, the shape around it is not.\n\n**The Manual is practice, not law.** It records what the Registrar does; it does not bind the Registrar's discretion and it is not legislation. Keeping those two apart is the single constraint most of this design exists to protect."
   },
   {
    "kind": "stats",
@@ -79,7 +86,7 @@
     },
     {
      "label": "Classes declared",
-     "value": 49,
+     "value": 50,
      "note": "10 hold approved content",
      "tone": null,
      "href": null
@@ -93,9 +100,16 @@
     },
     {
      "label": "Statements stored",
-     "value": 2946,
+     "value": 3230,
      "note": "each traceable to a signed record",
      "tone": "good",
+     "href": null
+    },
+    {
+     "label": "Statements a machine wrote",
+     "value": 0,
+     "note": "a separate named graph — no query for signed knowledge reaches them",
+     "tone": "muted",
      "href": null
     },
     {
@@ -107,7 +121,7 @@
     },
     {
      "label": "Checks in the publication gate",
-     "value": 18,
+     "value": 21,
      "note": "each with a fixture built to violate it",
      "tone": null,
      "href": null
@@ -155,7 +169,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "(ADR-0083). 190 expert-signed records over all 8 types, harness 0 defects; `eval/gold/` now **frozen** at those 190 as the measurement yardstick (ADR-0080). The 178 held seed records are resolved by authoring rather than by an expert round, so the 10-decision critical path is gone (ADR-0084)"
+       "text": "(ADR-0083). 190 expert-signed records over all 8 types, harness 0 defects; `eval/gold/` now **frozen** at those 190 as the measurement yardstick (ADR-0080). The 178 held seed records are resolved by authoring rather than by an expert round, so the 10-decision critical path is gone (ADR-0084). **S016: the harness reads both stores** — `authored/` is checked on the same terms plus four of its own, and the completeness gate still counts the signed set alone, so a band met by unreviewed records cannot report Stage 0 finished (ADR-0090)"
       }
      ]
     },
@@ -269,7 +283,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "S010, S012. Graph built (16,405 source + 2,942 approved triples), SHACL gate **0 defects, 0 gaps, 29 notes**, against a *draft* TBox. S012: **all four files committed** (ADR-0070) and `tmk-graph --check` fails on drift"
+       "text": "S010, S012, S016. Graph built (16,405 source + 3,230 approved + 0 authored triples), SHACL gate **0 defects, 0 gaps, 29 notes**, against a *draft* TBox. S012: **all files committed** (ADR-0070) and `tmk-graph --check` fails on drift. **S016: a fourth named graph, `graph/authored.ttl`** — built from `authored/` by the same mapping, every node stamped `tmk:origin` and `tmk:reviewStatus`, an authored relationship typed `tmk:AuthoredAssertion` and never `tmk:ApprovedAssertion` (ADR-0091). Empty until something is authored, and the approved count rose by 284 because both stores now stamp their origin"
       }
      ]
     },

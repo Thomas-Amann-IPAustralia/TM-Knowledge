@@ -136,3 +136,116 @@ tmk:UncheckedStalenessShape
         sh:severity sh:Warning ;
         sh:message "No staleness verdict on this assertion: the build could not find the passage it names in the graph, so nothing has confirmed the text under it is still there." ;
     ] .
+
+# --- what a machine wrote --------------------------------------------------
+#
+# ADR-0079 permits an agent to author legal content and prohibits it being
+# mistaken for signed content. The first is a rule about people; these three
+# shapes are what make the second mechanical. They are the RDF half of the
+# authoring envelope: an authored assertion that reaches a reader can say who
+# wrote it, when, on what evidential footing and why — or it does not publish.
+
+tmk:AuthoredAssertionShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:AuthoredAssertion ;
+    rdfs:label "An authored assertion says who wrote it, when, and on what"@en-AU ;
+    sh:property [
+        sh:path tmk:goldRecord ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:message "No route back to the authored record, so no route back to the judgement or the evidence under it." ;
+    ] ;
+    sh:property [
+        sh:path tmk:origin ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:hasValue "authored" ;
+        sh:message "An authored assertion whose origin is not \"authored\". The named graph is the boundary and this stamp is what survives a triple being lifted out of it." ;
+    ] ;
+    sh:property [
+        sh:path tmk:reviewStatus ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "unreviewed" "rejected" ) ;
+        sh:message "Review status absent, or claiming more than it may. There are three states and only a signature moves a record off unreviewed; approval also moves it to eval/gold/, so an approved assertion in the authored graph is a transcription that did not finish (ADR-0086)." ;
+    ] ;
+    sh:property [
+        sh:path tmk:approvedBy ;
+        sh:maxCount 0 ;
+        sh:message "A name in approvedBy on an authored assertion. It means a person read this and signed it, and no agent writes it — this is the single failure the whole scheme exists to prevent (ADR-0079 guard 3)." ;
+    ] ;
+    sh:property [
+        sh:path tmk:approvedDate ;
+        sh:maxCount 0 ;
+        sh:message "An approval date on an assertion nobody approved." ;
+    ] ;
+    sh:property [
+        sh:path tmk:authoredBy ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:minLength 1 ;
+        sh:message "No model recorded. A silent model change alters what gets authored and invalidates every baseline measured before it, so the model and its version are stamped on each record (ADR-0087)." ;
+    ] ;
+    sh:property [
+        sh:path tmk:authoredDate ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:date ;
+        sh:message "No authoring date, or one that is not a date." ;
+    ] ;
+    sh:property [
+        sh:path tmk:authoringBasis ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( "corpus_explicit" "corpus_inferred" "general_knowledge" ) ;
+        sh:message "No authoring basis, or one outside the three. Silence about where a judgement came from is exactly the laundering rule 1 now prohibits." ;
+    ] ;
+    sh:property [
+        sh:path tmk:authoringReasoning ;
+        sh:minCount 1 ;
+        sh:message "No reasoning. The field that makes correction cheap, which is the entire premise of ADR-0079 — without it an expert can only agree or start again." ;
+    ] ;
+    sh:property [
+        sh:path tmk:extractionMethod ;
+        sh:minCount 1 ;
+        sh:message "Third of the six starting rules: every extracted relationship identifies its extraction method. An authored one identifies that it was authored." ;
+    ] ;
+    sh:property [
+        sh:path tmk:confidence ;
+        sh:maxCount 1 ;
+        sh:minInclusive 0.0 ; sh:maxInclusive 1.0 ;
+        sh:message "Confidence outside [0,1]. Confidence in the authoring is legitimate; a confidence attached to a legal conclusion served to an examiner is PU-0003." ;
+    ] .
+
+# Evidence, or the admission that there is none. Not a `minCount 1` on
+# sourcePassage, because `general_knowledge` is a permitted and honest label and
+# forbidding it would only buy a dishonest `corpus_inferred`. What is forbidden
+# is claiming the corpus says something and naming no passage.
+
+tmk:AuthoredEvidenceShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:AuthoredAssertion ;
+    rdfs:label "An authored assertion cites the corpus or says it cannot"@en-AU ;
+    sh:or (
+        [ sh:property [
+            sh:path tmk:authoringBasis ;
+            sh:hasValue "general_knowledge" ;
+            sh:minCount 1 ;
+        ] ]
+        [ sh:property [
+            sh:path tmk:sourcePassage ;
+            sh:minCount 1 ;
+        ] ]
+    ) ;
+    sh:message "This assertion says the corpus supports it and names no passage. Either cite the passage, or record the basis as general_knowledge and let a reviewer reach it first — the one thing that may not happen is the claim without the citation (ADR-0079 guard 2)." .
+
+# The cross-check that survives flattening. The named graphs are the separation;
+# a validator sees their union, so this is what would catch machine output that
+# had been typed as signed knowledge on its way through.
+
+tmk:OriginConsistencyShape
+    a sh:NodeShape ;
+    sh:targetSubjectsOf tmk:origin ;
+    rdfs:label "Nothing is both authored and approved"@en-AU ;
+    sh:not [
+        sh:and (
+            [ sh:property [ sh:path tmk:origin ; sh:hasValue "authored" ; sh:minCount 1 ] ]
+            [ sh:class tmk:ApprovedAssertion ]
+        )
+    ] ;
+    sh:message "A node stamped as authored is typed as an approved assertion. If those two mix once, no later audit can unmix them (ADR-0007)." .

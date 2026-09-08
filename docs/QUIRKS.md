@@ -847,3 +847,41 @@ error, valid YAML, schema satisfied because the truncated string still cleared
 It was caught only because the generated JSON was read back after writing. Quote
 any scalar containing `#`, and be aware that issue and pull request references
 (`#12`) are the common way this arrives in a repository's own prose.
+
+### Q-48 — an authored record cannot be validated while it is still wearing its envelope
+
+Every record-type schema in `eval/schemas/` is `additionalProperties: false`. An
+authored record carries its provenance under `authored:`, on the record. Validate
+it as it sits on disk and every single record fails with
+
+```
+GC-0901 at <root>: Additional properties are not allowed ('authored' was unexpected)
+```
+
+which is a true statement about the wrong problem, and one that would send a
+session looking for a malformed record rather than a validation order. The
+envelope is split off the record on read — `store.load` does it once, in
+`_split`, and everything downstream sees a record its own schema recognises.
+
+The temptation on meeting that error is to relax `additionalProperties` on the
+record schemas. Don't: the strictness is what catches a misspelt field name in a
+gold record, which is the more common and more expensive failure.
+
+### Q-49 — the graph's `origin` stamp is not redundant with the named graph
+
+It looks redundant. `graph/authored.ttl` is the authored graph; why does every
+node in it also say `tmk:origin "authored"`?
+
+Because the two answer different questions, and the second question is the one
+that keeps being asked. A named graph tells you where a triple *lives*; the stamp
+tells you what a triple *is* after it has been copied out — into a report, an
+evidence pack, a model prompt, a flattened union for SHACL. SHACL is the concrete
+case: pySHACL validates a single graph, so `validate._flatten` unions the three
+named graphs before running, and at that moment the only thing distinguishing
+signed from authored content is the stamp. `tmk:OriginConsistencyShape` is the
+constraint that exists purely because flattening happens.
+
+Adding 284 triples to `graph/approved.ttl` for this — one origin and one review
+status per node that did not already carry them — is the price, and it is why the
+approved graph grew from 2,946 to 3,230 triples in a session that authored
+nothing.

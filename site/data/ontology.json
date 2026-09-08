@@ -22,14 +22,14 @@
     },
     {
      "label": "Classes declared",
-     "value": 49,
+     "value": 50,
      "note": null,
      "tone": null,
      "href": null
     },
     {
      "label": "Classes with no approved content",
-     "value": 39,
+     "value": 40,
      "note": "measured over the approved graph alone",
      "tone": "gap",
      "href": null
@@ -179,7 +179,7 @@
     {
      "module": "`provenance.ttl`",
      "what": "provenance module",
-     "classes": 4,
+     "classes": 5,
      "holds": {
       "chips": [
        {
@@ -198,6 +198,7 @@
        "items": [
         "`ApprovedAssertion` — 35",
         "`Assertion` — empty",
+        "`AuthoredAssertion` — empty",
         "`CandidateAssertion` — empty",
         "`InferredAssertion` — empty"
        ],
@@ -802,6 +803,25 @@
       {
        "kind": "prose",
        "text": "This project's record that something was extracted from a passage, by some method, and reviewed by someone. Not the proposition itself — the act of asserting it, with everything an audit needs."
+      }
+     ]
+    },
+    {
+     "name": "`AuthoredAssertion`",
+     "label": "Authored assertion",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "AuthoredAssertion Authored assertion An assertion a machine wrote and no expert has validated (ADR-0079, ADR-0080). Deliberately NOT a subclass of tmk:ApprovedAssertion and deliberately not in the approved named graph. It is the same shape as one — same subject, predicate, object, passage, span and hash — and differs in exactly the fact that matters: nobody signed it. A query written against tmk:ApprovedAssertion therefore cannot pick one of these up by accident, which is the whole point of giving it its own class rather than a flag. It carries tmk:reviewStatus \"unreviewed\" and never \"approved\": approval moves a record to eval/gold/ through tmk-transcribe, and a record that has moved is rebuilt as a tmk:ApprovedAssertion on the next build (ADR-0086).",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "An assertion a machine wrote and no expert has validated (ADR-0079, ADR-0080). Deliberately NOT a subclass of tmk:ApprovedAssertion and deliberately not in the approved named graph. It is the same shape as one — same subject, predicate, object, passage, span and hash — and differs in exactly the fact that matters: nobody signed it. A query written against tmk:ApprovedAssertion therefore cannot pick one of these up by accident, which is the whole point of giving it its own class rather than a flag. It carries tmk:reviewStatus \"unreviewed\" and never \"approved\": approval moves a record to eval/gold/ through tmk-transcribe, and a record that has moved is rebuilt as a tmk:ApprovedAssertion on the next build (ADR-0086)."
       }
      ]
     },

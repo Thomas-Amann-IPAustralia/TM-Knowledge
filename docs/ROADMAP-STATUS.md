@@ -28,13 +28,13 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 
 | Stage | Name | Status | Owner |
 |---|---|---|---|
-| 0 | Pilot selection and evaluation set | **partial — and no longer a blocker** (ADR-0083). 190 expert-signed records over all 8 types, harness 0 defects; `eval/gold/` now **frozen** at those 190 as the measurement yardstick (ADR-0080). The 178 held seed records are resolved by authoring rather than by an expert round, so the 10-decision critical path is gone (ADR-0084) | this repo |
+| 0 | Pilot selection and evaluation set | **partial — and no longer a blocker** (ADR-0083). 190 expert-signed records over all 8 types, harness 0 defects; `eval/gold/` now **frozen** at those 190 as the measurement yardstick (ADR-0080). The 178 held seed records are resolved by authoring rather than by an expert round, so the 10-decision critical path is gone (ADR-0084). **S016: the harness reads both stores** — `authored/` is checked on the same terms plus four of its own, and the completeness gate still counts the signed set alone, so a band met by unreviewed records cannot report Stage 0 finished (ADR-0090) | this repo |
 | 1 | Ingest and structure source documents | **done** (4 of 6 named deliverables); consumed here since S004 — pinned, fetched and loaded | `manual-XtrACTor` |
 | 2 | Candidate terminology and entities | **open, not started** — gate lifted 2026-09-08 (ADR-0083). Stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019). **HANDOFF Q3 answered in full the same day it started blocking**: Gemini 3.8 Flash, credential in `GEMINI_API_KEY` (ADR-0087), and corpus text cleared to send (ADR-0088). Deterministic extraction stays preferred — now for cost as well as review debt (rule 7) | this repo |
 | 3 | Controlled vocabulary (SKOS) | **open, not started** (ADR-0083) | this repo |
 | 4 | Relationships, propositions, candidate rules | **open, not started** (ADR-0083) | this repo |
 | 5 | Formalise the ontology | **partial, and unblocked** — nine OWL 2 RL modules drafted in `ontology/draft/`; nothing approved, so `ontology/` stays empty (ADR-0056, ADR-0057). The four concept classes now also fill from **authored** `concept_type` records, not only signed ones (ADR-0079 amends ADR-0071) — the 0-of-52 taxonomy is an agent's to fill. Whole-Manual scope means the class list stops being 30-of-49 empty for want of material (ADR-0081) | this repo |
-| 6 | Populate and validate the knowledge graph | **partial** — S010, S012. Graph built (16,405 source + 2,942 approved triples), SHACL gate **0 defects, 0 gaps, 29 notes**, against a *draft* TBox. S012: **all four files committed** (ADR-0070) and `tmk-graph --check` fails on drift | this repo |
+| 6 | Populate and validate the knowledge graph | **partial** — S010, S012, S016. Graph built (16,405 source + 3,230 approved + 0 authored triples), SHACL gate **0 defects, 0 gaps, 29 notes**, against a *draft* TBox. S012: **all files committed** (ADR-0070) and `tmk-graph --check` fails on drift. **S016: a fourth named graph, `graph/authored.ttl`** — built from `authored/` by the same mapping, every node stamped `tmk:origin` and `tmk:reviewStatus`, an authored relationship typed `tmk:AuthoredAssertion` and never `tmk:ApprovedAssertion` (ADR-0091). Empty until something is authored, and the approved count rose by 284 because both stores now stamp their origin | this repo |
 | 7 | Ontology-enhanced search | **not started** | this repo |
 | 8 | Graph-aware AI retrieval | **not started** | this repo |
 | 9 | Automated reasoning | **partial** — two CONSTRUCT rules. **RULE-0002 approved by the owner** (ADR-0068). **RULE-0001 stays PENDING and an agent may not approve it**: a rule's `approved-by` line is the same kind of artefact as a record's `approved_by`, and ADR-0079 does not license filling either. What changed is that its output is no longer *quarantined* — under ADR-0082 an unapproved rule's conclusions may be served, stamped `candidate` / `requiresHumanReview`, like any other unreviewed content. OQ-0019 becomes optional rather than blocking | this repo |
@@ -118,7 +118,7 @@ graph and it will not go stale.
 
 | Deliverable | Status | Where it lives |
 |---|---|---|
-| Ontology modules | **drafted, none approved** — 9 modules, 49 classes, OWL 2 RL | `ontology/draft/` |
+| Ontology modules | **drafted, none approved** — 9 modules, 50 classes, OWL 2 RL | `ontology/draft/` |
 | Relation dictionary | **generated** — 14 predicates, derived from 35 approved relationships, regeneration-checked | `ontology/draft/relations.ttl` |
 | Ontology guide | **done** | `ontology/draft/GUIDE.md` |
 | Knowledge graph | **built** — `tmk-graph --write --rules` | `graph/approved.ttl`, `graph/inferred.ttl` |

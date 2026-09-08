@@ -1,0 +1,176 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. Each record is broken in exactly one way.
+# See ../README.md.
+
+# no-envelope: an unattributed legal assertion sitting in a directory. Refused.
+- id: GC-903
+  pref_label: "«preferred label»"
+  alt_labels: []
+  not_labels: []
+  definition_sources: [TMM/Part20/5/5/1]
+  approved_by: null
+  approved_date: null
+
+# approved-by-filled-in: the single failure the whole scheme exists to prevent.
+- id: GC-904
+  pref_label: "«preferred label»"
+  alt_labels: []
+  not_labels: []
+  definition_sources: [TMM/Part20/5/5/1]
+  approved_by: "«name»"
+  approved_date: "2026-09-08"
+  authored:
+    review_status: unreviewed
+    authored_by: "«model»-0.0"
+    authored_date: "2026-09-08"
+    authoring_basis: corpus_explicit
+    evidence: [{ref: TMM/Part20/5/5/1}]
+    reasoning: "«why this reading»"
+
+# review-status-approved: approval moves a record to eval/gold/, and only
+# tmk-transcribe writes it. One sitting here is a status an agent wrote.
+- id: GC-905
+  pref_label: "«preferred label»"
+  alt_labels: []
+  not_labels: []
+  definition_sources: [TMM/Part20/5/5/1]
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: approved
+    authored_by: "«model»-0.0"
+    authored_date: "2026-09-08"
+    authoring_basis: corpus_explicit
+    evidence: [{ref: TMM/Part20/5/5/1}]
+    reasoning: "«why this reading»"
+
+# envelope-claims-evidence-and-names-none: corpus_explicit with no evidence.
+- id: GC-906
+  pref_label: "«preferred label»"
+  alt_labels: []
+  not_labels: []
+  definition_sources: [TMM/Part20/5/5/1]
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: "«model»-0.0"
+    authored_date: "2026-09-08"
+    authoring_basis: corpus_inferred
+    reasoning: "«why this reading»"
+
+# id-in-both-stores: GC-0001 is a signed concept in eval/gold/concepts.yaml.
+- id: GC-0001
+  pref_label: "«preferred label»"
+  alt_labels: []
+  not_labels: []
+  definition_sources: [TMM/Part20/5/5/1]
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: "«model»-0.0"
+    authored_date: "2026-09-08"
+    authoring_basis: corpus_explicit
+    evidence: [{ref: TMM/Part20/5/5/1}]
+    reasoning: "«why this reading»"
+
+# duplicate-id-within-the-store: GC-906 again.
+- id: GC-906
+  pref_label: "«a second record under one name»"
+  alt_labels: []
+  not_labels: []
+  definition_sources: [TMM/Part20/5/5/1]
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: "«model»-0.0"
+    authored_date: "2026-09-08"
+    authoring_basis: corpus_explicit
+    evidence: [{ref: TMM/Part20/5/5/1}]
+    reasoning: "«why this reading»"
+
+# evidence-resolves-to-nothing: no such chunk in the pinned snapshot.
+- id: GC-907
+  pref_label: "«preferred label»"
+  alt_labels: []
+  not_labels: []
+  definition_sources: [TMM/Part20/5/5/1]
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: "«model»-0.0"
+    authored_date: "2026-09-08"
+    authoring_basis: corpus_explicit
+    evidence: [{ref: TMM/Part20/5/5/999}]
+    reasoning: "«why this reading»"
+
+# quote-does-not-land: the quote was retyped, so it is not at the span.
+- id: GC-908
+  pref_label: "«preferred label»"
+  alt_labels: []
+  not_labels: []
+  definition_sources: [TMM/Part20/5/5/1]
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: "«model»-0.0"
+    authored_date: "2026-09-08"
+    authoring_basis: corpus_explicit
+    evidence:
+      - ref: TMM/Part20/5/5/1
+        span: [0, 10]
+        quote: "section 39"
+    reasoning: "«why this reading»"
+
+# stale-evidence: the recorded hash is not the snapshot's current one.
+- id: GC-909
+  pref_label: "«preferred label»"
+  alt_labels: []
+  not_labels: []
+  definition_sources: [TMM/Part20/5/5/1]
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: "«model»-0.0"
+    authored_date: "2026-09-08"
+    authoring_basis: corpus_explicit
+    evidence:
+      - ref: TMM/Part20/5/5/1
+        content_hash: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+    reasoning: "«why this reading»"
+
+# record-schema-failure: not_labels is a string, and the envelope is fine.
+- id: GC-910
+  pref_label: "«preferred label»"
+  alt_labels: []
+  not_labels: "«not a list»"
+  definition_sources: [TMM/Part20/5/5/1]
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: "«model»-0.0"
+    authored_date: "2026-09-08"
+    authoring_basis: corpus_explicit
+    evidence: [{ref: TMM/Part20/5/5/1}]
+    reasoning: "«why this reading»"
+
+# wrong-prefix: a GE- id in the concepts file.
+- id: GE-911
+  pref_label: "«preferred label»"
+  alt_labels: []
+  not_labels: []
+  definition_sources: [TMM/Part20/5/5/1]
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: "«model»-0.0"
+    authored_date: "2026-09-08"
+    authoring_basis: corpus_explicit
+    evidence: [{ref: TMM/Part20/5/5/1}]
+    reasoning: "«why this reading»"

@@ -54,7 +54,47 @@ schemas:
 | `search-questions.yaml` | gold search question |
 | `reasoning-expected.yaml` | reasoning expectation |
 | `prohibited-uses.yaml` | prohibited use |
-| `definitions.yaml` | concept definitions — new; `eval/gold/` has none |
+
+`definitions.yaml` was named here when this directory was created and **is not
+in the list**: a definition has no schema and no id series, so the store cannot
+hold one. `tm_knowledge.authored.store` reports it as an unreadable file rather
+than guessing a shape for it, which is right — deciding what fields a definition
+carries is a record-type design pass, and doing it by accident inside a plumbing
+change would be authoring the shape of the project's definitions without anybody
+noticing. It needs a schema, an id prefix in `docs/IDENTIFIERS.md`, and an entry
+in `RECORD_TYPES`, in one deliberate commit.
+
+## How it is read
+
+`tm_knowledge.authored.store` is the only reader, and there is one of it
+(CLAUDE.md §5). Three things about how it behaves are load-bearing:
+
+- **The envelope is split off the record on read.** Every record-type schema is
+  `additionalProperties: false`, so a record still carrying `authored:` would
+  fail its own schema with "unknown field" — a true statement about the wrong
+  problem. `entry.record` is the record as its schema knows it; `entry.envelope`
+  is the block beside it.
+- **A record whose envelope does not validate is refused, not skipped.** It is
+  kept, named in `AuthoredSet.refused`, reported by `tmk-harness` as a defect,
+  and excluded from every count and from the graph. Dropping it silently would
+  make a malformed authored record indistinguishable from one that was never
+  written.
+- **`AuthoredSet` is deliberately not a `GoldSet`.** It answers the same
+  questions — `store[record_type]`, `count`, `total` — so a caller that counts
+  one can count the other, and it is not substitutable for one, because a type
+  that could be passed where a `GoldSet` is expected is how the two get summed
+  by accident (ADR-0080 consequence 3).
+
+## Where it shows up
+
+`tmk-harness` and `tmk-coverage` report this store beside `eval/gold/` and never
+add the two. The graph builds it into `graph/authored.ttl`, a fourth named graph,
+where every node carries `tmk:origin "authored"`, `tmk:reviewStatus`,
+`tmk:authoredBy`, `tmk:authoredDate`, `tmk:authoringBasis` and
+`tmk:authoringReasoning` — and where a relationship is a `tmk:AuthoredAssertion`
+and never a `tmk:ApprovedAssertion`, so the eight competency queries naming the
+second class cannot reach the first. A SHACL shape refuses a node here that
+carries `tmk:approvedBy` at all.
 
 ## The envelope — every record carries all of it
 

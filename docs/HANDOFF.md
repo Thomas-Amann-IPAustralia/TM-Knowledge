@@ -3,7 +3,48 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-08 · session S015 · branch `claude/knowledge-graph-ontology-overview-udcwba`
+**Last updated:** 2026-09-08 · session S016 · branch `claude/system-plumbing-phase-2r07bv`
+
+---
+## 0. What S016 did, in one paragraph
+
+**S015 changed the rules and wrote none of the code. S016 wrote the code and
+authored no content.** `authored/` had a README, a schema and no reader; it now
+has a reader, seven checks of its own — four of them with no counterpart on the
+signed side — a place in every count that never sums it with the signed set, and
+a named graph of its own. **Not one
+authored record was written**, and that is deliberate — the store had to be able
+to refuse a bad record before anything at volume went into it. ADR-0089 to
+ADR-0091. The next session is the one that fills it, and the first thing it
+should do is type the 52 concepts (§2, item 1).
+
+**What that means concretely.** Drop a record into `authored/concepts.yaml`
+today and: the store splits its envelope off and validates both halves; the
+harness reports it as a defect if it carries `approved_by`, if its id is already
+used in `eval/gold/`, if `review_status` says `approved`, if its evidence ref
+does not resolve, if its quote is not the text at its span, or if its hash has
+moved; `tmk-coverage` shows it in an *Authored* column beside the signed one and
+never added to it; the graph builds it into `graph/authored.ttl` as a
+`tmk:AuthoredAssertion` stamped with its model, date, basis and reasoning; and
+three SHACL shapes refuse it if any of that is missing. Write a record with no
+`authored:` block and it is **refused and named**, not skipped — which is the one
+behaviour worth remembering, because a silently dropped authored record is
+indistinguishable from one nobody ever wrote.
+
+**The numbers that moved, and they are all plumbing.** `graph/approved.ttl` went
+from 2,946 to 3,230 triples: every node in both stores now stamps its own
+`tmk:origin` and `tmk:reviewStatus`, which costs 284 triples on the signed side
+and is the point (Q-49). The harness is still 0 defects; SHACL is still 0
+defects, 0 gaps, 29 notes. `authored/` holds 0 records and `graph/authored.ttl`
+is 0 triples, committed anyway, because an empty declared graph is the honest
+state of a repo that has authored nothing.
+
+**One thing was deliberately not built.** `authored/definitions.yaml` is named in
+`authored/README.md` and has no schema and no id series, so the store reports it
+as an unreadable file rather than guessing a shape for it. Deciding what fields a
+definition carries is a record-type design pass, and doing it by accident inside
+a plumbing change would be authoring the shape of the project's definitions
+without anybody noticing (ADR-0089 consequence 1). It is item 2 in §2.
 
 ---
 ## 1. Where the project actually is
@@ -99,24 +140,25 @@ confidence in the model. If `authored/` ever fills with `general_knowledge`
 records carrying no spans, the scheme has failed quietly and this paragraph is
 where somebody should have looked.
 
-### What the numbers were at S014, and still are
+### The numbers as at S016
 
-Nothing here moved in S015. It is the baseline the next session's work is measured
-against.
+Two moved and both are plumbing. The rest is the baseline the next session's work
+is measured against.
 
 | | |
 |---|---|
 | Ontology modules | 9, OWL 2 RL, in `ontology/draft/` — **none approved** |
-| Classes declared | 49 · **30 hold nothing** |
+| Classes declared | **50** · **31 hold nothing**. The new one is `tmk:AuthoredAssertion`, and it holds nothing because nothing has been authored — which is the same reason 30 of the other 49 do |
 | Predicates | 14, generated from the 35 approved relationships |
 | Source graph | 16,405 triples over 216 chunks, 529 reified citations |
-| Approved graph | 2,946 triples, every one traceable to a signed record |
-| SHACL | 0 defects, 0 gaps, 29 notes |
-| Competency queries | 13 of 20 questions |
+| Approved graph | **3,230 triples** (was 2,946), every one traceable to a signed record. The 284 new ones are the `tmk:origin` and `tmk:reviewStatus` stamps every node now carries — see Q-49 for why that is not redundant with the named graph |
+| Authored graph | **0 triples**, declared and committed. `graph/authored.ttl` |
+| SHACL | 0 defects, 0 gaps, 29 notes — now run over the authored graph as well |
+| Competency queries | 13 of 20 questions. All eight that name `tmk:ApprovedAssertion` answer over signed content only, by design |
 | CONSTRUCT rules | 2. RULE-0002 approved; RULE-0001 pending — **and an agent may not approve it** |
 | Signed records | **190, frozen** |
-| Authored records | **0** |
-| Concepts typed | **0 of 52** — now an agent's to do |
+| Authored records | **0** — the store is built and empty |
+| Concepts typed | **0 of 52** — now an agent's to do, and nothing is in its way |
 
 Two findings from the S015 conversation that are worth carrying, both measured:
 
@@ -163,39 +205,39 @@ Everything below is an agent's to do.
    will disagree. This was the largest gap in the draft for five sessions and it
    is now one pass. It is also the cheapest possible test of whether the new model
    works: if the reasoning lines are not good enough to correct from, nothing else
-   here will be either.
-2. **Build the authored-store plumbing. This is the next session's job and the
-   owner is starting it in a fresh context, so it is specified here rather than
-   assumed.** `authored/` has a README and a schema and no reader. What it needs,
-   in dependency order:
+   here will be either. **The plumbing under it is finished** — write the file and
+   `tmk-harness`, `tmk-coverage`, `tmk-graph` and the dashboard all pick it up
+   with no code change. Run `tmk-harness` after the first three records rather
+   than after all 52: the checks are mechanical and cheap, and finding out at
+   record 3 that the envelope shape is wrong costs three records.
+2. **~~Build the authored-store plumbing~~ — done in S016** (ADR-0089 to
+   ADR-0091). What is left of it, and it is small:
 
-   - **A loader** — `tm_knowledge.authored.store`, mirroring `stage0/goldset.py`,
-     reading the same record types by the same file names. It must refuse a record
-     whose envelope does not validate rather than skipping it: a silently dropped
-     authored record is indistinguishable from one never written.
-   - **Envelope validation in `tmk-harness`**, against
-     `eval/schemas/authored-envelope.schema.json`. Three checks the schema cannot
-     make on its own: `approved_by` non-null in `authored/` is a **defect**; an id
-     present in both stores is a **defect**; `authoring_basis: general_knowledge`
-     is a **note**, counted and listed, never a defect.
-   - **The signed/authored split in every count** — `tmk-coverage`,
-     `tmk-dashboard`, `tmk-ontology-report`. No figure sums the two (ADR-0080
-     consequence 3). The dashboard needs it visible on the card, not in a legend.
-   - **The graph reading both stores**, every node stamped with its origin and its
-     review status. `graph/authored.ttl` as a fourth named graph is the obvious
-     shape — it keeps ADR-0007's separation-by-named-graph intact and means
-     `approved.ttl` stays exactly what it is today.
-   - **Tests first where they are cheap**: a fixture authored record that
-     validates, one that does not, one with `approved_by` filled in that must be
-     refused, and a duplicate id across stores.
-
-   **Do this before authoring at volume.** A thousand records written against a
-   store nothing validates is a thousand records to re-check, and the whole point
-   of the envelope is that it is mechanical rather than aspirational.
+   - **`authored/definitions.yaml` has no record type.** It needs a schema in
+     `eval/schemas/`, an id prefix in `docs/IDENTIFIERS.md` §3, and entries in
+     `RECORD_TYPES`, `ID_PREFIXES` and `goldset.GOLD_FILES`. Until then the store
+     reports the file as unreadable, which is correct and is not a bug. Watch the
+     ripple: `RECORD_TYPES` is iterated by the harness, the workbook and the
+     intake path, and `goldset.FILE_FOR[record_type]` is read in message text, so
+     a record type added to one map and not the others raises `KeyError` in a
+     message rather than failing usefully.
+   - **The eight competency queries still name `tmk:ApprovedAssertion`** and
+     therefore answer over signed content only. That is under-reporting rather
+     than laundering, and it is safe. Whether they should also serve authored
+     content — labelled, per ADR-0082 — is a Stage 7–8 question about the
+     retrieval surface, and it needs deciding before anything is built on top of
+     those queries.
+   - **Nothing moves a record from `authored/` to `eval/gold/` yet.**
+     `tmk-transcribe` writes gold records from a workbook; it does not know about
+     the authored store, and nothing yet retires an authored record when a signed
+     one covers the same ground (ADR-0080 consequence 2). Not needed until the
+     first authored record comes back signed, and it is where the next real
+     design question lives.
 3. **Resolve the 178 seed records** into `authored/` (ADR-0084). Honour the
    reviewer's `amend` instructions where they exist. Do **not** resurrect the
    eight rejected records; where an authored record covers the same ground, it
-   cites the rejection and says why it differs.
+   cites the rejection in `authored.supersedes_rejected` and says why it differs
+   in `reasoning` — the envelope has a field for exactly this.
 4. **Retire `tmk-boundary`** and `data/derived/reports/boundary.md`. The code
    still runs and computes a boundary that no longer exists — which is worse than
    code that fails, because it produces a plausible answer to a withdrawn
@@ -207,11 +249,33 @@ Everything below is an agent's to do.
    frozen 190. That recall figure is the number ADR-0010 wanted to exist and never
    got.
 
+### What the plumbing gives you, in the order you will meet it
+
+Written out because the next session starts cold and the alternative is reading
+four modules to find out.
+
+| You write | It happens | Where |
+|---|---|---|
+| a record with no `authored:` block | **refused** — kept, named, reported as a defect, in no count and no graph | `authored/store.py`, `tmk-harness` |
+| `approved_by: "TC"` | defect, twice — once over the store, once as a SHACL violation over the graph | ADR-0090, ADR-0091 |
+| an id `eval/gold/` already uses | defect naming the other store and the file | ADR-0080 c1 |
+| `review_status: approved` | defect. Approval moves a record to `eval/gold/` and only `tmk-transcribe` writes it | ADR-0090 |
+| `authoring_basis: general_knowledge` | note, listed per record and as a proportion of the store. Never a defect | ADR-0079 guard 2 |
+| `authoring_basis: corpus_explicit` with no evidence | envelope fails — refused | the schema's own conditional |
+| an evidence `quote` that was retyped | defect: the quote must be exactly the text at its span | ADR-0090 c3 |
+| 60 authored concepts | the board still reads `0 of 50–100` in the **Signed** column and `60` in **Authored** | ADR-0080 c3 |
+
+`tmk-harness --authored-dir <dir>` and `tmk-coverage --authored-dir <dir>` point
+the checks somewhere else, which is how the fixtures are exercised.
+
 **Do not** fill `approved_by`. **Do not** write into `eval/gold/`. **Do not**
 approve RULE-0001 — a rule's `approved-by` line is the same artefact as a
 record's, and ADR-0079 does not license filling either. **Do not** widen what the
 product may say to an examiner. **Do not** author a record with no evidence and no
-`general_knowledge` flag.
+`general_knowledge` flag. **Do not** relax `additionalProperties: false` on a
+record schema to make an envelope validate — the envelope is split off the record
+before validation, and that strictness is what catches a misspelt field in a gold
+record (Q-48).
 
 ## 3. Open questions — need a human
 
@@ -274,6 +338,8 @@ a record, owner review and TM-expert review become indistinguishable in the
 record.** That was the owner's call, made knowing it; it is recorded here rather
 than in an ADR because nothing has been signed yet.
 
+| Q27 | **New, S016.** **ADR-0090** is `agent-proposed` in one part only, and it is a small one. That a filled `approved_by` in `authored/` is a defect follows from ADR-0079 guard 3; that an id in both stores is a defect follows from ADR-0080 consequence 1; that `general_knowledge` is a note follows from ADR-0079 guard 2. The judgement is the fourth check: **`review_status: approved` in `authored/` is treated as a defect**. ADR-0080 says a record moves to `eval/gold/` through `tmk-transcribe` and by no other route, so an approved record sitting in `authored/` is either a transcription that did not finish or a status an agent wrote — but ADR-0080 does not say that in terms, and a future flow that wants to stamp `approved` in place and move the record afterwards will hit this check. `rejected` is deliberately *not* a defect, because a rejected record has nowhere else to live. **Deliberately not put in `open-questions.yaml`**: it changes nothing the owner can see, it is answerable by the session that first hits it, and the new bar (CLAUDE.md §3 step 6) reserves his queue for what an agent genuinely cannot settle. | Nothing today; the first flow that transcribes an authored record | S016 |
+
 | Q26 | **New, S013.** **ADR-0076** is `agent-proposed` in one part only. That the form must not present a settled question as one waiting on you is not a judgement — it is rule 6, and the owner reported it himself. What he has *not* been asked is whether answered questions should fold away behind a summary line, stay expanded in place, or leave the page once they are settled. The fold was chosen because the queue's value is that nothing quietly disappears and the top of every section should still be actionable; reading what he decided costs one click. **Deliberately not put in `open-questions.yaml`**: adding an eleventh question about the ergonomics of the question list works against the problem he reported. A word on any submission changes it. | Nothing | S013 |
 
 **S012's own ADRs.** `human`: **0068** (RULE-0002 approved), **0070** (commit the
@@ -291,9 +357,12 @@ declined — see ADR-0041), **0029, 0030, 0032, 0033, 0035, 0036, 0037**,
 Q15), **0048's first two judgement calls** (Q18; the third is answered by
 ADR-0052), **0051's two-operation limit** (Q20), **0054** (Q21), **0055's
 third guard** (Q22), **0060** (Q23), **0061** (Q24) and **0063, 0064, 0065,
-0066** (Q25) and **0076's fold** (Q26). **ADR-0062 is `human`** — the dashboard is the owner's
+0066** (Q25), **0076's fold** (Q26) and **0090's one judgement** (Q27).
+**ADR-0062 is `human`** — the dashboard is the owner's
 instruction, quoted in the ADR. ADR-0044, ADR-0045, ADR-0047, ADR-0049, ADR-0050 and
-**ADR-0053** are `derived`. **ADR-0052 is `human`.**
+**ADR-0053** are `derived`. **ADR-0052 is `human`.** **ADR-0089 and ADR-0091 are
+`derived`** — the first follows from the record schemas and from rule 6, the
+second from ADR-0080's own words.
 (0006, 0012, 0014, 0024, 0026, 0027 confirmed S006 — ADR-0040; 0016 and 0018
 confirmed S006 — ADR-0038; 0028 superseded S006 — ADR-0042. ADR-0023,
 ADR-0025, ADR-0031 and ADR-0034 are `derived`.)
@@ -333,8 +402,16 @@ relevance grade each. The scoped workbook for all ten is rendered.
 - **Do not design a new identifier scheme.** ADR-0005, and `refs.py` implements
   it. Argue with the ADR, don't invent a third.
 - **Do not write a second ref parser, IRI minter, snapshot reader, gold-set
-  reader or workbook layout.** There is exactly one of each, and the whole point
-  of `stage0/intake.py` is that the workbook's columns exist in one place.
+  reader, authored-store reader or workbook layout.** There is exactly one of
+  each, and the whole point of `stage0/intake.py` is that the workbook's columns
+  exist in one place.
+- **Do not write a second graph builder for authored content.** `_build_store`
+  is one mapping run twice, parameterised by a `Store`. A second builder would
+  be a second answer to "what does a concept look like in RDF", and the two
+  would drift (ADR-0091).
+- **Do not add an attribute that sums the two stores.** Not on `Report`, not on
+  `BuildReport`, not in a report template. The moment one exists, something
+  prints it, and the number it prints is the flattering one (ADR-0080 c3).
 - **Do not "fix" a ref that fails validation.** `InvalidRef` means the ref was
   constructed rather than read. Find the construction.
 - **Do not commit anything under `data/upstream/`** (ADR-0004) — that would
@@ -505,6 +582,39 @@ relevance grade each. The scoped workbook for all ten is rendered.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S016 — 2026-09-08 — the store got a reader, and it refuses
+
+Built the plumbing S015 specified and did not build. `tm_knowledge.authored.store`
+reads `authored/` the way `goldset.py` reads `eval/gold/`, with one difference
+that is the whole point: a record whose envelope does not validate is **refused,
+named and reported**, never skipped. `tmk-harness` gained seven `authored-*`
+checks — four of them with no counterpart on the signed side, including the
+inverted one where a filled `approved_by` is a defect rather than the gap it is
+on a gold record. `tmk-coverage` grew an *Authored* column and a store section,
+the dashboard reports the pair on every record card, and the graph grew a fourth
+named graph built by the same mapping run twice. **ADR-0089, ADR-0090, ADR-0091.**
+
+**Cost:** one module, ~250 lines of harness, a `Store` parameter threaded through
+eight graph builders, three SHACL shapes, seven TBox properties and a class, two
+fixture stores and 39 tests. `graph/approved.ttl` grew by 284 triples — the
+origin and review-status stamps — and that is the only change to signed content.
+
+**Revealed:** two things worth the QUIRKS entries. An authored record cannot be
+validated while it is still wearing its envelope, because every record schema is
+`additionalProperties: false`, and the error you get says "unknown field" — a
+true statement about the wrong problem (Q-48). And the `tmk:origin` stamp looks
+redundant with the named graph until you notice that pySHACL validates a single
+graph, so `validate._flatten` unions the three before running, and at that moment
+the stamp is the only thing telling signed from authored apart (Q-49).
+
+**Not done, deliberately:** no legal content was authored. The store had to be
+able to refuse a bad record before anything at volume went into it — a thousand
+records written against a store nothing validates is a thousand records to
+re-check. `authored/definitions.yaml` was left without a schema for the same
+reason at smaller scale: deciding what fields a definition carries is a
+record-type design pass, not something to settle by accident inside a plumbing
+change.
 
 ### S015 — 2026-09-08 — the rules changed, and only the rules
 

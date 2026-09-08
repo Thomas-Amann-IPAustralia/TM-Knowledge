@@ -20,7 +20,12 @@ from rdflib.namespace import RDF, SH
 
 from tm_knowledge.config import REPO_ROOT
 from tm_knowledge.ontology.build import build
-from tm_knowledge.ontology.namespaces import APPROVED_GRAPH, SOURCE_GRAPH, bind_all
+from tm_knowledge.ontology.namespaces import (
+    APPROVED_GRAPH,
+    AUTHORED_GRAPH,
+    SOURCE_GRAPH,
+    bind_all,
+)
 
 __all__ = ["SHAPES_DIR", "Finding", "ValidationReport", "load_shapes", "run"]
 
@@ -116,13 +121,24 @@ def load_shapes(directory: Path | None = None) -> Graph:
 def _flatten(dataset: Dataset) -> Graph:
     """The graphs the shapes run over, as one graph.
 
-    Source and approved together, because several constraints span them: a
-    proposition's authority kind lives in the source graph and the proposition
-    in the approved one, and a validator that saw only one would pass PU-0004
-    by not being able to see it.
+    Source, approved and authored together, because several constraints span
+    them: a proposition's authority kind lives in the source graph and the
+    proposition in the approved one, and a validator that saw only one would
+    pass PU-0004 by not being able to see it.
+
+    **The authored graph is validated on the same terms as the approved one**
+    (ADR-0080, ADR-0082). It has to be: ADR-0082 removed the review gate on
+    serving unreviewed content, which means these shapes are now the only thing
+    standing between an authored record and a reader. An authored graph that
+    published unchecked would be the Tier 3 gate removed and nothing put in its
+    place.
+
+    Flattening loses the separation the named graphs carry, which is why every
+    node stamps its own `tmk:origin` and why `tmk:OriginConsistencyShape`
+    exists: after the union, that stamp is what tells the two apart.
     """
     graph = bind_all(Graph())
-    for name in (SOURCE_GRAPH, APPROVED_GRAPH):
+    for name in (SOURCE_GRAPH, APPROVED_GRAPH, AUTHORED_GRAPH):
         for triple in dataset.graph(name):
             graph.add(triple)
     for triple in dataset.default_graph:

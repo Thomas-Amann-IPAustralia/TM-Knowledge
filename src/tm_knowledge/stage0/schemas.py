@@ -108,18 +108,33 @@ def _registry() -> Registry:
 
 
 @lru_cache(maxsize=None)
-def validator_for(record_type: str) -> Draft202012Validator:
-    if record_type not in RECORD_TYPES:
-        raise KeyError(
-            f"unknown Stage 0 record type {record_type!r}; known: {sorted(RECORD_TYPES)}"
-        )
-    path = SCHEMA_DIR / RECORD_TYPES[record_type]
+def validator_for_file(filename: str) -> Draft202012Validator:
+    """A validator for any schema in `eval/schemas/`, by filename.
+
+    Record types go through `validator_for`; this is the door for the schemas
+    that are not a record type — today `authored-envelope.schema.json`, which
+    validates a block *inside* a record rather than a record. It matters that it
+    is the same door: the envelope's `evidence[].ref` is a `$ref` into
+    `common.schema.json`, so it only resolves — and only gets the
+    `upstream-ref` format check — under the registry built here.
+    """
+    path = SCHEMA_DIR / filename
+    if not path.exists():
+        raise KeyError(f"no schema {filename!r} in {SCHEMA_DIR}")
     schema = json.loads(path.read_text(encoding="utf-8"))
     return Draft202012Validator(
         schema,
         registry=_registry(),
         format_checker=_format_checker(),
     )
+
+
+def validator_for(record_type: str) -> Draft202012Validator:
+    if record_type not in RECORD_TYPES:
+        raise KeyError(
+            f"unknown Stage 0 record type {record_type!r}; known: {sorted(RECORD_TYPES)}"
+        )
+    return validator_for_file(RECORD_TYPES[record_type])
 
 
 def validate(record: dict[str, Any], record_type: str) -> list[SchemaError]:

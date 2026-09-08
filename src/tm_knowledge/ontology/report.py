@@ -112,7 +112,8 @@ def render() -> str:
 | Classes declared | {len(classes)} |
 | Predicates on the closed list | {len(predicates)}, derived from {sum(p.count for p in predicates)} approved relationships |
 | Source graph | {build_report.triples['source']:,} triples over {build_report.chunks} chunks |
-| Approved graph | {build_report.triples['approved']:,} triples |
+| Approved graph | {build_report.triples['approved']:,} triples — signed by a named expert |
+| Authored graph | {build_report.triples.get('authored', 0):,} triples — **written by a machine, validated by nobody** |
 | SHACL result | {len(validation.by_severity('defect'))} defects, {len(validation.by_severity('gap'))} gaps, {len(validation.by_severity('note'))} notes — exit {validation.exit_code} |
 | Competency queries | {len(queries)} of {len(queries) + len(coverage['unqueried']) + len(coverage['deferred'])} questions |
 """)
@@ -120,9 +121,16 @@ def render() -> str:
     parts.append("""
 ## 1. What is in the graph
 
-Two named graphs, and the separation is the governance mechanism (ADR-0007).
+Three named graphs, and the separation is the governance mechanism (ADR-0007).
 `source` restates what upstream already recorded; `approved` restates what a
-reviewer already signed. Nothing is in both.
+reviewer already signed; `authored` restates what a machine wrote and nobody has
+read (ADR-0080). Nothing is in more than one.
+
+**The two record stores are never added together.** A single figure would answer
+the question a reader actually has — *how much of this has a person looked at* —
+in the one direction that matters, and would do it silently. A larger authored
+figure is not thereby a worse one; it is an unreviewed one, and that is a
+different fact about the same rows.
 """)
     parts.append(_fmt(
         [
@@ -136,9 +144,26 @@ reviewer already signed. Nothing is in both.
             ("`approved`", "entity mentions", build_report.mentions),
             ("`approved`", "questions (competency, retrieval, search)", build_report.questions),
             ("`approved`", "prohibited uses", build_report.prohibited_uses),
+            ("`authored`", "concepts", build_report.authored.concepts),
+            ("`authored`", "relationships, each with a direct triple and an assertion",
+             build_report.authored.relationships),
+            ("`authored`", "entity mentions", build_report.authored.mentions),
+            ("`authored`", "questions (competency, retrieval, search)",
+             build_report.authored.questions),
+            ("`authored`", "prohibited uses", build_report.authored.prohibited_uses),
         ],
         ("graph", "holds", "count"),
     ))
+    if build_report.authored_refused:
+        refused = ", ".join(sorted(build_report.authored_refused)[:12])
+        parts.append(
+            f"\n**{len(build_report.authored_refused)} authored record(s) were "
+            "refused** and are in no graph: their envelopes do not validate, so "
+            "nothing can say who wrote them or on what. `tmk-harness` names each "
+            "one — refused, not dropped, because a silently dropped authored "
+            "record is indistinguishable from one that was never written. "
+            f"Ids: {refused}.\n"
+        )
 
     parts.append(f"""
 ### The trust metadata survived
