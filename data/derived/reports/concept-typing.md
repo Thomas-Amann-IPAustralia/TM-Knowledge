@@ -2,11 +2,11 @@
 
 # The concept typing pass — the evidence
 
-**Generated 2026-09-08** by `tmk-typing --write`, from `eval/gold/concepts.yaml` and the pinned snapshot.
+**Generated 2026-09-08** by `tmk-typing --write`, from `eval/gold/concepts.yaml`, `authored/concept-types.yaml` and the pinned snapshot.
 
 ## What this is
 
-You ruled on OQ-0001: *“Use those four groups — come back to me with the list of 52 to sort.”* Here is the list. There are **52** approved concepts, of which **52** are not yet sorted.
+You ruled on OQ-0001: *“Use those four groups — come back to me with the list of 52 to sort.”* Here is the list. There are **52** approved concepts, of which **52** have not been sorted by a person.
 
 Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown with the five values below; this document is the evidence to sort by, so keep it open beside the spreadsheet.
 
@@ -20,11 +20,27 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 **Leaving a row blank is fine and is not the same as `none_of_these`.** A blank says *not yet sorted* and comes back on the next pass. `none_of_these` says *the four groups do not fit this one*, which is evidence about the taxonomy — and if a lot of rows come back that way, the taxonomy is what needs revisiting, not the rows.
 
-**No concept below has been typed by a machine, and none will be.** Which group a concept belongs in is a legal judgement, and a taxonomy filled in by a tool reads as authoritative while having been written by nobody.
+## Every group below was proposed by a machine
+
+**52 of the 52 unsigned concepts already carry a proposed group, and no trade marks expert has read any of them.** They were written under ADR-0079, which replaced the rule that an agent may not author legal content with a rule that it may not pass authored content off as reviewed. Every proposal is stamped `unreviewed` in `authored/concept-types.yaml`, with the model that wrote it, the passages it rests on and the reasoning below.
+
+**Your job here is to disagree, specifically.** A proposal you leave alone is not thereby right and does not become approved: there are three states — unreviewed, approved, rejected — and only a row carrying your name in `approved_by` has moved (ADR-0086). Reading this document and changing nothing leaves all 52 exactly as unvalidated as they were before you opened it.
+
+Each concept below carries four things worth more than the group itself: **why** that group, **instead of** what, **check** — the thing the proposal most expects to have got wrong — and a confidence between 0 and 1 that is the machine's own and means nothing about whether it is right.
+
+| proposed group | concepts |
+|---|---|
+| `ground_of_refusal` | 1 |
+| `legal_test` | 6 |
+| `relevant_factor` | 30 |
+| `exception` | 8 |
+| `none_of_these` | 7 |
+
+**The shape of that table is itself a finding.** The vocabulary was built around one ground of refusal — section 43 — so almost everything in it is material feeding that ground's question rather than a sibling ground. If `ground_of_refusal` looks too empty to you, the disagreement is about the taxonomy rather than about any single row, and it is worth saying so.
 
 ## The concepts
 
-### `GC-0001` — connotation
+### `GC-0001` — connotation  *(machine proposes: `legal_test` — unreviewed, nobody has checked this)*
 
 *Also called:* secondary meaning, implied meaning, secondary or implied meaning
 *Explicitly **not** the same as:* **denotation**, **deceptively similar**, **descriptive meaning**
@@ -33,10 +49,24 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > The Manual states that for section 43 the term has a wider meaning than the dictionary sense and includes direct statements. That widening is a practice position, and whether it survives into the ontology as one concept or two is a judgement.
 
+**Proposed group: `legal_test` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* Section 43 makes rejection turn on there being a connotation, and Part 29.2.4 makes its existence something the Registrar has to be satisfied about before the ground is raised — doubt defeats it. A matter the decision maker must answer is a legal_test on the owner's four groups, so connotation is typed as the first of section 43's two elements rather than as material feeding into one.
+
+*Instead of:*
+- relevant_factor — a connotation is also the thing found in a mark, and everything from a place name to an INN stem feeds into whether one exists. That would be the right reading if the four groups sorted concepts by what they are rather than by the part they play in the decision; it would also leave section 43's first element with no test.
+- ground_of_refusal — rejected because a connotation on its own refuses nothing. The Manual is explicit that a connotation must additionally be likely to deceive or confuse.
+
+*Check this first:* Whether the existence of a connotation is genuinely a separate question from whether the mark is likely to deceive, or whether practice runs the two together. GC-0002 is typed legal_test on the same footing, and if they are one question the pair should collapse into it.
+
+*The machine's own confidence:* 0.7 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/2/2/1~1`** — Connotation is not defined in the Trade Marks Act 1995 (the Act). The meaning for practical purposes has been taken from the ordinary dictionary definitions as set out below: Connotation Macquarie Dictionary the act or fact of connoting that which is connoted; secondary implied or associated meanings (as distinguished from denotation) Connotation Oxford English Dictionary The signifying in addition; inclusion of something in the meaning of a word besides what it primarily denotes; implication. It is clear from these definitions that the word connotation refers to something implied in a trade mark, in addition to its essential or primary meaning. This has been supported and expanded upon by …
 - **`TMM/Part29/2/2/2`** — A connotation may result from the whole trade mark or from a part of the trade mark. It may result from a dictionary meaning or from a connection in the minds of the buying public with some person, place or thing.
 
-### `GC-0002` — likely to deceive or cause confusion
+### `GC-0002` — likely to deceive or cause confusion  *(machine proposes: `legal_test` — unreviewed, nobody has checked this)*
 
 *Also called:* likelihood of deception or confusion, deceive or confuse, deception or confusion
 *Explicitly **not** the same as:* **deceptively similar**, **substantially identical**, **likelihood of confusion between trade marks**
@@ -45,10 +75,23 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > Whether this should be one concept or two is a real question. The Manual quotes Lord Denning distinguishing them sharply, then applies them as a single threshold. We have kept them together with the two narrower concepts underneath; splitting them is a defensible correction.
 
+**Proposed group: `legal_test` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The Manual states this as the thing a decision maker must be clearly satisfied of, which is the definition of a question the decision maker has to answer. Every other concept in the s 43 vocabulary either feeds this question or takes a case out of it.
+
+*Instead of:*
+- ground_of_refusal — the phrase is the operative words of the statutory ground, and an expert may prefer to type the ground where the Act puts it rather than splitting it into elements. GC-0006 carries ground_of_refusal in this pass, so taking that reading would make one of the two redundant.
+
+*Check this first:* The split between this record and GT-0006. If 'ground for rejection' and 'likely to deceive or cause confusion' name the same thing in practice, one of the two typings is wrong and the vocabulary has a duplicate underneath it.
+
+*The machine's own confidence:* 0.85 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/1#1`** — Section 43 of the Act reads as follows: An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion. The application of section 43 is, by the wording of the section, mandatory. There is, therefore, no discretion to accept a trade mark that is caught by the provisions of this section. However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the …
 - **`TMM/Part29/3#1~2`** — The prominence and context of the potentially deceptive or confusing element in the trade mark will be important in deciding whether the trade mark is likely to deceive or cause confusion. What is deception and confusion? As noted by Lord Denning in Parker-Knoll Limited v. Knoll International Limited [1962] RPC 265 at p174: ….‘to deceive'’ is one thing. To ‘cause confusion' is another. The difference is this: When you deceive a man, you tell him a lie. You make a false representation to him and thereby cause him to believe a thing to be true which is false. You may not do it knowingly, or intentionally, but still you do it, and so you deceive him. But you may cause confusion without telling …
 
-### `GC-0003` — deception
+### `GC-0003` — deception  *(machine proposes: `legal_test` — unreviewed, nobody has checked this)*
 
 *Also called:* deceive, misled, misdescriptive
 *Explicitly **not** the same as:* **confusion**, **scandalous**
@@ -57,9 +100,23 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > "Misdescriptive" is listed as an alt label on the strength of one passage. It may be a related but distinct idea rather than a synonym.
 
+**Proposed group: `legal_test` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* Typed as a limb of GC-0002 rather than as an input to it. The Manual quotes Lord Denning distinguishing deception from confusion sharply and then says the connotation must be judged as giving rise to one or the other — so each limb is a question that can be answered on its own.
+
+*Instead of:*
+- relevant_factor — right if deception and confusion are two ways of describing one threshold rather than two questions, which is how the rest of Part 29 applies them.
+- none_of_these — right if 'deception' here is a description of an effect rather than anything the decision maker decides.
+
+*Check this first:* Whether an examiner ever decides deception and confusion separately, or whether the distinction is quoted for colour and applied as a single threshold. GC-0002's own record note raises this and it is unresolved.
+
+*The machine's own confidence:* 0.6 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/3#1~2`** — The prominence and context of the potentially deceptive or confusing element in the trade mark will be important in deciding whether the trade mark is likely to deceive or cause confusion. What is deception and confusion? As noted by Lord Denning in Parker-Knoll Limited v. Knoll International Limited [1962] RPC 265 at p174: ….‘to deceive'’ is one thing. To ‘cause confusion' is another. The difference is this: When you deceive a man, you tell him a lie. You make a false representation to him and thereby cause him to believe a thing to be true which is false. You may not do it knowingly, or intentionally, but still you do it, and so you deceive him. But you may cause confusion without telling …
 
-### `GC-0004` — confusion
+### `GC-0004` — confusion  *(machine proposes: `legal_test` — unreviewed, nobody has checked this)*
 
 *Also called:* cause confusion, confuse, caused to wonder
 *Explicitly **not** the same as:* **confusion between trade marks**, **conflict with other signs**, **deceptively similar**
@@ -68,20 +125,47 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > "Caused to wonder" comes from a passage quoted from a decision under earlier legislation. Whether it is a synonym or a test is a reading.
 
+**Proposed group: `legal_test` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The mirror of GT-0003, and typed the same way for the same reason: confusion has its own threshold in the corpus — persons caused to wonder, a reasonable doubt entertained — which is a question with an answer rather than a consideration that feeds one.
+
+*Instead of:*
+- relevant_factor — as for GT-0003, right if the two limbs are one threshold.
+- none_of_these — right if confusion is the effect and the test is only 'likely to deceive or cause confusion' as a whole.
+
+*Check this first:* The same question as GT-0003, and it should be answered for both at once. If the pair collapse into GC-0002, this record and GT-0003 both become relevant_factor or disappear.
+
+*The machine's own confidence:* 0.6 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/3#1~2`** — The prominence and context of the potentially deceptive or confusing element in the trade mark will be important in deciding whether the trade mark is likely to deceive or cause confusion. What is deception and confusion? As noted by Lord Denning in Parker-Knoll Limited v. Knoll International Limited [1962] RPC 265 at p174: ….‘to deceive'’ is one thing. To ‘cause confusion' is another. The difference is this: When you deceive a man, you tell him a lie. You make a false representation to him and thereby cause him to believe a thing to be true which is false. You may not do it knowingly, or intentionally, but still you do it, and so you deceive him. But you may cause confusion without telling …
 - **`TMM/Part29/3/3/1~1`** — There must be a real and obvious danger of the buying public being deceived and/or confused by the secondary meaning within the trade mark. A possibility of confusion or a suggestion that deception might occur is not sufficient. In Registrar Of Trade Marks v Woolworths [1999] FCA 1020 (‘Woolworths Metro’), French J said at [43] (when considering the phrase likely to deceive or cause confusion): the use of the word “likely” in this context does not import a requirement that it be more probable than not that the mark has that effect. The probability of deception or confusion must be finite and non-trivial. There must be a “real tangible danger of its occurring”. The tests lie in the …
 
-### `GC-0005` — denotation
+### `GC-0005` — denotation  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* primary meaning, essential meaning
 *Explicitly **not** the same as:* **connotation**
 
 > The Manual gives the denotation of a mark as the connection in trade between the applicant and the goods or services.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* Separating what a mark denotes from what it connotes is a step in reaching the connotation finding, so denotation feeds the answer rather than being one. It is typed relevant_factor on that basis and not on the basis that anybody weighs it.
+
+*Instead of:*
+- none_of_these — the stronger alternative. Denotation is a definitional foil the Manual uses to say what connotation is not; a foil is not a factor, and if the four groups are about what the decision maker weighs, this belongs outside them.
+
+*Check this first:* Whether denotation does any work of its own in an examination, or whether it appears only in the case law the Manual quotes. If the latter, none_of_these is the better answer and this record is the clearest example of the four groups not fitting.
+
+*The machine's own confidence:* 0.55 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/2/2/1~1`** — Connotation is not defined in the Trade Marks Act 1995 (the Act). The meaning for practical purposes has been taken from the ordinary dictionary definitions as set out below: Connotation Macquarie Dictionary the act or fact of connoting that which is connoted; secondary implied or associated meanings (as distinguished from denotation) Connotation Oxford English Dictionary The signifying in addition; inclusion of something in the meaning of a word besides what it primarily denotes; implication. It is clear from these definitions that the word connotation refers to something implied in a trade mark, in addition to its essential or primary meaning. This has been supported and expanded upon by …
 - **`TMM/Part29/2/2/1~2`** — plainly, if “connotation” in s 43 is to bear its ordinary meaning (and the respondents did not argue otherwise), then a distinction is to be made between the denotation of the mark and its connotation. ….at [163] of her reasons, the primary judge expressly approved of the approach taken by the Registrar’s delegate, that the denotation of “Primary Health Care” in this context is as a trade mark denoting a connection between the applicant and its medical centres. In my respectful opinion, subject to the qualification that “Primary Health Care” denotes a connection between the applicant and the designated services (rather than a connection between the applicant and its medical centres), her …
 
-### `GC-0006` — ground for rejection
+### `GC-0006` — ground for rejection  *(machine proposes: `ground_of_refusal` — unreviewed, nobody has checked this)*
 
 *Also called:* ground of rejection, objection, s 43 objection
 *Explicitly **not** the same as:* **ground of opposition**, **ground for revocation**
@@ -89,10 +173,23 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > The Manual uses "objection" and "ground for rejection" interchangeably in places. If they are not interchangeable in practice, that is a correction with consequences across the whole entity set.
 
+**Proposed group: `ground_of_refusal` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The only concept in the 52 that names a reason an application can be refused rather than something inside the reasoning, and its alt label 's 43 objection' ties it to the concrete ground rather than to the abstract category. Typed ground_of_refusal so the group is not empty on a vocabulary built entirely around one ground.
+
+*Instead of:*
+- none_of_these — the serious alternative. This concept names the taxonomy's own category, so typing it ground_of_refusal makes the class a member of itself. That would be right if the vocabulary is expected to grow a separate concept for the section 43 ground specifically.
+
+*Check this first:* Whether the vocabulary needs 'ground for rejection' (the general notion) and 'section 43 ground for rejection' (the particular one) as two concepts. This record types them as one, which is the reason the ground_of_refusal group has exactly one member in 52.
+
+*The machine's own confidence:* 0.6 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part20/5#1`** — The Act and Regulations contain all the grounds upon which an application for registration of a trade mark may have to be rejected. Rejection may result under paragraph 33(1)(b) because of the question of registrability of the trade mark itself, or under paragraph 33(1)(a) from an application not being made in accordance with the Act, the latter including a failure to comply with formality requirements. If an application has been made in accordance with the Act, the trade mark is registrable provided none of the grounds referred to in sections 39 to 44 of the Act are found to apply. Sections 39 to 43 cover what are sometimes referred to as the “absolute” grounds for rejection, that is …
 - **`TMM/Part29/1#1`** — Section 43 of the Act reads as follows: An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion. The application of section 43 is, by the wording of the section, mandatory. There is, therefore, no discretion to accept a trade mark that is caught by the provisions of this section. However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the …
 
-### `GC-0007` — presumption of registrability
+### `GC-0007` — presumption of registrability  *(machine proposes: `exception` — unreviewed, nobody has checked this)*
 
 *Also called:* presumption in favour of registrability
 *Explicitly **not** the same as:* **onus on the applicant**
@@ -100,20 +197,47 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > The not_label is a live one: a passage quoted in 29.3.1 places the onus on the applicant, in the context of earlier legislation. Whether the two sit together is a legal question, not a drafting one.
 
+**Proposed group: `exception` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* Typed on what the presumption does rather than on what it is. Its stated operation in Part 29 is that doubt about a connotation stops the ground being raised — a case that might otherwise attract the ground is taken out of it, which is the exception group's definition.
+
+*Instead of:*
+- legal_test — the presumption is really a standard of satisfaction ('the Registrar must be satisfied that a ground for rejection exists'), and a standard is a question, not an out. This is the reading to prefer if the exception group is meant for substantive carve-outs rather than for burden rules.
+- none_of_these — right if a burden of proof is simply a different kind of thing from the four groups.
+
+*Check this first:* This record and GT-0051. GC-0007's own note says the presumption and the mandatory application of s 43 pull in opposite directions; they are typed here as exception and none_of_these respectively, and if that is the wrong pairing both are wrong together.
+
+*The machine's own confidence:* 0.5 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/2/2/4`** — The presumption of registrability applies to section 43. The Registrar must be satisfied that a ground for rejection exists before section 33(3) can be applied to reject the trade mark. If there is doubt that a connotation exists, then the ground for rejection should not be raised.
 - **`TMM/Part20/5/5/5`** — Under section 43 of the Act an application for registration of a trade mark for particular goods or services must be rejected if, because of some connotation that the trade mark has, the use of the trade mark in relation to those goods would be likely to deceive or cause confusion. The connotation may result from the whole trade mark or a sign included in it. Grounds for rejection under this section are “absolute” grounds in that the likely deception or confusion results from the nature of the trade mark. Section 43 does not apply to instances of deception and confusion that might arise from conflict between similar trade marks.
 
-### `GC-0008` — real and tangible danger
+### `GC-0008` — real and tangible danger  *(machine proposes: `legal_test` — unreviewed, nobody has checked this)*
 
 *Also called:* real tangible danger, real and obvious danger, finite and non-trivial probability
 *Explicitly **not** the same as:* **mere possibility of confusion**, **actual probability of deception**
 
 > The not_labels are both phrases the Manual uses to say what the test is *not*, which makes them unusually well-evidenced near-misses.
 
+**Proposed group: `legal_test` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The corpus states this as a threshold with a floor under it — a mere possibility will not do — which makes it a question with a yes or no answer rather than a consideration. It is the level at which GC-0002 is set, not a separate ground.
+
+*Instead of:*
+- relevant_factor — right if 'real and tangible danger' is treated as the way the deception question is described rather than as a distinct step in answering it.
+
+*Check this first:* Whether this is a second test or the calibration of GC-0002's single test. If the latter, the two records should say so rather than both carrying legal_test as though they were independent questions.
+
+*The machine's own confidence:* 0.75 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/3/3/1~1`** — There must be a real and obvious danger of the buying public being deceived and/or confused by the secondary meaning within the trade mark. A possibility of confusion or a suggestion that deception might occur is not sufficient. In Registrar Of Trade Marks v Woolworths [1999] FCA 1020 (‘Woolworths Metro’), French J said at [43] (when considering the phrase likely to deceive or cause confusion): the use of the word “likely” in this context does not import a requirement that it be more probable than not that the mark has that effect. The probability of deception or confusion must be finite and non-trivial. There must be a “real tangible danger of its occurring”. The tests lie in the …
 - **`TMM/Part29/4#1`** — A term within a trade mark describing particular goods/services will not trigger section 43 as long as those goods/services are covered by the specification. For example: Trade Mark Goods / services claimed PLATYPUS Meat free snack Class 29 "Snack foods made from dehydrated vegetables" The trade mark contains the words “Meat free snacks”. A section 43 ground for rejection is not required as the specification claims snack foods which are made from meat free ingredients. Although this specification may notionally include snack foods which do contain some meat, we cannot be satisfied that there is an immediate danger of consumers being deceived or misled. There is no need for an examiner to …
 
-### `GC-0009` — relevant market
+### `GC-0009` — relevant market  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* buying public, relevant sector of the public, relevant Australian consumers
 *Explicitly **not** the same as:* **trade**, **relevant trade**
@@ -121,10 +245,23 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > Low confidence. These may be four distinct ideas that an examiner chooses between deliberately.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* Identifying whose reaction counts is an input to the deception question, not the question itself. The Manual never asks whether there is a relevant market; it asks whether that market would be deceived.
+
+*Instead of:*
+- none_of_these — right if 'relevant market' is a party or population rather than a consideration, in the way GC-0044 and GC-0046 are actors and are typed none_of_these here.
+
+*Check this first:* The line this pass drew between a population that is weighed (typed relevant_factor, as here and at GT-0010) and an actor who decides (typed none_of_these, GT-0044 to GT-0046). If that line is wrong, four records move together.
+
+*The machine's own confidence:* 0.75 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/1#1`** — Section 43 of the Act reads as follows: An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion. The application of section 43 is, by the wording of the section, mandatory. There is, therefore, no discretion to accept a trade mark that is caught by the provisions of this section. However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the …
 - **`TMM/Part29/3#1~1`** — Trade Marks Act 1995 Trade Mark Regulations 1995 The underlying purpose of section 43 is to prevent the public being deceived or confused as to the nature of the goods by reason of the secondary meaning connoted by the mark in question (Pfizer Products Inc v Karam [2006] FCA 1663, [53]). In Primary Health Care Limited v Commonwealth of Australia [2017] FCAFC 174, Katzmann J said at 113: ….the section is concerned with whether the mark the subject of the application (or a sign contained in the mark) connotes something other than a connection in the course of trade between the relevant goods or services and the person who applied (or intended to apply) it to those goods or services. For a …
 
-### `GC-0010` — ordinary consumer
+### `GC-0010` — ordinary consumer  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* average consumer, ordinary person, reasonable consumer
 *Explicitly **not** the same as:* **exceptionally stupid or careless consumer**, **expert consumer**
@@ -132,70 +269,161 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > The first not_label is the Manual's own words, quoted from a decision. It is the clearest negative boundary marker in the pilot area.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The ordinary consumer is the perspective the test is applied from, and a perspective is an input to the answer rather than a question in its own right. Typed alongside GC-0009 so the market and the consumer within it sit in the same group.
+
+*Instead of:*
+- legal_test — the Manual says in terms that 'the tests lie in the perception of the ordinary person', which can be read as making the ordinary consumer the test rather than a factor in it. The quote sits in this record's evidence precisely because it argues for the alternative.
+
+*Check this first:* Whether examiners treat 'who is the ordinary consumer of these goods' as a question they decide, or as a standard they apply without deciding anything. The answer moves this record and probably GT-0009 with it.
+
+*The machine's own confidence:* 0.6 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/3/3/1~1`** — There must be a real and obvious danger of the buying public being deceived and/or confused by the secondary meaning within the trade mark. A possibility of confusion or a suggestion that deception might occur is not sufficient. In Registrar Of Trade Marks v Woolworths [1999] FCA 1020 (‘Woolworths Metro’), French J said at [43] (when considering the phrase likely to deceive or cause confusion): the use of the word “likely” in this context does not import a requirement that it be more probable than not that the mark has that effect. The probability of deception or confusion must be finite and non-trivial. There must be a “real tangible danger of its occurring”. The tests lie in the …
 - **`TMM/Part29/4#1`** — A term within a trade mark describing particular goods/services will not trigger section 43 as long as those goods/services are covered by the specification. For example: Trade Mark Goods / services claimed PLATYPUS Meat free snack Class 29 "Snack foods made from dehydrated vegetables" The trade mark contains the words “Meat free snacks”. A section 43 ground for rejection is not required as the specification claims snack foods which are made from meat free ingredients. Although this specification may notionally include snack foods which do contain some meat, we cannot be satisfied that there is an immediate danger of consumers being deceived or misled. There is no need for an examiner to …
 - **`TMM/Part29/9/9/3~1`** — Qualifiers (e.g. “made in”, “product of”) are not necessary for a connotation to be present in a mark. A geographical reference used without any qualifying information may not result in consumers being deceived, but may be likely to cause confusion. A trade mark containing a standalone geographical reference will cause confusion if each of the following criteria are met: Consumers would have reason to associate the goods/services with the geographical location; The association between the place and the goods/services would influence the purchasing decision of an average consumer of the goods/services. There are no other elements in the mark, or surrounding circumstances, which would …
 
-### `GC-0011` — surrounding circumstances
+### `GC-0011` — surrounding circumstances  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* all the surrounding circumstances, relevant circumstances
 *Explicitly **not** the same as:* **external considerations**, **reputation in another trade mark**
 
 > The not_labels matter: Part 29.9.7 says expressly that the connotation must come from the mark itself and not from external considerations such as reputation in another mark. So "surrounding circumstances" is admissible and "external considerations" is not, and the two phrases look alike.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The clearest relevant_factor in the set: the corpus uses the words 'taken into consideration' and then lists what the category holds. Nothing is being decided and nothing is being taken out of the rule.
+
+*Instead of:*
+- none_of_these — only if 'surrounding circumstances' is thought to be a container for factors rather than a factor, which would be a modelling objection rather than a legal one.
+
+*Check this first:* Whether the concept should survive as a single record at all, or be replaced by the particular circumstances the Manual lists. The typing is safe either way; the vocabulary question is not.
+
+*The machine's own confidence:* 0.9 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/3#1~1`** — Trade Marks Act 1995 Trade Mark Regulations 1995 The underlying purpose of section 43 is to prevent the public being deceived or confused as to the nature of the goods by reason of the secondary meaning connoted by the mark in question (Pfizer Products Inc v Karam [2006] FCA 1663, [53]). In Primary Health Care Limited v Commonwealth of Australia [2017] FCAFC 174, Katzmann J said at 113: ….the section is concerned with whether the mark the subject of the application (or a sign contained in the mark) connotes something other than a connection in the course of trade between the relevant goods or services and the person who applied (or intended to apply) it to those goods or services. For a …
 - **`TMM/Part29/9/9/3~1`** — Qualifiers (e.g. “made in”, “product of”) are not necessary for a connotation to be present in a mark. A geographical reference used without any qualifying information may not result in consumers being deceived, but may be likely to cause confusion. A trade mark containing a standalone geographical reference will cause confusion if each of the following criteria are met: Consumers would have reason to associate the goods/services with the geographical location; The association between the place and the goods/services would influence the purchasing decision of an average consumer of the goods/services. There are no other elements in the mark, or surrounding circumstances, which would …
 
-### `GC-0012` — specification of goods and services
+### `GC-0012` — specification of goods and services  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* specification, goods/services claimed, claimed goods and services
 *Explicitly **not** the same as:* **class**, **goods actually supplied**
 
 > The Manual reasons about what a specification "notionally includes", which is a different thing from what the applicant sells.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The specification is one half of the comparison the whole of Part 29.4 turns on — connotation against claimed goods — so it feeds the deception answer directly. It is not itself decided and it does not take a case out of the rule.
+
+*Instead of:*
+- exception — arguable on the PLATYPUS example, where a specification that matches the connotation means no ground is required. But that is the comparison coming out one way, not a carve-out from it; GC-0015 holds the carve-out and is typed exception.
+
+*Check this first:* Whether the specification as filed and the specification as amended are the same concept for typing purposes. This record and GT-0015 assume they are not.
+
+*The machine's own confidence:* 0.8 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/4#1`** — A term within a trade mark describing particular goods/services will not trigger section 43 as long as those goods/services are covered by the specification. For example: Trade Mark Goods / services claimed PLATYPUS Meat free snack Class 29 "Snack foods made from dehydrated vegetables" The trade mark contains the words “Meat free snacks”. A section 43 ground for rejection is not required as the specification claims snack foods which are made from meat free ingredients. Although this specification may notionally include snack foods which do contain some meat, we cannot be satisfied that there is an immediate danger of consumers being deceived or misled. There is no need for an examiner to …
 - **`TMM/Part29/9/9/2`** — If a trade mark contains an explicit claim about the goods which relates to a geographic location and that claim is not reflected in the specification or an endorsement, the trade mark is likely to deceive consumers if that claim turns out to be false. Examples of claims that would result in deception include: “GROWN IN QUEENSLAND” for Dried coconut “AUSTRALIAN MATERIALS!” for Prefabricated sheds “100% ITALIAN MARBLE” for Wall cladding The risk of deception can be mitigated by a suitably specific endorsement or an amendment or limitation to the specification of goods or services.
 
-### `GC-0013` — condition of registration
+### `GC-0013` — condition of registration  *(machine proposes: `exception` — unreviewed, nobody has checked this)*
 
 *Also called:* condition, conditions or limitations
 *Explicitly **not** the same as:* **endorsement**, **specification amendment**
 
 > Whether an endorsement is the record of a condition or a separate thing is exactly the sort of tacit distinction this exercise is trying to surface.
 
+**Proposed group: `exception` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The corpus states it as the way a ground already made out is overcome, in both the INN and the geographical branches. A mechanism that removes a case from a ground it otherwise attracts is an exception on the owner's definition.
+
+*Instead of:*
+- none_of_these — a condition of registration is an administrative instrument, and the exception group may be meant for doctrinal carve-outs (GC-0027, GC-0048) rather than for remedies. On that reading GT-0013 to GT-0015 all move out of exception together and the group shrinks to five.
+
+*Check this first:* Whether 'overcoming a ground' and 'the ground not arising' are the same kind of thing. Four records — GT-0013, GT-0014, GT-0015, GT-0029 — are typed exception on the first, and GT-0020, GT-0027 and GT-0048 on the second.
+
+*The machine's own confidence:* 0.7 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/5/5/4`** — A ground for rejection under section 43 exists where a trade mark, or part of a trade mark, to be used in relation to pharmaceuticals or veterinary substances is the same as, or may connote, a notified INN and use of the trade mark in respect of the goods covered by the specification are not restricted to the particular substance indicated by the INN. Use of such a trade mark would be likely to give rise to deception or confusion. Determining whether a non-identical trade mark connotes an INN will depend on the particular circumstances of the case. However, if a trade mark is an obvious derivation of an INN, a connotation is likely to exist. See Aventis Pharma SA v Alphapharm Pty Ltd [2005] …
 - **`TMM/Part29/9/9/5`** — An applicant will be able to overcome a geographical section 43 objection by agreeing to a condition of registration or a specification amendment which removes the likelihood of consumers being deceived or confused. This is the sole criterion for conditions or limitations applied in order to overcome grounds for rejection raised under section 43. The condition of registration or specification amendment must directly address the connotation in the trade mark. Examples:
 
-### `GC-0014` — endorsement
+### `GC-0014` — endorsement  *(machine proposes: `exception` — unreviewed, nobody has checked this)*
 
 *Also called:* endorsement wording, suggested endorsement
 *Explicitly **not** the same as:* **condition of registration**, **disclaimer**
+
+**Proposed group: `exception` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* Typed with GC-0013 because Part 29.9.2 names the endorsement itself as mitigating the risk, not merely as the place where a condition is recorded. The lowest confidence in the exception group.
+
+*Instead of:*
+- none_of_these — the reading to prefer if an endorsement is only the written record of a condition (GC-0013) or of a permission (GC-0029). On that view it is an artefact, does nothing of its own, and the two passages in the evidence are loose drafting rather than a separate mechanism.
+
+*Check this first:* Whether an endorsement is a thing that does work or the writing-down of a thing that does. GC-0013's own record note flags this as exactly the kind of tacit distinction the exercise is meant to surface, and it is still open.
+
+*The machine's own confidence:* 0.5 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
 
 - **`TMM/Part29/5/5/4`** — A ground for rejection under section 43 exists where a trade mark, or part of a trade mark, to be used in relation to pharmaceuticals or veterinary substances is the same as, or may connote, a notified INN and use of the trade mark in respect of the goods covered by the specification are not restricted to the particular substance indicated by the INN. Use of such a trade mark would be likely to give rise to deception or confusion. Determining whether a non-identical trade mark connotes an INN will depend on the particular circumstances of the case. However, if a trade mark is an obvious derivation of an INN, a connotation is likely to exist. See Aventis Pharma SA v Alphapharm Pty Ltd [2005] …
 - **`TMM/Part29/6#1~2`** — Firstly, how well known is the person among relevant Australian consumers, as at the priority date? Secondly, are consumers likely to see the name as referring specifically to the well-known person, rather than someone else with the same name? The more common the name, whether it is a given name, surname, or combination of both, the less likely consumers will be to make this assumption, as many well-known people have names shared by many other people. Conversely, for a highly distinctive and unusual name shared by very few people, consumers are more likely to assume that it refers to the well-known person. See for example: Comité International Olympique v Tempting Brands Netherlands BV …
 - **`TMM/Part29/6/6/1`** — The considerations applying to the names of well-known persons also apply to images of those persons. Images can include photographs, portraits, cartoon caricatures and other stylised representations. An applicant may overcome a section 43 ground for rejection in relation to such an image by providing the well-known person’s written permission to use their image as a trade mark. Where permission is provided, this should be made clear by way of an endorsement. For example: The representation in the trade mark is that of <name of well-known person> who has consented to the use of their image as a trade mark. A section 43 ground for rejection should not be raised merely because a trade mark …
 
-### `GC-0015` — limitation of the specification
+### `GC-0015` — limitation of the specification  *(machine proposes: `exception` — unreviewed, nobody has checked this)*
 
 *Also called:* specification amendment, amendment to the specification, restriction of the specification
 *Explicitly **not** the same as:* **divisional application**, **deletion of goods**
 
 > The second not_label is unsure: Part 12 discusses deleting goods and filing a divisional as related moves, and whether deletion is a limitation or something else is a practice question.
 
+**Proposed group: `exception` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* A limitation removes the likelihood of deception and so removes the ground, which is the exception group's definition applied literally. Part 29.9.5 goes further than the other two members of this trio by calling it the sole criterion for a limitation under s 43.
+
+*Instead of:*
+- relevant_factor — right if the limited specification is simply the specification (GC-0012) at a later moment, in which case what changes is the input and not the rule.
+
+*Check this first:* The same question as GT-0013: whether a remedy belongs in the exception group at all. If it does not, this record is relevant_factor and merges in substance with GT-0012.
+
+*The machine's own confidence:* 0.75 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/9/9/2`** — If a trade mark contains an explicit claim about the goods which relates to a geographic location and that claim is not reflected in the specification or an endorsement, the trade mark is likely to deceive consumers if that claim turns out to be false. Examples of claims that would result in deception include: “GROWN IN QUEENSLAND” for Dried coconut “AUSTRALIAN MATERIALS!” for Prefabricated sheds “100% ITALIAN MARBLE” for Wall cladding The risk of deception can be mitigated by a suitably specific endorsement or an amendment or limitation to the specification of goods or services.
 - **`TMM/Part29/9/9/5`** — An applicant will be able to overcome a geographical section 43 objection by agreeing to a condition of registration or a specification amendment which removes the likelihood of consumers being deceived or confused. This is the sole criterion for conditions or limitations applied in order to overcome grounds for rejection raised under section 43. The condition of registration or specification amendment must directly address the connotation in the trade mark. Examples:
 
-### `GC-0016` — priority date
+### `GC-0016` — priority date  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* date of the application, as at the priority date
 *Explicitly **not** the same as:* **filing date**, **date of registration**, **last amended date**
 
 > Whether the filing date and the priority date are distinct enough to be a not_label here is a practice question; they coincide in most applications and diverge in the ones that matter.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The priority date fixes the moment at which how-well-known is measured, so it conditions the answer without being one. Typed relevant_factor as the temporal input to the well-known-person branch.
+
+*Instead of:*
+- none_of_these — right if a date is an administrative attribute of an application rather than something weighed. That reading is strengthened by the fact that the Manual mentions the priority date once in the whole of Part 29.
+
+*Check this first:* The tension GC-0049's note records: Part 29.3.2 directs attention to the current marketplace and Part 29.6 to the priority date. Both are typed relevant_factor here, which quietly asserts that they are two inputs rather than a contradiction.
+
+*The machine's own confidence:* 0.65 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/6#1~2`** — Firstly, how well known is the person among relevant Australian consumers, as at the priority date? Secondly, are consumers likely to see the name as referring specifically to the well-known person, rather than someone else with the same name? The more common the name, whether it is a given name, surname, or combination of both, the less likely consumers will be to make this assumption, as many well-known people have names shared by many other people. Conversely, for a highly distinctive and unusual name shared by very few people, consumers are more likely to assume that it refers to the well-known person. See for example: Comité International Olympique v Tempting Brands Netherlands BV …
 - **`TMM/Part29/6/6/2~2`** — In these circumstances, use of the deceased person’s name/image in the trade mark may connote some connection between the deceased person or their estate (or other authorised entity) and the specified goods/services, which would confuse or deceive consumers. For example, in McCorquodale v Masterson [2004] FCA 1247 (DIANA’S LEGACY IN ROSES & Device) (“Masterson”), the Court found that the section 43 ground was established because parts contained in the mark “directly and immediately” connoted the late Princess Diana, and suggested an association with her estate, resulting in a real tangible risk of confusion or deception. The application claimed live roses. Relevant circumstances considered …
 
-### `GC-0017` — geographical reference
+### `GC-0017` — geographical reference  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* geographic reference, place name, reference to a geographical location
 *Explicitly **not** the same as:* **geographical indication**, **business identifier**
@@ -204,10 +432,23 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > The first not_label is the important one: every geographical indication is a geographical reference and the reverse is false, and the two terms are used within a few paragraphs of each other.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The corpus is explicit that the mere presence of a place name demonstrates nothing automatically — it is material that feeds the connotation question and does not answer it. That sentence is the reason this whole family of subject-matter concepts is typed relevant_factor rather than ground_of_refusal.
+
+*Instead of:*
+- ground_of_refusal — right if the four groups sort concepts by the rule they appear in rather than by the part they play in it. Fifteen records in this pass turn on the same choice.
+
+*Check this first:* The family judgement, once, rather than fifteen times: GT-0017 to GT-0023, GT-0025, GT-0026, GT-0030 to GT-0034, GT-0036 and GT-0037 are all typed relevant_factor because they name material rather than a reason to refuse. If that is wrong it is wrong for all of them.
+
+*The machine's own confidence:* 0.8 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/9#1`** — Trade marks that contain geographic references may include statements such as: “Product of Australia” “Proudly Tasmanian” “Grown in Griffith” “Made in Sri Lanka”. A trade mark may also simply include the name or a graphical representation of a town/city/state/country. 9.1 Connotations resulting from geographical references Trade marks which contain a geographical reference will often connote the geographical origin or some other attribute of goods or services. A typical example is where a geographical reference connotes that the goods and/or services claimed are of a certain quality or standard, or exhibit attributes for which the geographical reference is known. This was the case in …
 - **`TMM/Part29/9/9/3~1`** — Qualifiers (e.g. “made in”, “product of”) are not necessary for a connotation to be present in a mark. A geographical reference used without any qualifying information may not result in consumers being deceived, but may be likely to cause confusion. A trade mark containing a standalone geographical reference will cause confusion if each of the following criteria are met: Consumers would have reason to associate the goods/services with the geographical location; The association between the place and the goods/services would influence the purchasing decision of an average consumer of the goods/services. There are no other elements in the mark, or surrounding circumstances, which would …
 
-### `GC-0018` — geographical indication
+### `GC-0018` — geographical indication  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* GI, geographical indication for wine, listed EU GI
 *Explicitly **not** the same as:* **geographical reference**, **geographical origin**, **place name**
@@ -215,57 +456,136 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > The pilot area's material on GIs mostly points elsewhere — Part 29.1.1 sends the reader to Part 32B. Whether those destinations are in the pilot boundary is deliverable 1's question.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The corpus makes a match against a listed EU GI the trigger for a further question rather than the answer to one — 'consideration should then be given to whether'. That is a factor by the owner's definition.
+
+*Instead of:*
+- ground_of_refusal — the family alternative recorded at GT-0017.
+- none_of_these — right if a GI is treated as an external instrument the examiner consults rather than as a feature of the mark.
+
+*Check this first:* Whether the s 43 treatment of GIs is really in this vocabulary at all. GC-0018's own record note says Part 29.1.1 sends the reader to Part 32B, and the material this typing rests on is one paragraph about the EU agreement.
+
+*The machine's own confidence:* 0.7 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/1/1/1`** — For details of examination practice relating to class 33 applications see Part 32B. Part 32B - Examination of Trade Marks for Wines (in class 33)
 - **`TMM/Part29/11#1`** — Australia has committed to protecting a range of European Union (EU) geographical indications (GIs) when the Australia European Union Free Trade Agreement enters into force. The following is a list of EU GIs that will be protected (listed EU GIs): Overview of EU geographical indications (GIS) protected with treatments | Australian Government Department of Foreign Affairs and Trade If during examination of a new application research reveals that a trade mark is identical or similar to a listed EU GI, consideration should then be given to whether or not the use of the trade mark would potentially deceive or confuse Australian consumers and make grounds for rejection under s 43 appropriate.
 - **`TMM/Part32B/1/1/1`** — Examination of trade mark applications filed in respect of wines and grape products such as brandy, grappa and fortified wines involves consideration of additional requirements arising from the Wine Australia Act 2013. The Wine Australia Act protects certain terms used in relation to these goods. The examiner must consider whether a trade mark is or contains a term protected under the Wine Australia Act and whether a contrary to law ground for rejection applies under s 42 of the Trade Marks Act 1995. This Part of the Manual will also discuss considerations in relation to sections 41, 43 and 44 of the Trade Marks Act 1995.
 
-### `GC-0019` — geographical origin
+### `GC-0019` — geographical origin  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* origin of the goods, place of production
 *Explicitly **not** the same as:* **geographical reference**, **geographical indication**
 *Broader:* GC-0017 · *Narrower:* —
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* Same structure as GT-0018 and stated in one sentence: origin is what the reference connotes, and the deception question is asked afterwards. The finding of origin is an input to that question.
+
+*Instead of:*
+- legal_test — 'is the mark found to connote geographical origin' is arguably a question the examiner answers, which would make this the geographical branch's version of GC-0001.
+
+*Check this first:* Whether the geographical branch has its own connotation test, or whether it applies GC-0001's. This record assumes the second.
+
+*The machine's own confidence:* 0.8 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/9#1`** — Trade marks that contain geographic references may include statements such as: “Product of Australia” “Proudly Tasmanian” “Grown in Griffith” “Made in Sri Lanka”. A trade mark may also simply include the name or a graphical representation of a town/city/state/country. 9.1 Connotations resulting from geographical references Trade marks which contain a geographical reference will often connote the geographical origin or some other attribute of goods or services. A typical example is where a geographical reference connotes that the goods and/or services claimed are of a certain quality or standard, or exhibit attributes for which the geographical reference is known. This was the case in …
 - **`TMM/Part29/3#1~1`** — Trade Marks Act 1995 Trade Mark Regulations 1995 The underlying purpose of section 43 is to prevent the public being deceived or confused as to the nature of the goods by reason of the secondary meaning connoted by the mark in question (Pfizer Products Inc v Karam [2006] FCA 1663, [53]). In Primary Health Care Limited v Commonwealth of Australia [2017] FCAFC 174, Katzmann J said at 113: ….the section is concerned with whether the mark the subject of the application (or a sign contained in the mark) connotes something other than a connection in the course of trade between the relevant goods or services and the person who applied (or intended to apply) it to those goods or services. For a …
 
-### `GC-0020` — business identifier
+### `GC-0020` — business identifier  *(machine proposes: `exception` — unreviewed, nobody has checked this)*
 
 *Also called:* company name element, trading name element
 *Explicitly **not** the same as:* **geographical reference**, **geographical origin**
 
 > The Manual's examples both contain place names, which is what makes this a genuine trap rather than a distinction on paper.
 
+**Proposed group: `exception` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The only member of the geographical family the corpus carves out: a place name inside a business identifier is read as saying something about the business, and the ground will rarely apply. That is a case taken out of the rule.
+
+*Instead of:*
+- relevant_factor — 'rarely' is not 'never', so this may be a strong factor against a connotation rather than an exception to the ground. That reading would put it back with GT-0017 and leave the exception group without a geographical member other than GT-0048.
+
+*Check this first:* Whether 'will rarely apply' is practice-speak for an exception or an honest statement of frequency. The distinction decides this record and nothing else.
+
+*The machine's own confidence:* 0.7 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/9/9/6`** — Where business identifiers are included in a trade mark (e.g. A TASMANIAN COMPANY, RIVERINA DAIRY CO.) this tends to indicate a characteristic of a business rather than the goods or services themselves. A ground for rejection will rarely apply in these cases. See USA Detergents, INC v Magnatex International Pty Limited [2001] ATMO 29; Deyncourt Pty Ltd v Scott Mitchell Passmore as trustee for The S R G Passmore Investment Trust [2019] ATMO 26.
 
-### `GC-0021` — geographical qualifier
+### `GC-0021` — geographical qualifier  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* qualifier, qualifying information, made in, product of
 *Explicitly **not** the same as:* **standalone geographical reference**
 
 > Whether "made in" and "product of" are labels for this concept or examples of it is a modelling choice, not a legal one — but it changes how the entity annotations attach.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* A qualifier strengthens a geographical claim into an explicit one, and the corpus says its absence does not defeat a connotation. Something that makes a finding more or less likely without settling it is a factor.
+
+*Instead of:*
+- none_of_these — right if 'made in' and 'product of' are examples of GC-0017 rather than a concept in their own right, which GC-0021's own record note raises as a live modelling question.
+
+*Check this first:* Whether this concept survives at all. If it is a list of example phrases rather than an idea, the typing is beside the point and the record should be withdrawn instead.
+
+*The machine's own confidence:* 0.65 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/9/9/3~1`** — Qualifiers (e.g. “made in”, “product of”) are not necessary for a connotation to be present in a mark. A geographical reference used without any qualifying information may not result in consumers being deceived, but may be likely to cause confusion. A trade mark containing a standalone geographical reference will cause confusion if each of the following criteria are met: Consumers would have reason to associate the goods/services with the geographical location; The association between the place and the goods/services would influence the purchasing decision of an average consumer of the goods/services. There are no other elements in the mark, or surrounding circumstances, which would …
 - **`TMM/Part29/9/9/2`** — If a trade mark contains an explicit claim about the goods which relates to a geographic location and that claim is not reflected in the specification or an endorsement, the trade mark is likely to deceive consumers if that claim turns out to be false. Examples of claims that would result in deception include: “GROWN IN QUEENSLAND” for Dried coconut “AUSTRALIAN MATERIALS!” for Prefabricated sheds “100% ITALIAN MARBLE” for Wall cladding The risk of deception can be mitigated by a suitably specific endorsement or an amendment or limitation to the specification of goods or services.
 
-### `GC-0022` — International Non-Proprietary Name
+### `GC-0022` — International Non-Proprietary Name  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* INN, generic name for a pharmaceutical substance, notified INN
 *Explicitly **not** the same as:* **INN stem**, **trade mark**, **brand name**
 
 > The first not_label is the whole difficulty of Part 29.5: an INN and an INN stem are governed by different rules and named almost identically.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* An INN is a name maintained by the WHO. Whether a mark is or connotes one is the input; the ground arises from that plus an unrestricted specification. Typed with the rest of the subject-matter family.
+
+*Instead of:*
+- ground_of_refusal — the family alternative at GT-0017, and unusually strong here because Part 29.5.4 opens with the words 'A ground for rejection under section 43 exists where'. What follows those words is a compound condition, of which the INN is one part.
+
+*Check this first:* Whether the vocabulary needs a concept for the compound condition — 'mark connotes an INN and specification is unrestricted' — as distinct from the INN itself. Without one the ground_of_refusal group stays nearly empty.
+
+*The machine's own confidence:* 0.7 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/5/5/1`** — In the 1950s the World Health Organisation (WHO) began a program of identifying each pharmaceutical substance by a unique, universally recognisable name to be known as an International Non-Proprietary Name or INN. The system aims to promote safety for health professionals and the public in the identification, prescription and dispensation of pharmaceutical substances throughout the world. The INN is effectively the generic name for the substance and therefore should be open for use by anyone in a descriptive context. At regular intervals the WHO notifies member states of names to be protected. When examining trade marks, IP Australia is aware of the need to prevent use of INNs (and words …
 
-### `GC-0023` — INN stem
+### `GC-0023` — INN stem  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* stem, common stem, INN-stem
 *Explicitly **not** the same as:* **International Non-Proprietary Name**, **prefix**, **suffix**
 
 > "Prefix" and "suffix" are listed as not_labels because the Manual uses them to describe a stem's *position*, not as names for it — a stem can be a prefix, a suffix or an infix.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* 'May lead to' is the language of a factor, and the stem's presence is only the start of the enquiry — GC-0024 holds the question that follows it. Typed relevant_factor with the INN itself.
+
+*Instead of:*
+- ground_of_refusal — the family alternative at GT-0017.
+
+*Check this first:* Whether an INN and an INN stem should type the same way at all. They are governed by different rules and named almost identically, which GC-0022's record note calls the whole difficulty of Part 29.5.
+
+*The machine's own confidence:* 0.7 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/5/5/2`** — The INN system also governs the use of common, descriptive stems given to families of pharmacologically related substances (e.g. the word element "astine" for antihistamine preparations). Accordingly, improper use of an INN stem in a trade mark may lead to deception or confusion. A list of INN stems has been developed with each stem relating to a particular group of pharmaceuticals. These stems (listed at Annex 1 to this Part) should not be used in trade marks for pharmaceuticals or veterinary substances other than those indicated by the INN stem. Stems can be prefixes, suffixes or infixes - this is denoted by the position and presence of hyphens in the list of INN stems. For example: …
 
-### `GC-0024` — meaningful inclusion of an INN stem
+### `GC-0024` — meaningful inclusion of an INN stem  *(machine proposes: `legal_test` — unreviewed, nobody has checked this)*
 
 *Also called:* included in a meaningful way, meaningful enough to give rise to a connotation
 *Explicitly **not** the same as:* **contains an INN stem**, **obvious derivation of an INN**
@@ -273,19 +593,45 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > The `pref_label` is our coinage, not the Manual's. If the practice has a name for this, using it is a real improvement; if it does not, that is itself worth recording.
 
+**Proposed group: `legal_test` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The corpus states this as something an examiner will need to consider, in those words, and then gives worked examples either side of the line. That is a question the decision maker has to answer.
+
+*Instead of:*
+- relevant_factor — right only if meaningfulness is one of several things weighed rather than the gate the stem branch turns on. The Boehringer factors at 29.5.6 are the things weighed; this is what they are weighed towards.
+
+*Check this first:* The pref_label. GC-0024's record note says 'meaningful inclusion of an INN stem' is the project's coinage rather than the Manual's, so the typing may be right about a concept whose name is wrong.
+
+*The machine's own confidence:* 0.85 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/5/5/5`** — A ground for rejection under section 43 exists where a trade mark to be used in relation to pharmaceuticals or veterinary substances consists of an INN stem, or contains a notified INN stem in a meaningful way, and use of the trade mark in respect of the goods covered by the specification are not restricted to substances indicated by the INN stem. A section 43 ground for rejection may be overcome by the applicant agreeing to a condition of registration limiting use of the trade mark to goods containing substances belonging to the relevant INN stem. The endorsement suggested by the Registrar in these circumstances is: It is a condition of registration that any use in respect of …
 - **`TMM/Part29/5/5/6~1`** — An examiner will need to consider whether the presence of an INN stem in a word is “meaningful” enough to give rise to a connotation leading to likely deception or confusion under section 43. Some INN stems consist of simple two or three letter combinations and their presence in a larger word may not be meaningful and as a result would not lead to deception or confusion. For example, the presence of ‘aj’ in the term ‘Sansajabendorastine’ is not significant enough to warrant a ground for rejection given the length of the name and other competing references such as ‘astine’. By way of contrast the appearance of ‘aj’ in ‘tenaj’ would more clearly give rise to a section 43 ground for rejection. …
 
-### `GC-0025` — pharmaceutical or veterinary substance
+### `GC-0025` — pharmaceutical or veterinary substance  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* pharmaceuticals, veterinary substances, class 5 goods
 *Explicitly **not** the same as:* **dietary or nutritional supplement**, **medical services**
 
 > The first not_label is deliberately provocative: the Manual names supplements as goods that "could be pharmaceutical in nature", so they may be inside this concept rather than beside it.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The goods class is what brings the INN rules into play; it triggers the enquiry rather than answering it. Typed with the rest of the subject-matter family.
+
+*Instead of:*
+- none_of_these — right if a goods category is an attribute of the application rather than a legal idea, in which case it is closer to GC-0012 than to GC-0022.
+
+*Check this first:* Whether dietary and nutritional supplements are inside this concept or beside it. GC-0025's record note deliberately lists them as a near-miss while the Manual names them as goods that could be pharmaceutical in nature.
+
+*The machine's own confidence:* 0.75 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/5/5/3`** — When examining applications for registration of trade marks in class 5 covering pharmaceuticals or veterinary substances, examiners should check the trade mark against the INN list using the Search for International Nonproprietary Names for Pharmaceutical Substances and the list of INN stems found at Annex 1 in this Part of the Manual. Claims for specific pharmaceutical or veterinary goods in Class 5 may also trigger the provisions of section 43 in relation to INNs and INN stems. Examples include classes of pharmaceutical or veterinary substances (e.g. analgesics or pain relieving preparations) as well as goods which could be pharmaceutical or veterinary in nature (e.g. dietary or …
 
-### `GC-0026` — well-known person
+### `GC-0026` — well-known person  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* well known person, person well known in relation to the goods or services, celebrity
 *Explicitly **not** the same as:* **name of a person**, **signature**, **surname**
@@ -294,10 +640,23 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > "Celebrity" is an alt label on the strength of ordinary usage, not of the corpus — the Manual never uses the word. The not_labels point at Part 22 material, where a name is a distinctiveness question under section 41 rather than a connotation question.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* 'May be triggered' is the language of a factor, and Part 29.6 then names the question the examiner must ultimately decide separately from it. The well-known person is the material; the connotation of endorsement is what is decided.
+
+*Instead of:*
+- ground_of_refusal — the family alternative at GT-0017.
+
+*Check this first:* How much of the well-known-person branch this record carries. Three of the factors at 29.6 — how well known, name commonness, closeness of the field — have no concept of their own, so they are currently unmodelled and this record is standing in for them.
+
+*The machine's own confidence:* 0.75 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/6#1~1`** — Trade Marks Act 1995 Trade Mark Regulations 1995 If a trade mark contains a name of a person (or group of people) which is well known in relation to the specified goods or services, the provisions of section 43 may be triggered. Such names could consist of the given name, surname, combination of both or known nickname for the well-known person (or group of persons). For example, a section 43 ground for rejection may arise if a trade mark is the name of a well-known person, and the goods/services are in the field for which they are well known, such that consumers are clearly likely to assume that the person is connected with or has endorsed those goods/services, or are involved in their …
 - **`TMM/Part29/6#1~2`** — Firstly, how well known is the person among relevant Australian consumers, as at the priority date? Secondly, are consumers likely to see the name as referring specifically to the well-known person, rather than someone else with the same name? The more common the name, whether it is a given name, surname, or combination of both, the less likely consumers will be to make this assumption, as many well-known people have names shared by many other people. Conversely, for a highly distinctive and unusual name shared by very few people, consumers are more likely to assume that it refers to the well-known person. See for example: Comité International Olympique v Tempting Brands Netherlands BV …
 
-### `GC-0027` — deceased person
+### `GC-0027` — deceased person  *(machine proposes: `exception` — unreviewed, nobody has checked this)*
 
 *Also called:* long deceased historical figure, deceased well-known person
 *Explicitly **not** the same as:* **estate**, **authorised entity**
@@ -305,38 +664,91 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > The not_labels are the actors that continue to control a name after death. They are what makes the exception operate, so they must not cluster with the person.
 
+**Proposed group: `exception` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The corpus states the carve-out directly: the ground will not arise for a long deceased figure even where every other element of the well-known-person branch is present. That is a case taken out of the rule.
+
+*Instead of:*
+- relevant_factor — the same passage re-admits the ground where an estate or authorised entity has continued to control the name, and makes recency of death a matter of degree. On that reading death is a strong factor and not an out at all.
+
+*Check this first:* Whether the estate proviso swallows the exception. If in practice most deceased-person cases turn on whether an estate is still licensing, this is a factor wearing an exception's words.
+
+*The machine's own confidence:* 0.8 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/6/6/2~1`** — Generally, a section 43 ground for rejection will not arise in respect of long deceased historical figures, even if they were well known for the same field as the specified goods/services are in. This is because consumers are unlikely to think that the name of a person who died long ago is still connected with ongoing commercial activity associated with that person or their estate. For example, if a trader uses the name “W G Grace” (a famous cricketer whose career spanned from around 1860 to 1900) on cricket bats, consumers today would be more likely to regard this as a reference to a bygone era rather than a suggestion that W G Grace, or his descendants, endorsed or had any input on the …
 - **`TMM/Part29/6/6/2~2`** — In these circumstances, use of the deceased person’s name/image in the trade mark may connote some connection between the deceased person or their estate (or other authorised entity) and the specified goods/services, which would confuse or deceive consumers. For example, in McCorquodale v Masterson [2004] FCA 1247 (DIANA’S LEGACY IN ROSES & Device) (“Masterson”), the Court found that the section 43 ground was established because parts contained in the mark “directly and immediately” connoted the late Princess Diana, and suggested an association with her estate, resulting in a real tangible risk of confusion or deception. The application claimed live roses. Relevant circumstances considered …
 
-### `GC-0028` — implied endorsement
+### `GC-0028` — implied endorsement  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* endorsement or approval, implied licensing, connection with or approval of
 *Explicitly **not** the same as:* **endorsement**, **written permission**
 
 > The first not_label is a genuine collision inside one Part: an "endorsement" on a registration and an "endorsement" by a celebrity are unrelated ideas sharing a word, two screens apart.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* Typed as the content of a connotation — one of the kinds of connection Part 29.3 lists — rather than as the deciding of one. The question remains GC-0002's; implied endorsement is what the mark has to convey for that question to be answered yes.
+
+*Instead of:*
+- legal_test — the strongest alternative in this file, and the second evidence quote argues for it: Part 29.6 calls this 'the question that the examiner must ultimately decide'. It is typed relevant_factor because the concept is the connotation and not the deciding of it, which is a modelling distinction an expert may reject.
+
+*Check this first:* This record before any other in the relevant_factor group. The corpus comes closer to calling implied endorsement a test than it does for anything else typed relevant_factor here, and the quote saying so is in the record's own evidence.
+
+*The machine's own confidence:* 0.55 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/6#1~2`** — Firstly, how well known is the person among relevant Australian consumers, as at the priority date? Secondly, are consumers likely to see the name as referring specifically to the well-known person, rather than someone else with the same name? The more common the name, whether it is a given name, surname, or combination of both, the less likely consumers will be to make this assumption, as many well-known people have names shared by many other people. Conversely, for a highly distinctive and unusual name shared by very few people, consumers are more likely to assume that it refers to the well-known person. See for example: Comité International Olympique v Tempting Brands Netherlands BV …
 - **`TMM/Part29/9/9/7`** — Trade marks that consist of, or include wording and/or imagery that connotes a connection with a well- known reference may also give rise to deception and confusion. The inclusion of such material may result in ordinary consumers being deceived and confused on the basis of incorrectly believing that the trade mark indicates an endorsement or approval from the party or parties that own and have control over the well- known material. When faced with this type of reference it is important to remember that the connotation must be from the trade mark itself and not from any other external considerations such as a reputation in another trade mark. The particular currency (or relevance) that the …
 
-### `GC-0029` — written permission
+### `GC-0029` — written permission  *(machine proposes: `exception` — unreviewed, nobody has checked this)*
 
 *Also called:* consent, permission to use the name, has consented
 *Explicitly **not** the same as:* **letter of consent**, **authorised user**
 
 > "Letter of consent" is a not_label because it is a term of art used in the section 42 and section 44 material for a different mechanism.
 
+**Proposed group: `exception` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* Stated twice in the corpus in the same words, for names and for images: permission overcomes the ground. The clearest exception in the set after GC-0027.
+
+*Instead of:*
+- relevant_factor — right only if permission is evidence bearing on whether consumers would be misled rather than a mechanism that disposes of the objection. Part 29.6 treats it as the second.
+
+*Check this first:* Whether the ground is overcome by the permission or by the endorsement recording it. GT-0014 types the endorsement exception on parallel reasoning, and the two records may be describing one mechanism twice.
+
+*The machine's own confidence:* 0.85 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/6#1~2`** — Firstly, how well known is the person among relevant Australian consumers, as at the priority date? Secondly, are consumers likely to see the name as referring specifically to the well-known person, rather than someone else with the same name? The more common the name, whether it is a given name, surname, or combination of both, the less likely consumers will be to make this assumption, as many well-known people have names shared by many other people. Conversely, for a highly distinctive and unusual name shared by very few people, consumers are more likely to assume that it refers to the well-known person. See for example: Comité International Olympique v Tempting Brands Netherlands BV …
 - **`TMM/Part29/6/6/1`** — The considerations applying to the names of well-known persons also apply to images of those persons. Images can include photographs, portraits, cartoon caricatures and other stylised representations. An applicant may overcome a section 43 ground for rejection in relation to such an image by providing the well-known person’s written permission to use their image as a trade mark. Where permission is provided, this should be made clear by way of an endorsement. For example: The representation in the trade mark is that of <name of well-known person> who has consented to the use of their image as a trade mark. A section 43 ground for rejection should not be raised merely because a trade mark …
 
-### `GC-0030` — image of a person
+### `GC-0030` — image of a person  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* representation of a person, photograph, portrait, cartoon caricature
 *Explicitly **not** the same as:* **device**, **signature**
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The corpus says in terms that the image alone is not enough and that its presence is a reason to give consideration to s 43. Material that opens an enquiry without settling it is a factor.
+
+*Instead of:*
+- ground_of_refusal — the family alternative at GT-0017.
+- exception — the first quote is phrased negatively and could be read as a carve-out for images generally. It is read here as a floor on the evidence rather than an out.
+
+*Check this first:* Whether images and names should type identically. They are typed the same way here (GT-0026, GT-0030) on the strength of Part 29.6.1's opening sentence that the same considerations apply.
+
+*The machine's own confidence:* 0.7 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/6/6/1`** — The considerations applying to the names of well-known persons also apply to images of those persons. Images can include photographs, portraits, cartoon caricatures and other stylised representations. An applicant may overcome a section 43 ground for rejection in relation to such an image by providing the well-known person’s written permission to use their image as a trade mark. Where permission is provided, this should be made clear by way of an endorsement. For example: The representation in the trade mark is that of <name of well-known person> who has consented to the use of their image as a trade mark. A section 43 ground for rejection should not be raised merely because a trade mark …
 - **`TMM/Part22/25/25/7`** — Portraits, pictures and images of people are generally prima facie capable of distinguishing. If however the image represented in the trade mark is of a well-known person (or group of people), and the well-known person (or group of people) is not the applicant, consideration should be given to section 43 of the Act, which considers whether use of the trade mark in relation to the goods or services is likely to deceive or cause confusion. For more information in relation to images of persons and section 43 see: Part 29 Trade Marks likely to Deceive or Cause Confusion - 6.1 Images of persons
 
-### `GC-0031` — phoneword
+### `GC-0031` — phoneword  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* SMS word, phone word, alphabetic phone number
 *Explicitly **not** the same as:* **phone number**, **numeral**
@@ -344,9 +756,22 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > The not_label is well evidenced: the Manual says other phone numbers that do not appear to represent a phoneword should not be queried.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The phoneword is the subject matter; the ground is the applicant not owning it. Typed relevant_factor on the family reading, with the ownership half held by GC-0035.
+
+*Instead of:*
+- ground_of_refusal — stronger here than anywhere else in the family, because Part 29.7 states a complete rule in one sentence and the concept sits at the centre of it. The counter is that a phoneword owned by the applicant refuses nothing.
+
+*Check this first:* The three ownership branches together — phoneword (GT-0031), domain name (GT-0032), radio call sign (GT-0034) — and GC-0035 beside them. All four are typed relevant_factor, and if any is a ground_of_refusal all four are.
+
+*The machine's own confidence:* 0.6 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/7#1`** — Phonewords and SMS words include 1300, 1800, 13 and 197 phone numbers that are presented alphabetically using the letters of a telephone or mobile key pad (e.g. 1300 GROCER, 1800 RABBIT and 13 BAGS). The licence to use a phoneword or SMS words is for the actual numerals forming the operational part of the phone number (not for the alphabetical segment). For example the licence to use the phoneword 13 BAGS lies in the number 13 2247. A section 43 ground for rejection will apply if the applicant for a trade mark containing material likely to be viewed as a phoneword, or the numbers representing a phoneword, is not also the owner (or authorised user) of that phoneword. For example, the …
 
-### `GC-0032` — internet domain name
+### `GC-0032` — internet domain name  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* domain name, internet domain name reference
 *Explicitly **not** the same as:* **standard address code material**, **website**
@@ -355,10 +780,23 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > "Standard address code material" is the Manual's own term for the common parts, which it distinguishes from the identifier. Treating them as the same thing would make every mark containing "com" a candidate.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The same structure as the phoneword branch and typed the same way: the domain name is the material, the ground is non-registration.
+
+*Instead of:*
+- ground_of_refusal — as at GT-0031.
+
+*Check this first:* The same question as GT-0031, and it should be answered for the three ownership branches at once.
+
+*The machine's own confidence:* 0.6 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/8#1`** — Internet domain names are typically a combination of standard address code material and an identifier. Standard address code material (such as "www", "net", "org", "com", "shop" or "au" and punctuation symbols "." or "/") points to directories, sub-directories and servers and is common to many domain names. An identifier may be an individual's name, an existing trade mark, a company name, a product name, a topic or any other combination of letters and numerals and is unique within any given domain name registration system. The registration of Internet domain names is managed by various registrars, each accredited by either the Internet Corporation for Assigned Names and Numbers (ICANN) or a …
 - **`TMM/Part29/8/8/2`** — 2nd level domains commonly include an organisation reference and a TLD. For example: (SOMETHING.COM) where something refers to the organisation and com the TLD. A subdomain is a subset of a domain name and may refer to a specific section of an organisation’s website. For example: (SHOP.EXAMPLE.ORG) where shop refers to the subdomain (where a user can access an online shop) and example.org the domain name (including the TLD .org). A section 43 ground for rejection will apply if the applicant for a trade mark, which connotes an Internet domain name (including a 2ND level domain / sub domain), is not the registrant or authorised user of that Internet domain name.
 
-### `GC-0033` — top level domain
+### `GC-0033` — top level domain  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* TLD, generic TLD, country-code TLD
 *Explicitly **not** the same as:* **second level domain**, **subdomain**
@@ -366,10 +804,23 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > Generic and country-code TLDs are treated differently by the Manual, so holding them as alt labels of one concept may be wrong.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* Part 29.8.1 makes the TLD something considered holistically alongside the specification when deciding whether a connotation exists. That is a factor feeding GC-0001's question.
+
+*Instead of:*
+- legal_test — 'whether the material is likely to connote a generic TLD' is phrased as a question, though it reads as the connotation question of GC-0001 applied to this material rather than a new one.
+
+*Check this first:* Whether generic and country-code TLDs are one concept. GC-0033's record note says the Manual treats them differently, and only the generic branch has the ICANN-list step this typing rests on.
+
+*The machine's own confidence:* 0.65 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/8/8/1`** — Top level domain (TLD) refers to the last segment of a domain name. TLDs are mainly classified into two categories: generic TLDs (for example .org) and country-code TLDs (for example .au). A generic TLD may however include any wording following a dot (.SOMETHING). In the case of a generic TLD, the trade mark application needs to be holistically considered, including the relevant specification, when determining whether the material (.SOMETHING) is likely to connote a generic TLD. If it is clear that such a connotation exists, the examiner should then consult ICANN's list of generic TLD applications. If the generic TLD referred to in the trade mark appears on ICANN’s list and is not under the …
 - **`TMM/Part29/8/8/2`** — 2nd level domains commonly include an organisation reference and a TLD. For example: (SOMETHING.COM) where something refers to the organisation and com the TLD. A subdomain is a subset of a domain name and may refer to a specific section of an organisation’s website. For example: (SHOP.EXAMPLE.ORG) where shop refers to the subdomain (where a user can access an online shop) and example.org the domain name (including the TLD .org). A section 43 ground for rejection will apply if the applicant for a trade mark, which connotes an Internet domain name (including a 2ND level domain / sub domain), is not the registrant or authorised user of that Internet domain name.
 
-### `GC-0034` — radio call sign
+### `GC-0034` — radio call sign  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* call sign, radio frequency, radio call sign or frequency
 *Explicitly **not** the same as:* **broadcasting services**, **licence**
@@ -377,29 +828,68 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > Holding call sign and frequency as one concept is a simplification. The Manual treats them together but they are administered differently — the broadcaster may choose one and never chooses the other.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The third ownership branch, typed as the other two are.
+
+*Instead of:*
+- ground_of_refusal — as at GT-0031.
+
+*Check this first:* GC-0034's record note flags that holding the call sign and the frequency as one concept is a simplification, since a broadcaster chooses one and never the other. If they split, both halves inherit this typing untested.
+
+*The machine's own confidence:* 0.6 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/8/8/3`** — Radio call signs and frequencies are governed and administered by the Australian Communications and Media Authority (ACMA). People who want to operate a radio station have to apply to ACMA and are governed by their rules. In Australia Radio call signs are quite specific, and indicate the state/territory and whether the frequency is AM or FM (two letters for AM, and three for FM). Also, radio broadcasters who wish to apply for a license with ACMA to operate can choose a call sign, but if they do not then the ACMA provides one - and radio broadcasters don't choose the frequency (according to the ACMA's website this is chosen for the broadcaster by the ACMA). Every broadcaster/radio station …
 
-### `GC-0035` — owner or authorised user
+### `GC-0035` — owner or authorised user  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* registrant or authorised user, licensed owner or operator, authorised user
 *Explicitly **not** the same as:* **applicant**, **owner of the trade mark**
 
 > Low confidence, and deliberately included at low confidence. The not_labels are the point: the owner of the phoneword and the owner of the trade mark are different roles that the same word names.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* Whether the applicant is the owner is what makes the three ownership branches deceptive at all, so it feeds the answer directly. Typed relevant_factor rather than exception because the corpus states the ground negatively — it applies where the applicant is not the owner — which makes ownership an element stated in the negative rather than a carve-out.
+
+*Instead of:*
+- exception — the second evidence quote is the argument for it: the ground is 'reconsidered' when the applicant shows they are the owner, which reads exactly like GC-0029's written permission. If that parallel holds, this is an exception and one of the lowest-confidence records here is wrong.
+
+*Check this first:* The choice between an element stated negatively and an exception. It decides this record and it is the same question underneath GT-0029.
+
+*The machine's own confidence:* 0.55 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/7#1`** — Phonewords and SMS words include 1300, 1800, 13 and 197 phone numbers that are presented alphabetically using the letters of a telephone or mobile key pad (e.g. 1300 GROCER, 1800 RABBIT and 13 BAGS). The licence to use a phoneword or SMS words is for the actual numerals forming the operational part of the phone number (not for the alphabetical segment). For example the licence to use the phoneword 13 BAGS lies in the number 13 2247. A section 43 ground for rejection will apply if the applicant for a trade mark containing material likely to be viewed as a phoneword, or the numbers representing a phoneword, is not also the owner (or authorised user) of that phoneword. For example, the …
 - **`TMM/Part29/8#1`** — Internet domain names are typically a combination of standard address code material and an identifier. Standard address code material (such as "www", "net", "org", "com", "shop" or "au" and punctuation symbols "." or "/") points to directories, sub-directories and servers and is common to many domain names. An identifier may be an individual's name, an existing trade mark, a company name, a product name, a topic or any other combination of letters and numerals and is unique within any given domain name registration system. The registration of Internet domain names is managed by various registrars, each accredited by either the Internet Corporation for Assigned Names and Numbers (ICANN) or a …
 - **`TMM/Part29/8/8/3`** — Radio call signs and frequencies are governed and administered by the Australian Communications and Media Authority (ACMA). People who want to operate a radio station have to apply to ACMA and are governed by their rules. In Australia Radio call signs are quite specific, and indicate the state/territory and whether the frequency is AM or FM (two letters for AM, and three for FM). Also, radio broadcasters who wish to apply for a license with ACMA to operate can choose a call sign, but if they do not then the ACMA provides one - and radio broadcasters don't choose the frequency (according to the ACMA's website this is chosen for the broadcaster by the ACMA). Every broadcaster/radio station …
 
-### `GC-0036` — plant variety name
+### `GC-0036` — plant variety name  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* plant variety denomination, variety name, other plant name
 *Explicitly **not** the same as:* **genus**, **plant materials**
 *Legislative basis:* TMA1995/s43
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The variety name is the material; whether it connotes immediately and whether the goods are of a related genus are the questions asked about it. Part 32A makes that explicit by sending the examiner back to consider how the name appears.
+
+*Instead of:*
+- ground_of_refusal — the family alternative at GT-0017.
+
+*Check this first:* Whether this concept is inside the vocabulary's scope or belongs to Part 32A. Half its evidence comes from there, which is true of no other record in this pass except GT-0018.
+
+*The machine's own confidence:* 0.7 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/1/1/2`** — If a trade mark contains or consists of word/s which connote a particular plant variety or other plant name, and is applied to plants or plant materials of the same or a closely related genus, it is likely to deceive or cause confusion as to the true nature of those plants or plant materials and a ground for rejection under section 43 of the Act will be appropriate. For details of practice in examination of applications for registration of trade marks covering plants and/or plant materials in class 31 see Part 32A. Part 32A - Examination of Trade Marks for Plants (in class 31)
 - **`TMM/Part32A/2/4/2/4/1`** — If a trade mark contains or consists of material that connotes a particular plant variety, it would be deceptive or confusing if the trade mark was applied to goods which are a different variety of the same or closely related genus. For example, if ‘Delta Sunset’ is the name of a particular rose and a trade mark application is received for DELTA SUNSET for roses, it would be deceptive or confusing if the trade mark was used on labels for roses that were the ‘Mr Lincoln’ variety rather than ‘Delta Sunset’. In such a circumstance, a ground for rejection under section 43 is applicable. Section 43 requires that the connotation is immediate. In the context of plants and plant material, the …
 
-### `GC-0037` — claim to Indigenous origin
+### `GC-0037` — claim to Indigenous origin  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* reference to Indigenous people, Indigenous connection, Aboriginal designed
 *Explicitly **not** the same as:* **Indigenous applicant**, **prescribed sign**
@@ -407,55 +897,133 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > Low confidence and high sensitivity. The labelling here should be checked against how the office actually speaks about this material, not just against the passage.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The corpus makes the reference material that 'can form a connotation', with the deception question asked afterwards. Typed with the rest of the family on that structure and on nothing about the subject matter itself.
+
+*Instead of:*
+- ground_of_refusal — the family alternative at GT-0017.
+
+*Check this first:* This record before the typing is relied on anywhere. GC-0037's own note records it as low confidence and high sensitivity, and the typing was made from one paragraph of the Manual rather than from how the office speaks about this material. A correction here is worth more than a correction anywhere else in the file.
+
+*The machine's own confidence:* 0.6 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/10#1`** — If a trade mark, or some part of the trade mark, contains a reference to Indigenous people and a connotation arises from the mark that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection under s43 should be raised. A trade mark may include statements such as ‘Aboriginal designed’, ‘Product of the Ngunnawal people’, or ‘Ngunnawal Art’. This type of material can form a connotation within a trade mark which would lead consumers into being misled into thinking that the goods or services bearing the applicant’s mark come from a source with an Indigenous connection.
 
-### `GC-0038` — trade mark as a whole
+### `GC-0038` — trade mark as a whole  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* the mark as a whole, other features of the trade mark, mitigating elements
 *Explicitly **not** the same as:* **part of the trade mark**, **essential feature**
 
 > The not_label matters because the Act itself contemplates a connotation arising from "a sign contained in the trade mark" — so the whole and the part are both operative and must not merge.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* A principle about what is looked at when the connotation question is asked, and the corpus says the other features 'diminish the impact' rather than removing the ground. That is weighing, which is what a factor is.
+
+*Instead of:*
+- exception — Bennett J's word in Bavaria is 'neutralise', which is stronger than diminish and would make mitigating elements an out rather than a counterweight.
+
+*Check this first:* Whether neutralising elements dispose of the ground or reduce it. The difference matters for GC-0021 and GC-0048 as well, both of which are about material that stops a connotation forming.
+
+*The machine's own confidence:* 0.8 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/3/3/5`** — When determining the potential connotation within a trade mark, the trade mark as a whole should be considered. Other features incorporated as part of the trade mark can diminish the impact of the offending material and cast doubt as to how it will be seen and interpreted by the relevant consumer. If a secondary or implied meaning can be derived from the material, this may influence what the trade mark connotes. This issue was considered in Bavaria NV v Bayerischer Brauerbund eV [2009] FCA 428, where Bennet J took into account other elements that appeared as part of the trade mark in question, stating at 89: ‘….the reasonable consumer would not fail to observe the three references to …
 - **`TMM/Part29/9/9/3~1`** — Qualifiers (e.g. “made in”, “product of”) are not necessary for a connotation to be present in a mark. A geographical reference used without any qualifying information may not result in consumers being deceived, but may be likely to cause confusion. A trade mark containing a standalone geographical reference will cause confusion if each of the following criteria are met: Consumers would have reason to associate the goods/services with the geographical location; The association between the place and the goods/services would influence the purchasing decision of an average consumer of the goods/services. There are no other elements in the mark, or surrounding circumstances, which would …
 
-### `GC-0039` — connotation developed over time
+### `GC-0039` — connotation developed over time  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* developed secondary meaning, meaning acquired through use in a trade
 *Explicitly **not** the same as:* **acquired distinctiveness**, **reputation**
 
 > The first not_label is the most valuable one in this file: acquired distinctiveness is section 41 material and means something a system must never carry into section 43, but the two are described in almost identical words.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* A connotation that developed through use is still a connotation, and its history is what makes it findable; typed as an input to GC-0001's question rather than as a separate one.
+
+*Instead of:*
+- none_of_these — the passage is mostly about where such cases are dealt with (opposition, on evidence) rather than about the s 43 judgement, which would make this an observation about process.
+
+*Check this first:* The near-miss GC-0039's record note calls the most valuable in the file: acquired distinctiveness under s 41 is described in almost identical words and must never be carried into s 43. The typing does not encode that boundary, and a relevant_factor label may make it easier to cross.
+
+*The machine's own confidence:* 0.55 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/3/3/4`** — In some cases a connotation giving rise to a section 43 ground for rejection may not be obvious during examination and will only emerge at opposition when the full facts of a case are available to the decision maker. This circumstance need not point to a fault in the examination process, but to the capacity for a trade mark to develop a connotation over time. A word with no obvious secondary meaning in respect of the particular goods/services under consideration may have developed one with the passage of time, and from extensive use within a particular trade. These kinds of cases are most appropriately identified and dealt with during opposition proceedings when considerable evidence of use …
 
-### `GC-0040` — opposition
+### `GC-0040` — opposition  *(machine proposes: `none_of_these` — unreviewed, nobody has checked this)*
 
 *Also called:* opposition proceedings, notice of intention to oppose
 *Explicitly **not** the same as:* **examination**, **hearing**, **revocation of acceptance**
 
+**Proposed group: `none_of_these` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* Opposition is a stage in the process, not a reason to refuse, a question inside the s 43 judgement, or a way out of it. Typed none_of_these as evidence about the taxonomy: the four groups sort the substance of a decision and this concept is about where a decision is made.
+
+*Instead of:*
+- relevant_factor — the Manual does treat 'this is better dealt with at opposition' as bearing on whether an examiner raises the ground, so the forum can feed the decision.
+
+*Check this first:* Whether the four groups are meant to cover procedural concepts at all. Five records here — GT-0040, GT-0042 to GT-0046 — are none_of_these for this reason, and a sixth group would take all of them.
+
+*The machine's own confidence:* 0.75 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/3/3/4`** — In some cases a connotation giving rise to a section 43 ground for rejection may not be obvious during examination and will only emerge at opposition when the full facts of a case are available to the decision maker. This circumstance need not point to a fault in the examination process, but to the capacity for a trade mark to develop a connotation over time. A word with no obvious secondary meaning in respect of the particular goods/services under consideration may have developed one with the passage of time, and from extensive use within a particular trade. These kinds of cases are most appropriately identified and dealt with during opposition proceedings when considerable evidence of use …
 - **`TMM/Part47/1/1/2/2`** — The statement of grounds and particulars must be filed in the same name as the notice of intention to oppose. The statement of grounds and particulars must be filed with the Trade Marks Office in an approved form. A statement of grounds and particulars form is available on IP Australia’s website. An opponent is not required to use this form, however it may be a useful guide to ensure the statement of grounds and particulars is in an approved form. There is a fee associated with filing a statement of grounds and particulars. This fee is subject to a couple of thresholds, below which no fee applies. The thresholds are 3 grounds of opposition (s 58A is not counted), and 10 trade marks …
 
-### `GC-0041` — evidence of use
+### `GC-0041` — evidence of use  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* evidence, considerable evidence of use
 *Explicitly **not** the same as:* **research**, **state of the Register**
 
 > The not_labels separate evidence a party files from material an examiner gathers. That distinction is load-bearing under section 43, where the Manual asks examiners to research rather than to require evidence.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The corpus says evidence determines the strength of the connotation, which is the definition of something feeding the answer. Typed relevant_factor even though both its passages are about opposition, because what it does there is weigh.
+
+*Instead of:*
+- none_of_these — right if evidence is a procedural artefact and belongs with GT-0040 rather than with the things it proves.
+
+*Check this first:* The line between this record and GT-0052. Evidence a party files and research an examiner does are typed the same way here, and GC-0041's own note says the distinction between them is load-bearing under s 43.
+
+*The machine's own confidence:* 0.75 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/3/3/4`** — In some cases a connotation giving rise to a section 43 ground for rejection may not be obvious during examination and will only emerge at opposition when the full facts of a case are available to the decision maker. This circumstance need not point to a fault in the examination process, but to the capacity for a trade mark to develop a connotation over time. A word with no obvious secondary meaning in respect of the particular goods/services under consideration may have developed one with the passage of time, and from extensive use within a particular trade. These kinds of cases are most appropriately identified and dealt with during opposition proceedings when considerable evidence of use …
 - **`TMM/Part23/2/2/2/2`** — Applicants may request that specific goods and services be excluded from a specification, rather than deleting specific items. For example, if a trade mark covering ‘land vehicles’ is objected to on the basis that it describes a particular type of scooter, an applicant may seek to amend the goods to land vehicles, excluding two wheeled vehicles. However, exclusions can raise issues around clarity and scope of the specification and therefore should not routinely be recommended as an option for an applicant to consider. In many cases, any appropriate refinement of the goods/services will be preferable to an exclusion. If an applicant offers to exclude goods and/or services to overcome a s 41 …
 
-### `GC-0042` — revocation of acceptance
+### `GC-0042` — revocation of acceptance  *(machine proposes: `none_of_these` — unreviewed, nobody has checked this)*
 
 *Also called:* revoke acceptance
 *Explicitly **not** the same as:* **revocation of registration**, **opposition**
 
 > On the edge of the pilot. It is here mainly because the not_label — revocation of *registration* — is a different thing under a different provision and the labels are one word apart.
 
+**Proposed group: `none_of_these` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* A power exercised after acceptance under s 38, on its own conditions. It is not a s 43 ground, not a question inside one, and not a way out of one.
+
+*Instead of:*
+- exception — rejected: revocation reopens a decision rather than excusing a case from the rule.
+
+*Check this first:* Whether this concept belongs in the vocabulary. GC-0042's own note puts it on the edge and says it is there mainly because 'revocation of registration' is a different thing one word away.
+
+*The machine's own confidence:* 0.8 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part51/10#1~1`** — Trade Marks Act 1995 Trade Marks Regulations 1995 Scanning new SGPs for potential revocation of acceptance Background Opposition to registration applications sometimes raise issues that can be dealt with by the examination sections through revocation of acceptance. This process has been implemented to allow O&H to escalate files to the revocation panel for consideration if it appears that the trade mark application should not have been accepted and that it appears reasonable to revoke acceptance in all of the circumstances. Responsibilities of O&H A Hearing Officer or an Assistant Hearing Officer with trade mark examination experience will be appointed to scan new statements of grounds and …
 
-### `GC-0043` — divisional application
+### `GC-0043` — divisional application  *(machine proposes: `none_of_these` — unreviewed, nobody has checked this)*
 
 *Also called:* divisional, parent application
 *Explicitly **not** the same as:* **series application**, **amendment**
@@ -463,75 +1031,179 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > This record exists to make the scope question concrete. If it is out of scope, saying so is more useful than correcting its labels.
 
+**Proposed group: `none_of_these` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* A filing mechanism, and one that answers a s 43 objection by moving goods rather than by bearing on whether the ground exists. Typed none_of_these on the same reading as the other procedural concepts.
+
+*Instead of:*
+- exception — the serious alternative: excluding the objected-to goods takes the parent application out of the ground, which is what GC-0015 does by limitation and is typed exception for. The difference relied on here is that a divisional creates a second application rather than narrowing the first.
+
+*Check this first:* Whether the difference between limiting a specification (GT-0015, exception) and dividing an application (this record, none_of_these) is real in practice or an artefact of how the Manual files them.
+
+*The machine's own confidence:* 0.7 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part12/2#1`** — An applicant may choose to file a divisional application for several reasons including, but not limited to, the following: if the goods/services of the parent application conflict with another trade mark application or registration, the applicant may decide to exclude the conflicting goods/services from the parent application so that the parent application can proceed to acceptance; or similarly, if only some of the goods/services of the parent application have attracted a ground for rejection under sections 39, 41, 42 or 43, the applicant may decide to exclude the goods/services which have attracted the ground(s) for rejection from the parent application, so that the parent application can …
 
-### `GC-0044` — examiner
+### `GC-0044` — examiner  *(machine proposes: `none_of_these` — unreviewed, nobody has checked this)*
 
 *Also called:* examiners
 *Explicitly **not** the same as:* **decision maker**, **delegate**, **Registrar**
 
 > Deliberately separated from decision maker and delegate. The Manual switches between them and it is not obvious whether the switch is meaningful. This is exactly the sort of thing that is innate to your reading and invisible in the text.
 
+**Proposed group: `none_of_these` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* An actor. The four groups sort the content of the s 43 judgement, and a person who makes it is not a reason to refuse, a question, a factor or an out.
+
+*Instead of:*
+- none seriously. The only reading that would move it is one where the four groups sort every concept in the vocabulary by some role, in which case the taxonomy needs a fifth group for actors rather than a different answer here.
+
+*Check this first:* That none_of_these is being read as intended for GT-0044 to GT-0046: not 'we could not decide' but 'the four groups do not reach this kind of concept'. If the owner wants roles typed, the taxonomy needs a group they can go in.
+
+*The machine's own confidence:* 0.85 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/3/3/2`** — A mere possibility of deception or confusion at some indeterminate time is not sufficient. Each application must be considered as it stands in the current marketplace, not in the marketplace as it was in the past and not as it may be in the future. A sign regarded as deceptive or confusing under the previous legislation may no longer have the same connotation and a ground for rejection may not apply under the current Act. The converse is just as likely - the market may have changed and a term that was meaningless 10 years ago might now have currency in a particular field. Examiners must ensure that they are considering the current marketplace when deciding whether a sign is likely to offend …
 - **`TMM/Part29/5/5/3`** — When examining applications for registration of trade marks in class 5 covering pharmaceuticals or veterinary substances, examiners should check the trade mark against the INN list using the Search for International Nonproprietary Names for Pharmaceutical Substances and the list of INN stems found at Annex 1 in this Part of the Manual. Claims for specific pharmaceutical or veterinary goods in Class 5 may also trigger the provisions of section 43 in relation to INNs and INN stems. Examples include classes of pharmaceutical or veterinary substances (e.g. analgesics or pain relieving preparations) as well as goods which could be pharmaceutical or veterinary in nature (e.g. dietary or …
 
-### `GC-0045` — decision maker
+### `GC-0045` — decision maker  *(machine proposes: `none_of_these` — unreviewed, nobody has checked this)*
 
 *Also called:* the decision maker
 *Explicitly **not** the same as:* **examiner**, **hearing officer**
 
+**Proposed group: `none_of_these` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* An actor, typed as GT-0044 is.
+
+*Instead of:*
+- none seriously — see GT-0044.
+
+*Check this first:* The distinction between this concept, GC-0044 and GC-0046 rather than the typing. GC-0044's record note says the Manual switches between them and it is not obvious whether the switch is meaningful; all three are typed identically here, which does not answer that.
+
+*The machine's own confidence:* 0.85 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/1#1`** — Section 43 of the Act reads as follows: An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion. The application of section 43 is, by the wording of the section, mandatory. There is, therefore, no discretion to accept a trade mark that is caught by the provisions of this section. However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the …
 - **`TMM/Part29/3/3/4`** — In some cases a connotation giving rise to a section 43 ground for rejection may not be obvious during examination and will only emerge at opposition when the full facts of a case are available to the decision maker. This circumstance need not point to a fault in the examination process, but to the capacity for a trade mark to develop a connotation over time. A word with no obvious secondary meaning in respect of the particular goods/services under consideration may have developed one with the passage of time, and from extensive use within a particular trade. These kinds of cases are most appropriately identified and dealt with during opposition proceedings when considerable evidence of use …
 
-### `GC-0046` — Registrar
+### `GC-0046` — Registrar  *(machine proposes: `none_of_these` — unreviewed, nobody has checked this)*
 
 *Also called:* Registrar of Trade Marks, the Registrar's delegate
 *Explicitly **not** the same as:* **examiner**, **IP Australia**
 
 > Holding "the Registrar's delegate" as an alt label is probably wrong — a delegate exercises the power and is not the Registrar. It is here to be corrected.
 
+**Proposed group: `none_of_these` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* An actor, typed as GT-0044 is.
+
+*Instead of:*
+- none seriously — see GT-0044.
+
+*Check this first:* GC-0046's record note says holding 'the Registrar’s delegate' as an alt label of Registrar is probably wrong, because a delegate exercises the power and is not the Registrar. The typing is unaffected either way, and the vocabulary error is not.
+
+*The machine's own confidence:* 0.85 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/2/2/4`** — The presumption of registrability applies to section 43. The Registrar must be satisfied that a ground for rejection exists before section 33(3) can be applied to reject the trade mark. If there is doubt that a connotation exists, then the ground for rejection should not be raised.
 - **`TMM/Part29/5/5/4`** — A ground for rejection under section 43 exists where a trade mark, or part of a trade mark, to be used in relation to pharmaceuticals or veterinary substances is the same as, or may connote, a notified INN and use of the trade mark in respect of the goods covered by the specification are not restricted to the particular substance indicated by the INN. Use of such a trade mark would be likely to give rise to deception or confusion. Determining whether a non-identical trade mark connotes an INN will depend on the particular circumstances of the case. However, if a trade mark is an obvious derivation of an INN, a connotation is likely to exist. See Aventis Pharma SA v Alphapharm Pty Ltd [2005] …
 
-### `GC-0047` — descriptive matter
+### `GC-0047` — descriptive matter  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* descriptive term, description of the goods or services
 *Explicitly **not** the same as:* **connotation**, **non-distinctive**
 
 > The second not_label points at section 41 territory. Descriptiveness is a distinctiveness question there and a connotation question here, using the same word.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The corpus says descriptive matter does not by itself attract an objection and then makes everything turn on the comparison with the specification. That is material feeding a question, not the question.
+
+*Instead of:*
+- exception — the second quote is phrased as a carve-out for descriptive terms matched by the specification. It is read here as the comparison at GT-0012 coming out one way rather than as an out.
+
+*Check this first:* Whether the s 41 sense of 'descriptive' can be kept out of this record. GC-0047's note flags that descriptiveness is a distinctiveness question under s 41 and a connotation question here, in the same word.
+
+*The machine's own confidence:* 0.7 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/4#1`** — A term within a trade mark describing particular goods/services will not trigger section 43 as long as those goods/services are covered by the specification. For example: Trade Mark Goods / services claimed PLATYPUS Meat free snack Class 29 "Snack foods made from dehydrated vegetables" The trade mark contains the words “Meat free snacks”. A section 43 ground for rejection is not required as the specification claims snack foods which are made from meat free ingredients. Although this specification may notionally include snack foods which do contain some meat, we cannot be satisfied that there is an immediate danger of consumers being deceived or misled. There is no need for an examiner to …
 - **`TMM/Part29/2/2/1~1`** — Connotation is not defined in the Trade Marks Act 1995 (the Act). The meaning for practical purposes has been taken from the ordinary dictionary definitions as set out below: Connotation Macquarie Dictionary the act or fact of connoting that which is connoted; secondary implied or associated meanings (as distinguished from denotation) Connotation Oxford English Dictionary The signifying in addition; inclusion of something in the meaning of a word besides what it primarily denotes; implication. It is clear from these definitions that the word connotation refers to something implied in a trade mark, in addition to its essential or primary meaning. This has been supported and expanded upon by …
 
-### `GC-0048` — fanciful or ambiguous reference
+### `GC-0048` — fanciful or ambiguous reference  *(machine proposes: `exception` — unreviewed, nobody has checked this)*
 
 *Also called:* fanciful description, unrealistic description, ambiguous geographic reference
 *Explicitly **not** the same as:* **misdescriptive**, **arbitrary mark**
 
+**Proposed group: `exception` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The corpus states it as a case where deception is not likely to occur, with worked examples, which is a case taken out of the rule. Typed exception with GC-0020 and GC-0027.
+
+*Instead of:*
+- relevant_factor — the second quote uses 'can also be taken into account', which is factor language, and the two passages may be describing a consideration in Part 29.4 and an exception in Part 29.9.
+
+*Check this first:* The disagreement between this record's two passages. One says deception is not likely to occur; the other says it can be taken into account. If the second is the practice, this is relevant_factor.
+
+*The machine's own confidence:* 0.75 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/9#1`** — Trade marks that contain geographic references may include statements such as: “Product of Australia” “Proudly Tasmanian” “Grown in Griffith” “Made in Sri Lanka”. A trade mark may also simply include the name or a graphical representation of a town/city/state/country. 9.1 Connotations resulting from geographical references Trade marks which contain a geographical reference will often connote the geographical origin or some other attribute of goods or services. A typical example is where a geographical reference connotes that the goods and/or services claimed are of a certain quality or standard, or exhibit attributes for which the geographical reference is known. This was the case in …
 - **`TMM/Part29/4#1`** — A term within a trade mark describing particular goods/services will not trigger section 43 as long as those goods/services are covered by the specification. For example: Trade Mark Goods / services claimed PLATYPUS Meat free snack Class 29 "Snack foods made from dehydrated vegetables" The trade mark contains the words “Meat free snacks”. A section 43 ground for rejection is not required as the specification claims snack foods which are made from meat free ingredients. Although this specification may notionally include snack foods which do contain some meat, we cannot be satisfied that there is an immediate danger of consumers being deceived or misled. There is no need for an examiner to …
 
-### `GC-0049` — current marketplace
+### `GC-0049` — current marketplace  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* the marketplace as it now is, currency of a reference
 *Explicitly **not** the same as:* **priority date**, **the marketplace as it was**
 
 > The tension is real and worth a decision: 29.3.2 directs attention to the current marketplace, 29.6 asks how well known a person was at the priority date. Whether that is a difference in the rules or a looseness in the drafting is a legal reading.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The temporal frame the connotation question is asked in. It conditions the answer without being one, in the same way GC-0016 does at the other end of the Part.
+
+*Instead of:*
+- legal_test — right only if 'what does this term mean in today’s market' is a question examiners answer separately, rather than the setting in which GC-0001's question is answered.
+
+*Check this first:* The contradiction GC-0049's record note names: 29.3.2 directs attention to the current marketplace and 29.6 to the priority date. Both are typed relevant_factor, which asserts they are two inputs and not a conflict — and that assertion has not been checked by anyone.
+
+*The machine's own confidence:* 0.75 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/3/3/2`** — A mere possibility of deception or confusion at some indeterminate time is not sufficient. Each application must be considered as it stands in the current marketplace, not in the marketplace as it was in the past and not as it may be in the future. A sign regarded as deceptive or confusing under the previous legislation may no longer have the same connotation and a ground for rejection may not apply under the current Act. The converse is just as likely - the market may have changed and a term that was meaningless 10 years ago might now have currency in a particular field. Examiners must ensure that they are considering the current marketplace when deciding whether a sign is likely to offend …
 - **`TMM/Part29/9/9/7`** — Trade marks that consist of, or include wording and/or imagery that connotes a connection with a well- known reference may also give rise to deception and confusion. The inclusion of such material may result in ordinary consumers being deceived and confused on the basis of incorrectly believing that the trade mark indicates an endorsement or approval from the party or parties that own and have control over the well- known material. When faced with this type of reference it is important to remember that the connotation must be from the trade mark itself and not from any other external considerations such as a reputation in another trade mark. The particular currency (or relevance) that the …
 
-### `GC-0050` — reputation
+### `GC-0050` — reputation  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* well known for, noted for, fame
 *Explicitly **not** the same as:* **reputation in another trade mark**, **acquired distinctiveness**
 
 > The first not_label is quoted practice: reputation in another mark is an external consideration and expressly not the source of a connotation.
 
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* The corpus calls how well known a reference is an important consideration, in those words. Typed relevant_factor on that sentence.
+
+*Instead of:*
+- none_of_these — right if reputation is thought of as a fact about the world rather than a legal idea, though the same objection would take most of the relevant_factor group with it.
+
+*Check this first:* That the typing does not blur the boundary in the second quote. Reputation in the reference is a consideration; reputation in another trade mark is an external consideration and expressly not a source of connotation. One label now covers a concept that is admissible in one direction and prohibited in the other.
+
+*The machine's own confidence:* 0.65 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/9/9/3~1`** — Qualifiers (e.g. “made in”, “product of”) are not necessary for a connotation to be present in a mark. A geographical reference used without any qualifying information may not result in consumers being deceived, but may be likely to cause confusion. A trade mark containing a standalone geographical reference will cause confusion if each of the following criteria are met: Consumers would have reason to associate the goods/services with the geographical location; The association between the place and the goods/services would influence the purchasing decision of an average consumer of the goods/services. There are no other elements in the mark, or surrounding circumstances, which would …
 - **`TMM/Part29/9/9/7`** — Trade marks that consist of, or include wording and/or imagery that connotes a connection with a well- known reference may also give rise to deception and confusion. The inclusion of such material may result in ordinary consumers being deceived and confused on the basis of incorrectly believing that the trade mark indicates an endorsement or approval from the party or parties that own and have control over the well- known material. When faced with this type of reference it is important to remember that the connotation must be from the trade mark itself and not from any other external considerations such as a reputation in another trade mark. The particular currency (or relevance) that the …
 
-### `GC-0051` — mandatory application of the section
+### `GC-0051` — mandatory application of the section  *(machine proposes: `none_of_these` — unreviewed, nobody has checked this)*
 
 *Also called:* no discretion to accept, the application of section 43 is mandatory
 *Explicitly **not** the same as:* **presumption of registrability**, **discretion**
@@ -539,14 +1211,41 @@ Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown
 
 > This concept and GC-0007 pull in opposite directions and both are stated in the pilot area. How they sit together is one of the most useful things an expert could write down here.
 
+**Proposed group: `none_of_these` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* This says how the rule operates once it is made out — that there is no discretion — rather than supplying a reason to refuse, a question to answer, something to weigh or a way out. Typed none_of_these as evidence that the four groups have no place for the modality of a rule.
+
+*Instead of:*
+- ground_of_refusal — right if 'the section applies mandatorily' is read as part of the ground itself rather than as a statement about it.
+- exception — the inverse reading: it is what stops the discretion an exception would need.
+
+*Check this first:* This record and GT-0007 together. GC-0051's own note says the two pull in opposite directions and that how they sit together is one of the most useful things an expert could write down here. They are typed none_of_these and exception, which records the tension without resolving it.
+
+*The machine's own confidence:* 0.6 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
+
 - **`TMM/Part29/1#1`** — Section 43 of the Act reads as follows: An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion. The application of section 43 is, by the wording of the section, mandatory. There is, therefore, no discretion to accept a trade mark that is caught by the provisions of this section. However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the …
 
-### `GC-0052` — examiner research
+### `GC-0052` — examiner research  *(machine proposes: `relevant_factor` — unreviewed, nobody has checked this)*
 
 *Also called:* research, informed by research, research indicates
 *Explicitly **not** the same as:* **evidence of use**, **state of the Register**
 
 > "State of the Register" is a not_label because the Manual names it as a specific source in the INN-stem discussion, where it is evidence of common use rather than research into a fact.
+
+**Proposed group: `relevant_factor` — written by `claude-opus-5`, unreviewed, read by no expert.**
+
+*Why:* Research is how an examiner acquires the facts the other factors are weighed on, and Part 29.6 requires it in terms. Typed relevant_factor with the evidence it produces.
+
+*Instead of:*
+- none_of_these — right if research is an activity rather than a consideration, in which case it belongs with the procedural concepts at GT-0040.
+
+*Check this first:* The same line as GT-0041: evidence a party files and research an examiner does are typed identically here, and the Manual keeps them apart under s 43 by asking examiners to research rather than to require evidence.
+
+*The machine's own confidence:* 0.7 · *basis:* `corpus_inferred` — neither is evidence that the typing is right, and neither may be served to an examiner as one (PU-0003).
+
+*The passages it was drawn from:*
 
 - **`TMM/Part29/6#1~1`** — Trade Marks Act 1995 Trade Mark Regulations 1995 If a trade mark contains a name of a person (or group of people) which is well known in relation to the specified goods or services, the provisions of section 43 may be triggered. Such names could consist of the given name, surname, combination of both or known nickname for the well-known person (or group of persons). For example, a section 43 ground for rejection may arise if a trade mark is the name of a well-known person, and the goods/services are in the field for which they are well known, such that consumers are clearly likely to assume that the person is connected with or has endorsed those goods/services, or are involved in their …
 - **`TMM/Part29/9/9/4`** — The same considerations apply to services as to goods, though careful consideration needs to be given to circumstances which may mitigate the risk of deception or confusion. For example: PARIS for Provision of food and drink Paris is the well-known capital city of France and has a reputation for its food scene. However, if an Australian consumer were to go to a restaurant named ‘Paris’, they would clearly not believe they were suddenly in Paris, or that it would be likely that the food or drinks were prepared there (though they may assume that Parisian style food would be served). In this instance, the nature of the service (being one that is necessarily provided in person) is a surrounding …
