@@ -26,7 +26,7 @@ they must fill — and that seeing it work is what gets them engaged.
 
 | | `eval/gold/` | `authored/` |
 |---|---|---|
-| Written by | a trade marks expert | an agent — `gemini-3.8-flash` (ADR-0087) |
+| Written by | a trade marks expert | an agent. **Which one is a per-record fact**, in `authored_by` — never assumed from the configured model (ADR-0094) |
 | Signed by | a named person, on a date | nobody |
 | May be relied on | yes | yes (ADR-0082) |
 | Counts as validated | yes | **never**, until a person signs it |
@@ -54,6 +54,11 @@ schemas:
 | `search-questions.yaml` | gold search question |
 | `reasoning-expected.yaml` | reasoning expectation |
 | `prohibited-uses.yaml` | prohibited use |
+
+**What is in it today:** `concept-types.yaml`, 52 records, every approved
+concept sorted into one of the four groups and none of it read by an expert
+(ADR-0092). Every other file in the table is absent, which is the honest state
+of a store that has been filled for one record type.
 
 `definitions.yaml` was named here when this directory was created and **is not
 in the list**: a definition has no schema and no id series, so the store cannot
@@ -128,6 +133,25 @@ negotiable.
       tier 3 record.
 ```
 
+### `authored_by` — the field that must never be assumed
+
+The model that wrote **this record**, with its version. Not the configured
+authoring model, not the model most of the directory came from, and never a
+person's name. `config.DEFAULT_AUTHORING_MODEL` names what an API-backed run
+should use (ADR-0087); it is not a default for this field and is never read at
+load time. A session that authors directly, without an API call, stamps itself —
+which is why the 52 concept typings carry `claude-opus-5` and not the configured
+model (ADR-0094).
+
+The reason is one sentence in `config.py` and it applies to every author equally:
+an identifier recorded on ten thousand records that is not the model that wrote
+them is provenance corruption nothing can undo. It is unfalsifiable afterwards —
+nothing in the artefact distinguishes a truthful stamp from an invented one.
+
+**So any measurement over this store splits by this field before it means
+anything.** Two authors' output compared as one number is the failure ADR-0087
+pinned the model to prevent, arriving by a different route.
+
 ### `authoring_basis` — the field that carries the honesty
 
 | value | means |
@@ -186,6 +210,12 @@ be over-claimed the moment somebody needed a bigger number.
 One sequence across both stores (`docs/IDENTIFIERS.md` §3). There is one
 `GC-0123` in this project and it is either here or in `eval/gold/`, never both. A
 duplicate across stores is a defect the harness reports.
+
+**A record keeps its id when it is signed.** `tmk-typing` pre-fills a reviewer's
+workbook row with the authored record's own id, so the record moves stores
+rather than being minted a second time. The consequence is that the moment a
+signed record lands, the id is briefly in both stores and the harness says so —
+by design, and read Q-52 before trying to make it quiet.
 
 Where an authored record and a later signed record cover the same ground, the
 signed one wins and the authored one is retired — the reverse of the ordinary

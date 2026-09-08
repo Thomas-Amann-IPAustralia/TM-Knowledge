@@ -21,7 +21,7 @@ This report is **derived**. It counts what `eval/gold/` holds against the defini
 | Search questions | 20–50 | 1 | 0 | 19 short |
 | AI retrieval questions | 20–50 | 10 | 0 | 10 short |
 | Reasoning expectations | at least 1 | 6 | 0 | in band |
-| Concepts sorted into one of the four groups | 50–100 | 0 | 0 | 50 short |
+| Concepts sorted into one of the four groups | 50–100 | 0 | 52 | 50 short |
 | A threshold against every metric | eval/measures.md | — | — | not written |
 
 ## 2. Defects
@@ -46,11 +46,11 @@ None. Everything in `eval/gold/` and `authored/` is well formed and lands where 
 
 ### Judgement fields left empty — only an expert may close these
 
-- **GR-0006** — modality is null — it needs the expert, and nothing here may supply it
-- **GR-0013** — modality is null — it needs the expert, and nothing here may supply it
-- **GR-0015** — modality is null — it needs the expert, and nothing here may supply it
-- **GR-0017** — modality is null — it needs the expert, and nothing here may supply it
-- **GR-0040** — modality is null — it needs the expert, and nothing here may supply it
+- **GR-0006** — modality is null in a signed record. An agent may author this judgement (ADR-0079) but may not write it here — that would put unreviewed content inside a signature. It needs either the expert or a record type of its own, the way a concept's type got one (ADR-0071)
+- **GR-0013** — modality is null in a signed record. An agent may author this judgement (ADR-0079) but may not write it here — that would put unreviewed content inside a signature. It needs either the expert or a record type of its own, the way a concept's type got one (ADR-0071)
+- **GR-0015** — modality is null in a signed record. An agent may author this judgement (ADR-0079) but may not write it here — that would put unreviewed content inside a signature. It needs either the expert or a record type of its own, the way a concept's type got one (ADR-0071)
+- **GR-0017** — modality is null in a signed record. An agent may author this judgement (ADR-0079) but may not write it here — that would put unreviewed content inside a signature. It needs either the expert or a record type of its own, the way a concept's type got one (ADR-0071)
+- **GR-0040** — modality is null in a signed record. An agent may author this judgement (ADR-0079) but may not write it here — that would put unreviewed content inside a signature. It needs either the expert or a record type of its own, the way a concept's type got one (ADR-0071)
 
 ## 4. Coverage by category
 
@@ -107,5 +107,25 @@ Both lists are read from the schemas, not restated here. §7 requires the set as
 
 ## 7. The authored store
 
-Empty. `authored/` holds no records, so every count on the board above is a signed count and nothing on this page rests on unreviewed content.
+**52 record(s), none of them validated by a trade marks expert.** They may be relied on and they may be served, always carrying that status at the point of use (ADR-0082). None of them becomes approved by being old, by being unchallenged, or by having appeared in a review round somebody worked through — only a signature moves a record, and only `tmk-transcribe` writes one (ADR-0086).
+
+| Record type | File | Authored | Signed |
+|---|---|---|---|
+| competency_question | `authored/competency-questions.yaml` (absent) | 0 | 20 |
+| concept_type | `authored/concept-types.yaml` (present) | 52 | 0 |
+| gold_concept | `authored/concepts.yaml` (absent) | 0 | 52 |
+| gold_entity | `authored/entities.yaml` (absent) | 0 | 55 |
+| gold_relationship | `authored/relationships.yaml` (absent) | 0 | 35 |
+| gold_retrieval_question | `authored/retrieval-questions.yaml` (absent) | 0 | 10 |
+| gold_search_question | `authored/search-questions.yaml` (absent) | 0 | 1 |
+| prohibited_use | `authored/prohibited-uses.yaml` (absent) | 0 | 11 |
+| reasoning_expectation | `authored/reasoning-expected.yaml` (absent) | 0 | 6 |
+
+**What each record rests on**
+
+| `authoring_basis` | records | means |
+|---|---|---|
+| corpus_explicit | 0 | the corpus states it in terms; the span shows where |
+| corpus_inferred | 52 | the corpus supports it, but the reading is the agent's |
+| general_knowledge | 0 | **the corpus does not say this** — written from what the model knows about trade marks law. Unevidenced, not thereby wrong, and a reviewer reaches these first |
 
