@@ -3,11 +3,19 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-08 · session S013 · branch `claude/decisions-dashboard-accuracy-yqghjw`
+**Last updated:** 2026-09-08 · session S014 · branch `claude/concept-types-also-called-48q3zo`
 
 ---
 
 ## 1. Where the project actually is
+
+**S014 was one column in one spreadsheet, and it is the whole session.** The owner
+asked that the `notes` cell of the typing sheet also say what a concept is *also
+called*, not only what it is not. It does now — `pref_label — also called: … —
+not: …`, every label copied verbatim from the approved record (ADR-0078).
+`data/derived/concept-typing.xlsx` is regenerated and nothing else moved: no
+concept was typed, `eval/gold/` is untouched, and OQ-0020 is still waiting on him.
+Everything below is S013's and still holds.
 
 **S013 fixed the form, and settled a question about the pipeline that this file
 had been answering wrongly.** The owner reported that the dashboard said ten
@@ -161,7 +169,8 @@ The five S012 raised, in the order they matter:
 
 | # | Question | Why it is waiting |
 |---|---|---|
-| **OQ-0020** | **The 52 concepts, laid out for sorting** | The largest gap in the draft, and the container is built. `data/derived/concept-typing.xlsx` — one row per concept, the groups as a dropdown — with the evidence at `data/derived/reports/concept-typing.md`. He also gets to say he would rather do it on the dashboard, in batches |
+| **OQ-0020** | **The 52 concepts, laid out for sorting** | The largest gap in the draft, and the container is built. `data/derived/concept-typing.xlsx` — one row per concept carrying its names and its
+near-misses, the groups as a dropdown — with the evidence at `data/derived/reports/concept-typing.md`. He also gets to say he would rather do it on the dashboard, in batches |
 | **OQ-0019** | **RULE-0001, re-asked with the real evidence** | He asked to see the flagged passages; all five are in `data/derived/reports/rule-0001-flags.md`, and the pack opens by correcting the count he was given |
 | **OQ-0021** | **His boundary rule meets a corpus that cites loosely** | The rule works — 12 parent provisions kept out — but section 41 is cited *bare* in 32 passages, so the whole of it comes in and his second sentence never engages. 22 provisions behave this way, ss 42 and 44 among them |
 | **OQ-0018** | **What IP-Decision-Data actually holds** | He said the decisions are in scope and named that repository. It was checked: 8,900 IP documents indexed, **15 of our 58 cited decisions in it, 43 not**, and *no decision text is committed anywhere* — the text is a build attachment that expires. The 43 missing are mostly Trade Marks Office delegate decisions |
@@ -469,6 +478,23 @@ relevance grade each. The scoped workbook for all ten is rendered.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S014 — 2026-09-08 — the sorting sheet says what a concept is also called
+
+The owner asked for one thing: the `notes` column of `concept-typing.xlsx` states
+the concept and what it is explicitly *not*, and he wanted *also called* in there
+too. He was pointing at a real asymmetry — the near-misses are there to stop a
+sorter typing by label, which assumes they recognise the label, and `pref_label`
+is one of several forms of words the Manual uses. The alternatives were already
+approved and already in the evidence pack; the spreadsheet, where the sorting
+actually happens, was the one place showing less than it had.
+
+`typing.summarise()` now builds `pref_label — also called: … — not: …`, dropping a
+clause whose list is empty, and the column is widened and wrapped because the cell
+roughly tripled in length — a clipped cell loses the `not:` half, which is the
+half that does the work. Six tests, one of which fails if any label stops being
+verbatim (ADR-0078). 460 pass. **Nothing was typed**: `eval/gold/`, the ontology,
+the graph and the queue are byte-identical, and OQ-0020 is still the open ask.
 
 ### S013 — 2026-09-08 — the count was right, the list under it was not
 

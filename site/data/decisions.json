@@ -1,14 +1,14 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "77 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "78 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 77,
+     "value": 78,
      "note": null,
      "tone": null,
      "href": null
@@ -22,7 +22,7 @@
     },
     {
      "label": "Forced by the evidence",
-     "value": 17,
+     "value": 18,
      "note": "defensible without a human",
      "tone": null,
      "href": null
@@ -77,6 +77,34 @@
     }
    ],
    "rows": [
+    {
+     "id": "`ADR-0078`",
+     "title": "The typing sheet's `notes` cell names a concept three ways: what it is, what else it is called, and what it is not",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0078 The typing sheet's `notes` cell names a concept three ways: what it is, what else it is called, and what it is not derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner asked for it. The `notes` column of the `concept-types` sheet in `data/derived/concept-typing.xlsx` held the concept's `pref_label` and its `not_labels` — *\"connotation — not: denotation, deceptively similar, descriptive meaning\"* — and he asked that it also carry what the concept is *also called*."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0078-the-typing-sheets-notes-cell-names-a-concept-three-ways-what-it-is-what-else-it-is-called-and-what-it-is-not)"
+      }
+     ]
+    },
     {
      "id": "`ADR-0077`",
      "title": "A question answered outside the form must record where the answer is",
