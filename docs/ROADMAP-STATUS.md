@@ -77,7 +77,7 @@ owed**: the whole Manual is in scope and the boundary was withdrawn (ADR-0081).
 | Seed review pack and workbook | **done** — S007, ADR-0044; regenerated S008 over the 178 that remain | `tmk-seed --pack --workbook` → `data/derived/` |
 | Review round 1 | **done** — S008. 229 of 368 rows carried a verdict, plus an addendum settling 84 (ADR-0051, ADR-0052) | `review/returned/`, `review/decisions/` |
 | Reconciliation path | **done** — S008, ADR-0049 | `tmk-reconcile` |
-| Concept typing | **unblocked** — an agent now types the 52 (and everything the wider corpus adds), stamped `unreviewed`, into `authored/concept-types.yaml`. The workbook stays available for an expert who wants to correct in bulk (ADR-0079, ADR-0071) | `authored/concept-types.yaml` |
+| Concept typing | **authored, validated by nobody** — S017 typed all 52, `unreviewed`, each with its passages, its reasoning and the reading it rejected (ADR-0092). Signed: **0 of 52**, and the completeness gate still reads `0 of 50–100` because it counts `eval/gold/` and must. The workbook now arrives pre-filled, so a reviewer corrects rather than composes; 30 of the 52 came out `relevant_factor` and 1 `ground_of_refusal`, which is a finding about the taxonomy and is reported as one | `authored/concept-types.yaml`, `data/derived/reports/concept-typing.md` |
 | Blocker and dependency report | **done** — S009, ADR-0053/0054 | `tmk-blockers` → `data/derived/reports/` |
 | Review round 2 (scoped) | **not needed** — the 10 decisions holding 168 records are resolved by authoring instead (ADR-0084). The workbook stays on disk for an expert round if one resumes | `data/derived/stage0-blockers-review.xlsx` |
 

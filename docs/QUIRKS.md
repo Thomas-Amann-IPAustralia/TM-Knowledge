@@ -885,3 +885,61 @@ Adding 284 triples to `graph/approved.ttl` for this — one origin and one revie
 status per node that did not already carry them — is the price, and it is why the
 approved graph grew from 2,946 to 3,230 triples in a session that authored
 nothing.
+
+### Q-50 — a counter that could not be wrong until there was something to count
+
+`_apply_concept_types` skipped any record whose group was not one of the four
+that map to an OWL class, which meant a `none_of_these` record was skipped
+entirely — no typing node, no provenance, and no increment. The comment three
+lines above it said the opposite: that such a concept *"is counted as sorted
+rather than as waiting."*
+
+Both stores held zero concept typings from S010 to S016, so the counter printed
+`0` whichever behaviour was right, and the tests could not tell them apart
+either. The first 52 authored typings made it print `45`.
+
+The general shape is worth carrying: **a branch that only executes on data the
+repository does not hold yet is untested by construction, and its comment is the
+only specification it has.** Two others in this repo are in the same position
+today — the transcription path for an authored record (nothing has ever come
+back signed) and every count that splits by `authored_by` (there is one author).
+Expect the first record of a new kind to find a bug of this shape, and read the
+comments around the code it touches before trusting the numbers.
+
+Fixed in ADR-0093. The same session found the report line beside it was wrong
+too — `45 of 0 authored ones`, dividing typings of signed concepts by the count
+of concepts a machine wrote, which is structurally zero.
+
+### Q-51 — `rows()` loads the real store, and a test that lets it is testing the repo
+
+`stage0.typing.rows()` takes both stores as arguments and loads the real ones
+when they are omitted. `test_typing.py` had always passed a synthetic `GoldSet`
+and omitted the authored one, which was harmless while `authored/` was empty and
+started failing the moment it held a record for `GC-0001`.
+
+The failure is the good case. The bad one is the test that keeps passing: a
+suite that reads live repository content asserts what the repository happens to
+hold on the day it runs, and it goes green again when somebody deletes the data.
+Every test in that module now builds both stores explicitly.
+
+Worth checking anywhere a helper defaults to `load()`. The pattern reads as
+convenience and behaves as a hidden global.
+
+### Q-52 — the first signed typing will make the harness go red, and that is the design
+
+`tmk-typing` pre-fills the reviewer's workbook from `authored/concept-types.yaml`
+and the row **keeps the authored record's id** (ADR-0092 consequence 4): one
+`GT-0007` exists in the project and it moves between stores rather than being
+minted twice.
+
+So when the first typing comes back signed, `tmk-transcribe` writes `GT-0007`
+into `eval/gold/concept-types.yaml` while `GT-0007` is still sitting in
+`authored/`. The harness reports that as a defect naming both stores, and it is
+right to: ADR-0080 consequence 2 says the signed record wins and the authored one
+is **retired**, and nothing in the repository does the retiring yet.
+
+Do not resolve it by minting a fresh id for the signed record — that leaves two
+records about one concept and loses the link between the machine's answer and the
+correction. Do not resolve it by deleting the authored record quietly either.
+Build the retirement: it is named in `HANDOFF.md` §2 and it is where the next
+real design question in this area lives.

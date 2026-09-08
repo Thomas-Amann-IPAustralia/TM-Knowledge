@@ -6,7 +6,7 @@
   {
    "kind": "callout",
    "tone": "warn",
-   "title": "7 decisions are waiting on you",
+   "title": "8 decisions are waiting on you",
    "text": "Six of them unblock the next piece of work. Each is written to be answerable without reading anything else, and your answers come back into the repository as a file the next session reads.",
    "links": [
     {
@@ -27,9 +27,9 @@
     },
     {
      "label": "Records a machine wrote",
-     "value": 0,
+     "value": 52,
      "note": "none of them read by an expert — usable, never validated",
-     "tone": "muted",
+     "tone": "warn",
      "href": null
     },
     {
@@ -107,9 +107,9 @@
     },
     {
      "label": "Statements a machine wrote",
-     "value": 0,
+     "value": 698,
      "note": "a separate named graph — no query for signed knowledge reaches them",
-     "tone": "muted",
+     "tone": "warn",
      "href": null
     },
     {
