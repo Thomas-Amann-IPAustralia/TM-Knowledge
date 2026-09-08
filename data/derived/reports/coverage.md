@@ -1,6 +1,6 @@
 # Stage 0 — coverage and gaps
 
-**Generated** 2026-09-08 · **Source** `eval/gold/` against the pinned snapshot `c490a9927f1a` · **Regenerate** `tmk-coverage`
+**Generated** 2026-09-08 · **Source** `eval/gold/` and `authored/` against the pinned snapshot `c490a9927f1a` · **Regenerate** `tmk-coverage`
 
 This report is **derived**. It counts what `eval/gold/` holds against the definition of done in `eval/STAGE-0-INPUT-GUIDE.md` §7, and it names what is absent. It does not propose content for any gap, and it must not be read as doing so: every field it reports as empty is one only a domain expert may fill (CLAUDE.md rule 1, guide §9).
 
@@ -8,23 +8,25 @@ This report is **derived**. It counts what `eval/gold/` holds against the defini
 
 ## 1. The board
 
-| Deliverable | Target | Have | Status |
-|---|---|---|---|
-| Pilot scope, with exclusions | eval/pilot-scope.md | — | not written |
-| Competency questions, covering all six categories | at least 6 | 20 | in band |
-| Prohibited uses, covering all six kinds | at least 6 | 11 | in band |
-| Gold concepts | 50–100 | 52 | in band |
-| Gold entities, over an exhaustively annotated chunk set | 100–300 | 55 | 45 short |
-| Gold relationships | 50–100 | 35 | 15 short |
-| Search questions | 20–50 | 1 | 19 short |
-| AI retrieval questions | 20–50 | 10 | 10 short |
-| Reasoning expectations | at least 1 | 6 | in band |
-| Concepts sorted into one of the four groups | 50–100 | 0 | 50 short |
-| A threshold against every metric | eval/measures.md | — | not written |
+**Signed** counts `eval/gold/` — records a named expert put their name to. **Authored** counts `authored/` — records a machine wrote that nobody has read. The two are never added, and only the signed column is measured against the target: a band met by unreviewed records would report Stage 0 finished on the strength of work nobody has looked at (ADR-0080).
+
+| Deliverable | Target | Signed | Authored | Status |
+|---|---|---|---|---|
+| Pilot scope, with exclusions | eval/pilot-scope.md | — | — | not written |
+| Competency questions, covering all six categories | at least 6 | 20 | 0 | in band |
+| Prohibited uses, covering all six kinds | at least 6 | 11 | 0 | in band |
+| Gold concepts | 50–100 | 52 | 0 | in band |
+| Gold entities, over an exhaustively annotated chunk set | 100–300 | 55 | 0 | 45 short |
+| Gold relationships | 50–100 | 35 | 0 | 15 short |
+| Search questions | 20–50 | 1 | 0 | 19 short |
+| AI retrieval questions | 20–50 | 10 | 0 | 10 short |
+| Reasoning expectations | at least 1 | 6 | 0 | in band |
+| Concepts sorted into one of the four groups | 50–100 | 0 | 0 | 50 short |
+| A threshold against every metric | eval/measures.md | — | — | not written |
 
 ## 2. Defects
 
-None. Everything in `eval/gold/` is well formed and lands where it says.
+None. Everything in `eval/gold/` and `authored/` is well formed and lands where it says.
 
 ## 3. Gaps
 
@@ -89,7 +91,7 @@ Both lists are read from the schemas, not restated here. §7 requires the set as
 - **GA-0012** (resolution) — .required_cases[0] = CASE/2009/FCA/428 is a case citation. No decision text exists anywhere in the programme, so it is checked for grammar only (Q-11)
 - **GA-0013** (resolution) — .required_cases[0] = CASE/2012/ATMO/117 is a case citation. No decision text exists anywhere in the programme, so it is checked for grammar only (Q-11)
 
-## 6. Where the records are
+## 6. Where the signed records are
 
 | Record type | File | Records |
 |---|---|---|
@@ -102,4 +104,8 @@ Both lists are read from the schemas, not restated here. §7 requires the set as
 | gold_search_question | `eval/gold/search-questions.yaml` (present) | 1 |
 | prohibited_use | `eval/gold/prohibited-uses.yaml` (present) | 11 |
 | reasoning_expectation | `eval/gold/reasoning-expected.yaml` (present) | 6 |
+
+## 7. The authored store
+
+Empty. `authored/` holds no records, so every count on the board above is a signed count and nothing on this page rests on unreviewed content.
 

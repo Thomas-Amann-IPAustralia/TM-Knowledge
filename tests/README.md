@@ -43,6 +43,16 @@ one*, rather than being red itself.
   (ADR-0011).
 - **Fixtures are hand-built and small.** Do not vendor snapshot files into
   `tests/fixtures/` — that is a second copy of the corpus with no pin (ADR-0004).
+- **Authored content is refused, never skipped.** `tests/fixtures/authored/`
+  holds two whole stores, and `tests/unit/test_authored.py` asserts that a
+  record which cannot say who wrote it is reported by id rather than dropped. A
+  silently dropped authored record is indistinguishable from one that was never
+  written, and no later evidence can tell them apart (ADR-0079, ADR-0080).
+- **`approved_by` filled in by anything but a transcription is a defect.** It is
+  the single failure the whole authoring scheme exists to prevent, and it is
+  checked twice on purpose: once by the harness over the store, once by a SHACL
+  shape over the graph. Two independent checks, because one of them being
+  quietly disabled is a realistic way for this to break.
 
 ## Benchmarks are tests with thresholds
 

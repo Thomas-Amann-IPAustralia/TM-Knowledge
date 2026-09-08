@@ -129,13 +129,20 @@ def worksheet(argv: list[str] | None = None) -> int:
 def _run_harness(
     argv: list[str] | None, prog: str, description: str, *, gate_flag: bool
 ):
-    """Shared argument parsing for the two commands that read `eval/gold/`."""
+    """Shared argument parsing for the two commands that read the two stores."""
     parser = argparse.ArgumentParser(prog=prog, description=description)
     parser.add_argument(
         "--gold-dir",
         type=Path,
         default=None,
         help="the gold set to check. Defaults to eval/gold/.",
+    )
+    parser.add_argument(
+        "--authored-dir",
+        type=Path,
+        default=None,
+        help="the authored store to check. Defaults to authored/. Checked "
+        "alongside the gold set and never added to it (ADR-0080).",
     )
     parser.add_argument(
         "--no-resolution",
@@ -156,7 +163,9 @@ def _run_harness(
         )
     args = parser.parse_args(argv)
     report = harness_module.run(
-        gold_dir=args.gold_dir, with_resolution=not args.no_resolution
+        gold_dir=args.gold_dir,
+        authored_dir=args.authored_dir,
+        with_resolution=not args.no_resolution,
     )
     return args, report
 
@@ -184,6 +193,7 @@ def harness(argv: list[str] | None = None) -> int:
             print(f"  {finding.check}: {finding.subject} — {finding.message}")
 
     print(f"\n{report.summary()}")
+    print(report.stores())
     code = report.exit_code
     if code == 3 and args.allow_incomplete:
         print(
@@ -203,6 +213,7 @@ def coverage(argv: list[str] | None = None) -> int:
     )
     path = _write(coverage_module.render(report), args.out)
     print(report.summary())
+    print(report.stores())
     print(f"wrote {path}")
     return 1 if report.defects else 0
 
