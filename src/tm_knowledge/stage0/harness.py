@@ -349,6 +349,21 @@ def _approval(gold: GoldSet) -> Iterator[Finding]:
 
 
 def _judgement_gaps(gold: GoldSet) -> Iterator[Finding]:
+    """Judgement fields left null in a **signed** record.
+
+    The message this used to carry — *"it needs the expert, and nothing here may
+    supply it"* — was true until 2026-09-08 and false afterwards. ADR-0079 lets
+    an agent author a judgement of exactly this kind. What it does not let an
+    agent do is fill the field *here*: this record was signed by a person on a
+    date, and writing an unreviewed value into it would put unsigned content
+    inside a signature, which is the whole reason a concept's type is a separate
+    record rather than a field on the concept (ADR-0071).
+
+    So the gap is real and the route round it is not the one the old message
+    implied. There is no record type holding a modality apart from the
+    relationship it belongs to, which is why these five are still gaps and not
+    authored work.
+    """
     for record_type, fields in JUDGEMENT_FIELDS.items():
         for record in gold[record_type]:
             subject = str(record.get("id") or f"<{record_type} with no id>")
@@ -356,8 +371,11 @@ def _judgement_gaps(gold: GoldSet) -> Iterator[Finding]:
                 if record.get(field) is None:
                     yield Finding(
                         Severity.GAP, "judgement", subject,
-                        f"{field} is null — it needs the expert, and nothing here "
-                        "may supply it",
+                        f"{field} is null in a signed record. An agent may author "
+                        "this judgement (ADR-0079) but may not write it here — "
+                        "that would put unreviewed content inside a signature. It "
+                        "needs either the expert or a record type of its own, the "
+                        "way a concept's type got one (ADR-0071)",
                     )
     for record in gold["gold_concept"]:
         if not record.get("not_labels"):
