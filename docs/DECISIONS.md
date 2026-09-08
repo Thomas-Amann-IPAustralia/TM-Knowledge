@@ -3788,3 +3788,187 @@ answering them, served as signed knowledge, by a query nobody changed.
    they should also serve authored content, labelled, is a Stage 7–8 question
    about the retrieval surface and is recorded in `HANDOFF.md` rather than
    settled here.
+
+## ADR-0092 — The 52 concepts are typed by a machine, and the reviewer's sheet says so
+
+**Date** 2026-09-08 · **Authority** agent-proposed · **Status** accepted
+
+**Which part is the judgement, because most of this is not.** That the 52 get
+typed follows from ADR-0079 plus the owner's own ruling on OQ-0001, and needs
+nobody's permission. That every record carries the envelope follows from
+ADR-0079 guard 1. **The judgement is pre-filling the reviewer's workbook.**
+Nobody asked for that; the alternative — hand over a blank sheet and let the
+reviewer consult the authored file if they want to — is defensible and is the
+more conservative option. It is called out here rather than buried because a
+pre-filled sheet is the single place in this design where a reviewer could sign
+a machine's answer without engaging with it, and that risk is the owner's to
+accept or refuse, not an agent's to decide quietly (HANDOFF Q28).
+
+**Context.** The owner ruled on OQ-0001 that the four groups —
+`ground_of_refusal`, `legal_test`, `relevant_factor`, `exception` — are the right
+way to sort the 52 approved concepts, and asked to be come back to with the list.
+S012 came back with it: a workbook with 52 empty `type` cells and an evidence
+pack to sort by (ADR-0071). Nobody had the hours. It stayed at 0 of 52 for four
+sessions and was the largest single gap in the ontology draft — 30 of 49 declared
+classes held nothing, and four of those four classes were the typed ones.
+
+ADR-0079 then changed who may fill it in. `stage0/typing.py` still said, in its
+module docstring and in every generated report, *"No concept below has been typed
+by a machine, and none will be."* That sentence was a correct statement of the
+rule until 2026-09-08 and a false statement about the repository afterwards.
+
+**Decision.** All 52 concepts are typed, in `authored/concept-types.yaml`, each
+record carrying the full authoring envelope: `unreviewed`, the model, the date,
+the passages the typing rests on with spans and content hashes, a confidence, the
+reasoning, the readings rejected and the thing the typing most expects to have got
+wrong. `approved_by` is null in all 52.
+
+`tmk-typing` reads that store and pre-fills the `type` column of the reviewer's
+workbook from it. The evidence pack carries each proposal's argument beside the
+passages.
+
+**Why pre-fill rather than hand over a blank sheet and the file.** It is the whole
+premise of ADR-0079 — *"Experts are much better at correcting a wrong record than
+at composing a right one from a blank form"* — and withholding the answers while
+publishing them in a YAML file next door would be the premise with none of the
+benefit. A reviewer working from a blank column is doing the composing the owner
+already declined to fund.
+
+**What stops that from becoming laundering.** Four things, and none of them is
+good intentions:
+
+1. The banner on the sheet says how many cells a machine filled, that no expert
+   has read any of them, and that a row left alone stays unreviewed.
+2. `approved_by` and `approved_date` leave `typing.rows()` empty whatever the
+   authored record says about itself — pinned by a test named for exactly that.
+3. A refused authored record — one whose envelope will not validate — pre-fills
+   nothing. A proposal with no provenance sitting in a spreadsheet is
+   indistinguishable from one with provenance, which is the failure ADR-0079
+   rewrote rule 1 to prevent, arriving through a back door.
+4. The single door into `eval/gold/` is unchanged: `tmk-transcribe`, reading a
+   workbook in which a person wrote a verdict **and** their name. Silence
+   promotes nothing (ADR-0086).
+
+**Consequences.**
+
+1. **Every typing is `corpus_inferred`. None is `corpus_explicit`.** The Manual
+   never states a concept's group in terms — it says what a decision maker must be
+   satisfied of, and the group is a reading of that. Stamping any of these
+   `corpus_explicit` would be the lie `authored/README.md` names as the worst
+   thing that can be written in that directory. There is no `general_knowledge`
+   record either: all 52 name passages, 90 evidence entries in total.
+2. **The distribution is a finding and is reported as one.** 30 of 52 are
+   `relevant_factor` and exactly 1 is `ground_of_refusal`. That is what a
+   vocabulary built around a single ground looks like when it is sorted by the
+   role each concept plays in that ground's decision: almost everything in it
+   feeds section 43's question rather than standing beside it as another ground.
+   The report says so under the tally, because a reviewer who thinks the group
+   is too empty is disagreeing with the taxonomy and not with any row.
+3. **The completeness gate still reads 0 of 50–100.** It counts `eval/gold/` and
+   must (ADR-0080 consequence 3). Stage 0's concept-typing deliverable is not
+   met and is not closer to met by these records existing; what changed is that
+   meeting it is now an afternoon of correction rather than an afternoon of
+   composition.
+4. **An authored id is never minted twice.** `typing.rows()` reads the authored
+   store's `GT-` ids into its taken set. Without that a regeneration hands
+   `GT-0001` to a second concept, and two records claiming one id across the two
+   stores is a defect the harness reports and nothing afterwards could undo.
+5. **A signed typing beats an authored one and the sheet does not re-ask.** When
+   the first of these comes back signed, the authored record and the gold record
+   will hold the same id in two stores, which the harness reports as a defect
+   until something retires the authored one (ADR-0080 consequence 2). Nothing
+   does that yet. It is named in `HANDOFF.md` §2 and in Q-52, and it is the next
+   real design question in this area.
+
+## ADR-0093 — `none_of_these` is a typing, not a skipped record
+
+**Date** 2026-09-08 · **Authority** derived · **Status** accepted
+
+**Context.** `CONCEPT_CLASSES` maps four of the five group values to an OWL class
+and deliberately omits `none_of_these`, with a comment saying that a concept typed
+that way *"stays a bare `tmk:LegalConcept` and is counted as sorted rather than as
+waiting."* The loop underneath it did the first half and not the second: a record
+whose group was not in the map was `continue`d before the typing node, the
+provenance stamp and the counter. So the code contradicted its own comment.
+
+It could not be seen until this session. Both stores held zero concept typings, so
+the counter was 0 either way. The first 52 records made it print `45` — the seven
+`none_of_these` records silently absent.
+
+**Decision.** A `none_of_these` record builds its typing node, its `tmk:typedBy`
+link, its `tmk:goldRecord` and its origin stamp exactly as the other four do, and
+counts as sorted. The only thing withheld is the `rdf:type`, because there is no
+class to assert and there must not be one.
+
+A new datatype property `tmk:conceptGroup` carries the group verbatim on the
+typing node. For the four classed groups it is redundant with the class; for the
+fifth it is the only record that a decision was made at all.
+
+**Why this is `derived` and not a judgement.** Without it, *"sorted into
+`none_of_these`"* and *"never sorted"* are the same state in the graph, and they
+are opposites: the first is an answer about the taxonomy, which the owner's own
+question calls "an answer, not a gap", and the second is a gap. Collapsing an
+answer into an absence is rule 6.
+
+**Consequences.**
+
+1. The build report's concept-types line was also wrong and is corrected. It read
+   `45 of 0 authored ones` — dividing typings of signed concepts by the number of
+   concepts a *machine* wrote, which is structurally 0. Both halves now count
+   against the 52 signed concepts, because that is what a typing points at.
+2. `tmk:conceptGroup` is added to `ontology/draft/legal-concepts.ttl`, and the
+   four class comments there are corrected: they said each class is *"filled only
+   from a signed record in eval/gold/concept-types.yaml"*, which stopped being
+   true when ADR-0080 gave the authored store a graph of its own.
+3. A concept typed `none_of_these` is still a bare `tmk:LegalConcept` and answers
+   no query asking for one of the four classes. Nothing about what the graph
+   asserts has widened; what changed is that it now records the decision not to
+   assert.
+
+## ADR-0094 — `authored_by` names the model that actually wrote the record
+
+**Date** 2026-09-08 · **Authority** derived · **Status** accepted ·
+**Does not supersede ADR-0087**
+
+**Context.** ADR-0087 answered HANDOFF Q3 by naming Gemini 3.8 Flash as the
+model for authoring and Stage 2–4 extraction, with its credential in the
+`GEMINI_API_KEY` repository secret, and made changing it a superseding ADR rather
+than a configuration tweak.
+
+The 52 concept typings were not written by that model. They were written by the
+session agent directly, in-session, because a repository secret reaches GitHub
+Actions and not a local container (ADR-0087 consequence 2) and no key was
+available. Two things could have been stamped in `authored_by`: the configured
+model, or the one that did the writing.
+
+**Decision.** The field names what wrote the record. These 52 carry
+`claude-opus-5`.
+
+**Why there was no real choice.** `config.py` states the failure in its own words:
+*"an id recorded on ten thousand records that is not the model that wrote them is
+provenance corruption nothing can undo."* The envelope schema says `authored_by`
+is *"the model that wrote this record, with its version"*, and ADR-0087's own
+reason for pinning the model — that a silent model change alters what gets
+authored and invalidates every baseline measured before it — is an argument for
+recording the truth, not for recording the configuration. A record stamped with a
+model that did not write it is unfalsifiable afterwards: nothing in the artefact
+distinguishes it from one that did.
+
+**Consequences.**
+
+1. `DEFAULT_AUTHORING_MODEL` is unchanged and still reads `gemini-3.8-flash`. It
+   is the model for API-backed extraction, which is what ADR-0087 was answering,
+   and this decision does not touch it. Confirming that identifier against
+   Google's current model list before the first API call remains outstanding.
+2. **The authored store may hold records from more than one author, and every
+   count that matters must be able to split by `authored_by`.** It already can:
+   the field is required, per-record, and never defaulted from the constant at
+   read time. A baseline measured across two authors and reported as one number
+   would be the failure ADR-0087 guards against, arriving by a different route.
+3. `authored/README.md` no longer names one model as *the* author of everything
+   in the directory. It says what the field means and that the answer is
+   per-record.
+4. If the owner wants all authored content to come from one model for
+   comparability, that is his call and it is a scope decision rather than a
+   provenance one. Recorded here rather than asked, because the honest stamp is
+   right either way and the alternative was never available.

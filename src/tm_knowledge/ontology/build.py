@@ -222,9 +222,16 @@ class BuildReport:
             f"**validated by nobody**",
             f"citations      {self.citations:>7}  of which {self.unresolved_citations} "
             f"land on nothing this corpus holds",
-            f"concept types  {self.concept_types:>7}  of {self.concepts} signed concepts "
-            f"sorted into a group; {self.authored.concept_types} of "
-            f"{self.authored.concepts} authored ones",
+            # Both figures count typings of the *signed* concepts, because that
+            # is what a typing points at: `concept-types.yaml` names a GC- id,
+            # and every GC- id in the project is in eval/gold/. The denominator
+            # is therefore `self.concepts` for both halves — an earlier version
+            # divided the authored half by `authored.concepts`, which is the
+            # number of concepts a machine wrote, is structurally 0, and made
+            # the line read "45 of 0" (Q-50).
+            f"concept types  {self.concept_types:>7}  of {self.concepts} concepts "
+            f"sorted into a group by a person; {self.authored.concept_types} of "
+            f"{self.concepts} by a machine, validated by nobody",
         ]
         for label, items in (
             ("gold records outside the worksheet scope", self.out_of_scope_sources),
@@ -711,14 +718,24 @@ def _apply_concept_types(graph: Graph, store: Store, counts: StoreReport) -> Non
     """
     typed = 0
     for record in store.records["concept_type"]:
-        class_name = CONCEPT_CLASSES.get(record.get("type", ""))
-        if class_name is None:
+        group = record.get("type", "")
+        if not group:
             continue
+        class_name = CONCEPT_CLASSES.get(group)
         node = concept_node(record["concept"])
         typing = assertion_node(record["id"])
-        graph.add((node, RDF.type, URIRef(TMK[class_name])))
+        # `none_of_these` reaches here with no class and asserts none. What it
+        # does assert is that somebody looked and said the four groups do not
+        # fit — so the typing node, its record and its origin are all written,
+        # and the concept stays a bare `tmk:LegalConcept`. Skipping the record
+        # outright would make "sorted into none_of_these" and "never sorted"
+        # the same state in the graph, and they are the opposite of each other
+        # (ADR-0093, Q-50).
+        if class_name is not None:
+            graph.add((node, RDF.type, URIRef(TMK[class_name])))
         graph.add((node, TMK.typedBy, typing))
         graph.add((typing, TMK.goldRecord, _lit(record["id"])))
+        graph.add((typing, TMK.conceptGroup, _lit(group)))
         _origin(graph, typing, record, store)
         typed += 1
     counts.concept_types = typed

@@ -1,14 +1,14 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "91 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "94 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 91,
+     "value": 94,
      "note": null,
      "tone": null,
      "href": null
@@ -22,7 +22,7 @@
     },
     {
      "label": "Forced by the evidence",
-     "value": 21,
+     "value": 23,
      "note": "defensible without a human",
      "tone": null,
      "href": null
@@ -77,6 +77,90 @@
     }
    ],
    "rows": [
+    {
+     "id": "`ADR-0094`",
+     "title": "`authored_by` names the model that actually wrote the record",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0094 `authored_by` names the model that actually wrote the record derived accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0087 answered HANDOFF Q3 by naming Gemini 3.8 Flash as the model for authoring and Stage 2–4 extraction, with its credential in the `GEMINI_API_KEY` repository secret, and made changing it a superseding ADR rather than a configuration tweak."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0094-authored_by-names-the-model-that-actually-wrote-the-record)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0093`",
+     "title": "`none_of_these` is a typing, not a skipped record",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0093 `none_of_these` is a typing, not a skipped record derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "`CONCEPT_CLASSES` maps four of the five group values to an OWL class and deliberately omits `none_of_these`, with a comment saying that a concept typed that way *\"stays a bare `tmk:LegalConcept` and is counted as sorted rather than as waiting.\"* The loop underneath it did the first half and not the second: a record…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0093-none_of_these-is-a-typing-not-a-skipped-record)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0092`",
+     "title": "The 52 concepts are typed by a machine, and the reviewer's sheet says so",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0092 The 52 concepts are typed by a machine, and the reviewer's sheet says so agent-proposed accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner ruled on OQ-0001 that the four groups — `ground_of_refusal`, `legal_test`, `relevant_factor`, `exception` — are the right way to sort the 52 approved concepts, and asked to be come back to with the list. S012 came back with it: a workbook with 52 empty `type` cells and an evidence pack to sort by (ADR-0071).…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0092-the-52-concepts-are-typed-by-a-machine-and-the-reviewers-sheet-says-so)"
+      }
+     ]
+    },
     {
      "id": "`ADR-0091`",
      "title": "The graph reads both stores through one mapping, into a fourth named graph",

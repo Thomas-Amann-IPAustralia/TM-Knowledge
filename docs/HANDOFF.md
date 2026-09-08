@@ -3,50 +3,62 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-08 · session S016 · branch `claude/system-plumbing-phase-2r07bv`
+**Last updated:** 2026-09-08 · session S017 · branch `claude/next-phase-gd2x7i`
 
 ---
-## 0. What S016 did, in one paragraph
+## 0. What S017 did, in one paragraph
 
-**S015 changed the rules and wrote none of the code. S016 wrote the code and
-authored no content.** `authored/` had a README, a schema and no reader; it now
-has a reader, seven checks of its own — four of them with no counterpart on the
-signed side — a place in every count that never sums it with the signed set, and
-a named graph of its own. **Not one
-authored record was written**, and that is deliberate — the store had to be able
-to refuse a bad record before anything at volume went into it. ADR-0089 to
-ADR-0091. The next session is the one that fills it, and the first thing it
-should do is type the 52 concepts (§2, item 1).
+**S016 built the store and wrote nothing into it. S017 wrote the first content
+into it, and the store behaved as advertised.** All 52 approved concepts are now
+sorted into the owner's four groups, in `authored/concept-types.yaml`, each
+record carrying the passages it rests on, a written argument for the group, the
+reading it rejected and the thing it most expects to have got wrong. **No expert
+has read a word of it, every record says so in a field a machine can read, and
+`approved_by` is null in all 52.** ADR-0092 to ADR-0094. The gap that had stood
+at 0 of 52 for five sessions is now an afternoon of correction rather than an
+afternoon of composition — which was the entire bet ADR-0079 made.
 
-**What that means concretely.** Drop a record into `authored/concepts.yaml`
-today and: the store splits its envelope off and validates both halves; the
-harness reports it as a defect if it carries `approved_by`, if its id is already
-used in `eval/gold/`, if `review_status` says `approved`, if its evidence ref
-does not resolve, if its quote is not the text at its span, or if its hash has
-moved; `tmk-coverage` shows it in an *Authored* column beside the signed one and
-never added to it; the graph builds it into `graph/authored.ttl` as a
-`tmk:AuthoredAssertion` stamped with its model, date, basis and reasoning; and
-three SHACL shapes refuse it if any of that is missing. Write a record with no
-`authored:` block and it is **refused and named**, not skipped — which is the one
-behaviour worth remembering, because a silently dropped authored record is
-indistinguishable from one nobody ever wrote.
+**What the numbers say, and the second one is the finding.** 52 records, 90
+evidence entries, 0 harness defects, 0 SHACL defects. Every one is
+`corpus_inferred` and none is `corpus_explicit`, because the Manual never states
+a concept's group in terms — it says what a decision maker must be satisfied of,
+and the group is a reading of that. **Then: 30 of the 52 came out
+`relevant_factor` and exactly 1 came out `ground_of_refusal`.** That is what a
+vocabulary built around a single ground looks like when it is sorted by the role
+each concept plays in that ground's decision. It is reported under the tally in
+the evidence pack and asked as OQ-0023, because a reviewer who thinks the group
+is too empty is disagreeing with the taxonomy rather than with any row.
 
-**The numbers that moved, and they are all plumbing.** `graph/approved.ttl` went
-from 2,946 to 3,230 triples: every node in both stores now stamps its own
-`tmk:origin` and `tmk:reviewStatus`, which costs 284 triples on the signed side
-and is the point (Q-49). The harness is still 0 defects; SHACL is still 0
-defects, 0 gaps, 29 notes. `authored/` holds 0 records and `graph/authored.ttl`
-is 0 triples, committed anyway, because an empty declared graph is the honest
-state of a repo that has authored nothing.
+**The reviewer's sheet now arrives filled in, and says so twice.**
+`data/derived/concept-typing.xlsx` pre-fills the `type` column from the authored
+store; the banner on it states how many cells a machine wrote, that nobody has
+read them, and that a row left alone stays `unreviewed`.
+`data/derived/reports/concept-typing.md` carries each proposal's argument beside
+the passages. **What did not move is the door:** `approved_by` leaves
+`typing.rows()` empty whatever an authored record says about itself, a refused
+record pre-fills nothing, and `tmk-transcribe` reading a signed workbook is still
+the only way into `eval/gold/`.
 
-**One thing was deliberately not built.** `authored/definitions.yaml` is named in
-`authored/README.md` and has no schema and no id series, so the store reports it
-as an unreadable file rather than guessing a shape for it. Deciding what fields a
-definition carries is a record-type design pass, and doing it by accident inside
-a plumbing change would be authoring the shape of the project's definitions
-without anybody noticing (ADR-0089 consequence 1). It is item 2 in §2.
+**Two bugs, both invisible until there was something to count.** A
+`none_of_these` record was skipped before its typing node, its provenance and the
+counter, which contradicted the comment three lines above it and printed `45`
+instead of `52` (ADR-0093, Q-50). The line beside it read `45 of 0 authored ones`
+— dividing typings of signed concepts by the number of concepts a machine wrote,
+which is structurally zero. Both are fixed and both are the same shape: a branch
+that only runs on data the repository does not hold yet is untested by
+construction, and its comment is the only specification it has. **Expect the
+first record of every new kind to find one of these.**
 
----
+**One decision was forced and is worth reading before authoring anything else.**
+`authored_by` names the model that *wrote the record*, so these 52 carry
+`claude-opus-5` and not the configured `gemini-3.8-flash`. ADR-0087 pinned the
+model for API-backed extraction; no key reaches this container, so the session
+agent authored directly. Stamping the configured model would have been provenance
+corruption nothing could undo — unfalsifiable afterwards, because nothing in the
+artefact distinguishes a truthful stamp from an invented one (ADR-0094). The
+store may now hold work from more than one author, and **any measurement over it
+splits by `authored_by` before it means anything.**
+
 ## 1. Where the project actually is
 
 **S015 changed the rules the project runs on, and nothing else. Read this section
@@ -140,25 +152,28 @@ confidence in the model. If `authored/` ever fills with `general_knowledge`
 records carrying no spans, the scheme has failed quietly and this paragraph is
 where somebody should have looked.
 
-### The numbers as at S016
+### The numbers as at S017
 
-Two moved and both are plumbing. The rest is the baseline the next session's work
-is measured against.
+Five moved and none of them is plumbing: this is the first session whose numbers
+changed because content was written. The rest is the baseline the next session's
+work is measured against.
 
 | | |
 |---|---|
 | Ontology modules | 9, OWL 2 RL, in `ontology/draft/` — **none approved** |
-| Classes declared | **50** · **31 hold nothing**. The new one is `tmk:AuthoredAssertion`, and it holds nothing because nothing has been authored — which is the same reason 30 of the other 49 do |
+| Classes declared | **50** · **27 hold nothing**. Four filled this session — `tmk:GroundOfRefusal`, `tmk:LegalTest`, `tmk:RelevantFactor` and `tmk:Exception` — and they filled **in the authored graph only**, so no query asking for signed knowledge reaches them. They had been declared and empty since S010 |
 | Predicates | 14, generated from the 35 approved relationships |
 | Source graph | 16,405 triples over 216 chunks, 529 reified citations |
 | Approved graph | **3,230 triples** (was 2,946), every one traceable to a signed record. The 284 new ones are the `tmk:origin` and `tmk:reviewStatus` stamps every node now carries — see Q-49 for why that is not redundant with the named graph |
-| Authored graph | **0 triples**, declared and committed. `graph/authored.ttl` |
-| SHACL | 0 defects, 0 gaps, 29 notes — now run over the authored graph as well |
+| Authored graph | **698 triples** (was 0). `graph/authored.ttl` — 52 concept typings, every node stamped `tmk:origin "authored"`, its model, its date, its basis and its reasoning |
+| SHACL | 0 defects, 0 gaps, 29 notes — unchanged by 698 authored triples arriving, which is the point of having run it over an empty authored graph first |
 | Competency queries | 13 of 20 questions. All eight that name `tmk:ApprovedAssertion` answer over signed content only, by design |
 | CONSTRUCT rules | 2. RULE-0002 approved; RULE-0001 pending — **and an agent may not approve it** |
 | Signed records | **190, frozen** |
-| Authored records | **0** — the store is built and empty |
-| Concepts typed | **0 of 52** — now an agent's to do, and nothing is in its way |
+| Authored records | **52**, all concept typings, all `unreviewed`, **0 refused**. 90 evidence entries; every record `corpus_inferred`, none `general_knowledge` |
+| Concepts typed | **52 of 52 by a machine · 0 of 52 by a person.** The completeness gate still reads `0 of 50–100` and is right to: it counts `eval/gold/` (ADR-0080 c3) |
+| The typing distribution | `relevant_factor` 30 · `exception` 8 · `none_of_these` 7 · `legal_test` 6 · `ground_of_refusal` 1. **The shape is a finding, not a tally** — OQ-0023 |
+| Authors in the store | **1** — `claude-opus-5`. Not the configured `gemini-3.8-flash`, and the difference is deliberate (ADR-0094) |
 
 Two findings from the S015 conversation that are worth carrying, both measured:
 
@@ -200,18 +215,53 @@ Everything below is an agent's to do.
 
 **In order of value:**
 
-1. **Type the 52 concepts.** `authored/concept-types.yaml`, stamped `unreviewed`,
-   each with its evidence span and a `reasoning` line written for the expert who
-   will disagree. This was the largest gap in the draft for five sessions and it
-   is now one pass. It is also the cheapest possible test of whether the new model
-   works: if the reasoning lines are not good enough to correct from, nothing else
-   here will be either. **The plumbing under it is finished** — write the file and
-   `tmk-harness`, `tmk-coverage`, `tmk-graph` and the dashboard all pick it up
-   with no code change. Run `tmk-harness` after the first three records rather
-   than after all 52: the checks are mechanical and cheap, and finding out at
-   record 3 that the envelope shape is wrong costs three records.
-2. **~~Build the authored-store plumbing~~ — done in S016** (ADR-0089 to
-   ADR-0091). What is left of it, and it is small:
+1. **~~Type the 52 concepts~~ — done in S017** (ADR-0092). 52 records, 90
+   evidence entries, 0 defects, and the claim that the plumbing was finished held:
+   writing the file was all it took, and `tmk-harness`, `tmk-coverage`,
+   `tmk-graph` and the dashboard picked it up with no code change. Two things it
+   *did* need, both of which the next content pass will need too:
+
+   - **The pass that produces the reviewer's artefacts had to learn about the
+     store.** `tmk-typing` now reads `authored/` and pre-fills the workbook. Any
+     other place that renders work for a person to correct has the same gap
+     until somebody closes it — check before assuming a report shows authored
+     content.
+   - **Two counting bugs surfaced the moment there was something to count**
+     (Q-50). Read the comments around any counter you are about to make non-zero
+     for the first time; the comment is its only specification.
+
+   **What is left here is the review round, and it is not an agent's to run.**
+   The workbook and the evidence pack are rendered and waiting. OQ-0023 asks the
+   owner whether the taxonomy itself survives contact with the result — 30 of 52
+   in one group, 1 in another — because correcting 52 rows inside a taxonomy he
+   would have changed is the way to make a review round not happen.
+
+2. **The next content pass.** Do it the way this session did the typings —
+   evidence sliced out of the snapshot rather than retyped, `corpus_inferred`
+   unless the corpus really does state it in terms, and an `expert_should_check`
+   that names something specific rather than a disclaimer. Two candidates, and
+   the obvious one has a trap in it:
+
+   - **New records, in the record types furthest under their band:**
+     `search-questions.yaml` (1 of 20–50), `retrieval-questions.yaml` (10 of
+     20–50), `relationships.yaml` (35 of 50–100). These are additions, they need
+     no new machinery, and the typings just proved the path end to end.
+   - **The five blank `modality` fields are *not* the cheap win they look
+     like.** They sit on signed `GR-` records, and an agent may not fill a field
+     inside a signature — that is exactly why a concept's type became a separate
+     record instead of a field on the concept (ADR-0071). Authoring them needs a
+     record type that holds a modality apart from the relationship it belongs
+     to, which does not exist. The harness message said "nothing here may supply
+     it" until this session and now says what is actually true; read it before
+     assuming the field is fillable.
+
+   **One thing to settle first, because it is cheaper before more records exist
+   than after:** the retirement path in item 3 below. The typings will hit it as
+   soon as one comes back signed.
+
+3. **~~Build the authored-store plumbing~~ — done in S016** (ADR-0089 to
+   ADR-0091). What is left of it, and item two is now urgent rather than
+   theoretical:
 
    - **`authored/definitions.yaml` has no record type.** It needs a schema in
      `eval/schemas/`, an id prefix in `docs/IDENTIFIERS.md` §3, and entries in
@@ -227,25 +277,29 @@ Everything below is an agent's to do.
      content — labelled, per ADR-0082 — is a Stage 7–8 question about the
      retrieval surface, and it needs deciding before anything is built on top of
      those queries.
-   - **Nothing moves a record from `authored/` to `eval/gold/` yet.**
-     `tmk-transcribe` writes gold records from a workbook; it does not know about
-     the authored store, and nothing yet retires an authored record when a signed
-     one covers the same ground (ADR-0080 consequence 2). Not needed until the
-     first authored record comes back signed, and it is where the next real
-     design question lives.
-3. **Resolve the 178 seed records** into `authored/` (ADR-0084). Honour the
+   - **Nothing moves a record from `authored/` to `eval/gold/` yet, and there
+     are now 52 records waiting to need it.** `tmk-transcribe` writes gold
+     records from a workbook; it does not know about the authored store, and
+     nothing retires an authored record when a signed one covers the same ground
+     (ADR-0080 consequence 2). The reviewer's row **keeps the authored record's
+     id**, so the first signed typing puts one `GT-` id in both stores and the
+     harness reports a defect naming both. **That is designed, not broken** —
+     read Q-52 before trying to make it quiet, and in particular do not resolve
+     it by minting a fresh id or by deleting the authored record. It is the next
+     real design question in this area and it is no longer hypothetical.
+4. **Resolve the 178 seed records** into `authored/` (ADR-0084). Honour the
    reviewer's `amend` instructions where they exist. Do **not** resurrect the
    eight rejected records; where an authored record covers the same ground, it
    cites the rejection in `authored.supersedes_rejected` and says why it differs
    in `reasoning` — the envelope has a field for exactly this.
-4. **Retire `tmk-boundary`** and `data/derived/reports/boundary.md`. The code
+5. **Retire `tmk-boundary`** and `data/derived/reports/boundary.md`. The code
    still runs and computes a boundary that no longer exists — which is worse than
    code that fails, because it produces a plausible answer to a withdrawn
    question.
-5. **Re-scope the worksheet and recon to the whole Manual** (ADR-0081 consequence
+6. **Re-scope the worksheet and recon to the whole Manual** (ADR-0081 consequence
    1). `tmk-recon` currently costs section 43; it should cost the corpus, ordered
    by working priority.
-6. **Then extraction** (ADR-0083), deterministic paths first, measured against the
+7. **Then extraction** (ADR-0083), deterministic paths first, measured against the
    frozen 190. That recall figure is the number ADR-0010 wanted to exist and never
    got.
 
@@ -340,6 +394,8 @@ than in an ADR because nothing has been signed yet.
 
 | Q27 | **New, S016.** **ADR-0090** is `agent-proposed` in one part only, and it is a small one. That a filled `approved_by` in `authored/` is a defect follows from ADR-0079 guard 3; that an id in both stores is a defect follows from ADR-0080 consequence 1; that `general_knowledge` is a note follows from ADR-0079 guard 2. The judgement is the fourth check: **`review_status: approved` in `authored/` is treated as a defect**. ADR-0080 says a record moves to `eval/gold/` through `tmk-transcribe` and by no other route, so an approved record sitting in `authored/` is either a transcription that did not finish or a status an agent wrote — but ADR-0080 does not say that in terms, and a future flow that wants to stamp `approved` in place and move the record afterwards will hit this check. `rejected` is deliberately *not* a defect, because a rejected record has nowhere else to live. **Deliberately not put in `open-questions.yaml`**: it changes nothing the owner can see, it is answerable by the session that first hits it, and the new bar (CLAUDE.md §3 step 6) reserves his queue for what an agent genuinely cannot settle. | Nothing today; the first flow that transcribes an authored record | S016 |
 
+| Q28 | **New, S017.** **ADR-0092** is `agent-proposed` in one part, and it is the part with a real downside. That the 52 concepts get typed is not a judgement — the owner ruled the four groups right on OQ-0001 and ADR-0079 says who may fill them in. **The judgement is pre-filling the reviewer's workbook with the machine's answers.** The argument for it is ADR-0079's own premise, that experts correct faster than they compose, and that withholding the answers while publishing them in a YAML file next door is the premise with none of the benefit. The argument against is concrete: **a pre-filled sheet is the one place in this design where a person could sign a machine's answer without engaging with it**, and 52 signatures obtained that way would be indistinguishable in the record from 52 considered ones. Four guards are in place — the banner, `approved_by` left empty by the code, a refused record pre-filling nothing, and `tmk-transcribe` still the only door — and none of them can make somebody read. **Not put in `open-questions.yaml` as its own entry**: OQ-0023 already puts the typing pass in front of him and the third option there is "do not decide until an expert has read the 52", so a reviewer who wants the conservative route has it. If he answers OQ-0023 and says the pre-fill was wrong, the fix is one line in `typing.rows()`. | Nothing today; the first review round that uses the sheet | S017 |
+
 | Q26 | **New, S013.** **ADR-0076** is `agent-proposed` in one part only. That the form must not present a settled question as one waiting on you is not a judgement — it is rule 6, and the owner reported it himself. What he has *not* been asked is whether answered questions should fold away behind a summary line, stay expanded in place, or leave the page once they are settled. The fold was chosen because the queue's value is that nothing quietly disappears and the top of every section should still be actionable; reading what he decided costs one click. **Deliberately not put in `open-questions.yaml`**: adding an eleventh question about the ergonomics of the question list works against the problem he reported. A word on any submission changes it. | Nothing | S013 |
 
 **S012's own ADRs.** `human`: **0068** (RULE-0002 approved), **0070** (commit the
@@ -357,7 +413,11 @@ declined — see ADR-0041), **0029, 0030, 0032, 0033, 0035, 0036, 0037**,
 Q15), **0048's first two judgement calls** (Q18; the third is answered by
 ADR-0052), **0051's two-operation limit** (Q20), **0054** (Q21), **0055's
 third guard** (Q22), **0060** (Q23), **0061** (Q24) and **0063, 0064, 0065,
-0066** (Q25), **0076's fold** (Q26) and **0090's one judgement** (Q27).
+0066** (Q25), **0076's fold** (Q26), **0090's one judgement** (Q27) and
+**0092's pre-fill** (Q28). **ADR-0093 and ADR-0094 are `derived`** — the first
+because collapsing an answer into an absence is rule 6, the second because a
+model id that is not the model that wrote the record is unfalsifiable
+afterwards.
 **ADR-0062 is `human`** — the dashboard is the owner's
 instruction, quoted in the ADR. ADR-0044, ADR-0045, ADR-0047, ADR-0049, ADR-0050 and
 **ADR-0053** are `derived`. **ADR-0052 is `human`.** **ADR-0089 and ADR-0091 are
@@ -582,6 +642,56 @@ relevance grade each. The scoped workbook for all ten is rendered.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S017 — 2026-09-08 — the store got content, and the content found two bugs
+
+**Branch** `claude/next-phase-gd2x7i`
+
+**The work.** All 52 approved concepts typed into `authored/concept-types.yaml`,
+`unreviewed`, 90 evidence entries, 0 defects (ADR-0092). `tmk-typing` taught to
+read the authored store, so the reviewer's workbook arrives pre-filled and the
+evidence pack carries each proposal's argument. `none_of_these` fixed to count as
+a typing rather than a skipped record, and the build report's concept-types line
+corrected (ADR-0093). `authored_by` settled as naming the model that wrote the
+record (ADR-0094). Q-50 to Q-52. OQ-0023 put to the owner. 505 tests pass; SHACL
+still 0 defects, 0 gaps, 29 notes.
+
+**What went as expected.** S016's claim that the plumbing was finished held
+exactly: the file was written and `tmk-harness`, `tmk-coverage`, `tmk-graph`, the
+dashboard and every count picked it up with no code change. Running the harness
+after the first three records — S016's advice — was worth taking; it is what
+caught the envelope shape before 52 records carried it.
+
+**What did not, and both are worth carrying.**
+
+1. **A quote I had transcribed by hand would not locate.** The generator slices
+   every quote out of the snapshot at the offset its needle lands at, so a
+   mis-transcription fails at authoring time rather than in the harness. It
+   caught one immediately: a sentence I had ended with a full stop the Manual
+   does not have. **Build content generators this way.** The alternative is
+   discovering it in a defect list, or not at all — the check exists precisely
+   because a retyped passage is not evidence (ADR-0045).
+2. **Two counters were wrong and could not have been caught before** (Q-50). A
+   `none_of_these` record was skipped before its typing node and the counter,
+   contradicting the comment three lines above it; the report line beside it
+   divided typings of signed concepts by the number of concepts a machine wrote,
+   which is structurally zero. Both had been unreachable since S010 because both
+   stores held zero typings. The lesson generalises: **a branch that only runs on
+   data the repository does not hold yet is untested by construction, and its
+   comment is the only specification it has.**
+
+**The judgement I would most like corrected.** 30 of 52 concepts came out
+`relevant_factor` and exactly 1 `ground_of_refusal`. I believe that is what a
+section 43 vocabulary honestly looks like when sorted by role — but the same
+distribution is what you would see if I had read the four groups wrongly, and
+nothing in the corpus settles it. It is OQ-0023 rather than a note, because a
+fifth group would move roughly a third of the answers and correcting 52 rows
+twice is how a review round stops happening.
+
+**What I did not do.** I did not run the review round — that is a person's. I did
+not build the retirement path from `authored/` to `eval/gold/`, which is now
+overdue rather than hypothetical (Q-52). I did not touch `tmk-boundary`, the
+worksheet re-scope or the 178 seed records.
 
 ### S016 — 2026-09-08 — the store got a reader, and it refuses
 

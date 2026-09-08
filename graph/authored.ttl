@@ -1,1 +1,807 @@
+@prefix tmk: <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix tmka: <https://data.ipaustralia.gov.au/tmk/assertion/> .
+@prefix tmkc: <https://data.ipaustralia.gov.au/tmk/concept/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+tmkc:GC-0001 a tmk:LegalTest ;
+    tmk:typedBy tmka:GT-0001 .
+
+tmkc:GC-0002 a tmk:LegalTest ;
+    tmk:typedBy tmka:GT-0002 .
+
+tmkc:GC-0003 a tmk:LegalTest ;
+    tmk:typedBy tmka:GT-0003 .
+
+tmkc:GC-0004 a tmk:LegalTest ;
+    tmk:typedBy tmka:GT-0004 .
+
+tmkc:GC-0005 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0005 .
+
+tmkc:GC-0006 a tmk:GroundOfRefusal ;
+    tmk:typedBy tmka:GT-0006 .
+
+tmkc:GC-0007 a tmk:Exception ;
+    tmk:typedBy tmka:GT-0007 .
+
+tmkc:GC-0008 a tmk:LegalTest ;
+    tmk:typedBy tmka:GT-0008 .
+
+tmkc:GC-0009 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0009 .
+
+tmkc:GC-0010 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0010 .
+
+tmkc:GC-0011 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0011 .
+
+tmkc:GC-0012 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0012 .
+
+tmkc:GC-0013 a tmk:Exception ;
+    tmk:typedBy tmka:GT-0013 .
+
+tmkc:GC-0014 a tmk:Exception ;
+    tmk:typedBy tmka:GT-0014 .
+
+tmkc:GC-0015 a tmk:Exception ;
+    tmk:typedBy tmka:GT-0015 .
+
+tmkc:GC-0016 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0016 .
+
+tmkc:GC-0017 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0017 .
+
+tmkc:GC-0018 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0018 .
+
+tmkc:GC-0019 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0019 .
+
+tmkc:GC-0020 a tmk:Exception ;
+    tmk:typedBy tmka:GT-0020 .
+
+tmkc:GC-0021 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0021 .
+
+tmkc:GC-0022 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0022 .
+
+tmkc:GC-0023 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0023 .
+
+tmkc:GC-0024 a tmk:LegalTest ;
+    tmk:typedBy tmka:GT-0024 .
+
+tmkc:GC-0025 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0025 .
+
+tmkc:GC-0026 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0026 .
+
+tmkc:GC-0027 a tmk:Exception ;
+    tmk:typedBy tmka:GT-0027 .
+
+tmkc:GC-0028 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0028 .
+
+tmkc:GC-0029 a tmk:Exception ;
+    tmk:typedBy tmka:GT-0029 .
+
+tmkc:GC-0030 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0030 .
+
+tmkc:GC-0031 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0031 .
+
+tmkc:GC-0032 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0032 .
+
+tmkc:GC-0033 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0033 .
+
+tmkc:GC-0034 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0034 .
+
+tmkc:GC-0035 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0035 .
+
+tmkc:GC-0036 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0036 .
+
+tmkc:GC-0037 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0037 .
+
+tmkc:GC-0038 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0038 .
+
+tmkc:GC-0039 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0039 .
+
+tmkc:GC-0040 tmk:typedBy tmka:GT-0040 .
+
+tmkc:GC-0041 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0041 .
+
+tmkc:GC-0042 tmk:typedBy tmka:GT-0042 .
+
+tmkc:GC-0043 tmk:typedBy tmka:GT-0043 .
+
+tmkc:GC-0044 tmk:typedBy tmka:GT-0044 .
+
+tmkc:GC-0045 tmk:typedBy tmka:GT-0045 .
+
+tmkc:GC-0046 tmk:typedBy tmka:GT-0046 .
+
+tmkc:GC-0047 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0047 .
+
+tmkc:GC-0048 a tmk:Exception ;
+    tmk:typedBy tmka:GT-0048 .
+
+tmkc:GC-0049 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0049 .
+
+tmkc:GC-0050 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0050 .
+
+tmkc:GC-0051 tmk:typedBy tmka:GT-0051 .
+
+tmkc:GC-0052 a tmk:RelevantFactor ;
+    tmk:typedBy tmka:GT-0052 .
+
+tmka:GT-0001 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Section 43 makes rejection turn on there being a connotation, and Part 29.2.4 makes its existence something the Registrar has to be satisfied about before the ground is raised — doubt defeats it. A matter the decision maker must answer is a legal_test on the owner's four groups, so connotation is typed as the first of section 43's two elements rather than as material feeding into one."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether the existence of a connotation is genuinely a separate question from whether the mark is likely to deceive, or whether practice runs the two together. GC-0002 is typed legal_test on the same footing, and if they are one question the pair should collapse into it."@en-AU ;
+    tmk:goldRecord "GT-0001" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
+
+tmka:GT-0002 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The Manual states this as the thing a decision maker must be clearly satisfied of, which is the definition of a question the decision maker has to answer. Every other concept in the s 43 vocabulary either feeds this question or takes a case out of it."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "The split between this record and GT-0006. If 'ground for rejection' and 'likely to deceive or cause confusion' name the same thing in practice, one of the two typings is wrong and the vocabulary has a duplicate underneath it."@en-AU ;
+    tmk:goldRecord "GT-0002" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GT-0003 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Typed as a limb of GC-0002 rather than as an input to it. The Manual quotes Lord Denning distinguishing deception from confusion sharply and then says the connotation must be judged as giving rise to one or the other — so each limb is a question that can be answered on its own."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether an examiner ever decides deception and confusion separately, or whether the distinction is quoted for colour and applied as a single threshold. GC-0002's own record note raises this and it is unresolved."@en-AU ;
+    tmk:goldRecord "GT-0003" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> .
+
+tmka:GT-0004 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The mirror of GT-0003, and typed the same way for the same reason: confusion has its own threshold in the corpus — persons caused to wonder, a reasonable doubt entertained — which is a question with an answer rather than a consideration that feeds one."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "The same question as GT-0003, and it should be answered for both at once. If the pair collapse into GC-0002, this record and GT-0003 both become relevant_factor or disappear."@en-AU ;
+    tmk:goldRecord "GT-0004" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> .
+
+tmka:GT-0005 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Separating what a mark denotes from what it connotes is a step in reaching the connotation finding, so denotation feeds the answer rather than being one. It is typed relevant_factor on that basis and not on the basis that anybody weighs it."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 5.5e-01 ;
+    tmk:expertShouldCheck "Whether denotation does any work of its own in an examination, or whether it appears only in the case law the Manual quotes. If the latter, none_of_these is the better answer and this record is the clearest example of the four groups not fitting."@en-AU ;
+    tmk:goldRecord "GT-0005" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~2> .
+
+tmka:GT-0006 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The only concept in the 52 that names a reason an application can be refused rather than something inside the reasoning, and its alt label 's 43 objection' ties it to the concrete ground rather than to the abstract category. Typed ground_of_refusal so the group is not empty on a vocabulary built entirely around one ground."@en-AU ;
+    tmk:conceptGroup "ground_of_refusal" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether the vocabulary needs 'ground for rejection' (the general notion) and 'section 43 ground for rejection' (the particular one) as two concepts. This record types them as one, which is the reason the ground_of_refusal group has exactly one member in 52."@en-AU ;
+    tmk:goldRecord "GT-0006" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GT-0007 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Typed on what the presumption does rather than on what it is. Its stated operation in Part 29 is that doubt about a connotation stops the ground being raised — a case that might otherwise attract the ground is taken out of it, which is the exception group's definition."@en-AU ;
+    tmk:conceptGroup "exception" ;
+    tmk:confidence 5e-01 ;
+    tmk:expertShouldCheck "This record and GT-0051. GC-0007's own note says the presumption and the mandatory application of s 43 pull in opposite directions; they are typed here as exception and none_of_these respectively, and if that is the wrong pairing both are wrong together."@en-AU ;
+    tmk:goldRecord "GT-0007" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> .
+
+tmka:GT-0008 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The corpus states this as a threshold with a floor under it — a mere possibility will not do — which makes it a question with a yes or no answer rather than a consideration. It is the level at which GC-0002 is set, not a separate ground."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Whether this is a second test or the calibration of GC-0002's single test. If the latter, the two records should say so rather than both carrying legal_test as though they were independent questions."@en-AU ;
+    tmk:goldRecord "GT-0008" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> .
+
+tmka:GT-0009 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Identifying whose reaction counts is an input to the deception question, not the question itself. The Manual never asks whether there is a relevant market; it asks whether that market would be deceived."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "The line this pass drew between a population that is weighed (typed relevant_factor, as here and at GT-0010) and an actor who decides (typed none_of_these, GT-0044 to GT-0046). If that line is wrong, four records move together."@en-AU ;
+    tmk:goldRecord "GT-0009" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> .
+
+tmka:GT-0010 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The ordinary consumer is the perspective the test is applied from, and a perspective is an input to the answer rather than a question in its own right. Typed alongside GC-0009 so the market and the consumer within it sit in the same group."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether examiners treat 'who is the ordinary consumer of these goods' as a question they decide, or as a standard they apply without deciding anything. The answer moves this record and probably GT-0009 with it."@en-AU ;
+    tmk:goldRecord "GT-0010" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> .
+
+tmka:GT-0011 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The clearest relevant_factor in the set: the corpus uses the words 'taken into consideration' and then lists what the category holds. Nothing is being decided and nothing is being taken out of the rule."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 9e-01 ;
+    tmk:expertShouldCheck "Whether the concept should survive as a single record at all, or be replaced by the particular circumstances the Manual lists. The typing is safe either way; the vocabulary question is not."@en-AU ;
+    tmk:goldRecord "GT-0011" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> .
+
+tmka:GT-0012 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The specification is one half of the comparison the whole of Part 29.4 turns on — connotation against claimed goods — so it feeds the deception answer directly. It is not itself decided and it does not take a case out of the rule."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether the specification as filed and the specification as amended are the same concept for typing purposes. This record and GT-0015 assume they are not."@en-AU ;
+    tmk:goldRecord "GT-0012" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> .
+
+tmka:GT-0013 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The corpus states it as the way a ground already made out is overcome, in both the INN and the geographical branches. A mechanism that removes a case from a ground it otherwise attracts is an exception on the owner's definition."@en-AU ;
+    tmk:conceptGroup "exception" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether 'overcoming a ground' and 'the ground not arising' are the same kind of thing. Four records — GT-0013, GT-0014, GT-0015, GT-0029 — are typed exception on the first, and GT-0020, GT-0027 and GT-0048 on the second."@en-AU ;
+    tmk:goldRecord "GT-0013" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> .
+
+tmka:GT-0014 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Typed with GC-0013 because Part 29.9.2 names the endorsement itself as mitigating the risk, not merely as the place where a condition is recorded. The lowest confidence in the exception group."@en-AU ;
+    tmk:conceptGroup "exception" ;
+    tmk:confidence 5e-01 ;
+    tmk:expertShouldCheck "Whether an endorsement is a thing that does work or the writing-down of a thing that does. GC-0013's own record note flags this as exactly the kind of tacit distinction the exercise is meant to surface, and it is still open."@en-AU ;
+    tmk:goldRecord "GT-0014" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> .
+
+tmka:GT-0015 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A limitation removes the likelihood of deception and so removes the ground, which is the exception group's definition applied literally. Part 29.9.5 goes further than the other two members of this trio by calling it the sole criterion for a limitation under s 43."@en-AU ;
+    tmk:conceptGroup "exception" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "The same question as GT-0013: whether a remedy belongs in the exception group at all. If it does not, this record is relevant_factor and merges in substance with GT-0012."@en-AU ;
+    tmk:goldRecord "GT-0015" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> .
+
+tmka:GT-0016 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The priority date fixes the moment at which how-well-known is measured, so it conditions the answer without being one. Typed relevant_factor as the temporal input to the well-known-person branch."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "The tension GC-0049's note records: Part 29.3.2 directs attention to the current marketplace and Part 29.6 to the priority date. Both are typed relevant_factor here, which quietly asserts that they are two inputs rather than a contradiction."@en-AU ;
+    tmk:goldRecord "GT-0016" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> .
+
+tmka:GT-0017 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The corpus is explicit that the mere presence of a place name demonstrates nothing automatically — it is material that feeds the connotation question and does not answer it. That sentence is the reason this whole family of subject-matter concepts is typed relevant_factor rather than ground_of_refusal."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "The family judgement, once, rather than fifteen times: GT-0017 to GT-0023, GT-0025, GT-0026, GT-0030 to GT-0034, GT-0036 and GT-0037 are all typed relevant_factor because they name material rather than a reason to refuse. If that is wrong it is wrong for all of them."@en-AU ;
+    tmk:goldRecord "GT-0017" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> .
+
+tmka:GT-0018 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The corpus makes a match against a listed EU GI the trigger for a further question rather than the answer to one — 'consideration should then be given to whether'. That is a factor by the owner's definition."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether the s 43 treatment of GIs is really in this vocabulary at all. GC-0018's own record note says Part 29.1.1 sends the reader to Part 32B, and the material this typing rests on is one paragraph about the EU agreement."@en-AU ;
+    tmk:goldRecord "GT-0018" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/11%231> .
+
+tmka:GT-0019 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Same structure as GT-0018 and stated in one sentence: origin is what the reference connotes, and the deception question is asked afterwards. The finding of origin is an input to that question."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether the geographical branch has its own connotation test, or whether it applies GC-0001's. This record assumes the second."@en-AU ;
+    tmk:goldRecord "GT-0019" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> .
+
+tmka:GT-0020 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The only member of the geographical family the corpus carves out: a place name inside a business identifier is read as saying something about the business, and the ground will rarely apply. That is a case taken out of the rule."@en-AU ;
+    tmk:conceptGroup "exception" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether 'will rarely apply' is practice-speak for an exception or an honest statement of frequency. The distinction decides this record and nothing else."@en-AU ;
+    tmk:goldRecord "GT-0020" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/6> .
+
+tmka:GT-0021 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A qualifier strengthens a geographical claim into an explicit one, and the corpus says its absence does not defeat a connotation. Something that makes a finding more or less likely without settling it is a factor."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether this concept survives at all. If it is a list of example phrases rather than an idea, the typing is beside the point and the record should be withdrawn instead."@en-AU ;
+    tmk:goldRecord "GT-0021" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> .
+
+tmka:GT-0022 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "An INN is a name maintained by the WHO. Whether a mark is or connotes one is the input; the ground arises from that plus an unrestricted specification. Typed with the rest of the subject-matter family."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether the vocabulary needs a concept for the compound condition — 'mark connotes an INN and specification is unrestricted' — as distinct from the INN itself. Without one the ground_of_refusal group stays nearly empty."@en-AU ;
+    tmk:goldRecord "GT-0022" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> .
+
+tmka:GT-0023 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "'May lead to' is the language of a factor, and the stem's presence is only the start of the enquiry — GC-0024 holds the question that follows it. Typed relevant_factor with the INN itself."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether an INN and an INN stem should type the same way at all. They are governed by different rules and named almost identically, which GC-0022's record note calls the whole difficulty of Part 29.5."@en-AU ;
+    tmk:goldRecord "GT-0023" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/2> .
+
+tmka:GT-0024 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The corpus states this as something an examiner will need to consider, in those words, and then gives worked examples either side of the line. That is a question the decision maker has to answer."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "The pref_label. GC-0024's record note says 'meaningful inclusion of an INN stem' is the project's coinage rather than the Manual's, so the typing may be right about a concept whose name is wrong."@en-AU ;
+    tmk:goldRecord "GT-0024" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> .
+
+tmka:GT-0025 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The goods class is what brings the INN rules into play; it triggers the enquiry rather than answering it. Typed with the rest of the subject-matter family."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Whether dietary and nutritional supplements are inside this concept or beside it. GC-0025's record note deliberately lists them as a near-miss while the Manual names them as goods that could be pharmaceutical in nature."@en-AU ;
+    tmk:goldRecord "GT-0025" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> .
+
+tmka:GT-0026 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "'May be triggered' is the language of a factor, and Part 29.6 then names the question the examiner must ultimately decide separately from it. The well-known person is the material; the connotation of endorsement is what is decided."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "How much of the well-known-person branch this record carries. Three of the factors at 29.6 — how well known, name commonness, closeness of the field — have no concept of their own, so they are currently unmodelled and this record is standing in for them."@en-AU ;
+    tmk:goldRecord "GT-0026" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> .
+
+tmka:GT-0027 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The corpus states the carve-out directly: the ground will not arise for a long deceased figure even where every other element of the well-known-person branch is present. That is a case taken out of the rule."@en-AU ;
+    tmk:conceptGroup "exception" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether the estate proviso swallows the exception. If in practice most deceased-person cases turn on whether an estate is still licensing, this is a factor wearing an exception's words."@en-AU ;
+    tmk:goldRecord "GT-0027" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> .
+
+tmka:GT-0028 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Typed as the content of a connotation — one of the kinds of connection Part 29.3 lists — rather than as the deciding of one. The question remains GC-0002's; implied endorsement is what the mark has to convey for that question to be answered yes."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 5.5e-01 ;
+    tmk:expertShouldCheck "This record before any other in the relevant_factor group. The corpus comes closer to calling implied endorsement a test than it does for anything else typed relevant_factor here, and the quote saying so is in the record's own evidence."@en-AU ;
+    tmk:goldRecord "GT-0028" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
+
+tmka:GT-0029 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Stated twice in the corpus in the same words, for names and for images: permission overcomes the ground. The clearest exception in the set after GC-0027."@en-AU ;
+    tmk:conceptGroup "exception" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Whether the ground is overcome by the permission or by the endorsement recording it. GT-0014 types the endorsement exception on parallel reasoning, and the two records may be describing one mechanism twice."@en-AU ;
+    tmk:goldRecord "GT-0029" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> .
+
+tmka:GT-0030 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The corpus says in terms that the image alone is not enough and that its presence is a reason to give consideration to s 43. Material that opens an enquiry without settling it is a factor."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether images and names should type identically. They are typed the same way here (GT-0026, GT-0030) on the strength of Part 29.6.1's opening sentence that the same considerations apply."@en-AU ;
+    tmk:goldRecord "GT-0030" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/25/25/7>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> .
+
+tmka:GT-0031 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The phoneword is the subject matter; the ground is the applicant not owning it. Typed relevant_factor on the family reading, with the ownership half held by GC-0035."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "The three ownership branches together — phoneword (GT-0031), domain name (GT-0032), radio call sign (GT-0034) — and GC-0035 beside them. All four are typed relevant_factor, and if any is a ground_of_refusal all four are."@en-AU ;
+    tmk:goldRecord "GT-0031" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> .
+
+tmka:GT-0032 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The same structure as the phoneword branch and typed the same way: the domain name is the material, the ground is non-registration."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "The same question as GT-0031, and it should be answered for the three ownership branches at once."@en-AU ;
+    tmk:goldRecord "GT-0032" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231> .
+
+tmka:GT-0033 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Part 29.8.1 makes the TLD something considered holistically alongside the specification when deciding whether a connotation exists. That is a factor feeding GC-0001's question."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether generic and country-code TLDs are one concept. GC-0033's record note says the Manual treats them differently, and only the generic branch has the ICANN-list step this typing rests on."@en-AU ;
+    tmk:goldRecord "GT-0033" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/1> .
+
+tmka:GT-0034 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The third ownership branch, typed as the other two are."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "GC-0034's record note flags that holding the call sign and the frequency as one concept is a simplification, since a broadcaster chooses one and never the other. If they split, both halves inherit this typing untested."@en-AU ;
+    tmk:goldRecord "GT-0034" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> .
+
+tmka:GT-0035 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Whether the applicant is the owner is what makes the three ownership branches deceptive at all, so it feeds the answer directly. Typed relevant_factor rather than exception because the corpus states the ground negatively — it applies where the applicant is not the owner — which makes ownership an element stated in the negative rather than a carve-out."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 5.5e-01 ;
+    tmk:expertShouldCheck "The choice between an element stated negatively and an exception. It decides this record and it is the same question underneath GT-0029."@en-AU ;
+    tmk:goldRecord "GT-0035" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231> .
+
+tmka:GT-0036 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The variety name is the material; whether it connotes immediately and whether the goods are of a related genus are the questions asked about it. Part 32A makes that explicit by sending the examiner back to consider how the name appears."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether this concept is inside the vocabulary's scope or belongs to Part 32A. Half its evidence comes from there, which is true of no other record in this pass except GT-0018."@en-AU ;
+    tmk:goldRecord "GT-0036" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32A/2/4/2/4/1> .
+
+tmka:GT-0037 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The corpus makes the reference material that 'can form a connotation', with the deception question asked afterwards. Typed with the rest of the family on that structure and on nothing about the subject matter itself."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "This record before the typing is relied on anywhere. GC-0037's own note records it as low confidence and high sensitivity, and the typing was made from one paragraph of the Manual rather than from how the office speaks about this material. A correction here is worth more than a correction anywhere else in the file."@en-AU ;
+    tmk:goldRecord "GT-0037" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> .
+
+tmka:GT-0038 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A principle about what is looked at when the connotation question is asked, and the corpus says the other features 'diminish the impact' rather than removing the ground. That is weighing, which is what a factor is."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether neutralising elements dispose of the ground or reduce it. The difference matters for GC-0021 and GC-0048 as well, both of which are about material that stops a connotation forming."@en-AU ;
+    tmk:goldRecord "GT-0038" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/5> .
+
+tmka:GT-0039 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A connotation that developed through use is still a connotation, and its history is what makes it findable; typed as an input to GC-0001's question rather than as a separate one."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 5.5e-01 ;
+    tmk:expertShouldCheck "The near-miss GC-0039's record note calls the most valuable in the file: acquired distinctiveness under s 41 is described in almost identical words and must never be carried into s 43. The typing does not encode that boundary, and a relevant_factor label may make it easier to cross."@en-AU ;
+    tmk:goldRecord "GT-0039" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> .
+
+tmka:GT-0040 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Opposition is a stage in the process, not a reason to refuse, a question inside the s 43 judgement, or a way out of it. Typed none_of_these as evidence about the taxonomy: the four groups sort the substance of a decision and this concept is about where a decision is made."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Whether the four groups are meant to cover procedural concepts at all. Five records here — GT-0040, GT-0042 to GT-0046 — are none_of_these for this reason, and a sixth group would take all of them."@en-AU ;
+    tmk:goldRecord "GT-0040" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1/1/2/2> .
+
+tmka:GT-0041 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The corpus says evidence determines the strength of the connotation, which is the definition of something feeding the answer. Typed relevant_factor even though both its passages are about opposition, because what it does there is weigh."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "The line between this record and GT-0052. Evidence a party files and research an examiner does are typed the same way here, and GC-0041's own note says the distinction between them is load-bearing under s 43."@en-AU ;
+    tmk:goldRecord "GT-0041" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
+
+tmka:GT-0042 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A power exercised after acceptance under s 38, on its own conditions. It is not a s 43 ground, not a question inside one, and not a way out of one."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this concept belongs in the vocabulary. GC-0042's own note puts it on the edge and says it is there mainly because 'revocation of registration' is a different thing one word away."@en-AU ;
+    tmk:goldRecord "GT-0042" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part51/10%231~1> .
+
+tmka:GT-0043 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A filing mechanism, and one that answers a s 43 objection by moving goods rather than by bearing on whether the ground exists. Typed none_of_these on the same reading as the other procedural concepts."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether the difference between limiting a specification (GT-0015, exception) and dividing an application (this record, none_of_these) is real in practice or an artefact of how the Manual files them."@en-AU ;
+    tmk:goldRecord "GT-0043" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/2%231> .
+
+tmka:GT-0044 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "An actor. The four groups sort the content of the s 43 judgement, and a person who makes it is not a reason to refuse, a question, a factor or an out."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "That none_of_these is being read as intended for GT-0044 to GT-0046: not 'we could not decide' but 'the four groups do not reach this kind of concept'. If the owner wants roles typed, the taxonomy needs a group they can go in."@en-AU ;
+    tmk:goldRecord "GT-0044" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> .
+
+tmka:GT-0045 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "An actor, typed as GT-0044 is."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "The distinction between this concept, GC-0044 and GC-0046 rather than the typing. GC-0044's record note says the Manual switches between them and it is not obvious whether the switch is meaningful; all three are typed identically here, which does not answer that."@en-AU ;
+    tmk:goldRecord "GT-0045" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> .
+
+tmka:GT-0046 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "An actor, typed as GT-0044 is."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "GC-0046's record note says holding 'the Registrar’s delegate' as an alt label of Registrar is probably wrong, because a delegate exercises the power and is not the Registrar. The typing is unaffected either way, and the vocabulary error is not."@en-AU ;
+    tmk:goldRecord "GT-0046" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> .
+
+tmka:GT-0047 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The corpus says descriptive matter does not by itself attract an objection and then makes everything turn on the comparison with the specification. That is material feeding a question, not the question."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether the s 41 sense of 'descriptive' can be kept out of this record. GC-0047's note flags that descriptiveness is a distinctiveness question under s 41 and a connotation question here, in the same word."@en-AU ;
+    tmk:goldRecord "GT-0047" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> .
+
+tmka:GT-0048 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The corpus states it as a case where deception is not likely to occur, with worked examples, which is a case taken out of the rule. Typed exception with GC-0020 and GC-0027."@en-AU ;
+    tmk:conceptGroup "exception" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "The disagreement between this record's two passages. One says deception is not likely to occur; the other says it can be taken into account. If the second is the practice, this is relevant_factor."@en-AU ;
+    tmk:goldRecord "GT-0048" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> .
+
+tmka:GT-0049 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The temporal frame the connotation question is asked in. It conditions the answer without being one, in the same way GC-0016 does at the other end of the Part."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "The contradiction GC-0049's record note names: 29.3.2 directs attention to the current marketplace and 29.6 to the priority date. Both are typed relevant_factor, which asserts they are two inputs and not a conflict — and that assertion has not been checked by anyone."@en-AU ;
+    tmk:goldRecord "GT-0049" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
+
+tmka:GT-0050 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The corpus calls how well known a reference is an important consideration, in those words. Typed relevant_factor on that sentence."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "That the typing does not blur the boundary in the second quote. Reputation in the reference is a consideration; reputation in another trade mark is an external consideration and expressly not a source of connotation. One label now covers a concept that is admissible in one direction and prohibited in the other."@en-AU ;
+    tmk:goldRecord "GT-0050" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
+
+tmka:GT-0051 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "This says how the rule operates once it is made out — that there is no discretion — rather than supplying a reason to refuse, a question to answer, something to weigh or a way out. Typed none_of_these as evidence that the four groups have no place for the modality of a rule."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "This record and GT-0007 together. GC-0051's own note says the two pull in opposite directions and that how they sit together is one of the most useful things an expert could write down here. They are typed none_of_these and exception, which records the tension without resolving it."@en-AU ;
+    tmk:goldRecord "GT-0051" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+
+tmka:GT-0052 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Research is how an examiner acquires the facts the other factors are weighed on, and Part 29.6 requires it in terms. Typed relevant_factor with the evidence it produces."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "The same line as GT-0041: evidence a party files and research an examiner does are typed identically here, and the Manual keeps them apart under s 43 by asking examiners to research rather than to require evidence."@en-AU ;
+    tmk:goldRecord "GT-0052" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> .
 

@@ -591,6 +591,43 @@
    "notes_prompt": "If you ticked one, say what bothers you about it."
   },
   {
+   "id": "OQ-0023",
+   "theme": "confirm",
+   "status": "open",
+   "needs": "owner",
+   "urgency": "medium",
+   "raised": "S017",
+   "tracked_as": [
+    "ADR-0092"
+   ],
+   "title": "All 52 legal ideas are now sorted — and 30 landed in one group. Is the grouping right?",
+   "plain": "You asked for the 52 legal ideas to be sorted into four groups: a reason an application can be refused, a question the decision maker has to answer, something that feeds into that answer, and something that takes a case out of the rule. That is now done — every one of the 52 has a group, with the passages behind it and a written argument you can disagree with. Nobody with trade marks expertise has read any of it.\nWhat came back is lopsided and it may be telling you something. Thirty of the 52 are \"something that feeds into that answer\". Exactly **one** is \"a reason an application can be refused\". Seven do not fit any of the four at all — those are the people in the process (examiner, decision maker, Registrar) and the procedures around it (opposition, revoking an acceptance, filing a divisional).\nThere is an innocent explanation and a real one, and only you and your experts can say which. The innocent one: the vocabulary was built entirely around section 43, so nearly everything in it is part of *that* ground's reasoning rather than another ground standing beside it — the shape is correct and would change on its own as the rest of the Manual comes in. The real one: four groups are not enough, and the seven that fit nowhere are evidence of a missing fifth for roles and procedures.\n",
+   "why_you": "This is a question about how examiners actually think about these ideas, and the answer decides the shape of the whole vocabulary rather than any single row. Nothing in the Manual states which group an idea belongs to — every one of the 52 groupings is a reading, and the machine that made them says so on each record.\nIt is worth asking now rather than after correction, because a fifth group would change roughly a third of the answers, and correcting 52 rows twice is the kind of thing that stops a review round happening at all.\n",
+   "answer": {
+    "kind": "choice",
+    "prompt": "The four groups sorted 52 ideas into 1, 6, 30, 8 and 7. Does that shape look right to you?",
+    "options": [
+     {
+      "value": "four_groups_stand",
+      "label": "The four groups are right — the shape reflects a section 43 vocabulary",
+      "help": "Nothing changes. The lopsidedness is expected of a vocabulary built around one ground, and should even out as the rest of the Manual comes in. Review proceeds on the 52 as they stand."
+     },
+     {
+      "value": "add_a_fifth_group",
+      "label": "Add a fifth group for roles and procedures, and re-sort against it",
+      "help": "The seven that fit nowhere — examiner, decision maker, Registrar, opposition, revocation of acceptance, divisional application, and the rule that section 43 applies mandatorily — get a group of their own, and everything is sorted again before anybody reviews it."
+     },
+     {
+      "value": "expert_first",
+      "label": "Do not decide until a trade marks expert has read the 52",
+      "help": "The taxonomy question waits for somebody who knows the domain. The 52 stay as they are and stay marked as read by nobody."
+     }
+    ]
+   },
+   "notes_prompt": "If you would change a group name or add one, say which and what it should hold.",
+   "if_unanswered": "Nothing stops. The 52 stay as they are, marked as read by nobody, and the pre-filled workbook is ready for whoever reviews them. The risk of leaving it is only that a reviewer spends an afternoon correcting rows inside a taxonomy you would have changed.\n"
+  },
+  {
    "id": "OQ-0019",
    "theme": "unblocks",
    "status": "open",
