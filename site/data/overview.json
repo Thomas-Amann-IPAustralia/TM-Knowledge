@@ -6,7 +6,7 @@
   {
    "kind": "callout",
    "tone": "warn",
-   "title": "13 decisions are waiting on you",
+   "title": "10 decisions are waiting on you",
    "text": "Six of them unblock the next piece of work. Each is written to be answerable without reading anything else, and your answers come back into the repository as a file the next session reads.",
    "links": [
     {
@@ -93,7 +93,7 @@
     },
     {
      "label": "Statements stored",
-     "value": 2942,
+     "value": 2946,
      "note": "each traceable to a signed record",
      "tone": "good",
      "href": null
@@ -155,7 +155,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "pilot area chosen (s 43, ADR-0013); apparatus built (S004–S005); **first approved content landed S008: 190 records over all 8 types, harness 0 defects / 12 gaps**; 178 seed records still await correction, of which **10 decisions hold the other 168** (S009, `tmk-blockers`)"
+       "text": "pilot area chosen (s 43, ADR-0013); apparatus built (S004–S005); **first approved content landed S008: 190 records over all 8 types, harness 0 defects / 13 gaps** (the 13th is S012's concept-typing deliverable); 178 seed records still await correction, of which **10 decisions hold the other 168** (S009, `tmk-blockers`)"
       }
      ]
     },
@@ -240,7 +240,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "S010. Nine OWL 2 RL modules **drafted** in `ontology/draft/` from the 190 approved records; nothing approved, so `ontology/` is still empty (ADR-0056, ADR-0057)"
+       "text": "S010, S012. Nine OWL 2 RL modules **drafted** in `ontology/draft/`; nothing approved, so `ontology/` is still empty (ADR-0056, ADR-0057). S012: the four concept classes now fill from signed `concept_type` records (ADR-0071) — **0 of 52 sorted so far**; a role can be what a statement is about (ADR-0073)"
       }
      ]
     },
@@ -259,7 +259,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "S010. Graph built (16,405 source + 2,942 approved triples) and the SHACL gate runs: **0 defects, 0 gaps, 29 notes**. Built against a *draft* TBox"
+       "text": "S010, S012. Graph built (16,405 source + 2,942 approved triples), SHACL gate **0 defects, 0 gaps, 29 notes**, against a *draft* TBox. S012: **all four files committed** (ADR-0070) and `tmk-graph --check` fails on drift"
       }
      ]
     },
@@ -306,7 +306,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "S010. Two CONSTRUCT rules written, **neither approved**; everything they produce is quarantined as `review_status: candidate`"
+       "text": "S010, S012. Two CONSTRUCT rules. **RULE-0002 approved by the owner 2026-09-08** (OQ-0004, ADR-0068) and its 187 impact links have left quarantine; RULE-0001 stays PENDING — he asked to see its 5 flagged passages first, and the pack is `data/derived/reports/rule-0001-flags.md` (OQ-0019)"
       }
      ]
     },

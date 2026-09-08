@@ -103,7 +103,7 @@ jobs:
       # — an unknown question, an option that is not on the form — and that is
       # the one re-submitting fixes. Anything else is this repository failing to
       # run, and on 2026-09-08 the old wording told the owner their submission
-      # was malformed when in fact a dependency was missing (Q-39, ADR-0067).
+      # was malformed when in fact a dependency was missing (Q-42, ADR-0067).
       - name: Report a refusal on the issue, and stop
         if: steps.transcribe.outputs.code != '0'
         env:

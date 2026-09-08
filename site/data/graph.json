@@ -8,7 +8,7 @@
    "items": [
     {
      "label": "Approved statements",
-     "value": 2942,
+     "value": 2946,
      "note": "each traceable to a signed record",
      "tone": "good",
      "href": null
@@ -191,12 +191,12 @@
      "text": "**Stands on:** CQ-0017 and CQ-0019, the two impact-category competency questions. The edges it walks are the ones already in the approved graph; the rule materialises the closure so an impact answer is a lookup rather than a traversal written afresh each time.\n\n**Does not establish:** Impact by *recorded dependency*, and nothing else. A passage that discusses the same subject without being cited by a record is invisible to it, which is the known shape of the gap (Q-28): a term's definition is usually not in a passage that cites anything, so the material a scope rule finds and the material a topic actually spans are not the same set. Reading a nil result as \"nothing is affected\" is the error this limits line exists to prevent.",
      "badges": [
       {
-       "label": "not approved",
-       "tone": "warn"
+       "label": "approved",
+       "tone": "good"
       },
       {
-       "label": "output quarantined",
-       "tone": "note"
+       "label": "output usable",
+       "tone": "good"
       }
      ],
      "links": [

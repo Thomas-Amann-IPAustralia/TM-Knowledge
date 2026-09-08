@@ -118,7 +118,7 @@ def test_no_question_quotes_a_rule_triple_count_as_a_finding_count():
     OQ-0003 told him RULE-0001 "produced 71 flags" and asked him to review 71
     passages. 71 is the size of the graph the rule builds; it flags five. The
     triple count was read off a generated table, where it is correctly headed
-    *triples*, and written into the question as a count of findings (Q-41).
+    *triples*, and written into the question as a count of findings (Q-44).
 
     A question may legitimately quote a triple count — as rows of data, as
     storage — so this checks the pairing, not the number: no rule's triple count
@@ -307,7 +307,7 @@ def test_the_transcription_path_does_not_need_the_rdf_extra(monkeypatch):
     """`tmk-ruling` runs in a workflow that installs the core three dependencies
     and nothing else. It imported the graph builder at module scope, and so
     rdflib — the optional `[rdf]` extra — until issue #12 died on
-    `No module named 'rdflib'` before a line of the transcription ran (Q-39).
+    `No module named 'rdflib'` before a line of the transcription ran (Q-42).
 
     The coupling is invisible on any developer machine, because every developer
     machine has the extras installed. So the test removes them."""
@@ -337,7 +337,7 @@ def test_a_note_with_no_option_chosen_is_still_an_answer():
     that note in the machine-readable block. Both the block's prose summary and
     this transcription used to drop it, so the note existed only in the issue
     body — which is exactly what happened to OQ-0009 on issue #12 while the
-    issue title still counted it as one of seven answers (Q-40)."""
+    issue title still counted it as one of seven answers (Q-43)."""
     identifier, _ = _first_choice()
     body = _body(
         "form: tmk-ruling/1\nquestions_updated: '2026-09-04'\n"

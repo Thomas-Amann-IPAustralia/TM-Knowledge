@@ -24,7 +24,7 @@ from tm_knowledge.dashboard import ruling as ruling_module
 # the core three dependencies. Importing it at module scope coupled the two, and
 # on 2026-09-08 that cost the owner a submission: the transcription workflow
 # installs the core only, and issue #12 died on `No module named 'rdflib'` before
-# `ruling()` ran a line (Q-39, ADR-0067). `dashboard()` imports it where it is used.
+# `ruling()` ran a line (Q-42, ADR-0067). `dashboard()` imports it where it is used.
 
 __all__ = ["dashboard", "ruling"]
 

@@ -95,9 +95,14 @@ class BuildReport:
     #: Gold records naming a source the corpus does not hold at all.
     unresolvable_sources: list[str] = field(default_factory=list)
     #: `CQ-0001:connotation` for every expected-concept label that matched no
-    #: approved concept. Either the vocabulary is short a concept or the
-    #: question names one by a variant nobody recorded.
+    #: approved concept and is not explained. Either the vocabulary is short a
+    #: concept or the question names one by a variant nobody recorded.
     unmatched_concept_labels: list[str] = field(default_factory=list)
+    #: The subset that *is* explained: the label matches no concept because an
+    #: approved concept records it as a not-label — a term deliberately outside
+    #: the vocabulary, which the question names as the boundary it is testing.
+    #: Reported apart from a gap because it is the opposite of one (ADR-0075).
+    boundary_concept_labels: list[str] = field(default_factory=list)
     triples: dict[str, int] = field(default_factory=dict)
 
     def lines(self) -> list[str]:
@@ -119,6 +124,10 @@ class BuildReport:
             ("gold records whose source hash has moved", self.stale),
             ("gold records naming a source not held", self.unresolvable_sources),
             ("expected-concept labels matching no concept", self.unmatched_concept_labels),
+            (
+                "expected-concept labels that name a boundary, not a gap",
+                self.boundary_concept_labels,
+            ),
         ):
             if items:
                 out.append(f"{label}: {len(items)} — {', '.join(sorted(items)[:8])}")
@@ -460,11 +469,30 @@ def _apply_concept_types(graph: Graph, gold: goldset.GoldSet, report: BuildRepor
 def _term(value: str) -> URIRef:
     """A relationship's subject or object, whichever kind it is.
 
-    `GC-0001` is a concept; anything else is an upstream ref. The gold schema
-    types neither field, so the id grammar is the only thing that says which —
-    which is fine, because the two grammars cannot collide.
+    `GC-0001` is a concept, `GE-0010` is an entity mention, and anything else is
+    an upstream ref. The gold schema types none of the three, so the id grammar
+    is the only thing that says which — which is fine, because the grammars
+    cannot collide.
+
+    **Why a mention may be a term** (ADR-0073). The owner asked, on OQ-0015,
+    whether a glossary captures the relationship between an examiner and a
+    registrar, and said to adopt a Must/May predicate if it does not. It does
+    not: a glossary holds one entry per term, and "an examiner must consult a
+    team leader before accepting on doubt" is a normative relation between two
+    roles. The Must/May predicate already exists — `tmk:modality`, carrying
+    `must` | `may` | `should` on any approved relationship — so what was missing
+    was not the modality but the *subject*: there was no way to make a
+    relationship be about a role at all, because a role is an entity mention and
+    only concepts and refs were terms.
+
+    Nothing here writes such a relationship. It makes one expressible, so an
+    expert can sign one.
     """
-    return concept_node(value) if value.startswith("GC-") else ref_node(value)
+    if value.startswith("GC-"):
+        return concept_node(value)
+    if value.startswith("GE-"):
+        return assertion_node(value)
+    return ref_node(value)
 
 
 def _build_relationships(
@@ -512,6 +540,26 @@ def _build_mentions(
     report.mentions = gold.count("gold_entity")
 
 
+def _not_labels(gold: goldset.GoldSet) -> dict[str, tuple[URIRef, ...]]:
+    """Every approved *not*-label, folded, to the concepts that exclude it.
+
+    `not_labels` is the field the schema calls the most valuable on the record:
+    the forms that look similar and are deliberately not this concept. A
+    question's expected concept matching one of these is therefore not a hole in
+    the vocabulary — it is the vocabulary saying, in a record somebody signed,
+    that the term belongs somewhere else.
+
+    The owner ruled exactly that on OQ-0002: *"It belongs to section 44 — keep it
+    out, the question is using it as a boundary marker"* (ADR-0075).
+    """
+    index: dict[str, list[URIRef]] = {}
+    for record in gold["gold_concept"]:
+        node = concept_node(record["id"])
+        for label in _each(record, "not_labels"):
+            index.setdefault(label.casefold(), []).append(node)
+    return {label: tuple(nodes) for label, nodes in index.items()}
+
+
 def _concept_labels(gold: goldset.GoldSet) -> dict[str, tuple[URIRef, ...]]:
     """Every approved label, folded, to the concepts carrying it.
 
@@ -529,6 +577,7 @@ def _concept_labels(gold: goldset.GoldSet) -> dict[str, tuple[URIRef, ...]]:
 
 def _build_questions(graph: Graph, gold: goldset.GoldSet, report: BuildReport) -> None:
     labels = _concept_labels(gold)
+    excluded = _not_labels(gold)
     for record in gold["competency_question"]:
         node = proposition_node(record["id"])
         graph.add((node, RDF.type, TMK.CompetencyQuestion))
@@ -554,7 +603,18 @@ def _build_questions(graph: Graph, gold: goldset.GoldSet, report: BuildReport) -
             for concept in labels.get(label.casefold(), ()):
                 graph.add((node, TMK.expectsConcept, concept))
             if label.casefold() not in labels:
-                report.unmatched_concept_labels.append(f"{record['id']}:{label}")
+                # A label no concept carries, but one an approved concept
+                # explicitly excludes, is the question naming the boundary it
+                # tests. Recorded as such rather than counted as a missing
+                # concept, which is what it looked like until OQ-0002 settled it.
+                boundary = excluded.get(label.casefold(), ())
+                if boundary:
+                    graph.add((node, TMK.expectsBoundaryLabel, _en(label)))
+                    for concept in boundary:
+                        graph.add((node, TMK.testsBoundaryOf, concept))
+                    report.boundary_concept_labels.append(f"{record['id']}:{label}")
+                else:
+                    report.unmatched_concept_labels.append(f"{record['id']}:{label}")
         if record.get("approved_by"):
             graph.add((node, TMK.approvedBy, _lit(record["approved_by"])))
 
@@ -749,7 +809,7 @@ def write(
     # (ADR-0070), that would put a 5MB diff in the history on every rebuild,
     # signifying nothing. N-Quads is one statement per line and line order
     # carries no meaning, so sorting is a canonicalisation and not a change to
-    # what the file says (Q-42).
+    # what the file says (Q-45).
     quads = directory / "dataset.nq"
     serialised = dataset.serialize(format="nquads")
     lines = sorted(line for line in serialised.splitlines() if line.strip())

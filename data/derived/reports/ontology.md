@@ -19,7 +19,7 @@ draft is not able to do, and it is the honest half of the demonstration.
 | Classes declared | 49 |
 | Predicates on the closed list | 14, derived from 35 approved relationships |
 | Source graph | 16,405 triples over 216 chunks |
-| Approved graph | 2,942 triples |
+| Approved graph | 2,946 triples |
 | SHACL result | 0 defects, 0 gaps, 29 notes — exit 0 |
 | Competency queries | 13 of 20 questions |
 
@@ -145,7 +145,7 @@ inference may be relied on, it does not make it a signed record.
 |---|---|---|---|
 | RULE-0001 | 5 | 71 | GX-0001 — the approved reasoning expectation over TMM/Part29/1#1: "The |
 | RULE-0002 | 187 | 2244 | CQ-0017 and CQ-0019, the two impact-category competency questions |
-**Read the first number, not the second.** *Conclusions* is how many things the rule concluded; *triples* counts the provenance carried with them, roughly eight or fourteen per conclusion. Quoting the triple count as if it were the number of findings is how the owner came to be asked to review 71 flagged passages when there are five (Q-41).
+**Read the first number, not the second.** *Conclusions* is how many things the rule concluded; *triples* counts the provenance carried with them, roughly eight or fourteen per conclusion. Quoting the triple count as if it were the number of findings is how the owner came to be asked to review 71 flagged passages when there are five (Q-44).
 
 RULE-0001 is GX-0001 made executable. It finds the passages that carry both
 quoted legislative text and the Registrar's own practice — the mixture that
@@ -160,12 +160,14 @@ and a rule that fired there would make the flag mean nothing.
 
 ## 5. What it cannot do — read this part
 
-**The legal-concept taxonomy is empty.** `GroundOfRefusal`, `LegalTest`,
-`RelevantFactor` and `Exception` are declared and hold nothing. Every one of the
-52 approved concepts is a bare `tmk:LegalConcept`, because the gold concept
-record has no type field and deciding that *connotation* is a LegalTest rather
-than a RelevantFactor is a legal judgement. The slots exist so an expert can
-fill them in one pass. This is the single largest gap in the draft.
+**52 of 52 concepts are not sorted into a group.** `GroundOfRefusal`,
+`LegalTest`, `RelevantFactor` and `Exception` fill only from signed records in
+`eval/gold/concept-types.yaml`, and 0 concepts have one. Deciding that
+*connotation* is a LegalTest rather than a RelevantFactor is a legal judgement,
+so nothing here fills it. What changed on 2026-09-08 is that there is now
+somewhere for the answer to go and a pass to collect it — `tmk-typing` renders
+the whole vocabulary as one sheet of dropdowns (OQ-0001, ADR-0071). Until it
+comes back this is the single largest gap in the draft.
 
 **No concept has a definition.** The approved records carry definition
 *sources* — the passages the meaning is drawn from — and no definition text, so
@@ -179,12 +181,19 @@ material is about what a sign connotes, not about what an applicant files.
 A vocabulary that is mostly flat is a list with extra steps, and the hierarchy is
 where a retrieval system gets its generalisation.
 
-**4 competency questions name a concept the vocabulary does not hold**: `CQ-0007:deceptively similar`, `CQ-0010:purchasing decision`, `CQ-0012:obvious, direct and immediate`, `CQ-0020:superseded legislation`.
-`CQ-0007:deceptively similar` is the interesting one — that term is recorded as a
-**not-label** of *likely to deceive or cause confusion*, so the question names a
-concept the vocabulary deliberately excludes. Either it needs to exist (belonging
-to s 44, which the pilot scope draft puts out of scope) or the question is using
-it as a boundary marker. That is an expert's call and nothing here should make it.
+**3 competency questions name a concept the vocabulary does not hold**: `CQ-0010:purchasing decision`, `CQ-0012:obvious, direct and immediate`, `CQ-0020:superseded legislation`.
+Either the vocabulary is short a concept, or the question names one by a variant
+nobody recorded as an alt label. Both are worklist items.
+
+**1 name a concept it deliberately excludes, which is the opposite of a gap**: `CQ-0007:deceptively similar`.
+The distinction is new, and `CQ-0007:deceptively similar` is why. Three approved
+concepts carry that term as a **not-label**, and CQ-0007 asks *"confusion between
+my mark and someone else's — which section is that?"*, whose answer is section 44.
+Counted as a missing concept it reported a miss on every measurement that used
+the question. The owner ruled on OQ-0002: *"It belongs to section 44 — keep it
+out, the question is using it as a boundary marker"* (ADR-0075). Neither approved
+record changed; what changed is that the graph now joins them, via
+`tmk:expectsBoundaryLabel` and `tmk:testsBoundaryOf`.
 
 **Six of the fourteen predicates are used exactly once.** A term seen once is a
 term whose boundaries nobody has tested. `GR-0008`'s own note says

@@ -76,7 +76,7 @@ const summarise = (draft, questions) =>
       } else if (note) {
         /* No option picked, but a note typed. The note is the answer — dropping
            the line here is how OQ-0009's answer went missing from issue #12
-           while the title still counted it (Q-40). */
+           while the title still counted it (Q-43). */
         chosen = "_no option chosen — the answer is in the note_";
       } else {
         return null;

@@ -152,7 +152,7 @@ def transcribe(
             # the answer and it is the only place it exists — the form omits a
             # valueless answer from its prose summary, so dropping it here would
             # lose it altogether. That is what happened to OQ-0009 on issue #12
-            # (Q-40, ADR-0067). An answer with neither is genuinely empty.
+            # (Q-43, ADR-0067). An answer with neither is genuinely empty.
             if not notes:
                 continue
             record["label"] = NOTES_ONLY

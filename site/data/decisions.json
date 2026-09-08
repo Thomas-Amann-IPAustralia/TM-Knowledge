@@ -1,28 +1,28 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "66 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "75 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 66,
+     "value": 75,
      "note": null,
      "tone": null,
      "href": null
     },
     {
      "label": "Made by you",
-     "value": 15,
+     "value": 22,
      "note": "yours, and not overturnable by an agent",
      "tone": "good",
      "href": null
     },
     {
      "label": "Forced by the evidence",
-     "value": 14,
+     "value": 16,
      "note": "defensible without a human",
      "tone": null,
      "href": null
@@ -77,6 +77,258 @@
     }
    ],
    "rows": [
+    {
+     "id": "`ADR-0075`",
+     "title": "A label the vocabulary deliberately excludes is a boundary, not a gap",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0075 A label the vocabulary deliberately excludes is a boundary, not a gap human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "CQ-0007 lists `deceptively similar` as an expected concept; three approved concepts list it under `not_labels`. Both sides are signed. The build counted it among \"expected-concept labels matching no concept\", so every measurement using CQ-0007 reported a miss that was not a miss (Q-37)."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0075-a-label-the-vocabulary-deliberately-excludes-is-a-boundary-not-a-gap)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0074`",
+     "title": "A definition comes from the Manual, the legislation, or the IP First Response glossary — and from nothing else",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0074 A definition comes from the Manual, the legislation, or the IP First Response glossary — and from nothing else human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "OQ-0016 asked what to do about nine role terms with no definitions, against the trap that ADR-0022's scope rule selects passages that *cite* section 43, and a term's definition is usually not in a passage that cites anything (Q-28). The owner answered: scope should include the subjects, objects and predicates needed…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0074-a-definition-comes-from-the-manual-the-legislation-or-the-ip-first-response-glossary-and-from-nothing-else)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0073`",
+     "title": "A glossary does not capture the examiner/registrar relation; a role becomes something a statement can be about",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0073 A glossary does not capture the examiner/registrar relation; a role becomes something a statement can be about human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "OQ-0015 carried a conditional the owner put directly: *\"If you do not believe that the glossary captures the conceptual relationship between an examiner and a registrar, please make a note of this and adopt the Must/May predicate.\"*"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0073-a-glossary-does-not-capture-the-examinerregistrar-relation-a-role-becomes-something-a-statement-can-be-about)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0072`",
+     "title": "The section 43 boundary is one hop, landing on the chunk and not its parent",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0072 The section 43 boundary is one hop, landing on the chunk and not its parent human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "OQ-0014 — where section 43 stops — had been open since S002 and parked for an expert. The owner answered it himself on issue #12, in prose outside the form's answer block; his words are at `review/returned/260908-owner-notes-issue-12.md`."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0072-the-section-43-boundary-is-one-hop-landing-on-the-chunk-and-not-its-parent)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0071`",
+     "title": "A concept's type is a record of its own, not a field on the concept",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0071 A concept's type is a record of its own, not a field on the concept human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner ruled on OQ-0001: *\"Use those four groups — come back to me with the list of 52 to sort.\"* `GroundOfRefusal`, `LegalTest`, `RelevantFactor` and `Exception` had been declared and empty since S010, because the gold concept record has no type field and typing a concept is a legal judgement (ADR-0056 consequence…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0071-a-concepts-type-is-a-record-of-its-own-not-a-field-on-the-concept)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0070`",
+     "title": "The whole graph is committed, and `dataset.nq` is written sorted",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0070 The whole graph is committed, and `dataset.nq` is written sorted human accepted · **Supersedes** ADR-0060",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted · **Supersedes** ADR-0060"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner ruled on OQ-0005: *\"Store everything, so the graph can be read without building it.\"* ADR-0060 had committed `approved.ttl` and `inferred.ttl` and kept `source.ttl` and `dataset.nq` out, on the ground that they restate the pinned corpus."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0070-the-whole-graph-is-committed-and-datasetnq-is-written-sorted)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0069`",
+     "title": "Conclusions and triples are counted separately, and the report says which to read",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0069 Conclusions and triples are counted separately, and the report says which to read derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "OQ-0003 told the owner RULE-0001 *\"produced 71 flags\"* and asked him to review 71 flagged passages. It flags **five**. OQ-0004 told him RULE-0002 produced *\"2,244 of them\"*. It draws **187**."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0069-conclusions-and-triples-are-counted-separately-and-the-report-says-which-to-read)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0068`",
+     "title": "A rule's approval lives in its header, and nowhere else",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0068 A rule's approval lives in its header, and nowhere else human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner approved RULE-0002 on OQ-0004: *\"Approve it — its links may be relied on\"* (issue #12, `review/rulings/2026-09-08-issue-12.yaml`). It was the first rule anyone had approved."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0068-a-rules-approval-lives-in-its-header-and-nowhere-else)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0067`",
+     "title": "The route an answer takes back into the repo is repaired, and a crash no longer reads as the owner's mistake",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0067 The route an answer takes back into the repo is repaired, and a crash no longer reads as the owner's mistake derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner submitted issue #12 on 2026-09-08 — seven answers, the first use of the loop S011 built. Nothing was recorded. The workflow commented that it could not record the submission and that *\"the usual cause is that the answer block was edited by hand\"*, which was untrue and unactionable."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0067-the-route-an-answer-takes-back-into-the-repo-is-repaired-and-a-crash-no-longer-reads-as-the-owners-mistake)"
+      }
+     ]
+    },
     {
      "id": "`ADR-0066`",
      "title": "An answer returns as a GitHub issue and is transcribed; the issue is the artefact",

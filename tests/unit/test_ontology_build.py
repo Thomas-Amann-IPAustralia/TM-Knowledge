@@ -208,7 +208,7 @@ def test_the_quads_file_is_sorted():
     set-iteration order, which moves with PYTHONHASHSEED. Two builds of an
     identical dataset therefore produced two different 5MB files — invisible
     until `dataset.nq` was committed, at which point every rebuild would have
-    put a 5MB diff in the history signifying nothing (Q-42).
+    put a 5MB diff in the history signifying nothing (Q-45).
 
     Line order carries no meaning in N-Quads, so sorting is canonicalisation.
     This checks the file on disk is the canonical one."""
@@ -230,3 +230,82 @@ def test_the_committed_graph_matches_a_rebuild():
         + "; ".join(stale)
         + ". Run `tmk-graph --write --rules` and commit."
     )
+
+
+# --- a boundary is not a gap ------------------------------------------------
+
+
+def test_a_deliberately_excluded_label_is_a_boundary_and_not_a_gap():
+    """CQ-0007 expects "deceptively similar" and no concept carries it, because
+    three approved concepts carry it as a *not*-label. Counted as a missing
+    concept, it reported a miss on every measurement that used the question. The
+    owner ruled it is the boundary the question tests (OQ-0002, ADR-0075)."""
+    _dataset, report = build()
+    assert "CQ-0007:deceptively similar" in report.boundary_concept_labels
+    assert "CQ-0007:deceptively similar" not in report.unmatched_concept_labels
+
+
+def test_a_label_nothing_excludes_is_still_a_gap():
+    """The other half. Three labels remain genuinely unmatched, and softening
+    them into boundaries would turn a worklist into a clean bill of health."""
+    _dataset, report = build()
+    assert report.unmatched_concept_labels, (
+        "every unmatched label became a boundary, which means the not-label test "
+        "is matching more than it should"
+    )
+
+
+def test_the_boundary_edge_names_the_record_that_drew_it():
+    """A boundary asserted with nothing behind it is an agent's opinion. The
+    edge points at the approved concepts whose not-labels explain it."""
+    dataset, _report = build()
+    approved = dataset.graph(APPROVED_GRAPH)
+    question = next(approved.subjects(TMK.goldRecord, Literal("CQ-0007")))
+    assert (question, TMK.expectsBoundaryLabel, None) in approved
+    assert list(approved.objects(question, TMK.testsBoundaryOf)), (
+        "the boundary names no concept, so nothing says who drew it"
+    )
+
+
+# --- a role can be what a statement is about --------------------------------
+
+
+def test_a_relationship_may_be_about_a_role():
+    """The owner asked whether a glossary captures the relationship between an
+    examiner and a registrar, and said to adopt a Must/May predicate if not
+    (OQ-0015). It does not: a glossary holds one entry per term, and "an
+    examiner must consult a team leader before accepting on doubt" is a
+    normative relation between two roles.
+
+    The Must/May predicate already existed — `tmk:modality` on any approved
+    relationship. What was missing was the subject: only concepts and upstream
+    refs were terms, so nothing could be *about* a role. This proves an entity
+    mention now resolves as one, and that it lands on the same node the mention
+    itself is built at — a second node for the same role would make the
+    statement and the role invisible to each other.
+
+    No such relationship exists. The point is that one is now expressible, so an
+    expert can sign one (ADR-0073)."""
+    from tm_knowledge.ontology.build import _term
+    from tm_knowledge.ontology.namespaces import assertion_node
+
+    assert _term("GE-0010") == assertion_node("GE-0010")
+    assert _term("GC-0001") != _term("GE-0010")
+
+
+def test_a_role_mention_resolves_to_a_node_the_graph_actually_holds():
+    """A term that resolves to a node nothing else builds would be a dangling
+    edge that validates."""
+    dataset, _report = build()
+    approved = dataset.graph(APPROVED_GRAPH)
+    roles = [
+        record["id"]
+        for record in goldset.load()["gold_entity"]
+        if record["type"] == "Role"
+    ]
+    if not roles:
+        pytest.skip("no approved Role mentions to check against")
+    from tm_knowledge.ontology.build import _term
+
+    node = _term(roles[0])
+    assert (node, None, None) in approved, f"{roles[0]} resolves to a node the graph lacks"

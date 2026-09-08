@@ -155,7 +155,7 @@ class Yield:
     S011 read the triple count off the report and wrote it into the owner's
     question as "It produced 71 flags", so he was asked to review 71 passages
     that do not exist, and approved a rule believing it drew 2,244 links when it
-    draws 187 (Q-41, ADR-0069). Both numbers stay available; neither is named in
+    draws 187 (Q-44, ADR-0069). Both numbers stay available; neither is named in
     a way that lets it stand in for the other.
     """
 

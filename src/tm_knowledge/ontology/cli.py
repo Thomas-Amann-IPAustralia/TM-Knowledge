@@ -56,7 +56,7 @@ def graph(argv: list[str] | None = None) -> int:
             got = counts.get(rule.rule_id)
             # Both numbers, always. The conclusion count is the one that means
             # something to a person; the triple count is the one that used to be
-            # quoted at them as if it did (Q-41).
+            # quoted at them as if it did (Q-44).
             print(f"  {rule.rule_id}  {got.assertions if got else 0:>4} conclusions "
                   f"({got.triples if got else 0:>5} triples)  {state}")
 

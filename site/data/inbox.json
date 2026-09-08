@@ -2,7 +2,7 @@
  "id": "inbox",
  "title": "Your decisions",
  "lede": "Everything currently waiting on a person. Each item says what is going on, why only you can settle it, and what stays stuck until you do. Answer as many or as few as you like — a partial answer is useful and nothing is lost between visits.",
- "updated": "2026-09-04",
+ "updated": "2026-09-08",
  "repo": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge",
  "themes": [
   {
@@ -30,7 +30,7 @@
   {
    "id": "OQ-0001",
    "theme": "unblocks",
-   "status": "open",
+   "status": "answered",
    "needs": "owner",
    "urgency": "high",
    "raised": "S010",
@@ -83,7 +83,7 @@
   {
    "id": "OQ-0002",
    "theme": "unblocks",
-   "status": "open",
+   "status": "answered",
    "needs": "owner",
    "urgency": "high",
    "raised": "S010",
@@ -132,7 +132,7 @@
   {
    "id": "OQ-0003",
    "theme": "unblocks",
-   "status": "open",
+   "status": "answered",
    "needs": "owner",
    "urgency": "high",
    "raised": "S010",
@@ -141,7 +141,7 @@
     "HANDOFF §2 ruling 3"
    ],
    "title": "Approve or reject the first automatic rule: the mixed-authority flag",
-   "plain": "A rule here is a small, fixed instruction that adds a labelled note to the data — not a model, and not anything that changes over time. This one finds passages that quote the Act and state IP Australia's own practice in the same breath, and flags them. It matters because an answer drawn from such a passage can look like it is quoting the law when it has only read the Manual. It produced 71 flags, and it does find the main section 43 passage, where the Manual quotes the section in full. Nothing it produces is trusted today: every flag is stored as \"candidate — needs a human\".\n",
+   "plain": "A rule here is a small, fixed instruction that adds a labelled note to the data — not a model, and not anything that changes over time. This one finds passages that quote the Act and state IP Australia's own practice in the same breath, and flags them. It matters because an answer drawn from such a passage can look like it is quoting the law when it has only read the Manual. It flags five passages out of the 216 in scope, and it does find the main section 43 passage, where the Manual quotes the section in full. (This question originally said 71. That was the number of rows of data the rule writes, not the number of passages it flags — see OQ-0019.) Nothing it produces is trusted today: every flag is stored as \"candidate — needs a human\".\n",
    "why_you": "The programme requires a person to approve every reasoning template before it is used. Nobody has, so its output stays quarantined however well it works.\n",
    "if_unanswered": "The flags exist and nothing may rely on them. Any later feature that would warn \"this passage mixes law and practice\" cannot be built on a rule that is still pending.\n",
    "background": [
@@ -168,7 +168,7 @@
      },
      {
       "value": "show_me",
-      "label": "Show me the 71 flagged passages first"
+      "label": "Show me the flagged passages first"
      }
     ]
    },
@@ -177,7 +177,7 @@
   {
    "id": "OQ-0004",
    "theme": "unblocks",
-   "status": "open",
+   "status": "answered",
    "needs": "owner",
    "urgency": "high",
    "raised": "S010",
@@ -186,7 +186,7 @@
     "HANDOFF §2 ruling 3"
    ],
    "title": "Approve or reject the second automatic rule: the change-impact links",
-   "plain": "The second rule answers \"if this passage changed, what else would have to be looked at?\" It follows two kinds of link — the ones the Manual's authors wrote themselves, and the ones that were worked out from the wording — and it keeps them distinguishable, which matters because a whole Part of the Manual can be pulled into an impact list purely by inferred links. It produced 2,244 of them. Same status as the first: everything it produces is marked \"candidate — needs a human\".\n",
+   "plain": "The second rule answers \"if this passage changed, what else would have to be looked at?\" It follows two kinds of link — the ones the Manual's authors wrote themselves, and the ones that were worked out from the wording — and it keeps them distinguishable, which matters because a whole Part of the Manual can be pulled into an impact list purely by inferred links. It draws 187 links. (This question originally said 2,244. That was the number of rows of data the rule writes, not the number of links — see OQ-0019.) Same status as the first at the time of asking: everything it produced was marked \"candidate — needs a human\".\n",
    "why_you": "Same reason as the first rule. It is also the one most likely to be used to say \"these parts of the Manual need reviewing\", which is a claim someone will act on.\n",
    "if_unanswered": "Impact analysis stays a demonstration. It cannot be quoted to anyone as a basis for planning a review.\n",
    "background": [
@@ -222,7 +222,7 @@
   {
    "id": "OQ-0005",
    "theme": "unblocks",
-   "status": "open",
+   "status": "answered",
    "needs": "owner",
    "urgency": "medium",
    "raised": "S010",
@@ -365,7 +365,7 @@
   {
    "id": "OQ-0009",
    "theme": "scope",
-   "status": "open",
+   "status": "answered",
    "needs": "owner",
    "urgency": "low",
    "raised": "S001",
@@ -400,7 +400,7 @@
   {
    "id": "OQ-0010",
    "theme": "scope",
-   "status": "open",
+   "status": "answered",
    "needs": "owner",
    "urgency": "low",
    "raised": "S001",
@@ -585,9 +585,208 @@
    "notes_prompt": "If you ticked one, say what bothers you about it."
   },
   {
-   "id": "OQ-0014",
+   "id": "OQ-0019",
+   "theme": "unblocks",
+   "status": "open",
+   "needs": "owner",
+   "urgency": "high",
+   "raised": "S012",
+   "tracked_as": [
+    "RULE-0001",
+    "OQ-0003",
+    "Q-44",
+    "ADR-0069"
+   ],
+   "title": "The mixed-authority rule, again — and the number you were given was wrong",
+   "plain": "You asked to see the flagged passages before ruling on this rule. They are written out in full, with the wording that made each one fire, at the link below. Two things to say before you read them. First, the count in the earlier question was wrong: the rule flags five passages, not 71. Seventy-one was the number of rows of data it writes, and every flag carries about fourteen rows of record-keeping with it. Second, that correction changes what you are being asked. Five out of 216 passages is a rule being selective; 71 out of 216 would have been a rule barely narrowing anything.\n",
+   "why_you": "Nothing may be built on a rule nobody has approved, and you asked to see the evidence rather than take a summary. The evidence is now there, and the count it rests on has been fixed.\n",
+   "if_unanswered": "The five flags stay quarantined. Any later feature that would warn \"this passage mixes law and practice\" cannot stand on a rule still marked pending.\n",
+   "background": [
+    {
+     "label": "The five passages, in full, with the wording that fired each one",
+     "href": "#/reports?open=rule-0001-flags"
+    }
+   ],
+   "answer": {
+    "kind": "choice",
+    "prompt": "Now that you have seen them, what is your call?",
+    "options": [
+     {
+      "value": "approve",
+      "label": "Approve it — its flags may be relied on"
+     },
+     {
+      "value": "approve_pending_expert",
+      "label": "Approve it for now, with a trade marks expert to confirm later"
+     },
+     {
+      "value": "reject",
+      "label": "Reject it — delete the rule"
+     },
+     {
+      "value": "too_narrow",
+      "label": "Five is too few — it is missing passages it should catch",
+      "help": "The rule fires only where an expert has already typed one phrase as legislation and another as practice, so it can only be as complete as that typing. Say which passage you expected to see.\n"
+     }
+    ]
+   },
+   "notes_prompt": "If a passage on the list does not belong, name it."
+  },
+  {
+   "id": "OQ-0020",
+   "theme": "unblocks",
+   "status": "open",
+   "needs": "owner",
+   "urgency": "high",
+   "raised": "S012",
+   "tracked_as": [
+    "OQ-0001",
+    "ADR-0071"
+   ],
+   "title": "The 52 concepts are ready for you to sort — here they are",
+   "plain": "You confirmed the four groups and asked for the list. It is a spreadsheet with one row per concept and a dropdown in the type column, and a companion document with the evidence to sort by: what each concept is called, the terms it is explicitly *not* the same as, and the passages it was drawn from. Fill the dropdown, put your name and the date on each row you are sure about, and hand the file back. There is a fifth option beside the four groups — \"none of these\" — and it is a real answer rather than a way of skipping: it says the four groups do not fit that concept, which is evidence about the groups.\n",
+   "why_you": "Sorting them is the legal judgement you said you were willing to make, and no amount of agent time substitutes for it. Leaving a row blank is fine and is different from \"none of these\" — a blank comes back on the next pass.\n",
+   "if_unanswered": "The four groups stay empty, the vocabulary stays a flat list of 52, and search and retrieval later have nothing to generalise over. This is still the single largest gap in the draft.\n",
+   "background": [
+    {
+     "label": "The evidence to sort by — every concept, with its passages",
+     "href": "#/reports?open=concept-typing"
+    }
+   ],
+   "answer": {
+    "kind": "choice",
+    "prompt": "Where do you want to do this?",
+    "options": [
+     {
+      "value": "spreadsheet_ready",
+      "label": "I will fill in the spreadsheet — tell me where it is",
+      "help": "`data/derived/concept-typing.xlsx` in the repository. Hand it back and a session reads it in.\n"
+     },
+     {
+      "value": "on_the_dashboard",
+      "label": "I would rather do it here, on this page, a few at a time",
+      "help": "A session builds the control. Fifty-two dropdowns do not fit in one submission, so it would come back to you in batches.\n"
+     },
+     {
+      "value": "worked_examples_first",
+      "label": "Do five for me first so I can see the reasoning, then I will do the rest",
+      "help": "A session proposes five with the passage it read for each, clearly marked unapproved, and you correct them.\n"
+     },
+     {
+      "value": "someone_else",
+      "label": "This should go to a trade marks expert, not me"
+     }
+    ]
+   },
+   "notes_prompt": "If a group is missing or misnamed, say so here — that is more useful than forcing 52 concepts into four boxes that do not fit.\n"
+  },
+  {
+   "id": "OQ-0018",
+   "theme": "scope",
+   "status": "open",
+   "needs": "owner",
+   "urgency": "medium",
+   "raised": "S012",
+   "tracked_as": [
+    "OQ-0009",
+    "ADR-0074",
+    "Q-11"
+   ],
+   "title": "The court decisions — what that other repository actually holds",
+   "plain": "You said the decisions are in scope and pointed at your IP-Decision-Data repository. It was checked. It holds an index of 8,900 Australian intellectual property documents, 7,282 of them court decisions, and the index is the citation and a web address — **not a word of what any court said**. The full text is produced by the same pipeline but is deliberately not stored in the repository; it exists only as a build attachment, which expires. Of the 58 decisions the section 43 material cites, **15 are in that index and 43 are not** — the missing ones are mostly Trade Marks Office delegate decisions and pre-1990 reported cases, which the source corpus does not carry.\n",
+   "why_you": "Three things follow and none is an agent's call: whether 15 of 58 is worth building on, where the actual text is to come from and where it may be stored, and whether the missing 43 — the delegate decisions especially — matter enough to go looking for separately. There is also a licensing question about holding decision text at all.\n",
+   "if_unanswered": "Nothing is blocked. \"Which cases interpret this test\" stays answerable and \"what did the court hold\" stays unanswerable, which is recorded and which a prohibition already stops the system pretending otherwise about.\n",
+   "answer": {
+    "kind": "choice",
+    "prompt": "How should this go?",
+    "options": [
+     {
+      "value": "fifteen_is_enough",
+      "label": "Start with the 15 — get their text and store it, and tell me what it costs"
+     },
+     {
+      "value": "find_the_rest",
+      "label": "Not worth it until the delegate decisions are there too — go and find them"
+     },
+     {
+      "value": "index_only",
+      "label": "Store the citations and the links, no text",
+      "help": "Cheap, and it makes \"here is where to read it\" possible without claiming to know what it says.\n"
+     },
+     {
+      "value": "park_it",
+      "label": "Park it — the limitation is recorded and that is enough for now"
+     }
+    ]
+   },
+   "notes_prompt": "If there is another source for Trade Marks Office delegate decisions, naming it here is the most useful thing you could write.\n"
+  },
+  {
+   "id": "OQ-0021",
+   "theme": "scope",
+   "status": "open",
+   "needs": "owner",
+   "urgency": "medium",
+   "raised": "S012",
+   "tracked_as": [
+    "OQ-0014",
+    "ADR-0072"
+   ],
+   "title": "Your one-hop boundary rule, and where the Manual does not cooperate",
+   "plain": "Your rule — one hop, and the hop lands on the specific chunk rather than its parent section — is implemented and reported. It works: twelve parent provisions stay out of scope purely because of your second sentence. But it does not do what you expected for section 41. You wrote that section 43 would refer to a number of specific chunks within section 41; in fact the Manual writes \"section 41\" bare in 32 of the section 43 passages, as well as citing 41(3) and 41(4). A bare citation names the whole section, so the whole of section 41 comes into scope and your second sentence never engages. Twenty-two provisions behave this way, including sections 42 and 44.\n",
+   "why_you": "The rule met a corpus that cites more loosely than the rule assumes. Which way to resolve that is a scope judgement about how much neighbouring law the pilot carries, and it changes how much material everything downstream has to account for.\n",
+   "if_unanswered": "The boundary stays as computed — wider than you probably intended, with the whole of sections 41, 42 and 44 inside it. Nothing breaks; the pilot is simply larger than the rule reads as describing.\n",
+   "background": [
+    {
+     "label": "The boundary, computed, with every provision it keeps out and lets in",
+     "href": "#/reports?open=boundary"
+    }
+   ],
+   "answer": {
+    "kind": "choice",
+    "prompt": "How should a bare citation be treated?",
+    "options": [
+     {
+      "value": "accept_bare",
+      "label": "A bare citation names the whole provision — accept it, as it works today"
+     },
+     {
+      "value": "units_only",
+      "label": "Reach only the units actually discussed",
+      "help": "Needs somebody to say which those are for each provision, so it is work rather than a setting.\n"
+     },
+     {
+      "value": "special_case_41",
+      "label": "Leave the general rule alone and make section 41 a named special case"
+     },
+     {
+      "value": "show_me_the_cost",
+      "label": "Show me what each option includes and excludes, then ask me again"
+     }
+    ]
+   },
+   "notes_prompt": "Anything about how far the pilot should reach into neighbouring sections."
+  },
+  {
+   "id": "OQ-0022",
    "theme": "expert",
    "status": "parked",
+   "needs": "expert",
+   "urgency": "medium",
+   "raised": "S012",
+   "tracked_as": [
+    "OQ-0015",
+    "ADR-0073"
+   ],
+   "title": "Should a rule about what an examiner must do be recorded like any other relationship?",
+   "plain": "You asked whether a glossary captures the relationship between an examiner and a registrar, and said to adopt a Must/May predicate if it does not. It does not — a glossary holds one entry per term, and \"an examiner must consult a team leader before accepting on doubt\" is a relationship between two roles with a force attached, which no arrangement of definitions holds. So the predicate is adopted, and it turned out to exist already: every approved relationship can carry must, may or should. What was missing was the ability to make a relationship be *about* a role at all, and that is now possible. Nothing has been written into it.\n",
+   "why_you": "Whether examiner conduct genuinely belongs in the same structure as \"connotation must arise from the mark itself\" is a judgement about the domain, not about the software. Recording a duty as a relationship makes it answerable by the same machinery as everything else, which is the argument for; it also flattens a rule about people into a shape built for rules about legal ideas, which is the argument against.\n",
+   "if_unanswered": "The shape exists and stays empty, which is the honest state. The expert's note about the Registrar's actual bar for the presumption of registrability stays where it is, in the file it arrived in, and is not in the knowledge base.\n"
+  },
+  {
+   "id": "OQ-0014",
+   "theme": "expert",
+   "status": "answered",
    "needs": "expert",
    "urgency": "high",
    "raised": "S002",
@@ -603,7 +802,7 @@
   {
    "id": "OQ-0015",
    "theme": "expert",
-   "status": "parked",
+   "status": "answered",
    "needs": "expert",
    "urgency": "medium",
    "raised": "S008",
@@ -618,7 +817,7 @@
   {
    "id": "OQ-0016",
    "theme": "expert",
-   "status": "parked",
+   "status": "answered",
    "needs": "expert",
    "urgency": "medium",
    "raised": "S008",
@@ -648,6 +847,97 @@
    "if_unanswered": "Citation resolution in a later stage has no agreed rule, and one kind of prohibited use rests on a single record.\n"
   }
  ],
- "answered": {},
- "rulings": []
+ "answered": {
+  "OQ-0001": [
+   {
+    "value": "four_groups_right",
+    "label": "Use those four groups — come back to me with the list of 52 to sort",
+    "notes": null,
+    "received": "2026-09-08T00:52:41Z",
+    "issue": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/issues/12",
+    "applied": true
+   }
+  ],
+  "OQ-0002": [
+   {
+    "value": "not_in_scope",
+    "label": "It belongs to section 44 — keep it out, the question is using it as a boundary marker",
+    "notes": null,
+    "received": "2026-09-08T00:52:41Z",
+    "issue": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/issues/12",
+    "applied": true
+   }
+  ],
+  "OQ-0003": [
+   {
+    "value": "show_me",
+    "label": "Show me the 71 flagged passages first",
+    "notes": null,
+    "received": "2026-09-08T00:52:41Z",
+    "issue": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/issues/12",
+    "applied": true
+   }
+  ],
+  "OQ-0004": [
+   {
+    "value": "approve",
+    "label": "Approve it — its links may be relied on",
+    "notes": null,
+    "received": "2026-09-08T00:52:41Z",
+    "issue": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/issues/12",
+    "applied": true
+   }
+  ],
+  "OQ-0005": [
+   {
+    "value": "commit_everything",
+    "label": "Store everything, so the graph can be read without building it",
+    "notes": null,
+    "received": "2026-09-08T00:52:41Z",
+    "issue": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/issues/12",
+    "applied": true
+   }
+  ],
+  "OQ-0009": [
+   {
+    "value": null,
+    "label": "no option chosen — the answer is in the note",
+    "notes": "In scope, use the queryable DB listed in this repo \"https://github.com/Thomas-Amann-IPAustralia/IP-Decision-Data/tree/main\". Extract the relevant rulings and store them.",
+    "received": "2026-09-08T00:52:41Z",
+    "issue": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/issues/12",
+    "applied": true
+   }
+  ],
+  "OQ-0010": [
+   {
+    "value": "same_as_expert",
+    "label": "Keep it as it is — my approvals look the same as an expert's",
+    "notes": null,
+    "received": "2026-09-08T00:52:41Z",
+    "issue": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/issues/12",
+    "applied": true
+   }
+  ]
+ },
+ "rulings": [
+  {
+   "file": "2026-09-08-issue-12.yaml",
+   "received": "2026-09-08T00:52:41Z",
+   "issue": {
+    "author": "Thomas-Amann-IPAustralia",
+    "number": 12,
+    "title": "Decisions from the dashboard — 7 answers",
+    "url": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/issues/12"
+   },
+   "count": 7,
+   "applied": {
+    "session": "S012",
+    "date": "2026-09-08",
+    "branch": "claude/review-dashboard-responses-lwd7ga",
+    "what_changed": "Every answer acted on. OQ-0001 — a ninth gold record type holds a concept's type, and the 52 are laid out for sorting at data/derived/concept-typing.xlsx with the evidence at data/derived/reports/concept-typing.md (ADR-0071); the pass comes back as OQ-0020. OQ-0002 — a label the vocabulary deliberately excludes is now reported as a boundary rather than a gap, and neither approved record changed (ADR-0075). OQ-0003 — the pack is at data/derived/reports/rule-0001-flags.md; the rule stays PENDING and is re-asked as OQ-0019. OQ-0004 — RULE-0002 is approved and its 187 links have left quarantine (ADR-0068). OQ-0005 — all four graph files are committed, dataset.nq sorted so a rebuild does not churn 5MB (ADR-0070). OQ-0009 — the named repository was checked: 15 of our 58 cited decisions are in its index and it holds no decision text, which goes back as OQ-0018. OQ-0010 — confirmed as recorded; RULE-0002's approval is the first use of it.",
+    "corrections_owed": "Two figures in the questions were wrong and the answers were given against them. RULE-0001 flags 5 passages, not 71. RULE-0002 draws 187 links, not 2,244. Both were triple counts quoted as counts of findings (Q-44, ADR-0069). The OQ-0004 approval stands on reasoning the correction does not touch, and he has been told the real number; OQ-0003 is re-asked against the corrected one as OQ-0019.",
+    "also": "The transcription itself had to be repaired first — the workflow crashed on a missing dependency and told the owner his submission was malformed, and the OQ-0009 note would have been dropped in silence even had it run (ADR-0067). Three answers the owner typed by hand, outside the form, are transcribed at review/returned/260908-owner-notes-issue-12.md and acted on in ADR-0072, ADR-0073 and ADR-0074."
+   }
+  }
+ ]
 }

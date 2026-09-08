@@ -3,23 +3,48 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-04 · session S011 · branch `claude/tm-knowledge-dashboard-1c0i43`
+**Last updated:** 2026-09-08 · session S012 · branch `claude/review-dashboard-responses-lwd7ga`
 
 ---
 
 ## 1. Where the project actually is
 
-**The owner changed the plan, and the plan was right to change.** Their
-instruction, in their words: *"I'm not going to go back to the TM expert for
-now. We're just going to have to work with what we have… Our goal is to
-demonstrate the value and feasibility of a full ontology. We need to make
-progress on this."*
+**The loop closed. The owner answered, and every answer has been acted on.**
+Issue #12, 2026-09-08: seven answers through the form and three more typed in by
+hand. `review/rulings/2026-09-08-issue-12.yaml` is the transcription and its
+`applied:` block says what each one changed;
+`review/returned/260908-owner-notes-issue-12.md` holds the three he wrote himself.
+Nine ADRs, ADR-0067 to ADR-0075.
 
-**S011 built the way to ask them.** The four rulings S010 named are now in front
-of the owner as a form on a published page, along with nine more, each written in
-language that assumes no engineering. Nothing about the ontology moved; what
-moved is that the queue of decisions is no longer a table inside this file.
-Details in §5. The rest of §1 is S010's and still holds.
+**Read this part before anything else: two numbers he was given were wrong, and
+he answered against them.** OQ-0003 told him RULE-0001 "produced 71 flags" and
+asked him to review 71 passages — it flags **five**. OQ-0004 told him RULE-0002
+produced "2,244" links — it draws **187**. Both were triple counts, read off a
+generated table where the column correctly says *triples* and written into the
+questions as counts of findings (Q-44, ADR-0069). Five out of 216 passages is a
+rule being selective; 71 out of 216 would be a rule barely narrowing anything, so
+the correction changed what he was being asked. He has been told, OQ-0003 is
+re-asked as OQ-0019 against the real evidence, and a test now fails if a triple
+count is ever quoted that way again.
+
+**The route he uses had to be repaired before any of it could be recorded.**
+His submission was never transcribed: `tmk-ruling` imported the graph builder at
+module scope, so it needed rdflib, which the workflow does not install, and it
+died before running (Q-42). The workflow then told him his answer block was
+probably malformed — untrue, and re-submitting would have failed identically.
+And an answer with a note but no chosen option was dropped in silence on both
+sides, which is exactly what OQ-0009 was (Q-43). All three are fixed, tested, and
+recorded as ADR-0067. **The paths a non-engineer depends on are the ones with no
+second chance**; that is the lesson worth carrying, not the import bug.
+
+**The owner's earlier instruction still stands** and is why the expert thread is
+paused: *"I'm not going to go back to the TM expert for now. We're just going to
+have to work with what we have… Our goal is to demonstrate the value and
+feasibility of a full ontology. We need to make progress on this."* He then
+answered three parked expert questions himself — scope questions, which are his
+— and those are ADR-0072, ADR-0073 and ADR-0074.
+
+The rest of §1 is S010's and still holds.
 
 So S010 built the thing the programme was waiting to build. **There is a section
 43 ontology, a knowledge graph under it, a SHACL gate that passes, and thirteen
@@ -35,7 +60,7 @@ tmk-shacl                               # the gate. 0 defects, 0 gaps, 29 notes.
 tmk-ask                                 # 13 competency questions, answered
 tmk-ask CQ-0017                         # just one
 tmk-ontology-report --write             # what it holds and what it cannot do
-tmk-harness                             # unchanged: 0 defects, 12 gaps. Exit 3
+tmk-harness                             # 0 defects, 13 gaps (S012 added one). Exit 3
 tmk-dashboard --write                   # S011: the dashboard's data → site/data/
 python3 -m http.server -d site 8000     # …and read it at http://localhost:8000
 python3 -m pytest -q                    # 432 pass (409 before, 23 new) — `python3 -m` (Q-29)
@@ -44,16 +69,20 @@ python3 -m pytest -q                    # 432 pass (409 before, 23 new) — `pyt
 | | |
 |---|---|
 | Ontology modules | 9, OWL 2 RL, in `ontology/draft/` — **none approved** |
-| Classes declared | 49 · **30 of them hold nothing**, and that is reported not hidden |
+| Classes declared | 49 · **30 of them hold nothing**, and that is reported not hidden. The four concept groups are among them and now have a way to fill |
 | Predicates | 14, **generated** from the 35 approved relationships, regeneration-checked |
 | Source graph | 16,405 triples over 216 chunks, 529 reified citations |
 | Approved graph | 2,942 triples, every one traceable to a signed record |
 | SHACL | 0 defects, 0 gaps, 29 notes |
 | Competency queries | 13 of 20 questions; 6 need Stages 7–8; 1 could be written |
-| CONSTRUCT rules | 2, **both PENDING approval**, output quarantined as `candidate` |
+| CONSTRUCT rules | 2. **RULE-0002 approved** (187 links, released); RULE-0001 PENDING (5 flags, quarantined) |
+| Concepts sorted into a group | **0 of 52.** The container and the pass exist; nothing has come back |
+| Graph files committed | **4 of 4** (ADR-0070). `tmk-graph --rules --check` fails on drift |
 
 **Nothing in Stage 0 moved and nothing was meant to.** `tmk-harness` still reports
-0 defects and 12 gaps. 190 approved records, 178 seed records still awaiting
+0 defects and **13** gaps — the thirteenth is S012's own, the unsorted concept
+taxonomy, which is a gap that exists because there is now a deliverable to be
+short of. 190 approved records, 178 seed records still awaiting
 correction, 10 decisions holding 168 of them — all exactly as S009 left it. The
 ontology work is a *transformation* of the 190, not an addition to them.
 
@@ -105,98 +134,83 @@ will not go stale the way this file will.
 
 ## 2. The next action
 
-**Thread A — the owner, and it is now thirteen questions, asked.** As of S011
-these are on the dashboard at
-<https://thomas-amann-ipaustralia.github.io/TM-Knowledge/#/inbox>, written in
-plain language with an answer control under each, and an answer comes back as a
-file in `review/rulings/`. **Do not re-ask them in this file.** The queue is
-`review/questions/open-questions.yaml`; add to it there, in the style its README
-sets out.
+**Thread A — the owner, and the queue moved.** Ten questions answered, five new
+ones asked, ten still open. The dashboard is at
+<https://thomas-amann-ipaustralia.github.io/TM-Knowledge/#/inbox>; the queue is
+`review/questions/open-questions.yaml`. **Do not re-ask any of it in this file.**
 
-The four below are the top of that queue and the reason it exists. None needs the
-TM expert; all four are judgement calls the owner said they were willing to make.
+The five S012 raised, in the order they matter:
 
-| # | Ruling | Effect |
+| # | Question | Why it is waiting |
 |---|---|---|
-| 1 | **Type the 52 concepts** into `GroundOfRefusal` / `LegalTest` / `RelevantFactor` / `Exception` — or say the taxonomy is wrong | The single largest gap. One pass over a list, no new records, and it is what turns a flat vocabulary into a hierarchy the retrieval stages can generalise over |
-| 2 | **Rule on the four unmatched question labels** (Q-37) — `deceptively similar` first | `CQ-0007` names as an expected concept a term `GC-0002` records as a **not-label**. Either the vocabulary needs the s 44 concept, or the question is using it as a boundary marker |
-| 3 | **Approve or reject the two CONSTRUCT rules** | Both `PENDING`; everything they produce is quarantined until one way or the other |
-| 4 | **Confirm or overturn ADR-0060 and ADR-0061** (Q23, Q24) | What gets committed under `graph/`, and whether a query file must declare its limits |
+| **OQ-0020** | **The 52 concepts, laid out for sorting** | The largest gap in the draft, and the container is built. `data/derived/concept-typing.xlsx` — one row per concept, the groups as a dropdown — with the evidence at `data/derived/reports/concept-typing.md`. He also gets to say he would rather do it on the dashboard, in batches |
+| **OQ-0019** | **RULE-0001, re-asked with the real evidence** | He asked to see the flagged passages; all five are in `data/derived/reports/rule-0001-flags.md`, and the pack opens by correcting the count he was given |
+| **OQ-0021** | **His boundary rule meets a corpus that cites loosely** | The rule works — 12 parent provisions kept out — but section 41 is cited *bare* in 32 passages, so the whole of it comes in and his second sentence never engages. 22 provisions behave this way, ss 42 and 44 among them |
+| **OQ-0018** | **What IP-Decision-Data actually holds** | He said the decisions are in scope and named that repository. It was checked: 8,900 IP documents indexed, **15 of our 58 cited decisions in it, 43 not**, and *no decision text is committed anywhere* — the text is a build attachment that expires. The 43 missing are mostly Trade Marks Office delegate decisions |
+| **OQ-0022** | Should examiner conduct be a relationship record? | Parked for the expert. The shape now exists and is empty (ADR-0073) |
 
-The dashboard tracks them as `OQ-0001` (types), `OQ-0002` (the unmatched label),
-`OQ-0003`/`OQ-0004` (one per rule) and `OQ-0005`/`OQ-0006` (the two ADRs). It also
-puts eight more to the owner, including the organisational ones — Q3, Q4's
-who-half, Q6, Q7, Q14 — and the provisional ADRs, batched as two tick-lists.
-
-Ruling 1 has a shape to fill: the concept record has no `type` field today, so
-taking it needs either a schema addition or a separate register. That is one
-session's work once the answer exists, and **it should not be built before the
-answer exists** — building the container first is how the container ends up
-shaping the content.
-
-**Thread B — the experts. Paused by the owner, not abandoned.**
-`data/derived/stage0-blockers-review.xlsx` is still rendered and still correct:
-ten records, with `data/derived/reports/blockers.md` as the covering note. When
-the expert is back in the loop it goes out unchanged. Nothing in S010 invalidated
-it, and nothing in S010 should be read as replacing it — the 178 seed records
-still need a person, and `eval/pilot-scope.md` and `eval/measures.md` still do not
-exist.
+**Thread B — the experts. Still paused by the owner, not abandoned.**
+`data/derived/stage0-blockers-review.xlsx` is unchanged and still correct: ten
+records, `data/derived/reports/blockers.md` as the covering note. The 178 seed
+records still need a person, and `eval/pilot-scope.md` and `eval/measures.md`
+still do not exist. Nothing in S012 changed any of that — **and note the trap**:
+OQ-0014 moved the *scope rule* forward and did not write the *scope document*.
 
 **Thread C — agents.** In rough order of value:
 
-1. **Write `CQ-0010`'s query, or record why it cannot be written.** It is the one
-   answerable question with no query. (*Why BALI on bras raised no ground and
-   SHETLAND on clothing did* — it may genuinely need case reasoning the corpus
-   cannot support, in which case saying so is the deliverable.)
-2. **Run the loop if a workbook arrives.** Unchanged: `tmk-transcribe FILE
-   --write`, `tmk-reconcile FILE --write`, then `tmk-harness`, `tmk-coverage`,
-   `tmk-blockers` — and now also `tmk-graph --write`, `tmk-shacl`,
-   `tmk-ontology-report --write`, because new approved records change the graph.
-3. **Regenerate and commit the reports.** `tmk-ontology-report` joins
-   `tmk-coverage` and `tmk-blockers` as generated status. Do not hand-edit any of
-   the three.
-4. **Keep the pin current.** Bumping it makes every `source_content_hash` stale by
-   design — and now the graph says so too, per-assertion, via `tmk:isStale`.
-5. **Regenerate the dashboard whenever anything it reads moves.** `tmk-dashboard
-   --write`, then commit. CI fails on drift (ADR-0063), and the failure is the
-   point: the published page reads only what is committed.
-6. **Turn on GitHub Pages.** One repository setting the agent cannot make:
-   Settings → Pages → Build and deployment → **Source: GitHub Actions**. Until
-   then `.github/workflows/pages.yml` runs green and publishes nothing, and the
-   URL 404s.
+1. **Run the typing pass back in if the workbook arrives.** `tmk-transcribe
+   data/derived/concept-typing.xlsx --write`, then `tmk-harness`, `tmk-graph
+   --write --rules`, `tmk-shacl`, `tmk-ontology-report --write`,
+   `tmk-dashboard --write`. No new code needed — that is the point of ADR-0071.
+2. **Write `CQ-0010`'s query, or record why it cannot be written.** Unchanged
+   from S011, still the one answerable question with no query.
+3. **Do not act on OQ-0009 until OQ-0018 comes back.** He said "extract the
+   relevant rulings and store them", and the honest position is that there is
+   nothing to extract yet: the index holds citations and URLs, the text is not in
+   that repository, and 43 of our 58 are not in it at all. Fetching decision text
+   also touches ADR-0002 (this repo does not crawl) and licensing.
+4. **Regenerate and commit the reports whenever anything they read moves.**
+   Now seven of them: `ontology.md`, `coverage.md`, `blockers.md`, `recon.md`,
+   `rule-0001-flags.md`, `concept-typing.md`, `boundary.md`.
+5. **Keep the pin current**, and note that bumping it now also churns the two
+   large committed graph files. `tmk-graph --rules --check` will say so.
+6. **Turn on GitHub Pages.** Still the one repository setting an agent cannot
+   make: Settings → Pages → Build and deployment → **Source: GitHub Actions**.
+   Until then `.github/workflows/pages.yml` runs green and publishes nothing, and
+   every dashboard link in this file 404s — including the ones the owner is being
+   asked to read.
 
-**Do not** build a retrieval layer, a search index or a vector store. Stages 7
-and 8 are what the six deferred competency questions need, and building either
-now fixes design choices no measurement has justified. **Do not** start Stage 2 —
-ADR-0010 is untouched by ADR-0056 and the temptation is unchanged. **Do not**
-promote a module from `ontology/draft/` to `ontology/` without a recorded human
-decision (ADR-0057).
+**Do not** build a retrieval layer, a search index or a vector store (Stages 7–8).
+**Do not** start Stage 2 — ADR-0010 is untouched. **Do not** promote a module out
+of `ontology/draft/` without a recorded human decision (ADR-0057). **Do not**
+type a concept: the classes fill from signed records only, and an empty
+`concept-types.yaml` is the correct state until a person fills the pass.
 
 ## 3. Open questions — need a human
 
 | # | Question | Blocks | Raised |
 |---|---|---|---|
 | ~~Q1~~ | ~~What is the pilot scope?~~ **Answered S002: s 43** (ADR-0013). The *boundary* is deliverable 1 — see Q8. | — | S001 |
-| Q8 | What is the s 43 **boundary**? **A draft to correct now exists** at `review/seed/pilot-scope.seed.md` (S007), with the recon numbers and an exclusion list. Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. **Answerable against numbers** — `tmk-recon` reports where the citing chunks sit and what each candidate rule costs. | All remaining Stage 0 **content**. Does not block the worksheet — ADR-0017, ADR-0022 | S002 |
+| Q8 | **Half answered S012.** The owner gave the boundary *rule* on issue #12 (one hop, landing on the chunk; ADR-0072), implemented as `tmk-boundary`. The *document* is still not written — he did not say whether GI is the centre or a corner, or whether point-in-time questions are in scope, and OQ-0021 asks about bare citations. Original question: what is the s 43 **boundary**? **A draft to correct now exists** at `review/seed/pilot-scope.seed.md` (S007), with the recon numbers and an exclusion list. Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. **Answerable against numbers** — `tmk-recon` reports where the citing chunks sit and what each candidate rule costs. | All remaining Stage 0 **content**. Does not block the worksheet — ADR-0017, ADR-0022 | S002 |
 | ~~Q2~~ | ~~How does this repo get the upstream snapshot?~~ **Answered S003, built S004** (ADR-0004, ADR-0021, ADR-0026). | — | S001 |
 | Q3 | Which LLM is "agency-approved" for the Stage 2–4 extraction steps, and under what data-handling conditions may Manual text be sent to it? **Now also touches Stage 0:** `review/seed/` records carry `model: null` because naming one would pre-empt this (ADR-0043 consequence 4). If the agency requires the model recorded, it is a provenance field and a one-line change. | Stages 2, 3, 4 | S001 |
 | Q4 | ~~What does "approved" look like as a recorded artefact?~~ **Answered S006: the workbook's `approved_by`/`approved_date` columns are the artefact** — a name and a date, no separate signed-off file or external register (ADR-0039). **Still open: who are the approving experts?** — expected to arrive with the experts' own content. | Nothing structural; who-question blocks nothing today | S001 |
 | ~~Q5~~ | ~~Does ADR-0005 hold?~~ **Answered S003: yes** (ADR-0021). | — | S001 |
-| Q6 | Case law is cited by the corpus but is not held as documents anywhere. Is acquiring decision texts in scope for this repo? **Costed for the pilot:** 58 distinct decisions are cited from the 216 in-scope chunks. The harness reports a case ref as a NOTE — checked for grammar, resolvable by nothing (Q-11). | Stage 2 citation resolution, Stage 8 retrieval | S001 |
+| Q6 | **Answered in principle S012, and the answer opened a bigger question.** The owner said in scope, from `IP-Decision-Data`. Checked: 15 of our 58 in its index, 43 not, and no decision text committed anywhere. OQ-0018. Original question: is acquiring decision texts in scope for this repo? **Costed for the pilot:** 58 distinct decisions are cited from the 216 in-scope chunks. The harness reports a case ref as a NOTE — checked for grammar, resolvable by nothing (Q-11). | Stage 2 citation resolution, Stage 8 retrieval | S001 |
 | Q7 | What base IRI may the project mint under? `docs/IDENTIFIERS.md` proposes `https://data.ipaustralia.gov.au/tmk/`; persistent IRIs need control of that domain, which is an organisational call. Still not blocking: one constant in `config.py`, overridable by `TMK_BASE_IRI`. | RDF serialisation only | S001 |
 | ~~Q9~~ | ~~Does the owner accept **ADR-0016** and **ADR-0018**?~~ **Answered S006: yes, both** (ADR-0038). | — | S003 |
 | ~~Q11~~ | ~~Five S004 ADRs are agent-proposed: 0024, 0026, 0027, 0028, 0029.~~ **Answered S006, in part:** 0024, 0026, 0027 confirmed (ADR-0040); 0028 reversed, not confirmed (ADR-0042, `data/derived/` is now committed). **0029 still open** — owner had no context for it ("I have no idea what this means"); it needs none, since it already reflects current practice and nothing hinges on ruling it either way. | Nothing | S004 |
 | Q12 | Six S005 ADRs are agent-proposed: **0030** (three severities, three exit codes), **0032** (one named gold file per record type), **0033** (the retired-id ledger), **0035** (`openpyxl` as an optional extra — *the only one that is a dependency decision*), **0036** (the workbook's cell encoding), **0037** (how transcription writes). ADR-0031 and ADR-0034 are `derived`. Owner has seen a plain summary of these (S006) but has not yet ruled on them. | Nothing | S005 |
 | ~~Q13~~ | ~~Does upstream need a token in CI?~~ **Answered S006: no.** `manual-XtrACTor` is public (QUIRKS Q-13, amended S004) and GitHub Actions clones public repos anonymously, so `tmk-fetch-upstream` works in CI with `UPSTREAM_TOKEN` unset. Leave the secret unset unless the repo's visibility changes. | — | S005 |
 | Q15 | **New, S007.** Does the owner confirm **ADR-0043** as recorded, including its six guards and its reversal condition? The decision to seed was the owner's; the *guards* — quarantine, the envelope, the null-and-checked `approved_by`, the single door out, the untouched harness, the delete-after-review rule — are the agent's reading of what makes it safe, and they are what an audit will be judged against. **ADR-0044** and **ADR-0045** are `derived` and need no ruling. | Nothing today; the seed set is usable either way | S007 |
-| Q16 | **New, S008. Expert content.** The expert's note says the seed set carries the *presumption of registrability* and the idea of "doubt", but not the office's actual bar for applying it: it is not enough for the individual examiner to doubt a connotation exists — the Registrar as a whole must, and an examiner is expected to consult their team leader and the s 43 SMEs before accepting on that basis. They cite *Blount Inc v Registrar of Trade Marks* (1998) 40 IPR 498, 503 (*Oregon*) on s 33 and the reversed burden. **This is a rule about examiner conduct, and no record type currently holds it**: it is not a concept, not a relationship between provisions and not a prohibited use. Whether it becomes one, a new record type, or an entry in the scope document is an expert-and-owner call. Full text at `review/returned/260826-expert-feedback.md`. | The s 43 vocabulary's usefulness, and any later rule modelling | S008 |
-| Q17 | **New, S008. Expert content.** The same note: the seed vocabulary was drawn from Part 29 alone, which is "not wrong" but gives "a limited view on what some of the roles are". Nine terms named as needing high-level definitions — Registrar, Delegate, Examiner, Decision Maker, Office Practise, Subject Matter Expert (SME), Oppositions, Grounds for Rejection, Adverse Report — "and there are likely more". Two row corrections say the same thing sharply (`GE-0010`, `GE-0047` on decision maker vs the Registrar). **The structural trap is Q-28**: ADR-0022's scope rule selects passages that *cite* s 43, and a term's definition is usually not in a passage that cites anything. Fix is a scope exception, a separate definitional pass, or a glossary import — expert and owner, not an agent. | Stage 3's vocabulary, and the entity type taxonomy | S008 |
+| Q16 | **Answered S012 by the owner, not the expert.** He said it may go in a glossary and to adopt a Must/May predicate if a glossary does not capture the examiner/registrar relation. It does not; the predicate already existed (`tmk:modality`) and what was missing was a role as a term, now fixed (ADR-0073). **No conduct rule has been written** — that is still expert content, as OQ-0022. Original: **expert content.** The expert's note says the seed set carries the *presumption of registrability* and the idea of "doubt", but not the office's actual bar for applying it: it is not enough for the individual examiner to doubt a connotation exists — the Registrar as a whole must, and an examiner is expected to consult their team leader and the s 43 SMEs before accepting on that basis. They cite *Blount Inc v Registrar of Trade Marks* (1998) 40 IPR 498, 503 (*Oregon*) on s 33 and the reversed burden. **This is a rule about examiner conduct, and no record type currently holds it**: it is not a concept, not a relationship between provisions and not a prohibited use. Whether it becomes one, a new record type, or an entry in the scope document is an expert-and-owner call. Full text at `review/returned/260826-expert-feedback.md`. | The s 43 vocabulary's usefulness, and any later rule modelling | S008 |
+| Q17 | **Answered S012 by the owner.** Scope covers what the ontology needs, a glossary is permitted, and a definition must come from the Manual, the legislation or the IP First Response glossary — and from nothing else (ADR-0074). The third source is not held; acquiring it is part of OQ-0018's territory. Original: **expert content.** The same note: the seed vocabulary was drawn from Part 29 alone, which is "not wrong" but gives "a limited view on what some of the roles are". Nine terms named as needing high-level definitions — Registrar, Delegate, Examiner, Decision Maker, Office Practise, Subject Matter Expert (SME), Oppositions, Grounds for Rejection, Adverse Report — "and there are likely more". Two row corrections say the same thing sharply (`GE-0010`, `GE-0047` on decision maker vs the Registrar). **The structural trap is Q-28**: ADR-0022's scope rule selects passages that *cite* s 43, and a term's definition is usually not in a passage that cites anything. Fix is a scope exception, a separate definitional pass, or a glossary import — expert and owner, not an agent. | Stage 3's vocabulary, and the entity type taxonomy | S008 |
 | Q18 | **New, S008. Partly answered.** ADR-0048 gates `eval/gold/` on the reviewer's verdict. The rule itself — *a row crosses only on `correct` **with a name in `approved_by`*** — follows from rule 4 and ADR-0039 and needs no ruling. Three things inside it were the agent's judgement, and in plain terms they are: **(a)** if a record you signed points at one you did not, the signed one is held too — because a gold record naming a record that is not in the gold set is a pointer to nothing, which the harness calls a defect; **(b)** if a record is signed but one of its *sub-rows* (a relevance grade, an expected inference) is marked `amend` or left blank, the whole record is held — because that sub-row is part of the record, so writing it would certify a value the reviewer said was wrong; **(c)** a verdict cell that is not exactly `correct`/`amend`/`reject` — `corrrect` — stops the row rather than being read as the value it resembles. **(c) is now settled in practice** (ADR-0052): the tool stayed strict and a person overrode that one cell by name, which cost one line. (a) and (b) still stand as written and are what "18 held, then 20" in §1 is measuring. **ADR-0047, ADR-0049 and ADR-0050 are `derived`.** | Nothing today; the loop works either way, the yield changes | S008 |
 | Q20 | **New, S008.** Does the owner confirm **ADR-0051**? A reviewer's decision that arrives as words is applied from an instruction file in `review/returned/`, never by editing or generating a workbook, and the instruction may do exactly two things: sign a **blank** `approved_by` on a row already marked `correct`, and settle a verdict on a **named** record. The two-operation limit is the judgement — it is what stops "they confirmed the corrections" becoming a blank cheque over 368 rows. Widening it (a pattern, a typo table, "sign everything") should be a decision, not a convenience. | Nothing; every future round that settles anything by email | S008 |
 | Q19 | **New, S008.** The expert rejected both `ambiguity_collapse` prohibitions on a principle worth recording: inferring that a bare "section 15(1)" means the *Trade Marks Act 1995* "is acceptable due to the TM focused nature of the tool", and the tool "should be allowed to clarify if a passage is specifically sourced from the legislation". That sits against Q-07 and upstream's refusal to auto-resolve an ambiguous edge. They are not quite the same claim — upstream's `ambiguous` is about *which of several instruments in scope*, not about a bare section in a TM-only tool — but a session must not quietly assume either reading. Does the distinction hold, and where is the line? | Stage 2 citation resolution; the prohibited-use set's sixth kind now rests on one record | S008 |
 | Q21 | **New, S009.** Does the owner confirm **ADR-0054** — what counts as a decision on the critical path? Three kinds are on the worklist (holds something and is directly resolvable; names a rejected record; held only by a marked child row) and two things are deliberately off it (a record dangling on something merely unreviewed, and a rejected record as a source of edges). The judgement being flagged is that a root need **not** be unblocked: `GA-0002`, `PU-0013` and `PU-0014` name each other in a triangle, an "unblocked roots only" rule finds none of them, and that would have hidden the largest chain on the queue. | Nothing; the report is right either way, the worklist changes length | S009 |
 | Q22 | **New, S009.** Does the owner confirm **ADR-0055**'s third guard? A scoped round's pack and workbook state on their face that they are scoped, with the count they were narrowed from. The alternative — a ten-record workbook that looks exactly like a 368-record one — is how a partial review comes to be filed as a complete one. Guards 1 (the checks never narrow) and 2 (an unmatched name refuses the run) follow from rule 6 and need no ruling. | Nothing; every scoped round from here | S009 |
-| Q23 | **New, S010.** Does the owner confirm **ADR-0060** — that `graph/approved.ttl` and `graph/inferred.ttl` are committed while `graph/source.ttl` and `graph/dataset.nq` are not? The line drawn is *what a file restates*: the first two are this repo's own decisions in RDF, the second two are 6.5MB of the pinned corpus, and committing those is `data/upstream/` by another route (ADR-0004). Arguable the other way — committing everything would make the graph reviewable without a snapshot fetch, at 6.5MB per rebuild in the history. | Nothing; it is one line of `.gitignore` either way | S010 |
+| ~~Q23~~ | **Answered S012: commit everything** (OQ-0005, ADR-0070, supersedes ADR-0060). Original: does the owner confirm **ADR-0060** — that `graph/approved.ttl` and `graph/inferred.ttl` are committed while `graph/source.ttl` and `graph/dataset.nq` are not? The line drawn is *what a file restates*: the first two are this repo's own decisions in RDF, the second two are 6.5MB of the pinned corpus, and committing those is `data/upstream/` by another route (ADR-0004). Arguable the other way — committing everything would make the graph reviewable without a snapshot fetch, at 6.5MB per rebuild in the history. | Nothing; it is one line of `.gitignore` either way | S010 |
 | Q24 | **New, S010.** Does the owner confirm **ADR-0061** — that a competency query is *refused* without a `limits:` header saying what it does not answer? The requirement is the agent's reading of what `queries/README.md` implies rather than what it says, and the 60-character threshold is arbitrary. What argues for it: three limits lines are load-bearing today and each would have been a wrong answer without one — CQ-0017 measures reviewing effort and not outcome, CQ-0019 finds recorded dependencies and not subject matter, CQ-0023's most important row is a blank one. | Nothing today; every query written from here | S010 |
 | Q25 | **New, S011. Four dashboard judgements.** All are `agent-proposed` and none blocks anything. **(a) ADR-0063** — the site reads committed artefacts only and never the snapshot, which costs it the best single figure in the corpus (five Manual Parts carried into the s 43 impact set entirely by inferred citations) in exchange for a build that cannot fail on a network. **(b) ADR-0064** — eight block kinds is a guess at what the site will need; the risk is a page that wanted a real visualisation getting a table because a table was easy. **(c) ADR-0065** — the 17 entries in `open-questions.yaml` are an agent's reading of which handoff questions are the owner's and how to phrase them, and an option list can steer. **(d) ADR-0066** — a prefilled issue URL has a length limit, and `author_association` is a coarse answer to "may this person write here". Each is answerable by using the thing and saying what is wrong with it. | Nothing | S011 |
 | Q14 | **New, S006.** Owner asked for more plain-language guidance on **constructing the ontology**, beyond what `STAGE-0-INPUT-GUIDE.md` covers (which is scoped to Stage 0 elicitation, not Stage 5 ontology formalisation). Not scoped or drafted yet — needs its own session: who is the audience (the Trade Mark experts already working from the input guide, or a wider group?), and what specifically is unclear in the existing docs. | Nothing yet; would help the experts' ongoing work | S006 |
@@ -212,6 +226,15 @@ a record, owner review and TM-expert review become indistinguishable in the
 record.** That was the owner's call, made knowing it; it is recorded here rather
 than in an ADR because nothing has been signed yet.
 
+**S012's own ADRs.** `human`: **0068** (RULE-0002 approved), **0070** (commit the
+whole graph), **0071** (concept types), **0072** (the one-hop boundary), **0073**
+(a glossary does not capture it), **0074** (three sources for a definition),
+**0075** (a boundary is not a gap) — each quotes the owner's words and names the
+ruling file. `derived`: **0067** (repairing the ruling path), **0069**
+(conclusions and triples counted apart). **None of S012's ADRs is
+`agent-proposed`**, which is what it looks like when a session is acting on
+decisions rather than making them.
+
 Agent-proposed ADRs awaiting human confirmation: **0011** (deferred, not
 declined — see ADR-0041), **0029, 0030, 0032, 0033, 0035, 0036, 0037**,
 **0043's guards** (the decision to seed was the owner's; how it is fenced is
@@ -224,6 +247,11 @@ instruction, quoted in the ADR. ADR-0044, ADR-0045, ADR-0047, ADR-0049, ADR-0050
 (0006, 0012, 0014, 0024, 0026, 0027 confirmed S006 — ADR-0040; 0016 and 0018
 confirmed S006 — ADR-0038; 0028 superseded S006 — ADR-0042. ADR-0023,
 ADR-0025, ADR-0031 and ADR-0034 are `derived`.)
+
+**What S012 changed about being blocked.** The four rulings S010 named as the
+shortest path to a better ontology are answered, and three of the four are done.
+The fourth — typing the 52 — is now blocked on one pass of a spreadsheet rather
+than on a decision, which is a different and much shorter kind of waiting.
 
 **No agent work is blocked on a human decision.** Every remaining open question
 is expert content (Q8, Q16, Q17, Q19), organisational (Q3, Q7, the who-half of
@@ -325,9 +353,12 @@ relevance grade each. The scoped workbook for all ten is rendered.
   and no text. The absence is the honest report and `tmk-ontology-report` counts
   it.
 - **Do not type a concept into `GroundOfRefusal`, `LegalTest`, `RelevantFactor`
-  or `Exception`.** The classes are empty on purpose. Which one a concept belongs
-  in is a legal judgement (ADR-0056 consequence 4), and a machine-filled taxonomy
-  reads as authoritative and was authored by nobody.
+  or `Exception`.** Unchanged by ADR-0071, which built the *container* and typed
+  nothing. The classes fill from signed `concept_type` records and from nothing
+  else; which group a concept belongs in is a legal judgement (ADR-0056
+  consequence 4), and a machine-filled taxonomy reads as authoritative and was
+  authored by nobody. If you find `eval/gold/concept-types.yaml` populated by
+  anything other than a transcribed workbook, that is a defect.
 - **Do not assert a narrow `rdfs:domain` or `rdfs:range` from observed usage.**
   Under OWL 2 RL a domain assertion reclassifies every subject of the property.
   The observed types are annotations that infer nothing; the asserted domain and
@@ -350,8 +381,10 @@ relevance grade each. The scoped workbook for all ten is rendered.
   parses, warns once, and matches nothing — so the query returns no rows and
   reads as a fact about the data (Q-32). Full IRI, `#` as `%23`.
 - **Do not resolve the `deceptively similar` collision** by adding the concept or
-  by editing the question. Both records are approved, neither is obviously wrong,
-  and it is an expert's call (Q-37).
+  by editing the question. ~~It is an expert's call (Q-37).~~ **Settled S012**
+  (OQ-0002, ADR-0075): it belongs to s 44, the question is naming a boundary, and
+  neither record changed. The prohibition held and still holds — the fix was a
+  derivation over the not-labels already signed, not an edit to either side.
 - **Do not assert `tmk-recon`'s counts against the graph's.** Recon is s 43-scoped
   and held-instrument-scoped; the graph is neither. Both are right and they do not
   match (Q-38).
@@ -359,6 +392,28 @@ relevance grade each. The scoped workbook for all ten is rendered.
   competency questions.** They are deferred because Stages 7 and 8 do not exist,
   and a query that returned rows for them would measure the wrong thing while
   looking like coverage.
+- **Do not quote a rule's triple count as a count of findings.** They differ by
+  more than an order of magnitude, and doing it cost the owner two wrong numbers
+  to answer against (Q-44). `Yield` carries `assertions` and `triples` under
+  names that cannot be swapped; quote `assertions`, and carry the column heading
+  with any number you lift out of a generated table.
+- **Do not let a rule body set its own `reviewStatus`.** Approval lives in the
+  `approved-by:` header and `construct()` stamps it; a body that sets it is
+  refused. Two sources of truth for whether a rule is approved can drift to the
+  point where an approval the owner gave changes nothing in the data (ADR-0068).
+- **Do not hand-edit anything under `graph/`.** All four files are committed now
+  (ADR-0070), which makes them look editable and they are not. `tmk-graph
+  --write --rules`, then commit; `tmk-graph --rules --check` is in CI.
+- **Do not write an rdflib serialisation to a committed file without checking it
+  is stable across processes.** Turtle sorts, N-Quads does not (Q-45).
+- **Do not add a module-scope import to `dashboard/` or `stage0/` without asking
+  what it makes heavier.** `tmk-ruling` needed rdflib it never used, and the
+  owner's first submission died on it (Q-42). The commands in one package do not
+  share a dependency footprint.
+- **Do not write `eval/pilot-scope.md` from ADR-0072.** The owner gave the
+  boundary *rule*; the document also needs whether GI is the centre or a corner
+  and whether point-in-time questions are in scope, and he answered neither.
+  Answering part of a question is not answering it.
 - **Do not add LegalRuleML.** ADR-0009.
 - **Do not hand-edit anything under `site/data/`.** It is regenerated by
   `tmk-dashboard --write` on every deploy, so an edit there is a change that
@@ -390,6 +445,28 @@ relevance grade each. The scoped workbook for all ten is rendered.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S012 — 2026-09-08 — the loop closed, and the numbers in it were wrong
+
+The owner's first submission came back — issue #12, seven answers through the
+form and three typed in by hand — and none of it had been recorded, because the
+transcription workflow crashed on a dependency `tmk-ruling` never uses and then
+told him his answer block was probably malformed. An answer with a note and no
+option chosen was being dropped in silence too, and that was OQ-0009, the most
+substantive thing in the submission. Repaired and tested first (ADR-0067),
+because nothing else could be recorded until it was.
+
+Then every answer acted on: RULE-0002 approved and released, the whole graph
+committed, a ninth record type holding a concept's type with the 52 laid out for
+sorting, the `deceptively similar` collision settled as a boundary rather than a
+gap, and the owner's one-hop scope rule implemented and computed.
+
+**What it revealed is worth more than what it built.** Two figures the owner was
+asked to decide on were triple counts dressed as counts of findings — 71 flags
+that are 5 passages, 2,244 links that are 187. And running his boundary rule
+showed it does not do what he expected for section 41, because the Manual cites
+the section bare in 32 passages. Both went back to him as questions rather than
+being quietly absorbed. 452 tests pass; 9 ADRs; 4 quirks.
 
 ### S011 — 2026-09-04 — the questions got a front door
 

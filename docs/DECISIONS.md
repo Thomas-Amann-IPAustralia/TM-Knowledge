@@ -2464,3 +2464,416 @@ person write here", which is the right question but not a fine-grained one.
 4. A session's first act is now to read `review/rulings/`. A ruling is a `human`
    decision and outranks any `agent-proposed` ADR it touches; acting on one means
    a new ADR with authority `human` quoting the answer.
+
+---
+
+## ADR-0067 — The route an answer takes back into the repo is repaired, and a crash no longer reads as the owner's mistake
+
+**Date** 2026-09-08 · **Authority** derived · **Status** accepted
+
+**Context.** The owner submitted issue #12 on 2026-09-08 — seven answers, the
+first use of the loop S011 built. Nothing was recorded. The workflow commented
+that it could not record the submission and that *"the usual cause is that the
+answer block was edited by hand"*, which was untrue and unactionable.
+
+Three separate faults, each sufficient on its own to lose a submission.
+
+1. **`tmk-ruling` could not start.** `dashboard/cli.py` imported the graph
+   builder at module scope, so the transcription command pulled in rdflib — the
+   optional `[rdf]` extra — while `.github/workflows/ruling.yml` installs the
+   core three dependencies and nothing else. `ModuleNotFoundError: No module
+   named 'rdflib'`, before a line of transcription ran (Q-42).
+2. **An answer with a note but no chosen option was dropped in silence.** The
+   form writes such an answer into the machine-readable block and counts it in
+   the issue title; both the form's prose summary and `transcribe()` skipped it.
+   On issue #12 that answer was OQ-0009 — a new data source the owner wants
+   consumed — and the title says seven while the summary lists six (Q-43).
+3. **The failure message blamed the owner.** Re-submitting would have failed
+   identically.
+
+**Decision.** The `build` import moves into `dashboard()`, the only function
+that uses it, so the transcription path needs the core install and nothing more;
+a test blocks the extras and imports the CLI, because the coupling is invisible
+on any machine that has them. An answer carrying a note but no option is kept,
+labelled *no option chosen — the answer is in the note*, on both sides; an
+answer with neither is still dropped, because that is a scrolled-past question
+rather than a decision. And the workflow distinguishes a refusal — which
+`tmk-ruling` marks with `refused:` on stderr, and which re-submitting does fix —
+from a crash, which it names as this repository's fault and links to the run.
+
+`tmk-ruling --received` is added so an issue transcribed after the fact carries
+GitHub's timestamp for the submission rather than the clock of whichever
+container got round to it.
+
+**Consequences.**
+
+1. Issue #12 is transcribed at `review/rulings/2026-09-08-issue-12.yaml`, seven
+   answers, stamped with the issue's own submission time.
+2. The lesson generalises past this bug: **the paths a non-engineer depends on
+   are the ones with no second chance.** The owner cannot debug a workflow, and
+   an unhelpful failure message on the one route into the repository is worse
+   than a crash on a developer command.
+3. Not done: adding `[rdf]` to the workflow's install. That would have fixed the
+   symptom and hidden the coupling.
+
+---
+
+## ADR-0068 — A rule's approval lives in its header, and nowhere else
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted
+
+**Context.** The owner approved RULE-0002 on OQ-0004: *"Approve it — its links
+may be relied on"* (issue #12, `review/rulings/2026-09-08-issue-12.yaml`). It was
+the first rule anyone had approved.
+
+Acting on it exposed a design fault. Each rule's CONSTRUCT body wrote
+`tmk:reviewStatus "candidate"` and `tmk:requiresHumanReview true` into its own
+output, while the `approved-by:` header carried the approval record. Two sources
+of truth for the same fact, and they can drift in either direction — the
+dangerous one being a body still emitting `candidate` after a person approved the
+rule, so an approval the owner gave changes nothing in the data and nobody
+notices.
+
+**Decision.** RULE-0002 is approved, recorded in its `approved-by:` header with
+the owner's name, the date and the ruling file. The header is the **only** thing
+that decides an output's review status: `Rule.construct()` stamps it on every
+inference, and refuses a body that sets either predicate itself. A rule does not
+get to declare its own approval.
+
+The owner's approval is recorded exactly as a trade marks expert's would be,
+which is his own ruling on OQ-0010 applied here.
+
+**What this settles and what it does not.** It settles that RULE-0002's 187
+impact links may be relied on. It does not make them expert-reviewed trade marks
+content, and it does not touch the rule's `limits:` line — impact by *recorded
+dependency* and nothing else, so a nil result still never means "nothing is
+affected" (Q-28).
+
+**A correction the owner should see.** He approved it believing it drew 2,244
+links. It draws 187. See ADR-0069; the difference does not bear on whether the
+derivation is sound, which is what he was asked, but he was given a wrong number
+and can revisit on the right one.
+
+**Consequences.**
+
+1. RULE-0002's output leaves quarantine; RULE-0001's does not.
+2. `is_approved` stops being decorative. It gated nothing before this — the
+   dashboard displayed it and no code branched on it.
+3. Approval does not promote an inference into the approved graph. Both rules'
+   output stays in `graph/inferred.ttl`: approval says an inference may be
+   relied on, not that it became a signed record.
+
+---
+
+## ADR-0069 — Conclusions and triples are counted separately, and the report says which to read
+
+**Date** 2026-09-08 · **Authority** derived · **Status** accepted
+
+**Context.** OQ-0003 told the owner RULE-0001 *"produced 71 flags"* and asked him
+to review 71 flagged passages. It flags **five**. OQ-0004 told him RULE-0002
+produced *"2,244 of them"*. It draws **187**.
+
+Both figures are triple counts. `data/derived/reports/ontology.md` reports them
+in a column correctly headed *triples produced*; S011 read them off that table
+and wrote them into the owner's questions as counts of findings. Every
+conclusion carries eight to fourteen triples of provenance with it, so the two
+numbers differ by more than an order of magnitude and neither looks obviously
+wrong beside the other (Q-44).
+
+**Decision.** `apply_rules` returns a `Yield` carrying `assertions` and `triples`
+under names that cannot be swapped. The report prints both columns and says in
+words which to read. A test over `review/questions/open-questions.yaml` fails if
+a rule's triple count ever again sits next to a word like *flags*, *links* or
+*passages*.
+
+**Why this is worth an ADR rather than a fix.** The number was not wrong by
+accident of arithmetic; it was wrong because a number crossed from a context
+where it was correctly labelled into one where nothing labelled it. **Any figure
+put in front of the owner is a figure he will act on**, and the correction
+changed what he was being asked: a rule firing on 5 passages in 216 is selective,
+one firing on 71 in 216 is barely narrowing anything.
+
+**Consequences.**
+
+1. OQ-0003 is re-asked as OQ-0019, against `data/derived/reports/rule-0001-flags.md`
+   and the corrected count.
+2. OQ-0004's approval stands on the same reasoning it always did, and the owner
+   is told the real number (ADR-0068).
+3. The general rule: a generated report may print any number it likes, as long
+   as the column says what it is. A hand-written document quoting that number
+   must carry the label with it.
+
+---
+
+## ADR-0070 — The whole graph is committed, and `dataset.nq` is written sorted
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted · **Supersedes** ADR-0060
+
+**Context.** The owner ruled on OQ-0005: *"Store everything, so the graph can be
+read without building it."* ADR-0060 had committed `approved.ttl` and
+`inferred.ttl` and kept `source.ttl` and `dataset.nq` out, on the ground that
+they restate the pinned corpus.
+
+**Decision.** All four are committed, about 6.5MB. `data/upstream/` stays out
+under ADR-0004 and that is not in tension: the snapshot is another repository's
+corpus, and this is a derivation of it — the line `data/derived/` already draws.
+
+Two things had to be true first, and only one of them was.
+
+**A committed generated file can go stale, and a stale one is worse than an
+absent one** because it reads as current. So `tmk-graph --rules --check` rebuilds
+into a temporary directory and compares bytes; CI runs it, and so does
+`test_the_committed_graph_matches_a_rebuild`.
+
+**`dataset.nq` was not reproducible.** rdflib's Turtle serialiser sorts; its
+N-Quads serialiser emits in set-iteration order, which moves with
+`PYTHONHASHSEED`. Two builds of an identical dataset produced two different 5MB
+files. Uncommitted nobody noticed; committed, it would have put a 5MB diff in the
+history on **every rebuild**, signifying nothing — a far larger cost than the one
+the owner weighed. Line order carries no meaning in N-Quads, so the file is
+written sorted, which canonicalises without changing what it says (Q-45).
+
+**Consequences.**
+
+1. `graph/` can be read, diffed and reviewed without a snapshot fetch, which is
+   what the owner asked for.
+2. A rebuild that changes nothing produces no diff, so a diff under `graph/`
+   means something moved.
+3. ADR-0060 is superseded, not reversed on its reasoning: its cost estimate was
+   right and the owner chose to pay it.
+
+---
+
+## ADR-0071 — A concept's type is a record of its own, not a field on the concept
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted
+
+**Context.** The owner ruled on OQ-0001: *"Use those four groups — come back to
+me with the list of 52 to sort."* `GroundOfRefusal`, `LegalTest`,
+`RelevantFactor` and `Exception` had been declared and empty since S010, because
+the gold concept record has no type field and typing a concept is a legal
+judgement (ADR-0056 consequence 4).
+
+The obvious move — add `type` to `gold-concept.schema.json` — is wrong. The 52
+concept records are signed by a named reviewer on a date, and that signature
+covers the record as it stood. Adding a field and filling it later would put
+unsigned content inside somebody's signature, and would make the concept and its
+typing inseparable when they are two judgements, possibly by two people.
+
+**Decision.** A ninth Stage 0 record type: `concept_type`, id prefix `GT`, file
+`eval/gold/concept-types.yaml`, one record per concept, each carrying its own
+`approved_by` and `approved_date`. `basis` is optional and `notes` is where the
+reasoning goes.
+
+`none_of_these` is one of the five values and is a real answer, not a refusal to
+answer: it says the four groups do not fit this concept, which is evidence about
+the taxonomy. It asserts no class. A blank stays blank and is reported as
+still-to-do.
+
+**How the pass reaches the owner and comes back.** `tmk-typing --write` renders
+`data/derived/concept-typing.xlsx` — an ordinary intake workbook with the
+`concept-types` sheet pre-filled, `type` empty, the five groups as a dropdown —
+and `data/derived/reports/concept-typing.md`, the evidence to sort by. Because
+the pass is intake-shaped, **`tmk-transcribe` reads it back with no new code**,
+so the single door into `eval/gold/` stays single (ADR-0048).
+
+`workbook.fill()` has existed since P7 and was deliberately not a command:
+*"generating an empty workbook and pre-filling one with content are different
+decisions, and only the first has been made."* The owner has now made the second,
+and only for this file — `stage0-intake.xlsx` stays empty (ADR-0044).
+
+**Consequences.**
+
+1. The four classes fill from signed records and from nothing else. Each typed
+   concept carries `tmk:typedBy` back to the record that typed it, so a typing
+   can be traced to a person and a date rather than appearing to have always
+   been so.
+2. Every build prints how many of the 52 are sorted, so the largest gap in the
+   draft is a number that moves rather than a paragraph someone remembers.
+3. The harness gains a deliverable row, so an unsorted vocabulary is a reported
+   gap rather than a silence.
+4. Nothing was typed. If a later session finds `concept-types.yaml` populated by
+   anything other than a transcribed workbook, that is a defect.
+
+---
+
+## ADR-0072 — The section 43 boundary is one hop, landing on the chunk and not its parent
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted
+
+**Context.** OQ-0014 — where section 43 stops — had been open since S002 and
+parked for an expert. The owner answered it himself on issue #12, in prose
+outside the form's answer block; his words are at
+`review/returned/260908-owner-notes-issue-12.md`.
+
+**Decision.** Three structural parts, implemented in `tm_knowledge.stage0.boundary`
+and reported by `tmk-boundary`:
+
+1. **One hop.** What the section 43 material cites is in scope; what *that* cites
+   is not. The boundary is the citation graph at radius one.
+2. **The hop lands on what was named, not on its parent.** A citation of
+   `TMA1995/s41(2)` puts that unit in scope and leaves section 41 out.
+3. **Case law inherits the same rule.** A decision cited from section 43 material
+   is in scope; what the decision discusses is not — which costs nothing today,
+   because no decision text exists anywhere in the programme (Q-11), and the
+   report says so rather than implying a closure it never computed.
+
+**A fourth part is recorded and deliberately not implemented.** He added that the
+s 43 / s 41 relationship is "more diffuse", and that s 43 should refer to s 41
+only in that resolving an s 43 ground has no impact on the s 41 ground. That is a
+statement about how two grounds of refusal interact — trade marks law, not a
+selection rule — and this repo does not author those (rule 1). It belongs in a
+relationship record an expert signs.
+
+**What running it revealed, and it is the reason this ADR matters.** Part 2 keeps
+12 parent provisions out. But **section 41 is not one of them**: the section 43
+material cites `TMA1995/s41` *bare* in 32 passages as well as citing `s41(3)` and
+`s41(4)`, and a bare citation names the parent, so section 41 comes in whole and
+part 2 never engages. Twenty-two provisions behave this way. The rule meets a
+corpus that cites more loosely than the rule assumes. That is put back to the
+owner as OQ-0021 rather than resolved here, because choosing between "accept it",
+"treat a bare citation as reaching only the units actually discussed" and "make
+section 41 a special case" is a scope judgement.
+
+**Consequences.**
+
+1. `tmk-boundary` reports the boundary as a committed artefact: 216 passages at
+   the centre, 152 provisions and units, 58 decisions and 34 further Manual
+   passages one hop out; 460 refs in scope.
+2. **This does not write `eval/pilot-scope.md`.** That deliverable also asks
+   whether geographical indications are the centre of the topic or a corner of
+   it, and whether point-in-time questions are in scope. The owner did not answer
+   those, the harness still reports the document missing, and answering some of
+   a question is not answering it.
+3. ADR-0022's worksheet scope rule is unchanged. This is a layer over it, not a
+   replacement: the centre is still what ADR-0022 selects.
+
+---
+
+## ADR-0073 — A glossary does not capture the examiner/registrar relation; a role becomes something a statement can be about
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted
+
+**Context.** OQ-0015 carried a conditional the owner put directly: *"If you do
+not believe that the glossary captures the conceptual relationship between an
+examiner and a registrar, please make a note of this and adopt the Must/May
+predicate."*
+
+The content in question is the expert's note (Q16/OQ-0015): it is not enough for
+the individual examiner to doubt a connotation exists — the Registrar as a whole
+must — and an examiner is expected to consult their team leader and the s 43
+specialists before accepting on that basis.
+
+**The note, as instructed: a glossary does not capture it.** A glossary holds one
+entry per term. That content is a *normative relation between two roles*, with a
+required step attached. An entry for "Examiner" and an entry for "Registrar"
+cannot between them hold "an examiner must consult a team leader before
+accepting on doubt"; the statement's subject is a role, its object is another
+role or an act, and it carries a deontic force. No arrangement of definitions
+holds a relation.
+
+**Decision.** Adopt the Must/May predicate — and the finding on inspection is
+that **it already exists**. `tmk:modality` carries `must` | `may` | `should` on
+any approved relationship, has since S010, and is never inferred from grammar
+because whether a "may" is possibility or permission is a legal reading. What was
+missing was not the modality but the *subject*: only concepts and upstream refs
+were terms, so no relationship could be about a role at all.
+
+So `_term` now resolves a `GE-` entity mention as a term. Roles are already
+recorded as entity mentions typed `Role`, and `tmk:Examiner`, `tmk:Delegate` and
+`tmk:DecisionMaker` are already declared classes. An expert can now sign a
+relationship whose subject is a role, whose object is a role or an act, and whose
+`modality` is `must` or `may`.
+
+**Nothing was written.** No MUST or MAY statement about examiner conduct exists
+in this repository, and none may be authored here. The expert's note stays where
+it is, in `review/returned/260826-expert-feedback.md`. What changed is that there
+is now a shape for it.
+
+**Consequences.**
+
+1. The conditional is answered in the branch the owner named, not the easier one.
+2. A glossary may still be useful, and the owner permitted one — but as
+   disambiguation, not as the home for this content.
+3. Whether examiner-conduct statements should in fact be relationship records
+   with role subjects is put to the expert and owner as OQ-0022; the shape being
+   available is not the same as it being the right shape.
+
+---
+
+## ADR-0074 — A definition comes from the Manual, the legislation, or the IP First Response glossary — and from nothing else
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted
+
+**Context.** OQ-0016 asked what to do about nine role terms with no definitions,
+against the trap that ADR-0022's scope rule selects passages that *cite* section
+43, and a term's definition is usually not in a passage that cites anything
+(Q-28). The owner answered: scope should include the subjects, objects and
+predicates needed to construct the section's ontology; a glossary is permitted
+where it disambiguates; and — the operative sentence — *"Your definitions of
+subjects objects and predicates must be identified in the TM Manual, TM
+Legislations/Acts or on the IP First Response Glossary page."*
+
+**Decision.** The permission is that scope may reach a term the model depends on
+even where its defining passage cites nothing. The **constraint** is a closed
+list of three sources for any definition: the Manual, the legislation, or
+IP Australia's IP First Response glossary. Nothing else — and in particular not
+an agent's own knowledge of trade marks law, which is CLAUDE.md rule 1 restated
+by the owner in his own words.
+
+**The third source is not held.** `https://ipfirstresponse.ipaustralia.gov.au/glossary-terms`
+is outside the pinned snapshot and outside anything this repo may consume without
+a decision about acquisition — it is a live web page, and ADR-0002 and ADR-0004
+between them mean this repository does not crawl and does not vendor. Whether it
+is acquired, how, and by whom is OQ-0018.
+
+**Consequences.**
+
+1. Until that question is answered, a definition may come from the Manual or the
+   legislation only, because those are the two of the three that exist here.
+2. `skos:definition` stays unwritten. This ADR names where a definition may come
+   from; it does not authorise an agent to write one.
+3. The scope permission is not yet implemented as a change to ADR-0022's
+   selection rule. Widening it needs to know which terms the model depends on,
+   and that list does not exist until the concepts are typed (ADR-0071).
+
+---
+
+## ADR-0075 — A label the vocabulary deliberately excludes is a boundary, not a gap
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted
+
+**Context.** CQ-0007 lists `deceptively similar` as an expected concept; three
+approved concepts list it under `not_labels`. Both sides are signed. The build
+counted it among "expected-concept labels matching no concept", so every
+measurement using CQ-0007 reported a miss that was not a miss (Q-37).
+
+The owner ruled on OQ-0002: *"It belongs to section 44 — keep it out, the
+question is using it as a boundary marker."* CQ-0007 asks *"Confusion between my
+mark and someone else's — which section is that?"*, whose answer is section 44.
+
+**Decision.** Neither approved record changes. What changes is that the build
+joins them: an expected-concept label matching no concept, where an approved
+concept records that same label under `not_labels`, is reported as a **boundary**
+and not as a gap. The question carries `tmk:expectsBoundaryLabel`, and
+`tmk:testsBoundaryOf` names the concepts whose not-labels drew the edge — so the
+claim can be traced to the signed records behind it rather than resting on this
+decision.
+
+**Why the derivation and not a hardcoded exception.** `not_labels` is the field
+the schema calls the most valuable on the record. A label appearing there is the
+vocabulary already saying, in a signed record, that the term belongs elsewhere.
+The owner's ruling confirms that reading is right; it does not need to be the
+mechanism. Three of the four unmatched labels have no such record and stay
+reported as gaps, which is the check that the rule is not just softening bad news.
+
+**Consequences.**
+
+1. One label moves from gap to boundary. `CQ-0010:purchasing decision`,
+   `CQ-0012:obvious, direct and immediate` and `CQ-0020:superseded legislation`
+   remain gaps.
+2. The prohibition in HANDOFF §4 — do not resolve this by adding the concept or
+   editing the question — held, and neither happened.
+3. Any future question naming an excluded term gets the same treatment
+   automatically, which is right: naming the boundary is a legitimate thing for a
+   test question to do.

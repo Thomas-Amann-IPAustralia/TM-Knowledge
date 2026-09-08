@@ -3,7 +3,7 @@
 The pack exists because the owner asked to see the passages RULE-0001 flags
 before ruling on it, and it opens by correcting the number he was given: 71 was
 the count of *triples* the rule writes, quoted at him as a count of flagged
-passages (Q-41).
+passages (Q-44).
 
 So the one property worth testing is that the pack cannot repeat the mistake it
 was written to correct. Every count it prints is derived from the same run that

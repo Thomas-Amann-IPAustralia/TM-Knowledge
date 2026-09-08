@@ -4,7 +4,7 @@ The owner was asked to approve or reject RULE-0001 and answered *"Show me the 71
 flagged passages first"* (OQ-0003, issue #12). This generates what he asked to
 see, and corrects the question while it does: **the rule flags five passages, not
 seventy-one.** 71 was the size of the graph the rule builds, and S011 wrote it
-into the question as a count of flags (Q-41).
+into the question as a count of flags (Q-44).
 
 So the pack is short, and being short is the finding. Five passages out of 216
 is a rule that is selective; 71 out of 216 would have been a rule worth

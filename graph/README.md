@@ -52,7 +52,7 @@ order, which moves with `PYTHONHASHSEED`, so two builds of an identical dataset
 produced two different 5MB files. Uncommitted, nobody noticed; committed, it
 would have put a 5MB diff in the history on every rebuild, signifying nothing.
 Line order carries no meaning in N-Quads, so sorting canonicalises without
-changing what the file says (Q-42).
+changing what the file says (Q-45).
 
 ## Every assertion carries
 

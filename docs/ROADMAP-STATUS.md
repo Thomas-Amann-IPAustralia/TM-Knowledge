@@ -14,16 +14,16 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 
 | Stage | Name | Status | Owner |
 |---|---|---|---|
-| 0 | Pilot selection and evaluation set | **partial** — pilot area chosen (s 43, ADR-0013); apparatus built (S004–S005); **first approved content landed S008: 190 records over all 8 types, harness 0 defects / 12 gaps**; 178 seed records still await correction, of which **10 decisions hold the other 168** (S009, `tmk-blockers`) | this repo — **the blocker** |
+| 0 | Pilot selection and evaluation set | **partial** — pilot area chosen (s 43, ADR-0013); apparatus built (S004–S005); **first approved content landed S008: 190 records over all 8 types, harness 0 defects / 13 gaps** (the 13th is S012's concept-typing deliverable); 178 seed records still await correction, of which **10 decisions hold the other 168** (S009, `tmk-blockers`) | this repo — **the blocker** |
 | 1 | Ingest and structure source documents | **done** (4 of 6 named deliverables); consumed here since S004 — pinned, fetched and loaded | `manual-XtrACTor` |
 | 2 | Candidate terminology and entities | **not started** — stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019); blocked by ADR-0010 | this repo |
 | 3 | Controlled vocabulary (SKOS) | **not started** | this repo |
 | 4 | Relationships, propositions, candidate rules | **not started** | this repo |
-| 5 | Formalise the ontology | **partial** — S010. Nine OWL 2 RL modules **drafted** in `ontology/draft/` from the 190 approved records; nothing approved, so `ontology/` is still empty (ADR-0056, ADR-0057) | this repo |
-| 6 | Populate and validate the knowledge graph | **partial** — S010. Graph built (16,405 source + 2,942 approved triples) and the SHACL gate runs: **0 defects, 0 gaps, 29 notes**. Built against a *draft* TBox | this repo |
+| 5 | Formalise the ontology | **partial** — S010, S012. Nine OWL 2 RL modules **drafted** in `ontology/draft/`; nothing approved, so `ontology/` is still empty (ADR-0056, ADR-0057). S012: the four concept classes now fill from signed `concept_type` records (ADR-0071) — **0 of 52 sorted so far**; a role can be what a statement is about (ADR-0073) | this repo |
+| 6 | Populate and validate the knowledge graph | **partial** — S010, S012. Graph built (16,405 source + 2,942 approved triples), SHACL gate **0 defects, 0 gaps, 29 notes**, against a *draft* TBox. S012: **all four files committed** (ADR-0070) and `tmk-graph --check` fails on drift | this repo |
 | 7 | Ontology-enhanced search | **not started** | this repo |
 | 8 | Graph-aware AI retrieval | **not started** | this repo |
-| 9 | Automated reasoning | **partial** — S010. Two CONSTRUCT rules written, **neither approved**; everything they produce is quarantined as `review_status: candidate` | this repo |
+| 9 | Automated reasoning | **partial** — S010, S012. Two CONSTRUCT rules. **RULE-0002 approved by the owner 2026-09-08** (OQ-0004, ADR-0068) and its 187 impact links have left quarantine; RULE-0001 stays PENDING — he asked to see its 5 flagged passages first, and the pack is `data/derived/reports/rule-0001-flags.md` (OQ-0019) | this repo |
 | 10 | Automated maintenance | **not started** | this repo |
 
 ## Stage 0 — the blocker
@@ -38,14 +38,14 @@ no measures — so ADR-0010 still holds and no Stage 2+ work starts.
 | Deliverable | Status | Where it will live |
 |---|---|---|
 | Pilot area | **done** — s 43, ADR-0013 | `docs/DECISIONS.md` |
-| Pilot scope (the boundary) | not started — awaiting owner; **draft to correct** at `review/seed/pilot-scope.seed.md` | `eval/pilot-scope.md` |
+| Pilot scope (the boundary) | **partial** — S012. The owner gave the boundary *rule* on 2026-09-08 (one hop, on the chunk; OQ-0014, ADR-0072) and it is implemented and reported by `tmk-boundary`. The **document** is still not written: he did not answer whether geographical indications are the centre or a corner, or whether point-in-time questions are in scope. Draft still at `review/seed/pilot-scope.seed.md` | `eval/pilot-scope.md` |
 | Competency-question catalogue | **partial** — 20 approved (S008); 4 seed drafts left | `eval/gold/competency-questions.yaml` |
 | Gold-standard dataset | **partial** — 159 approved: 52 concepts (target met), 55 entities, 35 relationships, 10 retrieval questions, 6 reasoning expectations (target met), 1 search question | `eval/gold/` |
 | Prohibited-use list | **partial** — 11 approved covering 5 of the 6 kinds; `stale_source` missing because all three of its records are held on CQ-0013/0014/0016 | `eval/gold/prohibited-uses.yaml` |
 | Evaluation measures | not started — **draft thresholds to correct** at `review/seed/measures.seed.md` | `eval/measures.md` |
 | Evaluation harness | **done** — S005, P5. Runs, and exits 3 by design | `tmk-harness` |
-| Record templates | **done** — 7 record types, now schema-checked | `eval/templates/` |
-| Record schemas | **done** — S004, ADR-0027 | `eval/schemas/` |
+| Record templates | **done** — 8 record types, schema-checked; `concept-type.template.yaml` added S012 | `eval/templates/` |
+| Record schemas | **done** — S004, ADR-0027; a ninth record type, `concept_type`, added S012 (ADR-0071) | `eval/schemas/` |
 | Pass B worksheet | **done** — S004, prints 216 chunks (ADR-0022) | `tmk-worksheet` → `data/derived/` |
 | Corpus reconnaissance | **done** — S004, s 43 costed | `tmk-recon` → `data/derived/` |
 | Expert input guide | **done** — ADR-0014 | `eval/STAGE-0-INPUT-GUIDE.md` |
@@ -58,6 +58,7 @@ no measures — so ADR-0010 still holds and no Stage 2+ work starts.
 | Seed review pack and workbook | **done** — S007, ADR-0044; regenerated S008 over the 178 that remain | `tmk-seed --pack --workbook` → `data/derived/` |
 | Review round 1 | **done** — S008. 229 of 368 rows carried a verdict, plus an addendum settling 84 (ADR-0051, ADR-0052) | `review/returned/`, `review/decisions/` |
 | Reconciliation path | **done** — S008, ADR-0049 | `tmk-reconcile` |
+| Concept typing | **in review** — S012. The owner confirmed the four groups (OQ-0001); the 52 are laid out for sorting and **0 have come back** | `tmk-typing` → `eval/gold/concept-types.yaml` |
 | Blocker and dependency report | **done** — S009, ADR-0053/0054 | `tmk-blockers` → `data/derived/reports/` |
 | Review round 2 (scoped) | **rendered, not sent** — S009, ADR-0055. 10 decisions holding 168 records. **Superseded as the next action by the owner's S010 instruction**: no further expert round for now | `data/derived/stage0-blockers-review.xlsx` |
 

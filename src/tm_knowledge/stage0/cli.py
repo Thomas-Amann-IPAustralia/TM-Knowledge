@@ -673,3 +673,34 @@ def typing(argv: list[str] | None = None) -> int:
         "`tmk-transcribe <file> --write` reads it into eval/gold/concept-types.yaml."
     )
     return 0
+
+
+def boundary(argv: list[str] | None = None) -> int:
+    """`tmk-boundary` — the section 43 boundary, computed from the owner's rule."""
+    parser = argparse.ArgumentParser(
+        prog="tmk-boundary",
+        description=(
+            "One hop from section 43, landing on the chunk and not its parent. OQ-0014."
+        ),
+    )
+    parser.add_argument("--write", action="store_true", help="write into data/derived/reports/")
+    parser.add_argument("--generated", default=None, help="build stamp, for a reproducible run")
+    args = parser.parse_args(argv)
+
+    from tm_knowledge.stage0 import boundary as boundary_module
+
+    computed = boundary_module.compute()
+    print(f"{len(computed.centre)} passages at the centre")
+    print(f"{len(computed.provisions)} provisions and units one hop out"
+          f" ({len(computed.unresolved)} of them land on nothing held)")
+    print(f"{len(computed.cases)} court decisions one hop out")
+    print(f"{len(computed.internal)} other Manual passages one hop out")
+    print(f"{len(computed.in_scope)} refs in scope in total")
+    print(f"{len(computed.parents_excluded)} parent provisions kept out because the hop "
+          f"landed on a unit within them")
+
+    if args.write:
+        print(f"\nwrote {boundary_module.write(generated=args.generated)}")
+    else:
+        print("\n(dry run — nothing written. Pass --write.)")
+    return 0
