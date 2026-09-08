@@ -36,6 +36,28 @@ const URGENCY = {
   low: { label: "confirm when you can", tone: "note" },
 };
 
+/* A question is in exactly one of three states, and the collapsed row has to say
+   which one. It did not. Every question in a theme rendered identically and in
+   file order, so under a heading reading "10 waiting on you" the first card was
+   OQ-0001 — answered in issue #12 — and opening it said "You answered this". The
+   count was right and the list under it was not (Q-46). */
+const stateOf = (question) => {
+  if (question.status === "answered") return "answered";
+  if (question.status === "open" && question.needs === "owner") return "waiting";
+  return "parked";
+};
+
+/* Who a parked question is actually waiting on. The card used to say "needs a
+   trade marks expert" for everything that was not open-and-yours, which put that
+   chip on answered questions and on scope questions that are the owner's. */
+const PARKED_LABEL = {
+  expert: "needs a trade marks expert",
+  organisation: "needs an answer from elsewhere in the agency",
+  owner: "parked",
+};
+
+const plural = (count, one, many) => `${count} ${count === 1 ? one : many}`;
+
 const yaml = (draft, questions, updated) => {
   const lines = [`form: tmk-ruling/1`, `questions_updated: ${JSON.stringify(updated)}`, "answers:"];
   questions.forEach((question) => {
@@ -104,19 +126,41 @@ const issueBody = (draft, questions, updated) => {
 
 /* ------------------------------------------------------------------ pieces */
 
-function answeredPanel(records) {
-  const rows = records
-    .map(
-      (record) =>
-        `<li>${escape(record.label || record.value || "—")}` +
-        (record.notes ? ` — <em>${escape(record.notes)}</em>` : "") +
-        ` <span class="chip${record.applied ? " t-good" : " t-warn"}">` +
-        `${record.applied ? "acted on" : "recorded, not yet acted on"}</span>` +
-        (record.issue ? ` <a href="${escape(record.issue)}">the submission</a>` : "") +
-        `</li>`
-    )
-    .join("");
-  return `<div class="callout c-good answered"><h3>You answered this</h3><ul>${rows}</ul></div>`;
+function answeredPanel(question, records, repo) {
+  const rows = (records || []).map(
+    (record) =>
+      `<li>${escape(record.label || record.value || "—")}` +
+      (record.notes ? ` — <em>${escape(record.notes)}</em>` : "") +
+      ` <span class="chip${record.applied ? " t-good" : " t-warn"}">` +
+      `${record.applied ? "acted on" : "recorded, not yet acted on"}</span>` +
+      (record.issue ? ` <a href="${escape(record.issue)}">the submission</a>` : "") +
+      `</li>`
+  );
+
+  /* A question can be settled outside the form — typed into the issue by hand,
+     or decided somewhere the form never saw. `answered:` in the question file is
+     where that gets recorded. Without it, three questions the owner answered
+     himself carried `status: answered` and showed no trace of an answer at all,
+     which reads as an open question that has lost its control. */
+  const note = question.answered;
+  if (note) {
+    const applied = note.applied !== false;
+    rows.push(
+      `<li>${escape(note.how)}` +
+        ` <span class="chip${applied ? " t-good" : " t-warn"}">` +
+        `${applied ? "acted on" : "recorded, not yet acted on"}</span>` +
+        (note.record
+          ? ` <a href="${escape(`${repo}/blob/main/${note.record}`)}">the record</a>`
+          : "") +
+        ` <span class="chip">${escape(note.date)}</span></li>`
+    );
+  }
+
+  if (!rows.length) return "";
+  return (
+    `<div class="callout c-good answered"><h3>You answered this</h3>` +
+    `<ul>${rows.join("")}</ul></div>`
+  );
 }
 
 function control(question, draft, onChange) {
@@ -176,17 +220,26 @@ function control(question, draft, onChange) {
   return node;
 }
 
-function questionCard(question, state, onChange, answeredRecords) {
+function questionCard(question, state, onChange, answeredRecords, repo) {
+  const situation = stateOf(question);
   const urgency = URGENCY[question.urgency] || URGENCY.low;
-  const parked = question.status !== "open" || question.needs !== "owner";
+
+  /* One chip says what this question wants from the reader, and it is the first
+     thing on the row. An urgency of "unblocks work" on something already settled
+     is the same lie in a smaller font, so it is shown only while the question is
+     still open. */
+  const statusChip =
+    situation === "answered"
+      ? `<span class="chip t-good">you answered this</span>`
+      : situation === "parked"
+        ? `<span class="chip">${escape(PARKED_LABEL[question.needs] || PARKED_LABEL.owner)}</span>`
+        : `<span class="chip t-${urgency.tone}">${escape(urgency.label)}</span>`;
+
   const card = el(
-    `<details class="q"${answeredRecords ? "" : ""}>` +
+    `<details class="q s-${situation}" data-question="${escape(question.id)}">` +
       `<summary><span class="q-state" aria-hidden="true"></span><span class="q-head">` +
       `<h3>${inline(question.title)}</h3><div class="q-meta">` +
-      `<span class="chip t-${urgency.tone}">${escape(urgency.label)}</span>` +
-      (parked
-        ? `<span class="chip">needs a trade marks expert</span>`
-        : "") +
+      statusChip +
       `<span class="chip">${escape(question.id)}</span>` +
       (question.tracked_as || []).map((ref) => `<span class="chip">${escape(ref)}</span>`).join("") +
       `</div></span></summary><div class="q-body"></div></details>`
@@ -217,8 +270,12 @@ function questionCard(question, state, onChange, answeredRecords) {
       )
     );
   }
-  if (answeredRecords) body.appendChild(el(answeredPanel(answeredRecords)));
-  if (!parked) body.appendChild(control(question, state, onChange));
+  const panel = answeredPanel(question, answeredRecords, repo);
+  if (panel) body.appendChild(el(panel));
+  /* Only an open question the owner can settle gets a control. A radio button
+     under an answered or parked question invites an answer that then has to be
+     unpicked. */
+  if (situation === "waiting") body.appendChild(control(question, state, onChange));
 
   return card;
 }
@@ -228,7 +285,9 @@ function questionCard(question, state, onChange, answeredRecords) {
 export function renderInbox(data, context) {
   const fragment = document.createDocumentFragment();
   const draft = readDraft();
-  const asked = data.questions.filter((q) => q.status === "open" && q.needs === "owner");
+  const asked = data.questions.filter((question) => stateOf(question) === "waiting");
+  const settled = data.questions.filter((question) => stateOf(question) === "answered");
+  const parked = data.questions.filter((question) => stateOf(question) === "parked");
 
   const bar = el(
     `<div class="submit"><span class="progress"><i style="width:0%"></i></span>` +
@@ -297,13 +356,13 @@ export function renderInbox(data, context) {
         `<div class="stat t-warn"><span class="value">${asked.length}</span>` +
         `<span class="label">Waiting on you</span>` +
         `<span class="sub">each one answerable without reading anything else</span></div>` +
-        `<div class="stat"><span class="value">${
-          data.questions.filter((q) => q.status === "parked").length
-        }</span><span class="label">Parked for an expert</span>` +
+        `<div class="stat"><span class="value">${parked.length}</span>` +
+        `<span class="label">Parked for an expert</span>` +
         `<span class="sub">shown so nothing quietly disappears</span></div>` +
-        `<div class="stat t-good"><span class="value">${data.rulings.length}</span>` +
-        `<span class="label">Answers recorded so far</span>` +
-        `<span class="sub">each one a file in the repository</span></div>` +
+        `<div class="stat t-good"><span class="value">${settled.length}</span>` +
+        `<span class="label">Already answered</span>` +
+        `<span class="sub">${plural(data.rulings.length, "submission", "submissions")}` +
+        ` recorded, plus anything you settled by hand</span></div>` +
         `</div></div>`
     )
   );
@@ -323,25 +382,70 @@ export function renderInbox(data, context) {
     )
   );
 
+  const addCard = (question, host) => {
+    const card = questionCard(
+      question,
+      draft,
+      onChange(question.id),
+      data.answered[question.id],
+      data.repo
+    );
+    cards.set(question.id, card);
+    if (context.open === question.id) card.open = true;
+    card.addEventListener("toggle", () => card.classList.toggle("is-open", card.open));
+    host.appendChild(card);
+    if (context.open === question.id) {
+      requestAnimationFrame(() => card.scrollIntoView({ block: "start", behavior: "smooth" }));
+    }
+  };
+
   data.themes.forEach((theme) => {
     const inTheme = data.questions.filter((question) => question.theme === theme.id);
     if (!inTheme.length) return;
+
+    const byState = (name) => inTheme.filter((question) => stateOf(question) === name);
+    const waiting = byState("waiting");
+    const held = byState("parked");
+    const done = byState("answered");
+
+    /* Counted here rather than written into the blurb. The `unblocks` blurb said
+       "Six things nothing can move past" and stayed saying it after five of them
+       were answered, because a hand-written count goes stale the first time the
+       queue moves. */
+    const tally = [
+      waiting.length ? `<strong>${waiting.length}</strong> waiting on you` : "",
+      held.length ? `${held.length} parked` : "",
+      done.length ? `${done.length} answered` : "",
+    ]
+      .filter(Boolean)
+      .join(" · ");
+
     fragment.appendChild(
       el(
-        `<div class="theme-head"><h2>${escape(theme.title)}</h2><p>${inline(theme.blurb)}</p></div>`
+        `<div class="theme-head"><h2>${escape(theme.title)}</h2>` +
+          `<p class="tally">${tally}</p>` +
+          `<p>${inline(theme.blurb)}</p></div>`
       )
     );
-    inTheme.forEach((question) => {
-      const answered = data.answered[question.id];
-      const card = questionCard(question, draft, onChange(question.id), answered);
-      cards.set(question.id, card);
-      if (context.open === question.id) card.open = true;
-      card.addEventListener("toggle", () => card.classList.toggle("is-open", card.open));
-      fragment.appendChild(card);
-      if (context.open === question.id) {
-        requestAnimationFrame(() => card.scrollIntoView({ block: "start", behavior: "smooth" }));
-      }
-    });
+
+    /* What still needs the reader comes first. Answered questions stay on the
+       page — nothing here disappears once it is settled — but they go behind a
+       fold, so the first card under a heading is always something to act on. */
+    [...waiting, ...held].forEach((question) => addCard(question, fragment));
+
+    if (done.length) {
+      const group = el(
+        `<details class="settled"><summary>` +
+          `<span class="chip t-good">answered</span> ` +
+          `${escape(plural(done.length, "question", "questions"))} here ` +
+          `${done.length === 1 ? "is" : "are"} settled — kept for the record` +
+          `</summary><div class="settled-body"></div></details>`
+      );
+      const host = group.querySelector(".settled-body");
+      done.forEach((question) => addCard(question, host));
+      if (done.some((question) => question.id === context.open)) group.open = true;
+      fragment.appendChild(group);
+    }
   });
 
   fragment.appendChild(bar);

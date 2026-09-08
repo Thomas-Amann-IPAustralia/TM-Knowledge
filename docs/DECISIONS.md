@@ -2877,3 +2877,95 @@ reported as gaps, which is the check that the rule is not just softening bad new
 3. Any future question naming an excluded term gets the same treatment
    automatically, which is right: naming the boundary is a legitimate thing for a
    test question to do.
+
+---
+
+## ADR-0076 — A question's state is on its collapsed row, and settled questions fold away
+
+**Date** 2026-09-08 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** The owner reported that the form said ten decisions were waiting on
+him and that the first question he opened told him he had already answered it.
+Both were true. The count filtered on `status: open` and `needs: owner`; the list
+below it rendered every question in the theme, in file order, with identical
+chips (Q-46). Five answered questions therefore sat above the three still open in
+the first theme. Worse, the card computed a single `parked` boolean as *"not open
+and mine"* and printed **needs a trade marks expert** under it — so an answered
+question was labelled as waiting on someone who was never asked.
+
+**Decision.** Three states — `waiting`, `parked`, `answered` — derived in one
+place from `status` and `needs`, and every rendering reads that:
+
+1. The collapsed row leads with a chip naming the state. Urgency (*unblocks
+   work*) is shown only while a question is still open, because an urgency on
+   something settled is the same false claim in a smaller font.
+2. Within a theme, open questions come first, parked next, and answered ones go
+   behind a fold labelled *"n questions here are settled — kept for the record"*.
+3. Each theme heading carries a computed tally. No blurb states a count of its
+   own questions, and a test fails if one does.
+4. Only a `waiting` question gets an answer control, which was already true and
+   is now expressed as the same state rather than as a second boolean.
+
+**Why answered questions stay on the page.** Removing them would make the page
+agree with itself for the wrong reason. The queue's value is that nothing quietly
+disappears — the owner can see what he decided, when, and whether it has been
+acted on. Folding costs one click and keeps the top of every section actionable.
+
+**What is provisional.** The requirement is not: a page that presents a settled
+question as waiting is making a claim the repository does not support, and that
+is rule 6. The *fold* is a judgement about the owner's attention that he has not
+been asked about, and it is flagged in `HANDOFF.md` under open questions rather
+than sent to the queue — adding an eleventh question about the queue's ergonomics
+works against the problem he actually reported.
+
+**Consequences.**
+
+1. `site/inbox.js` no longer has a `parked` boolean meaning *"not yours"*. Cards
+   carry `data-question` and a `s-<state>` class, so the rendering is checkable.
+2. `PARKED_LABEL` distinguishes `expert` from `organisation`. Nothing in the
+   queue is `organisation` today; the label exists because the schema allows it
+   and the previous code would have mislabelled it.
+3. The header badge, the stat tiles and the per-theme tallies now all count the
+   same predicate.
+
+---
+
+## ADR-0077 — A question answered outside the form must record where the answer is
+
+**Date** 2026-09-08 · **Authority** derived · **Status** accepted
+
+**Context.** Ten questions carry `status: answered`. Seven are evidenced by
+`review/rulings/2026-09-08-issue-12.yaml`, which the form composed and
+`tmk-ruling` transcribed. The other three — OQ-0014, OQ-0015, OQ-0016 — the owner
+typed into issue #12 by hand, and they are transcribed at
+`review/returned/260908-owner-notes-issue-12.md` (ADR-0072 to ADR-0074).
+
+Nothing joined those two facts. The only record that those three had been
+answered was a `#` comment beside `status:` in the question file, invisible to
+the schema and to the site. The dashboard rendered them as answered, showed no
+answer, and — because they are `needs: expert` — offered no control either. A
+question in that state is indistinguishable from an open one that has lost its
+form.
+
+**Decision.** A question may carry an optional `answered:` block — `date`, `how`,
+`record`, and an optional `applied` — naming the file that holds the answer. The
+card renders it in the same *"You answered this"* panel as a ruling entry.
+`test_an_answered_question_can_show_what_the_answer_was` fails if a question is
+marked answered and neither a ruling nor an `answered:` block says what the
+answer was, and fails if the named record does not exist.
+
+**What this is not.** It is a **pointer**, not a second transcription. The
+owner's words live in one place and this names it. `review/rulings/` remains the
+only thing `tmk-ruling` writes and the only thing that may not be hand-edited;
+`answered:` is a session recording, in the question file, that a decision was
+made somewhere else.
+
+**Consequences.**
+
+1. `status: answered` is now a checkable claim rather than an assertion a session
+   can make on its own say-so, which is rule 4 applied to the queue itself.
+2. The three questions are visibly answered on the site, with a link to the
+   owner's own words.
+3. A future answer arriving off-form — a meeting, an email, a decision recorded
+   in `review/decisions/` — has somewhere to be recorded without pretending it
+   came through the form.

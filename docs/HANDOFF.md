@@ -3,11 +3,29 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-08 · session S012 · branch `claude/review-dashboard-responses-lwd7ga`
+**Last updated:** 2026-09-08 · session S013 · branch `claude/decisions-dashboard-accuracy-yqghjw`
 
 ---
 
 ## 1. Where the project actually is
+
+**S013 fixed the form, and settled a question about the pipeline that this file
+had been answering wrongly.** The owner reported that the dashboard said ten
+decisions were waiting on him while the first question he opened said *"You
+answered this"*, and asked whether the published site was stale. **It was not.**
+`pages` ran on the merge commit and the deployed `data/inbox.json` matches the
+repository byte for byte; the count of ten was correct too. The list *under* the
+count rendered every question in a theme identically and in file order, so five
+answered ones sat above the three still open, and the card printed *needs a trade
+marks expert* on anything that was not open-and-his — answered questions included
+(Q-46, ADR-0076). Three questions he answered by hand had no record of the answer
+anywhere a machine could see it (ADR-0077). Nothing about the ontology, the
+graph, the gold set or the queue's contents moved.
+
+**Two corrections to what §2 used to say.** GitHub Pages *is* on and serving —
+that item is struck out below. And `.github/workflows/pages.yml` has carried
+`workflow_dispatch` since it was written, so the owner can rebuild the site from
+the Actions tab whenever he wants; nobody had told him.
 
 **The loop closed. The owner answered, and every answer has been acted on.**
 Issue #12, 2026-09-08: seven answers through the form and three more typed in by
@@ -174,11 +192,15 @@ OQ-0014 moved the *scope rule* forward and did not write the *scope document*.
    `rule-0001-flags.md`, `concept-typing.md`, `boundary.md`.
 5. **Keep the pin current**, and note that bumping it now also churns the two
    large committed graph files. `tmk-graph --rules --check` will say so.
-6. **Turn on GitHub Pages.** Still the one repository setting an agent cannot
-   make: Settings → Pages → Build and deployment → **Source: GitHub Actions**.
-   Until then `.github/workflows/pages.yml` runs green and publishes nothing, and
-   every dashboard link in this file 404s — including the ones the owner is being
-   asked to read.
+6. ~~**Turn on GitHub Pages.**~~ **Done — verified S013.** The source is
+   `GitHub Actions`, the workflow deploys, and
+   <https://thomas-amann-ipaustralia.github.io/TM-Knowledge/> serves the current
+   commit's data. Every dashboard link in this file resolves. **Check it rather
+   than assuming, in one command:** `curl -s
+   https://thomas-amann-ipaustralia.github.io/TM-Knowledge/data/inbox.json | diff
+   - site/data/inbox.json`. The footer's *"Generated …"* stamp says the same thing
+   to a reader. The site can also be rebuilt on demand — Actions → **pages** →
+   *Run workflow* — which `workflow_dispatch` in `pages.yml` has always allowed.
 
 **Do not** build a retrieval layer, a search index or a vector store (Stages 7–8).
 **Do not** start Stage 2 — ADR-0010 is untouched. **Do not** promote a module out
@@ -226,6 +248,8 @@ a record, owner review and TM-expert review become indistinguishable in the
 record.** That was the owner's call, made knowing it; it is recorded here rather
 than in an ADR because nothing has been signed yet.
 
+| Q26 | **New, S013.** **ADR-0076** is `agent-proposed` in one part only. That the form must not present a settled question as one waiting on you is not a judgement — it is rule 6, and the owner reported it himself. What he has *not* been asked is whether answered questions should fold away behind a summary line, stay expanded in place, or leave the page once they are settled. The fold was chosen because the queue's value is that nothing quietly disappears and the top of every section should still be actionable; reading what he decided costs one click. **Deliberately not put in `open-questions.yaml`**: adding an eleventh question about the ergonomics of the question list works against the problem he reported. A word on any submission changes it. | Nothing | S013 |
+
 **S012's own ADRs.** `human`: **0068** (RULE-0002 approved), **0070** (commit the
 whole graph), **0071** (concept types), **0072** (the one-hop boundary), **0073**
 (a glossary does not capture it), **0074** (three sources for a definition),
@@ -241,7 +265,7 @@ declined — see ADR-0041), **0029, 0030, 0032, 0033, 0035, 0036, 0037**,
 Q15), **0048's first two judgement calls** (Q18; the third is answered by
 ADR-0052), **0051's two-operation limit** (Q20), **0054** (Q21), **0055's
 third guard** (Q22), **0060** (Q23), **0061** (Q24) and **0063, 0064, 0065,
-0066** (Q25). **ADR-0062 is `human`** — the dashboard is the owner's
+0066** (Q25) and **0076's fold** (Q26). **ADR-0062 is `human`** — the dashboard is the owner's
 instruction, quoted in the ADR. ADR-0044, ADR-0045, ADR-0047, ADR-0049, ADR-0050 and
 **ADR-0053** are `derived`. **ADR-0052 is `human`.**
 (0006, 0012, 0014, 0024, 0026, 0027 confirmed S006 — ADR-0040; 0016 and 0018
@@ -445,6 +469,30 @@ relevance grade each. The scoped workbook for all ten is rendered.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S013 — 2026-09-08 — the count was right, the list under it was not
+
+The owner asked why the dashboard said ten decisions were waiting on him when the
+first one he opened said *"You answered this"*, and whether the published site
+was simply stale. **Checking that first was the whole value of the session.** It
+was not stale: `pages` had run on the merge commit and the live
+`data/inbox.json` matched the repo byte for byte. The count was right as well.
+What was wrong was the list — it filtered on nothing, so answered questions sat
+above open ones wearing the same chips, and a `parked` boolean meaning *"not open
+and yours"* printed **needs a trade marks expert** on questions he had answered
+himself.
+
+Fixed by giving a question one state, derived once and read everywhere: state on
+the collapsed row, settled ones behind a fold, and a tally per theme so no blurb
+counts its own questions (ADR-0076). Three questions answered by hand carried
+their only evidence in a YAML comment; `answered:` now names the record, and a
+test refuses `status: answered` that nothing can back (ADR-0077).
+
+**Two things this cost nothing to learn.** GitHub Pages has been on since S011,
+and `pages.yml` has always had `workflow_dispatch` — §2 item 6 said otherwise for
+two sessions. And a `#` in an unquoted YAML scalar silently ate half a sentence
+on the way in (Q-47). 454 tests pass; nothing in the ontology, graph, gold set or
+queue contents moved.
 
 ### S012 — 2026-09-08 — the loop closed, and the numbers in it were wrong
 

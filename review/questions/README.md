@@ -43,6 +43,25 @@ The schema enforces what a machine can check. The rest is the actual work:
 it, and leave it. The ruling file in `review/rulings/` and the question it
 answers should still be readable side by side a year later.
 
+**`status: answered` has to be backed by something a machine can find.** Usually
+that is an entry in a `review/rulings/` file, which the dashboard joins up on its
+own. When the answer arrived some other way — typed into the issue by hand, said
+in a meeting — add an `answered:` block naming the file that holds it:
+
+```yaml
+    answered:
+      date: '2026-09-08'
+      how: 'You typed the answer into issue #12 by hand, outside the form.'
+      record: review/returned/260908-owner-notes-issue-12.md
+      applied: true
+```
+
+It is a **pointer, not a second transcription** — the answer itself lives in one
+place and this names it. A comment beside `status:` does not count: three
+questions were marked answered that way and the site showed them as answered with
+nothing under them (ADR-0077). A test now fails on a question marked answered that
+neither a ruling nor an `answered:` block can account for.
+
 ## What must not go in here
 
 A question with a right answer that an agent could find. A question that is

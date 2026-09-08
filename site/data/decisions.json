@@ -1,14 +1,14 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "75 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "77 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 75,
+     "value": 77,
      "note": null,
      "tone": null,
      "href": null
@@ -22,7 +22,7 @@
     },
     {
      "label": "Forced by the evidence",
-     "value": 16,
+     "value": 17,
      "note": "defensible without a human",
      "tone": null,
      "href": null
@@ -77,6 +77,62 @@
     }
    ],
    "rows": [
+    {
+     "id": "`ADR-0077`",
+     "title": "A question answered outside the form must record where the answer is",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0077 A question answered outside the form must record where the answer is derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "Ten questions carry `status: answered`. Seven are evidenced by `review/rulings/2026-09-08-issue-12.yaml`, which the form composed and `tmk-ruling` transcribed. The other three — OQ-0014, OQ-0015, OQ-0016 — the owner typed into issue #12 by hand, and they are transcribed at…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0077-a-question-answered-outside-the-form-must-record-where-the-answer-is)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0076`",
+     "title": "A question's state is on its collapsed row, and settled questions fold away",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0076 A question's state is on its collapsed row, and settled questions fold away agent-proposed accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner reported that the form said ten decisions were waiting on him and that the first question he opened told him he had already answered it. Both were true. The count filtered on `status: open` and `needs: owner`; the list below it rendered every question in the theme, in file order, with identical chips (Q-46).…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0076-a-questions-state-is-on-its-collapsed-row-and-settled-questions-fold-away)"
+      }
+     ]
+    },
     {
      "id": "`ADR-0075`",
      "title": "A label the vocabulary deliberately excludes is a boundary, not a gap",
