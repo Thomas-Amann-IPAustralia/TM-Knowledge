@@ -80,9 +80,14 @@ The one-way rule holds and gained a stage: `review/ → authored/ → eval/gold/
 and only the last hop needs a recorded human decision (ADR-0007, ADR-0080).
 Nothing flows back into `data/upstream/`.
 
-**The graph reads both stores.** A fully populated ontology does not wait for
-review — but every node carries where it came from, and no figure anywhere sums
-signed and authored records into one count (ADR-0080 consequence 3).
+**The graph reads both stores**, and since S016 it does (ADR-0091). One mapping,
+run twice, into two named graphs: `graph/approved.ttl` from `eval/gold/` and
+`graph/authored.ttl` from `authored/`. Every node of both carries `tmk:origin`
+and `tmk:reviewStatus`; an authored relationship is a `tmk:AuthoredAssertion` and
+never a `tmk:ApprovedAssertion`, so a query naming the second class cannot reach
+the first. A fully populated ontology does not wait for review — but no figure
+anywhere sums signed and authored records into one count (ADR-0080
+consequence 3).
 
 ## 3. Directory map
 
@@ -92,7 +97,7 @@ signed and authored records into one count (ADR-0080 consequence 3).
 | `eval/` | Competency questions, gold set, prohibited uses, harness, schemas | 0, and every stage after | `eval/gold/` **frozen** at 190 signed records as the measurement yardstick (ADR-0080). No pilot scope — the whole Manual is in scope (ADR-0081) |
 | `data/` | Pinned upstream snapshot and derived intermediates | 1 (consumed) | Git-ignored except the pin manifest |
 | `src/` | `tm_knowledge` Python package — all pipeline code | 2–10 | Stage 0 apparatus built; nothing for 2+ |
-| `authored/` | **Machine-authored legal content, stamped `unreviewed`** (ADR-0079) | 0, 3, 4, 5 | The main knowledge store since 2026-09-08. Never read as validated |
+| `authored/` | **Machine-authored legal content, stamped `unreviewed`** (ADR-0079) | 0, 3, 4, 5 | The main knowledge store since 2026-09-08. Never read as validated. Read by `tm_knowledge.authored.store` and by nothing else; a record whose envelope does not validate is refused and named, never skipped (ADR-0089) |
 | `review/` | Candidate registers awaiting human decision | 2, 3, 4 | A proposal with a score, not a committed judgement |
 | `review/seed/` | Stage 0 example records, machine-written for expert correction (ADR-0043) | 0 | **Retired** — backlog resolved by authoring (ADR-0084) |
 | `review/returned/` | Marked-up artefacts a person handed back (ADR-0050) | 0 | Inputs. Never edited, never regenerated |
@@ -100,7 +105,7 @@ signed and authored records into one count (ADR-0080 consequence 3).
 | `vocab/` | SKOS controlled vocabulary | 3 | Approved only. Empty — the concepts are in `graph/approved.ttl`, built from `eval/gold/`, not promoted here |
 | `ontology/` | RDF/RDFS/OWL 2 RL modules | 5 | Approved only. **Empty** |
 | `ontology/draft/` | The candidate ontology — 9 modules, none approved | 5 | ADR-0057. Promoted one module at a time, on a recorded decision |
-| `graph/` | Generated RDF, by named graph | 6 | Generated. `approved.ttl` and `inferred.ttl` committed; `source.ttl` and `dataset.nq` are not (ADR-0060) |
+| `graph/` | Generated RDF, by named graph | 6 | Generated, and all of it committed (ADR-0070, supersedes ADR-0060). Four graphs: `source`, `approved`, `authored` (ADR-0091), `inferred` |
 | `shapes/` | SHACL shapes | 6 | Gate before publication. Every shape has a violating fixture |
 | `queries/` | SPARQL queries, `CONSTRUCT` rules, regression queries | 6, 9 | Each rule needs an approval record; both current rules are `PENDING` |
 | `tests/` | pytest: unit, SPARQL regression, retrieval benchmarks | all | Includes the prohibited-inference tests |
@@ -184,7 +189,11 @@ every baseline measured before it.
    source. An assertion whose `source_content_hash` no longer matches upstream is
    stale and must be re-reviewed, not silently carried forward.
 2. **Separation of candidate from approved** (ADR-0007), enforced by named graph
-   and by directory.
+   and by directory — and since ADR-0079 the separation that matters most is
+   signed from authored, enforced the same two ways plus a third: a stamp on
+   every node, because a triple copied out of its named graph into a report, a
+   prompt or a flattened union has left the boundary behind and the stamp is
+   what survives (ADR-0091).
 3. **Reproducibility.** `graph/` is generated. Given the pinned snapshot, the
    approved inputs and the code, a rebuild produces the same graph. Hand-edited
    RDF in `graph/` breaks this and is prohibited.

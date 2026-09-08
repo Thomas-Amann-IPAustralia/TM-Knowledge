@@ -34,6 +34,7 @@ from urllib.parse import unquote
 from rdflib import Graph, URIRef
 from rdflib.namespace import OWL, RDF, RDFS, SH
 
+from tm_knowledge.authored import store as authored_store
 from tm_knowledge.config import DEFAULT_BASE_IRI, PIN_PATH, REPO_ROOT
 from tm_knowledge.dashboard import blocks, questions as questions_module, sources
 from tm_knowledge.ontology import ask as ask_module
@@ -102,9 +103,16 @@ class Facts:
     """Everything read off disk, once, before any page is composed."""
 
     gold: goldset.GoldSet
+    #: What `authored/` holds. Read beside the gold set and never added to it —
+    #: every figure on the site that could be a sum is a pair instead
+    #: (ADR-0080 consequence 4).
+    authored: authored_store.AuthoredSet
     modules: dict[str, Graph]
     tbox: Graph
     approved: Graph
+    #: The fourth named graph. Committed and read like the others; empty until
+    #: something is authored, which is a true state and not a missing file.
+    authored_graph: Graph
     inferred: Graph
     shapes: dict[str, Graph]
     queries: tuple[ask_module.CompetencyQuery, ...]
@@ -143,9 +151,11 @@ def gather() -> Facts:
 
     return Facts(
         gold=goldset.load(),
+        authored=authored_store.load(),
         modules=modules,
         tbox=tbox.load(),
         approved=_read_graph(REPO_ROOT / "graph" / "approved.ttl"),
+        authored_graph=_read_graph(REPO_ROOT / "graph" / "authored.ttl"),
         inferred=_read_graph(REPO_ROOT / "graph" / "inferred.ttl"),
         shapes=shapes,
         queries=ask_module.load_queries(),
@@ -248,31 +258,63 @@ def _overview(facts: Facts) -> dict[str, Any]:
             )
         )
 
+    authored = facts.authored
+
+    def _pair(record_type: str) -> str:
+        """`52 signed · 0 authored` — the note under a headline number.
+
+        A pair, never a sum. ADR-0080 consequence 4: a reader must be able to
+        see, without asking, how much of what they are looking at a person has
+        read. One number cannot say that, and the number it would say is the
+        flattering one.
+        """
+        return f"{gold.count(record_type)} signed · {authored.count(record_type)} authored"
+
     page["blocks"] += [
         blocks.stats(
             [
-                {"label": "Approved records", "value": gold.total,
+                {"label": "Records a person signed", "value": gold.total,
                  "note": "every one signed by a named reviewer, with a date", "tone": "good"},
+                {"label": "Records a machine wrote", "value": authored.total,
+                 "note": "none of them read by an expert — usable, never validated",
+                 "tone": "warn" if authored.total else "muted"},
                 {"label": "Legal ideas", "value": gold.count("gold_concept"),
-                 "note": "target 50–100", "tone": _band(gold.count("gold_concept"), 50, 100),
+                 "note": f"target 50–100 · {_pair('gold_concept')}",
+                 "tone": _band(gold.count("gold_concept"), 50, 100),
                  "href": "#/vocabulary"},
                 {"label": "Relationships", "value": gold.count("gold_relationship"),
-                 "note": "target 50–100", "tone": _band(gold.count("gold_relationship"), 50, 100)},
+                 "note": f"target 50–100 · {_pair('gold_relationship')}",
+                 "tone": _band(gold.count("gold_relationship"), 50, 100)},
                 {"label": "Named things found in the text", "value": gold.count("gold_entity"),
-                 "note": "target 100–300", "tone": _band(gold.count("gold_entity"), 100, 300)},
+                 "note": f"target 100–300 · {_pair('gold_entity')}",
+                 "tone": _band(gold.count("gold_entity"), 100, 300)},
                 {"label": "Questions it must answer", "value": gold.count("competency_question"),
-                 "note": f"{len(facts.queries)} answerable today", "href": "#/questions"},
+                 "note": f"{len(facts.queries)} answerable today · "
+                         f"{_pair('competency_question')}", "href": "#/questions"},
                 {"label": "Things it must never say", "value": gold.count("prohibited_use"),
-                 "note": "tested as explicitly as the right answers", "href": "#/limits"},
+                 "note": f"tested as explicitly as the right answers · "
+                         f"{_pair('prohibited_use')}", "href": "#/limits"},
             ],
-            note="Counts are read from `eval/gold/` at build time. A target band comes from the "
-                 "roadmap; a number below its band is shown as a gap, not smoothed over.",
+            note="The headline number on every record row is the **signed** count, read from "
+                 "`eval/gold/`; the note beside it says how many more a machine wrote and "
+                 "nobody has read, from `authored/`. The two are never added — a single "
+                 "figure would answer *how much of this has a person checked* in the one "
+                 "direction that matters (ADR-0080). A target band comes from the roadmap, "
+                 "is measured against the signed count alone, and a number below its band is "
+                 "shown as a gap rather than smoothed over.",
         ),
         blocks.prose(
             "### How to read this site\n\n"
-            "**Approved** means a named person signed a record on a date. That is the only "
-            "kind of knowledge this project treats as true. Everything a machine proposes is a "
-            "{{Candidate}} and is kept in a separate place, in a separate file, with a label on it.\n\n"
+            "**Approved** means a named person signed a record on a date. It is the only "
+            "thing on this site that a human being has checked.\n\n"
+            "**Unreviewed** means a machine wrote it and nobody has read it. Since "
+            "2026-09-08 that is most of what the system knows, and it is deliberate: an "
+            "expert corrects a populated ontology far faster than they fill an empty one "
+            "(ADR-0079). Unreviewed content may be relied on and may be shown — it never "
+            "becomes approved by being old, by being unchallenged, or by having been in a "
+            "review round somebody worked through. Only a signature moves it (ADR-0086). "
+            "It lives in its own directory and its own named graph, and every count on this "
+            "site reports it apart from the signed one.\n\n"
             "**Draft** means the model itself has not been approved. The nine {{Ontology}} modules "
             "are a proposal about how to describe this material; the content underneath them is "
             "signed, the shape around it is not.\n\n"
@@ -289,6 +331,10 @@ def _overview(facts: Facts) -> dict[str, Any]:
                  "note": "generated from approved relationships, never hand-written"},
                 {"label": "Statements stored", "value": len(facts.approved),
                  "note": "each traceable to a signed record", "tone": "good"},
+                {"label": "Statements a machine wrote", "value": len(facts.authored_graph),
+                 "note": "a separate named graph — no query for signed knowledge "
+                         "reaches them",
+                 "tone": "warn" if len(facts.authored_graph) else "muted"},
                 {"label": "Machine-derived statements", "value": len(facts.inferred),
                  "note": "all quarantined — no rule is approved", "tone": "warn"},
                 {"label": "Checks in the publication gate", "value": _shape_count(facts),
@@ -641,6 +687,9 @@ def _graph_page(facts: Facts) -> dict[str, Any]:
                 [
                     {"label": "Approved statements", "value": len(facts.approved),
                      "note": "each traceable to a signed record", "tone": "good"},
+                    {"label": "Authored statements", "value": len(facts.authored_graph),
+                     "note": "each traceable to an authored record nobody has read",
+                     "tone": "warn" if len(facts.authored_graph) else "muted"},
                     {"label": "Machine-derived statements", "value": len(facts.inferred),
                      "note": "every one marked 'needs a human'", "tone": "warn"},
                     {"label": "Kinds of thing held", "value": len(populated),
