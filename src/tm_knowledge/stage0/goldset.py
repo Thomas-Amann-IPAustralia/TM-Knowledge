@@ -38,6 +38,7 @@ GOLD_FILES: dict[str, str] = {
     "retrieval-questions.yaml": "gold_retrieval_question",
     "reasoning-expected.yaml": "reasoning_expectation",
     "prohibited-uses.yaml": "prohibited_use",
+    "concept-types.yaml": "concept_type",
 }
 
 #: Record type -> filename. Built from the map above so the two cannot diverge.

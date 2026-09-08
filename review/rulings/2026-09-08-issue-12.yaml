@@ -1,0 +1,51 @@
+# A decision the repo owner made, transcribed from the GitHub issue named
+# below by `tmk-ruling`. Do not hand-edit the answers: the issue is the
+# artefact, this is the transcription (review/rulings/README.md).
+#
+# A session that acts on this fills in `applied:` and says what it did.
+schema: tmk-ruling/1
+received_utc: '2026-09-08T00:52:41Z'
+questions_updated: '2026-09-04'
+issue:
+  author: Thomas-Amann-IPAustralia
+  number: 12
+  title: Decisions from the dashboard — 7 answers
+  url: https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/issues/12
+applied: null
+answers:
+- id: OQ-0001
+  question: Are these four groups the right way to sort the 52 legal ideas?
+  kind: choice
+  value: four_groups_right
+  label: Use those four groups — come back to me with the list of 52 to sort
+- id: OQ-0002
+  question: '"Deceptively similar" — a section 43 idea, or a section 44 one?'
+  kind: choice
+  value: not_in_scope
+  label: It belongs to section 44 — keep it out, the question is using it as a boundary marker
+- id: OQ-0003
+  question: 'Approve or reject the first automatic rule: the mixed-authority flag'
+  kind: choice
+  value: show_me
+  label: Show me the 71 flagged passages first
+- id: OQ-0004
+  question: 'Approve or reject the second automatic rule: the change-impact links'
+  kind: choice
+  value: approve
+  label: Approve it — its links may be relied on
+- id: OQ-0005
+  question: Should the large generated data files be stored in the repository?
+  kind: choice
+  value: commit_everything
+  label: Store everything, so the graph can be read without building it
+- id: OQ-0009
+  question: Should we obtain the actual court decisions the Manual cites?
+  kind: choice
+  notes: In scope, use the queryable DB listed in this repo "https://github.com/Thomas-Amann-IPAustralia/IP-Decision-Data/tree/main".
+    Extract the relevant rulings and store them.
+  label: no option chosen — the answer is in the note
+- id: OQ-0010
+  question: Who may sign knowledge off as approved?
+  kind: choice
+  value: same_as_expert
+  label: Keep it as it is — my approvals look the same as an expert's

@@ -632,3 +632,44 @@ def seed(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":  # pragma: no cover
     raise SystemExit(recon())
+
+
+def typing(argv: list[str] | None = None) -> int:
+    """`tmk-typing` — the concept typing pass, for one person to sort."""
+    parser = argparse.ArgumentParser(
+        prog="tmk-typing",
+        description=(
+            "Lay out the approved concepts for sorting into the four groups. Supplies the "
+            "shape and the evidence; never the type."
+        ),
+    )
+    parser.add_argument("--write", action="store_true", help="write the workbook and the report")
+    parser.add_argument("--out", type=Path, default=None, help="workbook path")
+    parser.add_argument("--generated", default=None, help="build stamp, for a reproducible run")
+    args = parser.parse_args(argv)
+
+    from tm_knowledge.stage0 import typing as typing_module
+
+    prepared = typing_module.rows()
+    sorted_already = [row for row in prepared if row.get("type")]
+    print(
+        f"{len(prepared)} approved concepts, {len(sorted_already)} already sorted, "
+        f"{len(prepared) - len(sorted_already)} waiting"
+    )
+    for value, meaning in typing_module.GROUPS:
+        count = sum(1 for row in sorted_already if row.get("type") == value)
+        print(f"  {value:<18} {count:>3}   {meaning}")
+
+    if not args.write:
+        print("\n(dry run — nothing written. Pass --write.)")
+        return 0
+
+    book = typing_module.write_workbook(args.out, generated=args.generated)
+    report = typing_module.write_report(generated=args.generated)
+    print(f"\nwrote {book}")
+    print(f"wrote {report}")
+    print(
+        "\nFill the `type` column, sign the row, and hand the file back. "
+        "`tmk-transcribe <file> --write` reads it into eval/gold/concept-types.yaml."
+    )
+    return 0

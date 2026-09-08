@@ -81,6 +81,9 @@ class BuildReport:
     citations: int = 0
     unresolved_citations: int = 0
     concepts: int = 0
+    #: Concepts a person has sorted into one of the four groups (ADR-0071). The
+    #: gap between this and `concepts` is what OQ-0001 exists to close.
+    concept_types: int = 0
     relationships: int = 0
     mentions: int = 0
     questions: int = 0
@@ -108,6 +111,8 @@ class BuildReport:
             f"{self.prohibited_uses} prohibited uses)",
             f"citations      {self.citations:>7}  of which {self.unresolved_citations} "
             f"land on nothing this corpus holds",
+            f"concept types  {self.concept_types:>7}  of {self.concepts} concepts sorted "
+            f"into a group; {self.concepts - self.concept_types} still flat (OQ-0001)",
         ]
         for label, items in (
             ("gold records outside the worksheet scope", self.out_of_scope_sources),
@@ -416,6 +421,40 @@ def _build_concepts(graph: Graph, gold: goldset.GoldSet, report: BuildReport) ->
         # Deliberately absent: skos:definition. The approved records carry
         # definition sources and no definition text, so neither does the graph.
     report.concepts = gold.count("gold_concept")
+    _apply_concept_types(graph, gold, report)
+
+
+#: `concept_type.type` -> the class it asserts. `none_of_these` is deliberately
+#: absent: it is a real answer about the taxonomy and it asserts no class, so a
+#: concept typed that way stays a bare `tmk:LegalConcept` and is counted as
+#: sorted rather than as waiting.
+CONCEPT_CLASSES: dict[str, str] = {
+    "ground_of_refusal": "GroundOfRefusal",
+    "legal_test": "LegalTest",
+    "relevant_factor": "RelevantFactor",
+    "exception": "Exception",
+}
+
+
+def _apply_concept_types(graph: Graph, gold: goldset.GoldSet, report: BuildReport) -> None:
+    """Put each typed concept into the class a person signed it into.
+
+    The four classes were declared and empty from S010 until somebody ruled.
+    They fill only from `eval/gold/concept-types.yaml`, one signed record per
+    concept — never from a label, a heuristic or a passage this module read.
+    A concept with no type record stays a bare `tmk:LegalConcept`, and that
+    absence is reported rather than defaulted (ADR-0071).
+    """
+    typed = 0
+    for record in gold["concept_type"]:
+        class_name = CONCEPT_CLASSES.get(record.get("type", ""))
+        if class_name is None:
+            continue
+        node = concept_node(record["concept"])
+        graph.add((node, RDF.type, URIRef(TMK[class_name])))
+        graph.add((node, TMK.typedBy, assertion_node(record["id"])))
+        typed += 1
+    report.concept_types = typed
 
 
 def _term(value: str) -> URIRef:

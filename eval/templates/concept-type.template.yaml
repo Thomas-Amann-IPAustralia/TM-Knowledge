@@ -1,0 +1,32 @@
+# Concept type — template (Stage 0)
+#
+# Which of the four groups an approved concept belongs to. One record per
+# concept, and a record of its own rather than a field on the concept: the
+# concept was signed by one person on one date, and this is a second judgement,
+# possibly by somebody else, possibly later (ADR-0071).
+#
+# You will not normally write one of these by hand. `tmk-typing` lays the whole
+# vocabulary out as a spreadsheet with the groups as a dropdown, and
+# `tmk-transcribe` reads it back. This file is what one row becomes.
+#
+# The group is a legal judgement. No tool fills it in, and a blank one is
+# reported as still-to-do rather than defaulted.
+
+id: GT-000
+concept: GC-000                 # the concept this types
+
+# ground_of_refusal — a reason an application can be refused
+# legal_test        — a question the decision maker has to answer
+# relevant_factor   — something that feeds into that answer
+# exception         — something that takes a case out of the rule
+# none_of_these     — the four groups do not fit this one. A real answer: it is
+#                     evidence about the taxonomy, not a gap in the data.
+type:
+
+basis: []                       # refs of the passages the typing rests on, if any
+notes: >
+  Why this group rather than a neighbouring one. The most useful sentence on the
+  record — a bare group name is a claim, and a group name with the reasoning
+  behind it is a judgement somebody else can check.
+approved_by:
+approved_date:

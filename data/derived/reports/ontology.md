@@ -14,7 +14,7 @@ draft is not able to do, and it is the honest half of the demonstration.
 | | |
 |---|---|
 | Pinned snapshot | `Thomas-Amann-IPAustralia/manual-XtrACTor @ c490a9927f1a (ingest/0.11.0, legislation/0.2.0)` |
-| Generated | 2026-09-03 |
+| Generated | 2026-09-08 |
 | Ontology modules | 9, all draft |
 | Classes declared | 49 |
 | Predicates on the closed list | 14, derived from 35 approved relationships |
@@ -129,17 +129,23 @@ legal reading (guide §5.4).
 
 ## 4. What it infers, and under what conditions
 
-2 CONSTRUCT rules, and **neither is approved.** Stage 9 requires an expert to
-approve every reasoning template before deployment; the `approved-by` line in
-both files says `PENDING`, and `tm_knowledge.ontology.rules` enforces the
-consequence rather than trusting the file — everything they produce is written
-with `reviewStatus "candidate"` and `requiresHumanReview true`, into
-`graph/inferred.ttl` and nowhere else.
+2 CONSTRUCT rules: **1 approved, 1 pending.**
+Stage 9 requires a person to approve every reasoning template before deployment.
+The `approved-by` line in each file is the approval record, and
+`tm_knowledge.ontology.rules` reads it rather than trusting the query — a rule
+body may not set its own review status, and an unapproved rule's output is
+stamped `reviewStatus "candidate"` and `requiresHumanReview true`. Approved or
+not, output goes to `graph/inferred.ttl` and nowhere else: approval says an
+inference may be relied on, it does not make it a signed record.
 
-| rule | triples produced | stands on |
-|---|---|---|
-| RULE-0001 | 71 | GX-0001 — the approved reasoning expectation over TMM/Part29/1#1: "The |
-| RULE-0002 | 2244 | CQ-0017 and CQ-0019, the two impact-category competency questions |
+- `RULE-0001` — **pending**. PENDING — the owner asked to see the flagged passages before ruling: "Show me the 71 flagged passages first" (OQ-0003, issue #12, 2026-09-08). The pack is data/derived/reports/rule-0001-flags.md and the re-ask is OQ-0019. Until then everything this produces is stamped tmk:reviewStatus "candidate".
+- `RULE-0002` — **approved**. Thomas-Amann-IPAustralia, 2026-09-08 — "Approve it — its links may be relied on" (OQ-0004, issue #12, transcribed at review/rulings/2026-09-08-issue-12.yaml). The repo owner's approval, which by his own ruling on OQ-0010 is recorded exactly as a trade marks expert's would be. ADR-0068 records what it does and does not settle; the limits line below is untouched by it.
+
+| rule | conclusions | triples | stands on |
+|---|---|---|---|
+| RULE-0001 | 5 | 71 | GX-0001 — the approved reasoning expectation over TMM/Part29/1#1: "The |
+| RULE-0002 | 187 | 2244 | CQ-0017 and CQ-0019, the two impact-category competency questions |
+**Read the first number, not the second.** *Conclusions* is how many things the rule concluded; *triples* counts the provenance carried with them, roughly eight or fourteen per conclusion. Quoting the triple count as if it were the number of findings is how the owner came to be asked to review 71 flagged passages when there are five (Q-41).
 
 RULE-0001 is GX-0001 made executable. It finds the passages that carry both
 quoted legislative text and the Registrar's own practice — the mixture that

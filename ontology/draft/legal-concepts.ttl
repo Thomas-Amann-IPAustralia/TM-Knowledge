@@ -14,16 +14,18 @@
     rdfs:comment """The concept layer, and the module with the largest declared-but-unpopulated
 part of the model.
 
-Every approved concept in `eval/gold/concepts.yaml` becomes a `tmk:LegalConcept`
-and nothing narrower. The subclasses below — GroundOfRefusal, LegalTest,
-RelevantFactor, Exception — are the roadmap's model and they are **empty**,
-because the gold concept record has no type field and deciding that
-'connotation' is a LegalTest rather than a RelevantFactor is a legal judgement
-this repo may not make (CLAUDE.md rule 1).
+Every approved concept in `eval/gold/concepts.yaml` becomes a `tmk:LegalConcept`.
+Whether it is also one of the four subclasses below — GroundOfRefusal, LegalTest,
+RelevantFactor, Exception — depends on a signed record in
+`eval/gold/concept-types.yaml`, and on nothing else. Deciding that 'connotation'
+is a LegalTest rather than a RelevantFactor is a legal judgement this repo may
+not make (CLAUDE.md rule 1); what it may do is hold the answer somebody gives.
 
-That emptiness is the honest state and it is reported as a gap, not hidden. The
-slots exist so an expert can fill them in one pass; a machine filling them would
-produce a taxonomy that reads as authoritative and was authored by nobody."""@en-AU ;
+The owner confirmed the four groups on 2026-09-08 (OQ-0001) and the container
+now exists (ADR-0071). Until a concept has a type record it stays a bare
+`tmk:LegalConcept`, and the count of unsorted concepts is reported by every
+build rather than defaulted away. A machine filling these would produce a
+taxonomy that reads as authoritative and was authored by nobody."""@en-AU ;
     owl:imports <https://data.ipaustralia.gov.au/tmk/ns/authority> ;
     owl:versionInfo "draft — not approved" .
 
@@ -35,22 +37,32 @@ tmk:LegalConcept a owl:Class ;
 tmk:GroundOfRefusal a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
     rdfs:label "Ground of refusal"@en-AU ;
-    rdfs:comment "UNPOPULATED — needs an expert. A statutory basis on which registration may be refused."@en-AU .
+    rdfs:comment "Filled only from a signed record in eval/gold/concept-types.yaml. A statutory basis on which registration may be refused."@en-AU .
 
 tmk:LegalTest a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
     rdfs:label "Legal test"@en-AU ;
-    rdfs:comment "UNPOPULATED — needs an expert. A question the decision maker must answer, with a stated threshold."@en-AU .
+    rdfs:comment "Filled only from a signed record in eval/gold/concept-types.yaml. A question the decision maker must answer, with a stated threshold."@en-AU .
 
 tmk:RelevantFactor a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
     rdfs:label "Relevant factor"@en-AU ;
-    rdfs:comment "UNPOPULATED — needs an expert. Something the decision maker weighs, which does not on its own decide the question."@en-AU .
+    rdfs:comment "Filled only from a signed record in eval/gold/concept-types.yaml. Something the decision maker weighs, which does not on its own decide the question."@en-AU .
 
 tmk:Exception a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
     rdfs:label "Exception"@en-AU ;
-    rdfs:comment "UNPOPULATED — needs an expert. A condition under which a general position does not hold, or is reversed."@en-AU .
+    rdfs:comment "Filled only from a signed record in eval/gold/concept-types.yaml. A condition under which a general position does not hold, or is reversed."@en-AU .
+
+tmk:typedBy a owl:ObjectProperty ;
+    rdfs:label "typed by"@en-AU ;
+    rdfs:domain tmk:LegalConcept ;
+    rdfs:comment """The signed record that put this concept in one of the four groups.
+
+Present so a typed concept can be traced to the person and the date that typed
+it, rather than appearing to have always been a LegalTest. The four classes are
+the one place in this model where a class membership is a human judgement rather
+than a structural fact, so the judgement carries its provenance."""@en-AU .
 
 tmk:LegalProposition a owl:Class ;
     rdfs:label "Legal proposition"@en-AU ;

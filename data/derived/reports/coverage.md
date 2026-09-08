@@ -1,10 +1,10 @@
 # Stage 0 — coverage and gaps
 
-**Generated** 2026-09-02 · **Source** `eval/gold/` against the pinned snapshot `c490a9927f1a` · **Regenerate** `tmk-coverage`
+**Generated** 2026-09-08 · **Source** `eval/gold/` against the pinned snapshot `c490a9927f1a` · **Regenerate** `tmk-coverage`
 
 This report is **derived**. It counts what `eval/gold/` holds against the definition of done in `eval/STAGE-0-INPUT-GUIDE.md` §7, and it names what is absent. It does not propose content for any gap, and it must not be read as doing so: every field it reports as empty is one only a domain expert may fill (CLAUDE.md rule 1, guide §9).
 
-**Status:** 0 defect(s), 12 gap(s), 10 note(s); Stage 0 incomplete.
+**Status:** 0 defect(s), 13 gap(s), 10 note(s); Stage 0 incomplete.
 
 ## 1. The board
 
@@ -19,6 +19,7 @@ This report is **derived**. It counts what `eval/gold/` holds against the defini
 | Search questions | 20–50 | 1 | 19 short |
 | AI retrieval questions | 20–50 | 10 | 10 short |
 | Reasoning expectations | at least 1 | 6 | in band |
+| Concepts sorted into one of the four groups | 50–100 | 0 | 50 short |
 | A threshold against every metric | eval/measures.md | — | not written |
 
 ## 2. Defects
@@ -34,6 +35,7 @@ None. Everything in `eval/gold/` is well formed and lands where it says.
 - **relationships.yaml** — Gold relationships — 35 of 50–100
 - **search-questions.yaml** — Search questions — 1 of 20–50
 - **retrieval-questions.yaml** — AI retrieval questions — 10 of 20–50
+- **concept-types.yaml** — Concepts sorted into one of the four groups — 0 of 50–100
 - **eval/measures.md** — A threshold against every metric — not written
 
 ### Coverage the definition of done requires
@@ -92,6 +94,7 @@ Both lists are read from the schemas, not restated here. §7 requires the set as
 | Record type | File | Records |
 |---|---|---|
 | competency_question | `eval/gold/competency-questions.yaml` (present) | 20 |
+| concept_type | `eval/gold/concept-types.yaml` (absent) | 0 |
 | gold_concept | `eval/gold/concepts.yaml` (present) | 52 |
 | gold_entity | `eval/gold/entities.yaml` (present) | 55 |
 | gold_relationship | `eval/gold/relationships.yaml` (present) | 35 |

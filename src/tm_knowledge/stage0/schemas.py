@@ -37,7 +37,12 @@ from tm_knowledge.refs import InvalidRef, is_ref
 SCHEMA_DIR = REPO_ROOT / "eval" / "schemas"
 TEMPLATE_DIR = REPO_ROOT / "eval" / "templates"
 
-#: Record type -> schema file. The eight Stage 0 record types of the guide §5.
+#: Record type -> schema file. The eight Stage 0 record types of the guide §5,
+#: plus `concept_type` — added S012 when the owner ruled on OQ-0001 that the four
+#: groups are the right way to sort the 52 concepts and asked for the list to
+#: sort. It is a ninth record type rather than a field on the concept, because a
+#: concept was signed by one person on one date and its typing is a second
+#: judgement (ADR-0071).
 RECORD_TYPES: dict[str, str] = {
     "competency_question": "competency-question.schema.json",
     "gold_entity": "gold-entity.schema.json",
@@ -47,6 +52,7 @@ RECORD_TYPES: dict[str, str] = {
     "gold_retrieval_question": "gold-retrieval-question.schema.json",
     "reasoning_expectation": "reasoning-expectation.schema.json",
     "prohibited_use": "prohibited-use.schema.json",
+    "concept_type": "concept-type.schema.json",
 }
 
 #: Record type -> the id prefix its records carry (`IDENTIFIERS.md` §3).
@@ -59,6 +65,7 @@ ID_PREFIXES: dict[str, str] = {
     "gold_retrieval_question": "GA",
     "reasoning_expectation": "GX",
     "prohibited_use": "PU",
+    "concept_type": "GT",
 }
 
 

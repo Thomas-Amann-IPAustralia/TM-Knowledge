@@ -15,12 +15,22 @@ them by name:
 | `search-questions.yaml` | gold search question | 20–50 |
 | `retrieval-questions.yaml` | AI retrieval question | 20–50 |
 | `reasoning-expected.yaml` | reasoning expectation | recorded, each with `must_not_infer` |
+| `concept-types.yaml` | concept type | one per approved concept |
 
 Each file is a **YAML list of records**, validated against `../schemas/`. There is
 no other layout: a record type split across two files, or a file with a name not
 in that table, **stops the harness** rather than being skipped. A gold file
 quietly ignored because its name was misspelt is a set of expert judgements that
 silently did not count.
+
+`concept-types.yaml` is the ninth and is not one of the guide's eight. It was
+added on 2026-09-08 when the owner confirmed the four groups (OQ-0001,
+ADR-0071). Each record puts one approved concept into one of them, and it is a
+separate record rather than a field on the concept because the concept was
+signed by one person on one date and the typing is a second judgement — writing
+it into the signed record would put unsigned content inside a signature.
+`tmk-typing` lays the pass out as a spreadsheet; `tmk-transcribe` reads it back
+through the same single door as everything else here.
 
 `retired-ids.yaml` is the one non-record file, and it is optional. It lists ids
 withdrawn from service so that a later allocation cannot walk back into one —

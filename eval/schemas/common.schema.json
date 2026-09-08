@@ -52,6 +52,7 @@
     "retrieval_id": { "type": "string", "pattern": "^GA-[0-9]{3,}$" },
     "reasoning_id": { "type": "string", "pattern": "^GX-[0-9]{3,}$" },
     "prohibited_id": { "type": "string", "pattern": "^PU-[0-9]{3,}$" },
+    "concept_type_id": { "type": "string", "pattern": "^GT-[0-9]{3,}$" },
     "concept_id_list": {
       "type": "array",
       "items": { "$ref": "#/$defs/concept_id" }
