@@ -1,0 +1,13 @@
+# SHAPE FIXTURE. NOT PROJECT CONTENT. See ../README.md.
+#
+# The `type` below is a placeholder like every other judgement in this directory.
+# Which group a concept belongs in is a legal call, and copying this into
+# eval/gold/ would put an unauthored taxonomy where a signed one belongs.
+id: GT-001
+concept: GC-001
+type: legal_test
+basis:
+  - TMM/Part22/1/1/2
+notes: "«why this group rather than a neighbouring one»"
+approved_by: "«name»"
+approved_date: "2026-08-18"

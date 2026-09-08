@@ -45,6 +45,7 @@ FIXTURE_TYPES = {
     "gold-retrieval-question": "gold_retrieval_question",
     "reasoning-expectation": "reasoning_expectation",
     "prohibited-use": "prohibited_use",
+    "concept-type": "concept_type",
 }
 
 #: The word each malformed fixture's failure must mention. Named per file, so a
@@ -102,9 +103,13 @@ def test_every_malformed_fixture_is_covered_by_a_stated_reason():
     assert stems == set(EXPECTED_FAILURE)
 
 
-def test_all_eight_record_types_have_a_schema_and_a_fixture():
+def test_every_record_type_has_a_schema_and_a_fixture():
+    """Nine now: the guide's eight, plus `concept_type`, added S012 when the
+    owner confirmed the four groups (OQ-0001, ADR-0071). The count is asserted
+    rather than derived so that adding a record type is a deliberate act with a
+    decision behind it — a tenth appearing silently is the thing to catch."""
     assert set(RECORD_TYPES) == set(ID_PREFIXES)
-    assert len(RECORD_TYPES) == 8
+    assert len(RECORD_TYPES) == 9
     fixtures = {_record_type(p) for p in (FIXTURES / "valid").glob("*.yaml")}
     assert fixtures == set(RECORD_TYPES)
 
@@ -124,6 +129,7 @@ def _template_records() -> dict[str, dict]:
         "gold_retrieval_question": gold["retrieval_question"],
         "reasoning_expectation": _load(TEMPLATES / "reasoning-expectation.template.yaml"),
         "prohibited_use": _load(TEMPLATES / "prohibited-use.template.yaml"),
+        "concept_type": _load(TEMPLATES / "concept-type.template.yaml"),
     }
 
 

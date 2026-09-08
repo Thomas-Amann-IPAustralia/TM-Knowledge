@@ -19,7 +19,7 @@ file's (CLAUDE.md rule 1).
 | Still in `review/seed/` | 178 |
 | Of those, holding at least one other | 11 |
 | Decisions on the critical path | 10 |
-| Generated | 2026-09-02 |
+| Generated | 2026-09-08 |
 
 ## Why each one is held
 

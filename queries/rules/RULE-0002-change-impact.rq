@@ -1,7 +1,7 @@
 # rule: RULE-0002
 # derives: tmk:impactedBy — every approved record that would have to be re-read if a given Manual passage changed, because the record was read out of that passage or names it as a definition source.
 # basis: CQ-0017 and CQ-0019, the two impact-category competency questions. The edges it walks are the ones already in the approved graph; the rule materialises the closure so an impact answer is a lookup rather than a traversal written afresh each time.
-# approved-by: PENDING — a candidate. Everything it produces carries tmk:reviewStatus "candidate" and tmk:requiresHumanReview true.
+# approved-by: Thomas-Amann-IPAustralia, 2026-09-08 — "Approve it — its links may be relied on" (OQ-0004, issue #12, transcribed at review/rulings/2026-09-08-issue-12.yaml). The repo owner's approval, which by his own ruling on OQ-0010 is recorded exactly as a trade marks expert's would be. ADR-0068 records what it does and does not settle; the limits line below is untouched by it.
 # fires-test: tests/unit/test_rules.py::test_rule_0002_fires_for_a_passage_with_dependants
 # near-miss-test: tests/unit/test_rules.py::test_rule_0002_does_not_fire_for_an_unreferenced_passage
 # limits: Impact by *recorded dependency*, and nothing else. A passage that discusses the same subject without being cited by a record is invisible to it, which is the known shape of the gap (Q-28): a term's definition is usually not in a passage that cites anything, so the material a scope rule finds and the material a topic actually spans are not the same set. Reading a nil result as "nothing is affected" is the error this limits line exists to prevent.
@@ -19,8 +19,6 @@ CONSTRUCT {
              tmk:derivedFrom ?dependant ;
              tmk:derivedFrom ?passage ;
              tmk:inferenceKind "impact" ;
-             tmk:reviewStatus "candidate" ;
-             tmk:requiresHumanReview true ;
              tmk:extractionMethod "construct_rule" .
   ?dependant tmk:impactedBy ?passage .
 }

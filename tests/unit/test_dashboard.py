@@ -18,6 +18,8 @@ an agent deciding what a person meant (CLAUDE.md rule 6).
 from __future__ import annotations
 
 import json
+import re
+import sys
 
 import pytest
 
@@ -106,6 +108,40 @@ def test_a_parked_question_is_not_put_to_the_owner():
     owner cannot decide invites an answer that then has to be unpicked."""
     for question in questions.load().by_status("parked"):
         assert not question.is_asked
+
+
+@pytest.mark.snapshot
+@pytest.mark.rdf
+def test_no_question_quotes_a_rule_triple_count_as_a_finding_count():
+    """Where the number the owner acts on comes from.
+
+    OQ-0003 told him RULE-0001 "produced 71 flags" and asked him to review 71
+    passages. 71 is the size of the graph the rule builds; it flags five. The
+    triple count was read off a generated table, where it is correctly headed
+    *triples*, and written into the question as a count of findings (Q-44).
+
+    A question may legitimately quote a triple count — as rows of data, as
+    storage — so this checks the pairing, not the number: no rule's triple count
+    may sit next to a word that makes it sound like a count of findings.
+    """
+    from tm_knowledge.ontology import rules as rules_module
+    from tm_knowledge.ontology.build import build
+
+    dataset, _ = build()
+    _dataset, counts = rules_module.apply_rules(dataset)
+    text = questions.QUESTIONS_PATH.read_text(encoding="utf-8")
+    finding_words = r"(?:flags?|flagged|passages|links?|findings?|results?|of them)"
+    for rule_id, got in counts.items():
+        if got.triples == got.assertions:
+            continue
+        pattern = re.compile(
+            rf"\b{got.triples:,}\b\s*{finding_words}|\b{got.triples}\b\s*{finding_words}"
+        )
+        found = pattern.search(text)
+        assert not found, (
+            f"open-questions.yaml calls {rule_id}'s triple count ({got.triples:,}) a count of "
+            f"{found.group(0)!r}. It concludes {got.assertions}. Quote the conclusion count."
+        )
 
 
 def test_a_question_missing_its_plain_language_framing_is_refused(tmp_path):
@@ -265,6 +301,71 @@ def test_an_edited_submission_replaces_its_earlier_transcription(tmp_path):
     )
     assert not first.exists() and second.exists()
     assert len(list(tmp_path.glob("*.yaml"))) == 1
+
+
+def test_the_transcription_path_does_not_need_the_rdf_extra(monkeypatch):
+    """`tmk-ruling` runs in a workflow that installs the core three dependencies
+    and nothing else. It imported the graph builder at module scope, and so
+    rdflib — the optional `[rdf]` extra — until issue #12 died on
+    `No module named 'rdflib'` before a line of the transcription ran (Q-42).
+
+    The coupling is invisible on any developer machine, because every developer
+    machine has the extras installed. So the test removes them."""
+    import builtins
+    import importlib
+
+    blocked = {"rdflib", "pyshacl", "owlrl", "openpyxl"}
+    real_import = builtins.__import__
+
+    def guard(name, *args, **kwargs):
+        head = name.split(".")[0]
+        if head in blocked:
+            raise ModuleNotFoundError(f"No module named {head!r}")
+        return real_import(name, *args, **kwargs)
+
+    for module in list(sys.modules):
+        if module.startswith("tm_knowledge.dashboard") or module.split(".")[0] in blocked:
+            monkeypatch.delitem(sys.modules, module, raising=False)
+    monkeypatch.setattr(builtins, "__import__", guard)
+
+    cli = importlib.import_module("tm_knowledge.dashboard.cli")
+    assert hasattr(cli, "ruling")
+
+
+def test_a_note_with_no_option_chosen_is_still_an_answer():
+    """The form lets the owner type a note without picking an option, and puts
+    that note in the machine-readable block. Both the block's prose summary and
+    this transcription used to drop it, so the note existed only in the issue
+    body — which is exactly what happened to OQ-0009 on issue #12 while the
+    issue title still counted it as one of seven answers (Q-43)."""
+    identifier, _ = _first_choice()
+    body = _body(
+        "form: tmk-ruling/1\nquestions_updated: '2026-09-04'\n"
+        f"answers:\n  - id: {identifier}\n    notes: \"the answer is here\"\n"
+    )
+    document = ruling.transcribe(
+        ruling.parse(body),
+        issue={"number": 1, "url": "u", "author": "a"},
+        received="2026-09-08T00:00:00Z",
+    )
+    answer = document["answers"][0]
+    assert answer["notes"] == "the answer is here"
+    assert "value" not in answer, "no option was picked; inventing one would be deciding"
+    assert answer["label"] == ruling.NOTES_ONLY
+
+
+def test_an_answer_with_neither_an_option_nor_a_note_is_dropped():
+    """An empty answer is the owner scrolling past a question, not a decision."""
+    identifier, value = _first_choice()
+    body = _body(
+        "form: tmk-ruling/1\nquestions_updated: '2026-09-04'\n"
+        f"answers:\n  - id: {identifier}\n    value: {value}\n"
+        f"  - id: {identifier}\n    notes: ''\n"
+    )
+    document = ruling.transcribe(
+        ruling.parse(body), issue={"number": 1, "url": "u", "author": "a"}
+    )
+    assert len(document["answers"]) == 1
 
 
 def test_recorded_rulings_load():

@@ -632,3 +632,75 @@ def seed(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":  # pragma: no cover
     raise SystemExit(recon())
+
+
+def typing(argv: list[str] | None = None) -> int:
+    """`tmk-typing` — the concept typing pass, for one person to sort."""
+    parser = argparse.ArgumentParser(
+        prog="tmk-typing",
+        description=(
+            "Lay out the approved concepts for sorting into the four groups. Supplies the "
+            "shape and the evidence; never the type."
+        ),
+    )
+    parser.add_argument("--write", action="store_true", help="write the workbook and the report")
+    parser.add_argument("--out", type=Path, default=None, help="workbook path")
+    parser.add_argument("--generated", default=None, help="build stamp, for a reproducible run")
+    args = parser.parse_args(argv)
+
+    from tm_knowledge.stage0 import typing as typing_module
+
+    prepared = typing_module.rows()
+    sorted_already = [row for row in prepared if row.get("type")]
+    print(
+        f"{len(prepared)} approved concepts, {len(sorted_already)} already sorted, "
+        f"{len(prepared) - len(sorted_already)} waiting"
+    )
+    for value, meaning in typing_module.GROUPS:
+        count = sum(1 for row in sorted_already if row.get("type") == value)
+        print(f"  {value:<18} {count:>3}   {meaning}")
+
+    if not args.write:
+        print("\n(dry run — nothing written. Pass --write.)")
+        return 0
+
+    book = typing_module.write_workbook(args.out, generated=args.generated)
+    report = typing_module.write_report(generated=args.generated)
+    print(f"\nwrote {book}")
+    print(f"wrote {report}")
+    print(
+        "\nFill the `type` column, sign the row, and hand the file back. "
+        "`tmk-transcribe <file> --write` reads it into eval/gold/concept-types.yaml."
+    )
+    return 0
+
+
+def boundary(argv: list[str] | None = None) -> int:
+    """`tmk-boundary` — the section 43 boundary, computed from the owner's rule."""
+    parser = argparse.ArgumentParser(
+        prog="tmk-boundary",
+        description=(
+            "One hop from section 43, landing on the chunk and not its parent. OQ-0014."
+        ),
+    )
+    parser.add_argument("--write", action="store_true", help="write into data/derived/reports/")
+    parser.add_argument("--generated", default=None, help="build stamp, for a reproducible run")
+    args = parser.parse_args(argv)
+
+    from tm_knowledge.stage0 import boundary as boundary_module
+
+    computed = boundary_module.compute()
+    print(f"{len(computed.centre)} passages at the centre")
+    print(f"{len(computed.provisions)} provisions and units one hop out"
+          f" ({len(computed.unresolved)} of them land on nothing held)")
+    print(f"{len(computed.cases)} court decisions one hop out")
+    print(f"{len(computed.internal)} other Manual passages one hop out")
+    print(f"{len(computed.in_scope)} refs in scope in total")
+    print(f"{len(computed.parents_excluded)} parent provisions kept out because the hop "
+          f"landed on a unit within them")
+
+    if args.write:
+        print(f"\nwrote {boundary_module.write(generated=args.generated)}")
+    else:
+        print("\n(dry run — nothing written. Pass --write.)")
+    return 0

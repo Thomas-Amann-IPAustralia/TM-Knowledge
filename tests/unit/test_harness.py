@@ -179,6 +179,7 @@ def _complete_gold_set(directory, corpus) -> None:
 
     categories = [v for v in enum_values("competency_question", "category") if v]
     kinds = [v for v in enum_values("prohibited_use", "kind") if v]
+    groups = [v for v in enum_values("concept_type", "type") if v]
 
     records = {
         "prohibited-uses.yaml": [
@@ -215,6 +216,21 @@ def _complete_gold_set(directory, corpus) -> None:
                 "alt_labels": [],
                 "not_labels": ["«a near-miss»"],
                 "definition_sources": [ref],
+                **approval,
+            }
+            for index in range(1, 51)
+        ],
+        # One per concept, and the type is a placeholder like every other
+        # judgement in this fixture. Which group a concept is really in is a
+        # legal call; nothing here may be copied into eval/gold/.
+        "concept-types.yaml": [
+            {
+                "id": f"GT-{index:03d}",
+                "concept": f"GC-{index:03d}",
+                # Cycled from the schema's own enum rather than chosen. These
+                # concepts are «label 1»…«label 50» and mean nothing, so no
+                # legal judgement is being made or implied here.
+                "type": groups[index % len(groups)],
                 **approval,
             }
             for index in range(1, 51)

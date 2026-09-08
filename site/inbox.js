@@ -66,18 +66,21 @@ const summarise = (draft, questions) =>
       const kind = question.answer.kind;
       const options = question.answer.options || [];
       const labelFor = (value) => (options.find((o) => o.value === value) || {}).label || value;
+      const note = (answer.notes || "").trim();
       let chosen;
       if (kind === "multi") {
         const picked = answer.values || [];
         chosen = picked.length ? picked.map(labelFor).join("; ") : "nothing ticked — all confirmed";
-      } else if (kind === "choice") {
-        if (!answer.value) return null;
-        chosen = labelFor(answer.value);
+      } else if ((answer.value || "").trim()) {
+        chosen = kind === "choice" ? labelFor(answer.value) : answer.value.trim();
+      } else if (note) {
+        /* No option picked, but a note typed. The note is the answer — dropping
+           the line here is how OQ-0009's answer went missing from issue #12
+           while the title still counted it (Q-43). */
+        chosen = "_no option chosen — the answer is in the note_";
       } else {
-        if (!(answer.value || "").trim()) return null;
-        chosen = answer.value.trim();
+        return null;
       }
-      const note = (answer.notes || "").trim();
       return `- **${question.id} — ${question.title}**\n  ${chosen}${note ? `\n  _Note: ${note}_` : ""}`;
     })
     .filter(Boolean)

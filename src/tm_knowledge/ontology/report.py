@@ -47,6 +47,21 @@ draft is not able to do, and it is the honest half of the demonstration.
 """
 
 
+def _rule_state_lines(rule_set) -> str:
+    """One line per rule saying who approved it and when, or what it waits on.
+
+    Generated rather than written, because "neither is approved" was true when
+    the paragraph was typed and stopped being true the moment the owner ruled on
+    OQ-0004 — and a sentence in a generated report that has to be remembered is
+    a sentence that goes stale (ADR-0068).
+    """
+    lines = []
+    for rule in rule_set:
+        state = "**approved**" if rule.is_approved else "**pending**"
+        lines.append(f"- `{rule.rule_id}` — {state}. {rule.approved_by}")
+    return "\n".join(lines)
+
+
 def _fmt(rows: list[tuple], headers: tuple[str, ...]) -> str:
     out = ["| " + " | ".join(headers) + " |", "|" + "|".join("---" for _ in headers) + "|"]
     for row in rows:
@@ -223,23 +238,41 @@ default and is not filled: whether a "may" is possibility or permission is a
 legal reading (guide §5.4).
 """)
 
+    approved_rules = [rule for rule in rule_set if rule.is_approved]
+    pending_rules = [rule for rule in rule_set if not rule.is_approved]
     parts.append(f"""
 ## 4. What it infers, and under what conditions
 
-{len(rule_set)} CONSTRUCT rules, and **neither is approved.** Stage 9 requires an expert to
-approve every reasoning template before deployment; the `approved-by` line in
-both files says `PENDING`, and `tm_knowledge.ontology.rules` enforces the
-consequence rather than trusting the file — everything they produce is written
-with `reviewStatus "candidate"` and `requiresHumanReview true`, into
-`graph/inferred.ttl` and nowhere else.
+{len(rule_set)} CONSTRUCT rules: **{len(approved_rules)} approved, {len(pending_rules)} pending.**
+Stage 9 requires a person to approve every reasoning template before deployment.
+The `approved-by` line in each file is the approval record, and
+`tm_knowledge.ontology.rules` reads it rather than trusting the query — a rule
+body may not set its own review status, and an unapproved rule's output is
+stamped `reviewStatus "candidate"` and `requiresHumanReview true`. Approved or
+not, output goes to `graph/inferred.ttl` and nowhere else: approval says an
+inference may be relied on, it does not make it a signed record.
+
+{_rule_state_lines(rule_set)}
 """)
     parts.append(_fmt(
         [
-            (rule.rule_id, rule_counts.get(rule.rule_id, 0), rule.basis.split(".")[0][:70])
+            (
+                rule.rule_id,
+                getattr(rule_counts.get(rule.rule_id), "assertions", 0),
+                getattr(rule_counts.get(rule.rule_id), "triples", 0),
+                rule.basis.split(".")[0][:70],
+            )
             for rule in rule_set
         ],
-        ("rule", "triples produced", "stands on"),
+        ("rule", "conclusions", "triples", "stands on"),
     ))
+    parts.append(
+        "**Read the first number, not the second.** *Conclusions* is how many things the "
+        "rule concluded; *triples* counts the provenance carried with them, roughly eight "
+        "or fourteen per conclusion. Quoting the triple count as if it were the number of "
+        "findings is how the owner came to be asked to review 71 flagged passages when "
+        "there are five (Q-44)."
+    )
     parts.append("""
 RULE-0001 is GX-0001 made executable. It finds the passages that carry both
 quoted legislative text and the Registrar's own practice — the mixture that
@@ -254,15 +287,19 @@ and a rule that fired there would make the flag mean nothing.
 """)
 
     unmatched = build_report.unmatched_concept_labels
+    boundaries = build_report.boundary_concept_labels
+    untyped = build_report.concepts - build_report.concept_types
     parts.append(f"""
 ## 5. What it cannot do — read this part
 
-**The legal-concept taxonomy is empty.** `GroundOfRefusal`, `LegalTest`,
-`RelevantFactor` and `Exception` are declared and hold nothing. Every one of the
-{build_report.concepts} approved concepts is a bare `tmk:LegalConcept`, because the gold concept
-record has no type field and deciding that *connotation* is a LegalTest rather
-than a RelevantFactor is a legal judgement. The slots exist so an expert can
-fill them in one pass. This is the single largest gap in the draft.
+**{untyped} of {build_report.concepts} concepts are not sorted into a group.** `GroundOfRefusal`,
+`LegalTest`, `RelevantFactor` and `Exception` fill only from signed records in
+`eval/gold/concept-types.yaml`, and {build_report.concept_types} concepts have one. Deciding that
+*connotation* is a LegalTest rather than a RelevantFactor is a legal judgement,
+so nothing here fills it. What changed on 2026-09-08 is that there is now
+somewhere for the answer to go and a pass to collect it — `tmk-typing` renders
+the whole vocabulary as one sheet of dropdowns (OQ-0001, ADR-0071). Until it
+comes back this is the single largest gap in the draft.
 
 **No concept has a definition.** The approved records carry definition
 *sources* — the passages the meaning is drawn from — and no definition text, so
@@ -277,11 +314,18 @@ A vocabulary that is mostly flat is a list with extra steps, and the hierarchy i
 where a retrieval system gets its generalisation.
 
 **{len(unmatched)} competency questions name a concept the vocabulary does not hold**: {", ".join(f"`{item}`" for item in unmatched)}.
-`CQ-0007:deceptively similar` is the interesting one — that term is recorded as a
-**not-label** of *likely to deceive or cause confusion*, so the question names a
-concept the vocabulary deliberately excludes. Either it needs to exist (belonging
-to s 44, which the pilot scope draft puts out of scope) or the question is using
-it as a boundary marker. That is an expert's call and nothing here should make it.
+Either the vocabulary is short a concept, or the question names one by a variant
+nobody recorded as an alt label. Both are worklist items.
+
+**{len(boundaries)} name a concept it deliberately excludes, which is the opposite of a gap**: {", ".join(f"`{item}`" for item in boundaries) or "none"}.
+The distinction is new, and `CQ-0007:deceptively similar` is why. Three approved
+concepts carry that term as a **not-label**, and CQ-0007 asks *"confusion between
+my mark and someone else's — which section is that?"*, whose answer is section 44.
+Counted as a missing concept it reported a miss on every measurement that used
+the question. The owner ruled on OQ-0002: *"It belongs to section 44 — keep it
+out, the question is using it as a boundary marker"* (ADR-0075). Neither approved
+record changed; what changed is that the graph now joins them, via
+`tmk:expectsBoundaryLabel` and `tmk:testsBoundaryOf`.
 
 **Six of the fourteen predicates are used exactly once.** A term seen once is a
 term whose boundaries nobody has tested. `GR-0008`'s own note says

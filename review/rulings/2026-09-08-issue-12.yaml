@@ -1,0 +1,82 @@
+# A decision the repo owner made, transcribed from the GitHub issue named
+# below by `tmk-ruling`. Do not hand-edit the answers: the issue is the
+# artefact, this is the transcription (review/rulings/README.md).
+#
+# A session that acts on this fills in `applied:` and says what it did.
+schema: tmk-ruling/1
+received_utc: '2026-09-08T00:52:41Z'
+questions_updated: '2026-09-04'
+issue:
+  author: Thomas-Amann-IPAustralia
+  number: 12
+  title: Decisions from the dashboard — 7 answers
+  url: https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/issues/12
+applied:
+  session: S012
+  date: '2026-09-08'
+  branch: claude/review-dashboard-responses-lwd7ga
+  what_changed: >-
+    Every answer acted on. OQ-0001 — a ninth gold record type holds a concept's
+    type, and the 52 are laid out for sorting at data/derived/concept-typing.xlsx
+    with the evidence at data/derived/reports/concept-typing.md (ADR-0071); the
+    pass comes back as OQ-0020. OQ-0002 — a label the vocabulary deliberately
+    excludes is now reported as a boundary rather than a gap, and neither approved
+    record changed (ADR-0075). OQ-0003 — the pack is at
+    data/derived/reports/rule-0001-flags.md; the rule stays PENDING and is
+    re-asked as OQ-0019. OQ-0004 — RULE-0002 is approved and its 187 links have
+    left quarantine (ADR-0068). OQ-0005 — all four graph files are committed,
+    dataset.nq sorted so a rebuild does not churn 5MB (ADR-0070). OQ-0009 — the
+    named repository was checked: 15 of our 58 cited decisions are in its index
+    and it holds no decision text, which goes back as OQ-0018. OQ-0010 — confirmed
+    as recorded; RULE-0002's approval is the first use of it.
+  corrections_owed: >-
+    Two figures in the questions were wrong and the answers were given against
+    them. RULE-0001 flags 5 passages, not 71. RULE-0002 draws 187 links, not
+    2,244. Both were triple counts quoted as counts of findings (Q-44, ADR-0069).
+    The OQ-0004 approval stands on reasoning the correction does not touch, and
+    he has been told the real number; OQ-0003 is re-asked against the corrected
+    one as OQ-0019.
+  also: >-
+    The transcription itself had to be repaired first — the workflow crashed on a
+    missing dependency and told the owner his submission was malformed, and the
+    OQ-0009 note would have been dropped in silence even had it run (ADR-0067).
+    Three answers the owner typed by hand, outside the form, are transcribed at
+    review/returned/260908-owner-notes-issue-12.md and acted on in ADR-0072,
+    ADR-0073 and ADR-0074.
+answers:
+- id: OQ-0001
+  question: Are these four groups the right way to sort the 52 legal ideas?
+  kind: choice
+  value: four_groups_right
+  label: Use those four groups — come back to me with the list of 52 to sort
+- id: OQ-0002
+  question: '"Deceptively similar" — a section 43 idea, or a section 44 one?'
+  kind: choice
+  value: not_in_scope
+  label: It belongs to section 44 — keep it out, the question is using it as a boundary marker
+- id: OQ-0003
+  question: 'Approve or reject the first automatic rule: the mixed-authority flag'
+  kind: choice
+  value: show_me
+  label: Show me the 71 flagged passages first
+- id: OQ-0004
+  question: 'Approve or reject the second automatic rule: the change-impact links'
+  kind: choice
+  value: approve
+  label: Approve it — its links may be relied on
+- id: OQ-0005
+  question: Should the large generated data files be stored in the repository?
+  kind: choice
+  value: commit_everything
+  label: Store everything, so the graph can be read without building it
+- id: OQ-0009
+  question: Should we obtain the actual court decisions the Manual cites?
+  kind: choice
+  notes: In scope, use the queryable DB listed in this repo "https://github.com/Thomas-Amann-IPAustralia/IP-Decision-Data/tree/main".
+    Extract the relevant rulings and store them.
+  label: no option chosen — the answer is in the note
+- id: OQ-0010
+  question: Who may sign knowledge off as approved?
+  kind: choice
+  value: same_as_expert
+  label: Keep it as it is — my approvals look the same as an expert's

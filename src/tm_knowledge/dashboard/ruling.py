@@ -31,13 +31,25 @@ import yaml
 
 from tm_knowledge.dashboard import questions as questions_module
 
-__all__ = ["MARKER", "FORM_VERSION", "MalformedSubmission", "parse", "transcribe", "write"]
+__all__ = [
+    "MARKER",
+    "FORM_VERSION",
+    "NOTES_ONLY",
+    "MalformedSubmission",
+    "parse",
+    "transcribe",
+    "write",
+]
 
 #: What the form writes at the top of the issue body. The workflow keys off it,
 #: so an ordinary issue is never mistaken for a submitted decision.
 MARKER = "<!-- tmk-ruling:v1 -->"
 
 FORM_VERSION = "tmk-ruling/1"
+
+#: The `label` on an answer where no option was picked but a note was typed. It
+#: reads as what it is, so nobody later mistakes the record for a chosen option.
+NOTES_ONLY = "no option chosen — the answer is in the note"
 
 _FENCE = re.compile(r"```(?:ya?ml)?\s*\n(.*?)\n```", re.DOTALL)
 
@@ -125,21 +137,25 @@ def transcribe(
             record["values"] = [str(value) for value in values]
             record["labels"] = [_option_label(question, str(value)) for value in values]
             record["label"] = "; ".join(record["labels"]) or "nothing ticked — all confirmed"
-        elif kind == "choice":
-            value = entry.get("value")
-            if not value:
-                continue
-            record["value"] = str(value)
-            record["label"] = _option_label(question, str(value))
         else:
             value = entry.get("value")
-            if value in (None, ""):
-                continue
-            record["value"] = str(value)
-            record["label"] = str(value)
+            if value not in (None, ""):
+                record["value"] = str(value)
+                record["label"] = (
+                    _option_label(question, str(value)) if kind == "choice" else str(value)
+                )
         notes = str(entry.get("notes") or "").strip()
         if notes:
             record["notes"] = notes
+        if "value" not in record and "values" not in record:
+            # No option chosen. If the owner typed a note anyway, the note *is*
+            # the answer and it is the only place it exists — the form omits a
+            # valueless answer from its prose summary, so dropping it here would
+            # lose it altogether. That is what happened to OQ-0009 on issue #12
+            # (Q-43, ADR-0067). An answer with neither is genuinely empty.
+            if not notes:
+                continue
+            record["label"] = NOTES_ONLY
         answers.append(record)
 
     if not answers:

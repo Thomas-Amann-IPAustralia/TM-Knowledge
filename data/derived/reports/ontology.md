@@ -14,12 +14,12 @@ draft is not able to do, and it is the honest half of the demonstration.
 | | |
 |---|---|
 | Pinned snapshot | `Thomas-Amann-IPAustralia/manual-XtrACTor @ c490a9927f1a (ingest/0.11.0, legislation/0.2.0)` |
-| Generated | 2026-09-03 |
+| Generated | 2026-09-08 |
 | Ontology modules | 9, all draft |
 | Classes declared | 49 |
 | Predicates on the closed list | 14, derived from 35 approved relationships |
 | Source graph | 16,405 triples over 216 chunks |
-| Approved graph | 2,942 triples |
+| Approved graph | 2,946 triples |
 | SHACL result | 0 defects, 0 gaps, 29 notes — exit 0 |
 | Competency queries | 13 of 20 questions |
 
@@ -129,17 +129,23 @@ legal reading (guide §5.4).
 
 ## 4. What it infers, and under what conditions
 
-2 CONSTRUCT rules, and **neither is approved.** Stage 9 requires an expert to
-approve every reasoning template before deployment; the `approved-by` line in
-both files says `PENDING`, and `tm_knowledge.ontology.rules` enforces the
-consequence rather than trusting the file — everything they produce is written
-with `reviewStatus "candidate"` and `requiresHumanReview true`, into
-`graph/inferred.ttl` and nowhere else.
+2 CONSTRUCT rules: **1 approved, 1 pending.**
+Stage 9 requires a person to approve every reasoning template before deployment.
+The `approved-by` line in each file is the approval record, and
+`tm_knowledge.ontology.rules` reads it rather than trusting the query — a rule
+body may not set its own review status, and an unapproved rule's output is
+stamped `reviewStatus "candidate"` and `requiresHumanReview true`. Approved or
+not, output goes to `graph/inferred.ttl` and nowhere else: approval says an
+inference may be relied on, it does not make it a signed record.
 
-| rule | triples produced | stands on |
-|---|---|---|
-| RULE-0001 | 71 | GX-0001 — the approved reasoning expectation over TMM/Part29/1#1: "The |
-| RULE-0002 | 2244 | CQ-0017 and CQ-0019, the two impact-category competency questions |
+- `RULE-0001` — **pending**. PENDING — the owner asked to see the flagged passages before ruling: "Show me the 71 flagged passages first" (OQ-0003, issue #12, 2026-09-08). The pack is data/derived/reports/rule-0001-flags.md and the re-ask is OQ-0019. Until then everything this produces is stamped tmk:reviewStatus "candidate".
+- `RULE-0002` — **approved**. Thomas-Amann-IPAustralia, 2026-09-08 — "Approve it — its links may be relied on" (OQ-0004, issue #12, transcribed at review/rulings/2026-09-08-issue-12.yaml). The repo owner's approval, which by his own ruling on OQ-0010 is recorded exactly as a trade marks expert's would be. ADR-0068 records what it does and does not settle; the limits line below is untouched by it.
+
+| rule | conclusions | triples | stands on |
+|---|---|---|---|
+| RULE-0001 | 5 | 71 | GX-0001 — the approved reasoning expectation over TMM/Part29/1#1: "The |
+| RULE-0002 | 187 | 2244 | CQ-0017 and CQ-0019, the two impact-category competency questions |
+**Read the first number, not the second.** *Conclusions* is how many things the rule concluded; *triples* counts the provenance carried with them, roughly eight or fourteen per conclusion. Quoting the triple count as if it were the number of findings is how the owner came to be asked to review 71 flagged passages when there are five (Q-44).
 
 RULE-0001 is GX-0001 made executable. It finds the passages that carry both
 quoted legislative text and the Registrar's own practice — the mixture that
@@ -154,12 +160,14 @@ and a rule that fired there would make the flag mean nothing.
 
 ## 5. What it cannot do — read this part
 
-**The legal-concept taxonomy is empty.** `GroundOfRefusal`, `LegalTest`,
-`RelevantFactor` and `Exception` are declared and hold nothing. Every one of the
-52 approved concepts is a bare `tmk:LegalConcept`, because the gold concept
-record has no type field and deciding that *connotation* is a LegalTest rather
-than a RelevantFactor is a legal judgement. The slots exist so an expert can
-fill them in one pass. This is the single largest gap in the draft.
+**52 of 52 concepts are not sorted into a group.** `GroundOfRefusal`,
+`LegalTest`, `RelevantFactor` and `Exception` fill only from signed records in
+`eval/gold/concept-types.yaml`, and 0 concepts have one. Deciding that
+*connotation* is a LegalTest rather than a RelevantFactor is a legal judgement,
+so nothing here fills it. What changed on 2026-09-08 is that there is now
+somewhere for the answer to go and a pass to collect it — `tmk-typing` renders
+the whole vocabulary as one sheet of dropdowns (OQ-0001, ADR-0071). Until it
+comes back this is the single largest gap in the draft.
 
 **No concept has a definition.** The approved records carry definition
 *sources* — the passages the meaning is drawn from — and no definition text, so
@@ -173,12 +181,19 @@ material is about what a sign connotes, not about what an applicant files.
 A vocabulary that is mostly flat is a list with extra steps, and the hierarchy is
 where a retrieval system gets its generalisation.
 
-**4 competency questions name a concept the vocabulary does not hold**: `CQ-0007:deceptively similar`, `CQ-0010:purchasing decision`, `CQ-0012:obvious, direct and immediate`, `CQ-0020:superseded legislation`.
-`CQ-0007:deceptively similar` is the interesting one — that term is recorded as a
-**not-label** of *likely to deceive or cause confusion*, so the question names a
-concept the vocabulary deliberately excludes. Either it needs to exist (belonging
-to s 44, which the pilot scope draft puts out of scope) or the question is using
-it as a boundary marker. That is an expert's call and nothing here should make it.
+**3 competency questions name a concept the vocabulary does not hold**: `CQ-0010:purchasing decision`, `CQ-0012:obvious, direct and immediate`, `CQ-0020:superseded legislation`.
+Either the vocabulary is short a concept, or the question names one by a variant
+nobody recorded as an alt label. Both are worklist items.
+
+**1 name a concept it deliberately excludes, which is the opposite of a gap**: `CQ-0007:deceptively similar`.
+The distinction is new, and `CQ-0007:deceptively similar` is why. Three approved
+concepts carry that term as a **not-label**, and CQ-0007 asks *"confusion between
+my mark and someone else's — which section is that?"*, whose answer is section 44.
+Counted as a missing concept it reported a miss on every measurement that used
+the question. The owner ruled on OQ-0002: *"It belongs to section 44 — keep it
+out, the question is using it as a boundary marker"* (ADR-0075). Neither approved
+record changed; what changed is that the graph now joins them, via
+`tmk:expectsBoundaryLabel` and `tmk:testsBoundaryOf`.
 
 **Six of the fourteen predicates are used exactly once.** A term seen once is a
 term whose boundaries nobody has tested. `GR-0008`'s own note says

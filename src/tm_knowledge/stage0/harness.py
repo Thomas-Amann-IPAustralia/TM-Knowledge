@@ -121,6 +121,12 @@ DELIVERABLES: tuple[Deliverable, ...] = (
                 record_type="gold_retrieval_question", minimum=20, maximum=50),
     Deliverable("reasoning", "Reasoning expectations", "records",
                 record_type="reasoning_expectation", minimum=1),
+    # Not a §7 deliverable — added S012 when the owner confirmed the four groups
+    # (OQ-0001, ADR-0071). The band is one per approved concept, because the
+    # question is "which group is this in" and every concept has an answer,
+    # `none_of_these` included. `tmk-typing` renders the pass.
+    Deliverable("concept_types", "Concepts sorted into one of the four groups",
+                "records", record_type="concept_type", minimum=50, maximum=100),
     Deliverable("measures", "A threshold against every metric", "document",
                 path="eval/measures.md"),
 )
@@ -137,6 +143,7 @@ JUDGEMENT_FIELDS: dict[str, tuple[str, ...]] = {
     "gold_retrieval_question": (),
     "reasoning_expectation": ("tier",),
     "prohibited_use": (),
+    "concept_type": (),
 }
 
 #: Cross-reference fields: record type -> field path -> the prefix it must name.

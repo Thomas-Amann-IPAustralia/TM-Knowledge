@@ -53,6 +53,7 @@ SHEET_NAMES: dict[str, str] = {
     "gold_retrieval_question": "retrieval-questions",
     "reasoning_expectation": "reasoning-expected",
     "prohibited_use": "prohibited-uses",
+    "concept_type": "concept-types",
 }
 
 

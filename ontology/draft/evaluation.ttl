@@ -79,7 +79,29 @@ go wrong first."""@en-AU .
 
 tmk:expectsConceptLabel a owl:DatatypeProperty ; rdfs:range xsd:string ;
     rdfs:label "expects concept label"@en-AU ;
-    rdfs:comment "The label as the record wrote it, kept whether or not it resolved. The unresolved ones are a worklist: either the vocabulary is missing a concept or the question names one by a variant nobody has recorded as an alt label."@en-AU .
+    rdfs:comment "The label as the record wrote it, kept whether or not it resolved. An unresolved one is either a boundary (see below) or a worklist item: the vocabulary is missing a concept, or the question names one by a variant nobody has recorded as an alt label."@en-AU .
+
+tmk:expectsBoundaryLabel a owl:DatatypeProperty ; rdfs:range xsd:string ;
+    rdfs:label "expects boundary label"@en-AU ;
+    rdfs:comment """A label the question expects that the vocabulary deliberately excludes.
+
+The distinction this draws is the difference between a hole and an edge. A
+label matching no concept usually means the vocabulary is short something. But
+where an approved concept records that same label under `not_labels` — the
+field the schema calls the most valuable on the record — the vocabulary has
+already said, in a record somebody signed, that the term belongs elsewhere. The
+question is then naming the boundary it tests, not asking for a missing concept.
+
+`deceptively similar` on CQ-0007 is the case that forced it: three approved
+concepts exclude the term, and CQ-0007 asks "confusion between my mark and
+someone else's — which section is that?", whose answer is section 44. Counted
+as a gap, it reported a miss that was not a miss on every measurement. The
+owner ruled on OQ-0002: "It belongs to section 44 — keep it out, the question
+is using it as a boundary marker" (ADR-0075)."""@en-AU .
+
+tmk:testsBoundaryOf a owl:ObjectProperty ; rdfs:range tmk:LegalConcept ;
+    rdfs:label "tests boundary of"@en-AU ;
+    rdfs:comment "The concept whose not-label explains the boundary. The edge exists so the pairing can be read back: this question tests the edge of that concept, and here is the signed record that drew the edge."@en-AU .
 
 tmk:authorityDistinctionRequired a owl:DatatypeProperty , owl:FunctionalProperty ;
     rdfs:domain tmk:RetrievalQuestion ; rdfs:range xsd:boolean ;

@@ -732,3 +732,78 @@ Opening `site/index.html` by double-clicking it gives a page that renders its
 chrome and then reports that the data is missing. The site fetches
 `data/*.json`, and browsers block `fetch` on `file://` origins. It is not a
 broken build: `python3 -m http.server -d site 8000` and the same files work.
+
+### Q-42 — `tmk-ruling` needed the `[rdf]` extra it never used, and that cost a submission
+
+`dashboard/cli.py` imported `dashboard.build` at module scope. `build` imports
+rdflib — the optional `[rdf]` extra — and `tmk-ruling` does not use `build` at
+all, so the transcription command carried a dependency on nothing it touched.
+`.github/workflows/ruling.yml` installs `pip install -e .`, the core three
+dependencies. On 2026-09-08 the owner's first submission (issue #12) died on
+`ModuleNotFoundError: No module named 'rdflib'` before a line of transcription
+ran.
+
+**Invisible on any developer machine**, because every developer machine has the
+extras installed — the repo's own quickstart says
+`pip install -e ".[test,intake,rdf]"`. Fixed by moving the import into the one
+function that uses it, and guarded by
+`test_the_transcription_path_does_not_need_the_rdf_extra`, which blocks the
+extras and imports the CLI.
+
+Generalises: **an optional extra is only optional if something checks.** Before
+adding a module-scope import to a package whose commands have different
+dependency footprints, check which commands you have just made heavier.
+
+### Q-43 — A dashboard answer with a note and no option chosen used to vanish
+
+The form lets you type a note without picking an option, writes that answer into
+the machine-readable block, and counts it in the issue title. Both the prose
+summary the form composes and `ruling.transcribe()` skipped it. So issue #12 was
+titled "7 answers", listed six, and would have transcribed six.
+
+The one that vanished was OQ-0009, whose note is the substantive part of the
+whole submission: *"In scope, use the queryable DB listed in this repo … Extract
+the relevant rulings and store them."* An answer with no option and a long note
+is not an edge case — it is what someone does when none of the options fit and
+they have something to say.
+
+Both sides now keep it, labelled *no option chosen — the answer is in the note*.
+An answer with neither an option nor a note is still dropped, because that is a
+scrolled-past question.
+
+### Q-44 — A rule's triple count is not its finding count, and the questions quoted the wrong one
+
+`data/derived/reports/ontology.md` had a column headed *triples produced*: 71 for
+RULE-0001, 2,244 for RULE-0002. Those numbers went into
+`review/questions/open-questions.yaml` as *"It produced 71 flags"* and
+*"It produced 2,244 of them"*.
+
+RULE-0001 flags **5 passages**. RULE-0002 draws **187 links**. Every conclusion
+carries eight to fourteen triples of provenance, so the two counts differ by more
+than an order of magnitude, and neither looks obviously wrong beside the other.
+
+The owner was asked to review 71 flagged passages that do not exist, and approved
+a rule believing it drew twelve times as many links as it does. `apply_rules` now
+returns a `Yield` with `assertions` and `triples` under names that cannot be
+swapped, and a test fails if a rule's triple count sits next to *flags*, *links*
+or *passages* in the question file.
+
+The trap is not arithmetic. **A number crossed from a context where it was
+correctly labelled into one where nothing labelled it.** When quoting a figure
+out of a generated table into prose, carry the column heading with it.
+
+### Q-45 — rdflib serialises Turtle sorted and N-Quads unsorted
+
+Two builds of an identical dataset produce byte-identical `.ttl` files and
+*different* `dataset.nq` files. rdflib's Turtle serialiser sorts; its N-Quads
+serialiser emits in set-iteration order, which moves with `PYTHONHASHSEED` — so
+the difference is invisible within one process and appears between two.
+
+It cost nothing while `dataset.nq` was git-ignored. The moment ADR-0070
+committed it, it meant a 5MB diff in the history on **every rebuild**, signifying
+nothing, and would have made `tmk-graph --check` fail immediately after a
+successful `--write`. Line order carries no meaning in N-Quads, so the file is
+written sorted; `test_the_quads_file_is_sorted` checks the committed one.
+
+Worth knowing before committing any other rdflib output: check reproducibility
+across *processes*, not across calls.

@@ -16,9 +16,15 @@ import sys
 from pathlib import Path
 
 from tm_knowledge.config import REPO_ROOT
-from tm_knowledge.dashboard import build as build_module
 from tm_knowledge.dashboard import questions as questions_module
 from tm_knowledge.dashboard import ruling as ruling_module
+
+# `build` is *not* imported here. It reads the graph and so imports rdflib, and
+# rdflib is the optional `[rdf]` extra — while `tmk-ruling` needs nothing beyond
+# the core three dependencies. Importing it at module scope coupled the two, and
+# on 2026-09-08 that cost the owner a submission: the transcription workflow
+# installs the core only, and issue #12 died on `No module named 'rdflib'` before
+# `ruling()` ran a line (Q-42, ADR-0067). `dashboard()` imports it where it is used.
 
 __all__ = ["dashboard", "ruling"]
 
@@ -44,6 +50,8 @@ def dashboard(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.check:
+        from tm_knowledge.dashboard import build as build_module
+
         stale = build_module.check(args.out)
         if stale:
             print("The committed dashboard data no longer matches the repository:")
@@ -57,6 +65,8 @@ def dashboard(argv: list[str] | None = None) -> int:
             return 1
         print("Dashboard data is current.")
         return 0
+
+    from tm_knowledge.dashboard import build as build_module
 
     pages = build_module.build(generated=args.generated)
     question_set = questions_module.load()
@@ -99,6 +109,16 @@ def ruling(argv: list[str] | None = None) -> int:
     parser.add_argument("--title", default="")
     parser.add_argument("--write", action="store_true", help="write into review/rulings/")
     parser.add_argument("--out", type=Path, default=None, help="output directory")
+    # When the workflow runs this, "now" and "when the owner submitted" are the
+    # same moment. When a session transcribes an issue after the fact — because
+    # the workflow failed, as it did for issue #12 — they are not, and the stamp
+    # that belongs in the file is GitHub's, not this container's clock.
+    parser.add_argument(
+        "--received",
+        default=None,
+        metavar="UTC",
+        help="when the submission was received, e.g. 2026-09-08T00:52:41Z (default: now)",
+    )
     args = parser.parse_args(argv)
 
     body = args.body.read_text(encoding="utf-8") if args.body else sys.stdin.read()
@@ -113,6 +133,7 @@ def ruling(argv: list[str] | None = None) -> int:
                 "author": args.author,
                 "title": args.title or None,
             },
+            received=args.received,
         )
     except (ruling_module.MalformedSubmission, questions_module.MalformedQuestions) as error:
         print(f"refused: {error}", file=sys.stderr)
