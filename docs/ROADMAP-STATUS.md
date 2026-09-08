@@ -4,6 +4,20 @@ The stage view of the programme. `ARCHITECTURE.md` holds the artefact view.
 Update the affected row in the same session that moves a deliverable, and say so
 in `HANDOFF.md`.
 
+> **The board was reset on 2026-09-08 by ADR-0079 to ADR-0085.** Three gates that
+> shaped every row below are gone: Stage 0 no longer blocks Stages 2-4
+> (ADR-0083, supersedes ADR-0010), Tier 3 no longer gates output (ADR-0082,
+> supersedes ADR-0008), and an agent may now author legal content stamped
+> `unreviewed` rather than waiting for an expert (ADR-0079). Scope is the whole
+> Manual, not section 43 (ADR-0081).
+>
+> **What this does and does not mean for "Stage 0 is the blocker".** It is not the
+> blocker any more — nothing waits on it. It is also not *done*: the deliverables
+> below are still short, and the honest reading is that they will now be filled
+> by machine-authored content that no expert has validated. A row that reads
+> "in band" from here on is counting `eval/gold/` and `authored/` **separately**,
+> because summing them is the one thing ADR-0080 forbids.
+
 Legend: **done** · **partial** · **not started** · **n/a here** (owned by
 `manual-XtrACTor`)
 
@@ -14,31 +28,36 @@ it as "Stages 0–7" — that summary undercounts; see Q-01.
 
 | Stage | Name | Status | Owner |
 |---|---|---|---|
-| 0 | Pilot selection and evaluation set | **partial** — pilot area chosen (s 43, ADR-0013); apparatus built (S004–S005); **first approved content landed S008: 190 records over all 8 types, harness 0 defects / 13 gaps** (the 13th is S012's concept-typing deliverable); 178 seed records still await correction, of which **10 decisions hold the other 168** (S009, `tmk-blockers`) | this repo — **the blocker** |
+| 0 | Pilot selection and evaluation set | **partial — and no longer a blocker** (ADR-0083). 190 expert-signed records over all 8 types, harness 0 defects; `eval/gold/` now **frozen** at those 190 as the measurement yardstick (ADR-0080). The 178 held seed records are resolved by authoring rather than by an expert round, so the 10-decision critical path is gone (ADR-0084) | this repo |
 | 1 | Ingest and structure source documents | **done** (4 of 6 named deliverables); consumed here since S004 — pinned, fetched and loaded | `manual-XtrACTor` |
-| 2 | Candidate terminology and entities | **not started** — stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019); blocked by ADR-0010 | this repo |
-| 3 | Controlled vocabulary (SKOS) | **not started** | this repo |
-| 4 | Relationships, propositions, candidate rules | **not started** | this repo |
-| 5 | Formalise the ontology | **partial** — S010, S012. Nine OWL 2 RL modules **drafted** in `ontology/draft/`; nothing approved, so `ontology/` is still empty (ADR-0056, ADR-0057). S012: the four concept classes now fill from signed `concept_type` records (ADR-0071) — **0 of 52 sorted so far**; a role can be what a statement is about (ADR-0073) | this repo |
+| 2 | Candidate terminology and entities | **open, not started** — gate lifted 2026-09-08 (ADR-0083). Stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019). **Model-backed extraction now blocks on HANDOFF Q3** — which LLM is agency-approved — for the first time; deterministic extraction does not | this repo |
+| 3 | Controlled vocabulary (SKOS) | **open, not started** (ADR-0083) | this repo |
+| 4 | Relationships, propositions, candidate rules | **open, not started** (ADR-0083) | this repo |
+| 5 | Formalise the ontology | **partial, and unblocked** — nine OWL 2 RL modules drafted in `ontology/draft/`; nothing approved, so `ontology/` stays empty (ADR-0056, ADR-0057). The four concept classes now also fill from **authored** `concept_type` records, not only signed ones (ADR-0079 amends ADR-0071) — the 0-of-52 taxonomy is an agent's to fill. Whole-Manual scope means the class list stops being 30-of-49 empty for want of material (ADR-0081) | this repo |
 | 6 | Populate and validate the knowledge graph | **partial** — S010, S012. Graph built (16,405 source + 2,942 approved triples), SHACL gate **0 defects, 0 gaps, 29 notes**, against a *draft* TBox. S012: **all four files committed** (ADR-0070) and `tmk-graph --check` fails on drift | this repo |
 | 7 | Ontology-enhanced search | **not started** | this repo |
 | 8 | Graph-aware AI retrieval | **not started** | this repo |
-| 9 | Automated reasoning | **partial** — S010, S012. Two CONSTRUCT rules. **RULE-0002 approved by the owner 2026-09-08** (OQ-0004, ADR-0068) and its 187 impact links have left quarantine; RULE-0001 stays PENDING — he asked to see its 5 flagged passages first, and the pack is `data/derived/reports/rule-0001-flags.md` (OQ-0019) | this repo |
+| 9 | Automated reasoning | **partial** — two CONSTRUCT rules. **RULE-0002 approved by the owner** (ADR-0068). **RULE-0001 stays PENDING and an agent may not approve it**: a rule's `approved-by` line is the same kind of artefact as a record's `approved_by`, and ADR-0079 does not license filling either. What changed is that its output is no longer *quarantined* — under ADR-0082 an unapproved rule's conclusions may be served, stamped `candidate` / `requiresHumanReview`, like any other unreviewed content. OQ-0019 becomes optional rather than blocking | this repo |
 | 10 | Automated maintenance | **not started** | this repo |
 
-## Stage 0 — the blocker
+## Stage 0 — no longer the blocker
 
-The pilot **area** is settled: s 43 (ADR-0013). **Stage 0 content now exists**:
-190 approved records landed in S008 from the first review round, every record
-type is represented, and the harness runs over them with 0 defects. Two of eight
-targets are met (concepts, reasoning expectations). It is still incomplete —
-entities at 55 of 100–300, search questions at 1 of 20–50, no scope document and
-no measures — so ADR-0010 still holds and no Stage 2+ work starts.
+**Stage 0 stopped being a gate on 2026-09-08.** ADR-0083 lifted ADR-0010, so
+Stages 2-4 proceed whatever this section says. What remains true: 190 records a
+named expert signed landed in S008, every record type is represented, the harness
+runs over them with 0 defects, and `eval/gold/` is now **frozen** at exactly those
+190 as the project's only uncontaminated measurement yardstick (ADR-0080).
+
+The counts below are therefore counts of **signed** content and stay that way. The
+shortfalls — entities at 55 of 100-300, search questions at 1 of 20-50, no
+measures — are now filled by authored content in `authored/`, tracked separately
+and never summed into these rows. **There is no pilot scope document and none is
+owed**: the whole Manual is in scope and the boundary was withdrawn (ADR-0081).
 
 | Deliverable | Status | Where it will live |
 |---|---|---|
-| Pilot area | **done** — s 43, ADR-0013 | `docs/DECISIONS.md` |
-| Pilot scope (the boundary) | **partial** — S012. The owner gave the boundary *rule* on 2026-09-08 (one hop, on the chunk; OQ-0014, ADR-0072) and it is implemented and reported by `tmk-boundary`. The **document** is still not written: he did not answer whether geographical indications are the centre or a corner, or whether point-in-time questions are in scope. Draft still at `review/seed/pilot-scope.seed.md` | `eval/pilot-scope.md` |
+| Pilot area | **superseded** — s 43 is the first area worked, not a limit; whole Manual in scope (ADR-0081 amends ADR-0013) | `docs/DECISIONS.md` |
+| Pilot scope (the boundary) | **withdrawn, not owed** — the boundary is gone and `eval/pilot-scope.md` will not be written. `tmk-boundary` and `data/derived/reports/boundary.md` are retired and must not be cited as current (ADR-0081, supersedes ADR-0022 and ADR-0072) | — |
 | Competency-question catalogue | **partial** — 20 approved (S008); 4 seed drafts left | `eval/gold/competency-questions.yaml` |
 | Gold-standard dataset | **partial** — 159 approved: 52 concepts (target met), 55 entities, 35 relationships, 10 retrieval questions, 6 reasoning expectations (target met), 1 search question | `eval/gold/` |
 | Prohibited-use list | **partial** — 11 approved covering 5 of the 6 kinds; `stale_source` missing because all three of its records are held on CQ-0013/0014/0016 | `eval/gold/prohibited-uses.yaml` |
@@ -54,24 +73,26 @@ no measures — so ADR-0010 still holds and no Stage 2+ work starts.
 | Intake workbook | **done** — S005, P7 | `tmk-workbook` → `data/derived/` |
 | Transcription path | **done** — S005, P8; gated on the verdict S008 (ADR-0047, ADR-0048) | `tmk-transcribe` → `eval/gold/` |
 | Parallel-track plan | **done** — ADR-0016 | `docs/roadmap/PARALLEL-TRACK-ROADMAP.md` |
-| Seed example set | **in review** — S007, ADR-0043. 178 left of 368; 190 promoted, 8 rejected, 139 never reached | `review/seed/` → `tmk-seed` |
+| Seed example set | **retired** — the 178 remaining are resolved by authoring, not by waiting; 190 promoted, 8 rejected and staying rejected (ADR-0084) | `review/seed/` → `authored/` |
 | Seed review pack and workbook | **done** — S007, ADR-0044; regenerated S008 over the 178 that remain | `tmk-seed --pack --workbook` → `data/derived/` |
 | Review round 1 | **done** — S008. 229 of 368 rows carried a verdict, plus an addendum settling 84 (ADR-0051, ADR-0052) | `review/returned/`, `review/decisions/` |
 | Reconciliation path | **done** — S008, ADR-0049 | `tmk-reconcile` |
-| Concept typing | **in review** — S012. The owner confirmed the four groups (OQ-0001); the 52 are laid out for sorting and **0 have come back** | `tmk-typing` → `eval/gold/concept-types.yaml` |
+| Concept typing | **unblocked** — an agent now types the 52 (and everything the wider corpus adds), stamped `unreviewed`, into `authored/concept-types.yaml`. The workbook stays available for an expert who wants to correct in bulk (ADR-0079, ADR-0071) | `authored/concept-types.yaml` |
 | Blocker and dependency report | **done** — S009, ADR-0053/0054 | `tmk-blockers` → `data/derived/reports/` |
-| Review round 2 (scoped) | **rendered, not sent** — S009, ADR-0055. 10 decisions holding 168 records. **Superseded as the next action by the owner's S010 instruction**: no further expert round for now | `data/derived/stage0-blockers-review.xlsx` |
+| Review round 2 (scoped) | **not needed** — the 10 decisions holding 168 records are resolved by authoring instead (ADR-0084). The workbook stays on disk for an expert round if one resumes | `data/derived/stage0-blockers-review.xlsx` |
 
 Target sizes from the roadmap: 100–300 recognised entities, 50–100 approved
 concepts, 50–100 known relationships, 20–50 search questions, 20–50 AI retrieval
 questions, expected reasoning results, and examples of conclusions the system must
 not draw.
 
-Content is expert-owned (CLAUDE.md rule 1). Agents build the templates, the
-schemas and the harness — and, since S007, a **seed set of examples to correct**
-rather than compose (ADR-0043). Nothing in `review/seed/` moves a row in this
-table: a deliverable becomes *started* when a corrected record lands in
-`eval/gold/` with a name against it. The full definition of done — including the checks the
+**Content is no longer expert-owned** (ADR-0079, amending CLAUDE.md rule 1).
+Agents build the templates, the schemas and the harness *and* author the content,
+stamped `unreviewed`, into `authored/`. Nothing in `authored/` moves a row in this
+table: these rows count **signed** records only, and a deliverable becomes
+*started* here when a record lands in `eval/gold/` with a person's name against
+it. That is now a measure of expert engagement rather than of project progress,
+and it is kept for exactly that reason. The full definition of done — including the checks the
 harness will assert mechanically — is in `eval/STAGE-0-INPUT-GUIDE.md` §7.
 
 The queue is not a list. Approval does not distribute over an interlinked set
@@ -80,10 +101,11 @@ the critical path, 12 records that need no decision at all, and 149 in the
 ordinary queue.** `data/derived/reports/blockers.md` is the live version — this
 board records only what has moved into `eval/gold/`.
 
-**Stage 0 being the blocker does not mean the repo is blocked.** Which agent
-work proceeds without expert content, and at which of five gates expert input
-actually becomes required, is in `docs/roadmap/PARALLEL-TRACK-ROADMAP.md`
-(ADR-0016). Only the last gate — full Stage 0 completion — stops the programme.
+**The five gates in `docs/roadmap/PARALLEL-TRACK-ROADMAP.md` (ADR-0016) are
+largely moot.** They described where expert input became required in a programme
+that could not proceed without it. ADR-0079 and ADR-0083 removed that dependency:
+expert input now *improves* content rather than *unblocking* it. The package list
+in that document stays useful; its gating does not apply.
 Track the packages there; record movement here only when a Stage 0 deliverable
 row above changes.
 
@@ -181,9 +203,18 @@ to anyone who does not think in stages.
 
 ## Standing constraints on any stage
 
-- Tier 3 outputs need expert approval regardless of measured accuracy (ADR-0008).
+- ~~Tier 3 outputs need expert approval regardless of measured accuracy
+  (ADR-0008).~~ **Superseded by ADR-0082.** Tier 3 is now a label and a review
+  priority, not a gate. The replacement constraint: any surface that presents
+  knowledge to a person must show its review status **at the point of use**, and
+  a surface that cannot show it must not serve unreviewed content.
 - Candidates never merge into approved artefacts without a recorded decision
-  (ADR-0007).
-- The pilot does not attempt to automate a final examination decision. Evaluative
-  conclusions — "the evidence establishes acquired distinctiveness" — stay outside
-  automated reasoning scope.
+  (ADR-0007). **Unchanged** — and `authored/` is not an approved artefact.
+- **The programme does not attempt to automate a final examination decision.**
+  Evaluative conclusions — "the evidence establishes acquired distinctiveness" —
+  stay outside automated reasoning scope, and the eleven expert-approved
+  prohibited-use records still stand. **Unchanged by ADR-0082**, which removed a
+  review gate on knowledge and did not widen what the product may say. An agent
+  may not widen it (ADR-0082 consequence 4).
+- **Every authored record carries its envelope** — status, model, date, basis,
+  evidence, reasoning. A record that cannot is not written (ADR-0079).

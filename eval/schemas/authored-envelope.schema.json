@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/authored/envelope/1.0.0",
+  "title": "Authoring envelope",
+  "description": "The block every record in `authored/` carries. ADR-0079 replaced the prohibition on an agent authoring legal content with a prohibition on laundering it, and this envelope is what makes the second rule mechanical rather than aspirational: a record that cannot carry these fields is not written. Shape only — it says what an authored record must declare about itself, never whether the judgement inside it is correct.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["review_status", "authored_by", "authored_date", "authoring_basis", "reasoning"],
+  "properties": {
+    "review_status": {
+      "description": "Where this record sits between machine output and signed knowledge (ADR-0085). Monotonic: a record's history keeps every state it held. `approved` and `rejected` are written only by `tmk-transcribe` from a workbook carrying a person's verdict and name — an agent writing either is the failure this schema exists to catch.",
+      "enum": ["unreviewed", "seen_uncorrected", "approved", "rejected"]
+    },
+    "authored_by": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The model that wrote this record, with its version — `claude-opus-5`. A bare vendor name is not enough: a silent model change alters what gets authored and invalidates any baseline measured before it (ADR-0011, ADR-0019 consequence 2). Never a person's name; a person's name goes in `approved_by` and only `tmk-transcribe` puts it there."
+    },
+    "authored_date": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "authoring_basis": {
+      "description": "What this judgement actually rests on. `corpus_explicit` — the corpus states it in terms and `evidence` shows where. `corpus_inferred` — the corpus supports it but the reading is the agent's. `general_knowledge` — the corpus does not say this and it was written from what the model knows about trade marks law. The third value is permitted and flagged, never hidden: an unevidenced record is not thereby wrong, it is thereby unevidenced, and no count may present it as equivalent to an evidenced one (ADR-0079 guard 2).",
+      "enum": ["corpus_explicit", "corpus_inferred", "general_knowledge"]
+    },
+    "evidence": {
+      "type": "array",
+      "description": "The passages this record rests on. Required and non-empty unless `authoring_basis` is `general_knowledge` — see the conditional at the foot of this schema. Every entry is an upstream ref with the span and content hash that let a later run detect the passage changing underneath the record.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ref"],
+        "properties": {
+          "ref": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/upstream_ref" },
+          "span": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/span" },
+          "content_hash": { "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/content_hash" },
+          "quote": {
+            "type": ["string", "null"],
+            "description": "The supporting text, copied character for character from the snapshot. Never retyped — a quote that will not locate means the surface was retyped rather than copied (ADR-0045)."
+          }
+        }
+      }
+    },
+    "confidence": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "The agent's own confidence in this judgement. Never merged with upstream's `extraction` or `certainty` signals, which travel separately and verbatim (CLAUDE.md rule 3). A confidence on an authored judgement is legitimate; a confidence attached to a legal conclusion served to an examiner is PU-0003 and remains prohibited."
+    },
+    "reasoning": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Why this reading and not the obvious alternative, in a sentence or two. Written for the expert who will disagree with it, not for the next agent. This is the field that makes correction cheap, which is the entire premise of ADR-0079."
+    },
+    "alternatives_considered": {
+      "type": "array",
+      "description": "Readings rejected, and what would make each one right instead. An empty list on a tier 3 record usually means the alternatives were not looked for.",
+      "items": { "type": "string" }
+    },
+    "expert_should_check": {
+      "type": ["string", "null"],
+      "description": "The specific thing most likely to be wrong here. Not a disclaimer — a pointer. Required in practice on any tier 3 record by the completeness gate, which the schema cannot enforce because tier lives on the record rather than in this envelope."
+    },
+    "supersedes_rejected": {
+      "type": ["string", "null"],
+      "description": "The id of a record a named expert rejected, where this authored record covers the same ground. A signed rejection is a human decision and ADR-0079 does not license reversing one silently: naming it here, with the difference explained in `reasoning`, is the only way an authored record may occupy that ground (ADR-0084 consequence 2)."
+    },
+    "resolved_seed": {
+      "type": ["string", "null"],
+      "description": "The seed record id this one resolves, where it came out of the ADR-0084 backlog pass. Lets a later expert find the exact points at which a colleague of theirs had doubts and a machine proceeded anyway."
+    },
+    "review_history": {
+      "type": "array",
+      "description": "Every state this record has held, oldest first. Append-only; nothing is overwritten (ADR-0085 consequence 1).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["status", "date"],
+        "properties": {
+          "status": { "enum": ["unreviewed", "seen_uncorrected", "approved", "rejected"] },
+          "date": { "type": "string", "format": "date", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+          "by": { "type": ["string", "null"] },
+          "round": {
+            "type": ["string", "null"],
+            "description": "The review round that covered this record. `seen_uncorrected` requires one: evidence the person actually had this record in front of them, not that they saw a page it was on (ADR-0085 consequence 2)."
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "authoring_basis": { "enum": ["corpus_explicit", "corpus_inferred"] } },
+        "required": ["authoring_basis"]
+      },
+      "then": {
+        "required": ["evidence"],
+        "properties": { "evidence": { "minItems": 1 } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "review_status": { "const": "seen_uncorrected" } },
+        "required": ["review_status"]
+      },
+      "then": { "required": ["review_history"] }
+    }
+  ]
+}

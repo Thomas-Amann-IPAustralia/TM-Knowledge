@@ -294,7 +294,7 @@
    "theme": "scope",
    "status": "open",
    "needs": "owner",
-   "urgency": "medium",
+   "urgency": "high",
    "raised": "S001",
    "tracked_as": [
     "HANDOFF Q3"
@@ -589,7 +589,7 @@
    "theme": "unblocks",
    "status": "open",
    "needs": "owner",
-   "urgency": "high",
+   "urgency": "low",
    "raised": "S012",
    "tracked_as": [
     "RULE-0001",
@@ -635,7 +635,7 @@
   {
    "id": "OQ-0020",
    "theme": "unblocks",
-   "status": "open",
+   "status": "answered",
    "needs": "owner",
    "urgency": "high",
    "raised": "S012",
@@ -643,6 +643,12 @@
     "OQ-0001",
     "ADR-0071"
    ],
+   "answered": {
+    "date": "2026-09-08",
+    "how": "Withdrawn rather than answered. You changed the rule that made this yours: an agent now types the 52 itself, stamped as never validated by an expert, and you correct what is wrong instead of sorting 52 rows by hand.",
+    "record": "docs/DECISIONS.md",
+    "applied": true
+   },
    "title": "The 52 concepts are ready for you to sort — here they are",
    "plain": "You confirmed the four groups and asked for the list. It is a spreadsheet with one row per concept and a dropdown in the type column. Each row says what the concept is called, what else the Manual calls it, and the terms it is explicitly *not* the same as; a companion document adds the passages each one was drawn from, for the rows where the names are not enough. Fill the dropdown, put your name and the date on each row you are sure about, and hand the file back. There is a fifth option beside the four groups — \"none of these\" — and it is a real answer rather than a way of skipping: it says the four groups do not fit that concept, which is evidence about the groups.\n",
    "why_you": "Sorting them is the legal judgement you said you were willing to make, and no amount of agent time substitutes for it. Leaving a row blank is fine and is different from \"none of these\" — a blank comes back on the next pass.\n",
@@ -724,7 +730,7 @@
   {
    "id": "OQ-0021",
    "theme": "scope",
-   "status": "open",
+   "status": "answered",
    "needs": "owner",
    "urgency": "medium",
    "raised": "S012",
@@ -732,6 +738,12 @@
     "OQ-0014",
     "ADR-0072"
    ],
+   "answered": {
+    "date": "2026-09-08",
+    "how": "Withdrawn rather than answered. It asked you to adjudicate how loosely the Manual cites provisions, for a boundary rule that no longer runs — you removed the section 43 barrier, so there is no boundary to draw.",
+    "record": "docs/DECISIONS.md",
+    "applied": true
+   },
    "title": "Your one-hop boundary rule, and where the Manual does not cooperate",
    "plain": "Your rule — one hop, and the hop lands on the specific chunk rather than its parent section — is implemented and reported. It works: twelve parent provisions stay out of scope purely because of your second sentence. But it does not do what you expected for section 41. You wrote that section 43 would refer to a number of specific chunks within section 41; in fact the Manual writes \"section 41\" bare in 32 of the section 43 passages, as well as citing 41(3) and 41(4). A bare citation names the whole section, so the whole of section 41 comes into scope and your second sentence never engages. Twenty-two provisions behave this way, including sections 42 and 44.\n",
    "why_you": "The rule met a corpus that cites more loosely than the rule assumes. Which way to resolve that is a scope judgement about how much neighbouring law the pilot carries, and it changes how much material everything downstream has to account for.\n",
@@ -770,7 +782,7 @@
   {
    "id": "OQ-0022",
    "theme": "expert",
-   "status": "parked",
+   "status": "answered",
    "needs": "expert",
    "urgency": "medium",
    "raised": "S012",
@@ -778,6 +790,12 @@
     "OQ-0015",
     "ADR-0073"
    ],
+   "answered": {
+    "date": "2026-09-08",
+    "how": "Withdrawn rather than answered. Under the amended rule an agent writes the examiner-conduct rule itself, citing the expert's own note as its evidence, and an expert corrects it rather than composing it from nothing.",
+    "record": "docs/DECISIONS.md",
+    "applied": true
+   },
    "title": "Should a rule about what an examiner must do be recorded like any other relationship?",
    "plain": "You asked whether a glossary captures the relationship between an examiner and a registrar, and said to adopt a Must/May predicate if it does not. It does not — a glossary holds one entry per term, and \"an examiner must consult a team leader before accepting on doubt\" is a relationship between two roles with a force attached, which no arrangement of definitions holds. So the predicate is adopted, and it turned out to exist already: every approved relationship can carry must, may or should. What was missing was the ability to make a relationship be *about* a role at all, and that is now possible. Nothing has been written into it.\n",
    "why_you": "Whether examiner conduct genuinely belongs in the same structure as \"connotation must arise from the mark itself\" is a judgement about the domain, not about the software. Recording a duty as a relationship makes it answerable by the same machinery as everything else, which is the argument for; it also flattens a rule about people into a shape built for rules about legal ideas, which is the argument against.\n",
@@ -935,6 +953,66 @@
     "issue": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/issues/12",
     "applied": true
    }
+  ],
+  "CHAT-0001": [
+   {
+    "value": "remove_boundary",
+    "label": "Completely remove the s43 barrier",
+    "notes": null,
+    "received": "2026-09-08T00:00:00Z",
+    "issue": "review/returned/260908-owner-chat-scope-and-authoring.md",
+    "applied": true
+   }
+  ],
+  "CHAT-0002": [
+   {
+    "value": "author_with_unreviewed_stamp",
+    "label": "Yes — author, provided it is recorded as not reviewed or approved by an expert",
+    "notes": null,
+    "received": "2026-09-08T00:00:00Z",
+    "issue": "review/returned/260908-owner-chat-scope-and-authoring.md",
+    "applied": true
+   }
+  ],
+  "CHAT-0003": [
+   {
+    "value": "separate_graph_reads_both",
+    "label": "Kept separate, graph reads both",
+    "notes": "eval/gold/ frozen as the signed set so it remains an uncontaminated yardstick; authored/ holds machine-authored content; the graph reads both and stamps every node with its origin.",
+    "received": "2026-09-08T00:00:00Z",
+    "issue": "review/returned/260908-owner-chat-scope-and-authoring.md",
+    "applied": true
+   }
+  ],
+  "CHAT-0004": [
+   {
+    "value": "labelling_is_enough",
+    "label": "Labelling is enough",
+    "notes": "Removes ADR-0008's Tier 3 gate. The weight moves onto the label being visible at the point of use, which Stages 7-8 inherit as a build requirement.",
+    "received": "2026-09-08T00:00:00Z",
+    "issue": "review/returned/260908-owner-chat-scope-and-authoring.md",
+    "applied": true
+   }
+  ],
+  "CHAT-0005": [
+   {
+    "value": "open_stages_2_to_4",
+    "label": "Yes — open Stages 2-4",
+    "notes": "Supersedes ADR-0010. Makes HANDOFF Q3 — which LLM is agency-approved, under what data-handling conditions — a live blocker for model-backed extraction for the first time.",
+    "received": "2026-09-08T00:00:00Z",
+    "issue": "review/returned/260908-owner-chat-scope-and-authoring.md",
+    "applied": true
+   }
+  ],
+  "CHAT-0006": [
+   {
+    "value": "resolve_all_marked_unreviewed",
+    "label": "Resolve them all now, marked unreviewed",
+    "notes": "The eight records the expert rejected are not resurrected — a signed rejection is a human decision and ADR-0079 does not license reversing one.",
+    "received": "2026-09-08T00:00:00Z",
+    "issue": "review/returned/260908-owner-chat-scope-and-authoring.md",
+    "applied": true
+   }
   ]
  },
  "rulings": [
@@ -947,6 +1025,8 @@
     "title": "Decisions from the dashboard — 7 answers",
     "url": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/issues/12"
    },
+   "origin": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/issues/12",
+   "origin_kind": "issue",
    "count": 7,
    "applied": {
     "session": "S012",
@@ -955,6 +1035,22 @@
     "what_changed": "Every answer acted on. OQ-0001 — a ninth gold record type holds a concept's type, and the 52 are laid out for sorting at data/derived/concept-typing.xlsx with the evidence at data/derived/reports/concept-typing.md (ADR-0071); the pass comes back as OQ-0020. OQ-0002 — a label the vocabulary deliberately excludes is now reported as a boundary rather than a gap, and neither approved record changed (ADR-0075). OQ-0003 — the pack is at data/derived/reports/rule-0001-flags.md; the rule stays PENDING and is re-asked as OQ-0019. OQ-0004 — RULE-0002 is approved and its 187 links have left quarantine (ADR-0068). OQ-0005 — all four graph files are committed, dataset.nq sorted so a rebuild does not churn 5MB (ADR-0070). OQ-0009 — the named repository was checked: 15 of our 58 cited decisions are in its index and it holds no decision text, which goes back as OQ-0018. OQ-0010 — confirmed as recorded; RULE-0002's approval is the first use of it.",
     "corrections_owed": "Two figures in the questions were wrong and the answers were given against them. RULE-0001 flags 5 passages, not 71. RULE-0002 draws 187 links, not 2,244. Both were triple counts quoted as counts of findings (Q-44, ADR-0069). The OQ-0004 approval stands on reasoning the correction does not touch, and he has been told the real number; OQ-0003 is re-asked against the corrected one as OQ-0019.",
     "also": "The transcription itself had to be repaired first — the workflow crashed on a missing dependency and told the owner his submission was malformed, and the OQ-0009 note would have been dropped in silence even had it run (ADR-0067). Three answers the owner typed by hand, outside the form, are transcribed at review/returned/260908-owner-notes-issue-12.md and acted on in ADR-0072, ADR-0073 and ADR-0074."
+   }
+  },
+  {
+   "file": "2026-09-08-chat-authoring-mandate.yaml",
+   "received": "2026-09-08T00:00:00Z",
+   "issue": {},
+   "origin": "review/returned/260908-owner-chat-scope-and-authoring.md",
+   "origin_kind": "chat",
+   "count": 6,
+   "applied": {
+    "session": "S015",
+    "date": "2026-09-08",
+    "branch": "claude/knowledge-graph-ontology-overview-udcwba",
+    "what_changed": "The operating model. CLAUDE.md rule 1 is rewritten from a prohibition on authoring legal content into a prohibition on laundering it: an agent now authors definitions, concept types, relationships, modality readings, rules and exceptions, each stamped unreviewed with its model, date, evidence and authoring basis (ADR-0079). Authored content lives in `authored/` and `eval/gold/` is frozen at the 190 signed records so it stays usable as an independent yardstick (ADR-0080). The section 43 boundary is withdrawn and the whole Manual is in scope; ADR-0022 and ADR-0072 are superseded and `tmk-boundary` is retired (ADR-0081). Tier 3 stops being a gate and becomes a label, with the honesty burden moved onto every surface that serves knowledge to a person (ADR-0082, supersedes ADR-0008). Stages 2-4 open across all 54 Parts (ADR-0083, supersedes ADR-0010). The 178 held seed records are resolved by authoring rather than by waiting on an expert round (ADR-0084). A four-state review model keeps \"nobody objected\" distinguishable from \"an expert signed it\" (ADR-0085).",
+    "corrections_owed": "None. Two figures quoted to him earlier in the same session were checked before he decided: the 52 concepts draw 86 of their ~95 definition-source references from Part 29, and 4 of the 9 role terms his expert named are absent from the vocabulary entirely.",
+    "also": "One thing he did not ask to change was preserved and flagged to him in the same exchange: the product may still not state an examination outcome to an examiner. He removed the review gate on knowledge; that limit is a scope constraint from the roadmap and from his expert's signed prohibited-use records. He was told it could be lifted on his word and gave no such instruction, so it stands (ADR-0082 consequence 4)."
    }
   }
  ]

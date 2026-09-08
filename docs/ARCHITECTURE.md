@@ -5,9 +5,18 @@ stage produces it. This is the target; `ROADMAP-STATUS.md` says how much of it
 exists.
 
 **Since S010 it is no longer all target.** Stages 5, 6 and 9 have a working
-draft over the section 43 pilot — modules in `ontology/draft/`, a built graph, a
-SHACL gate that passes and thirteen competency queries (ADR-0056). Nothing is
-approved. Stages 2, 3, 4, 7, 8 and 10 remain unbuilt.
+draft — modules in `ontology/draft/`, a built graph, a SHACL gate that passes and
+thirteen competency queries (ADR-0056). Nothing is approved. Stages 7, 8 and 10
+remain unbuilt.
+
+**Two structural changes on 2026-09-08 (ADR-0079 to ADR-0085), and they reach
+every section below.** The scope is now the **whole Manual**, not section 43 —
+there is no boundary rule and no in-scope judgement for any passage (ADR-0081).
+And an agent now **authors legal content** directly, stamped as never validated,
+into a new `authored/` store, while `eval/gold/` freezes at the 190 expert-signed
+records as the measurement yardstick (ADR-0079, ADR-0080). Stages 2, 3 and 4 are
+open (ADR-0083). Where a paragraph below still reads as though section 43 were a
+fence, it is stale and ADR-0081 wins.
 
 ## 1. Position in the programme
 
@@ -41,42 +50,54 @@ repo's work.
 data/upstream/            pinned snapshot, not committed
         │
         ▼
-src/tm_knowledge/         loader → candidate generation → RDF emission
+src/tm_knowledge/         loader → candidate generation → authoring → RDF emission
         │
-        ├──▶ review/      candidates awaiting a human   (Tier 2 low-conf, all Tier 3)
+        ├──▶ review/      candidates awaiting a human   (a proposal with a score)
         │        │
-        │        ▼        recorded approval decision
-        ├──▶ vocab/       SKOS concept scheme           (Stage 3)
-        ├──▶ ontology/    RDF/RDFS/OWL 2 RL modules     (Stage 5)
+        │        ▼        an agent commits to a judgement
+        ├──▶ authored/    machine-authored legal content, stamped `unreviewed`
+        │        │        (ADR-0079, ADR-0080)
         │        │
-        │        ▼
-        ├──▶ graph/       named graphs, PROV-O          (Stage 6)
+        │        ▼        recorded human decision, via tmk-transcribe
+        ├──▶ eval/gold/   190 expert-signed records — FROZEN as the yardstick
         │        │
-        │        ├── shapes/    SHACL validation        (Stage 6)
-        │        └── queries/   SPARQL, incl. CONSTRUCT rules  (Stages 6, 9)
+        │        ├──▶ vocab/       SKOS concept scheme           (Stage 3)
+        │        ├──▶ ontology/    RDF/RDFS/OWL 2 RL modules     (Stage 5)
+        │        │        │
+        │        │        ▼
+        │        └──▶ graph/       named graphs, PROV-O          (Stage 6)
+        │                 │        reads BOTH stores; stamps every node
+        │                 ├── shapes/    SHACL validation        (Stage 6)
+        │                 └── queries/   SPARQL, incl. CONSTRUCT rules  (Stages 6, 9)
         │
         └──▶ search index + retrieval API               (Stages 7, 8)
-                 │
-                 ▼
+                 │                must show review status at the point of use
+                 ▼                (ADR-0082 — the constraint that replaced the gate)
         eval/    measures all of the above              (Stage 0, run continuously)
 ```
 
-The one-way rule: `review/ → vocab|ontology|graph` only, and only through a
-recorded decision (ADR-0007). Nothing flows back into `data/upstream/`.
+The one-way rule holds and gained a stage: `review/ → authored/ → eval/gold/`,
+and only the last hop needs a recorded human decision (ADR-0007, ADR-0080).
+Nothing flows back into `data/upstream/`.
+
+**The graph reads both stores.** A fully populated ontology does not wait for
+review — but every node carries where it came from, and no figure anywhere sums
+signed and authored records into one count (ADR-0080 consequence 3).
 
 ## 3. Directory map
 
 | Directory | Holds | Stages | Notes |
 |---|---|---|---|
 | `docs/` | All project documentation, plus the two source documents | — | Start at `HANDOFF.md` |
-| `eval/` | Pilot scope, competency questions, gold set, prohibited uses, harness | 0, and every stage after | **Expert-owned content.** The current blocker |
+| `eval/` | Competency questions, gold set, prohibited uses, harness, schemas | 0, and every stage after | `eval/gold/` **frozen** at 190 signed records as the measurement yardstick (ADR-0080). No pilot scope — the whole Manual is in scope (ADR-0081) |
 | `data/` | Pinned upstream snapshot and derived intermediates | 1 (consumed) | Git-ignored except the pin manifest |
 | `src/` | `tm_knowledge` Python package — all pipeline code | 2–10 | Stage 0 apparatus built; nothing for 2+ |
-| `review/` | Candidate registers awaiting human decision | 2, 3, 4 | Never read as if approved |
-| `review/seed/` | Stage 0 example records, machine-written for expert correction (ADR-0043) | 0 | Not content; `approved_by` is null and checked |
+| `authored/` | **Machine-authored legal content, stamped `unreviewed`** (ADR-0079) | 0, 3, 4, 5 | The main knowledge store since 2026-09-08. Never read as validated |
+| `review/` | Candidate registers awaiting human decision | 2, 3, 4 | A proposal with a score, not a committed judgement |
+| `review/seed/` | Stage 0 example records, machine-written for expert correction (ADR-0043) | 0 | **Retired** — backlog resolved by authoring (ADR-0084) |
 | `review/returned/` | Marked-up artefacts a person handed back (ADR-0050) | 0 | Inputs. Never edited, never regenerated |
 | `review/decisions/` | What each returned artefact was taken to mean (ADR-0049) | 0, and 10 | Derived from `returned/`; verdicts and corrections verbatim |
-| `vocab/` | SKOS controlled vocabulary | 3 | Approved only. Empty — the s 43 concepts are in `graph/approved.ttl`, built from `eval/gold/`, not promoted here |
+| `vocab/` | SKOS controlled vocabulary | 3 | Approved only. Empty — the concepts are in `graph/approved.ttl`, built from `eval/gold/`, not promoted here |
 | `ontology/` | RDF/RDFS/OWL 2 RL modules | 5 | Approved only. **Empty** |
 | `ontology/draft/` | The candidate ontology — 9 modules, none approved | 5 | ADR-0057. Promoted one module at a time, on a recorded decision |
 | `graph/` | Generated RDF, by named graph | 6 | Generated. `approved.ttl` and `inferred.ttl` committed; `source.ttl` and `dataset.nq` are not (ADR-0060) |

@@ -3014,3 +3014,385 @@ vocabulary judgement (CLAUDE.md rule 1).
    on rows nobody has ruled on.
 3. `data/derived/concept-typing.xlsx` is regenerated. Nothing in `eval/gold/`,
    the ontology, the graph or the dashboard moved — no concept has been typed.
+
+---
+
+## ADR-0079 — An agent may author legal content, stamped as never validated
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted ·
+**Amends CLAUDE.md rule 1**
+
+**Context.** Rule 1 forbade an agent to write legal content of any kind:
+definitions, synonym judgements, concept types, modality readings, relationships,
+rules, exceptions. Every such artefact was expert-owned. The consequence, measured
+after fourteen sessions, was an ontology with 30 of 49 classes empty, 0 of 52
+concepts typed, no definition anywhere, 39 of 52 concepts outside any hierarchy,
+and 168 records parked behind ten decisions nobody had time to make. The
+expert thread had been paused by the owner since S010.
+
+The rule also rested on an observation that turned out to cut the other way.
+ADR-0043 already recorded it: experts *"could not readily articulate those
+judgements from a blank form — not because they do not know them, but because
+knowing them and stating them are different skills. Recognising a wrong answer is
+cheap for them. Composing a right one is not."* That argument was used once, to
+justify a 368-record seed set. It generalises to the entire corpus.
+
+**Decision.** The owner's, in chat on 2026-09-08, transcribed at
+`review/returned/260908-owner-chat-scope-and-authoring.md`:
+
+> *"I would like you to update your rule so that you can make higher risk
+> decisions AS LONG AS you record it has not been reviewed or approved by an
+> expert yet… In reality, you're still not making a decision. You're making a
+> best effort attempt given everything you know and have available to you which
+> is then validated/invalidated by a subject matter expert. It also makes it less
+> burdensome on the experts because then it's a matter of correcting problems
+> rather than writing solutions."*
+
+An agent may author any record type in this repo, including every judgement rule 1
+previously reserved. Rule 1 is rewritten from a prohibition on authorship into a
+prohibition on **laundering** — letting authored content be mistaken for signed
+content.
+
+**The four guards, and they are not optional.**
+
+1. **Every authored record carries `review_status: unreviewed`,
+   `authored_by` (model and version), `authored_date`, and `authoring_basis`.**
+   A record that cannot carry them is not written. This is CLAUDE.md rule 8,
+   which was a hygiene rule before today and is now the only thing standing
+   between authored and approved content.
+2. **Evidence or abstention.** An authored record names the passages it rests on
+   by upstream ref, with span and `content_hash`, exactly as an approved one
+   does. Where the corpus does not support a judgement, the record says so in
+   `authoring_basis` — `corpus_explicit`, `corpus_inferred` or
+   `general_knowledge` — and `general_knowledge` is a flag for a reviewer, not a
+   licence. It is the honest label for "I wrote this from what I know about trade
+   marks law and the corpus does not say it", and a record carrying it is not
+   thereby wrong; it is thereby unevidenced, and the difference must stay
+   visible.
+3. **`approved_by` is never written by an agent.** Not with a name, not with a
+   model identifier, not with the owner's initials. It means a person read this
+   record and signed it.
+4. **Authored content is physically separate from signed content** — ADR-0080.
+
+**Rationale.** The owner's, and it is an argument about where review effort is
+best spent rather than about what a model knows. A fully populated ontology an
+expert can interrogate and correct produces more correct knowledge per hour of
+expert time than an empty one they must fill. It also produces engagement: *"Having
+a working version will motivate them to engage with the process because the value
+will become clear."*
+
+**Consequences.**
+
+1. Everything the old rule 1 forbade is now ordinary work. The four empty concept
+   classes fill. Definitions get written. The 39 flat concepts get a hierarchy.
+   All of it stamped, none of it signed.
+2. **The repo's risk profile changes and this ADR is where that is recorded.**
+   Before today, a wrong statement in `eval/gold/` meant an expert made a
+   mistake. From today, a wrong statement in `authored/` means a model made one,
+   and there may be thousands. The mitigation is the stamp, the evidence
+   requirement, and ADR-0080's separation — not confidence in the model.
+3. `review/questions/open-questions.yaml` shrinks sharply. A question an agent can
+   answer and stamp is no longer an owner question (CLAUDE.md §3 step 6).
+4. ADR-0043's seed apparatus is superseded in purpose. Its guards existed to fence
+   off machine-written legal content as a one-off exception; that content is now
+   the normal case and `authored/` holds it under a permanent version of the same
+   guards.
+5. This does not touch rules 2, 3, 5, 7 or 8, and it explicitly does not touch the
+   product-scope limit in §6 — see ADR-0082 consequence 4.
+
+---
+
+## ADR-0080 — Authored knowledge lives in `authored/`; `eval/gold/` is frozen as the signed set
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted
+
+**Context.** ADR-0079 lets an agent author legal content. Where it lands decides
+whether the project can ever measure how good that content is. Three options were
+put to the owner: merge everything into `eval/gold/` with per-record status; keep
+them separate; or keep them separate and migrate on review.
+
+**Decision.** The owner chose separation with the graph reading both.
+
+- **`eval/gold/`** is **frozen** at the 190 records a named expert signed. Nothing
+  an agent authors is written there, ever. It remains the gold standard in the
+  measurement sense: an independently produced reference set, uncontaminated by
+  model output.
+- **`authored/`** holds everything an agent writes, mirroring the same record
+  types and the same schemas, each record wrapped in an authoring envelope.
+- **The graph reads both** and stamps every node with where it came from. The
+  ontology is fully populated regardless of which store a record sits in.
+- **A record moves from `authored/` to `eval/gold/` only through
+  `tmk-transcribe`** — the same single door, the same requirement of a verdict
+  and a name. An agent never carries a record across.
+
+**Rationale.** A merged set is simpler to read exactly once, and then permanently
+unable to answer "how good is the authored content?" — because the benchmark
+would contain the thing being benchmarked. Keeping 190 independently-produced
+records intact preserves the only yardstick the project has. It costs one
+directory and one flag on every graph node.
+
+**Consequences.**
+
+1. Ids are allocated from one sequence across both stores (`docs/IDENTIFIERS.md`
+   §3). One `GC-0123` in the project, wherever it lives. A duplicate id across
+   stores is a defect the harness reports.
+2. Where an authored record and a signed record cover the same ground, the signed
+   one wins and the authored one is retired — the reverse of the ordinary rule
+   that a record is never deleted, and it is right here because the signed record
+   is strictly better evidence of the same thing.
+3. `tmk-harness` and `tmk-coverage` report the two stores separately and never
+   sum them into a single "records we have" figure. A count that hides the split
+   is the merged set arriving by the back door.
+4. Every dashboard figure gains a signed/authored split. A reader must be able to
+   see, without asking, how much of what they are looking at a person has read.
+
+---
+
+## ADR-0081 — The whole Manual is in scope; the section 43 boundary is withdrawn
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted ·
+**Supersedes ADR-0022 and ADR-0072; amends ADR-0013**
+
+**Context.** ADR-0013 fixed the pilot area as section 43 in S002. The *boundary* —
+which Manual Parts and chunks come with it — was the first Stage 0 deliverable and
+was never delivered. Seven sessions later `eval/pilot-scope.md` still did not
+exist. In the meantime the boundary produced: a one-hop selection rule (ADR-0072),
+a 12-provision exclusion table, a 12KB generated report, and OQ-0021 — a question
+back to the owner asking him to adjudicate how loosely the Manual cites
+provisions, after the rule met the corpus and failed to do what he expected.
+Section 41 is cited bare in 32 passages; 22 provisions behave that way.
+
+The owner, in chat on 2026-09-08: *"I would like to completely remove the s43
+barrier."*
+
+**Decision.** The whole Trade Marks Examination Manual is in scope — 500 pages,
+54 Parts, 2,460 chunks — together with the legislation already loaded. There is
+no boundary rule, no exclusion list, and no in-scope/out-of-scope judgement for
+any passage. **Section 43 becomes a starting point rather than a fence**: it is
+what gets worked first, not what defines what may exist.
+
+**Rationale.** The boundary was doing two jobs and only one of them needed doing.
+Job one — controlling how much material a person is asked to look at — is real,
+permanent, and better done by an ordered work queue, which the tooling already
+supports (`tmk-seed --only`). Job two — defining what the ontology is allowed to
+contain — was generating every artefact listed above, and did not need doing at
+all: an ontology that admits a concept it has not collected yet costs nothing,
+as the 30 currently-empty classes demonstrate.
+
+Three further findings argued for it, all measured rather than assumed:
+
+- **The ontology was never section-43-shaped.** The 49 classes came from the
+  roadmap. Narrowing to s 43 did not shrink the class list; it left 30 of 49 empty.
+- **A third of the existing vocabulary is already Manual-wide** — *examiner,
+  decision maker, Registrar, opposition, priority date, divisional application,
+  revocation of acceptance, endorsement, specification of goods and services* and
+  more, collected accidentally and out of context because they appeared in a
+  passage that cited s 43.
+- **The selection rule was structurally blind to definitions** (Q-28). It selected
+  passages that *cite* section 43; a term's definition sits in a passage that
+  cites nothing. That is why no concept has a definition and why four of the nine
+  role terms the expert named — Delegate, Office Practise, Subject Matter Expert,
+  Adverse Report — are absent.
+
+**Consequences.**
+
+1. **ADR-0022 is superseded.** The worksheet no longer selects by citation of
+   `TMA1995/s43` plus page-mates. It covers the corpus, ordered by working
+   priority.
+2. **ADR-0072 is superseded.** The one-hop rule, the parent/unit distinction and
+   the exclusion table describe a boundary that no longer exists.
+   `tmk-boundary` and `data/derived/reports/boundary.md` are retired; the code
+   stays until the next session removes it, and must not be cited as current.
+3. **ADR-0013 is amended, not reversed.** Section 43 remains the first area
+   worked and the reason the existing 190 records exist. It is no longer a limit.
+4. **OQ-0021 is withdrawn** — it asked the owner to adjudicate bare citations for
+   a rule that no longer runs. Q8, open since S002, is closed the same way:
+   the question was "where does s 43 stop", and the answer is that it does not
+   have to.
+5. `eval/pilot-scope.md` is not written and is no longer owed. What replaces it is
+   a priority ordering, which is a work-management artefact rather than a legal
+   one.
+6. The 725 annex chunks now in scope are low-value and known to be so (Q-10).
+   Ordering handles them; exclusion does not.
+
+---
+
+## ADR-0082 — Tier 3 no longer gates output; the label is the control
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted ·
+**Supersedes ADR-0008**
+
+**Context.** ADR-0008 was `inherited` from the roadmap: legally significant
+outputs — obligations, exceptions qualifying rules, overruling, legal conclusions
+— require expert approval *indefinitely*, and no measured accuracy moves an
+output out of Tier 3 without an explicit human policy change recorded as a new
+ADR. This is that ADR.
+
+**Decision.** The owner was asked whether unreviewed content stays out of what
+the system eventually presents to an examiner, or whether visible labelling is
+sufficient. He chose **labelling is enough**: unreviewed content may be served
+like anything else, provided it is visibly marked as never validated by an
+expert.
+
+**Rationale.** His, and consistent with ADR-0079: the value of a populated system
+that experts correct exceeds the value of an empty system that waits for them,
+and the label carries the honesty burden. Deferring the question was offered and
+declined.
+
+**Consequences.**
+
+1. Tier 3 remains a **descriptive** field on a record — it still says "this is
+   legally significant" and still drives review priority. It is no longer a
+   **gate**. `tier: 3` does not stop anything.
+2. **The weight is now entirely on the label being seen.** Any surface that
+   presents knowledge to a person — retrieval output, evidence package, the
+   dashboard, an API response — must show review status at the point of use, not
+   in a footnote or a legend. A surface that cannot show it must not serve
+   unreviewed content. This is the operative constraint that replaces the gate,
+   and Stages 7–8 inherit it as a build requirement.
+3. Stages 7 and 8 do not exist yet, so nothing changes operationally today. The
+   decision is recorded now because it must be built into those stages rather
+   than retrofitted.
+4. **This did not widen the product's scope.** The programme still does not
+   automate a final examination decision, and the eleven expert-approved
+   prohibited-use records still stand as approved knowledge — PU-0001's
+   *"this trade mark should be rejected under section 43 because…"* remains
+   prohibited output. ADR-0082 removes a review gate on knowledge; it does not
+   authorise the system to decide a case. An agent may not widen that scope; the
+   owner may, and has not been asked to.
+
+---
+
+## ADR-0083 — Stages 2–4 open over the whole Manual
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted ·
+**Supersedes ADR-0010**
+
+**Context.** ADR-0010 held that no Stage 2+ pipeline work begins until `eval/`
+holds a pilot scope, a competency-question catalogue, a gold-standard set, a
+prohibited-use list and a runnable harness. Its reasoning was sound and remains
+worth reading: without a gold set the measurements do not exist, and *"the first
+plausible-looking extraction output becomes the de facto standard purely because
+it arrived first."*
+
+**Decision.** The gate is lifted. Terminology extraction, entity recognition,
+clustering and relation extraction (Stages 2, 3 and 4) may run across all 54
+Parts. The owner's answer, when asked whether the rule change opened extraction
+or only hand-authoring: **open Stages 2–4.**
+
+**Rationale.** Hand-authoring across 2,460 chunks does not scale even for an
+agent, and ADR-0079's goal — a fully fleshed-out ontology for experts to
+interrogate — is not reachable without extraction. The measurement concern that
+motivated ADR-0010 is now addressed differently rather than ignored: ADR-0080
+freezes the 190 signed records as an uncontaminated reference set, so extraction
+output can be measured against something a machine did not write. That is the
+protection ADR-0010 was reaching for, and it now exists, which it did not in
+August.
+
+**Consequences.**
+
+1. The Stage 2 stack stands as fixed by ADR-0019 — TextRank, YAKE and KeyBERT in
+   parallel, spaCy NER as candidate metadata only. Nothing about *how* extraction
+   runs is reopened here, only *whether*.
+2. **HANDOFF Q3 becomes urgent and is now a real blocker.** Which LLM is
+   agency-approved, and under what data-handling conditions Manual text may be
+   sent to it, was a Stage 2–4 question that nothing was waiting on. Stage 2–4
+   now start. Deterministic extraction (rule 7) proceeds without it; anything
+   model-backed does not.
+3. Extraction output is *candidate* output and lands in `review/candidates/`, not
+   in `authored/`. The two are different: a candidate is a proposal with a score,
+   an authored record is a judgement an agent committed to. Promotion from
+   candidate to authored is itself an act of authorship and carries the ADR-0079
+   envelope.
+4. The first extraction run is measured against the 190 before anything is built
+   on it. A recall figure against a frozen reference set is the number ADR-0010
+   wanted to exist and never got.
+5. `docs/roadmap/PARALLEL-TRACK-ROADMAP.md`'s five gates are largely moot. Its
+   package list stays useful; its gating does not apply.
+
+---
+
+## ADR-0084 — The seed backlog is resolved by authoring, not by waiting
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted
+
+**Context.** 178 seed records sat in `review/seed/` awaiting expert correction,
+with 168 of them held behind ten decisions on the critical path (ADR-0053,
+ADR-0054). The expert round that would settle them was paused by the owner in
+S010 and has not resumed. `tmk-blockers` has been reporting the same ten
+decisions for six sessions.
+
+**Decision.** Every held seed record is resolved by an agent under ADR-0079,
+stamped `unreviewed`, and moved into `authored/`. The critical path clears
+without an expert round. The owner chose this over leaving the backlog parked and
+over separating out the ten decisions his expert's review had specifically
+flagged.
+
+**Consequences.**
+
+1. `review/seed/` empties. Its purpose — machine-written examples awaiting
+   correction — is now served by `authored/` for the whole corpus, so the
+   directory is retired rather than maintained.
+2. **The eight rejected seed records are not resurrected.** A named expert threw
+   each of them out on a recorded date; that is a signed human decision and
+   ADR-0079 does not license reversing one. They stay rejected, they stay where
+   the pointers to them resolve, and an authored record may not silently occupy
+   the ground a rejected record was rejected from — if it covers the same
+   assertion, it cites the rejection and says why it differs.
+3. **The reviewer's marked corrections are honoured, not re-decided.** Where a
+   record was marked `amend` with an instruction, the authored version applies
+   that instruction. Where it was marked `amend` with no instruction, the
+   authored version is a fresh judgement and says so.
+4. The ten critical-path decisions are recorded as resolved-by-authoring, naming
+   the record each one released, so a later expert can find the exact points
+   where their colleague had doubts and a machine proceeded anyway.
+5. ADR-0043's guards lapse with the directory they fenced. ADR-0079's guards
+   replace them and are stricter in the one way that matters: they are permanent
+   rather than a time-limited exception.
+
+---
+
+## ADR-0085 — Silence is not validation
+
+**Date** 2026-09-08 · **Authority** derived · **Status** accepted
+
+**Context.** The owner's instruction includes: *"If something is not corrected, it
+can be assumed that it's valid (though we'll retain a record that it has never
+been validated by an expert)."* Both halves of that sentence have to be
+implemented, and they pull in opposite directions.
+
+**Decision.** Four review states, and the difference between the last two is
+never collapsed:
+
+| state | means | set by |
+|---|---|---|
+| `unreviewed` | authored; no person has looked at it | an agent, on writing it |
+| `seen_uncorrected` | a person had it in front of them and did not change it | a review round that covered it |
+| `approved` | a person read it and signed it | `tmk-transcribe`, with a name and a date |
+| `rejected` | a person read it and threw it out | the same |
+
+An unreviewed or uncorrected record **may be relied on and may be served**
+(ADR-0082). It **never becomes approved by the passage of time**, by not being
+challenged, or by an agent's assessment that it is obviously right.
+
+**Rationale.** The operational half of the owner's sentence is a decision about
+*usability* — do not block on review — and it is his to make. The archival half is
+a decision about *record-keeping*, and treating "nobody objected" as equivalent to
+"an expert confirmed" would destroy exactly the distinction ADR-0080 spent a
+directory preserving. `seen_uncorrected` is what makes both halves true at once:
+it is stronger evidence than `unreviewed`, weaker than `approved`, and it is a
+fact about what happened rather than an inference about what someone thought.
+
+**Consequences.**
+
+1. Review status is permanent and monotonic. A record's history shows every state
+   it held and when. Nothing is overwritten.
+2. `seen_uncorrected` requires evidence that the person actually saw the record —
+   a review round that listed it — not that they saw a page it was on.
+3. Any figure quoting "validated" content counts `approved` only. A dashboard
+   number that adds `seen_uncorrected` to `approved` is the error this ADR exists
+   to prevent.
+4. This is `derived` rather than `human`: the four-state model is an agent's
+   reading of how to make the owner's two clauses simultaneously true. If he
+   would rather `seen_uncorrected` count as approved, that is a one-line change
+   and a superseding ADR.
