@@ -305,7 +305,16 @@ questions:
 
   - id: OQ-0007
     theme: scope
-    status: open
+    status: answered
+    answered:
+      date: '2026-09-08'
+      how: >-
+        Answered in chat the same day it became a blocker: Gemini 3.8 Flash, with
+        the key added as a repository secret. The second half of the question —
+        the agency's data-handling conditions for sending Manual text to a
+        third-party service — is recorded as outstanding rather than assumed.
+      record: docs/DECISIONS.md
+      applied: true
     # Escalated 2026-09-08 (ADR-0083). This was a question nothing waited on.
     # Stages 2-4 are now open, so model-backed extraction over Manual text is
     # blocked on it for the first time. Deterministic extraction proceeds without

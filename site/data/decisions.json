@@ -1,21 +1,21 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "85 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "87 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 85,
+     "value": 87,
      "note": null,
      "tone": null,
      "href": null
     },
     {
      "label": "Made by you",
-     "value": 28,
+     "value": 30,
      "note": "yours, and not overturnable by an agent",
      "tone": "good",
      "href": null
@@ -78,6 +78,62 @@
    ],
    "rows": [
     {
+     "id": "`ADR-0087`",
+     "title": "Gemini 3.8 Flash is the model for authoring and extraction",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0087 Gemini 3.8 Flash is the model for authoring and extraction human accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "HANDOFF Q3 has been open since S001: *which LLM is agency-approved for the Stage 2–4 extraction steps, and under what data-handling conditions may Manual text be sent to it?* It blocked nothing for eight sessions because no model-backed work was permitted. ADR-0083 opened Stages 2–4 on 2026-09-08 and it became a live…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0087-gemini-38-flash-is-the-model-for-authoring-and-extraction)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0086`",
+     "title": "Three review states, and `seen_uncorrected` is dropped",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0086 Three review states, and `seen_uncorrected` is dropped human accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0085 read the owner's sentence — *\"If something is not corrected, it can be assumed that it's valid (though we'll retain a record that it has never been validated by an expert)\"* — as two clauses pulling in opposite directions, and proposed four states to make both true at once. The fourth, `seen_uncorrected`,…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0086-three-review-states-and-seen_uncorrected-is-dropped)"
+      }
+     ]
+    },
+    {
      "id": "`ADR-0085`",
      "title": "Silence is not validation",
      "authority": {
@@ -89,11 +145,11 @@
       ]
      },
      "date": "2026-09-08",
-     "search": "ADR-0085 Silence is not validation derived accepted",
+     "search": "ADR-0085 Silence is not validation derived **superseded by ADR-0086**",
      "detail": [
       {
        "kind": "prose",
-       "text": "**Status.** accepted"
+       "text": "**Status.** **superseded by ADR-0086**"
       },
       {
        "kind": "prose",

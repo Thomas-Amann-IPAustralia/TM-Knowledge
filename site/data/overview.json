@@ -6,7 +6,7 @@
   {
    "kind": "callout",
    "tone": "warn",
-   "title": "8 decisions are waiting on you",
+   "title": "7 decisions are waiting on you",
    "text": "Six of them unblock the next piece of work. Each is written to be answerable without reading anything else, and your answers come back into the repository as a file the next session reads.",
    "links": [
     {
@@ -193,7 +193,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "gate lifted 2026-09-08 (ADR-0083). Stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019). **Model-backed extraction now blocks on HANDOFF Q3** — which LLM is agency-approved — for the first time; deterministic extraction does not"
+       "text": "gate lifted 2026-09-08 (ADR-0083). Stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019). **HANDOFF Q3 was answered the same day it started blocking**: Gemini 3.8 Flash, credential in `GEMINI_API_KEY` (ADR-0087). Deterministic extraction stays preferred (rule 7)"
       }
      ]
     },

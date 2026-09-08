@@ -7,7 +7,7 @@ to be embarrassed about — it is the operating model the repo owner chose on
 directory, which is why it is the first line of its README and why every record
 inside repeats it in a field a machine can read.
 
-Read `docs/DECISIONS.md` ADR-0079 to ADR-0085 before writing anything here.
+Read `docs/DECISIONS.md` ADR-0079 to ADR-0087 before writing anything here.
 
 ## What this is for
 
@@ -26,7 +26,7 @@ they must fill — and that seeing it work is what gets them engaged.
 
 | | `eval/gold/` | `authored/` |
 |---|---|---|
-| Written by | a trade marks expert | an agent |
+| Written by | a trade marks expert | an agent — `gemini-3.8-flash` (ADR-0087) |
 | Signed by | a named person, on a date | nobody |
 | May be relied on | yes | yes (ADR-0082) |
 | Counts as validated | yes | **never**, until a person signs it |
@@ -69,8 +69,8 @@ negotiable.
   approved_by: null                 # NEVER filled by an agent
   approved_date: null
   authored:
-    review_status: unreviewed       # unreviewed | seen_uncorrected | approved | rejected
-    authored_by: claude-opus-5      # the model, with version
+    review_status: unreviewed       # unreviewed | approved | rejected (ADR-0086)
+    authored_by: gemini-3.8-flash   # the model, with version (ADR-0087)
     authored_date: '2026-09-08'
     authoring_basis: corpus_explicit
     evidence:
@@ -129,9 +129,17 @@ A record leaves here for `eval/gold/` exactly the way a seed record did:
 their name. Not a hand copy. Not an agent's assessment that a record is obviously
 right. Not the passage of time.
 
-**Silence never promotes anything** (ADR-0085). A record a reviewer had in front
-of them and did not change becomes `seen_uncorrected`, which is stronger evidence
-than `unreviewed` and weaker than `approved`, and the difference is permanent.
+**Silence never promotes anything** (ADR-0085, ADR-0086). There are three states —
+`unreviewed`, `approved`, `rejected` — and no intermediate credit for having been
+looked at. **A record a reviewer saw and did not change stays `unreviewed`.** Only
+a signature moves it.
+
+That is stricter than it first sounds, and deliberately so. Review rounds are
+partial by design, reviewers work down a list and stop, and "this record was in a
+workbook that came back" is weak evidence that anybody formed a view about *that
+record*. `review_history` still records everything that happened to a record and
+when — which is the archival requirement — without inventing a status that would
+be over-claimed the moment somebody needed a bigger number.
 
 ## Ids
 

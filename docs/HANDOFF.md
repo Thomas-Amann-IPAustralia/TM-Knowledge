@@ -16,7 +16,7 @@ The owner made two decisions in chat on 2026-09-08, and answered four clarifying
 questions about how they land. His words are transcribed verbatim at
 `review/returned/260908-owner-chat-scope-and-authoring.md`; the machine-readable
 index is `review/rulings/2026-09-08-chat-authoring-mandate.yaml`; the reasoning
-is **ADR-0079 to ADR-0085**.
+is **ADR-0079 to ADR-0087**.
 
 **Decision one — the section 43 boundary is gone.** *"I would like to completely
 remove the s43 barrier."* The whole Manual is in scope: 500 pages, 54 Parts,
@@ -41,13 +41,28 @@ model, date, evidence and authoring basis (ADR-0079).
 | Whether extraction opens | **Yes — Stages 2–4**, across all 54 Parts | ADR-0083, supersedes ADR-0010 |
 | The 178 held seed records | **Resolve them all now, marked unreviewed** | ADR-0084 |
 
+**Then he corrected himself, and tightened the record.** Shown ADR-0085's
+four-state reading of *"if it isn't corrected, assume it's valid"*, he withdrew
+the premise rather than the reading: *"I think I may have been overzealous… I
+would prefer to simply retain 'unreviewed', 'rejected' and 'approved' states."*
+So there are **three states and no intermediate credit for having been looked at**
+— a record a reviewer saw and did not change stays `unreviewed`, and only a
+signature moves it (ADR-0086, supersedes ADR-0085). This is stricter than what he
+first asked for, not looser, and it is worth noticing that the correction went
+that way.
+
+**And the model question was answered the day it started blocking.** Gemini 3.8
+Flash, credential in the `GEMINI_API_KEY` repository secret (ADR-0087). HANDOFF Q3
+had been open since S001 and became a real blocker for about four hours.
+
 **What S015 actually did: the paperwork, and only the paperwork.** `CLAUDE.md`
 rewritten; seven ADRs; the ruling and its transcription; `authored/` created with
 its README and its envelope schema; `eval/gold/`, `review/seed/` and `review/`
 READMEs re-headed; `ARCHITECTURE.md` and `ROADMAP-STATUS.md` brought into line;
-six questions withdrawn or re-graded on the owner's queue. **No legal content has
-been authored yet. No record has moved. The graph is untouched and still holds
-exactly what it held at S014.** The next session is the one that uses any of this.
+seven questions withdrawn, answered or re-graded on the owner's queue; and
+`config.py` gained the authoring-model constants. **No legal content has been
+authored yet. No record has moved. The graph is untouched and still holds exactly
+what it held at S014.** The next session is the one that uses any of this.
 
 **Three things that did *not* change, and a session that assumes otherwise will
 do damage:**
@@ -105,13 +120,26 @@ Two findings from the S015 conversation that are worth carrying, both measured:
 
 ## 2. The next action
 
-**Nothing is blocked on a human except one thing, and it is new.** OQ-0007 —
-which LLM is agency-approved and whether Manual text may be sent to it — was a
-question nothing waited on. Stages 2–4 are now open, so it blocks every
-model-backed extraction path for the first time. Deterministic extraction (rule 7)
-proceeds without it. It has been escalated to high on the owner's queue.
+**Nothing is blocked on a human.** OQ-0007 — which model, and may Manual text be
+sent to it — became a blocker when ADR-0083 opened Stages 2–4 and was answered the
+same day: **Gemini 3.8 Flash**, credential in the `GEMINI_API_KEY` repository
+secret (ADR-0087).
 
-Everything else below is an agent's to do.
+**Two things to know before the first model-backed run.** The exact API model
+identifier is `config.DEFAULT_AUTHORING_MODEL` and must be **confirmed against
+Google's current model list** before it is trusted — a wrong id fails loudly at
+the API, which is fine; a silently substituted one stamps ten thousand records
+with a model that did not write them, which is not. And a **repository secret
+reaches GitHub Actions, not a local container**: `config.authoring_api_key()`
+raises rather than returning empty, because a run that produces nothing for want
+of a key looks exactly like a run that found nothing.
+
+The second half of Q3 — the agency's data-handling conditions for sending Manual
+text to a third-party service — is recorded as outstanding rather than assumed
+(ADR-0087). The Manual is published material, which makes it easier than internal
+data would be, but published is not the same as cleared.
+
+Everything below is an agent's to do.
 
 **In order of value:**
 
@@ -163,9 +191,10 @@ product may say to an examiner. **Do not** author a record with no evidence and 
 >   authorable, but reading through an ambiguity upstream deliberately refused to
 >   resolve is still forbidden (CLAUDE.md rule 6, second half). The two halves of
 >   Q19 come apart and a session that misses that will resolve the wrong one.
-> - **Q3 moved from "blocks nothing today" to blocking.** Stages 2–4 are open, so
->   which LLM is agency-approved now gates every model-backed extraction path
->   (ADR-0083 consequence 2). It is OQ-0007 on the owner's queue, raised to high.
+> - **Q3 is answered.** It moved from "blocks nothing today" to blocking when
+>   Stages 2–4 opened, and was settled the same day: Gemini 3.8 Flash, credential
+>   in `GEMINI_API_KEY` (ADR-0087). Its second half — the agency's data-handling
+>   conditions — is outstanding and named as such.
 >
 > The confirmation questions — Q12, Q15, Q18, Q20 to Q26 — are unaffected and
 > still change nothing structural.
@@ -465,6 +494,12 @@ Marking three questions `answered` when they had actually been *withdrawn* faile
 exists because a question that says "answered" with no answer under it reads as an
 open question that lost its control. Withdrawn is not answered, and the record now
 says which it was.
+
+**Then two corrections in the same session, both the owner's.** He read ADR-0085
+back and withdrew the premise behind it — three review states, not four, and no
+credit for having been looked at (ADR-0086). And he answered HANDOFF Q3, open
+since S001 and blocking for about four hours: Gemini 3.8 Flash, key added as a
+repository secret (ADR-0087).
 
 **Not done, deliberately:** no legal content was authored, no record moved, the
 graph is untouched. A session that changes the rules and then immediately acts on

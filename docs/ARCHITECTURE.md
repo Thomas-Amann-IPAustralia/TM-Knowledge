@@ -153,7 +153,7 @@ ADR-worthy.
 | Rule-based entity recognition | spaCy `EntityRuler`, `PhraseMatcher`, regex |
 | Relation patterns | spaCy `DependencyMatcher` |
 | Similarity and clustering | Sentence Transformers; agglomerative / HDBSCAN; cross-encoder rerank |
-| Complex structured extraction | Agency-approved LLM, schema-constrained JSON (HANDOFF Q3) |
+| Complex structured extraction | **Gemini 3.8 Flash**, schema-constrained JSON (ADR-0087, answering HANDOFF Q3). Credential in `GEMINI_API_KEY`; the model id lives in `config.DEFAULT_AUTHORING_MODEL` and nowhere else |
 | Vocabulary | SKOS |
 | Ontology | RDF, RDFS, OWL 2 RL |
 | Ontology editing | Protégé / WebProtégé — not used; the modules are hand-written Turtle and `relations.ttl` is generated |

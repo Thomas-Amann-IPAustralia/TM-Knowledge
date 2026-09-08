@@ -3354,7 +3354,8 @@ flagged.
 
 ## ADR-0085 — Silence is not validation
 
-**Date** 2026-09-08 · **Authority** derived · **Status** accepted
+**Date** 2026-09-08 · **Authority** derived · **Status** **superseded by ADR-0086**
+— the principle stands, the four-state model it proposed does not
 
 **Context.** The owner's instruction includes: *"If something is not corrected, it
 can be assumed that it's valid (though we'll retain a record that it has never
@@ -3396,3 +3397,134 @@ fact about what happened rather than an inference about what someone thought.
    reading of how to make the owner's two clauses simultaneously true. If he
    would rather `seen_uncorrected` count as approved, that is a one-line change
    and a superseding ADR.
+
+---
+
+## ADR-0086 — Three review states, and `seen_uncorrected` is dropped
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted ·
+**Supersedes ADR-0085**
+
+**Context.** ADR-0085 read the owner's sentence — *"If something is not
+corrected, it can be assumed that it's valid (though we'll retain a record that
+it has never been validated by an expert)"* — as two clauses pulling in opposite
+directions, and proposed four states to make both true at once. The fourth,
+`seen_uncorrected`, recorded that a person had a record in front of them and did
+not change it: stronger than `unreviewed`, weaker than `approved`.
+
+The owner read it back and withdrew the premise rather than the reading:
+
+> *"Your interpretation is fair and I think I may have been overzealous in my
+> statement 'if something is not corrected, it can be assumed valid'. I would
+> prefer to simply retain 'unreviewed', 'rejected' and 'approved' states."*
+
+**Decision.** Three states. `seen_uncorrected` is removed from the envelope, from
+`authored/README.md` and from every count.
+
+| state | means | set by |
+|---|---|---|
+| `unreviewed` | authored by a machine; no person has signed it | an agent, on writing it |
+| `approved` | a person read it and signed it | `tmk-transcribe`, with a name and a date |
+| `rejected` | a person read it and threw it out | the same |
+
+**A record that a reviewer saw and did not change stays `unreviewed`.** There is
+no intermediate credit for having been looked at. Only a signature moves a record,
+and nothing else does.
+
+**Rationale.** His, and it makes the record *stricter* rather than looser, which
+is worth stating plainly because the shape of the change looks like a
+simplification and is actually a tightening. Under ADR-0085 an unreviewed record
+could accumulate standing by being passed over in a review round. Under this ADR
+it cannot: it is unreviewed until somebody signs it, however many times it has
+been read.
+
+It is also more honest about what a review round actually evidences. `tmk-seed`
+rounds are partial by design (ADR-0049), reviewers work down a list and stop, and
+"this record was in a workbook that came back" is weak evidence that anybody
+formed a view about *that record*. A state whose meaning depends on how carefully
+somebody read is a state that will be over-claimed, and the count that quotes it
+will be wrong in the flattering direction.
+
+**Consequences.**
+
+1. The `review_status` enum is `unreviewed` / `approved` / `rejected`. The
+   envelope's conditional requiring a review round for `seen_uncorrected` goes
+   with it.
+2. `review_history` **stays**. It is append-only and still records every state a
+   record has held and when — that is the *"retain a record that it has never been
+   validated"* half of the owner's sentence, and it does not need a fourth state
+   to work.
+3. ADR-0085's operative principle is unchanged and now unqualified: **silence
+   never promotes anything.** An unreviewed record may be relied on and served
+   (ADR-0082). It never becomes approved by the passage of time, by not being
+   challenged, by having been read, or by an agent's assessment that it is
+   obviously right.
+4. Any figure quoting "validated" content counts `approved` only, exactly as
+   before, and there is now no third value anybody could be tempted to add to it.
+
+---
+
+## ADR-0087 — Gemini 3.8 Flash is the model for authoring and extraction
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted ·
+**Answers HANDOFF Q3 and OQ-0007**
+
+**Context.** HANDOFF Q3 has been open since S001: *which LLM is agency-approved
+for the Stage 2–4 extraction steps, and under what data-handling conditions may
+Manual text be sent to it?* It blocked nothing for eight sessions because no
+model-backed work was permitted. ADR-0083 opened Stages 2–4 on 2026-09-08 and it
+became a live blocker the same day; it was raised to high on the owner's queue as
+OQ-0007 and answered within the session.
+
+**Decision.** The owner's:
+
+> *"GEMINI_API_KEY has been added as a secret to the repo. While we're still
+> working on this project pretty rapidly I'd like to use Gemini 3.8 Flash. We can
+> talk about potentially using batch inference later to reduce costs."*
+
+- **Model:** Gemini 3.8 Flash, for model-backed extraction (Stages 2–4) and for
+  the judgements an agent authors under ADR-0079.
+- **Credential:** read from the environment variable `GEMINI_API_KEY`. The value
+  is a repository secret and appears nowhere in the repository, in any generated
+  artefact, or in any log line.
+- **Recorded on every record it touches.** `authored_by` in the authoring
+  envelope, and `model` in the ADR-0011 provenance block, both of which have been
+  waiting for this answer — `review/seed/` records carry `model: null` precisely
+  because naming one would have pre-empted it (ADR-0043 consequence 4).
+
+**Two things this decision does not settle, and neither blocks work.**
+
+*The exact API model identifier.* The constant is
+`tm_knowledge.config.DEFAULT_AUTHORING_MODEL` and it is the one place the string
+lives, overridable by `TMK_AUTHORING_MODEL`. It must be confirmed against Google's
+current model list on the first real call rather than trusted from here: a wrong
+identifier fails loudly at the API, which is the good failure mode, but a
+*silently substituted* one is the bad one — a model id recorded on ten thousand
+records that is not the model that wrote them is unrecoverable provenance
+corruption.
+
+*The data-handling conditions.* Q3 asked two questions and this answers the first.
+The Manual is published material, which makes the second question easier than it
+would be for internal data, but "published" is not the same as "cleared to send
+to a third-party API", and that is an agency determination rather than a
+technical one. Recorded here as outstanding rather than assumed; it is not raised
+as a new owner question because he has now twice indicated the route is his to
+take and has taken it.
+
+**Consequences.**
+
+1. Model-backed extraction is unblocked. Deterministic extraction (CLAUDE.md rule
+   7) was never blocked and stays preferred: a deterministic answer needs no
+   review, and every model judgement is review debt somebody eventually pays.
+2. **The key is a repository secret, so it reaches GitHub Actions and not a local
+   container.** Any session doing model-backed work outside CI needs the variable
+   in its own environment, and a run that silently produces nothing because the
+   key is absent is the failure to guard against — an absent key must be a loud
+   error, never an empty result set.
+3. **A model change is a provenance event, not a configuration tweak.** Output
+   from a different model is different output, and every baseline measured before
+   the change is invalid after it (ADR-0019 consequence 2, generalised). Changing
+   the constant is a superseding ADR and a re-measurement, not an edit.
+4. Batch inference is deferred by the owner's own words and is a cost decision
+   rather than a correctness one. When it is taken, the thing to check is that
+   batching does not quietly change the model version underneath the same name.
