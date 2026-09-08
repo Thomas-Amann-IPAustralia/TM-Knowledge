@@ -2969,3 +2969,48 @@ made somewhere else.
 3. A future answer arriving off-form — a meeting, an email, a decision recorded
    in `review/decisions/` — has somewhere to be recorded without pretending it
    came through the form.
+
+## ADR-0078 — The typing sheet's `notes` cell names a concept three ways: what it is, what else it is called, and what it is not
+
+**Date** 2026-09-08 · **Authority** derived · **Status** accepted
+
+**Context.** The owner asked for it. The `notes` column of the `concept-types`
+sheet in `data/derived/concept-typing.xlsx` held the concept's `pref_label` and
+its `not_labels` — *"connotation — not: denotation, deceptively similar,
+descriptive meaning"* — and he asked that it also carry what the concept is
+*also called*.
+
+He is right about the asymmetry. The near-misses were put there to stop a sorter
+typing by label (ADR-0071), which assumes the sorter recognises the label in the
+first place. `pref_label` is one form of words out of the several the Manual
+uses; the record already holds the others in `alt_labels`, they are already
+approved, and the evidence pack at `data/derived/reports/concept-typing.md`
+already prints them under *Also called*. The spreadsheet is where the sorting
+actually happens, and it was the one place showing less than it had.
+
+**Decision.** The cell is `pref_label — also called: … — not: …`, built by
+`typing.summarise()`, with a clause omitted when its list is empty. The
+`also called` clause sits before the `not` clause: it says what the concept is,
+and the near-misses then bound it.
+
+Because the cell is now several times longer, the `notes` column on that sheet is
+widened to 72 characters and wrapped, and the workbook's front sheet says what
+the column holds and that it is the one column the sorter should not need to
+touch. Only the pre-filled rows are restyled; the sheet is still an ordinary
+intake sheet that `tmk-transcribe` reads back unchanged (ADR-0048).
+
+**What this is not.** Not a judgement about any concept. Every label in the cell
+is a string an approved `gold_concept` record already holds, copied character for
+character — `test_the_summary_quotes_the_labels_verbatim` fails if that stops
+being true. Nothing is paraphrased, merged or ranked, because choosing which of a
+concept's names to show, or wording one differently, would be a machine making a
+vocabulary judgement (CLAUDE.md rule 1).
+
+**Consequences.**
+
+1. The 52 rows waiting on OQ-0020 read from the spreadsheet alone. The evidence
+   pack is still the place for the passages, and the front sheet now points at it.
+2. A row already signed keeps the notes its signer left; `summarise()` runs only
+   on rows nobody has ruled on.
+3. `data/derived/concept-typing.xlsx` is regenerated. Nothing in `eval/gold/`,
+   the ontology, the graph or the dashboard moved — no concept has been typed.
