@@ -50,6 +50,15 @@ RULINGS_DIR = REPO_ROOT / "review" / "rulings"
 #: session reading an old ruling must not mistake a renamed field for an absent
 #: answer.
 RULING_SCHEMA = "tmk-ruling/1"
+RULING_SCHEMA_MANUAL = "tmk-ruling/1-manual"
+"""A ruling the owner gave in a chat session, hand-transcribed rather than
+generated from an issue. He authorised the route on 2026-09-08 — *"We can
+absolutely make decisions in chat windows. Especially if we're recording the
+decisions."* — and ADR-0079's own mandate arrived that way. The file still names
+its artefact: `source.artefact` points at the transcription in
+`review/returned/`, exactly as the generated form names its issue URL. What a
+ruling may never be is unsourced.
+"""
 
 
 class MalformedQuestions(ValueError):
@@ -106,8 +115,24 @@ class Ruling:
     received: str
     issue: dict[str, Any]
     answers: tuple[dict[str, Any], ...]
+    source: dict[str, Any] = field(default_factory=dict)
     applied: Any = None
     raw: dict[str, Any] = field(default_factory=dict)
+
+    @property
+    def origin(self) -> str:
+        """Where this decision was made, as something a reader can open.
+
+        The GitHub issue for a ruling submitted through the form; the
+        transcription in `review/returned/` for one given in chat. Empty is
+        refused at load: the route a decision arrived by does not change its
+        weight, but a decision with no traceable origin is not a record.
+        """
+        return str(self.issue.get("url") or self.source.get("artefact") or "")
+
+    @property
+    def origin_kind(self) -> str:
+        return str(self.source.get("kind") or ("issue" if self.issue else "unknown"))
 
     @property
     def answered_ids(self) -> tuple[str, ...]:
@@ -190,19 +215,27 @@ def load_rulings(directory: Path | None = None) -> tuple[Ruling, ...]:
             document = yaml.safe_load(path.read_text(encoding="utf-8"))
         except yaml.YAMLError as error:
             raise MalformedQuestions(f"{path.name}: not valid YAML: {error}") from error
-        if not isinstance(document, dict) or document.get("schema") != RULING_SCHEMA:
+        schema = document.get("schema") if isinstance(document, dict) else None
+        if schema not in (RULING_SCHEMA, RULING_SCHEMA_MANUAL):
             raise MalformedQuestions(
-                f"{path.name}: expected a mapping with `schema: {RULING_SCHEMA}`. "
-                f"A ruling file is written by `tmk-ruling`, never by hand."
+                f"{path.name}: expected a mapping with `schema: {RULING_SCHEMA}` "
+                f"(written by `tmk-ruling`) or `schema: {RULING_SCHEMA_MANUAL}` "
+                f"(a chat ruling, hand-transcribed, naming its artefact in `source`)."
             )
-        rulings.append(
-            Ruling(
-                path=path,
-                received=str(document.get("received_utc", "")),
-                issue=dict(document.get("issue") or {}),
-                answers=tuple(document.get("answers") or ()),
-                applied=document.get("applied"),
-                raw=document,
-            )
+        ruling = Ruling(
+            path=path,
+            received=str(document.get("received_utc", "")),
+            issue=dict(document.get("issue") or {}),
+            source=dict(document.get("source") or {}),
+            answers=tuple(document.get("answers") or ()),
+            applied=document.get("applied"),
+            raw=document,
         )
+        if not ruling.origin:
+            raise MalformedQuestions(
+                f"{path.name}: names no source. A generated ruling carries "
+                f"`issue.url`; a chat ruling carries `source.artefact`. A decision "
+                f"nobody can trace back to where it was made is not a record of it."
+            )
+        rulings.append(ruling)
     return tuple(sorted(rulings, key=lambda ruling: ruling.received, reverse=True))

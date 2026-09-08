@@ -1,5 +1,21 @@
 # eval/gold/ — the gold-standard dataset
 
+> **FROZEN as of 2026-09-08 (ADR-0080).** This directory holds the **190 records
+> a named trade marks expert signed**, and nothing else will be added to it by an
+> agent. Machine-authored legal content — which an agent may now write, under
+> ADR-0079 — goes to **`authored/`** instead.
+>
+> The freeze is not caution, it is arithmetic. These 190 records are the only
+> independently-produced reference set the project has. The moment they are mixed
+> with model output they stop being able to measure model output, permanently,
+> because nothing can unmix them afterwards. Every recall figure the project will
+> ever quote is measured against this directory.
+>
+> A record still enters here the way it always did: `tmk-transcribe`, reading a
+> workbook where a person wrote a verdict and their name. That door now also
+> accepts records promoted out of `authored/`. It has never accepted an agent's
+> judgement that a record is obviously fine, and it still does not.
+
 The expert-approved trusted examples, one file per record type. **No longer
 empty** — the first review round landed 108 records here on 2026-09-02
 (ADR-0048). The names are fixed, because `tm_knowledge.stage0.goldset` reads

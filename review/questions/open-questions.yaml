@@ -305,9 +305,23 @@ questions:
 
   - id: OQ-0007
     theme: scope
-    status: open
+    status: answered
+    answered:
+      date: '2026-09-08'
+      how: >-
+        Answered in chat the same day it became a blocker, in both halves.
+        Gemini 3.8 Flash, with the key added as a repository secret (ADR-0087).
+        And the corpus may be sent to it — published material, your explicit
+        permission — with the standing condition that a call is only worth making
+        where valuable output is expected back (ADR-0088).
+      record: docs/DECISIONS.md
+      applied: true
+    # Escalated 2026-09-08 (ADR-0083). This was a question nothing waited on.
+    # Stages 2-4 are now open, so model-backed extraction over Manual text is
+    # blocked on it for the first time. Deterministic extraction proceeds without
+    # an answer; anything sending Manual text to a model does not.
     needs: owner
-    urgency: medium
+    urgency: high
     raised: S001
     tracked_as: ['HANDOFF Q3']
     title: Which AI model may we use, and may Manual text be sent to it?
@@ -591,8 +605,12 @@ questions:
   - id: OQ-0019
     theme: unblocks
     status: open
+    # Downgraded 2026-09-08 (ADR-0082). No longer blocking: RULE-0001's five
+    # conclusions may now be served stamped `candidate`/`requiresHumanReview` like
+    # any unreviewed content. Still worth your ruling — an agent may NOT fill a
+    # rule's approved-by line, so only you can move it from unreviewed to approved.
     needs: owner
-    urgency: high
+    urgency: low
     raised: S012
     tracked_as: ['RULE-0001', 'OQ-0003', 'Q-44', 'ADR-0069']
     title: 'The mixed-authority rule, again — and the number you were given was wrong'
@@ -635,11 +653,23 @@ questions:
 
   - id: OQ-0020
     theme: unblocks
-    status: open
+    status: answered
+    # Withdrawn 2026-09-08 (ADR-0079). No longer yours to do: an agent types the
+    # 52 — and everything whole-Manual scope adds — into authored/concept-types.yaml,
+    # stamped `unreviewed`. The workbook stays available if you or an expert would
+    # rather correct in bulk. This is what the rule change was for.
     needs: owner
     urgency: high
     raised: S012
     tracked_as: ['OQ-0001', 'ADR-0071']
+    answered:
+      date: '2026-09-08'
+      how: >-
+        Withdrawn rather than answered. You changed the rule that made this yours:
+        an agent now types the 52 itself, stamped as never validated by an expert,
+        and you correct what is wrong instead of sorting 52 rows by hand.
+      record: docs/DECISIONS.md
+      applied: true
     title: The 52 concepts are ready for you to sort — here they are
     plain: >
       You confirmed the four groups and asked for the list. It is a spreadsheet
@@ -736,11 +766,22 @@ questions:
 
   - id: OQ-0021
     theme: scope
-    status: open
+    status: answered
+    # Withdrawn 2026-09-08 (ADR-0081). The question asked you to adjudicate how
+    # loosely the Manual cites provisions, for a boundary rule that no longer runs.
+    # You removed the s 43 barrier; there is no boundary, so nothing to adjudicate.
     needs: owner
     urgency: medium
     raised: S012
     tracked_as: ['OQ-0014', 'ADR-0072']
+    answered:
+      date: '2026-09-08'
+      how: >-
+        Withdrawn rather than answered. It asked you to adjudicate how loosely the
+        Manual cites provisions, for a boundary rule that no longer runs — you
+        removed the section 43 barrier, so there is no boundary to draw.
+      record: docs/DECISIONS.md
+      applied: true
     title: Your one-hop boundary rule, and where the Manual does not cooperate
     plain: >
       Your rule — one hop, and the hop lands on the specific chunk rather than its
@@ -783,11 +824,23 @@ questions:
 
   - id: OQ-0022
     theme: expert
-    status: parked
+    status: answered
+    # Withdrawn 2026-09-08 (ADR-0079). An agent now authors the examiner-conduct
+    # rule as a relationship record, stamped `unreviewed`, citing the expert's own
+    # note (review/returned/260826-expert-feedback.md) and Blount v Registrar as its
+    # evidence. An expert corrects it rather than composing it.
     needs: expert
     urgency: medium
     raised: S012
     tracked_as: ['OQ-0015', 'ADR-0073']
+    answered:
+      date: '2026-09-08'
+      how: >-
+        Withdrawn rather than answered. Under the amended rule an agent writes the
+        examiner-conduct rule itself, citing the expert's own note as its evidence,
+        and an expert corrects it rather than composing it from nothing.
+      record: docs/DECISIONS.md
+      applied: true
     title: Should a rule about what an examiner must do be recorded like any other relationship?
     plain: >
       You asked whether a glossary captures the relationship between an examiner
@@ -900,6 +953,11 @@ questions:
   - id: OQ-0017
     theme: expert
     status: parked
+    # Still parked, and ADR-0079 did NOT settle it — flagged because it looks as
+    # though it should have. An agent may now author a legal judgement, but reading
+    # through an ambiguity upstream deliberately refused to resolve is rule 3, not
+    # rule 1 (CLAUDE.md rule 6, second half). The distinction is narrow and a future
+    # session may well get it wrong, so it stays on the queue rather than lapsing.
     needs: expert
     urgency: low
     raised: S008

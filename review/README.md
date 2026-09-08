@@ -5,6 +5,21 @@ decides. This directory is the boundary that ADR-0007 exists to protect: nothing
 moves from `review/` into `vocab/`, `ontology/` or `graph/` without a recorded
 decision.
 
+> **What changed on 2026-09-08.** An agent may now author legal content directly,
+> stamped `unreviewed` (ADR-0079), and that content lives in **`authored/`** — not
+> here. The distinction is worth getting right: a **candidate** is a proposal with
+> a score that an agent is *not* committing to, and it waits here. An **authored
+> record** is a judgement an agent *has* committed to, published, and stamped as
+> never validated. Promoting a candidate to an authored record is itself an act of
+> authorship and takes the full ADR-0079 envelope.
+>
+> ADR-0007 is untouched. Nothing crosses into `vocab/`, `ontology/` or `graph/` as
+> *approved* without a recorded human decision — the graph now simply also reads
+> `authored/`, and stamps every node it takes from there.
+>
+> `review/seed/` is **retired** (ADR-0084); its backlog is being resolved by
+> authoring.
+
 ```
 review/candidates/terms/          Stage 2 — YAKE keyphrases, new entity proposals
 review/candidates/citations/      Stage 2 — unresolved and ambiguous citations

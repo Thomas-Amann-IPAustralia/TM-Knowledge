@@ -1088,7 +1088,7 @@ def _inbox(facts: Facts) -> dict[str, Any]:
                     "label": answer.get("label"),
                     "notes": answer.get("notes"),
                     "received": ruling.received,
-                    "issue": ruling.issue.get("url"),
+                    "issue": ruling.origin,
                     "applied": bool(ruling.applied),
                 }
             )
@@ -1111,6 +1111,8 @@ def _inbox(facts: Facts) -> dict[str, Any]:
                 "file": ruling.path.name,
                 "received": ruling.received,
                 "issue": ruling.issue,
+                "origin": ruling.origin,
+                "origin_kind": ruling.origin_kind,
                 "count": len(ruling.answers),
                 "applied": ruling.applied,
             }

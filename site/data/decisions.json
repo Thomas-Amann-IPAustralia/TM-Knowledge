@@ -1,28 +1,28 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "78 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "88 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 78,
+     "value": 88,
      "note": null,
      "tone": null,
      "href": null
     },
     {
      "label": "Made by you",
-     "value": 22,
+     "value": 31,
      "note": "yours, and not overturnable by an agent",
      "tone": "good",
      "href": null
     },
     {
      "label": "Forced by the evidence",
-     "value": 18,
+     "value": 19,
      "note": "defensible without a human",
      "tone": null,
      "href": null
@@ -77,6 +77,286 @@
     }
    ],
    "rows": [
+    {
+     "id": "`ADR-0088`",
+     "title": "Corpus text may go to the model API; spend is justified per call",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0088 Corpus text may go to the model API; spend is justified per call human accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0087 named the model and recorded that the second half of HANDOFF Q3 — the agency's data-handling conditions for sending Manual text to a third-party service — was outstanding rather than assumed. It is now answered, in the same chat session, together with a cost principle nobody had asked for and which turns out…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0088-corpus-text-may-go-to-the-model-api-spend-is-justified-per-call)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0087`",
+     "title": "Gemini 3.8 Flash is the model for authoring and extraction",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0087 Gemini 3.8 Flash is the model for authoring and extraction human accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "HANDOFF Q3 has been open since S001: *which LLM is agency-approved for the Stage 2–4 extraction steps, and under what data-handling conditions may Manual text be sent to it?* It blocked nothing for eight sessions because no model-backed work was permitted. ADR-0083 opened Stages 2–4 on 2026-09-08 and it became a live…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0087-gemini-38-flash-is-the-model-for-authoring-and-extraction)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0086`",
+     "title": "Three review states, and `seen_uncorrected` is dropped",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0086 Three review states, and `seen_uncorrected` is dropped human accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0085 read the owner's sentence — *\"If something is not corrected, it can be assumed that it's valid (though we'll retain a record that it has never been validated by an expert)\"* — as two clauses pulling in opposite directions, and proposed four states to make both true at once. The fourth, `seen_uncorrected`,…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0086-three-review-states-and-seen_uncorrected-is-dropped)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0085`",
+     "title": "Silence is not validation",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0085 Silence is not validation derived **superseded by ADR-0086**",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** **superseded by ADR-0086**"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner's instruction includes: *\"If something is not corrected, it can be assumed that it's valid (though we'll retain a record that it has never been validated by an expert).\"* Both halves of that sentence have to be implemented, and they pull in opposite directions."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0085-silence-is-not-validation)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0084`",
+     "title": "The seed backlog is resolved by authoring, not by waiting",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0084 The seed backlog is resolved by authoring, not by waiting human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "178 seed records sat in `review/seed/` awaiting expert correction, with 168 of them held behind ten decisions on the critical path (ADR-0053, ADR-0054). The expert round that would settle them was paused by the owner in S010 and has not resumed. `tmk-blockers` has been reporting the same ten decisions for six sessions."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0084-the-seed-backlog-is-resolved-by-authoring-not-by-waiting)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0083`",
+     "title": "Stages 2–4 open over the whole Manual",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0083 Stages 2–4 open over the whole Manual human accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0010 held that no Stage 2+ pipeline work begins until `eval/` holds a pilot scope, a competency-question catalogue, a gold-standard set, a prohibited-use list and a runnable harness. Its reasoning was sound and remains worth reading: without a gold set the measurements do not exist, and *\"the first…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0083-stages-24-open-over-the-whole-manual)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0082`",
+     "title": "Tier 3 no longer gates output; the label is the control",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0082 Tier 3 no longer gates output; the label is the control human accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0008 was `inherited` from the roadmap: legally significant outputs — obligations, exceptions qualifying rules, overruling, legal conclusions — require expert approval *indefinitely*, and no measured accuracy moves an output out of Tier 3 without an explicit human policy change recorded as a new ADR. This is that…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0082-tier-3-no-longer-gates-output-the-label-is-the-control)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0081`",
+     "title": "The whole Manual is in scope; the section 43 boundary is withdrawn",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0081 The whole Manual is in scope; the section 43 boundary is withdrawn human accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0013 fixed the pilot area as section 43 in S002. The *boundary* — which Manual Parts and chunks come with it — was the first Stage 0 deliverable and was never delivered. Seven sessions later `eval/pilot-scope.md` still did not exist. In the meantime the boundary produced: a one-hop selection rule (ADR-0072), a…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0081-the-whole-manual-is-in-scope-the-section-43-boundary-is-withdrawn)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0080`",
+     "title": "Authored knowledge lives in `authored/`; `eval/gold/` is frozen as the signed set",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0080 Authored knowledge lives in `authored/`; `eval/gold/` is frozen as the signed set human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0079 lets an agent author legal content. Where it lands decides whether the project can ever measure how good that content is. Three options were put to the owner: merge everything into `eval/gold/` with per-record status; keep them separate; or keep them separate and migrate on review."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0080-authored-knowledge-lives-in-authored-evalgold-is-frozen-as-the-signed-set)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0079`",
+     "title": "An agent may author legal content, stamped as never validated",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0079 An agent may author legal content, stamped as never validated human accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "Rule 1 forbade an agent to write legal content of any kind: definitions, synonym judgements, concept types, modality readings, relationships, rules, exceptions. Every such artefact was expert-owned. The consequence, measured after fourteen sessions, was an ontology with 30 of 49 classes empty, 0 of 52 concepts typed,…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0079-an-agent-may-author-legal-content-stamped-as-never-validated)"
+      }
+     ]
+    },
     {
      "id": "`ADR-0078`",
      "title": "The typing sheet's `notes` cell names a concept three ways: what it is, what else it is called, and what it is not",

@@ -417,7 +417,12 @@ def test_an_answer_with_neither_an_option_nor_a_note_is_dropped():
 
 def test_recorded_rulings_load():
     """A ruling that will not parse is a decision silently dropped, so reading
-    the directory raises rather than skipping the file."""
+    the directory raises rather than skipping the file.
+
+    Every ruling names where it was made — an issue URL for one submitted through
+    the form, a transcription file for one given in chat (ADR-0079 arrived that
+    way). The route does not change a decision's weight; being untraceable would.
+    """
     for entry in questions.load_rulings():
         assert entry.answers
-        assert entry.issue.get("url")
+        assert entry.origin, f"{entry.path.name} names no source"

@@ -1,5 +1,26 @@
 # review/seed/ — machine-written examples, for correction
 
+> **RETIRED as of 2026-09-08 (ADR-0084).** The 178 records that were waiting here
+> for an expert are being resolved by authoring instead of by waiting: each one
+> becomes an `authored/` record stamped `unreviewed`, and the ten decisions that
+> were holding 168 of them clear without a review round.
+>
+> This directory existed as a **time-limited exception** to the old rule that an
+> agent may not write legal content (ADR-0043). That rule is gone — an agent now
+> authors content as a matter of course (ADR-0079) — so the exception has nothing
+> left to except, and `authored/` holds the same kind of material under permanent
+> guards rather than provisional ones.
+>
+> **Two things survive the retirement.** The eight records the expert *rejected*
+> are not resurrected: a signed rejection is a human decision and ADR-0079 does
+> not license reversing one. And where a record was marked `amend` with an
+> instruction, the authored version applies that instruction rather than
+> re-deciding it.
+>
+> Everything below describes how this directory worked while it was live. It is
+> kept because `review/decisions/` still points into it and because the reasoning
+> in "Why this exists" is the argument the whole current operating model rests on.
+
 **Nothing here is approved. Nothing here is project content.** Every record in
 this directory was written by an agent to show a Trade Mark expert what a
 Stage 0 record looks like when it is filled in, so that the expert's job becomes

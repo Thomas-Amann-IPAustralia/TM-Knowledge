@@ -6,7 +6,7 @@
   {
    "kind": "callout",
    "tone": "warn",
-   "title": "10 decisions are waiting on you",
+   "title": "7 decisions are waiting on you",
    "text": "Six of them unblock the next piece of work. Each is written to be answerable without reading anything else, and your answers come back into the repository as a file the next session reads.",
    "links": [
     {
@@ -146,16 +146,16 @@
      "status": {
       "chips": [
        {
-        "label": "partial",
-        "tone": "note"
+        "label": "partial — and no longer a blocker",
+        "tone": "muted"
        }
       ]
      },
-     "owner": "this repo — **the blocker**",
+     "owner": "this repo",
      "detail": [
       {
        "kind": "prose",
-       "text": "pilot area chosen (s 43, ADR-0013); apparatus built (S004–S005); **first approved content landed S008: 190 records over all 8 types, harness 0 defects / 13 gaps** (the 13th is S012's concept-typing deliverable); 178 seed records still await correction, of which **10 decisions hold the other 168** (S009, `tmk-blockers`)"
+       "text": "(ADR-0083). 190 expert-signed records over all 8 types, harness 0 defects; `eval/gold/` now **frozen** at those 190 as the measurement yardstick (ADR-0080). The 178 held seed records are resolved by authoring rather than by an expert round, so the 10-decision critical path is gone (ADR-0084)"
       }
      ]
     },
@@ -184,8 +184,8 @@
      "status": {
       "chips": [
        {
-        "label": "not started",
-        "tone": "gap"
+        "label": "open, not started",
+        "tone": "muted"
        }
       ]
      },
@@ -193,7 +193,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019); blocked by ADR-0010"
+       "text": "gate lifted 2026-09-08 (ADR-0083). Stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019). **HANDOFF Q3 answered in full the same day it started blocking**: Gemini 3.8 Flash, credential in `GEMINI_API_KEY` (ADR-0087), and corpus text cleared to send (ADR-0088). Deterministic extraction stays preferred — now for cost as well as review debt (rule 7)"
       }
      ]
     },
@@ -203,36 +203,8 @@
      "status": {
       "chips": [
        {
-        "label": "not started",
-        "tone": "gap"
-       }
-      ]
-     },
-     "owner": "this repo",
-     "detail": []
-    },
-    {
-     "stage": "4",
-     "name": "Relationships, propositions, candidate rules",
-     "status": {
-      "chips": [
-       {
-        "label": "not started",
-        "tone": "gap"
-       }
-      ]
-     },
-     "owner": "this repo",
-     "detail": []
-    },
-    {
-     "stage": "5",
-     "name": "Formalise the ontology",
-     "status": {
-      "chips": [
-       {
-        "label": "partial",
-        "tone": "note"
+        "label": "open, not started",
+        "tone": "muted"
        }
       ]
      },
@@ -240,7 +212,45 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "S010, S012. Nine OWL 2 RL modules **drafted** in `ontology/draft/`; nothing approved, so `ontology/` is still empty (ADR-0056, ADR-0057). S012: the four concept classes now fill from signed `concept_type` records (ADR-0071) — **0 of 52 sorted so far**; a role can be what a statement is about (ADR-0073)"
+       "text": "(ADR-0083)"
+      }
+     ]
+    },
+    {
+     "stage": "4",
+     "name": "Relationships, propositions, candidate rules",
+     "status": {
+      "chips": [
+       {
+        "label": "open, not started",
+        "tone": "muted"
+       }
+      ]
+     },
+     "owner": "this repo",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "(ADR-0083)"
+      }
+     ]
+    },
+    {
+     "stage": "5",
+     "name": "Formalise the ontology",
+     "status": {
+      "chips": [
+       {
+        "label": "partial, and unblocked",
+        "tone": "muted"
+       }
+      ]
+     },
+     "owner": "this repo",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "nine OWL 2 RL modules drafted in `ontology/draft/`; nothing approved, so `ontology/` stays empty (ADR-0056, ADR-0057). The four concept classes now also fill from **authored** `concept_type` records, not only signed ones (ADR-0079 amends ADR-0071) — the 0-of-52 taxonomy is an agent's to fill. Whole-Manual scope means the class list stops being 30-of-49 empty for want of material (ADR-0081)"
       }
      ]
     },
@@ -306,7 +316,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "S010, S012. Two CONSTRUCT rules. **RULE-0002 approved by the owner 2026-09-08** (OQ-0004, ADR-0068) and its 187 impact links have left quarantine; RULE-0001 stays PENDING — he asked to see its 5 flagged passages first, and the pack is `data/derived/reports/rule-0001-flags.md` (OQ-0019)"
+       "text": "two CONSTRUCT rules. **RULE-0002 approved by the owner** (ADR-0068). **RULE-0001 stays PENDING and an agent may not approve it**: a rule's `approved-by` line is the same kind of artefact as a record's `approved_by`, and ADR-0079 does not license filling either. What changed is that its output is no longer *quarantined* — under ADR-0082 an unapproved rule's conclusions may be served, stamped `candidate` / `requiresHumanReview`, like any other unreviewed content. OQ-0019 becomes optional rather than blocking"
       }
      ]
     },
