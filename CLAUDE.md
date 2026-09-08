@@ -15,7 +15,7 @@ authors legal content directly, stamped as never validated by an expert, across
 the whole Manual. What did **not** change is every rule about provenance,
 citation and the separation of what a machine wrote from what a person signed —
 those got stricter, because they are now the only thing holding the line.
-ADR-0079 to ADR-0085 record the change and why.
+ADR-0079 to ADR-0088 record the change and why.
 
 ## 1. Read order for a new session
 
@@ -25,8 +25,9 @@ ADR-0079 to ADR-0085 record the change and why.
    state; a file with `applied: null` is work waiting for you.
 3. `docs/HANDOFF.md` — **where the last session stopped and what to do next.**
 4. `docs/DECISIONS.md` — what has already been settled, and why. Do not relitigate.
-   **Start at ADR-0079** if you only read part of it: seven decisions there
-   rewrote the operating model and supersede rules stated elsewhere in older files.
+   **Start at ADR-0079** if you only read part of it: ten decisions there rewrote
+   the operating model and supersede rules stated elsewhere in older files.
+   ADR-0085 is superseded by ADR-0086 — read the later one.
 5. `docs/QUIRKS.md` — traps that have already cost someone time.
 6. Then, only what your task needs:
    - `authored/README.md` — **the authored knowledge store. Read before writing
@@ -82,7 +83,13 @@ ADR-0079 to ADR-0085 record the change and why.
    extraction over a model. Reach for an LLM only for what genuinely needs
    judgement, always with a constrained schema and required evidence spans.
    **Unchanged** — a deterministic answer needs no review, and every judgement
-   you author is review debt somebody eventually pays.
+   you author is review debt somebody eventually pays. Since ADR-0088 there is a
+   second reason pointing the same way: a model call costs money, and the owner's
+   rule is that something goes to the model *only where you are confident of
+   valuable output back*. Keep the two reasons distinct even though they agree —
+   a session that merges them will start defending a call on cost grounds when the
+   real objection was review debt. Corpus text may be sent to the API without
+   further clearance; an expert's own review notes may not (ADR-0088).
 8. **No machine output goes anywhere unlabelled.** Every model-produced record
    carries `extraction_method`, `model`, `confidence`, `source_span`,
    `review_status`. **Unchanged, and it is now the rule the whole model rests

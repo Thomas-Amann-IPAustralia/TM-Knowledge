@@ -4,7 +4,7 @@
 **When:** 2026-09-08.
 **Where:** a Claude Code chat session, not the dashboard form.
 **Relayed by:** the S015 agent, transcribed the same session it was given.
-**Status:** acted on in S015. See ADR-0079 to ADR-0085.
+**Status:** acted on in S015. See ADR-0079 to ADR-0088.
 
 This is an **instruction file written up from a person's words**, which is the one
 exception `review/returned/README.md` allows to the rule that this directory holds
@@ -87,7 +87,47 @@ selection is his.
 
 ---
 
-## 4. What the agent flagged, and he did not countermand
+## 4. Later in the same session — the model, and two corrections
+
+His words, in order given.
+
+**On the four-state review model proposed by ADR-0085:**
+
+> *"Your interpretation is fair and I think I may have been overzealous in my
+> statement 'if something is not corrected, it can be assumed valid'. I would
+> prefer to simply retain 'unreviewed', 'rejected' and 'approved' states."*
+
+**Recorded as** ADR-0086, which supersedes ADR-0085.
+
+**On the model, answering HANDOFF Q3's first half:**
+
+> *"GEMINI_API_KEY has been added as a secret to the repo. While we're still
+> working on this project pretty rapidly I'd like to use Gemini 3.8 Flash. We can
+> talk about potentially using batch inference later to reduce costs."*
+
+**Recorded as** ADR-0087.
+
+**On data handling and cost, answering Q3's second half:**
+
+> *"Data-handling. We should be considerate of costs. Things should only really be
+> sent to Gemini if we're pretty confident that we'll be getting valuable output
+> from it. As far as what we can send through, as you say, everything is publicly
+> available so you have my permission to send it to a third-party API."*
+
+**Recorded as** ADR-0088. HANDOFF Q3, open since S001, is closed in both halves.
+
+**On the examination-outcome limit the agent had preserved without being asked:**
+
+> *"I understand and I agree with you. We should not change the rule about what
+> the system may say to an examiner. No updates, notes or changes are required. We
+> can simply move forward with the existing controls."*
+
+No change made and none owed. The controls are the eleven signed prohibited-use
+records in `eval/gold/` and the programme's own scope statement.
+
+---
+
+## 5. What the agent flagged, and he did not countermand
 
 Stated to him in the same exchange, before the changes were written:
 
@@ -97,5 +137,6 @@ Stated to him in the same exchange, before the changes were written:
 > prohibited-use records. He was told explicitly that it could be lifted too, on
 > his word.
 
-No instruction to lift it was given. It stands. **Recorded as** ADR-0082
-consequence 4, and as a rule in `CLAUDE.md` §2 "What is still off limits".
+No instruction to lift it was given, and he later confirmed it explicitly — see
+§4. It stands. **Recorded as** ADR-0082 consequence 4, and as a rule in
+`CLAUDE.md` §2 "What is still off limits".

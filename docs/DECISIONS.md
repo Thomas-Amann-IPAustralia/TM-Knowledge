@@ -3528,3 +3528,71 @@ take and has taken it.
 4. Batch inference is deferred by the owner's own words and is a cost decision
    rather than a correctness one. When it is taken, the thing to check is that
    batching does not quietly change the model version underneath the same name.
+
+---
+
+## ADR-0088 — Corpus text may go to the model API; spend is justified per call
+
+**Date** 2026-09-08 · **Authority** human · **Status** accepted ·
+**Closes the open half of ADR-0087**
+
+**Context.** ADR-0087 named the model and recorded that the second half of HANDOFF
+Q3 — the agency's data-handling conditions for sending Manual text to a
+third-party service — was outstanding rather than assumed. It is now answered, in
+the same chat session, together with a cost principle nobody had asked for and
+which turns out to matter more.
+
+**Decision.** The owner's, in two parts:
+
+> *"We should be considerate of costs. Things should only really be sent to Gemini
+> if we're pretty confident that we'll be getting valuable output from it. As far
+> as what we can send through, as you say, everything is publicly available so you
+> have my permission to send it to a third-party API."*
+
+1. **The corpus may be sent.** The Manual, the Act and the Regulations are
+   published material and may be sent to the model API. No further clearance is
+   needed and no session should re-ask.
+2. **A call must be worth making.** Send something to the model only where there
+   is good reason to expect valuable output back. This is a standing constraint on
+   how work is done, not a budget to be tracked.
+
+**What the permission covers, and what it does not.** The permission is over
+**published source material** — that is the reasoning he gave for it, and it does
+not stretch further on its own. Three things in this repository are *not*
+published material and are **not** covered:
+
+- `review/returned/` — an expert's own review notes and the owner's own words.
+- `review/decisions/` — what a named person's verdicts were taken to mean.
+- Anything naming a reviewer, including the `approved_by` fields.
+
+Sending a colleague's private working notes to a third-party API is a different
+act from sending a page of the Manual, and it was not what was permitted. Where a
+prompt genuinely needs one of these — showing the model an expert's correction so
+it can learn the house reading, for instance — that is worth asking about
+specifically rather than reading it into this ADR. It would very likely be
+granted; being granted is not the point.
+
+**Consequences.**
+
+1. **CLAUDE.md rule 7 gains a second reason.** It already preferred deterministic
+   extraction because a deterministic answer needs no review. It now also prefers
+   it because a deterministic answer costs nothing. The two reasons point the same
+   way, which is convenient and slightly dangerous: a session that stops
+   distinguishing them will start justifying a model call on cost grounds when the
+   real objection was review debt.
+2. **"Confident of valuable output" is a design constraint on prompting, not a
+   quota.** In practice it means: run the deterministic pass first and send the
+   model only what is left; batch related judgements into one call rather than one
+   call per record; do not send a passage to have it summarised when a span and a
+   ref already answer the question; and do not re-send material whose authored
+   record already exists and is not stale.
+3. **A wasted call is worse than its price.** Every model output is a record
+   somebody may eventually review. Sending low-value material produces low-value
+   records that still carry a full envelope, still appear in counts, and still
+   consume the expert attention this whole scheme exists to conserve. Cost
+   discipline and quality discipline are the same discipline here.
+4. Batch inference stays deferred (ADR-0087 consequence 4). It is the obvious next
+   cost lever and the owner has flagged it himself; the thing to check when it
+   arrives is that batching does not quietly change the model version under the
+   same name.
+5. HANDOFF Q3 is now closed in both halves, having been open since S001.

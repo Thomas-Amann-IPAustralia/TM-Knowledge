@@ -16,7 +16,7 @@ The owner made two decisions in chat on 2026-09-08, and answered four clarifying
 questions about how they land. His words are transcribed verbatim at
 `review/returned/260908-owner-chat-scope-and-authoring.md`; the machine-readable
 index is `review/rulings/2026-09-08-chat-authoring-mandate.yaml`; the reasoning
-is **ADR-0079 to ADR-0087**.
+is **ADR-0079 to ADR-0088**.
 
 **Decision one — the section 43 boundary is gone.** *"I would like to completely
 remove the s43 barrier."* The whole Manual is in scope: 500 pages, 54 Parts,
@@ -51,9 +51,19 @@ signature moves it (ADR-0086, supersedes ADR-0085). This is stricter than what h
 first asked for, not looser, and it is worth noticing that the correction went
 that way.
 
-**And the model question was answered the day it started blocking.** Gemini 3.8
-Flash, credential in the `GEMINI_API_KEY` repository secret (ADR-0087). HANDOFF Q3
-had been open since S001 and became a real blocker for about four hours.
+**And the model question was answered the day it started blocking, in both
+halves.** Gemini 3.8 Flash, credential in the `GEMINI_API_KEY` repository secret
+(ADR-0087). Corpus text cleared to send — published material, his explicit
+permission — with a standing cost rule: *"Things should only really be sent to
+Gemini if we're pretty confident that we'll be getting valuable output from it"*
+(ADR-0088). HANDOFF Q3 had been open since S001 and was a real blocker for about
+four hours.
+
+**He also confirmed the one limit S015 preserved without being asked.** The system
+still may not state an examination outcome to an examiner: *"I understand and I
+agree with you. We should not change the rule about what the system may say to an
+examiner… We can simply move forward with the existing controls."* No change was
+made and none is owed — the eleven signed prohibited-use records are the control.
 
 **What S015 actually did: the paperwork, and only the paperwork.** `CLAUDE.md`
 rewritten; seven ADRs; the ruling and its transcription; `authored/` created with
@@ -125,19 +135,24 @@ sent to it — became a blocker when ADR-0083 opened Stages 2–4 and was answer
 same day: **Gemini 3.8 Flash**, credential in the `GEMINI_API_KEY` repository
 secret (ADR-0087).
 
-**Two things to know before the first model-backed run.** The exact API model
-identifier is `config.DEFAULT_AUTHORING_MODEL` and must be **confirmed against
-Google's current model list** before it is trusted — a wrong id fails loudly at
-the API, which is fine; a silently substituted one stamps ten thousand records
-with a model that did not write them, which is not. And a **repository secret
-reaches GitHub Actions, not a local container**: `config.authoring_api_key()`
-raises rather than returning empty, because a run that produces nothing for want
-of a key looks exactly like a run that found nothing.
+**Three things to know before the first model-backed run.**
 
-The second half of Q3 — the agency's data-handling conditions for sending Manual
-text to a third-party service — is recorded as outstanding rather than assumed
-(ADR-0087). The Manual is published material, which makes it easier than internal
-data would be, but published is not the same as cleared.
+1. **Confirm the model id.** `config.DEFAULT_AUTHORING_MODEL` is set to
+   `gemini-3.8-flash` and must be checked against Google's current model list
+   before it is trusted. A wrong id fails loudly at the API, which is fine; a
+   silently substituted one stamps records with a model that did not write them,
+   which is unrecoverable.
+2. **The key is a repository secret, so it reaches GitHub Actions and not a local
+   container.** `config.authoring_api_key()` raises rather than returning empty —
+   a run producing nothing for want of a key looks exactly like a run that found
+   nothing, and only one of those is a finding.
+3. **A call has to earn itself** (ADR-0088). Deterministic pass first, send only
+   what is left; batch related judgements into one call rather than one call per
+   record; never re-send material whose authored record already exists and is not
+   stale. Corpus text may be sent freely. An expert's review notes in
+   `review/returned/` and `review/decisions/` may **not** — that was not what the
+   permission covered, and it is worth asking about specifically if a prompt
+   genuinely needs one.
 
 Everything below is an agent's to do.
 
@@ -149,12 +164,34 @@ Everything below is an agent's to do.
    is now one pass. It is also the cheapest possible test of whether the new model
    works: if the reasoning lines are not good enough to correct from, nothing else
    here will be either.
-2. **Build the authored-store plumbing.** `authored/` has a README and a schema
-   and no reader. Needed: a loader, envelope validation in the harness, the
-   signed/authored split in `tmk-coverage` and `tmk-dashboard`, and the graph
-   reading both stores with every node stamped. **Do this before authoring at
-   volume** — a thousand records written against a store nothing validates is a
-   thousand records to re-check.
+2. **Build the authored-store plumbing. This is the next session's job and the
+   owner is starting it in a fresh context, so it is specified here rather than
+   assumed.** `authored/` has a README and a schema and no reader. What it needs,
+   in dependency order:
+
+   - **A loader** — `tm_knowledge.authored.store`, mirroring `stage0/goldset.py`,
+     reading the same record types by the same file names. It must refuse a record
+     whose envelope does not validate rather than skipping it: a silently dropped
+     authored record is indistinguishable from one never written.
+   - **Envelope validation in `tmk-harness`**, against
+     `eval/schemas/authored-envelope.schema.json`. Three checks the schema cannot
+     make on its own: `approved_by` non-null in `authored/` is a **defect**; an id
+     present in both stores is a **defect**; `authoring_basis: general_knowledge`
+     is a **note**, counted and listed, never a defect.
+   - **The signed/authored split in every count** — `tmk-coverage`,
+     `tmk-dashboard`, `tmk-ontology-report`. No figure sums the two (ADR-0080
+     consequence 3). The dashboard needs it visible on the card, not in a legend.
+   - **The graph reading both stores**, every node stamped with its origin and its
+     review status. `graph/authored.ttl` as a fourth named graph is the obvious
+     shape — it keeps ADR-0007's separation-by-named-graph intact and means
+     `approved.ttl` stays exactly what it is today.
+   - **Tests first where they are cheap**: a fixture authored record that
+     validates, one that does not, one with `approved_by` filled in that must be
+     refused, and a duplicate id across stores.
+
+   **Do this before authoring at volume.** A thousand records written against a
+   store nothing validates is a thousand records to re-check, and the whole point
+   of the envelope is that it is mechanical rather than aspirational.
 3. **Resolve the 178 seed records** into `authored/` (ADR-0084). Honour the
    reviewer's `amend` instructions where they exist. Do **not** resurrect the
    eight rejected records; where an authored record covers the same ground, it
@@ -495,11 +532,14 @@ exists because a question that says "answered" with no answer under it reads as 
 open question that lost its control. Withdrawn is not answered, and the record now
 says which it was.
 
-**Then two corrections in the same session, both the owner's.** He read ADR-0085
+**Then three corrections in the same session, all the owner's.** He read ADR-0085
 back and withdrew the premise behind it — three review states, not four, and no
-credit for having been looked at (ADR-0086). And he answered HANDOFF Q3, open
-since S001 and blocking for about four hours: Gemini 3.8 Flash, key added as a
-repository secret (ADR-0087).
+credit for having been looked at (ADR-0086). He answered HANDOFF Q3, open since
+S001 and blocking for about four hours: Gemini 3.8 Flash, key added as a
+repository secret (ADR-0087), then the data-handling half too — corpus text
+cleared to send, with a standing rule that a call must be worth making (ADR-0088).
+And he confirmed the examination-outcome limit S015 had preserved unasked, which
+is the one place this session guessed at his intent and guessed right.
 
 **Not done, deliberately:** no legal content was authored, no record moved, the
 graph is untouched. A session that changes the rules and then immediately acts on

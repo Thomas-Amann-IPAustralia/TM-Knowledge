@@ -9,7 +9,7 @@ draft — modules in `ontology/draft/`, a built graph, a SHACL gate that passes 
 thirteen competency queries (ADR-0056). Nothing is approved. Stages 7, 8 and 10
 remain unbuilt.
 
-**Two structural changes on 2026-09-08 (ADR-0079 to ADR-0085), and they reach
+**Two structural changes on 2026-09-08 (ADR-0079 to ADR-0088), and they reach
 every section below.** The scope is now the **whole Manual**, not section 43 —
 there is no boundary rule and no in-scope judgement for any passage (ADR-0081).
 And an agent now **authors legal content** directly, stamped as never validated,
@@ -153,7 +153,7 @@ ADR-worthy.
 | Rule-based entity recognition | spaCy `EntityRuler`, `PhraseMatcher`, regex |
 | Relation patterns | spaCy `DependencyMatcher` |
 | Similarity and clustering | Sentence Transformers; agglomerative / HDBSCAN; cross-encoder rerank |
-| Complex structured extraction | **Gemini 3.8 Flash**, schema-constrained JSON (ADR-0087, answering HANDOFF Q3). Credential in `GEMINI_API_KEY`; the model id lives in `config.DEFAULT_AUTHORING_MODEL` and nowhere else |
+| Complex structured extraction | **Gemini 3.8 Flash**, schema-constrained JSON (ADR-0087, ADR-0088 — HANDOFF Q3 closed in both halves). Credential in `GEMINI_API_KEY`; the model id lives in `config.DEFAULT_AUTHORING_MODEL` and nowhere else. Corpus text may be sent; an expert's review notes may not |
 | Vocabulary | SKOS |
 | Ontology | RDF, RDFS, OWL 2 RL |
 | Ontology editing | Protégé / WebProtégé — not used; the modules are hand-written Turtle and `relations.ttl` is generated |

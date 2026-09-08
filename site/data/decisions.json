@@ -1,21 +1,21 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "87 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "88 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 87,
+     "value": 88,
      "note": null,
      "tone": null,
      "href": null
     },
     {
      "label": "Made by you",
-     "value": 30,
+     "value": 31,
      "note": "yours, and not overturnable by an agent",
      "tone": "good",
      "href": null
@@ -77,6 +77,34 @@
     }
    ],
    "rows": [
+    {
+     "id": "`ADR-0088`",
+     "title": "Corpus text may go to the model API; spend is justified per call",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-08",
+     "search": "ADR-0088 Corpus text may go to the model API; spend is justified per call human accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0087 named the model and recorded that the second half of HANDOFF Q3 — the agency's data-handling conditions for sending Manual text to a third-party service — was outstanding rather than assumed. It is now answered, in the same chat session, together with a cost principle nobody had asked for and which turns out…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0088-corpus-text-may-go-to-the-model-api-spend-is-justified-per-call)"
+      }
+     ]
+    },
     {
      "id": "`ADR-0087`",
      "title": "Gemini 3.8 Flash is the model for authoring and extraction",

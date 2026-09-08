@@ -193,7 +193,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "gate lifted 2026-09-08 (ADR-0083). Stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019). **HANDOFF Q3 was answered the same day it started blocking**: Gemini 3.8 Flash, credential in `GEMINI_API_KEY` (ADR-0087). Deterministic extraction stays preferred (rule 7)"
+       "text": "gate lifted 2026-09-08 (ADR-0083). Stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019). **HANDOFF Q3 answered in full the same day it started blocking**: Gemini 3.8 Flash, credential in `GEMINI_API_KEY` (ADR-0087), and corpus text cleared to send (ADR-0088). Deterministic extraction stays preferred — now for cost as well as review debt (rule 7)"
       }
      ]
     },

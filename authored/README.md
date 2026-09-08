@@ -7,7 +7,7 @@ to be embarrassed about — it is the operating model the repo owner chose on
 directory, which is why it is the first line of its README and why every record
 inside repeats it in a field a machine can read.
 
-Read `docs/DECISIONS.md` ADR-0079 to ADR-0087 before writing anything here.
+Read `docs/DECISIONS.md` ADR-0079 to ADR-0088 before writing anything here.
 
 ## What this is for
 
