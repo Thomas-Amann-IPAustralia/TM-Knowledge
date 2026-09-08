@@ -18,6 +18,7 @@ audit can unmix them.
 ```
 graph/source.ttl       assertions derived deterministically from the snapshot   committed
 graph/approved.ttl     expert-approved assertions                               committed
+graph/authored.ttl     machine-authored assertions, validated by nobody         committed
 graph/inferred.ttl     produced by the CONSTRUCT rules — never authored         committed
 graph/dataset.nq       all of the above as quads                                committed
 graph/candidates.nq    machine-extracted, unapproved  (mirrors review/)         does not exist
@@ -27,6 +28,32 @@ graph/superseded.nq    retired assertions, kept for audit                       
 `candidates` does not exist because no Stage 2 run has happened (ADR-0010) and
 there are therefore no candidates. `superseded` does not exist because nothing
 has been retired.
+
+**`authored` is the fourth, added when ADR-0080 gave machine-authored content a
+store of its own.** It is built from `authored/` by the same code that builds
+`approved` from `eval/gold/` — one mapping, run twice — and differs in what the
+graph asserts *about* each node rather than in the mapping itself:
+
+- a relationship is a `tmk:AuthoredAssertion`, never a `tmk:ApprovedAssertion`,
+  so the eight competency queries that name the second class cannot reach the
+  first by accident;
+- every node carries `tmk:origin "authored"` and `tmk:reviewStatus "unreviewed"`,
+  so a triple lifted out of this file — into a report, a prompt, an evidence pack
+  — still says what it is. The named graph is the boundary; the stamp is what
+  survives leaving it;
+- every node carries `tmk:authoredBy`, `tmk:authoredDate`, `tmk:authoringBasis`
+  and `tmk:authoringReasoning`, and a SHACL shape refuses one that does not;
+- `tmk:approvedBy` on a node here is a shape violation. It is the single failure
+  the whole scheme exists to prevent (ADR-0079 guard 3).
+
+**It is empty today and committed anyway.** An empty declared graph is the honest
+state of a repo that has authored nothing yet, and it stops being empty without
+any code changing.
+
+**The two record graphs are never summed.** No figure in any generated report
+adds `approved` to `authored`. The question a reader has is how much of what
+they are looking at a person has read, and one number answers it in the
+flattering direction (ADR-0080 consequences 3 and 4).
 
 **Why `.ttl` and not `.nq` for the three that exist.** Each is a single named
 graph, and this README already reserves `.ttl` for single-graph files a human

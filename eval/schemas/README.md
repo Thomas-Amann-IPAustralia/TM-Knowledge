@@ -15,11 +15,21 @@ describe the same record, so neither can drift from the other unnoticed.
 | `gold-retrieval-question.schema.json` | AI retrieval questions | `GA-` |
 | `reasoning-expectation.schema.json` | Expected reasoning results | `GX-` |
 | `prohibited-use.schema.json` | Prohibited uses | `PU-` |
+| `concept-type.schema.json` | Which of four groups a concept is in | `GT-` |
+| `authored-envelope.schema.json` | **Not a record type** — the block every record in `authored/` carries | — |
 
 ## What belongs here
 
 Shape: field presence, types, enum membership, id patterns, ref syntax, and the
 presence of `approved_by` / `approved_date`.
+
+**`authored-envelope.schema.json` is the odd one and worth reading first.** It
+validates a block *inside* a record rather than a record, and it is what makes
+ADR-0079's prohibition on laundering mechanical: a record that cannot declare
+its model, its date, its evidential basis and its reasoning is not written. It
+is reached through `schemas.validator_for_file`, on the same registry as every
+record type, so its `evidence[].ref` gets exactly the `upstream-ref` check a
+signed record's `source_ref` gets. There is no second validator.
 
 ## What must never go here
 

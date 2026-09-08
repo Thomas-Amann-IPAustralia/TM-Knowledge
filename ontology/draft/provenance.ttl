@@ -35,6 +35,15 @@ tmk:ApprovedAssertion a owl:Class ;
     rdfs:label "Approved assertion"@en-AU ;
     rdfs:comment "An assertion a named human approved on a date. The only kind that may sit in the approved named graph (CLAUDE.md rule 4)."@en-AU .
 
+tmk:AuthoredAssertion a owl:Class ;
+    rdfs:subClassOf tmk:Assertion ;
+    rdfs:label "Authored assertion"@en-AU ;
+    rdfs:comment """An assertion a machine wrote and no expert has validated (ADR-0079, ADR-0080).
+
+Deliberately NOT a subclass of tmk:ApprovedAssertion and deliberately not in the approved named graph. It is the same shape as one — same subject, predicate, object, passage, span and hash — and differs in exactly the fact that matters: nobody signed it. A query written against tmk:ApprovedAssertion therefore cannot pick one of these up by accident, which is the whole point of giving it its own class rather than a flag.
+
+It carries tmk:reviewStatus "unreviewed" and never "approved": approval moves a record to eval/gold/ through tmk-transcribe, and a record that has moved is rebuilt as a tmk:ApprovedAssertion on the next build (ADR-0086)."""@en-AU .
+
 tmk:CandidateAssertion a owl:Class ;
     rdfs:subClassOf tmk:Assertion ;
     rdfs:label "Candidate assertion"@en-AU ;
@@ -199,3 +208,53 @@ definition source.
 Recorded dependency only. A passage that discusses the same subject without
 being cited by any record is invisible to it (Q-28), so a nil result means
 'nothing recorded depends on this', never 'nothing is affected'."""@en-AU .
+
+# --- what a machine wrote, and on what -------------------------------------
+#
+# ADR-0079 rewrote CLAUDE.md rule 1 from "an agent may not author legal content"
+# to "an agent may not launder it". These five properties are what makes the
+# second rule mechanical in RDF: an authored assertion that reaches a reader
+# carries who wrote it, when, on what evidential footing, why that reading, and
+# what to check first. A node missing any of them fails a shape rather than
+# being served.
+
+tmk:origin a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "origin"@en-AU ;
+    rdfs:comment "Which store this node was built from: \"approved\" for eval/gold/, \"authored\" for authored/. Stamped on every node of both, so a triple lifted out of its named graph still says where it came from. The named graph is the governance boundary; this is the belt to its braces (ADR-0080)."@en-AU .
+
+tmk:authoredBy a owl:DatatypeProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "authored by"@en-AU ;
+    rdfs:comment "The model that wrote this, with its version. Never a person's name — a person's name goes in tmk:approvedBy and only a transcription from a signed workbook puts it there (ADR-0087)."@en-AU .
+
+tmk:authoredDate a owl:DatatypeProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:date ;
+    rdfs:label "authored date"@en-AU .
+
+tmk:authoringBasis a owl:DatatypeProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "authoring basis"@en-AU ;
+    rdfs:comment "What the judgement rests on: \"corpus_explicit\" — the corpus states it in terms; \"corpus_inferred\" — the corpus supports it but the reading is the machine's; \"general_knowledge\" — the corpus does not say it. The third is permitted and flagged, never hidden: an unevidenced assertion is not thereby wrong, it is thereby unevidenced, and no count may present it as equivalent to an evidenced one (ADR-0079 guard 2)."@en-AU .
+
+tmk:authoringReasoning a owl:DatatypeProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "authoring reasoning"@en-AU ;
+    rdfs:comment "Why this reading and not the obvious alternative, written for the expert who will disagree with it. The field that makes correction cheap, which is the entire premise of ADR-0079."@en-AU .
+
+tmk:expertShouldCheck a owl:DatatypeProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "expert should check"@en-AU ;
+    rdfs:comment "The specific thing most likely to be wrong here. A pointer, not a disclaimer."@en-AU .
+
+tmk:supersedesRejected a owl:DatatypeProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:string ;
+    rdfs:label "supersedes rejected record"@en-AU ;
+    rdfs:comment "The id of a record a named expert rejected, where this authored assertion covers the same ground. A signed rejection is a human decision and ADR-0079 does not license reversing one silently: naming it, with the difference explained in tmk:authoringReasoning, is the only way an authored record may occupy that ground (ADR-0084 consequence 2)."@en-AU .

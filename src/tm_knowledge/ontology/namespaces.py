@@ -20,7 +20,8 @@ __all__ = [
     "TMK", "TMKC", "TMKP", "TMKA", "TMKG",
     "DCTERMS", "OWL", "PROV", "RDF", "RDFS", "SH", "SKOS", "XSD",
     "bind_all", "ref_node", "concept_node", "assertion_node", "proposition_node",
-    "SOURCE_GRAPH", "APPROVED_GRAPH", "INFERRED_GRAPH", "NAMED_GRAPHS",
+    "SOURCE_GRAPH", "APPROVED_GRAPH", "AUTHORED_GRAPH", "INFERRED_GRAPH",
+    "NAMED_GRAPHS",
 ]
 
 
@@ -37,10 +38,18 @@ TMKG = _ns("tmkg")
 #: The named graphs of `graph/README.md`. `candidates` and `superseded` are
 #: named there too and are not built yet — there are no candidates (no Stage 2
 #: run has happened, ADR-0010) and nothing has been superseded.
+#:
+#: `authored` is the fourth, added when ADR-0080 gave machine-authored content a
+#: store of its own. It is a *separate named graph* rather than a flag on nodes
+#: in `approved` for ADR-0007's reason, which has not changed and is now
+#: load-bearing: if machine output and signed knowledge mix once, no later audit
+#: can unmix them. A flag can be dropped by a careless query; a named graph has
+#: to be asked for.
 SOURCE_GRAPH = URIRef(TMKG["source"])
 APPROVED_GRAPH = URIRef(TMKG["approved"])
+AUTHORED_GRAPH = URIRef(TMKG["authored"])
 INFERRED_GRAPH = URIRef(TMKG["inferred"])
-NAMED_GRAPHS = (SOURCE_GRAPH, APPROVED_GRAPH, INFERRED_GRAPH)
+NAMED_GRAPHS = (SOURCE_GRAPH, APPROVED_GRAPH, AUTHORED_GRAPH, INFERRED_GRAPH)
 
 
 def bind_all(graph: Graph) -> Graph:

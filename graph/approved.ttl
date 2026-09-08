@@ -15,6 +15,7 @@ tmka:GE-0001 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegislativeProvision ;
     tmk:mentionType "LegislativeProvision" ;
+    tmk:origin "approved" ;
     tmk:resolvesTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
@@ -32,6 +33,7 @@ tmka:GE-0002 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegislativeProvision ;
     tmk:mentionType "LegislativeProvision" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
@@ -47,6 +49,7 @@ tmka:GE-0004 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
@@ -63,6 +66,7 @@ tmka:GE-0005 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
@@ -78,6 +82,7 @@ tmka:GE-0006 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
@@ -94,6 +99,7 @@ tmka:GE-0009 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:ManualInstruction ;
     tmk:mentionType "ManualInstruction" ;
+    tmk:origin "approved" ;
     tmk:resolvesTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
@@ -111,6 +117,7 @@ tmka:GE-0011 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
@@ -127,6 +134,7 @@ tmka:GE-0012 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
@@ -142,6 +150,7 @@ tmka:GE-0013 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
@@ -157,6 +166,7 @@ tmka:GE-0014 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
@@ -173,6 +183,7 @@ tmka:GE-0015 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:ManualInstruction ;
     tmk:mentionType "ManualInstruction" ;
+    tmk:origin "approved" ;
     tmk:resolvesTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
@@ -189,6 +200,7 @@ tmka:GE-0016 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
@@ -204,6 +216,7 @@ tmka:GE-0017 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
@@ -219,6 +232,7 @@ tmka:GE-0018 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
@@ -234,6 +248,7 @@ tmka:GE-0019 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
@@ -250,6 +265,7 @@ tmka:GE-0020 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegislativeProvision ;
     tmk:mentionType "LegislativeProvision" ;
+    tmk:origin "approved" ;
     tmk:resolvesTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49" ;
@@ -266,6 +282,7 @@ tmka:GE-0021 a tmk:EntityMention ;
     tmk:goldRecord "GE-0021" ;
     tmk:isStale false ;
     tmk:mentionType "Other" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
@@ -281,6 +298,7 @@ tmka:GE-0022 a tmk:EntityMention ;
     tmk:goldRecord "GE-0022" ;
     tmk:isStale false ;
     tmk:mentionType "Other" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
@@ -296,6 +314,7 @@ tmka:GE-0023 a tmk:EntityMention ;
     tmk:goldRecord "GE-0023" ;
     tmk:isStale false ;
     tmk:mentionType "Other" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
@@ -312,6 +331,7 @@ tmka:GE-0024 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:ManualInstruction ;
     tmk:mentionType "ManualInstruction" ;
+    tmk:origin "approved" ;
     tmk:resolvesTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49" ;
@@ -328,6 +348,7 @@ tmka:GE-0025 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:ManualInstruction ;
     tmk:mentionType "ManualInstruction" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
@@ -343,6 +364,7 @@ tmka:GE-0026 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2> ;
@@ -359,6 +381,7 @@ tmka:GE-0027 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
@@ -374,6 +397,7 @@ tmka:GE-0028 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
@@ -389,6 +413,7 @@ tmka:GE-0029 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
@@ -405,6 +430,7 @@ tmka:GE-0031 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
@@ -421,6 +447,7 @@ tmka:GE-0032 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
@@ -436,6 +463,7 @@ tmka:GE-0033 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
@@ -452,6 +480,7 @@ tmka:GE-0034 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
@@ -467,6 +496,7 @@ tmka:GE-0035 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
@@ -482,6 +512,7 @@ tmka:GE-0036 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
@@ -498,6 +529,7 @@ tmka:GE-0037 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:ManualInstruction ;
     tmk:mentionType "ManualInstruction" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
@@ -513,6 +545,7 @@ tmka:GE-0038 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:ManualInstruction ;
     tmk:mentionType "ManualInstruction" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
@@ -529,6 +562,7 @@ tmka:GE-0039 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:ManualInstruction ;
     tmk:mentionType "ManualInstruction" ;
+    tmk:origin "approved" ;
     tmk:resolvesTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190" ;
@@ -545,6 +579,7 @@ tmka:GE-0040 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
@@ -561,6 +596,7 @@ tmka:GE-0041 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
@@ -576,6 +612,7 @@ tmka:GE-0042 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegislativeProvision ;
     tmk:mentionType "LegislativeProvision" ;
+    tmk:origin "approved" ;
     tmk:resolvesTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190" ;
@@ -591,6 +628,7 @@ tmka:GE-0043 a tmk:EntityMention ;
     tmk:goldRecord "GE-0043" ;
     tmk:isStale false ;
     tmk:mentionType "Other" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
@@ -606,6 +644,7 @@ tmka:GE-0044 a tmk:EntityMention ;
     tmk:goldRecord "GE-0044" ;
     tmk:isStale false ;
     tmk:mentionType "Other" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
@@ -621,6 +660,7 @@ tmka:GE-0045 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:ManualInstruction ;
     tmk:mentionType "ManualInstruction" ;
+    tmk:origin "approved" ;
     tmk:resolvesTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190" ;
@@ -637,6 +677,7 @@ tmka:GE-0046 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
@@ -653,6 +694,7 @@ tmka:GE-0048 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegislativeProvision ;
     tmk:mentionType "LegislativeProvision" ;
+    tmk:origin "approved" ;
     tmk:resolvesTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(3)> ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298" ;
@@ -670,6 +712,7 @@ tmka:GE-0050 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:ManualInstruction ;
     tmk:mentionType "ManualInstruction" ;
+    tmk:origin "approved" ;
     tmk:resolvesTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298" ;
@@ -686,6 +729,7 @@ tmka:GE-0051 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:ManualInstruction ;
     tmk:mentionType "ManualInstruction" ;
+    tmk:origin "approved" ;
     tmk:resolvesTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(3)> ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298" ;
@@ -702,6 +746,7 @@ tmka:GE-0052 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
@@ -717,6 +762,7 @@ tmka:GE-0053 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
@@ -732,6 +778,7 @@ tmka:GE-0054 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
@@ -747,6 +794,7 @@ tmka:GE-0055 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
@@ -762,6 +810,7 @@ tmka:GE-0056 a tmk:EntityMention ;
     tmk:goldRecord "GE-0056" ;
     tmk:isStale false ;
     tmk:mentionType "Date" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
@@ -777,6 +826,7 @@ tmka:GE-0057 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:ManualInstruction ;
     tmk:mentionType "ManualInstruction" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
@@ -792,6 +842,7 @@ tmka:GE-0058 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegalConcept ;
     tmk:mentionType "LegalConcept" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
@@ -808,6 +859,7 @@ tmka:GE-0059 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegislativeProvision ;
     tmk:mentionType "LegislativeProvision" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
@@ -823,6 +875,7 @@ tmka:GE-0060 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:LegislativeProvision ;
     tmk:mentionType "LegislativeProvision" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
@@ -838,6 +891,7 @@ tmka:GE-0061 a tmk:EntityMention ;
     tmk:goldRecord "GE-0061" ;
     tmk:isStale false ;
     tmk:mentionType "Date" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
@@ -853,6 +907,7 @@ tmka:GE-0062 a tmk:EntityMention ;
     tmk:isStale false ;
     tmk:mentionClass tmk:Role ;
     tmk:mentionType "Role" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
@@ -871,6 +926,7 @@ tmka:GR-0001 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0001" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
@@ -890,6 +946,7 @@ tmka:GR-0002 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0002" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
@@ -908,6 +965,7 @@ tmka:GR-0003 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0003" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
@@ -927,6 +985,7 @@ tmka:GR-0005 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0005" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
@@ -945,6 +1004,7 @@ tmka:GR-0006 a tmk:ApprovedAssertion ;
     tmk:extractionMethod "expert_elicitation" ;
     tmk:goldRecord "GR-0006" ;
     tmk:isStale false ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:f77c8cbb077e1682c601fc3ba31e570dd8097297d2a240565a044a3135e70190" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
@@ -964,6 +1024,7 @@ tmka:GR-0007 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0007" ;
     tmk:isStale false ;
     tmk:modality "may" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
@@ -983,6 +1044,7 @@ tmka:GR-0008 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0008" ;
     tmk:isStale false ;
     tmk:modality "may" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
@@ -1002,6 +1064,7 @@ tmka:GR-0010 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0010" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
@@ -1021,6 +1084,7 @@ tmka:GR-0011 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0011" ;
     tmk:isStale false ;
     tmk:modality "should" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
@@ -1040,6 +1104,7 @@ tmka:GR-0012 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0012" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:4a55810237a8dcf24587418ccacf418cc126ea299e516b2e35e8270f21d56352" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/3> ;
@@ -1058,6 +1123,7 @@ tmka:GR-0013 a tmk:ApprovedAssertion ;
     tmk:extractionMethod "expert_elicitation" ;
     tmk:goldRecord "GR-0013" ;
     tmk:isStale false ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:deb607cbc7ae6fd37a648887567b1d4002a2af161e5ab51e486bee19095a59a0" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
@@ -1077,6 +1143,7 @@ tmka:GR-0014 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0014" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:deb607cbc7ae6fd37a648887567b1d4002a2af161e5ab51e486bee19095a59a0" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
@@ -1095,6 +1162,7 @@ tmka:GR-0015 a tmk:ApprovedAssertion ;
     tmk:extractionMethod "expert_elicitation" ;
     tmk:goldRecord "GR-0015" ;
     tmk:isStale false ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:deb607cbc7ae6fd37a648887567b1d4002a2af161e5ab51e486bee19095a59a0" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
@@ -1114,6 +1182,7 @@ tmka:GR-0016 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0016" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:e910adb71eb7f1d52d06e37ed7b46dc618fcc4f6c6df770466fce554ec158e85" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
@@ -1132,6 +1201,7 @@ tmka:GR-0017 a tmk:ApprovedAssertion ;
     tmk:extractionMethod "expert_elicitation" ;
     tmk:goldRecord "GR-0017" ;
     tmk:isStale false ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:e910adb71eb7f1d52d06e37ed7b46dc618fcc4f6c6df770466fce554ec158e85" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
@@ -1150,6 +1220,7 @@ tmka:GR-0018 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0018" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:20e9513b402bf082b2df83f8f7f0c9c9631b4ffbb949ecb0422e39cceb3341e8" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> ;
@@ -1168,6 +1239,7 @@ tmka:GR-0022 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0022" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
@@ -1187,6 +1259,7 @@ tmka:GR-0023 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0023" ;
     tmk:isStale false ;
     tmk:modality "may" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
@@ -1205,6 +1278,7 @@ tmka:GR-0024 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0024" ;
     tmk:isStale false ;
     tmk:modality "may" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
@@ -1224,6 +1298,7 @@ tmka:GR-0032 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0032" ;
     tmk:isStale false ;
     tmk:modality "may" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:86800dcce4d41f73e2792ad626162693402011f3c8ba4135bbf91f045f2a7b2f" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
@@ -1243,6 +1318,7 @@ tmka:GR-0034 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0034" ;
     tmk:isStale false ;
     tmk:modality "may" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/5> ;
@@ -1261,6 +1337,7 @@ tmka:GR-0035 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0035" ;
     tmk:isStale false ;
     tmk:modality "may" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:66817de6196f7150720015e718aecdc209059307b7d11869b0767ecd18e8e89a" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> ;
@@ -1280,6 +1357,7 @@ tmka:GR-0036 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0036" ;
     tmk:isStale false ;
     tmk:modality "may" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:83e38b4ce2a77498c778b9feaa69c1c51f7e1ce3a0e29964705a130cb54639f1" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> ;
@@ -1298,6 +1376,7 @@ tmka:GR-0037 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0037" ;
     tmk:isStale false ;
     tmk:modality "may" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:ac69f55b0b06f0f288ea66d5dc7029193e5cb434b4c2504d45f9e0a087588318" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1> ;
@@ -1316,6 +1395,7 @@ tmka:GR-0039 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0039" ;
     tmk:isStale false ;
     tmk:modality "may" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:3016fc2af55085c99f6f508c674df732dbefbd36582932ac716f701313b98e1c" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
@@ -1334,6 +1414,7 @@ tmka:GR-0040 a tmk:ApprovedAssertion ;
     tmk:extractionMethod "expert_elicitation" ;
     tmk:goldRecord "GR-0040" ;
     tmk:isStale false ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:3016fc2af55085c99f6f508c674df732dbefbd36582932ac716f701313b98e1c" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
@@ -1352,6 +1433,7 @@ tmka:GR-0042 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0042" ;
     tmk:isStale false ;
     tmk:modality "should" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:94219eaa9c113dcecb64f0c0d8b7d7970ee0c89b4e732ebf371d1b1b4f2abcf1" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
@@ -1370,6 +1452,7 @@ tmka:GR-0044 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0044" ;
     tmk:isStale false ;
     tmk:modality "may" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:8e7a69fc516a2b4b11213363298946680a0c24f0d1bcddc9f0d803c24c151e53" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> ;
@@ -1388,6 +1471,7 @@ tmka:GR-0046 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0046" ;
     tmk:isStale false ;
     tmk:modality "should" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> ;
@@ -1407,6 +1491,7 @@ tmka:GR-0048 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0048" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:65247b2f3e686037e599b398b4f74f74a7e40836d32f3e2761a6a12ade582ed8" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> ;
@@ -1425,6 +1510,7 @@ tmka:GR-0052 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0052" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:b338dd460c75842d9658f27fd99008fdf4da4df0d87c90928e6f3157d4509c62" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> ;
@@ -1443,6 +1529,7 @@ tmka:GR-0054 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0054" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
@@ -1461,6 +1548,7 @@ tmka:GR-0056 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0056" ;
     tmk:isStale false ;
     tmk:modality "must" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:4a152ff8e285012f7bc44941664602f7d5ebbe7775f61faa73472e1827a6bc60" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
@@ -1479,6 +1567,7 @@ tmka:GR-0057 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0057" ;
     tmk:isStale false ;
     tmk:modality "should" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> ;
@@ -1498,6 +1587,7 @@ tmka:GR-0058 a tmk:ApprovedAssertion ;
     tmk:goldRecord "GR-0058" ;
     tmk:isStale false ;
     tmk:modality "should" ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:sourceContentHash "sha256:4c484f11bb81ae9e0b8453152cd0145a12d14fa09ab434e1c68288097f23886a" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/11%231> ;
@@ -1520,6 +1610,7 @@ tmka:GX-0001 a tmk:ReasoningExpectation ;
     tmk:goldRecord "GX-0001" ;
     tmk:inferenceKind "classification" ;
     tmk:mustNotConclude tmkp:PU-0004 ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:tier 1 .
 
@@ -1539,6 +1630,7 @@ tmka:GX-0004 a tmk:ReasoningExpectation ;
     tmk:inferenceKind "consistency" ;
     tmk:mustNotConclude tmkp:PU-0001,
         tmkp:PU-0007 ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:tier 3 .
 
@@ -1557,6 +1649,7 @@ tmka:GX-0005 a tmk:ReasoningExpectation ;
     tmk:inferenceKind "classification" ;
     tmk:mustNotConclude tmkp:PU-0008,
         tmkp:PU-0018 ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:tier 3 .
 
@@ -1574,6 +1667,7 @@ tmka:GX-0010 a tmk:ReasoningExpectation ;
     tmk:inferenceKind "classification" ;
     tmk:mustNotConclude tmkp:PU-0001,
         tmkp:PU-0002 ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:tier 2 .
 
@@ -1591,6 +1685,7 @@ tmka:GX-0011 a tmk:ReasoningExpectation ;
     tmk:goldRecord "GX-0011" ;
     tmk:inferenceKind "consistency" ;
     tmk:mustNotConclude tmkp:PU-0007 ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:tier 2 .
 
@@ -1606,6 +1701,7 @@ tmka:GX-0013 a tmk:ReasoningExpectation ;
     tmk:goldRecord "GX-0013" ;
     tmk:inferenceKind "consistency" ;
     tmk:mustNotConclude tmkp:PU-0007 ;
+    tmk:origin "approved" ;
     tmk:reviewStatus "approved" ;
     tmk:tier 3 .
 
@@ -1623,7 +1719,9 @@ tmkc:GC-0036 a skos:Concept,
     tmk:goldRecord "GC-0036" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "genus"@en-AU,
-        "plant materials"@en-AU .
+        "plant materials"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0046 a skos:Concept,
         tmk:LegalConcept ;
@@ -1640,7 +1738,9 @@ tmkc:GC-0046 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
     tmk:goldRecord "GC-0046" ;
     tmk:notLabel "IP Australia"@en-AU,
-        "examiner"@en-AU .
+        "examiner"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0048 a skos:Concept,
         tmk:LegalConcept ;
@@ -1657,7 +1757,9 @@ tmkc:GC-0048 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
     tmk:goldRecord "GC-0048" ;
     tmk:notLabel "arbitrary mark"@en-AU,
-        "misdescriptive"@en-AU .
+        "misdescriptive"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkp:CQ-0001 a tmk:CompetencyQuestion ;
     tmk:answerShape "Must state the statutory test in the words of s 43 and separately state the Manual's practice guidance, marked as practice rather than as law. Must convey that the section is mandatory in application while the threshold question — whether the decision maker is clearly satisfied — is an evaluative one."@en-AU ;
@@ -1671,10 +1773,12 @@ tmkp:CQ-0001 a tmk:CompetencyQuestion ;
         "ground for rejection"@en-AU,
         "likely to deceive or cause confusion"@en-AU ;
     tmk:goldRecord "CQ-0001" ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "retrieval" ;
     tmk:questionText "What guidance does the Manual give on when a ground for rejection under section 43 should be raised?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> .
@@ -1691,11 +1795,13 @@ tmkp:CQ-0003 a tmk:CompetencyQuestion ;
         "geographical origin"@en-AU,
         "geographical reference"@en-AU ;
     tmk:goldRecord "CQ-0003" ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "retrieval" ;
     tmk:questionText "My trade mark has a place name in it. Will that stop it being registered?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> .
@@ -1712,10 +1818,12 @@ tmkp:CQ-0004 a tmk:CompetencyQuestion ;
         "International Non-Proprietary Name"@en-AU,
         "condition of registration"@en-AU ;
     tmk:goldRecord "CQ-0004" ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "retrieval" ;
     tmk:questionText "Where a trade mark contains an INN stem, what does the Manual say about raising section 43 alongside a ground under section 41 or section 44?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/5>,
@@ -1732,11 +1840,13 @@ tmkp:CQ-0005 a tmk:CompetencyQuestion ;
         "well-known person"@en-AU,
         "written permission"@en-AU ;
     tmk:goldRecord "CQ-0005" ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "search" ;
     tmk:questionText "Where do I find the practice on celebrity names in trade marks?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> .
 
@@ -1749,10 +1859,12 @@ tmkp:CQ-0006 a tmk:CompetencyQuestion ;
     tmk:expectsConceptLabel "endorsement"@en-AU,
         "written permission"@en-AU ;
     tmk:goldRecord "CQ-0006" ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "search" ;
     tmk:questionText "Can I register a brand that uses a famous sportsperson's name if they have signed off on it?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1> .
 
 tmkp:CQ-0007 a tmk:CompetencyQuestion ;
@@ -1767,10 +1879,12 @@ tmkp:CQ-0007 a tmk:CompetencyQuestion ;
     tmk:goldRecord "CQ-0007" ;
     tmk:mustNotConclude tmkp:PU-0008,
         tmkp:PU-0018 ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "search" ;
     tmk:questionText "Confusion between my mark and someone else's — which section is that?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/3> ;
     tmk:testsBoundaryOf tmkc:GC-0001,
@@ -1786,10 +1900,12 @@ tmkp:CQ-0008 a tmk:CompetencyQuestion ;
     tmk:expectsConceptLabel "INN stem"@en-AU ;
     tmk:goldRecord "CQ-0008" ;
     tmk:mustNotConclude tmkp:PU-0009 ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "search" ;
     tmk:questionText "Is \"-profen\" on the restricted list?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/2> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> .
 
 tmkp:CQ-0009 a tmk:CompetencyQuestion ;
@@ -1803,10 +1919,12 @@ tmkp:CQ-0009 a tmk:CompetencyQuestion ;
         "geographical reference"@en-AU,
         "surrounding circumstances"@en-AU ;
     tmk:goldRecord "CQ-0009" ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "reasoning" ;
     tmk:questionText "What has to be established before a standalone geographical reference in a trade mark is treated as likely to cause confusion?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> .
 
@@ -1822,10 +1940,12 @@ tmkp:CQ-0010 a tmk:CompetencyQuestion ;
         "reputation"@en-AU ;
     tmk:goldRecord "CQ-0010" ;
     tmk:mustNotConclude tmkp:PU-0007 ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "reasoning" ;
     tmk:questionText "Why was no section 43 ground raised for BALI on bras, when one was raised for SHETLAND on clothing?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~2> .
 
 tmkp:CQ-0011 a tmk:CompetencyQuestion ;
@@ -1839,11 +1959,13 @@ tmkp:CQ-0011 a tmk:CompetencyQuestion ;
         "real and tangible danger"@en-AU,
         "specification"@en-AU ;
     tmk:goldRecord "CQ-0011" ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "reasoning" ;
     tmk:questionText "Does a descriptive term inside a trade mark trigger section 43 on its own?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1> .
 
 tmkp:CQ-0012 a tmk:CompetencyQuestion ;
@@ -1858,11 +1980,13 @@ tmkp:CQ-0012 a tmk:CompetencyQuestion ;
     tmk:mustNotConclude tmkp:PU-0001,
         tmkp:PU-0002,
         tmkp:PU-0003 ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "reasoning" ;
     tmk:questionText "Is the connotation in this trade mark strong enough to warrant a ground for rejection?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
 
 tmkp:CQ-0015 a tmk:CompetencyQuestion ;
@@ -1875,10 +1999,12 @@ tmkp:CQ-0015 a tmk:CompetencyQuestion ;
     tmk:expectsConceptLabel "current marketplace"@en-AU,
         "priority date"@en-AU ;
     tmk:goldRecord "CQ-0015" ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "currency" ;
     tmk:questionText "At what point in time is the marketplace assessed when deciding whether a sign is likely to deceive or cause confusion?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> .
 
@@ -1890,12 +2016,14 @@ tmkp:CQ-0017 a tmk:CompetencyQuestion ;
     tmk:expectsConcept tmkc:GC-0006 ;
     tmk:expectsConceptLabel "ground for rejection"@en-AU ;
     tmk:goldRecord "CQ-0017" ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "impact" ;
     tmk:questionText "If section 43 were amended, which parts of the Manual would need reviewing?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32A/2/4/2/4/1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/2/2%231> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/2%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5/5/5>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/5/5/2> .
@@ -1909,11 +2037,13 @@ tmkp:CQ-0018 a tmk:CompetencyQuestion ;
     tmk:expectsConceptLabel "INN stem"@en-AU,
         "International Non-Proprietary Name"@en-AU ;
     tmk:goldRecord "CQ-0018" ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "impact" ;
     tmk:questionText "The WHO has notified a new International Non-Proprietary Name. What in our practice material is affected?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/5> .
 
@@ -1927,11 +2057,13 @@ tmkp:CQ-0019 a tmk:CompetencyQuestion ;
     tmk:expectsConceptLabel "connotation"@en-AU,
         "denotation"@en-AU ;
     tmk:goldRecord "CQ-0019" ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "impact" ;
     tmk:questionText "If the practice on connotation in Part 29.2 changed, what else would have to change with it?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1>,
@@ -1944,10 +2076,12 @@ tmkp:CQ-0020 a tmk:CompetencyQuestion ;
     tmk:caveat "Q-24. Only two instruments are held, so every citation to an earlier Act is unresolvable by construction rather than by error."@en-AU ;
     tmk:expectsConceptLabel "superseded legislation"@en-AU ;
     tmk:goldRecord "CQ-0020" ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "impact" ;
     tmk:questionText "Which citations in the section 43 material point at legislation we do not hold?"@en-AU ;
-    tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~2> .
+    tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~2> ;
+    tmk:reviewStatus "approved" .
 
 tmkp:CQ-0021 a tmk:CompetencyQuestion ;
     tmk:answerShape "Must give a passage-level citation, not a Part-level one, and must label each cited passage by authority type. An answer that cites \"Part 29\" has not answered."@en-AU ;
@@ -1956,11 +2090,13 @@ tmkp:CQ-0021 a tmk:CompetencyQuestion ;
     tmk:caveat "TMM/Part29/1#1 quotes s 43 in full, so a system can satisfy a citation check while never having opened the legislation."@en-AU ;
     tmk:goldRecord "CQ-0021" ;
     tmk:mustNotConclude tmkp:PU-0004 ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "provenance" ;
     tmk:questionText "Which exact passage does that statement come from, and is it the Act or the Manual?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
+    tmk:reviewStatus "approved" .
 
 tmkp:CQ-0022 a tmk:CompetencyQuestion ;
     tmk:answerShape "Must report the extraction method and, where the citation was inferred, the certainty attached to it — and must not present a `default` resolution as though IP Australia had named the instrument."@en-AU ;
@@ -1968,11 +2104,13 @@ tmkp:CQ-0022 a tmk:CompetencyQuestion ;
     tmk:askedBy "maintainer" ;
     tmk:caveat "TMM/Part29/1#1 carries an authored link; TMM/Part29/10#1 carries a bare \"s43\" resolved by convention. The pair is the test."@en-AU ;
     tmk:goldRecord "CQ-0022" ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "provenance" ;
     tmk:questionText "Did the Manual's authors link that section themselves, or did we work it out from the wording?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> .
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> ;
+    tmk:reviewStatus "approved" .
 
 tmkp:CQ-0023 a tmk:CompetencyQuestion ;
     tmk:answerShape "Must list the decisions at citation level and must state that the holdings are not held, rather than paraphrasing what the courts decided from the Manual's summary of them."@en-AU ;
@@ -1984,10 +2122,12 @@ tmkp:CQ-0023 a tmk:CompetencyQuestion ;
     tmk:goldRecord "CQ-0023" ;
     tmk:mustNotConclude tmkp:PU-0005,
         tmkp:PU-0015 ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "provenance" ;
     tmk:questionText "Which decisions does the Manual rely on for the proposition that a connotation must arise from the mark itself?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/3> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> .
 
 tmkp:CQ-0024 a tmk:CompetencyQuestion ;
@@ -2002,11 +2142,13 @@ tmkp:CQ-0024 a tmk:CompetencyQuestion ;
     tmk:goldRecord "CQ-0024" ;
     tmk:mustNotConclude tmkp:PU-0004,
         tmkp:PU-0006 ;
+    tmk:origin "approved" ;
     tmk:pilotInScope true ;
     tmk:questionCategory "provenance" ;
     tmk:questionText "Is that a requirement, or is it how we usually do it?"@en-AU ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
+    tmk:reviewStatus "approved" ;
     tmk:supportingSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> .
 
@@ -2016,11 +2158,13 @@ tmkp:GA-0001 a tmk:RetrievalQuestion ;
     tmk:goldRecord "GA-0001" ;
     tmk:mustNotConclude tmkp:PU-0001,
         tmkp:PU-0004 ;
+    tmk:origin "approved" ;
     tmk:qualificationsExpected "That \"obvious, direct and immediate\" is the Manual's formulation and not the section's words. That the section is mandatory in application but engages only where the decision maker is clearly satisfied. That the Manual states practice and does not bind the Registrar's discretion."@en-AU ;
     tmk:questionText "What is the test under section 43 and where does it come from?"@en-AU ;
     tmk:requiresProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> .
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:reviewStatus "approved" .
 
 tmkp:GA-0003 a tmk:RetrievalQuestion ;
     tmk:approvedBy "TC" ;
@@ -2029,40 +2173,47 @@ tmkp:GA-0003 a tmk:RetrievalQuestion ;
     tmk:mustNotConclude tmkp:PU-0001,
         tmkp:PU-0002,
         tmkp:PU-0003 ;
+    tmk:origin "approved" ;
     tmk:qualificationsExpected "That the assessment is the decision maker's. That where there is doubt a connotation exists, the ground should not be raised. That the presumption of registrability applies to this section."@en-AU ;
     tmk:questionText "Is this connotation strong enough for a ground for rejection?"@en-AU ;
     tmk:requiresProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(3)>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> .
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
+    tmk:reviewStatus "approved" .
 
 tmkp:GA-0004 a tmk:RetrievalQuestion ;
     tmk:approvedBy "TC" ;
     tmk:authorityDistinctionRequired true ;
     tmk:goldRecord "GA-0004" ;
     tmk:mustNotConclude tmkp:PU-0007 ;
+    tmk:origin "approved" ;
     tmk:qualificationsExpected "That the criteria are cumulative. That the third — no other elements or surrounding circumstances mitigating the risk — is part of the test and not a footnote. That a qualifier such as \"made in\" is not necessary for a connotation to arise."@en-AU ;
     tmk:questionText "When does a place name in a mark cause confusion?"@en-AU ;
     tmk:requiresProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> .
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:reviewStatus "approved" .
 
 tmkp:GA-0005 a tmk:RetrievalQuestion ;
     tmk:approvedBy "TC" ;
     tmk:authorityDistinctionRequired true ;
     tmk:goldRecord "GA-0005" ;
     tmk:mustNotConclude tmkp:PU-0006 ;
+    tmk:origin "approved" ;
     tmk:qualificationsExpected "That the wording is the endorsement the Registrar suggests, not a prescribed form. That the INN-stem endorsement differs from the INN endorsement in TMM/Part29/5/5/4 and the two are not interchangeable. That the endorsement addresses the section 43 ground only."@en-AU ;
     tmk:questionText "What endorsement is used where a mark contains an INN stem?"@en-AU ;
     tmk:requiresProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
-    tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/5> .
+    tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/5> ;
+    tmk:reviewStatus "approved" .
 
 tmkp:GA-0007 a tmk:RetrievalQuestion ;
     tmk:approvedBy "TC" ;
     tmk:authorityDistinctionRequired true ;
     tmk:goldRecord "GA-0007" ;
     tmk:mustNotConclude tmkp:PU-0007 ;
+    tmk:origin "approved" ;
     tmk:qualificationsExpected "That the answer is no, and that the criteria rather than the presence of the name decide it. That the Manual's examples are examples with stated reasons and not a rule. That an ambiguous or fanciful reference, or a word not seen as geographical, does not give rise to the ground."@en-AU ;
     tmk:questionText "Does a country name in a mark always need a limitation?"@en-AU ;
     tmk:requiresCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/1968/HCA/72>,
@@ -2070,7 +2221,8 @@ tmkp:GA-0007 a tmk:RetrievalQuestion ;
     tmk:requiresProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~2> .
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~2> ;
+    tmk:reviewStatus "approved" .
 
 tmkp:GA-0009 a tmk:RetrievalQuestion ;
     tmk:approvedBy "TC" ;
@@ -2078,24 +2230,28 @@ tmkp:GA-0009 a tmk:RetrievalQuestion ;
     tmk:goldRecord "GA-0009" ;
     tmk:mustNotConclude tmkp:PU-0005,
         tmkp:PU-0015 ;
+    tmk:origin "approved" ;
     tmk:qualificationsExpected "That what is held is the Manual's quotation of the decisions, not the decisions. That the quotations are partial and edited by the Manual. That no decision text is available to check them against."@en-AU ;
     tmk:questionText "How have the courts treated the difference between denotation and connotation?"@en-AU ;
     tmk:requiresCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/2010/ATMO/85>,
         <https://data.ipaustralia.gov.au/tmk/ref/CASE/2017/FCAFC/174> ;
     tmk:requiresProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~2> .
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~2> ;
+    tmk:reviewStatus "approved" .
 
 tmkp:GA-0010 a tmk:RetrievalQuestion ;
     tmk:approvedBy "TC" ;
     tmk:authorityDistinctionRequired true ;
     tmk:goldRecord "GA-0010" ;
     tmk:mustNotConclude tmkp:PU-0004 ;
+    tmk:origin "approved" ;
     tmk:qualificationsExpected "That the term is not defined in the Act. That the working meaning comes from ordinary dictionary definitions as expanded by decisions. That for section 43 the Manual gives it a wider meaning than the dictionary sense, including direct statements."@en-AU ;
     tmk:questionText "What does connotation mean for the purposes of section 43?"@en-AU ;
     tmk:requiresProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> .
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
+    tmk:reviewStatus "approved" .
 
 tmkp:GA-0011 a tmk:RetrievalQuestion ;
     tmk:approvedBy "TC" ;
@@ -2103,25 +2259,29 @@ tmkp:GA-0011 a tmk:RetrievalQuestion ;
     tmk:goldRecord "GA-0011" ;
     tmk:mustNotConclude tmkp:PU-0008,
         tmkp:PU-0018 ;
+    tmk:origin "approved" ;
     tmk:qualificationsExpected "That the answer is no, and why: a connotation must arise from the mark itself. That comparisons between marks are dealt with under section 44 and in Part 26. That the qualification \"at least at the examination stage\" is part of the rule."@en-AU ;
     tmk:questionText "Two marks are similar and consumers may be confused. Is that section 43?"@en-AU ;
     tmk:requiresCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/2000/FCA/720> ;
     tmk:requiresProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/3> .
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/3> ;
+    tmk:reviewStatus "approved" .
 
 tmkp:GA-0012 a tmk:RetrievalQuestion ;
     tmk:approvedBy "TC" ;
     tmk:authorityDistinctionRequired true ;
     tmk:goldRecord "GA-0012" ;
     tmk:mustNotConclude tmkp:PU-0001 ;
+    tmk:origin "approved" ;
     tmk:qualificationsExpected "That the mark as a whole is what is considered. That other features can diminish the impact rather than automatically cure it. That the Act contemplates a connotation arising from a sign contained in the mark, so the part and the whole are both operative."@en-AU ;
     tmk:questionText "Can other elements in the mark neutralise a problematic connotation?"@en-AU ;
     tmk:requiresCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/2009/FCA/428> ;
     tmk:requiresProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/5>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> .
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:reviewStatus "approved" .
 
 tmkp:GA-0013 a tmk:RetrievalQuestion ;
     tmk:approvedBy "TC" ;
@@ -2129,19 +2289,23 @@ tmkp:GA-0013 a tmk:RetrievalQuestion ;
     tmk:goldRecord "GA-0013" ;
     tmk:mustNotConclude tmkp:PU-0001,
         tmkp:PU-0009 ;
+    tmk:origin "approved" ;
     tmk:qualificationsExpected "That membership of the list is not sufficient. That the stem must be included in a meaningful way, and that the Manual gives factors and counter-examples for when it is not. That the goods must be pharmaceutical or veterinary for the practice to engage at all."@en-AU ;
     tmk:questionText "The mark contains letters that appear on the INN stem list. What follows?"@en-AU ;
     tmk:requiresCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/2012/ATMO/117> ;
     tmk:requiresProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:requiresSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/5>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> .
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> ;
+    tmk:reviewStatus "approved" .
 
 tmkp:GS-0003 a tmk:SearchQuestion ;
     tmk:approvedBy "TC" ;
     tmk:goldRecord "GS-0003" ;
+    tmk:origin "approved" ;
     tmk:queryText "confusion with an existing registered trade mark"@en-AU ;
     tmk:relevantPassage tmkp:GS-0003-relevant-0,
         tmkp:GS-0003-relevant-1 ;
+    tmk:reviewStatus "approved" ;
     tmk:temptingButIrrelevant <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> ;
@@ -2160,7 +2324,9 @@ tmkc:GC-0020 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/6> ;
     tmk:goldRecord "GC-0020" ;
     tmk:notLabel "geographical origin"@en-AU,
-        "geographical reference"@en-AU .
+        "geographical reference"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0021 a skos:Concept,
         tmk:LegalConcept ;
@@ -2178,7 +2344,9 @@ tmkc:GC-0021 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
     tmk:goldRecord "GC-0021" ;
-    tmk:notLabel "standalone geographical reference"@en-AU .
+    tmk:notLabel "standalone geographical reference"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0033 a skos:Concept,
         tmk:LegalConcept ;
@@ -2195,7 +2363,9 @@ tmkc:GC-0033 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/2> ;
     tmk:goldRecord "GC-0033" ;
     tmk:notLabel "second level domain"@en-AU,
-        "subdomain"@en-AU .
+        "subdomain"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0037 a skos:Concept,
         tmk:LegalConcept ;
@@ -2213,7 +2383,9 @@ tmkc:GC-0037 a skos:Concept,
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:mayGiveRiseTo tmkc:GC-0006 ;
     tmk:notLabel "Indigenous applicant"@en-AU,
-        "prescribed sign"@en-AU .
+        "prescribed sign"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0039 a skos:Concept,
         tmk:LegalConcept ;
@@ -2230,7 +2402,9 @@ tmkc:GC-0039 a skos:Concept,
     tmk:goldRecord "GC-0039" ;
     tmk:mayGiveRiseTo tmkc:GC-0040 ;
     tmk:notLabel "acquired distinctiveness"@en-AU,
-        "reputation"@en-AU .
+        "reputation"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0042 a skos:Concept,
         tmk:LegalConcept ;
@@ -2244,7 +2418,9 @@ tmkc:GC-0042 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part51/10%231~1> ;
     tmk:goldRecord "GC-0042" ;
     tmk:notLabel "opposition"@en-AU,
-        "revocation of registration"@en-AU .
+        "revocation of registration"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0043 a skos:Concept,
         tmk:LegalConcept ;
@@ -2263,7 +2439,9 @@ tmkc:GC-0043 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "amendment"@en-AU,
-        "series application"@en-AU .
+        "series application"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkp:GS-0003-relevant-0 a tmk:RelevanceJudgement ;
     tmk:judgedPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> ;
@@ -2288,7 +2466,9 @@ tmkc:GC-0005 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~2> ;
     tmk:goldRecord "GC-0005" ;
-    tmk:notLabel "connotation"@en-AU .
+    tmk:notLabel "connotation"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0009 a skos:Concept,
         tmk:LegalConcept ;
@@ -2306,7 +2486,9 @@ tmkc:GC-0009 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
     tmk:goldRecord "GC-0009" ;
     tmk:notLabel "relevant trade"@en-AU,
-        "trade"@en-AU .
+        "trade"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0010 a skos:Concept,
         tmk:LegalConcept ;
@@ -2324,7 +2506,9 @@ tmkc:GC-0010 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
     tmk:goldRecord "GC-0010" ;
     tmk:notLabel "exceptionally stupid or careless consumer"@en-AU,
-        "expert consumer"@en-AU .
+        "expert consumer"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0016 a skos:Concept,
         tmk:LegalConcept ;
@@ -2341,7 +2525,9 @@ tmkc:GC-0016 a skos:Concept,
     tmk:goldRecord "GC-0016" ;
     tmk:notLabel "date of registration"@en-AU,
         "filing date"@en-AU,
-        "last amended date"@en-AU .
+        "last amended date"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0018 a skos:Concept,
         tmk:LegalConcept ;
@@ -2362,7 +2548,9 @@ tmkc:GC-0018 a skos:Concept,
     tmk:goldRecord "GC-0018" ;
     tmk:notLabel "geographical origin"@en-AU,
         "geographical reference"@en-AU,
-        "place name"@en-AU .
+        "place name"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0024 a skos:Concept,
         tmk:LegalConcept ;
@@ -2380,7 +2568,9 @@ tmkc:GC-0024 a skos:Concept,
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "contains an INN stem"@en-AU,
         "obvious derivation of an INN"@en-AU ;
-    tmk:qualifies tmkc:GC-0023 .
+    tmk:origin "approved" ;
+    tmk:qualifies tmkc:GC-0023 ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0025 a skos:Concept,
         tmk:LegalConcept ;
@@ -2397,7 +2587,9 @@ tmkc:GC-0025 a skos:Concept,
     tmk:dependsOnExternalSource tmkc:GC-0022 ;
     tmk:goldRecord "GC-0025" ;
     tmk:notLabel "dietary or nutritional supplement"@en-AU,
-        "medical services"@en-AU .
+        "medical services"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0027 a skos:Concept,
         tmk:LegalConcept ;
@@ -2415,7 +2607,9 @@ tmkc:GC-0027 a skos:Concept,
     tmk:goldRecord "GC-0027" ;
     tmk:mayGiveRiseTo tmkc:GC-0001 ;
     tmk:notLabel "authorised entity"@en-AU,
-        "estate"@en-AU .
+        "estate"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0030 a skos:Concept,
         tmk:LegalConcept ;
@@ -2433,7 +2627,9 @@ tmkc:GC-0030 a skos:Concept,
     tmk:doesNotGiveRiseTo tmkc:GC-0006 ;
     tmk:goldRecord "GC-0030" ;
     tmk:notLabel "device"@en-AU,
-        "signature"@en-AU .
+        "signature"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0032 a skos:Concept,
         tmk:LegalConcept ;
@@ -2451,7 +2647,9 @@ tmkc:GC-0032 a skos:Concept,
     tmk:goldRecord "GC-0032" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "standard address code material"@en-AU,
-        "website"@en-AU .
+        "website"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0034 a skos:Concept,
         tmk:LegalConcept ;
@@ -2470,7 +2668,9 @@ tmkc:GC-0034 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:mayGiveRiseTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
     tmk:notLabel "broadcasting services"@en-AU,
-        "licence"@en-AU .
+        "licence"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0041 a skos:Concept,
         tmk:LegalConcept ;
@@ -2487,7 +2687,9 @@ tmkc:GC-0041 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
     tmk:goldRecord "GC-0041" ;
     tmk:notLabel "research"@en-AU,
-        "state of the Register"@en-AU .
+        "state of the Register"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0047 a skos:Concept,
         tmk:LegalConcept ;
@@ -2505,7 +2707,9 @@ tmkc:GC-0047 a skos:Concept,
     tmk:doesNotGiveRiseTo tmkc:GC-0001 ;
     tmk:goldRecord "GC-0047" ;
     tmk:notLabel "connotation"@en-AU,
-        "non-distinctive"@en-AU .
+        "non-distinctive"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0051 a skos:Concept,
         tmk:LegalConcept ;
@@ -2522,47 +2726,59 @@ tmkc:GC-0051 a skos:Concept,
     tmk:goldRecord "GC-0051" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "discretion"@en-AU,
-        "presumption of registrability"@en-AU .
+        "presumption of registrability"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkp:PU-0003 a tmk:ProhibitedUse ;
     tmk:approvedBy "TC" ;
     tmk:detectableBy "test" ;
     tmk:goldRecord "PU-0003" ;
+    tmk:origin "approved" ;
     tmk:prohibitedOutput "Confidence that a section 43 ground applies: 82%." ;
     tmk:prohibitionKind "evaluative_conclusion" ;
-    tmk:prohibitionReason "No probability in this system is calibrated against examination outcomes, and none could be without a decision corpus. A number invites reliance that the underlying evidence does not support."@en-AU .
+    tmk:prohibitionReason "No probability in this system is calibrated against examination outcomes, and none could be without a decision corpus. A number invites reliance that the underlying evidence does not support."@en-AU ;
+    tmk:reviewStatus "approved" .
 
 tmkp:PU-0005 a tmk:ProhibitedUse ;
     tmk:approvedBy "TC" ;
     tmk:detectableBy "test" ;
     tmk:goldRecord "PU-0005" ;
+    tmk:origin "approved" ;
     tmk:prohibitedOutput "The Federal Court held in Primary Health Care that a distinction must be drawn between the denotation of a mark and its connotation." ;
     tmk:prohibitionKind "authority_conflation" ;
-    tmk:prohibitionReason "The system holds the Manual's account of the decision and a citation. It does not hold the reasons. Stating a holding as fact represents a source the programme has never seen."@en-AU .
+    tmk:prohibitionReason "The system holds the Manual's account of the decision and a citation. It does not hold the reasons. Stating a holding as fact represents a source the programme has never seen."@en-AU ;
+    tmk:reviewStatus "approved" .
 
 tmkp:PU-0006 a tmk:ProhibitedUse ;
     tmk:approvedBy "TC" ;
     tmk:detectableBy "eval" ;
     tmk:goldRecord "PU-0006" ;
+    tmk:origin "approved" ;
     tmk:prohibitedOutput "To overcome the ground you must use the following endorsement." ;
     tmk:prohibitionKind "authority_conflation" ;
-    tmk:prohibitionReason "The Manual records the endorsement the Registrar suggests. Presenting a suggestion as a requirement converts practice into obligation, which is exactly the Tier 3 reading an extraction system gets wrong while looking well-formed."@en-AU .
+    tmk:prohibitionReason "The Manual records the endorsement the Registrar suggests. Presenting a suggestion as a requirement converts practice into obligation, which is exactly the Tier 3 reading an extraction system gets wrong while looking well-formed."@en-AU ;
+    tmk:reviewStatus "approved" .
 
 tmkp:PU-0009 a tmk:ProhibitedUse ;
     tmk:approvedBy "TC" ;
     tmk:detectableBy "eval" ;
     tmk:goldRecord "PU-0009" ;
+    tmk:origin "approved" ;
     tmk:prohibitedOutput "The mark contains the INN stem \"-ast\", so a section 43 ground applies." ;
     tmk:prohibitionKind "unsupported_inference" ;
-    tmk:prohibitionReason "The Manual requires the stem to be present in a meaningful way and gives counter-examples where it is not, including one built on this very stem. Treating list membership as sufficient inverts the guidance."@en-AU .
+    tmk:prohibitionReason "The Manual requires the stem to be present in a meaningful way and gives counter-examples where it is not, including one built on this very stem. Treating list membership as sufficient inverts the guidance."@en-AU ;
+    tmk:reviewStatus "approved" .
 
 tmkp:PU-0015 a tmk:ProhibitedUse ;
     tmk:approvedBy "TC" ;
     tmk:detectableBy "test" ;
     tmk:goldRecord "PU-0015" ;
+    tmk:origin "approved" ;
     tmk:prohibitedOutput "See also Re Applicant's Application [2021] ATMO 44." ;
     tmk:prohibitionKind "overreach" ;
-    tmk:prohibitionReason "The programme holds case citations extracted from the Manual and nothing else. A citation not among them was invented, and an examiner cannot distinguish an invented neutral citation from a real one without checking every one."@en-AU .
+    tmk:prohibitionReason "The programme holds case citations extracted from the Manual and nothing else. A citation not among them was invented, and an examiner cannot distinguish an invented neutral citation from a real one without checking every one."@en-AU ;
+    tmk:reviewStatus "approved" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/2000/FCA/720> tmk:interprets <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> .
 
@@ -2582,7 +2798,9 @@ tmkc:GC-0003 a skos:Concept,
     tmk:goldRecord "GC-0003" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "confusion"@en-AU,
-        "scandalous"@en-AU .
+        "scandalous"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0011 a skos:Concept,
         tmk:LegalConcept ;
@@ -2598,7 +2816,9 @@ tmkc:GC-0011 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
     tmk:goldRecord "GC-0011" ;
     tmk:notLabel "external considerations"@en-AU,
-        "reputation in another trade mark"@en-AU .
+        "reputation in another trade mark"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0015 a skos:Concept,
         tmk:LegalConcept ;
@@ -2617,7 +2837,9 @@ tmkc:GC-0015 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
     tmk:goldRecord "GC-0015" ;
     tmk:notLabel "deletion of goods"@en-AU,
-        "divisional application"@en-AU .
+        "divisional application"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0035 a skos:Concept,
         tmk:LegalConcept ;
@@ -2637,7 +2859,9 @@ tmkc:GC-0035 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> ;
     tmk:goldRecord "GC-0035" ;
     tmk:notLabel "applicant"@en-AU,
-        "owner of the trade mark"@en-AU .
+        "owner of the trade mark"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0038 a skos:Concept,
         tmk:LegalConcept ;
@@ -2656,7 +2880,9 @@ tmkc:GC-0038 a skos:Concept,
     tmk:goldRecord "GC-0038" ;
     tmk:notLabel "essential feature"@en-AU,
         "part of the trade mark"@en-AU ;
-    tmk:qualifies tmkc:GC-0002 .
+    tmk:origin "approved" ;
+    tmk:qualifies tmkc:GC-0002 ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0045 a skos:Concept,
         tmk:LegalConcept ;
@@ -2670,7 +2896,9 @@ tmkc:GC-0045 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
     tmk:goldRecord "GC-0045" ;
     tmk:notLabel "examiner"@en-AU,
-        "hearing officer"@en-AU .
+        "hearing officer"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0052 a skos:Concept,
         tmk:LegalConcept ;
@@ -2690,31 +2918,39 @@ tmkc:GC-0052 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> ;
     tmk:goldRecord "GC-0052" ;
     tmk:notLabel "evidence of use"@en-AU,
-        "state of the Register"@en-AU .
+        "state of the Register"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkp:PU-0002 a tmk:ProhibitedUse ;
     tmk:approvedBy "TC" ;
     tmk:detectableBy "eval" ;
     tmk:goldRecord "PU-0002" ;
+    tmk:origin "approved" ;
     tmk:prohibitedOutput "No section 43 ground arises here, so the application can proceed to acceptance." ;
     tmk:prohibitionKind "evaluative_conclusion" ;
-    tmk:prohibitionReason "An assurance that no ground arises is an examination decision. It also speaks to grounds the system was never asked about — acceptance turns on every ground, not on section 43 alone."@en-AU .
+    tmk:prohibitionReason "An assurance that no ground arises is an examination decision. It also speaks to grounds the system was never asked about — acceptance turns on every ground, not on section 43 alone."@en-AU ;
+    tmk:reviewStatus "approved" .
 
 tmkp:PU-0008 a tmk:ProhibitedUse ;
     tmk:approvedBy "TC" ;
     tmk:detectableBy "shacl" ;
     tmk:goldRecord "PU-0008" ;
+    tmk:origin "approved" ;
     tmk:prohibitedOutput "Because the mark closely resembles an earlier registered mark, a connotation arises that will deceive or confuse consumers." ;
     tmk:prohibitionKind "unsupported_inference" ;
-    tmk:prohibitionReason "This reasons from a comparison between marks, which the Manual and the cited authority both put outside section 43. It is the most likely cross-contamination in the pilot, because Part 26 and Part 29 share almost all of their vocabulary."@en-AU .
+    tmk:prohibitionReason "This reasons from a comparison between marks, which the Manual and the cited authority both put outside section 43. It is the most likely cross-contamination in the pilot, because Part 26 and Part 29 share almost all of their vocabulary."@en-AU ;
+    tmk:reviewStatus "approved" .
 
 tmkp:PU-0018 a tmk:ProhibitedUse ;
     tmk:approvedBy "TC" ;
     tmk:detectableBy "eval" ;
     tmk:goldRecord "PU-0018" ;
+    tmk:origin "approved" ;
     tmk:prohibitedOutput "Confusion under section 43 and confusion under section 44 are assessed the same way." ;
     tmk:prohibitionKind "ambiguity_collapse" ;
-    tmk:prohibitionReason "One is confusion arising from a connotation within the mark; the other is confusion between the mark and another sign. The Manual keeps them apart expressly, and a distributional model will not."@en-AU .
+    tmk:prohibitionReason "One is confusion arising from a connotation within the mark; the other is confusion between the mark and another sign. The Manual keeps them apart expressly, and a distributional model will not."@en-AU ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0004 a skos:Concept,
         tmk:LegalConcept ;
@@ -2734,7 +2970,9 @@ tmkc:GC-0004 a skos:Concept,
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "conflict with other signs"@en-AU,
         "confusion between trade marks"@en-AU,
-        "deceptively similar"@en-AU .
+        "deceptively similar"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0007 a skos:Concept,
         tmk:LegalConcept ;
@@ -2750,7 +2988,9 @@ tmkc:GC-0007 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
     tmk:goldRecord "GC-0007" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(3)> ;
-    tmk:notLabel "onus on the applicant"@en-AU .
+    tmk:notLabel "onus on the applicant"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0008 a skos:Concept,
         tmk:LegalConcept ;
@@ -2767,7 +3007,9 @@ tmkc:GC-0008 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
     tmk:goldRecord "GC-0008" ;
     tmk:notLabel "actual probability of deception"@en-AU,
-        "mere possibility of confusion"@en-AU .
+        "mere possibility of confusion"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0031 a skos:Concept,
         tmk:LegalConcept ;
@@ -2784,7 +3026,9 @@ tmkc:GC-0031 a skos:Concept,
     tmk:goldRecord "GC-0031" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "numeral"@en-AU,
-        "phone number"@en-AU .
+        "phone number"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0044 a skos:Concept,
         tmk:LegalConcept ;
@@ -2801,7 +3045,9 @@ tmkc:GC-0044 a skos:Concept,
     tmk:goldRecord "GC-0044" ;
     tmk:notLabel "Registrar"@en-AU,
         "decision maker"@en-AU,
-        "delegate"@en-AU .
+        "delegate"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0012 a skos:Concept,
         tmk:LegalConcept ;
@@ -2819,7 +3065,9 @@ tmkc:GC-0012 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> ;
     tmk:goldRecord "GC-0012" ;
     tmk:notLabel "class"@en-AU,
-        "goods actually supplied"@en-AU .
+        "goods actually supplied"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0019 a skos:Concept,
         tmk:LegalConcept ;
@@ -2835,7 +3083,9 @@ tmkc:GC-0019 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
     tmk:goldRecord "GC-0019" ;
     tmk:notLabel "geographical indication"@en-AU,
-        "geographical reference"@en-AU .
+        "geographical reference"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0049 a skos:Concept,
         tmk:LegalConcept ;
@@ -2854,7 +3104,9 @@ tmkc:GC-0049 a skos:Concept,
     tmk:goldRecord "GC-0049" ;
     tmk:notLabel "priority date"@en-AU,
         "the marketplace as it was"@en-AU ;
-    tmk:qualifies tmkc:GC-0001 .
+    tmk:origin "approved" ;
+    tmk:qualifies tmkc:GC-0001 ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0050 a skos:Concept,
         tmk:LegalConcept ;
@@ -2872,15 +3124,19 @@ tmkc:GC-0050 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
     tmk:goldRecord "GC-0050" ;
     tmk:notLabel "acquired distinctiveness"@en-AU,
-        "reputation in another trade mark"@en-AU .
+        "reputation in another trade mark"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkp:PU-0004 a tmk:ProhibitedUse ;
     tmk:approvedBy "TC" ;
     tmk:detectableBy "shacl" ;
     tmk:goldRecord "PU-0004" ;
+    tmk:origin "approved" ;
     tmk:prohibitedOutput "Section 43 of the Act requires the connotation to be obvious, direct and immediate." ;
     tmk:prohibitionKind "authority_conflation" ;
-    tmk:prohibitionReason "The section requires no such thing. That formulation is the Manual's statement of practice. Attributing it to the Act gives an examiner a statutory requirement that does not exist and takes away the Registrar's discretion in the same sentence."@en-AU .
+    tmk:prohibitionReason "The section requires no such thing. That formulation is the Manual's statement of practice. Attributing it to the Act gives an examiner a statutory requirement that does not exist and takes away the Registrar's discretion in the same sentence."@en-AU ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0014 a skos:Concept,
         tmk:LegalConcept ;
@@ -2897,7 +3153,9 @@ tmkc:GC-0014 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
     tmk:goldRecord "GC-0014" ;
     tmk:notLabel "condition of registration"@en-AU,
-        "disclaimer"@en-AU .
+        "disclaimer"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0022 a skos:Concept,
         tmk:LegalConcept ;
@@ -2915,7 +3173,9 @@ tmkc:GC-0022 a skos:Concept,
     tmk:goldRecord "GC-0022" ;
     tmk:notLabel "INN stem"@en-AU,
         "brand name"@en-AU,
-        "trade mark"@en-AU .
+        "trade mark"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0028 a skos:Concept,
         tmk:LegalConcept ;
@@ -2933,7 +3193,9 @@ tmkc:GC-0028 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
     tmk:goldRecord "GC-0028" ;
     tmk:notLabel "endorsement"@en-AU,
-        "written permission"@en-AU .
+        "written permission"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0029 a skos:Concept,
         tmk:LegalConcept ;
@@ -2951,7 +3213,9 @@ tmkc:GC-0029 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
     tmk:goldRecord "GC-0029" ;
     tmk:notLabel "authorised user"@en-AU,
-        "letter of consent"@en-AU .
+        "letter of consent"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0040 a skos:Concept,
         tmk:LegalConcept ;
@@ -2968,15 +3232,19 @@ tmkc:GC-0040 a skos:Concept,
     tmk:goldRecord "GC-0040" ;
     tmk:notLabel "examination"@en-AU,
         "hearing"@en-AU,
-        "revocation of acceptance"@en-AU .
+        "revocation of acceptance"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkp:PU-0007 a tmk:ProhibitedUse ;
     tmk:approvedBy "TC" ;
     tmk:detectableBy "eval" ;
     tmk:goldRecord "PU-0007" ;
+    tmk:origin "approved" ;
     tmk:prohibitedOutput "A trade mark containing the name of a country will attract a section 43 ground unless the specification is limited to goods from that country." ;
     tmk:prohibitionKind "unsupported_inference" ;
-    tmk:prohibitionReason "The Manual sets criteria and gives examples on both sides — SHETLAND attracting a ground, BALI not. A general rule extracted from them discards the criteria that decided each one."@en-AU .
+    tmk:prohibitionReason "The Manual sets criteria and gives examples on both sides — SHETLAND attracting a ground, BALI not. A general rule extracted from them discards the criteria that decided each one."@en-AU ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0026 a skos:Concept,
         tmk:LegalConcept ;
@@ -2999,15 +3267,19 @@ tmkc:GC-0026 a skos:Concept,
     tmk:notLabel "name of a person"@en-AU,
         "signature"@en-AU,
         "surname"@en-AU ;
-    tmk:qualifies tmkc:GC-0028 .
+    tmk:origin "approved" ;
+    tmk:qualifies tmkc:GC-0028 ;
+    tmk:reviewStatus "approved" .
 
 tmkp:PU-0001 a tmk:ProhibitedUse ;
     tmk:approvedBy "TC" ;
     tmk:detectableBy "eval" ;
     tmk:goldRecord "PU-0001" ;
+    tmk:origin "approved" ;
     tmk:prohibitedOutput "This trade mark should be rejected under section 43 because the connotation is likely to deceive or cause confusion." ;
     tmk:prohibitionKind "evaluative_conclusion" ;
-    tmk:prohibitionReason "Whether a connotation exists and whether it is likely to deceive is the decision maker's evaluative judgement on the material before them. The Manual requires the decision maker to be clearly satisfied; a system that states the conclusion has substituted itself for that person."@en-AU .
+    tmk:prohibitionReason "Whether a connotation exists and whether it is likely to deceive is the decision maker's evaluative judgement on the material before them. The Manual requires the decision maker to be clearly satisfied; a system that states the conclusion has substituted itself for that person."@en-AU ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0017 a skos:Concept,
         tmk:LegalConcept ;
@@ -3028,7 +3300,9 @@ tmkc:GC-0017 a skos:Concept,
     tmk:goldRecord "GC-0017" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "business identifier"@en-AU,
-        "geographical indication"@en-AU .
+        "geographical indication"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0023 a skos:Concept,
         tmk:LegalConcept ;
@@ -3047,7 +3321,9 @@ tmkc:GC-0023 a skos:Concept,
     tmk:isOvercomeBy tmkc:GC-0013 ;
     tmk:notLabel "International Non-Proprietary Name"@en-AU,
         "prefix"@en-AU,
-        "suffix"@en-AU .
+        "suffix"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0013 a skos:Concept,
         tmk:LegalConcept ;
@@ -3066,7 +3342,9 @@ tmkc:GC-0013 a skos:Concept,
     tmk:isOvercomeBy tmkc:GC-0006 ;
     tmk:notLabel "endorsement"@en-AU,
         "specification amendment"@en-AU ;
-    tmk:requiresElement tmkc:GC-0001 .
+    tmk:origin "approved" ;
+    tmk:requiresElement tmkc:GC-0001 ;
+    tmk:reviewStatus "approved" .
 
 tmkc:GC-0002 a skos:Concept,
         tmk:LegalConcept ;
@@ -3087,7 +3365,9 @@ tmkc:GC-0002 a skos:Concept,
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "deceptively similar"@en-AU,
         "likelihood of confusion between trade marks"@en-AU,
-        "substantially identical"@en-AU .
+        "substantially identical"@en-AU ;
+    tmk:origin "approved" ;
+    tmk:reviewStatus "approved" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> tmk:allocatesTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
 
@@ -3111,8 +3391,10 @@ tmkc:GC-0006 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "ground for revocation"@en-AU,
         "ground of opposition"@en-AU ;
+    tmk:origin "approved" ;
     tmk:requiresElement tmkc:GC-0001,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(3)> ;
+    tmk:reviewStatus "approved" ;
     tmk:statesThresholdFor tmkc:GC-0008 .
 
 tmkc:GC-0001 a skos:Concept,
@@ -3138,7 +3420,9 @@ tmkc:GC-0001 a skos:Concept,
     tmk:notLabel "deceptively similar"@en-AU,
         "denotation"@en-AU,
         "descriptive meaning"@en-AU ;
-    tmk:requiresElement tmkc:GC-0050 .
+    tmk:origin "approved" ;
+    tmk:requiresElement tmkc:GC-0050 ;
+    tmk:reviewStatus "approved" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> tmk:appliesTo tmkc:GC-0006 ;
     tmk:constrainsExaminerTo tmkc:GC-0051 ;

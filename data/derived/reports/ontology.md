@@ -16,18 +16,26 @@ draft is not able to do, and it is the honest half of the demonstration.
 | Pinned snapshot | `Thomas-Amann-IPAustralia/manual-XtrACTor @ c490a9927f1a (ingest/0.11.0, legislation/0.2.0)` |
 | Generated | 2026-09-08 |
 | Ontology modules | 9, all draft |
-| Classes declared | 49 |
+| Classes declared | 50 |
 | Predicates on the closed list | 14, derived from 35 approved relationships |
 | Source graph | 16,405 triples over 216 chunks |
-| Approved graph | 2,946 triples |
+| Approved graph | 3,230 triples — signed by a named expert |
+| Authored graph | 0 triples — **written by a machine, validated by nobody** |
 | SHACL result | 0 defects, 0 gaps, 29 notes — exit 0 |
 | Competency queries | 13 of 20 questions |
 
 ## 1. What is in the graph
 
-Two named graphs, and the separation is the governance mechanism (ADR-0007).
+Three named graphs, and the separation is the governance mechanism (ADR-0007).
 `source` restates what upstream already recorded; `approved` restates what a
-reviewer already signed. Nothing is in both.
+reviewer already signed; `authored` restates what a machine wrote and nobody has
+read (ADR-0080). Nothing is in more than one.
+
+**The two record stores are never added together.** A single figure would answer
+the question a reader actually has — *how much of this has a person looked at* —
+in the one direction that matters, and would do it silently. A larger authored
+figure is not thereby a worse one; it is an unreviewed one, and that is a
+different fact about the same rows.
 
 | graph | holds | count |
 |---|---|---|
@@ -41,6 +49,11 @@ reviewer already signed. Nothing is in both.
 | `approved` | entity mentions | 55 |
 | `approved` | questions (competency, retrieval, search) | 31 |
 | `approved` | prohibited uses | 11 |
+| `authored` | concepts | 0 |
+| `authored` | relationships, each with a direct triple and an assertion | 0 |
+| `authored` | entity mentions | 0 |
+| `authored` | questions (competency, retrieval, search) | 0 |
+| `authored` | prohibited uses | 0 |
 
 ### The trust metadata survived
 
@@ -173,7 +186,7 @@ comes back this is the single largest gap in the draft.
 *sources* — the passages the meaning is drawn from — and no definition text, so
 the graph carries sources and no text. `skos:definition` appears nowhere.
 
-**30 declared classes hold nothing**: `ApprovedRelation`, `Assertion`, `Authority`, `AuthorityStatus`, `CandidateAssertion`, `DecisionMaker`, `Delegate`, `Evidence`, `EvidenceCategory`, `EvidenceSubmission`, `EvidentiaryProposition`, `Examination`, `ExaminationOutcome`, `Examiner`….
+**31 declared classes hold nothing**: `ApprovedRelation`, `Assertion`, `AuthoredAssertion`, `Authority`, `AuthorityStatus`, `CandidateAssertion`, `DecisionMaker`, `Delegate`, `Evidence`, `EvidenceCategory`, `EvidenceSubmission`, `EvidentiaryProposition`, `Examination`, `ExaminationOutcome`….
 The whole evidence module is among them, and deliberately: the section 43
 material is about what a sign connotes, not about what an applicant files.
 

@@ -33,7 +33,11 @@ def graph(argv: list[str] | None = None) -> int:
     """`tmk-graph` — build the dataset and, with `--write`, serialise it."""
     parser = argparse.ArgumentParser(
         prog="tmk-graph",
-        description="Build the knowledge graph from the pinned snapshot and eval/gold/.",
+        description=(
+            "Build the knowledge graph from the pinned snapshot, eval/gold/ and "
+            "authored/. The two record stores land in two named graphs and are "
+            "never summed (ADR-0080)."
+        ),
     )
     parser.add_argument("--write", action="store_true", help="serialise into graph/")
     parser.add_argument("--rules", action="store_true", help="also run the CONSTRUCT rules")
