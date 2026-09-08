@@ -20,6 +20,8 @@ from rdflib.namespace import RDF, SKOS
 
 from tm_knowledge.config import REPO_ROOT
 from tm_knowledge.ontology import relations
+from tm_knowledge.ontology import build as build_module
+from tm_knowledge.ontology import rules
 from tm_knowledge.ontology.build import build
 from tm_knowledge.ontology.namespaces import APPROVED_GRAPH, SOURCE_GRAPH, TMK
 from tm_knowledge.ontology.tbox import MODULES, load as load_tbox
@@ -196,3 +198,35 @@ def test_nothing_is_stale_and_nothing_dangles(built):
     assert report.stale == []
     assert report.unresolvable_sources == []
     assert report.out_of_scope_sources == []
+
+
+# --- the graph is committed, so it has to stay current ----------------------
+
+
+def test_the_quads_file_is_sorted():
+    """rdflib's Turtle serialiser sorts; its N-Quads serialiser emits in
+    set-iteration order, which moves with PYTHONHASHSEED. Two builds of an
+    identical dataset therefore produced two different 5MB files — invisible
+    until `dataset.nq` was committed, at which point every rebuild would have
+    put a 5MB diff in the history signifying nothing (Q-42).
+
+    Line order carries no meaning in N-Quads, so sorting is canonicalisation.
+    This checks the file on disk is the canonical one."""
+    path = build_module.GRAPH_DIR / "dataset.nq"
+    lines = [line for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    assert lines == sorted(lines), "graph/dataset.nq is unsorted — rerun `tmk-graph --write --rules`"
+
+
+@pytest.mark.rdf
+def test_the_committed_graph_matches_a_rebuild():
+    """The committed graph is what someone reads instead of building one
+    (ADR-0070). If it has drifted, they are reading something the repository no
+    longer holds — which is worse than making them build it."""
+    dataset, _ = build()
+    dataset, _ = rules.apply_rules(dataset)
+    stale = build_module.check(dataset)
+    assert not stale, (
+        "the committed graph differs from a rebuild: "
+        + "; ".join(stale)
+        + ". Run `tmk-graph --write --rules` and commit."
+    )

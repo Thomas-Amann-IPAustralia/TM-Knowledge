@@ -18,6 +18,7 @@ an agent deciding what a person meant (CLAUDE.md rule 6).
 from __future__ import annotations
 
 import json
+import re
 import sys
 
 import pytest
@@ -107,6 +108,40 @@ def test_a_parked_question_is_not_put_to_the_owner():
     owner cannot decide invites an answer that then has to be unpicked."""
     for question in questions.load().by_status("parked"):
         assert not question.is_asked
+
+
+@pytest.mark.snapshot
+@pytest.mark.rdf
+def test_no_question_quotes_a_rule_triple_count_as_a_finding_count():
+    """Where the number the owner acts on comes from.
+
+    OQ-0003 told him RULE-0001 "produced 71 flags" and asked him to review 71
+    passages. 71 is the size of the graph the rule builds; it flags five. The
+    triple count was read off a generated table, where it is correctly headed
+    *triples*, and written into the question as a count of findings (Q-41).
+
+    A question may legitimately quote a triple count — as rows of data, as
+    storage — so this checks the pairing, not the number: no rule's triple count
+    may sit next to a word that makes it sound like a count of findings.
+    """
+    from tm_knowledge.ontology import rules as rules_module
+    from tm_knowledge.ontology.build import build
+
+    dataset, _ = build()
+    _dataset, counts = rules_module.apply_rules(dataset)
+    text = questions.QUESTIONS_PATH.read_text(encoding="utf-8")
+    finding_words = r"(?:flags?|flagged|passages|links?|findings?|results?|of them)"
+    for rule_id, got in counts.items():
+        if got.triples == got.assertions:
+            continue
+        pattern = re.compile(
+            rf"\b{got.triples:,}\b\s*{finding_words}|\b{got.triples}\b\s*{finding_words}"
+        )
+        found = pattern.search(text)
+        assert not found, (
+            f"open-questions.yaml calls {rule_id}'s triple count ({got.triples:,}) a count of "
+            f"{found.group(0)!r}. It concludes {got.assertions}. Quote the conclusion count."
+        )
 
 
 def test_a_question_missing_its_plain_language_framing_is_refused(tmp_path):

@@ -14,11 +14,17 @@ import sys
 from pathlib import Path
 
 from tm_knowledge.ontology import ask as ask_module
+from tm_knowledge.ontology import flags as flags_module
 from tm_knowledge.ontology import relations as relations_module
 from tm_knowledge.ontology import report as report_module
 from tm_knowledge.ontology import rules as rules_module
 from tm_knowledge.ontology import validate as validate_module
-from tm_knowledge.ontology.build import GRAPH_DIR, build as build_graph, write as write_graph
+from tm_knowledge.ontology.build import (
+    GRAPH_DIR,
+    build as build_graph,
+    check as check_graph,
+    write as write_graph,
+)
 
 __all__ = ["graph", "shacl", "ask", "ontology_report"]
 
@@ -30,8 +36,13 @@ def graph(argv: list[str] | None = None) -> int:
         description="Build the knowledge graph from the pinned snapshot and eval/gold/.",
     )
     parser.add_argument("--write", action="store_true", help="serialise into graph/")
-    parser.add_argument("--rules", action="store_true", help="also run the candidate CONSTRUCT rules")
+    parser.add_argument("--rules", action="store_true", help="also run the CONSTRUCT rules")
     parser.add_argument("--out", type=Path, default=None, help="output directory (default: graph/)")
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="fail if what is committed under graph/ differs from a rebuild",
+    )
     args = parser.parse_args(argv)
 
     dataset, report = build_graph()
@@ -39,10 +50,34 @@ def graph(argv: list[str] | None = None) -> int:
 
     if args.rules:
         dataset, counts = rules_module.apply_rules(dataset)
-        print("\ncandidate rules — everything they produce is review_status=candidate")
+        print("\nCONSTRUCT rules — an unapproved rule's output is stamped review_status=candidate")
         for rule in rules_module.load_rules():
-            print(f"  {rule.rule_id}  {counts.get(rule.rule_id, 0):>5} triples  "
-                  f"approved={rule.is_approved}")
+            state = "approved" if rule.is_approved else "candidate — quarantined"
+            got = counts.get(rule.rule_id)
+            # Both numbers, always. The conclusion count is the one that means
+            # something to a person; the triple count is the one that used to be
+            # quoted at them as if it did (Q-41).
+            print(f"  {rule.rule_id}  {got.assertions if got else 0:>4} conclusions "
+                  f"({got.triples if got else 0:>5} triples)  {state}")
+
+    if args.check:
+        # The whole graph is committed (ADR-0070), and a committed generated
+        # file that has drifted is worse than one nobody committed: it reads as
+        # current. `--check` must run with `--rules` to compare inferred.ttl,
+        # since without them the inferred graph is empty by construction.
+        stale = check_graph(dataset, args.out or GRAPH_DIR)
+        if stale:
+            print("\nThe committed graph no longer matches a rebuild:", file=sys.stderr)
+            for line in stale:
+                print(f"  {line}", file=sys.stderr)
+            print(
+                "\nRun `tmk-graph --write --rules` and commit the result. Someone reading "
+                "graph/ without rebuilding is reading what these files say.",
+                file=sys.stderr,
+            )
+            return 1
+        print("\nThe committed graph matches a rebuild.")
+        return 0
 
     if args.write:
         for path in write_graph(dataset, args.out or GRAPH_DIR):
@@ -131,4 +166,23 @@ def ontology_report(argv: list[str] | None = None) -> int:
         print(f"wrote {path}")
     else:
         print(text)
+    return 0
+
+
+def flags(argv: list[str] | None = None) -> int:
+    """`tmk-flags` — the review pack for RULE-0001, for the owner to rule on."""
+    parser = argparse.ArgumentParser(
+        prog="tmk-flags",
+        description="Every passage RULE-0001 flags, in full, with the expert typing that fired it.",
+    )
+    parser.add_argument("--write", action="store_true", help="write into data/derived/reports/")
+    parser.add_argument(
+        "--generated", default=None, help="the build stamp (default: today), for a reproducible run"
+    )
+    args = parser.parse_args(argv)
+
+    if args.write:
+        print(f"wrote {flags_module.write(generated=args.generated)}")
+    else:
+        print(flags_module.render(args.generated))
     return 0

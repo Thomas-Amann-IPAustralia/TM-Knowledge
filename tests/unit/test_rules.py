@@ -12,6 +12,9 @@ test cannot leave a rule pointing at nothing.
 
 from __future__ import annotations
 
+import dataclasses
+import re
+
 import pytest
 from rdflib import Dataset, Graph, Literal, URIRef
 
@@ -85,6 +88,8 @@ def test_rule_0001_fires_on_the_mixed_chunk():
     )
     assert (node, TMK.mixedAuthority, Literal(True)) in produced
     inference = next(produced.subjects(TMK.producedByRule, None))
+    # Stamped from `approved-by:`, which for this rule still reads PENDING: the
+    # owner asked to see the flagged passages before ruling (OQ-0003).
     assert produced.value(inference, TMK.reviewStatus) == Literal("candidate")
     assert produced.value(inference, TMK.requiresHumanReview) == Literal(True)
     assert set(produced.objects(inference, TMK.derivedFrom)) >= {node}
@@ -141,6 +146,10 @@ def test_rule_0002_fires_for_a_passage_with_dependants():
     assert (dependant, TMK.impactedBy, node) in produced
     inference = next(produced.subjects(TMK.producedByRule, None))
     assert produced.value(inference, TMK.inferenceKind) == Literal("impact")
+    # The owner approved this one on 2026-09-08 (OQ-0004), so its output is no
+    # longer quarantined. The header is what says so, and nothing else.
+    assert produced.value(inference, TMK.reviewStatus) == Literal("approved")
+    assert produced.value(inference, TMK.requiresHumanReview) == Literal(False)
 
 
 def test_rule_0002_does_not_fire_for_an_unreferenced_passage():
@@ -170,10 +179,48 @@ def test_every_rule_names_tests_that_exist(rule_file):
 
 
 @pytest.mark.parametrize("rule_file", rules.load_rules(), ids=lambda r: r.rule_id)
-def test_no_rule_claims_approval_it_does_not_have(rule_file):
-    """Stage 9 requires an expert to approve every reasoning template before
-    deployment. Nobody has approved these, and the flag must say so — the check
-    exists because the phrase is `PENDING — <explanation>`, and a substring test
-    against the whole line reads that as an approval."""
-    assert not rule_file.is_approved
-    assert "PENDING" in rule_file.approved_by
+def test_an_approval_names_someone_and_a_date(rule_file):
+    """A name and a date are the approval artefact (ADR-0039), and a rule is not
+    exempt from that. `PENDING — <explanation>` must not read as an approval,
+    which is why `is_approved` matches the first word rather than the line."""
+    if rule_file.is_approved:
+        assert re.search(r"\d{4}-\d{2}-\d{2}", rule_file.approved_by), (
+            f"{rule_file.rule_id} claims approval with no date on it"
+        )
+        assert "PENDING" not in rule_file.approved_by.split("—")[0]
+    else:
+        assert "PENDING" in rule_file.approved_by
+
+
+@pytest.mark.parametrize("rule_file", rules.load_rules(), ids=lambda r: r.rule_id)
+def test_no_rule_declares_its_own_review_status(rule_file):
+    """A CONSTRUCT template that sets `tmk:reviewStatus` is a rule asserting its
+    own approval, and it can drift from the header in either direction — the
+    dangerous one being a body that still says `candidate` after a person
+    approved the rule, so an approval the owner gave changes nothing in the data.
+    The status is stamped from the header; the body must not touch it."""
+    body = rule_file.text.split("CONSTRUCT", 1)[-1]
+    assert "reviewStatus" not in body
+    assert "requiresHumanReview" not in body
+
+
+def test_a_body_that_stamps_its_own_status_is_refused():
+    """The guard above is a lint over the files as they stand. This one proves
+    the runtime refuses such a rule rather than quietly overwriting it."""
+    node, facts = chunk("TMM/Part29/2/2/3")
+    dependant = URIRef(FIXTURE + "GR-0005")
+    original = rule("RULE-0002")
+    tampered = dataclasses.replace(
+        original,
+        text=original.text.replace(
+            'tmk:inferenceKind "impact" ;',
+            'tmk:inferenceKind "impact" ;\n             tmk:reviewStatus "approved" ;',
+        ),
+    )
+    with pytest.raises(rules.MalformedRule):
+        tampered.construct(
+            dataset_with(
+                facts,
+                [(dependant, TMK.sourcePassage, node), (dependant, TMK.goldRecord, Literal("GR-0005"))],
+            )
+        )

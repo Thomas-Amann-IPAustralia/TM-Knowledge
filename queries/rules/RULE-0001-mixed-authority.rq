@@ -1,7 +1,7 @@
 # rule: RULE-0001
 # derives: tmk:mixedAuthority on a Manual passage that carries both quoted legislative text and the Registrar's own practice, so that any output derived from it is required to keep the two apart.
 # basis: GX-0001 — the approved reasoning expectation over TMM/Part29/1#1: "The passage contains both quoted legislative text and the Registrar's practice, and the two must be distinguishable in any output derived from it."
-# approved-by: PENDING — this rule is a candidate. Stage 9 requires an expert to approve every reasoning template before deployment; nobody has approved this one, and it writes tmk:reviewStatus "candidate" and tmk:requiresHumanReview true on everything it produces.
+# approved-by: PENDING — the owner asked to see the flagged passages before ruling: "Show me the 71 flagged passages first" (OQ-0003, issue #12, 2026-09-08). The pack is data/derived/reports/rule-0001-flags.md and the re-ask is OQ-0019. Until then everything this produces is stamped tmk:reviewStatus "candidate".
 # fires-test: tests/unit/test_rules.py::test_rule_0001_fires_on_the_mixed_chunk
 # near-miss-test: tests/unit/test_rules.py::test_rule_0001_does_not_fire_on_a_practice_only_chunk
 # limits: Detects the mixture from the expert's own entity typing — a mention typed LegislativeProvision and a mention typed ManualInstruction in the same chunk. It does not find the sentence boundary between the quotation and the guidance, and that boundary is not marked in the text (GX-0001's caveat). It says "these two things are both in here", not "the quotation ends at character N".
@@ -20,8 +20,6 @@ CONSTRUCT {
              tmk:derivedFrom ?practiceMention ;
              tmk:derivedFrom ?chunk ;
              tmk:inferenceKind "classification" ;
-             tmk:reviewStatus "candidate" ;
-             tmk:requiresHumanReview true ;
              tmk:extractionMethod "construct_rule" .
   ?chunk tmk:mixedAuthority true .
 }

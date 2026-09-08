@@ -2,18 +2,17 @@
 # committed (ADR-0042, supersedes ADR-0028) — do not add it here.
 data/upstream/
 
-# The graph, split by what it restates (ADR-0060).
+# The graph is committed in full — all four files (ADR-0070, supersedes
+# ADR-0060). The owner ruled on OQ-0005: "Store everything, so the graph can be
+# read without building it." It costs about 6.5MB, and it buys someone reading
+# what the graph says without a snapshot fetch and a build first.
 #
-# `graph/approved.ttl` and `graph/inferred.ttl` ARE committed: they are this
-# repo's own work, they are small enough to read, and a diff of approved.ttl is
-# a diff of what a reviewer changed.
+# Nothing is git-ignored here. `data/upstream/` stays ignored under ADR-0004 and
+# that is untouched: the snapshot is another repository's corpus and this is a
+# derivation of it, the same distinction `data/derived/` already draws.
 #
-# `graph/source.ttl` and `graph/dataset.nq` are not. They restate the pinned
-# upstream corpus, and committing 6.5MB of it here is `data/upstream/` by
-# another route — the thing ADR-0004 exists to prevent. Both rebuild in one
-# command: `tmk-fetch-upstream && tmk-graph --write --rules`.
-graph/source.ttl
-graph/dataset.nq
+# The cost of committing a generated file is that it can go stale, so
+# `tmk-graph --check` fails when it has, and CI runs it (ADR-0070).
 
 # The dashboard's copies of the generated reports.
 #

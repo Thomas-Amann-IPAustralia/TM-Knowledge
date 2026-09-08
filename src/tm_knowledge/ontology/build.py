@@ -28,6 +28,7 @@ no longer matches the pinned snapshot gets `tmk:isStale true` and is reported.
 
 from __future__ import annotations
 
+import tempfile
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
@@ -55,7 +56,7 @@ from tm_knowledge.stage0 import goldset
 from tm_knowledge.stage0.worksheet import PILOT_PROVISION, ScopeRule, select
 from tm_knowledge.upstream.loader import Corpus, load_corpus
 
-__all__ = ["GRAPH_DIR", "BuildReport", "build", "write"]
+__all__ = ["GRAPH_DIR", "BuildReport", "build", "write", "check"]
 
 GRAPH_DIR = REPO_ROOT / "graph"
 
@@ -703,7 +704,39 @@ def write(
         bind_all(dataset.graph(name)).serialize(destination=path, format="turtle")
         written.append(path)
 
+    # N-Quads, sorted. rdflib's Turtle serialiser sorts; its N-Quads serialiser
+    # emits in set-iteration order, which moves with PYTHONHASHSEED — so two
+    # builds of an identical dataset produce two different 5MB files. Committed
+    # (ADR-0070), that would put a 5MB diff in the history on every rebuild,
+    # signifying nothing. N-Quads is one statement per line and line order
+    # carries no meaning, so sorting is a canonicalisation and not a change to
+    # what the file says (Q-42).
     quads = directory / "dataset.nq"
-    dataset.serialize(destination=quads, format="nquads")
+    serialised = dataset.serialize(format="nquads")
+    lines = sorted(line for line in serialised.splitlines() if line.strip())
+    quads.write_text("\n".join(lines) + "\n", encoding="utf-8")
     written.append(quads)
     return tuple(written)
+
+
+def check(dataset: Dataset | None = None, directory: Path | None = None) -> tuple[str, ...]:
+    """Which committed graph files no longer match a rebuild. Empty means current.
+
+    The whole graph is committed (ADR-0070), which is only worth anything if
+    what is committed is what a build produces — a stale `approved.ttl` read
+    without rebuilding is a confident answer from data the repository has moved
+    past. Serialisation is byte-stable across runs, so a byte comparison is a
+    fair test and does not need to parse either side.
+    """
+    directory = directory or GRAPH_DIR
+    if dataset is None:
+        dataset, _ = build()
+    with tempfile.TemporaryDirectory() as tmp:
+        stale = []
+        for fresh in write(dataset, Path(tmp)):
+            committed = directory / fresh.name
+            if not committed.exists():
+                stale.append(f"{fresh.name}: not committed")
+            elif committed.read_bytes() != fresh.read_bytes():
+                stale.append(f"{fresh.name}: differs from a rebuild")
+    return tuple(stale)

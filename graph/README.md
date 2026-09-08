@@ -1,7 +1,8 @@
 # graph/ — the generated knowledge graph
 
 **Roadmap Stage 6.** Built, against a **draft** ontology (`ontology/draft/`).
-`tmk-graph --write --rules`.
+`tmk-graph --write --rules`, and `tmk-graph --rules --check` to prove what is
+committed here is what a build produces.
 
 **Everything here is generated.** Given the pinned upstream snapshot, the approved
 inputs in `vocab/` and `ontology/`, and the code in `src/`, a rebuild produces the
@@ -15,10 +16,10 @@ never become indistinguishable from approved knowledge; if they mix once, no lat
 audit can unmix them.
 
 ```
-graph/source.ttl       assertions derived deterministically from the snapshot   NOT COMMITTED
+graph/source.ttl       assertions derived deterministically from the snapshot   committed
 graph/approved.ttl     expert-approved assertions                               committed
-graph/inferred.ttl     produced by the candidate rules — never authored         committed
-graph/dataset.nq       all of the above as quads                                NOT COMMITTED
+graph/inferred.ttl     produced by the CONSTRUCT rules — never authored         committed
+graph/dataset.nq       all of the above as quads                                committed
 graph/candidates.nq    machine-extracted, unapproved  (mirrors review/)         does not exist
 graph/superseded.nq    retired assertions, kept for audit                       does not exist
 ```
@@ -32,12 +33,26 @@ graph, and this README already reserves `.ttl` for single-graph files a human
 reads — a reviewer reading `approved.ttl` should not have to parse N-Quads.
 `dataset.nq` is the quad form, and it is generated for tools that want it.
 
-**What is committed, and why the split** (ADR-0060). `approved.ttl` and
-`inferred.ttl` are this repo's own work: small enough to read, and a diff of
-`approved.ttl` is a diff of what a reviewer changed. `source.ttl` and
-`dataset.nq` are not committed — they restate the pinned upstream corpus, and
-putting 6.5MB of it in this history is `data/upstream/` by another route, which
-is what ADR-0004 exists to prevent. Both rebuild in one command.
+**All four are committed** (ADR-0070, supersedes ADR-0060). The owner ruled on
+OQ-0005: *"Store everything, so the graph can be read without building it."* It
+costs about 6.5MB. `data/upstream/` stays out under ADR-0004 and that is not in
+tension: the snapshot is another repository's corpus, and this is a derivation
+of it — the same line `data/derived/` already draws.
+
+**A committed generated file can go stale, and a stale one is worse than an
+absent one** because it reads as current. So `tmk-graph --rules --check` rebuilds
+into a temporary directory and compares bytes, CI runs it, and
+`tests/unit/test_ontology_build.py::test_the_committed_graph_matches_a_rebuild`
+runs it too. If it fails, run `tmk-graph --write --rules` and commit the result;
+do not hand-edit.
+
+**`dataset.nq` is written sorted, and that is load-bearing.** rdflib's Turtle
+serialiser sorts, its N-Quads serialiser does not — it emits in set-iteration
+order, which moves with `PYTHONHASHSEED`, so two builds of an identical dataset
+produced two different 5MB files. Uncommitted, nobody noticed; committed, it
+would have put a 5MB diff in the history on every rebuild, signifying nothing.
+Line order carries no meaning in N-Quads, so sorting canonicalises without
+changing what the file says (Q-42).
 
 ## Every assertion carries
 
