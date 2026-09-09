@@ -715,3 +715,73 @@ def boundary(argv: list[str] | None = None) -> int:
     else:
         print("\n(dry run — nothing written. Pass --write.)")
     return 0
+
+
+def concepts(argv: list[str] | None = None) -> int:
+    """`tmk-concepts` — concept candidates across the whole Manual.
+
+    The pass the section 43 boundary used to make unnecessary. It finds
+    candidates and authors nothing: turning one into a concept is a judgement
+    with an envelope, and it happens in `authored/concepts.yaml`.
+    """
+    parser = argparse.ArgumentParser(
+        prog="tmk-concepts",
+        description=(
+            "Deterministic concept candidates from the whole corpus — statutory "
+            "defined terms, Manual definitions, Manual subject headings. Reports "
+            "what the corpus offers; never decides what a concept is."
+        ),
+    )
+    parser.add_argument("--write", action="store_true", help="write the candidates and the pack")
+    parser.add_argument("--out", type=Path, default=None, help="candidates YAML path")
+    parser.add_argument(
+        "--report", type=Path, default=None, help="candidate pack path"
+    )
+    parser.add_argument("--generated", default=None, help="build stamp, for a reproducible run")
+    args = parser.parse_args(argv)
+
+    try:
+        corpus = load_corpus()
+    except (UnpinnedSnapshot, SnapshotMismatch) as error:
+        print(f"refusing to run: {error}", file=sys.stderr)
+        return 2
+
+    from tm_knowledge.authored import store as authored_store
+    from tm_knowledge.stage0 import concepts as concepts_module
+    from tm_knowledge.stage0 import goldset
+
+    gold = goldset.load()
+    authored = authored_store.load()
+    known = [*gold["gold_concept"], *authored["gold_concept"]]
+    candidates = concepts_module.extract(corpus, known=known)
+
+    by_strength = {3: 0, 2: 0, 1: 0}
+    for candidate in candidates:
+        by_strength[candidate.strength] += 1
+    covered = sum(1 for candidate in candidates if candidate.covered_by)
+
+    print(f"{len(candidates)} concept candidates from {len(corpus.chunks)} chunks")
+    print(f"  strength 3 (legislation and Manual both define it) : {by_strength[3]:>4}")
+    print(f"  strength 2 (one of the two defines it)             : {by_strength[2]:>4}")
+    print(f"  strength 1 (a Manual heading names it, nothing defines it): {by_strength[1]:>4}")
+    print(f"  already claimed by a concept we hold               : {covered:>4}")
+    print(f"  concepts held today: {len(gold['gold_concept'])} signed, "
+          f"{len(authored['gold_concept'])} authored")
+
+    if not args.write:
+        print("\n(dry run — nothing written. Pass --write.)")
+        return 0
+
+    written = concepts_module.write_candidates(
+        candidates, args.out, generated=args.generated
+    )
+    report = concepts_module.write_report(
+        candidates, args.report, corpus=corpus, generated=args.generated
+    )
+    print(f"\nwrote {written}")
+    print(f"wrote {report}")
+    print(
+        "\nCandidates are not concepts. Authoring one is a judgement and carries an "
+        "envelope — `authored/concepts.yaml`, never `eval/gold/`."
+    )
+    return 0
