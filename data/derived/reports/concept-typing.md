@@ -44,7 +44,9 @@ Each concept below carries four things worth more than the group itself: **why**
 | `exception` | 11 |
 | `none_of_these` | 53 |
 
-**The shape of that table is itself a finding.** The vocabulary was built around one ground of refusal — section 43 — so almost everything in it is material feeding that ground's question rather than a sibling ground. If `ground_of_refusal` looks too empty to you, the disagreement is about the taxonomy rather than about any single row, and it is worth saying so.
+**The shape of that table is itself a finding, and it changed when the boundary went.** Over the 52 concepts the boundary could see, 30 came out `relevant_factor` and exactly 1 `ground_of_refusal` — which is what a vocabulary built around a single ground looks like, and OQ-0023 asked whether that meant the taxonomy was wrong. Widening to the whole Manual answers half of it: the lopsidedness evened out, so it was an artefact.
+
+**What did not go away is the pile that fits nowhere.** `none_of_these` holds 53 of the 130 — against 7 of the first 52 — and they are not a random selection. They are the people (applicant, opponent, Registrar, registered owner), the documents (a notice of opposition, an endorsement, a disclaimer), the proceedings (opposition, a hearing), the outcomes (acceptance, lapsing, a decision) and the remedies (revoking an acceptance, rectifying the Register). Your four groups describe *reasoning about* an application. About two fifths of the Manual describes *what happens to* one. **That is OQ-0024, and it is worth settling before somebody corrects 130 rows inside a taxonomy you would have changed.**
 
 ## The concepts
 
