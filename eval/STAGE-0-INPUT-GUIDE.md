@@ -1,5 +1,31 @@
 # STAGE 0 — what you need to provide, and in what shape
 
+> ## AMENDED 2026-09-09 — read `docs/EXPERT-REVIEW-SCOPE.md` first
+>
+> **This document describes the operating model in force until 2026-09-08. It
+> has not been revised and three parts of it are now actively misleading.**
+>
+> 1. **The paragraph beginning "What this document is not"** says an agent
+>    cannot author the content of a competency question, a gold answer, a
+>    concept definition or a prohibited use. Since **ADR-0079** an agent authors
+>    exactly those, stamped `unreviewed`, into `authored/`.
+> 2. **§9** says a filled-in record without your name on `approved_by` is a
+>    defect and "should be deleted rather than reviewed". There are now **208**
+>    such records and they are the thing you were asked to correct. Do not
+>    delete them.
+> 3. **§2 and §10** make drawing the section 43 pilot boundary your first task.
+>    **The boundary was withdrawn by the repo owner on 2026-09-08**
+>    (ADR-0081), the whole Manual is in scope, and the code that computed a
+>    boundary is deleted (ADR-0096).
+>
+> What still holds: every record *shape* in §5, the workbook mechanics in §6,
+> the definition of done in §7, and the limits in §8. Those are containers and
+> the containers did not change.
+>
+> Rewriting this document properly has not been done. Until it is,
+> `docs/EXPERT-REVIEW-SCOPE.md` is the current statement of what a trade marks
+> expert is being asked to look at.
+
 **Audience:** the repo owner and the examiners advising them. This is the
 expert-facing companion to `eval/README.md`, which is written for agents.
 

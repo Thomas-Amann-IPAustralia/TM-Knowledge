@@ -4332,3 +4332,121 @@ agent time produces, and under ADR-0086 silence never produces one either.
    what that page is for and is done deliberately rather than by accident.
 3. **`eval/gold/` and the authored store are untouched by this ADR.** Nothing
    here changes a record; it changes what the site says about them.
+
+## ADR-0100 — what a trade marks expert is asked to look at is written down in one place
+
+**Date** 2026-09-09 · **Authority** derived · **Status** accepted
+
+**Context.** Asked to read the repo and clarify what the trade marks expert needs
+to look at. The answer was not assemblable from any one file. It was spread over
+`review/questions/open-questions.yaml` (whose `expert` theme holds four questions
+the owner answered on 2026-09-08 and one that is genuinely parked),
+`docs/HANDOFF.md` §3 (a table its own header says was written under rules that no
+longer apply), `data/derived/reports/blockers.md` (ten decisions that ADR-0084
+turned into agent work), `review/returned/260826-expert-feedback.md` (two points
+the expert raised that are still in the file they arrived in) and the
+`expert_should_check` field of 208 authored records.
+
+Worse, the two readings a person would most naturally take are both wrong in
+opposite directions. The dashboard's "Waiting on a trade marks expert" heading
+implies four items and holds one. `blockers.md` implies ten decisions are owed and
+none is. Meanwhile the largest thing genuinely waiting — 208 records nobody has
+read — was named as a *question* to the owner (OQ-0027) rather than as a
+description of work.
+
+**Decision.** `docs/EXPERT-REVIEW-SCOPE.md` states, in one document, what a trade
+marks expert is being asked to look at, in what order, and what is not theirs. It
+is authored content by the amended rules — written by a machine, validated by
+nobody, and it says so in its second line — but it decides no point of trade marks
+law: it counts records, names them, and quotes what each already says about
+itself.
+
+Three things it does that the existing files do not:
+
+1. **It separates readiness from priority.** Two of the seven items have a
+   rendered artefact a reviewer can open today; three have nothing drafted at all
+   and are agent work first. Listing what is waiting on an expert without saying
+   which of it *exists* is how a reviewer is invited to a meeting about a file
+   that has not been written.
+2. **It names what is not theirs, at the same length as what is.** The 190 signed
+   records, the eight rejected records, the eight unapplied amendments, the ten
+   critical-path decisions, and four of the five questions under the dashboard's
+   expert heading. An expert's hour spent re-reviewing the frozen yardstick is
+   worse than an hour not spent, because `eval/gold/` stops being able to measure
+   authored output the moment it is reopened (ADR-0080).
+3. **It routes attention inside the 130 typings rather than presenting them as a
+   list.** 120 of the 130 `expert_should_check` notes are distinct, and one of
+   them collapses fifteen rows into a single judgement. A reviewer reading in id
+   order pays fifteen times for one answer.
+
+**Consequences.**
+
+1. **`docs/README.md` and `docs/ROADMAP-STATUS.md` carry it**, so it is reachable
+   from the two indexes rather than only from a session that knows it exists.
+2. **It will go stale the way `STAGE-0-INPUT-GUIDE.md` did** (Q-60) unless
+   something updates it. Its counts are stated with the date they were taken and
+   the file they came from, so staleness is detectable rather than silent — but
+   nothing computes them. The honest position is that this is a dated statement,
+   not a live report, and it says so.
+3. **It does not answer OQ-0027.** Who signs the 208, and when, is still the
+   owner's to decide; this document says what there is to sign, which is a
+   different thing and was the missing half.
+4. **Nothing in `eval/gold/` or `authored/` is touched by this ADR.**
+
+## ADR-0101 — a duplicate label across the two stores is a finding for a person, not a defect
+
+**Date** 2026-09-09 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** Ten records in `authored/concepts.yaml` carry a `pref_label`
+identical to a signed concept's. Seven disclose the collision on their own record
+and argue for standing beside the signed one. Three — `GC-0053` against `GC-0006`
+(*ground for rejection*), `GC-0100` against `GC-0014` (*endorsement*), `GC-0101`
+against `GC-0041` (*evidence of use*) — say nothing about it, and each pair cites
+different passages and means something visibly different.
+
+Nothing caught it because nothing looks. The harness compares *ids* across the two
+stores and validates that an authored typing names a concept that exists; the ids
+here are distinct and correct. No check compares labels.
+
+**ADR-0080 consequence 2 is not a way past this**, and it is the first thing to
+get straight. It says that where an authored record and a signed record cover the
+same ground the signed one wins and the authored one is retired. That is the
+*consequence* of an answer, not the answer: whether these pairs cover the same
+ground is exactly what is in doubt, and each pair cites different passages and
+reads differently. Nothing implements the retirement rule today in any case
+(HANDOFF §2 item 4).
+
+**Decision.** Three parts.
+
+1. **Whether each pair covers the same ground goes to the expert, not to an
+   agent.** Recorded as §2C of `docs/EXPERT-REVIEW-SCOPE.md` and as Q-59. If the
+   answer is yes, ADR-0080 c2 applies unchanged and the authored record is
+   retired. If no, both stand and the labels must distinguish them — which is
+   what the seven disclosed collisions already assert about themselves.
+2. **An agent may not answer it by editing either record.** Withdrawing the
+   authored record asserts the signed one covers a case its author did not
+   address; retitling the signed one edits inside a signature. Both are rule 4.
+3. **When a cross-store label check is written, it reports a note and not a
+   defect.** Seven of the ten collisions are the system working exactly as
+   designed — a new record that knows about the old one and says why it stands
+   beside it. A check that failed the build on those would be a check against the
+   design.
+
+**The judgement being flagged**, and the argument against it: a note is easy to
+ignore, and this one went unnoticed through two authoring sessions and a harness
+run reporting zero defects. The counter-argument is that a defect stops a build,
+and stopping a build over a question only a domain expert can answer converts an
+open question into an outage. The middle position — note, but counted on the
+dashboard where an unresolved one accumulates visibly — is not implemented and
+is the thing to build if this is judged wrong.
+
+**Consequences.**
+
+1. **The check does not exist yet.** This ADR decides its severity before it is
+   written, so the session that writes it does not have to relitigate.
+2. **The count is ten today and will grow.** Every authoring pass over a corpus
+   whose vocabulary the signed set already samples will produce more. The seven
+   disclosed ones are the pattern to copy.
+3. **`alt_labels` are not covered.** A collision between an authored `pref_label`
+   and a signed `alt_label` is the same problem one step less visible, and this
+   ADR does not say what to do about it.

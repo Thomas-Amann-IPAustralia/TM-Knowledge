@@ -3,10 +3,47 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-09 · session S019 · branch `claude/stoic-brahmagupta-a6aq2g`
+**Last updated:** 2026-09-09 · session S020 · branch `claude/tm-expert-review-scope-zpgjv7`
 
 ---
-## 0. What S019 did, in one paragraph
+## 0. What S020 did, in one paragraph
+
+**The question "what does the trade marks expert need to look at" had no
+answer in the repo, and the two obvious places to look were both wrong in
+opposite directions.** The dashboard's *Waiting on a trade marks expert*
+heading implies four items and holds one — `OQ-0017`, parked, low urgency;
+the other four were answered or withdrawn by the owner on 2026-09-08.
+`blockers.md` implies ten decisions are owed to a reviewer and, since
+ADR-0084, none is. Meanwhile the largest thing genuinely waiting — 208
+records nobody has read — existed only as a *question to the owner*
+(OQ-0027), never as a description of the work itself.
+`docs/EXPERT-REVIEW-SCOPE.md` now states it in one place: seven items in
+priority order, each with **whether an artefact to review actually exists**
+(two do, three are agent work first), and an equally long list of what is
+*not* the expert's — the frozen 190, the eight rejected records, the eight
+unapplied amendments, the ten critical-path decisions. ADR-0100.
+
+**Two findings came out of writing it, and the second is the one to learn
+from.** *(a)* **Ten authored concepts reuse a signed concept's preferred
+label; seven say so and three do not** — `GC-0053`/`GC-0006` (ground for
+rejection), `GC-0100`/`GC-0014` (endorsement), `GC-0101`/`GC-0041`
+(evidence of use). Nothing caught it because the harness compares ids and
+the ids are correct; nothing anywhere compares labels across the two stores.
+The three are the expert's to resolve and an agent may not edit either side
+(Q-59, ADR-0101, which also fixes the future check's severity at *note*).
+*(b)* **`eval/STAGE-0-INPUT-GUIDE.md` — the repo's only other expert-facing
+document — tells its reader that a filled-in record without their name on
+`approved_by` is a defect that "should be deleted rather than reviewed".**
+Applied today that instruction destroys all 208 authored records. ADR-0079
+reached `CLAUDE.md`, `review/README.md` and `authored/README.md` — every
+file an agent opens every session — and did not reach the one file whose
+audience is not in the session. Banner added; a rewrite is owed (Q-60).
+
+**Nothing was authored as legal content and no record changed.** The 190
+signed and the 208 authored records are byte-identical to how S019 left them.
+
+---
+## 0a. What S019 did, in one paragraph
 
 **The taxonomy stopped creaking, and the dashboard stopped contradicting
 itself.** The owner asked what was waiting on him or on the trade marks expert
@@ -59,7 +96,7 @@ invisible today only because the six classes in `examination.ttl` are all
 UNDEFINED. Q-58.
 
 ---
-## 0a. What S018 did, in one paragraph
+## 0b. What S018 did, in one paragraph
 
 **The rules stopped saying section 43 in S015. The artefacts stopped saying it in
 S018.** The owner asked for the boundary's removal to reach
@@ -276,6 +313,32 @@ on what the records cite, and the sorting sheet carries concepts from 39 Parts.
 
 Everything below is an agent's to do.
 
+**S020 added four, and they are grouped here because they share one cause:
+each is a thing standing between the trade marks expert and something they
+could otherwise review.** `docs/EXPERT-REVIEW-SCOPE.md` §5 is the readiness
+table they come from.
+
+- **Render a review workbook for the 78 authored concepts.** The typings have
+  one and the concepts do not — the workbook's `concepts` sheet ships empty, so
+  the largest body of authored legal content in the repo has no artefact a
+  reviewer can open. `tmk-typing` is the shape to copy.
+- **Give a definition a record type.** `authored/definitions.yaml` still has no
+  schema, no id prefix and no place in `RECORD_TYPES`, so the "high-level
+  definitions" the expert asked for on 2026-08-26 have nowhere to be stored.
+  Three of the nine role terms they named — *office practice*, *subject matter
+  expert*, *adverse report* — are absent from every store, and *delegate*
+  exists only as an alt-label under *Registrar*. Watch the `FILE_FOR` ripple
+  (item 5 below).
+- **Draft the examiner-conduct rule.** The expert's own note on the Registrar's
+  actual bar for the presumption of registrability is still in the file it
+  arrived in and in no record. The structure exists (ADR-0073) and is empty.
+  Authoring it is now permitted; correcting it is what the expert is for.
+- **Write the cross-store label check.** Ten authored concepts reuse a signed
+  concept's `pref_label` and nothing compares labels across the stores.
+  **ADR-0101 fixes its severity at *note*, not defect** — seven of the ten are
+  the design working — so do not relitigate that. `alt_labels` are deliberately
+  not covered and that gap is open.
+
 **In order of value:**
 
 1. **Relationships, and they are the biggest hole in the graph.**
@@ -406,6 +469,13 @@ record (Q-48).
 >
 > The confirmation questions — Q12, Q15, Q18, Q20 to Q26 — are unaffected and
 > still change nothing structural.
+>
+> - **S020: do not read this table as the expert's worklist, and do not read the
+>   dashboard's expert theme as one either.** Of the five questions marked
+>   `needs: expert` in `open-questions.yaml`, four were answered or withdrawn by
+>   the owner on 2026-09-08 and only `OQ-0017` is live. What a trade marks
+>   expert is actually being asked to look at — including three items with no
+>   artefact rendered yet — is `docs/EXPERT-REVIEW-SCOPE.md` (ADR-0100).
 
 | # | Question | Blocks | Raised |
 |---|---|---|---|
@@ -484,6 +554,12 @@ what, holding which of the 53* is one model's judgement, is stamped `unreviewed`
 on all 53 records, and is asked as OQ-0026. A session that reads it as settled
 will build on a taxonomy nobody has agreed. **ADR-0099 is `human`** — the four
 site fixes are his instruction, quoted in the ADR.
+**ADR-0100 is `derived`** — nothing in it decides anything; it states in one
+place what was already true across six files. **ADR-0101 is `agent-proposed`**
+and the judgement is one line: a duplicate `pref_label` across the two stores
+will be reported as a *note* and not a defect. The argument against is in the
+ADR — a note is easy to ignore, and this one survived two authoring sessions and
+a zero-defect harness run unnoticed.
 **ADR-0062 is `human`** — the dashboard is the owner's
 instruction, quoted in the ADR. ADR-0044, ADR-0045, ADR-0047, ADR-0049, ADR-0050 and
 **ADR-0053** are `derived`. **ADR-0052 is `human`.** **ADR-0089 and ADR-0091 are
@@ -716,6 +792,29 @@ relevance grade each. The scoped workbook for all ten is rendered.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S020 — 2026-09-09 — what the expert is for, written down, and two things found while writing it
+
+**Branch** `claude/tm-expert-review-scope-zpgjv7`
+
+Asked to clarify what the trade marks expert needs to look at. No file said, and
+the two that looked like they said were wrong in opposite directions: the
+dashboard's expert heading implies four items and holds one (`OQ-0017`, parked);
+`blockers.md` implies ten decisions are owed and, since ADR-0084, none is. The
+real answer — 208 records nobody has read — existed only as a question to the
+owner. `docs/EXPERT-REVIEW-SCOPE.md`, ADR-0100: seven items, readiness stated per
+item, and what is *not* theirs at the same length.
+
+**Revealed, and both are in QUIRKS.** Q-59 — ten authored concepts reuse a signed
+concept's `pref_label`, three of them silently (`GC-0053`, `GC-0100`, `GC-0101`);
+no check compares labels across the stores, and the three are the expert's to
+resolve (ADR-0101). Q-60 — `eval/STAGE-0-INPUT-GUIDE.md` §9 tells its reader to
+delete exactly the 208 records they were brought in to correct. ADR-0079 reached
+every file an agent opens and missed the one whose audience is not in the session.
+Banner added; the rewrite is owed.
+
+**Cost:** no record changed, no legal content authored. Documentation, two ADRs,
+two quirks, one banner.
 
 ### S019 — 2026-09-09 — the taxonomy got five more groups, and the front page stopped lying
 
