@@ -848,7 +848,7 @@ because the reader is an examiner, not a contributor.
 
 **Cost:** no record changed, no legal content authored. One new module and
 command, 11 new tests, three ADRs, two quirks, one banner. 0 harness defects
-(12 gaps, 10 notes, snapshot fetched), dashboard current.
+(12 gaps, 10 notes, snapshot fetched), 541 tests pass, dashboard current.
 
 **A note on running the tests cold:** from a bare clone 13 tests fail and 40
 error before `tmk-fetch-upstream` has run, all of them on `SnapshotMismatch`.
