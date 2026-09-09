@@ -22,12 +22,20 @@ content that no amount of engineering substitutes for.
   — 500 Manual pages / 2,460 chunks, 763 legislative provisions, joined at 97%
   coverage, extracted deterministically with no LLM in the pipeline. This repo
   pins a commit of it and reads it; it never re-extracts.
-- **Stage 0 (pilot scope and evaluation set) is the blocker.** The pilot area is
-  fixed (s 43). The schemas, the annotation worksheet, the evaluation harness,
-  the coverage report and the intake workbook all exist. The gold set is empty.
-- Stages 2–10 are this repo's work and have not started, deliberately: the first
-  plausible extraction output becomes the standard by arriving first, which is
-  what Stage 0 exists to prevent.
+- **There is no pilot area any more.** The repo worked section 43 alone until
+  2026-09-08, when the owner withdrew the boundary: *"I would like to completely
+  remove the s43 barrier."* All 54 Parts are in scope, there is no exclusion rule
+  anywhere, and section 43 is the area worked **first** rather than a fence
+  (ADR-0081, ADR-0096).
+- **An agent now authors legal content, and never launders it.** Also 2026-09-08:
+  definitions, concept types, relationships and readings are written by a machine
+  and stamped `unreviewed`, with the model that wrote them, the passages they
+  rest on, and `approved_by` left empty. `eval/gold/` is frozen at the 190
+  records an expert signed so that it stays usable as an independent yardstick
+  (ADR-0079, ADR-0080). **Nothing in `authored/` has been read by a trade marks
+  expert.**
+- Stages 2–10 are this repo's work. Stages 2–4 opened on 2026-09-08 (ADR-0083);
+  the deterministic passes run first and are measured against the frozen 190.
 
 `docs/ROADMAP-STATUS.md` has the full board, and the **dashboard** shows the same
 thing in a form you can read without opening a file:
@@ -71,10 +79,12 @@ has not arrived. See ADR-0018 and ADR-0030.
 ```
 CLAUDE.md          operating rules — read first, every session
 docs/              all documentation (start at docs/HANDOFF.md)
-eval/              Stage 0: pilot scope, competency questions, gold set, harness
+eval/              Stage 0: competency questions, the frozen gold set, harness
+authored/          legal content a machine wrote — validated by nobody
 data/              pinned upstream snapshot (not committed)
 src/               tm_knowledge Python package
 review/            machine-generated candidates awaiting human decision
+  candidates/      extraction output: proposals with a score, never judgements
   seed/            Stage 0 example records, written to be corrected — not content
   returned/        what an expert handed back, unmodified — never edited
   decisions/       what each returned artefact was taken to mean

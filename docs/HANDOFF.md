@@ -3,61 +3,56 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-08 · session S017 · branch `claude/next-phase-gd2x7i`
+**Last updated:** 2026-09-09 · session S018 · branch `claude/busy-goldberg-gewifv`
 
 ---
-## 0. What S017 did, in one paragraph
+## 0. What S018 did, in one paragraph
 
-**S016 built the store and wrote nothing into it. S017 wrote the first content
-into it, and the store behaved as advertised.** All 52 approved concepts are now
-sorted into the owner's four groups, in `authored/concept-types.yaml`, each
-record carrying the passages it rests on, a written argument for the group, the
-reading it rejected and the thing it most expects to have got wrong. **No expert
-has read a word of it, every record says so in a field a machine can read, and
-`approved_by` is null in all 52.** ADR-0092 to ADR-0094. The gap that had stood
-at 0 of 52 for five sessions is now an afternoon of correction rather than an
-afternoon of composition — which was the entire bet ADR-0079 made.
+**The rules stopped saying section 43 in S015. The artefacts stopped saying it in
+S018.** The owner asked for the boundary's removal to reach
+`data/derived/concept-typing.xlsx` "and throughout the repo", and the honest
+answer was that nothing had yet gone looking outside the fence: every concept in
+the project was one found inside it, the sorting sheet read
+`eval/gold/concepts.yaml` and nothing else, and the knowledge graph was still
+built over 216 of the corpus's 2,460 passages. Three passes fixed that.
+`tmk-concepts` finds **1,715 candidates** deterministically across all 54 Parts.
+**78 concepts** are authored from the 53 Parts the boundary hid, each with its
+passages, its argument and the thing it most expects to have got wrong.
+`tmk-typing` reads both stores, so the spreadsheet now holds **130 rows** instead
+of 52. Then the machinery: `tmk-boundary` deleted, `tmk-recon` re-scoped to the
+corpus, the graph's selection rule replaced, `eval/pilot-scope.md` taken off the
+completeness gate. ADR-0095 to ADR-0097. **No expert has read any of it, every
+record says so, and `approved_by` is null in all 78.**
 
-**What the numbers say, and the second one is the finding.** 52 records, 90
-evidence entries, 0 harness defects, 0 SHACL defects. Every one is
-`corpus_inferred` and none is `corpus_explicit`, because the Manual never states
-a concept's group in terms — it says what a decision maker must be satisfied of,
-and the group is a reading of that. **Then: 30 of the 52 came out
-`relevant_factor` and exactly 1 came out `ground_of_refusal`.** That is what a
-vocabulary built around a single ground looks like when it is sorted by the role
-each concept plays in that ground's decision. It is reported under the tally in
-the evidence pack and asked as OQ-0023, because a reviewer who thinks the group
-is too empty is disagreeing with the taxonomy rather than with any row.
+**Two findings, and the second is worth more than the vocabulary.**
 
-**The reviewer's sheet now arrives filled in, and says so twice.**
-`data/derived/concept-typing.xlsx` pre-fills the `type` column from the authored
-store; the banner on it states how many cells a machine wrote, that nobody has
-read them, and that a row left alone stays `unreviewed`.
-`data/derived/reports/concept-typing.md` carries each proposal's argument beside
-the passages. **What did not move is the door:** `approved_by` leaves
-`typing.rows()` empty whatever an authored record says about itself, a refused
-record pre-fills nothing, and `tmk-transcribe` reading a signed workbook is still
-the only way into `eval/gold/`.
+**53 of the 130 concepts fit none of the owner's four groups.** The first 52 came
+back 30 `relevant_factor` and 1 `ground_of_refusal`, and OQ-0023 asked whether the
+lopsidedness meant the taxonomy was wrong. The wider set answers that: the
+lopsidedness was an artefact of a one-ground vocabulary and it evened out. What
+did not go away is the pile that fits nowhere, which grew from 7 of 52 to 53 of
+130 — the people, the documents, the proceedings, the outcomes and the remedies.
+The four groups describe *reasoning about* an application; about two fifths of the
+Manual describes *what happens to* one. That is OQ-0024 and it should be settled
+before a review round, not after.
 
-**Two bugs, both invisible until there was something to count.** A
-`none_of_these` record was skipped before its typing node, its provenance and the
-counter, which contradicted the comment three lines above it and printed `45`
-instead of `52` (ADR-0093, Q-50). The line beside it read `45 of 0 authored ones`
-— dividing typings of signed concepts by the number of concepts a machine wrote,
-which is structurally zero. Both are fixed and both are the same shape: a branch
-that only runs on data the repository does not hold yet is untested by
-construction, and its comment is the only specification it has. **Expect the
-first record of every new kind to find one of these.**
+**1,551 of the 2,460 chunks — 63% — cite no provision at all.** The old scope rule
+selected passages that *cite* a provision, so nearly two thirds of the Manual was
+structurally invisible to it. That is the mechanism behind Q-28 and it is now
+Q-53: any rule keyed on citation edges inherits the blindness however wide the
+provision list, and the candidate pass reads headings and definition text
+precisely so it does not.
 
-**One decision was forced and is worth reading before authoring anything else.**
-`authored_by` names the model that *wrote the record*, so these 52 carry
-`claude-opus-5` and not the configured `gemini-3.8-flash`. ADR-0087 pinned the
-model for API-backed extraction; no key reaches this container, so the session
-agent authored directly. Stamping the configured model would have been provenance
-corruption nothing could undo — unfalsifiable afterwards, because nothing in the
-artefact distinguishes a truthful stamp from an invented one (ADR-0094). The
-store may now hold work from more than one author, and **any measurement over it
-splits by `authored_by` before it means anything.**
+**What it cost, and what to distrust.** 0 harness defects, 0 SHACL defects, the
+graph builds and the dashboard is current. Three things a reader should hold
+lightly. The 78 concepts are one model's judgement of a corpus it read once —
+several records say in `expert_should_check` that their preferred label is an
+invention because the Manual names no term for the idea, and *other traders'
+legitimate desire to use* and *protected wine expression* are the two clearest.
+Eight of the 78 cover ground a signed record already claims and none of them
+displaces it; the overlap is named, not resolved. And ADR-0097's graph rule is
+`agent-proposed`: 41 chunks left the graph, the alternative was a 40MB file, and
+the trade-off is OQ-0025 rather than a settled thing.
 
 ## 1. Where the project actually is
 
@@ -152,45 +147,53 @@ confidence in the model. If `authored/` ever fills with `general_knowledge`
 records carrying no spans, the scheme has failed quietly and this paragraph is
 where somebody should have looked.
 
-### The numbers as at S017
+### The numbers as at S018
 
-Five moved and none of them is plumbing: this is the first session whose numbers
-changed because content was written. The rest is the baseline the next session's
-work is measured against.
+Everything about the vocabulary moved, and the source graph moved with it. The
+rest is the baseline the next session's work is measured against.
 
 | | |
 |---|---|
 | Ontology modules | 9, OWL 2 RL, in `ontology/draft/` — **none approved** |
-| Classes declared | **50** · **27 hold nothing**. Four filled this session — `tmk:GroundOfRefusal`, `tmk:LegalTest`, `tmk:RelevantFactor` and `tmk:Exception` — and they filled **in the authored graph only**, so no query asking for signed knowledge reaches them. They had been declared and empty since S010 |
+| Classes declared | **50** · **27 hold nothing**. The four typing classes fill in the authored graph only, so no query asking for signed knowledge reaches them |
 | Predicates | 14, generated from the 35 approved relationships |
-| Source graph | 16,405 triples over 216 chunks, 529 reified citations |
-| Approved graph | **3,230 triples** (was 2,946), every one traceable to a signed record. The 284 new ones are the `tmk:origin` and `tmk:reviewStatus` stamps every node now carries — see Q-49 for why that is not redundant with the named graph |
-| Authored graph | **698 triples** (was 0). `graph/authored.ttl` — 52 concept typings, every node stamped `tmk:origin "authored"`, its model, its date, its basis and its reasoning |
-| SHACL | 0 defects, 0 gaps, 29 notes — unchanged by 698 authored triples arriving, which is the point of having run it over an empty authored graph first |
+| Source graph | **32,922 triples over 508 chunks** (was 16,405 over 216). The rule changed: every Manual passage any record cites, plus page-mates, plus every chunk carrying an `ambiguous` edge — no provision in it at all (ADR-0097) |
+| Approved graph | 3,243 triples, every one traceable to a signed record |
+| Authored graph | **3,441 triples** (was 698). 78 concepts and 130 concept typings, every node stamped `tmk:origin "authored"`, its model, its date, its basis and its reasoning |
+| SHACL | **0 defects, 0 gaps**, 209 notes — the notes are almost all near-miss pairs, which is what a near-miss is for |
 | Competency queries | 13 of 20 questions. All eight that name `tmk:ApprovedAssertion` answer over signed content only, by design |
 | CONSTRUCT rules | 2. RULE-0002 approved; RULE-0001 pending — **and an agent may not approve it** |
 | Signed records | **190, frozen** |
-| Authored records | **52**, all concept typings, all `unreviewed`, **0 refused**. 90 evidence entries; every record `corpus_inferred`, none `general_knowledge` |
-| Concepts typed | **52 of 52 by a machine · 0 of 52 by a person.** The completeness gate still reads `0 of 50–100` and is right to: it counts `eval/gold/` (ADR-0080 c3) |
-| The typing distribution | `relevant_factor` 30 · `exception` 8 · `none_of_these` 7 · `legal_test` 6 · `ground_of_refusal` 1. **The shape is a finding, not a tally** — OQ-0023 |
+| Authored records | **208** (was 52): 78 concepts, 130 concept typings. All `unreviewed`, **0 refused**. 91 `corpus_explicit`, 117 `corpus_inferred`, **0 `general_knowledge`** |
+| Concepts in the project | **130** — 52 signed, 78 authored. Never summed anywhere a reader could mistake one for the other (ADR-0080 c3) |
+| Concepts typed | **130 of 130 by a machine · 0 of 130 by a person.** The completeness gate still reads `0 of 50–100` and is right to: it counts `eval/gold/` |
+| The typing distribution | `none_of_these` 53 · `relevant_factor` 41 · `legal_test` 17 · `exception` 11 · `ground_of_refusal` 8. **The shape is a finding** — OQ-0024 |
+| Concept candidates | **1,715**, in `review/candidates/concepts.yaml`. Not concepts, not authored, no ids — never counted beside the two figures above |
 | Authors in the store | **1** — `claude-opus-5`. Not the configured `gemini-3.8-flash`, and the difference is deliberate (ADR-0094) |
+| Chunks citing no provision | **1,551 of 2,460 — 63%** (Q-53). No citation-based rule reaches them, and that is why the old scope rule could not see a definition |
 
-Two findings from the S015 conversation that are worth carrying, both measured:
+Three findings worth carrying, all measured:
 
-- **The vocabulary is a Part 29 vocabulary.** 86 of ~95 definition-source
-  references across the 52 concepts point at Part 29. One each from Parts 12, 22,
-  23, 47, 51; two from Part 20.
-- **Four of the nine role terms the expert named are absent entirely** — Delegate,
-  Office Practise, Subject Matter Expert, Adverse Report. Q-28 explains why: the
-  old scope rule selected passages that *cite* section 43, and a term's definition
-  sits in a passage that cites nothing. That blindness is gone with the boundary.
+- **The vocabulary was a Part 29 vocabulary and no longer is.** 86 of ~95
+  definition-source references across the 52 signed concepts point at Part 29.
+  The 78 authored ones draw on Parts 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17,
+  19A, 19B, 20, 21, 22, 23, 24, 26, 27, 28, 30, 31, 32A, 32B, 33, 34, 35, 38, 40,
+  42, 43, 46, 47, 48, 51, 52, 60 and 62.
+- **Four of the nine role terms the expert named were absent** — Delegate, Office
+  Practise, Subject Matter Expert, Adverse Report. Two of the four are still
+  absent: this pass authored *Registrar of Trade Marks*, *applicant*, *opponent*
+  and *registered owner*, and did not reach Delegate or Adverse Report. Q-28's
+  cause is now Q-53.
+- **Eight authored concepts overlap a signed one** — GC-0007, GC-0012, GC-0016,
+  GC-0035, GC-0042, GC-0043, GC-0046, GC-0050. Each names the overlap in
+  `expert_should_check`. None displaces the signed record and an agent may not
+  retire one (ADR-0080 c2 runs the other way).
 
 ## 2. The next action
 
 **Nothing is blocked on a human.** OQ-0007 — which model, and may Manual text be
-sent to it — became a blocker when ADR-0083 opened Stages 2–4 and was answered the
-same day: **Gemini 3.8 Flash**, credential in the `GEMINI_API_KEY` repository
-secret (ADR-0087).
+sent to it — was answered on 2026-09-08: **Gemini 3.8 Flash**, credential in the
+`GEMINI_API_KEY` repository secret (ADR-0087).
 
 **Three things to know before the first model-backed run.**
 
@@ -211,97 +214,77 @@ secret (ADR-0087).
    permission covered, and it is worth asking about specifically if a prompt
    genuinely needs one.
 
+**The section 43 boundary is gone from the artefacts as well as the rules.**
+S015 rewrote the rules, S018 rewrote what they produce. There is no fence left in
+code: `tmk-boundary` is deleted, `tmk-recon` costs the corpus, the graph selects
+on what the records cite, and the sorting sheet carries concepts from 39 Parts.
+`ScopeRule` and `PILOT_PROVISION` still exist and are now a *selector* and a
+*default argument* — read Q-55 before assuming either is a boundary.
+
 Everything below is an agent's to do.
 
 **In order of value:**
 
-1. **~~Type the 52 concepts~~ — done in S017** (ADR-0092). 52 records, 90
-   evidence entries, 0 defects, and the claim that the plumbing was finished held:
-   writing the file was all it took, and `tmk-harness`, `tmk-coverage`,
-   `tmk-graph` and the dashboard picked it up with no code change. Two things it
-   *did* need, both of which the next content pass will need too:
+1. **Relationships, and they are the biggest hole in the graph.**
+   `authored/relationships.yaml` does not exist and `eval/gold/relationships.yaml`
+   holds 35 of a 50–100 band. The 78 new concepts have almost no edges between
+   them — the store holds 78 concepts and **0 authored relationships** — so the
+   graph is a vocabulary rather than a knowledge graph. Every concept authored in
+   S018 names near-misses and several name a broader or narrower in prose that no
+   record carries. Do it the way S018 did the concepts: evidence sliced from the
+   snapshot, `corpus_inferred` unless the corpus states it in terms, and an
+   `expert_should_check` naming something specific.
 
-   - **The pass that produces the reviewer's artefacts had to learn about the
-     store.** `tmk-typing` now reads `authored/` and pre-fills the workbook. Any
-     other place that renders work for a person to correct has the same gap
-     until somebody closes it — check before assuming a report shows authored
-     content.
-   - **Two counting bugs surfaced the moment there was something to count**
-     (Q-50). Read the comments around any counter you are about to make non-zero
-     for the first time; the comment is its only specification.
+   **Read the `modality` trap first.** Signed `GR-` records have five blank
+   modality fields and an agent may not fill a field inside a signature. A new
+   authored relationship carries its own modality and is fine; an old signed one
+   is not, and needs a record type that does not exist (ADR-0071's shape).
 
-   **What is left here is the review round, and it is not an agent's to run.**
-   The workbook and the evidence pack are rendered and waiting. OQ-0023 asks the
-   owner whether the taxonomy itself survives contact with the result — 30 of 52
-   in one group, 1 in another — because correcting 52 rows inside a taxonomy he
-   would have changed is the way to make a review round not happen.
+2. **The record types still furthest under their band**, all additions needing no
+   new machinery: `search-questions.yaml` (1 of 20–50),
+   `retrieval-questions.yaml` (10 of 20–50), `entities.yaml` (55 of 100–300).
+   Entities in particular are now cheap in a way they were not: the source graph
+   reaches 508 chunks across most of the Manual, so a mention has somewhere to
+   land.
 
-2. **The next content pass.** Do it the way this session did the typings —
-   evidence sliced out of the snapshot rather than retyped, `corpus_inferred`
-   unless the corpus really does state it in terms, and an `expert_should_check`
-   that names something specific rather than a disclaimer. Two candidates, and
-   the obvious one has a trap in it:
+3. **The 1,715 candidates are sitting in `review/candidates/concepts.yaml` and
+   78 of them became concepts.** The next pass over them should start with the
+   137 the corpus actually *defines* — strength 2 and 3 — of which roughly half
+   are still unauthored, and it should skip the 348 Part 14 class headings, which
+   are goods categories rather than legal ideas and are ranked low for that
+   reason.
 
-   - **New records, in the record types furthest under their band:**
-     `search-questions.yaml` (1 of 20–50), `retrieval-questions.yaml` (10 of
-     20–50), `relationships.yaml` (35 of 50–100). These are additions, they need
-     no new machinery, and the typings just proved the path end to end.
-   - **The five blank `modality` fields are *not* the cheap win they look
-     like.** They sit on signed `GR-` records, and an agent may not fill a field
-     inside a signature — that is exactly why a concept's type became a separate
-     record instead of a field on the concept (ADR-0071). Authoring them needs a
-     record type that holds a modality apart from the relationship it belongs
-     to, which does not exist. The harness message said "nothing here may supply
-     it" until this session and now says what is actually true; read it before
-     assuming the field is fillable.
+4. **Nothing retires an authored record when a signed one covers it**, and there
+   are now 208 authored records waiting to need it rather than 52. Q-52 is
+   unchanged and is the next real design question in this area: the reviewer's
+   row keeps the authored record's id, so the first signed typing puts one `GT-`
+   id in both stores and the harness reports a defect naming both. That is
+   designed. Do not resolve it by minting a fresh id or deleting the authored
+   record.
 
-   **One thing to settle first, because it is cheaper before more records exist
-   than after:** the retirement path in item 3 below. The typings will hit it as
-   soon as one comes back signed.
+5. **`authored/definitions.yaml` still has no record type.** It needs a schema in
+   `eval/schemas/`, an id prefix in `docs/IDENTIFIERS.md` §3, and entries in
+   `RECORD_TYPES`, `ID_PREFIXES` and `goldset.GOLD_FILES`. Watch the ripple:
+   `goldset.FILE_FOR[record_type]` is read in message text, so a record type
+   added to one map and not the others raises `KeyError` inside a message.
 
-3. **~~Build the authored-store plumbing~~ — done in S016** (ADR-0089 to
-   ADR-0091). What is left of it, and item two is now urgent rather than
-   theoretical:
+6. **The eight competency queries still name `tmk:ApprovedAssertion`** and
+   therefore answer over signed content only. That is under-reporting rather than
+   laundering and it is safe, but it now hides 78 concepts rather than 0.
+   Whether they should also serve authored content — labelled, per ADR-0082 — is
+   a Stage 7–8 question about the retrieval surface and it needs deciding before
+   anything is built on those queries.
 
-   - **`authored/definitions.yaml` has no record type.** It needs a schema in
-     `eval/schemas/`, an id prefix in `docs/IDENTIFIERS.md` §3, and entries in
-     `RECORD_TYPES`, `ID_PREFIXES` and `goldset.GOLD_FILES`. Until then the store
-     reports the file as unreadable, which is correct and is not a bug. Watch the
-     ripple: `RECORD_TYPES` is iterated by the harness, the workbook and the
-     intake path, and `goldset.FILE_FOR[record_type]` is read in message text, so
-     a record type added to one map and not the others raises `KeyError` in a
-     message rather than failing usefully.
-   - **The eight competency queries still name `tmk:ApprovedAssertion`** and
-     therefore answer over signed content only. That is under-reporting rather
-     than laundering, and it is safe. Whether they should also serve authored
-     content — labelled, per ADR-0082 — is a Stage 7–8 question about the
-     retrieval surface, and it needs deciding before anything is built on top of
-     those queries.
-   - **Nothing moves a record from `authored/` to `eval/gold/` yet, and there
-     are now 52 records waiting to need it.** `tmk-transcribe` writes gold
-     records from a workbook; it does not know about the authored store, and
-     nothing retires an authored record when a signed one covers the same ground
-     (ADR-0080 consequence 2). The reviewer's row **keeps the authored record's
-     id**, so the first signed typing puts one `GT-` id in both stores and the
-     harness reports a defect naming both. **That is designed, not broken** —
-     read Q-52 before trying to make it quiet, and in particular do not resolve
-     it by minting a fresh id or by deleting the authored record. It is the next
-     real design question in this area and it is no longer hypothetical.
-4. **Resolve the 178 seed records** into `authored/` (ADR-0084). Honour the
-   reviewer's `amend` instructions where they exist. Do **not** resurrect the
-   eight rejected records; where an authored record covers the same ground, it
-   cites the rejection in `authored.supersedes_rejected` and says why it differs
-   in `reasoning` — the envelope has a field for exactly this.
-5. **Retire `tmk-boundary`** and `data/derived/reports/boundary.md`. The code
-   still runs and computes a boundary that no longer exists — which is worse than
-   code that fails, because it produces a plausible answer to a withdrawn
-   question.
-6. **Re-scope the worksheet and recon to the whole Manual** (ADR-0081 consequence
-   1). `tmk-recon` currently costs section 43; it should cost the corpus, ordered
-   by working priority.
-7. **Then extraction** (ADR-0083), deterministic paths first, measured against the
-   frozen 190. That recall figure is the number ADR-0010 wanted to exist and never
-   got.
+7. **Then extraction** (ADR-0083), deterministic paths first, measured against
+   the frozen 190. `tmk-concepts` is the first deterministic pass and the shape
+   the others should copy: lookups only, evidence cut from the snapshot, and a
+   candidate file that authors nothing.
+
+**Two things flagged for the owner, neither blocking.** OQ-0024 asks whether the
+four groups should grow, because 53 of 130 concepts fit none of them and they are
+the roles, documents, proceedings and outcomes — settle it before a review round,
+not after. OQ-0025 asks whether the graph should carry the whole Manual at a cost
+of about 30MB, because ADR-0097's rule is `agent-proposed` and his to overturn.
 
 ### What the plumbing gives you, in the order you will meet it
 
@@ -317,7 +300,10 @@ four modules to find out.
 | `authoring_basis: general_knowledge` | note, listed per record and as a proportion of the store. Never a defect | ADR-0079 guard 2 |
 | `authoring_basis: corpus_explicit` with no evidence | envelope fails — refused | the schema's own conditional |
 | an evidence `quote` that was retyped | defect: the quote must be exactly the text at its span | ADR-0090 c3 |
-| 60 authored concepts | the board still reads `0 of 50–100` in the **Signed** column and `60` in **Authored** | ADR-0080 c3 |
+| 78 authored concepts | the board still reads `0 of 50–100` in the **Signed** column and `78` in **Authored** | ADR-0080 c3 |
+| an authored typing naming a concept in neither store | defect, `authored-cross-reference`. Added S018 — the schema had promised this check since ADR-0071 and nothing performed it | ADR-0095 c4 |
+| a concept only `authored/` holds | it reaches `data/derived/concept-typing.xlsx` like any other, with `[concept authored by a machine, unreviewed]` in its `notes` cell | ADR-0095 |
+| a record citing a Manual passage nothing else cites | the passage joins `graph/source.ttl` on the next build, with its page-mates. No scope decision, no code change | ADR-0097 |
 
 `tmk-harness --authored-dir <dir>` and `tmk-coverage --authored-dir <dir>` point
 the checks somewhere else, which is how the fixtures are exercised.
@@ -338,8 +324,10 @@ record (Q-48).
 > still the best account of how each question arose.** Read it with three
 > corrections in mind:
 >
-> - **Q8 is closed.** It asked where section 43 stops. It does not have to —
->   the boundary is withdrawn and the whole Manual is in scope (ADR-0081).
+> - **Q8 is closed, and as of S018 the code agrees.** It asked where section 43
+>   stops. It does not have to — the boundary is withdrawn, the whole Manual is
+>   in scope (ADR-0081), and `tmk-boundary` is deleted rather than left computing
+>   an answer to a withdrawn question (ADR-0096).
 > - **Every question marked "expert content, and nothing here may write it" is
 >   wrong now.** Q16, Q17 and Q19 name things an agent may author today, stamped
 >   `unreviewed`. Q19 is the one to be careful with: the *judgement* is now
@@ -357,7 +345,7 @@ record (Q-48).
 | # | Question | Blocks | Raised |
 |---|---|---|---|
 | ~~Q1~~ | ~~What is the pilot scope?~~ **Answered S002: s 43** (ADR-0013). The *boundary* is deliverable 1 — see Q8. | — | S001 |
-| Q8 | **Half answered S012.** The owner gave the boundary *rule* on issue #12 (one hop, landing on the chunk; ADR-0072), implemented as `tmk-boundary`. The *document* is still not written — he did not say whether GI is the centre or a corner, or whether point-in-time questions are in scope, and OQ-0021 asks about bare citations. Original question: what is the s 43 **boundary**? **A draft to correct now exists** at `review/seed/pilot-scope.seed.md` (S007), with the recon numbers and an exclusion list. Which Manual Parts/chunks, which neighbouring provisions, is GI the centre of gravity or a sub-topic, are point-in-time questions in scope? Prompted for in `eval/STAGE-0-INPUT-GUIDE.md` §2. **Answerable against numbers** — `tmk-recon` reports where the citing chunks sit and what each candidate rule costs. | All remaining Stage 0 **content**. Does not block the worksheet — ADR-0017, ADR-0022 | S002 |
+| ~~Q8~~ | **Closed S018.** The question was *what is the s 43 boundary*, and the owner answered it by withdrawing it (ADR-0081). The code that kept computing one — `tmk-boundary` and `data/derived/reports/boundary.md` — is deleted, the deliverable is off the completeness gate, and `review/seed/pilot-scope.seed.md` is re-headed as withdrawn (ADR-0096). His one-hop rule is preserved in ADR-0072 and in `review/returned/260908-owner-notes-issue-12.md`; what is gone is anything still applying it. **OQ-0021 — whether a bare "section 41" citation reaches the whole provision — went with it**: it was a question about where a boundary stopped. | — | S002 |
 | ~~Q2~~ | ~~How does this repo get the upstream snapshot?~~ **Answered S003, built S004** (ADR-0004, ADR-0021, ADR-0026). | — | S001 |
 | Q3 | Which LLM is "agency-approved" for the Stage 2–4 extraction steps, and under what data-handling conditions may Manual text be sent to it? **Now also touches Stage 0:** `review/seed/` records carry `model: null` because naming one would pre-empt this (ADR-0043 consequence 4). If the agency requires the model recorded, it is a provenance field and a one-line change. | Stages 2, 3, 4 | S001 |
 | Q4 | ~~What does "approved" look like as a recorded artefact?~~ **Answered S006: the workbook's `approved_by`/`approved_date` columns are the artefact** — a name and a date, no separate signed-off file or external register (ADR-0039). **Still open: who are the approving experts?** — expected to arrive with the experts' own content. | Nothing structural; who-question blocks nothing today | S001 |
@@ -417,7 +405,13 @@ third guard** (Q22), **0060** (Q23), **0061** (Q24) and **0063, 0064, 0065,
 **0092's pre-fill** (Q28). **ADR-0093 and ADR-0094 are `derived`** — the first
 because collapsing an answer into an absence is rule 6, the second because a
 model id that is not the model that wrote the record is unfalsifiable
-afterwards.
+afterwards. **ADR-0095 and ADR-0096 are `derived`** — the first because the
+owner asked for the boundary's removal to reach the artefacts, the second
+because code answering a withdrawn question is worse than code that fails, and
+`docs/ROADMAP-STATUS.md` had said so since S015. **ADR-0097 is
+`agent-proposed`** and it is the one to look at: it decides how much of the
+Manual the graph carries, the alternative is a 40MB artefact, and OQ-0025 puts
+the trade-off to the owner.
 **ADR-0062 is `human`** — the dashboard is the owner's
 instruction, quoted in the ADR. ADR-0044, ADR-0045, ADR-0047, ADR-0049, ADR-0050 and
 **ADR-0053** are `derived`. **ADR-0052 is `human`.** **ADR-0089 and ADR-0091 are
@@ -442,6 +436,14 @@ Q18, Q20, Q23, Q24, and 0029/0030/0032/0033/0035/0036/0037 within them).
 four rulings in §2 are the shortest path to a better ontology, and none of them
 is an agent's to make. Typing the 52 concepts is one pass over a list for someone
 who knows the domain; it is unavailable to any amount of agent time.
+
+> **Overtaken by ADR-0079, and the paragraph above is kept because it is the
+> best account of what changed.** An agent may author the typings now, and did:
+> S017 typed the 52, S018 typed 130. What is still unavailable to any amount of
+> agent time is a *signature* — `approved_by` is null on every one of them and an
+> agent may never fill it. The waiting moved from "somebody must compose this" to
+> "somebody must correct and sign this", which is the whole of the bet ADR-0079
+> made.
 
 **What is blocked is the gold set, and the critical path is ten decisions.**
 `data/derived/reports/blockers.md` is the live version and this file is not —
@@ -642,6 +644,56 @@ relevance grade each. The scoped workbook for all ten is rendered.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S018 — 2026-09-09 — the boundary left the artefacts, and the taxonomy started creaking
+
+**Branch** `claude/busy-goldberg-gewifv`
+
+**The work.** The owner asked for the section 43 barrier's removal to reach the
+concept-typing spreadsheet "and throughout the repo". Three passes and a
+retirement. `tmk-concepts`, a deterministic candidate pass over all 54 Parts —
+statutory defined terms, Manual definitions, Manual subject headings, usage
+counts — **1,715 candidates**, every quote cut from the snapshot with its span
+and hash, writing `review/candidates/concepts.yaml` and an evidence pack and
+authoring nothing. **78 concepts** authored into `authored/concepts.yaml` from
+the 53 Parts the boundary hid, with 78 typings beside them. `tmk-typing` reads
+both stores, so the workbook holds **130 rows** and each says whether its concept
+was signed or authored. Then: `tmk-boundary` and `boundary.md` deleted,
+`tmk-recon` re-scoped to the corpus, the graph's source selection replaced,
+`eval/pilot-scope.md` off the completeness gate, the worksheet re-headed, and the
+seed scope draft marked withdrawn. ADR-0095, ADR-0096, ADR-0097.
+
+**What it cost.** 0 harness defects, 0 SHACL defects. Source graph 16,405 → 32,922
+triples over 216 → 508 chunks; `dataset.nq` 5.4MB → 10MB. Authored store 52 → 208
+records, still 0 `general_knowledge` and 0 refused.
+
+**What it revealed, and the second one is bigger than the vocabulary.**
+
+- **53 of the 130 concepts fit none of the owner's four groups**, against 7 of the
+  first 52. They are the roles, documents, proceedings, outcomes and remedies:
+  the four groups describe *reasoning about* an application and about two fifths
+  of the Manual describes *what happens to* one. OQ-0023 asked whether the
+  lopsidedness meant the taxonomy was wrong; the wider set says the lopsidedness
+  was an artefact and this is the real question. OQ-0024.
+- **63% of the corpus cites no provision at all** — 1,551 of 2,460 chunks. Every
+  rule this repository has ever used to select passages was keyed on citation
+  edges, so two thirds of the Manual was structurally invisible to all of them.
+  That is the mechanism behind Q-28, now Q-53.
+- **Two counters and one promised check.** The concept-types line in the build
+  report was wrong again, in the opposite direction to ADR-0093's fix (Q-54).
+  `concept-type.schema.json` had promised a dangling-cross-reference check since
+  ADR-0071 and nothing performed it — free while every typing named a signed
+  concept, not free the moment one named an authored one. And the harness tests
+  were reading the live `authored/` while overriding only `gold_dir`, so they
+  asserted what the repository held that day (Q-51, again).
+
+**What is provisional.** ADR-0097's graph rule is `agent-proposed`: 41 chunks
+left the graph because nothing says anything about them, the alternative was a
+40MB artefact, and OQ-0025 puts the trade-off to the owner. Several authored
+records say in `expert_should_check` that their preferred label is an invention
+because the Manual names no term for the idea — *other traders' legitimate desire
+to use* and *protected wine expression* are the clearest, and both should be
+renamed by somebody who knows the field rather than accepted.
 
 ### S017 — 2026-09-08 — the store got content, and the content found two bugs
 

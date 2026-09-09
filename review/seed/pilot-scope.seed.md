@@ -1,16 +1,27 @@
-# DRAFT pilot scope — s 43. NOT A DECISION.
+# DRAFT pilot scope — s 43. NOT A DECISION, AND THE QUESTION IT ASKS IS WITHDRAWN.
 
-> **This is a machine-written draft for you to correct, not a proposal from
-> anyone qualified to make one.** It is deliverable 1 of Stage 0
-> (`eval/STAGE-0-INPUT-GUIDE.md` §2) and the boundary it describes is a set of
-> judgement calls an agent must not make (CLAUDE.md rule 1, ADR-0043).
+> **⚠️ You answered this on 2026-09-08, by withdrawing it.** *"I would like to
+> completely remove the s43 barrier."* All 54 Parts are in scope, there is no
+> exclusion list, and no passage of the Manual is out (ADR-0081). Every number
+> and every judgement prompt below was written to help you draw a boundary you
+> have since said should not exist.
 >
-> When you are content with it, it moves to `eval/pilot-scope.md` with your name
-> and a date on it. Until then it lives here and counts for nothing — the
-> harness reports deliverable 1 as absent, because it is.
+> **The deliverable went with it.** `eval/pilot-scope.md` will not be written and
+> the harness stopped reporting it as a gap on 2026-09-09: a completeness report
+> that lists a document nobody can write, because the thing it would describe
+> does not exist, teaches everyone to stop reading the report (ADR-0096,
+> `docs/ROADMAP-STATUS.md` has read *withdrawn, not owed* since S015).
+>
+> **It is kept rather than deleted because the numbers in it are still true and
+> still useful.** They cost section 43 against the pinned snapshot, and costing
+> an area is exactly what you now do to decide what to work first — the numbers
+> just no longer decide what is *in*. `tmk-recon` costs the whole corpus and
+> `tmk-recon --provision` costs one area of it.
+>
+> Nothing in this file may be read as a live proposal.
 
-**Area:** s 43, *Trade Marks Act 1995*
-**Decided by:** «name / role» · **Date:** «YYYY-MM-DD» · **ADR:** 0013
+**Area:** ~~s 43, *Trade Marks Act 1995*~~ — **the whole Manual** (ADR-0081)
+**Decided by:** «name / role» · **Date:** «YYYY-MM-DD» · **ADR:** 0013, 0081
 
 ---
 

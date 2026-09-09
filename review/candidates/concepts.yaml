@@ -1149,6 +1149,7 @@
   - TMM/Part9/7#1~1
   - TMM/Part9/8#1
   - TMM/Part9/x-relevant-legislation23#1
+  covered_by: GC-0072
 - term: sign
   signal: statutory_definition
   signals:
@@ -1392,6 +1393,7 @@
   - TMM/Part5/x-word-constituents/letters-or-words
   - TMM/Part51/3/3/1
   - TMM/Part60/4/7/4/7/3
+  covered_by: GC-0073
 - term: Madrid Protocol
   signal: statutory_definition
   signals:
@@ -1522,6 +1524,7 @@
   - TMM/Part62/4#1
   - TMM/Part62/8#1
   - TMM/Part9/1#1
+  covered_by: GC-0112
 - term: certification trade mark
   signal: statutory_definition
   signals:
@@ -1618,6 +1621,7 @@
   - TMM/Part60/4/24/4/24/4/4
   - TMM/Part60/4/7/4/7/15/2
   - TMM/Part60/4/9/4/9/2
+  covered_by: GC-0107
 - term: applicant
   signal: statutory_definition
   signals:
@@ -2235,6 +2239,7 @@
   - TMM/Part9/5#1
   - TMM/Part9/7#1~1
   - TMM/Part9/8#1
+  covered_by: GC-0116
 - term: Registrar
   signal: statutory_definition
   signals:
@@ -3013,6 +3018,7 @@
   - TMM/Part9/6/6/1
   - TMM/Part9/7#1~1
   - TMM/Part9/8#1
+  covered_by: GC-0089
 - term: decision
   signal: manual_definition
   signals:
@@ -3268,6 +3274,7 @@
   - TMM/Part9/6/6/3
   - TMM/Part9/7#1~1
   - TMM/Part9/8#1
+  covered_by: GC-0127
 - term: hearing
   signal: manual_definition
   signals:
@@ -3449,6 +3456,7 @@
   - TMM/Part9/5#1
   - TMM/Part9/7#1~1
   - TMM/Part9/8#1
+  covered_by: GC-0128
 - term: opponent
   signal: statutory_definition
   signals:
@@ -3598,6 +3606,7 @@
   - TMM/Part60/4/17/4/17/2~2
   - TMM/Part60/4/17/4/17/2~3
   - TMM/Part60/4/7/4/7/16/1
+  covered_by: GC-0117
 - term: Protocol
   signal: statutory_definition
   signals:
@@ -3730,6 +3739,7 @@
   - TMM/Part62/4#1
   - TMM/Part62/8#1
   - TMM/Part9/1#1
+  covered_by: GC-0112
 - term: IRDA
   signal: statutory_definition
   signals:
@@ -3859,6 +3869,7 @@
   - TMM/Part60/4/9/4/9/1
   - TMM/Part60/4/9/4/9/2
   - TMM/Part60/x-glossary#1
+  covered_by: GC-0113
 - term: international registration
   signal: statutory_definition
   signals:
@@ -4477,6 +4488,7 @@
   - TMM/Part62/3#1
   - TMM/Part8/2#1~1
   - TMM/Part9/7#1~1
+  covered_by: GC-0084
 - term: registered trade mark
   signal: statutory_definition
   signals:
@@ -4588,6 +4600,7 @@
   - TMM/Part62/3#1
   - TMM/Part9/1#1
   - TMM/Part9/6/6/3
+  covered_by: GC-0088
 - term: filing date
   signal: statutory_definition
   signals:
@@ -4688,6 +4701,7 @@
   - TMM/Part60/2/4/2/4/3~2
   - TMM/Part60/4/3/4/3/2
   - TMM/Part60/4/5/4/5/2
+  covered_by: GC-0091
 - term: assignment
   signal: statutory_definition
   signals:
@@ -4785,6 +4799,7 @@
   - TMM/Part60/4/24/4/24/1
   - TMM/Part60/4/24/4/24/2
   - TMM/Part9/7#1~1
+  covered_by: GC-0086
 - term: statement of grounds and particulars
   signal: statutory_definition
   signals:
@@ -5152,6 +5167,7 @@
   - TMM/Part55/5#1
   - TMM/Part55/x-relevant-legislation24#1
   - TMM/Part61/3/3/1
+  covered_by: GC-0081
 - term: notice of intention to oppose
   signal: statutory_definition
   signals:
@@ -5471,6 +5487,7 @@
   - TMM/Part48/12#1
   - TMM/Part60/4/7/4/7/7
   - TMM/Part62/4#1
+  covered_by: GC-0070
 - term: notice of opposition
   signal: statutory_definition
   signals:
@@ -5581,6 +5598,7 @@
   - TMM/Part62/5#1
   - TMM/Part7/3#1~1
   - TMM/Part9/8#1
+  covered_by: GC-0103
 - term: connotation
   signal: manual_definition
   signals:
@@ -5771,6 +5789,7 @@
   - TMM/Part60/4/27/4/27/2
   - TMM/Part60/4/7/4/7/3
   - TMM/Part60/x-glossary#1
+  covered_by: GC-0114
 - term: approved form
   signal: statutory_definition
   signals:
@@ -5999,6 +6018,7 @@
   - TMM/Part60/4/24/4/24/2
   - TMM/Part60/4/6/4/6/2
   - TMM/Part9/7#1~1
+  covered_by: GC-0087
 - term: Commission
   signal: statutory_definition
   signals:
@@ -6238,6 +6258,7 @@
   - TMM/Part60/4/22/4/22/3
   - TMM/Part60/4/22/4/22/4
   - TMM/Part60/4/3/4/3/2
+  covered_by: GC-0106
 - term: authorised user
   signal: statutory_definition
   signals:
@@ -6607,6 +6628,7 @@
   - TMM/Part60/4/10/4/10/2
   - TMM/Part60/4/19/4/19/2~1
   - TMM/Part62/8#1
+  covered_by: GC-0069
 - term: defensive trade mark
   signal: statutory_definition
   signals:
@@ -6661,6 +6683,7 @@
   - TMM/Part47/1/1/2/5~4
   - TMM/Part51/4/4/1~1
   - TMM/Part60/2/2/2/2/4~2
+  covered_by: GC-0109
 - term: International Bureau
   signal: statutory_definition
   signals:
@@ -6875,6 +6898,7 @@
   - TMM/Part46/4/4/1/1
   - TMM/Part46/4/4/4
   - TMM/Part46/4/4/6/3
+  covered_by: GC-0085
 - term: prescribed court
   signal: statutory_definition
   signals:
@@ -6983,6 +7007,7 @@
   - TMM/Part60/2/2/2/2/4~4
   - TMM/Part60/4/24/4/24/4/2
   - TMM/Part9/4/4/5
+  covered_by: GC-0108
 - term: plant variety
   signal: manual_definition
   signals:
@@ -7085,6 +7110,7 @@
   - TMM/Part47/1/1/2/3~1
   - TMM/Part60/2/4/2/4/3~2
   - TMM/Part9/6#1
+  covered_by: GC-0105
 - term: Deputy Registrar
   signal: statutory_definition
   signals:
@@ -7237,6 +7263,7 @@
   - TMM/Part60/4/1#1
   - TMM/Part60/4/7/4/7/1
   - TMM/Part60/x-glossary#1
+  covered_by: GC-0113
 - term: label
   signal: statutory_definition
   signals:
@@ -7467,6 +7494,7 @@
   - TMM/Part24/5#1
   - TMM/Part24/6#1
   - TMM/Part32A/x-annex-5---case-law-summaries/ogen-trade-mark-1977-rpc-529
+  covered_by: GC-0099
 - term: geographical indication
   signal: statutory_definition
   signals:
@@ -7610,6 +7638,7 @@
   - TMM/Part46/x-relevant-legislation5#1
   - TMM/Part48/7#1
   - TMM/Part48/x-relevant-legislation14#1
+  covered_by: GC-0082
 - term: extension of protection
   signal: statutory_definition
   signals:
@@ -7782,6 +7811,7 @@
   - TMM/Part62/7#1
   - TMM/Part62/8#1
   - TMM/Part62/x-relevant-legislation19#1
+  covered_by: GC-0095
 - term: subpoena
   signal: manual_definition
   signals:
@@ -8442,6 +8472,7 @@
   - TMM/Part26/4#1
   - TMM/Part26/4/4/2
   - TMM/Part26/x-relevant-legislation33#1
+  covered_by: GC-0070
 - term: certificate of verification
   signal: statutory_definition
   signals:
@@ -9127,6 +9158,7 @@
     content_hash: sha256:982e7465b948742083bc02cf4273acf3afbbcbceef7b7ff8908bc0d40a4eb3d8
     quote: Associations are incorporated under state and territory associations incorporation legislation,
       which is not administered by ASIC, but by the various state and territory authorities.
+  covered_by: GC-0108
 - term: commencement day
   signal: statutory_definition
   signals:
@@ -10944,6 +10976,7 @@
   - TMM/Part62/8#1
   - TMM/Part9/4/4/7/1
   - TMM/Part9/8#1
+  covered_by: GC-0093
 - term: protection
   signal: manual_topic
   signals:
@@ -11443,6 +11476,7 @@
   - TMM/Part61/3/3/1
   - TMM/Part62/5#1
   - TMM/Part62/x-relevant-legislation19#1
+  covered_by: GC-0097
 - term: process
   signal: manual_topic
   signals:
@@ -11991,6 +12025,7 @@
   - TMM/Part9/6/6/3
   - TMM/Part9/6/6/4
   - TMM/Part9/7#1~1
+  covered_by: GC-0124
 - term: evidence of use
   signal: manual_topic
   signals:
@@ -12474,6 +12509,7 @@
   - TMM/Part32B/2/3/2/3/1
   - TMM/Part32B/2/3/2/3/2
   - TMM/Part32B/2/3/2/3/3
+  covered_by: GC-0059
 - term: address for service
   signal: manual_topic
   signals:
@@ -12707,6 +12743,7 @@
   - TMM/Part62/4#1
   - TMM/Part62/8#1
   - TMM/Part9/1#1
+  covered_by: GC-0112
 - term: packaging
   signal: manual_topic
   signals:
@@ -13019,6 +13056,7 @@
   - TMM/Part51/4/4/3
   - TMM/Part6/1/1/2
   - TMM/Part60/4/11/4/11/3
+  covered_by: GC-0068
 - term: individual
   signal: manual_topic
   signals:
@@ -13409,6 +13447,7 @@
   - TMM/Part32B/2/3/2/3/6~1
   - TMM/Part32B/2/3/2/3/6~2
   - TMM/Part32B/2/3/2/3/7
+  covered_by: GC-0060
 - term: certification trade marks
   signal: manual_topic
   signals:
@@ -13515,6 +13554,7 @@
   - TMM/Part60/4/24/4/24/4
   - TMM/Part60/4/7/4/7/15/1
   - TMM/Part60/4/7/4/7/15/2
+  covered_by: GC-0107
 - term: devices
   signal: manual_topic
   signals:
@@ -13840,6 +13880,7 @@
   - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
   - TMM/Part60/4/11/4/11/3
   - TMM/Part62/8#1
+  covered_by: GC-0066
 - term: instruments
   signal: manual_topic
   signals:
@@ -14147,6 +14188,7 @@
   - TMM/Part47/1/1/2/5~2
   - TMM/Part47/1/1/2/5~3
   - TMM/Part60/4/11/4/11/3
+  covered_by: GC-0067
 - term: apparatus
   signal: manual_topic
   signals:
@@ -14345,6 +14387,7 @@
   - TMM/Part48/1#1
   - TMM/Part60/2/2/2/2/4~2
   - TMM/Part60/4/7/4/7/12
+  covered_by: GC-0109
 - term: design
   signal: manual_topic
   signals:
@@ -15334,6 +15377,7 @@
   - TMM/Part60/4/6/4/6/1
   - TMM/Part60/4/7/4/7/9
   - TMM/Part9/8#1
+  covered_by: GC-0129
 - term: adhesive
   signal: manual_topic
   signals:
@@ -15491,6 +15535,7 @@
   - TMM/Part21/7#1
   - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
   - TMM/Part60/4/7/4/7/4
+  covered_by: GC-0074
 - term: classification of goods
   signal: manual_topic
   signals:
@@ -15621,6 +15666,7 @@
   - TMM/Part60/4/24/4/24/4/2
   - TMM/Part60/4/7/4/7/14/1
   - TMM/Part60/4/7/4/7/14/2
+  covered_by: GC-0108
 - term: consultancy services
   signal: manual_topic
   signals:
@@ -15803,6 +15849,7 @@
   - TMM/Part39/x-relevant-legislation17#1
   - TMM/Part6/1/1/2
   - TMM/Part60/3/3/5/1
+  covered_by: GC-0110
 - term: holders
   signal: manual_topic
   signals:
@@ -15894,6 +15941,7 @@
   - TMM/Part31/4/4/2/1
   - TMM/Part31/4/4/2/2~1
   - TMM/Part32A/2/2#1
+  covered_by: GC-0056
 - term: wrapping
   signal: manual_topic
   signals:
@@ -16101,6 +16149,7 @@
   - TMM/Part60/2/4/2/4/2~1
   - TMM/Part60/2/4/2/4/3~2
   - TMM/Part60/4/7/4/7/11
+  covered_by: GC-0079
 - term: services in relation to
   signal: manual_topic
   signals:
@@ -16398,6 +16447,7 @@
   - TMM/Part60/4/6/4/6/1
   - TMM/Part60/4/6/4/6/2
   - TMM/Part60/4/7/4/7/9
+  covered_by: GC-0121
 - term: convention applications
   signal: manual_topic
   signals:
@@ -16963,6 +17013,7 @@
   - TMM/Part24/x-relevant-legislation32#1
   - TMM/Part39/2#1
   - TMM/Part5/2/2/2~1
+  covered_by: GC-0099
 - term: first use
   signal: manual_topic
   signals:
@@ -17525,6 +17576,7 @@
   - TMM/Part26/x-relevant-legislation33#1
   - TMM/Part35/5#1~2
   - TMM/Part60/4/11/4/11/1
+  covered_by: GC-0096
 - term: detergents
   signal: manual_topic
   signals:
@@ -17679,6 +17731,7 @@
   - TMM/Part13/7/7/1
   - TMM/Part13/7/7/2
   - TMM/Part46/4/4/7
+  covered_by: GC-0080
 - term: quantity
   signal: manual_topic
   signals:
@@ -18261,6 +18314,7 @@
   - TMM/Part60/4/5/4/5/1
   - TMM/Part60/4/5/4/5/2
   - TMM/Part61/3/3/1
+  covered_by: GC-0122
 - term: joints
   signal: manual_topic
   signals:
@@ -18502,6 +18556,7 @@
   - TMM/Part42/1#1
   - TMM/Part42/2#1
   - TMM/Part9/6#1
+  covered_by: GC-0105
 - term: scent trade marks
   signal: manual_topic
   signals:
@@ -18564,6 +18619,7 @@
   - TMM/Part21/5/5/2
   - TMM/Part21/7/7/1
   - TMM/Part60/4/7/4/7/13
+  covered_by: GC-0078
 - term: certified copies
   signal: manual_topic
   signals:
@@ -19445,6 +19501,7 @@
   - TMM/Part32B/x-relevant-legislation25#1
   - TMM/Part34/5/5/1
   - TMM/Part52/2/2/3
+  covered_by: GC-0063
 - term: valves
   signal: manual_topic
   signals:
@@ -20172,6 +20229,7 @@
   - TMM/Part34/5/5/1
   - TMM/Part5/4#1
   - TMM/Part52/2/2/3
+  covered_by: GC-0054
 - term: reasonable excuse
   signal: manual_topic
   signals:
@@ -22123,6 +22181,7 @@
   - TMM/Part31/5/5/2
   - TMM/Part31/5/5/3
   - TMM/Part5/4#1
+  covered_by: GC-0055
 - term: protection extended
   signal: manual_topic
   signals:
@@ -24037,6 +24096,7 @@
   - TMM/Part35/3#1~2
   - TMM/Part55/5#1
   - TMM/Part60/4/21#1
+  covered_by: GC-0104
 - term: requirements for the international application form
   signal: manual_topic
   signals:
@@ -24224,6 +24284,7 @@
   - TMM/Part26/4/4/4
   - TMM/Part34/6/6/2/5
   - TMM/Part46/4/4/6/2
+  covered_by: GC-0070
 - term: snack foods
   signal: manual_topic
   signals:
@@ -25449,6 +25510,7 @@
   uses:
   - TMM/Part26/3#1
   - TMM/Part27/3/3/1
+  covered_by: GC-0071
 - term: coatings
   signal: manual_topic
   signals:
@@ -39003,6 +39065,7 @@
     content_hash: sha256:9a988a619f4a891da5043b8164466c7cc774d7b6c592b4ca72ef0e60d4693164
     quote: A single colour applied to the surface of goods that are normally coloured will generally be
       regarded as being devoid of inherent adaptation to distinguish.
+  covered_by: GC-0076
 - term: colours claimed as trade marks for services
   signal: manual_topic
   signals:
@@ -46924,6 +46987,7 @@
     - 15
     content_hash: sha256:753c43101b269497ffbe2a2e8ee93834e512f0e6f3fe2feebbdda1026e23445a
     quote: 'Part Published:'
+  covered_by: GC-0106
 - term: reporting on an irda
   signal: manual_topic
   signals:
@@ -47556,6 +47620,7 @@
     - 94
     content_hash: sha256:f1f98ddc44bccf6601ab233800f69bd8b62edc8c27ccb6bbdfb423460ebf1097
     quote: Consideration should be given to context of use, but that alone cannot be the decisive factor.
+  covered_by: GC-0062
 - term: scents not adapted to distinguish
   signal: manual_topic
   signals:
@@ -48211,6 +48276,7 @@
     quote: If the shape of the trade mark is intrinsically functional with an engineering advantage that
       has yet to become commonplace, but nevertheless, because of its utility, should remain open for
       all to use, it is appropriate to raise grounds for rejection.
+  covered_by: GC-0075
 - term: shape of packaging or aspect of packaging
   signal: manual_topic
   signals:
@@ -48668,6 +48734,7 @@
     content_hash: sha256:44ecfe02313dde8de1b575edfb8775aded110362397e1f804a1fe850f8aaddcd
     quote: Sounds fall into this category if they contain or consist of commonplace sounds, that is, they
       are sounds which other traders are likely to want to use for their similar goods.
+  covered_by: GC-0077
 - term: sound as well as appearance to be considered
   signal: manual_topic
   signals:

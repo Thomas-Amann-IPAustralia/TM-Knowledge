@@ -1768,7 +1768,8 @@ tmkp:CQ-0001 a tmk:CompetencyQuestion ;
     tmk:caveat "The Manual's own text quotes s 43 in full inside TMM/Part29/1#1, so an answer can appear to cite the Act while only having read the Manual. That is a grounding failure that will not show up as a missing source."@en-AU ;
     tmk:expectsConcept tmkc:GC-0001,
         tmkc:GC-0002,
-        tmkc:GC-0006 ;
+        tmkc:GC-0006,
+        tmkc:GC-0053 ;
     tmk:expectsConceptLabel "connotation"@en-AU,
         "ground for rejection"@en-AU,
         "likely to deceive or cause confusion"@en-AU ;
@@ -1835,7 +1836,8 @@ tmkp:CQ-0005 a tmk:CompetencyQuestion ;
     tmk:askedBy "examiner" ;
     tmk:expectsConcept tmkc:GC-0014,
         tmkc:GC-0026,
-        tmkc:GC-0029 ;
+        tmkc:GC-0029,
+        tmkc:GC-0100 ;
     tmk:expectsConceptLabel "endorsement"@en-AU,
         "well-known person"@en-AU,
         "written permission"@en-AU ;
@@ -1855,7 +1857,8 @@ tmkp:CQ-0006 a tmk:CompetencyQuestion ;
     tmk:approvedBy "TC" ;
     tmk:askedBy "applicant" ;
     tmk:expectsConcept tmkc:GC-0014,
-        tmkc:GC-0029 ;
+        tmkc:GC-0029,
+        tmkc:GC-0100 ;
     tmk:expectsConceptLabel "endorsement"@en-AU,
         "written permission"@en-AU ;
     tmk:goldRecord "CQ-0006" ;
@@ -1889,7 +1892,11 @@ tmkp:CQ-0007 a tmk:CompetencyQuestion ;
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/3> ;
     tmk:testsBoundaryOf tmkc:GC-0001,
         tmkc:GC-0002,
-        tmkc:GC-0004 .
+        tmkc:GC-0004,
+        tmkc:GC-0056,
+        tmkc:GC-0058,
+        tmkc:GC-0065,
+        tmkc:GC-0080 .
 
 tmkp:CQ-0008 a tmk:CompetencyQuestion ;
     tmk:answerShape "Must distinguish the fact that a stem is listed from the conclusion that a ground arises, because the Manual makes the second turn on whether the stem appears in the mark in a meaningful way."@en-AU ;
@@ -1934,7 +1941,8 @@ tmkp:CQ-0010 a tmk:CompetencyQuestion ;
     tmk:askedBy "examiner" ;
     tmk:caveat "Both examples are stated in the Manual with their outcomes. Answering from the citations alone is impossible — no decision text exists in the programme (Q-11)."@en-AU ;
     tmk:expectsConcept tmkc:GC-0019,
-        tmkc:GC-0050 ;
+        tmkc:GC-0050,
+        tmkc:GC-0130 ;
     tmk:expectsConceptLabel "geographical origin"@en-AU,
         "purchasing decision"@en-AU,
         "reputation"@en-AU ;
@@ -1954,7 +1962,8 @@ tmkp:CQ-0011 a tmk:CompetencyQuestion ;
     tmk:askedBy "examiner" ;
     tmk:expectsConcept tmkc:GC-0008,
         tmkc:GC-0012,
-        tmkc:GC-0047 ;
+        tmkc:GC-0047,
+        tmkc:GC-0129 ;
     tmk:expectsConceptLabel "descriptive matter"@en-AU,
         "real and tangible danger"@en-AU,
         "specification"@en-AU ;
@@ -1973,7 +1982,8 @@ tmkp:CQ-0012 a tmk:CompetencyQuestion ;
     tmk:approvedBy "TC" ;
     tmk:askedBy "examiner" ;
     tmk:caveat "This question is deliberately one the system must not answer. It is bounded by PU-0001 and PU-0004."@en-AU ;
-    tmk:expectsConcept tmkc:GC-0007 ;
+    tmk:expectsConcept tmkc:GC-0007,
+        tmkc:GC-0118 ;
     tmk:expectsConceptLabel "obvious, direct and immediate"@en-AU,
         "presumption of registrability"@en-AU ;
     tmk:goldRecord "CQ-0012" ;
@@ -1995,7 +2005,8 @@ tmkp:CQ-0015 a tmk:CompetencyQuestion ;
     tmk:askedBy "examiner" ;
     tmk:caveat "29.6 asks how well known a person is \"as at the priority date\", while 29.3.2 asks about the current marketplace. Whether those are the same moment is a legal reading, not a drafting inconsistency to be smoothed over."@en-AU ;
     tmk:expectsConcept tmkc:GC-0016,
-        tmkc:GC-0049 ;
+        tmkc:GC-0049,
+        tmkc:GC-0090 ;
     tmk:expectsConceptLabel "current marketplace"@en-AU,
         "priority date"@en-AU ;
     tmk:goldRecord "CQ-0015" ;
@@ -2013,7 +2024,8 @@ tmkp:CQ-0017 a tmk:CompetencyQuestion ;
     tmk:approvedBy "TC" ;
     tmk:askedBy "maintainer" ;
     tmk:caveat "Of the chunks citing the provision, some carry the edge only because upstream read a bare \"section 43\" out of prose and resolved it by convention. Those are inferences, not IP Australia's assertions (Q-07)."@en-AU ;
-    tmk:expectsConcept tmkc:GC-0006 ;
+    tmk:expectsConcept tmkc:GC-0006,
+        tmkc:GC-0053 ;
     tmk:expectsConceptLabel "ground for rejection"@en-AU ;
     tmk:goldRecord "CQ-0017" ;
     tmk:origin "approved" ;
@@ -2136,7 +2148,8 @@ tmkp:CQ-0024 a tmk:CompetencyQuestion ;
     tmk:askedBy "examiner" ;
     tmk:caveat "The Manual states practice; it does not bind the Registrar's discretion and it is not legislation (Q-12). Every answer in the pilot has to keep that visible, and this question tests it directly."@en-AU ;
     tmk:expectsConcept tmkc:GC-0013,
-        tmkc:GC-0014 ;
+        tmkc:GC-0014,
+        tmkc:GC-0100 ;
     tmk:expectsConceptLabel "condition of registration"@en-AU,
         "endorsement"@en-AU ;
     tmk:goldRecord "CQ-0024" ;

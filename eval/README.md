@@ -11,7 +11,7 @@ facto standard purely because it arrived first.
 
 | Path | What it is | Status |
 |---|---|---|
-| `pilot-scope.md` | The bounded examination area the pilot covers, and what is out | not started — HANDOFF Q1 |
+| ~~`pilot-scope.md`~~ | **withdrawn.** The owner removed the section 43 boundary on 2026-09-08 — the whole Manual is in scope and there is no exclusion list, so there is no boundary to document (ADR-0081, ADR-0096) | not owed |
 | `competency-questions.md` | Ordinary questions the finished system must answer | not started |
 | `gold/` | The expert-created trusted examples | not started — the filenames are fixed, see `gold/README.md` |
 | `prohibited-uses.md` | Conclusions the system must **not** produce | not started |
@@ -40,7 +40,7 @@ approvals, relationship judgements and the prohibited-use list are legal
 judgements. An agent must not author them (CLAUDE.md rule 1).
 
 **One qualified exception, and it does not live here.** `review/seed/` holds
-machine-written *example* records over the pilot area, for experts to correct
+machine-written *example* records over section 43, for experts to correct
 rather than compose (ADR-0043). Nothing in it is approved, nothing in it counts
 toward a Stage 0 deliverable, and it reaches `eval/gold/` only through
 `tmk-transcribe` with an expert's name in `approved_by`. If you find

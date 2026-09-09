@@ -1,10 +1,10 @@
 # Stage 0 — coverage and gaps
 
-**Generated** 2026-09-08 · **Source** `eval/gold/` and `authored/` against the pinned snapshot `c490a9927f1a` · **Regenerate** `tmk-coverage`
+**Generated** 2026-09-09 · **Source** `eval/gold/` and `authored/` against the pinned snapshot `c490a9927f1a` · **Regenerate** `tmk-coverage`
 
 This report is **derived**. It counts what `eval/gold/` holds against the definition of done in `eval/STAGE-0-INPUT-GUIDE.md` §7, and it names what is absent. It does not propose content for any gap, and it must not be read as doing so: every field it reports as empty is one only a domain expert may fill (CLAUDE.md rule 1, guide §9).
 
-**Status:** 0 defect(s), 13 gap(s), 10 note(s); Stage 0 incomplete.
+**Status:** 0 defect(s), 12 gap(s), 10 note(s); Stage 0 incomplete.
 
 ## 1. The board
 
@@ -12,16 +12,15 @@ This report is **derived**. It counts what `eval/gold/` holds against the defini
 
 | Deliverable | Target | Signed | Authored | Status |
 |---|---|---|---|---|
-| Pilot scope, with exclusions | eval/pilot-scope.md | — | — | not written |
 | Competency questions, covering all six categories | at least 6 | 20 | 0 | in band |
 | Prohibited uses, covering all six kinds | at least 6 | 11 | 0 | in band |
-| Gold concepts | 50–100 | 52 | 0 | in band |
+| Gold concepts | 50–100 | 52 | 78 | in band |
 | Gold entities, over an exhaustively annotated chunk set | 100–300 | 55 | 0 | 45 short |
 | Gold relationships | 50–100 | 35 | 0 | 15 short |
 | Search questions | 20–50 | 1 | 0 | 19 short |
 | AI retrieval questions | 20–50 | 10 | 0 | 10 short |
 | Reasoning expectations | at least 1 | 6 | 0 | in band |
-| Concepts sorted into one of the four groups | 50–100 | 0 | 52 | 50 short |
+| Concepts sorted into one of the four groups | 50–100 | 0 | 130 | 50 short |
 | A threshold against every metric | eval/measures.md | — | — | not written |
 
 ## 2. Defects
@@ -32,7 +31,6 @@ None. Everything in `eval/gold/` and `authored/` is well formed and lands where 
 
 ### Deliverables not yet delivered
 
-- **eval/pilot-scope.md** — Pilot scope, with exclusions — not written
 - **entities.yaml** — Gold entities, over an exhaustively annotated chunk set — 55 of 100–300
 - **relationships.yaml** — Gold relationships — 35 of 50–100
 - **search-questions.yaml** — Search questions — 1 of 20–50
@@ -107,13 +105,13 @@ Both lists are read from the schemas, not restated here. §7 requires the set as
 
 ## 7. The authored store
 
-**52 record(s), none of them validated by a trade marks expert.** They may be relied on and they may be served, always carrying that status at the point of use (ADR-0082). None of them becomes approved by being old, by being unchallenged, or by having appeared in a review round somebody worked through — only a signature moves a record, and only `tmk-transcribe` writes one (ADR-0086).
+**208 record(s), none of them validated by a trade marks expert.** They may be relied on and they may be served, always carrying that status at the point of use (ADR-0082). None of them becomes approved by being old, by being unchallenged, or by having appeared in a review round somebody worked through — only a signature moves a record, and only `tmk-transcribe` writes one (ADR-0086).
 
 | Record type | File | Authored | Signed |
 |---|---|---|---|
 | competency_question | `authored/competency-questions.yaml` (absent) | 0 | 20 |
-| concept_type | `authored/concept-types.yaml` (present) | 52 | 0 |
-| gold_concept | `authored/concepts.yaml` (absent) | 0 | 52 |
+| concept_type | `authored/concept-types.yaml` (present) | 130 | 0 |
+| gold_concept | `authored/concepts.yaml` (present) | 78 | 52 |
 | gold_entity | `authored/entities.yaml` (absent) | 0 | 55 |
 | gold_relationship | `authored/relationships.yaml` (absent) | 0 | 35 |
 | gold_retrieval_question | `authored/retrieval-questions.yaml` (absent) | 0 | 10 |
@@ -125,7 +123,7 @@ Both lists are read from the schemas, not restated here. §7 requires the set as
 
 | `authoring_basis` | records | means |
 |---|---|---|
-| corpus_explicit | 0 | the corpus states it in terms; the span shows where |
-| corpus_inferred | 52 | the corpus supports it, but the reading is the agent's |
+| corpus_explicit | 91 | the corpus states it in terms; the span shows where |
+| corpus_inferred | 117 | the corpus supports it, but the reading is the agent's |
 | general_knowledge | 0 | **the corpus does not say this** — written from what the model knows about trade marks law. Unevidenced, not thereby wrong, and a reviewer reaches these first |
 

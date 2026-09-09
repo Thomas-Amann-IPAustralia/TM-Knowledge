@@ -16,19 +16,23 @@ src/tm_knowledge/
     fetch.py      `tmk-fetch-upstream`: bare clone → working data/upstream/
     records.py    typed page / chunk / provision / unit, round-trip faithful
     loader.py     the one door to the corpus, and the join
-  stage0/         the evaluation apparatus (container only — no legal content)
+  authored/       reading authored/ — and refusing a record that cannot say who wrote it
+  stage0/         the evaluation apparatus and the passes that fill it
     schemas.py    validation for the eight Stage 0 record types; where the refs are
     goldset.py    reading eval/gold/ — and refusing to skip a file it cannot name
     intake.py     the workbook column layout, derived from the schemas — one copy
     harness.py    `tmk-harness`: the checks, and the completeness gate (ADR-0018)
     coverage.py   `tmk-coverage`: the gap worklist — reports gaps, never fills them
     blockers.py   `tmk-blockers`: who is waiting on whom, and which decision frees most
-    recon.py      `tmk-recon`: derived counts about a candidate pilot area
-    worksheet.py  `tmk-worksheet`: the Pass B annotation worksheet (ADR-0022)
+    recon.py      `tmk-recon`: derived counts about the corpus, or one provision in it
+    worksheet.py  `tmk-worksheet`: the Pass B worksheet, and the two selectors
+    concepts.py   `tmk-concepts`: concept candidates across all 54 Parts, deterministic
+    typing.py     `tmk-typing`: every concept laid out for sorting into the four groups
     workbook.py   `tmk-workbook`: the intake workbook, with no example rows
     transcribe.py `tmk-transcribe`: workbook in, validated records out
     cli.py        the commands above
-  candidates/     Stage 2–4 candidate generation — NOT YET, and blocked by ADR-0010
+  candidates/     Stage 2–4 candidate generation — not yet; ADR-0010 was superseded
+                  by ADR-0083 and `stage0/concepts.py` is the first pass of it
   vocabulary/     Stage 3 clustering and SKOS emission — not yet
   graph/          Stage 6 RDF emission and named-graph assembly — not yet
   validate/       SHACL runs and validation reporting — not yet
@@ -41,8 +45,11 @@ src/tm_knowledge/
 pip install -e .            # then, in this order:
 tmk-fetch-upstream          # pinned snapshot into data/upstream/ (needs network)
 tmk-fetch-upstream --verify # commit, counts and tree digest — no network
-tmk-recon                   # derived counts about s 43 → data/derived/reports/
-tmk-worksheet               # the Pass B worksheet → data/derived/
+tmk-recon                   # every provision the Manual cites, costed → data/derived/reports/
+tmk-recon --provision X     # one area, the way this ran before the boundary went
+tmk-concepts --write        # concept candidates, all 54 Parts → review/candidates/
+tmk-typing --write          # every concept laid out for sorting → data/derived/
+tmk-worksheet --provision X # the Pass B worksheet for one area → data/derived/
 tmk-harness                 # the Stage 0 harness. Exits 3 today, by design
 tmk-coverage                # the gap worklist → data/derived/reports/
 tmk-blockers                # the review queue as a graph → data/derived/reports/

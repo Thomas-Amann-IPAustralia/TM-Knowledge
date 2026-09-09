@@ -45,8 +45,14 @@ def _gold(concepts, types=(), retired=()) -> goldset.GoldSet:
     )
 
 
-def _authored(*records, sound=True) -> authored_store.AuthoredSet:
-    """An authored store holding exactly these typings.
+def _authored(*records, concepts=(), sound=True) -> authored_store.AuthoredSet:
+    """An authored store holding exactly these typings and these concepts.
+
+    Positional arguments are typings, which is what the store held when this
+    helper was written. `concepts=` holds authored concepts, which the sheet
+    started reading at ADR-0095 — they are a separate argument rather than a
+    second positional list because a caller that muddled the two would build a
+    store whose typings type nothing.
 
     `sound=False` builds entries carrying an envelope error, which is how a
     record that could not say who wrote it reaches the code under test.
@@ -59,20 +65,19 @@ def _authored(*records, sound=True) -> authored_store.AuthoredSet:
         "reasoning": "«why this group»",
     }
     errors = () if sound else (authored_store.SchemaError(None, "authored", "«broken»"),)
-    return authored_store.AuthoredSet(
-        root=Path("«not read»"),
-        entries=tuple(
-            authored_store.AuthoredRecord(
-                record_type="concept_type",
-                record=dict(record),
-                envelope=dict(envelope),
-                source_file=Path("«not read»"),
-                position=position,
-                envelope_errors=errors,
-            )
-            for position, record in enumerate(records)
-        ),
-    )
+    entries = [
+        authored_store.AuthoredRecord(
+            record_type=record_type,
+            record=dict(record),
+            envelope=dict(envelope),
+            source_file=Path("«not read»"),
+            position=position,
+            envelope_errors=errors,
+        )
+        for record_type, group in (("gold_concept", concepts), ("concept_type", records))
+        for position, record in enumerate(group)
+    ]
+    return authored_store.AuthoredSet(root=Path("«not read»"), entries=tuple(entries))
 
 
 #: Nothing authored. The state of the store before 2026-09-08, and the state
@@ -118,7 +123,11 @@ def test_the_row_carries_the_summary_and_no_type():
     (row,) = rows(_gold([CONNOTATION]), NOTHING_AUTHORED)
     assert row["id"] == "GT-0001"
     assert row["concept"] == "GC-0001"
-    assert row["notes"] == summarise(CONNOTATION)
+    assert row["notes"].startswith(summarise(CONNOTATION))
+    # And it says where the concept came from. Since ADR-0095 the sheet carries
+    # concepts from both stores, and which store a row's concept came from is the
+    # difference between a label an expert chose and one a machine did.
+    assert row["notes"].endswith("[concept signed by an expert]")
     assert "type" not in row
 
 
@@ -215,3 +224,61 @@ def test_an_authored_id_is_never_minted_a_second_time():
     proposed = {"id": "GT-0031", "concept": "GC-0001", "type": "relevant_factor"}
     built = rows(_gold(concepts), _authored(proposed))
     assert [row["id"] for row in built] == ["GT-0031", "GT-0032"]
+
+# ---------------------------------------------------------------------------
+# Concepts from both stores — ADR-0095
+# ---------------------------------------------------------------------------
+
+
+AUTHORED_CONCEPT = {
+    "id": "GC-0100",
+    "pref_label": "«a label a machine chose»",
+    "alt_labels": ["«a synonym a machine chose»"],
+    "not_labels": ["«a near-miss a machine chose»"],
+}
+
+
+def test_a_concept_only_the_authored_store_holds_still_reaches_the_sheet():
+    """The whole of what ADR-0095 changed.
+
+    Before it, `rows()` read `eval/gold/concepts.yaml` and nothing else, so the
+    workbook could only ever hold the 52 concepts found inside the section 43
+    boundary — however many the repository authored from the other 53 Parts.
+    """
+    prepared = rows(
+        _gold([CONNOTATION]),
+        _authored(concepts=[AUTHORED_CONCEPT]),
+    )
+    assert [row["concept"] for row in prepared] == ["GC-0001", "GC-0100"]
+
+
+def test_the_row_says_which_store_its_concept_came_from():
+    """A wrong group is a dropdown away from right and a wrong concept is not, so
+    the reviewer is told which kind of row they are on."""
+    signed_row, authored_row = rows(
+        _gold([CONNOTATION]),
+        _authored(concepts=[AUTHORED_CONCEPT]),
+    )
+    assert signed_row["notes"].endswith("[concept signed by an expert]")
+    assert authored_row["notes"].endswith("[concept authored by a machine, unreviewed]")
+
+
+def test_a_refused_authored_concept_never_reaches_the_sheet():
+    """A record whose envelope will not validate has no usable provenance, and
+    must not arrive in front of a reviewer looking exactly like one that has
+    (ADR-0079)."""
+    prepared = rows(
+        _gold([CONNOTATION]),
+        _authored(concepts=[AUTHORED_CONCEPT], sound=False),
+    )
+    assert [row["concept"] for row in prepared] == ["GC-0001"]
+
+
+def test_a_signed_concept_wins_over_an_authored_one_with_the_same_id():
+    """One `GC-0123` exists in this project (ADR-0080 c1). If both stores hold it
+    the signed record is the one a reviewer sees, and the sheet never shows the
+    id twice."""
+    duplicate = dict(AUTHORED_CONCEPT, id="GC-0001", pref_label="«a machine's version»")
+    prepared = rows(_gold([CONNOTATION]), _authored(concepts=[duplicate]))
+    assert [row["concept"] for row in prepared] == ["GC-0001"]
+    assert prepared[0]["notes"].startswith(summarise(CONNOTATION))

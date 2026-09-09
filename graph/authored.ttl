@@ -1,3 +1,5 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix tmk: <https://data.ipaustralia.gov.au/tmk/ns/> .
 @prefix tmka: <https://data.ipaustralia.gov.au/tmk/assertion/> .
 @prefix tmkc: <https://data.ipaustralia.gov.au/tmk/concept/> .
@@ -151,6 +153,1966 @@ tmkc:GC-0051 tmk:typedBy tmka:GT-0051 .
 
 tmkc:GC-0052 a tmk:RelevantFactor ;
     tmk:typedBy tmka:GT-0052 .
+
+tmkc:GC-0053 a skos:Concept,
+        tmk:GroundOfRefusal,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual treats the grounds as a closed set fixed by the Act and Regulations. Whether a formality failure under paragraph 33(1)(a) is a 'ground for rejection' in the same sense as sections 39-44 is a real question the passage leaves open."@en-AU ;
+    skos:altLabel "ground of rejection"@en-AU,
+        "grounds for rejecting"@en-AU,
+        "grounds for rejection"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "ground for rejection"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states in terms that the Act and Regulations contain all the grounds, and section 33(3) makes the Registrar's satisfaction that a ground exists the trigger for rejection. The concept is therefore the corpus's own, not a label imposed on it."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231> ;
+    tmk:expertShouldCheck "Whether a failure of the formality requirements under paragraph 33(1)(a) belongs inside this concept or beside it. The Manual's Part 10 treats formalities separately and section 33 lists them separately, which argues for beside."@en-AU ;
+    tmk:goldRecord "GC-0053" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(1)(b)> ;
+    tmk:notLabel "ground for revocation"@en-AU,
+        "ground of opposition"@en-AU,
+        "objection"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231> ;
+    tmk:typedBy tmka:GT-0053 .
+
+tmkc:GC-0054 a skos:Concept,
+        tmk:GroundOfRefusal,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual records that there are currently no regulations made for the purposes of section 18, so this ground is never raised in examination. The concept is real in law and inert in practice, and that gap is the most useful thing about the record."@en-AU ;
+    skos:altLabel "prohibited signs"@en-AU,
+        "sign that is not to be used as a trade mark"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "prohibited sign"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 39(1) names the class by reference to regulations under section 18, and the Manual states that no such regulations exist. Both halves are explicit, so the concept is recorded with its inertness attached rather than as a live ground."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/1%231> ;
+    tmk:expertShouldCheck "Whether 'prohibited sign' is the right preferred label. The Manual's Part 31 title pairs it with 'prescribed', and the Act itself uses neither word for s 39(1)."@en-AU ;
+    tmk:goldRecord "GC-0054" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s18>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39(1)> ;
+    tmk:notLabel "prescribed sign"@en-AU,
+        "scandalous matter"@en-AU,
+        "sign so nearly resembling"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/1%231> ;
+    tmk:typedBy tmka:GT-0054 .
+
+tmkc:GC-0055 a skos:Concept,
+        tmk:GroundOfRefusal,
+        tmk:LegalConcept ;
+    rdfs:comment "Unlike s 39(1) this ground is live: the Manual records six types of prescribed sign in the regulations. Note the modality — subsection 39(2) says an application 'may' be rejected, where s 39(1) says 'must'."@en-AU ;
+    skos:altLabel "prescribed signs"@en-AU,
+        "sign prescribed for the purposes of subsection 39(2)"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "prescribed sign"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Both the Act and the Manual state the class in terms, and the Manual adds that six types are prescribed. The record keeps the 'may' visible because the difference between may and must across two subsections of one section is exactly the kind of thing a reader loses in a summary."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> ;
+    tmk:expertShouldCheck "Whether the six prescribed types should each be a narrower concept. The Manual lists them at Part 31.4 and an examiner reasons about them individually."@en-AU ;
+    tmk:goldRecord "GC-0055" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39(2)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39(2)(a)> ;
+    tmk:notLabel "prohibited sign"@en-AU,
+        "scandalous matter"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> ;
+    tmk:typedBy tmka:GT-0055 .
+
+tmkc:GC-0056 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "A resemblance test that is not the section 44 one. The comparison is between the applicant's sign and a prescribed or prohibited sign, and the threshold is 'likely to be taken for it' rather than 'likely to deceive or cause confusion'."@en-AU ;
+    skos:altLabel "so nearly resembling as to be likely to be taken for it"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "so nearly resembling"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The phrase is the Act's and the Manual quotes it as the operative test for subparagraph 39(2)(b)(i). It is held as a separate concept from deceptive similarity because the two use different words for different comparisons, and collapsing them would let a section 44 authority be cited into a section 39 question."@en-AU ;
+    tmk:confidence 7.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> ;
+    tmk:expertShouldCheck "Whether practice in fact applies the section 10 case law to this test. If it does, the two concepts are more closely related than this record says."@en-AU ;
+    tmk:goldRecord "GC-0056" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39(2)(b)> ;
+    tmk:notLabel "deceptively similar"@en-AU,
+        "substantially identical"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> ;
+    tmk:typedBy tmka:GT-0056 .
+
+tmkc:GC-0057 a skos:Concept,
+        tmk:GroundOfRefusal,
+        tmk:LegalConcept ;
+    rdfs:comment "The shortest ground in the Act and the one most likely to be confused with a formality requirement. It bites on the mark itself, not on the paperwork."@en-AU ;
+    skos:altLabel "graphical representation"@en-AU,
+        "not able to be represented graphically"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "cannot be represented graphically"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 40 states the ground in one sentence. The concept is held because it is a distinct statutory ground, and it is worth distinguishing from the Part 10 formality about how a representation is filed — the Manual's Part 21 shows the two interacting for non-traditional signs."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part10/3%231> ;
+    tmk:expertShouldCheck "The definition source. Part 10.3 is about representing the mark on the application; an expert may prefer a Part 21 passage that discusses s 40 directly."@en-AU ;
+    tmk:goldRecord "GC-0057" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s40> ;
+    tmk:notLabel "non-traditional sign"@en-AU,
+        "not capable of distinguishing"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s40> ;
+    tmk:typedBy tmka:GT-0057 .
+
+tmkc:GC-0058 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "The section 41 ground turns on this and nothing else; inherent adaptation and use are the two routes to it, not synonyms for it. The Manual's Part 22 is titled 'Section 41 - Capable of Distinguishing'."@en-AU ;
+    skos:altLabel "capacity to distinguish"@en-AU,
+        "not capable of distinguishing"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "capable of distinguishing"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Subsection 41(1) states the ground and subsection 41(2) makes 'taken not to be capable of distinguishing' depend on 41(3) or 41(4). The concept is therefore the top of a small structure the Manual works through in order, and it is held separately from inherent adaptation for that reason."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:expertShouldCheck "Whether 'distinctive' belongs in not_labels. It is the pre-1995 word and the Manual still uses it when discussing the 1955 Act, which may make it a historical alt_label rather than a near-miss."@en-AU ;
+    tmk:goldRecord "GC-0058" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(2)> ;
+    tmk:notLabel "deceptively similar"@en-AU,
+        "distinctive"@en-AU,
+        "inherently adapted to distinguish"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:typedBy tmka:GT-0058 .
+
+tmkc:GC-0059 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "The Manual sets out a two-part process — ordinary signification, then the likelihood that other traders would legitimately wish to use the mark — and sorts every mark examined into one of three categories on the answer."@en-AU ;
+    skos:altLabel "inherent adaptation"@en-AU,
+        "inherent capacity to distinguish"@en-AU,
+        "inherently adapted to distinguish"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "inherent adaptation to distinguish"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states the question and its two-part method in terms. The concept is separate from capability because the Act treats inherent adaptation as one input to capability and use as the other, and the three-category sort in Part 22.3 only makes sense against inherent adaptation alone."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:expertShouldCheck "Whether 'inherent capacity to distinguish' really is a synonym. The Manual uses 'capacity' and 'adaptation' in adjacent sentences and an expert may hold them apart."@en-AU ;
+    tmk:goldRecord "GC-0059" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)(a)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)(a)> ;
+    tmk:notLabel "acquired distinctiveness"@en-AU,
+        "capable of distinguishing"@en-AU,
+        "evidence of use"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:typedBy tmka:GT-0059 .
+
+tmkc:GC-0060 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "The first half of the Manual's two-part inherent-adaptation process. It is assessed 'in the light of the applied for goods and/or services', so it is not the word's meaning in the abstract."@en-AU ;
+    skos:altLabel "ordinary signification of the trade mark"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "ordinary signification"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual names it as the first step of a two-part process and ties it to the goods and services applied for. It is held apart from 'connotation' — a section 43 concept this repository already holds — because the two ask different questions of the same mark and share no statutory text."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:expertShouldCheck "The relationship to connotation. An expert may see them as two names for one underlying idea applied under different sections, which would make this a 'related' rather than a distinct concept."@en-AU ;
+    tmk:goldRecord "GC-0060" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)> ;
+    tmk:notLabel "connotation"@en-AU,
+        "denotation"@en-AU,
+        "dictionary meaning"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:typedBy tmka:GT-0060 .
+
+tmkc:GC-0061 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "The second half of the two-part process. The label is this repository's, not the Manual's — the Manual states the idea in a clause rather than naming it — and that is the most likely thing to be wrong about this record."@en-AU ;
+    skos:altLabel "other traders might legitimately wish to use"@en-AU,
+        "the need of other traders"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "other traders' legitimate desire to use"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The corpus states the idea in terms but gives it no name, so the record is corpus_explicit as to the content and an invention as to the label. It is held because an examiner reasons with it constantly and a vocabulary without it cannot represent the second half of the Manual's own method."@en-AU ;
+    tmk:confidence 6e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:expertShouldCheck "The preferred label, which no passage supports. The case law phrase is closer to 'the legitimate desire of other traders', and an expert should replace this label rather than accept it."@en-AU ;
+    tmk:goldRecord "GC-0061" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)> ;
+    tmk:notLabel "honest concurrent use"@en-AU,
+        "ordinary signification"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:typedBy tmka:GT-0061 .
+
+tmkc:GC-0062 a skos:Concept,
+        tmk:GroundOfRefusal,
+        tmk:LegalConcept ;
+    rdfs:comment "One of the two limbs of section 42; the Manual's Part 30 pairs it with use contrary to law but the Act keeps them as separate paragraphs, and only this one is about the mark's content rather than the consequences of using it."@en-AU ;
+    skos:altLabel "scandalous sign"@en-AU,
+        "scandalous signs"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "scandalous matter"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Both the Act and the Manual state the ground in one sentence. Held apart from 'use contrary to law' because paragraph 42(a) looks at what the mark contains and paragraph 42(b) at what using it would do — different evidence answers each."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/2%231> ;
+    tmk:expertShouldCheck "Whether the preferred label should be the Act's 'scandalous matter' or the Manual's heading 'scandalous signs'. The Act's phrase is narrower — matter within a sign — and this record follows the Act."@en-AU ;
+    tmk:goldRecord "GC-0062" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42(a)> ;
+    tmk:notLabel "prescribed sign"@en-AU,
+        "prohibited sign"@en-AU,
+        "use contrary to law"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/2%231> ;
+    tmk:typedBy tmka:GT-0062 .
+
+tmkc:GC-0063 a skos:Concept,
+        tmk:GroundOfRefusal,
+        tmk:LegalConcept ;
+    rdfs:comment "The second limb of section 42. The Manual's Annex A1 lists the other legislation that may trigger it, which is what makes this ground unusual: its content lives outside the Trade Marks Act entirely."@en-AU ;
+    skos:altLabel "contrary to law"@en-AU,
+        "use would be contrary to law"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "use contrary to law"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Stated in terms by both the Act and the Manual. Held separately from scandalous matter for the reason given on that record."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/3%231> ;
+    tmk:expertShouldCheck "Whether the ground reaches use that would be contrary to law only in some circumstances. The Manual's annexes suggest practice draws that line, and this record does not carry it."@en-AU ;
+    tmk:goldRecord "GC-0063" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42(b)> ;
+    tmk:notLabel "prohibited sign"@en-AU,
+        "scandalous matter"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part30/3%231> ;
+    tmk:typedBy tmka:GT-0063 .
+
+tmkc:GC-0064 a skos:Concept,
+        tmk:GroundOfRefusal,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual's Part 26 title is 'Section 44 and Regulation 4.15A - Conflict with Other Signs'. Note that the Manual states the purpose of the section as preventing confusion, which is the same language section 43 uses for a different ground — the two must not be collapsed."@en-AU ;
+    skos:altLabel "citation"@en-AU,
+        "conflicting trade mark"@en-AU,
+        "section 44 ground"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "conflict with other signs"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Held as the ground itself, with the comparison tests beneath it as separate concepts. The alt_label 'citation' is included because that is what examiners call the earlier mark in practice and a vocabulary that could not match it would miss most of Part 26 and all of Part 27."@en-AU ;
+    tmk:confidence 7.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/1%231> ;
+    tmk:expertShouldCheck "Whether 'citation' is really a synonym for the ground or the name of the cited mark. If the second, it is a separate concept and this alt_label is wrong."@en-AU ;
+    tmk:goldRecord "GC-0064" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(2)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.15A> ;
+    tmk:notLabel "likely to deceive or cause confusion"@en-AU,
+        "prescribed sign"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/1%231> ;
+    tmk:typedBy tmka:GT-0064 .
+
+tmkc:GC-0065 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "One of the two comparisons section 44 turns on, and the only one the Act does not define. The Manual gives it no definition either — it states that the ground depends on the two comparisons and then works through the case law."@en-AU ;
+    skos:altLabel "substantially identical with"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "substantially identical"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The corpus names the test in terms and pairs it with deceptive similarity without defining it. The record says so rather than supplying a definition from general knowledge, which is what ADR-0079 guard 2 requires."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/5%231> ;
+    tmk:expertShouldCheck "That this record deliberately carries no definition. If the Manual defines the test somewhere this pass did not reach, the definition_sources are wrong rather than incomplete."@en-AU ;
+    tmk:goldRecord "GC-0065" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(a)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(2)(a)> ;
+    tmk:notLabel "deceptively similar"@en-AU,
+        "identical"@en-AU,
+        "so nearly resembling"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/5%231> ;
+    tmk:typedBy tmka:GT-0065 .
+
+tmkc:GC-0066 a skos:Concept,
+        tmk:Exception,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual sets out five criteria and makes honesty a threshold requirement without which paragraph 44(3)(a) cannot be satisfied. Note the modality: if satisfied, the Registrar *may* accept — this is a discretion, not an entitlement."@en-AU ;
+    skos:altLabel "concurrent use"@en-AU,
+        "honest concurrent use of the 2 trade marks"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "honest concurrent use"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states what the doctrine is for, how it is established and that honesty is a threshold. Held as an exception rather than as a ground because it takes a case out of a ground that would otherwise apply."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/2%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/3%231> ;
+    tmk:expertShouldCheck "Whether the five criteria should each be a narrower concept. The Manual lists them at 28.2 and says no single criterion is determinative, which is the sort of structure a knowledge graph is good at and a flat concept is not."@en-AU ;
+    tmk:goldRecord "GC-0066" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)(a)> ;
+    tmk:notLabel "evidence of use"@en-AU,
+        "other circumstances"@en-AU,
+        "prior use"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/2%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/3%231> ;
+    tmk:typedBy tmka:GT-0066 .
+
+tmkc:GC-0067 a skos:Concept,
+        tmk:Exception,
+        tmk:LegalConcept ;
+    rdfs:comment "Distinguished from honest concurrent use by its modality as much as its content: where s 44(3) says the Registrar *may* accept, s 44(4) says the Registrar *may not reject*. The Manual sets out the elements an applicant must satisfy."@en-AU ;
+    skos:altLabel "continuous prior use"@en-AU,
+        "prior continuous use"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "prior use"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states the provision, the period and the elements. The record keeps the 'may not reject' wording in evidence because that modality is the difference between this and honest concurrent use and it is easily lost in paraphrase."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/6%231> ;
+    tmk:expertShouldCheck "Whether continuity of use is a separate concept. The Manual makes 'continuous' do a lot of work in the elements list and an expert may want it held apart."@en-AU ;
+    tmk:goldRecord "GC-0067" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(4)> ;
+    tmk:notLabel "first use"@en-AU,
+        "honest concurrent use"@en-AU,
+        "other circumstances"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/6%231> ;
+    tmk:typedBy tmka:GT-0067 .
+
+tmkc:GC-0068 a skos:Concept,
+        tmk:Exception,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual grounds this in the commercial realities that make acceptance proper notwithstanding a real risk of deception or confusion. It is the most open-textured of the three ways round section 44."@en-AU ;
+    skos:altLabel "other circumstances making it proper to accept"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "other circumstances"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states what the paragraph turns on in one sentence. Held separately from honest concurrent use because paragraph 44(3)(b) is an alternative to 44(3)(a), not a gloss on it."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/4%231> ;
+    tmk:expertShouldCheck "Whether 'notwithstanding a real risk of deception or confusion' should appear in the concept at all. It is the Manual's gloss on Bali No. 2 rather than the statutory test, and it is doing a lot of work in this record."@en-AU ;
+    tmk:goldRecord "GC-0068" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)(b)> ;
+    tmk:notLabel "conditions and limitations"@en-AU,
+        "honest concurrent use"@en-AU,
+        "prior use"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/4%231> ;
+    tmk:typedBy tmka:GT-0068 .
+
+tmkc:GC-0069 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The Act defines 'limitations' in section 6 and uses 'conditions or limitations' as a pair in sections 33(2) and 44(3). The Manual treats them as the price of acceptance under subsection 44(3)."@en-AU ;
+    skos:altLabel "conditions and limitations"@en-AU,
+        "limitations"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "conditions or limitations"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Act states the power and defines one half of the pair. The concept is held as the pair because that is how both the Act and the Manual use it, and holding 'limitations' alone would leave 'conditions' unrepresented."@en-AU ;
+    tmk:confidence 7.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/5%231> ;
+    tmk:expertShouldCheck "Whether conditions and limitations are one concept or two. The Act defines only limitations, which is evidence for two."@en-AU ;
+    tmk:goldRecord "GC-0069" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(2)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/limitations> ;
+    tmk:notLabel "disclaimer"@en-AU,
+        "endorsement"@en-AU,
+        "other circumstances"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/limitations> ;
+    tmk:typedBy tmka:GT-0069 .
+
+tmkc:GC-0070 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "The Manual is explicit that classification is not the determining factor, which is the single most useful thing in this record: the class number and the similarity question are different things and are routinely confused."@en-AU ;
+    skos:altLabel "goods of the same description"@en-AU,
+        "similar goods"@en-AU,
+        "similar services"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "similarity of goods and services"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 14 defines the term and the Manual states the practice point that classification does not settle it. Both are explicit."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/4%231> ;
+    tmk:expertShouldCheck "Whether 'goods of the same description' is a synonym or a narrower concept. Section 14(1)(b) makes it one of two ways goods can be similar, which argues narrower."@en-AU ;
+    tmk:goldRecord "GC-0070" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14(2)> ;
+    tmk:notLabel "classification of goods and services"@en-AU,
+        "closely related goods and services"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s14>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/4%231> ;
+    tmk:typedBy tmka:GT-0070 .
+
+tmkc:GC-0071 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "Section 44 pairs 'similar goods' with 'closely related services' and vice versa. Unlike similarity, the Act does not define closeness of relation anywhere."@en-AU ;
+    skos:altLabel "closely related goods"@en-AU,
+        "closely related services"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "closely related goods and services"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Act uses the phrase as an operative term and defines it nowhere, so the record holds the concept and says the corpus does not define it. Held apart from similarity because the two appear in the same paragraph doing different work."@en-AU ;
+    tmk:confidence 7e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/4%231> ;
+    tmk:expertShouldCheck "Whether the Manual defines this somewhere in Part 26 that this pass did not reach. The record's definition_sources point at the similarity discussion, which is adjacent rather than on point."@en-AU ;
+    tmk:goldRecord "GC-0071" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(1)(a)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(2)(a)> ;
+    tmk:notLabel "similar goods"@en-AU,
+        "similar services"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    tmk:typedBy tmka:GT-0071 .
+
+tmkc:GC-0072 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual makes the point that matters most here: the definition of trade mark is closed and exhaustive, while the definition of sign is open and inclusive. A sign is a trade mark only when used or intended to be used to distinguish in the course of trade."@en-AU ;
+    skos:altLabel "mark"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 17 defines it in terms and the Manual explains the character of the definition. Held apart from 'sign' because the Manual says in one sentence why they are not the same kind of definition."@en-AU ;
+    tmk:confidence 9e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/3%231> ;
+    tmk:expertShouldCheck "Whether 'mark' is really an alt_label. The Manual uses it as the 1955 Act's word and the 1995 Act deliberately replaced it, which may make it historical rather than current."@en-AU ;
+    tmk:goldRecord "GC-0072" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/trade-mark> ;
+    tmk:notLabel "business name"@en-AU,
+        "registered trade mark"@en-AU,
+        "sign"@en-AU,
+        "trade name"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/3%231> ;
+    tmk:typedBy tmka:GT-0072 .
+
+tmkc:GC-0073 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Section 6's list is inclusive, so the enumerated items — letter, word, name, signature, numeral, device, brand, heading, label, ticket, aspect of packaging, shape, colour, sound, scent — are examples rather than a closed set. That is the whole basis of the Manual's Part 21 on non-traditional signs."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "sign"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined by the Act and characterised by the Manual, both in terms."@en-AU ;
+    tmk:confidence 9e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/3%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> ;
+    tmk:expertShouldCheck "Whether the enumerated items should be narrower concepts now. Part 21 develops shape, colour, sound, scent and moving images and leaves the rest as a list."@en-AU ;
+    tmk:goldRecord "GC-0073" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign> ;
+    tmk:notLabel "device"@en-AU,
+        "representation of the trade mark"@en-AU,
+        "trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/3%231> ;
+    tmk:typedBy tmka:GT-0073 .
+
+tmkc:GC-0074 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Not a statutory category. The Manual groups shapes, colours, sounds, scents, moving images, holograms and gestures under this heading because the 1995 Act broadened the definition of a trade mark to reach them."@en-AU ;
+    skos:altLabel "non-traditional signs"@en-AU,
+        "non-traditional trade mark"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "non-traditional sign"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The Manual devotes a Part to the category and names it in the Part title, but never defines it — so the record is corpus_inferred and says so. It is held because the grouping drives practice: these are the signs where section 40 and the representation requirements bite hardest."@en-AU ;
+    tmk:confidence 7e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> ;
+    tmk:expertShouldCheck "Which signs are inside the category. This record takes the Manual's Part 21 contents as the extension, and an expert may draw it differently."@en-AU ;
+    tmk:goldRecord "GC-0074" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s40>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign> ;
+    tmk:notLabel "composite trade mark"@en-AU,
+        "device"@en-AU,
+        "sign"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> ;
+    tmk:typedBy tmka:GT-0074 .
+
+tmkc:GC-0075 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Registrable because section 6 names 'shape' in the definition of sign. The Manual records that this reversed the pre-1995 position, in which a mark had to be something separate from the goods."@en-AU ;
+    skos:altLabel "shape (three-dimensional) trade marks"@en-AU,
+        "three-dimensional trade mark"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "shape trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states the position and its statutory basis in one sentence."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/3%231> ;
+    tmk:expertShouldCheck "Whether the historical Coca-Cola position belongs in the record. It is in the same passage and this record leaves it in the notes rather than the labels."@en-AU ;
+    tmk:goldRecord "GC-0075" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign> ;
+    tmk:notLabel "colour trade mark"@en-AU,
+        "composite trade mark"@en-AU,
+        "device"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/3%231> ;
+    tmk:typedBy tmka:GT-0075 .
+
+tmkc:GC-0076 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual distinguishes a colour used as the trade mark from colour as an aspect of packaging or of a label — the same colour can be either, and which it is changes the examination."@en-AU ;
+    skos:altLabel "colour and coloured trade marks"@en-AU,
+        "coloured trade mark"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "colour trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Stated in terms at the head of the Manual's section on colour."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/4%231> ;
+    tmk:expertShouldCheck "Whether the two uses of colour the Manual distinguishes should be two concepts."@en-AU ;
+    tmk:goldRecord "GC-0076" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign> ;
+    tmk:notLabel "composite trade mark"@en-AU,
+        "device"@en-AU,
+        "shape trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/4%231> ;
+    tmk:typedBy tmka:GT-0076 .
+
+tmkc:GC-0077 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual's test is functional rather than formal: whatever the sound is, it must serve the purpose of identifying the trade source."@en-AU ;
+    skos:altLabel "auditory trade mark"@en-AU,
+        "sound (auditory) trade marks"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "sound trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual opens its section on sound marks with the definition and closes the paragraph with the functional requirement."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/6%231> ;
+    tmk:expertShouldCheck "Whether the Manual's 'sensory trade marks' heading should be a broader concept over sound and scent."@en-AU ;
+    tmk:goldRecord "GC-0077" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign> ;
+    tmk:notLabel "scent trade mark"@en-AU,
+        "sign"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/6%231> ;
+    tmk:typedBy tmka:GT-0077 .
+
+tmkc:GC-0078 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual identifies graphical representation as the hard problem for scent, which ties this concept to the section 40 ground more tightly than any other sign kind."@en-AU ;
+    skos:altLabel "olfactory trade mark"@en-AU,
+        "scent trade marks"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "scent trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Stated in terms. The link to section 40 is the Manual's own point and is the reason the record carries s 40 in its legislative basis."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/7%231> ;
+    tmk:expertShouldCheck "The legislative_basis. `TMA1995/s40` is this record's inference from the phrase 'represent graphically', not a citation in the passage."@en-AU ;
+    tmk:goldRecord "GC-0078" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s40>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/sign> ;
+    tmk:notLabel "sign"@en-AU,
+        "sound trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/7%231> ;
+    tmk:typedBy tmka:GT-0078 .
+
+tmkc:GC-0079 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "A single application for two or more marks that resemble each other in material particulars and differ only in the ways section 51 lists. The 'material particulars' requirement is what does the work and the Manual gives it its own numbered section."@en-AU ;
+    skos:altLabel "series"@en-AU,
+        "series application"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "series of trade marks"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Both the Act and the Manual state it in terms."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part13/1%231> ;
+    tmk:expertShouldCheck "Whether the allowable differences in section 51(1)(a)–(c) should be narrower concepts. The Manual gives them their own section."@en-AU ;
+    tmk:goldRecord "GC-0079" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51(1)> ;
+    tmk:notLabel "composite trade mark"@en-AU,
+        "divisional application"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part13/1%231> ;
+    tmk:typedBy tmka:GT-0079 .
+
+tmkc:GC-0080 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "A third resemblance test, and the corpus defines it no better than it defines substantial identity. Distinct from both section 44 comparisons: it asks whether two marks of one owner are close enough to share an application."@en-AU ;
+    skos:altLabel "resemble each other in material particulars"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "material particulars"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Act uses the phrase as the operative requirement for a series. Held apart from the section 44 comparisons because it answers a different question between different parties, and because the repository now holds three resemblance tests that a reader could easily merge."@en-AU ;
+    tmk:confidence 7e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part13/2%231~1> ;
+    tmk:expertShouldCheck "The definition source. `TMM/Part13/2#1~1` is the Manual's section on material particulars and should be read to confirm it defines rather than merely applies the test."@en-AU ;
+    tmk:goldRecord "GC-0080" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51(1)> ;
+    tmk:notLabel "deceptively similar"@en-AU,
+        "substantially identical"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51> ;
+    tmk:typedBy tmka:GT-0080 .
+
+tmkc:GC-0081 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:RelevantFactor ;
+    rdfs:comment "The Manual calls use a concept fundamental to trade mark law and lists the questions it bears on: capability to distinguish, honest concurrent or prior use, ownership. Section 6 says its meaning is 'affected by' subsections 7(1), (2) and (3) — which is not the same as being defined by them."@en-AU ;
+    skos:altLabel "trade mark use"@en-AU,
+        "use"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "use of a trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states the concept's place in the scheme and the Act tells us where its meaning is affected. Held as one concept with the specialised uses — authorised, prior, honest concurrent — as separate records beside it, because each answers a different question under a different provision."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1%231> ;
+    tmk:expertShouldCheck "Whether 'use in the course of trade' should be the preferred label. Section 17 makes the course of trade part of what a trade mark is, and the bare word 'use' may be too wide for a vocabulary that also holds authorised use and prior use."@en-AU ;
+    tmk:goldRecord "GC-0081" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/use-of-a-trade-mark>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7> ;
+    tmk:notLabel "authorised use"@en-AU,
+        "evidence of use"@en-AU,
+        "honest concurrent use"@en-AU,
+        "prior use"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/use-of-a-trade-mark>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1%231> ;
+    tmk:typedBy tmka:GT-0081 .
+
+tmkc:GC-0082 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:RelevantFactor ;
+    rdfs:comment "Control by the owner is the whole of it: section 8(2) makes use authorised only to the extent the user acts under the owner's control. Section 7(3) then treats authorised use as use by the owner, which is why it matters to section 41 and section 44(4)."@en-AU ;
+    skos:altLabel "authorised use of a trade mark"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "authorised use"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 8 defines it and limits it by control. Held apart from 'authorised user' because the Act defines the person in 8(1) and the use in 8(2), and evidence questions attach to the second."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1%231> ;
+    tmk:expertShouldCheck "Whether the definition source should be a Part 19A passage on control rather than the general opening. This record cites the opening because it names authorised use in the list of questions use bears on."@en-AU ;
+    tmk:goldRecord "GC-0082" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s7(3)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8(2)> ;
+    tmk:notLabel "assignment"@en-AU,
+        "authorised user"@en-AU,
+        "use of a trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> ;
+    tmk:typedBy tmka:GT-0082 .
+
+tmkc:GC-0083 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The person, as against the use. Section 8(1) makes control the test for both, but the Act keeps them in separate subsections and section 26 gives the authorised user rights of its own."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "authorised user"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined in terms by section 8(1). Note the repository already holds GC-0035 for this term from the section 43 pilot; this record is written from the statutory definition rather than from Part 29's use of the phrase, and the two should be reconciled by a reviewer rather than by an agent."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1%231> ;
+    tmk:expertShouldCheck "The overlap with the signed GC-0035. If they are the same concept this record should be retired in favour of the signed one; if the section 43 sense is narrower, both stand and need a relationship between them."@en-AU ;
+    tmk:goldRecord "GC-0083" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/authorised-user>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8(1)> ;
+    tmk:notLabel "authorised use"@en-AU,
+        "predecessor in title"@en-AU,
+        "registered owner"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> ;
+    tmk:typedBy tmka:GT-0083 .
+
+tmkc:GC-0084 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Defined by the Register: the person in whose name the mark is registered. That is narrower than ownership at common law, and the Manual's Part 19B treats the registration as personal property held by that person."@en-AU ;
+    skos:altLabel "owner of the trade mark"@en-AU,
+        "registered proprietor"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "registered owner"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined by the Act in terms; the Manual supplies the property characterisation the definition sits inside."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19B/1%231> ;
+    tmk:expertShouldCheck "Whether 'owner of the trade mark' is safe as an alt_label. The Act uses that phrase in section 8 for a mark that need not be registered, so the alt_label may be too wide."@en-AU ;
+    tmk:goldRecord "GC-0084" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s21(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-owner> ;
+    tmk:notLabel "applicant"@en-AU,
+        "authorised user"@en-AU,
+        "predecessor in title"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-owner>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19B/1%231> ;
+    tmk:typedBy tmka:GT-0084 .
+
+tmkc:GC-0085 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:RelevantFactor ;
+    rdfs:comment "Load-bearing in two places at once: section 41(5) makes a predecessor's use count as the applicant's for distinctiveness, and section 44(4) does the same for prior use. The section 6 definition itself is a stub that continues into a list."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "predecessor in title"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Act states the consequence in terms in section 41(5); the section 6 definition is a stub whose text does not carry the substance, so the evidence is drawn from the operative provision instead."@en-AU ;
+    tmk:confidence 7.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/6%231> ;
+    tmk:expertShouldCheck "Whether the concept should carry the section 6 list as narrower concepts. The stub continues into subparagraphs this record does not reach."@en-AU ;
+    tmk:goldRecord "GC-0085" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(5)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(4)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/predecessor-in-title> ;
+    tmk:notLabel "assignment"@en-AU,
+        "authorised user"@en-AU,
+        "registered owner"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:typedBy tmka:GT-0085 .
+
+tmkc:GC-0086 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Defined narrowly by the Act as an assignment by act of the parties. Transmission is the other half of the pair and covers what happens without such an act — the Manual's Part 43 title carries both."@en-AU ;
+    skos:altLabel "assignment of a trade mark"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "assignment"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined in terms by section 6. Held apart from transmission because the Act defines them separately and the difference — an act of the parties, or not — is the whole distinction."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~1> ;
+    tmk:expertShouldCheck "Nothing specific; this is one of the cleaner records in the pass."@en-AU ;
+    tmk:goldRecord "GC-0086" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s106>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/assignment> ;
+    tmk:notLabel "authorised use"@en-AU,
+        "change of ownership"@en-AU,
+        "transmission"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/assignment> ;
+    tmk:typedBy tmka:GT-0086 .
+
+tmkc:GC-0087 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The section 6 definition is a stub continuing into a list, so this record's evidence comes from the Manual rather than from the definition itself."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "transmission"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The Act defines the term but its text is a stub. The Manual's Part 43 treats assignment and transmission together, so the evidence available is weak — and the record says so with a low confidence rather than borrowing certainty from the pair."@en-AU ;
+    tmk:confidence 5.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~1> ;
+    tmk:expertShouldCheck "The Manual passage this rests on defines assignment and transmission together and never separates them, so the record is evidenced for the pair and not for this half of it. Either the section 6 subparagraphs supply the difference or the two should be one concept."@en-AU ;
+    tmk:goldRecord "GC-0087" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/transmission> ;
+    tmk:notLabel "assignment"@en-AU,
+        "change of ownership"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~1> ;
+    tmk:typedBy tmka:GT-0087 .
+
+tmkc:GC-0088 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Defined by an entry in the Register, not by any quality of the mark. Distinguished from 'trade mark' — section 17's definition is satisfied by use or intended use, with no registration required."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "registered trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined by the Act in terms and characterised by the Manual."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19B/1%231> ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GC-0088" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s207>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s21(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-trade-mark> ;
+    tmk:notLabel "pending application"@en-AU,
+        "protected international trade mark"@en-AU,
+        "trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-trade-mark>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19B/1%231> ;
+    tmk:typedBy tmka:GT-0088 .
+
+tmkc:GC-0089 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Kept under section 207. The Act also defines 'old register' and the Regulations define a 'Record of International Registrations', and the three must not be merged — an entry in one is not an entry in another."@en-AU ;
+    skos:altLabel "Register"@en-AU,
+        "the Register"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "Register of Trade Marks"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined in terms. Held with the near-misses named because the corpus contains three registers and the Madrid Part turns on the distinction."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part39/1%231> ;
+    tmk:expertShouldCheck "Whether the preferred label should be 'Register' as the Act has it. This record uses the fuller form because 'Register' alone collides with the other two registers."@en-AU ;
+    tmk:goldRecord "GC-0089" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s207>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/register> ;
+    tmk:notLabel "Record of International Registrations"@en-AU,
+        "old register"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/register> ;
+    tmk:typedBy tmka:GT-0089 .
+
+tmkc:GC-0090 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:RelevantFactor ;
+    rdfs:comment "Section 44 turns on a comparison of priority dates, and a convention claim can move one. Distinct from the filing date, which section 6 defines separately, though for many applications the two coincide. GC-0016 already holds this term from the section 43 pilot."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "priority date"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined by section 12 and pointed to by section 6. Written from the statute rather than from Part 29, which is what GC-0016 rests on; the overlap is flagged rather than resolved."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/1%231> ;
+    tmk:expertShouldCheck "The overlap with the signed GC-0016. One of the two should be retired by a reviewer, and an agent may not choose which."@en-AU ;
+    tmk:goldRecord "GC-0090" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s12>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/priority-date> ;
+    tmk:notLabel "date of registration"@en-AU,
+        "filing date"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s12>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/priority-date> ;
+    tmk:typedBy tmka:GT-0090 .
+
+tmkc:GC-0091 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:RelevantFactor ;
+    rdfs:comment "Section 41(3)(b) makes use 'before the filing date' the thing that can rescue a mark with no inherent adaptation, so the filing date is not merely administrative."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "filing date"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The section 6 definition is a stub continuing into a list, so the evidence is drawn from section 41(3)(b), where the date does operative work."@en-AU ;
+    tmk:confidence 7e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part10/1%231> ;
+    tmk:expertShouldCheck "Whether the definition source should be a Part 10 or Part 11 passage that states how a filing date is set."@en-AU ;
+    tmk:goldRecord "GC-0091" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)(b)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/filing-date> ;
+    tmk:notLabel "date of registration"@en-AU,
+        "priority date"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:typedBy tmka:GT-0091 .
+
+tmkc:GC-0092 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Section 31 gives examination two subjects and only two: whether the application was made in accordance with the Act, and whether there are grounds for rejecting it. Section 33 then makes acceptance the default unless the Registrar is satisfied of one of those."@en-AU ;
+    skos:altLabel "examine and report"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "examination"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 31 states the duty and its two subjects in one sentence. Held because the whole corpus is an examination manual and the vocabulary had no word for the activity it describes."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231> ;
+    tmk:expertShouldCheck "Whether the definition source should be a Part 5 or Part 6 passage about the examination process rather than Part 20.5 on grounds."@en-AU ;
+    tmk:goldRecord "GC-0092" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s31>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> ;
+    tmk:notLabel "expedited examination"@en-AU,
+        "hearing"@en-AU,
+        "opposition"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s31> ;
+    tmk:typedBy tmka:GT-0092 .
+
+tmkc:GC-0093 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Section 33(1) makes acceptance mandatory unless the Registrar is satisfied of a defect or a ground — that is the presumption of registrability in operation. Acceptance is not registration: section 33 accepts, publication and opposition follow, and registration comes later."@en-AU ;
+    skos:altLabel "accept the application"@en-AU,
+        "accepted"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "acceptance"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Both the Act and the Manual state it in terms, and the Manual explicitly ties it to the presumption of registrability."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/4%231~1> ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GC-0093" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(2)> ;
+    tmk:notLabel "deferment of acceptance"@en-AU,
+        "registration"@en-AU,
+        "revocation of acceptance"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/4%231~1> ;
+    tmk:typedBy tmka:GT-0093 .
+
+tmkc:GC-0094 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Available where information received after acceptance indicates the mark should not have been accepted. Distinct from revocation of registration under sections 84A to 84D, which the Manual gives a separate Part. GC-0042 already holds this term."@en-AU ;
+    skos:altLabel "revoke acceptance"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "revocation of acceptance"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states it in one sentence. Written from Part 38 rather than from the section 43 material GC-0042 rests on; the overlap is flagged for a reviewer."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part38/1%231> ;
+    tmk:expertShouldCheck "The overlap with the signed GC-0042."@en-AU ;
+    tmk:goldRecord "GC-0094" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s38> ;
+    tmk:notLabel "acceptance"@en-AU,
+        "rectification"@en-AU,
+        "revocation of registration"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part38/1%231> ;
+    tmk:typedBy tmka:GT-0094 .
+
+tmkc:GC-0095 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual expects it to be rare and records that the Registrar is not obliged to consider it even on a third party's request. That discretion is the most examinable thing about the concept."@en-AU ;
+    skos:altLabel "revoke the registration"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "revocation of registration"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Stated in terms, with the discretion stated separately in the same passage."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part62/1%231> ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GC-0095" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s84A>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s84A(6)> ;
+    tmk:notLabel "cancellation of registration"@en-AU,
+        "removal for non-use"@en-AU,
+        "revocation of acceptance"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part62/1%231> ;
+    tmk:typedBy tmka:GT-0095 .
+
+tmkc:GC-0096 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual's own gloss is the useful part: the acceptance period is 'set in abeyance'. That distinguishes it from an extension of time, which lengthens a period rather than suspending it."@en-AU ;
+    skos:altLabel "defer acceptance"@en-AU,
+        "deferment"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "deferment of acceptance"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual defines it in terms and contrasts it implicitly with the ordinary acceptance period."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/1%231> ;
+    tmk:expertShouldCheck "Whether abeyance and extension really are different in effect, or only in procedure. The record asserts the first on the strength of one word."@en-AU ;
+    tmk:goldRecord "GC-0096" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s36>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s37(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.12> ;
+    tmk:notLabel "acceptance"@en-AU,
+        "extension of time"@en-AU,
+        "lapsing"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/1%231> ;
+    tmk:typedBy tmka:GT-0096 .
+
+tmkc:GC-0097 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Available across the Act wherever a time is set, and the Manual notes the procedure differs by which time is being extended. That variability is why it is one concept with many procedures rather than many concepts."@en-AU ;
+    skos:altLabel "extension of the period"@en-AU,
+        "extensions of time"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "extension of time"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states the general position at the head of its Part on the subject."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part15/1%231~1> ;
+    tmk:expertShouldCheck "Whether the legislative basis is right. `TMA1995/s224` is the general extension provision and the Manual's Part 15 covers several others."@en-AU ;
+    tmk:goldRecord "GC-0097" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s224>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.20A> ;
+    tmk:notLabel "cooling-off period"@en-AU,
+        "deferment of acceptance"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part15/1%231~1> ;
+    tmk:typedBy tmka:GT-0097 .
+
+tmkc:GC-0098 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Automatic on the expiry of the acceptance period, so it is not a decision anybody makes. That is what separates it from rejection and from withdrawal."@en-AU ;
+    skos:altLabel "lapse"@en-AU,
+        "lapses"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "lapsing of an application"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual quotes the statutory effect. Held because the vocabulary needs a way to say an application ended without anybody deciding anything."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part16/1/1/1> ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GC-0098" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s37> ;
+    tmk:notLabel "rejection"@en-AU,
+        "revocation of acceptance"@en-AU,
+        "withdrawal"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part16/1/1/1> ;
+    tmk:typedBy tmka:GT-0098 .
+
+tmkc:GC-0099 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual defines it as a limitation of the exclusive rights given by registration, and explains that the owner never had exclusive rights in part of a mark anyway — so a disclaimer records something rather than creating it."@en-AU ;
+    skos:altLabel "disclaimers"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "disclaimer"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined in terms by the Manual with the statutory reference attached."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part24/1%231> ;
+    tmk:expertShouldCheck "Whether a disclaimer is a species of the section 6 'limitations' or a different instrument. The Manual's wording supports the first; the Act's structure the second."@en-AU ;
+    tmk:goldRecord "GC-0099" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s74>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s74(1)> ;
+    tmk:notLabel "conditions or limitations"@en-AU,
+        "endorsement"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part24/1%231> ;
+    tmk:typedBy tmka:GT-0099 .
+
+tmkc:GC-0100 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual treats an endorsement as what goes on the Register to record that an application was accepted on evidence or other circumstances. It is a record of how a ground was overcome, which makes it evidence about the mark's history."@en-AU ;
+    skos:altLabel "endorsements"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "endorsement"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states what an endorsement is for and when it is entered. Held apart from disclaimer because one records how a ground was overcome and the other limits a right."@en-AU ;
+    tmk:confidence 7.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/6%231> ;
+    tmk:expertShouldCheck "Whether the corpus defines 'endorsement' anywhere more directly. This record rests on a passage about when one is entered rather than on a definition."@en-AU ;
+    tmk:goldRecord "GC-0100" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44(3)> ;
+    tmk:notLabel "conditions or limitations"@en-AU,
+        "disclaimer"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/6%231> ;
+    tmk:typedBy tmka:GT-0100 .
+
+tmkc:GC-0101 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:RelevantFactor ;
+    rdfs:comment "Formal evidence filed to overcome a section 41 ground, once the Registrar remains satisfied after submissions that the mark is not capable of distinguishing. The Manual makes the sequence explicit and it matters: evidence comes after argument, not instead of it."@en-AU ;
+    skos:altLabel "evidence of use of the trade mark"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "evidence of use"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states the trigger, the sequence and the actor in one sentence. Held apart from 'use of a trade mark' because this is the proof, not the fact."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3%231> ;
+    tmk:expertShouldCheck "Whether evidence of use under section 41 and evidence of use under section 44(4) are the same concept. The Manual treats them in different Parts with different requirements."@en-AU ;
+    tmk:goldRecord "GC-0101" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)(b)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)(b)> ;
+    tmk:notLabel "evidence in support"@en-AU,
+        "honest concurrent use"@en-AU,
+        "prior use"@en-AU,
+        "use of a trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3%231> ;
+    tmk:typedBy tmka:GT-0101 .
+
+tmkc:GC-0102 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "A formal objection by a third party. The Manual notes that any person may oppose but that the opponent is generally somebody affected — which is a practice observation rather than a standing requirement, and the record keeps it in notes for that reason."@en-AU ;
+    skos:altLabel "opposition proceedings"@en-AU,
+        "opposition to registration"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "opposition"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined in terms at the head of the Manual's Part on the subject."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part46/1%231> ;
+    tmk:expertShouldCheck "Whether 'any person may oppose' should be in the record rather than the notes. It is a statement about standing and belongs in a relationship record if anywhere."@en-AU ;
+    tmk:goldRecord "GC-0102" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s52>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
+    tmk:notLabel "hearing"@en-AU,
+        "rectification"@en-AU,
+        "removal for non-use"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part46/1%231> ;
+    tmk:typedBy tmka:GT-0102 .
+
+tmkc:GC-0103 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "A composite: the Regulations define it as a notice of intention to oppose plus a statement of grounds and particulars. Both components are separately defined terms, so the corpus holds three related definitions where a reader might expect one."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "notice of opposition"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states the composition in terms and cites both regulations. Held as one concept with the components named as near-misses, because the commonest error here is using the whole to mean a part."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1%231> ;
+    tmk:expertShouldCheck "Whether the two components should be authored as concepts now. Both are defined terms in the candidate list with 44 and 47 Manual uses respectively."@en-AU ;
+    tmk:goldRecord "GC-0103" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
+    tmk:notLabel "notice of intention to defend"@en-AU,
+        "notice of intention to oppose"@en-AU,
+        "statement of grounds and particulars"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1%231> ;
+    tmk:typedBy tmka:GT-0103 .
+
+tmkc:GC-0104 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual grounds it in section 17: use is inherent in what a trade mark is, so a mark that is not used may be removed. The onus sits on the opponent once the application is opposed, which is unusual and worth carrying."@en-AU ;
+    skos:altLabel "non-use removal"@en-AU,
+        "removal of a trade mark from the Register for non-use"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "removal for non-use"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Stated in terms, with the section 17 rationale in the same passage — which is what ties this concept back to 'use of a trade mark' rather than leaving it as free-standing procedure."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part48/1%231> ;
+    tmk:expertShouldCheck "Whether the onus point should be a relationship record rather than a note."@en-AU ;
+    tmk:goldRecord "GC-0104" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s92> ;
+    tmk:notLabel "cancellation of registration"@en-AU,
+        "rectification of the Register"@en-AU,
+        "revocation of registration"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part48/1%231> ;
+    tmk:typedBy tmka:GT-0104 .
+
+tmkc:GC-0105 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "A court remedy, not a Registrar's one: the amendment or cancellation results from an order of a prescribed court. That is what separates it from every other correction mechanism in the Act."@en-AU ;
+    skos:altLabel "rectification"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "rectification of the Register"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined in terms, with the court requirement in the same two sentences."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part42/1%231> ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GC-0105" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s85>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s86>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s87>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s88> ;
+    tmk:notLabel "amendment"@en-AU,
+        "removal for non-use"@en-AU,
+        "revocation of registration"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part42/1%231> ;
+    tmk:typedBy tmka:GT-0105 .
+
+tmkc:GC-0106 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Renewable indefinitely at ten-year intervals from the filing date, and — unusually — any person may effect it, not only the owner."@en-AU ;
+    skos:altLabel "renewal"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "renewal of registration"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Both propositions are stated in terms in the one passage."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part40/1%231> ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GC-0106" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s75>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s77> ;
+    tmk:notLabel "registration"@en-AU,
+        "restoration"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part40/1%231> ;
+    tmk:typedBy tmka:GT-0106 .
+
+tmkc:GC-0107 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Distinguishes certified goods or services from uncertified ones, and the certifying is done by the owner or an approved certifier. The ACCC has a role the ordinary registration process does not have."@en-AU ;
+    skos:altLabel "CTM"@en-AU,
+        "certification trade marks"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "certification trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined in terms by the Manual with the section reference attached."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part35/1%231> ;
+    tmk:expertShouldCheck "Whether the ACCC's role should be part of the concept or a separate relationship."@en-AU ;
+    tmk:goldRecord "GC-0107" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s168>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s169>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/certification-trade-mark> ;
+    tmk:notLabel "collective trade mark"@en-AU,
+        "defensive trade mark"@en-AU,
+        "trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part35/1%231> ;
+    tmk:typedBy tmka:GT-0107 .
+
+tmkc:GC-0108 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Distinguishes the goods or services of members of an association from those of non-members. The Manual's own contrast is the useful part: unlike a certification mark, use of a collective mark need not be subject to approved rules."@en-AU ;
+    skos:altLabel "collective trade marks"@en-AU,
+        "collective trademark"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "collective trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined in terms by the Manual. The near-miss against certification marks is drawn from the same passage."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part33/1%231> ;
+    tmk:expertShouldCheck "The spelling. The Manual's own heading writes 'collective trademark' as one word and the body writes two; this record prefers the two-word form and keeps the other as an alt_label."@en-AU ;
+    tmk:goldRecord "GC-0108" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s162>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/collective-trade-mark> ;
+    tmk:notLabel "certification trade mark"@en-AU,
+        "defensive trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part33/1%231> ;
+    tmk:typedBy tmka:GT-0108 .
+
+tmkc:GC-0109 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Requires an existing registration and a reputation extensive enough that use on other goods would be taken to indicate a connection. It is the one registration in the Act that does not require an intention to use."@en-AU ;
+    skos:altLabel "defensive registration"@en-AU,
+        "defensive trade marks"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "defensive trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The passage states the qualifying condition, though in the past tense about the 1955 Act. The record is honest about that: the evidence is historical framing of a requirement the Manual carries forward, which is weaker than a current statement."@en-AU ;
+    tmk:confidence 7e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
+    tmk:expertShouldCheck "The evidence is a sentence about the 1955 Act. If Part 34 states the current requirement elsewhere, that passage should replace this one."@en-AU ;
+    tmk:goldRecord "GC-0109" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s185>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/defensive-trade-mark> ;
+    tmk:notLabel "certification trade mark"@en-AU,
+        "collective trade mark"@en-AU,
+        "registered trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
+    tmk:typedBy tmka:GT-0109 .
+
+tmkc:GC-0110 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "A limited continuation of a parent application that keeps the parent's priority date but takes a new number. The priority-date inheritance is what makes it matter to section 44. GC-0043 already holds this term."@en-AU ;
+    skos:altLabel "divisional"@en-AU,
+        "divisional applications"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "divisional application"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Both the Act and the Manual state it. Written from Part 12 rather than the section 43 material GC-0043 rests on; the overlap is flagged."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/1%231> ;
+    tmk:expertShouldCheck "The overlap with the signed GC-0043."@en-AU ;
+    tmk:goldRecord "GC-0110" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s45>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s46>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/divisional-application> ;
+    tmk:notLabel "convention application"@en-AU,
+        "parent application"@en-AU,
+        "series of trade marks"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s45>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/1%231> ;
+    tmk:typedBy tmka:GT-0110 .
+
+tmkc:GC-0111 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:RelevantFactor ;
+    rdfs:comment "A claim under the Paris Convention that moves the priority date back to an earlier foreign filing. The Manual defines 'Convention country' by two routes — Paris signatory or full WTO member — which is worth carrying because they are not the same set."@en-AU ;
+    skos:altLabel "claim for priority"@en-AU,
+        "convention claim"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "convention application"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual defines the country; the application type is the mechanism built on it. The record is honest that the evidence carries the first more strongly than the second."@en-AU ;
+    tmk:confidence 7e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/1/1/2> ;
+    tmk:expertShouldCheck "Whether 'Convention country' should be a separate concept. Its definition is the evidence this record rests on, which is an argument that it should."@en-AU ;
+    tmk:goldRecord "GC-0111" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s29>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.29> ;
+    tmk:notLabel "divisional application"@en-AU,
+        "international registration"@en-AU,
+        "priority date"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/1/1/2> ;
+    tmk:typedBy tmka:GT-0111 .
+
+tmkc:GC-0112 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "A treaty, administered by WIPO's International Bureau, under which one application in English with one set of fees produces one international registration. Everything in Part 60 hangs off it."@en-AU ;
+    skos:altLabel "Protocol"@en-AU,
+        "the Madrid Protocol"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "Madrid Protocol"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined in terms at the head of the Manual's largest Part."@en-AU ;
+    tmk:confidence 9e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/1> ;
+    tmk:expertShouldCheck "Whether the bare 'Protocol' is safe as an alt_label. The Regulations define 'Protocol' separately in regulation 17A.2 and the two may not be the same term."@en-AU ;
+    tmk:goldRecord "GC-0112" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/madrid-protocol> ;
+    tmk:notLabel "IRDA"@en-AU,
+        "Paris Convention"@en-AU,
+        "international registration"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/1> ;
+    tmk:typedBy tmka:GT-0112 .
+
+tmkc:GC-0113 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The Australian half of a Madrid registration. It is examined much as a domestic application is, which is why the Manual's Parts 26 to 31 keep referring to it, and it becomes a protected international trade mark rather than a registered trade mark."@en-AU ;
+    skos:altLabel "IRDA"@en-AU,
+        "international registration designating Australia (IRDA)"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "international registration designating Australia"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The Regulations define the term by pointing at another regulation whose text this record does not quote, so the basis is inferred rather than explicit. It is held because 86 Manual passages use the abbreviation and the vocabulary could not read them."@en-AU ;
+    tmk:confidence 6e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/1> ;
+    tmk:expertShouldCheck "The evidence. This record's statutory citation is a pointer, not a definition, and the definition it points at should replace it."@en-AU ;
+    tmk:goldRecord "GC-0113" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/irda> ;
+    tmk:notLabel "international registration"@en-AU,
+        "protected international trade mark"@en-AU,
+        "trade mark application"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/irda> ;
+    tmk:typedBy tmka:GT-0113 .
+
+tmkc:GC-0114 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The Madrid equivalent of a registered trade mark, and section 44's note 4 makes it citable against a domestic application. Holding it apart from 'registered trade mark' is what lets a citation search reach both."@en-AU ;
+    skos:altLabel "protected international trade mark designating Australia"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "protected international trade mark"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 44's note names the term and states its effect on examination, which is the operative fact. The Regulations' own definition is a pointer, as with IRDA."@en-AU ;
+    tmk:confidence 7e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/1> ;
+    tmk:expertShouldCheck "The definition source is a Part 60 passage about the Protocol generally rather than about protection specifically."@en-AU ;
+    tmk:goldRecord "GC-0114" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/protected-international-trade-mark> ;
+    tmk:notLabel "IRDA"@en-AU,
+        "international registration"@en-AU,
+        "registered trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    tmk:typedBy tmka:GT-0114 .
+
+tmkc:GC-0115 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Almost every duty and discretion in the Act is the Registrar's. Section 205 makes a Deputy Registrar's exercise of a power count as the Registrar's, which is why decisions issued by a Deputy are the Registrar's decisions. GC-0046 already holds this term."@en-AU ;
+    skos:altLabel "Registrar"@en-AU,
+        "the Registrar"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "Registrar of Trade Marks"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined by the Act, and the Manual supplies the delegation rule that makes the role behave the way examiners meet it. Overlaps the signed GC-0046 and says so."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/1%231~2> ;
+    tmk:expertShouldCheck "The overlap with the signed GC-0046, and whether the section 205 point belongs in this concept or in a separate 'Deputy Registrar' one."@en-AU ;
+    tmk:goldRecord "GC-0115" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s200>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s205>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registrar> ;
+    tmk:notLabel "Deputy Registrar"@en-AU,
+        "delegate"@en-AU,
+        "prescribed court"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registrar>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/1%231~2> ;
+    tmk:typedBy tmka:GT-0115 .
+
+tmkc:GC-0116 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Defined by the Act as the person in whose name the application currently stands — so the applicant can change without the application changing. The Manual's Part 10 treats getting the identity right as a formality requirement in its own right."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "applicant"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Defined in terms, and the 'for the time being' clause is the part worth keeping — it is what makes assignment of a pending application coherent."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part10/1%231> ;
+    tmk:expertShouldCheck "Whether the definition source should be Part 10.1 on the name requirement or a passage about who may apply under section 27."@en-AU ;
+    tmk:goldRecord "GC-0116" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s27>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/applicant> ;
+    tmk:notLabel "authorised user"@en-AU,
+        "opponent"@en-AU,
+        "registered owner"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/applicant> ;
+    tmk:typedBy tmka:GT-0116 .
+
+tmkc:GC-0117 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Defined in five different places across the Regulations as well as in section 6 — one per opposition type. The multiplicity is real and this record does not resolve it."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "opponent"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states who an opponent generally is. The statutory definitions differ by proceeding and are deliberately not merged here (CLAUDE.md rule 6)."@en-AU ;
+    tmk:confidence 7e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part46/1%231> ;
+    tmk:expertShouldCheck "Whether the six statutory definitions of 'opponent' are the same concept. The candidate pass found them and refused to choose; this record inherits that refusal."@en-AU ;
+    tmk:goldRecord "GC-0117" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/opponent>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
+    tmk:notLabel "applicant"@en-AU,
+        "objector"@en-AU,
+        "requester"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part46/1%231> ;
+    tmk:typedBy tmka:GT-0117 .
+
+tmkc:GC-0118 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:RelevantFactor ;
+    rdfs:comment "The Manual is careful here and the record follows it: the expression does not appear in the Act. It is a reading of section 33's structure, endorsed by Branson J in Blount, that the Registrar must accept unless satisfied of a ground. GC-0007 already holds this term."@en-AU ;
+    skos:altLabel "presumption that a trade mark is registrable"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "presumption of registrability"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Two passages, and they are in mild tension — Part 20.4 asserts the presumption and Part 22.2 says the expression is not in the Act. Both are quoted rather than reconciled, because the tension is the interesting part and resolving it would be authoring a position the corpus does not take."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/4%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/2%231> ;
+    tmk:expertShouldCheck "Whether the two passages really are in tension or whether Part 22.2 is only saying the phrase is not a statutory term. The record takes the second reading and quotes both."@en-AU ;
+    tmk:goldRecord "GC-0118" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(1)> ;
+    tmk:notLabel "acceptance"@en-AU,
+        "ground for rejection"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/4%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/2%231> ;
+    tmk:typedBy tmka:GT-0118 .
+
+tmkc:GC-0119 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "The first of the Manual's three categories. A mark is here if it has no ordinary signification for the goods, or has one that other traders are not likely to want without improper motive."@en-AU ;
+    skos:altLabel "prima facie capable"@en-AU,
+        "sufficiently inherently adapted to distinguish"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "prima facie capable of distinguishing"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states the rule for the category in terms. Held separately because the three-category sort is how Part 22 organises everything after it, and a vocabulary without the categories cannot follow the argument."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/4%231> ;
+    tmk:expertShouldCheck "Whether the three categories should be one concept with three values rather than three concepts. This pass holds two of the three and that asymmetry is itself a defect."@en-AU ;
+    tmk:goldRecord "GC-0119" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(2)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)> ;
+    tmk:notLabel "capable of distinguishing"@en-AU,
+        "inherent adaptation to distinguish"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/4%231> ;
+    tmk:typedBy tmka:GT-0119 .
+
+tmkc:GC-0120 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "The Manual's third category and the hardest to overcome: only use before the filing date sufficient to make the mark in fact distinguish will do it. The Manual's list of examples — pictorial representations, geographical names, laudatory words — is the practical content of the category."@en-AU ;
+    skos:altLabel "not to any extent inherently adapted to distinguish"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "no inherent adaptation to distinguish"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states the category and exemplifies it in one sentence. Held for the same reason as the first category."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/6%231> ;
+    tmk:expertShouldCheck "The missing middle category — limited inherent adaptation but not prima facie capable, the Manual's Part 22.5. This pass holds the outer two and not the middle, which is an omission rather than a judgement."@en-AU ;
+    tmk:goldRecord "GC-0120" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)(a)> ;
+    tmk:notLabel "inherent adaptation to distinguish"@en-AU,
+        "prima facie capable of distinguishing"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/6%231> ;
+    tmk:typedBy tmka:GT-0120 .
+
+tmkc:GC-0121 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The largest Part of the Manual by chunk count — 743 of 2,460 — and the one most easily confused with the similarity question. Part 26 says in terms that classification does not determine similarity."@en-AU ;
+    skos:altLabel "classes"@en-AU,
+        "classification"@en-AU,
+        "the Nice Classification"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "classification of goods and services"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Held mainly to carry the near-miss: a third of the Manual is classification and the single most valuable thing the vocabulary can say about it is that it does not answer the section 44 question."@en-AU ;
+    tmk:confidence 7.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part14/1%231~1> ;
+    tmk:expertShouldCheck "Whether the individual classes should be concepts. This pass says no; the candidate pass found 348 class headings and they are all in `review/candidates/`."@en-AU ;
+    tmk:goldRecord "GC-0121" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r3.1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.4> ;
+    tmk:notLabel "similarity of goods and services"@en-AU,
+        "specification of goods and services"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part14/1%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/4%231> ;
+    tmk:typedBy tmka:GT-0121 .
+
+tmkc:GC-0122 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Applications are examined in filing order unless the Registrar reasonably believes expedition is warranted. Note the modality — the Registrar *may* expedite, on a reasonable belief."@en-AU ;
+    skos:altLabel "expedite examination"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "expedited examination"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Stated in terms with both regulations cited."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part6/1%231> ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GC-0122" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.18>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.19> ;
+    tmk:notLabel "deferment of acceptance"@en-AU,
+        "examination"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part6/1%231> ;
+    tmk:typedBy tmka:GT-0122 .
+
+tmkc:GC-0123 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Available at any time while the thing withdrawn is still being considered, and the Registrar must publish it. Distinct from lapsing, which happens without anybody doing anything."@en-AU ;
+    skos:altLabel "notice of withdrawal"@en-AU,
+        "withdraw"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "withdrawal"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Stated in terms with the section cited."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part7/1%231> ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GC-0123" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s214>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.10> ;
+    tmk:notLabel "amendment"@en-AU,
+        "lapsing of an application"@en-AU,
+        "revocation of acceptance"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part7/1%231> ;
+    tmk:typedBy tmka:GT-0123 .
+
+tmkc:GC-0124 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Part 6 of the Act governs amendment before registration and Division 1 of Part 8 after it — two regimes, and which one applies depends on where the mark has got to."@en-AU ;
+    skos:altLabel "amendment"@en-AU,
+        "amendments"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "amendment of an application"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states both regimes and their boundary in one sentence. Amending the specification is also one of the Manual's named ways of overcoming a section 44 ground, which is why this concept matters to examination and not only to administration."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/1%231> ;
+    tmk:expertShouldCheck "Whether amendment before and after registration are one concept. The Act's structure argues they are two."@en-AU ;
+    tmk:goldRecord "GC-0124" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s63>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s64>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s65>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s83> ;
+    tmk:notLabel "divisional application"@en-AU,
+        "rectification of the Register"@en-AU,
+        "withdrawal"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/1%231> ;
+    tmk:typedBy tmka:GT-0124 .
+
+tmkc:GC-0125 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:RelevantFactor ;
+    rdfs:comment "Examination of Class 31 plant applications takes in the Plant Breeder's Rights Act 1994 — legislation outside the Trade Marks Act entirely. That is the interesting thing about this concept and the reason it is held."@en-AU ;
+    skos:altLabel "plant varietal names"@en-AU,
+        "plant variety denomination"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "plant varietal name"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states the interaction in terms. Held because it is one of two places where examination reaches outside the trade marks legislation, and a vocabulary built only from the Act would never find it."@en-AU ;
+    tmk:confidence 7e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32A/1/1/1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32A/1/1/2> ;
+    tmk:expertShouldCheck "The legislative_basis. This record names s 41 and s 43 as the grounds the varietal name bears on, which is an inference from Part 22.27's title rather than a citation in the quoted passage."@en-AU ;
+    tmk:goldRecord "GC-0125" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
+    tmk:notLabel "generic term"@en-AU,
+        "geographical indication"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32A/1/1/1> ;
+    tmk:typedBy tmka:GT-0125 .
+
+tmkc:GC-0126 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:RelevantFactor ;
+    rdfs:comment "The second place examination reaches outside the trade marks legislation: the Wine Australia Act 2013. Distinguished from the section 6 'geographical indication' because the protection comes from a different statute."@en-AU ;
+    skos:altLabel "geographical indication for wine"@en-AU,
+        "protected GI"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "protected wine expression"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual states the interaction. The label is this repository's — the passage names the Act rather than the protected thing — and that is flagged."@en-AU ;
+    tmk:confidence 6.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/1> ;
+    tmk:expertShouldCheck "The preferred label, which no passage supplies. An expert should replace it."@en-AU ;
+    tmk:goldRecord "GC-0126" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s61> ;
+    tmk:notLabel "geographical indication"@en-AU,
+        "geographical name"@en-AU,
+        "plant varietal name"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/1> ;
+    tmk:typedBy tmka:GT-0126 .
+
+tmkc:GC-0127 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The Manual's Part 52 opens by listing what gets decided — oppositions to registration, to removal for non-use, to procedural matters — and section 205 makes a Deputy Registrar's decision the Registrar's."@en-AU ;
+    skos:altLabel "Registrar's decision"@en-AU,
+        "written decision"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "decision"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The evidence is a list of what is decided rather than a definition of a decision, which is the weakest kind of support in this pass. The concept is held anyway because 178 Manual passages use the word and a knowledge base about examination that cannot say 'decision' is missing something structural."@en-AU ;
+    tmk:confidence 6e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/1%231~1> ;
+    tmk:expertShouldCheck "This record's evidence does not define a decision. Either Part 52 defines it somewhere this pass did not reach, or the record should be redrawn or dropped."@en-AU ;
+    tmk:goldRecord "GC-0127" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s205>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s35> ;
+    tmk:notLabel "adverse report"@en-AU,
+        "ground for rejection"@en-AU,
+        "hearing"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/1%231~1> ;
+    tmk:typedBy tmka:GT-0127 .
+
+tmkc:GC-0128 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Section 33(4) makes an opportunity to be heard a precondition of rejection, which is what ties hearings to examination rather than to opposition alone."@en-AU ;
+    skos:altLabel "ex parte hearing"@en-AU,
+        "inter partes hearing"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "hearing"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 33(4) states the entitlement in terms. The concept is drawn from the Act rather than from Part 51, because Part 51's opening is about how evidence is filed rather than about what a hearing is."@en-AU ;
+    tmk:confidence 7e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part51/1%231~1> ;
+    tmk:expertShouldCheck "Whether ex parte and inter partes hearings are one concept. The Manual gives them different procedures."@en-AU ;
+    tmk:goldRecord "GC-0128" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s202>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(4)> ;
+    tmk:notLabel "decision"@en-AU,
+        "examination"@en-AU,
+        "opposition"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> ;
+    tmk:typedBy tmka:GT-0128 .
+
+tmkc:GC-0129 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "What the applicant claims, as against how it is classified and whether it is similar to something else. Amending it is one of the Manual's named ways of overcoming a section 44 ground. GC-0012 already holds this term."@en-AU ;
+    skos:altLabel "specification"@en-AU,
+        "specification of goods and/or services"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "specification of goods and services"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The evidence states what a specification is for in the one place it does operative work in examination. That is thinner than a definition and is flagged. Overlaps the signed GC-0012."@en-AU ;
+    tmk:confidence 6.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part10/5%231> ;
+    tmk:expertShouldCheck "Both the overlap with GC-0012 and the evidence, which is drawn from Part 27 rather than from the Part 10 section this record cites as its definition source."@en-AU ;
+    tmk:goldRecord "GC-0129" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s27(1)(b)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.4> ;
+    tmk:notLabel "classification of goods and services"@en-AU,
+        "similarity of goods and services"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/1%231> ;
+    tmk:typedBy tmka:GT-0129 .
+
+tmkc:GC-0130 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:RelevantFactor ;
+    rdfs:comment "Does different work in different places: it is what a defensive registration rests on, and it is the basis of the section 60 opposition ground. GC-0050 already holds this term from the section 43 pilot."@en-AU ;
+    skos:altLabel "reputation in Australia"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "reputation"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The evidence is the defensive-registration requirement, which is reputation described rather than named. Held because reputation is one of the few concepts that genuinely spans the Manual — Parts 29, 34, 46 and 47 all reason with it — and the boundary removal is what makes that visible. Overlaps the signed GC-0050."@en-AU ;
+    tmk:confidence 6e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
+    tmk:expertShouldCheck "Whether reputation under section 43, section 60 and section 185 is one concept or three. This is the most consequential unresolved question in the pass."@en-AU ;
+    tmk:goldRecord "GC-0130" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s185>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s60> ;
+    tmk:notLabel "connotation"@en-AU,
+        "evidence of use"@en-AU,
+        "use of a trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
+    tmk:typedBy tmka:GT-0130 .
 
 tmka:GT-0001 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-08"^^xsd:date ;
@@ -804,4 +2766,944 @@ tmka:GT-0052 tmk:authoredBy "claude-opus-5" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> .
+
+tmka:GT-0053 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "It is the class of which every individual ground is a member, so it is typed as the class itself rather than as a test. A reviewer who thinks the four groups should not hold an abstract class will type it none_of_these, and that is a disagreement about the taxonomy worth having."@en-AU ;
+    tmk:conceptGroup "ground_of_refusal" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether the taxonomy is supposed to hold abstract classes at all."@en-AU ;
+    tmk:goldRecord "GT-0053" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> .
+
+tmka:GT-0054 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 39(1) says an application must be rejected if the trade mark contains such a sign. That is a reason an application can be refused, which is the owner's own words for ground_of_refusal."@en-AU ;
+    tmk:conceptGroup "ground_of_refusal" ;
+    tmk:confidence 9e-01 ;
+    tmk:expertShouldCheck "Nothing about the typing; the doubt is whether an inert ground should be typed at all."@en-AU ;
+    tmk:goldRecord "GT-0054" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> .
+
+tmka:GT-0055 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "A reason an application can be refused, in the Act's own words. That the reason is discretionary ('may') does not stop it being a ground."@en-AU ;
+    tmk:conceptGroup "ground_of_refusal" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Whether a discretionary ground and a mandatory one belong in the same group."@en-AU ;
+    tmk:goldRecord "GT-0055" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> .
+
+tmka:GT-0056 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "It is the question the decision maker has to answer before the s 39(2) ground bites: does this sign so nearly resemble a prescribed one. That is a legal_test on the owner's four groups."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether an examiner treats resemblance here as a single question or as a bundle of factors (visual, aural, conceptual) as under section 44."@en-AU ;
+    tmk:goldRecord "GT-0056" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> .
+
+tmka:GT-0057 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "A reason an application must be refused, stated as such by the Act."@en-AU ;
+    tmk:conceptGroup "ground_of_refusal" ;
+    tmk:confidence 9e-01 ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GT-0057" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s40> .
+
+tmka:GT-0058 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The Manual calls it a question to be determined, and section 41(2) makes it the thing the Registrar must be satisfied about. A question the decision maker has to answer is a legal_test."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Whether the split between 'the s 41 ground' and 'the capable-of-distinguishing question' is a distinction practice actually draws."@en-AU ;
+    tmk:goldRecord "GT-0058" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> .
+
+tmka:GT-0059 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The Manual calls it the first question to be determined and gives the method for answering it. That is a question the decision maker has to answer."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "The concept plays both roles — a threshold question under 41(3) and one of three combined factors under 41(4). One typing cannot hold both, and this is the clearest case in the set where the four groups may be too few."@en-AU ;
+    tmk:goldRecord "GT-0059" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> .
+
+tmka:GT-0060 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "It is a determination the examiner must make, and the Manual sequences it as the first of two. A step in a test is still a question that must be answered."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether a step within a two-part process should be typed as a test or as a factor. Whatever is decided here should be applied consistently to the second step."@en-AU ;
+    tmk:goldRecord "GT-0060" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> .
+
+tmka:GT-0061 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Typed the same way as ordinary signification, for consistency: it is the second determination in a two-part process the Manual sets out."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Type this and 'ordinary signification' the same way or say why not."@en-AU ;
+    tmk:goldRecord "GT-0061" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> .
+
+tmka:GT-0062 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "A reason an application must be refused, stated as such."@en-AU ;
+    tmk:conceptGroup "ground_of_refusal" ;
+    tmk:confidence 9e-01 ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GT-0062" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42> .
+
+tmka:GT-0063 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "A reason an application must be refused."@en-AU ;
+    tmk:conceptGroup "ground_of_refusal" ;
+    tmk:confidence 9e-01 ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GT-0063" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42> .
+
+tmka:GT-0064 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "A reason an application must be refused, subject to subsections (3) and (4)."@en-AU ;
+    tmk:conceptGroup "ground_of_refusal" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GT-0064" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
+
+tmka:GT-0065 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual says the existence of the ground depends on the answer to this comparison. A question the decision maker has to answer is a legal_test."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GT-0065" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/5%231> .
+
+tmka:GT-0066 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual says in terms that it exists to overcome a ground that would otherwise apply. Something that takes a case out of the rule is an exception on the owner's four groups."@en-AU ;
+    tmk:conceptGroup "exception" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Whether an exception that is discretionary ('may accept') is the same kind of thing as one that is mandatory. Section 44(4) prior use is mandatory and is typed the same way in this pass."@en-AU ;
+    tmk:goldRecord "GT-0066" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/2%231> .
+
+tmka:GT-0067 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "It takes a case out of the section 44 ground — the Act says the Registrar may not reject on the strength of the cited mark. That is an exception."@en-AU ;
+    tmk:conceptGroup "exception" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Consistency with honest concurrent use: both are typed exception here despite one being discretionary and the other mandatory."@en-AU ;
+    tmk:goldRecord "GT-0067" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
+
+tmka:GT-0068 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual says it allows acceptance where the application would otherwise be rejected. That is taking a case out of the rule."@en-AU ;
+    tmk:conceptGroup "exception" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GT-0068" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/4%231> .
+
+tmka:GT-0069 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "It is neither a ground, nor a question the decision maker answers, nor material feeding one, nor something taking a case out of a rule — it is the form an acceptance can take. none_of_these is an answer, and this is one of the places the four groups genuinely do not reach."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "This is a good test of whether the taxonomy needs a fifth group for remedies and outcomes. Several records in this pass fall the same way."@en-AU ;
+    tmk:goldRecord "GT-0069" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
+
+tmka:GT-0070 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Section 44 cannot be answered without answering this, and section 14 gives the test for answering it. That makes it a question the decision maker has to answer rather than material feeding one."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "The Manual's 'considered together with' language cuts towards factor; the statutory definition cuts towards test. This record follows the statute."@en-AU ;
+    tmk:goldRecord "GT-0070" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/4%231> .
+
+tmka:GT-0071 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Typed to match similarity of goods and services, since section 44 puts the two in the same position in the same sentence."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Type this and 'similarity of goods and services' the same way."@en-AU ;
+    tmk:goldRecord "GT-0071" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
+
+tmka:GT-0072 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "It is the subject matter the whole scheme operates on, not a ground, a test, a factor or an exception. Typing it into one of the four would misdescribe it, and none_of_these is an answer rather than a gap."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether the taxonomy is meant to cover subject-matter concepts at all. Several records in this pass came out none_of_these for this reason."@en-AU ;
+    tmk:goldRecord "GT-0072" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17> .
+
+tmka:GT-0073 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Subject matter, like 'trade mark'. Typed the same way for the same reason."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Decide 'sign' and 'trade mark' together."@en-AU ;
+    tmk:goldRecord "GT-0073" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/3%231> .
+
+tmka:GT-0074 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A class of subject matter rather than a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether the fact that a mark is non-traditional is itself a factor in examination, which would make relevant_factor right."@en-AU ;
+    tmk:goldRecord "GT-0074" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/1%231> .
+
+tmka:GT-0075 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A kind of sign, so subject matter. Typed as the other sign kinds are."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Type the five sign kinds consistently."@en-AU ;
+    tmk:goldRecord "GT-0075" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/3%231> .
+
+tmka:GT-0076 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A kind of sign; typed as the others."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Type the five sign kinds consistently."@en-AU ;
+    tmk:goldRecord "GT-0076" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/4%231> .
+
+tmka:GT-0077 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A kind of sign; typed as the others."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Type the five sign kinds consistently."@en-AU ;
+    tmk:goldRecord "GT-0077" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/6%231> .
+
+tmka:GT-0078 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A kind of sign; typed as the others."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Type the five sign kinds consistently."@en-AU ;
+    tmk:goldRecord "GT-0078" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part21/7%231> .
+
+tmka:GT-0079 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A form of application rather than a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether procedural forms of application belong in the taxonomy at all."@en-AU ;
+    tmk:goldRecord "GT-0079" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51> .
+
+tmka:GT-0080 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A question that has to be answered before a series application is valid."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GT-0080" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51> .
+
+tmka:GT-0081 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual says use is relevant to a number of questions and lists them. Something that feeds into an answer rather than being the answer is a relevant_factor."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Use plays a different role under each provision it touches. If the taxonomy is meant to type a concept by its role, this concept may need several typings."@en-AU ;
+    tmk:goldRecord "GT-0081" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1%231> .
+
+tmka:GT-0082 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Section 7(3) makes authorised use count as the owner's use, so it feeds the questions use feeds — capability to distinguish, prior use, ownership — rather than answering one of its own."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether control is itself a test that should be a separate concept."@en-AU ;
+    tmk:goldRecord "GT-0082" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> .
+
+tmka:GT-0083 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A role a person occupies, not a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether role concepts belong in the four groups."@en-AU ;
+    tmk:goldRecord "GT-0083" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s8> .
+
+tmka:GT-0084 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A role, typed as the other roles in this pass."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether role concepts belong in the four groups."@en-AU ;
+    tmk:goldRecord "GT-0084" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-owner> .
+
+tmka:GT-0085 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "It extends whose use counts, so it feeds the use questions rather than answering one. That is a relevant_factor."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether this and the other role concepts should be typed alike."@en-AU ;
+    tmk:goldRecord "GT-0085" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> .
+
+tmka:GT-0086 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A transaction, not a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether a transaction that can dispose of a ground should be typed as a factor in that ground."@en-AU ;
+    tmk:goldRecord "GT-0086" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/assignment> .
+
+tmka:GT-0087 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Typed with assignment, for the same reason."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 5e-01 ;
+    tmk:expertShouldCheck "Type this and assignment alike."@en-AU ;
+    tmk:goldRecord "GT-0087" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part43/1%231~1> .
+
+tmka:GT-0088 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Subject matter, typed as 'trade mark' is."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Type this and 'trade mark' alike."@en-AU ;
+    tmk:goldRecord "GT-0088" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-trade-mark> .
+
+tmka:GT-0089 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "An instrument of the scheme, not a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GT-0089" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/register> .
+
+tmka:GT-0090 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 44(1)(b) makes the comparison of priority dates one of two elements of the ground. Something that feeds into the answer is a relevant_factor."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GT-0090" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
+
+tmka:GT-0091 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "It fixes the period over which use counts under section 41(3)(b), so it feeds that answer."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether dates should be concepts at all, or attributes of an application."@en-AU ;
+    tmk:goldRecord "GT-0091" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> .
+
+tmka:GT-0092 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A process, not a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether process concepts belong in the taxonomy."@en-AU ;
+    tmk:goldRecord "GT-0092" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s31> .
+
+tmka:GT-0093 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "An outcome, not a ground, test, factor or exception. Several records in this pass fall this way, and together they are an argument that the taxonomy needs a group for outcomes."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether outcomes need a group of their own."@en-AU ;
+    tmk:goldRecord "GT-0093" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> .
+
+tmka:GT-0094 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A remedy the Registrar may apply to their own earlier decision. Not a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether remedies need a group of their own."@en-AU ;
+    tmk:goldRecord "GT-0094" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part38/1%231> .
+
+tmka:GT-0095 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A remedy, typed with revocation of acceptance."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether remedies need a group of their own."@en-AU ;
+    tmk:goldRecord "GT-0095" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part62/1%231> .
+
+tmka:GT-0096 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A procedural step, not a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether 'exception' covers exceptions to procedural rules or only to grounds."@en-AU ;
+    tmk:goldRecord "GT-0096" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/1%231> .
+
+tmka:GT-0097 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A procedural mechanism."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Decide this and deferment of acceptance together."@en-AU ;
+    tmk:goldRecord "GT-0097" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part15/1%231~1> .
+
+tmka:GT-0098 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "An outcome that follows automatically. Not a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether outcomes need a group of their own."@en-AU ;
+    tmk:goldRecord "GT-0098" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part16/1/1/1> .
+
+tmka:GT-0099 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "An instrument that qualifies a registration. Not a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether it belongs with conditions or limitations, which this pass also typed none_of_these."@en-AU ;
+    tmk:goldRecord "GT-0099" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part24/1%231> .
+
+tmka:GT-0100 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A record made on the Register. Not a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether an endorsement is evidence a later examiner reasons from."@en-AU ;
+    tmk:goldRecord "GT-0100" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/6%231> .
+
+tmka:GT-0101 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "It is the material the decision maker weighs to answer the capability question. Something that feeds into an answer is a relevant_factor."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether the route and the proof should be typed differently. This pass says yes; a reviewer may say the distinction is too fine to be useful."@en-AU ;
+    tmk:goldRecord "GT-0101" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/3%231> .
+
+tmka:GT-0102 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A proceeding, not a ground, test, factor or exception. Note that the *grounds* of opposition would each be a ground_of_refusal-shaped concept; the proceeding is not."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether proceedings belong in the taxonomy."@en-AU ;
+    tmk:goldRecord "GT-0102" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part46/1%231> .
+
+tmka:GT-0103 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A document, not a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether documents belong in the taxonomy."@en-AU ;
+    tmk:goldRecord "GT-0103" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1%231> .
+
+tmka:GT-0104 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A post-registration proceeding and remedy."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether the four groups cover post-registration grounds at all. This is the clearest case in the pass where the answer changes the typing."@en-AU ;
+    tmk:goldRecord "GT-0104" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part48/1%231> .
+
+tmka:GT-0105 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A court remedy."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether remedies need a group of their own."@en-AU ;
+    tmk:goldRecord "GT-0105" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part42/1%231> .
+
+tmka:GT-0106 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A post-registration step."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether procedural steps belong in the taxonomy."@en-AU ;
+    tmk:goldRecord "GT-0106" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part40/1%231> .
+
+tmka:GT-0107 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A kind of registration — subject matter, typed as the other mark kinds."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Type the three special mark kinds consistently."@en-AU ;
+    tmk:goldRecord "GT-0107" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part35/1%231> .
+
+tmka:GT-0108 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A kind of registration; typed with the others."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Type the three special mark kinds consistently."@en-AU ;
+    tmk:goldRecord "GT-0108" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part33/1%231> .
+
+tmka:GT-0109 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A kind of registration; typed with the others."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Type the three special mark kinds consistently."@en-AU ;
+    tmk:goldRecord "GT-0109" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> .
+
+tmka:GT-0110 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A form of application."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether forms of application belong in the taxonomy."@en-AU ;
+    tmk:goldRecord "GT-0110" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s45> .
+
+tmka:GT-0111 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A convention claim changes the priority date, which is one of the two elements of the section 44 ground. So it feeds that answer."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 5.5e-01 ;
+    tmk:expertShouldCheck "This and 'divisional application' are typed differently on similar facts. One of the two is wrong and a reviewer should say which."@en-AU ;
+    tmk:goldRecord "GT-0111" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/1/1/2> .
+
+tmka:GT-0112 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "An instrument, not a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:goldRecord "GT-0112" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/1> .
+
+tmka:GT-0113 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A kind of application, typed with the other application forms."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 5.5e-01 ;
+    tmk:expertShouldCheck "Whether forms of application belong in the taxonomy."@en-AU ;
+    tmk:goldRecord "GT-0113" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1/1/1> .
+
+tmka:GT-0114 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Subject matter, typed with 'registered trade mark'."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Type this and 'registered trade mark' alike."@en-AU ;
+    tmk:goldRecord "GT-0114" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
+
+tmka:GT-0115 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A role, typed with the other roles in this pass."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether role concepts belong in the four groups."@en-AU ;
+    tmk:goldRecord "GT-0115" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registrar> .
+
+tmka:GT-0116 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A role, typed with the other roles."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether role concepts belong in the four groups."@en-AU ;
+    tmk:goldRecord "GT-0116" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/applicant> .
+
+tmka:GT-0117 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A role, typed with the other roles."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether role concepts belong in the four groups."@en-AU ;
+    tmk:goldRecord "GT-0117" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part46/1%231> .
+
+tmka:GT-0118 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "It allocates the burden rather than supplying a ground or a test — it tells the decision maker which way to go when unsure. That is closest to something feeding into the answer."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether a burden-allocating rule fits any of the four groups. This is one of the clearest misfits in the pass."@en-AU ;
+    tmk:goldRecord "GT-0118" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/4%231~1> .
+
+tmka:GT-0119 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "It states the condition under which the inherent-adaptation question is answered one way, so it is part of answering that question."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether the three Part 22 categories are tests, outcomes of a test, or neither."@en-AU ;
+    tmk:goldRecord "GT-0119" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/4%231> .
+
+tmka:GT-0120 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Typed with the first category, for consistency."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Type the Part 22 categories consistently, and add the middle one."@en-AU ;
+    tmk:goldRecord "GT-0120" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> .
+
+tmka:GT-0121 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual says in terms that it does not determine the similarity question, which rules out relevant_factor on the corpus's own words. It is administrative structure."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Nothing specific; this is one of the better-evidenced typings in the pass."@en-AU ;
+    tmk:goldRecord "GT-0121" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/4%231> .
+
+tmka:GT-0122 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A procedural step."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether procedural steps belong in the taxonomy."@en-AU ;
+    tmk:goldRecord "GT-0122" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part6/1%231> .
+
+tmka:GT-0123 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A procedural act by a party."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether procedural acts belong in the taxonomy."@en-AU ;
+    tmk:goldRecord "GT-0123" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part7/1%231> .
+
+tmka:GT-0124 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A procedural act."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether an act that removes the facts a ground rests on is an exception."@en-AU ;
+    tmk:goldRecord "GT-0124" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/1%231> .
+
+tmka:GT-0125 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "That a mark is or contains a varietal name feeds the distinctiveness and deception questions rather than being a ground of its own."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether a varietal name creates its own ground or only bears on ss 41 and 43."@en-AU ;
+    tmk:goldRecord "GT-0125" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32A/1/1/1> .
+
+tmka:GT-0126 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Typed with plant varietal name, on the same reasoning: it bears on the grounds rather than being one."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 5.5e-01 ;
+    tmk:expertShouldCheck "Type this and 'plant varietal name' the same way, or say why the two external-statute cases differ."@en-AU ;
+    tmk:goldRecord "GT-0126" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/1> .
+
+tmka:GT-0127 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "An outcome of a proceeding."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 5.5e-01 ;
+    tmk:expertShouldCheck "Whether outcomes need a group of their own."@en-AU ;
+    tmk:goldRecord "GT-0127" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/1%231~1> .
+
+tmka:GT-0128 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "A proceeding."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether proceedings belong in the taxonomy."@en-AU ;
+    tmk:goldRecord "GT-0128" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> .
+
+tmka:GT-0129 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Part of an application rather than a ground, test, factor or exception."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 5.5e-01 ;
+    tmk:expertShouldCheck "The overlap with GC-0012 should be settled before this typing means anything."@en-AU ;
+    tmk:goldRecord "GT-0129" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/1%231> .
+
+tmka:GT-0130 tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "It feeds the answers to several questions — deception under s 43, entitlement to a defensive registration under s 185 — without being a question itself."@en-AU ;
+    tmk:conceptGroup "relevant_factor" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Settle whether this is one concept or several before typing it."@en-AU ;
+    tmk:goldRecord "GT-0130" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> .
+
+tmkc:scheme-s43 a tmk:ConceptScheme ;
+    rdfs:label "Section 43 examination vocabulary — pilot"@en-AU ;
+    skos:prefLabel "Section 43 examination vocabulary — pilot"@en-AU .
 

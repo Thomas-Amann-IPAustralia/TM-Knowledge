@@ -114,8 +114,19 @@ class Deliverable:
 #: §7's content checklist. Order is the guide's suggested order of work (§10),
 #: so the report reads as a worklist rather than as an inventory.
 DELIVERABLES: tuple[Deliverable, ...] = (
-    Deliverable("pilot_scope", "Pilot scope, with exclusions", "document",
-                path="eval/pilot-scope.md"),
+    # `pilot_scope` — "Pilot scope, with exclusions", at `eval/pilot-scope.md` —
+    # was the first deliverable here from S004 until 2026-09-09. It is gone
+    # because the owner withdrew the question it answered: *"I would like to
+    # completely remove the s43 barrier."* The whole Manual is in scope, there is
+    # no exclusion list, and ADR-0081 records the decision (ROADMAP-STATUS has
+    # read "withdrawn, not owed" since S015).
+    #
+    # Removing a gate is not something an agent does lightly and this one needed
+    # saying out loud: the gate was reporting a document as *missing* when the
+    # thing it would have documented does not exist. That is not a gap a person
+    # can close — there is nothing to write — and a permanent unclosable gap in a
+    # completeness report is how the whole report stops being read (ADR-0018's
+    # own argument, ADR-0096).
     Deliverable("competency_questions", "Competency questions, covering all six categories",
                 "records", record_type="competency_question", minimum=6),
     Deliverable("prohibited_uses", "Prohibited uses, covering all six kinds",

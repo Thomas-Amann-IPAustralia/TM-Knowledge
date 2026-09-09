@@ -16,7 +16,7 @@ The owner withdrew the section 43 boundary on 2026-09-08: *“I would like to co
 | — defined by the Act or the Regulations | 116 |
 | — defined by the corpus in terms, one way or the other | 144 |
 | — named only by a Manual heading | 1571 |
-| — a term an existing concept already claims | 15 |
+| — a term an existing concept already claims | 82 |
 | Manual Parts they are used in | 54 of 54 |
 | Corpus read | 2460 chunks · 763 provisions · 5813 units |
 
@@ -44,31 +44,98 @@ The owner withdrew the section 43 boundary on 2026-09-08: *“I would like to co
 
 ## Terms an existing concept already claims
 
-15 of the 1715 candidates match a label on a concept this repository already holds. They are listed rather than dropped: a term claimed by one concept and defined separately by the Act is worth a second look, because it may be two ideas sharing a word.
+82 of the 1715 candidates match a label on a concept this repository already holds. They are listed rather than dropped: a term claimed by one concept and defined separately by the Act is worth a second look, because it may be two ideas sharing a word.
 
 | term | already claimed by | defined at |
 |---|---|---|
+| trade mark | `GC-0072` | `TMA1995/s6/trade-mark` |
+| sign | `GC-0073` | `TMA1995/s6/sign` |
+| Madrid Protocol | `GC-0112` | `TMR1995/r2.1/madrid-protocol` |
+| certification trade mark | `GC-0107` | `TMA1995/s6/certification-trade-mark` |
+| applicant | `GC-0116` | `TMA1995/s6/applicant` |
 | Registrar | `GC-0046` | `TMA1995/s6/registrar` |
+| Register | `GC-0089` | `TMA1995/s6/register` |
+| decision | `GC-0127` | — |
+| hearing | `GC-0128` | — |
+| opponent | `GC-0117` | `TMA1995/s6/opponent`, `TMR1995/r17A.29/opponent` |
+| Protocol | `GC-0112` | `TMR1995/r17A.2/protocol` |
+| IRDA | `GC-0113` | `TMR1995/r2.1/irda` |
 | priority date | `GC-0016` | `TMA1995/s6/priority-date`, `TMR1995/r17A.2/priority-date` |
+| registered owner | `GC-0084` | `TMA1995/s6/registered-owner` |
+| registered trade mark | `GC-0088` | `TMA1995/s6/registered-trade-mark` |
+| filing date | `GC-0091` | `TMA1995/s6/filing-date` |
+| assignment | `GC-0086` | `TMA1995/s6/assignment` |
+| use of a trade mark | `GC-0081` | `TMA1995/s6/use-of-a-trade-mark` |
 | notice of intention to oppose | `GC-0040` | `TMR1995/r17A.29/notice-of-intention-to-oppose`, `TMR1995/r17A.48/notice-of-intention-to-oppose` |
+| similar goods | `GC-0070` | `TMA1995/s6/similar-goods` |
+| notice of opposition | `GC-0103` | `TMR1995/r17A.29/notice-of-opposition`, `TMR1995/r17A.48/notice-of-opposition` |
 | connotation | `GC-0001` | — |
+| protected international trade mark | `GC-0114` | `TMR1995/r17A.2/protected-international-trade-mark`, `TMR1995/r2.1/protected-international-trade-mark` |
 | divisional application | `GC-0043` | `TMA1995/s6/divisional-application` |
+| transmission | `GC-0087` | `TMA1995/s6/transmission` |
+| renewal | `GC-0106` | — |
 | authorised user | `GC-0035` | `TMA1995/s6/authorised-user` |
+| limitations | `GC-0069` | `TMA1995/s6/limitations` |
+| defensive trade mark | `GC-0109` | `TMA1995/s6/defensive-trade-mark` |
+| predecessor in title | `GC-0085` | `TMA1995/s6/predecessor-in-title` |
+| collective trade mark | `GC-0108` | `TMA1995/s6/collective-trade-mark` |
+| rectification | `GC-0105` | — |
+| international registration designating Australia | `GC-0113` | `TMR1995/r17A.2/international-registration-designating-australia` |
+| disclaimer | `GC-0099` | — |
 | geographical indication | `GC-0018` | `TMA1995/s6/geographical-indication` |
+| authorised use | `GC-0082` | `TMA1995/s6/authorised-use` |
+| revocation of registration | `GC-0095` | — |
 | revocation of acceptance | `GC-0042` | — |
+| similar services | `GC-0070` | `TMA1995/s6/similar-services` |
+| collective trademark | `GC-0108` | — |
 | evidence | `GC-0041` | — |
+| acceptance | `GC-0093` | — |
+| extension of time | `GC-0097` | — |
 | research | `GC-0052` | — |
+| amendments | `GC-0124` | — |
 | evidence of use | `GC-0041` | — |
+| inherent adaptation to distinguish | `GC-0059` | — |
+| the madrid protocol | `GC-0112` | — |
+| other circumstances | `GC-0068` | — |
 | opposition proceedings | `GC-0040` | — |
 | reputation | `GC-0050` | — |
+| ordinary signification | `GC-0060` | — |
+| certification trade marks | `GC-0107` | — |
+| honest concurrent use | `GC-0066` | — |
+| prior use | `GC-0067` | — |
+| defensive trade marks | `GC-0109` | — |
 | presumption of registrability | `GC-0007` | — |
+| specification of goods and/or services | `GC-0129` | — |
+| non-traditional signs | `GC-0074` | — |
+| collective trade marks | `GC-0108` | — |
+| divisional applications | `GC-0110` | — |
+| so nearly resembling | `GC-0056` | — |
+| series of trade marks | `GC-0079` | — |
+| classification of goods and services | `GC-0121` | — |
+| disclaimers | `GC-0099` | — |
+| deferment of acceptance | `GC-0096` | — |
+| material particulars | `GC-0080` | — |
+| expedited examination | `GC-0122` | — |
+| rectification of the register | `GC-0105` | — |
+| scent trade marks | `GC-0078` | — |
+| use contrary to law | `GC-0063` | — |
+| prohibited signs | `GC-0054` | — |
+| prescribed signs | `GC-0055` | — |
+| removal of a trade mark from the register for non-use | `GC-0104` | — |
+| similarity of goods and services | `GC-0070` | — |
 | specification of goods and services | `GC-0012` | — |
+| closely related goods and services | `GC-0071` | — |
+| colour and coloured trade marks | `GC-0076` | — |
+| renewal of registration | `GC-0106` | — |
+| scandalous signs | `GC-0062` | — |
+| shape (three-dimensional) trade marks | `GC-0075` | — |
+| sound (auditory) trade marks | `GC-0077` | — |
 
 ## The candidates the corpus defines
 
 The **144** candidates something in the corpus actually defines, ranked by strength and then by how many Manual passages use the term. The ranking is arithmetic, not importance — a procedural term the Manual repeats constantly outranks a substantive one it states once, and that is a property of the counter rather than of the law.
 
-### trade mark
+### trade mark  *(already claimed by `GC-0072`)*
 
 *Strength 3* · *signals:* `manual_heading_definition_of`, `statutory_definition` · *used in* **1051** Manual passages across 54 Parts (Part22, Part60, Part10, Part23, Part21, Part29)
 
@@ -84,7 +151,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 1051 passages* — first 12: `TMM/Part1/2#1`, `TMM/Part1/x-1.-introduction7#1`, `TMM/Part10/1#1`, `TMM/Part10/1/1/1`, `TMM/Part10/1/1/1/1`, `TMM/Part10/1/1/1/2`, `TMM/Part10/1/1/1/3`, `TMM/Part10/1/1/1/6`, `TMM/Part10/1/1/1/9`, `TMM/Part10/2#1`, `TMM/Part10/3#1`, `TMM/Part10/3/3/1`
 
-### sign
+### sign  *(already claimed by `GC-0073`)*
 
 *Strength 3* · *signals:* `manual_heading_definition_of`, `manual_quoted`, `manual_term`, `statutory_definition` · *used in* **126** Manual passages across 23 Parts (Part22, Part21, Part19A, Part20, Part31, Part10)
 
@@ -104,7 +171,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 126 passages* — first 12: `TMM/Part10/3#1`, `TMM/Part10/3/3/1`, `TMM/Part10/3/3/2/8`, `TMM/Part10/3/3/3/2`, `TMM/Part10/3/3/3/3`, `TMM/Part10/3/3/4/2`, `TMM/Part10/3/3/6/1`, `TMM/Part10/3/3/6/2`, `TMM/Part10/7#1`, `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/holder`, `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/holders`, `TMM/Part19A/1#1`
 
-### Madrid Protocol
+### Madrid Protocol  *(already claimed by `GC-0112`)*
 
 *Strength 3* · *signals:* `manual_heading_what_is`, `statutory_definition` · *used in* **79** Manual passages across 15 Parts (Part60, Part27, Part62, Part14, Part2, Part26)
 
@@ -120,7 +187,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 79 passages* — first 12: `TMM/Part14/2/2/2/2`, `TMM/Part2/2#1`, `TMM/Part26/x-relevant-legislation33#1`, `TMM/Part27/1#1`, `TMM/Part27/3/3/3`, `TMM/Part27/4/4/3`, `TMM/Part27/4/4/4`, `TMM/Part27/6#1`, `TMM/Part27/x-relevant-legislation26#1`, `TMM/Part28/x-relevant-legislation48#1`, `TMM/Part38/1/1/3`, `TMM/Part39/8#1`
 
-### certification trade mark
+### certification trade mark  *(already claimed by `GC-0107`)*
 
 *Strength 3* · *signals:* `manual_heading_what_is`, `statutory_definition` · *used in* **44** Manual passages across 9 Parts (Part35, Part43, Part60, Part52, Part17, Part46)
 
@@ -137,7 +204,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 44 passages* — first 12: `TMM/Part17/2/2/2`, `TMM/Part17/5/5/5`, `TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1`, `TMM/Part30/3/3/5/5~4`, `TMM/Part35/1#1`, `TMM/Part35/1/1/5`, `TMM/Part35/10#1`, `TMM/Part35/11#1`, `TMM/Part35/12#1`, `TMM/Part35/2#1`, `TMM/Part35/2/2/2`, `TMM/Part35/3#1~1`
 
-### applicant
+### applicant  *(already claimed by `GC-0116`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **542** Manual passages across 47 Parts (Part10, Part23, Part22, Part14, Part21, Part28)
 
@@ -161,7 +228,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 442 passages* — first 12: `TMM/Part10/2#1`, `TMM/Part10/3/3/1`, `TMM/Part10/3/3/2/5`, `TMM/Part10/4#1`, `TMM/Part10/4/4/1/1`, `TMM/Part10/5/5/2/3`, `TMM/Part10/8#1`, `TMM/Part10/x-introduction#1`, `TMM/Part11/3#1`, `TMM/Part11/4#1`, `TMM/Part11/4/4/1`, `TMM/Part11/4/4/2`
 
-### Register
+### Register  *(already claimed by `GC-0089`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **187** Manual passages across 42 Parts (Part60, Part10, Part48, Part32A, Part11, Part9)
 
@@ -173,7 +240,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 187 passages* — first 12: `TMM/Part10/1#1`, `TMM/Part10/1/1/1/1`, `TMM/Part10/2#1`, `TMM/Part10/3#1`, `TMM/Part10/3/3/4/3`, `TMM/Part10/4#1`, `TMM/Part10/4/4/1/1`, `TMM/Part10/4/4/1/2`, `TMM/Part10/5#1`, `TMM/Part10/6#1`, `TMM/Part10/x-introduction#1`, `TMM/Part10/x-relevant-legislation21#1`
 
-### decision
+### decision  *(already claimed by `GC-0127`)*
 
 *Strength 2* · *signals:* `manual_heading_what_is` · *used in* **178** Manual passages across 38 Parts (Part26, Part51, Part52, Part22, Part60, Part19A)
 
@@ -186,7 +253,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 178 passages* — first 12: `TMM/Part1/2#1`, `TMM/Part12/3/3/1~2`, `TMM/Part14/2/2/2/2`, `TMM/Part15/6#1`, `TMM/Part15/7#1`, `TMM/Part15/7/7/1`, `TMM/Part16/1/1/1`, `TMM/Part17/2/2/2`, `TMM/Part17/3#1~2`, `TMM/Part17/5/5/1`, `TMM/Part17/5/5/2`, `TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1`
 
-### hearing
+### hearing  *(already claimed by `GC-0128`)*
 
 *Strength 2* · *signals:* `manual_heading_what_is` · *used in* **97** Manual passages across 25 Parts (Part55, Part51, Part52, Part18, Part9, Part22)
 
@@ -202,7 +269,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 97 passages* — first 12: `TMM/Part1/2#1`, `TMM/Part16/1/1/1`, `TMM/Part17/5/5/2`, `TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1`, `TMM/Part18/2/2/2`, `TMM/Part18/3#1`, `TMM/Part18/3/3/1`, `TMM/Part18/3/3/1/2`, `TMM/Part18/3/3/2`, `TMM/Part18/3/3/3/2`, `TMM/Part18/3/3/3/3`, `TMM/Part19A/3/3/1`
 
-### opponent
+### opponent  *(already claimed by `GC-0117`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **88** Manual passages across 15 Parts (Part47, Part49, Part46, Part48, Part51, Part55)
 
@@ -217,7 +284,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 88 passages* — first 12: `TMM/Part11/4/4/2`, `TMM/Part11/x-relevant-legislation11#1`, `TMM/Part15/7/7/2`, `TMM/Part19A/3/3/3~1`, `TMM/Part19A/3/3/5`, `TMM/Part19A/4/4/3`, `TMM/Part23/3/3/2/1`, `TMM/Part26/6/6/8~2`, `TMM/Part26/6/6/8~3`, `TMM/Part26/6/6/12`, `TMM/Part28/4/28/4/3~1`, `TMM/Part34/5/5/3`
 
-### Protocol
+### Protocol  *(already claimed by `GC-0112`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **88** Manual passages across 16 Parts (Part60, Part27, Part62, Part14, Part2, Part26)
 
@@ -229,7 +296,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 88 passages* — first 12: `TMM/Part14/2/2/2/2`, `TMM/Part2/2#1`, `TMM/Part26/x-relevant-legislation33#1`, `TMM/Part27/1#1`, `TMM/Part27/3/3/3`, `TMM/Part27/4/4/3`, `TMM/Part27/4/4/4`, `TMM/Part27/6#1`, `TMM/Part27/x-relevant-legislation26#1`, `TMM/Part28/x-relevant-legislation48#1`, `TMM/Part30/3/3/5~1`, `TMM/Part38/1/1/3`
 
-### IRDA
+### IRDA  *(already claimed by `GC-0113`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **86** Manual passages across 15 Parts (Part60, Part47, Part51, Part27, Part46, Part11)
 
@@ -293,7 +360,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 65 passages* — first 12: `TMM/Part11/1/1/1`, `TMM/Part11/1/1/6`, `TMM/Part11/2#1`, `TMM/Part11/2/2/4`, `TMM/Part11/3#1`, `TMM/Part11/4/4/1`, `TMM/Part11/5/5/1`, `TMM/Part11/5/5/1/1`, `TMM/Part11/5/5/1/2`, `TMM/Part11/5/5/2/1`, `TMM/Part11/5/5/2/2`, `TMM/Part11/5/5/2/3`
 
-### registered owner
+### registered owner  *(already claimed by `GC-0084`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **58** Manual passages across 17 Parts (Part19B, Part48, Part35, Part34, Part24, Part41)
 
@@ -305,7 +372,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 58 passages* — first 12: `TMM/Part10/1/1/1/9`, `TMM/Part10/5/5/2`, `TMM/Part19A/4/4/5`, `TMM/Part19A/6/6/3`, `TMM/Part19B/1#1`, `TMM/Part19B/2#1`, `TMM/Part19B/2/2/1`, `TMM/Part19B/3#1`, `TMM/Part19B/4#1`, `TMM/Part19B/4/4/2`, `TMM/Part19B/4/4/3`, `TMM/Part19B/4/4/4~1`
 
-### registered trade mark
+### registered trade mark  *(already claimed by `GC-0088`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **58** Manual passages across 25 Parts (Part19B, Part34, Part26, Part19A, Part22, Part24)
 
@@ -317,7 +384,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 58 passages* — first 12: `TMM/Part14/3#1~1`, `TMM/Part14/6/6/3/1`, `TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1`, `TMM/Part19A/4/4/1`, `TMM/Part19A/7/7/1`, `TMM/Part19A/x-relevant-legislation16/the-act`, `TMM/Part19B/1#1`, `TMM/Part19B/2#1`, `TMM/Part19B/3#1`, `TMM/Part19B/4#1`, `TMM/Part19B/4/4/1`, `TMM/Part19B/4/4/3`
 
-### filing date
+### filing date  *(already claimed by `GC-0091`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **53** Manual passages across 19 Parts (Part12, Part23, Part4, Part60, Part39, Part17)
 
@@ -329,7 +396,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 53 passages* — first 12: `TMM/Part11/2#1`, `TMM/Part11/6/6/4`, `TMM/Part12/3#1`, `TMM/Part12/3/3/3~2`, `TMM/Part12/5#1`, `TMM/Part12/6#1`, `TMM/Part12/7#1`, `TMM/Part12/9#1`, `TMM/Part12/x-relevant-legislation30#1`, `TMM/Part17/2/2/1`, `TMM/Part17/4#1`, `TMM/Part17/4/4/1`
 
-### assignment
+### assignment  *(already claimed by `GC-0086`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **50** Manual passages across 19 Parts (Part43, Part35, Part26, Part33, Part52, Part10)
 
@@ -370,7 +437,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 46 passages* — first 12: `TMM/Part19B/2/2/1`, `TMM/Part19B/4/4/1`, `TMM/Part19B/4/4/2`, `TMM/Part19B/4/4/4~2`, `TMM/Part20/5/5/6/1`, `TMM/Part20/5/5/6/2`, `TMM/Part21/3/3/6~2`, `TMM/Part21/4/4/5/2`, `TMM/Part22/25#1`, `TMM/Part22/7/22/7/10`, `TMM/Part26/1#1`, `TMM/Part26/2#1`
 
-### use of a trade mark
+### use of a trade mark  *(already claimed by `GC-0081`)*
 
 *Strength 2* · *signals:* `manual_topic`, `statutory_definition` · *used in* **46** Manual passages across 18 Parts (Part19A, Part23, Part46, Part28, Part48, Part22)
 
@@ -411,7 +478,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 44 passages* — first 12: `TMM/Part12/2#1`, `TMM/Part12/3#1`, `TMM/Part12/3/3/1~1`, `TMM/Part12/3/3/1~2`, `TMM/Part12/8#1`, `TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1`, `TMM/Part14/3#1~1`, `TMM/Part15/4/4/3`, `TMM/Part17/2/2/1`, `TMM/Part17/2/2/2`, `TMM/Part17/3#1~1`, `TMM/Part17/4#1`
 
-### similar goods
+### similar goods  *(already claimed by `GC-0070`)*
 
 *Strength 2* · *signals:* `manual_topic`, `statutory_definition` · *used in* **41** Manual passages across 13 Parts (Part22, Part26, Part21, Part32A, Part32B, Part28)
 
@@ -425,7 +492,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 41 passages* — first 12: `TMM/Part19B/4/4/4~2`, `TMM/Part21/3/3/2`, `TMM/Part21/3/3/4~1`, `TMM/Part21/4/4/5/2`, `TMM/Part21/5#1`, `TMM/Part21/6/6/2/3`, `TMM/Part21/6/6/2/4`, `TMM/Part22/16/16/1~1`, `TMM/Part22/16/16/7`, `TMM/Part22/19#1`, `TMM/Part22/25/25/1`, `TMM/Part22/27#1`
 
-### notice of opposition
+### notice of opposition  *(already claimed by `GC-0103`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **39** Manual passages across 13 Parts (Part47, Part55, Part49, Part60, Part15, Part48)
 
@@ -456,7 +523,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 38 passages* — first 12: `TMM/Part20/5/5/5`, `TMM/Part20/5/5/5/2`, `TMM/Part22/15/15/4`, `TMM/Part23/2/2/2/2`, `TMM/Part26/6/6/4~3`, `TMM/Part29/1#1`, `TMM/Part29/10#1`, `TMM/Part29/2/2/1~1`, `TMM/Part29/2/2/1~2`, `TMM/Part29/2/2/2`, `TMM/Part29/2/2/3`, `TMM/Part29/2/2/4`
 
-### protected international trade mark
+### protected international trade mark  *(already claimed by `GC-0114`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **38** Manual passages across 8 Parts (Part60, Part49, Part51, Part48, Part52, Part55)
 
@@ -495,7 +562,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 31 passages* — first 12: `TMM/Part11/5/5/2/3`, `TMM/Part12/1#1`, `TMM/Part12/2#1`, `TMM/Part12/3#1`, `TMM/Part12/3/3/1~1`, `TMM/Part12/3/3/1~2`, `TMM/Part12/3/3/3~1`, `TMM/Part12/3/3/3~2`, `TMM/Part12/3/3/4`, `TMM/Part12/3/3/5`, `TMM/Part12/3/3/7`, `TMM/Part12/4#1`
 
-### transmission
+### transmission  *(already claimed by `GC-0087`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **29** Manual passages across 12 Parts (Part43, Part14, Part60, Part33, Part12, Part15)
 
@@ -531,7 +598,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 25 passages* — first 12: `TMM/Part14/5/5/2/15~2`, `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/art`, `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/lead`, `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/pads`, `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/works-of-art`, `TMM/Part15/7#1`, `TMM/Part15/7/7/1`, `TMM/Part17/2/2/2`, `TMM/Part17/3#1~2`, `TMM/Part17/5/5/1`, `TMM/Part17/5/5/2`, `TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1`
 
-### renewal
+### renewal  *(already claimed by `GC-0106`)*
 
 *Strength 2* · *signals:* `manual_heading_what_is`, `manual_topic` · *used in* **25** Manual passages across 9 Parts (Part60, Part40, Part17, Part11, Part15, Part26)
 
@@ -605,7 +672,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 22 passages* — first 12: `TMM/Part14/1#1~1`, `TMM/Part14/4/4/5/2`, `TMM/Part14/4/4/8/1`, `TMM/Part14/4/4/8/2~1`, `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/chips`, `TMM/Part22/24#1`, `TMM/Part23/2/2/2/2`, `TMM/Part23/3/3/2~1`, `TMM/Part26/6/6/11~2`, `TMM/Part27/3/3/2~1`, `TMM/Part28/4/28/4/3~1`, `TMM/Part28/4/28/4/4~1`
 
-### limitations
+### limitations  *(already claimed by `GC-0069`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **22** Manual passages across 17 Parts (Part48, Part18, Part38, Part60, Part17, Part19A)
 
@@ -617,7 +684,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 22 passages* — first 12: `TMM/Part17/4/4/3`, `TMM/Part18/2/2/1`, `TMM/Part18/x-relevant-legislation4#1`, `TMM/Part19A/2/2/1`, `TMM/Part19B/2#1`, `TMM/Part20/3/2/2`, `TMM/Part23/4/4/4`, `TMM/Part28/5#1`, `TMM/Part29/9/9/5`, `TMM/Part30/3/3/5~9`, `TMM/Part33/x-relevant-legislation27#1`, `TMM/Part38/1/1/1`
 
-### defensive trade mark
+### defensive trade mark  *(already claimed by `GC-0109`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **20** Manual passages across 6 Parts (Part34, Part19A, Part39, Part47, Part51, Part60)
 
@@ -658,7 +725,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 19 passages* — first 12: `TMM/Part15/2/2/1/2`, `TMM/Part47/3#1`, `TMM/Part47/3/3/1`, `TMM/Part47/3/3/2`, `TMM/Part47/3/3/3`, `TMM/Part48/3#1~1`, `TMM/Part48/3#1~2`, `TMM/Part49/4#1`, `TMM/Part49/4/4/1`, `TMM/Part49/4/4/2`, `TMM/Part49/4/4/3`, `TMM/Part49/6#1`
 
-### predecessor in title
+### predecessor in title  *(already claimed by `GC-0085`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **19** Manual passages across 7 Parts (Part23, Part46, Part19A, Part22, Part28, Part27)
 
@@ -682,7 +749,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 18 passages* — first 12: `TMM/Part17/2/2/2`, `TMM/Part17/3#1~2`, `TMM/Part17/5/5/1`, `TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1`, `TMM/Part19B/5/5/1`, `TMM/Part35/12#1`, `TMM/Part39/4/4/3`, `TMM/Part41/1#1`, `TMM/Part42/1#1`, `TMM/Part42/2#1`, `TMM/Part44/6/6/4`, `TMM/Part48/2/2/3`
 
-### collective trade mark
+### collective trade mark  *(already claimed by `GC-0108`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **17** Manual passages across 6 Parts (Part33, Part43, Part60, Part2, Part39, Part9)
 
@@ -706,7 +773,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 17 passages* — first 12: `TMM/Part22/9/9/2`, `TMM/Part29/1/1/2`, `TMM/Part32A/1/1/4`, `TMM/Part32A/2/1/section-53-infringement-of-pbr`, `TMM/Part32A/2/1/2-1-1-a-plain-word-trade-marks`, `TMM/Part32A/2/1/2-1-2-c-letter-of-consent`, `TMM/Part32A/2/3#1`, `TMM/Part32A/2/3/2-3-1-a-variety-names`, `TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1`, `TMM/Part32A/2/4/2/4/1`, `TMM/Part32A/2/6#1~1`, `TMM/Part32A/2/6#1~2`
 
-### rectification
+### rectification  *(already claimed by `GC-0105`)*
 
 *Strength 2* · *signals:* `manual_heading_what_is` · *used in* **17** Manual passages across 8 Parts (Part17, Part42, Part35, Part41, Part32A, Part47)
 
@@ -742,7 +809,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in 15 passages* — first 12: `TMM/Part11/1/1/1`, `TMM/Part15/2/2/1/2`, `TMM/Part18/1/1/1`, `TMM/Part19A/2/examples-where-use-as-a-trade-mark-not-found~2`, `TMM/Part20/2/2/1`, `TMM/Part20/2/2/2`, `TMM/Part32A/2/1/section-53-infringement-of-pbr`, `TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1`, `TMM/Part32A/x-annex-2---applicable-sections-of-the-upov-convention/chapter-vi-variety-denomination`, `TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/article-13-trade-designations`, `TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/appendix-x-trade-designations~1`, `TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/appendix-x-trade-designations~2`
 
-### international registration designating Australia
+### international registration designating Australia  *(already claimed by `GC-0113`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **14** Manual passages across 8 Parts (Part60, Part47, Part51, Part55, Part11, Part27)
 
@@ -802,7 +869,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in:* `TMM/Part11/7#1`, `TMM/Part11/7/7/2`, `TMM/Part14/2/2/3/2`, `TMM/Part19B/2#1`, `TMM/Part19B/4/4/4~2`, `TMM/Part19B/5/5/1`, `TMM/Part26/7#1~1`, `TMM/Part32A/x-annex-5---case-law-summaries/ogen-trade-mark-1977-rpc-529`, `TMM/Part39/5#1`, `TMM/Part39/x-relevant-legislation17#1`, `TMM/Part60/1/1/8`
 
-### disclaimer
+### disclaimer  *(already claimed by `GC-0099`)*
 
 *Strength 2* · *signals:* `manual_heading_what_is`, `manual_topic` · *used in* **10** Manual passages across 4 Parts (Part24, Part1, Part19B, Part32A)
 
@@ -842,7 +909,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in:* `TMM/Part27/6#1`, `TMM/Part48/1#1`, `TMM/Part48/10#1~1`, `TMM/Part48/2/2/1`, `TMM/Part49/1/1/1`, `TMM/Part51/2/2/4`, `TMM/Part51/5#1~1`, `TMM/Part52/7#1`, `TMM/Part60/4/20/4/20/2`
 
-### authorised use
+### authorised use  *(already claimed by `GC-0082`)*
 
 *Strength 2* · *signals:* `manual_topic`, `statutory_definition` · *used in* **9** Manual passages across 5 Parts (Part19A, Part22, Part48, Part23, Part46)
 
@@ -881,7 +948,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in:* `TMM/Part60/1/1/5`, `TMM/Part60/1/1/6`, `TMM/Part60/2/4/2/4/3~2`, `TMM/Part60/2/5/2/5/2`, `TMM/Part60/3/3/5/1`, `TMM/Part60/4/10/4/10/2`, `TMM/Part60/4/19/4/19/2~2`, `TMM/Part60/4/7/4/7/3`, `TMM/Part60/4/7/4/7/16/1`
 
-### revocation of registration
+### revocation of registration  *(already claimed by `GC-0095`)*
 
 *Strength 2* · *signals:* `manual_heading_what_is`, `manual_topic` · *used in* **9** Manual passages across 3 Parts (Part62, Part17, Part46)
 
@@ -1086,7 +1153,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 *Used in:* `TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2`, `TMM/Part23/x-annex-a7---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-413---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2`, `TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2`, `TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~2`
 
-### similar services
+### similar services  *(already claimed by `GC-0070`)*
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **4** Manual passages across 1 Parts (Part26)
 
@@ -1410,7 +1477,7 @@ The **144** candidates something in the corpus actually defines, ranked by stren
 
 - **`TMR1995/r2.1/code-of-conduct`** — “Code of Conduct means…”
 
-### collective trademark
+### collective trademark  *(already claimed by `GC-0108`)*
 
 *Strength 2* · *signals:* `manual_heading_what_is` · *used in* **0** Manual passages across 0 Parts
 
@@ -1719,41 +1786,41 @@ The remaining **1571**. The Manual files passages under each of these and define
 | evidence *(claimed by `GC-0041`)* | 226 | Part23, Part51, Part22 +34 | `TMM/Part51/1#1~1` |
 | information | 226 | Part14, Part23, Part60 +39 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/information` |
 | grounds | 194 | Part47, Part49, Part60 +33 | `TMM/Part49/1/1/3` |
-| acceptance | 125 | Part60, Part17, Part38 +26 | `TMM/Part60/4/13/4/13/2/2` |
+| acceptance *(claimed by `GC-0093`)* | 125 | Part60, Part17, Part38 +26 | `TMM/Part60/4/13/4/13/2/2` |
 | protection | 124 | Part60, Part14, Part30 +25 | `TMM/Part60/4/18/4/18/1` |
 | application for registration | 83 | Part46, Part28, Part43 +34 | `TMM/Part33/3#1` |
-| extension of time | 77 | Part15, Part47, Part51 +14 | `TMM/Part60/4/12/4/12/1` |
+| extension of time *(claimed by `GC-0097`)* | 77 | Part15, Part47, Part51 +14 | `TMM/Part60/4/12/4/12/1` |
 | process | 75 | Part43, Part51, Part60 +32 | `TMM/Part60/2/4/2/4/3~1` |
 | registration of a trade mark | 60 | Part39, Part52, Part60 +24 | `TMM/Part39/1#1` |
 | research *(claimed by `GC-0052`)* | 60 | Part14, Part32A, Part22 +12 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/research` |
-| amendments | 56 | Part9, Part14, Part27 +15 | `TMM/Part60/4/10/4/10/1` |
+| amendments *(claimed by `GC-0124`)* | 56 | Part9, Part14, Part27 +15 | `TMM/Part60/4/10/4/10/1` |
 | evidence of use *(claimed by `GC-0041`)* | 56 | Part23, Part22, Part14 +14 | `TMM/Part23/3#1` |
 | letters | 56 | Part22, Part5, Part30 +17 | `TMM/Part22/8/8/1` |
 | materials | 55 | Part14, Part23, Part29 +5 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/materials` |
-| inherent adaptation to distinguish | 52 | Part22, Part21, Part23 +5 | `TMM/Part22/3#1~1` |
+| inherent adaptation to distinguish *(claimed by `GC-0059`)* | 52 | Part22, Part21, Part23 +5 | `TMM/Part22/3#1~1` |
 | address for service | 51 | Part60, Part9, Part44 +15 | `TMM/Part10/6#1` |
-| the madrid protocol | 50 | Part60, Part27, Part62 +9 | `TMM/Part60/1#1` |
+| the madrid protocol *(claimed by `GC-0112`)* | 50 | Part60, Part27, Part62 +9 | `TMM/Part60/1#1` |
 | packaging | 48 | Part21, Part14, Part19A +9 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/packaging` |
 | quality | 47 | Part22, Part13, Part35 +17 | `TMM/Part22/9/9/3` |
-| other circumstances | 42 | Part28, Part17, Part22 +11 | `TMM/Part28/4#1` |
+| other circumstances *(claimed by `GC-0068`)* | 42 | Part28, Part17, Part22 +11 | `TMM/Part28/4#1` |
 | individual | 38 | Part10, Part14, Part60 +13 | `TMM/Part10/1/1/1/1` |
 | opposition proceedings *(claimed by `GC-0040`)* | 37 | Part51, Part15, Part39 +14 | `TMM/Part49/6#1` |
 | production | 36 | Part54, Part22, Part14 +9 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/production` |
 | reputation *(claimed by `GC-0050`)* | 34 | Part34, Part22, Part29 +10 | `TMM/Part46/4/4/5/1` |
-| ordinary signification | 33 | Part22, Part32B, Part21 +2 | `TMM/Part22/7/22/7/2` |
-| certification trade marks | 32 | Part35, Part43, Part60 +6 | `TMM/Part35/1#1` |
+| ordinary signification *(claimed by `GC-0060`)* | 33 | Part22, Part32B, Part21 +2 | `TMM/Part22/7/22/7/2` |
+| certification trade marks *(claimed by `GC-0107`)* | 32 | Part35, Part43, Part60 +6 | `TMM/Part35/1#1` |
 | devices | 30 | Part5, Part22, Part14 +5 | `TMM/Part22/25#1` |
 | representation of the trade mark | 30 | Part10, Part21, Part60 +8 | `TMM/Part10/3#1` |
 | beverages | 27 | Part14, Part32B, Part26 +6 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/beverages` |
-| honest concurrent use | 27 | Part28, Part17, Part27 +4 | `TMM/Part28/2#1` |
+| honest concurrent use *(claimed by `GC-0066`)* | 27 | Part28, Part17, Part27 +4 | `TMM/Part28/2#1` |
 | instruments | 27 | Part14, Part22, Part34 +1 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/instruments` |
 | figures | 26 | Part5, Part23, Part32A +5 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/figures` |
 | covers | 25 | Part14, Part20, Part27 +7 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/covers` |
 | online services | 25 | Part23, Part28, Part60 +11 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/online-services` |
-| prior use | 25 | Part28, Part17, Part19A +5 | `TMM/Part28/6#1` |
+| prior use *(claimed by `GC-0067`)* | 25 | Part28, Part17, Part19A +5 | `TMM/Part28/6#1` |
 | apparatus | 24 | Part14, Part22, Part27 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/apparatus` |
 | provisional refusal | 24 | Part60 | `TMM/Part60/4/9/4/9/1` |
-| defensive trade marks | 21 | Part34, Part46, Part47 +3 | `TMM/Part34/1/1/1` |
+| defensive trade marks *(claimed by `GC-0109`)* | 21 | Part34, Part46, Part47 +3 | `TMM/Part34/1/1/1` |
 | design | 21 | Part14, Part30, Part19A +4 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/design` |
 | management | 21 | Part14, Part4, Part26 +8 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/management` |
 | symbols | 21 | Part5, Part31, Part21 +6 | `TMM/Part5/x-device-constituents/symbols~1` |
@@ -1767,27 +1834,27 @@ The remaining **1571**. The Manual files passages under each of these and define
 | presumption of registrability *(claimed by `GC-0007`)* | 16 | Part20, Part22, Part26 +3 | `TMM/Part20/4#1~1` |
 | processing | 16 | Part14, Part26, Part60 +8 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/processing` |
 | reports | 16 | Part14, Part32A, Part45 +7 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/reports` |
-| specification of goods and/or services | 16 | Part14, Part10, Part2 +5 | `TMM/Part10/5#1` |
+| specification of goods and/or services *(claimed by `GC-0129`)* | 16 | Part14, Part10, Part2 +5 | `TMM/Part10/5#1` |
 | adhesive | 15 | Part14, Part30 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/adhesive` |
 | consultancy | 15 | Part14, Part22, Part26 +1 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/consultancy` |
-| non-traditional signs | 15 | Part10, Part21, Part20 +4 | `TMM/Part21/1#1` |
+| non-traditional signs *(claimed by `GC-0074`)* | 15 | Part10, Part21, Part20 +4 | `TMM/Part21/1#1` |
 | classification of goods | 14 | Part14, Part60, Part26 +2 | `TMM/Part14/x-annex-a2---principles-of-classification/classification-of-goods` |
-| collective trade marks | 14 | Part33, Part60, Part10 +2 | `TMM/Part33/1#1` |
+| collective trade marks *(claimed by `GC-0108`)* | 14 | Part33, Part60, Part10 +2 | `TMM/Part33/1#1` |
 | consultancy services | 14 | Part14, Part26, Part21 +1 | `TMM/Part14/5/5/2/2~1` |
 | containers | 14 | Part14, Part21, Part13 +2 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/containers` |
-| divisional applications | 14 | Part12, Part39, Part13 +6 | `TMM/Part12/1#1` |
+| divisional applications *(claimed by `GC-0110`)* | 14 | Part12, Part39, Part13 +6 | `TMM/Part12/1#1` |
 | holders | 14 | Part14, Part60, Part28 +2 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/holders` |
-| so nearly resembling | 14 | Part30, Part31, Part22 +1 | `TMM/Part22/7/22/7/10` |
+| so nearly resembling *(claimed by `GC-0056`)* | 14 | Part30, Part31, Part22 +1 | `TMM/Part22/7/22/7/10` |
 | wrapping | 14 | Part14, Part21 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/wrapping` |
 | publications | 13 | Part14, Part23, Part15 +8 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/publications` |
 | numerals | 12 | Part22, Part29, Part5 +2 | `TMM/Part22/22#1` |
 | rental | 12 | Part14, Part26, Part30 +1 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/rental` |
-| series of trade marks | 12 | Part13, Part60, Part10 +2 | `TMM/Part13/1#1` |
+| series of trade marks *(claimed by `GC-0079`)* | 12 | Part13, Part60, Part10 +2 | `TMM/Part13/1#1` |
 | services in relation to | 12 | Part13, Part14, Part10 +3 | `TMM/Part14/6/6/2/5` |
 | surnames | 12 | Part22, Part23, Part24 | `TMM/Part22/16#1` |
 | trade marks likely to deceive or cause confusion | 12 | Part22, Part30, Part14 +4 | `TMM/Part29/1#1` |
 | abbreviations | 11 | Part22, Part5, Part10 +2 | `TMM/Part14/6/6/2/7` |
-| classification of goods and services | 11 | Part14, Part60, Part26 +1 | `TMM/Part14/1#1~1` |
+| classification of goods and services *(claimed by `GC-0121`)* | 11 | Part14, Part60, Part26 +1 | `TMM/Part14/1#1~1` |
 | convention applications | 11 | Part60, Part47, Part11 +5 | `TMM/Part11/1#1` |
 | distribution | 11 | Part14, Part26, Part19A +1 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/distribution` |
 | fittings | 11 | Part14, Part27, Part21 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/fittings` |
@@ -1798,7 +1865,7 @@ The remaining **1571**. The Manual files passages under each of these and define
 | utensils | 11 | Part14, Part13, Part22 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/utensils` |
 | agency services | 10 | Part14, Part22 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/agency-services` |
 | amendments and changes to name and address | 10 | Part14, Part27, Part41 +5 | `TMM/Part9/1#1` |
-| disclaimers | 10 | Part24, Part39, Part5 | `TMM/Part24/1#1` |
+| disclaimers *(claimed by `GC-0099`)* | 10 | Part24, Part39, Part5 | `TMM/Part24/1#1` |
 | first use | 10 | Part23, Part28, Part47 +2 | `TMM/Part46/4/4/1/1` |
 | hearings, decisions, reasons and appeals | 10 | Part51, Part18, Part49 +1 | `TMM/Part52/1#1~1` |
 | labels | 10 | Part19A, Part23, Part14 +5 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/labels` |
@@ -1808,10 +1875,10 @@ The remaining **1571**. The Manual files passages under each of these and define
 | assignment and transmission | 9 | Part60, Part12, Part27 +5 | `TMM/Part43/1#1~1` |
 | blinds | 9 | Part14, Part22, Part26 +1 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/blinds` |
 | components | 9 | Part14, Part26, Part5 +3 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/components` |
-| deferment of acceptance | 9 | Part17, Part26, Part11 +2 | `TMM/Part17/1#1` |
+| deferment of acceptance *(claimed by `GC-0096`)* | 9 | Part17, Part26, Part11 +2 | `TMM/Part17/1#1` |
 | detergents | 9 | Part14, Part21, Part29 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/detergents` |
 | geographical names | 9 | Part22, Part23 | `TMM/Part22/15#1` |
-| material particulars | 9 | Part13, Part46 | `TMM/Part13/2#1~1` |
+| material particulars *(claimed by `GC-0080`)* | 9 | Part13, Part46 | `TMM/Part13/2#1~1` |
 | quantity | 9 | Part22, Part19B, Part23 +1 | `TMM/Part22/9/9/4` |
 | replacement | 9 | Part60, Part14, Part5 | `TMM/Part60/1/1/8` |
 | roofing | 9 | Part14, Part21 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/roofing` |
@@ -1824,12 +1891,12 @@ The remaining **1571**. The Manual files passages under each of these and define
 | customs | 8 | Part4, Part62, Part15 +3 | `TMM/Part60/4/27/4/27/1` |
 | details of formality requirements | 8 | Part14, Part21, Part20 +1 | `TMM/Part10/1#1` |
 | diagnosis | 8 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/diagnosis` |
-| expedited examination | 8 | Part6, Part60, Part11 +1 | `TMM/Part6/1#1` |
+| expedited examination *(claimed by `GC-0122`)* | 8 | Part6, Part60, Part11 +1 | `TMM/Part6/1#1` |
 | joints | 8 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/joints` |
 | procedures for opposing registration or protection | 8 | Part49, Part60, Part15 +3 | `TMM/Part47/1#1` |
 | production of documents | 8 | Part54, Part52 | `TMM/Part54/3#1` |
-| rectification of the register | 8 | Part35, Part42, Part17 +3 | `TMM/Part42/1#1` |
-| scent trade marks | 8 | Part21, Part10, Part60 | `TMM/Part10/3/3/4/1` |
+| rectification of the register *(claimed by `GC-0105`)* | 8 | Part35, Part42, Part17 +3 | `TMM/Part42/1#1` |
+| scent trade marks *(claimed by `GC-0078`)* | 8 | Part21, Part10, Part60 | `TMM/Part10/3/3/4/1` |
 | certified copies | 7 | Part45, Part11, Part39 +3 | `TMM/Part45/2/2/1/1` |
 | claim of interest or rights in a trade mark | 7 | Part60, Part19B, Part41 +1 | `TMM/Part44/1#1` |
 | companies | 7 | Part10, Part19A, Part33 | `TMM/Part10/1/1/1/5` |
@@ -1848,7 +1915,7 @@ The remaining **1571**. The Manual files passages under each of these and define
 | testing | 7 | Part14, Part21, Part54 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/testing` |
 | the wine australia act 2013 | 7 | Part32B, Part30, Part34 +2 | `TMM/Part32B/1/1/2` |
 | transformation | 7 | Part60 | `TMM/Part60/4/25/4/25/1` |
-| use contrary to law | 7 | Part20, Part30, Part31 +4 | `TMM/Part30/3#1` |
+| use contrary to law *(claimed by `GC-0063`)* | 7 | Part20, Part30, Part31 +4 | `TMM/Part30/3#1` |
 | valves | 7 | Part14 | `TMM/Part14/5/5/2/8` |
 | analysis | 6 | Part14, Part19A, Part21 +1 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/analysis` |
 | blocks | 6 | Part13, Part14, Part5 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/blocks` |
@@ -1868,7 +1935,7 @@ The remaining **1571**. The Manual files passages under each of these and define
 | overcoming grounds for rejection | 6 | Part27, Part14, Part22 +1 | `TMM/Part29/9/9/5` |
 | photographs | 6 | Part10, Part14, Part21 +3 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/photographs` |
 | prescribed documents | 6 | Part43, Part61, Part5 | `TMM/Part43/3/3/2` |
-| prohibited signs | 6 | Part30, Part20, Part34 +2 | `TMM/Part31/1#1` |
+| prohibited signs *(claimed by `GC-0054`)* | 6 | Part30, Part20, Part34 +2 | `TMM/Part31/1#1` |
 | reasonable excuse | 6 | Part54 | `TMM/Part54/3/3/4/2` |
 | snacks | 6 | Part19A, Part29, Part14 +1 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/snacks` |
 | supports | 6 | Part22, Part14, Part23 +2 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/supports` |
@@ -1925,7 +1992,7 @@ The remaining **1571**. The Manual files passages under each of these and define
 | patterns | 4 | Part5 | `TMM/Part5/x-device-constituents/patterns` |
 | planning | 4 | Part14, Part19A, Part51 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/planning` |
 | powder | 4 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder` |
-| prescribed signs | 4 | Part31, Part20, Part5 | `TMM/Part31/2#1` |
+| prescribed signs *(claimed by `GC-0055`)* | 4 | Part31, Part20, Part5 | `TMM/Part31/2#1` |
 | protection extended | 4 | Part60 | `TMM/Part60/1/1/4` |
 | ribbon | 4 | Part5, Part14, Part22 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/ribbon` |
 | rights of appeal | 4 | Part52, Part18, Part51 | `TMM/Part51/8#1` |
@@ -1996,14 +2063,14 @@ The remaining **1571**. The Manual files passages under each of these and define
 | provision of facilities | 3 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/provision-of-facilities` |
 | reagents | 3 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/reagents` |
 | registration fees | 3 | Part60, Part39 | `TMM/Part39/6#1` |
-| removal of a trade mark from the register for non-use | 3 | Part35, Part55, Part60 | `TMM/Part48/1#1` |
+| removal of a trade mark from the register for non-use *(claimed by `GC-0104`)* | 3 | Part35, Part55, Part60 | `TMM/Part48/1#1` |
 | requirements for the international application form | 3 | Part60 | `TMM/Part60/2/2/2/2/3` |
 | research services | 3 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/research-services` |
 | reservation | 3 | Part14, Part22 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/reservation` |
 | reservation services | 3 | Part14, Part22 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/reservation-services` |
 | ribbons | 3 | Part14, Part22 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/ribbons` |
 | same goods or services | 3 | Part19A, Part34, Part55 | `TMM/Part46/4/4/1/3` |
-| similarity of goods and services | 3 | Part26, Part34, Part46 | `TMM/Part26/4#1` |
+| similarity of goods and services *(claimed by `GC-0070`)* | 3 | Part26, Part34, Part46 | `TMM/Part26/4#1` |
 | snack foods | 3 | Part14, Part29 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/snack-foods` |
 | specification of goods and services *(claimed by `GC-0012`)* | 3 | Part20, Part60, Part9 | `TMM/Part11/1/1/6` |
 | spreads | 3 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/spreads` |
@@ -2045,7 +2112,7 @@ The remaining **1571**. The Manual files passages under each of these and define
 | change in ownership of an international registration | 2 | Part27, Part60 | `TMM/Part60/4/24/4/24/1` |
 | charitable services | 2 | Part19A, Part22 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/charitable-services` |
 | circles and discs | 2 | Part5 | `TMM/Part5/x-device-constituents/circles-and-discs~1` |
-| closely related goods and services | 2 | Part26, Part27 | `TMM/Part26/4/4/3~1` |
+| closely related goods and services *(claimed by `GC-0071`)* | 2 | Part26, Part27 | `TMM/Part26/4/4/3~1` |
 | coatings | 2 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/coatings` |
 | colour endorsements | 2 | Part10, Part13 | `TMM/Part13/9#1` |
 | conditioners | 2 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/conditioners` |
@@ -2659,7 +2726,7 @@ The remaining **1571**. The Manual files passages under each of these and define
 | classification procedures in examination | 0 | — | `TMM/Part14/4/4/1/1` |
 | classification tools | 0 | — | `TMM/Part14/5/5/1/1` |
 | collection services | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/collection-services` |
-| colour and coloured trade marks | 0 | — | `TMM/Part21/4#1` |
+| colour and coloured trade marks *(claimed by `GC-0076`)* | 0 | — | `TMM/Part21/4#1` |
 | colours claimed as trade marks for services | 0 | — | `TMM/Part21/4/4/4` |
 | colours which are common to the trade | 0 | — | `TMM/Part21/4/4/5/2` |
 | combination of a surname and other words/additional matter | 0 | — | `TMM/Part22/16/16/3` |
@@ -3030,7 +3097,7 @@ The remaining **1571**. The Manual files passages under each of these and define
 | removal of the conflicting trade mark | 0 | — | `TMM/Part27/6#1` |
 | renewal fees not paid | 0 | — | `TMM/Part60/2/6/2/6/3` |
 | renewal of basic trade mark | 0 | — | `TMM/Part60/2/6/2/6/4` |
-| renewal of registration | 0 | — | `TMM/Part40/1#1` |
+| renewal of registration *(claimed by `GC-0106`)* | 0 | — | `TMM/Part40/1#1` |
 | reporting on an irda | 0 | — | `TMM/Part60/4/8/4/8/1` |
 | representation of the trade mark - general | 0 | — | `TMM/Part10/3#1` |
 | representations and descriptions of sound trade marks | 0 | — | `TMM/Part21/6/6/1` |
@@ -3057,7 +3124,7 @@ The remaining **1571**. The Manual files passages under each of these and define
 | rights of an authorised user of a registered trade mark | 0 | — | `TMM/Part19B/3#1` |
 | role and powers of the registrar in hearings | 0 | — | `TMM/Part52/4#1` |
 | role of the registrar in an appeal | 0 | — | `TMM/Part52/5/5/4~1` |
-| scandalous signs | 0 | — | `TMM/Part30/2#1` |
+| scandalous signs *(claimed by `GC-0062`)* | 0 | — | `TMM/Part30/2#1` |
 | scents not adapted to distinguish | 0 | — | `TMM/Part21/7/7/2/1~1` |
 | sculpture | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/sculpture` |
 | sealing agents | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/sealing-agents` |
@@ -3084,7 +3151,7 @@ The remaining **1571**. The Manual files passages under each of these and define
 | services provided outside australia | 0 | — | `TMM/Part19A/4/4/2` |
 | setting out the specification of goods and/or services | 0 | — | `TMM/Part10/5/5/1` |
 | sfr holdings inc [2013] atmo 77 (“seadwarf”) | 0 | — | `TMM/Part32A/x-annex-5---case-law-summaries/sfr-holdings-inc-2013-atmo-77-seadwarf~1` |
-| shape (three-dimensional) trade marks | 0 | — | `TMM/Part21/3#1` |
+| shape (three-dimensional) trade marks *(claimed by `GC-0075`)* | 0 | — | `TMM/Part21/3#1` |
 | shape of packaging or aspect of packaging | 0 | — | `TMM/Part21/3/3/8` |
 | shapes and aesthetics | 0 | — | `TMM/Part21/3/3/5` |
 | shapes and functionality | 0 | — | `TMM/Part21/3/3/4~1` |
@@ -3108,7 +3175,7 @@ The remaining **1571**. The Manual files passages under each of these and define
 | smart and intelligent trade marks | 0 | — | `TMM/Part22/14/14/3` |
 | software vs a given service | 0 | — | `TMM/Part26/4/4/3/4` |
 | some exceptions to the general rule | 0 | — | `TMM/Part55/2/2/3` |
-| sound (auditory) trade marks | 0 | — | `TMM/Part21/6#1` |
+| sound (auditory) trade marks *(claimed by `GC-0077`)* | 0 | — | `TMM/Part21/6#1` |
 | sound as well as appearance to be considered | 0 | — | `TMM/Part26/6/6/1~1` |
 | sounds which are capable of distinguishing | 0 | — | `TMM/Part21/6/6/2/2` |
 | sounds which have insufficient adaptation to distinguish | 0 | — | `TMM/Part21/6/6/2/3` |

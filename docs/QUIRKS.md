@@ -943,3 +943,58 @@ records about one concept and loses the link between the machine's answer and th
 correction. Do not resolve it by deleting the authored record quietly either.
 Build the retirement: it is named in `HANDOFF.md` §2 and it is where the next
 real design question in this area lives.
+
+### Q-53 — 63% of the Manual cites no provision, so no citation rule can reach it
+
+`tmk-recon` over the whole corpus: **1,551 of the 2,460 chunks carry no
+`provisions[]` edge at all.** Not a defect in upstream and not a gap in the
+snapshot — most of the Manual explains practice without naming a section.
+
+It is the mechanism behind Q-28, which noticed the symptom without naming the
+cause. ADR-0022's rule selected passages that *cite* `TMA1995/s43`, so nearly two
+thirds of the corpus was structurally invisible to it, and a term's definition
+almost never sits in a passage that cites anything. That is why four of the nine
+role terms the expert named — Delegate, Office Practise, Subject Matter Expert,
+Adverse Report — were absent from a 52-concept vocabulary built with it.
+
+**The trap for a future session:** any new selection rule keyed on provision
+edges inherits the same blindness, however wide the provision list. The concept
+candidate pass reads headings and definition text precisely so it does not
+(ADR-0095), and `tmk-recon` prints this figure at the top of its report so
+nobody has to rediscover it.
+
+### Q-54 — the same counter has now been wrong in both directions
+
+The build report's concept-types line has been fixed twice for opposite reasons.
+
+ADR-0093 fixed it from `45 of 0`: it divided the authored half by
+`authored.concepts`, the number of concepts a *machine* had written, which was
+structurally 0 while machines wrote typings and not concepts. The fix was to
+divide both halves by the signed concept count.
+
+S018 fixed it from `130 of 52`: that denominator was right until a machine
+authored concepts of its own. It now divides by the count across both stores and
+prints the split beside it.
+
+Q-50 already said to read a counter's comment before making it non-zero, and this
+is the same lesson with the numerator and denominator swapped: **a denominator
+that is correct today is correct because of something that is currently true.**
+The comment on the line is its only specification, and it is now three times
+longer than the line.
+
+### Q-55 — `ScopeRule` is not a scope rule any more, and the name is kept anyway
+
+`tm_knowledge.stage0.worksheet.ScopeRule` selects chunks citing a given
+provision. Under ADR-0022 that was a boundary: everything outside it was out of
+scope. The owner withdrew the boundary (ADR-0081), so what the class does now is
+*select* — "print me the passages about section 41" — which is a working choice
+and not a claim about scope.
+
+The name was left alone deliberately. Renaming a class does not change what reads
+it, and the two things that mattered were fixed instead: the worksheet header no
+longer says the printed rows are the scope, and the graph stopped using the class
+altogether (ADR-0097). If you meet `ScopeRule` and read "scope", read the module
+docstring first.
+
+`PILOT_PROVISION` is the same shape of leftover. It is `TMA1995/s43` and it is
+now a *default argument*, not a boundary.

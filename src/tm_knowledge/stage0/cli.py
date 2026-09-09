@@ -67,15 +67,30 @@ def _write(text: str, path: Path) -> Path:
 
 
 def recon(argv: list[str] | None = None) -> int:
+    """`tmk-recon` — derived counts about the corpus, or about one provision in it.
+
+    **The default changed at ADR-0096.** It used to cost section 43 so that a
+    boundary could be drawn against numbers; the owner withdrew the boundary, so
+    it costs the corpus and `--provision` asks the old question.
+    """
     parser = argparse.ArgumentParser(
         prog="tmk-recon",
         description=(
-            "Derived counts about a candidate pilot area. Not a scope proposal — "
-            "the report says so on its face, and means it."
+            "Derived counts about the corpus. Not a scope proposal — the report says "
+            "so on its face, and means it. Pass --provision to cost one area instead."
         ),
     )
-    parser.add_argument("--provision", default=PILOT_PROVISION)
-    parser.add_argument("--out", type=Path, default=DERIVED / "reports" / "recon.md")
+    parser.add_argument(
+        "--provision",
+        default=None,
+        help=(
+            "cost this provision alone, the way this command did before the section 43 "
+            f"boundary was withdrawn (e.g. {PILOT_PROVISION}). Without it, the whole "
+            "corpus is costed"
+        ),
+    )
+    parser.add_argument("--out", type=Path, default=None)
+    parser.add_argument("--generated", default=None, help="build stamp, for a reproducible run")
     args = parser.parse_args(argv)
 
     try:
@@ -84,8 +99,27 @@ def recon(argv: list[str] | None = None) -> int:
         print(f"refusing to run: {error}", file=sys.stderr)
         return 2
 
+    if args.provision is None:
+        found = recon_module.survey(corpus)
+        path = _write(
+            recon_module.render_survey(found, corpus, generated=args.generated),
+            args.out or DERIVED / "reports" / "recon.md",
+        )
+        print(
+            f"{found.total_chunks:,} chunks · {len(found.areas)} provisions cited by at "
+            f"least 3 of them · {found.uncited_chunks:,} chunks "
+            f"({found.uncited_chunks / found.total_chunks:.0%}) cite no provision at all"
+        )
+        for area in found.areas[:8]:
+            print(f"  {area.provision:<18} {area.chunks:>5} chunks   {area.title[:48]}")
+        print(f"wrote {path}")
+        return 0
+
     report = recon_module.reconnoitre(corpus, args.provision)
-    path = _write(recon_module.render(report, corpus), args.out)
+    path = _write(
+        recon_module.render(report, corpus, generated=args.generated),
+        args.out or DERIVED / "reports" / f"recon-{args.provision.replace('/', '-')}.md",
+    )
     print(
         f"{args.provision}: {len(report.citing_chunks)} citing chunks on "
         f"{len(report.pages)} pages; {len(report.with_page_mates)} chunks with "
@@ -650,8 +684,9 @@ def typing(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         prog="tmk-typing",
         description=(
-            "Lay out the approved concepts for sorting into the four groups. Supplies the "
-            "shape and the evidence; never the type."
+            "Lay out every concept the repository holds — signed and authored — for "
+            "sorting into the four groups. Supplies the shape, the evidence and a "
+            "proposal; never a person's signature."
         ),
     )
     parser.add_argument("--write", action="store_true", help="write the workbook and the report")
@@ -661,14 +696,25 @@ def typing(argv: list[str] | None = None) -> int:
 
     from tm_knowledge.stage0 import typing as typing_module
 
-    prepared = typing_module.rows()
-    sorted_already = [row for row in prepared if row.get("type")]
+    from tm_knowledge.authored import store as authored_store
+    from tm_knowledge.stage0 import goldset
+
+    gold = goldset.load()
+    authored = authored_store.load()
+    prepared = typing_module.rows(gold, authored)
+    typed = [row for row in prepared if row.get("type")]
+    signed_off = [row for row in typed if row.get("approved_by")]
     print(
-        f"{len(prepared)} approved concepts, {len(sorted_already)} already sorted, "
-        f"{len(prepared) - len(sorted_already)} waiting"
+        f"{len(prepared)} concepts on the sheet — {len(gold['gold_concept'])} signed by "
+        f"an expert, {len(prepared) - len(gold['gold_concept'])} authored by a machine "
+        "(never summed elsewhere, ADR-0080 c3)"
+    )
+    print(
+        f"{len(typed)} carry a proposed group, {len(signed_off)} carry a person's name, "
+        f"{len(prepared) - len(typed)} are blank"
     )
     for value, meaning in typing_module.GROUPS:
-        count = sum(1 for row in sorted_already if row.get("type") == value)
+        count = sum(1 for row in typed if row.get("type") == value)
         print(f"  {value:<18} {count:>3}   {meaning}")
 
     if not args.write:
@@ -683,37 +729,6 @@ def typing(argv: list[str] | None = None) -> int:
         "\nFill the `type` column, sign the row, and hand the file back. "
         "`tmk-transcribe <file> --write` reads it into eval/gold/concept-types.yaml."
     )
-    return 0
-
-
-def boundary(argv: list[str] | None = None) -> int:
-    """`tmk-boundary` — the section 43 boundary, computed from the owner's rule."""
-    parser = argparse.ArgumentParser(
-        prog="tmk-boundary",
-        description=(
-            "One hop from section 43, landing on the chunk and not its parent. OQ-0014."
-        ),
-    )
-    parser.add_argument("--write", action="store_true", help="write into data/derived/reports/")
-    parser.add_argument("--generated", default=None, help="build stamp, for a reproducible run")
-    args = parser.parse_args(argv)
-
-    from tm_knowledge.stage0 import boundary as boundary_module
-
-    computed = boundary_module.compute()
-    print(f"{len(computed.centre)} passages at the centre")
-    print(f"{len(computed.provisions)} provisions and units one hop out"
-          f" ({len(computed.unresolved)} of them land on nothing held)")
-    print(f"{len(computed.cases)} court decisions one hop out")
-    print(f"{len(computed.internal)} other Manual passages one hop out")
-    print(f"{len(computed.in_scope)} refs in scope in total")
-    print(f"{len(computed.parents_excluded)} parent provisions kept out because the hop "
-          f"landed on a unit within them")
-
-    if args.write:
-        print(f"\nwrote {boundary_module.write(generated=args.generated)}")
-    else:
-        print("\n(dry run — nothing written. Pass --write.)")
     return 0
 
 

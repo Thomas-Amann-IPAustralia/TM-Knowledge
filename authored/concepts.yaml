@@ -17,7 +17,7 @@
 # is the cheap half of review; composing one is the expensive half, and that is
 # the whole bet ADR-0079 made.
 #
-# Five records here cover ground a signed record already claims — GC-0035
+# Eight records here cover ground a signed record already claims — GC-0035
 # authorised user, GC-0016 priority date, GC-0042 revocation of acceptance,
 # GC-0043 divisional application, GC-0046 Registrar, GC-0007 presumption of
 # registrability, GC-0012 specification, GC-0050 reputation. Each says so in its

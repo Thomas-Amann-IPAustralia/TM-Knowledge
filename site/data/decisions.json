@@ -1,14 +1,14 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "94 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "97 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 94,
+     "value": 97,
      "note": null,
      "tone": null,
      "href": null
@@ -22,7 +22,7 @@
     },
     {
      "label": "Forced by the evidence",
-     "value": 23,
+     "value": 25,
      "note": "defensible without a human",
      "tone": null,
      "href": null
@@ -77,6 +77,90 @@
     }
    ],
    "rows": [
+    {
+     "id": "`ADR-0097`",
+     "title": "the source graph holds what the records speak about, not what cites a section",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-09",
+     "search": "ADR-0097 the source graph holds what the records speak about, not what cites a section agent-proposed accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "The boundary's last and most consequential foothold. `graph/source.ttl` was built over `select(corpus, ScopeRule())` — every chunk citing `TMA1995/s43` plus page-mates, 216 of 2,460 — from S010 until 2026-09-09. So an approved record naming a passage outside that fence had nothing in the graph to attach to, and the…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0097-the-source-graph-holds-what-the-records-speak-about-not-what-cites-a-section)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0096`",
+     "title": "the boundary machinery is retired, and `tmk-recon` costs the corpus",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-09",
+     "search": "ADR-0096 the boundary machinery is retired, and `tmk-recon` costs the corpus derived accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "`boundary.py` computed one hop from section 43 under the rule the owner gave on OQ-0014, `data/derived/reports/boundary.md` published the result, `tmk-recon` costed section 43 by default, the worksheet header promised to regenerate itself \"when `eval/pilot-scope.md` lands\", and the completeness gate reported that…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0096-the-boundary-machinery-is-retired-and-tmk-recon-costs-the-corpus)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0095`",
+     "title": "the concept pass reads the whole Manual, and the sheet carries what it finds",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-09",
+     "search": "ADR-0095 the concept pass reads the whole Manual, and the sheet carries what it finds derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner asked for the section 43 boundary's removal to be reflected in `data/derived/concept-typing.xlsx` and throughout the repository. The boundary was withdrawn on 2026-09-08 (ADR-0081) and S015 to S017 rewrote the rules, the store and the typings — but every concept in the project was still one found inside the…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0095-the-concept-pass-reads-the-whole-manual-and-the-sheet-carries-what-it-finds)"
+      }
+     ]
+    },
     {
      "id": "`ADR-0094`",
      "title": "`authored_by` names the model that actually wrote the record",

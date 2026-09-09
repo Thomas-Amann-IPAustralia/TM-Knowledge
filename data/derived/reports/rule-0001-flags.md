@@ -2,7 +2,7 @@
 
 # RULE-0001 — every passage it flags, in full
 
-**Generated 2026-09-08** by `tmk-flags --write`, from the pinned snapshot and `eval/gold/entities.yaml`.
+**Generated 2026-09-09** by `tmk-flags --write`, from the pinned snapshot and `eval/gold/entities.yaml`.
 
 ## Why you are reading this
 

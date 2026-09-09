@@ -104,7 +104,7 @@ review verdict. That is all.
 | `search-questions.seed.yaml` | 26 | §5.5 |
 | `retrieval-questions.seed.yaml` | 22 | §5.6 |
 | `reasoning-expected.seed.yaml` | 15 | §5.7 |
-| `pilot-scope.seed.md` | a draft boundary, for deliverable 1 | §2 |
+| `pilot-scope.seed.md` | **withdrawn** — a draft boundary for a question the owner answered by removing it (ADR-0081, ADR-0096). Kept because deliverable 1 is still unwritten | §2 |
 | `measures.seed.md` | draft thresholds, for deliverable 5 | §5.9 |
 | `HOW-TO-CORRECT.md` | the expert-facing instructions | — |
 

@@ -35,6 +35,16 @@ def built():
     return build()
 
 
+@pytest.fixture(scope="module")
+def corpus():
+    from tm_knowledge.config import UPSTREAM_DIR
+    from tm_knowledge.upstream.loader import load_corpus
+
+    if not UPSTREAM_DIR.exists():
+        pytest.skip("no snapshot fetched; run tmk-fetch-upstream")
+    return load_corpus()
+
+
 def test_every_module_parses_and_declares_itself():
     """A module that fails to parse takes the whole TBox with it, and a module
     with no `owl:Ontology` node cannot be imported by another."""
@@ -309,3 +319,74 @@ def test_a_role_mention_resolves_to_a_node_the_graph_actually_holds():
 
     node = _term(roles[0])
     assert (node, None, None) in approved, f"{roles[0]} resolves to a node the graph lacks"
+
+# ---------------------------------------------------------------------------
+# What the source graph holds — ADR-0097
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.snapshot
+def test_the_source_graph_holds_what_the_records_speak_about(corpus):
+    """The rule that replaced the section 43 fence.
+
+    Not "chunks citing a provision" — that was a boundary, and the owner
+    withdrew it. Every Manual passage any record cites, plus page-mates, plus
+    every chunk carrying an `ambiguous` edge.
+    """
+    from tm_knowledge.authored import store as authored_store
+    from tm_knowledge.ontology.build import source_chunks
+    from tm_knowledge.stage0 import goldset
+
+    gold = goldset.load()
+    authored = authored_store.load()
+    selected = {chunk.chunk_ref for chunk in source_chunks(corpus, gold, authored)}
+
+    # Every Manual ref a record names is in it. This is the property the fence
+    # could not have: under ADR-0022 a record naming a Part 22 passage had
+    # nothing in the graph to attach to.
+    from tm_knowledge.stage0.worksheet import cited_refs
+
+    refs = cited_refs(
+        [
+            *((record_type, record, None) for record_type, record in gold.all_records()),
+            *(
+                (entry.record_type, entry.record, entry.envelope)
+                for entry in authored.all_entries()
+                if entry.sound
+            ),
+        ]
+    )
+    for ref in refs:
+        if ref in corpus.chunks:
+            assert ref in selected, f"{ref} is cited by a record and not in the graph"
+
+    # It reaches well past the old fence, and past Part 29.
+    parts = {corpus.chunks[ref].part_id for ref in selected}
+    assert len(parts) > 12
+    assert {"Part22", "Part26", "Part28", "Part21"} <= parts
+
+
+@pytest.mark.snapshot
+def test_every_ambiguous_edge_reaches_the_graph_however_the_selection_moves(corpus):
+    """Q-07, made structural.
+
+    An ambiguous edge is upstream refusing to choose between instruments. It is
+    a reason to put a passage in front of a person and never a reason to drop
+    one — and under the evidence-driven rule it would have been dropped for not
+    being spoken about, which is a distinction the graph could not show anybody.
+    """
+    from tm_knowledge.authored import store as authored_store
+    from tm_knowledge.ontology.build import source_chunks
+    from tm_knowledge.stage0 import goldset
+
+    selected = {
+        chunk.chunk_ref
+        for chunk in source_chunks(corpus, goldset.load(), authored_store.load())
+    }
+    ambiguous = {
+        chunk.chunk_ref
+        for chunk in corpus.chunks.values()
+        if any(edge.needs_a_human for edge in chunk.provisions)
+    }
+    assert ambiguous, "the corpus holds ambiguous edges; the fixture is wrong if not"
+    assert ambiguous <= selected
