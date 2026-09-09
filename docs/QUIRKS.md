@@ -1077,3 +1077,59 @@ somebody eventually defines the `tmk:Role` subclasses, the two hierarchies will
 carry the same four labels — Registrar, Delegate, Examiner, Decision maker — and
 nothing in the labels will distinguish them. Read the `rdfs:comment` on either
 class before writing a query that touches roles; both say which one they are.
+
+### Q-59 — ten authored concepts reuse a signed concept's preferred label, and three of them say nothing about it
+
+`authored/concepts.yaml` holds ten records whose `pref_label` is character-for-
+character a signed concept's. Seven name the collision on their own record and
+argue for standing beside the signed one. **Three do not mention it at all:**
+
+| Authored | Signed | Term |
+|---|---|---|
+| `GC-0053` | `GC-0006` | ground for rejection |
+| `GC-0100` | `GC-0014` | endorsement |
+| `GC-0101` | `GC-0041` | evidence of use |
+
+**Why nothing caught it.** The harness checks that an id is not in both stores
+(ADR-0080 c1) and that an authored typing names a concept that exists
+(ADR-0095 c4). Neither is an id collision — the ids are distinct and correct.
+Nothing anywhere compares *labels* across the two stores, so the two records
+coexist, both resolve, and a search on the term returns one signed answer and one
+unreviewed answer with different sources.
+
+**Do not resolve it by deleting or retitling either record, and do not reach for
+ADR-0080 consequence 2 to do it.** That rule retires an authored record where a
+signed one *covers the same ground* — which is precisely the question in doubt
+here, since each pair cites different passages and reads differently. Answer the
+question first, and it is not an agent's to answer: the signed record cannot be
+narrowed by an agent deciding its author did not mean the other case. §2C of
+`docs/EXPERT-REVIEW-SCOPE.md`, ADR-0101.
+
+**The check that is missing** is a cross-store label comparison reported as a
+note rather than a defect: a duplicate label is a finding for a person, not a
+malformed record. Seven of the ten are the system working as designed.
+
+### Q-60 — the one expert-facing document tells the expert to delete the deliverable
+
+`eval/STAGE-0-INPUT-GUIDE.md` was written for the pre-2026-09-08 model and has
+not been revised. Its §9 says that a record with `approved_by` unfilled and
+content filled in is "CLAUDE.md rule 1 being broken, and the record should be
+deleted rather than reviewed". Under ADR-0079 that description now matches every
+one of the 208 records in `authored/` — which is the entire body of work a
+reviewer would be handed.
+
+Its opening likewise states that an agent cannot author a concept definition or
+a prohibited use, and §2 and §10 make drawing the withdrawn section 43 boundary
+the reader's first half-day.
+
+**Fixed only by a banner so far** (S020): a dated amendment block at the top
+naming the three stale parts and pointing at `docs/EXPERT-REVIEW-SCOPE.md`. The
+document's record *shapes* (§5), workbook mechanics (§6), definition of done
+(§7) and limits (§8) still hold — those are containers and the containers did
+not change. A proper rewrite has not been done.
+
+**The general trap:** ADR-0079 amended `CLAUDE.md` and `review/README.md` and
+`authored/README.md`, all of which agents read every session. It did not reach
+the document nobody in a session opens, because its audience is not in the
+session. When an operating rule changes, grep for the *old rule's wording*
+across the tree rather than for the files an agent happens to read.

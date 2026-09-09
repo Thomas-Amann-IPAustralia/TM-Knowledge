@@ -679,6 +679,60 @@ if __name__ == "__main__":  # pragma: no cover
     raise SystemExit(recon())
 
 
+def expert_pack(argv: list[str] | None = None) -> int:
+    """`tmk-expert-pack` — every question for a trade marks expert, in one pack."""
+    parser = argparse.ArgumentParser(
+        prog="tmk-expert-pack",
+        description=(
+            "Consolidate every open question for a trade marks expert into one "
+            "workbook and one plain-English covering note. Ordered so a reviewer "
+            "who stops early has answered the most valuable questions first."
+        ),
+    )
+    parser.add_argument("--write", action="store_true", help="write the workbook and the note")
+    parser.add_argument("--out", type=Path, default=None, help="workbook path")
+    parser.add_argument("--letter", type=Path, default=None, help="covering note path")
+    parser.add_argument("--generated", default=None, help="build stamp, for a reproducible run")
+    args = parser.parse_args(argv)
+
+    from tm_knowledge.authored import store as authored_store
+    from tm_knowledge.stage0 import expertpack, goldset
+
+    gold = goldset.load()
+    authored = authored_store.load()
+    duplicates = expertpack.duplicate_labels(gold, authored)
+    unjudged = expertpack.unjudged_modalities(gold)
+    undisclosed = [item for item in duplicates if not item.disclosed]
+
+    print(
+        f"{authored.total} machine-written answers go into this pack, none of them "
+        f"checked by anybody. {gold.total} signed records stay where they are."
+    )
+    print(
+        f"  {len(duplicates)} duplicate labels across the two stores "
+        f"({len(undisclosed)} of them disclosed by nothing)"
+    )
+    for item in undisclosed:
+        print(f"    {item.authored_id} / {item.signed_id}  {item.label}")
+    print(f"  {len(unjudged)} signed relationships carry no modality: "
+          + ", ".join(item.identifier for item in unjudged))
+
+    if not args.write:
+        print("\n(dry run — nothing written. Pass --write.)")
+        return 0
+
+    book, counts = expertpack.build_workbook(gold, authored, generated=args.generated)
+    path = args.out or expertpack.WORKBOOK_PATH
+    path.parent.mkdir(parents=True, exist_ok=True)
+    book.save(path)
+    letter = expertpack.write_letter(
+        args.letter, counts, generated=args.generated
+    )
+    print(f"\nwrote {path}")
+    print(f"wrote {letter}")
+    return 0
+
+
 def typing(argv: list[str] | None = None) -> int:
     """`tmk-typing` — the concept typing pass, for one person to sort."""
     parser = argparse.ArgumentParser(

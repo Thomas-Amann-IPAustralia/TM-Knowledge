@@ -1,28 +1,28 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "99 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "102 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 99,
+     "value": 102,
      "note": null,
      "tone": null,
      "href": null
     },
     {
      "label": "Made by you",
-     "value": 33,
+     "value": 34,
      "note": "yours, and not overturnable by an agent",
      "tone": "good",
      "href": null
     },
     {
      "label": "Forced by the evidence",
-     "value": 25,
+     "value": 26,
      "note": "defensible without a human",
      "tone": null,
      "href": null
@@ -77,6 +77,90 @@
     }
    ],
    "rows": [
+    {
+     "id": "`ADR-0102`",
+     "title": "one request to the expert, in one workbook, with one covering note",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-09",
+     "search": "ADR-0102 one request to the expert, in one workbook, with one covering note human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner's instruction: *\"I would like you to assume we only have one more request to send to the subject matter expert. Please consolidate all of the questions we may want to ask them and put that together in a single workbook. It should be accompanied by a succinct and jargon free explanation of what we need from…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0102-one-request-to-the-expert-in-one-workbook-with-one-covering-note)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0101`",
+     "title": "a duplicate label across the two stores is a finding for a person, not a defect",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-09",
+     "search": "ADR-0101 a duplicate label across the two stores is a finding for a person, not a defect agent-proposed accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "Ten records in `authored/concepts.yaml` carry a `pref_label` identical to a signed concept's. Seven disclose the collision on their own record and argue for standing beside the signed one. Three — `GC-0053` against `GC-0006` (*ground for rejection*), `GC-0100` against `GC-0014` (*endorsement*), `GC-0101` against…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0101-a-duplicate-label-across-the-two-stores-is-a-finding-for-a-person-not-a-defect)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0100`",
+     "title": "what a trade marks expert is asked to look at is written down in one place",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-09",
+     "search": "ADR-0100 what a trade marks expert is asked to look at is written down in one place derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "Asked to read the repo and clarify what the trade marks expert needs to look at. The answer was not assemblable from any one file. It was spread over `review/questions/open-questions.yaml` (whose `expert` theme holds four questions the owner answered on 2026-09-08 and one that is genuinely parked), `docs/HANDOFF.md`…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0100-what-a-trade-marks-expert-is-asked-to-look-at-is-written-down-in-one-place)"
+      }
+     ]
+    },
     {
      "id": "`ADR-0099`",
      "title": "the dashboard says what is unreviewed, and counts what it claims to count",
