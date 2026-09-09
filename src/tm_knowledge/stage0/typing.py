@@ -63,15 +63,53 @@ __all__ = [
 WORKBOOK_PATH = REPO_ROOT / "data" / "derived" / "concept-typing.xlsx"
 REPORT_PATH = REPO_ROOT / "data" / "derived" / "reports" / "concept-typing.md"
 
-#: What the four groups mean, in the owner's own question's words. Repeated on
-#: the sheet and in the report so nobody has to hold them in their head across
-#: 52 rows.
-GROUPS: tuple[tuple[str, str], ...] = (
+#: What the groups mean. Repeated on the sheet and in the report so nobody has
+#: to hold them in their head across 130 rows.
+#:
+#: **The first four are the owner's own words** from the OQ-0001 question he
+#: ruled on, and they are not paraphrased here. The next five were added on
+#: 2026-09-09 at his instruction, because 53 of the 130 concepts fitted none of
+#: the first four and the pile was not random (ADR-0098).
+#:
+#: The order matters and is not alphabetical: the reasoning groups come first
+#: because they are the ones a person sorting an examination vocabulary reaches
+#: for, and `none_of_these` stays last because it is the residue after nine
+#: real answers rather than a category of its own.
+REASONING_GROUPS: tuple[tuple[str, str], ...] = (
     ("ground_of_refusal", "a reason an application can be refused"),
     ("legal_test", "a question the decision maker has to answer"),
     ("relevant_factor", "something that feeds into that answer"),
     ("exception", "something that takes a case out of the rule"),
-    ("none_of_these", "none of the four fit — which is an answer, not a gap"),
+)
+
+#: The process groups. Where the four above sort a concept by the part it plays
+#: in *reasoning towards* a decision, these sort it by the part it plays in the
+#: process that reasoning sits inside — who acts, what is acted on, what act is
+#: performed, what the act produces, and what external scheme it runs under.
+PROCESS_GROUPS: tuple[tuple[str, str], ...] = (
+    ("process_role", "a person or body that acts — who does something"),
+    ("subject_matter", "the thing the process operates on — what may be registered"),
+    (
+        "procedural_step",
+        "an act, proceeding or event that moves an application or a registration "
+        "from one state to the next",
+    ),
+    (
+        "instrument_or_record",
+        "a document, entry or endorsement the process produces, or writes to the "
+        "Register",
+    ),
+    (
+        "external_instrument",
+        "a treaty or international scheme Australian practice adopts, rather than a "
+        "rule the Act itself makes",
+    ),
+)
+
+GROUPS: tuple[tuple[str, str], ...] = (
+    *REASONING_GROUPS,
+    *PROCESS_GROUPS,
+    ("none_of_these", "none of the nine fit — which is an answer, not a gap"),
 )
 
 
@@ -335,7 +373,7 @@ def _mark_as_scoped(book, count: int, proposed: int = 0, machine_written: int = 
     from openpyxl.styles import Alignment, Font
 
     sheet = book[book.sheetnames[0]]
-    sheet["A1"] = "Concept typing pass — sort the concepts into the four groups"
+    sheet["A1"] = "Concept typing pass — sort the concepts into the nine groups"
     sheet["A1"].font = Font(bold=True, size=14)
     machine_note = (
         (
@@ -477,7 +515,11 @@ def render(generated: str | None = None) -> str:
         "You ruled on OQ-0001: *“Use those four groups — come back to me with the list of "
         "52 to sort.”* You then withdrew the section 43 boundary: *“I would like to "
         "completely remove the s43 barrier.”* **The 52 were what the boundary could see.** "
-        f"Here is the list without it — **{len(concepts)}** concepts, of which "
+        "Then, when 53 of the wider set fitted none of your four: *“Please create new "
+        "groups which most effectively capture the 53 unassigned concepts these will all "
+        "be reviewed in one go.”* So there are now nine groups, five of them written by a "
+        "machine and named below (ADR-0098). "
+        f"Here is the list — **{len(concepts)}** concepts, of which "
         f"**{len(untyped)}** have not been sorted by a person.",
         "",
         "| | concepts | where they came from |",
@@ -499,16 +541,39 @@ def render(generated: str | None = None) -> str:
         "group can be corrected in a dropdown and the concept cannot.",
         "",
         "Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown "
-        "with the five values below; this document is the evidence to sort by, so keep it "
+        "with the ten values below; this document is the evidence to sort by, so keep it "
         "open beside the spreadsheet.",
         "",
-        "| group | what it means |",
-        "|---|---|",
-        *[f"| `{value}` | {meaning} |" for value, meaning in GROUPS],
+        "**The ten fall on two axes, and knowing which one you are on makes the sort much "
+        "faster.** The first four ask *what part does this play in reasoning towards a "
+        "decision* — they are your own words from OQ-0001 and they are unchanged. The next "
+        "five ask *what part does this play in the process that reasoning sits inside*. "
+        "They were added on 2026-09-09 at your instruction, because 53 of these 130 "
+        "concepts fitted none of the first four and the 53 were not a random remainder "
+        "(ADR-0098).",
+        "",
+        "| group | axis | what it means |",
+        "|---|---|---|",
+        *[
+            f"| `{value}` | reasoning | {meaning} |"
+            for value, meaning in REASONING_GROUPS
+        ],
+        *[
+            f"| `{value}` | process | {meaning} |"
+            for value, meaning in PROCESS_GROUPS
+        ],
+        "| `none_of_these` | — | none of the nine fit — which is an answer, not a gap |",
+        "",
+        "**One concept carries one group, and that is a design choice worth arguing "
+        "with.** A few concepts have a real claim on both axes — *acceptance* is a step in "
+        "the process and section 33's presumption of registrability is the reasoning "
+        "inside it — and with one dropdown the sheet makes you pick. The alternative was "
+        "two columns, which nobody has asked for and which doubles every row. The "
+        "`expert_should_check` line on each affected record names the claim that lost.",
         "",
         "**Leaving a row blank is fine and is not the same as `none_of_these`.** A blank "
-        "says *not yet sorted* and comes back on the next pass. `none_of_these` says *the "
-        "four groups do not fit this one*, which is evidence about the taxonomy — and if a "
+        "says *not yet sorted* and comes back on the next pass. `none_of_these` says *none "
+        "of the nine groups fit this one*, which is evidence about the taxonomy — and if a "
         "lot of rows come back that way, the taxonomy is what needs revisiting, not the "
         "rows.",
         "",
@@ -539,32 +604,51 @@ def render(generated: str | None = None) -> str:
             "most expects to have got wrong — and a confidence between 0 and 1 that is the "
             "machine's own and means nothing about whether it is right.",
             "",
-            "| proposed group | concepts |",
-            "|---|---|",
+            "| proposed group | axis | concepts |",
+            "|---|---|---|",
             *[
-                f"| `{group}` | {tally[group]} |"
-                for group, _ in GROUPS
+                f"| `{group}` | reasoning | {tally[group]} |"
+                for group, _ in REASONING_GROUPS
                 if group in tally
             ],
+            *[
+                f"| `{group}` | process | {tally[group]} |"
+                for group, _ in PROCESS_GROUPS
+                if group in tally
+            ],
+            *(
+                [f"| `none_of_these` | — | {tally['none_of_these']} |"]
+                if "none_of_these" in tally
+                else []
+            ),
             "",
-            "**The shape of that table is itself a finding, and it changed when the "
-            "boundary went.** Over the 52 concepts the boundary could see, 30 came out "
+            "**The shape of that table is itself a finding, and it has now changed "
+            "twice.** Over the 52 concepts the section 43 boundary could see, 30 came out "
             "`relevant_factor` and exactly 1 `ground_of_refusal` — which is what a "
             "vocabulary built around a single ground looks like, and OQ-0023 asked "
             "whether that meant the taxonomy was wrong. Widening to the whole Manual "
-            "answers half of it: the lopsidedness evened out, so it was an artefact.",
+            "answered half of it: the lopsidedness evened out, so it was an artefact.",
             "",
-            "**What did not go away is the pile that fits nowhere.** `none_of_these` "
-            f"holds {tally.get('none_of_these', 0)} of the "
-            f"{len(machine_typed)} — against 7 of the first 52 — and they are not a "
-            "random selection. They are the people (applicant, opponent, Registrar, "
-            "registered owner), the documents (a notice of opposition, an endorsement, "
-            "a disclaimer), the proceedings (opposition, a hearing), the outcomes "
-            "(acceptance, lapsing, a decision) and the remedies (revoking an "
-            "acceptance, rectifying the Register). Your four groups describe "
-            "*reasoning about* an application. About two fifths of the Manual describes "
-            "*what happens to* one. **That is OQ-0024, and it is worth settling before "
-            "somebody corrects 130 rows inside a taxonomy you would have changed.**",
+            "**The other half was the pile that fitted nowhere, and it now has groups.** "
+            "53 of the 130 came back `none_of_these` — the people, the things, the acts, "
+            "the documents and the schemes — because your four groups describe *reasoning "
+            "about* an application and about two fifths of the Manual describes *what "
+            "happens to* one. On 2026-09-09 you asked for groups that fit them. Five were "
+            "added and the 53 were sorted into them in one pass, so they can be reviewed "
+            "in one go rather than one at a time (ADR-0098).",
+            "",
+            "**What to look at first, because these are the weak points and they are "
+            "named rather than buried.** One concept stays `none_of_these` on purpose — "
+            "`GC-0051`, *mandatory application of the section*, which is a rule about how "
+            "a ground operates and is not a role, a thing, an act, a record or a scheme "
+            "either. Inventing a tenth group to hold one record would have been "
+            "over-fitting. Setting that one aside, five of the 53 carry a confidence of "
+            "0.65 or lower and each says why on its own record: `GC-0121` "
+            "(classification — a scheme, an act and a "
+            "set of classes in one concept), `GC-0113` (an IRDA — arguably belongs with "
+            "the Madrid Protocol), `GC-0043`/`GC-0110` (a divisional application — typed "
+            "as a mechanism while `GC-0079`, a series, is typed as a thing) and `GC-0069` "
+            "(conditions or limitations — which has a real claim on your `exception`).",
             "",
         ]
 

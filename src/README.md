@@ -27,7 +27,7 @@ src/tm_knowledge/
     recon.py      `tmk-recon`: derived counts about the corpus, or one provision in it
     worksheet.py  `tmk-worksheet`: the Pass B worksheet, and the two selectors
     concepts.py   `tmk-concepts`: concept candidates across all 54 Parts, deterministic
-    typing.py     `tmk-typing`: every concept laid out for sorting into the four groups
+    typing.py     `tmk-typing`: every concept laid out for sorting into the nine groups
     workbook.py   `tmk-workbook`: the intake workbook, with no example rows
     transcribe.py `tmk-transcribe`: workbook in, validated records out
     cli.py        the commands above

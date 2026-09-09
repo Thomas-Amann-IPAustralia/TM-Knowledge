@@ -41,7 +41,9 @@ silently did not count.
 
 `concept-types.yaml` is the ninth and is not one of the guide's eight. It was
 added on 2026-09-08 when the owner confirmed the four groups (OQ-0001,
-ADR-0071). Each record puts one approved concept into one of them, and it is a
+ADR-0071), and the taxonomy grew to **nine** groups on 2026-09-09 when he asked
+for ones that would hold the 53 concepts none of the four could (ADR-0098).
+Each record puts one approved concept into one of them, and it is a
 separate record rather than a field on the concept because the concept was
 signed by one person on one date and the typing is a second judgement — writing
 it into the signed record would put unsigned content inside a signature.

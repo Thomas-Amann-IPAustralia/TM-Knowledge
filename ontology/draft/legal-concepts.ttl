@@ -54,13 +54,69 @@ tmk:Exception a owl:Class ;
     rdfs:label "Exception"@en-AU ;
     rdfs:comment "Filled from a concept-types.yaml record and from nothing else — never from a label or a heuristic. In the approved graph that record is one a named expert signed; in the authored graph it is one a machine wrote and nobody has read, and the two never share a graph (ADR-0080). A condition under which a general position does not hold, or is reversed."@en-AU .
 
+# --- the process groups ----------------------------------------------------
+#
+# The four classes above sort a concept by the part it plays in *reasoning
+# towards* a decision. The five below sort it by the part it plays in the
+# process that reasoning sits inside. They were added on 2026-09-09 because 53
+# of the vocabulary's 130 concepts fitted none of the first four, and the 53
+# were not a random remainder — they were the people, the things, the acts, the
+# documents and the schemes (ADR-0098).
+#
+# Same footing as the first four: subclasses of tmk:LegalConcept, filled from a
+# concept-types.yaml record and from nothing else. The axis a class belongs to
+# is not modelled, deliberately — a concept carries one group because the
+# workbook has one dropdown, and whether that is right is the open question
+# ADR-0098 records rather than settles.
+
+tmk:ProcessRole a owl:Class ;
+    rdfs:subClassOf tmk:LegalConcept ;
+    rdfs:label "Process role"@en-AU ;
+    rdfs:comment """Filled from a concept-types.yaml record and from nothing else. A person or body that acts under the Act — the concept of the office, as the vocabulary holds it.
+
+NOT tmk:Role, and the distinction is load-bearing. A tmk:Role in the examination
+module is somebody who acts: an examiner who signs a report. A tmk:ProcessRole
+is the *term* "examiner" as an entry in the vocabulary. Merging them would make
+the concept record for examiner an examiner, and the model would lose its only
+way of saying which of the two it is talking about."""@en-AU .
+
+tmk:SubjectMatter a owl:Class ;
+    rdfs:subClassOf tmk:LegalConcept ;
+    rdfs:label "Subject matter"@en-AU ;
+    rdfs:comment "Filled from a concept-types.yaml record and from nothing else. The thing the process operates on — what may be registered, and the kinds of sign and registration the Act holds apart. A sign, a shape trade mark, a certification trade mark and a protected international trade mark are all subject matter; what refuses, tests or excepts them is not."@en-AU .
+
+tmk:ProceduralStep a owl:Class ;
+    rdfs:subClassOf tmk:LegalConcept ;
+    rdfs:label "Procedural step"@en-AU ;
+    rdfs:comment """Filled from a concept-types.yaml record and from nothing else. An act, proceeding or event that moves an application or a registration from one state to the next.
+
+Deliberately wider than "something somebody does": lapsing is in this class and
+nobody performs it. What the class holds is a transition, whether it is
+performed, ordered or merely suffered — which is why the modality of each step
+is a property of the concept and not of the group."""@en-AU .
+
+tmk:InstrumentOrRecord a owl:Class ;
+    rdfs:subClassOf tmk:LegalConcept ;
+    rdfs:label "Instrument or record"@en-AU ;
+    rdfs:comment "Filled from a concept-types.yaml record and from nothing else. A document, entry or endorsement the process produces, or writes to the Register. The Register itself is here, as are the things entered on it — a disclaimer, an endorsement, conditions or limitations — and the documents that start or end a proceeding."@en-AU .
+
+tmk:ExternalInstrument a owl:Class ;
+    rdfs:subClassOf tmk:LegalConcept ;
+    rdfs:label "External instrument"@en-AU ;
+    rdfs:comment """Filled from a concept-types.yaml record and from nothing else. A treaty or international scheme Australian practice adopts, rather than a rule the Act itself makes.
+
+Small, and it earns its place on the honesty argument rather than the size one:
+CLAUDE.md rule 5 turns on keeping the source of an obligation visible, and a
+retrieval surface that cannot tell the Madrid Protocol from a section of the Act
+has lost exactly the distinction the rule protects."""@en-AU .
+
 tmk:typedBy a owl:ObjectProperty ;
     rdfs:label "typed by"@en-AU ;
     rdfs:domain tmk:LegalConcept ;
-    rdfs:comment """The record that put this concept in one of the four groups.
+    rdfs:comment """The record that put this concept in one of the nine groups.
 
 Present so a typed concept can be traced to whoever or whatever typed it and the
-date they did, rather than appearing to have always been a LegalTest. The four
+date they did, rather than appearing to have always been a LegalTest. The nine
 classes are the one place in this model where a class membership is a judgement
 rather than a structural fact, so the judgement carries its provenance — and
 since ADR-0079 that provenance is load-bearing rather than merely tidy, because
@@ -75,9 +131,9 @@ tmk:conceptGroup a owl:DatatypeProperty ;
     rdfs:domain tmk:Assertion ;
     rdfs:comment """The group the typing record names, verbatim — including "none_of_these".
 
-Redundant with the concept's class for the four groups that have one, and the
-only record of the fifth. A concept typed none_of_these asserts no class on
-purpose: the four groups do not fit it. Without this property that decision is
+Redundant with the concept's class for the nine groups that have one, and the
+only record of the tenth. A concept typed none_of_these asserts no class on
+purpose: none of the nine groups fit it. Without this property that decision is
 indistinguishable in the graph from a concept nobody has typed at all, and the
 two are opposites — one is an answer about the taxonomy, the other is a
 gap (ADR-0093)."""@en-AU .

@@ -105,8 +105,9 @@ class StoreReport:
     """
 
     concepts: int = 0
-    #: Concepts sorted into one of the four groups (ADR-0071). The gap between
-    #: this and `concepts` is what OQ-0001 exists to close on the signed side.
+    #: Concepts sorted into one of the nine groups (ADR-0071, widened by
+    #: ADR-0098). The gap between this and `concepts` is what OQ-0001 exists to
+    #: close on the signed side.
     concept_types: int = 0
     relationships: int = 0
     mentions: int = 0
@@ -784,11 +785,29 @@ def _build_concepts(graph: Graph, store: Store, counts: StoreReport) -> None:
 #: absent: it is a real answer about the taxonomy and it asserts no class, so a
 #: concept typed that way stays a bare `tmk:LegalConcept` and is counted as
 #: sorted rather than as waiting.
+#:
+#: The first four are the owner's groups (ADR-0071). The five process classes
+#: were added on 2026-09-09 (ADR-0098) and are subclasses of `tmk:LegalConcept`
+#: on the same footing, so a query that walks the concept hierarchy reaches all
+#: nine without knowing which axis a group belongs to.
+#:
+#: **`process_role` maps to `tmk:ProcessRole`, not to `tmk:Role`.** A
+#: `tmk:Role` in `examination.ttl` is a person or office that acts — an
+#: examiner. A `tmk:ProcessRole` is the *concept* of that office as the
+#: vocabulary holds it. Merging them would make the concept record for
+#: "examiner" an examiner, and the model would then have no way to say that one
+#: is a term in a vocabulary and the other is somebody who signs a report
+#: (ADR-0098 consequence 3).
 CONCEPT_CLASSES: dict[str, str] = {
     "ground_of_refusal": "GroundOfRefusal",
     "legal_test": "LegalTest",
     "relevant_factor": "RelevantFactor",
     "exception": "Exception",
+    "process_role": "ProcessRole",
+    "subject_matter": "SubjectMatter",
+    "procedural_step": "ProceduralStep",
+    "instrument_or_record": "InstrumentOrRecord",
+    "external_instrument": "ExternalInstrument",
 }
 
 
@@ -815,7 +834,7 @@ def _apply_concept_types(graph: Graph, store: Store, counts: StoreReport) -> Non
         node = concept_node(record["concept"])
         typing = assertion_node(record["id"])
         # `none_of_these` reaches here with no class and asserts none. What it
-        # does assert is that somebody looked and said the four groups do not
+        # does assert is that somebody looked and said none of the nine groups
         # fit — so the typing node, its record and its origin are all written,
         # and the concept stays a bare `tmk:LegalConcept`. Skipping the record
         # outright would make "sorted into none_of_these" and "never sorted"
