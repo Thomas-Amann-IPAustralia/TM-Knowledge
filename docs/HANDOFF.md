@@ -814,7 +814,14 @@ every file an agent opens and missed the one whose audience is not in the sessio
 Banner added; the rewrite is owed.
 
 **Cost:** no record changed, no legal content authored. Documentation, two ADRs,
-two quirks, one banner.
+two quirks, one banner. 0 harness defects (12 gaps, 10 notes, snapshot fetched),
+530 tests pass, dashboard current.
+
+**A note on running the tests cold:** from a bare clone 13 tests fail and 40
+error before `tmk-fetch-upstream` has run, all of them on `SnapshotMismatch`.
+That is ADR-0004 working, not breakage — but it looks exactly like breakage, and
+`.[test]` (not `.[intake]` or `.[rdf]` alone) is the extra that installs enough
+to reach the failure.
 
 ### S019 — 2026-09-09 — the taxonomy got five more groups, and the front page stopped lying
 
