@@ -776,6 +776,18 @@ questions:
       The alternative was to carry all 2,460. That is the more obvious answer and
       it costs about 30MB more in the repository, rewritten every time anything is
       rebuilt. It was measured rather than guessed.
+
+      **Here is what the cheaper answer costs, concretely.** One of the questions
+      the system can already answer is *"if section 43 were amended, which parts
+      of the Manual would need reviewing?"* It used to find all 67 passages that
+      cite the section. It now finds 56 — the other 11 are passages nothing in
+      this repository has said anything about, so they are not in the graph. The
+      question still answers and now says on its face that it is counting held
+      passages rather than all of them.
+
+      Worth knowing that it was only ever complete for section 43, and only
+      because the boundary happened to be drawn around exactly those passages. It
+      was incomplete for every other section in the Act and nothing said so.
     why_you: >
       It is a cost question, not a correctness one — both answers are honest, and
       neither excludes anything from scope. Whether 30MB of repository churn is
@@ -794,7 +806,15 @@ questions:
           label: All 2,460 passages, and accept the size
           help: >-
             One function changes. The graph file goes from about 10MB to about
-            40MB and is rewritten on every build.
+            40MB and is rewritten on every build. Every question that counts
+            passages becomes complete over the whole Manual.
+        - value: what_is_written_about_plus_citations
+          label: What is written about, plus every passage citing a section we hold a record on
+          help: >-
+            The middle option, measured: about 836 passages instead of 508, and
+            roughly 19MB instead of 10MB. It restores the amendment-impact
+            question to complete for the 86 sections this repository actually
+            reasons about, and leaves the rest out.
         - value: no_view
           label: I have no view — use your judgement
           help: >-

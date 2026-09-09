@@ -681,7 +681,7 @@
     "ADR-0097"
    ],
    "title": "How much of the Manual should the graph carry — and it costs about 30MB to carry all of it",
-   "plain": "The knowledge graph holds a copy of the Manual passages it reasons over. It used to hold the ones citing section 43 — 216 of the Manual's 2,460 passages — because that was the boundary. With the boundary gone, something had to replace that rule, and a decision was made without asking you because leaving the graph fenced was not an option.\nIt now holds every passage that any concept, entity or relationship in this repository actually cites, plus the passages around it on the same page, plus every passage where the source data flagged an ambiguous legislative reference. That is 508 passages today, and it grows on its own as more is written — no rule to re-decide.\nThe alternative was to carry all 2,460. That is the more obvious answer and it costs about 30MB more in the repository, rewritten every time anything is rebuilt. It was measured rather than guessed.\n",
+   "plain": "The knowledge graph holds a copy of the Manual passages it reasons over. It used to hold the ones citing section 43 — 216 of the Manual's 2,460 passages — because that was the boundary. With the boundary gone, something had to replace that rule, and a decision was made without asking you because leaving the graph fenced was not an option.\nIt now holds every passage that any concept, entity or relationship in this repository actually cites, plus the passages around it on the same page, plus every passage where the source data flagged an ambiguous legislative reference. That is 508 passages today, and it grows on its own as more is written — no rule to re-decide.\nThe alternative was to carry all 2,460. That is the more obvious answer and it costs about 30MB more in the repository, rewritten every time anything is rebuilt. It was measured rather than guessed.\n**Here is what the cheaper answer costs, concretely.** One of the questions the system can already answer is *\"if section 43 were amended, which parts of the Manual would need reviewing?\"* It used to find all 67 passages that cite the section. It now finds 56 — the other 11 are passages nothing in this repository has said anything about, so they are not in the graph. The question still answers and now says on its face that it is counting held passages rather than all of them.\nWorth knowing that it was only ever complete for section 43, and only because the boundary happened to be drawn around exactly those passages. It was incomplete for every other section in the Act and nothing said so.\n",
    "why_you": "It is a cost question, not a correctness one — both answers are honest, and neither excludes anything from scope. Whether 30MB of repository churn is worth \"the whole Manual is always there\" is your call about the project, not a judgement about trade marks law.\n",
    "answer": {
     "kind": "choice",
@@ -695,7 +695,12 @@
      {
       "value": "whole_corpus",
       "label": "All 2,460 passages, and accept the size",
-      "help": "One function changes. The graph file goes from about 10MB to about 40MB and is rewritten on every build."
+      "help": "One function changes. The graph file goes from about 10MB to about 40MB and is rewritten on every build. Every question that counts passages becomes complete over the whole Manual."
+     },
+     {
+      "value": "what_is_written_about_plus_citations",
+      "label": "What is written about, plus every passage citing a section we hold a record on",
+      "help": "The middle option, measured: about 836 passages instead of 508, and roughly 19MB instead of 10MB. It restores the amendment-impact question to complete for the 86 sections this repository actually reasons about, and leaves the rest out."
      },
      {
       "value": "no_view",

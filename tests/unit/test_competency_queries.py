@@ -74,19 +74,55 @@ def test_the_answering_queries_answer(dataset, question_id):
     assert list(query.run(dataset)), f"{question_id} returned nothing"
 
 
-def test_cq_0017_reproduces_the_recon_part_distribution(dataset):
-    """The graph must agree with `tmk-recon` on a number both compute.
+def test_cq_0017_counts_the_citing_passages_the_graph_holds(dataset):
+    """The graph must not lose or duplicate a citation edge on the way in.
 
-    Two independent paths to the same figure — recon counts chunks off the
-    loader, this counts citation nodes in the graph. If they disagree, the graph
-    lost or duplicated an edge on the way in.
+    **The assertion changed at ADR-0097 and the reason is the point of the
+    test.** It used to check equality with `tmk-recon`'s 67 — recon counts
+    chunks off the loader, this counts citation nodes in the graph — and that
+    worked because the source graph was fenced to the chunks citing section 43,
+    so the two populations were the same set by construction. The fence is gone.
+    The graph now holds what the repository has said something about, which for
+    section 43 is a *subset* of the citing chunks: 56 of the 67.
+
+    So equality would now be asserting that the graph is fenced, which is what
+    was removed. What is still worth pinning is the property the test was really
+    for: every citing chunk the graph holds is counted exactly once, and none is
+    counted that the corpus does not have. Both halves are checked against the
+    loader rather than against a number written down here.
     """
+    from tm_knowledge.stage0.worksheet import ScopeRule
+    from tm_knowledge.upstream.loader import load_corpus
+
+    corpus = load_corpus()
+    rule = ScopeRule()
+    citing = {
+        chunk.chunk_ref
+        for chunk in corpus.chunks.values()
+        if any(rule.matches(edge.id) for edge in chunk.provisions)
+    }
+    assert len(citing) == 67, "recon §1: 67 chunks in the corpus cite the provision"
+
     query = next(q for q in QUERIES if q.question_id == "CQ-0017")
     rows = {str(row[0]): int(row[1]) for row in query.run(dataset)}
-    assert rows["Part29"] == 33
-    assert rows["Part32A"] == 10
-    assert rows["Part20"] == 5 and rows["Part22"] == 5
-    assert sum(rows.values()) == 67, "recon §1: 67 chunks cite the provision"
+    held = sum(rows.values())
+
+    # A subset, never a superset: a count above the corpus figure means an edge
+    # was duplicated on the way into the graph.
+    assert 0 < held <= len(citing)
+
+    # And the per-Part split is the corpus's own, restricted to what is held —
+    # computed here rather than transcribed, so it cannot drift.
+    from tm_knowledge.ontology.build import source_chunks
+    from tm_knowledge.stage0 import goldset
+    from tm_knowledge.authored import store as authored_store
+
+    selected = {c.chunk_ref for c in source_chunks(corpus, goldset.load(), authored_store.load())}
+    expected: dict[str, int] = {}
+    for ref in citing & selected:
+        part = corpus.chunks[ref].part_id
+        expected[part] = expected.get(part, 0) + 1
+    assert rows == expected
 
 
 def test_cq_0012_returns_prohibitions_and_nothing_else(dataset):

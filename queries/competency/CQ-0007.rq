@@ -18,9 +18,15 @@ WHERE {
     OPTIONAL { ?assertion tmk:modality ?modality }
     VALUES ?predicate { tmk:allocatesTo tmk:excludesBasis }
   }
-  GRAPH tmkg:source {
-    ?passage tmk:upstreamRef ?sourceRef .
-    ?target tmk:upstreamRef ?allocatedTo .
-  }
+  # Two GRAPH blocks over the same graph rather than one with two patterns, and
+  # the split is a performance fix, not a semantic one: `tmkg:source` is a
+  # constant IRI, so `GRAPH g { A . B }` and `GRAPH g { A } GRAPH g { B }` join
+  # identically. What differs is how rdflib evaluates them — in one block it
+  # builds the cross product of every `upstreamRef` in the source graph before
+  # joining on the bound `?passage` and `?target`, which is quadratic in the size
+  # of that graph. Written as two blocks each pattern joins against a variable
+  # already bound, and the query goes from 409 seconds to 0.3 (Q-56).
+  GRAPH tmkg:source { ?passage tmk:upstreamRef ?sourceRef . }
+  GRAPH tmkg:source { ?target tmk:upstreamRef ?allocatedTo . }
 }
 ORDER BY ?record

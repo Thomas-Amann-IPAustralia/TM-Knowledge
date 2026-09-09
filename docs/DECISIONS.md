@@ -4158,8 +4158,27 @@ reason to drop one, so 39 chunks are in regardless of what cites them.
    the graph is selected *from* what the records cite. A non-empty list means a
    record names a Manual ref the snapshot does not hold, which is a different and
    worse problem, and the report line says so.
-4. **This is `agent-proposed` and the size trade-off is the owner's to overturn.**
+4. **A competency query stopped being complete, and it was only complete by
+   accident.** `CQ-0017` answers *"if section 43 were amended, which parts of the
+   Manual would need reviewing?"* by counting citation nodes in the source graph.
+   It used to return all 67 citing passages and a test asserted equality with
+   `tmk-recon`'s figure — which held *because the graph was fenced to exactly
+   those chunks*. The query was complete for section 43 and silently incomplete
+   for every other provision in the Act. It now returns 56 of 67 and says so in
+   its `limits:` header, and the test checks the property it was really for
+   (every held citing chunk counted once, none counted that the corpus lacks)
+   against the loader rather than against a transcribed number. Q-57.
+5. **A pre-existing quadratic query surfaced.** `CQ-0007` took 103 seconds at 216
+   chunks and 409 at 508, because two independent triple patterns in one `GRAPH`
+   block make rdflib build a cross product before joining. Split into two blocks
+   over the same graph — semantically identical, `tmkg:source` being a constant
+   IRI — it takes 0.3 seconds and returns the same two rows. The test module went
+   from over thirteen minutes to eleven seconds. Q-56.
+6. **This is `agent-proposed` and the size trade-off is the owner's to overturn.**
    If he wants the whole corpus in the graph the change is one function and a
-   40MB file. It is flagged in HANDOFF's open questions rather than asked as a
-   blocking question, because the rule chosen is defensible and waiting would
-   have left the graph fenced.
+   40MB file; a measured middle option — adding every passage citing a provision
+   any record names, without page-mates — is about 836 chunks and 19MB, and
+   restores CQ-0017 to complete for the 86 provisions this repository reasons
+   about. All three are on OQ-0025 with their numbers. It was decided rather than
+   asked because the rule chosen is defensible and waiting would have left the
+   graph fenced.

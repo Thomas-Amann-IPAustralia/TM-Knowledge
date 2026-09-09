@@ -161,7 +161,7 @@ rest is the baseline the next session's work is measured against.
 | Approved graph | 3,243 triples, every one traceable to a signed record |
 | Authored graph | **3,441 triples** (was 698). 78 concepts and 130 concept typings, every node stamped `tmk:origin "authored"`, its model, its date, its basis and its reasoning |
 | SHACL | **0 defects, 0 gaps**, 209 notes — the notes are almost all near-miss pairs, which is what a near-miss is for |
-| Competency queries | 13 of 20 questions. All eight that name `tmk:ApprovedAssertion` answer over signed content only, by design |
+| Competency queries | 13 of 20 questions. All eight that name `tmk:ApprovedAssertion` answer over signed content only, by design. **CQ-0017 now answers over held passages rather than all citing ones** and says so — 56 of 67 for section 43 (Q-57) |
 | CONSTRUCT rules | 2. RULE-0002 approved; RULE-0001 pending — **and an agent may not approve it** |
 | Signed records | **190, frozen** |
 | Authored records | **208** (was 52): 78 concepts, 130 concept typings. All `unreviewed`, **0 refused**. 91 `corpus_explicit`, 117 `corpus_inferred`, **0 `general_knowledge`** |
@@ -687,9 +687,20 @@ records, still 0 `general_knowledge` and 0 refused.
   were reading the live `authored/` while overriding only `gold_dir`, so they
   asserted what the repository held that day (Q-51, again).
 
+**Two things the graph change surfaced on its way out.** `CQ-0007` had been
+quadratic since S010 — two independent patterns in one `GRAPH` block make rdflib
+build a cross product — costing 103 seconds at 216 chunks, 409 at 508, and the
+test module ran it twice. Split into two blocks it takes 0.3 seconds and returns
+the same rows; the module went from over thirteen minutes to eleven seconds
+(Q-56). And `CQ-0017` stopped being complete: it counted all 67 passages citing
+section 43 *because the graph was fenced to exactly those chunks*, so it was
+complete for one provision and silently incomplete for every other. It returns 56
+of 67 now and says so (Q-57).
+
 **What is provisional.** ADR-0097's graph rule is `agent-proposed`: 41 chunks
 left the graph because nothing says anything about them, the alternative was a
-40MB artefact, and OQ-0025 puts the trade-off to the owner. Several authored
+40MB artefact, and OQ-0025 puts the trade-off to the owner with three measured
+options. Several authored
 records say in `expert_should_check` that their preferred label is an invention
 because the Manual names no term for the idea — *other traders' legitimate desire
 to use* and *protected wine expression* are the clearest, and both should be
