@@ -4450,3 +4450,80 @@ is the thing to build if this is judged wrong.
 3. **`alt_labels` are not covered.** A collision between an authored `pref_label`
    and a signed `alt_label` is the same problem one step less visible, and this
    ADR does not say what to do about it.
+
+## ADR-0102 — one request to the expert, in one workbook, with one covering note
+
+**Date** 2026-09-09 · **Authority** human · **Status** accepted
+
+**Context.** The owner's instruction: *"I would like you to assume we only have
+one more request to send to the subject matter expert. Please consolidate all of
+the questions we may want to ask them and put that together in a single workbook.
+It should be accompanied by a succinct and jargon free explanation of what we
+need from them and why we need it."*
+
+Before this, the questions for a trade marks expert lived in six places:
+`open-questions.yaml`, the `expert_should_check` field of 208 authored records,
+the expert's own returned note from 2026-08-26, `measures.seed.md`, five signed
+relationships with a blank `modality`, and `docs/EXPERT-REVIEW-SCOPE.md`, which
+listed them without being answerable. Three of the seven items ADR-0100 named had
+no artefact a reviewer could open at all.
+
+**Decision.** `tmk-expert-pack` generates two files, together, from one set of
+counts: `data/derived/expert-request.xlsx` and `docs/EXPERT-REQUEST.md`.
+
+Five decisions inside that are worth recording, because each had a defensible
+alternative:
+
+1. **Ordered by value, not by size.** Eight cross-cutting questions come first
+   and the 208 rows come last. The instruction to assume one request makes
+   partial completion the expected outcome rather than the failure case, so the
+   pack is built to degrade well: a reviewer who stops after thirty minutes has
+   answered the questions that decide how hundreds of rows should go. The
+   covering note states the stopping points as a table.
+2. **Two sheets keep the intake layout; five do not.** `concepts` and
+   `concept-types` carry the exact columns `tmk-transcribe` reads, plus four
+   headers from `intake.REVIEW_COLUMNS` and nothing else, so a corrected row
+   becomes a record through the single existing door (ADR-0048). The five
+   question sheets hold judgements whose answers are sentences; those come back
+   the way every reviewer instruction comes back, filed verbatim in
+   `review/returned/` and applied through an instruction file (ADR-0051).
+   `tmk-transcribe` iterates the sheets it knows, so the extra sheets cost the
+   round trip nothing — pinned by a test, because the pack is worthless if the
+   answers cannot be read back.
+3. **Eleven empty record sheets are deleted rather than shipped.** The typing
+   workbook keeps them and tells the reviewer to leave them alone. In a request
+   with a fixed budget of somebody's attention, a blank sheet spends some of it
+   on establishing that it is blank.
+4. **Two items are collected as prose rather than as records, deliberately.**
+   A definition and an examiner-conduct rule both need a record type that does
+   not exist. Building the container before knowing what goes in it is how the
+   container ends up the wrong shape, so the pack asks and the record type is
+   designed against the answer.
+5. **The covering note is generated, not written.** Its counts come from the
+   same run that fills the workbook, so the two cannot disagree — and a note
+   quoting a figure the spreadsheet does not carry is the fastest way to lose a
+   reviewer's trust in both. A test asserts the note contains none of this
+   project's vocabulary: no ADR numbers, no store paths, no record type names,
+   no field names.
+
+**What did not change.** `approved_by` is emptied by this code in every row it
+writes, on both sheets, whatever the source record says — the pack is the one
+artefact designed to be handed to the person whose name goes in that cell, which
+makes it the one place a stray copy would be invisible. Nothing here writes to
+`eval/gold/`, nothing is authored as legal content, and the frozen 190 are
+untouched.
+
+**Consequences.**
+
+1. **The pack is a snapshot and regenerating it is cheap.** It reads both stores
+   at run time, so a later authoring pass changes what it holds. If it has been
+   sent, the sent version is the artefact and the reply is read against it.
+2. **`docs/EXPERT-REVIEW-SCOPE.md` §5 is superseded** and says so. That table
+   recorded the gap this closes.
+3. **A reply arrives in two forms and only one is mechanical.** Rows come back
+   through `tmk-transcribe`; five sheets of sentences come back through a person
+   reading them and writing an instruction file. Nothing automates the second,
+   and nothing should — those are the answers where a paraphrase would lose the
+   thing that made them worth asking for.
+4. **It does not decide who signs, or when.** OQ-0027 is still open and still
+   the owner's. This decides what the request looks like if it is sent.

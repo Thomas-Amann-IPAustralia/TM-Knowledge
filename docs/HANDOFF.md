@@ -39,8 +39,25 @@ reached `CLAUDE.md`, `review/README.md` and `authored/README.md` — every
 file an agent opens every session — and did not reach the one file whose
 audience is not in the session. Banner added; a rewrite is owed (Q-60).
 
+**Then the owner set a constraint that changed the shape of the answer:**
+*"assume we only have one more request to send to the subject matter expert."*
+Under that assumption the seven-item list is not a plan, it is a
+prioritisation problem — three of the seven had no artefact a reviewer could
+open, and two of those could not be drafted by an agent at all. `tmk-expert-pack`
+generates the consolidated request: `data/derived/expert-request.xlsx` and
+`docs/EXPERT-REQUEST.md`, produced in one run from one set of counts so the note
+and the workbook cannot disagree. Seven sheets, ordered so that stopping early
+still answers the questions that decide the most: 8 cross-cutting questions, then
+10 duplicate labels, 9 role words, 5 unjudged modalities, 11 accuracy targets,
+then the 78 concepts and the 130 typings. **`concepts` and `concept-types` keep
+the intake layout and round-trip through `tmk-transcribe`** — pinned by a test,
+because a pack whose answers cannot be read back wastes the one request. The
+other five return as words, through the instruction-file route (ADR-0051).
+ADR-0102.
+
 **Nothing was authored as legal content and no record changed.** The 190
-signed and the 208 authored records are byte-identical to how S019 left them.
+signed and the 208 authored records are byte-identical to how S019 left them,
+and `approved_by` is emptied by the pack in every row it writes.
 
 ---
 ## 0a. What S019 did, in one paragraph
@@ -318,26 +335,29 @@ each is a thing standing between the trade marks expert and something they
 could otherwise review.** `docs/EXPERT-REVIEW-SCOPE.md` §5 is the readiness
 table they come from.
 
-- **Render a review workbook for the 78 authored concepts.** The typings have
-  one and the concepts do not — the workbook's `concepts` sheet ships empty, so
-  the largest body of authored legal content in the repo has no artefact a
-  reviewer can open. `tmk-typing` is the shape to copy.
-- **Give a definition a record type.** `authored/definitions.yaml` still has no
-  schema, no id prefix and no place in `RECORD_TYPES`, so the "high-level
-  definitions" the expert asked for on 2026-08-26 have nowhere to be stored.
-  Three of the nine role terms they named — *office practice*, *subject matter
-  expert*, *adverse report* — are absent from every store, and *delegate*
-  exists only as an alt-label under *Registrar*. Watch the `FILE_FOR` ripple
-  (item 5 below).
-- **Draft the examiner-conduct rule.** The expert's own note on the Registrar's
-  actual bar for the presumption of registrability is still in the file it
-  arrived in and in no record. The structure exists (ADR-0073) and is empty.
-  Authoring it is now permitted; correcting it is what the expert is for.
+- ~~**Render a review workbook for the 78 authored concepts.**~~ **Done** —
+  `tmk-expert-pack` renders them as the `concepts` sheet, pre-filled, with each
+  record's evidence and its own "most likely wrong" note beside it, and the
+  sheet round-trips through `tmk-transcribe` (ADR-0102).
+- **Give a definition a record type — but read the answer first.**
+  `authored/definitions.yaml` still has no schema, no id prefix and no place in
+  `RECORD_TYPES`. **The pack now asks for the nine role definitions as prose
+  instead**, deliberately: building the container before knowing what goes in it
+  is how the container ends up the wrong shape. Three of the nine terms are
+  absent from every store (*office practice*, *subject matter expert*, *adverse
+  report*) and *delegate* exists only inside "the registrar's delegate". Watch
+  the `FILE_FOR` ripple (item 5 below).
+- **Draft the examiner-conduct rule — after they answer, not before.** Same
+  reasoning. It is question 3 on the pack's first sheet, asked rather than
+  authored, because a machine paraphrase of their August note is the one version
+  of it nobody needs. The structure exists (ADR-0073) and is empty.
 - **Write the cross-store label check.** Ten authored concepts reuse a signed
   concept's `pref_label` and nothing compares labels across the stores.
-  **ADR-0101 fixes its severity at *note*, not defect** — seven of the ten are
-  the design working — so do not relitigate that. `alt_labels` are deliberately
-  not covered and that gap is open.
+  `expertpack.duplicate_labels()` is the detector and already judges disclosure
+  across the whole store, not just the concept's own record — lift it rather
+  than writing a second one. **ADR-0101 fixes its severity at *note*, not
+  defect** — seven of the ten are the design working — so do not relitigate
+  that. `alt_labels` are deliberately not covered and that gap is open.
 
 **In order of value:**
 
@@ -555,7 +575,10 @@ on all 53 records, and is asked as OQ-0026. A session that reads it as settled
 will build on a taxonomy nobody has agreed. **ADR-0099 is `human`** — the four
 site fixes are his instruction, quoted in the ADR.
 **ADR-0100 is `derived`** — nothing in it decides anything; it states in one
-place what was already true across six files. **ADR-0101 is `agent-proposed`**
+place what was already true across six files. **ADR-0102 is `human`** — the
+one-request constraint and the two deliverables are the owner's instruction,
+quoted in the ADR; the five judgements inside it about how to satisfy it are the
+agent's and are named there as such. **ADR-0101 is `agent-proposed`**
 and the judgement is one line: a duplicate `pref_label` across the two stores
 will be reported as a *note* and not a defect. The argument against is in the
 ADR — a note is easy to ignore, and this one survived two authoring sessions and
@@ -813,9 +836,19 @@ delete exactly the 208 records they were brought in to correct. ADR-0079 reached
 every file an agent opens and missed the one whose audience is not in the session.
 Banner added; the rewrite is owed.
 
-**Cost:** no record changed, no legal content authored. Documentation, two ADRs,
-two quirks, one banner. 0 harness defects (12 gaps, 10 notes, snapshot fetched),
-530 tests pass, dashboard current.
+**Then the one-request pack.** Told to assume a single remaining request to the
+expert, the seven-item list became a prioritisation problem. `tmk-expert-pack`
+(ADR-0102) generates `data/derived/expert-request.xlsx` and
+`docs/EXPERT-REQUEST.md` together from one set of counts. Ordered by value, not
+size; two sheets round-trip through `tmk-transcribe` and five come back as
+words; eleven empty record sheets deleted rather than shipped; `approved_by`
+emptied in every row it writes. A test asserts the covering note contains none of
+this project's vocabulary — no ADR numbers, no store paths, no field names —
+because the reader is an examiner, not a contributor.
+
+**Cost:** no record changed, no legal content authored. One new module and
+command, 11 new tests, three ADRs, two quirks, one banner. 0 harness defects
+(12 gaps, 10 notes, snapshot fetched), dashboard current.
 
 **A note on running the tests cold:** from a bare clone 13 tests fail and 40
 error before `tmk-fetch-upstream` has run, all of them on `SnapshotMismatch`.

@@ -306,19 +306,30 @@ in `review/returned/` alongside what it was taken to mean.
 
 ---
 
-## 5. What has to be built before some of this can be reviewed
+## 5. Readiness — and the pack that closed it
 
-Honest list of what stands between the expert and each item above:
+**Superseded on 2026-09-09 by `tmk-expert-pack`** (ADR-0102). Every item below
+is now a sheet in one workbook, `data/derived/expert-request.xlsx`, with a
+plain-English covering note at `docs/EXPERT-REQUEST.md`. The table is kept
+because the *shape* of the gap it recorded is what the pack was built around:
+three of the seven items had nothing a reviewer could open, and two of those
+three could not be drafted by an agent at all.
 
-| Item | Ready? |
-|---|---|
-| A — 130 concept typings | **Ready now.** Workbook rendered, rows pre-filled, reasoning report written |
-| B — 78 authored concepts | **Not ready.** No review workbook is rendered for them; the workbook's `concepts` sheet is empty |
-| C — three duplicate pairs | **Ready now.** Three pairs, named above |
-| D — examiner-conduct rule | **Not ready.** Nothing is drafted for them to correct |
-| E — definitions and three missing roles | **Not ready.** No definition record type exists |
-| F — `OQ-0017` | **Ready now.** It is a question, not an artefact |
-| G — thresholds | **Ready now.** `review/seed/measures.seed.md` |
+| Item | Was | Is now |
+|---|---|---|
+| A — 130 concept typings | Ready | Sheet `concept-types`, pre-filled, transcriber-readable |
+| B — 78 authored concepts | **Not ready** — no workbook rendered | Sheet `concepts`, pre-filled, transcriber-readable |
+| C — three duplicate pairs | Ready | Sheet `2 same word twice`, all ten pairs with the three undisclosed sorted first |
+| D — examiner-conduct rule | **Not ready** — nothing drafted | Question 3 on sheet `1 the big ones`. Still not drafted, and deliberately: it is asked rather than authored |
+| E — definitions and missing roles | **Not ready** — no record type | Sheet `3 missing words`. The record type is still owed; the definitions are collected as prose first |
+| F — `OQ-0017` | Ready | Question 6 on sheet `1 the big ones` |
+| G — thresholds | Ready | Sheet `5 how accurate`, in a form that needs no metric vocabulary |
+
+**Two of these are collected as words rather than as records, on purpose.** A
+definition and an examiner-conduct rule both need a record type that does not
+exist, and building the container before knowing what goes in it is how the
+container ends up the wrong shape. The answers come back in the reviewer's own
+words, filed verbatim, and the record type is designed against what they wrote.
 
 ---
 

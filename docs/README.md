@@ -12,6 +12,7 @@ of all.
 | `IDENTIFIERS.md` | Refs, IRI minting, naming. Before writing any identifier | Rarely; via ADR |
 | `ROADMAP-STATUS.md` | Stage-by-stage status board | When a deliverable moves |
 | `EXPERT-REVIEW-SCOPE.md` | **What a trade marks expert is asked to look at, and what is not theirs.** Dated statement, not a live report | When what is waiting on an expert changes |
+| `EXPERT-REQUEST.md` | **The covering note that goes to the expert with `data/derived/expert-request.xlsx`.** Plain English, no project vocabulary | **Never by hand** — `tmk-expert-pack --write` regenerates both |
 | `GLOSSARY.md` | Domain and project terms | When you meet a term you had to look up |
 | `UPSTREAM.md` | The upstream data contract — record shapes, the join, its refusals | Only when upstream changes |
 | `roadmap/AUTOMATION-FIRST-ROADMAP.md` | The full programme, Stages 0–10 | **Never** — source document |
