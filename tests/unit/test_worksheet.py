@@ -95,14 +95,14 @@ def test_every_printed_ref_resolves_and_every_hash_matches(corpus, worksheet):
 
 
 @pytest.mark.snapshot
-def test_the_header_states_the_rule_the_pin_and_that_it_is_provisional(worksheet, corpus):
+def test_the_header_states_the_rule_the_pin_and_that_scope_is_the_whole_manual(worksheet, corpus):
     head = worksheet[:3000]
-    assert "Provisional" in head
-    assert "not the pilot scope" in head
+    assert "chosen — not a boundary" in head
+    assert "The whole" in head and "Manual is in scope" in head
     assert corpus.pin.commit in head
     assert corpus.pin.manual_extractor_version in head
     assert "matched on the ref grammar and not by substring" in head
-    assert "parked, not deleted" in head
+    assert "in scope and unprinted, not excluded" in head or "unprinted" in head
 
 
 @pytest.mark.snapshot

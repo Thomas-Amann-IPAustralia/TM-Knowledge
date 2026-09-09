@@ -99,10 +99,72 @@ def summarise(concept: dict[str, Any]) -> str:
     return summary
 
 
+def _notes(concept: dict[str, Any]) -> str:
+    """The `notes` cell: the concept's names, and where the concept came from.
+
+    `summarise` is left alone — it copies labels and nothing else, which is what
+    its tests pin down. The origin is appended here instead, because it is a
+    fact about the record rather than about the concept and the two should not
+    be produced by the same function.
+
+    **The marker is on the concept, not on the typing.** Every `type` cell on
+    this sheet was written by a machine and the banner says so once. What varies
+    row to row is whether the *concept being typed* is one an expert signed or
+    one a machine wrote, and a reviewer who cannot see that difference is being
+    asked to spend the same attention on both (ADR-0095).
+    """
+    summary = summarise(concept)
+    if concept.get("_origin") == "authored":
+        return summary + " — [concept authored by a machine, unreviewed]"
+    return summary + " — [concept signed by an expert]"
+
+
 def _existing_types() -> dict[str, dict[str, Any]]:
     """Typings already signed, keyed by concept id. A second pass must not ask
     again about a concept somebody has already ruled on."""
     return {record["concept"]: record for record in goldset.load()["concept_type"]}
+
+
+def _concepts(
+    gold: goldset.GoldSet, authored: authored_store.AuthoredSet
+) -> tuple[dict[str, Any], ...]:
+    """Every concept to be sorted — signed and authored — in id order.
+
+    **This is where the section 43 boundary used to end the sheet.** Until
+    ADR-0095 the pass read `eval/gold/concepts.yaml` and nothing else, so the
+    workbook could hold only the 52 concepts found inside the boundary however
+    many the repository authored afterwards. The owner withdrew the boundary and
+    asked for the spreadsheet to say so; a workbook that could not show a
+    concept from Part 22 was the last place it still did not.
+
+    Both stores, never summed and never merged: a concept lives in exactly one
+    of them (`docs/IDENTIFIERS.md` §3, ADR-0080 c1), and `origin` on the row
+    says which, so the sheet can tell a reviewer that the concept itself was
+    signed by a person or written by a machine — a distinction that matters more
+    on this sheet than anywhere else, because a reviewer is being asked to type
+    both kinds in one sitting.
+
+    Sound authored records only. A refused record has no usable provenance and
+    must not reach a reviewer looking like one that has (ADR-0079).
+    """
+    signed = {
+        str(record["id"]): dict(record)
+        for record in gold["gold_concept"]
+        if isinstance(record.get("id"), str)
+    }
+    for record in signed.values():
+        record["_origin"] = "signed"
+    machine: dict[str, dict[str, Any]] = {}
+    for entry in authored.of("gold_concept"):
+        identifier = entry.record.get("id")
+        if not entry.sound or not isinstance(identifier, str) or identifier in signed:
+            continue
+        record = dict(entry.record)
+        record["_origin"] = "authored"
+        machine[identifier] = record
+    return tuple(
+        sorted({**signed, **machine}.values(), key=lambda record: str(record["id"]))
+    )
 
 
 def _proposed_types(
@@ -145,8 +207,9 @@ def rows(
     it moves between stores rather than being minted twice (ADR-0080).
     """
     gold = gold or goldset.load()
+    authored = authored if authored is not None else authored_store.load()
     proposed = _proposed_types(authored)
-    concepts = sorted(gold["gold_concept"], key=lambda record: record["id"])
+    concepts = _concepts(gold, authored)
     already = {record["concept"]: record for record in gold["concept_type"]}
 
     taken = {
@@ -183,7 +246,7 @@ def rows(
             # record says about itself, these two cells leave here empty.
             row["approved_by"] = None
             row["approved_date"] = None
-            row["notes"] = summarise(concept)
+            row["notes"] = _notes(concept)
             built.append(row)
             continue
         built.append(
@@ -192,7 +255,7 @@ def rows(
                 "concept": concept["id"],
                 # `type` is absent, not blank-stringed. A blank cell is a gap the
                 # transcriber reports; an empty string would be a value.
-                "notes": summarise(concept),
+                "notes": _notes(concept),
             }
         )
         next_number += 1
@@ -205,14 +268,21 @@ def write_workbook(path: Path | None = None, *, generated: str | None = None) ->
 
     path = path or WORKBOOK_PATH
     path.parent.mkdir(parents=True, exist_ok=True)
-    typing_rows = rows()
+    gold = goldset.load()
+    authored = authored_store.load()
+    typing_rows = rows(gold, authored)
     proposed = sum(
         1
         for row in typing_rows
         if row.get("type") is not None and not row.get("approved_by")
     )
+    machine_written = sum(
+        1
+        for row in typing_rows
+        if "[concept authored by a machine" in str(row.get("notes") or "")
+    )
     book = workbook_module.build(generated=generated)
-    _mark_as_scoped(book, len(typing_rows), proposed)
+    _mark_as_scoped(book, len(typing_rows), proposed, machine_written)
     workbook_module.fill(book, {"concept_type": list(typing_rows)})
     _fit_the_notes(book, len(typing_rows))
     book.save(path)
@@ -247,7 +317,7 @@ def _fit_the_notes(book, count: int) -> None:
         )
 
 
-def _mark_as_scoped(book, count: int, proposed: int = 0) -> None:
+def _mark_as_scoped(book, count: int, proposed: int = 0, machine_written: int = 0) -> None:
     """Say on the workbook's face what it is and is not.
 
     ADR-0055's third guard: a scoped artefact that looks exactly like an
@@ -284,22 +354,37 @@ def _mark_as_scoped(book, count: int, proposed: int = 0) -> None:
         if proposed
         else ""
     )
+    origin_note = (
+        (
+            f"**On {machine_written} of these {count} rows, the concept itself was also "
+            "written by a machine, not just the group.** Those rows say so in the `notes` "
+            "cell: *[concept authored by a machine, unreviewed]*. The rest carry concepts "
+            "you signed. The difference matters more here than anywhere else on the sheet "
+            "— a wrong group is a dropdown away from right, and a wrong concept is not.\n\n"
+            "The sheet used to hold 52 rows because the section 43 boundary was the only "
+            "place anybody had looked. You withdrew that boundary, and these are the "
+            "concepts the other 53 Parts hold.\n\n"
+        )
+        if machine_written
+        else ""
+    )
     sheet["A2"] = (
         machine_note
+        + origin_note
         + f"This is not the general intake workbook. Exactly one sheet is in use — "
-        f"**concept-types**, pre-filled with {count} rows, one per approved concept. Pick a "
-        "group from the dropdown in the `type` column, put your name in `approved_by` and "
-        "the date in `approved_date`, and hand the file back. Leave a row blank if you are "
-        "not sure: a blank is reported as still-to-do, and a guess is not. Every other "
-        "sheet is empty and should stay empty.\n\n"
+        f"**concept-types**, pre-filled with {count} rows, one per concept the project "
+        "holds. Pick a group from the dropdown in the `type` column, put your name in "
+        "`approved_by` and the date in `approved_date`, and hand the file back. Leave a "
+        "row blank if you are not sure: a blank is reported as still-to-do, and a guess is "
+        "not. Every other sheet is empty and should stay empty.\n\n"
         "The `notes` column is filled in for you and is the only column you should not "
         "need to touch: it gives each concept's name, what else the Manual calls it "
-        "(*also called*), and what it is explicitly *not*. All three come straight from "
-        "the approved concept record. For the passages behind them, read "
+        "(*also called*), what it is explicitly *not*, and whether the concept was signed "
+        "or authored. For the passages behind them, read "
         "`data/derived/reports/concept-typing.md` beside this sheet."
     )
     sheet["A2"].alignment = Alignment(wrap_text=True, vertical="top")
-    sheet.row_dimensions[2].height = 260 if proposed else 130
+    sheet.row_dimensions[2].height = 380 if machine_written else (260 if proposed else 130)
     row = 4
     for value, meaning in GROUPS:
         sheet.cell(row=row, column=1, value=value).font = Font(bold=True)
@@ -363,12 +448,15 @@ def render(generated: str | None = None) -> str:
     them that no expert has read a word of it.
     """
     gold = goldset.load()
+    authored = authored_store.load()
     corpus = load_corpus()
-    concepts = sorted(gold["gold_concept"], key=lambda record: record["id"])
+    concepts = _concepts(gold, authored)
     signed = _existing_types()
-    proposed = _proposed_types()
+    proposed = _proposed_types(authored)
     stamp = generated or date.today().isoformat()
 
+    signed_concepts = [c for c in concepts if c.get("_origin") == "signed"]
+    authored_concepts = [c for c in concepts if c.get("_origin") == "authored"]
     untyped = [c for c in concepts if c["id"] not in signed]
     machine_typed = [c for c in untyped if c["id"] in proposed]
     tally: dict[str, int] = {}
@@ -382,13 +470,33 @@ def render(generated: str | None = None) -> str:
         "# The concept typing pass — the evidence",
         "",
         f"**Generated {stamp}** by `tmk-typing --write`, from `eval/gold/concepts.yaml`, "
-        "`authored/concept-types.yaml` and the pinned snapshot.",
+        "`authored/concepts.yaml`, `authored/concept-types.yaml` and the pinned snapshot.",
         "",
         "## What this is",
         "",
         "You ruled on OQ-0001: *“Use those four groups — come back to me with the list of "
-        f"52 to sort.”* Here is the list. There are **{len(concepts)}** approved concepts, "
-        f"of which **{len(untyped)}** have not been sorted by a person.",
+        "52 to sort.”* You then withdrew the section 43 boundary: *“I would like to "
+        "completely remove the s43 barrier.”* **The 52 were what the boundary could see.** "
+        f"Here is the list without it — **{len(concepts)}** concepts, of which "
+        f"**{len(untyped)}** have not been sorted by a person.",
+        "",
+        "| | concepts | where they came from |",
+        "|---|---|---|",
+        f"| Signed by an expert | {len(signed_concepts)} | `eval/gold/concepts.yaml`, "
+        "frozen at the 190 records you signed. 86 of their ~95 definition sources point at "
+        "Part 29 |",
+        f"| Authored by a machine | {len(authored_concepts)} | `authored/concepts.yaml`, "
+        "written from the other 53 Parts. **Nobody has read them** |",
+        f"| **On the sheet** | **{len(concepts)}** | never summed into one number anywhere "
+        "else (ADR-0080 c3) |",
+        "",
+        "**So two different things on this sheet are unreviewed, and they are worth keeping "
+        "apart.** Every `type` cell was proposed by a machine, on every row. On "
+        f"{len(authored_concepts)} of the rows *the concept itself* was also written by a "
+        "machine — its preferred label, its synonyms, the near-misses it says it is not. "
+        "Those rows carry `[concept authored by a machine, unreviewed]` in the `notes` "
+        "cell, and a wrong concept there is a worse error than a wrong group, because the "
+        "group can be corrected in a dropdown and the concept cannot.",
         "",
         "Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown "
         "with the five values below; this document is the evidence to sort by, so keep it "
@@ -439,11 +547,24 @@ def render(generated: str | None = None) -> str:
                 if group in tally
             ],
             "",
-            "**The shape of that table is itself a finding.** The vocabulary was built "
-            "around one ground of refusal — section 43 — so almost everything in it is "
-            "material feeding that ground's question rather than a sibling ground. If "
-            "`ground_of_refusal` looks too empty to you, the disagreement is about the "
-            "taxonomy rather than about any single row, and it is worth saying so.",
+            "**The shape of that table is itself a finding, and it changed when the "
+            "boundary went.** Over the 52 concepts the boundary could see, 30 came out "
+            "`relevant_factor` and exactly 1 `ground_of_refusal` — which is what a "
+            "vocabulary built around a single ground looks like, and OQ-0023 asked "
+            "whether that meant the taxonomy was wrong. Widening to the whole Manual "
+            "answers half of it: the lopsidedness evened out, so it was an artefact.",
+            "",
+            "**What did not go away is the pile that fits nowhere.** `none_of_these` "
+            f"holds {tally.get('none_of_these', 0)} of the "
+            f"{len(machine_typed)} — against 7 of the first 52 — and they are not a "
+            "random selection. They are the people (applicant, opponent, Registrar, "
+            "registered owner), the documents (a notice of opposition, an endorsement, "
+            "a disclaimer), the proceedings (opposition, a hearing), the outcomes "
+            "(acceptance, lapsing, a decision) and the remedies (revoking an "
+            "acceptance, rectifying the Register). Your four groups describe "
+            "*reasoning about* an application. About two fifths of the Manual describes "
+            "*what happens to* one. **That is OQ-0024, and it is worth settling before "
+            "somebody corrects 130 rows inside a taxonomy you would have changed.**",
             "",
         ]
 
@@ -453,6 +574,8 @@ def render(generated: str | None = None) -> str:
         existing = signed.get(concept["id"])
         machine = proposed.get(concept["id"])
         heading = f"### `{concept['id']}` — {concept['pref_label']}"
+        if concept.get("_origin") == "authored":
+            heading += "  *(concept written by a machine — nobody has read it)*"
         if existing:
             heading += (
                 f"  *(already sorted: `{existing['type']}`, "

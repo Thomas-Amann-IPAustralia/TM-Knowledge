@@ -943,3 +943,113 @@ records about one concept and loses the link between the machine's answer and th
 correction. Do not resolve it by deleting the authored record quietly either.
 Build the retirement: it is named in `HANDOFF.md` §2 and it is where the next
 real design question in this area lives.
+
+### Q-53 — 63% of the Manual cites no provision, so no citation rule can reach it
+
+`tmk-recon` over the whole corpus: **1,551 of the 2,460 chunks carry no
+`provisions[]` edge at all.** Not a defect in upstream and not a gap in the
+snapshot — most of the Manual explains practice without naming a section.
+
+It is the mechanism behind Q-28, which noticed the symptom without naming the
+cause. ADR-0022's rule selected passages that *cite* `TMA1995/s43`, so nearly two
+thirds of the corpus was structurally invisible to it, and a term's definition
+almost never sits in a passage that cites anything. That is why four of the nine
+role terms the expert named — Delegate, Office Practise, Subject Matter Expert,
+Adverse Report — were absent from a 52-concept vocabulary built with it.
+
+**The trap for a future session:** any new selection rule keyed on provision
+edges inherits the same blindness, however wide the provision list. The concept
+candidate pass reads headings and definition text precisely so it does not
+(ADR-0095), and `tmk-recon` prints this figure at the top of its report so
+nobody has to rediscover it.
+
+### Q-54 — the same counter has now been wrong in both directions
+
+The build report's concept-types line has been fixed twice for opposite reasons.
+
+ADR-0093 fixed it from `45 of 0`: it divided the authored half by
+`authored.concepts`, the number of concepts a *machine* had written, which was
+structurally 0 while machines wrote typings and not concepts. The fix was to
+divide both halves by the signed concept count.
+
+S018 fixed it from `130 of 52`: that denominator was right until a machine
+authored concepts of its own. It now divides by the count across both stores and
+prints the split beside it.
+
+Q-50 already said to read a counter's comment before making it non-zero, and this
+is the same lesson with the numerator and denominator swapped: **a denominator
+that is correct today is correct because of something that is currently true.**
+The comment on the line is its only specification, and it is now three times
+longer than the line.
+
+### Q-55 — `ScopeRule` is not a scope rule any more, and the name is kept anyway
+
+`tm_knowledge.stage0.worksheet.ScopeRule` selects chunks citing a given
+provision. Under ADR-0022 that was a boundary: everything outside it was out of
+scope. The owner withdrew the boundary (ADR-0081), so what the class does now is
+*select* — "print me the passages about section 41" — which is a working choice
+and not a claim about scope.
+
+The name was left alone deliberately. Renaming a class does not change what reads
+it, and the two things that mattered were fixed instead: the worksheet header no
+longer says the printed rows are the scope, and the graph stopped using the class
+altogether (ADR-0097). If you meet `ScopeRule` and read "scope", read the module
+docstring first.
+
+`PILOT_PROVISION` is the same shape of leftover. It is `TMA1995/s43` and it is
+now a *default argument*, not a boundary.
+
+### Q-56 — one SPARQL block cost 409 seconds; two cost 0.3
+
+`CQ-0007` ended with two triple patterns in a single `GRAPH tmkg:source` block,
+each joining on a variable already bound in the block above it:
+
+```sparql
+  GRAPH tmkg:source {
+    ?passage tmk:upstreamRef ?sourceRef .
+    ?target  tmk:upstreamRef ?allocatedTo .
+  }
+```
+
+rdflib evaluates that by building the cross product of every `tmk:upstreamRef`
+triple in the source graph and *then* joining on `?passage` and `?target`. That
+is quadratic in the size of the source graph. Split into two blocks over the same
+graph, each pattern joins against the bound variable and the query goes from
+**409 seconds to 0.3**. The two forms are semantically identical — `tmkg:source`
+is a constant IRI, so `GRAPH g { A . B }` and `GRAPH g { A } GRAPH g { B }` are
+the same join — and that was checked rather than argued: both forms were run
+against the same dataset and compared row for row. The original took 418.0
+seconds and returned the same two rows.
+
+**It was already slow before anybody noticed.** At 216 chunks it took 103
+seconds, and the test module ran it twice, so the suite had been spending three
+and a half minutes on one query since S010. Growing the source graph to 508
+chunks (ADR-0097) took it to 409 and made it impossible to ignore, which is the
+only good thing about the regression.
+
+**What to watch:** any competency query with two independent patterns in one
+`GRAPH` block. `CQ-0023` looks similar and is not — its second pattern is inside
+an `OPTIONAL` and chains off `?passage`, so there is nothing to cross-multiply.
+A `pytest --durations=10` run is the cheapest way to find the next one.
+
+### Q-57 — CQ-0017 stopped being complete, and it was only ever complete by accident
+
+`CQ-0017` answers *"if section 43 were amended, which parts of the Manual would
+need reviewing?"* by counting citation nodes in the source graph. Until
+ADR-0097 it returned all 67 passages the corpus records as citing the provision,
+and a test asserted equality with `tmk-recon`'s figure as a cross-check.
+
+**That equality held because the source graph was fenced to exactly those
+chunks.** The query was complete for section 43 and incomplete for every other
+provision in the Act, and nothing said so. With the fence gone the graph holds
+what the repository has spoken about, and the query returns 56 of the 67.
+
+The test now checks the property it was really for — every held citing chunk
+counted once, none counted that the corpus does not have — computed against the
+loader rather than transcribed. The query's `limits:` header states the
+shortfall and points at `tmk-recon --provision` for the corpus figure.
+
+**The trap this leaves:** any other query that counts source-graph nodes is
+answering "of what the graph holds", not "of what the corpus contains", and only
+this one says so. Check the `limits:` header before quoting a coverage number
+out of a competency query.

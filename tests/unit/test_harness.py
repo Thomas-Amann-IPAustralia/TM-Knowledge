@@ -33,6 +33,21 @@ from tm_knowledge.stage0.schemas import RECORD_TYPES, enum_values, read_path, re
 
 FIXTURES = REPO_ROOT / "tests" / "fixtures" / "harness"
 
+#: The authored store these tests run against.
+#:
+#: **Pinned, not defaulted.** `run()` reads the real `authored/` when nothing
+#: overrides it, so a test that only overrides `gold_dir` passes or fails on what
+#: the repository happens to hold that day (Q-51). That went unnoticed while no
+#: check compared the two stores; the moment `_authored_cross_references` started
+#: resolving an authored typing's `concept` against both, every authored record
+#: in the repository became a finding in a test about a nine-record gold fixture.
+#:
+#: The sound authored fixture is used for both gold cases on purpose: it
+#: contributes no defects, so `EXPECTED_DEFECTS` below stays a statement about
+#: the gold fixture alone. The defective authored fixture has its own tests in
+#: `test_authored.py`.
+AUTHORED = REPO_ROOT / "tests" / "fixtures" / "authored" / "sound"
+
 
 def _skip_without_snapshot() -> None:
     if not UPSTREAM_DIR.exists():
@@ -71,7 +86,7 @@ def test_an_absent_gold_directory_is_not_an_error(tmp_path):
 @pytest.mark.snapshot
 def test_the_sound_gold_set_has_no_defects():
     _skip_without_snapshot()
-    report = run(gold_dir=FIXTURES / "sound")
+    report = run(gold_dir=FIXTURES / "sound", authored_dir=AUTHORED)
     assert report.defects == (), "\n".join(str(f) for f in report.defects)
     assert report.exit_code == 3, "under every band, so gaps but no defects"
 
@@ -100,7 +115,7 @@ EXPECTED_DEFECTS = {
 def test_every_defect_in_the_fixture_is_caught(key, fragment):
     _skip_without_snapshot()
     check, subject = key
-    report = run(gold_dir=FIXTURES / "defective")
+    report = run(gold_dir=FIXTURES / "defective", authored_dir=AUTHORED)
     matching = [
         finding
         for finding in report.defects
@@ -121,7 +136,7 @@ def test_the_defective_fixture_holds_no_surprises():
     nobody asked it to, which is how a check becomes noise.
     """
     _skip_without_snapshot()
-    report = run(gold_dir=FIXTURES / "defective")
+    report = run(gold_dir=FIXTURES / "defective", authored_dir=AUTHORED)
     found = {(finding.check, finding.subject) for finding in report.defects}
     assert found == set(EXPECTED_DEFECTS)
 
@@ -346,11 +361,26 @@ def test_a_run_without_the_snapshot_is_never_complete(tmp_path):
 
 
 def test_an_empty_document_does_not_count_as_written(tmp_path):
-    (tmp_path / "eval").mkdir()
-    (tmp_path / "eval" / "pilot-scope.md").write_text("\n\n", encoding="utf-8")
-    report = run(gold_dir=tmp_path / "gold", root=tmp_path, with_resolution=False)
+    """A file that exists and says nothing is still a gap.
+
+    Written against `eval/pilot-scope.md`, which was the first document
+    deliverable until the owner withdrew the boundary it would have described
+    (ADR-0096). It runs against `eval/measures.md` now — any document deliverable
+    will do, because the check is about emptiness rather than about which
+    document.
+    """
+    document = next(item for item in DELIVERABLES if item.kind == "document")
+    path = tmp_path / document.path
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n\n", encoding="utf-8")
+    report = run(
+        gold_dir=tmp_path / "gold",
+        authored_dir=AUTHORED,
+        root=tmp_path,
+        with_resolution=False,
+    )
     assert any(
-        finding.subject == "eval/pilot-scope.md" and "empty" in finding.message
+        finding.subject == document.path and "empty" in finding.message
         for finding in report.gaps
     )
 
@@ -433,11 +463,11 @@ def test_read_path_skips_absent_and_null():
 @pytest.mark.snapshot
 def test_the_command_exit_codes(capsys):
     _skip_without_snapshot()
-    assert harness_cli(["--gold-dir", str(FIXTURES / "sound")]) == 3
-    assert harness_cli(["--gold-dir", str(FIXTURES / "sound"), "--allow-incomplete"]) == 0
-    assert harness_cli(["--gold-dir", str(FIXTURES / "defective")]) == 1
+    assert harness_cli(["--gold-dir", str(FIXTURES / "sound"), "--authored-dir", str(AUTHORED)]) == 3
+    assert harness_cli(["--gold-dir", str(FIXTURES / "sound"), "--authored-dir", str(AUTHORED), "--allow-incomplete"]) == 0
+    assert harness_cli(["--gold-dir", str(FIXTURES / "defective"), "--authored-dir", str(AUTHORED)]) == 1
     assert (
-        harness_cli(["--gold-dir", str(FIXTURES / "defective"), "--allow-incomplete"]) == 1
+        harness_cli(["--gold-dir", str(FIXTURES / "defective"), "--authored-dir", str(AUTHORED), "--allow-incomplete"]) == 1
     ), "--allow-incomplete forgives gaps and never forgives a defect"
 
 
@@ -445,7 +475,7 @@ def test_the_command_exit_codes(capsys):
 def test_the_coverage_report_reads_as_a_worklist(tmp_path, capsys):
     _skip_without_snapshot()
     out = tmp_path / "coverage.md"
-    assert coverage_cli(["--gold-dir", str(FIXTURES / "sound"), "--out", str(out)]) == 0
+    assert coverage_cli(["--gold-dir", str(FIXTURES / "sound"), "--authored-dir", str(AUTHORED), "--out", str(out)]) == 0
     text = out.read_text(encoding="utf-8")
     assert "# Stage 0 — coverage and gaps" in text
     assert "never fills them" not in text.split("## 1.")[1], "the caveat belongs up top"
@@ -472,7 +502,7 @@ def test_nothing_in_the_report_proposes_content(tmp_path):
     """
     from tm_knowledge.stage0.coverage import render
 
-    report = run(gold_dir=FIXTURES / "sound", with_resolution=False)
+    report = run(gold_dir=FIXTURES / "sound", authored_dir=AUTHORED, with_resolution=False)
     text = render(report, generated="2026-08-19")
     for finding in report.of(Severity.GAP):
         assert "«" not in finding.message

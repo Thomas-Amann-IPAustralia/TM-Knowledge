@@ -186,9 +186,12 @@ likely to be wrong about something that matters.
 Both are in the same directory, both are pure judgement, and both unblock more
 work than any number of record corrections:
 
-**`pilot-scope.seed.md`** — a draft of the section 43 boundary, including an
-exclusion list. The exclusion list is what stops the pilot growing quietly.
-Nobody but you can write it.
+**~~`pilot-scope.seed.md`~~** — **withdrawn.** It drafted a section 43 boundary
+with an exclusion list, and on 2026-09-08 you removed the boundary: *"I would
+like to completely remove the s43 barrier."* The whole Manual is in scope and
+the exclusion list is empty (ADR-0081). `eval/pilot-scope.md` is still unwritten
+and still your signature to give — what it has to record now is that there is no
+boundary, which is a shorter document than the one that file drafts.
 
 **`measures.seed.md`** — draft thresholds. What score is good enough to ship,
 and what score means stop. Those numbers encode risk appetite, not statistics.

@@ -3972,3 +3972,213 @@ distinguishes it from one that did.
    comparability, that is his call and it is a scope decision rather than a
    provenance one. Recorded here rather than asked, because the honest stamp is
    right either way and the alternative was never available.
+
+## ADR-0095 — the concept pass reads the whole Manual, and the sheet carries what it finds
+
+**Date** 2026-09-09 · **Authority** derived · **Status** accepted
+
+**Context.** The owner asked for the section 43 boundary's removal to be
+reflected in `data/derived/concept-typing.xlsx` and throughout the repository.
+The boundary was withdrawn on 2026-09-08 (ADR-0081) and S015 to S017 rewrote the
+rules, the store and the typings — but every concept in the project was still one
+found inside the boundary. `eval/gold/concepts.yaml` holds 52, and 86 of their
+~95 definition sources point at Part 29 alone. `tmk-typing` read that file and
+nothing else, so the workbook could never hold a concept from anywhere else
+however the rules changed.
+
+Three things followed from that and none of them was a rule problem.
+
+**Decision.** Three passes, in order, each a smaller claim than the last.
+
+1. **`tmk-concepts` finds candidates across the whole corpus, deterministically.**
+   Four signals: a defined term under a Definitions or Interpretation provision;
+   the Manual defining a term in terms; the Manual's own subject headings; and
+   how many Manual passages use the term. 1,715 candidates across all 54 Parts,
+   every quote cut from the snapshot with its span and content hash. It writes
+   `review/candidates/concepts.yaml` and an evidence pack, and it authors
+   nothing — no id, no label judgement, no type.
+2. **78 concepts are authored into `authored/concepts.yaml`,** from the 53 Parts
+   the boundary hid: the grounds in sections 39 to 44 and the machinery under
+   each, what a trade mark is, use and ownership, the life of an application, the
+   Madrid system, and the two places examination reaches outside the trade marks
+   legislation entirely. Every record carries its passages with spans and hashes,
+   the argument for the reading, the readings rejected, and the thing it most
+   expects to have got wrong. `approved_by` is null in all 78.
+3. **`tmk-typing` reads both stores.** The workbook holds 130 rows — 52 concepts
+   an expert signed and 78 a machine wrote — and each row says which in its
+   `notes` cell.
+
+**Why the candidate pass is deterministic, and why that is two reasons.**
+CLAUDE.md rule 7 asks for determinism where determinism is possible because a
+deterministic answer needs no review, and every authored judgement is review debt
+somebody pays. ADR-0088 adds that a model call must earn itself. The reasons
+agree here and are kept apart: this pass is regex, string equality and the refs
+upstream already holds because term extraction *is* a lookup, not because an API
+call would have been expensive.
+
+**Why the origin marker is on the row.** Every `type` cell on the sheet was
+proposed by a machine and the banner says so once. What varies row to row is
+whether the *concept being typed* was signed or authored — and a wrong group is a
+dropdown away from right while a wrong concept is not. A reviewer who cannot see
+that difference spends the same attention on both.
+
+**Consequences.**
+
+1. **The typing distribution moved, and the movement is the finding.** The first
+   52 came out 30 `relevant_factor` and 1 `ground_of_refusal`, which is what a
+   vocabulary built around one ground looks like. The 130 come out 53
+   `none_of_these`: roles, documents, proceedings, outcomes and remedies, which
+   the owner's four groups were never shaped to hold. That is evidence about the
+   taxonomy rather than about any row, and it is asked as OQ-0024.
+2. **Eight authored concepts cover ground a signed record already claims** —
+   GC-0007, GC-0012, GC-0016, GC-0035, GC-0042, GC-0043, GC-0046, GC-0050. Each
+   names the overlap in `expert_should_check` and none displaces the signed
+   record: ADR-0080 consequence 2 retires an *authored* record when a signed one
+   covers it, and never the reverse.
+3. **Several typings are deliberately inconsistent with each other and say so.**
+   `divisional application` and `convention application` are typed differently on
+   similar facts; `removal for non-use` is typed on an assumption about whether
+   the four groups reach post-registration grounds. Naming an inconsistency in
+   `expert_should_check` is cheaper for a reviewer than a consistent set that
+   hides the choice.
+4. **A bug the typings found on the way in.** `concept-type.schema.json` has
+   promised since ADR-0071 that a typing naming a concept that does not exist is
+   reported as a dangling cross-reference, and nothing checked it. It cost
+   nothing while every typing named a signed concept and stopped costing nothing
+   the moment one named an authored concept. `CROSS_REFERENCES` now carries the
+   field and `_authored_cross_references` resolves it across both stores, since
+   ids are one sequence (ADR-0080 consequence 1).
+5. **A second counter was wrong in the opposite direction to the first.** The
+   build report's concept-types line divided by the *signed* concept count and
+   printed "130 of 52". ADR-0093 had already fixed it once, from "45 of 0". Both
+   failures are Q-50: read a counter's comment before you make it non-zero, and
+   the comment is its only specification.
+6. The harness tests were passing `gold_dir` and letting `run()` load the real
+   `authored/`, so they passed or failed on what the repository held that day
+   (Q-51). They now pin `authored_dir` to a fixture.
+
+## ADR-0096 — the boundary machinery is retired, and `tmk-recon` costs the corpus
+
+**Date** 2026-09-09 · **Authority** derived · **Status** accepted ·
+**Applies ADR-0081**
+
+**Context.** `boundary.py` computed one hop from section 43 under the rule the
+owner gave on OQ-0014, `data/derived/reports/boundary.md` published the result,
+`tmk-recon` costed section 43 by default, the worksheet header promised to
+regenerate itself "when `eval/pilot-scope.md` lands", and the completeness gate
+reported that document as missing. Every one of those answers a question the
+owner withdrew on 2026-09-08.
+
+HANDOFF listed the retirement as item 5 with the reason already written: code
+that produces a plausible answer to a withdrawn question is worse than code that
+fails.
+
+**Decision.**
+
+1. `boundary.py`, the `tmk-boundary` command and `data/derived/reports/boundary.md`
+   are deleted. The dashboard no longer publishes the report.
+2. `tmk-recon` costs the **corpus** by default — every provision the Manual
+   cites, ranked by how many passages attend to it. `--provision` costs one area,
+   which is the old report unchanged and is how you cost a Part before working it.
+3. The worksheet's header says it prints one *chosen* area of a Manual with no
+   boundary. `ScopeRule` keeps its name and stops being a scope rule: it is a
+   selector, and naming a provision is a working choice a person makes.
+4. `eval/pilot-scope.md` is removed from the completeness gate.
+   `review/seed/pilot-scope.seed.md` is re-headed as withdrawn and kept, because
+   its numbers are still true and costing an area is still useful.
+
+**Why the gate came out, which is the only part that needed arguing.** Removing
+a completeness check is not something an agent should do lightly. This one was
+reporting a document as *missing* when the thing it would have documented does
+not exist — a gap nobody can close, because there is nothing to write. ADR-0018's
+own argument applies: a permanently red signal trains everyone to ignore the
+report. `docs/ROADMAP-STATUS.md` has read "withdrawn, not owed" since S015, so
+the gate was also disagreeing with the status board.
+
+**What the corpus-wide report found, and it is worth more than the ranking.**
+**1,551 of the 2,460 chunks — 63% — cite no provision at all.** The old rule
+selected passages that *cite* a provision, so nearly two thirds of the Manual was
+structurally invisible to it, and no citation-based rule will ever reach them.
+That is the mechanism behind Q-28: four of the nine role terms the expert named
+were absent from a 52-concept vocabulary because a term's definition cites
+nothing.
+
+**Consequences.**
+
+1. `data/derived/reports/recon.md` is now the corpus report. The single-provision
+   report writes to `recon-<ref>.md` and is not committed unless somebody asks
+   for one.
+2. Anything citing `tmk-boundary` or `boundary.md` as current is wrong. They are
+   named here so a future session finds the reason rather than the absence.
+3. The owner's OQ-0014 rule is not deleted from the record — ADR-0072 holds it,
+   and `review/returned/260908-owner-notes-issue-12.md` holds his words. What is
+   gone is code that kept applying it.
+
+## ADR-0097 — the source graph holds what the records speak about, not what cites a section
+
+**Date** 2026-09-09 · **Authority** agent-proposed · **Status** accepted ·
+**Provisional — flagged in HANDOFF**
+
+**Context.** The boundary's last and most consequential foothold. `graph/source.ttl`
+was built over `select(corpus, ScopeRule())` — every chunk citing `TMA1995/s43`
+plus page-mates, 216 of 2,460 — from S010 until 2026-09-09. So an approved record
+naming a passage outside that fence had nothing in the graph to attach to, and
+the build reported it under *"gold records outside the worksheet scope"*. The
+owner withdrew the boundary; the graph kept it, and 78 newly authored concepts
+citing passages across the whole Manual would have had nowhere to land.
+
+**Decision.** The source graph holds **every Manual passage any record cites,
+plus its page-mates, plus every chunk carrying an `ambiguous` provision edge.**
+508 chunks today.
+
+**Why this rule and not the whole corpus.** The honest maximum is all 2,460
+chunks, and it was measured rather than dismissed: about 7.7× the text, putting
+`dataset.nq` near 40MB, rebuilt on every build and committed on every commit
+(ADR-0070, OQ-0005). The rule chosen has no boundary in it, grows as knowledge is
+authored, and never needs re-deciding when scope changes — because it is not a
+scope rule. Scope is the whole Manual; this is a question about what the graph is
+*for*.
+
+**Why the ambiguous edges are unconditional.** Upstream refuses to choose between
+instruments on purpose. Under the fence those passages arrived by accident, and
+under an evidence-driven rule one of the two ambiguous edges to `TMA1995/s43`
+would have been dropped — for not being spoken about rather than for being
+ambiguous, a distinction the graph could not have shown anybody. Q-07 says an
+ambiguous edge is a reason to put a passage in front of a person and never a
+reason to drop one, so 39 chunks are in regardless of what cites them.
+
+**Consequences.**
+
+1. `dataset.nq` grows from 5.4MB to about 10MB and `source.ttl` from 1.3MB to
+   2.8MB. That is the cost of the decision and it is paid on every commit.
+2. **41 chunks that were in the graph leave it** — passages citing section 43
+   that no record in either store says anything about. They are not excluded;
+   nothing is excluded. The moment a record cites one it is back.
+3. `BuildReport.out_of_scope_sources` should now be empty by construction, since
+   the graph is selected *from* what the records cite. A non-empty list means a
+   record names a Manual ref the snapshot does not hold, which is a different and
+   worse problem, and the report line says so.
+4. **A competency query stopped being complete, and it was only complete by
+   accident.** `CQ-0017` answers *"if section 43 were amended, which parts of the
+   Manual would need reviewing?"* by counting citation nodes in the source graph.
+   It used to return all 67 citing passages and a test asserted equality with
+   `tmk-recon`'s figure — which held *because the graph was fenced to exactly
+   those chunks*. The query was complete for section 43 and silently incomplete
+   for every other provision in the Act. It now returns 56 of 67 and says so in
+   its `limits:` header, and the test checks the property it was really for
+   (every held citing chunk counted once, none counted that the corpus lacks)
+   against the loader rather than against a transcribed number. Q-57.
+5. **A pre-existing quadratic query surfaced.** `CQ-0007` took 103 seconds at 216
+   chunks and 409 at 508, because two independent triple patterns in one `GRAPH`
+   block make rdflib build a cross product before joining. Split into two blocks
+   over the same graph — semantically identical, `tmkg:source` being a constant
+   IRI — it takes 0.3 seconds and returns the same two rows. The test module went
+   from over thirteen minutes to eleven seconds. Q-56.
+6. **This is `agent-proposed` and the size trade-off is the owner's to overturn.**
+   If he wants the whole corpus in the graph the change is one function and a
+   40MB file; a measured middle option — adding every passage citing a provision
+   any record names, without page-mates — is about 836 chunks and 19MB, and
+   restores CQ-0017 to complete for the 86 provisions this repository reasons
+   about. All three are on OQ-0025 with their numbers. It was decided rather than
+   asked because the rule chosen is defensible and waiting would have left the
+   graph fenced.

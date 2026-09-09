@@ -9,6 +9,26 @@ inputs in `vocab/` and `ontology/`, and the code in `src/`, a rebuild produces t
 same graph. Hand-editing RDF in this directory breaks that guarantee and is
 prohibited — fix the inputs or the generator instead.
 
+## What the source graph holds
+
+**Every Manual passage any record cites, plus its page-mates, plus every chunk
+carrying an `ambiguous` provision edge** (ADR-0097). Not "chunks citing section
+43", which is what it held from S010 until 2026-09-09 — that was the boundary
+rule, and the owner withdrew the boundary (ADR-0081).
+
+The rule has no provision in it. It selects on what this repository has said
+something about, so it grows as knowledge is authored and never needs
+re-deciding: authoring a concept about Part 22 puts Part 22's passages in the
+graph with no code change. The ambiguous edges are in regardless, because
+upstream refused to choose between instruments on purpose and dropping such a
+passage for not being spoken about would hide a refusal (Q-07).
+
+**Nothing is excluded.** A passage not in `source.ttl` is one nothing in either
+record store has spoken about yet. The whole corpus is in scope; a source graph
+over all 2,460 chunks would be about 7.7× the text and would put `dataset.nq`
+near 40MB on every build, which is a cost worth naming rather than paying by
+default.
+
 ## Named graphs
 
 The separation is the governance mechanism (ADR-0007). Machine suggestions must

@@ -1,15 +1,32 @@
-"""Corpus reconnaissance for the scope decision (parallel track P6).
+"""Corpus reconnaissance (parallel track P6).
 
-Machine-derived, purely factual reports about the pilot area, so the boundary
-decision is made against numbers instead of impressions. **Every output is a
-count or a listing of what upstream already records.** Nothing here interprets
-anything, nothing proposes a boundary, and the report says so on its face.
+Machine-derived, purely factual reports. **Every output is a count or a listing
+of what upstream already records.** Nothing here interprets anything and nothing
+proposes a scope.
 
 That disclaimer is not politeness. A report that reads as a recommendation is a
-draft of the expert's decision, and a plausible draft anchors the reviewer —
-which is the failure CLAUDE.md rule 1 and the parallel track's §3 both exist to
-prevent. The reports say what the corpus contains. What is in scope is the
-expert's answer to a question this file cannot ask.
+draft of somebody else's decision, and a plausible draft anchors the reader.
+The reports say what the corpus contains.
+
+**What the reports are for changed on 2026-09-08, and the module has two halves
+because of it.** They were written to cost a *candidate pilot area* so that a
+boundary could be drawn against numbers instead of impressions. The owner then
+withdrew the boundary — *"I would like to completely remove the s43 barrier"* —
+and there is no scope decision left to inform: the whole Manual is in scope
+(ADR-0081). So:
+
+- `survey()` costs the **corpus**, provision by provision, and is what
+  `tmk-recon` now runs by default. Nothing is out of scope, so the question it
+  answers is not *where is the boundary* but *where is the material*, which is
+  a working-priority question and a legitimate one (ADR-0081 consequence 1).
+- `reconnoitre()` costs **one provision** and is unchanged. It is still useful —
+  it is how you cost a Part before working it — and it is now reached with
+  `--provision` rather than by default.
+
+The half that is gone is `boundary.py`, which computed one hop from section 43
+under the rule the owner set in OQ-0014. That rule answered a question he has
+since withdrawn, and code that produces a plausible answer to a withdrawn
+question is worse than code that fails (ADR-0096).
 """
 
 from __future__ import annotations
@@ -233,4 +250,200 @@ def render(recon: Recon, corpus: Corpus, *, generated: str | None = None) -> str
         out.append(f"| `{case_id}` | {citation} | {count} |")
 
     out.append("\n\n---\n\n*Derived counts. Not a scope proposal.*\n")
+    return "\n".join(out)
+
+
+# ---------------------------------------------------------------------------
+# The corpus, not one area of it (ADR-0081 consequence 1, ADR-0096)
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True, slots=True)
+class Area:
+    """One provision, and how much of the Manual attends to it."""
+
+    provision: str
+    title: str
+    #: Chunks whose `provisions[]` cite it or a unit beneath it.
+    chunks: int
+    #: Those chunks plus their page-mates — ADR-0022's rule, applied here as a
+    #: cost estimate rather than as a scope rule, because there is no scope to
+    #: rule on any more.
+    with_page_mates: int
+    words: int
+    parts: tuple[str, ...]
+    href_edges: int
+    regex_edges: int
+    ambiguous_edges: int
+
+
+@dataclass(frozen=True, slots=True)
+class Survey:
+    """The whole corpus, costed by provision."""
+
+    areas: tuple[Area, ...]
+    total_chunks: int
+    total_words: int
+    #: Chunks citing no provision at all. The blind spot the old scope rule had:
+    #: it selected passages that *cite* section 43, and a term's definition
+    #: cites nothing (Q-28).
+    uncited_chunks: int
+    uncited_words: int
+
+
+def survey(corpus: Corpus, *, minimum: int = 3) -> Survey:
+    """Cost every provision the Manual cites, most-cited first.
+
+    `minimum` drops provisions the Manual mentions once or twice, which are
+    hundreds and are noise in a priority list. They are dropped from the
+    *ranking*, never from scope — there is no scope any more, and a provision
+    cited once is still in it.
+    """
+    by_provision: dict[str, list] = {}
+    edges: dict[str, Counter] = {}
+    for chunk in corpus.chunks.values():
+        seen: set[str] = set()
+        for edge in chunk.provisions:
+            # Rank on the provision, not the unit: `TMA1995/s41(3)(a)` is
+            # attention on section 41, and a list keyed by unit would put one
+            # section in it nine times.
+            root = edge.id.split("(")[0].split("~")[0]
+            counter = edges.setdefault(root, Counter())
+            counter[edge.extraction] += 1
+            if edge.needs_a_human:
+                counter["ambiguous"] += 1
+            if root in seen:
+                continue
+            seen.add(root)
+            by_provision.setdefault(root, []).append(chunk)
+
+    areas: list[Area] = []
+    for provision, chunks in by_provision.items():
+        if len(chunks) < minimum:
+            continue
+        pages = {chunk.page_ref for chunk in chunks}
+        mates = {
+            mate.chunk_ref for page in pages for mate in corpus.chunks_on_page(page)
+        }
+        resolved = corpus.resolve_provision(provision)
+        counter = edges.get(provision, Counter())
+        areas.append(
+            Area(
+                provision=provision,
+                title=(getattr(resolved, "title", None) or "—"),
+                chunks=len(chunks),
+                with_page_mates=len(mates),
+                words=sum(len(chunk.text.split()) for chunk in chunks),
+                parts=tuple(
+                    part
+                    for part, _ in Counter(
+                        chunk.part_id for chunk in chunks
+                    ).most_common()
+                ),
+                href_edges=counter.get("href", 0),
+                regex_edges=counter.get("regex", 0),
+                ambiguous_edges=counter.get("ambiguous", 0),
+            )
+        )
+
+    uncited = [chunk for chunk in corpus.chunks.values() if not chunk.provisions]
+    return Survey(
+        areas=tuple(
+            sorted(areas, key=lambda area: (-area.chunks, area.provision))
+        ),
+        total_chunks=len(corpus.chunks),
+        total_words=sum(len(chunk.text.split()) for chunk in corpus.chunks.values()),
+        uncited_chunks=len(uncited),
+        uncited_words=sum(len(chunk.text.split()) for chunk in uncited),
+    )
+
+
+def render_survey(
+    found: Survey, corpus: Corpus, *, generated: str | None = None, top: int = 60
+) -> str:
+    """The corpus-wide report: where the material is, not where the fence is."""
+    pin = corpus.pin
+    stamp = generated or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    covered = sum(area.chunks for area in found.areas)
+    out = [
+        "<!-- Generated by tm_knowledge.stage0.recon. Do not hand-edit. -->",
+        "",
+        "# Corpus reconnaissance — the whole Manual",
+        "",
+        "**These are derived counts, not a scope proposal.** Every number below is a "
+        "count of what `manual-XtrACTor` already records. Nothing here interprets the "
+        "corpus or says what ought to be worked first — that is a priority judgement and "
+        "this file cannot make it.",
+        "",
+        "| | |",
+        "|---|---|",
+        f"| Pinned snapshot | `{pin.repo}` @ `{pin.commit}` |",
+        f"| Extractor versions | `{pin.manual_extractor_version}`, "
+        f"`{pin.legislation_extractor_version}` |",
+        f"| Generated | {stamp} |",
+        "",
+        "## What changed",
+        "",
+        "This report used to cost one candidate pilot area — section 43 — so that a "
+        "boundary could be drawn against numbers. The owner withdrew the boundary on "
+        "2026-09-08: *“I would like to completely remove the s43 barrier.”* There is no "
+        "boundary to draw, so the report costs the corpus instead (ADR-0081 consequence "
+        "1, ADR-0096). `tmk-recon --provision TMA1995/s43` still produces the old "
+        "single-area report, which is how you cost a Part before working it.",
+        "",
+        "| | count |",
+        "|---|---|",
+        f"| Chunks in the corpus | {found.total_chunks:,} |",
+        f"| Words | {found.total_words:,} |",
+        f"| Provisions cited by at least 3 chunks | {len(found.areas)} |",
+        f"| Chunks citing no provision at all | {found.uncited_chunks:,} "
+        f"({found.uncited_chunks / found.total_chunks:.0%}) · "
+        f"{found.uncited_words:,} words |",
+        "",
+        "**That last row is the finding, and it is the size of the old blind spot.** The "
+        "worksheet rule selected chunks that *cite* a provision. A passage defining a "
+        "term cites nothing, so it was invisible — which is why four of the nine role "
+        "terms the expert named were absent from a 52-concept vocabulary (Q-28). Those "
+        f"{found.uncited_chunks:,} chunks are now in scope like everything else, and "
+        "nothing that selects on citations will ever reach them.",
+        "",
+        "## Where the material is",
+        "",
+        f"Every provision at least 3 chunks cite, most-attended first. Showing the top "
+        f"{min(top, len(found.areas))} of {len(found.areas)}; the ranking is arithmetic "
+        "and says nothing about importance.",
+        "",
+        "| provision | title | chunks | with page-mates | words | Parts | href | regex | "
+        "ambiguous |",
+        "|---|---|---:|---:|---:|---|---:|---:|---:|",
+    ]
+    for area in found.areas[:top]:
+        parts = ", ".join(area.parts[:3])
+        if len(area.parts) > 3:
+            parts += f" +{len(area.parts) - 3}"
+        title = area.title if len(area.title) <= 54 else area.title[:54] + "…"
+        out.append(
+            f"| `{area.provision}` | {title} | {area.chunks:,} | "
+            f"{area.with_page_mates:,} | {area.words:,} | {parts} | {area.href_edges} | "
+            f"{area.regex_edges} | {area.ambiguous_edges} |"
+        )
+    out += [
+        "",
+        f"The listed provisions account for {covered:,} chunk-citations across "
+        f"{found.total_chunks:,} chunks; a chunk citing several provisions is counted "
+        "under each, so the column does not sum to the corpus.",
+        "",
+        "**`href` against `regex` is the column to read before trusting a row.** `href` "
+        "means the Manual's authors linked the provision themselves. `regex` means "
+        "upstream read it out of prose, and where such an edge is marked `default` the "
+        "instrument was inferred from a bare “section 41” rather than stated by IP "
+        "Australia. `ambiguous` means upstream refused to choose between instruments and "
+        "nothing in this repository may choose for it (Q-07).",
+        "",
+        "---",
+        "",
+        "*Derived counts. Not a scope proposal, and no longer a boundary proposal — "
+        "there is no boundary.*",
+        "",
+    ]
     return "\n".join(out)

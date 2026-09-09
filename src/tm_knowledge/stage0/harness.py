@@ -114,8 +114,19 @@ class Deliverable:
 #: §7's content checklist. Order is the guide's suggested order of work (§10),
 #: so the report reads as a worklist rather than as an inventory.
 DELIVERABLES: tuple[Deliverable, ...] = (
-    Deliverable("pilot_scope", "Pilot scope, with exclusions", "document",
-                path="eval/pilot-scope.md"),
+    # `pilot_scope` — "Pilot scope, with exclusions", at `eval/pilot-scope.md` —
+    # was the first deliverable here from S004 until 2026-09-09. It is gone
+    # because the owner withdrew the question it answered: *"I would like to
+    # completely remove the s43 barrier."* The whole Manual is in scope, there is
+    # no exclusion list, and ADR-0081 records the decision (ROADMAP-STATUS has
+    # read "withdrawn, not owed" since S015).
+    #
+    # Removing a gate is not something an agent does lightly and this one needed
+    # saying out loud: the gate was reporting a document as *missing* when the
+    # thing it would have documented does not exist. That is not a gap a person
+    # can close — there is nothing to write — and a permanent unclosable gap in a
+    # completeness report is how the whole report stops being read (ADR-0018's
+    # own argument, ADR-0096).
     Deliverable("competency_questions", "Competency questions, covering all six categories",
                 "records", record_type="competency_question", minimum=6),
     Deliverable("prohibited_uses", "Prohibited uses, covering all six kinds",
@@ -166,6 +177,13 @@ CROSS_REFERENCES: dict[str, dict[tuple[str, ...], tuple[str, ...]]] = {
         ("narrower", "*"): ("GC",),
         ("related", "*"): ("GC",),
     },
+    # `concept-type.schema.json` has promised since ADR-0071 that "the harness
+    # reports a type record naming a concept that is not in the gold set as a
+    # dangling cross-reference", and until S018 nothing here did. It cost
+    # nothing while every typing named a signed concept; it stopped costing
+    # nothing the moment typings started naming authored ones (Q-50 again — read
+    # a check before you make it non-zero).
+    "concept_type": {("concept",): ("GC",)},
     "gold_retrieval_question": {("prohibited_conclusions", "*"): ("PU",)},
     "reasoning_expectation": {("must_not_infer", "*"): ("PU",)},
     "prohibited_use": {("related_questions", "*"): ("CQ", "GA")},
@@ -333,6 +351,39 @@ def _cross_references(gold: GoldSet) -> Iterator[Finding]:
                         f"{pointer} names {value}, and no such record exists in "
                         + " or ".join(goldset.FILE_FOR[t] for t in RECORD_TYPES
                                       if ID_PREFIXES[t] in prefixes),
+                    )
+
+
+def _authored_cross_references(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
+    """The same check, over the authored store, resolving against **both** stores.
+
+    Ids are one sequence across `eval/gold/` and `authored/` (ADR-0080
+    consequence 1), so an authored typing may legitimately name either a signed
+    concept or an authored one — and a typing naming neither is a record about
+    nothing. `_cross_references` reads the gold set alone and would report every
+    authored typing as dangling, which is why this is a second function rather
+    than an argument on the first.
+    """
+    known: dict[str, set[str]] = {}
+    for source in (gold.all_records(), authored.all_records()):
+        for record_type, record in source:
+            identifier = record.get("id")
+            if isinstance(identifier, str):
+                known.setdefault(ID_PREFIXES[record_type], set()).add(identifier)
+
+    for record_type, fields in CROSS_REFERENCES.items():
+        for record in authored[record_type]:
+            subject = str(record.get("id") or f"<{record_type} with no id>")
+            for path, prefixes in fields.items():
+                for pointer, value in read_path(record, path):
+                    if not isinstance(value, str):
+                        continue
+                    if any(value in known.get(prefix, ()) for prefix in prefixes):
+                        continue
+                    yield Finding(
+                        Severity.DEFECT, "authored-cross-reference", subject,
+                        f"{pointer} names {value}, and no such record exists in "
+                        "either store",
                     )
 
 
@@ -602,6 +653,7 @@ AUTHORED_CHECKS: tuple[str, ...] = (
     "authored-ids",
     "authored-basis",
     "authored-evidence",
+    "authored-cross-reference",
 )
 
 
@@ -866,6 +918,7 @@ def _authored(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
     yield from _authored_approval(authored)
     yield from _authored_identifiers(authored, gold)
     yield from _authored_basis(authored)
+    yield from _authored_cross_references(authored, gold)
 
 
 # ---------------------------------------------------------------------------

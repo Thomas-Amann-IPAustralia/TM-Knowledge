@@ -14,14 +14,14 @@ draft is not able to do, and it is the honest half of the demonstration.
 | | |
 |---|---|
 | Pinned snapshot | `Thomas-Amann-IPAustralia/manual-XtrACTor @ c490a9927f1a (ingest/0.11.0, legislation/0.2.0)` |
-| Generated | 2026-09-08 |
+| Generated | 2026-09-09 |
 | Ontology modules | 9, all draft |
 | Classes declared | 50 |
 | Predicates on the closed list | 14, derived from 35 approved relationships |
-| Source graph | 16,405 triples over 216 chunks |
-| Approved graph | 3,230 triples — signed by a named expert |
-| Authored graph | 0 triples — **written by a machine, validated by nobody** |
-| SHACL result | 0 defects, 0 gaps, 29 notes — exit 0 |
+| Source graph | 32,922 triples over 508 chunks |
+| Approved graph | 3,243 triples — signed by a named expert |
+| Authored graph | 3,441 triples — **written by a machine, validated by nobody** |
+| SHACL result | 0 defects, 0 gaps, 209 notes — exit 0 |
 | Competency queries | 13 of 20 questions |
 
 ## 1. What is in the graph
@@ -39,17 +39,17 @@ different fact about the same rows.
 
 | graph | holds | count |
 |---|---|---|
-| `source` | chunks | 216 |
-| `source` | pages | 36 |
-| `source` | provisions and units cited | 153 |
-| `source` | decisions cited | 58 |
-| `source` | citations, reified with extraction and certainty | 529 |
+| `source` | chunks | 508 |
+| `source` | pages | 102 |
+| `source` | provisions and units cited | 360 |
+| `source` | decisions cited | 160 |
+| `source` | citations, reified with extraction and certainty | 1076 |
 | `approved` | concepts | 52 |
 | `approved` | relationships, each with a direct triple and an assertion | 35 |
 | `approved` | entity mentions | 55 |
 | `approved` | questions (competency, retrieval, search) | 31 |
 | `approved` | prohibited uses | 11 |
-| `authored` | concepts | 0 |
+| `authored` | concepts | 78 |
 | `authored` | relationships, each with a direct triple and an assertion | 0 |
 | `authored` | entity mentions | 0 |
 | `authored` | questions (competency, retrieval, search) | 0 |
@@ -57,14 +57,14 @@ different fact about the same rows.
 
 ### The trust metadata survived
 
-529 citations reached the graph as nodes rather than as bare edges, each
+1076 citations reached the graph as nodes rather than as bare edges, each
 carrying upstream's `extraction` and `certainty` verbatim. That is what makes
 CQ-0022 — *did the Manual's authors link that section themselves, or did we work
 it out from the wording?* — a query rather than a shrug. Collapsing those two
 fields would have destroyed the only thing separating an author's assertion from
 an inference, and it cannot be recovered afterwards (CLAUDE.md rule 3).
 
-35 of those citations land on nothing this corpus holds. They are recorded
+62 of those citations land on nothing this corpus holds. They are recorded
 as unresolved, never repaired: CQ-0020 asks for exactly this list.
 
 ## 2. What the shapes stop
@@ -93,7 +93,7 @@ words, from the same passage, honestly attributed — and the shape must leave i
 alone. A constraint that fired on both would pass a fires-test and be useless.
 
 Against the real content: **0 defects, 0 gaps,
-29 notes.** The notes are all one thing — a concept whose not-label is
+209 notes.** The notes are all one thing — a concept whose not-label is
 another concept's preferred label, which is what a not-label is *for* and is
 reported so the pairs are visible.
 

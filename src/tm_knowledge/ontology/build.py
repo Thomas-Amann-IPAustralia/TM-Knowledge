@@ -63,7 +63,7 @@ from tm_knowledge.ontology.namespaces import (
 )
 from tm_knowledge.ontology.tbox import load as load_tbox
 from tm_knowledge.stage0 import goldset
-from tm_knowledge.stage0.worksheet import PILOT_PROVISION, ScopeRule, select
+from tm_knowledge.stage0.worksheet import cited_refs, select_evidenced
 from tm_knowledge.upstream.loader import Corpus, load_corpus
 
 __all__ = [
@@ -149,7 +149,11 @@ class BuildReport:
     cases: int = 0
     citations: int = 0
     unresolved_citations: int = 0
-    #: Gold records whose source chunk is outside the worksheet scope rule.
+    #: Gold records whose source chunk is not in the source graph. Since
+    #: ADR-0097 this should always be empty by construction — the source graph is
+    #: selected *from* what the records cite — so a non-empty list means a record
+    #: names a Manual ref the snapshot does not hold, which is a different and
+    #: worse problem than being outside a fence.
     out_of_scope_sources: list[str] = field(default_factory=list)
     triples: dict[str, int] = field(default_factory=dict)
     #: What `eval/gold/` contributed. The flat properties below read from here.
@@ -168,6 +172,19 @@ class BuildReport:
     @property
     def concepts(self) -> int:
         return self.approved.concepts
+
+    @property
+    def total_concepts(self) -> int:
+        """Concepts in the project, both stores.
+
+        The one place the two counts are added, and it is legitimate: ids are
+        one sequence across the stores, so this is a count of distinct concepts
+        rather than a merge of signed and authored knowledge. ADR-0080
+        consequence 3 forbids presenting authored records *as* signed ones — it
+        does not forbid counting how many concepts exist. Every line that uses
+        this prints the split beside it.
+        """
+        return self.approved.concepts + self.authored.concepts
 
     @property
     def concept_types(self) -> int:
@@ -222,19 +239,30 @@ class BuildReport:
             f"**validated by nobody**",
             f"citations      {self.citations:>7}  of which {self.unresolved_citations} "
             f"land on nothing this corpus holds",
-            # Both figures count typings of the *signed* concepts, because that
-            # is what a typing points at: `concept-types.yaml` names a GC- id,
-            # and every GC- id in the project is in eval/gold/. The denominator
-            # is therefore `self.concepts` for both halves — an earlier version
-            # divided the authored half by `authored.concepts`, which is the
-            # number of concepts a machine wrote, is structurally 0, and made
-            # the line read "45 of 0" (Q-50).
-            f"concept types  {self.concept_types:>7}  of {self.concepts} concepts "
-            f"sorted into a group by a person; {self.authored.concept_types} of "
-            f"{self.concepts} by a machine, validated by nobody",
+            # The denominator is every concept in the project, both stores, because
+            # that is what a typing points at: `concept-types.yaml` names a GC- id
+            # and there is one GC- sequence across the two stores (ADR-0080 c1).
+            #
+            # It has now been wrong twice in opposite directions, which is why
+            # this comment is longer than the line. First it divided the authored
+            # half by `authored.concepts` — the count of concepts a *machine*
+            # wrote — which was structurally 0 and printed "45 of 0" (Q-50). Then
+            # it divided both halves by `self.concepts`, the signed count, which
+            # was right until a machine authored concepts of its own and printed
+            # "130 of 52". Read a counter before you make it non-zero.
+            f"concept types  {self.concept_types:>7}  of {self.total_concepts} "
+            f"concepts sorted into a group by a person; "
+            f"{self.authored.concept_types} of {self.total_concepts} by a machine, "
+            "validated by nobody "
+            f"({self.concepts} of those concepts are signed, "
+            f"{self.authored.concepts} authored)",
         ]
         for label, items in (
-            ("gold records outside the worksheet scope", self.out_of_scope_sources),
+            (
+                "gold records whose source chunk is not in the graph — since "
+                "ADR-0097 this means the ref is not in the snapshot at all",
+                self.out_of_scope_sources,
+            ),
             ("gold records whose source hash has moved", self.stale),
             ("gold records naming a source not held", self.unresolvable_sources),
             ("expected-concept labels matching no concept", self.unmatched_concept_labels),
@@ -416,7 +444,70 @@ def _add_citation(
     return node
 
 
-def _build_source(corpus: Corpus, rule: ScopeRule, report: BuildReport) -> Graph:
+def source_chunks(
+    corpus: Corpus,
+    gold: goldset.GoldSet,
+    authored: authored_module.AuthoredSet,
+) -> tuple:
+    """Which passages of the Manual the source graph holds.
+
+    **This is where the section 43 boundary stood longest and mattered most.**
+    Until ADR-0097 the source graph was built over `select(corpus, ScopeRule())`
+    — every chunk citing `TMA1995/s43`, plus page-mates, 216 of 2,460 — so an
+    approved record naming a passage outside that fence had nothing in the graph
+    to attach to, and the build reported it under "gold records outside the
+    worksheet scope". The owner withdrew the boundary; the graph kept it.
+
+    The rule now is: **every Manual passage any record cites, plus its
+    page-mates.** It selects on what this repository has said something about
+    rather than on which provision a passage happens to mention. Three
+    consequences, and the third is the reason it is a rule and not a fence:
+
+    1. It has no boundary in it. No section, no Part, no exclusion list.
+    2. It grows as knowledge is authored. Authoring a concept about Part 22 puts
+       Part 22's passages in the graph, with no code change and no re-decision.
+    3. It never needs re-deciding when scope changes, because it is not a scope
+       rule — scope is the whole Manual (ADR-0081) and this is a question about
+       what the graph is *for*.
+
+    **Every chunk carrying an `ambiguous` provision edge is in, cited or not.**
+    That is not a second scope rule, it is Q-07: upstream refused to choose
+    between instruments on purpose, and an ambiguous edge is a reason to put a
+    passage in front of a human, never a reason to drop one. Under the citation
+    fence they arrived by accident, because the ones near section 43 happened to
+    be selected. Making the rule evidence-driven would otherwise have dropped
+    one of the two ambiguous edges to `TMA1995/s43` — dropped for not being
+    spoken about rather than for being ambiguous, which is a distinction the
+    graph could not show anybody. 39 chunks corpus-wide carry one.
+
+    **What it costs, stated because it is a real cost.** A source graph over the
+    whole corpus would be about 7.7 times the text and would put `dataset.nq`
+    somewhere near 40MB, regenerated on every build and committed on every
+    commit (ADR-0070, OQ-0005). This rule holds a little over 400 chunks where
+    the fence held 216, and some of the fence's chunks leave: passages that cite
+    section 43 and that no record in either store says anything about. They are
+    not excluded — nothing is excluded — they are simply not yet spoken about,
+    and the moment a record cites one it is back.
+    """
+    refs = cited_refs(
+        [
+            *((record_type, record, None) for record_type, record in gold.all_records()),
+            *(
+                (entry.record_type, entry.record, entry.envelope)
+                for entry in authored.all_entries()
+                if entry.sound
+            ),
+        ]
+    )
+    refs |= {
+        chunk.chunk_ref
+        for chunk in corpus.chunks.values()
+        if any(edge.needs_a_human for edge in chunk.provisions)
+    }
+    return select_evidenced(corpus, refs)
+
+
+def _build_source(corpus: Corpus, chunks: tuple, report: BuildReport) -> Graph:
     graph = bind_all(Graph())
     version = _version_node(corpus, graph)
     known = corpus.provisions.keys() | corpus.units.keys()
@@ -432,7 +523,6 @@ def _build_source(corpus: Corpus, rule: ScopeRule, report: BuildReport) -> Graph
         graph.add((node, RDF.type, TMK.Legislation))
         graph.add((node, RDFS.label, _en(label)))
 
-    chunks = select(corpus, rule)
     report.chunks = len(chunks)
     pages_seen: set[str] = set()
     provisions_seen: set[str] = set()
@@ -1052,7 +1142,7 @@ def build(
     corpus: Corpus | None = None,
     gold: goldset.GoldSet | None = None,
     authored: authored_module.AuthoredSet | None = None,
-    rule: ScopeRule | None = None,
+    chunks: tuple | None = None,
 ) -> tuple[Dataset, BuildReport]:
     """The dataset and what the build saw.
 
@@ -1068,7 +1158,6 @@ def build(
     corpus = corpus or load_corpus()
     gold = gold if gold is not None else goldset.load()
     authored = authored if authored is not None else authored_module.load()
-    rule = rule or ScopeRule()
     report = BuildReport()
     report.authored_refused = [entry.record_id for entry in authored.refused]
 
@@ -1087,7 +1176,9 @@ def build(
     labels = _concept_labels(signed, machine)
     excluded = _not_labels(signed, machine)
 
-    source = _build_source(corpus, rule, report)
+    if chunks is None:
+        chunks = source_chunks(corpus, gold, authored)
+    source = _build_source(corpus, chunks, report)
     approved = _build_store(corpus, signed, report.approved, labels, excluded)
     authored_graph = _build_store(corpus, machine, report.authored, labels, excluded)
 

@@ -57,7 +57,7 @@ owed**: the whole Manual is in scope and the boundary was withdrawn (ADR-0081).
 | Deliverable | Status | Where it will live |
 |---|---|---|
 | Pilot area | **superseded** — s 43 is the first area worked, not a limit; whole Manual in scope (ADR-0081 amends ADR-0013) | `docs/DECISIONS.md` |
-| Pilot scope (the boundary) | **withdrawn, not owed** — the boundary is gone and `eval/pilot-scope.md` will not be written. `tmk-boundary` and `data/derived/reports/boundary.md` are retired and must not be cited as current (ADR-0081, supersedes ADR-0022 and ADR-0072) | — |
+| Pilot scope (the boundary) | **withdrawn, not owed, and now retired in code** — S018 removed the deliverable from the completeness gate, deleted `tmk-boundary` and `data/derived/reports/boundary.md`, and re-headed `review/seed/pilot-scope.seed.md` as withdrawn (ADR-0096, ADR-0081, supersedes ADR-0022 and ADR-0072) | — |
 | Competency-question catalogue | **partial** — 20 approved (S008); 4 seed drafts left | `eval/gold/competency-questions.yaml` |
 | Gold-standard dataset | **partial** — 159 approved: 52 concepts (target met), 55 entities, 35 relationships, 10 retrieval questions, 6 reasoning expectations (target met), 1 search question | `eval/gold/` |
 | Prohibited-use list | **partial** — 11 approved covering 5 of the 6 kinds; `stale_source` missing because all three of its records are held on CQ-0013/0014/0016 | `eval/gold/prohibited-uses.yaml` |
@@ -65,8 +65,8 @@ owed**: the whole Manual is in scope and the boundary was withdrawn (ADR-0081).
 | Evaluation harness | **done** — S005, P5. Runs, and exits 3 by design | `tmk-harness` |
 | Record templates | **done** — 8 record types, schema-checked; `concept-type.template.yaml` added S012 | `eval/templates/` |
 | Record schemas | **done** — S004, ADR-0027; a ninth record type, `concept_type`, added S012 (ADR-0071) | `eval/schemas/` |
-| Pass B worksheet | **done** — S004, prints 216 chunks (ADR-0022) | `tmk-worksheet` → `data/derived/` |
-| Corpus reconnaissance | **done** — S004, s 43 costed | `tmk-recon` → `data/derived/` |
+| Pass B worksheet | **done** — S004, prints 216 chunks for `--provision TMA1995/s43`. Since S018 its header says it is one *chosen* area of a Manual with no boundary, not a scope claim (ADR-0096) | `tmk-worksheet` → `data/derived/` |
+| Corpus reconnaissance | **done, and re-scoped S018** — costs the whole corpus by default: 259 provisions ranked by Manual attention, and the finding that **63% of chunks cite no provision at all** and no citation rule can reach them. `--provision` costs one area (ADR-0096) | `tmk-recon` → `data/derived/reports/recon.md` |
 | Expert input guide | **done** — ADR-0014 | `eval/STAGE-0-INPUT-GUIDE.md` |
 | Coverage and gap report | **done** — S005, P10 | `tmk-coverage` → `data/derived/reports/` |
 | CI wiring | **done** — S005, P11, ADR-0018's split | `.github/workflows/harness.yml` |
@@ -77,7 +77,9 @@ owed**: the whole Manual is in scope and the boundary was withdrawn (ADR-0081).
 | Seed review pack and workbook | **done** — S007, ADR-0044; regenerated S008 over the 178 that remain | `tmk-seed --pack --workbook` → `data/derived/` |
 | Review round 1 | **done** — S008. 229 of 368 rows carried a verdict, plus an addendum settling 84 (ADR-0051, ADR-0052) | `review/returned/`, `review/decisions/` |
 | Reconciliation path | **done** — S008, ADR-0049 | `tmk-reconcile` |
-| Concept typing | **authored, validated by nobody** — S017 typed all 52, `unreviewed`, each with its passages, its reasoning and the reading it rejected (ADR-0092). Signed: **0 of 52**, and the completeness gate still reads `0 of 50–100` because it counts `eval/gold/` and must. The workbook now arrives pre-filled, so a reviewer corrects rather than composes; 30 of the 52 came out `relevant_factor` and 1 `ground_of_refusal`, which is a finding about the taxonomy and is reported as one | `authored/concept-types.yaml`, `data/derived/reports/concept-typing.md` |
+| Concept typing | **authored, validated by nobody** — S017 typed the 52 signed concepts; S018 authored 78 more from the whole Manual and typed those too, so the sheet now carries **130 rows**, every `type` written by a machine and **0 signed by a person**. Each row says whether the *concept* was signed or authored, because a wrong concept is worse than a wrong group. The distribution moved towards `none_of_these` (53 of 130): roles, documents, proceedings and outcomes, which the four groups were never shaped to hold — OQ-0024 (ADR-0092, ADR-0095) | `authored/concept-types.yaml`, `data/derived/concept-typing.xlsx`, `data/derived/reports/concept-typing.md` |
+| Concept candidates, corpus-wide | **done** — S018. `tmk-concepts` finds 1,715 candidates deterministically across all 54 Parts: statutory defined terms, Manual definitions, Manual subject headings. Candidates, never concepts — no id, no label judgement, no type (ADR-0095) | `review/candidates/concepts.yaml`, `data/derived/reports/concept-candidates.md` |
+| Authored concepts | **78, validated by nobody** — S018, from the 53 Parts the boundary hid. Every record carries its passages with spans and hashes, its argument, the reading it rejected and the thing it most expects to have got wrong. Eight overlap a signed record and say so; none displaces one (ADR-0095) | `authored/concepts.yaml` |
 | Blocker and dependency report | **done** — S009, ADR-0053/0054 | `tmk-blockers` → `data/derived/reports/` |
 | Review round 2 (scoped) | **not needed** — the 10 decisions holding 168 records are resolved by authoring instead (ADR-0084). The workbook stays on disk for an expert round if one resumes | `data/derived/stage0-blockers-review.xlsx` |
 

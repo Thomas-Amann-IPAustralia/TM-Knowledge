@@ -21,6 +21,7 @@ on:
       - "site/**"
       - "src/tm_knowledge/dashboard/**"
       - "eval/gold/**"
+      - "authored/**"
       - "ontology/draft/**"
       - "graph/**"
       - "shapes/**"

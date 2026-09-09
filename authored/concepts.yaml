@@ -1,0 +1,3639 @@
+# Concepts an agent wrote from the whole Manual, unreviewed, signed by nobody
+# (ADR-0079, ADR-0095).
+#
+# `eval/gold/concepts.yaml` holds 52 concepts a trade marks expert signed. All 52
+# were found inside the section 43 boundary: 86 of their ~95 definition sources
+# point at Part 29 alone. The owner withdrew that boundary on 2026-09-08 — "I
+# would like to completely remove the s43 barrier" — and these are the concepts
+# the other 53 Parts hold.
+#
+# **No expert has read a word of this file.** Every record says so in
+# `authored.review_status`, `approved_by` is null in all of them, and only
+# `tmk-transcribe`, reading a workbook a person signed, may ever change that.
+#
+# Each record names the passages it rests on with a span and a content hash cut
+# from the pinned snapshot, an argument for the reading, the readings rejected,
+# and the thing it most expects to have got wrong. Correcting a stated argument
+# is the cheap half of review; composing one is the expensive half, and that is
+# the whole bet ADR-0079 made.
+#
+# Eight records here cover ground a signed record already claims — GC-0035
+# authorised user, GC-0016 priority date, GC-0042 revocation of acceptance,
+# GC-0043 divisional application, GC-0046 Registrar, GC-0007 presumption of
+# registrability, GC-0012 specification, GC-0050 reputation. Each says so in its
+# `expert_should_check` and none of them displaces the signed record: an agent
+# may not retire something a person signed (ADR-0080 consequence 2 runs the other
+# way).
+- id: GC-0053
+  pref_label: ground for rejection
+  alt_labels:
+  - grounds for rejection
+  - ground of rejection
+  - grounds for rejecting
+  not_labels:
+  - ground of opposition
+  - ground for revocation
+  - objection
+  definition_sources:
+  - TMM/Part20/5#1
+  legislative_basis:
+  - TMA1995/s33
+  - TMA1995/s33(1)(b)
+  notes: >-
+    The Manual treats the grounds as a closed set fixed by the Act and Regulations. Whether a formality
+    failure under paragraph 33(1)(a) is a 'ground for rejection' in the same sense as sections 39-44
+    is a real question the passage leaves open.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part20/5#1
+      span:
+      - 0
+      - 131
+      content_hash: sha256:53ac65102a07932fd67393905ea28f29ad056b2b475899968a88f18e877e9557
+      quote: The Act and Regulations contain all the grounds upon which an application for registration
+        of a trade mark may have to be rejected.
+    - ref: TMA1995/s33
+      span:
+      - 180
+      - 229
+      content_hash: sha256:36311d92754a0ea33e97abec732d66bb149a577c8004ce2f28ee98bb3bcb54e2
+      quote: there are grounds under this Act for rejecting it
+    confidence: 0.8
+    reasoning: >-
+      The Manual states in terms that the Act and Regulations contain all the grounds, and section
+      33(3) makes the Registrar's satisfaction that a ground exists the trigger for rejection. The
+      concept is therefore the corpus's own, not a label imposed on it.
+    alternatives_considered:
+    - >-
+      Treating each numbered ground (s 39, s 41, s 43 …) as a concept and holding no general concept
+      above them. Rejected because the Manual reasons about 'grounds for rejection' as a class — Part
+      23 and Part 27 are both titled 'Overcoming grounds for rejection' — and a vocabulary with no
+      word for the class cannot represent that.
+    expert_should_check: >-
+      Whether a failure of the formality requirements under paragraph 33(1)(a) belongs inside this
+      concept or beside it. The Manual's Part 10 treats formalities separately and section 33 lists
+      them separately, which argues for beside.
+- id: GC-0054
+  pref_label: prohibited sign
+  alt_labels:
+  - prohibited signs
+  - sign that is not to be used as a trade mark
+  not_labels:
+  - prescribed sign
+  - scandalous matter
+  - sign so nearly resembling
+  definition_sources:
+  - TMM/Part31/1#1
+  legislative_basis:
+  - TMA1995/s39(1)
+  - TMA1995/s18
+  notes: >-
+    The Manual records that there are currently no regulations made for the purposes of section 18,
+    so this ground is never raised in examination. The concept is real in law and inert in practice,
+    and that gap is the most useful thing about the record.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part31/1#1
+      span:
+      - 215
+      - 369
+      content_hash: sha256:ddc789a4768f5dd8e12018c22ae4d7a867b62682584dd2ca1c03fcf53e212b0e
+      quote: There are currently no regulations made for the purposes of section 18, which means grounds
+        for rejection under s 39(1) are not raised during examination.
+    - ref: TMA1995/s39
+      span:
+      - 115
+      - 216
+      content_hash: sha256:5c6142286d25888ad60e7b915ee08e6b4c74dfbbc868380658b3cfbba876b358
+      quote: a sign that, under regulations made for the purposes of section 18, is not to be used
+        as a trade mark
+    confidence: 0.85
+    reasoning: >-
+      Section 39(1) names the class by reference to regulations under section 18, and the Manual states
+      that no such regulations exist. Both halves are explicit, so the concept is recorded with its
+      inertness attached rather than as a live ground.
+    alternatives_considered:
+    - >-
+      Not holding the concept at all, on the ground that an examiner never raises it. Rejected because
+      the Act still contains it and a knowledge base that silently omitted a statutory ground would
+      misrepresent the law.
+    expert_should_check: >-
+      Whether 'prohibited sign' is the right preferred label. The Manual's Part 31 title pairs it
+      with 'prescribed', and the Act itself uses neither word for s 39(1).
+- id: GC-0055
+  pref_label: prescribed sign
+  alt_labels:
+  - prescribed signs
+  - sign prescribed for the purposes of subsection 39(2)
+  not_labels:
+  - prohibited sign
+  - scandalous matter
+  definition_sources:
+  - TMM/Part31/2#1
+  legislative_basis:
+  - TMA1995/s39(2)
+  - TMA1995/s39(2)(a)
+  notes: >-
+    Unlike s 39(1) this ground is live: the Manual records six types of prescribed sign in the regulations.
+    Note the modality — subsection 39(2) says an application 'may' be rejected, where s 39(1) says
+    'must'.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part31/2#1
+      span:
+      - 28
+      - 168
+      content_hash: sha256:ddc32c6b14822d57cc13b56065f8a2a2ec5a602ebd231ad0faead8b8670b381e
+      quote: a trade mark may be rejected if it contains or consists of a sign that is prescribed
+        in the regulations for the purposes of subsection 39(2)
+    - ref: TMA1995/s39
+      span:
+      - 337
+      - 398
+      content_hash: sha256:5c6142286d25888ad60e7b915ee08e6b4c74dfbbc868380658b3cfbba876b358
+      quote: a sign that is prescribed for the purposes of this subsection
+    confidence: 0.85
+    reasoning: >-
+      Both the Act and the Manual state the class in terms, and the Manual adds that six types are
+      prescribed. The record keeps the 'may' visible because the difference between may and must across
+      two subsections of one section is exactly the kind of thing a reader loses in a summary.
+    alternatives_considered:
+    - >-
+      Folding this together with 'prohibited sign' into one concept for s 39. Rejected: the two subsections
+      differ in modality and one of them is inert, so a single concept would have to assert one modality
+      and would be wrong half the time.
+    expert_should_check: >-
+      Whether the six prescribed types should each be a narrower concept. The Manual lists them at
+      Part 31.4 and an examiner reasons about them individually.
+- id: GC-0056
+  pref_label: so nearly resembling
+  alt_labels:
+  - so nearly resembling as to be likely to be taken for it
+  not_labels:
+  - deceptively similar
+  - substantially identical
+  definition_sources:
+  - TMM/Part31/2#1
+  legislative_basis:
+  - TMA1995/s39(2)(b)
+  notes: >-
+    A resemblance test that is not the section 44 one. The comparison is between the applicant's sign
+    and a prescribed or prohibited sign, and the threshold is 'likely to be taken for it' rather than
+    'likely to deceive or cause confusion'.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s39
+      span:
+      - 407
+      - 434
+      content_hash: sha256:5c6142286d25888ad60e7b915ee08e6b4c74dfbbc868380658b3cfbba876b358
+      quote: a sign so nearly resembling
+    - ref: TMM/Part31/2#1
+      span:
+      - 197
+      - 282
+      content_hash: sha256:ddc32c6b14822d57cc13b56065f8a2a2ec5a602ebd231ad0faead8b8670b381e
+      quote: is a sign so nearly resembling the prescribed sign as to be likely to be taken for it
+    confidence: 0.75
+    reasoning: >-
+      The phrase is the Act's and the Manual quotes it as the operative test for subparagraph 39(2)(b)(i).
+      It is held as a separate concept from deceptive similarity because the two use different words
+      for different comparisons, and collapsing them would let a section 44 authority be cited into
+      a section 39 question.
+    alternatives_considered:
+    - >-
+      Treating it as an alt_label of 'deceptively similar'. Rejected: section 10 defines deceptive
+      similarity by 'so nearly resembles … likely to deceive or cause confusion', which shares the
+      resemblance limb but not the threshold.
+    expert_should_check: >-
+      Whether practice in fact applies the section 10 case law to this test. If it does, the two concepts
+      are more closely related than this record says.
+- id: GC-0057
+  pref_label: cannot be represented graphically
+  alt_labels:
+  - not able to be represented graphically
+  - graphical representation
+  not_labels:
+  - not capable of distinguishing
+  - non-traditional sign
+  definition_sources:
+  - TMM/Part10/3#1
+  legislative_basis:
+  - TMA1995/s40
+  notes: >-
+    The shortest ground in the Act and the one most likely to be confused with a formality requirement.
+    It bites on the mark itself, not on the paperwork.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s40
+      span:
+      - 0
+      - 121
+      content_hash: sha256:a10e0176ed82d06f5a120abc004b601d9f3f00106577d971cc9b5f5ff01c7354
+      quote: An application for the registration of a trade mark must be rejected if the trade mark
+        cannot be represented graphically.
+    confidence: 0.8
+    reasoning: >-
+      Section 40 states the ground in one sentence. The concept is held because it is a distinct statutory
+      ground, and it is worth distinguishing from the Part 10 formality about how a representation
+      is filed — the Manual's Part 21 shows the two interacting for non-traditional signs.
+    alternatives_considered:
+    - >-
+      Treating it as part of the formality requirements. Rejected: it sits in Division 2 of Part 4
+      with the other grounds, and section 33(1) separates 'not made in accordance with this Act' from
+      'grounds for rejecting it'.
+    expert_should_check: >-
+      The definition source. Part 10.3 is about representing the mark on the application; an expert
+      may prefer a Part 21 passage that discusses s 40 directly.
+- id: GC-0058
+  pref_label: capable of distinguishing
+  alt_labels:
+  - not capable of distinguishing
+  - capacity to distinguish
+  not_labels:
+  - inherently adapted to distinguish
+  - deceptively similar
+  - distinctive
+  definition_sources:
+  - TMM/Part22/1#1
+  - TMM/Part22/3#1~1
+  legislative_basis:
+  - TMA1995/s41
+  - TMA1995/s41(1)
+  - TMA1995/s41(2)
+  notes: >-
+    The section 41 ground turns on this and nothing else; inherent adaptation and use are the two
+    routes to it, not synonyms for it. The Manual's Part 22 is titled 'Section 41 - Capable of Distinguishing'.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s41
+      span:
+      - 4
+      - 157
+      content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+      quote: An application for the registration of a trade mark must be rejected if the trade mark
+        is not capable of distinguishing the applicant’s goods or services
+    - ref: TMM/Part22/3#1~1
+      span:
+      - 0
+      - 97
+      content_hash: sha256:5a98371ccfdfb4a4f333e505716c18c9c7b6fb903adb5be22c344fb6a950ad3e
+      quote: The first question to be determined in deciding whether a trade mark is capable of distinguishing
+    confidence: 0.85
+    reasoning: >-
+      Subsection 41(1) states the ground and subsection 41(2) makes 'taken not to be capable of distinguishing'
+      depend on 41(3) or 41(4). The concept is therefore the top of a small structure the Manual works
+      through in order, and it is held separately from inherent adaptation for that reason.
+    alternatives_considered:
+    - >-
+      One concept for 'section 41' covering the whole ground. Rejected because the Manual spends 31
+      pages distinguishing capability, inherent adaptation, ordinary signification and evidence of
+      use, and a single concept could not carry those apart.
+    expert_should_check: >-
+      Whether 'distinctive' belongs in not_labels. It is the pre-1995 word and the Manual still uses
+      it when discussing the 1955 Act, which may make it a historical alt_label rather than a near-miss.
+- id: GC-0059
+  pref_label: inherent adaptation to distinguish
+  alt_labels:
+  - inherently adapted to distinguish
+  - inherent adaptation
+  - inherent capacity to distinguish
+  not_labels:
+  - capable of distinguishing
+  - acquired distinctiveness
+  - evidence of use
+  definition_sources:
+  - TMM/Part22/3#1~1
+  legislative_basis:
+  - TMA1995/s41(3)(a)
+  - TMA1995/s41(4)(a)
+  notes: >-
+    The Manual sets out a two-part process — ordinary signification, then the likelihood that other
+    traders would legitimately wish to use the mark — and sorts every mark examined into one of three
+    categories on the answer.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part22/3#1~1
+      span:
+      - 140
+      - 290
+      content_hash: sha256:5a98371ccfdfb4a4f333e505716c18c9c7b6fb903adb5be22c344fb6a950ad3e
+      quote: to what extent is the applicant's trade mark inherently adapted to distinguish their
+        goods or services? This determination involves a two-part process
+    - ref: TMA1995/s41
+      span:
+      - 623
+      - 725
+      content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+      quote: the trade mark is not to any extent inherently adapted to distinguish the designated
+        goods or services
+    confidence: 0.85
+    reasoning: >-
+      The Manual states the question and its two-part method in terms. The concept is separate from
+      capability because the Act treats inherent adaptation as one input to capability and use as
+      the other, and the three-category sort in Part 22.3 only makes sense against inherent adaptation
+      alone.
+    alternatives_considered:
+    - >-
+      Merging it with 'capable of distinguishing'. Rejected — subsection 41(4) is explicitly about
+      marks that are inherently adapted 'to some extent, but not sufficiently', which is a state the
+      merged concept could not express.
+    expert_should_check: >-
+      Whether 'inherent capacity to distinguish' really is a synonym. The Manual uses 'capacity' and
+      'adaptation' in adjacent sentences and an expert may hold them apart.
+- id: GC-0060
+  pref_label: ordinary signification
+  alt_labels:
+  - ordinary signification of the trade mark
+  not_labels:
+  - connotation
+  - denotation
+  - dictionary meaning
+  definition_sources:
+  - TMM/Part22/3#1~1
+  legislative_basis:
+  - TMA1995/s41(3)
+  - TMA1995/s41(4)
+  notes: >-
+    The first half of the Manual's two-part inherent-adaptation process. It is assessed 'in the light
+    of the applied for goods and/or services', so it is not the word's meaning in the abstract.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part22/3#1~1
+      span:
+      - 292
+      - 411
+      content_hash: sha256:5a98371ccfdfb4a4f333e505716c18c9c7b6fb903adb5be22c344fb6a950ad3e
+      quote: firstly, determining the ordinary signification of the trade mark in the light of the
+        applied for goods and/or services
+    confidence: 0.8
+    reasoning: >-
+      The Manual names it as the first step of a two-part process and ties it to the goods and services
+      applied for. It is held apart from 'connotation' — a section 43 concept this repository already
+      holds — because the two ask different questions of the same mark and share no statutory text.
+    alternatives_considered:
+    - >-
+      Treating it as an alt_label of connotation. Rejected: GC-0001's connotation is what the mark
+      suggests beyond its literal sense for the purposes of s 43, and ordinary signification is what
+      the mark ordinarily means to the relevant trade for s 41. Making them one concept would let
+      s 43 authority answer an s 41 question.
+    expert_should_check: >-
+      The relationship to connotation. An expert may see them as two names for one underlying idea
+      applied under different sections, which would make this a 'related' rather than a distinct concept.
+- id: GC-0061
+  pref_label: other traders' legitimate desire to use
+  alt_labels:
+  - other traders might legitimately wish to use
+  - the need of other traders
+  not_labels:
+  - ordinary signification
+  - honest concurrent use
+  definition_sources:
+  - TMM/Part22/3#1~1
+  legislative_basis:
+  - TMA1995/s41(3)
+  - TMA1995/s41(4)
+  notes: >-
+    The second half of the two-part process. The label is this repository's, not the Manual's — the
+    Manual states the idea in a clause rather than naming it — and that is the most likely thing to
+    be wrong about this record.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part22/3#1~1
+      span:
+      - 417
+      - 601
+      content_hash: sha256:5a98371ccfdfb4a4f333e505716c18c9c7b6fb903adb5be22c344fb6a950ad3e
+      quote: secondly, determining the likelihood that other traders might legitimately wish to use
+        the trade mark for that ordinary signification in connection with their similar goods or services
+    confidence: 0.6
+    reasoning: >-
+      The corpus states the idea in terms but gives it no name, so the record is corpus_explicit as
+      to the content and an invention as to the label. It is held because an examiner reasons with
+      it constantly and a vocabulary without it cannot represent the second half of the Manual's own
+      method.
+    alternatives_considered:
+    - >-
+      Not holding it as a concept, on the ground that the Manual never names it. Rejected because
+      the first half is named and held, and holding one half of a two-part test would misrepresent
+      the method.
+    expert_should_check: >-
+      The preferred label, which no passage supports. The case law phrase is closer to 'the legitimate
+      desire of other traders', and an expert should replace this label rather than accept it.
+- id: GC-0062
+  pref_label: scandalous matter
+  alt_labels:
+  - scandalous sign
+  - scandalous signs
+  not_labels:
+  - use contrary to law
+  - prohibited sign
+  - prescribed sign
+  definition_sources:
+  - TMM/Part30/2#1
+  - TMM/Part30/1#1
+  legislative_basis:
+  - TMA1995/s42(a)
+  notes: >-
+    One of the two limbs of section 42; the Manual's Part 30 pairs it with use contrary to law but
+    the Act keeps them as separate paragraphs, and only this one is about the mark's content rather
+    than the consequences of using it.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part30/2#1
+      span:
+      - 0
+      - 133
+      content_hash: sha256:e9228f92d084c9727ab9b1fbc99daac13332244cbbd2ab72257ee8472f1cd8f6
+      quote: An application for the registration of a trade mark must be rejected if it contains or
+        consists of scandalous matter (section 42(a)).
+    - ref: TMA1995/s42
+      span:
+      - 77
+      - 133
+      content_hash: sha256:3f6fe15471ca6e649cadc787dad90ffc69aaadd1d1712098ff694730f53c317b
+      quote: the trade mark contains or consists of scandalous matter
+    confidence: 0.85
+    reasoning: >-
+      Both the Act and the Manual state the ground in one sentence. Held apart from 'use contrary
+      to law' because paragraph 42(a) looks at what the mark contains and paragraph 42(b) at what
+      using it would do — different evidence answers each.
+    alternatives_considered:
+    - >-
+      A single 'section 42' concept covering both limbs. Rejected: the Manual gives each limb its
+      own numbered section and its own annexes, and an examiner raises one or the other, not both.
+    expert_should_check: >-
+      Whether the preferred label should be the Act's 'scandalous matter' or the Manual's heading
+      'scandalous signs'. The Act's phrase is narrower — matter within a sign — and this record follows
+      the Act.
+- id: GC-0063
+  pref_label: use contrary to law
+  alt_labels:
+  - use would be contrary to law
+  - contrary to law
+  not_labels:
+  - scandalous matter
+  - prohibited sign
+  definition_sources:
+  - TMM/Part30/3#1
+  - TMM/Part30/1#1
+  legislative_basis:
+  - TMA1995/s42(b)
+  notes: >-
+    The second limb of section 42. The Manual's Annex A1 lists the other legislation that may trigger
+    it, which is what makes this ground unusual: its content lives outside the Trade Marks Act entirely.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part30/3#1
+      span:
+      - 0
+      - 136
+      content_hash: sha256:b7d13906a35443d628b5851eee5d3c5c200fbf6626c3bcfe0124c42724e210d6
+      quote: Under section 42(b), an application for registration of a trade mark must be rejected
+        if use of the trade mark would be contrary to law.
+    - ref: TMA1995/s42
+      span:
+      - 142
+      - 174
+      content_hash: sha256:3f6fe15471ca6e649cadc787dad90ffc69aaadd1d1712098ff694730f53c317b
+      quote: its use would be contrary to law
+    confidence: 0.85
+    reasoning: >-
+      Stated in terms by both the Act and the Manual. Held separately from scandalous matter for the
+      reason given on that record.
+    alternatives_considered:
+    - >-
+      Narrower concepts for each triggering statute the Manual's Annex A1 lists. That is a reasonable
+      next pass; it is not this record, because the annex is a list of examples and the Manual says
+      so.
+    expert_should_check: >-
+      Whether the ground reaches use that would be contrary to law only in some circumstances. The
+      Manual's annexes suggest practice draws that line, and this record does not carry it.
+- id: GC-0064
+  pref_label: conflict with other signs
+  alt_labels:
+  - section 44 ground
+  - citation
+  - conflicting trade mark
+  not_labels:
+  - likely to deceive or cause confusion
+  - prescribed sign
+  definition_sources:
+  - TMM/Part26/1#1
+  legislative_basis:
+  - TMA1995/s44
+  - TMA1995/s44(1)
+  - TMA1995/s44(2)
+  - TMR1995/r4.15A
+  notes: >-
+    The Manual's Part 26 title is 'Section 44 and Regulation 4.15A - Conflict with Other Signs'. Note
+    that the Manual states the purpose of the section as preventing confusion, which is the same language
+    section 43 uses for a different ground — the two must not be collapsed.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part26/1#1
+      span:
+      - 0
+      - 141
+      content_hash: sha256:27bd64232ac507c449e840a25388b4b58d27ef9d69fd7a422df8c2800cb18e9a
+      quote: Section 44 is intended to prevent registration of trade marks if the use of the two trade
+        marks in the market would likely lead to confusion.
+    - ref: TMA1995/s44
+      span:
+      - 182
+      - 267
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: the applicant’s trade mark is substantially identical with, or deceptively similar to
+    confidence: 0.75
+    reasoning: >-
+      Held as the ground itself, with the comparison tests beneath it as separate concepts. The alt_label
+      'citation' is included because that is what examiners call the earlier mark in practice and
+      a vocabulary that could not match it would miss most of Part 26 and all of Part 27.
+    alternatives_considered:
+    - >-
+      Naming the concept 'section 44'. Rejected — IDENTIFIERS.md §4 says a provision is named by its
+      ref, and a concept whose label is a section number is a second and worse name for `TMA1995/s44`.
+    expert_should_check: >-
+      Whether 'citation' is really a synonym for the ground or the name of the cited mark. If the
+      second, it is a separate concept and this alt_label is wrong.
+- id: GC-0065
+  pref_label: substantially identical
+  alt_labels:
+  - substantially identical with
+  not_labels:
+  - deceptively similar
+  - so nearly resembling
+  - identical
+  definition_sources:
+  - TMM/Part26/5#1
+  legislative_basis:
+  - TMA1995/s44(1)(a)
+  - TMA1995/s44(2)(a)
+  notes: >-
+    One of the two comparisons section 44 turns on, and the only one the Act does not define. The
+    Manual gives it no definition either — it states that the ground depends on the two comparisons
+    and then works through the case law.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part26/5#1
+      span:
+      - 0
+      - 170
+      content_hash: sha256:2479f6d3af424c9cd04d60e97ba72996f6acec7fe123b6faa6f505516a2460e8
+      quote: The existence of grounds for rejection under section 44 will depend on whether the trade
+        marks under consideration are “substantially identical” or “deceptively similar”.
+    - ref: TMA1995/s44
+      span:
+      - 212
+      - 267
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: substantially identical with, or deceptively similar to
+    confidence: 0.8
+    reasoning: >-
+      The corpus names the test in terms and pairs it with deceptive similarity without defining it.
+      The record says so rather than supplying a definition from general knowledge, which is what
+      ADR-0079 guard 2 requires.
+    alternatives_considered:
+    - >-
+      Not holding it, because the corpus defines it nowhere. Rejected: the ground cannot be represented
+      without it, and 'the corpus names but does not define this' is itself worth recording.
+    expert_should_check: >-
+      That this record deliberately carries no definition. If the Manual defines the test somewhere
+      this pass did not reach, the definition_sources are wrong rather than incomplete.
+- id: GC-0066
+  pref_label: honest concurrent use
+  alt_labels:
+  - honest concurrent use of the 2 trade marks
+  - concurrent use
+  not_labels:
+  - prior use
+  - other circumstances
+  - evidence of use
+  definition_sources:
+  - TMM/Part28/2#1
+  - TMM/Part28/3#1
+  legislative_basis:
+  - TMA1995/s44(3)(a)
+  notes: >-
+    The Manual sets out five criteria and makes honesty a threshold requirement without which paragraph
+    44(3)(a) cannot be satisfied. Note the modality: if satisfied, the Registrar *may* accept — this
+    is a discretion, not an entitlement.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part28/2#1
+      span:
+      - 49
+      - 249
+      content_hash: sha256:c3fadcce343caacd1533e3883506a4f37665ec9ad106f6c5ade24326f39b12fc
+      quote: In order to overcome grounds for rejection under ss 44(1) or 44(2) of the Act, an applicant
+        may, under para 44(3)(a), file evidence to establish honest concurrent use of their trade
+        mark in Australia.
+    - ref: TMM/Part28/3#1
+      span:
+      - 155
+      - 250
+      content_hash: sha256:f1d1059bb19f8214c0e88fbe202d93f672c09e6192752a99af64e680a41571cf
+      quote: The honesty of the use is a threshold requirement, without which s 44(3)(a) cannot be
+        satisfied
+    confidence: 0.85
+    reasoning: >-
+      The Manual states what the doctrine is for, how it is established and that honesty is a threshold.
+      Held as an exception rather than as a ground because it takes a case out of a ground that would
+      otherwise apply.
+    alternatives_considered:
+    - >-
+      Treating it as a defence. The corpus does not use that word and the structure is not a defence
+      — the applicant files evidence to satisfy the Registrar, who then has a discretion.
+    expert_should_check: >-
+      Whether the five criteria should each be a narrower concept. The Manual lists them at 28.2 and
+      says no single criterion is determinative, which is the sort of structure a knowledge graph
+      is good at and a flat concept is not.
+- id: GC-0067
+  pref_label: prior use
+  alt_labels:
+  - continuous prior use
+  - prior continuous use
+  not_labels:
+  - honest concurrent use
+  - other circumstances
+  - first use
+  definition_sources:
+  - TMM/Part28/6#1
+  legislative_basis:
+  - TMA1995/s44(4)
+  notes: >-
+    Distinguished from honest concurrent use by its modality as much as its content: where s 44(3)
+    says the Registrar *may* accept, s 44(4) says the Registrar *may not reject*. The Manual sets
+    out the elements an applicant must satisfy.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part28/6#1
+      span:
+      - 0
+      - 202
+      content_hash: sha256:fc3931312bb5c0ad1356dc4d188a680fa525c05b8dad731c20e579d13fbc6070
+      quote: Subsection 44(4) makes provision for the prior use of a trade mark in Australia, used
+        continuously during a period beginning on a date before the priority date for the registration
+        of a cited trade mark
+    - ref: TMA1995/s44
+      span:
+      - 3452
+      - 3545
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: the Registrar may not reject the application because of the existence of the other trade
+        mark
+    confidence: 0.85
+    reasoning: >-
+      The Manual states the provision, the period and the elements. The record keeps the 'may not
+      reject' wording in evidence because that modality is the difference between this and honest
+      concurrent use and it is easily lost in paraphrase.
+    alternatives_considered:
+    - >-
+      Folding it in with honest concurrent use as one 'ways round section 44' concept. Rejected: different
+      subsection, different elements, different modality.
+    expert_should_check: >-
+      Whether continuity of use is a separate concept. The Manual makes 'continuous' do a lot of work
+      in the elements list and an expert may want it held apart.
+- id: GC-0068
+  pref_label: other circumstances
+  alt_labels:
+  - other circumstances making it proper to accept
+  not_labels:
+  - honest concurrent use
+  - prior use
+  - conditions and limitations
+  definition_sources:
+  - TMM/Part28/4#1
+  legislative_basis:
+  - TMA1995/s44(3)(b)
+  notes: >-
+    The Manual grounds this in the commercial realities that make acceptance proper notwithstanding
+    a real risk of deception or confusion. It is the most open-textured of the three ways round section
+    44.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part28/4#1
+      span:
+      - 156
+      - 387
+      content_hash: sha256:1ede2f240bc484da5f01ecadbd86c97eba07884610a1eec7afcc72785c5f4391
+      quote: Acceptance based on ‘other circumstances’ depends on a consideration of the commercial
+        realities which, in the Registrar’s opinion, make the acceptance of an application proper
+        notwithstanding a real risk of deception or confusion.
+    confidence: 0.8
+    reasoning: >-
+      The Manual states what the paragraph turns on in one sentence. Held separately from honest concurrent
+      use because paragraph 44(3)(b) is an alternative to 44(3)(a), not a gloss on it.
+    alternatives_considered:
+    - >-
+      Treating it as a residual category rather than a concept. That is what it is in substance, but
+      the Manual devotes a numbered section and several authorities to it, which is more than a residue
+      gets.
+    expert_should_check: >-
+      Whether 'notwithstanding a real risk of deception or confusion' should appear in the concept
+      at all. It is the Manual's gloss on Bali No. 2 rather than the statutory test, and it is doing
+      a lot of work in this record.
+- id: GC-0069
+  pref_label: conditions or limitations
+  alt_labels:
+  - conditions and limitations
+  - limitations
+  not_labels:
+  - disclaimer
+  - endorsement
+  - other circumstances
+  definition_sources:
+  - TMM/Part28/5#1
+  legislative_basis:
+  - TMA1995/s33(2)
+  - TMA1995/s44(3)
+  - TMA1995/s6/limitations
+  notes: >-
+    The Act defines 'limitations' in section 6 and uses 'conditions or limitations' as a pair in sections
+    33(2) and 44(3). The Manual treats them as the price of acceptance under subsection 44(3).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s44
+      span:
+      - 2576
+      - 2748
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: the Registrar may accept the application for the registration of the applicant’s trade
+        mark subject to any conditions or limitations that the Registrar thinks fit to impose
+    - ref: TMA1995/s6/limitations
+      span:
+      - 0
+      - 116
+      content_hash: sha256:cdf95565e87120d2c8599a8b2435e8bca54a4615914efbca8a73fc98c3ed23d1
+      quote: limitations means limitations of the exclusive right to use a trade mark given by the
+        registration of the trade mark
+    confidence: 0.75
+    reasoning: >-
+      The Act states the power and defines one half of the pair. The concept is held as the pair because
+      that is how both the Act and the Manual use it, and holding 'limitations' alone would leave
+      'conditions' unrepresented.
+    alternatives_considered:
+    - >-
+      Two concepts, one per word. Defensible — only 'limitations' is defined — and worth doing if
+      an expert says conditions and limitations are different instruments in practice.
+    expert_should_check: >-
+      Whether conditions and limitations are one concept or two. The Act defines only limitations,
+      which is evidence for two.
+- id: GC-0070
+  pref_label: similarity of goods and services
+  alt_labels:
+  - similar goods
+  - similar services
+  - goods of the same description
+  not_labels:
+  - closely related goods and services
+  - classification of goods and services
+  definition_sources:
+  - TMM/Part26/4#1
+  legislative_basis:
+  - TMA1995/s14
+  - TMA1995/s14(1)
+  - TMA1995/s14(2)
+  notes: >-
+    The Manual is explicit that classification is not the determining factor, which is the single
+    most useful thing in this record: the class number and the similarity question are different things
+    and are routinely confused.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part26/4#1
+      span:
+      - 360
+      - 456
+      content_hash: sha256:78526672fb230fb32140c73d688d23d3b57284e2943ba5dbddc77e0bbca71b3d
+      quote: Classification is not the determining factor in considering the similarity of goods or
+        services.
+    - ref: TMA1995/s14
+      span:
+      - 34
+      - 182
+      content_hash: sha256:0456707ab519ed2971c40b4e9be7c1fdb9a1ae2b43adf0046d6767369965dcfd
+      quote: 'goods are similar to other goods: (a) if they are the same as the other goods; or (b)
+        if they are of the same description as that of the other goods'
+    confidence: 0.85
+    reasoning: >-
+      Section 14 defines the term and the Manual states the practice point that classification does
+      not settle it. Both are explicit.
+    alternatives_considered:
+    - >-
+      Separate concepts for similar goods and similar services. The Act defines them in separate subsections,
+      so that is defensible; they are held together because section 14's two limbs are word-for-word
+      parallel and the Manual treats them as one topic.
+    expert_should_check: >-
+      Whether 'goods of the same description' is a synonym or a narrower concept. Section 14(1)(b)
+      makes it one of two ways goods can be similar, which argues narrower.
+- id: GC-0071
+  pref_label: closely related goods and services
+  alt_labels:
+  - closely related services
+  - closely related goods
+  not_labels:
+  - similar goods
+  - similar services
+  definition_sources:
+  - TMM/Part26/4#1
+  legislative_basis:
+  - TMA1995/s44(1)(a)
+  - TMA1995/s44(2)(a)
+  notes: >-
+    Section 44 pairs 'similar goods' with 'closely related services' and vice versa. Unlike similarity,
+    the Act does not define closeness of relation anywhere.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s44
+      span:
+      - 273
+      - 370
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: a trade mark registered by another person in respect of similar goods or closely related
+        services
+    confidence: 0.7
+    reasoning: >-
+      The Act uses the phrase as an operative term and defines it nowhere, so the record holds the
+      concept and says the corpus does not define it. Held apart from similarity because the two appear
+      in the same paragraph doing different work.
+    alternatives_considered:
+    - >-
+      Treating it as part of the similarity concept. Rejected: section 44 lists them disjunctively,
+      so a mark can conflict through closely related services without any goods being similar.
+    expert_should_check: >-
+      Whether the Manual defines this somewhere in Part 26 that this pass did not reach. The record's
+      definition_sources point at the similarity discussion, which is adjacent rather than on point.
+- id: GC-0072
+  pref_label: trade mark
+  alt_labels:
+  - mark
+  not_labels:
+  - sign
+  - registered trade mark
+  - trade name
+  - business name
+  definition_sources:
+  - TMM/Part20/1#1
+  - TMM/Part20/3#1
+  legislative_basis:
+  - TMA1995/s17
+  - TMA1995/s6/trade-mark
+  notes: >-
+    The Manual makes the point that matters most here: the definition of trade mark is closed and
+    exhaustive, while the definition of sign is open and inclusive. A sign is a trade mark only when
+    used or intended to be used to distinguish in the course of trade.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s17
+      span:
+      - 0
+      - 213
+      content_hash: sha256:7616fa92fa1ab350de397590a153993cc894cf7be24733d962313419b1d4b5c8
+      quote: A trade mark is a sign used, or intended to be used, to distinguish goods or services
+        dealt with or provided in the course of trade by a person from goods or services so dealt
+        with or provided by any other person.
+    - ref: TMM/Part20/3#1
+      span:
+      - 78
+      - 250
+      content_hash: sha256:89a6c14ea66864326bb0ce2780a3c62e289c6414ba0fb5f7d2c2d814ded9f229
+      quote: the definition of “trade mark” in the Act is a closed or exhaustive definition, which
+        lists the conditions to be satisfied in order for something to qualify as a trade mark
+    confidence: 0.9
+    reasoning: >-
+      Section 17 defines it in terms and the Manual explains the character of the definition. Held
+      apart from 'sign' because the Manual says in one sentence why they are not the same kind of
+      definition.
+    alternatives_considered:
+    - >-
+      Not holding so basic a term. Rejected: it is the single most used term in the corpus (1,051
+      passages) and everything else hangs off it.
+    expert_should_check: >-
+      Whether 'mark' is really an alt_label. The Manual uses it as the 1955 Act's word and the 1995
+      Act deliberately replaced it, which may make it historical rather than current.
+- id: GC-0073
+  pref_label: sign
+  alt_labels: []
+  not_labels:
+  - trade mark
+  - device
+  - representation of the trade mark
+  definition_sources:
+  - TMM/Part20/3#1
+  - TMM/Part21/1#1
+  legislative_basis:
+  - TMA1995/s6/sign
+  notes: >-
+    Section 6's list is inclusive, so the enumerated items — letter, word, name, signature, numeral,
+    device, brand, heading, label, ticket, aspect of packaging, shape, colour, sound, scent — are
+    examples rather than a closed set. That is the whole basis of the Manual's Part 21 on non-traditional
+    signs.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/sign
+      span:
+      - 0
+      - 207
+      content_hash: sha256:69ef3c32f130cfa3c12d5f89208d9be463a53bb5a3a212e459a1c01f46e22ad1
+      quote: sign includes the following or any combination of the following, namely, any letter,
+        word, name, signature, numeral, device, brand, heading, label, ticket, aspect of packaging,
+        shape, colour, sound or scent.
+    - ref: TMM/Part20/3#1
+      span:
+      - 252
+      - 371
+      content_hash: sha256:89a6c14ea66864326bb0ce2780a3c62e289c6414ba0fb5f7d2c2d814ded9f229
+      quote: the definition of “sign” is an open or inclusive definition, merely listing some examples
+        of what may constitute a sign
+    confidence: 0.9
+    reasoning: >-
+      Defined by the Act and characterised by the Manual, both in terms.
+    alternatives_considered:
+    - >-
+      Fifteen narrower concepts, one per enumerated item. Worth doing later; not here, because the
+      Manual only develops five of them at length.
+    expert_should_check: >-
+      Whether the enumerated items should be narrower concepts now. Part 21 develops shape, colour,
+      sound, scent and moving images and leaves the rest as a list.
+- id: GC-0074
+  pref_label: non-traditional sign
+  alt_labels:
+  - non-traditional signs
+  - non-traditional trade mark
+  not_labels:
+  - sign
+  - composite trade mark
+  - device
+  definition_sources:
+  - TMM/Part21/1#1
+  legislative_basis:
+  - TMA1995/s6/sign
+  - TMA1995/s40
+  notes: >-
+    Not a statutory category. The Manual groups shapes, colours, sounds, scents, moving images, holograms
+    and gestures under this heading because the 1995 Act broadened the definition of a trade mark
+    to reach them.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part21/1#1
+      span:
+      - 0
+      - 116
+      content_hash: sha256:2a87eb47583498b1c9db05dd3fb541b99fcc10242ac7a91e91562aa02ec7e3c8
+      quote: One of the intentions of the introduction of the Trade Marks Act 1995 was to broaden
+        the definition of a trade mark.
+    confidence: 0.7
+    reasoning: >-
+      The Manual devotes a Part to the category and names it in the Part title, but never defines
+      it — so the record is corpus_inferred and says so. It is held because the grouping drives practice:
+      these are the signs where section 40 and the representation requirements bite hardest.
+    alternatives_considered:
+    - >-
+      Not holding it, since the Act does not recognise the category. Rejected: the Manual's own Part
+      21 is organised around it, and a vocabulary that could not represent a Part of the Manual is
+      missing something real.
+    expert_should_check: >-
+      Which signs are inside the category. This record takes the Manual's Part 21 contents as the
+      extension, and an expert may draw it differently.
+- id: GC-0075
+  pref_label: shape trade mark
+  alt_labels:
+  - shape (three-dimensional) trade marks
+  - three-dimensional trade mark
+  not_labels:
+  - device
+  - composite trade mark
+  - colour trade mark
+  definition_sources:
+  - TMM/Part21/3#1
+  legislative_basis:
+  - TMA1995/s6/sign
+  notes: >-
+    Registrable because section 6 names 'shape' in the definition of sign. The Manual records that
+    this reversed the pre-1995 position, in which a mark had to be something separate from the goods.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part21/3#1
+      span:
+      - 274
+      - 454
+      content_hash: sha256:9b3d00d022127711aedfe035a4538c8a11738abcffcaefbff7d5c129afc40fd9
+      quote: Since the definition of "sign" in section 6 of the 1995 Act specifically mentions ‘shape’
+        as a sign, there is no doubt that a three-dimensional shape is registrable as a trade mark
+    confidence: 0.8
+    reasoning: >-
+      The Manual states the position and its statutory basis in one sentence.
+    alternatives_considered:
+    - >-
+      Holding one concept for all non-traditional signs. Rejected: the Manual gives each its own numbered
+      section and different practice.
+    expert_should_check: >-
+      Whether the historical Coca-Cola position belongs in the record. It is in the same passage and
+      this record leaves it in the notes rather than the labels.
+- id: GC-0076
+  pref_label: colour trade mark
+  alt_labels:
+  - colour and coloured trade marks
+  - coloured trade mark
+  not_labels:
+  - shape trade mark
+  - device
+  - composite trade mark
+  definition_sources:
+  - TMM/Part21/4#1
+  legislative_basis:
+  - TMA1995/s6/sign
+  notes: >-
+    The Manual distinguishes a colour used as the trade mark from colour as an aspect of packaging
+    or of a label — the same colour can be either, and which it is changes the examination.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part21/4#1
+      span:
+      - 0
+      - 162
+      content_hash: sha256:c97e9320c604a1f55eeb6465ced6fad9d5e9db41887de3d85c97b8f9dff1f3a9
+      quote: A colour, by itself or in combination with other colours and/or any of the other features
+        which fall within the definition of a sign, may be used as a trade mark.
+    confidence: 0.8
+    reasoning: >-
+      Stated in terms at the head of the Manual's section on colour.
+    alternatives_considered:
+    - >-
+      Splitting 'colour as the mark' from 'colour as an aspect of packaging'. The passage supports
+      the distinction; this record keeps it in notes.
+    expert_should_check: >-
+      Whether the two uses of colour the Manual distinguishes should be two concepts.
+- id: GC-0077
+  pref_label: sound trade mark
+  alt_labels:
+  - sound (auditory) trade marks
+  - auditory trade mark
+  not_labels:
+  - scent trade mark
+  - sign
+  definition_sources:
+  - TMM/Part21/6#1
+  legislative_basis:
+  - TMA1995/s6/sign
+  notes: >-
+    The Manual's test is functional rather than formal: whatever the sound is, it must serve the purpose
+    of identifying the trade source.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part21/6#1
+      span:
+      - 0
+      - 44
+      content_hash: sha256:c47b2e04f18dccd289250bcf4684e1f6d93297f107c663ba9ceba43f25e21d01
+      quote: A sound trade mark can be anything auditory.
+    - ref: TMM/Part21/6#1
+      span:
+      - 287
+      - 403
+      content_hash: sha256:c47b2e04f18dccd289250bcf4684e1f6d93297f107c663ba9ceba43f25e21d01
+      quote: it must serve the purpose of identifying the trade source of the goods/services in respect
+        of which it is to be used
+    confidence: 0.8
+    reasoning: >-
+      The Manual opens its section on sound marks with the definition and closes the paragraph with
+      the functional requirement.
+    alternatives_considered:
+    - >-
+      Folding sound and scent together as 'sensory' marks, which is the Manual's own Part 21.5 heading.
+      Rejected: 21.6 and 21.7 then treat them separately.
+    expert_should_check: >-
+      Whether the Manual's 'sensory trade marks' heading should be a broader concept over sound and
+      scent.
+- id: GC-0078
+  pref_label: scent trade mark
+  alt_labels:
+  - scent trade marks
+  - olfactory trade mark
+  not_labels:
+  - sound trade mark
+  - sign
+  definition_sources:
+  - TMM/Part21/7#1
+  legislative_basis:
+  - TMA1995/s6/sign
+  - TMA1995/s40
+  notes: >-
+    The Manual identifies graphical representation as the hard problem for scent, which ties this
+    concept to the section 40 ground more tightly than any other sign kind.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part21/7#1
+      span:
+      - 0
+      - 82
+      content_hash: sha256:d4a88064b77f1f7b4d9c5a3fd712ba9583dddd29c22274afce66cba8801135d4
+      quote: Scent is one of the most difficult non-traditional signs to represent graphically.
+    confidence: 0.8
+    reasoning: >-
+      Stated in terms. The link to section 40 is the Manual's own point and is the reason the record
+      carries s 40 in its legislative basis.
+    alternatives_considered:
+    - >-
+      Not carrying s 40 in the legislative basis, on the ground that the passage does not cite it.
+      The passage names graphical representation, which is s 40's subject, so the link is an inference
+      — a small one, and flagged here.
+    expert_should_check: >-
+      The legislative_basis. `TMA1995/s40` is this record's inference from the phrase 'represent graphically',
+      not a citation in the passage.
+- id: GC-0079
+  pref_label: series of trade marks
+  alt_labels:
+  - series application
+  - series
+  not_labels:
+  - divisional application
+  - composite trade mark
+  definition_sources:
+  - TMM/Part13/1#1
+  legislative_basis:
+  - TMA1995/s51
+  - TMA1995/s51(1)
+  notes: >-
+    A single application for two or more marks that resemble each other in material particulars and
+    differ only in the ways section 51 lists. The 'material particulars' requirement is what does
+    the work and the Manual gives it its own numbered section.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s51
+      span:
+      - 4
+      - 210
+      content_hash: sha256:680a4436af0a96d5a3168e63f796ccb0280838c781344667a74dadaaaa671f59
+      quote: A person may make a single application under subsection 27(1) for the registration of
+        2 or more trade marks in respect of goods and/or services if the trade marks resemble each
+        other in material particulars
+    - ref: TMM/Part13/1#1
+      span:
+      - 78
+      - 220
+      content_hash: sha256:3199b22196f621bd435c3a30afed0c86c010ddce887f47c2fe2c0173c2a36b45
+      quote: 'a person may make a single application for a series of two or more trade marks if: the
+        trade marks resemble each other in material particulars'
+    confidence: 0.85
+    reasoning: >-
+      Both the Act and the Manual state it in terms.
+    alternatives_considered:
+    - >-
+      Holding 'material particulars' as the concept instead. It is held as a separate record in this
+      pass, with this one as the container.
+    expert_should_check: >-
+      Whether the allowable differences in section 51(1)(a)–(c) should be narrower concepts. The Manual
+      gives them their own section.
+- id: GC-0080
+  pref_label: material particulars
+  alt_labels:
+  - resemble each other in material particulars
+  not_labels:
+  - substantially identical
+  - deceptively similar
+  definition_sources:
+  - TMM/Part13/2#1~1
+  legislative_basis:
+  - TMA1995/s51(1)
+  notes: >-
+    A third resemblance test, and the corpus defines it no better than it defines substantial identity.
+    Distinct from both section 44 comparisons: it asks whether two marks of one owner are close enough
+    to share an application.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s51
+      span:
+      - 151
+      - 210
+      content_hash: sha256:680a4436af0a96d5a3168e63f796ccb0280838c781344667a74dadaaaa671f59
+      quote: the trade marks resemble each other in material particulars
+    confidence: 0.7
+    reasoning: >-
+      The Act uses the phrase as the operative requirement for a series. Held apart from the section
+      44 comparisons because it answers a different question between different parties, and because
+      the repository now holds three resemblance tests that a reader could easily merge.
+    alternatives_considered:
+    - >-
+      Not holding it separately from 'series of trade marks'. Rejected: the Manual gives it its own
+      numbered section, which is evidence it is reasoned with on its own.
+    expert_should_check: >-
+      The definition source. `TMM/Part13/2#1~1` is the Manual's section on material particulars and
+      should be read to confirm it defines rather than merely applies the test.
+- id: GC-0081
+  pref_label: use of a trade mark
+  alt_labels:
+  - use
+  - trade mark use
+  not_labels:
+  - authorised use
+  - prior use
+  - honest concurrent use
+  - evidence of use
+  definition_sources:
+  - TMM/Part19A/1#1
+  legislative_basis:
+  - TMA1995/s7
+  - TMA1995/s6/use-of-a-trade-mark
+  - TMA1995/s17
+  notes: >-
+    The Manual calls use a concept fundamental to trade mark law and lists the questions it bears
+    on: capability to distinguish, honest concurrent or prior use, ownership. Section 6 says its meaning
+    is 'affected by' subsections 7(1), (2) and (3) — which is not the same as being defined by them.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part19A/1#1
+      span:
+      - 211
+      - 269
+      content_hash: sha256:74a6887e041d0d46e5ea65ac7e6a1a7f9c15976b02c832b7dd5bf8c866e30329
+      quote: As such, ‘use’ is a concept fundamental to trade mark law.
+    - ref: TMA1995/s6/use-of-a-trade-mark
+      span:
+      - 0
+      - 76
+      content_hash: sha256:379ae8ab1b97f3945633bd32661eba89e73c6e94cb8499b8ab1d9ad536f318a4
+      quote: use of a trade mark has a meaning affected by subsections 7(1), (2) and (3).
+    confidence: 0.8
+    reasoning: >-
+      The Manual states the concept's place in the scheme and the Act tells us where its meaning is
+      affected. Held as one concept with the specialised uses — authorised, prior, honest concurrent
+      — as separate records beside it, because each answers a different question under a different
+      provision.
+    alternatives_considered:
+    - >-
+      Treating 'use' as too general to be a concept. Rejected: the Manual gives it a whole Part and
+      opens by saying the whole of trade mark law turns on it.
+    expert_should_check: >-
+      Whether 'use in the course of trade' should be the preferred label. Section 17 makes the course
+      of trade part of what a trade mark is, and the bare word 'use' may be too wide for a vocabulary
+      that also holds authorised use and prior use.
+- id: GC-0082
+  pref_label: authorised use
+  alt_labels:
+  - authorised use of a trade mark
+  not_labels:
+  - use of a trade mark
+  - authorised user
+  - assignment
+  definition_sources:
+  - TMM/Part19A/1#1
+  legislative_basis:
+  - TMA1995/s8
+  - TMA1995/s8(2)
+  - TMA1995/s7(3)
+  notes: >-
+    Control by the owner is the whole of it: section 8(2) makes use authorised only to the extent
+    the user acts under the owner's control. Section 7(3) then treats authorised use as use by the
+    owner, which is why it matters to section 41 and section 44(4).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s8
+      span:
+      - 172
+      - 340
+      content_hash: sha256:a4ece48fa93452ed39793b89addc69db826bebe10d8ee6f4818903ab8351a823
+      quote: The use of a trade mark by an authorised user of the trade mark is an authorised use
+        of the trade mark to the extent only that the user uses the trade mark under the co
+    confidence: 0.8
+    reasoning: >-
+      Section 8 defines it and limits it by control. Held apart from 'authorised user' because the
+      Act defines the person in 8(1) and the use in 8(2), and evidence questions attach to the second.
+    alternatives_considered:
+    - >-
+      One concept covering both the user and the use. Rejected: section 8 separates them into two
+      subsections and the Manual's evidence practice turns on the use.
+    expert_should_check: >-
+      Whether the definition source should be a Part 19A passage on control rather than the general
+      opening. This record cites the opening because it names authorised use in the list of questions
+      use bears on.
+- id: GC-0083
+  pref_label: authorised user
+  alt_labels: []
+  not_labels:
+  - authorised use
+  - registered owner
+  - predecessor in title
+  definition_sources:
+  - TMM/Part19A/1#1
+  legislative_basis:
+  - TMA1995/s8(1)
+  - TMA1995/s6/authorised-user
+  notes: >-
+    The person, as against the use. Section 8(1) makes control the test for both, but the Act keeps
+    them in separate subsections and section 26 gives the authorised user rights of its own.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s8
+      span:
+      - 4
+      - 167
+      content_hash: sha256:a4ece48fa93452ed39793b89addc69db826bebe10d8ee6f4818903ab8351a823
+      quote: A person is an authorised user of a trade mark if the person uses the trade mark in relation
+        to goods or services under the control of the owner of the trade mark.
+    confidence: 0.8
+    reasoning: >-
+      Defined in terms by section 8(1). Note the repository already holds GC-0035 for this term from
+      the section 43 pilot; this record is written from the statutory definition rather than from
+      Part 29's use of the phrase, and the two should be reconciled by a reviewer rather than by an
+      agent.
+    alternatives_considered:
+    - >-
+      Not writing it at all, because GC-0035 exists. Rejected — but the duplication is real and is
+      flagged rather than resolved: GC-0035 is signed and this record must not quietly displace it
+      (ADR-0080 c2 works the other way round).
+    expert_should_check: >-
+      The overlap with the signed GC-0035. If they are the same concept this record should be retired
+      in favour of the signed one; if the section 43 sense is narrower, both stand and need a relationship
+      between them.
+- id: GC-0084
+  pref_label: registered owner
+  alt_labels:
+  - owner of the trade mark
+  - registered proprietor
+  not_labels:
+  - applicant
+  - authorised user
+  - predecessor in title
+  definition_sources:
+  - TMM/Part19B/1#1
+  legislative_basis:
+  - TMA1995/s6/registered-owner
+  - TMA1995/s21(1)
+  notes: >-
+    Defined by the Register: the person in whose name the mark is registered. That is narrower than
+    ownership at common law, and the Manual's Part 19B treats the registration as personal property
+    held by that person.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/registered-owner
+      span:
+      - 0
+      - 118
+      content_hash: sha256:4ce5b5c231ee09abaac3335e9ba1178de4d10f7be1fb83c89226b8d4803819ce
+      quote: registered owner, in relation to a registered trade mark, means the person in whose name
+        the trade mark is registered.
+    - ref: TMM/Part19B/1#1
+      span:
+      - 294
+      - 368
+      content_hash: sha256:fbd8a33357fedfc8651f6d274b1b086b6ec43ffe32900fef6d14d7a98b46860a
+      quote: A registered trade mark is a form of personal property (subsection 21(1)).
+    confidence: 0.85
+    reasoning: >-
+      Defined by the Act in terms; the Manual supplies the property characterisation the definition
+      sits inside.
+    alternatives_considered:
+    - >-
+      Holding a wider 'owner' concept covering unregistered ownership. Worth doing — sections 27 and
+      58 both turn on it — and deliberately not done here, because the corpus defines only the registered
+      case.
+    expert_should_check: >-
+      Whether 'owner of the trade mark' is safe as an alt_label. The Act uses that phrase in section
+      8 for a mark that need not be registered, so the alt_label may be too wide.
+- id: GC-0085
+  pref_label: predecessor in title
+  alt_labels: []
+  not_labels:
+  - registered owner
+  - authorised user
+  - assignment
+  definition_sources:
+  - TMM/Part28/6#1
+  legislative_basis:
+  - TMA1995/s6/predecessor-in-title
+  - TMA1995/s41(5)
+  - TMA1995/s44(4)
+  notes: >-
+    Load-bearing in two places at once: section 41(5) makes a predecessor's use count as the applicant's
+    for distinctiveness, and section 44(4) does the same for prior use. The section 6 definition itself
+    is a stub that continues into a list.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s41
+      span:
+      - 2360
+      - 2520
+      content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+      quote: the use of a trade mark by a predecessor in title of an applicant for the registration
+        of the trade mark is taken to be a use of the trade mark by the applicant
+    confidence: 0.75
+    reasoning: >-
+      The Act states the consequence in terms in section 41(5); the section 6 definition is a stub
+      whose text does not carry the substance, so the evidence is drawn from the operative provision
+      instead.
+    alternatives_considered:
+    - >-
+      Citing the section 6 stub as the evidence. Rejected: its text is 'means:' and a span on it would
+      evidence nothing.
+    expert_should_check: >-
+      Whether the concept should carry the section 6 list as narrower concepts. The stub continues
+      into subparagraphs this record does not reach.
+- id: GC-0086
+  pref_label: assignment
+  alt_labels:
+  - assignment of a trade mark
+  not_labels:
+  - transmission
+  - authorised use
+  - change of ownership
+  definition_sources:
+  - TMM/Part43/1#1~1
+  legislative_basis:
+  - TMA1995/s6/assignment
+  - TMA1995/s106
+  notes: >-
+    Defined narrowly by the Act as an assignment by act of the parties. Transmission is the other
+    half of the pair and covers what happens without such an act — the Manual's Part 43 title carries
+    both.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/assignment
+      span:
+      - 0
+      - 93
+      content_hash: sha256:05bf7d38537a27493704344bc7136f2fc1df605b87caffe04431d7c2846a3e8f
+      quote: assignment, in relation to a trade mark, means an assignment by act of the parties concerned.
+    confidence: 0.85
+    reasoning: >-
+      Defined in terms by section 6. Held apart from transmission because the Act defines them separately
+      and the difference — an act of the parties, or not — is the whole distinction.
+    alternatives_considered:
+    - >-
+      One 'assignment and transmission' concept, which is the Manual's Part 43 heading. Rejected:
+      the Act defines two terms, and the pair heading is a container rather than a concept.
+    expert_should_check: >-
+      Nothing specific; this is one of the cleaner records in the pass.
+- id: GC-0087
+  pref_label: transmission
+  alt_labels: []
+  not_labels:
+  - assignment
+  - change of ownership
+  definition_sources:
+  - TMM/Part43/1#1~1
+  legislative_basis:
+  - TMA1995/s6/transmission
+  notes: >-
+    The section 6 definition is a stub continuing into a list, so this record's evidence comes from
+    the Manual rather than from the definition itself.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part43/1#1~1
+      span:
+      - 0
+      - 202
+      content_hash: sha256:09b4382be81326ed3b401eefdad95895f1072342d4d3da99ffb97d23660602f6
+      quote: Assignment or transmission of a trade mark refers to the process by which ownership of
+        a registered trade mark or a trade mark whose registration is being sought may be passed from
+        one party to another.
+    confidence: 0.55
+    reasoning: >-
+      The Act defines the term but its text is a stub. The Manual's Part 43 treats assignment and
+      transmission together, so the evidence available is weak — and the record says so with a low
+      confidence rather than borrowing certainty from the pair.
+    alternatives_considered:
+    - >-
+      Not holding it separately. Rejected: the Act defines it as its own term, and a vocabulary holding
+      assignment without transmission would imply ownership only moves by agreement.
+    expert_should_check: >-
+      The Manual passage this rests on defines assignment and transmission together and never separates
+      them, so the record is evidenced for the pair and not for this half of it. Either the section
+      6 subparagraphs supply the difference or the two should be one concept.
+- id: GC-0088
+  pref_label: registered trade mark
+  alt_labels: []
+  not_labels:
+  - trade mark
+  - pending application
+  - protected international trade mark
+  definition_sources:
+  - TMM/Part19B/1#1
+  legislative_basis:
+  - TMA1995/s6/registered-trade-mark
+  - TMA1995/s207
+  - TMA1995/s21(1)
+  notes: >-
+    Defined by an entry in the Register, not by any quality of the mark. Distinguished from 'trade
+    mark' — section 17's definition is satisfied by use or intended use, with no registration required.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/registered-trade-mark
+      span:
+      - 0
+      - 102
+      content_hash: sha256:2a2c6c77f9af9562ac0de5b9558ec3a3b2da3b30d1f3df37cd4a2ab1a0d41da4
+      quote: registered trade mark means a trade mark whose particulars are entered in the Register
+        under this Act.
+    - ref: TMM/Part19B/1#1
+      span:
+      - 294
+      - 368
+      content_hash: sha256:fbd8a33357fedfc8651f6d274b1b086b6ec43ffe32900fef6d14d7a98b46860a
+      quote: A registered trade mark is a form of personal property (subsection 21(1)).
+    confidence: 0.85
+    reasoning: >-
+      Defined by the Act in terms and characterised by the Manual.
+    alternatives_considered:
+    - >-
+      Treating it as an alt_label of 'trade mark'. Rejected: the Act defines them separately and section
+      44 turns on the difference.
+    expert_should_check: >-
+      Nothing specific.
+- id: GC-0089
+  pref_label: Register of Trade Marks
+  alt_labels:
+  - the Register
+  - Register
+  not_labels:
+  - Record of International Registrations
+  - old register
+  definition_sources:
+  - TMM/Part39/1#1
+  legislative_basis:
+  - TMA1995/s6/register
+  - TMA1995/s207
+  notes: >-
+    Kept under section 207. The Act also defines 'old register' and the Regulations define a 'Record
+    of International Registrations', and the three must not be merged — an entry in one is not an
+    entry in another.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/register
+      span:
+      - 0
+      - 66
+      content_hash: sha256:bcf448f9600add54d2d0a32b3b8b2a12a584a06f04ac502812389771ccec1022
+      quote: Register means the Register of Trade Marks kept under section 207.
+    confidence: 0.85
+    reasoning: >-
+      Defined in terms. Held with the near-misses named because the corpus contains three registers
+      and the Madrid Part turns on the distinction.
+    alternatives_considered:
+    - >-
+      Not holding it, as infrastructure rather than a legal concept. Rejected: 'registered trade mark',
+      rectification and removal are all defined by reference to it.
+    expert_should_check: >-
+      Whether the preferred label should be 'Register' as the Act has it. This record uses the fuller
+      form because 'Register' alone collides with the other two registers.
+- id: GC-0090
+  pref_label: priority date
+  alt_labels: []
+  not_labels:
+  - filing date
+  - date of registration
+  definition_sources:
+  - TMM/Part11/1#1
+  legislative_basis:
+  - TMA1995/s12
+  - TMA1995/s6/priority-date
+  notes: >-
+    Section 44 turns on a comparison of priority dates, and a convention claim can move one. Distinct
+    from the filing date, which section 6 defines separately, though for many applications the two
+    coincide. GC-0016 already holds this term from the section 43 pilot.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s12
+      span:
+      - 0
+      - 101
+      content_hash: sha256:f0c714853658535f373f035e5a52c3d7256ce6f17a1cb2ae3ce3e0c29a46b406
+      quote: 'The priority date for the registration of a trade mark in respect of particular goods
+        or services is:'
+    - ref: TMA1995/s6/priority-date
+      span:
+      - 0
+      - 50
+      content_hash: sha256:58c974e5b99109d669241114abd7bc409f5fbfa875d981cb5745c6d18089793e
+      quote: priority date has the meaning given by section 12.
+    confidence: 0.8
+    reasoning: >-
+      Defined by section 12 and pointed to by section 6. Written from the statute rather than from
+      Part 29, which is what GC-0016 rests on; the overlap is flagged rather than resolved.
+    alternatives_considered:
+    - >-
+      Not writing it because GC-0016 exists. Same reasoning as for authorised user: the signed record
+      stands and this one names the overlap.
+    expert_should_check: >-
+      The overlap with the signed GC-0016. One of the two should be retired by a reviewer, and an
+      agent may not choose which.
+- id: GC-0091
+  pref_label: filing date
+  alt_labels: []
+  not_labels:
+  - priority date
+  - date of registration
+  definition_sources:
+  - TMM/Part10/1#1
+  legislative_basis:
+  - TMA1995/s6/filing-date
+  - TMA1995/s41(3)(b)
+  notes: >-
+    Section 41(3)(b) makes use 'before the filing date' the thing that can rescue a mark with no inherent
+    adaptation, so the filing date is not merely administrative.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s41
+      span:
+      - 779
+      - 873
+      content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+      quote: the applicant has not used the trade mark before the filing date in respect of the application
+    confidence: 0.7
+    reasoning: >-
+      The section 6 definition is a stub continuing into a list, so the evidence is drawn from section
+      41(3)(b), where the date does operative work.
+    alternatives_considered:
+    - >-
+      Citing the section 6 stub. Rejected for the same reason as transmission: a span on 'filing date
+      means:' evidences nothing.
+    expert_should_check: >-
+      Whether the definition source should be a Part 10 or Part 11 passage that states how a filing
+      date is set.
+- id: GC-0092
+  pref_label: examination
+  alt_labels:
+  - examine and report
+  not_labels:
+  - expedited examination
+  - opposition
+  - hearing
+  definition_sources:
+  - TMM/Part20/5#1
+  legislative_basis:
+  - TMA1995/s31
+  - TMA1995/s33
+  notes: >-
+    Section 31 gives examination two subjects and only two: whether the application was made in accordance
+    with the Act, and whether there are grounds for rejecting it. Section 33 then makes acceptance
+    the default unless the Registrar is satisfied of one of those.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s31
+      span:
+      - 0
+      - 216
+      content_hash: sha256:d6fb7897727ef84585b0c9cb25f38b568e7fcafb34d2c61f50d93884650f92b2
+      quote: 'The Registrar must, in accordance with the regulations, examine and report on: (a) whether
+        the application has been made in accordance with this Act; and (b) whether there are grounds
+        under this Act for rejecting it.'
+    confidence: 0.85
+    reasoning: >-
+      Section 31 states the duty and its two subjects in one sentence. Held because the whole corpus
+      is an examination manual and the vocabulary had no word for the activity it describes.
+    alternatives_considered:
+    - >-
+      Not holding it as too obvious. Rejected: the two-subject structure in section 31 is exactly
+      the distinction Part 10 formalities and Parts 20-31 grounds are organised around.
+    expert_should_check: >-
+      Whether the definition source should be a Part 5 or Part 6 passage about the examination process
+      rather than Part 20.5 on grounds.
+- id: GC-0093
+  pref_label: acceptance
+  alt_labels:
+  - accept the application
+  - accepted
+  not_labels:
+  - registration
+  - revocation of acceptance
+  - deferment of acceptance
+  definition_sources:
+  - TMM/Part20/4#1~1
+  legislative_basis:
+  - TMA1995/s33
+  - TMA1995/s33(1)
+  - TMA1995/s33(2)
+  notes: >-
+    Section 33(1) makes acceptance mandatory unless the Registrar is satisfied of a defect or a ground
+    — that is the presumption of registrability in operation. Acceptance is not registration: section
+    33 accepts, publication and opposition follow, and registration comes later.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s33
+      span:
+      - 4
+      - 105
+      content_hash: sha256:36311d92754a0ea33e97abec732d66bb149a577c8004ce2f28ee98bb3bcb54e2
+      quote: 'The Registrar must, after the examination, accept the application unless he or she is
+        satisfied that:'
+    - ref: TMM/Part20/4#1~1
+      span:
+      - 71
+      - 320
+      content_hash: sha256:67daa8312e2898e336753ab4fecc9acaea819f1ea3af243af1c38300cb23e6d5
+      quote: Section 33 specifies that the Registrar must accept a trade mark for registration unless
+        he or she is satisfied that the trade mark application has not been made in accordance with
+        the Act and Regulations, or that there are grounds for rejecting it.
+    confidence: 0.85
+    reasoning: >-
+      Both the Act and the Manual state it in terms, and the Manual explicitly ties it to the presumption
+      of registrability.
+    alternatives_considered:
+    - >-
+      Merging it with registration. Rejected: the Act separates them by an opposition period, and
+      Part 38 exists because an acceptance can be revoked while a registration cannot be revoked the
+      same way.
+    expert_should_check: >-
+      Nothing specific.
+- id: GC-0094
+  pref_label: revocation of acceptance
+  alt_labels:
+  - revoke acceptance
+  not_labels:
+  - revocation of registration
+  - acceptance
+  - rectification
+  definition_sources:
+  - TMM/Part38/1#1
+  legislative_basis:
+  - TMA1995/s38
+  notes: >-
+    Available where information received after acceptance indicates the mark should not have been
+    accepted. Distinct from revocation of registration under sections 84A to 84D, which the Manual
+    gives a separate Part. GC-0042 already holds this term.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part38/1#1
+      span:
+      - 0
+      - 152
+      content_hash: sha256:9e165c735ebe5317e983d6154886aab73d86d98d277b0a79c4f92f4e6e029c43
+      quote: The acceptance of an application can be revoked if information is received after acceptance
+        that indicates the trade mark should not have been accepted.
+    confidence: 0.8
+    reasoning: >-
+      The Manual states it in one sentence. Written from Part 38 rather than from the section 43 material
+      GC-0042 rests on; the overlap is flagged for a reviewer.
+    alternatives_considered:
+    - >-
+      Not writing it because GC-0042 exists — same reasoning as the other two overlaps in this pass.
+    expert_should_check: >-
+      The overlap with the signed GC-0042.
+- id: GC-0095
+  pref_label: revocation of registration
+  alt_labels:
+  - revoke the registration
+  not_labels:
+  - revocation of acceptance
+  - cancellation of registration
+  - removal for non-use
+  definition_sources:
+  - TMM/Part62/1#1
+  legislative_basis:
+  - TMA1995/s84A
+  - TMA1995/s84A(6)
+  notes: >-
+    The Manual expects it to be rare and records that the Registrar is not obliged to consider it
+    even on a third party's request. That discretion is the most examinable thing about the concept.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part62/1#1
+      span:
+      - 0
+      - 182
+      content_hash: sha256:84e56977afcdff86634f32f63ab012a078ce1c257a72adebfe9c73676a21cf52
+      quote: Sections 84A to 84D allow the Registrar of Trade Marks to revoke the registration of
+        a trade mark in circumstances in which it appears that the registration should not have occurred.
+    - ref: TMM/Part62/1#1
+      span:
+      - 257
+      - 387
+      content_hash: sha256:84e56977afcdff86634f32f63ab012a078ce1c257a72adebfe9c73676a21cf52
+      quote: The Registrar is not obliged to consider whether to revoke registration, even where a
+        third party requests it (subsection 84A(6)).
+    confidence: 0.85
+    reasoning: >-
+      Stated in terms, with the discretion stated separately in the same passage.
+    alternatives_considered:
+    - >-
+      Merging with revocation of acceptance. Rejected: different sections, different stage, different
+      Part of the Manual.
+    expert_should_check: >-
+      Nothing specific.
+- id: GC-0096
+  pref_label: deferment of acceptance
+  alt_labels:
+  - deferment
+  - defer acceptance
+  not_labels:
+  - extension of time
+  - acceptance
+  - lapsing
+  definition_sources:
+  - TMM/Part17/1#1
+  legislative_basis:
+  - TMA1995/s36
+  - TMA1995/s37(1)
+  - TMR1995/r4.12
+  notes: >-
+    The Manual's own gloss is the useful part: the acceptance period is 'set in abeyance'. That distinguishes
+    it from an extension of time, which lengthens a period rather than suspending it.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part17/1#1
+      span:
+      - 175
+      - 394
+      content_hash: sha256:5180e7ae4a15dd1178fbaa883bd27cd5eb97ec328cf6b5ee181510707c3e0d40
+      quote: Deferment of acceptance is where the period of time that is allowed under subsection
+        37(1) and reg 4.12 for an application to gain acceptance is set in abeyance - deferred - because
+        a request for deferment has been made
+    confidence: 0.8
+    reasoning: >-
+      The Manual defines it in terms and contrasts it implicitly with the ordinary acceptance period.
+    alternatives_considered:
+    - >-
+      Treating it as a kind of extension of time. Rejected: the Manual's language is abeyance rather
+      than extension, and Part 15 and Part 17 are separate.
+    expert_should_check: >-
+      Whether abeyance and extension really are different in effect, or only in procedure. The record
+      asserts the first on the strength of one word.
+- id: GC-0097
+  pref_label: extension of time
+  alt_labels:
+  - extension of the period
+  - extensions of time
+  not_labels:
+  - deferment of acceptance
+  - cooling-off period
+  definition_sources:
+  - TMM/Part15/1#1~1
+  legislative_basis:
+  - TMA1995/s224
+  - TMR1995/r21.20A
+  notes: >-
+    Available across the Act wherever a time is set, and the Manual notes the procedure differs by
+    which time is being extended. That variability is why it is one concept with many procedures rather
+    than many concepts.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part15/1#1~1
+      span:
+      - 0
+      - 137
+      content_hash: sha256:5df70de3525e8d16a4f12c342296533ecaaed281afc03f2e58bab4f442825ea7
+      quote: When the Act and Regulations set a time in which to perform an act or file a document,
+        that time can frequently be extended upon request.
+    confidence: 0.8
+    reasoning: >-
+      The Manual states the general position at the head of its Part on the subject.
+    alternatives_considered:
+    - >-
+      Separate concepts per extension provision. Rejected for now: the Manual organises them as one
+      topic with variations.
+    expert_should_check: >-
+      Whether the legislative basis is right. `TMA1995/s224` is the general extension provision and
+      the Manual's Part 15 covers several others.
+- id: GC-0098
+  pref_label: lapsing of an application
+  alt_labels:
+  - lapse
+  - lapses
+  not_labels:
+  - withdrawal
+  - revocation of acceptance
+  - rejection
+  definition_sources:
+  - TMM/Part16/1/1/1
+  legislative_basis:
+  - TMA1995/s37
+  notes: >-
+    Automatic on the expiry of the acceptance period, so it is not a decision anybody makes. That
+    is what separates it from rejection and from withdrawal.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part16/1/1/1
+      span:
+      - 29
+      - 170
+      content_hash: sha256:2f2be55cdd83aa13ccdb84eb727a1a7f176a8173346d737965a51ec0dbf34674
+      quote: an application lapses if it is not accepted within the prescribed period or within that
+        period as extended in accordance with the regulations
+    confidence: 0.8
+    reasoning: >-
+      The Manual quotes the statutory effect. Held because the vocabulary needs a way to say an application
+      ended without anybody deciding anything.
+    alternatives_considered:
+    - >-
+      Not holding it, as a mere event. Rejected: it is the consequence that makes deferment and extension
+      of time matter.
+    expert_should_check: >-
+      Nothing specific.
+- id: GC-0099
+  pref_label: disclaimer
+  alt_labels:
+  - disclaimers
+  not_labels:
+  - endorsement
+  - conditions or limitations
+  definition_sources:
+  - TMM/Part24/1#1
+  legislative_basis:
+  - TMA1995/s74
+  - TMA1995/s74(1)
+  notes: >-
+    The Manual defines it as a limitation of the exclusive rights given by registration, and explains
+    that the owner never had exclusive rights in part of a mark anyway — so a disclaimer records something
+    rather than creating it.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part24/1#1
+      span:
+      - 49
+      - 188
+      content_hash: sha256:47dc6e8dbda25f846d1d5c29548985b3a832f3cc3b268a949fc5ce6add98b460
+      quote: A disclaimer is a limitation of the exclusive rights given by registration to use and
+        authorise the use of a trade mark (subsection 74(1)).
+    confidence: 0.85
+    reasoning: >-
+      Defined in terms by the Manual with the statutory reference attached.
+    alternatives_considered:
+    - >-
+      Treating it as a kind of limitation under section 6. Defensible — the Manual's own wording says
+      it is one — and held separately because section 74 is its own provision with its own procedure.
+    expert_should_check: >-
+      Whether a disclaimer is a species of the section 6 'limitations' or a different instrument.
+      The Manual's wording supports the first; the Act's structure the second.
+- id: GC-0100
+  pref_label: endorsement
+  alt_labels:
+  - endorsements
+  not_labels:
+  - disclaimer
+  - conditions or limitations
+  definition_sources:
+  - TMM/Part23/6#1
+  legislative_basis:
+  - TMA1995/s41(3)
+  - TMA1995/s44(3)
+  notes: >-
+    The Manual treats an endorsement as what goes on the Register to record that an application was
+    accepted on evidence or other circumstances. It is a record of how a ground was overcome, which
+    makes it evidence about the mark's history.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part23/6#1
+      span:
+      - 49
+      - 185
+      content_hash: sha256:03b5b4de76bef1acf928f0d4a7bc4230a1301e2f9485689b6e7361416192aae2
+      quote: If an application is accepted on the basis of evidence or other circumstances, the relevant
+        endorsement will be entered on the Register.
+    confidence: 0.75
+    reasoning: >-
+      The Manual states what an endorsement is for and when it is entered. Held apart from disclaimer
+      because one records how a ground was overcome and the other limits a right.
+    alternatives_considered:
+    - >-
+      Folding endorsements into conditions or limitations. Rejected: the Manual's Part 23.6 and Part
+      28.8 both treat endorsements as their own thing.
+    expert_should_check: >-
+      Whether the corpus defines 'endorsement' anywhere more directly. This record rests on a passage
+      about when one is entered rather than on a definition.
+- id: GC-0101
+  pref_label: evidence of use
+  alt_labels:
+  - evidence of use of the trade mark
+  not_labels:
+  - use of a trade mark
+  - prior use
+  - honest concurrent use
+  - evidence in support
+  definition_sources:
+  - TMM/Part23/3#1
+  legislative_basis:
+  - TMA1995/s41(3)(b)
+  - TMA1995/s41(4)(b)
+  notes: >-
+    Formal evidence filed to overcome a section 41 ground, once the Registrar remains satisfied after
+    submissions that the mark is not capable of distinguishing. The Manual makes the sequence explicit
+    and it matters: evidence comes after argument, not instead of it.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part23/3#1
+      span:
+      - 49
+      - 370
+      content_hash: sha256:33c56e7eda49174e63a0f03536399f589496bde63f5d82e0f1141bdc312ca4bd
+      quote: When grounds for rejection under s 41 have been raised and the Registrar remains satisfied
+        (after considering any submissions or proposed amendments filed by the applicant) that the
+        trade mark is not capable of distinguishing the applicant's goods and/or services, the trade
+        mark owner may provide formal evidence of use.
+    confidence: 0.85
+    reasoning: >-
+      The Manual states the trigger, the sequence and the actor in one sentence. Held apart from 'use
+      of a trade mark' because this is the proof, not the fact.
+    alternatives_considered:
+    - >-
+      Treating it as a kind of use. Rejected: it is a filing, and the Manual devotes a Part to what
+      it must contain.
+    expert_should_check: >-
+      Whether evidence of use under section 41 and evidence of use under section 44(4) are the same
+      concept. The Manual treats them in different Parts with different requirements.
+- id: GC-0102
+  pref_label: opposition
+  alt_labels:
+  - opposition to registration
+  - opposition proceedings
+  not_labels:
+  - hearing
+  - removal for non-use
+  - rectification
+  definition_sources:
+  - TMM/Part46/1#1
+  legislative_basis:
+  - TMA1995/s52
+  - TMR1995/r5.2
+  notes: >-
+    A formal objection by a third party. The Manual notes that any person may oppose but that the
+    opponent is generally somebody affected — which is a practice observation rather than a standing
+    requirement, and the record keeps it in notes for that reason.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part46/1#1
+      span:
+      - 49
+      - 208
+      content_hash: sha256:02a2b1a95baa2a0cc7c9e71bfd36f03d235e71e78c4e90c9b8cd0eae568015a8
+      quote: Opposition is a formal objection by a third party to registration of a trade mark or
+        to protection of an International Trade Mark Designating Australia (IRDA).
+    confidence: 0.85
+    reasoning: >-
+      Defined in terms at the head of the Manual's Part on the subject.
+    alternatives_considered:
+    - >-
+      Separate concepts for opposition to registration and opposition to protection of an IRDA. The
+      passage treats them together and so does this record.
+    expert_should_check: >-
+      Whether 'any person may oppose' should be in the record rather than the notes. It is a statement
+      about standing and belongs in a relationship record if anywhere.
+- id: GC-0103
+  pref_label: notice of opposition
+  alt_labels: []
+  not_labels:
+  - notice of intention to oppose
+  - statement of grounds and particulars
+  - notice of intention to defend
+  definition_sources:
+  - TMM/Part47/1#1
+  legislative_basis:
+  - TMR1995/r5.2
+  - TMR1995/r17A.29
+  notes: >-
+    A composite: the Regulations define it as a notice of intention to oppose plus a statement of
+    grounds and particulars. Both components are separately defined terms, so the corpus holds three
+    related definitions where a reader might expect one.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part47/1#1
+      span:
+      - 254
+      - 377
+      content_hash: sha256:4bd0c392125a44efe33f5387504c7fe3b910cfdeeda0899638dac525b854e100
+      quote: A notice of opposition means a notice of intention to oppose and a statement of grounds
+        and particulars (regs 5.2, 17A.29).
+    confidence: 0.85
+    reasoning: >-
+      The Manual states the composition in terms and cites both regulations. Held as one concept with
+      the components named as near-misses, because the commonest error here is using the whole to
+      mean a part.
+    alternatives_considered:
+    - >-
+      Three separate concepts. Two of the three are separately defined in the Regulations and are
+      worth authoring in a later pass; this record holds the composite because that is the term the
+      Manual uses most.
+    expert_should_check: >-
+      Whether the two components should be authored as concepts now. Both are defined terms in the
+      candidate list with 44 and 47 Manual uses respectively.
+- id: GC-0104
+  pref_label: removal for non-use
+  alt_labels:
+  - non-use removal
+  - removal of a trade mark from the Register for non-use
+  not_labels:
+  - rectification of the Register
+  - revocation of registration
+  - cancellation of registration
+  definition_sources:
+  - TMM/Part48/1#1
+  legislative_basis:
+  - TMA1995/s92
+  - TMA1995/s17
+  notes: >-
+    The Manual grounds it in section 17: use is inherent in what a trade mark is, so a mark that is
+    not used may be removed. The onus sits on the opponent once the application is opposed, which
+    is unusual and worth carrying.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part48/1#1
+      span:
+      - 275
+      - 402
+      content_hash: sha256:11e9c228d44c98fde9855fadac4ead03f5a8cc4b2d5fdff6dc62b977eab5428b
+      quote: Section 92 provides for a person to apply for a trade mark to be removed from the Register
+        if the trade mark has not been used.
+    - ref: TMM/Part48/1#1
+      span:
+      - 49
+      - 274
+      content_hash: sha256:11e9c228d44c98fde9855fadac4ead03f5a8cc4b2d5fdff6dc62b977eab5428b
+      quote: Inherent in the definition of a trade mark is the requirement, per section 17, that the
+        owner intends, and does, use the trade mark to distinguish its goods or services from goods
+        or services dealt with or provided by others.
+    confidence: 0.85
+    reasoning: >-
+      Stated in terms, with the section 17 rationale in the same passage — which is what ties this
+      concept back to 'use of a trade mark' rather than leaving it as free-standing procedure.
+    alternatives_considered:
+    - >-
+      Naming it 'non-use' and treating removal as the consequence. Defensible; the Manual's Part title
+      uses the fuller phrase and this record follows it.
+    expert_should_check: >-
+      Whether the onus point should be a relationship record rather than a note.
+- id: GC-0105
+  pref_label: rectification of the Register
+  alt_labels:
+  - rectification
+  not_labels:
+  - removal for non-use
+  - revocation of registration
+  - amendment
+  definition_sources:
+  - TMM/Part42/1#1
+  legislative_basis:
+  - TMA1995/s85
+  - TMA1995/s86
+  - TMA1995/s87
+  - TMA1995/s88
+  notes: >-
+    A court remedy, not a Registrar's one: the amendment or cancellation results from an order of
+    a prescribed court. That is what separates it from every other correction mechanism in the Act.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part42/1#1
+      span:
+      - 49
+      - 211
+      content_hash: sha256:5e2f54790c23e56bddf82edea559103e50c71337503d8e9a02383971d373a3c1
+      quote: Rectification involves the amendment or cancellation of an entry in the Register. The
+        amendment or cancellation results from an order given by a prescribed court.
+    confidence: 0.85
+    reasoning: >-
+      Defined in terms, with the court requirement in the same two sentences.
+    alternatives_considered:
+    - >-
+      Merging with revocation of registration. Rejected: different decision maker, and that is the
+      whole point of the concept.
+    expert_should_check: >-
+      Nothing specific.
+- id: GC-0106
+  pref_label: renewal of registration
+  alt_labels:
+  - renewal
+  not_labels:
+  - registration
+  - restoration
+  definition_sources:
+  - TMM/Part40/1#1
+  legislative_basis:
+  - TMA1995/s75
+  - TMA1995/s77
+  notes: >-
+    Renewable indefinitely at ten-year intervals from the filing date, and — unusually — any person
+    may effect it, not only the owner.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part40/1#1
+      span:
+      - 49
+      - 185
+      content_hash: sha256:7ac8c71bcd48304b149e6c8244923f7644c5b1c1d2cbb3259994c58fa1dddadd
+      quote: A trade mark registration may be renewed at ten year intervals dating from the original
+        filing date of the application for registration.
+    - ref: TMM/Part40/1#1
+      span:
+      - 392
+      - 470
+      content_hash: sha256:7ac8c71bcd48304b149e6c8244923f7644c5b1c1d2cbb3259994c58fa1dddadd
+      quote: Renewal is not restricted to the owner of the trade mark (sections 75 and 77).
+    confidence: 0.85
+    reasoning: >-
+      Both propositions are stated in terms in the one passage.
+    alternatives_considered:
+    - >-
+      Not holding it, as pure administration. Rejected: the ten-year term and the open renewal right
+      are both substantive.
+    expert_should_check: >-
+      Nothing specific.
+- id: GC-0107
+  pref_label: certification trade mark
+  alt_labels:
+  - certification trade marks
+  - CTM
+  not_labels:
+  - collective trade mark
+  - defensive trade mark
+  - trade mark
+  definition_sources:
+  - TMM/Part35/1#1
+  legislative_basis:
+  - TMA1995/s169
+  - TMA1995/s6/certification-trade-mark
+  - TMA1995/s168
+  notes: >-
+    Distinguishes certified goods or services from uncertified ones, and the certifying is done by
+    the owner or an approved certifier. The ACCC has a role the ordinary registration process does
+    not have.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part35/1#1
+      span:
+      - 170
+      - 492
+      content_hash: sha256:c21d9dfb1e224697c42be3a1662c98ae941753d1ee350592c24c136985d16637
+      quote: A certification trade mark is used or intended to be used to distinguish goods or services
+        dealt with or provided in the course of trade and certified by the owner of the trade mark
+        or by another person approved by the owner of the trade mark (an approved certifier), from
+        goods or services not so certified (section 169).
+    confidence: 0.85
+    reasoning: >-
+      Defined in terms by the Manual with the section reference attached.
+    alternatives_considered:
+    - >-
+      Treating it as a narrower of 'trade mark'. It is, and the record could carry a broader link
+      — deliberately left for a relationship pass rather than asserted here.
+    expert_should_check: >-
+      Whether the ACCC's role should be part of the concept or a separate relationship.
+- id: GC-0108
+  pref_label: collective trade mark
+  alt_labels:
+  - collective trade marks
+  - collective trademark
+  not_labels:
+  - certification trade mark
+  - defensive trade mark
+  definition_sources:
+  - TMM/Part33/1#1
+  legislative_basis:
+  - TMA1995/s162
+  - TMA1995/s6/collective-trade-mark
+  notes: >-
+    Distinguishes the goods or services of members of an association from those of non-members. The
+    Manual's own contrast is the useful part: unlike a certification mark, use of a collective mark
+    need not be subject to approved rules.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part33/1#1
+      span:
+      - 118
+      - 399
+      content_hash: sha256:b745f127e9b06e29310d372e51f88719febcbe3078b5403ad5b168ab70831f80
+      quote: A collective trade mark is a sign used or intended to be used, in relation to goods or
+        services dealt with or provided in the course of trade by members of an association to distinguish
+        those goods or services from goods or services so dealt with or provided by persons who are
+        not
+    confidence: 0.8
+    reasoning: >-
+      Defined in terms by the Manual. The near-miss against certification marks is drawn from the
+      same passage.
+    alternatives_considered:
+    - >-
+      Merging with certification marks as 'marks used by a group'. Rejected: different Parts of the
+      Act and different Parts of the Manual.
+    expert_should_check: >-
+      The spelling. The Manual's own heading writes 'collective trademark' as one word and the body
+      writes two; this record prefers the two-word form and keeps the other as an alt_label.
+- id: GC-0109
+  pref_label: defensive trade mark
+  alt_labels:
+  - defensive trade marks
+  - defensive registration
+  not_labels:
+  - certification trade mark
+  - collective trade mark
+  - registered trade mark
+  definition_sources:
+  - TMM/Part34/1/1/1
+  legislative_basis:
+  - TMA1995/s185
+  - TMA1995/s6/defensive-trade-mark
+  notes: >-
+    Requires an existing registration and a reputation extensive enough that use on other goods would
+    be taken to indicate a connection. It is the one registration in the Act that does not require
+    an intention to use.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part34/1/1/1
+      span:
+      - 171
+      - 308
+      content_hash: sha256:7b44f7d0f5f4f947f0e52138b3d80f9f8b0553bebcd6d25b124069add4f2954b
+      quote: To qualify for a defensive trade mark registration, the trade mark had to be already
+        registered in Australia as a distinctive trade mark.
+    confidence: 0.7
+    reasoning: >-
+      The passage states the qualifying condition, though in the past tense about the 1955 Act. The
+      record is honest about that: the evidence is historical framing of a requirement the Manual
+      carries forward, which is weaker than a current statement.
+    alternatives_considered:
+    - >-
+      Drawing the evidence from section 185 instead. Better, and not done here because the Manual
+      passage is what a reader of Part 34 meets first — a reviewer should say which they prefer.
+    expert_should_check: >-
+      The evidence is a sentence about the 1955 Act. If Part 34 states the current requirement elsewhere,
+      that passage should replace this one.
+- id: GC-0110
+  pref_label: divisional application
+  alt_labels:
+  - divisional applications
+  - divisional
+  not_labels:
+  - parent application
+  - series of trade marks
+  - convention application
+  definition_sources:
+  - TMM/Part12/1#1
+  legislative_basis:
+  - TMA1995/s45
+  - TMA1995/s6/divisional-application
+  - TMA1995/s46
+  notes: >-
+    A limited continuation of a parent application that keeps the parent's priority date but takes
+    a new number. The priority-date inheritance is what makes it matter to section 44. GC-0043 already
+    holds this term.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part12/1#1
+      span:
+      - 236
+      - 365
+      content_hash: sha256:d095cd23621ebb182a51c6b60876ee2bdb1c4322b436883dc13a306a842d4ca2
+      quote: Divisional applications claim the priority date of the original parent application, however,
+        they receive a new trade mark number
+    - ref: TMA1995/s45
+      span:
+      - 142
+      - 373
+      content_hash: sha256:7be83e5257d68826159cc196e4e6a67ddbf27edd1510b5312e06df0c2b6bc2fc
+      quote: the applicant may make another application (divisional application) for the registration
+        of the trade mark in respect of some only of the goods and/or services in respect of which
+        registration is sought under the parent application
+    confidence: 0.85
+    reasoning: >-
+      Both the Act and the Manual state it. Written from Part 12 rather than the section 43 material
+      GC-0043 rests on; the overlap is flagged.
+    alternatives_considered:
+    - >-
+      Not writing it because GC-0043 exists — same reasoning as the other overlaps in this pass.
+    expert_should_check: >-
+      The overlap with the signed GC-0043.
+- id: GC-0111
+  pref_label: convention application
+  alt_labels:
+  - convention claim
+  - claim for priority
+  not_labels:
+  - divisional application
+  - priority date
+  - international registration
+  definition_sources:
+  - TMM/Part11/1/1/2
+  - TMM/Part11/1#1
+  legislative_basis:
+  - TMA1995/s29
+  - TMR1995/r21.29
+  notes: >-
+    A claim under the Paris Convention that moves the priority date back to an earlier foreign filing.
+    The Manual defines 'Convention country' by two routes — Paris signatory or full WTO member — which
+    is worth carrying because they are not the same set.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part11/1/1/2
+      span:
+      - 0
+      - 104
+      content_hash: sha256:1a253922355f22a634da8bad7e6c2fc1104ed3c6c8c185f4a7c7e34d27051e4b
+      quote: A Convention country is a foreign country or region of a kind prescribed by the regulations
+        (section 6).
+    confidence: 0.7
+    reasoning: >-
+      The Manual defines the country; the application type is the mechanism built on it. The record
+      is honest that the evidence carries the first more strongly than the second.
+    alternatives_considered:
+    - >-
+      Authoring 'Convention country' as the concept instead. Both are worth holding; this pass takes
+      the application because that is what an examiner meets.
+    expert_should_check: >-
+      Whether 'Convention country' should be a separate concept. Its definition is the evidence this
+      record rests on, which is an argument that it should.
+- id: GC-0112
+  pref_label: Madrid Protocol
+  alt_labels:
+  - the Madrid Protocol
+  - Protocol
+  not_labels:
+  - Paris Convention
+  - international registration
+  - IRDA
+  definition_sources:
+  - TMM/Part60/1/1/1
+  legislative_basis:
+  - TMR1995/r2.1/madrid-protocol
+  - TMR1995/r17A.2
+  notes: >-
+    A treaty, administered by WIPO's International Bureau, under which one application in English
+    with one set of fees produces one international registration. Everything in Part 60 hangs off
+    it.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part60/1/1/1
+      span:
+      - 0
+      - 200
+      content_hash: sha256:23918abb0595bb552f8c1f0ae0b3241db50b86e0ba5cbe379b273d53ee20194a
+      quote: The Madrid Protocol is a treaty providing for the international registration of trade
+        marks. It is administered by the International Bureau (IB) of the World Intellectual Property
+        Organization (WIPO).
+    confidence: 0.9
+    reasoning: >-
+      Defined in terms at the head of the Manual's largest Part.
+    alternatives_considered:
+    - >-
+      Not holding it, as an instrument rather than a concept. Rejected: 141 chunks of the Manual are
+      about it and none of them can be represented without it.
+    expert_should_check: >-
+      Whether the bare 'Protocol' is safe as an alt_label. The Regulations define 'Protocol' separately
+      in regulation 17A.2 and the two may not be the same term.
+- id: GC-0113
+  pref_label: international registration designating Australia
+  alt_labels:
+  - IRDA
+  - international registration designating Australia (IRDA)
+  not_labels:
+  - international registration
+  - protected international trade mark
+  - trade mark application
+  definition_sources:
+  - TMM/Part60/1/1/1
+  legislative_basis:
+  - TMR1995/r17A.2
+  - TMR1995/r2.1/irda
+  notes: >-
+    The Australian half of a Madrid registration. It is examined much as a domestic application is,
+    which is why the Manual's Parts 26 to 31 keep referring to it, and it becomes a protected international
+    trade mark rather than a registered trade mark.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMR1995/r2.1/irda
+      span:
+      - 0
+      - 47
+      content_hash: sha256:701c43cd65d6ed64f5207ea8744ade5d4fae3c322ef5d8170dbe4c3508bfb6d4
+      quote: IRDA has the meaning given by regulation 17A.2.
+    - ref: TMM/Part60/1/1/1
+      span:
+      - 0
+      - 92
+      content_hash: sha256:23918abb0595bb552f8c1f0ae0b3241db50b86e0ba5cbe379b273d53ee20194a
+      quote: The Madrid Protocol is a treaty providing for the international registration of trade
+        marks.
+    confidence: 0.6
+    reasoning: >-
+      The Regulations define the term by pointing at another regulation whose text this record does
+      not quote, so the basis is inferred rather than explicit. It is held because 86 Manual passages
+      use the abbreviation and the vocabulary could not read them.
+    alternatives_considered:
+    - >-
+      Quoting regulation 17A.2's own definition. That is the right evidence and this pass did not
+      resolve it — the reg 17A.2 unit for IRDA was not located, which is a gap rather than a decision.
+    expert_should_check: >-
+      The evidence. This record's statutory citation is a pointer, not a definition, and the definition
+      it points at should replace it.
+- id: GC-0114
+  pref_label: protected international trade mark
+  alt_labels:
+  - protected international trade mark designating Australia
+  not_labels:
+  - registered trade mark
+  - IRDA
+  - international registration
+  definition_sources:
+  - TMM/Part60/1/1/1
+  legislative_basis:
+  - TMR1995/r2.1/protected-international-trade-mark
+  - TMR1995/r17A.2
+  notes: >-
+    The Madrid equivalent of a registered trade mark, and section 44's note 4 makes it citable against
+    a domestic application. Holding it apart from 'registered trade mark' is what lets a citation
+    search reach both.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s44
+      span:
+      - 906
+      - 1090
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: The regulations may provide that an application must also be rejected if the trade mark
+        is substantially identical with, or deceptively similar to, a protected international trade
+        mark
+    confidence: 0.7
+    reasoning: >-
+      Section 44's note names the term and states its effect on examination, which is the operative
+      fact. The Regulations' own definition is a pointer, as with IRDA.
+    alternatives_considered:
+    - >-
+      Treating it as an alt_label of 'registered trade mark'. Rejected: the Act names them separately
+      in the same sentence.
+    expert_should_check: >-
+      The definition source is a Part 60 passage about the Protocol generally rather than about protection
+      specifically.
+- id: GC-0115
+  pref_label: Registrar of Trade Marks
+  alt_labels:
+  - the Registrar
+  - Registrar
+  not_labels:
+  - Deputy Registrar
+  - delegate
+  - prescribed court
+  definition_sources:
+  - TMM/Part52/1#1~2
+  legislative_basis:
+  - TMA1995/s6/registrar
+  - TMA1995/s200
+  - TMA1995/s205
+  notes: >-
+    Almost every duty and discretion in the Act is the Registrar's. Section 205 makes a Deputy Registrar's
+    exercise of a power count as the Registrar's, which is why decisions issued by a Deputy are the
+    Registrar's decisions. GC-0046 already holds this term.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/registrar
+      span:
+      - 0
+      - 45
+      content_hash: sha256:0747d36f6b8a618b2323ad53edf975988f3b9f381ffb912f4d01a29ab6e27e53
+      quote: Registrar means the Registrar of Trade Marks.
+    - ref: TMM/Part52/1#1~2
+      span:
+      - 1
+      - 258
+      content_hash: sha256:723ee051e2a60bb61a0318cfc85969b781e67761c44ce860393db228c2d7dfec
+      quote: Under section 205 of the Act, a Deputy Registrar has all the powers and functions of
+        the Registrar (except the power of delegation) and when a Deputy Registrar exercises a power
+        or function under the Act, it is taken to have been exercised by the Registrar.
+    confidence: 0.8
+    reasoning: >-
+      Defined by the Act, and the Manual supplies the delegation rule that makes the role behave the
+      way examiners meet it. Overlaps the signed GC-0046 and says so.
+    alternatives_considered:
+    - >-
+      Not writing it because GC-0046 exists — same reasoning as the other overlaps.
+    expert_should_check: >-
+      The overlap with the signed GC-0046, and whether the section 205 point belongs in this concept
+      or in a separate 'Deputy Registrar' one.
+- id: GC-0116
+  pref_label: applicant
+  alt_labels: []
+  not_labels:
+  - registered owner
+  - opponent
+  - authorised user
+  definition_sources:
+  - TMM/Part10/1#1
+  legislative_basis:
+  - TMA1995/s6/applicant
+  - TMA1995/s27
+  notes: >-
+    Defined by the Act as the person in whose name the application currently stands — so the applicant
+    can change without the application changing. The Manual's Part 10 treats getting the identity
+    right as a formality requirement in its own right.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/applicant
+      span:
+      - 0
+      - 110
+      content_hash: sha256:fd368ed715ee3a61abeefebce1aa72df52a0b2ee24b76e19d86b208526e6d689
+      quote: applicant, in relation to an application, means the person in whose name the application
+        is for the time being
+    confidence: 0.8
+    reasoning: >-
+      Defined in terms, and the 'for the time being' clause is the part worth keeping — it is what
+      makes assignment of a pending application coherent.
+    alternatives_considered:
+    - >-
+      Not holding it as too general. Rejected: 542 Manual passages use it and the Act defines it.
+    expert_should_check: >-
+      Whether the definition source should be Part 10.1 on the name requirement or a passage about
+      who may apply under section 27.
+- id: GC-0117
+  pref_label: opponent
+  alt_labels: []
+  not_labels:
+  - applicant
+  - objector
+  - requester
+  definition_sources:
+  - TMM/Part46/1#1
+  legislative_basis:
+  - TMA1995/s6/opponent
+  - TMR1995/r5.2
+  notes: >-
+    Defined in five different places across the Regulations as well as in section 6 — one per opposition
+    type. The multiplicity is real and this record does not resolve it.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part46/1#1
+      span:
+      - 209
+      - 353
+      content_hash: sha256:02a2b1a95baa2a0cc7c9e71bfd36f03d235e71e78c4e90c9b8cd0eae568015a8
+      quote: Any person may oppose but the opponent is generally a person who will be in some way
+        affected by the presence of the trade mark on the Register.
+    confidence: 0.7
+    reasoning: >-
+      The Manual states who an opponent generally is. The statutory definitions differ by proceeding
+      and are deliberately not merged here (CLAUDE.md rule 6).
+    alternatives_considered:
+    - >-
+      Six concepts, one per statutory definition. That is the honest structure if the definitions
+      actually differ; establishing whether they do is a reading job this pass did not do.
+    expert_should_check: >-
+      Whether the six statutory definitions of 'opponent' are the same concept. The candidate pass
+      found them and refused to choose; this record inherits that refusal.
+- id: GC-0118
+  pref_label: presumption of registrability
+  alt_labels:
+  - presumption that a trade mark is registrable
+  not_labels:
+  - ground for rejection
+  - acceptance
+  definition_sources:
+  - TMM/Part20/4#1~1
+  - TMM/Part22/2#1
+  legislative_basis:
+  - TMA1995/s33
+  - TMA1995/s33(1)
+  notes: >-
+    The Manual is careful here and the record follows it: the expression does not appear in the Act.
+    It is a reading of section 33's structure, endorsed by Branson J in Blount, that the Registrar
+    must accept unless satisfied of a ground. GC-0007 already holds this term.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part22/2#1
+      span:
+      - 209
+      - 266
+      content_hash: sha256:02834afac7791e3caa1c4b6642be870819de7067fd704d18e482d173536fbc63
+      quote: However the expression does not appear in the Act itself.
+    - ref: TMM/Part20/4#1~1
+      span:
+      - 0
+      - 70
+      content_hash: sha256:67daa8312e2898e336753ab4fecc9acaea819f1ea3af243af1c38300cb23e6d5
+      quote: There is a presumption under the Act that a trade mark is registrable.
+    confidence: 0.8
+    reasoning: >-
+      Two passages, and they are in mild tension — Part 20.4 asserts the presumption and Part 22.2
+      says the expression is not in the Act. Both are quoted rather than reconciled, because the tension
+      is the interesting part and resolving it would be authoring a position the corpus does not take.
+    alternatives_considered:
+    - >-
+      Quoting only Part 20.4, which reads as a clean statement of the presumption. Rejected: that
+      would hide the qualification.
+    expert_should_check: >-
+      Whether the two passages really are in tension or whether Part 22.2 is only saying the phrase
+      is not a statutory term. The record takes the second reading and quotes both.
+- id: GC-0119
+  pref_label: prima facie capable of distinguishing
+  alt_labels:
+  - sufficiently inherently adapted to distinguish
+  - prima facie capable
+  not_labels:
+  - capable of distinguishing
+  - inherent adaptation to distinguish
+  definition_sources:
+  - TMM/Part22/4#1
+  legislative_basis:
+  - TMA1995/s41(2)
+  - TMA1995/s41(3)
+  - TMA1995/s41(4)
+  notes: >-
+    The first of the Manual's three categories. A mark is here if it has no ordinary signification
+    for the goods, or has one that other traders are not likely to want without improper motive.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part22/4#1
+      span:
+      - 0
+      - 166
+      content_hash: sha256:c913a253befa45dce013e339e8885704fbdfeffb6fa4f4716213525fc4fabd7f
+      quote: If the trade mark has no ordinary signification in connection with the goods and/or services
+        applied for then it can be taken to be inherently adapted to distinguish.
+    confidence: 0.8
+    reasoning: >-
+      The Manual states the rule for the category in terms. Held separately because the three-category
+      sort is how Part 22 organises everything after it, and a vocabulary without the categories cannot
+      follow the argument.
+    alternatives_considered:
+    - >-
+      Not holding the categories, on the ground that they are steps in applying the s 41 test. Rejected:
+      the Manual says every mark examined falls into one of the three, which makes them a classification
+      and not a step.
+    expert_should_check: >-
+      Whether the three categories should be one concept with three values rather than three concepts.
+      This pass holds two of the three and that asymmetry is itself a defect.
+- id: GC-0120
+  pref_label: no inherent adaptation to distinguish
+  alt_labels:
+  - not to any extent inherently adapted to distinguish
+  not_labels:
+  - prima facie capable of distinguishing
+  - inherent adaptation to distinguish
+  definition_sources:
+  - TMM/Part22/6#1
+  legislative_basis:
+  - TMA1995/s41(3)(a)
+  notes: >-
+    The Manual's third category and the hardest to overcome: only use before the filing date sufficient
+    to make the mark in fact distinguish will do it. The Manual's list of examples — pictorial representations,
+    geographical names, laudatory words — is the practical content of the category.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part22/6#1
+      span:
+      - 0
+      - 306
+      content_hash: sha256:69309cb19c547728f5b28691564c7ddfa4bf891222c0cab6e9a38810b4ba4d16
+      quote: 'Trade marks that have no inherent adaptation to distinguish the goods or services of
+        one trader from those of other traders include signs which are: pictorial representations
+        of the goods or services, geographical names like OREGON, MICHIGAN and OXFORD; highly laudatory
+        words like PERFECTION and BEAUTIFUL'
+    confidence: 0.8
+    reasoning: >-
+      The Manual states the category and exemplifies it in one sentence. Held for the same reason
+      as the first category.
+    alternatives_considered:
+    - >-
+      Merging the three categories into 'inherent adaptation to distinguish' as degrees. That is arguably
+      truer to section 41(3) and (4) and would need the concept to carry a scale, which the record
+      type cannot.
+    expert_should_check: >-
+      The missing middle category — limited inherent adaptation but not prima facie capable, the Manual's
+      Part 22.5. This pass holds the outer two and not the middle, which is an omission rather than
+      a judgement.
+- id: GC-0121
+  pref_label: classification of goods and services
+  alt_labels:
+  - classification
+  - the Nice Classification
+  - classes
+  not_labels:
+  - similarity of goods and services
+  - specification of goods and services
+  definition_sources:
+  - TMM/Part14/1#1~1
+  legislative_basis:
+  - TMR1995/r3.1
+  - TMR1995/r4.4
+  notes: >-
+    The largest Part of the Manual by chunk count — 743 of 2,460 — and the one most easily confused
+    with the similarity question. Part 26 says in terms that classification does not determine similarity.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part14/1#1~1
+      span:
+      - 0
+      - 157
+      content_hash: sha256:65232351f99bb8e864485b8a1251114633c4fa8e62b61c0a36adcc073f256cb3
+      quote: This Part of the Manual sets out the purpose of classification, guidelines for classification,
+        restrictions applying to amendments, and examination practice.
+    - ref: TMM/Part26/4#1
+      span:
+      - 360
+      - 456
+      content_hash: sha256:78526672fb230fb32140c73d688d23d3b57284e2943ba5dbddc77e0bbca71b3d
+      quote: Classification is not the determining factor in considering the similarity of goods or
+        services.
+    confidence: 0.75
+    reasoning: >-
+      Held mainly to carry the near-miss: a third of the Manual is classification and the single most
+      valuable thing the vocabulary can say about it is that it does not answer the section 44 question.
+    alternatives_considered:
+    - >-
+      Not holding it, as administration. Rejected precisely because of its size — a vocabulary silent
+      about a third of the corpus is not a vocabulary of the corpus.
+    expert_should_check: >-
+      Whether the individual classes should be concepts. This pass says no; the candidate pass found
+      348 class headings and they are all in `review/candidates/`.
+- id: GC-0122
+  pref_label: expedited examination
+  alt_labels:
+  - expedite examination
+  not_labels:
+  - examination
+  - deferment of acceptance
+  definition_sources:
+  - TMM/Part6/1#1
+  legislative_basis:
+  - TMR1995/r4.18
+  - TMR1995/r4.19
+  notes: >-
+    Applications are examined in filing order unless the Registrar reasonably believes expedition
+    is warranted. Note the modality — the Registrar *may* expedite, on a reasonable belief.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part6/1#1
+      span:
+      - 193
+      - 334
+      content_hash: sha256:80a50da3b254cdae62f7acc6cee2578fdcb480667d4ce8907563a93e75cebd52
+      quote: The Registrar may expedite examination of an application if he or she reasonably believes
+        that expedited examination is warranted (reg 4.19).
+    confidence: 0.8
+    reasoning: >-
+      Stated in terms with both regulations cited.
+    alternatives_considered:
+    - >-
+      Folding it into 'examination'. Rejected: it has its own Part, its own regulations and its own
+      discretion.
+    expert_should_check: >-
+      Nothing specific.
+- id: GC-0123
+  pref_label: withdrawal
+  alt_labels:
+  - withdraw
+  - notice of withdrawal
+  not_labels:
+  - lapsing of an application
+  - revocation of acceptance
+  - amendment
+  definition_sources:
+  - TMM/Part7/1#1
+  legislative_basis:
+  - TMA1995/s214
+  - TMR1995/r21.10
+  notes: >-
+    Available at any time while the thing withdrawn is still being considered, and the Registrar must
+    publish it. Distinct from lapsing, which happens without anybody doing anything.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part7/1#1
+      span:
+      - 0
+      - 155
+      content_hash: sha256:dc0107b9a55fe673e85890d21f45905a5c9c3a1e705964f4f0474e1891845cef
+      quote: Section 214 provides that a person who has filed an application, notice or request may
+        withdraw it by giving the Registrar notice of withdrawal in writing.
+    confidence: 0.85
+    reasoning: >-
+      Stated in terms with the section cited.
+    alternatives_considered:
+    - >-
+      Not holding it. Rejected: it is one of only three ways an application can end other than by
+      registration, and the vocabulary should hold all three.
+    expert_should_check: >-
+      Nothing specific.
+- id: GC-0124
+  pref_label: amendment of an application
+  alt_labels:
+  - amendment
+  - amendments
+  not_labels:
+  - rectification of the Register
+  - withdrawal
+  - divisional application
+  definition_sources:
+  - TMM/Part9/1#1
+  legislative_basis:
+  - TMA1995/s63
+  - TMA1995/s64
+  - TMA1995/s65
+  - TMA1995/s83
+  notes: >-
+    Part 6 of the Act governs amendment before registration and Division 1 of Part 8 after it — two
+    regimes, and which one applies depends on where the mark has got to.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part9/1#1
+      span:
+      - 118
+      - 321
+      content_hash: sha256:6c01cbd541778ccd23945673c94fd15dcd8cdc23a2fa3a65fa8298f3c4c255da
+      quote: Amendments to trade mark application details, and other documents, can be made under
+        Part 6 of the Act. Amendments to details of a registered trade mark can be made under Division
+        1 of Part 8 of the Act.
+    confidence: 0.8
+    reasoning: >-
+      The Manual states both regimes and their boundary in one sentence. Amending the specification
+      is also one of the Manual's named ways of overcoming a section 44 ground, which is why this
+      concept matters to examination and not only to administration.
+    alternatives_considered:
+    - >-
+      Two concepts, one per regime. Defensible; the Manual treats them in one Part and this record
+      follows it.
+    expert_should_check: >-
+      Whether amendment before and after registration are one concept. The Act's structure argues
+      they are two.
+- id: GC-0125
+  pref_label: plant varietal name
+  alt_labels:
+  - plant variety denomination
+  - plant varietal names
+  not_labels:
+  - geographical indication
+  - generic term
+  definition_sources:
+  - TMM/Part32A/1/1/1
+  - TMM/Part32A/1/1/2
+  legislative_basis:
+  - TMA1995/s41
+  - TMA1995/s43
+  notes: >-
+    Examination of Class 31 plant applications takes in the Plant Breeder's Rights Act 1994 — legislation
+    outside the Trade Marks Act entirely. That is the interesting thing about this concept and the
+    reason it is held.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part32A/1/1/1
+      span:
+      - 0
+      - 195
+      content_hash: sha256:7238aa84d5fea3ba2fb958326d534a9ba14720077aee6c2ffc0539867fbcdace
+      quote: Examination of trade mark applications filed in Class 31 in respect of plants and plant
+        material involves consideration of additional requirements arising from the Plant Breeder’s
+        Rights Act 1994
+    confidence: 0.7
+    reasoning: >-
+      The Manual states the interaction in terms. Held because it is one of two places where examination
+      reaches outside the trade marks legislation, and a vocabulary built only from the Act would
+      never find it.
+    alternatives_considered:
+    - >-
+      Not holding it, as a specialised corner. Rejected: Part 32A is 61 chunks and the boundary removal
+      is exactly what makes corners like this visible.
+    expert_should_check: >-
+      The legislative_basis. This record names s 41 and s 43 as the grounds the varietal name bears
+      on, which is an inference from Part 22.27's title rather than a citation in the quoted passage.
+- id: GC-0126
+  pref_label: protected wine expression
+  alt_labels:
+  - geographical indication for wine
+  - protected GI
+  not_labels:
+  - geographical indication
+  - geographical name
+  - plant varietal name
+  definition_sources:
+  - TMM/Part32B/1/1/1
+  legislative_basis:
+  - TMA1995/s43
+  - TMA1995/s61
+  notes: >-
+    The second place examination reaches outside the trade marks legislation: the Wine Australia Act
+    2013. Distinguished from the section 6 'geographical indication' because the protection comes
+    from a different statute.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part32B/1/1/1
+      span:
+      - 0
+      - 218
+      content_hash: sha256:7c737edcd548f36aa4c10588c4c0c22b98dfd7ed73a747cb8053e957388477aa
+      quote: Examination of trade mark applications filed in respect of wines and grape products such
+        as brandy, grappa and fortified wines involves consideration of additional requirements arising
+        from the Wine Australia Act 2013.
+    confidence: 0.65
+    reasoning: >-
+      The Manual states the interaction. The label is this repository's — the passage names the Act
+      rather than the protected thing — and that is flagged.
+    alternatives_considered:
+    - >-
+      Naming the concept 'wine geographical indication'. The Act defines 'geographical indication'
+      in section 6 and GC-0018 already holds it, so a close label would invite exactly the merge this
+      record is trying to avoid.
+    expert_should_check: >-
+      The preferred label, which no passage supplies. An expert should replace it.
+- id: GC-0127
+  pref_label: decision
+  alt_labels:
+  - Registrar's decision
+  - written decision
+  not_labels:
+  - hearing
+  - adverse report
+  - ground for rejection
+  definition_sources:
+  - TMM/Part52/1#1~1
+  legislative_basis:
+  - TMA1995/s205
+  - TMA1995/s35
+  notes: >-
+    The Manual's Part 52 opens by listing what gets decided — oppositions to registration, to removal
+    for non-use, to procedural matters — and section 205 makes a Deputy Registrar's decision the Registrar's.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part52/1#1~1
+      span:
+      - 50
+      - 188
+      content_hash: sha256:f2b22d48cf5695afb6d756fa140a8e316154f0953c2a55f07123ba2439f985d4
+      quote: Opposition to registration of a trade mark, opposition to removal of a trade mark from
+        the Register for non- use, opposition to procedural
+    confidence: 0.6
+    reasoning: >-
+      The evidence is a list of what is decided rather than a definition of a decision, which is the
+      weakest kind of support in this pass. The concept is held anyway because 178 Manual passages
+      use the word and a knowledge base about examination that cannot say 'decision' is missing something
+      structural.
+    alternatives_considered:
+    - >-
+      Not holding it until a definitional passage is found. Rejected, but the reviewer should know
+      the record is thin.
+    expert_should_check: >-
+      This record's evidence does not define a decision. Either Part 52 defines it somewhere this
+      pass did not reach, or the record should be redrawn or dropped.
+- id: GC-0128
+  pref_label: hearing
+  alt_labels:
+  - inter partes hearing
+  - ex parte hearing
+  not_labels:
+  - decision
+  - opposition
+  - examination
+  definition_sources:
+  - TMM/Part51/1#1~1
+  legislative_basis:
+  - TMA1995/s33(4)
+  - TMA1995/s202
+  notes: >-
+    Section 33(4) makes an opportunity to be heard a precondition of rejection, which is what ties
+    hearings to examination rather than to opposition alone.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s33
+      span:
+      - 631
+      - 734
+      content_hash: sha256:36311d92754a0ea33e97abec732d66bb149a577c8004ce2f28ee98bb3bcb54e2
+      quote: The Registrar may not reject an application without giving the applicant an opportunity
+        of being heard.
+    confidence: 0.7
+    reasoning: >-
+      Section 33(4) states the entitlement in terms. The concept is drawn from the Act rather than
+      from Part 51, because Part 51's opening is about how evidence is filed rather than about what
+      a hearing is.
+    alternatives_considered:
+    - >-
+      Two concepts, ex parte and inter partes. The Manual distinguishes them and an expert may want
+      them apart; this record keeps them as alt_labels.
+    expert_should_check: >-
+      Whether ex parte and inter partes hearings are one concept. The Manual gives them different
+      procedures.
+- id: GC-0129
+  pref_label: specification of goods and services
+  alt_labels:
+  - specification
+  - specification of goods and/or services
+  not_labels:
+  - classification of goods and services
+  - similarity of goods and services
+  definition_sources:
+  - TMM/Part10/5#1
+  legislative_basis:
+  - TMA1995/s27(1)(b)
+  - TMR1995/r4.4
+  notes: >-
+    What the applicant claims, as against how it is classified and whether it is similar to something
+    else. Amending it is one of the Manual's named ways of overcoming a section 44 ground. GC-0012
+    already holds this term.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part27/1#1
+      span:
+      - 312
+      - 418
+      content_hash: sha256:3a61229ed189ea7c63894d6d0d2da5e353f303562b87a81c8bfaee870d1ebc5f
+      quote: Amend the specification in order to remove all goods/services that conflict with the
+        earlier trade mark(s)
+    confidence: 0.65
+    reasoning: >-
+      The evidence states what a specification is for in the one place it does operative work in examination.
+      That is thinner than a definition and is flagged. Overlaps the signed GC-0012.
+    alternatives_considered:
+    - >-
+      Drawing the evidence from Part 10.5, which is the Manual's section on specifications. That passage
+      should probably replace this one.
+    expert_should_check: >-
+      Both the overlap with GC-0012 and the evidence, which is drawn from Part 27 rather than from
+      the Part 10 section this record cites as its definition source.
+- id: GC-0130
+  pref_label: reputation
+  alt_labels:
+  - reputation in Australia
+  not_labels:
+  - use of a trade mark
+  - evidence of use
+  - connotation
+  definition_sources:
+  - TMM/Part34/1/1/1
+  legislative_basis:
+  - TMA1995/s185
+  - TMA1995/s60
+  notes: >-
+    Does different work in different places: it is what a defensive registration rests on, and it
+    is the basis of the section 60 opposition ground. GC-0050 already holds this term from the section
+    43 pilot.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part34/1/1/1
+      span:
+      - 309
+      - 520
+      content_hash: sha256:7b44f7d0f5f4f947f0e52138b3d80f9f8b0553bebcd6d25b124069add4f2954b
+      quote: The trade mark had also to have been used to such an extent, on some or all of the goods
+        and/or services for which it was registered, that the use of the trade mark in relation to
+        other goods or services would b
+    confidence: 0.6
+    reasoning: >-
+      The evidence is the defensive-registration requirement, which is reputation described rather
+      than named. Held because reputation is one of the few concepts that genuinely spans the Manual
+      — Parts 29, 34, 46 and 47 all reason with it — and the boundary removal is what makes that visible.
+      Overlaps the signed GC-0050.
+    alternatives_considered:
+    - >-
+      Not writing it because GC-0050 exists. The overlap is real and flagged; what this record adds
+      is the Part 34 sense, which the section 43 record cannot carry.
+    expert_should_check: >-
+      Whether reputation under section 43, section 60 and section 185 is one concept or three. This
+      is the most consequential unresolved question in the pass.

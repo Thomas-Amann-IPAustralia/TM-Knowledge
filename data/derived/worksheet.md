@@ -2,24 +2,25 @@
 
 # Pass B annotation worksheet — TMA1995/s43
 
-> **Provisional, and this is not the pilot scope.** The rows below are
-> selected by a deliberately over-inclusive machine rule the owner set
-> (ADR-0022) so that annotation can begin before the expert boundary is
-> drawn. When `eval/pilot-scope.md` lands, this worksheet is regenerated
-> and the delta reported; annotations made against rows later ruled out of
-> scope are **parked, not deleted**.
+> **This is one area of the Manual, chosen — not a boundary.** The whole
+> Manual is in scope: the owner withdrew the section 43 boundary on
+> 2026-09-08 and there is no exclusion rule anywhere in this repository
+> (ADR-0081, ADR-0096). The rows below are what a deliberately
+> over-inclusive machine rule selects for the provision named above, so
+> that annotation has somewhere to start. Nothing outside them is out of
+> scope; it is unprinted, and `--provision` prints somewhere else.
 
 
 | | |
 |---|---|
-| Scope rule | every chunk whose `provisions[]` carries `TMA1995/s43` or any unit beneath it, matched on the ref grammar and not by substring, plus every chunk sharing a `page_ref` with one of those |
+| Selection rule | every chunk whose `provisions[]` carries `TMA1995/s43` or any unit beneath it, matched on the ref grammar and not by substring, plus every chunk sharing a `page_ref` with one of those |
 | Chunks printed | 216 of 2460 |
 | — of which cite the provision | 67 |
 | — page-mates carried in with them | 149 |
 | Pages | 36 |
 | Pinned snapshot | `Thomas-Amann-IPAustralia/manual-XtrACTor` @ `c490a9927f1ab67c1c2fe4afdc758c79f35430c8` |
 | Extractor versions | `ingest/0.11.0`, `legislation/0.2.0` |
-| Generated | 2026-09-02 |
+| Generated | 2026-09-09 |
 
 
 ## How to use this
@@ -32,10 +33,10 @@ Every row carries the two things that must not be typed by hand — the
 `chunk_ref` and the `content_hash` the text had when this was printed. If
 the corpus moves under an annotation, that hash is what says so.
 
-A `←` on a provision edge marks the edge that put the chunk in scope.
+A `←` on a provision edge marks the edge that selected the chunk.
 `href` means the Manual's authors linked the provision themselves; `regex`
 means upstream read it out of the prose, and `default` on such an edge is
-upstream's inference from a bare 'section 43' rather than anything IP
+upstream's inference from a bare section number rather than anything IP
 Australia said. `ambiguous` means upstream refused to choose between
 instruments — those rows are printed **because** they are ambiguous.
 
@@ -4111,4 +4112,4 @@ Last amended 2025-04-02. Page renamed. Links updated.
 
 ---
 
-*Generated from the pinned snapshot. Scope rule: ADR-0022, provisional. Worksheet scope is not pilot scope.*
+*Generated from the pinned snapshot. Selection rule: ADR-0022's, now a selector rather than a boundary (ADR-0096). Everything not printed here is in scope and unprinted, not excluded.*

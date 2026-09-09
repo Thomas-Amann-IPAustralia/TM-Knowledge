@@ -55,10 +55,18 @@ schemas:
 | `reasoning-expected.yaml` | reasoning expectation |
 | `prohibited-uses.yaml` | prohibited use |
 
-**What is in it today:** `concept-types.yaml`, 52 records, every approved
-concept sorted into one of the four groups and none of it read by an expert
-(ADR-0092). Every other file in the table is absent, which is the honest state
-of a store that has been filled for one record type.
+**What is in it today:** `concepts.yaml`, 78 records, and `concept-types.yaml`,
+130. The concepts are the vocabulary of the 53 Parts the section 43 boundary hid
+(ADR-0095); the typings are one per concept in the project, signed and authored
+alike (ADR-0092, ADR-0095). **No expert has read any of it.** Every other file in
+the table is absent, which is the honest state of a store filled for two record
+types out of nine.
+
+**Eight of the 78 concepts cover ground a signed record already claims** —
+GC-0007, GC-0012, GC-0016, GC-0035, GC-0042, GC-0043, GC-0046, GC-0050. Each
+names the overlap in `expert_should_check`. None of them displaces the signed
+record and no agent may retire one: ADR-0080 consequence 2 retires the
+*authored* record when a signed one covers it, and never the reverse.
 
 `definitions.yaml` was named here when this directory was created and **is not
 in the list**: a definition has no schema and no id series, so the store cannot
