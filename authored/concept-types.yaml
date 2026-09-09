@@ -1779,7 +1779,7 @@
       label may make it easier to cross.
 - id: GT-0040
   concept: GC-0040
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part29/3/3/4
   - TMM/Part47/1/1/2/2
@@ -1791,7 +1791,7 @@
   authored:
     review_status: unreviewed
     authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_date: '2026-09-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/3/3/4
@@ -1813,18 +1813,19 @@
         in an approved form.
     confidence: 0.75
     reasoning: >-
-      Opposition is a stage in the process, not a reason to refuse, a question inside
-      the s 43 judgement, or a way out of it. Typed none_of_these as evidence about the
-      taxonomy: the four groups sort the substance of a decision and this concept is about
-      where a decision is made.
+      A proceeding brought after acceptance that determines whether the mark proceeds
+      to registration. A transition in the life of an application.
     alternatives_considered:
     - >-
-      relevant_factor — the Manual does treat 'this is better dealt with at opposition'
-      as bearing on whether an examiner raises the ground, so the forum can feed the decision.
+      process_role — no. The opponent is the role and is typed one at GT-0117.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether the four groups are meant to cover procedural concepts at all. Five records
-      here — GT-0040, GT-0042 to GT-0046 — are none_of_these for this reason, and a sixth
-      group would take all of them.
+      GC-0040 (signed) and GC-0102 (authored) are both 'opposition'. Both are typed procedural_step
+      and neither displaces the other; the duplication is a vocabulary problem named on
+      the records rather than resolved by a typing.
 - id: GT-0041
   concept: GC-0041
   type: relevant_factor
@@ -1876,7 +1877,7 @@
       between them is load-bearing under s 43.
 - id: GT-0042
   concept: GC-0042
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part51/10#1~1
   notes: >-
@@ -1887,7 +1888,7 @@
   authored:
     review_status: unreviewed
     authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_date: '2026-09-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part51/10#1~1
@@ -1900,19 +1901,21 @@
         the application for registration of the trade mark if he or she is satisfied that
     confidence: 0.8
     reasoning: >-
-      A power exercised after acceptance under s 38, on its own conditions. It is not
-      a s 43 ground, not a question inside one, and not a way out of one.
+      An acceptance is undone and the application returns to an earlier state. A transition.
     alternatives_considered:
     - >-
-      exception — rejected: revocation reopens a decision rather than excusing a case
-      from the rule.
+      exception — rejected. Revoking an acceptance is not a case falling outside a rule;
+      it is the reversal of a step already taken.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether this concept belongs in the vocabulary. GC-0042's own note puts it on the
-      edge and says it is there mainly because 'revocation of registration' is a different
-      thing one word away.
+      GC-0042 (signed) and GC-0094 (authored) are both 'revocation of acceptance'. Both
+      are typed procedural_step and neither displaces the other.
 - id: GT-0043
   concept: GC-0043
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part12/2#1
   notes: >-
@@ -1923,7 +1926,7 @@
   authored:
     review_status: unreviewed
     authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_date: '2026-09-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part12/2#1
@@ -1936,34 +1939,41 @@
         ground for rejection under sections 39, 41, 42 or 43, the applicant may decide
         to exclude the goods/services which have attracted the ground(s) for rejection
         from the parent application, so that the parent application can proceed to acceptance
-    confidence: 0.7
+    confidence: 0.6
     reasoning: >-
-      A filing mechanism, and one that answers a s 43 objection by moving goods rather
-      than by bearing on whether the ground exists. Typed none_of_these on the same reading
-      as the other procedural concepts.
+      What the concept names is the dividing: part of a parent application carried into
+      a new one, keeping the priority date and taking a new number.
     alternatives_considered:
     - >-
-      exception — the serious alternative: excluding the objected-to goods takes the parent
-      application out of the ground, which is what GC-0015 does by limitation and is typed
-      exception for. The difference relied on here is that a divisional creates a second
-      application rather than narrowing the first.
+      subject_matter — a divisional application is, on its face, an application: a thing.
+      This is the weakest typing in the group and the counter-argument is as strong as
+      the argument.
+    - >-
+      instrument_or_record — rejected. An application is a document, but the concept is
+      about what the division does to priority, not about the paper.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether the difference between limiting a specification (GT-0015, exception) and
-      dividing an application (this record, none_of_these) is real in practice or an artefact
-      of how the Manual files them.
+      GC-0043 (signed) and GC-0110 (authored) are both 'divisional application'. Both
+      are typed procedural_step and neither displaces the other. The group itself is the
+      weakest in this pass — see the alternatives. Decide it together with GT-0079, which
+      was typed the other way on the same reasoning.
 - id: GT-0044
   concept: GC-0044
-  type: none_of_these
+  type: process_role
   basis:
   - TMM/Part29/3/3/2
   - TMM/Part29/5/5/3
-  notes: 'examiner — also called: examiners — not: decision maker, delegate, Registrar'
+  notes: >-
+    examiner — also called: examiners — not: decision maker, delegate, Registrar
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
     authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_date: '2026-09-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/3/3/2
@@ -1985,30 +1995,36 @@
         of INN stems found at Annex 1 in this Part of the Manual
     confidence: 0.85
     reasoning: >-
-      An actor. The four groups sort the content of the s 43 judgement, and a person who
-      makes it is not a reason to refuse, a question, a factor or an out.
+      The Part 29 passages this record rests on describe what the examiner does — considers
+      the marketplace, checks the mark against the INN list. That is an office that acts,
+      and a person who makes a judgement is not the content of the judgement.
     alternatives_considered:
     - >-
-      none seriously. The only reading that would move it is one where the four groups
-      sort every concept in the vocabulary by some role, in which case the taxonomy needs
-      a fifth group for actors rather than a different answer here.
+      subject_matter — rejected. The examiner is who acts on the application, not what
+      is applied for.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      That none_of_these is being read as intended for GT-0044 to GT-0046: not 'we could
-      not decide' but 'the four groups do not reach this kind of concept'. If the owner
-      wants roles typed, the taxonomy needs a group they can go in.
+      Whether examiner, decision maker and Registrar are three roles or three names used
+      loosely for one. GC-0044, GC-0045 and GC-0046 hold them apart on the concept records,
+      all three are typed process_role here, and this typing inherits the question rather
+      than answering it.
 - id: GT-0045
   concept: GC-0045
-  type: none_of_these
+  type: process_role
   basis:
   - TMM/Part29/1#1
   - TMM/Part29/3/3/4
-  notes: 'decision maker — also called: the decision maker — not: examiner, hearing officer'
+  notes: >-
+    decision maker — also called: the decision maker — not: examiner, hearing officer
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
     authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_date: '2026-09-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/1#1
@@ -2025,18 +2041,28 @@
       quote: >-
         will only emerge at opposition when the full facts of a case are available to
         the decision maker
-    confidence: 0.85
-    reasoning: An actor, typed as GT-0044 is.
+    confidence: 0.8
+    reasoning: >-
+      The office that decides. The reviewer's own corrections to GE-0010 and GE-0047 turned
+      on holding the decision maker apart from the Registrar, and that distinction only
+      exists if the term names a role.
     alternatives_considered:
-    - none seriously — see GT-0044.
+    - >-
+      legal_test — rejected, and the temptation is real: almost every test in the vocabulary
+      is phrased as something the decision maker must be satisfied of. That makes the
+      decision maker the subject of the tests, not one of them.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      The distinction between this concept, GC-0044 and GC-0046 rather than the typing.
-      GC-0044's record note says the Manual switches between them and it is not obvious
-      whether the switch is meaningful; all three are typed identically here, which does
-      not answer that.
+      Whether examiner, decision maker and Registrar are three roles or three names used
+      loosely for one. GC-0044, GC-0045 and GC-0046 hold them apart on the concept records,
+      all three are typed process_role here, and this typing inherits the question rather
+      than answering it.
 - id: GT-0046
   concept: GC-0046
-  type: none_of_these
+  type: process_role
   basis:
   - TMM/Part29/2/2/4
   - TMM/Part29/5/5/4
@@ -2048,7 +2074,7 @@
   authored:
     review_status: unreviewed
     authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_date: '2026-09-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/2/2/4
@@ -2065,14 +2091,28 @@
       - 1272
       content_hash: sha256:86800dcce4d41f73e2792ad626162693402011f3c8ba4135bbf91f045f2a7b2f
       quote: 'The endorsement suggested by the Registrar in these circumstances is:'
-    confidence: 0.85
-    reasoning: An actor, typed as GT-0044 is.
+    confidence: 0.8
+    reasoning: >-
+      The office in which almost every duty and discretion in the Act sits. The Part 29
+      passages behind this record describe what the Registrar must be satisfied of, which
+      puts the Registrar on the deciding side of the sentence.
     alternatives_considered:
-    - none seriously — see GT-0044.
+    - >-
+      instrument_or_record — rejected without hesitation, and named only because the Register
+      and the Registrar are one word apart and a typing driven by labels rather than referents
+      would confuse them.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      GC-0046's record note says holding 'the Registrar’s delegate' as an alt label of
-      Registrar is probably wrong, because a delegate exercises the power and is not the
-      Registrar. The typing is unaffected either way, and the vocabulary error is not.
+      GC-0046's own record flags that holding "the Registrar's delegate" as an alt label
+      is probably wrong, because a delegate exercises the power and is not the Registrar.
+      Correcting that narrows the concept; it stays a process_role either way. Whether
+      examiner, decision maker and Registrar are three roles or three names used loosely
+      for one. GC-0044, GC-0045 and GC-0046 hold them apart on the concept records, all
+      three are typed process_role here, and this typing inherits the question rather
+      than answering it.
 - id: GT-0047
   concept: GC-0047
   type: relevant_factor
@@ -2276,7 +2316,7 @@
   authored:
     review_status: unreviewed
     authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_date: '2026-09-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/1#1
@@ -2290,22 +2330,32 @@
         of this section.
     confidence: 0.6
     reasoning: >-
-      This says how the rule operates once it is made out — that there is no discretion
-      — rather than supplying a reason to refuse, a question to answer, something to weigh
-      or a way out. Typed none_of_these as evidence that the four groups have no place
-      for the modality of a rule.
+      Kept in none_of_these deliberately, and the only one of the 53 that stays. The concept
+      is a statement about how a provision operates — that section 43 applies mandatorily
+      and there is no discretion to accept a mark caught by it. That is not a ground,
+      a test, a factor or an exception; and it is not a role, a thing, a step, a record
+      or an external scheme. It is a rule *about* a ground, and nine groups have no place
+      for one.
     alternatives_considered:
     - >-
-      ground_of_refusal — right if 'the section applies mandatorily' is read as part of
-      the ground itself rather than as a statement about it.
+      Inventing a tenth group — operative_rule — to hold it. Rejected: a category built
+      to hold one record is over-fitting, and the residual bucket exists so that a genuine
+      outlier can be shown as one rather than filed somewhere it half fits.
     - >-
-      exception — the inverse reading: it is what stops the discretion an exception would
-      need.
+      ground_of_refusal — rejected. Section 43 is the ground; this concept is the modality
+      attached to it.
+    - >-
+      legal_test — rejected. Nothing here is a question the decision maker answers.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      This record and GT-0007 together. GC-0051's own note says the two pull in opposite
-      directions and that how they sit together is one of the most useful things an expert
-      could write down here. They are typed none_of_these and exception, which records
-      the tension without resolving it.
+      Whether the vocabulary should carry modality statements as concepts at all, or whether
+      'the application of section 43 is mandatory' is a property of the section 43 ground
+      rather than a concept standing beside it. GC-0051's own record says this concept
+      and GC-0007 pull in opposite directions, and that tension is still unresolved —
+      GT-0007 is typed exception and this one is typed nothing.
 - id: GT-0052
   concept: GC-0052
   type: relevant_factor
@@ -2897,12 +2947,12 @@
       Nothing specific.
 - id: GT-0069
   concept: GC-0069
-  type: none_of_these
+  type: instrument_or_record
   basis:
   - TMA1995/s44
   notes: >-
-    conditions or limitations — also called: conditions and limitations, limitations — not: disclaimer,
-    endorsement, other circumstances
+    conditions or limitations — also called: conditions and limitations, limitations —
+    not: disclaimer, endorsement, other circumstances
   approved_by: null
   approved_date: null
   authored:
@@ -2916,19 +2966,27 @@
       - 2668
       - 2748
       content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
-      quote: subject to any conditions or limitations that the Registrar thinks fit to impose
-    confidence: 0.6
+      quote: >-
+        subject to any conditions or limitations that the Registrar thinks fit to impose
+    confidence: 0.65
     reasoning: >-
-      It is neither a ground, nor a question the decision maker answers, nor material feeding one,
-      nor something taking a case out of a rule — it is the form an acceptance can take. none_of_these
-      is an answer, and this is one of the places the four groups genuinely do not reach.
+      The terms the Registrar imposes on acceptance under subsection 44(3), recorded against
+      the registration. The concept names the terms.
     alternatives_considered:
     - >-
-      exception — because conditions and limitations usually arrive with s 44(3). Rejected: the exception
-      is honest concurrent use; this is a consequence of it.
+      exception — the real alternative, and the reason confidence is low. A limitation
+      takes goods or circumstances out of the exclusive right, which is close to the owner's
+      'something that takes a case out of the rule'. Rejected because an exception groups
+      a *rule*, and conditions or limitations are terms imposed on one particular registration.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      This is a good test of whether the taxonomy needs a fifth group for remedies and outcomes. Several
-      records in this pass fall the same way.
+      This is the record in the 53 with the strongest claim on one of the owner's original
+      four. If conditions or limitations are an exception, it leaves the process axis
+      entirely — and that would be evidence that the two axes are not cleanly separable,
+      which is the open question behind the whole pass.
 - id: GT-0070
   concept: GC-0070
   type: legal_test
@@ -2996,11 +3054,12 @@
       Type this and 'similarity of goods and services' the same way.
 - id: GT-0072
   concept: GC-0072
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMA1995/s17
   notes: >-
-    trade mark — also called: mark — not: sign, registered trade mark, trade name, business name
+    trade mark — also called: mark — not: sign, registered trade mark, trade name, business
+    name
   approved_by: null
   approved_date: null
   authored:
@@ -3015,25 +3074,30 @@
       - 67
       content_hash: sha256:7616fa92fa1ab350de397590a153993cc894cf7be24733d962313419b1d4b5c8
       quote: A trade mark is a sign used, or intended to be used, to distinguish
-    confidence: 0.7
+    confidence: 0.85
     reasoning: >-
-      It is the subject matter the whole scheme operates on, not a ground, a test, a factor or an
-      exception. Typing it into one of the four would misdescribe it, and none_of_these is an answer
-      rather than a gap.
+      What the whole process is about. Section 17 defines a trade mark as a sign used
+      or intended to be used to distinguish, and Part 20 records that the definition is
+      closed. The concept names the thing; it refuses, tests, weighs and excepts nothing.
     alternatives_considered:
     - >-
-      legal_test — whether something is a trade mark is a question an examiner answers under section
-      17. Defensible, and if the reviewer takes it the same reading should apply to 'sign'.
+      legal_test — the near miss worth naming. Satisfying section 17 is a question a decision
+      maker answers, and 'is this a trade mark' is examinable. Rejected because the concept
+      in the vocabulary is the object; the question about it is carried by the grounds.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether the taxonomy is meant to cover subject-matter concepts at all. Several records in this
-      pass came out none_of_these for this reason.
+      Whether the vocabulary should hold 'trade mark' the object and 'is a trade mark'
+      the test as two concepts. One group cannot carry both, and this record takes the
+      object reading.
 - id: GT-0073
   concept: GC-0073
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMM/Part20/3#1
-  notes: >-
-    sign — not: trade mark, device, representation of the trade mark
+  notes: 'sign — not: trade mark, device, representation of the trade mark'
   approved_by: null
   approved_date: null
   authored:
@@ -3048,22 +3112,30 @@
       - 311
       content_hash: sha256:89a6c14ea66864326bb0ce2780a3c62e289c6414ba0fb5f7d2c2d814ded9f229
       quote: an open or inclusive definition
-    confidence: 0.7
+    confidence: 0.85
     reasoning: >-
-      Subject matter, like 'trade mark'. Typed the same way for the same reason.
+      The open, inclusive category section 6 defines and section 17 builds on. The widest
+      thing in the vocabulary, and still a thing.
     alternatives_considered:
     - >-
-      legal_test — as for trade mark, and it should be decided for both together.
+      Merging it with GC-0072 rather than typing it. Rejected on the corpus's own words:
+      Part 20 says in terms that one definition is closed and the other open, and collapsing
+      them would lose the distinction the Manual draws.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Decide 'sign' and 'trade mark' together.
+      Nothing on the group. The pairing with GC-0072 is what to look at — the two are
+      typed identically and the Manual's whole point is that they differ.
 - id: GT-0074
   concept: GC-0074
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMM/Part21/1#1
   notes: >-
-    non-traditional sign — also called: non-traditional signs, non-traditional trade mark — not: sign,
-    composite trade mark, device
+    non-traditional sign — also called: non-traditional signs, non-traditional trade mark
+    — not: sign, composite trade mark, device
   approved_by: null
   approved_date: null
   authored:
@@ -3078,24 +3150,32 @@
       - 115
       content_hash: sha256:2a87eb47583498b1c9db05dd3fb541b99fcc10242ac7a91e91562aa02ec7e3c8
       quote: broaden the definition of a trade mark
-    confidence: 0.6
+    confidence: 0.75
     reasoning: >-
-      A class of subject matter rather than a ground, test, factor or exception.
+      A grouping of sign kinds the Manual uses as a heading, sitting one level under sign.
+      Subject matter by the same argument as sign.
     alternatives_considered:
     - >-
-      relevant_factor — that a sign is non-traditional does feed the s 40 and s 41 questions. A reviewer
-      could reasonably type it that way.
+      relevant_factor — not absurd: whether a sign is non-traditional bears on graphical
+      representation under section 40, and so feeds a real decision. Rejected because
+      what feeds the decision is the section 40 question, not the category the sign falls
+      in.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether the fact that a mark is non-traditional is itself a factor in examination, which would
-      make relevant_factor right.
+      The concept's own record says this is not a statutory category. If the vocabulary
+      should hold only categories the Act makes, the concept goes rather than the group
+      changing.
 - id: GT-0075
   concept: GC-0075
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMM/Part21/3#1
   notes: >-
-    shape trade mark — also called: shape (three-dimensional) trade marks, three-dimensional trade
-    mark — not: device, composite trade mark, colour trade mark
+    shape trade mark — also called: shape (three-dimensional) trade marks, three-dimensional
+    trade mark — not: device, composite trade mark, colour trade mark
   approved_by: null
   approved_date: null
   authored:
@@ -3110,22 +3190,30 @@
       - 454
       content_hash: sha256:9b3d00d022127711aedfe035a4538c8a11738abcffcaefbff7d5c129afc40fd9
       quote: a three-dimensional shape is registrable as a trade mark
-    confidence: 0.6
+    confidence: 0.8
     reasoning: >-
-      A kind of sign, so subject matter. Typed as the other sign kinds are.
+      A kind of sign, registrable because section 6 names shape in the definition. What
+      is applied for.
     alternatives_considered:
     - >-
-      relevant_factor — as for non-traditional sign generally.
+      relevant_factor — rejected. The kind bears on how the section 40 and section 41
+      questions run, but the kind itself is the thing, not the weighing.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Type the five sign kinds consistently.
+      Whether the four sign kinds — shape, colour, sound, scent — are subject matter in
+      their own right or facets of GC-0073 sign, which would make them narrower concepts
+      under it rather than siblings beside it.
 - id: GT-0076
   concept: GC-0076
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMM/Part21/4#1
   notes: >-
-    colour trade mark — also called: colour and coloured trade marks, coloured trade mark — not: shape
-    trade mark, device, composite trade mark
+    colour trade mark — also called: colour and coloured trade marks, coloured trade mark
+    — not: shape trade mark, device, composite trade mark
   approved_by: null
   approved_date: null
   authored:
@@ -3140,22 +3228,30 @@
       - 161
       content_hash: sha256:c97e9320c604a1f55eeb6465ced6fad9d5e9db41887de3d85c97b8f9dff1f3a9
       quote: may be used as a trade mark
-    confidence: 0.6
+    confidence: 0.8
     reasoning: >-
-      A kind of sign; typed as the others.
+      A kind of sign. The Manual states that a colour may be used as a trade mark, by
+      itself or with other features of a sign.
     alternatives_considered:
+    - relevant_factor — rejected for the same reason as shape.
     - >-
-      relevant_factor — as for the other sign kinds.
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Type the five sign kinds consistently.
+      The concept's record distinguishes colour used as the mark from colour as an aspect
+      of packaging or of a label. Those are arguably two things, and only one of them
+      is subject matter. Whether the four sign kinds — shape, colour, sound, scent — are
+      subject matter in their own right or facets of GC-0073 sign, which would make them
+      narrower concepts under it rather than siblings beside it.
 - id: GT-0077
   concept: GC-0077
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMM/Part21/6#1
   notes: >-
-    sound trade mark — also called: sound (auditory) trade marks, auditory trade mark — not: scent
-    trade mark, sign
+    sound trade mark — also called: sound (auditory) trade marks, auditory trade mark
+    — not: scent trade mark, sign
   approved_by: null
   approved_date: null
   authored:
@@ -3170,22 +3266,30 @@
       - 344
       content_hash: sha256:c47b2e04f18dccd289250bcf4684e1f6d93297f107c663ba9ceba43f25e21d01
       quote: it must serve the purpose of identifying the trade source
-    confidence: 0.6
-    reasoning: >-
-      A kind of sign; typed as the others.
+    confidence: 0.75
+    reasoning: A kind of sign — 'anything auditory', on the Manual's own words.
     alternatives_considered:
     - >-
-      relevant_factor — as for the other sign kinds.
+      legal_test — the Manual's test for a sound mark is functional: it must serve to
+      identify the trade source. If the concept is really that requirement rather than
+      the sign kind, it belongs with the reasoning groups.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Type the five sign kinds consistently.
+      The alternative above is the live one. This record takes the sign-kind reading because
+      the concept's label names a kind of mark. Whether the four sign kinds — shape, colour,
+      sound, scent — are subject matter in their own right or facets of GC-0073 sign,
+      which would make them narrower concepts under it rather than siblings beside it.
 - id: GT-0078
   concept: GC-0078
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMM/Part21/7#1
   notes: >-
-    scent trade mark — also called: scent trade marks, olfactory trade mark — not: sound trade mark,
-    sign
+    scent trade mark — also called: scent trade marks, olfactory trade mark — not: sound
+    trade mark, sign
   approved_by: null
   approved_date: null
   authored:
@@ -3200,22 +3304,34 @@
       - 177
       content_hash: sha256:d4a88064b77f1f7b4d9c5a3fd712ba9583dddd29c22274afce66cba8801135d4
       quote: it is possible for a scent to serve the purpose of a trade mark
-    confidence: 0.6
+    confidence: 0.75
     reasoning: >-
-      A kind of sign; typed as the others.
+      A kind of sign. Registrable in principle; hard in practice for a reason the concept
+      records separately.
     alternatives_considered:
     - >-
-      relevant_factor — as for the other sign kinds.
+      relevant_factor — the strongest case among the four sign kinds. The Manual identifies
+      graphical representation as scent's hard problem, which ties this concept to the
+      section 40 ground more tightly than any of its siblings. Rejected because the tie
+      is a fact about scent, not a change in what scent is.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Type the five sign kinds consistently.
+      Whether scent's connection to section 40 is strong enough that the vocabulary should
+      hold it as a factor. If it is, the same argument reaches the other three sign kinds
+      and the group loses four members. Whether the four sign kinds — shape, colour, sound,
+      scent — are subject matter in their own right or facets of GC-0073 sign, which would
+      make them narrower concepts under it rather than siblings beside it.
 - id: GT-0079
   concept: GC-0079
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMA1995/s51
   notes: >-
-    series of trade marks — also called: series application, series — not: divisional application,
-    composite trade mark
+    series of trade marks — also called: series application, series — not: divisional
+    application, composite trade mark
   approved_by: null
   approved_date: null
   authored:
@@ -3230,15 +3346,27 @@
       - 42
       content_hash: sha256:680a4436af0a96d5a3168e63f796ccb0280838c781344667a74dadaaaa671f59
       quote: A person may make a single application
-    confidence: 0.6
+    confidence: 0.7
     reasoning: >-
-      A form of application rather than a ground, test, factor or exception.
+      A single application covering two or more marks that resemble each other in material
+      particulars. The concept names the set of marks — what is applied for.
     alternatives_considered:
     - >-
-      legal_test — whether marks form a valid series is a question an examiner answers. A reviewer
-      could reasonably type it that way.
+      procedural_step — the closest miss. Making a series application is an act, and section
+      51 is procedural machinery. Rejected because the concept names the marks rather
+      than the making — but see the check, because the same argument decides GT-0043 and
+      GT-0110 the other way.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether procedural forms of application belong in the taxonomy at all.
+      Whether 'series of trade marks' and 'divisional application' fall on the same side.
+      This pass puts series in subject_matter and divisional in procedural_step, on the
+      reading that a series is a thing applied for and a division is something done to
+      an application. A reviewer who thinks both are applications should move series;
+      one who thinks both are mechanisms should move divisional. They should be decided
+      together.
 - id: GT-0080
   concept: GC-0080
   type: legal_test
@@ -3338,7 +3466,7 @@
       Whether control is itself a test that should be a separate concept.
 - id: GT-0083
   concept: GC-0083
-  type: none_of_these
+  type: process_role
   basis:
   - TMA1995/s8
   notes: >-
@@ -3357,23 +3485,31 @@
       - 50
       content_hash: sha256:a4ece48fa93452ed39793b89addc69db826bebe10d8ee6f4818903ab8351a823
       quote: A person is an authorised user of a trade mark
-    confidence: 0.6
+    confidence: 0.8
     reasoning: >-
-      A role a person occupies, not a ground, test, factor or exception.
+      Section 8(1) defines the authorised user as a person — the one who uses the mark
+      under the owner's control. The concept record already separates the person from
+      the use, and it is the person this record types.
     alternatives_considered:
     - >-
-      relevant_factor — that there is an authorised user feeds questions about use and ownership.
-      Defensible.
+      subject_matter — rejected. What is registered is the mark, not the user. The authorised
+      use may be evidence in a proceeding; the user is a party to one.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether role concepts belong in the four groups.
+      Whether 'authorised user' the party and 'authorised use' the fact should both be
+      concepts. If they should, typing only the party leaves the more examinable half
+      of the pair unheld by anything.
 - id: GT-0084
   concept: GC-0084
-  type: none_of_these
+  type: process_role
   basis:
   - TMA1995/s6/registered-owner
   notes: >-
-    registered owner — also called: owner of the trade mark, registered proprietor — not: applicant,
-    authorised user, predecessor in title
+    registered owner — also called: owner of the trade mark, registered proprietor — not:
+    applicant, authorised user, predecessor in title
   approved_by: null
   approved_date: null
   authored:
@@ -3388,14 +3524,24 @@
       - 117
       content_hash: sha256:4ce5b5c231ee09abaac3335e9ba1178de4d10f7be1fb83c89226b8d4803819ce
       quote: means the person in whose name the trade mark is registered
-    confidence: 0.65
+    confidence: 0.8
     reasoning: >-
-      A role, typed as the other roles in this pass.
+      Section 6 defines the registered owner as the person in whose name the mark is registered.
+      A party, identified by an entry rather than constituted by one.
     alternatives_considered:
     - >-
-      relevant_factor — who owns a mark feeds several questions. Defensible.
+      instrument_or_record — rejected, but it is the closest miss in this group. The concept
+      is defined by reference to the Register, so a reading that followed the definition
+      rather than the referent could land there. What the entry fixes is which person
+      it is, not a document.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether role concepts belong in the four groups.
+      Whether registered owner and applicant are one party at two stages or two concepts.
+      Part 19B treats the registration as personal property held by that person, and a
+      role typing carries none of that.
 - id: GT-0085
   concept: GC-0085
   type: relevant_factor
@@ -3429,12 +3575,12 @@
       Whether this and the other role concepts should be typed alike.
 - id: GT-0086
   concept: GC-0086
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMA1995/s6/assignment
   notes: >-
-    assignment — also called: assignment of a trade mark — not: transmission, authorised use, change
-    of ownership
+    assignment — also called: assignment of a trade mark — not: transmission, authorised
+    use, change of ownership
   approved_by: null
   approved_date: null
   authored:
@@ -3449,22 +3595,27 @@
       - 92
       content_hash: sha256:05bf7d38537a27493704344bc7136f2fc1df605b87caffe04431d7c2846a3e8f
       quote: means an assignment by act of the parties concerned
-    confidence: 0.65
+    confidence: 0.75
     reasoning: >-
-      A transaction, not a ground, test, factor or exception.
+      Ownership passes from one party to another by act of the parties. A change of state
+      in an application or a registration.
     alternatives_considered:
     - >-
-      relevant_factor — an assignment can resolve a section 44 citation, which the Manual's Part 26.8
-      discusses. In that setting it feeds an answer.
+      instrument_or_record — rejected. The deed is a document; the concept is the passing.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether a transaction that can dispose of a ground should be typed as a factor in that ground.
+      Whether assignment and transmission are two concepts or one with two modes. Part
+      43's title carries both and the section 6 definitions split them, so the corpus
+      supports either reading.
 - id: GT-0087
   concept: GC-0087
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part43/1#1~1
-  notes: >-
-    transmission — not: assignment, change of ownership
+  notes: 'transmission — not: assignment, change of ownership'
   approved_by: null
   approved_date: null
   authored:
@@ -3478,24 +3629,32 @@
       - 0
       - 202
       content_hash: sha256:09b4382be81326ed3b401eefdad95895f1072342d4d3da99ffb97d23660602f6
-      quote: Assignment or transmission of a trade mark refers to the process by which ownership of
-        a registered trade mark or a trade mark whose registration is being sought may be passed from
-        one party to another.
-    confidence: 0.5
+      quote: >-
+        Assignment or transmission of a trade mark refers to the process by which ownership
+        of a registered trade mark or a trade mark whose registration is being sought
+        may be passed from one party to another.
+    confidence: 0.75
     reasoning: >-
-      Typed with assignment, for the same reason.
+      The other half of the pair: ownership passes without an act of the parties. Still
+      a change of state.
     alternatives_considered:
+    - instrument_or_record — rejected, as at GT-0086.
     - >-
-      relevant_factor — as for assignment.
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Type this and assignment alike.
+      As at GT-0086. Note also that GC-0087's evidence comes from the Manual rather than
+      from the section 6 definition, because that definition is a stub — so this typing
+      rests on the Manual's gloss.
 - id: GT-0088
   concept: GC-0088
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMA1995/s6/registered-trade-mark
   notes: >-
-    registered trade mark — not: trade mark, pending application, protected international trade mark
+    registered trade mark — not: trade mark, pending application, protected international
+    trade mark
   approved_by: null
   approved_date: null
   authored:
@@ -3510,22 +3669,29 @@
       - 86
       content_hash: sha256:2a2c6c77f9af9562ac0de5b9558ec3a3b2da3b30d1f3df37cd4a2ab1a0d41da4
       quote: whose particulars are entered in the Register
-    confidence: 0.65
+    confidence: 0.85
     reasoning: >-
-      Subject matter, typed as 'trade mark' is.
+      A trade mark in a particular state — one whose particulars are entered in the Register.
+      A thing, defined by an entry rather than being one.
     alternatives_considered:
     - >-
-      relevant_factor — the existence of an earlier registered mark is what triggers section 44. Defensible.
+      instrument_or_record — rejected. The entry is the record; the mark is what the entry
+      is about.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Type this and 'trade mark' alike.
+      Whether registered trade mark is a concept beside GC-0072 or GC-0072 in a state,
+      which would make it narrower rather than a sibling.
 - id: GT-0089
   concept: GC-0089
-  type: none_of_these
+  type: instrument_or_record
   basis:
   - TMA1995/s6/register
   notes: >-
-    Register of Trade Marks — also called: the Register, Register — not: Record of International Registrations,
-    old register
+    Register of Trade Marks — also called: the Register, Register — not: Record of International
+    Registrations, old register
   approved_by: null
   approved_date: null
   authored:
@@ -3540,14 +3706,20 @@
       - 65
       content_hash: sha256:bcf448f9600add54d2d0a32b3b8b2a12a584a06f04ac502812389771ccec1022
       quote: means the Register of Trade Marks kept under section 207
-    confidence: 0.7
-    reasoning: >-
-      An instrument of the scheme, not a ground, test, factor or exception.
+    confidence: 0.85
+    reasoning: The record kept under section 207. The thing entries are made in.
     alternatives_considered:
     - >-
-      none seriously considered.
+      subject_matter — rejected. The Register is not what is applied for; it is where
+      the result is written.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Nothing specific.
+      The concept's record warns that the Register, the old register and the Record of
+      International Registrations must not be merged. This group holds one of the three;
+      the other two are held by nothing.
 - id: GT-0090
   concept: GC-0090
   type: relevant_factor
@@ -3612,11 +3784,12 @@
       Whether dates should be concepts at all, or attributes of an application.
 - id: GT-0092
   concept: GC-0092
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMA1995/s31
   notes: >-
-    examination — also called: examine and report — not: expedited examination, opposition, hearing
+    examination — also called: examine and report — not: expedited examination, opposition,
+    hearing
   approved_by: null
   approved_date: null
   authored:
@@ -3631,22 +3804,32 @@
       - 77
       content_hash: sha256:d6fb7897727ef84585b0c9cb25f38b568e7fcafb34d2c61f50d93884650f92b2
       quote: examine and report on
-    confidence: 0.65
+    confidence: 0.85
     reasoning: >-
-      A process, not a ground, test, factor or exception.
+      Section 31 makes examination the act the Registrar must perform, with two subjects
+      and only two. The step that produces an acceptance or a report.
     alternatives_considered:
     - >-
-      legal_test — rejected: examination contains tests, it is not one.
+      legal_test — the near miss, and it matters. Section 31(b) makes 'whether there are
+      grounds for rejecting it' part of examination, and that is a question. Rejected
+      because the question is the ground; examining is the step in which the ground gets
+      asked.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether process concepts belong in the taxonomy.
+      Whether the vocabulary should hold examination the process and the report it produces
+      separately. The Act says 'examine and report on', which is two things, and this
+      concept holds one.
 - id: GT-0093
   concept: GC-0093
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMA1995/s33
   notes: >-
-    acceptance — also called: accept the application, accepted — not: registration, revocation of
-    acceptance, deferment of acceptance
+    acceptance — also called: accept the application, accepted — not: registration, revocation
+    of acceptance, deferment of acceptance
   approved_by: null
   approved_date: null
   authored:
@@ -3661,23 +3844,34 @@
       - 76
       content_hash: sha256:36311d92754a0ea33e97abec732d66bb149a577c8004ce2f28ee98bb3bcb54e2
       quote: must, after the examination, accept the application unless
-    confidence: 0.65
+    confidence: 0.75
     reasoning: >-
-      An outcome, not a ground, test, factor or exception. Several records in this pass fall this
-      way, and together they are an argument that the taxonomy needs a group for outcomes.
+      The point at which an application changes state. Section 33 makes acceptance the
+      thing that must follow examination unless the Registrar is satisfied of a defect
+      or a ground.
     alternatives_considered:
     - >-
-      none seriously considered.
+      legal_test — the strongest counter-argument anywhere in this group. Section 33 is
+      the presumption of registrability in operation, and 'must accept unless satisfied'
+      is a stated threshold. Rejected because the threshold belongs to the grounds; acceptance
+      is what happens when they are not made out.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether outcomes need a group of their own.
+      Whether typing acceptance as a step loses the presumption of registrability. That
+      presumption is the most examinable thing about section 33, no concept in this group
+      carries it, and the reviewer's own note (OQ-0015) said the office's actual bar for
+      it is not in the knowledge base either.
 - id: GT-0094
   concept: GC-0094
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part38/1#1
   notes: >-
-    revocation of acceptance — also called: revoke acceptance — not: revocation of registration, acceptance,
-    rectification
+    revocation of acceptance — also called: revoke acceptance — not: revocation of registration,
+    acceptance, rectification
   approved_by: null
   approved_date: null
   authored:
@@ -3692,24 +3886,29 @@
       - 47
       content_hash: sha256:9e165c735ebe5317e983d6154886aab73d86d98d277b0a79c4f92f4e6e029c43
       quote: The acceptance of an application can be revoked
-    confidence: 0.6
+    confidence: 0.8
     reasoning: >-
-      A remedy the Registrar may apply to their own earlier decision. Not a ground, test, factor or
-      exception.
+      Available where information received after acceptance indicates the mark should
+      not have been accepted. The application changes state.
     alternatives_considered:
+    - exception — rejected for the same reason as GT-0042.
     - >-
-      exception — it takes a case out of the ordinary course. Rejected: it undoes an outcome rather
-      than displacing a rule.
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether remedies need a group of their own.
+      GC-0042 (signed) and GC-0094 (authored) are both 'revocation of acceptance'. Both
+      are typed procedural_step and neither displaces the other. The concept's record
+      separates it from revocation of registration under sections 84A to 84D, which is
+      a different step and is typed separately at GT-0095.
 - id: GT-0095
   concept: GC-0095
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part62/1#1
   notes: >-
-    revocation of registration — also called: revoke the registration — not: revocation of acceptance,
-    cancellation of registration, removal for non-use
+    revocation of registration — also called: revoke the registration — not: revocation
+    of acceptance, cancellation of registration, removal for non-use
   approved_by: null
   approved_date: null
   authored:
@@ -3723,23 +3922,33 @@
       - 20
       - 97
       content_hash: sha256:84e56977afcdff86634f32f63ab012a078ce1c257a72adebfe9c73676a21cf52
-      quote: allow the Registrar of Trade Marks to revoke the registration of a trade mark
-    confidence: 0.6
+      quote: >-
+        allow the Registrar of Trade Marks to revoke the registration of a trade mark
+    confidence: 0.8
     reasoning: >-
-      A remedy, typed with revocation of acceptance.
+      A registration is undone under sections 84A to 84D in circumstances where it appears
+      it should not have occurred. A transition.
     alternatives_considered:
     - >-
-      none seriously considered.
+      exception — rejected. Revocation reverses a step; it does not carve a case out of
+      a rule.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether remedies need a group of their own.
+      The Manual records that the Registrar is not obliged to consider revocation even
+      where a third party requests it. That discretion is a modality on the step, and
+      this group carries no modality — which is a limit of the group rather than of the
+      record.
 - id: GT-0096
   concept: GC-0096
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part17/1#1
   notes: >-
-    deferment of acceptance — also called: deferment, defer acceptance — not: extension of time, acceptance,
-    lapsing
+    deferment of acceptance — also called: deferment, defer acceptance — not: extension
+    of time, acceptance, lapsing
   approved_by: null
   approved_date: null
   authored:
@@ -3754,23 +3963,30 @@
       - 348
       content_hash: sha256:5180e7ae4a15dd1178fbaa883bd27cd5eb97ec328cf6b5ee181510707c3e0d40
       quote: is set in abeyance - deferred -
-    confidence: 0.6
+    confidence: 0.8
     reasoning: >-
-      A procedural step, not a ground, test, factor or exception.
+      The acceptance period is, in the Manual's own words, set in abeyance. A change in
+      the state of an application.
     alternatives_considered:
     - >-
-      exception — it takes a case out of the ordinary acceptance timetable. Defensible if the taxonomy's
-      'rule' includes procedural rules.
+      external_instrument — no. Named only to record that nothing in this concept comes
+      from outside the Act and Regulations.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether 'exception' covers exceptions to procedural rules or only to grounds.
+      Deferment suspends a period and an extension of time lengthens one. Both are typed
+      procedural_step. If that distinction matters to retrieval, the group is too coarse
+      to carry it.
 - id: GT-0097
   concept: GC-0097
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part15/1#1~1
   notes: >-
-    extension of time — also called: extension of the period, extensions of time — not: deferment
-    of acceptance, cooling-off period
+    extension of time — also called: extension of the period, extensions of time — not:
+    deferment of acceptance, cooling-off period
   approved_by: null
   approved_date: null
   authored:
@@ -3785,22 +4001,30 @@
       - 136
       content_hash: sha256:5df70de3525e8d16a4f12c342296533ecaaed281afc03f2e58bab4f442825ea7
       quote: that time can frequently be extended upon request
-    confidence: 0.6
+    confidence: 0.8
     reasoning: >-
-      A procedural mechanism.
+      A period set by the Act or Regulations is lengthened on request. A change in the
+      state of the thing whose period it is.
     alternatives_considered:
     - >-
-      exception — as for deferment, and decide the two together.
+      instrument_or_record — rejected. The request is a document; the extension is what
+      the request achieves.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Decide this and deferment of acceptance together.
+      The Manual notes the procedure differs by which time is being extended — one concept
+      covering many procedures. The group hides that variability rather than expressing
+      it.
 - id: GT-0098
   concept: GC-0098
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part16/1/1/1
   notes: >-
-    lapsing of an application — also called: lapse, lapses — not: withdrawal, revocation of acceptance,
-    rejection
+    lapsing of an application — also called: lapse, lapses — not: withdrawal, revocation
+    of acceptance, rejection
   approved_by: null
   approved_date: null
   authored:
@@ -3814,18 +4038,30 @@
       - 29
       - 101
       content_hash: sha256:2f2be55cdd83aa13ccdb84eb727a1a7f176a8173346d737965a51ec0dbf34674
-      quote: an application lapses if it is not accepted within the prescribed period
-    confidence: 0.6
+      quote: >-
+        an application lapses if it is not accepted within the prescribed period
+    confidence: 0.8
     reasoning: >-
-      An outcome that follows automatically. Not a ground, test, factor or exception.
+      An application ends on the expiry of the acceptance period. Typed here on the reading
+      that the group holds transitions and not only acts, which is why the class comment
+      says so in terms.
     alternatives_considered:
     - >-
-      none seriously considered.
+      none_of_these — arguable, and the only member of this group where it is. If a 'step'
+      must be performed by somebody, lapsing is not one: it happens without anybody deciding
+      anything. Rejected by defining the group as a transition rather than as an act.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether outcomes need a group of their own.
+      Whether an event nobody performs belongs beside acts somebody does. If it does not,
+      the group splits and lapsing needs a home — and GT-0123 (withdrawal) is the record
+      to compare it against, because withdrawal differs from lapsing precisely in that
+      a person does it.
 - id: GT-0099
   concept: GC-0099
-  type: none_of_these
+  type: instrument_or_record
   basis:
   - TMM/Part24/1#1
   notes: >-
@@ -3843,19 +4079,28 @@
       - 49
       - 123
       content_hash: sha256:47dc6e8dbda25f846d1d5c29548985b3a832f3cc3b268a949fc5ce6add98b460
-      quote: A disclaimer is a limitation of the exclusive rights given by registration
-    confidence: 0.6
+      quote: >-
+        A disclaimer is a limitation of the exclusive rights given by registration
+    confidence: 0.75
     reasoning: >-
-      An instrument that qualifies a registration. Not a ground, test, factor or exception.
+      A limitation of the exclusive rights given by registration, entered against the
+      mark.
     alternatives_considered:
     - >-
-      exception — a disclaimer can be what lets an application through. Rejected: it qualifies the
-      right rather than displacing a ground.
+      exception — the same argument as GT-0069 and rejected the same way. A disclaimer
+      narrows one registration; it does not state a class of case in which a rule does
+      not apply.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether it belongs with conditions or limitations, which this pass also typed none_of_these.
+      The Manual's own gloss is that the owner never had exclusive rights in the disclaimed
+      part anyway — so a disclaimer records a position rather than changing one. That
+      is the argument for this group and it is worth testing directly.
 - id: GT-0100
   concept: GC-0100
-  type: none_of_these
+  type: instrument_or_record
   basis:
   - TMM/Part23/6#1
   notes: >-
@@ -3874,15 +4119,22 @@
       - 184
       content_hash: sha256:03b5b4de76bef1acf928f0d4a7bc4230a1301e2f9485689b6e7361416192aae2
       quote: the relevant endorsement will be entered on the Register
-    confidence: 0.6
+    confidence: 0.8
     reasoning: >-
-      A record made on the Register. Not a ground, test, factor or exception.
+      What goes on the Register to record that an application was accepted on evidence
+      or other circumstances. A note of how a ground was overcome.
     alternatives_considered:
     - >-
-      relevant_factor — an endorsement on a cited mark tells a later examiner how that mark got through.
-      Defensible.
+      relevant_factor — rejected. The evidence is the factor; the endorsement is the note
+      that it was accepted.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether an endorsement is evidence a later examiner reasons from.
+      Whether an endorsement and a condition or limitation are the same kind of entry
+      made for different reasons. Both are typed into this group and the Manual treats
+      them in different Parts.
 - id: GT-0101
   concept: GC-0101
   type: relevant_factor
@@ -3918,12 +4170,12 @@
       may say the distinction is too fine to be useful.
 - id: GT-0102
   concept: GC-0102
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part46/1#1
   notes: >-
-    opposition — also called: opposition to registration, opposition proceedings — not: hearing, removal
-    for non-use, rectification
+    opposition — also called: opposition to registration, opposition proceedings — not:
+    hearing, removal for non-use, rectification
   approved_by: null
   approved_date: null
   authored:
@@ -3938,23 +4190,30 @@
       - 98
       content_hash: sha256:02a2b1a95baa2a0cc7c9e71bfd36f03d235e71e78c4e90c9b8cd0eae568015a8
       quote: Opposition is a formal objection by a third party
-    confidence: 0.65
+    confidence: 0.75
     reasoning: >-
-      A proceeding, not a ground, test, factor or exception. Note that the *grounds* of opposition
-      would each be a ground_of_refusal-shaped concept; the proceeding is not.
+      A formal objection by a third party to registration, on the Manual's own definition.
+      The proceeding, not the party and not the document.
     alternatives_considered:
     - >-
-      none seriously considered.
+      instrument_or_record — rejected. The notice of opposition is the document and is
+      typed one at GT-0103.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether proceedings belong in the taxonomy.
+      GC-0040 (signed) and GC-0102 (authored) are both 'opposition'. Both are typed procedural_step
+      and neither displaces the other; the duplication is a vocabulary problem named on
+      the records rather than resolved by a typing.
 - id: GT-0103
   concept: GC-0103
-  type: none_of_these
+  type: instrument_or_record
   basis:
   - TMM/Part47/1#1
   notes: >-
-    notice of opposition — not: notice of intention to oppose, statement of grounds and particulars,
-    notice of intention to defend
+    notice of opposition — not: notice of intention to oppose, statement of grounds and
+    particulars, notice of intention to defend
   approved_by: null
   approved_date: null
   authored:
@@ -3968,25 +4227,34 @@
       - 254
       - 357
       content_hash: sha256:4bd0c392125a44efe33f5387504c7fe3b910cfdeeda0899638dac525b854e100
-      quote: A notice of opposition means a notice of intention to oppose and a statement of grounds
-        and particulars
-    confidence: 0.65
+      quote: >-
+        A notice of opposition means a notice of intention to oppose and a statement of
+        grounds and particulars
+    confidence: 0.85
     reasoning: >-
-      A document, not a ground, test, factor or exception.
+      A document — and, on the Regulations' definition, two: a notice of intention to
+      oppose plus a statement of grounds and particulars.
     alternatives_considered:
     - >-
-      none seriously considered.
+      procedural_step — rejected. Filing the notice is the step; the notice is what gets
+      filed.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether documents belong in the taxonomy.
+      The concept is a composite of two separately defined terms, so the corpus holds
+      three related definitions and the vocabulary holds one. Whether the components should
+      be concepts is a vocabulary question this typing does not reach.
 - id: GT-0104
   concept: GC-0104
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part48/1#1
   notes: >-
-    removal for non-use — also called: non-use removal, removal of a trade mark from the Register
-    for non-use — not: rectification of the Register, revocation of registration, cancellation of
-    registration
+    removal for non-use — also called: non-use removal, removal of a trade mark from the
+    Register for non-use — not: rectification of the Register, revocation of registration,
+    cancellation of registration
   approved_by: null
   approved_date: null
   authored:
@@ -4000,26 +4268,33 @@
       - 275
       - 365
       content_hash: sha256:11e9c228d44c98fde9855fadac4ead03f5a8cc4b2d5fdff6dc62b977eab5428b
-      quote: Section 92 provides for a person to apply for a trade mark to be removed from the Register
-    confidence: 0.6
+      quote: >-
+        Section 92 provides for a person to apply for a trade mark to be removed from
+        the Register
+    confidence: 0.8
     reasoning: >-
-      A post-registration proceeding and remedy.
+      A proceeding that removes a mark from the Register for non-use. A transition, grounded
+      by the Manual in section 17's requirement that a mark be used.
     alternatives_considered:
     - >-
-      ground_of_refusal — non-use is a reason a registration can be ended, which is refusal-shaped.
-      Rejected because the four groups are about refusing an application, and this is about ending
-      a registration. If the taxonomy is meant to cover both, this should be ground_of_refusal.
+      ground_of_refusal — rejected, and worth stating why: non-use is a reason a registration
+      is removed, not a reason an application is refused, and the owner's group is about
+      refusal at examination.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether the four groups cover post-registration grounds at all. This is the clearest case in
-      the pass where the answer changes the typing.
+      The onus sits on the opponent once the removal application is opposed, which is
+      unusual and is a property of the proceeding. Nothing in this group carries an onus.
 - id: GT-0105
   concept: GC-0105
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part42/1#1
   notes: >-
-    rectification of the Register — also called: rectification — not: removal for non-use, revocation
-    of registration, amendment
+    rectification of the Register — also called: rectification — not: removal for non-use,
+    revocation of registration, amendment
   approved_by: null
   approved_date: null
   authored:
@@ -4034,17 +4309,25 @@
       - 210
       content_hash: sha256:5e2f54790c23e56bddf82edea559103e50c71337503d8e9a02383971d373a3c1
       quote: results from an order given by a prescribed court
-    confidence: 0.65
+    confidence: 0.8
     reasoning: >-
-      A court remedy.
+      Amendment or cancellation of an entry in the Register, resulting from an order of
+      a prescribed court. A transition.
     alternatives_considered:
     - >-
-      none seriously considered.
+      instrument_or_record — rejected. The entry is the record and the Register is typed
+      one at GT-0089; rectification is what happens to an entry.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether remedies need a group of their own.
+      This is the only step in the group performed by a court rather than by the Registrar.
+      If the vocabulary needs that visible, it is a property of the step and not a reason
+      for a different group.
 - id: GT-0106
   concept: GC-0106
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part40/1#1
   notes: >-
@@ -4063,22 +4346,29 @@
       - 111
       content_hash: sha256:7ac8c71bcd48304b149e6c8244923f7644c5b1c1d2cbb3259994c58fa1dddadd
       quote: A trade mark registration may be renewed at ten year intervals
-    confidence: 0.65
+    confidence: 0.85
     reasoning: >-
-      A post-registration step.
+      A registration is renewed at ten-year intervals. A change of state, and one that
+      recurs.
     alternatives_considered:
     - >-
-      none seriously considered.
+      instrument_or_record — rejected. The renewal is the act; what goes on the Register
+      afterwards is an entry.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether procedural steps belong in the taxonomy.
+      Any person may effect a renewal, not only the owner. The group does not carry who
+      may act, and here that is a substantive fact about the step.
 - id: GT-0107
   concept: GC-0107
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMM/Part35/1#1
   notes: >-
-    certification trade mark — also called: certification trade marks, CTM — not: collective trade
-    mark, defensive trade mark, trade mark
+    certification trade mark — also called: certification trade marks, CTM — not: collective
+    trade mark, defensive trade mark, trade mark
   approved_by: null
   approved_date: null
   authored:
@@ -4092,23 +4382,33 @@
       - 170
       - 242
       content_hash: sha256:c21d9dfb1e224697c42be3a1662c98ae941753d1ee350592c24c136985d16637
-      quote: A certification trade mark is used or intended to be used to distinguish
-    confidence: 0.65
+      quote: >-
+        A certification trade mark is used or intended to be used to distinguish
+    confidence: 0.8
     reasoning: >-
-      A kind of registration — subject matter, typed as the other mark kinds.
+      A kind of registration, distinguishing certified goods or services from uncertified
+      ones. What is applied for, under different conditions.
     alternatives_considered:
     - >-
-      none seriously considered.
+      procedural_step — rejected. The ACCC's role in approving the rules is a procedure
+      attached to this subject matter, not the subject matter itself.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Type the three special mark kinds consistently.
+      Certification, collective and defensive marks are three registrations with different
+      conditions, and GC-0088 is the ordinary one. Whether the vocabulary wants a 'kinds
+      of registration' level between them and 'trade mark' is a modelling question this
+      typing does not answer.
 - id: GT-0108
   concept: GC-0108
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMM/Part33/1#1
   notes: >-
-    collective trade mark — also called: collective trade marks, collective trademark — not: certification
-    trade mark, defensive trade mark
+    collective trade mark — also called: collective trade marks, collective trademark
+    — not: certification trade mark, defensive trade mark
   approved_by: null
   approved_date: null
   authored:
@@ -4123,22 +4423,31 @@
       - 179
       content_hash: sha256:b745f127e9b06e29310d372e51f88719febcbe3078b5403ad5b168ab70831f80
       quote: A collective trade mark is a sign used or intended to be used
-    confidence: 0.65
+    confidence: 0.8
     reasoning: >-
-      A kind of registration; typed with the others.
+      A kind of registration, distinguishing members' goods or services from non-members'.
     alternatives_considered:
     - >-
-      none seriously considered.
+      process_role — rejected, and worth naming: the concept is defined by reference to
+      an association and its members, which are parties. What is registered is still the
+      mark.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Type the three special mark kinds consistently.
+      Certification, collective and defensive marks are three registrations with different
+      conditions, and GC-0088 is the ordinary one. Whether the vocabulary wants a 'kinds
+      of registration' level between them and 'trade mark' is a modelling question this
+      typing does not answer.
 - id: GT-0109
   concept: GC-0109
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMM/Part34/1/1/1
   notes: >-
-    defensive trade mark — also called: defensive trade marks, defensive registration — not: certification
-    trade mark, collective trade mark, registered trade mark
+    defensive trade mark — also called: defensive trade marks, defensive registration
+    — not: certification trade mark, collective trade mark, registered trade mark
   approved_by: null
   approved_date: null
   authored:
@@ -4153,22 +4462,35 @@
       - 221
       content_hash: sha256:7b44f7d0f5f4f947f0e52138b3d80f9f8b0553bebcd6d25b124069add4f2954b
       quote: To qualify for a defensive trade mark registration
-    confidence: 0.6
+    confidence: 0.8
     reasoning: >-
-      A kind of registration; typed with the others.
+      A kind of registration, available where an existing registration has a reputation
+      extensive enough that use on other goods would suggest a connection.
     alternatives_considered:
     - >-
-      none seriously considered.
+      exception — the interesting miss. A defensive registration is the one registration
+      in the Act that does not require an intention to use, which reads like something
+      taking a case out of the rule. Rejected because the concept names the registration,
+      not the relaxation.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Type the three special mark kinds consistently.
+      The alternative above. If the vocabulary wants 'no intention to use required' as
+      an exception in its own right, this concept keeps its group and the exception is
+      a second record that does not yet exist. Certification, collective and defensive
+      marks are three registrations with different conditions, and GC-0088 is the ordinary
+      one. Whether the vocabulary wants a 'kinds of registration' level between them and
+      'trade mark' is a modelling question this typing does not answer.
 - id: GT-0110
   concept: GC-0110
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMA1995/s45
   notes: >-
-    divisional application — also called: divisional applications, divisional — not: parent application,
-    series of trade marks, convention application
+    divisional application — also called: divisional applications, divisional — not: parent
+    application, series of trade marks, convention application
   approved_by: null
   approved_date: null
   authored:
@@ -4185,12 +4507,21 @@
       quote: the applicant may make another application (divisional application)
     confidence: 0.6
     reasoning: >-
-      A form of application.
+      The same mechanism as GC-0043, reached from Part 12 and sections 45 to 46. The priority-date
+      inheritance is what the concept is for, and inheritance is something the division
+      does.
     alternatives_considered:
     - >-
-      relevant_factor — a divisional's inherited priority date feeds the section 44 comparison. Defensible.
+      subject_matter — as strong here as at GT-0043 and rejected for the same reason,
+      with the same low confidence.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether forms of application belong in the taxonomy.
+      GC-0043 (signed) and GC-0110 (authored) are both 'divisional application'. Both
+      are typed procedural_step and neither displaces the other. The group itself is the
+      weakest in this pass — see the alternatives. Decide it together with GT-0079.
 - id: GT-0111
   concept: GC-0111
   type: relevant_factor
@@ -4226,12 +4557,12 @@
       wrong and a reviewer should say which.
 - id: GT-0112
   concept: GC-0112
-  type: none_of_these
+  type: external_instrument
   basis:
   - TMM/Part60/1/1/1
   notes: >-
-    Madrid Protocol — also called: the Madrid Protocol, Protocol — not: Paris Convention, international
-    registration, IRDA
+    Madrid Protocol — also called: the Madrid Protocol, Protocol — not: Paris Convention,
+    international registration, IRDA
   approved_by: null
   approved_date: null
   authored:
@@ -4245,25 +4576,38 @@
       - 0
       - 92
       content_hash: sha256:23918abb0595bb552f8c1f0ae0b3241db50b86e0ba5cbe379b273d53ee20194a
-      quote: The Madrid Protocol is a treaty providing for the international registration of trade
-        marks.
-    confidence: 0.7
+      quote: >-
+        The Madrid Protocol is a treaty providing for the international registration of
+        trade marks.
+    confidence: 0.85
     reasoning: >-
-      An instrument, not a ground, test, factor or exception.
+      A treaty, administered by WIPO's International Bureau. Not a rule the Act makes:
+      Australian practice gives effect to it. Keeping that visible is CLAUDE.md rule 5
+      applied one level up — the Manual is practice and not law, and the Protocol is neither
+      Australian law nor Australian practice.
     alternatives_considered:
     - >-
-      none seriously considered.
+      none_of_these — defensible if a two-member group is thought not to earn its place.
+      Rejected on the honesty argument rather than the size one: a retrieval surface that
+      cannot tell a treaty from a section of the Act has lost the distinction rule 5 exists
+      to protect.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Nothing specific.
+      Whether a two-member group is worth having at all, and if it is, whether the Nice
+      Classification belongs in it beside a treaty. Those are the only two members and
+      they are not obviously the same kind of thing.
 - id: GT-0113
   concept: GC-0113
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMM/Part60/1/1/1
   notes: >-
-    international registration designating Australia — also called: IRDA, international registration
-    designating Australia (IRDA) — not: international registration, protected international trade
-    mark, trade mark application
+    international registration designating Australia — also called: IRDA, international
+    registration designating Australia (IRDA) — not: international registration, protected
+    international trade mark, trade mark application
   approved_by: null
   approved_date: null
   authored:
@@ -4278,22 +4622,33 @@
       - 91
       content_hash: sha256:23918abb0595bb552f8c1f0ae0b3241db50b86e0ba5cbe379b273d53ee20194a
       quote: international registration of trade marks
-    confidence: 0.55
+    confidence: 0.6
     reasoning: >-
-      A kind of application, typed with the other application forms.
+      The Australian half of a Madrid registration — examined much as a domestic application
+      is, which is why Parts 26 to 31 keep referring to it. A thing the process operates
+      on.
     alternatives_considered:
     - >-
-      none seriously considered.
+      external_instrument — the genuine alternative, and the reason confidence is low.
+      An IRDA exists only because of the Madrid Protocol, and a reader who groups the
+      two is not making a mistake. Typed subject_matter because the Protocol is the scheme
+      and an IRDA is a particular thing arising under it that gets examined.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether forms of application belong in the taxonomy.
+      This is the record in the 53 most likely to be in the wrong group. If IRDA belongs
+      with the Madrid Protocol, external_instrument holds three and the boundary between
+      a scheme and the things it produces needs stating explicitly.
 - id: GT-0114
   concept: GC-0114
-  type: none_of_these
+  type: subject_matter
   basis:
   - TMA1995/s44
   notes: >-
-    protected international trade mark — also called: protected international trade mark designating
-    Australia — not: registered trade mark, IRDA, international registration
+    protected international trade mark — also called: protected international trade mark
+    designating Australia — not: registered trade mark, IRDA, international registration
   approved_by: null
   approved_date: null
   authored:
@@ -4308,23 +4663,30 @@
       - 1090
       content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
       quote: a protected international trade mark
-    confidence: 0.6
+    confidence: 0.7
     reasoning: >-
-      Subject matter, typed with 'registered trade mark'.
+      The Madrid equivalent of a registered trade mark, and citable against a domestic
+      application under section 44. A thing.
     alternatives_considered:
     - >-
-      relevant_factor — its existence triggers a section 44 citation, like a registered mark's. Type
-      it the same way as 'registered trade mark'.
+      external_instrument — rejected for the same reason as GC-0113 and with the same
+      doubt attached.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Type this and 'registered trade mark' alike.
+      The same boundary as GT-0113. Holding this concept apart from 'registered trade
+      mark' is what lets a citation search reach both, so a merge would cost more than
+      the tidiness gains.
 - id: GT-0115
   concept: GC-0115
-  type: none_of_these
+  type: process_role
   basis:
   - TMA1995/s6/registrar
   notes: >-
-    Registrar of Trade Marks — also called: the Registrar, Registrar — not: Deputy Registrar, delegate,
-    prescribed court
+    Registrar of Trade Marks — also called: the Registrar, Registrar — not: Deputy Registrar,
+    delegate, prescribed court
   approved_by: null
   approved_date: null
   authored:
@@ -4339,21 +4701,30 @@
       - 45
       content_hash: sha256:0747d36f6b8a618b2323ad53edf975988f3b9f381ffb912f4d01a29ab6e27e53
       quote: Registrar means the Registrar of Trade Marks.
-    confidence: 0.7
+    confidence: 0.75
     reasoning: >-
-      A role, typed with the other roles in this pass.
+      The same office as GC-0046, reached from Part 52 and the section 6 definition rather
+      than from Part 29. Section 205 makes a Deputy Registrar's exercise of a power the
+      Registrar's, which is a statement about who acts.
     alternatives_considered:
     - >-
-      none seriously considered.
+      Leaving it unsorted, on the ground that the signed GC-0046 already holds the office.
+      Rejected: a blank cell says 'not yet sorted' and this one has been sorted. The duplication
+      is a vocabulary problem, named on the record rather than hidden by an empty cell.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether role concepts belong in the four groups.
+      Whether GC-0115 and the signed GC-0046 are the same concept. If they are, the merge
+      is a vocabulary decision that retires one id, and nothing in this typing should
+      be read as endorsing the split.
 - id: GT-0116
   concept: GC-0116
-  type: none_of_these
+  type: process_role
   basis:
   - TMA1995/s6/applicant
-  notes: >-
-    applicant — not: registered owner, opponent, authorised user
+  notes: 'applicant — not: registered owner, opponent, authorised user'
   approved_by: null
   approved_date: null
   authored:
@@ -4368,21 +4739,29 @@
       - 110
       content_hash: sha256:fd368ed715ee3a61abeefebce1aa72df52a0b2ee24b76e19d86b208526e6d689
       quote: means the person in whose name the application is for the time being
-    confidence: 0.7
+    confidence: 0.85
     reasoning: >-
-      A role, typed with the other roles.
+      Section 6 defines the applicant as the person in whose name the application stands
+      for the time being. A party — and one whose identity can change without the application
+      changing, which is only sayable if it is a role.
     alternatives_considered:
     - >-
-      none seriously considered.
+      procedural_step — rejected. Making an application is a step; the applicant is who
+      makes it.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether role concepts belong in the four groups.
+      Nothing about the group. What is worth checking is the concept: Part 10 treats getting
+      the applicant's identity right as a substantive matter, and a bare role typing does
+      not carry that weight.
 - id: GT-0117
   concept: GC-0117
-  type: none_of_these
+  type: process_role
   basis:
   - TMM/Part46/1#1
-  notes: >-
-    opponent — not: applicant, objector, requester
+  notes: 'opponent — not: applicant, objector, requester'
   approved_by: null
   approved_date: null
   authored:
@@ -4397,14 +4776,22 @@
       - 230
       content_hash: sha256:02a2b1a95baa2a0cc7c9e71bfd36f03d235e71e78c4e90c9b8cd0eae568015a8
       quote: Any person may oppose
-    confidence: 0.65
+    confidence: 0.8
     reasoning: >-
-      A role, typed with the other roles.
+      The party that brings an opposition. The Part 46 passage behind this record describes
+      who may be one and who usually is.
     alternatives_considered:
     - >-
-      none seriously considered.
+      procedural_step — rejected. Opposition is the step and is typed as one at GT-0040
+      and GT-0102; the opponent is who brings it.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether role concepts belong in the four groups.
+      GC-0117's record notes the term is defined in five places across the Regulations,
+      one per opposition type. If those are different parties rather than one, the group
+      holds and the concept does not.
 - id: GT-0118
   concept: GC-0118
   type: relevant_factor
@@ -4502,12 +4889,12 @@
       Type the Part 22 categories consistently, and add the middle one.
 - id: GT-0121
   concept: GC-0121
-  type: none_of_these
+  type: external_instrument
   basis:
   - TMM/Part26/4#1
   notes: >-
-    classification of goods and services — also called: classification, the Nice Classification, classes
-    — not: similarity of goods and services, specification of goods and services
+    classification of goods and services — also called: classification, the Nice Classification,
+    classes — not: similarity of goods and services, specification of goods and services
   approved_by: null
   approved_date: null
   authored:
@@ -4522,23 +4909,36 @@
       - 404
       content_hash: sha256:78526672fb230fb32140c73d688d23d3b57284e2943ba5dbddc77e0bbca71b3d
       quote: Classification is not the determining factor
-    confidence: 0.75
+    confidence: 0.55
     reasoning: >-
-      The Manual says in terms that it does not determine the similarity question, which rules out
-      relevant_factor on the corpus's own words. It is administrative structure.
+      The Nice Classification, given effect by the Regulations. A scheme originating outside
+      the Act that Australian practice adopts.
     alternatives_considered:
     - >-
-      relevant_factor — rejected on the strength of the quoted sentence, which is as close to an explicit
-      typing as this corpus gets.
+      procedural_step — classifying is something done to an application, and the concept's
+      own alt labels include 'classification' the act as well as 'the Nice Classification'
+      the scheme.
+    - >-
+      relevant_factor — rejected on the corpus's own words. Part 26 says classification
+      is not the determining factor in considering similarity, which is the Manual warning
+      a reader against exactly this reading.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Nothing specific; this is one of the better-evidenced typings in the pass.
+      The lowest-confidence typing in the 53. The concept conflates a scheme, an act and
+      a set of classes; whichever of the three the vocabulary means decides the group,
+      and this record takes the scheme. Splitting the concept would be a better answer
+      than moving it.
 - id: GT-0122
   concept: GC-0122
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part6/1#1
   notes: >-
-    expedited examination — also called: expedite examination — not: examination, deferment of acceptance
+    expedited examination — also called: expedite examination — not: examination, deferment
+    of acceptance
   approved_by: null
   approved_date: null
   authored:
@@ -4553,22 +4953,30 @@
       - 249
       content_hash: sha256:80a50da3b254cdae62f7acc6cee2578fdcb480667d4ce8907563a93e75cebd52
       quote: The Registrar may expedite examination of an application
-    confidence: 0.65
+    confidence: 0.8
     reasoning: >-
-      A procedural step.
+      Examination taken out of filing order. A step, and a variant of the one typed at
+      GT-0092.
     alternatives_considered:
     - >-
-      none seriously considered.
+      relevant_factor — rejected. Whether expedition is warranted is a judgement, but
+      the concept names the expedited examination, not the judgement.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether procedural steps belong in the taxonomy.
+      The Manual's modality is that the Registrar *may* expedite, on a reasonable belief.
+      This typing carries none of that, and the may/must distinction is the thing the
+      concept's own note singles out.
 - id: GT-0123
   concept: GC-0123
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part7/1#1
   notes: >-
-    withdrawal — also called: withdraw, notice of withdrawal — not: lapsing of an application, revocation
-    of acceptance, amendment
+    withdrawal — also called: withdraw, notice of withdrawal — not: lapsing of an application,
+    revocation of acceptance, amendment
   approved_by: null
   approved_date: null
   authored:
@@ -4582,23 +4990,31 @@
       - 83
       - 154
       content_hash: sha256:dc0107b9a55fe673e85890d21f45905a5c9c3a1e705964f4f0474e1891845cef
-      quote: may withdraw it by giving the Registrar notice of withdrawal in writing
-    confidence: 0.65
+      quote: >-
+        may withdraw it by giving the Registrar notice of withdrawal in writing
+    confidence: 0.85
     reasoning: >-
-      A procedural act by a party.
+      A person ends an application, notice or request by giving notice in writing. A transition,
+      and one somebody performs.
     alternatives_considered:
     - >-
-      none seriously considered.
+      instrument_or_record — rejected. The notice of withdrawal is the document; the withdrawal
+      is what it effects.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether procedural acts belong in the taxonomy.
+      Withdrawal is distinct from lapsing precisely in that somebody does it. That is
+      the distinction GT-0098 puts under strain, and the two records should be read together.
 - id: GT-0124
   concept: GC-0124
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMM/Part9/1#1
   notes: >-
-    amendment of an application — also called: amendment, amendments — not: rectification of the Register,
-    withdrawal, divisional application
+    amendment of an application — also called: amendment, amendments — not: rectification
+    of the Register, withdrawal, divisional application
   approved_by: null
   approved_date: null
   authored:
@@ -4612,17 +5028,23 @@
       - 118
       - 221
       content_hash: sha256:6c01cbd541778ccd23945673c94fd15dcd8cdc23a2fa3a65fa8298f3c4c255da
-      quote: Amendments to trade mark application details, and other documents, can be made under
-        Part 6 of the Act.
-    confidence: 0.6
+      quote: >-
+        Amendments to trade mark application details, and other documents, can be made
+        under Part 6 of the Act.
+    confidence: 0.8
     reasoning: >-
-      A procedural act.
+      An application or a registered mark's details are changed. A transition.
     alternatives_considered:
     - >-
-      exception — amending the specification is a way round a s 44 citation. Rejected: it changes
-      the application rather than displacing the ground.
+      instrument_or_record — rejected. The amended document is a record; amending it is
+      the step.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether an act that removes the facts a ground rests on is an exception.
+      Part 6 of the Act governs amendment before registration and Division 1 of Part 8
+      after it. One concept spans two regimes and the group does not show the split.
 - id: GT-0125
   concept: GC-0125
   type: relevant_factor
@@ -4691,12 +5113,12 @@
       differ.
 - id: GT-0127
   concept: GC-0127
-  type: none_of_these
+  type: instrument_or_record
   basis:
   - TMM/Part52/1#1~1
   notes: >-
-    decision — also called: Registrar's decision, written decision — not: hearing, adverse report,
-    ground for rejection
+    decision — also called: Registrar's decision, written decision — not: hearing, adverse
+    report, ground for rejection
   approved_by: null
   approved_date: null
   authored:
@@ -4711,21 +5133,32 @@
       - 92
       content_hash: sha256:f2b22d48cf5695afb6d756fa140a8e316154f0953c2a55f07123ba2439f985d4
       quote: Opposition to registration of a trade mark
-    confidence: 0.55
+    confidence: 0.7
     reasoning: >-
-      An outcome of a proceeding.
+      The written outcome. Part 52 opens by listing what gets decided, and section 205
+      makes a Deputy Registrar's decision the Registrar's — a statement about the document's
+      authorship.
     alternatives_considered:
     - >-
-      none seriously considered.
+      procedural_step — deciding is an act, and a reader who takes the concept to name
+      the act rather than the document belongs there. Rejected because the deciding is
+      already carried by examination and by the hearing.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether outcomes need a group of their own.
+      Whether the vocabulary wants the act of deciding as well as the document it produces.
+      At the moment it has the document, and 'decision maker' typed as a role, with nothing
+      in between them.
 - id: GT-0128
   concept: GC-0128
-  type: none_of_these
+  type: procedural_step
   basis:
   - TMA1995/s33
   notes: >-
-    hearing — also called: inter partes hearing, ex parte hearing — not: decision, opposition, examination
+    hearing — also called: inter partes hearing, ex parte hearing — not: decision, opposition,
+    examination
   approved_by: null
   approved_date: null
   authored:
@@ -4740,22 +5173,30 @@
       - 733
       content_hash: sha256:36311d92754a0ea33e97abec732d66bb149a577c8004ce2f28ee98bb3bcb54e2
       quote: without giving the applicant an opportunity of being heard
-    confidence: 0.6
+    confidence: 0.8
     reasoning: >-
-      A proceeding.
+      A proceeding. Section 33(4) makes an opportunity to be heard a precondition of rejection,
+      which ties hearings to examination and not to opposition alone.
     alternatives_considered:
     - >-
-      none seriously considered.
+      instrument_or_record — rejected. The decision is the record and is typed one at
+      GT-0127; the hearing is the proceeding that produces it.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      Whether proceedings belong in the taxonomy.
+      Whether a hearing is a step inside the examination process or a process beside it.
+      Section 33(4) suggests one answer and Part 51 arguably another.
 - id: GT-0129
   concept: GC-0129
-  type: none_of_these
+  type: instrument_or_record
   basis:
   - TMM/Part27/1#1
   notes: >-
-    specification of goods and services — also called: specification, specification of goods and/or
-    services — not: classification of goods and services, similarity of goods and services
+    specification of goods and services — also called: specification, specification of
+    goods and/or services — not: classification of goods and services, similarity of goods
+    and services
   approved_by: null
   approved_date: null
   authored:
@@ -4770,15 +5211,24 @@
       - 335
       content_hash: sha256:3a61229ed189ea7c63894d6d0d2da5e353f303562b87a81c8bfaee870d1ebc5f
       quote: Amend the specification
-    confidence: 0.55
+    confidence: 0.7
     reasoning: >-
-      Part of an application rather than a ground, test, factor or exception.
+      What the applicant claims, as written in the application. A part of the document,
+      and the part amendment operates on.
     alternatives_considered:
     - >-
-      relevant_factor — the specification determines which goods the similarity question is asked
-      about. Defensible.
+      subject_matter — the near miss. The specification describes the goods, and the goods
+      are arguably what the registration is about. Rejected because the concept names
+      the claim as written — which is why amending it is one of the Manual's named ways
+      of overcoming a section 44 ground.
+    - >-
+      none_of_these — where this record sat until 2026-09-09, and the honest answer while
+      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
+      the owner asked for groups that fit these 53 (ADR-0098).
     expert_should_check: >-
-      The overlap with GC-0012 should be settled before this typing means anything.
+      Whether specification, classification and the goods themselves are three concepts
+      or one thing with three aspects. They are typed into three different groups by this
+      pass, which is a strong claim and rests on a thin argument.
 - id: GT-0130
   concept: GC-0130
   type: relevant_factor

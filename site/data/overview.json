@@ -1,13 +1,13 @@
 {
  "id": "overview",
- "title": "A knowledge base for section 43",
- "lede": "This project is turning the part of the Trade Marks Manual that deals with **section 43** — marks with a connotation likely to deceive or cause confusion — into something a machine can reason over without ever deciding a case. Everything here was signed off by a person before it was modelled. Nothing on this page was written by an AI as legal content.",
+ "title": "A knowledge base for trade marks examination",
+ "lede": "This project is turning the **Trade Marks Manual of Practice and Procedure** — all 54 Parts of it, together with the legislation it runs on — into something a machine can reason over without ever deciding a case. **190 records here were signed by a named person on a date. 208 were written by a machine and no expert has read any of them.** Which is which is recorded on every record, shown on every count on this site, and never summed into one number (ADR-0079, ADR-0080).",
  "blocks": [
   {
    "kind": "callout",
    "tone": "warn",
-   "title": "10 decisions are waiting on you",
-   "text": "Six of them unblock the next piece of work. Each is written to be answerable without reading anything else, and your answers come back into the repository as a file the next session reads.",
+   "title": "11 decisions are waiting on you",
+   "text": "2 of them unblock the next piece of work. Each is written to be answerable without reading anything else, and your answers come back into the repository as a file the next session reads.",
    "links": [
     {
      "label": "Go to your decisions",
@@ -86,7 +86,7 @@
     },
     {
      "label": "Classes declared",
-     "value": 50,
+     "value": 55,
      "note": "10 hold approved content",
      "tone": null,
      "href": null
@@ -107,7 +107,7 @@
     },
     {
      "label": "Statements a machine wrote",
-     "value": 3441,
+     "value": 3493,
      "note": "a separate named graph — no query for signed knowledge reaches them",
      "tone": "warn",
      "href": null
@@ -264,7 +264,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "nine OWL 2 RL modules drafted in `ontology/draft/`; nothing approved, so `ontology/` stays empty (ADR-0056, ADR-0057). The four concept classes now also fill from **authored** `concept_type` records, not only signed ones (ADR-0079 amends ADR-0071) — the 0-of-52 taxonomy is an agent's to fill. Whole-Manual scope means the class list stops being 30-of-49 empty for want of material (ADR-0081)"
+       "text": "nine OWL 2 RL modules drafted in `ontology/draft/`; nothing approved, so `ontology/` stays empty (ADR-0056, ADR-0057). The concept classes now also fill from **authored** `concept_type` records, not only signed ones (ADR-0079 amends ADR-0071) — the 0-of-130 signed taxonomy is an agent's to fill. Whole-Manual scope means the class list stops being 30-of-49 empty for want of material (ADR-0081). **S019 added five concept classes** — `ProcessRole`, `SubjectMatter`, `ProceduralStep`, `InstrumentOrRecord`, `ExternalInstrument` — beside the owner's original four (ADR-0098)"
       }
      ]
     },

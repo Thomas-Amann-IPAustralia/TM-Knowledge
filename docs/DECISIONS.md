@@ -4182,3 +4182,153 @@ reason to drop one, so 39 chunks are in regardless of what cites them.
    about. All three are on OQ-0025 with their numbers. It was decided rather than
    asked because the rule chosen is defensible and waiting would have left the
    graph fenced.
+
+---
+
+## ADR-0098 — the four groups become nine, and the 53 that fitted nowhere are sorted in one pass
+
+**Date** 2026-09-09 · **Authority** human · **Status** accepted ·
+**Partly provisional — the groups themselves are `agent-proposed`, flagged in
+HANDOFF and asked as OQ-0026**
+
+**Context.** The owner ruled on OQ-0001 that four groups were the right way to
+sort the vocabulary: a ground of refusal, a legal test, a relevant factor, an
+exception. Over the 52 concepts the section 43 boundary could see, that produced
+30 `relevant_factor` and 1 `ground_of_refusal`, and OQ-0023 asked whether the
+lopsidedness meant the taxonomy was wrong. S018 widened the vocabulary to 130 and
+answered half of it — the lopsidedness evened out, so it was an artefact of a
+one-ground vocabulary. The other half did not go away: **53 of the 130 came back
+`none_of_these`**, and they were not a random remainder. They were the people,
+the things, the acts, the documents and the schemes. His four groups describe
+*reasoning about* an application; about two fifths of the Manual describes *what
+happens to* one. That was OQ-0024.
+
+**Decision.** He answered it in chat on 2026-09-09:
+
+> *"Please create new groups which most effectively capture the 53 unassigned
+> concepts these will all be reviewed in one go"*
+
+Five groups are added, on a second axis, and all 53 are sorted into them in one
+pass. **His original four are untouched and no concept already sorted into one of
+them was moved.**
+
+| group | what it holds | n |
+|---|---|---|
+| `process_role` | a person or body that acts | 8 |
+| `subject_matter` | the thing the process operates on | 14 |
+| `procedural_step` | an act, proceeding or event that moves an application or a registration from one state to the next | 21 |
+| `instrument_or_record` | a document, entry or endorsement the process produces, or writes to the Register | 7 |
+| `external_instrument` | a treaty or international scheme Australian practice adopts, rather than a rule the Act itself makes | 2 |
+| `none_of_these` | retained, and now holding exactly one concept | 1 |
+
+**What is his and what is the agent's, because they are not the same and the
+record has to say so.** *That there are new groups* is his instruction and is
+`human`. *How many, what they are called, where the lines fall, and which of the
+53 goes in which* is the agent's, made under ADR-0079, stamped `unreviewed` on
+every record, and put back to him as OQ-0026. "Most effectively capture" is an
+instruction to exercise judgement rather than a request for a shortlist, so no
+options were brought back — but nothing here is settled by his having asked for
+it.
+
+**Consequences.**
+
+1. **One concept stays `none_of_these`, on purpose.** `GC-0051` — *mandatory
+   application of the section* — states that section 43 applies mandatorily and
+   there is no discretion. That is a rule *about* a ground: not a ground, test,
+   factor or exception, and not a role, thing, act, record or scheme either. A
+   tenth group built to hold one record would be fitting the taxonomy to the
+   data, and the residual bucket exists precisely so a genuine outlier can be
+   shown as one. It is also the proof that `none_of_these` still means something:
+   a bucket that empties the moment groups are added was never an answer.
+2. **`process_role` maps to `tmk:ProcessRole`, not to the existing `tmk:Role`.**
+   `examination.ttl` already declares a role taxonomy — Registrar, Delegate,
+   Examiner, DecisionMaker — whose members are people who act. A concept record
+   for "examiner" is the *term* in a vocabulary. Merging them would make the
+   concept record an examiner and leave the model no way to say which of the two
+   a triple is about. Named here because the collision is invisible until
+   somebody writes a query that walks both.
+3. **One concept still carries one group, and that is the weakest part of this
+   decision.** The two axes are not orthogonal for every concept. *Acceptance* is
+   a `procedural_step` and section 33's presumption of registrability is the
+   reasoning inside it, and with one dropdown the sheet makes a reviewer pick.
+   *Conditions or limitations* is typed `instrument_or_record` and has a real
+   claim on his `exception`. Two columns would fix it and would double every row
+   a reviewer reads; nobody has asked for that, so it is offered as an option on
+   OQ-0026 rather than built. Every affected record names the claim that lost in
+   its `expert_should_check`.
+4. **Four assignments are weak and say so rather than being quietly filed.**
+   `GC-0121` classification (0.55 — a scheme, an act and a set of classes in one
+   concept), `GC-0113` an IRDA (0.6 — arguably belongs with the Madrid Protocol),
+   `GC-0043`/`GC-0110` a divisional application (0.6 — typed as a mechanism while
+   `GC-0079` a series is typed as a thing, and the two should be decided
+   together) and `GC-0069` conditions or limitations (0.65). They are named in
+   the report, on OQ-0026 and on their own records.
+5. **Nothing became approved and nothing moved store.** All 130 typings —
+   the 53 retyped and the 77 untouched — remain in `authored/` with
+   `review_status: unreviewed` and `approved_by: null`. `eval/gold/` is still
+   frozen at 190 (ADR-0080), the harness reports 0 defects, and 0 of 130 concepts
+   are sorted into a group by a person.
+6. **The evidence was not re-authored, and that is deliberate.** Each of the 53
+   already carried passages verified against the pinned snapshot when S017 and
+   S018 wrote them, and the passage that shows what a concept *is* is the passage
+   that shows what part it plays. Only `type`, `confidence`, `reasoning`,
+   `alternatives_considered`, `expert_should_check` and `authored_date` changed.
+   Every superseded typing keeps its old answer visible: `none_of_these` appears
+   in `alternatives_considered` on all 53, described as superseded rather than
+   refuted, because a record that erased its own previous judgement would make
+   this decision unauditable.
+
+---
+
+## ADR-0099 — the dashboard says what is unreviewed, and counts what it claims to count
+
+**Date** 2026-09-09 · **Authority** human · **Status** accepted
+
+**Context.** Asked what was waiting on him or on the trade marks expert, and
+whether the published dashboard said so, the answer was: mostly yes, with four
+faults. He replied *"Yes, I would like you to fix the issues you identified."*
+
+**Decision.** Four fixes, and one addition.
+
+1. **The Overview lede was untrue and the page contradicted itself two blocks
+   apart.** It read *"Everything here was signed off by a person before it was
+   modelled. Nothing on this page was written by an AI as legal content"* while a
+   stat tile below it read *"Records a machine wrote: 208 — none of them read by
+   an expert."* The sentence was written before ADR-0079 and was correct then.
+   It now states the pair — 190 signed, 208 authored, never summed — as the first
+   thing a reader sees. **This is the fault that mattered.** ADR-0082 removed the
+   review gate on serving unreviewed content and moved the whole burden onto
+   every surface that shows it; the front page was the surface, and it was
+   claiming the opposite.
+2. **The same lede framed the project as a section 43 pilot**, withdrawn by
+   ADR-0081 and gone from the artefacts since ADR-0095. The title and lede now
+   describe the whole Manual.
+3. **"Six of them unblock the next piece of work" was hardcoded** at
+   `build.py:254` and had been wrong since five of the six were answered. It is
+   counted from the queue, the way the inbox's own theme tallies already were —
+   the same failure Q-46 recorded one page later.
+4. **`blockers.md` presented ten decisions as waiting on a reviewer.** ADR-0084
+   made the held seed records agent work, resolved by authoring rather than by an
+   expert round. The report is honest about its data and was misleading about
+   whose data it is; it now says so at the top and in the *Start here* section,
+   with the one genuine exception named — the eight records a named expert
+   rejected stay rejected (ADR-0084 c2).
+
+**And the addition, which is the point.** OQ-0027 puts the **208 unreviewed
+records** on his decision page as a question about how they reach a signature.
+Before today the largest thing genuinely waiting on a person appeared nowhere on
+the page that exists to list what is waiting on a person: the inbox held ten
+questions and no route to a signature. A signature is the one thing no amount of
+agent time produces, and under ADR-0086 silence never produces one either.
+
+**Consequences.**
+
+1. **No count on the site is written down in prose any more where it can be
+   computed.** Two have now gone stale this way — a theme blurb (Q-46) and this
+   callout. The rule is not new, it was just not applied here.
+2. **OQ-0026 and OQ-0027 take the queue from ten questions to eleven**, and
+   OQ-0024 closes against the ruling file. The inbox is no longer only about
+   decisions: OQ-0027 is a question about *work*, which is a slight widening of
+   what that page is for and is done deliberately rather than by accident.
+3. **`eval/gold/` and the authored store are untouched by this ADR.** Nothing
+   here changes a record; it changes what the site says about them.

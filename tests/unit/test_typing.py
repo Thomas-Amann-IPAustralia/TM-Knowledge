@@ -282,3 +282,63 @@ def test_a_signed_concept_wins_over_an_authored_one_with_the_same_id():
     prepared = rows(_gold([CONNOTATION]), _authored(concepts=[duplicate]))
     assert [row["concept"] for row in prepared] == ["GC-0001"]
     assert prepared[0]["notes"].startswith(summarise(CONNOTATION))
+
+
+# ---------------------------------------------------------------------------
+# The groups live in three files and must agree
+# ---------------------------------------------------------------------------
+#
+# ADR-0098 took the taxonomy from four groups to nine, and a group name now has
+# to be written in three places that nothing joins up at runtime: the schema
+# enum (which the workbook's dropdown is generated from), `typing.GROUPS` (the
+# legend on the sheet and in the report) and `CONCEPT_CLASSES` (the ontology
+# class each group asserts). A tenth group added to two of the three fails in
+# three different ways — a value the schema rejects, a dropdown missing an
+# option, or a concept silently asserting no class — and none of them fails
+# loudly. These two tests are the join.
+
+
+def _schema_groups() -> list[str]:
+    import json
+
+    from tm_knowledge.config import REPO_ROOT
+
+    schema = json.loads(
+        (REPO_ROOT / "eval" / "schemas" / "concept-type.schema.json").read_text()
+    )
+    return schema["properties"]["type"]["enum"]
+
+
+def test_the_sheets_groups_are_exactly_the_schemas_groups_in_the_same_order():
+    """The dropdown is generated from the schema and the legend beside it from
+    `GROUPS`. If they disagree, a reviewer reads one list and picks from
+    another."""
+    from tm_knowledge.stage0.typing import GROUPS
+
+    assert [value for value, _ in GROUPS] == _schema_groups()
+
+
+def test_every_group_but_none_of_these_asserts_a_class():
+    """`none_of_these` asserts no class on purpose — it is a real answer about
+    the taxonomy and the concept stays a bare `tmk:LegalConcept` (ADR-0093).
+    Every other group must name one, and that class must be declared in the
+    ontology: a group missing from `CONCEPT_CLASSES` types nothing and says
+    nothing about having failed to."""
+    from rdflib import OWL, RDF, Graph
+
+    from tm_knowledge.config import REPO_ROOT
+    from tm_knowledge.ontology.build import CONCEPT_CLASSES
+    from tm_knowledge.ontology.namespaces import TMK
+
+    groups = set(_schema_groups())
+    assert set(CONCEPT_CLASSES) == groups - {"none_of_these"}
+
+    declared = Graph()
+    declared.parse(
+        REPO_ROOT / "ontology" / "draft" / "legal-concepts.ttl", format="turtle"
+    )
+    for group, class_name in CONCEPT_CLASSES.items():
+        assert (TMK[class_name], RDF.type, OWL.Class) in declared, (
+            f"{group} maps to tmk:{class_name}, which legal-concepts.ttl does "
+            f"not declare"
+        )

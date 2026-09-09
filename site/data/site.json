@@ -8,7 +8,7 @@
   "manual_version": "ingest/0.11.0",
   "legislation_version": "legislation/0.2.0"
  },
- "waiting": 10,
+ "waiting": 11,
  "nav": [
   {
    "id": "overview",

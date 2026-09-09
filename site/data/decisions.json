@@ -1,21 +1,21 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "97 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "99 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 97,
+     "value": 99,
      "note": null,
      "tone": null,
      "href": null
     },
     {
      "label": "Made by you",
-     "value": 31,
+     "value": 33,
      "note": "yours, and not overturnable by an agent",
      "tone": "good",
      "href": null
@@ -77,6 +77,62 @@
     }
    ],
    "rows": [
+    {
+     "id": "`ADR-0099`",
+     "title": "the dashboard says what is unreviewed, and counts what it claims to count",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-09",
+     "search": "ADR-0099 the dashboard says what is unreviewed, and counts what it claims to count human accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "Asked what was waiting on him or on the trade marks expert, and whether the published dashboard said so, the answer was: mostly yes, with four faults. He replied *\"Yes, I would like you to fix the issues you identified.\"*"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0099-the-dashboard-says-what-is-unreviewed-and-counts-what-it-claims-to-count)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0098`",
+     "title": "the four groups become nine, and the 53 that fitted nowhere are sorted in one pass",
+     "authority": {
+      "chips": [
+       {
+        "label": "human",
+        "tone": "good"
+       }
+      ]
+     },
+     "date": "2026-09-09",
+     "search": "ADR-0098 the four groups become nine, and the 53 that fitted nowhere are sorted in one pass human accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner ruled on OQ-0001 that four groups were the right way to sort the vocabulary: a ground of refusal, a legal test, a relevant factor, an exception. Over the 52 concepts the section 43 boundary could see, that produced 30 `relevant_factor` and 1 `ground_of_refusal`, and OQ-0023 asked whether the lopsidedness…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0098-the-four-groups-become-nine-and-the-53-that-fitted-nowhere-are-sorted-in-one-pass)"
+      }
+     ]
+    },
     {
      "id": "`ADR-0097`",
      "title": "the source graph holds what the records speak about, not what cites a section",

@@ -1,6 +1,6 @@
 # Concept type — template (Stage 0)
 #
-# Which of the four groups an approved concept belongs to. One record per
+# Which group an approved concept belongs to. One record per
 # concept, and a record of its own rather than a field on the concept: the
 # concept was signed by one person on one date, and this is a second judgement,
 # possibly by somebody else, possibly later (ADR-0071).
@@ -15,12 +15,28 @@
 id: GT-000
 concept: GC-000                 # the concept this types
 
-# ground_of_refusal — a reason an application can be refused
-# legal_test        — a question the decision maker has to answer
-# relevant_factor   — something that feeds into that answer
-# exception         — something that takes a case out of the rule
-# none_of_these     — the four groups do not fit this one. A real answer: it is
-#                     evidence about the taxonomy, not a gap in the data.
+# Four groups sort by the part a concept plays in reasoning towards a decision.
+# They are the owner's own, from OQ-0001:
+#
+# ground_of_refusal    — a reason an application can be refused
+# legal_test           — a question the decision maker has to answer
+# relevant_factor      — something that feeds into that answer
+# exception            — something that takes a case out of the rule
+#
+# Five sort by the part it plays in the process that reasoning sits inside.
+# They exist because 53 of 130 concepts fitted none of the four (ADR-0098):
+#
+# process_role         — a person or body that acts
+# subject_matter       — the thing the process operates on
+# procedural_step      — an act, proceeding or event that moves an application
+#                        or a registration from one state to the next
+# instrument_or_record — a document, entry or endorsement the process produces,
+#                        or writes to the Register
+# external_instrument  — a treaty or international scheme Australian practice
+#                        adopts, rather than a rule the Act itself makes
+#
+# none_of_these        — none of the nine fit this one. A real answer: it is
+#                        evidence about the taxonomy, not a gap in the data.
 type:
 
 basis: []                       # refs of the passages the typing rests on, if any

@@ -122,20 +122,26 @@ tmkc:GC-0038 a tmk:RelevantFactor ;
 tmkc:GC-0039 a tmk:RelevantFactor ;
     tmk:typedBy tmka:GT-0039 .
 
-tmkc:GC-0040 tmk:typedBy tmka:GT-0040 .
+tmkc:GC-0040 a tmk:ProceduralStep ;
+    tmk:typedBy tmka:GT-0040 .
 
 tmkc:GC-0041 a tmk:RelevantFactor ;
     tmk:typedBy tmka:GT-0041 .
 
-tmkc:GC-0042 tmk:typedBy tmka:GT-0042 .
+tmkc:GC-0042 a tmk:ProceduralStep ;
+    tmk:typedBy tmka:GT-0042 .
 
-tmkc:GC-0043 tmk:typedBy tmka:GT-0043 .
+tmkc:GC-0043 a tmk:ProceduralStep ;
+    tmk:typedBy tmka:GT-0043 .
 
-tmkc:GC-0044 tmk:typedBy tmka:GT-0044 .
+tmkc:GC-0044 a tmk:ProcessRole ;
+    tmk:typedBy tmka:GT-0044 .
 
-tmkc:GC-0045 tmk:typedBy tmka:GT-0045 .
+tmkc:GC-0045 a tmk:ProcessRole ;
+    tmk:typedBy tmka:GT-0045 .
 
-tmkc:GC-0046 tmk:typedBy tmka:GT-0046 .
+tmkc:GC-0046 a tmk:ProcessRole ;
+    tmk:typedBy tmka:GT-0046 .
 
 tmkc:GC-0047 a tmk:RelevantFactor ;
     tmk:typedBy tmka:GT-0047 .
@@ -576,6 +582,7 @@ tmkc:GC-0068 a skos:Concept,
     tmk:typedBy tmka:GT-0068 .
 
 tmkc:GC-0069 a skos:Concept,
+        tmk:InstrumentOrRecord,
         tmk:LegalConcept ;
     rdfs:comment "The Act defines 'limitations' in section 6 and uses 'conditions or limitations' as a pair in sections 33(2) and 44(3). The Manual treats them as the price of acceptance under subsection 44(3)."@en-AU ;
     skos:altLabel "conditions and limitations"@en-AU,
@@ -656,7 +663,8 @@ tmkc:GC-0071 a skos:Concept,
     tmk:typedBy tmka:GT-0071 .
 
 tmkc:GC-0072 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "The Manual makes the point that matters most here: the definition of trade mark is closed and exhaustive, while the definition of sign is open and inclusive. A sign is a trade mark only when used or intended to be used to distinguish in the course of trade."@en-AU ;
     skos:altLabel "mark"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
@@ -683,7 +691,8 @@ tmkc:GC-0072 a skos:Concept,
     tmk:typedBy tmka:GT-0072 .
 
 tmkc:GC-0073 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "Section 6's list is inclusive, so the enumerated items — letter, word, name, signature, numeral, device, brand, heading, label, ticket, aspect of packaging, shape, colour, sound, scent — are examples rather than a closed set. That is the whole basis of the Manual's Part 21 on non-traditional signs."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "sign"@en-AU ;
@@ -707,7 +716,8 @@ tmkc:GC-0073 a skos:Concept,
     tmk:typedBy tmka:GT-0073 .
 
 tmkc:GC-0074 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "Not a statutory category. The Manual groups shapes, colours, sounds, scents, moving images, holograms and gestures under this heading because the 1995 Act broadened the definition of a trade mark to reach them."@en-AU ;
     skos:altLabel "non-traditional signs"@en-AU,
         "non-traditional trade mark"@en-AU ;
@@ -732,7 +742,8 @@ tmkc:GC-0074 a skos:Concept,
     tmk:typedBy tmka:GT-0074 .
 
 tmkc:GC-0075 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "Registrable because section 6 names 'shape' in the definition of sign. The Manual records that this reversed the pre-1995 position, in which a mark had to be something separate from the goods."@en-AU ;
     skos:altLabel "shape (three-dimensional) trade marks"@en-AU,
         "three-dimensional trade mark"@en-AU ;
@@ -756,7 +767,8 @@ tmkc:GC-0075 a skos:Concept,
     tmk:typedBy tmka:GT-0075 .
 
 tmkc:GC-0076 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "The Manual distinguishes a colour used as the trade mark from colour as an aspect of packaging or of a label — the same colour can be either, and which it is changes the examination."@en-AU ;
     skos:altLabel "colour and coloured trade marks"@en-AU,
         "coloured trade mark"@en-AU ;
@@ -780,7 +792,8 @@ tmkc:GC-0076 a skos:Concept,
     tmk:typedBy tmka:GT-0076 .
 
 tmkc:GC-0077 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "The Manual's test is functional rather than formal: whatever the sound is, it must serve the purpose of identifying the trade source."@en-AU ;
     skos:altLabel "auditory trade mark"@en-AU,
         "sound (auditory) trade marks"@en-AU ;
@@ -803,7 +816,8 @@ tmkc:GC-0077 a skos:Concept,
     tmk:typedBy tmka:GT-0077 .
 
 tmkc:GC-0078 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "The Manual identifies graphical representation as the hard problem for scent, which ties this concept to the section 40 ground more tightly than any other sign kind."@en-AU ;
     skos:altLabel "olfactory trade mark"@en-AU,
         "scent trade marks"@en-AU ;
@@ -827,7 +841,8 @@ tmkc:GC-0078 a skos:Concept,
     tmk:typedBy tmka:GT-0078 .
 
 tmkc:GC-0079 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "A single application for two or more marks that resemble each other in material particulars and differ only in the ways section 51 lists. The 'material particulars' requirement is what does the work and the Manual gives it its own numbered section."@en-AU ;
     skos:altLabel "series"@en-AU,
         "series application"@en-AU ;
@@ -930,7 +945,8 @@ tmkc:GC-0082 a skos:Concept,
     tmk:typedBy tmka:GT-0082 .
 
 tmkc:GC-0083 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
     rdfs:comment "The person, as against the use. Section 8(1) makes control the test for both, but the Act keeps them in separate subsections and section 26 gives the authorised user rights of its own."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "authorised user"@en-AU ;
@@ -953,7 +969,8 @@ tmkc:GC-0083 a skos:Concept,
     tmk:typedBy tmka:GT-0083 .
 
 tmkc:GC-0084 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
     rdfs:comment "Defined by the Register: the person in whose name the mark is registered. That is narrower than ownership at common law, and the Manual's Part 19B treats the registration as personal property held by that person."@en-AU ;
     skos:altLabel "owner of the trade mark"@en-AU,
         "registered proprietor"@en-AU ;
@@ -1004,7 +1021,8 @@ tmkc:GC-0085 a skos:Concept,
     tmk:typedBy tmka:GT-0085 .
 
 tmkc:GC-0086 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "Defined narrowly by the Act as an assignment by act of the parties. Transmission is the other half of the pair and covers what happens without such an act — the Manual's Part 43 title carries both."@en-AU ;
     skos:altLabel "assignment of a trade mark"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
@@ -1028,7 +1046,8 @@ tmkc:GC-0086 a skos:Concept,
     tmk:typedBy tmka:GT-0086 .
 
 tmkc:GC-0087 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "The section 6 definition is a stub continuing into a list, so this record's evidence comes from the Manual rather than from the definition itself."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "transmission"@en-AU ;
@@ -1049,7 +1068,8 @@ tmkc:GC-0087 a skos:Concept,
     tmk:typedBy tmka:GT-0087 .
 
 tmkc:GC-0088 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "Defined by an entry in the Register, not by any quality of the mark. Distinguished from 'trade mark' — section 17's definition is satisfied by use or intended use, with no registration required."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "registered trade mark"@en-AU ;
@@ -1074,6 +1094,7 @@ tmkc:GC-0088 a skos:Concept,
     tmk:typedBy tmka:GT-0088 .
 
 tmkc:GC-0089 a skos:Concept,
+        tmk:InstrumentOrRecord,
         tmk:LegalConcept ;
     rdfs:comment "Kept under section 207. The Act also defines 'old register' and the Regulations define a 'Record of International Registrations', and the three must not be merged — an entry in one is not an entry in another."@en-AU ;
     skos:altLabel "Register"@en-AU,
@@ -1145,7 +1166,8 @@ tmkc:GC-0091 a skos:Concept,
     tmk:typedBy tmka:GT-0091 .
 
 tmkc:GC-0092 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "Section 31 gives examination two subjects and only two: whether the application was made in accordance with the Act, and whether there are grounds for rejecting it. Section 33 then makes acceptance the default unless the Registrar is satisfied of one of those."@en-AU ;
     skos:altLabel "examine and report"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
@@ -1169,7 +1191,8 @@ tmkc:GC-0092 a skos:Concept,
     tmk:typedBy tmka:GT-0092 .
 
 tmkc:GC-0093 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "Section 33(1) makes acceptance mandatory unless the Registrar is satisfied of a defect or a ground — that is the presumption of registrability in operation. Acceptance is not registration: section 33 accepts, publication and opposition follow, and registration comes later."@en-AU ;
     skos:altLabel "accept the application"@en-AU,
         "accepted"@en-AU ;
@@ -1196,7 +1219,8 @@ tmkc:GC-0093 a skos:Concept,
     tmk:typedBy tmka:GT-0093 .
 
 tmkc:GC-0094 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "Available where information received after acceptance indicates the mark should not have been accepted. Distinct from revocation of registration under sections 84A to 84D, which the Manual gives a separate Part. GC-0042 already holds this term."@en-AU ;
     skos:altLabel "revoke acceptance"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
@@ -1219,7 +1243,8 @@ tmkc:GC-0094 a skos:Concept,
     tmk:typedBy tmka:GT-0094 .
 
 tmkc:GC-0095 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "The Manual expects it to be rare and records that the Registrar is not obliged to consider it even on a third party's request. That discretion is the most examinable thing about the concept."@en-AU ;
     skos:altLabel "revoke the registration"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
@@ -1243,7 +1268,8 @@ tmkc:GC-0095 a skos:Concept,
     tmk:typedBy tmka:GT-0095 .
 
 tmkc:GC-0096 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "The Manual's own gloss is the useful part: the acceptance period is 'set in abeyance'. That distinguishes it from an extension of time, which lengthens a period rather than suspending it."@en-AU ;
     skos:altLabel "defer acceptance"@en-AU,
         "deferment"@en-AU ;
@@ -1269,7 +1295,8 @@ tmkc:GC-0096 a skos:Concept,
     tmk:typedBy tmka:GT-0096 .
 
 tmkc:GC-0097 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "Available across the Act wherever a time is set, and the Manual notes the procedure differs by which time is being extended. That variability is why it is one concept with many procedures rather than many concepts."@en-AU ;
     skos:altLabel "extension of the period"@en-AU,
         "extensions of time"@en-AU ;
@@ -1293,7 +1320,8 @@ tmkc:GC-0097 a skos:Concept,
     tmk:typedBy tmka:GT-0097 .
 
 tmkc:GC-0098 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "Automatic on the expiry of the acceptance period, so it is not a decision anybody makes. That is what separates it from rejection and from withdrawal."@en-AU ;
     skos:altLabel "lapse"@en-AU,
         "lapses"@en-AU ;
@@ -1317,6 +1345,7 @@ tmkc:GC-0098 a skos:Concept,
     tmk:typedBy tmka:GT-0098 .
 
 tmkc:GC-0099 a skos:Concept,
+        tmk:InstrumentOrRecord,
         tmk:LegalConcept ;
     rdfs:comment "The Manual defines it as a limitation of the exclusive rights given by registration, and explains that the owner never had exclusive rights in part of a mark anyway — so a disclaimer records something rather than creating it."@en-AU ;
     skos:altLabel "disclaimers"@en-AU ;
@@ -1340,6 +1369,7 @@ tmkc:GC-0099 a skos:Concept,
     tmk:typedBy tmka:GT-0099 .
 
 tmkc:GC-0100 a skos:Concept,
+        tmk:InstrumentOrRecord,
         tmk:LegalConcept ;
     rdfs:comment "The Manual treats an endorsement as what goes on the Register to record that an application was accepted on evidence or other circumstances. It is a record of how a ground was overcome, which makes it evidence about the mark's history."@en-AU ;
     skos:altLabel "endorsements"@en-AU ;
@@ -1389,7 +1419,8 @@ tmkc:GC-0101 a skos:Concept,
     tmk:typedBy tmka:GT-0101 .
 
 tmkc:GC-0102 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "A formal objection by a third party. The Manual notes that any person may oppose but that the opponent is generally somebody affected — which is a practice observation rather than a standing requirement, and the record keeps it in notes for that reason."@en-AU ;
     skos:altLabel "opposition proceedings"@en-AU,
         "opposition to registration"@en-AU ;
@@ -1414,6 +1445,7 @@ tmkc:GC-0102 a skos:Concept,
     tmk:typedBy tmka:GT-0102 .
 
 tmkc:GC-0103 a skos:Concept,
+        tmk:InstrumentOrRecord,
         tmk:LegalConcept ;
     rdfs:comment "A composite: the Regulations define it as a notice of intention to oppose plus a statement of grounds and particulars. Both components are separately defined terms, so the corpus holds three related definitions where a reader might expect one."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
@@ -1437,7 +1469,8 @@ tmkc:GC-0103 a skos:Concept,
     tmk:typedBy tmka:GT-0103 .
 
 tmkc:GC-0104 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "The Manual grounds it in section 17: use is inherent in what a trade mark is, so a mark that is not used may be removed. The onus sits on the opponent once the application is opposed, which is unusual and worth carrying."@en-AU ;
     skos:altLabel "non-use removal"@en-AU,
         "removal of a trade mark from the Register for non-use"@en-AU ;
@@ -1462,7 +1495,8 @@ tmkc:GC-0104 a skos:Concept,
     tmk:typedBy tmka:GT-0104 .
 
 tmkc:GC-0105 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "A court remedy, not a Registrar's one: the amendment or cancellation results from an order of a prescribed court. That is what separates it from every other correction mechanism in the Act."@en-AU ;
     skos:altLabel "rectification"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
@@ -1488,7 +1522,8 @@ tmkc:GC-0105 a skos:Concept,
     tmk:typedBy tmka:GT-0105 .
 
 tmkc:GC-0106 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "Renewable indefinitely at ten-year intervals from the filing date, and — unusually — any person may effect it, not only the owner."@en-AU ;
     skos:altLabel "renewal"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
@@ -1511,7 +1546,8 @@ tmkc:GC-0106 a skos:Concept,
     tmk:typedBy tmka:GT-0106 .
 
 tmkc:GC-0107 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "Distinguishes certified goods or services from uncertified ones, and the certifying is done by the owner or an approved certifier. The ACCC has a role the ordinary registration process does not have."@en-AU ;
     skos:altLabel "CTM"@en-AU,
         "certification trade marks"@en-AU ;
@@ -1537,7 +1573,8 @@ tmkc:GC-0107 a skos:Concept,
     tmk:typedBy tmka:GT-0107 .
 
 tmkc:GC-0108 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "Distinguishes the goods or services of members of an association from those of non-members. The Manual's own contrast is the useful part: unlike a certification mark, use of a collective mark need not be subject to approved rules."@en-AU ;
     skos:altLabel "collective trade marks"@en-AU,
         "collective trademark"@en-AU ;
@@ -1561,7 +1598,8 @@ tmkc:GC-0108 a skos:Concept,
     tmk:typedBy tmka:GT-0108 .
 
 tmkc:GC-0109 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "Requires an existing registration and a reputation extensive enough that use on other goods would be taken to indicate a connection. It is the one registration in the Act that does not require an intention to use."@en-AU ;
     skos:altLabel "defensive registration"@en-AU,
         "defensive trade marks"@en-AU ;
@@ -1586,7 +1624,8 @@ tmkc:GC-0109 a skos:Concept,
     tmk:typedBy tmka:GT-0109 .
 
 tmkc:GC-0110 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "A limited continuation of a parent application that keeps the parent's priority date but takes a new number. The priority-date inheritance is what makes it matter to section 44. GC-0043 already holds this term."@en-AU ;
     skos:altLabel "divisional"@en-AU,
         "divisional applications"@en-AU ;
@@ -1640,6 +1679,7 @@ tmkc:GC-0111 a skos:Concept,
     tmk:typedBy tmka:GT-0111 .
 
 tmkc:GC-0112 a skos:Concept,
+        tmk:ExternalInstrument,
         tmk:LegalConcept ;
     rdfs:comment "A treaty, administered by WIPO's International Bureau, under which one application in English with one set of fees produces one international registration. Everything in Part 60 hangs off it."@en-AU ;
     skos:altLabel "Protocol"@en-AU,
@@ -1665,7 +1705,8 @@ tmkc:GC-0112 a skos:Concept,
     tmk:typedBy tmka:GT-0112 .
 
 tmkc:GC-0113 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "The Australian half of a Madrid registration. It is examined much as a domestic application is, which is why the Manual's Parts 26 to 31 keep referring to it, and it becomes a protected international trade mark rather than a registered trade mark."@en-AU ;
     skos:altLabel "IRDA"@en-AU,
         "international registration designating Australia (IRDA)"@en-AU ;
@@ -1691,7 +1732,8 @@ tmkc:GC-0113 a skos:Concept,
     tmk:typedBy tmka:GT-0113 .
 
 tmkc:GC-0114 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
     rdfs:comment "The Madrid equivalent of a registered trade mark, and section 44's note 4 makes it citable against a domestic application. Holding it apart from 'registered trade mark' is what lets a citation search reach both."@en-AU ;
     skos:altLabel "protected international trade mark designating Australia"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
@@ -1715,7 +1757,8 @@ tmkc:GC-0114 a skos:Concept,
     tmk:typedBy tmka:GT-0114 .
 
 tmkc:GC-0115 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
     rdfs:comment "Almost every duty and discretion in the Act is the Registrar's. Section 205 makes a Deputy Registrar's exercise of a power count as the Registrar's, which is why decisions issued by a Deputy are the Registrar's decisions. GC-0046 already holds this term."@en-AU ;
     skos:altLabel "Registrar"@en-AU,
         "the Registrar"@en-AU ;
@@ -1742,7 +1785,8 @@ tmkc:GC-0115 a skos:Concept,
     tmk:typedBy tmka:GT-0115 .
 
 tmkc:GC-0116 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
     rdfs:comment "Defined by the Act as the person in whose name the application currently stands — so the applicant can change without the application changing. The Manual's Part 10 treats getting the identity right as a formality requirement in its own right."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "applicant"@en-AU ;
@@ -1765,7 +1809,8 @@ tmkc:GC-0116 a skos:Concept,
     tmk:typedBy tmka:GT-0116 .
 
 tmkc:GC-0117 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
     rdfs:comment "Defined in five different places across the Regulations as well as in section 6 — one per opposition type. The multiplicity is real and this record does not resolve it."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "opponent"@en-AU ;
@@ -1863,6 +1908,7 @@ tmkc:GC-0120 a skos:Concept,
     tmk:typedBy tmka:GT-0120 .
 
 tmkc:GC-0121 a skos:Concept,
+        tmk:ExternalInstrument,
         tmk:LegalConcept ;
     rdfs:comment "The largest Part of the Manual by chunk count — 743 of 2,460 — and the one most easily confused with the similarity question. Part 26 says in terms that classification does not determine similarity."@en-AU ;
     skos:altLabel "classes"@en-AU,
@@ -1889,7 +1935,8 @@ tmkc:GC-0121 a skos:Concept,
     tmk:typedBy tmka:GT-0121 .
 
 tmkc:GC-0122 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "Applications are examined in filing order unless the Registrar reasonably believes expedition is warranted. Note the modality — the Registrar *may* expedite, on a reasonable belief."@en-AU ;
     skos:altLabel "expedite examination"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
@@ -1912,7 +1959,8 @@ tmkc:GC-0122 a skos:Concept,
     tmk:typedBy tmka:GT-0122 .
 
 tmkc:GC-0123 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "Available at any time while the thing withdrawn is still being considered, and the Registrar must publish it. Distinct from lapsing, which happens without anybody doing anything."@en-AU ;
     skos:altLabel "notice of withdrawal"@en-AU,
         "withdraw"@en-AU ;
@@ -1937,7 +1985,8 @@ tmkc:GC-0123 a skos:Concept,
     tmk:typedBy tmka:GT-0123 .
 
 tmkc:GC-0124 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "Part 6 of the Act governs amendment before registration and Division 1 of Part 8 after it — two regimes, and which one applies depends on where the mark has got to."@en-AU ;
     skos:altLabel "amendment"@en-AU,
         "amendments"@en-AU ;
@@ -2016,6 +2065,7 @@ tmkc:GC-0126 a skos:Concept,
     tmk:typedBy tmka:GT-0126 .
 
 tmkc:GC-0127 a skos:Concept,
+        tmk:InstrumentOrRecord,
         tmk:LegalConcept ;
     rdfs:comment "The Manual's Part 52 opens by listing what gets decided — oppositions to registration, to removal for non-use, to procedural matters — and section 205 makes a Deputy Registrar's decision the Registrar's."@en-AU ;
     skos:altLabel "Registrar's decision"@en-AU,
@@ -2041,7 +2091,8 @@ tmkc:GC-0127 a skos:Concept,
     tmk:typedBy tmka:GT-0127 .
 
 tmkc:GC-0128 a skos:Concept,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
     rdfs:comment "Section 33(4) makes an opportunity to be heard a precondition of rejection, which is what ties hearings to examination rather than to opposition alone."@en-AU ;
     skos:altLabel "ex parte hearing"@en-AU,
         "inter partes hearing"@en-AU ;
@@ -2066,6 +2117,7 @@ tmkc:GC-0128 a skos:Concept,
     tmk:typedBy tmka:GT-0128 .
 
 tmkc:GC-0129 a skos:Concept,
+        tmk:InstrumentOrRecord,
         tmk:LegalConcept ;
     rdfs:comment "What the applicant claims, as against how it is classified and whether it is similar to something else. Amending it is one of the Manual's named ways of overcoming a section 44 ground. GC-0012 already holds this term."@en-AU ;
     skos:altLabel "specification"@en-AU,
@@ -2604,12 +2656,12 @@ tmka:GT-0039 tmk:authoredBy "claude-opus-5" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> .
 
 tmka:GT-0040 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Opposition is a stage in the process, not a reason to refuse, a question inside the s 43 judgement, or a way out of it. Typed none_of_these as evidence about the taxonomy: the four groups sort the substance of a decision and this concept is about where a decision is made."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
+    tmk:authoringReasoning "A proceeding brought after acceptance that determines whether the mark proceeds to registration. A transition in the life of an application."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
     tmk:confidence 7.5e-01 ;
-    tmk:expertShouldCheck "Whether the four groups are meant to cover procedural concepts at all. Five records here — GT-0040, GT-0042 to GT-0046 — are none_of_these for this reason, and a sixth group would take all of them."@en-AU ;
+    tmk:expertShouldCheck "GC-0040 (signed) and GC-0102 (authored) are both 'opposition'. Both are typed procedural_step and neither displaces the other; the duplication is a vocabulary problem named on the records rather than resolved by a typing."@en-AU ;
     tmk:goldRecord "GT-0040" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -2630,36 +2682,36 @@ tmka:GT-0041 tmk:authoredBy "claude-opus-5" ;
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
 
 tmka:GT-0042 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A power exercised after acceptance under s 38, on its own conditions. It is not a s 43 ground, not a question inside one, and not a way out of one."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
+    tmk:authoringReasoning "An acceptance is undone and the application returns to an earlier state. A transition."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
     tmk:confidence 8e-01 ;
-    tmk:expertShouldCheck "Whether this concept belongs in the vocabulary. GC-0042's own note puts it on the edge and says it is there mainly because 'revocation of registration' is a different thing one word away."@en-AU ;
+    tmk:expertShouldCheck "GC-0042 (signed) and GC-0094 (authored) are both 'revocation of acceptance'. Both are typed procedural_step and neither displaces the other."@en-AU ;
     tmk:goldRecord "GT-0042" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part51/10%231~1> .
 
 tmka:GT-0043 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A filing mechanism, and one that answers a s 43 objection by moving goods rather than by bearing on whether the ground exists. Typed none_of_these on the same reading as the other procedural concepts."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether the difference between limiting a specification (GT-0015, exception) and dividing an application (this record, none_of_these) is real in practice or an artefact of how the Manual files them."@en-AU ;
+    tmk:authoringReasoning "What the concept names is the dividing: part of a parent application carried into a new one, keeping the priority date and taking a new number."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "GC-0043 (signed) and GC-0110 (authored) are both 'divisional application'. Both are typed procedural_step and neither displaces the other. The group itself is the weakest in this pass — see the alternatives. Decide it together with GT-0079, which was typed the other way on the same reasoning."@en-AU ;
     tmk:goldRecord "GT-0043" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/2%231> .
 
 tmka:GT-0044 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "An actor. The four groups sort the content of the s 43 judgement, and a person who makes it is not a reason to refuse, a question, a factor or an out."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
+    tmk:authoringReasoning "The Part 29 passages this record rests on describe what the examiner does — considers the marketplace, checks the mark against the INN list. That is an office that acts, and a person who makes a judgement is not the content of the judgement."@en-AU ;
+    tmk:conceptGroup "process_role" ;
     tmk:confidence 8.5e-01 ;
-    tmk:expertShouldCheck "That none_of_these is being read as intended for GT-0044 to GT-0046: not 'we could not decide' but 'the four groups do not reach this kind of concept'. If the owner wants roles typed, the taxonomy needs a group they can go in."@en-AU ;
+    tmk:expertShouldCheck "Whether examiner, decision maker and Registrar are three roles or three names used loosely for one. GC-0044, GC-0045 and GC-0046 hold them apart on the concept records, all three are typed process_role here, and this typing inherits the question rather than answering it."@en-AU ;
     tmk:goldRecord "GT-0044" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -2667,12 +2719,12 @@ tmka:GT-0044 tmk:authoredBy "claude-opus-5" ;
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> .
 
 tmka:GT-0045 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "An actor, typed as GT-0044 is."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 8.5e-01 ;
-    tmk:expertShouldCheck "The distinction between this concept, GC-0044 and GC-0046 rather than the typing. GC-0044's record note says the Manual switches between them and it is not obvious whether the switch is meaningful; all three are typed identically here, which does not answer that."@en-AU ;
+    tmk:authoringReasoning "The office that decides. The reviewer's own corrections to GE-0010 and GE-0047 turned on holding the decision maker apart from the Registrar, and that distinction only exists if the term names a role."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether examiner, decision maker and Registrar are three roles or three names used loosely for one. GC-0044, GC-0045 and GC-0046 hold them apart on the concept records, all three are typed process_role here, and this typing inherits the question rather than answering it."@en-AU ;
     tmk:goldRecord "GT-0045" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -2680,12 +2732,12 @@ tmka:GT-0045 tmk:authoredBy "claude-opus-5" ;
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> .
 
 tmka:GT-0046 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "An actor, typed as GT-0044 is."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 8.5e-01 ;
-    tmk:expertShouldCheck "GC-0046's record note says holding 'the Registrar’s delegate' as an alt label of Registrar is probably wrong, because a delegate exercises the power and is not the Registrar. The typing is unaffected either way, and the vocabulary error is not."@en-AU ;
+    tmk:authoringReasoning "The office in which almost every duty and discretion in the Act sits. The Part 29 passages behind this record describe what the Registrar must be satisfied of, which puts the Registrar on the deciding side of the sentence."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "GC-0046's own record flags that holding \"the Registrar's delegate\" as an alt label is probably wrong, because a delegate exercises the power and is not the Registrar. Correcting that narrows the concept; it stays a process_role either way. Whether examiner, decision maker and Registrar are three roles or three names used loosely for one. GC-0044, GC-0045 and GC-0046 hold them apart on the concept records, all three are typed process_role here, and this typing inherits the question rather than answering it."@en-AU ;
     tmk:goldRecord "GT-0046" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -2743,12 +2795,12 @@ tmka:GT-0050 tmk:authoredBy "claude-opus-5" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
 
 tmka:GT-0051 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "This says how the rule operates once it is made out — that there is no discretion — rather than supplying a reason to refuse, a question to answer, something to weigh or a way out. Typed none_of_these as evidence that the four groups have no place for the modality of a rule."@en-AU ;
+    tmk:authoringReasoning "Kept in none_of_these deliberately, and the only one of the 53 that stays. The concept is a statement about how a provision operates — that section 43 applies mandatorily and there is no discretion to accept a mark caught by it. That is not a ground, a test, a factor or an exception; and it is not a role, a thing, a step, a record or an external scheme. It is a rule *about* a ground, and nine groups have no place for one."@en-AU ;
     tmk:conceptGroup "none_of_these" ;
     tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "This record and GT-0007 together. GC-0051's own note says the two pull in opposite directions and that how they sit together is one of the most useful things an expert could write down here. They are typed none_of_these and exception, which records the tension without resolving it."@en-AU ;
+    tmk:expertShouldCheck "Whether the vocabulary should carry modality statements as concepts at all, or whether 'the application of section 43 is mandatory' is a property of the section 43 ground rather than a concept standing beside it. GC-0051's own record says this concept and GC-0007 pull in opposite directions, and that tension is still unresolved — GT-0007 is typed exception and this one is typed nothing."@en-AU ;
     tmk:goldRecord "GT-0051" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -2962,10 +3014,10 @@ tmka:GT-0068 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0069 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "It is neither a ground, nor a question the decision maker answers, nor material feeding one, nor something taking a case out of a rule — it is the form an acceptance can take. none_of_these is an answer, and this is one of the places the four groups genuinely do not reach."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "This is a good test of whether the taxonomy needs a fifth group for remedies and outcomes. Several records in this pass fall the same way."@en-AU ;
+    tmk:authoringReasoning "The terms the Registrar imposes on acceptance under subsection 44(3), recorded against the registration. The concept names the terms."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "This is the record in the 53 with the strongest claim on one of the owner's original four. If conditions or limitations are an exception, it leaves the process axis entirely — and that would be evidence that the two axes are not cleanly separable, which is the open question behind the whole pass."@en-AU ;
     tmk:goldRecord "GT-0069" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -2998,10 +3050,10 @@ tmka:GT-0071 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0072 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "It is the subject matter the whole scheme operates on, not a ground, a test, a factor or an exception. Typing it into one of the four would misdescribe it, and none_of_these is an answer rather than a gap."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether the taxonomy is meant to cover subject-matter concepts at all. Several records in this pass came out none_of_these for this reason."@en-AU ;
+    tmk:authoringReasoning "What the whole process is about. Section 17 defines a trade mark as a sign used or intended to be used to distinguish, and Part 20 records that the definition is closed. The concept names the thing; it refuses, tests, weighs and excepts nothing."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Whether the vocabulary should hold 'trade mark' the object and 'is a trade mark' the test as two concepts. One group cannot carry both, and this record takes the object reading."@en-AU ;
     tmk:goldRecord "GT-0072" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3010,10 +3062,10 @@ tmka:GT-0072 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0073 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Subject matter, like 'trade mark'. Typed the same way for the same reason."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Decide 'sign' and 'trade mark' together."@en-AU ;
+    tmk:authoringReasoning "The open, inclusive category section 6 defines and section 17 builds on. The widest thing in the vocabulary, and still a thing."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Nothing on the group. The pairing with GC-0072 is what to look at — the two are typed identically and the Manual's whole point is that they differ."@en-AU ;
     tmk:goldRecord "GT-0073" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3022,10 +3074,10 @@ tmka:GT-0073 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0074 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A class of subject matter rather than a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether the fact that a mark is non-traditional is itself a factor in examination, which would make relevant_factor right."@en-AU ;
+    tmk:authoringReasoning "A grouping of sign kinds the Manual uses as a heading, sitting one level under sign. Subject matter by the same argument as sign."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "The concept's own record says this is not a statutory category. If the vocabulary should hold only categories the Act makes, the concept goes rather than the group changing."@en-AU ;
     tmk:goldRecord "GT-0074" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3034,10 +3086,10 @@ tmka:GT-0074 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0075 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A kind of sign, so subject matter. Typed as the other sign kinds are."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Type the five sign kinds consistently."@en-AU ;
+    tmk:authoringReasoning "A kind of sign, registrable because section 6 names shape in the definition. What is applied for."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether the four sign kinds — shape, colour, sound, scent — are subject matter in their own right or facets of GC-0073 sign, which would make them narrower concepts under it rather than siblings beside it."@en-AU ;
     tmk:goldRecord "GT-0075" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3046,10 +3098,10 @@ tmka:GT-0075 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0076 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A kind of sign; typed as the others."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Type the five sign kinds consistently."@en-AU ;
+    tmk:authoringReasoning "A kind of sign. The Manual states that a colour may be used as a trade mark, by itself or with other features of a sign."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "The concept's record distinguishes colour used as the mark from colour as an aspect of packaging or of a label. Those are arguably two things, and only one of them is subject matter. Whether the four sign kinds — shape, colour, sound, scent — are subject matter in their own right or facets of GC-0073 sign, which would make them narrower concepts under it rather than siblings beside it."@en-AU ;
     tmk:goldRecord "GT-0076" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3058,10 +3110,10 @@ tmka:GT-0076 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0077 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A kind of sign; typed as the others."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Type the five sign kinds consistently."@en-AU ;
+    tmk:authoringReasoning "A kind of sign — 'anything auditory', on the Manual's own words."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "The alternative above is the live one. This record takes the sign-kind reading because the concept's label names a kind of mark. Whether the four sign kinds — shape, colour, sound, scent — are subject matter in their own right or facets of GC-0073 sign, which would make them narrower concepts under it rather than siblings beside it."@en-AU ;
     tmk:goldRecord "GT-0077" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3070,10 +3122,10 @@ tmka:GT-0077 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0078 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A kind of sign; typed as the others."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Type the five sign kinds consistently."@en-AU ;
+    tmk:authoringReasoning "A kind of sign. Registrable in principle; hard in practice for a reason the concept records separately."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Whether scent's connection to section 40 is strong enough that the vocabulary should hold it as a factor. If it is, the same argument reaches the other three sign kinds and the group loses four members. Whether the four sign kinds — shape, colour, sound, scent — are subject matter in their own right or facets of GC-0073 sign, which would make them narrower concepts under it rather than siblings beside it."@en-AU ;
     tmk:goldRecord "GT-0078" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3082,10 +3134,10 @@ tmka:GT-0078 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0079 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A form of application rather than a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether procedural forms of application belong in the taxonomy at all."@en-AU ;
+    tmk:authoringReasoning "A single application covering two or more marks that resemble each other in material particulars. The concept names the set of marks — what is applied for."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether 'series of trade marks' and 'divisional application' fall on the same side. This pass puts series in subject_matter and divisional in procedural_step, on the reading that a series is a thing applied for and a division is something done to an application. A reviewer who thinks both are applications should move series; one who thinks both are mechanisms should move divisional. They should be decided together."@en-AU ;
     tmk:goldRecord "GT-0079" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3130,10 +3182,10 @@ tmka:GT-0082 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0083 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A role a person occupies, not a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether role concepts belong in the four groups."@en-AU ;
+    tmk:authoringReasoning "Section 8(1) defines the authorised user as a person — the one who uses the mark under the owner's control. The concept record already separates the person from the use, and it is the person this record types."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether 'authorised user' the party and 'authorised use' the fact should both be concepts. If they should, typing only the party leaves the more examinable half of the pair unheld by anything."@en-AU ;
     tmk:goldRecord "GT-0083" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3142,10 +3194,10 @@ tmka:GT-0083 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0084 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A role, typed as the other roles in this pass."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether role concepts belong in the four groups."@en-AU ;
+    tmk:authoringReasoning "Section 6 defines the registered owner as the person in whose name the mark is registered. A party, identified by an entry rather than constituted by one."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether registered owner and applicant are one party at two stages or two concepts. Part 19B treats the registration as personal property held by that person, and a role typing carries none of that."@en-AU ;
     tmk:goldRecord "GT-0084" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3166,10 +3218,10 @@ tmka:GT-0085 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0086 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A transaction, not a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether a transaction that can dispose of a ground should be typed as a factor in that ground."@en-AU ;
+    tmk:authoringReasoning "Ownership passes from one party to another by act of the parties. A change of state in an application or a registration."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Whether assignment and transmission are two concepts or one with two modes. Part 43's title carries both and the section 6 definitions split them, so the corpus supports either reading."@en-AU ;
     tmk:goldRecord "GT-0086" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3178,10 +3230,10 @@ tmka:GT-0086 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0087 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Typed with assignment, for the same reason."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 5e-01 ;
-    tmk:expertShouldCheck "Type this and assignment alike."@en-AU ;
+    tmk:authoringReasoning "The other half of the pair: ownership passes without an act of the parties. Still a change of state."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "As at GT-0086. Note also that GC-0087's evidence comes from the Manual rather than from the section 6 definition, because that definition is a stub — so this typing rests on the Manual's gloss."@en-AU ;
     tmk:goldRecord "GT-0087" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3190,10 +3242,10 @@ tmka:GT-0087 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0088 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Subject matter, typed as 'trade mark' is."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Type this and 'trade mark' alike."@en-AU ;
+    tmk:authoringReasoning "A trade mark in a particular state — one whose particulars are entered in the Register. A thing, defined by an entry rather than being one."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Whether registered trade mark is a concept beside GC-0072 or GC-0072 in a state, which would make it narrower rather than a sibling."@en-AU ;
     tmk:goldRecord "GT-0088" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3202,10 +3254,10 @@ tmka:GT-0088 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0089 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "An instrument of the scheme, not a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:authoringReasoning "The record kept under section 207. The thing entries are made in."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "The concept's record warns that the Register, the old register and the Record of International Registrations must not be merged. This group holds one of the three; the other two are held by nothing."@en-AU ;
     tmk:goldRecord "GT-0089" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3238,10 +3290,10 @@ tmka:GT-0091 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0092 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A process, not a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether process concepts belong in the taxonomy."@en-AU ;
+    tmk:authoringReasoning "Section 31 makes examination the act the Registrar must perform, with two subjects and only two. The step that produces an acceptance or a report."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Whether the vocabulary should hold examination the process and the report it produces separately. The Act says 'examine and report on', which is two things, and this concept holds one."@en-AU ;
     tmk:goldRecord "GT-0092" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3250,10 +3302,10 @@ tmka:GT-0092 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0093 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "An outcome, not a ground, test, factor or exception. Several records in this pass fall this way, and together they are an argument that the taxonomy needs a group for outcomes."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether outcomes need a group of their own."@en-AU ;
+    tmk:authoringReasoning "The point at which an application changes state. Section 33 makes acceptance the thing that must follow examination unless the Registrar is satisfied of a defect or a ground."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Whether typing acceptance as a step loses the presumption of registrability. That presumption is the most examinable thing about section 33, no concept in this group carries it, and the reviewer's own note (OQ-0015) said the office's actual bar for it is not in the knowledge base either."@en-AU ;
     tmk:goldRecord "GT-0093" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3262,10 +3314,10 @@ tmka:GT-0093 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0094 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A remedy the Registrar may apply to their own earlier decision. Not a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether remedies need a group of their own."@en-AU ;
+    tmk:authoringReasoning "Available where information received after acceptance indicates the mark should not have been accepted. The application changes state."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "GC-0042 (signed) and GC-0094 (authored) are both 'revocation of acceptance'. Both are typed procedural_step and neither displaces the other. The concept's record separates it from revocation of registration under sections 84A to 84D, which is a different step and is typed separately at GT-0095."@en-AU ;
     tmk:goldRecord "GT-0094" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3274,10 +3326,10 @@ tmka:GT-0094 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0095 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A remedy, typed with revocation of acceptance."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether remedies need a group of their own."@en-AU ;
+    tmk:authoringReasoning "A registration is undone under sections 84A to 84D in circumstances where it appears it should not have occurred. A transition."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "The Manual records that the Registrar is not obliged to consider revocation even where a third party requests it. That discretion is a modality on the step, and this group carries no modality — which is a limit of the group rather than of the record."@en-AU ;
     tmk:goldRecord "GT-0095" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3286,10 +3338,10 @@ tmka:GT-0095 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0096 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A procedural step, not a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether 'exception' covers exceptions to procedural rules or only to grounds."@en-AU ;
+    tmk:authoringReasoning "The acceptance period is, in the Manual's own words, set in abeyance. A change in the state of an application."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Deferment suspends a period and an extension of time lengthens one. Both are typed procedural_step. If that distinction matters to retrieval, the group is too coarse to carry it."@en-AU ;
     tmk:goldRecord "GT-0096" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3298,10 +3350,10 @@ tmka:GT-0096 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0097 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A procedural mechanism."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Decide this and deferment of acceptance together."@en-AU ;
+    tmk:authoringReasoning "A period set by the Act or Regulations is lengthened on request. A change in the state of the thing whose period it is."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "The Manual notes the procedure differs by which time is being extended — one concept covering many procedures. The group hides that variability rather than expressing it."@en-AU ;
     tmk:goldRecord "GT-0097" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3310,10 +3362,10 @@ tmka:GT-0097 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0098 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "An outcome that follows automatically. Not a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether outcomes need a group of their own."@en-AU ;
+    tmk:authoringReasoning "An application ends on the expiry of the acceptance period. Typed here on the reading that the group holds transitions and not only acts, which is why the class comment says so in terms."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether an event nobody performs belongs beside acts somebody does. If it does not, the group splits and lapsing needs a home — and GT-0123 (withdrawal) is the record to compare it against, because withdrawal differs from lapsing precisely in that a person does it."@en-AU ;
     tmk:goldRecord "GT-0098" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3322,10 +3374,10 @@ tmka:GT-0098 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0099 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "An instrument that qualifies a registration. Not a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether it belongs with conditions or limitations, which this pass also typed none_of_these."@en-AU ;
+    tmk:authoringReasoning "A limitation of the exclusive rights given by registration, entered against the mark."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "The Manual's own gloss is that the owner never had exclusive rights in the disclaimed part anyway — so a disclaimer records a position rather than changing one. That is the argument for this group and it is worth testing directly."@en-AU ;
     tmk:goldRecord "GT-0099" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3334,10 +3386,10 @@ tmka:GT-0099 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0100 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A record made on the Register. Not a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether an endorsement is evidence a later examiner reasons from."@en-AU ;
+    tmk:authoringReasoning "What goes on the Register to record that an application was accepted on evidence or other circumstances. A note of how a ground was overcome."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether an endorsement and a condition or limitation are the same kind of entry made for different reasons. Both are typed into this group and the Manual treats them in different Parts."@en-AU ;
     tmk:goldRecord "GT-0100" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3358,10 +3410,10 @@ tmka:GT-0101 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0102 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A proceeding, not a ground, test, factor or exception. Note that the *grounds* of opposition would each be a ground_of_refusal-shaped concept; the proceeding is not."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether proceedings belong in the taxonomy."@en-AU ;
+    tmk:authoringReasoning "A formal objection by a third party to registration, on the Manual's own definition. The proceeding, not the party and not the document."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "GC-0040 (signed) and GC-0102 (authored) are both 'opposition'. Both are typed procedural_step and neither displaces the other; the duplication is a vocabulary problem named on the records rather than resolved by a typing."@en-AU ;
     tmk:goldRecord "GT-0102" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3370,10 +3422,10 @@ tmka:GT-0102 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0103 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A document, not a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether documents belong in the taxonomy."@en-AU ;
+    tmk:authoringReasoning "A document — and, on the Regulations' definition, two: a notice of intention to oppose plus a statement of grounds and particulars."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "The concept is a composite of two separately defined terms, so the corpus holds three related definitions and the vocabulary holds one. Whether the components should be concepts is a vocabulary question this typing does not reach."@en-AU ;
     tmk:goldRecord "GT-0103" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3382,10 +3434,10 @@ tmka:GT-0103 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0104 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A post-registration proceeding and remedy."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether the four groups cover post-registration grounds at all. This is the clearest case in the pass where the answer changes the typing."@en-AU ;
+    tmk:authoringReasoning "A proceeding that removes a mark from the Register for non-use. A transition, grounded by the Manual in section 17's requirement that a mark be used."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "The onus sits on the opponent once the removal application is opposed, which is unusual and is a property of the proceeding. Nothing in this group carries an onus."@en-AU ;
     tmk:goldRecord "GT-0104" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3394,10 +3446,10 @@ tmka:GT-0104 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0105 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A court remedy."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether remedies need a group of their own."@en-AU ;
+    tmk:authoringReasoning "Amendment or cancellation of an entry in the Register, resulting from an order of a prescribed court. A transition."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "This is the only step in the group performed by a court rather than by the Registrar. If the vocabulary needs that visible, it is a property of the step and not a reason for a different group."@en-AU ;
     tmk:goldRecord "GT-0105" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3406,10 +3458,10 @@ tmka:GT-0105 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0106 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A post-registration step."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether procedural steps belong in the taxonomy."@en-AU ;
+    tmk:authoringReasoning "A registration is renewed at ten-year intervals. A change of state, and one that recurs."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Any person may effect a renewal, not only the owner. The group does not carry who may act, and here that is a substantive fact about the step."@en-AU ;
     tmk:goldRecord "GT-0106" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3418,10 +3470,10 @@ tmka:GT-0106 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0107 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A kind of registration — subject matter, typed as the other mark kinds."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Type the three special mark kinds consistently."@en-AU ;
+    tmk:authoringReasoning "A kind of registration, distinguishing certified goods or services from uncertified ones. What is applied for, under different conditions."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Certification, collective and defensive marks are three registrations with different conditions, and GC-0088 is the ordinary one. Whether the vocabulary wants a 'kinds of registration' level between them and 'trade mark' is a modelling question this typing does not answer."@en-AU ;
     tmk:goldRecord "GT-0107" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3430,10 +3482,10 @@ tmka:GT-0107 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0108 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A kind of registration; typed with the others."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Type the three special mark kinds consistently."@en-AU ;
+    tmk:authoringReasoning "A kind of registration, distinguishing members' goods or services from non-members'."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Certification, collective and defensive marks are three registrations with different conditions, and GC-0088 is the ordinary one. Whether the vocabulary wants a 'kinds of registration' level between them and 'trade mark' is a modelling question this typing does not answer."@en-AU ;
     tmk:goldRecord "GT-0108" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3442,10 +3494,10 @@ tmka:GT-0108 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0109 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A kind of registration; typed with the others."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Type the three special mark kinds consistently."@en-AU ;
+    tmk:authoringReasoning "A kind of registration, available where an existing registration has a reputation extensive enough that use on other goods would suggest a connection."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "The alternative above. If the vocabulary wants 'no intention to use required' as an exception in its own right, this concept keeps its group and the exception is a second record that does not yet exist. Certification, collective and defensive marks are three registrations with different conditions, and GC-0088 is the ordinary one. Whether the vocabulary wants a 'kinds of registration' level between them and 'trade mark' is a modelling question this typing does not answer."@en-AU ;
     tmk:goldRecord "GT-0109" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3454,10 +3506,10 @@ tmka:GT-0109 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0110 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A form of application."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
+    tmk:authoringReasoning "The same mechanism as GC-0043, reached from Part 12 and sections 45 to 46. The priority-date inheritance is what the concept is for, and inheritance is something the division does."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
     tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether forms of application belong in the taxonomy."@en-AU ;
+    tmk:expertShouldCheck "GC-0043 (signed) and GC-0110 (authored) are both 'divisional application'. Both are typed procedural_step and neither displaces the other. The group itself is the weakest in this pass — see the alternatives. Decide it together with GT-0079."@en-AU ;
     tmk:goldRecord "GT-0110" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3478,10 +3530,10 @@ tmka:GT-0111 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0112 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "An instrument, not a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+    tmk:authoringReasoning "A treaty, administered by WIPO's International Bureau. Not a rule the Act makes: Australian practice gives effect to it. Keeping that visible is CLAUDE.md rule 5 applied one level up — the Manual is practice and not law, and the Protocol is neither Australian law nor Australian practice."@en-AU ;
+    tmk:conceptGroup "external_instrument" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Whether a two-member group is worth having at all, and if it is, whether the Nice Classification belongs in it beside a treaty. Those are the only two members and they are not obviously the same kind of thing."@en-AU ;
     tmk:goldRecord "GT-0112" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3490,10 +3542,10 @@ tmka:GT-0112 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0113 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A kind of application, typed with the other application forms."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 5.5e-01 ;
-    tmk:expertShouldCheck "Whether forms of application belong in the taxonomy."@en-AU ;
+    tmk:authoringReasoning "The Australian half of a Madrid registration — examined much as a domestic application is, which is why Parts 26 to 31 keep referring to it. A thing the process operates on."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "This is the record in the 53 most likely to be in the wrong group. If IRDA belongs with the Madrid Protocol, external_instrument holds three and the boundary between a scheme and the things it produces needs stating explicitly."@en-AU ;
     tmk:goldRecord "GT-0113" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3502,10 +3554,10 @@ tmka:GT-0113 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0114 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Subject matter, typed with 'registered trade mark'."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Type this and 'registered trade mark' alike."@en-AU ;
+    tmk:authoringReasoning "The Madrid equivalent of a registered trade mark, and citable against a domestic application under section 44. A thing."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "The same boundary as GT-0113. Holding this concept apart from 'registered trade mark' is what lets a citation search reach both, so a merge would cost more than the tidiness gains."@en-AU ;
     tmk:goldRecord "GT-0114" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3514,10 +3566,10 @@ tmka:GT-0114 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0115 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A role, typed with the other roles in this pass."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether role concepts belong in the four groups."@en-AU ;
+    tmk:authoringReasoning "The same office as GC-0046, reached from Part 52 and the section 6 definition rather than from Part 29. Section 205 makes a Deputy Registrar's exercise of a power the Registrar's, which is a statement about who acts."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Whether GC-0115 and the signed GC-0046 are the same concept. If they are, the merge is a vocabulary decision that retires one id, and nothing in this typing should be read as endorsing the split."@en-AU ;
     tmk:goldRecord "GT-0115" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3526,10 +3578,10 @@ tmka:GT-0115 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0116 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A role, typed with the other roles."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether role concepts belong in the four groups."@en-AU ;
+    tmk:authoringReasoning "Section 6 defines the applicant as the person in whose name the application stands for the time being. A party — and one whose identity can change without the application changing, which is only sayable if it is a role."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Nothing about the group. What is worth checking is the concept: Part 10 treats getting the applicant's identity right as a substantive matter, and a bare role typing does not carry that weight."@en-AU ;
     tmk:goldRecord "GT-0116" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3538,10 +3590,10 @@ tmka:GT-0116 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0117 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A role, typed with the other roles."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether role concepts belong in the four groups."@en-AU ;
+    tmk:authoringReasoning "The party that brings an opposition. The Part 46 passage behind this record describes who may be one and who usually is."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "GC-0117's record notes the term is defined in five places across the Regulations, one per opposition type. If those are different parties rather than one, the group holds and the concept does not."@en-AU ;
     tmk:goldRecord "GT-0117" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3586,10 +3638,10 @@ tmka:GT-0120 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0121 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual says in terms that it does not determine the similarity question, which rules out relevant_factor on the corpus's own words. It is administrative structure."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 7.5e-01 ;
-    tmk:expertShouldCheck "Nothing specific; this is one of the better-evidenced typings in the pass."@en-AU ;
+    tmk:authoringReasoning "The Nice Classification, given effect by the Regulations. A scheme originating outside the Act that Australian practice adopts."@en-AU ;
+    tmk:conceptGroup "external_instrument" ;
+    tmk:confidence 5.5e-01 ;
+    tmk:expertShouldCheck "The lowest-confidence typing in the 53. The concept conflates a scheme, an act and a set of classes; whichever of the three the vocabulary means decides the group, and this record takes the scheme. Splitting the concept would be a better answer than moving it."@en-AU ;
     tmk:goldRecord "GT-0121" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3598,10 +3650,10 @@ tmka:GT-0121 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0122 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A procedural step."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether procedural steps belong in the taxonomy."@en-AU ;
+    tmk:authoringReasoning "Examination taken out of filing order. A step, and a variant of the one typed at GT-0092."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "The Manual's modality is that the Registrar *may* expedite, on a reasonable belief. This typing carries none of that, and the may/must distinction is the thing the concept's own note singles out."@en-AU ;
     tmk:goldRecord "GT-0122" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3610,10 +3662,10 @@ tmka:GT-0122 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0123 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A procedural act by a party."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether procedural acts belong in the taxonomy."@en-AU ;
+    tmk:authoringReasoning "A person ends an application, notice or request by giving notice in writing. A transition, and one somebody performs."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Withdrawal is distinct from lapsing precisely in that somebody does it. That is the distinction GT-0098 puts under strain, and the two records should be read together."@en-AU ;
     tmk:goldRecord "GT-0123" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3622,10 +3674,10 @@ tmka:GT-0123 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0124 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A procedural act."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether an act that removes the facts a ground rests on is an exception."@en-AU ;
+    tmk:authoringReasoning "An application or a registered mark's details are changed. A transition."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Part 6 of the Act governs amendment before registration and Division 1 of Part 8 after it. One concept spans two regimes and the group does not show the split."@en-AU ;
     tmk:goldRecord "GT-0124" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3658,10 +3710,10 @@ tmka:GT-0126 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0127 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "An outcome of a proceeding."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 5.5e-01 ;
-    tmk:expertShouldCheck "Whether outcomes need a group of their own."@en-AU ;
+    tmk:authoringReasoning "The written outcome. Part 52 opens by listing what gets decided, and section 205 makes a Deputy Registrar's decision the Registrar's — a statement about the document's authorship."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether the vocabulary wants the act of deciding as well as the document it produces. At the moment it has the document, and 'decision maker' typed as a role, with nothing in between them."@en-AU ;
     tmk:goldRecord "GT-0127" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3670,10 +3722,10 @@ tmka:GT-0127 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0128 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A proceeding."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether proceedings belong in the taxonomy."@en-AU ;
+    tmk:authoringReasoning "A proceeding. Section 33(4) makes an opportunity to be heard a precondition of rejection, which ties hearings to examination and not to opposition alone."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether a hearing is a step inside the examination process or a process beside it. Section 33(4) suggests one answer and Part 51 arguably another."@en-AU ;
     tmk:goldRecord "GT-0128" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -3682,10 +3734,10 @@ tmka:GT-0128 tmk:authoredBy "claude-opus-5" ;
 tmka:GT-0129 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Part of an application rather than a ground, test, factor or exception."@en-AU ;
-    tmk:conceptGroup "none_of_these" ;
-    tmk:confidence 5.5e-01 ;
-    tmk:expertShouldCheck "The overlap with GC-0012 should be settled before this typing means anything."@en-AU ;
+    tmk:authoringReasoning "What the applicant claims, as written in the application. A part of the document, and the part amendment operates on."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether specification, classification and the goods themselves are three concepts or one thing with three aspects. They are typed into three different groups by this pass, which is a strong claim and rests on a thin argument."@en-AU ;
     tmk:goldRecord "GT-0129" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;

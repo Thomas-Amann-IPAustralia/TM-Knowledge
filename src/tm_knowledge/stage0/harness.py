@@ -144,10 +144,12 @@ DELIVERABLES: tuple[Deliverable, ...] = (
     Deliverable("reasoning", "Reasoning expectations", "records",
                 record_type="reasoning_expectation", minimum=1),
     # Not a §7 deliverable — added S012 when the owner confirmed the four groups
-    # (OQ-0001, ADR-0071). The band is one per approved concept, because the
-    # question is "which group is this in" and every concept has an answer,
-    # `none_of_these` included. `tmk-typing` renders the pass.
-    Deliverable("concept_types", "Concepts sorted into one of the four groups",
+    # (OQ-0001, ADR-0071), and widened to nine on 2026-09-09 when he asked for
+    # groups that fit the 53 the first four could not hold (ADR-0098). The band
+    # is one per approved concept, because the question is "which group is this
+    # in" and every concept has an answer, `none_of_these` included.
+    # `tmk-typing` renders the pass.
+    Deliverable("concept_types", "Concepts sorted into one of the nine groups",
                 "records", record_type="concept_type", minimum=50, maximum=100),
     Deliverable("measures", "A threshold against every metric", "document",
                 path="eval/measures.md"),

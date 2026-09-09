@@ -233,27 +233,44 @@ def _overview(facts: Facts) -> dict[str, Any]:
     classes = sum(1 for _ in facts.tbox.subjects(RDF.type, OWL.Class))
     populated = _instances(facts.approved)
 
+    signed_records = gold.total
+    authored_records = facts.authored.total
+
     page: dict[str, Any] = {
         "id": "overview",
-        "title": "A knowledge base for section 43",
+        "title": "A knowledge base for trade marks examination",
         "lede": (
-            "This project is turning the part of the Trade Marks Manual that deals with "
-            "**section 43** — marks with a connotation likely to deceive or cause confusion — "
-            "into something a machine can reason over without ever deciding a case. "
-            "Everything here was signed off by a person before it was modelled. "
-            "Nothing on this page was written by an AI as legal content."
+            "This project is turning the **Trade Marks Manual of Practice and Procedure** — "
+            "all 54 Parts of it, together with the legislation it runs on — into something a "
+            "machine can reason over without ever deciding a case. "
+            f"**{signed_records} records here were signed by a named person on a date. "
+            f"{authored_records} were written by a machine and no expert has read any of "
+            "them.** Which is which is recorded on every record, shown on every count on "
+            "this site, and never summed into one number (ADR-0079, ADR-0080)."
         ),
         "blocks": [],
     }
 
     if asked:
+        # Counted, not written down. The sentence used to say "Six of them
+        # unblock the next piece of work" and went on saying it after five of
+        # the six were answered — the same failure the theme tallies on the
+        # inbox were built to stop (Q-46), one page earlier.
+        unblocking = sum(1 for question in facts.questions.asked
+                         if question.theme == "unblocks")
+        if unblocking:
+            lead = (
+                f"{'One' if unblocking == 1 else unblocking} of them "
+                f"{'unblocks' if unblocking == 1 else 'unblock'} the next piece of work. "
+            )
+        else:
+            lead = "None of them blocks work today. "
         page["blocks"].append(
             blocks.callout(
                 "warn",
                 f"{asked} decisions are waiting on you",
-                "Six of them unblock the next piece of work. Each is written to be answerable "
-                "without reading anything else, and your answers come back into the repository "
-                "as a file the next session reads.",
+                lead + "Each is written to be answerable without reading anything else, and "
+                "your answers come back into the repository as a file the next session reads.",
                 links=[{"label": "Go to your decisions", "href": "#/inbox"}],
             )
         )

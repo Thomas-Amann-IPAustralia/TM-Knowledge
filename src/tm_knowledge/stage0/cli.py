@@ -685,7 +685,7 @@ def typing(argv: list[str] | None = None) -> int:
         prog="tmk-typing",
         description=(
             "Lay out every concept the repository holds — signed and authored — for "
-            "sorting into the four groups. Supplies the shape, the evidence and a "
+            "sorting into the nine groups. Supplies the shape, the evidence and a "
             "proposal; never a person's signature."
         ),
     )

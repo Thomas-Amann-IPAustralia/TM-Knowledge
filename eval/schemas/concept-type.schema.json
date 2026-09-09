@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ipaustralia.gov.au/schemas/tmk/stage0/concept-type/1.0.0",
   "title": "Concept type",
-  "description": "Which of the four groups an approved concept belongs to. A separate record rather than a field on the concept, because the concept was signed by one person on one date and the typing is a second judgement by possibly another — writing it into the signed record would put unsigned content inside a signature (ADR-0071). Shape only: which group a concept belongs in is a legal judgement and no agent may fill `type`.",
+  "description": "Which group a concept belongs to. A separate record rather than a field on the concept, because the concept was signed by one person on one date and the typing is a second judgement by possibly another — writing it into the signed record would put unsigned content inside a signature (ADR-0071). The four groups the owner ruled on (OQ-0001) sort a concept by the part it plays in reasoning towards a decision; the five added on 2026-09-09 sort it by the part it plays in the process that reasoning sits inside (ADR-0098). Shape only: which group a concept belongs in is a legal judgement, and since ADR-0079 an agent may propose one provided the proposal is stamped unreviewed.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "concept", "type", "approved_by", "approved_date"],
@@ -13,8 +13,8 @@
       "$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/concept_id"
     },
     "type": {
-      "description": "The group. `ground_of_refusal` — a reason an application can be refused. `legal_test` — a question the decision maker has to answer. `relevant_factor` — something that feeds into that answer. `exception` — something that takes a case out of the rule. `none_of_these` is an answer too, and a real one: it says the four groups do not fit this concept, which is evidence about the taxonomy rather than a gap in the data.",
-      "enum": ["ground_of_refusal", "legal_test", "relevant_factor", "exception", "none_of_these"]
+      "description": "The group. Four sort a concept by the part it plays in reasoning towards a decision, and they are the owner's own (OQ-0001): `ground_of_refusal` — a reason an application can be refused. `legal_test` — a question the decision maker has to answer. `relevant_factor` — something that feeds into that answer. `exception` — something that takes a case out of the rule. Five sort a concept by the part it plays in the process that reasoning sits inside, and they exist because 53 of 130 concepts fitted none of the first four (ADR-0098): `process_role` — a person or body that acts. `subject_matter` — the thing the process operates on. `procedural_step` — an act, proceeding or event that moves an application or a registration from one state to the next. `instrument_or_record` — a document, entry or endorsement the process produces, or writes to the Register. `external_instrument` — a treaty or international scheme Australian practice adopts, rather than a rule the Act itself makes. `none_of_these` is an answer too, and a real one: it says none of the nine fit this concept, which is evidence about the taxonomy rather than a gap in the data.",
+      "enum": ["ground_of_refusal", "legal_test", "relevant_factor", "exception", "process_role", "subject_matter", "procedural_step", "instrument_or_record", "external_instrument", "none_of_these"]
     },
     "basis": {
       "description": "The passages the typing rests on, by upstream ref. Optional, because a person who knows the domain may type a concept from knowledge rather than from a passage — but a typing with a basis can be checked and one without cannot, and the coverage report counts the difference.",
