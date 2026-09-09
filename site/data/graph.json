@@ -15,7 +15,7 @@
     },
     {
      "label": "Authored statements",
-     "value": 3441,
+     "value": 3493,
      "note": "each traceable to an authored record nobody has read",
      "tone": "warn",
      "href": null

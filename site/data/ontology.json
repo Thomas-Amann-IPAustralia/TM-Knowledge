@@ -22,14 +22,14 @@
     },
     {
      "label": "Classes declared",
-     "value": 50,
+     "value": 55,
      "note": null,
      "tone": null,
      "href": null
     },
     {
      "label": "Classes with no approved content",
-     "value": 40,
+     "value": 45,
      "note": "measured over the approved graph alone",
      "tone": "gap",
      "href": null
@@ -144,7 +144,7 @@
     {
      "module": "`legal-concepts.ttl`",
      "what": "legal concepts module",
-     "classes": 9,
+     "classes": 14,
      "holds": {
       "chips": [
        {
@@ -164,12 +164,17 @@
         "`ApprovedRelation` — empty",
         "`ConceptScheme` — 1",
         "`Exception` — empty",
+        "`ExternalInstrument` — empty",
         "`GroundOfRefusal` — empty",
+        "`InstrumentOrRecord` — empty",
         "`LegalConcept` — 52",
         "`LegalMatter` — empty",
         "`LegalProposition` — empty",
         "`LegalTest` — empty",
-        "`RelevantFactor` — empty"
+        "`ProceduralStep` — empty",
+        "`ProcessRole` — empty",
+        "`RelevantFactor` — empty",
+        "`SubjectMatter` — empty"
        ],
        "ordered": false,
        "note": null
@@ -1206,6 +1211,25 @@
      ]
     },
     {
+     "name": "`ExternalInstrument`",
+     "label": "External instrument",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "ExternalInstrument External instrument Filled from a concept-types.yaml record and from nothing else. A treaty or international scheme Australian practice adopts, rather than a rule the Act itself makes. Small, and it earns its place on the honesty argument rather than the size one: CLAUDE.md rule 5 turns on keeping the source of an obligation visible, and a retrieval surface that cannot tell the Madrid Protocol from a section of the Act has lost exactly the distinction the rule protects.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Filled from a concept-types.yaml record and from nothing else. A treaty or international scheme Australian practice adopts, rather than a rule the Act itself makes. Small, and it earns its place on the honesty argument rather than the size one: CLAUDE.md rule 5 turns on keeping the source of an obligation visible, and a retrieval surface that cannot tell the Madrid Protocol from a section of the Act has lost exactly the distinction the rule protects."
+      }
+     ]
+    },
+    {
      "name": "`GroundOfRefusal`",
      "label": "Ground of refusal",
      "holds": {
@@ -1259,6 +1283,25 @@
       {
        "kind": "prose",
        "text": "Produced by an approved CONSTRUCT rule, never authored. Must identify its source facts and the rule that produced it: an inference that cannot explain itself does not get published."
+      }
+     ]
+    },
+    {
+     "name": "`InstrumentOrRecord`",
+     "label": "Instrument or record",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "InstrumentOrRecord Instrument or record Filled from a concept-types.yaml record and from nothing else. A document, entry or endorsement the process produces, or writes to the Register. The Register itself is here, as are the things entered on it — a disclaimer, an endorsement, conditions or limitations — and the documents that start or end a proceeding.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Filled from a concept-types.yaml record and from nothing else. A document, entry or endorsement the process produces, or writes to the Register. The Register itself is here, as are the things entered on it — a disclaimer, an endorsement, conditions or limitations — and the documents that start or end a proceeding."
       }
      ]
     },
@@ -1491,6 +1534,44 @@
      ]
     },
     {
+     "name": "`ProceduralStep`",
+     "label": "Procedural step",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "ProceduralStep Procedural step Filled from a concept-types.yaml record and from nothing else. An act, proceeding or event that moves an application or a registration from one state to the next. Deliberately wider than \"something somebody does\": lapsing is in this class and nobody performs it. What the class holds is a transition, whether it is performed, ordered or merely suffered — which is why the modality of each step is a property of the concept and not of the group.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Filled from a concept-types.yaml record and from nothing else. An act, proceeding or event that moves an application or a registration from one state to the next. Deliberately wider than \"something somebody does\": lapsing is in this class and nobody performs it. What the class holds is a transition, whether it is performed, ordered or merely suffered — which is why the modality of each step is a property of the concept and not of the group."
+      }
+     ]
+    },
+    {
+     "name": "`ProcessRole`",
+     "label": "Process role",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "ProcessRole Process role Filled from a concept-types.yaml record and from nothing else. A person or body that acts under the Act — the concept of the office, as the vocabulary holds it. NOT tmk:Role, and the distinction is load-bearing. A tmk:Role in the examination module is somebody who acts: an examiner who signs a report. A tmk:ProcessRole is the *term* \"examiner\" as an entry in the vocabulary. Merging them would make the concept record for examiner an examiner, and the model would lose its only way of saying which of the two it is talking about.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Filled from a concept-types.yaml record and from nothing else. A person or body that acts under the Act — the concept of the office, as the vocabulary holds it. NOT tmk:Role, and the distinction is load-bearing. A tmk:Role in the examination module is somebody who acts: an examiner who signs a report. A tmk:ProcessRole is the *term* \"examiner\" as an entry in the vocabulary. Merging them would make the concept record for examiner an examiner, and the model would lose its only way of saying which of the two it is talking about."
+      }
+     ]
+    },
+    {
      "name": "`ProhibitedUse`",
      "label": "Prohibited use",
      "holds": {
@@ -1639,6 +1720,25 @@
       {
        "kind": "prose",
        "text": "A query with graded relevance judgements, and — the valuable half — the passages that are tempting and wrong."
+      }
+     ]
+    },
+    {
+     "name": "`SubjectMatter`",
+     "label": "Subject matter",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "SubjectMatter Subject matter Filled from a concept-types.yaml record and from nothing else. The thing the process operates on — what may be registered, and the kinds of sign and registration the Act holds apart. A sign, a shape trade mark, a certification trade mark and a protected international trade mark are all subject matter; what refuses, tests or excepts them is not.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "Filled from a concept-types.yaml record and from nothing else. The thing the process operates on — what may be registered, and the kinds of sign and registration the Act holds apart. A sign, a shape trade mark, a certification trade mark and a protected international trade mark are all subject matter; what refuses, tests or excepts them is not."
       }
      ]
     },

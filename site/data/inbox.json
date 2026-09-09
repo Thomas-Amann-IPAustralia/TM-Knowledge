@@ -2,7 +2,7 @@
  "id": "inbox",
  "title": "Your decisions",
  "lede": "Everything currently waiting on a person. Each item says what is going on, why only you can settle it, and what stays stuck until you do. Answer as many or as few as you like — a partial answer is useful and nothing is lost between visits.",
- "updated": "2026-09-08",
+ "updated": "2026-09-09",
  "repo": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge",
  "themes": [
   {
@@ -548,8 +548,8 @@
     "Q21",
     "Q22"
    ],
-   "title": "Five rules that fence the review process — tick any you want revisited",
-   "plain": "The review round — we draft examples, an expert corrects them, the corrections become approved knowledge — is fenced by five rules that decide what may cross from draft to approved. Each was an agent's judgement about what makes the process safe to audit, and they are what an audit would be judged against. Leave a box unticked to confirm it.\n",
+   "title": "Six rules that fence the review process — tick any you want revisited",
+   "plain": "The review round — we draft examples, an expert corrects them, the corrections become approved knowledge — is fenced by six rules that decide what may cross from draft to approved. Each was an agent's judgement about what makes the process safe to audit, and they are what an audit would be judged against. Leave a box unticked to confirm it.\n",
    "why_you": "These decide when a machine may treat something as approved. That is exactly the boundary the whole project rests on.\n",
    "if_unanswered": "Nothing is blocked. The rules hold either way; they stay marked provisional and keep being flagged.\n",
    "answer": {
@@ -630,13 +630,21 @@
   {
    "id": "OQ-0024",
    "theme": "confirm",
-   "status": "open",
+   "status": "answered",
    "needs": "owner",
    "urgency": "medium",
    "raised": "S018",
+   "answered": {
+    "date": "2026-09-09",
+    "how": "You asked in chat for new groups that most effectively capture the 53, to be reviewed in one go. Five groups were added and all 53 sorted into them; one concept stays \"none of these\" on purpose.",
+    "record": "review/returned/260909-owner-chat-new-concept-groups.md",
+    "applied": true
+   },
    "tracked_as": [
     "ADR-0095",
-    "OQ-0023"
+    "ADR-0098",
+    "OQ-0023",
+    "OQ-0026"
    ],
    "title": "The sheet went from 52 ideas to 130, and 53 of them fit none of your four groups",
    "plain": "You asked for the section 43 barrier's removal to show up in the sorting spreadsheet. It does: it held 52 legal ideas and now holds 130. The 78 new ones come from the rest of the Manual — the grounds in sections 39 to 44 and the machinery under each, what a trade mark is, use and ownership, what happens to an application from examination to renewal, the international system, and the two places examination reaches into legislation that is not the Trade Marks Act. Nobody with trade marks expertise has read any of them, and the spreadsheet says so on every row.\nOQ-0023 asked whether your four groups were the right shape when 30 of 52 ideas landed in one of them. The wider set answers half of that question and sharpens the other half. The lopsidedness did even out — the innocent explanation was right, and it was an artefact of a vocabulary built around one ground. What did not go away is the pile that fits nowhere: **53 of the 130 are \"none of these\"**, against 7 of the first 52.\nThey are not a random 53. They are the people (applicant, opponent, Registrar, registered owner), the documents (notice of opposition, an endorsement, a disclaimer), the proceedings (opposition, a hearing), the outcomes (acceptance, lapsing, a decision) and the remedies (revoking an acceptance, rectifying the Register). Your four groups describe *reasoning* about a trade mark application. Roughly two fifths of the Manual is about *what happens* to one.\n",
@@ -669,6 +677,108 @@
    },
    "notes_prompt": "If you would add groups, name them and say what each should hold. If you would rather see twenty examples of the 53 before deciding, say so — that is a page, not a project.",
    "if_unanswered": "Nothing stops. The 130 stay as they are, marked as read by nobody, and the spreadsheet is ready for whoever reviews them. The risk is only that a reviewer spends a day correcting rows inside a taxonomy you would have changed.\n"
+  },
+  {
+   "id": "OQ-0026",
+   "theme": "confirm",
+   "status": "open",
+   "needs": "owner",
+   "urgency": "medium",
+   "raised": "S019",
+   "tracked_as": [
+    "ADR-0098",
+    "OQ-0024"
+   ],
+   "title": "The 53 that fitted nowhere now have five groups — here they are, in one pass",
+   "plain": "You asked for new groups that most effectively capture the 53 ideas none of your four could hold, and for all of them to be reviewed in one go. Five groups were written and all 53 sorted into them. Nobody with trade marks expertise has read any of it.\nYour original four sort an idea by the part it plays in *reasoning towards* a decision — a reason to refuse, a question to answer, something that feeds the answer, a way out. The five new ones sort an idea by the part it plays in *the process that reasoning sits inside*. **A person or body that acts** (8 — examiner, decision maker, Registrar, applicant, opponent, registered owner, authorised user). **The thing the process operates on** (14 — a sign, a trade mark, the four non-traditional kinds, a certification, collective or defensive mark). **An act, proceeding or event that moves an application or registration from one state to the next** (21 — examination, acceptance, opposition, a hearing, deferment, lapsing, withdrawal, renewal, removal for non-use). **A document, entry or endorsement the process produces** (7 — the Register itself, a notice of opposition, a disclaimer, an endorsement, a decision). **A treaty or international scheme Australia adopts rather than makes** (2 — the Madrid Protocol and the Nice Classification).\nOne idea stays \"none of these\" on purpose: *mandatory application of the section* — the rule that section 43 must be applied and there is no discretion. It is a rule *about* a ground rather than a ground, a test, a factor or an exception, and it is not a person, a thing, an act, a document or a treaty either. Inventing a tenth group to hold one idea would have been fitting the taxonomy to the data.\n",
+   "why_you": "The groups were named by a machine and every one of the 53 assignments is a judgement it made and nobody has checked. You asked for one pass, so this is the pass: agree, or say what to change, once.\nFour assignments are weak and each says so on its own record. *Classification of goods and services* is a scheme, an act and a set of classes in one idea, and only the scheme reading puts it where it now sits. An *international registration designating Australia* may belong with the Madrid Protocol rather than with the things that get examined. A *divisional application* is filed as a mechanism while a *series of trade marks* is filed as a thing, and that pair should be decided together. *Conditions or limitations* has a real claim on your own \"exception\" group, which would mean the two ways of sorting are not cleanly separable at all.\n",
+   "answer": {
+    "kind": "choice",
+    "prompt": "Five new groups, 53 ideas sorted, one deliberately left out. What should happen?",
+    "options": [
+     {
+      "value": "groups_stand",
+      "label": "The five groups are right — go ahead on this basis",
+      "help": "The taxonomy is settled as far as you can settle it without a trade marks expert. Nothing becomes approved: every one of the 130 rows is still unreviewed until somebody signs it."
+     },
+     {
+      "value": "groups_stand_fix_named",
+      "label": "The groups are right, but fix the four weak ones I have been shown",
+      "help": "Say in the notes which way each should go. The four are classification, an IRDA, the divisional/series pair, and conditions or limitations."
+     },
+     {
+      "value": "rename_or_merge",
+      "label": "The shape is right but the names or the boundaries are wrong",
+      "help": "Say what to call them or where a line should fall. Two groups holding two ideas between them — treaties and schemes — is the most obvious candidate for merging into something else."
+     },
+     {
+      "value": "two_columns",
+      "label": "One idea should be able to carry both a reasoning group and a process one",
+      "help": "The bigger change. Today the spreadsheet has one dropdown and an idea gets one group, so acceptance is filed as a step and the presumption of registrability inside it is filed nowhere. Two columns fixes that and doubles what a reviewer reads."
+     },
+     {
+      "value": "expert_first",
+      "label": "Do not settle it until a trade marks expert has read the 53",
+      "help": "The groups stay as a proposal. Nothing is lost — they are already marked as read by nobody — but the vocabulary keeps being built on a taxonomy that might move."
+     }
+    ]
+   },
+   "notes_prompt": "If you would change a name, a boundary or one of the four weak assignments, say which and how. One line each is enough.",
+   "if_unanswered": "Nothing stops. The five groups stand as an agent's proposal, marked as read by nobody, and the 130 rows are sorted and ready for whoever reviews them. The risk is the same one you were shown last time: somebody spends a day correcting rows inside a taxonomy you would have changed.\n"
+  },
+  {
+   "id": "OQ-0027",
+   "theme": "confirm",
+   "status": "open",
+   "needs": "owner",
+   "urgency": "high",
+   "raised": "S019",
+   "tracked_as": [
+    "ADR-0079",
+    "ADR-0086",
+    "ADR-0099"
+   ],
+   "title": "208 records are written and nobody has read one — how do you want them signed?",
+   "plain": "This is not a question about a decision. It is the piece of work that is genuinely waiting on a person, and until now it appeared nowhere on this page.\nSince you lifted the ban on authoring legal content, this repository has written **208 records** — 78 legal ideas drawn from the whole Manual, and 130 judgements about which group each idea belongs to. Every one carries the model that wrote it, the date, the passages it rests on, its reasoning, the readings it rejected and the thing it most expects to have got wrong. Every one is stamped `unreviewed`. **`approved_by` is empty on all 208 and no agent may ever fill it.**\nAlongside them sit 190 records a named person signed. That set is frozen, so it stays an honest yardstick to measure the 208 against.\n",
+   "why_you": "A signature is the one thing in this project no amount of agent time can produce. Reading a record and leaving it alone does not sign it — there are three states, and only a name and a date move a record out of \"unreviewed\" (ADR-0086). So the 208 will stay unvalidated indefinitely unless somebody decides who signs them and in what order.\nYou have already said your approvals look exactly like a trade marks expert's, with no separate marker (OQ-0010). What has never been decided is whether you intend to sign any of this yourself, whether it waits for the expert, and — if it waits — whether that is weeks or months, because the answer changes what is worth building on top of unsigned content.\n",
+   "background": [
+    {
+     "label": "The 130 ideas laid out for sorting, with the reasoning",
+     "href": "#/reports"
+    },
+    {
+     "label": "What \"unreviewed\" means and why silence never promotes a record",
+     "href": "#/overview"
+    }
+   ],
+   "answer": {
+    "kind": "choice",
+    "prompt": "208 records are written, evidenced and unsigned. What is the route to a signature?",
+    "options": [
+     {
+      "value": "owner_signs_batches",
+      "label": "I will sign them myself, in batches — send me the first one",
+      "help": "A scoped review round is prepared against a named slice, states on its face that it is partial, and comes back with your name in it. The concept typings are the obvious first batch: 130 rows, one dropdown."
+     },
+     {
+      "value": "expert_round",
+      "label": "Wait for the trade marks expert and prepare a round for them",
+      "help": "The round that was paused in S010 restarts against the authored set rather than the seed set. Say roughly when, because \"eventually\" and \"next month\" lead to different decisions about what gets built on unsigned content."
+     },
+     {
+      "value": "split_the_two",
+      "label": "I sign the group sortings; the expert signs the legal ideas",
+      "help": "The two kinds are genuinely different. Which group an idea belongs to is a taxonomy call you have already made once; whether \"protected wine expression\" is a real term in Australian practice is not."
+     },
+     {
+      "value": "leave_unsigned",
+      "label": "Leave them unsigned for now — labelled content is good enough",
+      "help": "Consistent with your ruling that labelling is enough for what the system serves (OQ-0004). Recorded as a deliberate position rather than a backlog, so no future session reports it as a blockage."
+     }
+    ]
+   },
+   "notes_prompt": "If there is a name other than yours who can sign trade marks content, saying it here answers a question that has been open since the first session.",
+   "if_unanswered": "Nothing is blocked and nothing breaks. The 208 records stay usable, stay labelled, and stay permanently marked as never validated by an expert. The cost is that the frozen 190 remain the only checked knowledge in the project, and everything built after 2026-09-08 rests on content no person has read.\n"
   },
   {
    "id": "OQ-0025",
@@ -1012,6 +1122,26 @@
   }
  ],
  "answered": {
+  "CHAT-0007": [
+   {
+    "value": "add_groups_and_sort_all",
+    "label": "Yes — create the groups, and sort all 53 so they are reviewed in one go",
+    "notes": "\"Most effectively capture\" is an instruction to exercise judgement rather than a request for options, so the number of groups, their names and their boundaries are the agent's and are recorded as agent-proposed inside ADR-0098. They go back to him as OQ-0026. This also answers OQ-0024, which offered \"add groups for the process\" as one of four options.",
+    "received": "2026-09-09T00:00:00Z",
+    "issue": "review/returned/260909-owner-chat-new-concept-groups.md",
+    "applied": true
+   }
+  ],
+  "CHAT-0008": [
+   {
+    "value": "fix_them",
+    "label": "Yes — fix the issues identified",
+    "notes": "Four were identified to him and all four are fixed. The honesty defect in the Overview lede is the one that mattered: ADR-0082 moved the burden of saying what is unreviewed onto every surface that serves knowledge to a person, and the front page was contradicting itself two blocks apart.",
+    "received": "2026-09-09T00:00:00Z",
+    "issue": "review/returned/260909-owner-chat-new-concept-groups.md",
+    "applied": true
+   }
+  ],
   "OQ-0001": [
    {
     "value": "four_groups_right",
@@ -1144,6 +1274,22 @@
   ]
  },
  "rulings": [
+  {
+   "file": "2026-09-09-chat-new-concept-groups.yaml",
+   "received": "2026-09-09T00:00:00Z",
+   "issue": {},
+   "origin": "review/returned/260909-owner-chat-new-concept-groups.md",
+   "origin_kind": "chat",
+   "count": 2,
+   "applied": {
+    "session": "S019",
+    "date": "2026-09-09",
+    "branch": "claude/stoic-brahmagupta-a6aq2g",
+    "what_changed": "The concept taxonomy went from four groups to nine, and the 53 concepts typed `none_of_these` were sorted into the five new ones in a single pass so they can be reviewed together (ADR-0098). The five are `process_role` (8), `subject_matter` (14), `procedural_step` (21), `instrument_or_record` (7) and `external_instrument` (2); one concept, GC-0051, stays `none_of_these` on purpose. The schema enum, `typing.GROUPS`, the workbook dropdown, the ontology classes in `legal-concepts.ttl`, the `CONCEPT_CLASSES` map and the harness deliverable all carry the nine. Separately, four things the site said that were no longer true were fixed and the largest gap in what it showed him was closed (ADR-0099): the Overview lede claimed nothing on the page was written by an AI while the page counted 208 machine-written records; the same lede still framed the project as a section 43 pilot after ADR-0081 withdrew the boundary; the \"six of them unblock work\" figure was hardcoded and had been wrong since five of the six were answered; and `blockers.md` presented ten decisions as waiting on a reviewer when ADR-0084 had made them agent work.",
+    "corrections_owed": "None. The figures he was shown before he decided were checked against the repository in the same session: 53 of 130 concepts typed `none_of_these`, 208 authored records against 190 signed, and one question genuinely waiting on a trade marks expert rather than the four the dashboard's expert theme implied.",
+    "also": "Two things were added to his queue rather than decided for him. OQ-0026 puts the five groups and all 53 assignments in front of him in one pass, naming the four weakest assignments — classification, an IRDA, the divisional/series pair, and conditions or limitations — because each has a live counter-argument. OQ-0027 asks how the 208 unreviewed records are to reach a signature, which is the one piece of work no amount of agent time can do and which had appeared nowhere on the dashboard before today."
+   }
+  },
   {
    "file": "2026-09-08-issue-12.yaml",
    "received": "2026-09-08T00:52:41Z",

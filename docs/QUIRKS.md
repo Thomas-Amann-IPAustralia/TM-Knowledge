@@ -1053,3 +1053,27 @@ shortfall and points at `tmk-recon --provision` for the corpus figure.
 answering "of what the graph holds", not "of what the corpus contains", and only
 this one says so. Check the `limits:` header before quoting a coverage number
 out of a competency query.
+
+### Q-58 — `tmk:Role` and `tmk:ProcessRole` are different things and one letter of context apart
+
+`examination.ttl` has declared `tmk:Role` since S003, with `tmk:Registrar`,
+`tmk:Delegate`, `tmk:Examiner` and `tmk:DecisionMaker` under it. Those classes
+are for **people and offices that act** — the examiner who signs a report. All
+six are `UNDEFINED` and have been since they were written (HANDOFF Q17), so
+nothing populates them and the collision stayed invisible.
+
+ADR-0098 added `tmk:ProcessRole` for the **concept** of an office as the
+vocabulary holds it, and `GC-0044` *examiner* is now an instance of it.
+
+**They are not the same and must not be merged.** `tmk:ProcessRole` is a
+subclass of `tmk:LegalConcept`, which is a `skos:Concept` — a term with a
+preferred label, variants and near-misses. `tmk:Role` is a class of agents.
+Making the concept record for "examiner" an `tmk:Role` would assert that a
+vocabulary entry examines trade marks.
+
+**The trap:** a query written to find "everything about examiners" reaches one
+or the other depending on which class it names, and both look right. If
+somebody eventually defines the `tmk:Role` subclasses, the two hierarchies will
+carry the same four labels — Registrar, Delegate, Examiner, Decision maker — and
+nothing in the labels will distinguish them. Read the `rdfs:comment` on either
+class before writing a query that touches roles; both say which one they are.

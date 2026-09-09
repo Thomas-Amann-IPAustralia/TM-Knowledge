@@ -3,10 +3,63 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-09 · session S018 · branch `claude/busy-goldberg-gewifv`
+**Last updated:** 2026-09-09 · session S019 · branch `claude/stoic-brahmagupta-a6aq2g`
 
 ---
-## 0. What S018 did, in one paragraph
+## 0. What S019 did, in one paragraph
+
+**The taxonomy stopped creaking, and the dashboard stopped contradicting
+itself.** The owner asked what was waiting on him or on the trade marks expert
+and whether the published site said so. It mostly did, with four faults — and one
+omission that mattered more than the four. He then instructed: *"Please create
+new groups which most effectively capture the 53 unassigned concepts these will
+all be reviewed in one go."* So the four groups became **nine**. Five were added
+on a second axis — `process_role` (8), `subject_matter` (14), `procedural_step`
+(21), `instrument_or_record` (7), `external_instrument` (2) — and all 53
+concepts that had fitted nowhere were retyped in a single pass, each with its
+reasoning, the readings it rejected and the thing it most expects to have got
+wrong. **One concept stays `none_of_these` on purpose** and that is a finding,
+not an oversight: `GC-0051`, *mandatory application of the section*, is a rule
+*about* a ground and fits none of the nine. A tenth group to hold one record
+would be fitting the taxonomy to the data. ADR-0098, ADR-0099. **No expert has
+read any of it, every record says so, `approved_by` is null in all 130 typings,
+and 0 of 130 concepts are sorted by a person.**
+
+**The four site faults, and the third is the one to learn from.** The Overview
+lede said *"Everything here was signed off by a person before it was modelled.
+Nothing on this page was written by an AI as legal content"* — while a stat tile
+two blocks below it read *"Records a machine wrote: 208."* That sentence was true
+when it was written and ADR-0079 falsified it; ADR-0082 had meanwhile moved the
+entire honesty burden onto exactly this surface. The same lede still called the
+project a section 43 pilot. **"Six of them unblock the next piece of work" was
+hardcoded** and had been wrong since five of the six were answered — the second
+count on this site to go stale in prose after Q-46, and now computed. And
+`blockers.md` presented ten decisions as waiting on a reviewer when ADR-0084 had
+made them agent work eight days earlier.
+
+**The omission was bigger than any of them.** The page that exists to list what
+is waiting on a person held ten questions and no mention of the **208 authored
+records that no person has read**. A signature is the one thing no amount of
+agent time produces, and under ADR-0086 silence never produces one either. That
+is now **OQ-0027**, the only `high` on the queue. **OQ-0026** puts the five new
+groups and all 53 assignments up for review in one go, as he asked, naming the
+four weakest — classification, an IRDA, the divisional/series pair, and
+conditions or limitations. OQ-0024 closes.
+
+**What it cost, and what to distrust.** 0 harness defects, 0 SHACL defects, the
+graph rebuilds, the dashboard is current, 528 tests pass. Three things to hold
+lightly. **The five groups are one model's reading of 53 concepts and nothing
+about the owner's instruction settles them** — he asked for groups, not for these
+groups. **One concept carries one group**, so where the two axes overlap the
+sheet forces a choice: *acceptance* is filed as a step and section 33's
+presumption of registrability inside it is filed nowhere. Two columns would fix
+it and doubles what a reviewer reads; it is an option on OQ-0026, not a decision
+taken. And **`tmk:ProcessRole` is not `tmk:Role`** — a collision that is
+invisible today only because the six classes in `examination.ttl` are all
+UNDEFINED. Q-58.
+
+---
+## 0a. What S018 did, in one paragraph
 
 **The rules stopped saying section 43 in S015. The artefacts stopped saying it in
 S018.** The owner asked for the boundary's removal to reach
@@ -280,11 +333,23 @@ Everything below is an agent's to do.
    the others should copy: lookups only, evidence cut from the snapshot, and a
    candidate file that authors nothing.
 
-**Two things flagged for the owner, neither blocking.** OQ-0024 asks whether the
-four groups should grow, because 53 of 130 concepts fit none of them and they are
-the roles, documents, proceedings and outcomes — settle it before a review round,
-not after. OQ-0025 asks whether the graph should carry the whole Manual at a cost
+**Three things flagged for the owner, none blocking.** ~~OQ-0024 asks whether the
+four groups should grow~~ — **answered 2026-09-09: they did, and OQ-0026 replaces
+it.** OQ-0026 puts the five new groups and all 53 assignments up for review in one
+pass, which is how he asked for them; its four named weak points are the ones to
+read first. OQ-0027 asks how the 208 unreviewed records reach a signature and is
+the only `high` on the queue — not because anything breaks without it, but because
+it is the one piece of work no amount of agent time can do and it had never been
+put to him. OQ-0025 asks whether the graph should carry the whole Manual at a cost
 of about 30MB, because ADR-0097's rule is `agent-proposed` and his to overturn.
+
+**A note for whoever picks up the next authoring pass.** The nine groups are now
+the taxonomy, and `typing.GROUPS` is the one place they are written down —
+`REASONING_GROUPS` are the owner's four and untouchable without him,
+`PROCESS_GROUPS` are the agent's five and provisional until OQ-0026 comes back.
+Anything new that types a concept reads that tuple; do not hardcode a group name
+anywhere else. The schema enum, the workbook dropdown, the ontology classes and
+the harness label all already follow it.
 
 ### What the plumbing gives you, in the order you will meet it
 
@@ -412,6 +477,13 @@ because code answering a withdrawn question is worse than code that fails, and
 `agent-proposed`** and it is the one to look at: it decides how much of the
 Manual the graph carries, the alternative is a 40MB artefact, and OQ-0025 puts
 the trade-off to the owner.
+**ADR-0098 is `human` in one half and `agent-proposed` in the other**, and the
+split is the thing to keep straight: *that* there are new concept groups is the
+owner's instruction and cannot be overturned by an agent; *which five, called
+what, holding which of the 53* is one model's judgement, is stamped `unreviewed`
+on all 53 records, and is asked as OQ-0026. A session that reads it as settled
+will build on a taxonomy nobody has agreed. **ADR-0099 is `human`** — the four
+site fixes are his instruction, quoted in the ADR.
 **ADR-0062 is `human`** — the dashboard is the owner's
 instruction, quoted in the ADR. ADR-0044, ADR-0045, ADR-0047, ADR-0049, ADR-0050 and
 **ADR-0053** are `derived`. **ADR-0052 is `human`.** **ADR-0089 and ADR-0091 are
@@ -644,6 +716,40 @@ relevance grade each. The scoped workbook for all ten is rendered.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S019 — 2026-09-09 — the taxonomy got five more groups, and the front page stopped lying
+
+**Branch** `claude/stoic-brahmagupta-a6aq2g`
+
+Asked what was waiting on him or on the expert. Answer: eleven questions on his
+queue, none blocking agent work; **one** genuine expert question (OQ-0017,
+parked) rather than the four the dashboard's expert theme implied; and the real
+waiting is 208 authored records nobody has read, which appeared nowhere.
+
+He instructed two things and both are done. **Nine groups instead of four**
+(ADR-0098): `process_role` 8, `subject_matter` 14, `procedural_step` 21,
+`instrument_or_record` 7, `external_instrument` 2, and `none_of_these` retained
+holding exactly one — `GC-0051`, which is a rule about how a ground operates and
+genuinely fits nothing. The 53 were retyped in one pass so they can be reviewed
+together; only `type`, `confidence`, `reasoning`, `alternatives_considered`,
+`expert_should_check` and `authored_date` moved, because the evidence on each was
+already verified against the pinned snapshot and the passage showing what a
+concept *is* is the passage showing what part it plays. Every one keeps
+`none_of_these` in `alternatives_considered`, marked superseded rather than
+refuted, so the change stays auditable. **And four site faults fixed**
+(ADR-0099), the largest being an Overview lede that denied any AI-written content
+on a page counting 208 machine-written records.
+
+Two questions added: **OQ-0027** (how do the 208 reach a signature — the only
+`high` on the queue, and the first inbox item about work rather than a decision)
+and **OQ-0026** (the five groups and the 53 assignments, in one pass). OQ-0024
+closes against the ruling.
+
+**Cost:** 0 harness defects, 0 SHACL defects, 528 tests pass, dashboard current.
+**Revealed:** `tmk:Role` in `examination.ttl` and the new `tmk:ProcessRole` will
+carry the same four labels if anybody ever defines the former — Q-58. And the
+`none_of_these` bucket surviving with exactly one member is the evidence that it
+was an answer all along rather than a place to put things.
 
 ### S018 — 2026-09-09 — the boundary left the artefacts, and the taxonomy started creaking
 
