@@ -220,6 +220,24 @@ _CITATION_ONLY = re.compile(
     re.IGNORECASE | re.VERBOSE,
 )
 
+#: The Manual's house style for a heading: a subject, a dash, and the provision
+#: it sits under — *Honest concurrent use - paragraph 44(3)(a)*, *Prohibited
+#: signs - subsection 39(1)*, *Evidence of use - general requirements*. The
+#: subject is the half worth having, so a heading in this shape offers **both**
+#: forms: the whole heading, and the head on its own. Both, not the head alone —
+#: dropping the qualifier would assert that it carries no meaning, and
+#: *Evidence of use - general requirements* is a narrower subject than *evidence
+#: of use*.
+_HEADING_TAIL = re.compile(r"\s+[-–—]\s+(?P<tail>.+)$")
+
+#: Tails that qualify a subject rather than naming a different one. A tail that
+#: is neither this nor a citation is treated as part of the subject.
+_QUALIFYING_TAIL = re.compile(
+    r"^(general|general\ requirements?|introduction|overview|background|summary"
+    r"|the\ act|act|regulations|continued|cont|part\ [0-9]+[A-Z]?)$",
+    re.IGNORECASE | re.VERBOSE,
+)
+
 #: How many Manual chunks a term must appear in before the usage index bothers
 #: listing them individually. Below this every use is listed; above it the
 #: report gives a count and the Parts, because 1,051 refs for `trade mark` is
@@ -497,12 +515,23 @@ def _manual_topics(corpus: Corpus) -> dict[str, list[Evidence]]:
             )
         )
 
+    def offer_both(subject: str, chunk: Chunk) -> None:
+        """The heading, and the subject at the head of it where there is one."""
+        offer(subject, chunk)
+        cleaned = _HEADING_NUMBER.sub("", subject).strip(" .-–—:")
+        match = _HEADING_TAIL.search(cleaned)
+        if match is None:
+            return
+        tail = match.group("tail").strip()
+        if _CITATION_ONLY.match(tail) or _QUALIFYING_TAIL.match(tail):
+            offer(cleaned[: match.start()].strip(), chunk)
+
     for chunk in sorted(corpus.chunks.values(), key=lambda c: (c.page_ref, c.ordinal)):
         page = corpus.pages.get(chunk.page_ref)
         if page is not None:
-            offer(page.nav_title, chunk)
+            offer_both(page.nav_title, chunk)
         for heading in chunk.heading_path:
-            offer(heading, chunk)
+            offer_both(heading, chunk)
     return found
 
 
@@ -598,9 +627,16 @@ def extract(
         manual_evidence = tuple(evidence for _, evidence in manual_pairs)
         topic_evidence = tuple(topics.get(term, ()))
         chunks = usage.get(term, [])
-        if not chunks and not statutory_evidence:
-            # Defined nowhere the Manual reaches and used nowhere either. That
-            # is a regex artefact, not a concept.
+        if not (chunks or statutory_evidence or manual_evidence or topic_evidence):
+            # Nothing defines it, no heading files anything under it, and the
+            # Manual never writes the words. That is a regex artefact.
+            #
+            # Usage alone is deliberately *not* required. A heading is evidence
+            # in its own right: *Honest concurrent use — paragraph 44(3)(a)* is
+            # a subject the Manual devotes a page to, and the exact heading
+            # string never appears in the prose beneath it. Requiring the term
+            # to occur literally dropped precisely the compound practice
+            # concepts the boundary removal exists to reach.
             continue
 
         part_counts: dict[str, int] = {}

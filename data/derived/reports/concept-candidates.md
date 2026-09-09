@@ -12,11 +12,11 @@ The owner withdrew the section 43 boundary on 2026-09-08: *“I would like to co
 
 | | count |
 |---|---|
-| Candidates | **942** |
+| Candidates | **1715** |
 | — defined by the Act or the Regulations | 116 |
-| — defined by the corpus in terms, one way or the other | 137 |
-| — named only by a Manual heading | 805 |
-| — a term an existing concept already claims | 14 |
+| — defined by the corpus in terms, one way or the other | 144 |
+| — named only by a Manual heading | 1571 |
+| — a term an existing concept already claims | 15 |
 | Manual Parts they are used in | 54 of 54 |
 | Corpus read | 2460 chunks · 763 provisions · 5813 units |
 
@@ -27,10 +27,10 @@ The owner withdrew the section 43 boundary on 2026-09-08: *“I would like to co
 | strength | means | count | what an authored record from it may claim |
 |---|---|---|---|
 | **3** | the legislation defines it *and* the Manual defines it in terms | 4 | `corpus_explicit` |
-| **2** | one of the two defines it | 133 | `corpus_explicit` |
-| **1** | nothing defines it; the Manual files passages under it as a subject | 805 | `corpus_inferred` at best — **never** `corpus_explicit` |
+| **2** | one of the two defines it | 140 | `corpus_explicit` |
+| **1** | nothing defines it; the Manual files passages under it as a subject | 1571 | `corpus_inferred` at best — **never** `corpus_explicit` |
 
-**348 of the 805 strength-1 candidates occur in Part 14 and nowhere else.** Part 14 is the goods and services classification, 743 of the corpus's 2,460 chunks, and its headings are class headings — *packaging*, *materials*, *research*. They are candidates because the rule that finds a heading cannot tell a class heading from a legal one, and they are reported rather than filtered because the last scope filter this repository applied hid four of nine role terms an expert had named (Q-28). Rank them low; do not pretend the rule excluded them.
+**348 of the 1571 strength-1 candidates occur in Part 14 and nowhere else.** Part 14 is the goods and services classification, 743 of the corpus's 2,460 chunks, and its headings are class headings — *packaging*, *materials*, *research*. They are candidates because the rule that finds a heading cannot tell a class heading from a legal one, and they are reported rather than filtered because the last scope filter this repository applied hid four of nine role terms an expert had named (Q-28). Rank them low; do not pretend the rule excluded them.
 
 ## How to read a row
 
@@ -44,7 +44,7 @@ The owner withdrew the section 43 boundary on 2026-09-08: *“I would like to co
 
 ## Terms an existing concept already claims
 
-14 of the 942 candidates match a label on a concept this repository already holds. They are listed rather than dropped: a term claimed by one concept and defined separately by the Act is worth a second look, because it may be two ideas sharing a word.
+15 of the 1715 candidates match a label on a concept this repository already holds. They are listed rather than dropped: a term claimed by one concept and defined separately by the Act is worth a second look, because it may be two ideas sharing a word.
 
 | term | already claimed by | defined at |
 |---|---|---|
@@ -58,6 +58,7 @@ The owner withdrew the section 43 boundary on 2026-09-08: *“I would like to co
 | revocation of acceptance | `GC-0042` | — |
 | evidence | `GC-0041` | — |
 | research | `GC-0052` | — |
+| evidence of use | `GC-0041` | — |
 | opposition proceedings | `GC-0040` | — |
 | reputation | `GC-0050` | — |
 | presumption of registrability | `GC-0007` | — |
@@ -65,7 +66,7 @@ The owner withdrew the section 43 boundary on 2026-09-08: *“I would like to co
 
 ## The candidates the corpus defines
 
-The **137** candidates something in the corpus actually defines, ranked by strength and then by how many Manual passages use the term. The ranking is arithmetic, not importance — a procedural term the Manual repeats constantly outranks a substantive one it states once, and that is a property of the counter rather than of the law.
+The **144** candidates something in the corpus actually defines, ranked by strength and then by how many Manual passages use the term. The ranking is arithmetic, not importance — a procedural term the Manual repeats constantly outranks a substantive one it states once, and that is a property of the counter rather than of the law.
 
 ### trade mark
 
@@ -1409,6 +1410,18 @@ The **137** candidates something in the corpus actually defines, ranked by stren
 
 - **`TMR1995/r2.1/code-of-conduct`** — “Code of Conduct means…”
 
+### collective trademark
+
+*Strength 2* · *signals:* `manual_heading_what_is` · *used in* **0** Manual passages across 0 Parts
+
+*Defined by the Manual:*
+
+- **`TMM/Part33/1#1`** — “Federal Register of Legislation - Trade Marks Regulations 1995 Federal Register of Legislation - Trade Marks Act 1995 A collective trade mark is a sign used or intended to be used, in relation to goods or services dealt with or provided in the course of trade by members of an association to distingu …”
+- **`TMM/Part33/1/1/1`** — “Section 164 states:”
+- **`TMM/Part33/1/1/2`** — “A collective trade mark can only be owned by an association.”
+- **`TMM/Part33/1/1/3`** — “To apply for registration of a collective trade mark the association applying may be an incorporated or unincorporated body.”
+- … and 2 more
+
 ### commencement day
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **0** Manual passages across 0 Parts
@@ -1466,6 +1479,14 @@ The **137** candidates something in the corpus actually defines, ranked by stren
 
 - **`TMR1995/r2.1/disciplinary-tribunal`** — “Disciplinary Tribunal means…”
 
+### effect of cancelling a registration
+
+*Strength 2* · *signals:* `manual_heading_what_is` · *used in* **0** Manual passages across 0 Parts
+
+*Defined by the Manual:*
+
+- **`TMM/Part41/1#1`** — “Trade Marks Act 1995 Trade Mark Regulations 1995 Cancellation of a trade mark registration results in the cessation of the registration (section 73).”
+
 ### existing registered mark
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **0** Manual passages across 0 Parts
@@ -1489,6 +1510,14 @@ The **137** candidates something in the corpus actually defines, ranked by stren
 *Defined by the legislation:*
 
 - **`TMR1995/r20A.9/former-attorney`** — “former attorney means…”
+
+### geographical indications (gis)
+
+*Strength 2* · *signals:* `manual_heading_what_is` · *used in* **0** Manual passages across 0 Parts
+
+*Defined by the Manual:*
+
+- **`TMM/Part35/2/2/1`** — “Section 6 of the Act defines a GI in relation to goods as:”
 
 ### incorporated legal practice
 
@@ -1522,6 +1551,14 @@ The **137** candidates something in the corpus actually defines, ranked by stren
 
 - **`TMA1995/s6/intellectual-property-advice`** — “intellectual property advice has the meaning…”
 
+### inter partes hearings
+
+*Strength 2* · *signals:* `manual_heading_what_is` · *used in* **0** Manual passages across 0 Parts
+
+*Defined by the Manual:*
+
+- **`TMM/Part52/2/2/1`** — “Matters arising under the Act in which the Registrar is required to make a decision which will determine the rights of one of the parties involved relative to another party are referred to as “inter partes” matters.”
+
 ### Madrid Regulations
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **0** Manual passages across 0 Parts
@@ -1530,6 +1567,14 @@ The **137** candidates something in the corpus actually defines, ranked by stren
 
 - **`TMR1995/r17A.2/madrid-regulations`** — “Madrid Regulations means…”
 - **`TMR1995/r2.1/madrid-regulations`** — “Madrid Regulations has the meaning…”
+
+### n association
+
+*Strength 2* · *signals:* `manual_heading_definition_of` · *used in* **0** Manual passages across 0 Parts
+
+*Defined by the Manual:*
+
+- **`TMM/Part33/1/1/4`** — “An association is defined in business and general dictionaries as:”
 
 ### notified trade mark
 
@@ -1619,6 +1664,28 @@ The **137** candidates something in the corpus actually defines, ranked by stren
 
 - **`TMR1995/r20.1/serious-offence`** — “serious offence means…”
 
+### ssignment and transmission
+
+*Strength 2* · *signals:* `manual_heading_what_is` · *used in* **0** Manual passages across 0 Parts
+
+*Defined by the Manual:*
+
+- **`TMM/Part43/1#1~1`** — “Assignment or transmission of a trade mark refers to the process by which ownership of a registered trade mark or a trade mark whose registration is being sought may be passed from one party to another.”
+- **`TMM/Part43/1#1~2`** — “1.5 In a partial assignment, the original owner of the trade mark retains the trade mark in respect of some of the goods and/or services in the application or registration and the assignee is assigned the trade mark in respect of the other goods and/or services in the application or registration.”
+- **`TMM/Part43/1#1~3`** — “1.11 An unregistered certification trade mark which is the subject of an application that has already been sent to the ACCC under section 174 may only be assigned with the consent of the ACCC.”
+
+### trade mark and presumption of registrability
+
+*Strength 2* · *signals:* `manual_heading_definition_of` · *used in* **0** Manual passages across 0 Parts
+
+*Defined by the Manual:*
+
+- **`TMM/Part20/1#1`** — “Trade Marks Act 1995 Trade Mark Regulations 1995 Part 2 of the Act entitled “Interpretation” refers for the definition of the term “trade mark” to section 17 where it is defined as follows:”
+- **`TMM/Part20/2#1`** — “At the time of the introduction of Trade Marks Act 1995 the term “sign” was new in Australian trade marks legislation but it had been used in a number of European jurisdictions and by international organisations for many years.”
+- **`TMM/Part20/2/2/1`** — “In its pursuit of an international definition of trade mark the Association Internationale pour la Protection de la Propriété Industrielle (AIPPI), for example, at its congress of 1963 adopted by resolution a definition which included the following:”
+- **`TMM/Part20/2/2/2`** — “A more recent attempt to achieve an internationally acceptable definition is that adopted in the Agreement on Trade-Related Aspects of Intellectual Property Rights (TRIPS Agreement) as part of the Uruguay Round of talks on the General Agreement on Tariffs and Trade (GATT) which transformed the GATT  …”
+- … and 26 more
+
 ### trade marks attorney director
 
 *Strength 2* · *signals:* `statutory_definition` · *used in* **0** Manual passages across 0 Parts
@@ -1645,7 +1712,7 @@ The **137** candidates something in the corpus actually defines, ranked by stren
 
 ## The candidates only a heading names
 
-The remaining **805**. The Manual files passages under each of these and defines none of them, so a record authored from one is the agent's reading of a subject the Manual treats — `corpus_inferred`, never `corpus_explicit`. Listed in one line each: the term, how much of the Manual uses it, and the first passage filed under it.
+The remaining **1571**. The Manual files passages under each of these and defines none of them, so a record authored from one is the agent's reading of a subject the Manual treats — `corpus_inferred`, never `corpus_explicit`. Listed in one line each: the term, how much of the Manual uses it, and the first passage filed under it.
 
 | term | uses | Parts | first passage |
 |---|---|---|---|
@@ -1660,6 +1727,7 @@ The remaining **805**. The Manual files passages under each of these and defines
 | registration of a trade mark | 60 | Part39, Part52, Part60 +24 | `TMM/Part39/1#1` |
 | research *(claimed by `GC-0052`)* | 60 | Part14, Part32A, Part22 +12 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/research` |
 | amendments | 56 | Part9, Part14, Part27 +15 | `TMM/Part60/4/10/4/10/1` |
+| evidence of use *(claimed by `GC-0041`)* | 56 | Part23, Part22, Part14 +14 | `TMM/Part23/3#1` |
 | letters | 56 | Part22, Part5, Part30 +17 | `TMM/Part22/8/8/1` |
 | materials | 55 | Part14, Part23, Part29 +5 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/materials` |
 | inherent adaptation to distinguish | 52 | Part22, Part21, Part23 +5 | `TMM/Part22/3#1~1` |
@@ -1667,6 +1735,7 @@ The remaining **805**. The Manual files passages under each of these and defines
 | the madrid protocol | 50 | Part60, Part27, Part62 +9 | `TMM/Part60/1#1` |
 | packaging | 48 | Part21, Part14, Part19A +9 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/packaging` |
 | quality | 47 | Part22, Part13, Part35 +17 | `TMM/Part22/9/9/3` |
+| other circumstances | 42 | Part28, Part17, Part22 +11 | `TMM/Part28/4#1` |
 | individual | 38 | Part10, Part14, Part60 +13 | `TMM/Part10/1/1/1/1` |
 | opposition proceedings *(claimed by `GC-0040`)* | 37 | Part51, Part15, Part39 +14 | `TMM/Part49/6#1` |
 | production | 36 | Part54, Part22, Part14 +9 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/production` |
@@ -1674,12 +1743,14 @@ The remaining **805**. The Manual files passages under each of these and defines
 | ordinary signification | 33 | Part22, Part32B, Part21 +2 | `TMM/Part22/7/22/7/2` |
 | certification trade marks | 32 | Part35, Part43, Part60 +6 | `TMM/Part35/1#1` |
 | devices | 30 | Part5, Part22, Part14 +5 | `TMM/Part22/25#1` |
-| representation of the trade mark | 30 | Part10, Part21, Part60 +8 | `TMM/Part11/1/1/5` |
+| representation of the trade mark | 30 | Part10, Part21, Part60 +8 | `TMM/Part10/3#1` |
 | beverages | 27 | Part14, Part32B, Part26 +6 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/beverages` |
+| honest concurrent use | 27 | Part28, Part17, Part27 +4 | `TMM/Part28/2#1` |
 | instruments | 27 | Part14, Part22, Part34 +1 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/instruments` |
 | figures | 26 | Part5, Part23, Part32A +5 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/figures` |
 | covers | 25 | Part14, Part20, Part27 +7 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/covers` |
 | online services | 25 | Part23, Part28, Part60 +11 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/online-services` |
+| prior use | 25 | Part28, Part17, Part19A +5 | `TMM/Part28/6#1` |
 | apparatus | 24 | Part14, Part22, Part27 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/apparatus` |
 | provisional refusal | 24 | Part60 | `TMM/Part60/4/9/4/9/1` |
 | defensive trade marks | 21 | Part34, Part46, Part47 +3 | `TMM/Part34/1/1/1` |
@@ -1711,7 +1782,7 @@ The remaining **805**. The Manual files passages under each of these and defines
 | publications | 13 | Part14, Part23, Part15 +8 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/publications` |
 | numerals | 12 | Part22, Part29, Part5 +2 | `TMM/Part22/22#1` |
 | rental | 12 | Part14, Part26, Part30 +1 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/rental` |
-| series of trade marks | 12 | Part13, Part60, Part10 +2 | `TMM/Part60/4/7/4/7/11` |
+| series of trade marks | 12 | Part13, Part60, Part10 +2 | `TMM/Part13/1#1` |
 | services in relation to | 12 | Part13, Part14, Part10 +3 | `TMM/Part14/6/6/2/5` |
 | surnames | 12 | Part22, Part23, Part24 | `TMM/Part22/16#1` |
 | trade marks likely to deceive or cause confusion | 12 | Part22, Part30, Part14 +4 | `TMM/Part29/1#1` |
@@ -1797,6 +1868,7 @@ The remaining **805**. The Manual files passages under each of these and defines
 | overcoming grounds for rejection | 6 | Part27, Part14, Part22 +1 | `TMM/Part29/9/9/5` |
 | photographs | 6 | Part10, Part14, Part21 +3 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/photographs` |
 | prescribed documents | 6 | Part43, Part61, Part5 | `TMM/Part43/3/3/2` |
+| prohibited signs | 6 | Part30, Part20, Part34 +2 | `TMM/Part31/1#1` |
 | reasonable excuse | 6 | Part54 | `TMM/Part54/3/3/4/2` |
 | snacks | 6 | Part19A, Part29, Part14 +1 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/snacks` |
 | supports | 6 | Part22, Part14, Part23 +2 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/supports` |
@@ -1853,6 +1925,7 @@ The remaining **805**. The Manual files passages under each of these and defines
 | patterns | 4 | Part5 | `TMM/Part5/x-device-constituents/patterns` |
 | planning | 4 | Part14, Part19A, Part51 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/planning` |
 | powder | 4 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder` |
+| prescribed signs | 4 | Part31, Part20, Part5 | `TMM/Part31/2#1` |
 | protection extended | 4 | Part60 | `TMM/Part60/1/1/4` |
 | ribbon | 4 | Part5, Part14, Part22 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/ribbon` |
 | rights of appeal | 4 | Part52, Part18, Part51 | `TMM/Part51/8#1` |
@@ -2113,6 +2186,7 @@ The remaining **805**. The Manual files passages under each of these and defines
 | applications for an award of costs | 1 | Part15 | `TMM/Part55/3#1` |
 | applicators | 1 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/applicators` |
 | aprons | 1 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/aprons` |
+| article 6ter signs | 1 | Part31 | `TMM/Part31/4/4/4` |
 | artwork | 1 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/artwork` |
 | assignment or transmission of collective trade marks | 1 | Part43 | `TMM/Part33/5#1` |
 | auditing | 1 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/auditing` |
@@ -2203,6 +2277,7 @@ The remaining **805**. The Manual files passages under each of these and defines
 | evidence of use for colour trade marks | 1 | Part21 | `TMM/Part21/4/4/7` |
 | evidence of use in relation to tobacco products | 1 | Part27 | `TMM/Part23/4/4/9` |
 | examiner's own research | 1 | Part23 | `TMM/Part23/2/2/4` |
+| examining evidence | 1 | Part28 | `TMM/Part23/4#1` |
 | extension of the period for filing evidence | 1 | Part15 | `TMM/Part51/2#1~1` |
 | extension of time to file a notice of intention to defend | 1 | Part60 | `TMM/Part47/3/3/3` |
 | facings | 1 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/facings` |
@@ -2454,3 +2529,761 @@ The remaining **805**. The Manual files passages under each of these and defines
 | wording of exclusions and restrictions | 1 | Part27 | `TMM/Part14/6/6/4/1` |
 | wrappers | 1 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/wrappers` |
 | wrapping material | 1 | Part14 | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/wrapping-material` |
+| "easy" extension period - prescribed period as extended | 0 | — | `TMM/Part16/1/1/2` |
+| "functional" sounds | 0 | — | `TMM/Part21/6/6/2/1` |
+| "ogen" trade mark [1977] rpc 529 | 0 | — | `TMM/Part32A/x-annex-5---case-law-summaries/ogen-trade-mark-1977-rpc-529` |
+| "sensory" trade marks - sounds and scents | 0 | — | `TMM/Part21/5#1` |
+| 'stop' words | 0 | — | `TMM/Part5/x-word-constituents/stop-words` |
+| (subreg 4.15(da)) | 0 | — | `TMM/Part31/4/4/4/2` |
+| (subreg 4.15(e)) | 0 | — | `TMM/Part31/4/4/4/1` |
+| 1. introduction | 0 | — | `TMM/Part9/1#1` |
+| 2.1.1(a) plain word trade marks | 0 | — | `TMM/Part32A/2/1/2-1-1-a-plain-word-trade-marks` |
+| 2.1.1(b) composite or fancy trade marks | 0 | — | `TMM/Part32A/2/1/2-1-1-b-composite-or-fancy-trade-marks` |
+| 2.1.2(a) amending the goods | 0 | — | `TMM/Part32A/2/1/2-1-2-a-amending-the-goods` |
+| 2.1.2(b) change in status | 0 | — | `TMM/Part32A/2/1/2-1-2-b-change-in-status` |
+| 2.1.2(c) letter of consent | 0 | — | `TMM/Part32A/2/1/2-1-2-c-letter-of-consent` |
+| 2.2.10 | 0 | — | `TMM/Part15/2/2/2/10` |
+| 2.3.1(a) variety names | 0 | — | `TMM/Part32A/2/3/2-3-1-a-variety-names` |
+| 2.3.1(b) synonyms | 0 | — | `TMM/Part32A/2/3/2-3-1-b-synonyms` |
+| 2.3.1(c) trade names and alternate names | 0 | — | `TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1` |
+| 2.3.5(a) amending the goods | 0 | — | `TMM/Part32A/2/3/2-3-5-a-amending-the-goods~1` |
+| 2.3.5(b) evidence of use | 0 | — | `TMM/Part32A/2/3/2-3-5-b-evidence-of-use` |
+| 2.4.3(a) amending the goods | 0 | — | `TMM/Part32A/2/4/2-4-3-a-amending-the-goods` |
+| 2.4.3(b) examples of use | 0 | — | `TMM/Part32A/2/4/2-4-3-b-examples-of-use` |
+| 29.7.phonewords and phone numbers | 0 | — | `TMM/Part29/7#1` |
+| 2nd level and sub domain names | 0 | — | `TMM/Part29/8/8/2` |
+| 3. amendment before particulars of an application are published (section 64) | 0 | — | `TMM/Part9/3#1` |
+| 4.10.3 | 0 | — | `TMM/Part14/4/4/10/3` |
+| 4.11.1 | 0 | — | `TMM/Part14/4/4/11/1` |
+| 4.11.2 | 0 | — | `TMM/Part14/4/4/11/2` |
+| 5. amendments to other documents | 0 | — | `TMM/Part9/5#1` |
+| 51(1)(c) the colour of any part of the trade mark | 0 | — | `TMM/Part13/6/6/3` |
+| 6. amendments after registration | 0 | — | `TMM/Part9/6#1` |
+| 7. changes of name, address and address for service | 0 | — | `TMM/Part9/7#1~1` |
+| 8. process for amendments under subsection 63(1) | 0 | — | `TMM/Part9/8#1` |
+| accepting an application for registration | 0 | — | `TMM/Part18/2#1` |
+| access to produced documents | 0 | — | `TMM/Part54/3/3/5` |
+| acronym/abbreviation combination trade marks | 0 | — | `TMM/Part22/8/8/5/1` |
+| action after the details have been checked | 0 | — | `TMM/Part17/4/4/3` |
+| adding a class or classes to an application | 0 | — | `TMM/Part14/4/4/8/1` |
+| additional basic trade mark information | 0 | — | `TMM/Part60/3/3/5/1` |
+| adequacy checking process | 0 | — | `TMM/Part47/1/1/2/3~1` |
+| allowable costs under schedule 8 | 0 | — | `TMM/Part55/4/4/1~1` |
+| allowable differences: paragraphs 51(1)(a),(b) and (c) | 0 | — | `TMM/Part13/3#1` |
+| amalgamation (linking) of trade marks | 0 | — | `TMM/Part8/1#1` |
+| amalgamation (linking) of trade marks under the trade marks amendment act 2006 | 0 | — | `TMM/Part8/2#1~1` |
+| amalgamation of applications for registration (transitional) | 0 | — | `TMM/Part8/1#1` |
+| amending descriptions to accord with the representations on file | 0 | — | `TMM/Part21/2/2/3` |
+| amending the goods and/or services of the applicant's specification | 0 | — | `TMM/Part27/3#1` |
+| amending the record of a claim | 0 | — | `TMM/Part44/5#1` |
+| amendment before particulars of an application are published (section 64) | 0 | — | `TMM/Part9/3#1` |
+| amendment of a class incorrectly nominated in the specification | 0 | — | `TMM/Part14/4/4/10/1` |
+| amendment of disclaimers | 0 | — | `TMM/Part24/5#1` |
+| amendment of the conflicting application or registration | 0 | — | `TMM/Part27/4/4/1` |
+| amendment of the goods/service specification | 0 | — | `TMM/Part23/2/2/2/1` |
+| amendment to a notice of intention to oppose | 0 | — | `TMM/Part47/2/2/1` |
+| amendment to notice of intention to oppose | 0 | — | `TMM/Part49/3/3/1` |
+| amendment to statement of grounds and particulars | 0 | — | `TMM/Part49/3/3/2` |
+| amendments by phone – what constitutes a minor amendment | 0 | — | `TMM/Part9/2/2/1` |
+| amendments to descriptions | 0 | — | `TMM/Part21/2/2/2` |
+| amendments to other documents | 0 | — | `TMM/Part9/5#1` |
+| amendments to the international classification | 0 | — | `TMM/Part14/x-annex-a1---history-of-the-classification-system/amendments-to-the-international-classification` |
+| and the like, ancillary, related | 0 | — | `TMM/Part14/6/6/2/4` |
+| apparatus, instruments, equipment, systems | 0 | — | `TMM/Part14/6/6/2/2` |
+| appeals from decisions of the federal court etc | 0 | — | `TMM/Part52/6#1` |
+| applicant's response to notice of intention to reject | 0 | — | `TMM/Part18/3/3/3` |
+| applicants etc. must supply an address for service | 0 | — | `TMM/Part2/3/2/3/5` |
+| application for removal/cessation of protection for non-use | 0 | — | `TMM/Part48/2#1` |
+| application to record assignment etc | 0 | — | `TMM/Part43/3#1` |
+| application to register a series of trade marks | 0 | — | `TMM/Part13/1#1` |
+| applications for services | 0 | — | `TMM/Part22/15/applications-for-services` |
+| applying for an extension | 0 | — | `TMM/Part51/2/2/1` |
+| appraisal | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/appraisal` |
+| arms and emblems of australian towns etc | 0 | — | `TMM/Part31/4/4/3` |
+| arms and emblems of australian towns etc - subreg 4.15(d) | 0 | — | `TMM/Part31/4/4/3` |
+| arms etc. of city, town etc | 0 | — | `TMM/Part31/2/2/4` |
+| arms etc. of commonwealth or territories | 0 | — | `TMM/Part31/2/2/3` |
+| arrows, arrowheads, chevrons, angles | 0 | — | `TMM/Part5/x-device-constituents/arrows-arrowheads-chevrons-angles` |
+| article 13: trade designations | 0 | — | `TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/article-13-trade-designations` |
+| article 17: trade designation status | 0 | — | `TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/article-17-trade-designation-status` |
+| article 6ter signs - subreg 4.15(da) and (e) | 0 | — | `TMM/Part31/4/4/4` |
+| article 6ter signs notified by wipo | 0 | — | `TMM/Part31/2/2/5` |
+| assessing metrics when there is use of multiple trade marks | 0 | — | `TMM/Part23/4/4/1/2` |
+| assessment by the australian competition and consumer commission | 0 | — | `TMM/Part35/6#1~1` |
+| assessment by the australian competition and consumer commission (accc) | 0 | — | `TMM/Part35/6#1~1` |
+| assignment of applications and registrations | 0 | — | `TMM/Part26/8#1` |
+| assignment of the application or conflicting trade mark | 0 | — | `TMM/Part27/4/4/4` |
+| assignment of the basic trade mark | 0 | — | `TMM/Part60/3/3/5/2` |
+| australian flags and emblems | 0 | — | `TMM/Part31/4/4/2/1` |
+| australian trade marks law and defensive trade marks | 0 | — | `TMM/Part34/1/1/1` |
+| australian trademarks law and defensive trade marks | 0 | — | `TMM/Part34/1/1/1` |
+| authorised use by another person | 0 | — | `TMM/Part48/7#1` |
+| availability of documents | 0 | — | `TMM/Part61/1#1` |
+| award of costs for a disputed extension of time | 0 | — | `TMM/Part55/2/2/4` |
+| badges, medals, medallions, rosettes and coins | 0 | — | `TMM/Part5/x-device-constituents/badges-medals-medallions-rosettes-and-coins` |
+| basic application or basic registration (basic trade mark) | 0 | — | `TMM/Part60/1/1/7` |
+| beading | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/beading` |
+| binder | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/binder` |
+| borders, frames | 0 | — | `TMM/Part5/x-device-constituents/borders-frames` |
+| buchanan turf supplies pty ltd v registrar of trade marks [2015] fca 756 | 0 | — | `TMM/Part32A/x-annex-5---case-law-summaries/buchanan-turf-supplies-pty-ltd-v-registrar-of-trade-marks-2015-fca-756` |
+| burden on opponent to establish use of a trade mark | 0 | — | `TMM/Part48/6#1` |
+| cabling | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cabling` |
+| caging | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/caging` |
+| can an examiner require that evidence be submitted? | 0 | — | `TMM/Part23/3/3/3/2` |
+| can the applicant rely on use from overseas? | 0 | — | `TMM/Part23/4/4/5` |
+| can the divisional details be deleted from a valid divisional application? | 0 | — | `TMM/Part12/7#1` |
+| cancellation of defensive trade marks | 0 | — | `TMM/Part34/10#1` |
+| cancellation of the conflicting trade mark | 0 | — | `TMM/Part27/4/4/3` |
+| cancelling the record of a claim | 0 | — | `TMM/Part44/6#1` |
+| capturing and indexing prohibited and prescribed signs | 0 | — | `TMM/Part5/4/4/1` |
+| career services | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/career-services` |
+| cases where multiple priority dates apply | 0 | — | `TMM/Part11/5#1` |
+| casino’s best beef | 0 | — | `TMM/Part29/9/casino-s-best-beef` |
+| certification trade marks and geographical indications (gis) | 0 | — | `TMM/Part35/2#1` |
+| changes of name, address and address for service | 0 | — | `TMM/Part9/7#1~1` |
+| chapter vi variety denomination | 0 | — | `TMM/Part32A/x-annex-2---applicable-sections-of-the-upov-convention/chapter-vi-variety-denomination` |
+| circumstances in which fees are refunded or waived | 0 | — | `TMM/Part4/2#1` |
+| circumstances in which the registrar must extend time | 0 | — | `TMM/Part15/3#1` |
+| circumstances that were an obstacle to the use of a trade mark | 0 | — | `TMM/Part48/10#1~1` |
+| circumstances under which deferments will be granted | 0 | — | `TMM/Part17/2#1` |
+| circumstances under which ex parte hearings may occur | 0 | — | `TMM/Part52/2/2/3` |
+| circumstances under which registration may be revoked | 0 | — | `TMM/Part62/4#1` |
+| citing word elements of class 33 trade marks | 0 | — | `TMM/Part32B/2/4/2/4/1~1` |
+| claim to interest in, or right in respect of a trade mark | 0 | — | `TMM/Part60/4/23/4/23/1` |
+| claims for all goods, all other goods or all services, all other services | 0 | — | `TMM/Part14/6/6/7` |
+| claims for animal food, litter or mulch | 0 | — | `TMM/Part32A/2/3/2/3/3` |
+| claims for class headings | 0 | — | `TMM/Part14/6/6/5` |
+| claims to indigenous origin | 0 | — | `TMM/Part29/10#1` |
+| clarity of the specification of goods and/or services | 0 | — | `TMM/Part14/4/4/6/1` |
+| classification of some specific goods and services | 0 | — | `TMM/Part14/5/5/2/1` |
+| classification procedures in examination | 0 | — | `TMM/Part14/4/4/1/1` |
+| classification tools | 0 | — | `TMM/Part14/5/5/1/1` |
+| collection services | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/collection-services` |
+| colour and coloured trade marks | 0 | — | `TMM/Part21/4#1` |
+| colours claimed as trade marks for services | 0 | — | `TMM/Part21/4/4/4` |
+| colours which are common to the trade | 0 | — | `TMM/Part21/4/4/5/2` |
+| combination of a surname and other words/additional matter | 0 | — | `TMM/Part22/16/16/3` |
+| combinations of colours applied to the goods or their packaging | 0 | — | `TMM/Part21/4/4/2` |
+| combinations of multiple languages | 0 | — | `TMM/Part22/11/11/1` |
+| common formats for trade marks | 0 | — | `TMM/Part22/13#1` |
+| commonwealth of australia: australian flags | 0 | — | `TMM/Part31/4/4/2/2~1` |
+| commonwealth of australia: coat of arms | 0 | — | `TMM/Part31/4/4/2/1` |
+| commonwealth of australia: floral and faunal emblems and official colours | 0 | — | `TMM/Part31/4/4/2/3` |
+| company towns | 0 | — | `TMM/Part22/15/15/7` |
+| comparison of services | 0 | — | `TMM/Part26/4/4/2` |
+| complying with formality requirements | 0 | — | `TMM/Part10/8#1` |
+| composite trade marks - combinations of shapes, colours, words etc | 0 | — | `TMM/Part21/8#1` |
+| computer services | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/computer-services` |
+| conditions and limitations to applications proceeding under s 44(3) | 0 | — | `TMM/Part28/5#1` |
+| conditions and limitations to applications proceeding under subsection 44(3) | 0 | — | `TMM/Part28/5#1` |
+| conditions for a valid divisional application | 0 | — | `TMM/Part12/3#1` |
+| conditions for a valid divisional application filed on or after 27 march 2007 | 0 | — | `TMM/Part12/3#1` |
+| confidential information in correspondence | 0 | — | `TMM/Part61/5/5/1` |
+| confidentiality of information in evidence | 0 | — | `TMM/Part51/1/1/4` |
+| connotations determined following opposition | 0 | — | `TMM/Part29/3/3/4` |
+| consent of the accc to assignment of a certification trade mark | 0 | — | `TMM/Part43/3/3/4` |
+| considering invented words | 0 | — | `TMM/Part26/6/6/6~1` |
+| conventional decorative elements | 0 | — | `TMM/Part5/x-device-constituents/conventional-decorative-elements` |
+| copyright act 1968; competition and consumer act 2010 | 0 | — | `TMM/Part30/3/3/4` |
+| costs recovery | 0 | — | `TMM/Part55/6#1` |
+| costs sought at a hearing | 0 | — | `TMM/Part55/3/3/1` |
+| costs sought when the matter is determined without a hearing | 0 | — | `TMM/Part55/3/3/2` |
+| costs sought where the matter has not been determined by the registrar | 0 | — | `TMM/Part55/3/3/3` |
+| criteria for infringement in respect of well known trade marks | 0 | — | `TMM/Part19B/4/4/2` |
+| criteria for infringement under the general infringement provisions | 0 | — | `TMM/Part19B/4/4/1` |
+| curls and whorls | 0 | — | `TMM/Part5/x-device-constituents/curls-and-whorls` |
+| custom manufacturing (specific) v goods | 0 | — | `TMM/Part26/4/4/3/2` |
+| data capture and indexing | 0 | — | `TMM/Part5/1#1` |
+| data capture of correspondence other than trade mark applications | 0 | — | `TMM/Part5/2/2/1` |
+| data capture of international registrations designating australia | 0 | — | `TMM/Part5/2/2/3` |
+| data capture of national trade mark applications | 0 | — | `TMM/Part5/2/2/2~1` |
+| deceased persons | 0 | — | `TMM/Part29/6/6/2~1` |
+| deception and confusion as a result of a connotation within a trade mark | 0 | — | `TMM/Part29/3#1~1` |
+| declaration that a change in ownership has no effect in australia | 0 | — | `TMM/Part60/4/24/4/24/4` |
+| defences to subsection 61(1) ground | 0 | — | `TMM/Part46/4/4/6/3` |
+| defensive trade marks under the trade marks act 1995 | 0 | — | `TMM/Part34/1/1/2` |
+| deferment by the registrar on their own initiative | 0 | — | `TMM/Part60/4/11/4/11/4` |
+| deferment of acceptance - introduction | 0 | — | `TMM/Part17/1#1` |
+| deferment process where a cited trade mark application is the basis of deferment | 0 | — | `TMM/Part17/4/4/1` |
+| defining the area of interest of the goods and/or services | 0 | — | `TMM/Part27/3/3/3` |
+| definition of a trade mark and presumption of registrability | 0 | — | `TMM/Part20/1#1` |
+| definition of an association | 0 | — | `TMM/Part33/1/1/4` |
+| deleting goods or services from the application | 0 | — | `TMM/Part27/3/3/1` |
+| delivery dispatch | 0 | — | `TMM/Part45/2/2/2` |
+| derivatives of geographical names | 0 | — | `TMM/Part22/15/15/12` |
+| descriptions of goods/services | 0 | — | `TMM/Part29/4#1` |
+| descriptive words in composite marks | 0 | — | `TMM/Part26/6/6/8~1` |
+| descriptive words which are common to the trade | 0 | — | `TMM/Part32A/2/3/2/3/2` |
+| dessert | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/dessert` |
+| detergent | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/detergent` |
+| determination of opposition | 0 | — | `TMM/Part49/6/6/1` |
+| determination of the amount of costs | 0 | — | `TMM/Part55/4#1` |
+| device phrase operators | 0 | — | `TMM/Part5/x-device-constituents/device-phrase-operators` |
+| devices that indicate geographical origin | 0 | — | `TMM/Part22/25/25/3` |
+| differences between a certification trade mark and a standard trade mark | 0 | — | `TMM/Part35/1/1/5` |
+| differences in examination practice for first and further reports | 0 | — | `TMM/Part14/4/4/3` |
+| direct and allusive references | 0 | — | `TMM/Part22/7/22/7/4` |
+| dismissal or discontinuance of proceedings | 0 | — | `TMM/Part51/6#1` |
+| disputed credit card payments/dishonoured cheques | 0 | — | `TMM/Part4/8#1` |
+| dividing the application | 0 | — | `TMM/Part27/7#1` |
+| divisional and series applications | 0 | — | `TMM/Part12/3/3/6` |
+| divisional applications - general | 0 | — | `TMM/Part12/1#1` |
+| divisional applications and late citations - additional fifteen months | 0 | — | `TMM/Part12/8#1` |
+| divisionals and amendments | 0 | — | `TMM/Part12/3/3/7` |
+| document copy types | 0 | — | `TMM/Part45/2/2/1` |
+| documents available outside of the foi act | 0 | — | `TMM/Part61/1/1/3` |
+| documents available under the freedom of information act 1982 (foi act) | 0 | — | `TMM/Part61/1/1/2` |
+| documents copied by the office | 0 | — | `TMM/Part45/1#1` |
+| documents requiring a signature | 0 | — | `TMM/Part2/3/2/3/4` |
+| documents to be made available for public inspection (api) | 0 | — | `TMM/Part61/3/3/1` |
+| does the applicant have to show use in all states of australia? | 0 | — | `TMM/Part23/4/4/4` |
+| does the sign need to be in use for it to have an ordinary signification? | 0 | — | `TMM/Part22/7/22/7/6` |
+| dr trade marks | 0 | — | `TMM/Part22/13/13/2` |
+| duplicate payments | 0 | — | `TMM/Part4/5/5/4/1` |
+| e trade marks | 0 | — | `TMM/Part22/14/14/1` |
+| effect of a disclaimer on examination | 0 | — | `TMM/Part24/4#1` |
+| effect of a disclaimer on registration | 0 | — | `TMM/Part24/3#1` |
+| effect of recording the claim | 0 | — | `TMM/Part44/2#1` |
+| effect on registration of a claim for priority based on an earlier application | 0 | — | `TMM/Part11/7#1` |
+| electronic transfers | 0 | — | `TMM/Part4/7#1` |
+| end of a cooling-off period | 0 | — | `TMM/Part51/3/3/3` |
+| endonyms | 0 | — | `TMM/Part22/15/endonyms` |
+| endorsements for applications overcoming section 41 grounds for rejection | 0 | — | `TMM/Part23/6#1` |
+| european union geographical indications (gis) | 0 | — | `TMM/Part29/11#1` |
+| evidence from the trade in question | 0 | — | `TMM/Part34/6/6/2/6` |
+| evidence must be in a declaration | 0 | — | `TMM/Part27/5/5/1` |
+| evidence must show use in australia before the filing date | 0 | — | `TMM/Part23/5/5/3` |
+| evidence of use - general requirements | 0 | — | `TMM/Part23/3#1` |
+| evidence of use for shape trade marks | 0 | — | `TMM/Part21/3/3/9~1` |
+| evidence required for defensive applications | 0 | — | `TMM/Part34/7#1~1` |
+| evidence should be in a declaration | 0 | — | `TMM/Part23/3/3/2~1` |
+| examining evidence - general | 0 | — | `TMM/Part23/4#1` |
+| examining evidence of honest concurrent use - the five criteria | 0 | — | `TMM/Part28/3#1` |
+| examining evidence of prior use | 0 | — | `TMM/Part28/7#1` |
+| examining trade marks containing inns and inn stems | 0 | — | `TMM/Part29/5/5/3` |
+| examples of indexing marks containing letters | 0 | — | `TMM/Part5/x-word-constituents/examples-of-indexing-marks-containing-letters` |
+| examples of indexing trade marks containing numbers | 0 | — | `TMM/Part5/x-word-constituents/examples-of-indexing-trade-marks-containing-numbers` |
+| examples of invalid series trade marks | 0 | — | `TMM/Part13/7#1` |
+| examples of trade marks that do not resemble each other in material particulars | 0 | — | `TMM/Part13/7/7/1` |
+| examples of valid series trade marks | 0 | — | `TMM/Part13/6#1` |
+| examples where use as a trade mark found | 0 | — | `TMM/Part19A/2/examples-where-use-as-a-trade-mark-found~1` |
+| examples where use as a trade mark not found | 0 | — | `TMM/Part19A/2/examples-where-use-as-a-trade-mark-not-found~1` |
+| excluding goods and/or services | 0 | — | `TMM/Part23/2/2/2/2` |
+| excluding goods and/or services from the application | 0 | — | `TMM/Part27/3/3/2~1` |
+| exhibition | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/exhibition` |
+| exhibits must be incorporated in the declaration | 0 | — | `TMM/Part23/3/3/2/1` |
+| expedited examination - applicant's request | 0 | — | `TMM/Part6/1/1/1` |
+| expedited examination by the registrar | 0 | — | `TMM/Part6/1/1/2` |
+| expedited examination process | 0 | — | `TMM/Part6/2#1` |
+| explanation of international application form | 0 | — | `TMM/Part60/2/2/2/2/4~1` |
+| export services | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/export-services` |
+| exporting | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/exporting` |
+| extension of time not granted | 0 | — | `TMM/Part49/2/2/3/7` |
+| factors to consider in applying section 187 | 0 | — | `TMM/Part34/6/6/2` |
+| factors to consider when comparing trade marks | 0 | — | `TMM/Part26/6#1` |
+| fee not paid or underpaid | 0 | — | `TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid` |
+| fees - general | 0 | — | `TMM/Part4/1#1` |
+| fees and charges | 0 | — | `TMM/Part61/2/2/2` |
+| filing a notice of appeal at the federal court | 0 | — | `TMM/Part52/5/5/6` |
+| filing and distributing "fee" correspondence | 0 | — | `TMM/Part4/3/3/3/1` |
+| filing evidence of honest concurrent use, prior use or other circumstances | 0 | — | `TMM/Part27/5#1` |
+| filing/data capture/allocation of australian trade mark number | 0 | — | `TMM/Part60/4/3/4/3/1` |
+| final decision after opposition | 0 | — | `TMM/Part60/4/17/4/17/3` |
+| final decision on provisional refusal based on examination | 0 | — | `TMM/Part60/4/13/4/13/1` |
+| first reports | 0 | — | `TMM/Part14/4/4/3/1` |
+| flavorings | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/flavorings` |
+| form of a subpoena | 0 | — | `TMM/Part54/1/1/3` |
+| form of summons | 0 | — | `TMM/Part54/2/2/1` |
+| form of the application | 0 | — | `TMM/Part15/5#1` |
+| formality requirements - identity | 0 | — | `TMM/Part10/2#1` |
+| formality requirements - name | 0 | — | `TMM/Part10/1#1` |
+| format of certificate of registration | 0 | — | `TMM/Part39/3#1` |
+| format of the notice | 0 | — | `TMM/Part54/3/3/3/1` |
+| full assignments of applications and all assignments of registered trade marks | 0 | — | `TMM/Part26/8/8/2` |
+| full or partial removal | 0 | — | `TMM/Part49/1/1/5` |
+| full transformation | 0 | — | `TMM/Part60/4/25/4/25/3/2` |
+| functionality and colour | 0 | — | `TMM/Part21/4/4/5/1` |
+| geographic locations in trade marks | 0 | — | `TMM/Part32B/2/3/2/3/2` |
+| geographic locations which are under determination as a gi | 0 | — | `TMM/Part32B/2/1/2/1/4` |
+| geographical indications for wine | 0 | — | `TMM/Part29/1/1/1` |
+| geographical location of activities | 0 | — | `TMM/Part28/3/geographical-location-of-activities` |
+| geographical names combined with a device | 0 | — | `TMM/Part22/15/15/13` |
+| geographical names which have no inherent adaptation to distinguish | 0 | — | `TMM/Part22/15/15/3` |
+| geographical names with multiple meanings | 0 | — | `TMM/Part22/15/15/5` |
+| gis and geographic locations in composite trade marks | 0 | — | `TMM/Part32B/2/3/2/3/4` |
+| gis which are also an individual’s name | 0 | — | `TMM/Part32B/2/1/2/1/3` |
+| goods claimed in a services class, or services claimed in a goods class | 0 | — | `TMM/Part14/4/4/11` |
+| goods or services incorrectly classified by the applicant | 0 | — | `TMM/Part14/4/4/7` |
+| goods or services to be grouped together by class number | 0 | — | `TMM/Part14/4/4/5/1` |
+| goods produced for export | 0 | — | `TMM/Part19A/4/4/6` |
+| goods sold or offered for sale but not present in australia | 0 | — | `TMM/Part19A/4/4/1` |
+| government authorities and commissions | 0 | — | `TMM/Part10/1/1/1/8` |
+| granting the extension of time | 0 | — | `TMM/Part47/1/1/3/3` |
+| grounds for opposition to protection of international trade marks | 0 | — | `TMM/Part46/5#1` |
+| grounds for opposition to registration of national trade marks | 0 | — | `TMM/Part46/4#1` |
+| grounds for rejecting a defensive application under section 187 | 0 | — | `TMM/Part34/6#1` |
+| grounds for rejection and the presumption of registrability | 0 | — | `TMM/Part20/5#1` |
+| grounds for rejection under division 2 of part 4 of the act | 0 | — | `TMM/Part34/5#1` |
+| grounds for rejection when the citation is in its renewal period | 0 | — | `TMM/Part26/9#1` |
+| grounds on which a non-use application may be made | 0 | — | `TMM/Part48/5#1~1` |
+| grounds upon which an applicant may apply for deferment | 0 | — | `TMM/Part17/2/2/1` |
+| guidelines for revocation of acceptance of opposed trade marks | 0 | — | `TMM/Part51/10#1~1` |
+| hiring services | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/hiring-services` |
+| honest concurrent use - para 44(3)(a) | 0 | — | `TMM/Part28/2#1` |
+| honest concurrent use - paragraph 44(3)(a) | 0 | — | `TMM/Part28/2#1` |
+| honest desire to use the sign for its ordinary signification (ordinary meaning) | 0 | — | `TMM/Part22/7/22/7/8~1` |
+| how and where fees should be paid | 0 | — | `TMM/Part4/1/1/2` |
+| how are images indexed? | 0 | — | `TMM/Part5/x-device-constituents/how-are-images-indexed` |
+| how do you assess the ordinary signification or meaning of a sign? | 0 | — | `TMM/Part22/7/22/7/3` |
+| if the correct fee is not paid? | 0 | — | `TMM/Part4/1/1/3` |
+| impellers and fans | 0 | — | `TMM/Part5/x-device-constituents/impellers-and-fans` |
+| implementation of decisions | 0 | — | `TMM/Part52/7#1` |
+| implied endorsement or licensing | 0 | — | `TMM/Part29/9/9/7` |
+| in an application for a trade mark the applicant must be identified correctly | 0 | — | `TMM/Part10/1/1/1` |
+| in whose name may a divisional application be filed? | 0 | — | `TMM/Part12/4#1` |
+| inadvertent use | 0 | — | `TMM/Part19A/4/4/5` |
+| incorporated associations | 0 | — | `TMM/Part10/1/1/1/4` |
+| indexing @ and # symbols | 0 | — | `TMM/Part5/x-word-constituents/indexing-and-symbols` |
+| indexing and re-scanning | 0 | — | `TMM/Part5/3#1` |
+| indexing numbers | 0 | — | `TMM/Part5/x-word-constituents/indexing-numbers` |
+| indication of intellectual property rights etc - subregs 4.15(a) and (b) | 0 | — | `TMM/Part31/4/4/1` |
+| indigenous knowledge trade marks | 0 | — | `TMM/Part30/2/2/13` |
+| informal information | 0 | — | `TMM/Part23/2/2/3` |
+| infringement of collective trade marks | 0 | — | `TMM/Part33/6#1` |
+| initial period for acceptance - prescribed period | 0 | — | `TMM/Part16/1/1/1` |
+| inspection services | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/inspection-services` |
+| inspections | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/inspections` |
+| installation, maintenance, and repair (specific) v goods | 0 | — | `TMM/Part26/4/4/3/3` |
+| international non-proprietary names and inn stems | 0 | — | `TMM/Part29/5#1` |
+| internet cafes | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/internet-cafes` |
+| internet portals | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/internet-portals` |
+| internet services (global computer network services or website services) | 0 | — | `TMM/Part14/5/5/2/11` |
+| introductory search screen | 0 | — | `TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/introductory-search-screen` |
+| is a geographical name always the ordinary signification of a sign? | 0 | — | `TMM/Part22/15/15/1~1` |
+| is a hearing always necessary? | 0 | — | `TMM/Part52/3#1` |
+| is it scandalous or just in bad taste? | 0 | — | `TMM/Part30/2/2/10` |
+| is the trade mark likely to cause confusion? | 0 | — | `TMM/Part29/9/9/3~1` |
+| is the trade mark likely to deceive australian consumers? | 0 | — | `TMM/Part29/9/9/2` |
+| issue and service of a notice for production | 0 | — | `TMM/Part54/3/3/3` |
+| jellies | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/jellies` |
+| keyword search – combination of terms | 0 | — | `TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/keyword-search-combination-of-terms` |
+| keyword search – part word search | 0 | — | `TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/keyword-search-part-word-search` |
+| kind of amendments that could be made under section 65a | 0 | — | `TMM/Part9/4/4/7/2` |
+| late application for extensions of time | 0 | — | `TMM/Part16/1/1/4` |
+| legal arguments, amendments and informal information | 0 | — | `TMM/Part23/2#1` |
+| legal submissions | 0 | — | `TMM/Part23/2/2/1` |
+| legislative basis | 0 | — | `TMM/Part55/1#1~1` |
+| length of a cooling-off period | 0 | — | `TMM/Part51/3/3/2` |
+| letter requiring security for costs | 0 | — | `TMM/Part55/7/7/2` |
+| letters featuring in words | 0 | — | `TMM/Part5/x-word-constituents/letters-featuring-in-words` |
+| letters featuring with words or letters | 0 | — | `TMM/Part5/x-word-constituents/letters-featuring-with-words-or-letters` |
+| limitation on rights given by registered collective trade marks | 0 | — | `TMM/Part33/4#1` |
+| limiting and non-limiting words | 0 | — | `TMM/Part14/7/7/3` |
+| lions and other heraldic animals | 0 | — | `TMM/Part5/x-device-constituents/lions-and-other-heraldic-animals` |
+| localised use of trade mark | 0 | — | `TMM/Part48/9#1` |
+| magnetic apparatus | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/magnetic-apparatus` |
+| magnetic equipment | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/magnetic-equipment` |
+| magnetic instruments | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/magnetic-instruments` |
+| making a claim for priority | 0 | — | `TMM/Part11/2#1` |
+| mandatory revocation | 0 | — | `TMM/Part62/5#1` |
+| manner of taking evidence | 0 | — | `TMM/Part54/2/2/4` |
+| markings, lines, threads etc | 0 | — | `TMM/Part22/25/25/6` |
+| mastronardi produce ltd v registrar of trade marks [2014] fca 1021 (“zima”) | 0 | — | `TMM/Part32A/x-annex-5---case-law-summaries/mastronardi-produce-ltd-v-registrar-of-trade-marks-2014-fca-1021-zima` |
+| meaningful inn stems | 0 | — | `TMM/Part29/5/5/6~1` |
+| minimum filing requirements and when an application is taken to be filed | 0 | — | `TMM/Part2/3/2/3/2` |
+| minimum filing requirements not met | 0 | — | `TMM/Part2/4/part-2-4-2-minimum-filing-requirements-not-met` |
+| moldings | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/moldings` |
+| monitoring basic trade marks | 0 | — | `TMM/Part60/3/3/4` |
+| mr, mrs, miss etc. trade marks | 0 | — | `TMM/Part22/13/13/1` |
+| my trade marks | 0 | — | `TMM/Part22/13/13/3` |
+| names of foreign towns, localities and other geographic references | 0 | — | `TMM/Part22/15/15/4` |
+| names of private buildings | 0 | — | `TMM/Part22/15/15/11` |
+| names of rivers, seas, deserts, mountains etc | 0 | — | `TMM/Part22/15/15/10` |
+| names of roads along which several wineries are located | 0 | — | `TMM/Part32B/2/3/2/3/7` |
+| names of streets, roads, districts and suburbs | 0 | — | `TMM/Part22/15/15/9` |
+| negotiation with owner/s of conflicting trade mark/s | 0 | — | `TMM/Part27/4#1` |
+| new terminology and "fashionable" words | 0 | — | `TMM/Part22/14#1` |
+| new trade mark applications which are taken not to be filed | 0 | — | `TMM/Part4/5/5/2/1` |
+| news services | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/news-services` |
+| no fee paid | 0 | — | `TMM/Part4/6#1` |
+| no response from holder | 0 | — | `TMM/Part60/4/13/4/13/2/1` |
+| non-compliance with notice | 0 | — | `TMM/Part54/3/3/4/3` |
+| non-compliance with summons | 0 | — | `TMM/Part54/2/2/3` |
+| non-roman characters (nrc) and transliterations in class 31 plant examination | 0 | — | `TMM/Part32A/2/6#1~1` |
+| non-use application may proceed in the name of another person | 0 | — | `TMM/Part48/2/2/1` |
+| notice of federal court appeals | 0 | — | `TMM/Part52/5/5/5` |
+| notification and publication | 0 | — | `TMM/Part49/1/1/8` |
+| notification of intention to reject an application | 0 | — | `TMM/Part18/3/3/2` |
+| notification of non payment | 0 | — | `TMM/Part4/6/6/3/1` |
+| notification of underpayments | 0 | — | `TMM/Part4/4/4/1/1` |
+| notification that the change in ownership can now have effect in australia | 0 | — | `TMM/Part60/4/24/4/24/4/4` |
+| obligation to provide for convention claims | 0 | — | `TMM/Part11/1/1/1` |
+| obscene and coarse language in trade marks | 0 | — | `TMM/Part30/2/2/6` |
+| offering for sale of goods and/or services | 0 | — | `TMM/Part19A/3/3/2~1` |
+| opposition may proceed in the name of another person | 0 | — | `TMM/Part47/4#1` |
+| opposition to extensions of time of more than three months | 0 | — | `TMM/Part16/1/1/5` |
+| opposition to non-use application | 0 | — | `TMM/Part49/2#1` |
+| ordinary english words which are also registered gis | 0 | — | `TMM/Part32B/2/1/2/1/2` |
+| other categories of ordinary signification | 0 | — | `TMM/Part22/7/22/7/5` |
+| other circumstances - paragraph 44(3)(b) | 0 | — | `TMM/Part28/4#1` |
+| other documents which are taken not to be filed | 0 | — | `TMM/Part4/5/5/3/1` |
+| other filing requirements for an application to register a trade mark | 0 | — | `TMM/Part2/3/2/3/2/2` |
+| other section 41 grounds for rejection which are not geographic names | 0 | — | `TMM/Part32B/2/3/2/3/5` |
+| overcoming a section 39 ground for rejection | 0 | — | `TMM/Part32A/2/2/2/2/1` |
+| overcoming a section 41 ground for rejection | 0 | — | `TMM/Part32A/2/3/2-3-5-a-amending-the-goods~1` |
+| overcoming a section 42 ground for rejection | 0 | — | `TMM/Part32A/2/1/2-1-2-a-amending-the-goods` |
+| overcoming a section 43 ground for rejection | 0 | — | `TMM/Part32A/2/4/2-4-3-a-amending-the-goods` |
+| overcoming a section 43 ground for rejection that has been raised | 0 | — | `TMM/Part32B/2/2/overcoming-a-section-43-ground-for-rejection-that-has-been-raised` |
+| overcoming a section 44 ground for rejection | 0 | — | `TMM/Part32A/2/5/2/5/2` |
+| overcoming grounds for rejection under section 41 - including evidence of use | 0 | — | `TMM/Part23/1#1` |
+| p.a and e.v strauss [1999], 47 ipr 191 (“tropical birch”) | 0 | — | `TMM/Part32A/x-annex-5---case-law-summaries/p-a-and-e-v-strauss-1999-47-ipr-191-tropical-birch` |
+| part 32b: landing page | 0 | — | `TMM/Part32B/x-relevant-legislation25#1` |
+| part 52.2.what is a hearing? | 0 | — | `TMM/Part52/2#1~1` |
+| partial assignments of applications | 0 | — | `TMM/Part26/8/8/1` |
+| particularisation | 0 | — | `TMM/Part49/2/2/2/5` |
+| particularisation of grounds of opposition | 0 | — | `TMM/Part47/1/1/2/5~1` |
+| particulars of registration | 0 | — | `TMM/Part39/2#1` |
+| parts and fittings (or accessories) | 0 | — | `TMM/Part14/6/6/2/1` |
+| payment not applicable | 0 | — | `TMM/Part4/5/5/7` |
+| payment of reasonable expenses of person summonsed | 0 | — | `TMM/Part54/2/2/2/1` |
+| period in which a trade mark can be registered/protected | 0 | — | `TMM/Part51/9#1~1` |
+| period of deferment and termination | 0 | — | `TMM/Part17/3#1~1` |
+| period of extension under section 224 | 0 | — | `TMM/Part16/1/1/3` |
+| period of the extension | 0 | — | `TMM/Part47/1/1/3/5` |
+| phonetic equivalents of letters | 0 | — | `TMM/Part5/x-word-constituents/phonetic-equivalents-of-letters` |
+| phonetic equivalents, misspellings and combinations of known words | 0 | — | `TMM/Part22/10#1` |
+| phonetic similarity to a geographical name | 0 | — | `TMM/Part22/15/15/8` |
+| phonewords and phone numbers | 0 | — | `TMM/Part29/7#1` |
+| plant taxonomy hierarchy | 0 | — | `TMM/Part32A/1/1/5` |
+| plural or possessive surnames | 0 | — | `TMM/Part22/16/16/4` |
+| policy in relation to tm headstart | 0 | — | `TMM/Part61/6/6/1` |
+| preparation of the certificate of registration | 0 | — | `TMM/Part39/7/7/2/1` |
+| prerequisites to revocation of registration | 0 | — | `TMM/Part62/2#1` |
+| prescribed signs - subsection 39(2) | 0 | — | `TMM/Part31/2#1` |
+| presentations and descriptions of scent trade marks | 0 | — | `TMM/Part21/7/7/1` |
+| presumption of registrability and the application of section 44 | 0 | — | `TMM/Part26/2#1` |
+| principally or predominantly (in relation to goods classified by material) | 0 | — | `TMM/Part14/6/6/2/6` |
+| principle 4 | 0 | — | `TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/principle-4` |
+| principle 6 | 0 | — | `TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/principle-6` |
+| principles of classification and finding the correct class for specific items | 0 | — | `TMM/Part14/5/5/1/1` |
+| prior registrations | 0 | — | `TMM/Part28/4/28/4/4~1` |
+| prior to raising the bar amendments | 0 | — | `TMM/Part22/2/2/1` |
+| prior use - s 44(4) | 0 | — | `TMM/Part28/6#1` |
+| prior use - subsection 44(4) | 0 | — | `TMM/Part28/6#1` |
+| procedures for dealing with "fee" correspondence | 0 | — | `TMM/Part4/3/3/1/1` |
+| proceedings discontinued – withdrawal of application or notice of opposition | 0 | — | `TMM/Part51/6/6/2` |
+| proceedings dismissed - failure to provide security for costs | 0 | — | `TMM/Part51/6/6/1` |
+| proceedings dismissed – inadequate statement of grounds and particulars | 0 | — | `TMM/Part51/6/6/3` |
+| process for amendments | 0 | — | `TMM/Part60/4/10/4/10/3` |
+| process for amendments under subsection 63(1) | 0 | — | `TMM/Part9/8#1` |
+| process for assigning all goods and/or services (full assignment) | 0 | — | `TMM/Part43/4#1~1` |
+| process for assigning only some goods and/or services (partial assignment) | 0 | — | `TMM/Part43/5#1~1` |
+| process for assignment of certification trade marks | 0 | — | `TMM/Part43/6#1` |
+| process for certification trade marks | 0 | — | `TMM/Part60/4/7/4/7/15/3` |
+| process for change in ownership | 0 | — | `TMM/Part60/4/24/4/24/5` |
+| process for collective trade marks | 0 | — | `TMM/Part60/4/7/4/7/14/3` |
+| process for filing opposition to the extension | 0 | — | `TMM/Part15/6/6/2` |
+| processing "fee" correspondence once received in administration | 0 | — | `TMM/Part4/3/3/2/1` |
+| processing of section 65a amendments | 0 | — | `TMM/Part9/4/4/7/1` |
+| processing the document (other than new trade mark applications) | 0 | — | `TMM/Part4/6/6/2/1` |
+| production or discovery? | 0 | — | `TMM/Part54/3/3/2` |
+| prohibited signs - subsection 39(1) | 0 | — | `TMM/Part31/1#1` |
+| protected terms in specifications of goods | 0 | — | `TMM/Part32B/3#1` |
+| protected terms in trade marks | 0 | — | `TMM/Part32B/2/3/2/3/1` |
+| publication of applications for extension of time | 0 | — | `TMM/Part15/6/6/1` |
+| publishing and opposition | 0 | — | `TMM/Part9/4/4/7/3` |
+| quality management and examination quality standards | 0 | — | `TMM/Part1/2#1` |
+| quasi-governmental entities | 0 | — | `TMM/Part10/1/1/1/7` |
+| quick guide to classification procedures | 0 | — | `TMM/Part14/4/4/4` |
+| raising a ground for rejection (gfr) under section 41 | 0 | — | `TMM/Part32A/2/3/2/3/4` |
+| raising the bar amendments | 0 | — | `TMM/Part22/2/2/2` |
+| reasonable excuse for non-compliance with summons | 0 | — | `TMM/Part54/2/2/3/1` |
+| reasons for making a request for priority documents | 0 | — | `TMM/Part47/5/5/1` |
+| reasons for refusing the extension | 0 | — | `TMM/Part47/1/1/3/4` |
+| receipt of "fee" correspondence | 0 | — | `TMM/Part4/3/3/1/1` |
+| receipt of documents requiring a fee but for which no fee has been paid | 0 | — | `TMM/Part4/6/6/1/1` |
+| reconciling payments | 0 | — | `TMM/Part4/4/4/2/1` |
+| rectification of the register and variation of rules by order of the court | 0 | — | `TMM/Part35/12#1` |
+| rectification procedures | 0 | — | `TMM/Part42/3#1` |
+| referral to a court | 0 | — | `TMM/Part48/2/2/4` |
+| refunds and or waivers | 0 | — | `TMM/Part4/5#1` |
+| refusal of the extension | 0 | — | `TMM/Part51/2/2/4` |
+| registered design as a trade mark | 0 | — | `TMM/Part21/3/3/10` |
+| registered trade marks are not to be used in specifications | 0 | — | `TMM/Part14/6/6/3/1` |
+| registrability of colour as trade marks | 0 | — | `TMM/Part21/4/4/5` |
+| registrability of defensive trade marks | 0 | — | `TMM/Part34/4#1` |
+| registrability of scents as trade marks | 0 | — | `TMM/Part21/7/7/2` |
+| registrability of sounds as trade marks | 0 | — | `TMM/Part21/6/6/2` |
+| registrability of various kinds of signs | 0 | — | `TMM/Part22/x-registrability-of-various-kinds-of-signs#1` |
+| registrability under section 41 of the trade marks act 1995 | 0 | — | `TMM/Part22/1#1` |
+| registrar must notify customs if protection of a pitm is revoked | 0 | — | `TMM/Part62/9#1` |
+| registrar to comply with order of court | 0 | — | `TMM/Part48/13#1` |
+| registrar's discretion in deciding an opposed non-use application | 0 | — | `TMM/Part48/12#1` |
+| registrar’s consideration of produced documents | 0 | — | `TMM/Part54/3/3/6` |
+| registrar’s response to a subpoena | 0 | — | `TMM/Part54/1/1/4` |
+| registration of gis as certification trade marks | 0 | — | `TMM/Part35/2/2/2` |
+| rejection at the first report | 0 | — | `TMM/Part18/3/3/1/2` |
+| rejection of an application for registration | 0 | — | `TMM/Part18/3#1` |
+| relevance of documents to the proceedings | 0 | — | `TMM/Part54/3/3/1` |
+| relevant circumstances? | 0 | — | `TMM/Part28/4/28/4/3~1` |
+| relishes | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/relishes` |
+| removal of the conflicting trade mark | 0 | — | `TMM/Part27/6#1` |
+| renewal fees not paid | 0 | — | `TMM/Part60/2/6/2/6/3` |
+| renewal of basic trade mark | 0 | — | `TMM/Part60/2/6/2/6/4` |
+| renewal of registration | 0 | — | `TMM/Part40/1#1` |
+| reporting on an irda | 0 | — | `TMM/Part60/4/8/4/8/1` |
+| representation of the trade mark - general | 0 | — | `TMM/Part10/3#1` |
+| representations and descriptions of sound trade marks | 0 | — | `TMM/Part21/6/6/1` |
+| representations that signify the qualities or characteristics of goods/services | 0 | — | `TMM/Part22/25/25/2` |
+| representing non-traditional signs | 0 | — | `TMM/Part21/2#1` |
+| reputation or notoriety of a mark | 0 | — | `TMM/Part26/6/6/5~1` |
+| request for a voluntary disclaimer | 0 | — | `TMM/Part24/2#1~1` |
+| request for deferment by applicant | 0 | — | `TMM/Part60/4/11/4/11/3` |
+| requirement for a clear specification and for correct classification | 0 | — | `TMM/Part14/3#1~1` |
+| requirements for the filing of a defensive trade mark | 0 | — | `TMM/Part34/2#1` |
+| researching colour trade marks | 0 | — | `TMM/Part21/4/4/6` |
+| researching shape marks for section 41 | 0 | — | `TMM/Part21/3/3/7` |
+| researching sounds and scents | 0 | — | `TMM/Part21/5/5/2` |
+| response to a notice requiring production | 0 | — | `TMM/Part54/3/3/4` |
+| restrictions on the specification | 0 | — | `TMM/Part10/5/5/2` |
+| restrictions to the goods and services specification | 0 | — | `TMM/Part23/5/5/4/2` |
+| retail, wholesale, and distribution services v goods | 0 | — | `TMM/Part26/4/4/3/1~1` |
+| review of the registrar's decision | 0 | — | `TMM/Part15/7#1` |
+| revived parent application | 0 | — | `TMM/Part12/3/3/4` |
+| right of appeal: cessation of protection | 0 | — | `TMM/Part62/10#1` |
+| right of appeal: revocation of registration | 0 | — | `TMM/Part62/6#1` |
+| rights given by defensive registration | 0 | — | `TMM/Part34/8#1` |
+| rights given by, and rules governing the use of, certification trade marks | 0 | — | `TMM/Part35/5#1~1` |
+| rights of an authorised user of a registered trade mark | 0 | — | `TMM/Part19B/3#1` |
+| role and powers of the registrar in hearings | 0 | — | `TMM/Part52/4#1` |
+| role of the registrar in an appeal | 0 | — | `TMM/Part52/5/5/4~1` |
+| scandalous signs | 0 | — | `TMM/Part30/2#1` |
+| scents not adapted to distinguish | 0 | — | `TMM/Part21/7/7/2/1~1` |
+| sculpture | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/sculpture` |
+| sealing agents | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/sealing-agents` |
+| search results screen – complete class lists | 0 | — | `TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/search-results-screen-complete-class-lists` |
+| search results screen – keyword search | 0 | — | `TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/search-results-screen-keyword-search` |
+| search results screen – semantic search | 0 | — | `TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/search-results-screen-semantic-search` |
+| searching and research for surnames | 0 | — | `TMM/Part22/16/16/1~1` |
+| searching for goods and services | 0 | — | `TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services` |
+| section 11: general nature of pbr | 0 | — | `TMM/Part32A/x-annex-1---applicable-sections-of-the-pbr-act/section-11-general-nature-of-pbr` |
+| section 39: prescribed signs | 0 | — | `TMM/Part32A/2/2#1` |
+| section 41: capacity to distinguish | 0 | — | `TMM/Part32A/2/3#1` |
+| section 42: contrary to law | 0 | — | `TMM/Part32A/2/1#1` |
+| section 43: deception and confusion | 0 | — | `TMM/Part32A/2/4/2/4/1` |
+| section 44: comparison of trade marks | 0 | — | `TMM/Part32A/2/5#1` |
+| section 46(2) – exclusion of goods and services | 0 | — | `TMM/Part12/3/3/3~1` |
+| section 53: infringement of pbr | 0 | — | `TMM/Part32A/2/1/section-53-infringement-of-pbr` |
+| section of the act not applying to defensive trade marks | 0 | — | `TMM/Part34/3#1` |
+| sections of the act not applying to certification trade marks | 0 | — | `TMM/Part35/3#1~1` |
+| series of trade marks - act | 0 | — | `TMM/Part13/1#1` |
+| service of a subpoena on the registrar | 0 | — | `TMM/Part54/1/1/2` |
+| service of documents on the registrar | 0 | — | `TMM/Part52/8#1` |
+| service of summons | 0 | — | `TMM/Part54/2/2/2` |
+| services claims | 0 | — | `TMM/Part29/9/9/4` |
+| services provided outside australia | 0 | — | `TMM/Part19A/4/4/2` |
+| setting out the specification of goods and/or services | 0 | — | `TMM/Part10/5/5/1` |
+| sfr holdings inc [2013] atmo 77 (“seadwarf”) | 0 | — | `TMM/Part32A/x-annex-5---case-law-summaries/sfr-holdings-inc-2013-atmo-77-seadwarf~1` |
+| shape (three-dimensional) trade marks | 0 | — | `TMM/Part21/3#1` |
+| shape of packaging or aspect of packaging | 0 | — | `TMM/Part21/3/3/8` |
+| shapes and aesthetics | 0 | — | `TMM/Part21/3/3/5` |
+| shapes and functionality | 0 | — | `TMM/Part21/3/3/4~1` |
+| shapes and invention | 0 | — | `TMM/Part21/3/3/6~1` |
+| shapes may be capable of distinguishing | 0 | — | `TMM/Part21/3/3/2` |
+| shields, crests and coats of arms | 0 | — | `TMM/Part5/x-device-constituents/shields-crests-and-coats-of-arms` |
+| should the trade mark be amended to conform with demonstrated use? | 0 | — | `TMM/Part23/4/4/7/1` |
+| signs containing the word "patent" etc | 0 | — | `TMM/Part31/2/2/1` |
+| signs that become accepted describing article etc | 0 | — | `TMM/Part19B/5/5/1` |
+| signs used by charitable organisations | 0 | — | `TMM/Part19A/3/3/5` |
+| signs which are both notified and subject to australian law | 0 | — | `TMM/Part31/5/5/3` |
+| similar registered trade marks | 0 | — | `TMM/Part19B/2/2/1` |
+| similarity of goods between class 33 and class 32 | 0 | — | `TMM/Part32B/2/4/2/4/3~1` |
+| similarity of goods within class 31 | 0 | — | `TMM/Part32A/2/5/2/5/1` |
+| similarity of goods within class 33 | 0 | — | `TMM/Part32B/2/4/2/4/2~1` |
+| simple geometric shapes | 0 | — | `TMM/Part22/25/25/5` |
+| simple use of a gi | 0 | — | `TMM/Part32B/2/1/2/1/1` |
+| single all over colouring applied to the goods or their services | 0 | — | `TMM/Part21/4/4/3` |
+| single colour applied to packaging | 0 | — | `TMM/Part21/4/4/3/2` |
+| slogans, phrases and multiple words | 0 | — | `TMM/Part22/12#1` |
+| smart and intelligent trade marks | 0 | — | `TMM/Part22/14/14/3` |
+| software vs a given service | 0 | — | `TMM/Part26/4/4/3/4` |
+| some exceptions to the general rule | 0 | — | `TMM/Part55/2/2/3` |
+| sound (auditory) trade marks | 0 | — | `TMM/Part21/6#1` |
+| sound as well as appearance to be considered | 0 | — | `TMM/Part26/6/6/1~1` |
+| sounds which are capable of distinguishing | 0 | — | `TMM/Part21/6/6/2/2` |
+| sounds which have insufficient adaptation to distinguish | 0 | — | `TMM/Part21/6/6/2/3` |
+| sounds which have no inherent adaptation to distinguish | 0 | — | `TMM/Part21/6/6/2/4` |
+| souvenirs | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/souvenirs` |
+| specific plant material considerations | 0 | — | `TMM/Part32A/2/4/2/4/1` |
+| specification of documents | 0 | — | `TMM/Part54/1/1/4/2` |
+| spirals, springs and coils | 0 | — | `TMM/Part5/x-device-constituents/spirals-springs-and-coils` |
+| stabilizers | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/stabilizers` |
+| stripes (lines and arrows) | 0 | — | `TMM/Part5/x-device-constituents/stripes-lines-and-arrows` |
+| submissions in rebuttal, amendments and informal information | 0 | — | `TMM/Part23/2#1` |
+| subpoenas, summonses and production of documents | 0 | — | `TMM/Part54/1#1` |
+| subsection 65(8) – amend applicant to a person with legal personality | 0 | — | `TMM/Part9/4/4/6/1` |
+| subsequent designation fees | 0 | — | `TMM/Part60/2/5/2/5/4` |
+| subsequent designations and convention claims | 0 | — | `TMM/Part60/4/7/4/7/16/3` |
+| substantive examination | 0 | — | `TMM/Part34/4/4/2` |
+| summonsing a witness | 0 | — | `TMM/Part54/2#1~1` |
+| supporting documentation for an application, notice or request | 0 | — | `TMM/Part2/3/2/3/6` |
+| surname only | 0 | — | `TMM/Part22/16/16/2` |
+| suspension of proceedings for any other reason | 0 | — | `TMM/Part51/4/4/3` |
+| suspension of proceedings for settlement negotiations | 0 | — | `TMM/Part51/4/4/1~1` |
+| suspension of proceedings pending judgment in relevant court matter | 0 | — | `TMM/Part51/4/4/2~1` |
+| taxation of costs for "multiple" oppositions | 0 | — | `TMM/Part55/4/4/2` |
+| the 'idea' of the trade mark | 0 | — | `TMM/Part26/6/6/3~1` |
+| the basic application or basic registration (basic trade mark) | 0 | — | `TMM/Part60/3/3/1` |
+| the connotation must arise from the trade mark itself | 0 | — | `TMM/Part29/3/3/3` |
+| the connotation must be determined from the trade mark as a whole | 0 | — | `TMM/Part29/3/3/5` |
+| the connotation must be obvious and direct | 0 | — | `TMM/Part29/3/3/1~1` |
+| the danger of being misled by the trade mark must be immediate | 0 | — | `TMM/Part29/3/3/2` |
+| the deferment process where the applicant has requested deferment | 0 | — | `TMM/Part17/4#1` |
+| the deferment process where the applicant requests deferment | 0 | — | `TMM/Part17/4#1` |
+| the degree of confusion that is likely between the trade marks in question | 0 | — | `TMM/Part28/3/3/2/1` |
+| the descriptiveness of the trade mark | 0 | — | `TMM/Part26/6/6/7~1` |
+| the distinctiveness of the trade mark | 0 | — | `TMM/Part28/3/the-distinctiveness-of-the-trade-mark` |
+| the existence of other registrations of the trade mark | 0 | — | `TMM/Part34/6/6/2/2` |
+| the extent of use of the trade mark as otherwise registered by the applicant | 0 | — | `TMM/Part34/6/6/2/3` |
+| the general rule for award of costs | 0 | — | `TMM/Part55/2/2/2` |
+| the goods or services specified in the application for defensive registration | 0 | — | `TMM/Part34/6/6/2/5` |
+| the goods or services upon which the registered trade mark has been used | 0 | — | `TMM/Part34/6/6/2/4` |
+| the international classification - nice | 0 | — | `TMM/Part14/2/2/2/1` |
+| the international classification and the nice agreement | 0 | — | `TMM/Part14/x-annex-a1---history-of-the-classification-system/the-international-classification-and-the-nice-agreement` |
+| the likelihood that others will desire to use the geographical name | 0 | — | `TMM/Part22/15/15/2` |
+| the making of an award of costs | 0 | — | `TMM/Part55/2/2/1` |
+| the notes accompanying section 41 | 0 | — | `TMM/Part22/6/6/1` |
+| the process of international applications and registrations | 0 | — | `TMM/Part60/1/1/5` |
+| the refund and waiver process | 0 | — | `TMM/Part4/5/5/6/1` |
+| the registrar's role in an opposition | 0 | — | `TMM/Part46/2#1` |
+| the registrar’s role in an opposition | 0 | — | `TMM/Part46/2#1` |
+| the right to take infringement action | 0 | — | `TMM/Part19B/4#1` |
+| the same or substantially the same trade mark | 0 | — | `TMM/Part46/4/4/1/2` |
+| the scope of class headings | 0 | — | `TMM/Part14/7/7/2` |
+| the signature of the applicant | 0 | — | `TMM/Part22/17/17/5` |
+| the trade mark as property | 0 | — | `TMM/Part19B/1#1` |
+| the two limbs of inherent adaptation to distinguish | 0 | — | `TMM/Part22/7/22/7/1` |
+| the word ‘scandalous’ is defined by the macquarie dictionary as meaning | 0 | — | `TMM/Part30/2/2/1` |
+| three or more letter trade marks | 0 | — | `TMM/Part22/8/8/3` |
+| time for filing a convention application | 0 | — | `TMM/Part15/2/2/3` |
+| timing for assignment | 0 | — | `TMM/Part43/2#1~1` |
+| timing for renewal | 0 | — | `TMM/Part40/2#1` |
+| timing of requests for priority documents | 0 | — | `TMM/Part47/5/5/2` |
+| timing of the application and claim for priority | 0 | — | `TMM/Part11/1/1/4` |
+| titles of other books or media | 0 | — | `TMM/Part22/21#1` |
+| to counterfeit this is forgery | 0 | — | `TMM/Part31/2/2/2` |
+| top level domain names | 0 | — | `TMM/Part29/8/8/1` |
+| tourist agencies | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/tourist-agencies` |
+| tracking documents for which no fee has been paid or a fee has been underpaid | 0 | — | `TMM/Part4/6/6/4/1` |
+| trade mark removed | 0 | — | `TMM/Part49/1/1/9` |
+| trade marks considered sufficiently inherently adapted to distinguish | 0 | — | `TMM/Part22/4#1` |
+| trade marks considered sufficiently inherently capable of distinguishing | 0 | — | `TMM/Part22/4#1` |
+| trade marks consisting of surnames and a given name | 0 | — | `TMM/Part22/17/17/1` |
+| trade marks consisting of surnames and single common initials | 0 | — | `TMM/Part22/17/17/2` |
+| trade marks consisting of surnames and single uncommon initials | 0 | — | `TMM/Part22/17/17/3` |
+| trade marks consisting of surnames and two or more initials | 0 | — | `TMM/Part22/17/17/4` |
+| trade marks consisting of two or more surnames | 0 | — | `TMM/Part22/16/16/7` |
+| trade marks containing letters and other material | 0 | — | `TMM/Part22/8/8/8` |
+| trade marks for pharmaceutical or veterinary substances | 0 | — | `TMM/Part22/24#1` |
+| trade marks having no inherent adaptation to distinguish | 0 | — | `TMM/Part22/6#1` |
+| trade marks in a language other than english | 0 | — | `TMM/Part26/6/6/11~1` |
+| trade marks relating to formerly patented article, substances or services | 0 | — | `TMM/Part19B/5/5/2` |
+| trade marks that contain a unit of time | 0 | — | `TMM/Part22/13/13/6~1` |
+| trade marks that include plant varietal name | 0 | — | `TMM/Part22/27#1` |
+| trade marks that share the same or similar element | 0 | — | `TMM/Part26/6/6/4~1` |
+| trade marks which must be regarded as scandalous | 0 | — | `TMM/Part30/2/2/11` |
+| transfer of goods and services where an application covers more than one class | 0 | — | `TMM/Part14/4/4/9/1` |
+| transformation after denunciation of the protocol | 0 | — | `TMM/Part60/4/25/4/25/4` |
+| transformation process for a cancelled international registration | 0 | — | `TMM/Part60/4/25/4/25/3` |
+| translation/transliteration endorsement | 0 | — | `TMM/Part10/4/4/1` |
+| translation/transliteration of non-english words and non-roman characters | 0 | — | `TMM/Part10/4#1` |
+| translations required | 0 | — | `TMM/Part23/3/3/2/3` |
+| transliteration/translation | 0 | — | `TMM/Part60/4/7/4/7/8` |
+| transmission on death of joint owner | 0 | — | `TMM/Part43/3/3/3` |
+| travel agencies | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/travel-agencies` |
+| trefoils, quatrefoils, cinquefoils | 0 | — | `TMM/Part5/x-device-constituents/trefoils-quatrefoils-cinquefoils` |
+| type of customer | 0 | — | `TMM/Part26/6/6/9` |
+| type of goods and services | 0 | — | `TMM/Part26/6/6/10` |
+| types of document copies and delivery dispatch | 0 | — | `TMM/Part45/2#1` |
+| types of terms (descriptors) | 0 | — | `TMM/Part5/x-device-constituents/types-of-terms-descriptors~1` |
+| ultra trade marks | 0 | — | `TMM/Part22/13/13/4` |
+| unilateral communications with hearing officers | 0 | — | `TMM/Part51/11#1` |
+| unrealistically broad specifications | 0 | — | `TMM/Part14/6/6/6` |
+| use 'as a trade mark' | 0 | — | `TMM/Part19A/2#1~1` |
+| use 'in relation to goods or services' | 0 | — | `TMM/Part19A/5#1` |
+| use 'in the course of trade' | 0 | — | `TMM/Part19A/3#1` |
+| use as a domain name, key word, metatag, social media account name or handle | 0 | — | `TMM/Part19A/2/2/2~1` |
+| use by an assignee | 0 | — | `TMM/Part48/8#1` |
+| use by the trade mark owner | 0 | — | `TMM/Part19A/6/6/1` |
+| use by the trade mark owner, predecessor in title or an authorised user | 0 | — | `TMM/Part19A/6#1` |
+| use of a trade mark generally | 0 | — | `TMM/Part19A/1#1` |
+| use of a trade mark on the internet and social media | 0 | — | `TMM/Part19A/4/4/4` |
+| use of a trade mark with additions or alterations | 0 | — | `TMM/Part19A/7#1` |
+| virtual goods, metaverse, nfts, and blockchain | 0 | — | `TMM/Part14/5/5/2/15~1` |
+| what are ex parte hearings and when do they overlap with inter partes hearings? | 0 | — | `TMM/Part52/2/2/2` |
+| what are geographical indications (gis) | 0 | — | `TMM/Part35/2/2/1` |
+| what are inter partes hearings? | 0 | — | `TMM/Part52/2/2/1` |
+| what are the benefits? | 0 | — | `TMM/Part60/1/1/3` |
+| what documents are available for public access | 0 | — | `TMM/Part61/1/1/1` |
+| what does the evidence need to establish? | 0 | — | `TMM/Part23/5/5/2` |
+| what fees are payable? | 0 | — | `TMM/Part4/1/1/1` |
+| what if a trade mark is not used? | 0 | — | `TMM/Part48/1#1` |
+| what if the evidence does not cover all the goods/services claimed? | 0 | — | `TMM/Part23/4/4/6` |
+| what if the trade mark is always used alongside another trade mark? | 0 | — | `TMM/Part23/4/4/8~1` |
+| what information should an applicant supply? | 0 | — | `TMM/Part23/3/3/4~1` |
+| what is a certification trade mark? | 0 | — | `TMM/Part35/1#1` |
+| what is a collective trademark? | 0 | — | `TMM/Part33/1#1` |
+| what is a decision? | 0 | — | `TMM/Part52/1#1~1` |
+| what is a disclaimer? | 0 | — | `TMM/Part24/1#1` |
+| what is a hearing? | 0 | — | `TMM/Part52/2#1~1` |
+| what is a subpoena? | 0 | — | `TMM/Part54/1/1/1` |
+| what is assignment and transmission? | 0 | — | `TMM/Part43/1#1~1` |
+| what is opposition to registration or protection? | 0 | — | `TMM/Part46/1#1` |
+| what is rectification? | 0 | — | `TMM/Part42/1#1` |
+| what is renewal? | 0 | — | `TMM/Part40/1#1` |
+| what is revocation of acceptance? | 0 | — | `TMM/Part38/1#1` |
+| what is revocation of registration? | 0 | — | `TMM/Part62/1#1` |
+| what is the effect of cancelling a registration? | 0 | — | `TMM/Part41/1#1` |
+| what is the madrid protocol? | 0 | — | `TMM/Part60/1/1/1` |
+| what kind of trade marks are these? | 0 | — | `TMM/Part23/5/5/1` |
+| what length of use is enough? | 0 | — | `TMM/Part23/4/4/2` |
+| what rights are given by trade mark registration? | 0 | — | `TMM/Part19B/2#1` |
+| what sort of use by other traders is contemplated? | 0 | — | `TMM/Part22/7/22/7/9` |
+| when an international registration is not renewed | 0 | — | `TMM/Part60/4/22/4/22/4` |
+| when an international registration is renewed | 0 | — | `TMM/Part60/4/22/4/22/3` |
+| when can the interest be recorded? | 0 | — | `TMM/Part44/3#1` |
+| when does a ground for rejection exist under subsection 39(2)? | 0 | — | `TMM/Part31/3#1~1` |
+| when infringement will not occur | 0 | — | `TMM/Part19B/4/4/4~1` |
+| when is it proper to exercise the discretion? | 0 | — | `TMM/Part28/4/28/4/2` |
+| when may evidence be submitted? | 0 | — | `TMM/Part23/3/3/3` |
+| when registration or protection can be opposed | 0 | — | `TMM/Part46/3#1` |
+| when should an examiner suggest evidence of use? | 0 | — | `TMM/Part23/3/3/3/1` |
+| when should the use have occurred? | 0 | — | `TMM/Part23/4/4/3` |
+| when the general provision applies | 0 | — | `TMM/Part15/1#1~1` |
+| when the general provision does not apply | 0 | — | `TMM/Part15/2#1` |
+| when to consider rejection of an application | 0 | — | `TMM/Part18/3/3/1` |
+| where an appeal or application or review has been made | 0 | — | `TMM/Part17/5/5/2` |
+| where there is no evidence in support of the opposition | 0 | — | `TMM/Part48/11#1` |
+| where there is no opposition to the extension of time | 0 | — | `TMM/Part15/6/6/3` |
+| where there is opposition to the extension of time | 0 | — | `TMM/Part15/6/6/4` |
+| where to file an application | 0 | — | `TMM/Part48/2/2/3` |
+| who can withdraw an application, notice or request? | 0 | — | `TMM/Part7/2#1` |
+| who has used the trade mark? | 0 | — | `TMM/Part23/3/3/1` |
+| who may apply for a trade mark | 0 | — | `TMM/Part2/3/2/3/1` |
+| who may apply? | 0 | — | `TMM/Part11/1/1/3` |
+| who may make the declaration | 0 | — | `TMM/Part23/3/3/2/2` |
+| why file a divisional application? | 0 | — | `TMM/Part12/2#1` |
+| why is a registration cancelled? | 0 | — | `TMM/Part41/2#1` |
+| wording of the specification | 0 | — | `TMM/Part14/6/6/1` |
+| wording that does not limit a claim | 0 | — | `TMM/Part14/7/7/3/2` |
+| wording that limits a claim | 0 | — | `TMM/Part14/7/7/3/1` |
+| words and devices depicting words | 0 | — | `TMM/Part26/6/6/12` |
+| words and phrases which should be avoided or qualified | 0 | — | `TMM/Part14/6/6/2` |
+| words in languages other than english | 0 | — | `TMM/Part22/11#1~1` |
+| words not inherently adapted to distinguish | 0 | — | `TMM/Part22/9/9/1` |
+| words or images appearing to condone violence, racism and/or terrorism | 0 | — | `TMM/Part30/2/2/9` |
+| words that resemble gis, tes, qwts or ats | 0 | — | `TMM/Part32B/2/1/2/1/5` |
+| words the phonetic equivalent of letters | 0 | — | `TMM/Part22/8/8/6` |
+| world and land trade marks | 0 | — | `TMM/Part22/13/13/5` |
+| wrapping materials | 0 | — | `TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/wrapping-materials` |
+| ‘hash’ devices and words | 0 | — | `TMM/Part5/x-list-of-top-level-terms/hash-devices-and-words` |

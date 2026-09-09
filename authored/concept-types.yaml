@@ -2352,3 +2352,2462 @@
       The same line as GT-0041: evidence a party files and research an examiner does are
       typed identically here, and the Manual keeps them apart under s 43 by asking examiners
       to research rather than to require evidence.
+
+# --- Added 2026-09-09 (S018) -----------------------------------------------
+#
+# The typings for the concepts authored from the whole Manual once the section 43
+# boundary was withdrawn (ADR-0081, ADR-0095). Same rules as the 52 above: every
+# `type` is this repository's own proposal for an expert to correct, `approved_by`
+# is null, and nothing here has been read by a trade marks expert.
+#
+# Two things are worth knowing before reading them.
+#
+# **The distribution moved, and that is the finding.** The first 52 came out 30
+# relevant_factor and 1 ground_of_refusal, because they were a vocabulary built
+# around one ground. These come out with far more `none_of_these` — roles,
+# documents, proceedings, outcomes and remedies, which the four groups were never
+# shaped to hold. That is evidence about the taxonomy, not about the records
+# (OQ-0024).
+#
+# **Several typings are deliberately inconsistent with each other and say so.**
+# `divisional application` and `convention application` are typed differently on
+# similar facts; `removal for non-use` is typed on the assumption that the four
+# groups are about refusing an application rather than ending a registration.
+# Each names the inconsistency in `expert_should_check` rather than hiding it.
+- id: GT-0053
+  concept: GC-0053
+  type: ground_of_refusal
+  basis:
+  - TMA1995/s33
+  notes: >-
+    ground for rejection — also called: grounds for rejection, ground of rejection, grounds for rejecting
+    — not: ground of opposition, ground for revocation, objection
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s33
+      span:
+      - 550
+      - 591
+      content_hash: sha256:36311d92754a0ea33e97abec732d66bb149a577c8004ce2f28ee98bb3bcb54e2
+      quote: the Registrar must reject the application
+    confidence: 0.6
+    reasoning: >-
+      It is the class of which every individual ground is a member, so it is typed as the class itself
+      rather than as a test. A reviewer who thinks the four groups should not hold an abstract class
+      will type it none_of_these, and that is a disagreement about the taxonomy worth having.
+    alternatives_considered:
+    - >-
+      none_of_these — the concept is a container for grounds rather than a ground. Right if the taxonomy
+      is meant to hold only concrete grounds an examiner can raise.
+    expert_should_check: >-
+      Whether the taxonomy is supposed to hold abstract classes at all.
+- id: GT-0054
+  concept: GC-0054
+  type: ground_of_refusal
+  basis:
+  - TMA1995/s39
+  notes: >-
+    prohibited sign — also called: prohibited signs, sign that is not to be used as a trade mark —
+    not: prescribed sign, scandalous matter, sign so nearly resembling
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s39
+      span:
+      - 4
+      - 121
+      content_hash: sha256:5c6142286d25888ad60e7b915ee08e6b4c74dfbbc868380658b3cfbba876b358
+      quote: An application for the registration of a trade mark must be rejected if the trade mark
+        contains or consists of a sign
+    confidence: 0.9
+    reasoning: >-
+      Section 39(1) says an application must be rejected if the trade mark contains such a sign. That
+      is a reason an application can be refused, which is the owner's own words for ground_of_refusal.
+    alternatives_considered:
+    - >-
+      relevant_factor — right only if the concept were material feeding some other ground's question,
+      which it is not: it is its own subsection.
+    expert_should_check: >-
+      Nothing about the typing; the doubt is whether an inert ground should be typed at all.
+- id: GT-0055
+  concept: GC-0055
+  type: ground_of_refusal
+  basis:
+  - TMA1995/s39
+  notes: >-
+    prescribed sign — also called: prescribed signs, sign prescribed for the purposes of subsection
+    39(2) — not: prohibited sign, scandalous matter
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s39
+      span:
+      - 222
+      - 331
+      content_hash: sha256:5c6142286d25888ad60e7b915ee08e6b4c74dfbbc868380658b3cfbba876b358
+      quote: An application for the registration of a trade mark may be rejected if the trade mark
+        contains or consists of
+    confidence: 0.85
+    reasoning: >-
+      A reason an application can be refused, in the Act's own words. That the reason is discretionary
+      ('may') does not stop it being a ground.
+    alternatives_considered:
+    - >-
+      legal_test — the examiner must decide whether a sign is prescribed or so nearly resembles one.
+      Rejected: that decision is a step inside this ground, not the ground itself.
+    expert_should_check: >-
+      Whether a discretionary ground and a mandatory one belong in the same group.
+- id: GT-0056
+  concept: GC-0056
+  type: legal_test
+  basis:
+  - TMM/Part31/2#1
+  notes: >-
+    so nearly resembling — also called: so nearly resembling as to be likely to be taken for it —
+    not: deceptively similar, substantially identical
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part31/2#1
+      span:
+      - 248
+      - 282
+      content_hash: sha256:ddc32c6b14822d57cc13b56065f8a2a2ec5a602ebd231ad0faead8b8670b381e
+      quote: as to be likely to be taken for it
+    confidence: 0.7
+    reasoning: >-
+      It is the question the decision maker has to answer before the s 39(2) ground bites: does this
+      sign so nearly resemble a prescribed one. That is a legal_test on the owner's four groups.
+    alternatives_considered:
+    - >-
+      relevant_factor — right if resemblance were one input among several. It is not: it is the whole
+      of subparagraph 39(2)(b)(i).
+    expert_should_check: >-
+      Whether an examiner treats resemblance here as a single question or as a bundle of factors (visual,
+      aural, conceptual) as under section 44.
+- id: GT-0057
+  concept: GC-0057
+  type: ground_of_refusal
+  basis:
+  - TMA1995/s40
+  notes: >-
+    cannot be represented graphically — also called: not able to be represented graphically, graphical
+    representation — not: not capable of distinguishing, non-traditional sign
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s40
+      span:
+      - 52
+      - 120
+      content_hash: sha256:a10e0176ed82d06f5a120abc004b601d9f3f00106577d971cc9b5f5ff01c7354
+      quote: must be rejected if the trade mark cannot be represented graphically
+    confidence: 0.9
+    reasoning: >-
+      A reason an application must be refused, stated as such by the Act.
+    alternatives_considered:
+    - >-
+      legal_test — the examiner does have to decide whether the mark can be represented graphically.
+      But the same is true of every ground, and typing them all as tests would empty the ground_of_refusal
+      group.
+    expert_should_check: >-
+      Nothing specific.
+- id: GT-0058
+  concept: GC-0058
+  type: legal_test
+  basis:
+  - TMM/Part22/3#1~1
+  notes: >-
+    capable of distinguishing — also called: not capable of distinguishing, capacity to distinguish
+    — not: inherently adapted to distinguish, deceptively similar, distinctive
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part22/3#1~1
+      span:
+      - 0
+      - 97
+      content_hash: sha256:5a98371ccfdfb4a4f333e505716c18c9c7b6fb903adb5be22c344fb6a950ad3e
+      quote: The first question to be determined in deciding whether a trade mark is capable of distinguishing
+    confidence: 0.75
+    reasoning: >-
+      The Manual calls it a question to be determined, and section 41(2) makes it the thing the Registrar
+      must be satisfied about. A question the decision maker has to answer is a legal_test.
+    alternatives_considered:
+    - >-
+      ground_of_refusal — the ground in section 41 is exactly that the mark is not capable of distinguishing,
+      so the two are close. Typed as a test because the ground is the rejection and this is the question
+      that produces it.
+    expert_should_check: >-
+      Whether the split between 'the s 41 ground' and 'the capable-of-distinguishing question' is
+      a distinction practice actually draws.
+- id: GT-0059
+  concept: GC-0059
+  type: legal_test
+  basis:
+  - TMM/Part22/3#1~1
+  notes: >-
+    inherent adaptation to distinguish — also called: inherently adapted to distinguish, inherent
+    adaptation, inherent capacity to distinguish — not: capable of distinguishing, acquired distinctiveness,
+    evidence of use
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part22/3#1~1
+      span:
+      - 0
+      - 35
+      content_hash: sha256:5a98371ccfdfb4a4f333e505716c18c9c7b6fb903adb5be22c344fb6a950ad3e
+      quote: The first question to be determined
+    confidence: 0.75
+    reasoning: >-
+      The Manual calls it the first question to be determined and gives the method for answering it.
+      That is a question the decision maker has to answer.
+    alternatives_considered:
+    - >-
+      relevant_factor — subsection 41(4)(b)(i) does list inherent adaptation as one of three things
+      whose combined effect matters, which is factor-shaped. Typed as a test because under 41(3)(a)
+      it is the whole question, not one input.
+    expert_should_check: >-
+      The concept plays both roles — a threshold question under 41(3) and one of three combined factors
+      under 41(4). One typing cannot hold both, and this is the clearest case in the set where the
+      four groups may be too few.
+- id: GT-0060
+  concept: GC-0060
+  type: legal_test
+  basis:
+  - TMM/Part22/3#1~1
+  notes: >-
+    ordinary signification — also called: ordinary signification of the trade mark — not: connotation,
+    denotation, dictionary meaning
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part22/3#1~1
+      span:
+      - 244
+      - 290
+      content_hash: sha256:5a98371ccfdfb4a4f333e505716c18c9c7b6fb903adb5be22c344fb6a950ad3e
+      quote: This determination involves a two-part process
+    confidence: 0.65
+    reasoning: >-
+      It is a determination the examiner must make, and the Manual sequences it as the first of two.
+      A step in a test is still a question that must be answered.
+    alternatives_considered:
+    - >-
+      relevant_factor — it feeds the inherent-adaptation answer rather than resolving it. That reading
+      is defensible and a reviewer who takes it is disagreeing about whether a named step in a stated
+      method is a test in its own right.
+    expert_should_check: >-
+      Whether a step within a two-part process should be typed as a test or as a factor. Whatever
+      is decided here should be applied consistently to the second step.
+- id: GT-0061
+  concept: GC-0061
+  type: legal_test
+  basis:
+  - TMM/Part22/3#1~1
+  notes: >-
+    other traders' legitimate desire to use — also called: other traders might legitimately wish to
+    use, the need of other traders — not: ordinary signification, honest concurrent use
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part22/3#1~1
+      span:
+      - 417
+      - 503
+      content_hash: sha256:5a98371ccfdfb4a4f333e505716c18c9c7b6fb903adb5be22c344fb6a950ad3e
+      quote: secondly, determining the likelihood that other traders might legitimately wish to use
+    confidence: 0.6
+    reasoning: >-
+      Typed the same way as ordinary signification, for consistency: it is the second determination
+      in a two-part process the Manual sets out.
+    alternatives_considered:
+    - >-
+      relevant_factor — the same argument as for ordinary signification, and it should succeed or
+      fail for both together.
+    expert_should_check: >-
+      Type this and 'ordinary signification' the same way or say why not.
+- id: GT-0062
+  concept: GC-0062
+  type: ground_of_refusal
+  basis:
+  - TMA1995/s42
+  notes: >-
+    scandalous matter — also called: scandalous sign, scandalous signs — not: use contrary to law,
+    prohibited sign, prescribed sign
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s42
+      span:
+      - 0
+      - 72
+      content_hash: sha256:3f6fe15471ca6e649cadc787dad90ffc69aaadd1d1712098ff694730f53c317b
+      quote: 'An application for the registration of a trade mark must be rejected if:'
+    confidence: 0.9
+    reasoning: >-
+      A reason an application must be refused, stated as such.
+    alternatives_considered:
+    - >-
+      legal_test — whether matter is scandalous is a question, but the ground is the rejection and
+      the question sits inside it.
+    expert_should_check: >-
+      Nothing specific.
+- id: GT-0063
+  concept: GC-0063
+  type: ground_of_refusal
+  basis:
+  - TMA1995/s42
+  notes: >-
+    use contrary to law — also called: use would be contrary to law, contrary to law — not: scandalous
+    matter, prohibited sign
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s42
+      span:
+      - 0
+      - 72
+      content_hash: sha256:3f6fe15471ca6e649cadc787dad90ffc69aaadd1d1712098ff694730f53c317b
+      quote: 'An application for the registration of a trade mark must be rejected if:'
+    confidence: 0.9
+    reasoning: >-
+      A reason an application must be refused.
+    alternatives_considered:
+    - >-
+      legal_test — as for scandalous matter, and rejected for the same reason.
+    expert_should_check: >-
+      Nothing specific.
+- id: GT-0064
+  concept: GC-0064
+  type: ground_of_refusal
+  basis:
+  - TMA1995/s44
+  notes: >-
+    conflict with other signs — also called: section 44 ground, citation, conflicting trade mark —
+    not: likely to deceive or cause confusion, prescribed sign
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s44
+      span:
+      - 157
+      - 176
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: must be rejected if
+    confidence: 0.85
+    reasoning: >-
+      A reason an application must be refused, subject to subsections (3) and (4).
+    alternatives_considered:
+    - >-
+      legal_test — rejected for the same reason as the other grounds.
+    expert_should_check: >-
+      Nothing specific.
+- id: GT-0065
+  concept: GC-0065
+  type: legal_test
+  basis:
+  - TMM/Part26/5#1
+  notes: >-
+    substantially identical — also called: substantially identical with — not: deceptively similar,
+    so nearly resembling, identical
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part26/5#1
+      span:
+      - 56
+      - 144
+      content_hash: sha256:2479f6d3af424c9cd04d60e97ba72996f6acec7fe123b6faa6f505516a2460e8
+      quote: will depend on whether the trade marks under consideration are “substantially identical”
+    confidence: 0.8
+    reasoning: >-
+      The Manual says the existence of the ground depends on the answer to this comparison. A question
+      the decision maker has to answer is a legal_test.
+    alternatives_considered:
+    - >-
+      relevant_factor — rejected: the Manual makes the ground depend on it, which is stronger than
+      feeding into it.
+    expert_should_check: >-
+      Nothing specific.
+- id: GT-0066
+  concept: GC-0066
+  type: exception
+  basis:
+  - TMM/Part28/2#1
+  notes: >-
+    honest concurrent use — also called: honest concurrent use of the 2 trade marks, concurrent use
+    — not: prior use, other circumstances, evidence of use
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part28/2#1
+      span:
+      - 49
+      - 126
+      content_hash: sha256:c3fadcce343caacd1533e3883506a4f37665ec9ad106f6c5ade24326f39b12fc
+      quote: In order to overcome grounds for rejection under ss 44(1) or 44(2) of the Act
+    confidence: 0.85
+    reasoning: >-
+      The Manual says in terms that it exists to overcome a ground that would otherwise apply. Something
+      that takes a case out of the rule is an exception on the owner's four groups.
+    alternatives_considered:
+    - >-
+      legal_test — the Registrar must be satisfied of honest concurrent use, which is a question.
+      Typed as exception because the question only arises to displace a ground.
+    expert_should_check: >-
+      Whether an exception that is discretionary ('may accept') is the same kind of thing as one that
+      is mandatory. Section 44(4) prior use is mandatory and is typed the same way in this pass.
+- id: GT-0067
+  concept: GC-0067
+  type: exception
+  basis:
+  - TMA1995/s44
+  notes: >-
+    prior use — also called: continuous prior use, prior continuous use — not: honest concurrent use,
+    other circumstances, first use
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s44
+      span:
+      - 3452
+      - 3545
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: the Registrar may not reject the application because of the existence of the other trade
+        mark
+    confidence: 0.85
+    reasoning: >-
+      It takes a case out of the section 44 ground — the Act says the Registrar may not reject on
+      the strength of the cited mark. That is an exception.
+    alternatives_considered:
+    - >-
+      relevant_factor — rejected: it is not material feeding the s 44 question, it displaces the answer.
+    expert_should_check: >-
+      Consistency with honest concurrent use: both are typed exception here despite one being discretionary
+      and the other mandatory.
+- id: GT-0068
+  concept: GC-0068
+  type: exception
+  basis:
+  - TMM/Part28/4#1
+  notes: >-
+    other circumstances — also called: other circumstances making it proper to accept — not: honest
+    concurrent use, prior use, conditions and limitations
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part28/4#1
+      span:
+      - 19
+      - 154
+      content_hash: sha256:1ede2f240bc484da5f01ecadbd86c97eba07884610a1eec7afcc72785c5f4391
+      quote: allows the acceptance of a trade mark application where the application would otherwise
+        be subject to rejection under ss 44(1) or 44(2)
+    confidence: 0.85
+    reasoning: >-
+      The Manual says it allows acceptance where the application would otherwise be rejected. That
+      is taking a case out of the rule.
+    alternatives_considered:
+    - >-
+      legal_test — rejected for the same reason as honest concurrent use.
+    expert_should_check: >-
+      Nothing specific.
+- id: GT-0069
+  concept: GC-0069
+  type: none_of_these
+  basis:
+  - TMA1995/s44
+  notes: >-
+    conditions or limitations — also called: conditions and limitations, limitations — not: disclaimer,
+    endorsement, other circumstances
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s44
+      span:
+      - 2668
+      - 2748
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: subject to any conditions or limitations that the Registrar thinks fit to impose
+    confidence: 0.6
+    reasoning: >-
+      It is neither a ground, nor a question the decision maker answers, nor material feeding one,
+      nor something taking a case out of a rule — it is the form an acceptance can take. none_of_these
+      is an answer, and this is one of the places the four groups genuinely do not reach.
+    alternatives_considered:
+    - >-
+      exception — because conditions and limitations usually arrive with s 44(3). Rejected: the exception
+      is honest concurrent use; this is a consequence of it.
+    expert_should_check: >-
+      This is a good test of whether the taxonomy needs a fifth group for remedies and outcomes. Several
+      records in this pass fall the same way.
+- id: GT-0070
+  concept: GC-0070
+  type: legal_test
+  basis:
+  - TMM/Part26/4#1
+  notes: >-
+    similarity of goods and services — also called: similar goods, similar services, goods of the
+    same description — not: closely related goods and services, classification of goods and services
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part26/4#1
+      span:
+      - 121
+      - 226
+      content_hash: sha256:78526672fb230fb32140c73d688d23d3b57284e2943ba5dbddc77e0bbca71b3d
+      quote: The similarity of trade marks should be considered together with the similarity of the
+        goods or services.
+    confidence: 0.7
+    reasoning: >-
+      Section 44 cannot be answered without answering this, and section 14 gives the test for answering
+      it. That makes it a question the decision maker has to answer rather than material feeding one.
+    alternatives_considered:
+    - >-
+      relevant_factor — the Manual says similarity of goods should be considered together with similarity
+      of marks, which is factor-like language. A reviewer could reasonably take it that way.
+    expert_should_check: >-
+      The Manual's 'considered together with' language cuts towards factor; the statutory definition
+      cuts towards test. This record follows the statute.
+- id: GT-0071
+  concept: GC-0071
+  type: legal_test
+  basis:
+  - TMA1995/s44
+  notes: >-
+    closely related goods and services — also called: closely related services, closely related goods
+    — not: similar goods, similar services
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s44
+      span:
+      - 329
+      - 370
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: similar goods or closely related services
+    confidence: 0.6
+    reasoning: >-
+      Typed to match similarity of goods and services, since section 44 puts the two in the same position
+      in the same sentence.
+    alternatives_considered:
+    - >-
+      relevant_factor — same argument as for similarity, and it should be decided for both together.
+    expert_should_check: >-
+      Type this and 'similarity of goods and services' the same way.
+- id: GT-0072
+  concept: GC-0072
+  type: none_of_these
+  basis:
+  - TMA1995/s17
+  notes: >-
+    trade mark — also called: mark — not: sign, registered trade mark, trade name, business name
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s17
+      span:
+      - 0
+      - 67
+      content_hash: sha256:7616fa92fa1ab350de397590a153993cc894cf7be24733d962313419b1d4b5c8
+      quote: A trade mark is a sign used, or intended to be used, to distinguish
+    confidence: 0.7
+    reasoning: >-
+      It is the subject matter the whole scheme operates on, not a ground, a test, a factor or an
+      exception. Typing it into one of the four would misdescribe it, and none_of_these is an answer
+      rather than a gap.
+    alternatives_considered:
+    - >-
+      legal_test — whether something is a trade mark is a question an examiner answers under section
+      17. Defensible, and if the reviewer takes it the same reading should apply to 'sign'.
+    expert_should_check: >-
+      Whether the taxonomy is meant to cover subject-matter concepts at all. Several records in this
+      pass came out none_of_these for this reason.
+- id: GT-0073
+  concept: GC-0073
+  type: none_of_these
+  basis:
+  - TMM/Part20/3#1
+  notes: >-
+    sign — not: trade mark, device, representation of the trade mark
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part20/3#1
+      span:
+      - 280
+      - 311
+      content_hash: sha256:89a6c14ea66864326bb0ce2780a3c62e289c6414ba0fb5f7d2c2d814ded9f229
+      quote: an open or inclusive definition
+    confidence: 0.7
+    reasoning: >-
+      Subject matter, like 'trade mark'. Typed the same way for the same reason.
+    alternatives_considered:
+    - >-
+      legal_test — as for trade mark, and it should be decided for both together.
+    expert_should_check: >-
+      Decide 'sign' and 'trade mark' together.
+- id: GT-0074
+  concept: GC-0074
+  type: none_of_these
+  basis:
+  - TMM/Part21/1#1
+  notes: >-
+    non-traditional sign — also called: non-traditional signs, non-traditional trade mark — not: sign,
+    composite trade mark, device
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part21/1#1
+      span:
+      - 77
+      - 115
+      content_hash: sha256:2a87eb47583498b1c9db05dd3fb541b99fcc10242ac7a91e91562aa02ec7e3c8
+      quote: broaden the definition of a trade mark
+    confidence: 0.6
+    reasoning: >-
+      A class of subject matter rather than a ground, test, factor or exception.
+    alternatives_considered:
+    - >-
+      relevant_factor — that a sign is non-traditional does feed the s 40 and s 41 questions. A reviewer
+      could reasonably type it that way.
+    expert_should_check: >-
+      Whether the fact that a mark is non-traditional is itself a factor in examination, which would
+      make relevant_factor right.
+- id: GT-0075
+  concept: GC-0075
+  type: none_of_these
+  basis:
+  - TMM/Part21/3#1
+  notes: >-
+    shape trade mark — also called: shape (three-dimensional) trade marks, three-dimensional trade
+    mark — not: device, composite trade mark, colour trade mark
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part21/3#1
+      span:
+      - 398
+      - 454
+      content_hash: sha256:9b3d00d022127711aedfe035a4538c8a11738abcffcaefbff7d5c129afc40fd9
+      quote: a three-dimensional shape is registrable as a trade mark
+    confidence: 0.6
+    reasoning: >-
+      A kind of sign, so subject matter. Typed as the other sign kinds are.
+    alternatives_considered:
+    - >-
+      relevant_factor — as for non-traditional sign generally.
+    expert_should_check: >-
+      Type the five sign kinds consistently.
+- id: GT-0076
+  concept: GC-0076
+  type: none_of_these
+  basis:
+  - TMM/Part21/4#1
+  notes: >-
+    colour trade mark — also called: colour and coloured trade marks, coloured trade mark — not: shape
+    trade mark, device, composite trade mark
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part21/4#1
+      span:
+      - 134
+      - 161
+      content_hash: sha256:c97e9320c604a1f55eeb6465ced6fad9d5e9db41887de3d85c97b8f9dff1f3a9
+      quote: may be used as a trade mark
+    confidence: 0.6
+    reasoning: >-
+      A kind of sign; typed as the others.
+    alternatives_considered:
+    - >-
+      relevant_factor — as for the other sign kinds.
+    expert_should_check: >-
+      Type the five sign kinds consistently.
+- id: GT-0077
+  concept: GC-0077
+  type: none_of_these
+  basis:
+  - TMM/Part21/6#1
+  notes: >-
+    sound trade mark — also called: sound (auditory) trade marks, auditory trade mark — not: scent
+    trade mark, sign
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part21/6#1
+      span:
+      - 287
+      - 344
+      content_hash: sha256:c47b2e04f18dccd289250bcf4684e1f6d93297f107c663ba9ceba43f25e21d01
+      quote: it must serve the purpose of identifying the trade source
+    confidence: 0.6
+    reasoning: >-
+      A kind of sign; typed as the others.
+    alternatives_considered:
+    - >-
+      relevant_factor — as for the other sign kinds.
+    expert_should_check: >-
+      Type the five sign kinds consistently.
+- id: GT-0078
+  concept: GC-0078
+  type: none_of_these
+  basis:
+  - TMM/Part21/7#1
+  notes: >-
+    scent trade mark — also called: scent trade marks, olfactory trade mark — not: sound trade mark,
+    sign
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part21/7#1
+      span:
+      - 114
+      - 177
+      content_hash: sha256:d4a88064b77f1f7b4d9c5a3fd712ba9583dddd29c22274afce66cba8801135d4
+      quote: it is possible for a scent to serve the purpose of a trade mark
+    confidence: 0.6
+    reasoning: >-
+      A kind of sign; typed as the others.
+    alternatives_considered:
+    - >-
+      relevant_factor — as for the other sign kinds.
+    expert_should_check: >-
+      Type the five sign kinds consistently.
+- id: GT-0079
+  concept: GC-0079
+  type: none_of_these
+  basis:
+  - TMA1995/s51
+  notes: >-
+    series of trade marks — also called: series application, series — not: divisional application,
+    composite trade mark
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s51
+      span:
+      - 4
+      - 42
+      content_hash: sha256:680a4436af0a96d5a3168e63f796ccb0280838c781344667a74dadaaaa671f59
+      quote: A person may make a single application
+    confidence: 0.6
+    reasoning: >-
+      A form of application rather than a ground, test, factor or exception.
+    alternatives_considered:
+    - >-
+      legal_test — whether marks form a valid series is a question an examiner answers. A reviewer
+      could reasonably type it that way.
+    expert_should_check: >-
+      Whether procedural forms of application belong in the taxonomy at all.
+- id: GT-0080
+  concept: GC-0080
+  type: legal_test
+  basis:
+  - TMA1995/s51
+  notes: >-
+    material particulars — also called: resemble each other in material particulars — not: substantially
+    identical, deceptively similar
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s51
+      span:
+      - 148
+      - 210
+      content_hash: sha256:680a4436af0a96d5a3168e63f796ccb0280838c781344667a74dadaaaa671f59
+      quote: if the trade marks resemble each other in material particulars
+    confidence: 0.7
+    reasoning: >-
+      A question that has to be answered before a series application is valid.
+    alternatives_considered:
+    - >-
+      relevant_factor — rejected: section 51 makes the whole entitlement depend on it.
+    expert_should_check: >-
+      Nothing specific.
+- id: GT-0081
+  concept: GC-0081
+  type: relevant_factor
+  basis:
+  - TMM/Part19A/1#1
+  notes: >-
+    use of a trade mark — also called: use, trade mark use — not: authorised use, prior use, honest
+    concurrent use, evidence of use
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part19A/1#1
+      span:
+      - 270
+      - 341
+      content_hash: sha256:74a6887e041d0d46e5ea65ac7e6a1a7f9c15976b02c832b7dd5bf8c866e30329
+      quote: Whether a trade mark has been used is relevant to a number of questions
+    confidence: 0.75
+    reasoning: >-
+      The Manual says use is relevant to a number of questions and lists them. Something that feeds
+      into an answer rather than being the answer is a relevant_factor.
+    alternatives_considered:
+    - >-
+      legal_test — under section 41(3)(b) whether the applicant has used the mark is the second element
+      of a two-part question, so in that setting it is a test. The Manual's own framing is broader,
+      and this record follows the Manual.
+    expert_should_check: >-
+      Use plays a different role under each provision it touches. If the taxonomy is meant to type
+      a concept by its role, this concept may need several typings.
+- id: GT-0082
+  concept: GC-0082
+  type: relevant_factor
+  basis:
+  - TMA1995/s8
+  notes: >-
+    authorised use — also called: authorised use of a trade mark — not: use of a trade mark, authorised
+    user, assignment
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s8
+      span:
+      - 118
+      - 166
+      content_hash: sha256:a4ece48fa93452ed39793b89addc69db826bebe10d8ee6f4818903ab8351a823
+      quote: under the control of the owner of the trade mark
+    confidence: 0.65
+    reasoning: >-
+      Section 7(3) makes authorised use count as the owner's use, so it feeds the questions use feeds
+      — capability to distinguish, prior use, ownership — rather than answering one of its own.
+    alternatives_considered:
+    - >-
+      legal_test — whether use was under the owner's control is a real question with its own case
+      law. A reviewer who types it that way is disagreeing about whether a definitional question counts
+      as a test.
+    expert_should_check: >-
+      Whether control is itself a test that should be a separate concept.
+- id: GT-0083
+  concept: GC-0083
+  type: none_of_these
+  basis:
+  - TMA1995/s8
+  notes: >-
+    authorised user — not: authorised use, registered owner, predecessor in title
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s8
+      span:
+      - 4
+      - 50
+      content_hash: sha256:a4ece48fa93452ed39793b89addc69db826bebe10d8ee6f4818903ab8351a823
+      quote: A person is an authorised user of a trade mark
+    confidence: 0.6
+    reasoning: >-
+      A role a person occupies, not a ground, test, factor or exception.
+    alternatives_considered:
+    - >-
+      relevant_factor — that there is an authorised user feeds questions about use and ownership.
+      Defensible.
+    expert_should_check: >-
+      Whether role concepts belong in the four groups.
+- id: GT-0084
+  concept: GC-0084
+  type: none_of_these
+  basis:
+  - TMA1995/s6/registered-owner
+  notes: >-
+    registered owner — also called: owner of the trade mark, registered proprietor — not: applicant,
+    authorised user, predecessor in title
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s6/registered-owner
+      span:
+      - 58
+      - 117
+      content_hash: sha256:4ce5b5c231ee09abaac3335e9ba1178de4d10f7be1fb83c89226b8d4803819ce
+      quote: means the person in whose name the trade mark is registered
+    confidence: 0.65
+    reasoning: >-
+      A role, typed as the other roles in this pass.
+    alternatives_considered:
+    - >-
+      relevant_factor — who owns a mark feeds several questions. Defensible.
+    expert_should_check: >-
+      Whether role concepts belong in the four groups.
+- id: GT-0085
+  concept: GC-0085
+  type: relevant_factor
+  basis:
+  - TMA1995/s41
+  notes: >-
+    predecessor in title — not: registered owner, authorised user, assignment
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s41
+      span:
+      - 2465
+      - 2520
+      content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+      quote: is taken to be a use of the trade mark by the applicant
+    confidence: 0.7
+    reasoning: >-
+      It extends whose use counts, so it feeds the use questions rather than answering one. That is
+      a relevant_factor.
+    alternatives_considered:
+    - >-
+      none_of_these — it is a role, like registered owner. The difference is that the Act attaches
+      a consequence to it directly, which this record treats as making it factor-like.
+    expert_should_check: >-
+      Whether this and the other role concepts should be typed alike.
+- id: GT-0086
+  concept: GC-0086
+  type: none_of_these
+  basis:
+  - TMA1995/s6/assignment
+  notes: >-
+    assignment — also called: assignment of a trade mark — not: transmission, authorised use, change
+    of ownership
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s6/assignment
+      span:
+      - 41
+      - 92
+      content_hash: sha256:05bf7d38537a27493704344bc7136f2fc1df605b87caffe04431d7c2846a3e8f
+      quote: means an assignment by act of the parties concerned
+    confidence: 0.65
+    reasoning: >-
+      A transaction, not a ground, test, factor or exception.
+    alternatives_considered:
+    - >-
+      relevant_factor — an assignment can resolve a section 44 citation, which the Manual's Part 26.8
+      discusses. In that setting it feeds an answer.
+    expert_should_check: >-
+      Whether a transaction that can dispose of a ground should be typed as a factor in that ground.
+- id: GT-0087
+  concept: GC-0087
+  type: none_of_these
+  basis:
+  - TMM/Part43/1#1~1
+  notes: >-
+    transmission — not: assignment, change of ownership
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part43/1#1~1
+      span:
+      - 0
+      - 202
+      content_hash: sha256:09b4382be81326ed3b401eefdad95895f1072342d4d3da99ffb97d23660602f6
+      quote: Assignment or transmission of a trade mark refers to the process by which ownership of
+        a registered trade mark or a trade mark whose registration is being sought may be passed from
+        one party to another.
+    confidence: 0.5
+    reasoning: >-
+      Typed with assignment, for the same reason.
+    alternatives_considered:
+    - >-
+      relevant_factor — as for assignment.
+    expert_should_check: >-
+      Type this and assignment alike.
+- id: GT-0088
+  concept: GC-0088
+  type: none_of_these
+  basis:
+  - TMA1995/s6/registered-trade-mark
+  notes: >-
+    registered trade mark — not: trade mark, pending application, protected international trade mark
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s6/registered-trade-mark
+      span:
+      - 41
+      - 86
+      content_hash: sha256:2a2c6c77f9af9562ac0de5b9558ec3a3b2da3b30d1f3df37cd4a2ab1a0d41da4
+      quote: whose particulars are entered in the Register
+    confidence: 0.65
+    reasoning: >-
+      Subject matter, typed as 'trade mark' is.
+    alternatives_considered:
+    - >-
+      relevant_factor — the existence of an earlier registered mark is what triggers section 44. Defensible.
+    expert_should_check: >-
+      Type this and 'trade mark' alike.
+- id: GT-0089
+  concept: GC-0089
+  type: none_of_these
+  basis:
+  - TMA1995/s6/register
+  notes: >-
+    Register of Trade Marks — also called: the Register, Register — not: Record of International Registrations,
+    old register
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s6/register
+      span:
+      - 9
+      - 65
+      content_hash: sha256:bcf448f9600add54d2d0a32b3b8b2a12a584a06f04ac502812389771ccec1022
+      quote: means the Register of Trade Marks kept under section 207
+    confidence: 0.7
+    reasoning: >-
+      An instrument of the scheme, not a ground, test, factor or exception.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Nothing specific.
+- id: GT-0090
+  concept: GC-0090
+  type: relevant_factor
+  basis:
+  - TMA1995/s44
+  notes: >-
+    priority date — not: filing date, date of registration
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s44
+      span:
+      - 511
+      - 698
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: the priority date for the registration of the applicant’s trade mark in respect of the
+        applicant’s goods is not earlier than the priority date for the registration of the other
+        trade mark
+    confidence: 0.75
+    reasoning: >-
+      Section 44(1)(b) makes the comparison of priority dates one of two elements of the ground. Something
+      that feeds into the answer is a relevant_factor.
+    alternatives_considered:
+    - >-
+      legal_test — the date comparison is a question, but a mechanical one, and calling it a test
+      would make every date in the Act a test.
+    expert_should_check: >-
+      Nothing specific.
+- id: GT-0091
+  concept: GC-0091
+  type: relevant_factor
+  basis:
+  - TMA1995/s41
+  notes: >-
+    filing date — not: priority date, date of registration
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s41
+      span:
+      - 821
+      - 843
+      content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+      quote: before the filing date
+    confidence: 0.7
+    reasoning: >-
+      It fixes the period over which use counts under section 41(3)(b), so it feeds that answer.
+    alternatives_considered:
+    - >-
+      none_of_these — a date is not obviously a factor. Defensible.
+    expert_should_check: >-
+      Whether dates should be concepts at all, or attributes of an application.
+- id: GT-0092
+  concept: GC-0092
+  type: none_of_these
+  basis:
+  - TMA1995/s31
+  notes: >-
+    examination — also called: examine and report — not: expedited examination, opposition, hearing
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s31
+      span:
+      - 56
+      - 77
+      content_hash: sha256:d6fb7897727ef84585b0c9cb25f38b568e7fcafb34d2c61f50d93884650f92b2
+      quote: examine and report on
+    confidence: 0.65
+    reasoning: >-
+      A process, not a ground, test, factor or exception.
+    alternatives_considered:
+    - >-
+      legal_test — rejected: examination contains tests, it is not one.
+    expert_should_check: >-
+      Whether process concepts belong in the taxonomy.
+- id: GT-0093
+  concept: GC-0093
+  type: none_of_these
+  basis:
+  - TMA1995/s33
+  notes: >-
+    acceptance — also called: accept the application, accepted — not: registration, revocation of
+    acceptance, deferment of acceptance
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s33
+      span:
+      - 18
+      - 76
+      content_hash: sha256:36311d92754a0ea33e97abec732d66bb149a577c8004ce2f28ee98bb3bcb54e2
+      quote: must, after the examination, accept the application unless
+    confidence: 0.65
+    reasoning: >-
+      An outcome, not a ground, test, factor or exception. Several records in this pass fall this
+      way, and together they are an argument that the taxonomy needs a group for outcomes.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether outcomes need a group of their own.
+- id: GT-0094
+  concept: GC-0094
+  type: none_of_these
+  basis:
+  - TMM/Part38/1#1
+  notes: >-
+    revocation of acceptance — also called: revoke acceptance — not: revocation of registration, acceptance,
+    rectification
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part38/1#1
+      span:
+      - 0
+      - 47
+      content_hash: sha256:9e165c735ebe5317e983d6154886aab73d86d98d277b0a79c4f92f4e6e029c43
+      quote: The acceptance of an application can be revoked
+    confidence: 0.6
+    reasoning: >-
+      A remedy the Registrar may apply to their own earlier decision. Not a ground, test, factor or
+      exception.
+    alternatives_considered:
+    - >-
+      exception — it takes a case out of the ordinary course. Rejected: it undoes an outcome rather
+      than displacing a rule.
+    expert_should_check: >-
+      Whether remedies need a group of their own.
+- id: GT-0095
+  concept: GC-0095
+  type: none_of_these
+  basis:
+  - TMM/Part62/1#1
+  notes: >-
+    revocation of registration — also called: revoke the registration — not: revocation of acceptance,
+    cancellation of registration, removal for non-use
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part62/1#1
+      span:
+      - 20
+      - 97
+      content_hash: sha256:84e56977afcdff86634f32f63ab012a078ce1c257a72adebfe9c73676a21cf52
+      quote: allow the Registrar of Trade Marks to revoke the registration of a trade mark
+    confidence: 0.6
+    reasoning: >-
+      A remedy, typed with revocation of acceptance.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether remedies need a group of their own.
+- id: GT-0096
+  concept: GC-0096
+  type: none_of_these
+  basis:
+  - TMM/Part17/1#1
+  notes: >-
+    deferment of acceptance — also called: deferment, defer acceptance — not: extension of time, acceptance,
+    lapsing
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part17/1#1
+      span:
+      - 317
+      - 348
+      content_hash: sha256:5180e7ae4a15dd1178fbaa883bd27cd5eb97ec328cf6b5ee181510707c3e0d40
+      quote: is set in abeyance - deferred -
+    confidence: 0.6
+    reasoning: >-
+      A procedural step, not a ground, test, factor or exception.
+    alternatives_considered:
+    - >-
+      exception — it takes a case out of the ordinary acceptance timetable. Defensible if the taxonomy's
+      'rule' includes procedural rules.
+    expert_should_check: >-
+      Whether 'exception' covers exceptions to procedural rules or only to grounds.
+- id: GT-0097
+  concept: GC-0097
+  type: none_of_these
+  basis:
+  - TMM/Part15/1#1~1
+  notes: >-
+    extension of time — also called: extension of the period, extensions of time — not: deferment
+    of acceptance, cooling-off period
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part15/1#1~1
+      span:
+      - 87
+      - 136
+      content_hash: sha256:5df70de3525e8d16a4f12c342296533ecaaed281afc03f2e58bab4f442825ea7
+      quote: that time can frequently be extended upon request
+    confidence: 0.6
+    reasoning: >-
+      A procedural mechanism.
+    alternatives_considered:
+    - >-
+      exception — as for deferment, and decide the two together.
+    expert_should_check: >-
+      Decide this and deferment of acceptance together.
+- id: GT-0098
+  concept: GC-0098
+  type: none_of_these
+  basis:
+  - TMM/Part16/1/1/1
+  notes: >-
+    lapsing of an application — also called: lapse, lapses — not: withdrawal, revocation of acceptance,
+    rejection
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part16/1/1/1
+      span:
+      - 29
+      - 101
+      content_hash: sha256:2f2be55cdd83aa13ccdb84eb727a1a7f176a8173346d737965a51ec0dbf34674
+      quote: an application lapses if it is not accepted within the prescribed period
+    confidence: 0.6
+    reasoning: >-
+      An outcome that follows automatically. Not a ground, test, factor or exception.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether outcomes need a group of their own.
+- id: GT-0099
+  concept: GC-0099
+  type: none_of_these
+  basis:
+  - TMM/Part24/1#1
+  notes: >-
+    disclaimer — also called: disclaimers — not: endorsement, conditions or limitations
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part24/1#1
+      span:
+      - 49
+      - 123
+      content_hash: sha256:47dc6e8dbda25f846d1d5c29548985b3a832f3cc3b268a949fc5ce6add98b460
+      quote: A disclaimer is a limitation of the exclusive rights given by registration
+    confidence: 0.6
+    reasoning: >-
+      An instrument that qualifies a registration. Not a ground, test, factor or exception.
+    alternatives_considered:
+    - >-
+      exception — a disclaimer can be what lets an application through. Rejected: it qualifies the
+      right rather than displacing a ground.
+    expert_should_check: >-
+      Whether it belongs with conditions or limitations, which this pass also typed none_of_these.
+- id: GT-0100
+  concept: GC-0100
+  type: none_of_these
+  basis:
+  - TMM/Part23/6#1
+  notes: >-
+    endorsement — also called: endorsements — not: disclaimer, conditions or limitations
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part23/6#1
+      span:
+      - 128
+      - 184
+      content_hash: sha256:03b5b4de76bef1acf928f0d4a7bc4230a1301e2f9485689b6e7361416192aae2
+      quote: the relevant endorsement will be entered on the Register
+    confidence: 0.6
+    reasoning: >-
+      A record made on the Register. Not a ground, test, factor or exception.
+    alternatives_considered:
+    - >-
+      relevant_factor — an endorsement on a cited mark tells a later examiner how that mark got through.
+      Defensible.
+    expert_should_check: >-
+      Whether an endorsement is evidence a later examiner reasons from.
+- id: GT-0101
+  concept: GC-0101
+  type: relevant_factor
+  basis:
+  - TMM/Part23/3#1
+  notes: >-
+    evidence of use — also called: evidence of use of the trade mark — not: use of a trade mark, prior
+    use, honest concurrent use, evidence in support
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part23/3#1
+      span:
+      - 314
+      - 369
+      content_hash: sha256:33c56e7eda49174e63a0f03536399f589496bde63f5d82e0f1141bdc312ca4bd
+      quote: the trade mark owner may provide formal evidence of use
+    confidence: 0.7
+    reasoning: >-
+      It is the material the decision maker weighs to answer the capability question. Something that
+      feeds into an answer is a relevant_factor.
+    alternatives_considered:
+    - >-
+      exception — it is how a section 41 ground gets overcome, which is exception-shaped. Rejected:
+      the exception is the statutory route in s 41(3)(b)/(4)(b); this is the proof offered along it.
+    expert_should_check: >-
+      Whether the route and the proof should be typed differently. This pass says yes; a reviewer
+      may say the distinction is too fine to be useful.
+- id: GT-0102
+  concept: GC-0102
+  type: none_of_these
+  basis:
+  - TMM/Part46/1#1
+  notes: >-
+    opposition — also called: opposition to registration, opposition proceedings — not: hearing, removal
+    for non-use, rectification
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part46/1#1
+      span:
+      - 49
+      - 98
+      content_hash: sha256:02a2b1a95baa2a0cc7c9e71bfd36f03d235e71e78c4e90c9b8cd0eae568015a8
+      quote: Opposition is a formal objection by a third party
+    confidence: 0.65
+    reasoning: >-
+      A proceeding, not a ground, test, factor or exception. Note that the *grounds* of opposition
+      would each be a ground_of_refusal-shaped concept; the proceeding is not.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether proceedings belong in the taxonomy.
+- id: GT-0103
+  concept: GC-0103
+  type: none_of_these
+  basis:
+  - TMM/Part47/1#1
+  notes: >-
+    notice of opposition — not: notice of intention to oppose, statement of grounds and particulars,
+    notice of intention to defend
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part47/1#1
+      span:
+      - 254
+      - 357
+      content_hash: sha256:4bd0c392125a44efe33f5387504c7fe3b910cfdeeda0899638dac525b854e100
+      quote: A notice of opposition means a notice of intention to oppose and a statement of grounds
+        and particulars
+    confidence: 0.65
+    reasoning: >-
+      A document, not a ground, test, factor or exception.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether documents belong in the taxonomy.
+- id: GT-0104
+  concept: GC-0104
+  type: none_of_these
+  basis:
+  - TMM/Part48/1#1
+  notes: >-
+    removal for non-use — also called: non-use removal, removal of a trade mark from the Register
+    for non-use — not: rectification of the Register, revocation of registration, cancellation of
+    registration
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part48/1#1
+      span:
+      - 275
+      - 365
+      content_hash: sha256:11e9c228d44c98fde9855fadac4ead03f5a8cc4b2d5fdff6dc62b977eab5428b
+      quote: Section 92 provides for a person to apply for a trade mark to be removed from the Register
+    confidence: 0.6
+    reasoning: >-
+      A post-registration proceeding and remedy.
+    alternatives_considered:
+    - >-
+      ground_of_refusal — non-use is a reason a registration can be ended, which is refusal-shaped.
+      Rejected because the four groups are about refusing an application, and this is about ending
+      a registration. If the taxonomy is meant to cover both, this should be ground_of_refusal.
+    expert_should_check: >-
+      Whether the four groups cover post-registration grounds at all. This is the clearest case in
+      the pass where the answer changes the typing.
+- id: GT-0105
+  concept: GC-0105
+  type: none_of_these
+  basis:
+  - TMM/Part42/1#1
+  notes: >-
+    rectification of the Register — also called: rectification — not: removal for non-use, revocation
+    of registration, amendment
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part42/1#1
+      span:
+      - 161
+      - 210
+      content_hash: sha256:5e2f54790c23e56bddf82edea559103e50c71337503d8e9a02383971d373a3c1
+      quote: results from an order given by a prescribed court
+    confidence: 0.65
+    reasoning: >-
+      A court remedy.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether remedies need a group of their own.
+- id: GT-0106
+  concept: GC-0106
+  type: none_of_these
+  basis:
+  - TMM/Part40/1#1
+  notes: >-
+    renewal of registration — also called: renewal — not: registration, restoration
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part40/1#1
+      span:
+      - 49
+      - 111
+      content_hash: sha256:7ac8c71bcd48304b149e6c8244923f7644c5b1c1d2cbb3259994c58fa1dddadd
+      quote: A trade mark registration may be renewed at ten year intervals
+    confidence: 0.65
+    reasoning: >-
+      A post-registration step.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether procedural steps belong in the taxonomy.
+- id: GT-0107
+  concept: GC-0107
+  type: none_of_these
+  basis:
+  - TMM/Part35/1#1
+  notes: >-
+    certification trade mark — also called: certification trade marks, CTM — not: collective trade
+    mark, defensive trade mark, trade mark
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part35/1#1
+      span:
+      - 170
+      - 242
+      content_hash: sha256:c21d9dfb1e224697c42be3a1662c98ae941753d1ee350592c24c136985d16637
+      quote: A certification trade mark is used or intended to be used to distinguish
+    confidence: 0.65
+    reasoning: >-
+      A kind of registration — subject matter, typed as the other mark kinds.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Type the three special mark kinds consistently.
+- id: GT-0108
+  concept: GC-0108
+  type: none_of_these
+  basis:
+  - TMM/Part33/1#1
+  notes: >-
+    collective trade mark — also called: collective trade marks, collective trademark — not: certification
+    trade mark, defensive trade mark
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part33/1#1
+      span:
+      - 118
+      - 179
+      content_hash: sha256:b745f127e9b06e29310d372e51f88719febcbe3078b5403ad5b168ab70831f80
+      quote: A collective trade mark is a sign used or intended to be used
+    confidence: 0.65
+    reasoning: >-
+      A kind of registration; typed with the others.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Type the three special mark kinds consistently.
+- id: GT-0109
+  concept: GC-0109
+  type: none_of_these
+  basis:
+  - TMM/Part34/1/1/1
+  notes: >-
+    defensive trade mark — also called: defensive trade marks, defensive registration — not: certification
+    trade mark, collective trade mark, registered trade mark
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part34/1/1/1
+      span:
+      - 171
+      - 221
+      content_hash: sha256:7b44f7d0f5f4f947f0e52138b3d80f9f8b0553bebcd6d25b124069add4f2954b
+      quote: To qualify for a defensive trade mark registration
+    confidence: 0.6
+    reasoning: >-
+      A kind of registration; typed with the others.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Type the three special mark kinds consistently.
+- id: GT-0110
+  concept: GC-0110
+  type: none_of_these
+  basis:
+  - TMA1995/s45
+  notes: >-
+    divisional application — also called: divisional applications, divisional — not: parent application,
+    series of trade marks, convention application
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s45
+      span:
+      - 142
+      - 209
+      content_hash: sha256:7be83e5257d68826159cc196e4e6a67ddbf27edd1510b5312e06df0c2b6bc2fc
+      quote: the applicant may make another application (divisional application)
+    confidence: 0.6
+    reasoning: >-
+      A form of application.
+    alternatives_considered:
+    - >-
+      relevant_factor — a divisional's inherited priority date feeds the section 44 comparison. Defensible.
+    expert_should_check: >-
+      Whether forms of application belong in the taxonomy.
+- id: GT-0111
+  concept: GC-0111
+  type: relevant_factor
+  basis:
+  - TMM/Part11/1/1/2
+  notes: >-
+    convention application — also called: convention claim, claim for priority — not: divisional application,
+    priority date, international registration
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part11/1/1/2
+      span:
+      - 0
+      - 91
+      content_hash: sha256:1a253922355f22a634da8bad7e6c2fc1104ed3c6c8c185f4a7c7e34d27051e4b
+      quote: A Convention country is a foreign country or region of a kind prescribed by the regulations
+    confidence: 0.55
+    reasoning: >-
+      A convention claim changes the priority date, which is one of the two elements of the section
+      44 ground. So it feeds that answer.
+    alternatives_considered:
+    - >-
+      none_of_these — it is a form of application, like a divisional. The inconsistency between these
+      two records is deliberate and flagged.
+    expert_should_check: >-
+      This and 'divisional application' are typed differently on similar facts. One of the two is
+      wrong and a reviewer should say which.
+- id: GT-0112
+  concept: GC-0112
+  type: none_of_these
+  basis:
+  - TMM/Part60/1/1/1
+  notes: >-
+    Madrid Protocol — also called: the Madrid Protocol, Protocol — not: Paris Convention, international
+    registration, IRDA
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part60/1/1/1
+      span:
+      - 0
+      - 92
+      content_hash: sha256:23918abb0595bb552f8c1f0ae0b3241db50b86e0ba5cbe379b273d53ee20194a
+      quote: The Madrid Protocol is a treaty providing for the international registration of trade
+        marks.
+    confidence: 0.7
+    reasoning: >-
+      An instrument, not a ground, test, factor or exception.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Nothing specific.
+- id: GT-0113
+  concept: GC-0113
+  type: none_of_these
+  basis:
+  - TMM/Part60/1/1/1
+  notes: >-
+    international registration designating Australia — also called: IRDA, international registration
+    designating Australia (IRDA) — not: international registration, protected international trade
+    mark, trade mark application
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part60/1/1/1
+      span:
+      - 50
+      - 91
+      content_hash: sha256:23918abb0595bb552f8c1f0ae0b3241db50b86e0ba5cbe379b273d53ee20194a
+      quote: international registration of trade marks
+    confidence: 0.55
+    reasoning: >-
+      A kind of application, typed with the other application forms.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether forms of application belong in the taxonomy.
+- id: GT-0114
+  concept: GC-0114
+  type: none_of_these
+  basis:
+  - TMA1995/s44
+  notes: >-
+    protected international trade mark — also called: protected international trade mark designating
+    Australia — not: registered trade mark, IRDA, international registration
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s44
+      span:
+      - 1054
+      - 1090
+      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
+      quote: a protected international trade mark
+    confidence: 0.6
+    reasoning: >-
+      Subject matter, typed with 'registered trade mark'.
+    alternatives_considered:
+    - >-
+      relevant_factor — its existence triggers a section 44 citation, like a registered mark's. Type
+      it the same way as 'registered trade mark'.
+    expert_should_check: >-
+      Type this and 'registered trade mark' alike.
+- id: GT-0115
+  concept: GC-0115
+  type: none_of_these
+  basis:
+  - TMA1995/s6/registrar
+  notes: >-
+    Registrar of Trade Marks — also called: the Registrar, Registrar — not: Deputy Registrar, delegate,
+    prescribed court
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s6/registrar
+      span:
+      - 0
+      - 45
+      content_hash: sha256:0747d36f6b8a618b2323ad53edf975988f3b9f381ffb912f4d01a29ab6e27e53
+      quote: Registrar means the Registrar of Trade Marks.
+    confidence: 0.7
+    reasoning: >-
+      A role, typed with the other roles in this pass.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether role concepts belong in the four groups.
+- id: GT-0116
+  concept: GC-0116
+  type: none_of_these
+  basis:
+  - TMA1995/s6/applicant
+  notes: >-
+    applicant — not: registered owner, opponent, authorised user
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s6/applicant
+      span:
+      - 42
+      - 110
+      content_hash: sha256:fd368ed715ee3a61abeefebce1aa72df52a0b2ee24b76e19d86b208526e6d689
+      quote: means the person in whose name the application is for the time being
+    confidence: 0.7
+    reasoning: >-
+      A role, typed with the other roles.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether role concepts belong in the four groups.
+- id: GT-0117
+  concept: GC-0117
+  type: none_of_these
+  basis:
+  - TMM/Part46/1#1
+  notes: >-
+    opponent — not: applicant, objector, requester
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part46/1#1
+      span:
+      - 209
+      - 230
+      content_hash: sha256:02a2b1a95baa2a0cc7c9e71bfd36f03d235e71e78c4e90c9b8cd0eae568015a8
+      quote: Any person may oppose
+    confidence: 0.65
+    reasoning: >-
+      A role, typed with the other roles.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether role concepts belong in the four groups.
+- id: GT-0118
+  concept: GC-0118
+  type: relevant_factor
+  basis:
+  - TMM/Part20/4#1~1
+  notes: >-
+    presumption of registrability — also called: presumption that a trade mark is registrable — not:
+    ground for rejection, acceptance
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part20/4#1~1
+      span:
+      - 97
+      - 182
+      content_hash: sha256:67daa8312e2898e336753ab4fecc9acaea819f1ea3af243af1c38300cb23e6d5
+      quote: the Registrar must accept a trade mark for registration unless he or she is satisfied
+    confidence: 0.6
+    reasoning: >-
+      It allocates the burden rather than supplying a ground or a test — it tells the decision maker
+      which way to go when unsure. That is closest to something feeding into the answer.
+    alternatives_considered:
+    - >-
+      none_of_these — a presumption is a rule about proof, not one of the four kinds of thing. A reviewer
+      taking that view is making a point about the taxonomy worth hearing.
+    expert_should_check: >-
+      Whether a burden-allocating rule fits any of the four groups. This is one of the clearest misfits
+      in the pass.
+- id: GT-0119
+  concept: GC-0119
+  type: legal_test
+  basis:
+  - TMM/Part22/4#1
+  notes: >-
+    prima facie capable of distinguishing — also called: sufficiently inherently adapted to distinguish,
+    prima facie capable — not: capable of distinguishing, inherent adaptation to distinguish
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part22/4#1
+      span:
+      - 110
+      - 165
+      content_hash: sha256:c913a253befa45dce013e339e8885704fbdfeffb6fa4f4716213525fc4fabd7f
+      quote: it can be taken to be inherently adapted to distinguish
+    confidence: 0.6
+    reasoning: >-
+      It states the condition under which the inherent-adaptation question is answered one way, so
+      it is part of answering that question.
+    alternatives_considered:
+    - >-
+      none_of_these — it is a category marks fall into rather than a question. Defensible.
+    expert_should_check: >-
+      Whether the three Part 22 categories are tests, outcomes of a test, or neither.
+- id: GT-0120
+  concept: GC-0120
+  type: legal_test
+  basis:
+  - TMA1995/s41
+  notes: >-
+    no inherent adaptation to distinguish — also called: not to any extent inherently adapted to distinguish
+    — not: prima facie capable of distinguishing, inherent adaptation to distinguish
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s41
+      span:
+      - 623
+      - 725
+      content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+      quote: the trade mark is not to any extent inherently adapted to distinguish the designated
+        goods or services
+    confidence: 0.6
+    reasoning: >-
+      Typed with the first category, for consistency.
+    alternatives_considered:
+    - >-
+      none_of_these — as for the first category.
+    expert_should_check: >-
+      Type the Part 22 categories consistently, and add the middle one.
+- id: GT-0121
+  concept: GC-0121
+  type: none_of_these
+  basis:
+  - TMM/Part26/4#1
+  notes: >-
+    classification of goods and services — also called: classification, the Nice Classification, classes
+    — not: similarity of goods and services, specification of goods and services
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part26/4#1
+      span:
+      - 360
+      - 404
+      content_hash: sha256:78526672fb230fb32140c73d688d23d3b57284e2943ba5dbddc77e0bbca71b3d
+      quote: Classification is not the determining factor
+    confidence: 0.75
+    reasoning: >-
+      The Manual says in terms that it does not determine the similarity question, which rules out
+      relevant_factor on the corpus's own words. It is administrative structure.
+    alternatives_considered:
+    - >-
+      relevant_factor — rejected on the strength of the quoted sentence, which is as close to an explicit
+      typing as this corpus gets.
+    expert_should_check: >-
+      Nothing specific; this is one of the better-evidenced typings in the pass.
+- id: GT-0122
+  concept: GC-0122
+  type: none_of_these
+  basis:
+  - TMM/Part6/1#1
+  notes: >-
+    expedited examination — also called: expedite examination — not: examination, deferment of acceptance
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part6/1#1
+      span:
+      - 193
+      - 249
+      content_hash: sha256:80a50da3b254cdae62f7acc6cee2578fdcb480667d4ce8907563a93e75cebd52
+      quote: The Registrar may expedite examination of an application
+    confidence: 0.65
+    reasoning: >-
+      A procedural step.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether procedural steps belong in the taxonomy.
+- id: GT-0123
+  concept: GC-0123
+  type: none_of_these
+  basis:
+  - TMM/Part7/1#1
+  notes: >-
+    withdrawal — also called: withdraw, notice of withdrawal — not: lapsing of an application, revocation
+    of acceptance, amendment
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part7/1#1
+      span:
+      - 83
+      - 154
+      content_hash: sha256:dc0107b9a55fe673e85890d21f45905a5c9c3a1e705964f4f0474e1891845cef
+      quote: may withdraw it by giving the Registrar notice of withdrawal in writing
+    confidence: 0.65
+    reasoning: >-
+      A procedural act by a party.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether procedural acts belong in the taxonomy.
+- id: GT-0124
+  concept: GC-0124
+  type: none_of_these
+  basis:
+  - TMM/Part9/1#1
+  notes: >-
+    amendment of an application — also called: amendment, amendments — not: rectification of the Register,
+    withdrawal, divisional application
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part9/1#1
+      span:
+      - 118
+      - 221
+      content_hash: sha256:6c01cbd541778ccd23945673c94fd15dcd8cdc23a2fa3a65fa8298f3c4c255da
+      quote: Amendments to trade mark application details, and other documents, can be made under
+        Part 6 of the Act.
+    confidence: 0.6
+    reasoning: >-
+      A procedural act.
+    alternatives_considered:
+    - >-
+      exception — amending the specification is a way round a s 44 citation. Rejected: it changes
+      the application rather than displacing the ground.
+    expert_should_check: >-
+      Whether an act that removes the facts a ground rests on is an exception.
+- id: GT-0125
+  concept: GC-0125
+  type: relevant_factor
+  basis:
+  - TMM/Part32A/1/1/1
+  notes: >-
+    plant varietal name — also called: plant variety denomination, plant varietal names — not: geographical
+    indication, generic term
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part32A/1/1/1
+      span:
+      - 97
+      - 146
+      content_hash: sha256:7238aa84d5fea3ba2fb958326d534a9ba14720077aee6c2ffc0539867fbcdace
+      quote: involves consideration of additional requirements
+    confidence: 0.6
+    reasoning: >-
+      That a mark is or contains a varietal name feeds the distinctiveness and deception questions
+      rather than being a ground of its own.
+    alternatives_considered:
+    - >-
+      ground_of_refusal — if the PBR Act supplies a free-standing ground. The passage does not say
+      it does.
+    expert_should_check: >-
+      Whether a varietal name creates its own ground or only bears on ss 41 and 43.
+- id: GT-0126
+  concept: GC-0126
+  type: relevant_factor
+  basis:
+  - TMM/Part32B/1/1/1
+  notes: >-
+    protected wine expression — also called: geographical indication for wine, protected GI — not:
+    geographical indication, geographical name, plant varietal name
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part32B/1/1/1
+      span:
+      - 127
+      - 217
+      content_hash: sha256:7c737edcd548f36aa4c10588c4c0c22b98dfd7ed73a747cb8053e957388477aa
+      quote: involves consideration of additional requirements arising from the Wine Australia Act
+        2013
+    confidence: 0.55
+    reasoning: >-
+      Typed with plant varietal name, on the same reasoning: it bears on the grounds rather than being
+      one.
+    alternatives_considered:
+    - >-
+      ground_of_refusal — section 61 does supply a ground for GIs. Whether this concept is that ground
+      or the material feeding it is the question.
+    expert_should_check: >-
+      Type this and 'plant varietal name' the same way, or say why the two external-statute cases
+      differ.
+- id: GT-0127
+  concept: GC-0127
+  type: none_of_these
+  basis:
+  - TMM/Part52/1#1~1
+  notes: >-
+    decision — also called: Registrar's decision, written decision — not: hearing, adverse report,
+    ground for rejection
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part52/1#1~1
+      span:
+      - 50
+      - 92
+      content_hash: sha256:f2b22d48cf5695afb6d756fa140a8e316154f0953c2a55f07123ba2439f985d4
+      quote: Opposition to registration of a trade mark
+    confidence: 0.55
+    reasoning: >-
+      An outcome of a proceeding.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether outcomes need a group of their own.
+- id: GT-0128
+  concept: GC-0128
+  type: none_of_these
+  basis:
+  - TMA1995/s33
+  notes: >-
+    hearing — also called: inter partes hearing, ex parte hearing — not: decision, opposition, examination
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s33
+      span:
+      - 675
+      - 733
+      content_hash: sha256:36311d92754a0ea33e97abec732d66bb149a577c8004ce2f28ee98bb3bcb54e2
+      quote: without giving the applicant an opportunity of being heard
+    confidence: 0.6
+    reasoning: >-
+      A proceeding.
+    alternatives_considered:
+    - >-
+      none seriously considered.
+    expert_should_check: >-
+      Whether proceedings belong in the taxonomy.
+- id: GT-0129
+  concept: GC-0129
+  type: none_of_these
+  basis:
+  - TMM/Part27/1#1
+  notes: >-
+    specification of goods and services — also called: specification, specification of goods and/or
+    services — not: classification of goods and services, similarity of goods and services
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part27/1#1
+      span:
+      - 312
+      - 335
+      content_hash: sha256:3a61229ed189ea7c63894d6d0d2da5e353f303562b87a81c8bfaee870d1ebc5f
+      quote: Amend the specification
+    confidence: 0.55
+    reasoning: >-
+      Part of an application rather than a ground, test, factor or exception.
+    alternatives_considered:
+    - >-
+      relevant_factor — the specification determines which goods the similarity question is asked
+      about. Defensible.
+    expert_should_check: >-
+      The overlap with GC-0012 should be settled before this typing means anything.
+- id: GT-0130
+  concept: GC-0130
+  type: relevant_factor
+  basis:
+  - TMM/Part34/1/1/1
+  notes: >-
+    reputation — also called: reputation in Australia — not: use of a trade mark, evidence of use,
+    connotation
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-opus-5
+    authored_date: '2026-09-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part34/1/1/1
+      span:
+      - 346
+      - 368
+      content_hash: sha256:7b44f7d0f5f4f947f0e52138b3d80f9f8b0553bebcd6d25b124069add4f2954b
+      quote: used to such an extent
+    confidence: 0.6
+    reasoning: >-
+      It feeds the answers to several questions — deception under s 43, entitlement to a defensive
+      registration under s 185 — without being a question itself.
+    alternatives_considered:
+    - >-
+      legal_test — under section 60 the reputation question is the ground. Which typing is right depends
+      on which sense of reputation is meant.
+    expert_should_check: >-
+      Settle whether this is one concept or several before typing it.
