@@ -4527,3 +4527,192 @@ untouched.
    thing that made them worth asking for.
 4. **It does not decide who signs, or when.** OQ-0027 is still open and still
    the owner's. This decides what the request looks like if it is sent.
+
+## ADR-0103 — the site may arrange records, on three conditions
+
+**Date** 2026-09-12 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** `site/README.md` has said since the site was built that the
+dashboard "restates committed artefacts and authors nothing": every sentence on
+a page traces to `build.py`, a generated report, or the question queue. That rule
+was easy to keep while every page was a count or a table, because a count of a
+field is not a claim about the field.
+
+The owner asked for two things that are not counts: a node network over the
+knowledge graph, and the examination process as a decision tree. Both **arrange**
+records — they put a concept under a section, an edge between two ideas, a test
+under a ground — and an arrangement is the first thing this site would publish
+that a reader could take for an assertion about trade marks law. A tree that puts
+*connotation* under section 43 looks like a statement that connotation is a
+section 43 test, whoever computed it.
+
+Two ways out were available and both are worse. **Refusing** leaves the owner
+with the tables he said make the project hard to comprehend and hard to
+communicate, and ADR-0079 removed the rule that would have required the refusal.
+**Authoring the arrangement as records** — a `process-model.yaml` with its own
+envelope — is the honest form of a claim, but it is a claim nobody asked for yet,
+it costs review debt against records an expert has not seen, and it would freeze
+an arrangement that should move every time the vocabulary does.
+
+**Decision.** The site may publish a **derived view**: an arrangement of records
+computed at build time. Three conditions, and a view breaking any of them is a
+defect rather than a style choice.
+
+1. **The rule is computed in Python, in one module.**
+   `src/tm_knowledge/dashboard/views.py` holds every arrangement rule, runs on
+   every build, and stores nothing. The browser decides where a dot goes and what
+   is dimmed; it never decides which dots exist or what joins them. A rule that
+   moved into the JavaScript would be a rule nobody reviews, in a file nobody
+   tests, in a language the rest of the pipeline is not written in.
+2. **Every node and every edge carries the rule that put it there.** An edge on
+   the map names the record field it came from — `narrower`, `related`, a `GR-`
+   record, a `legislative_basis` entry. A node on the tree names which of the
+   four attachment rules placed it, in words, on the node. A reader who doubts
+   the arrangement can check it against the record without reading any code.
+3. **The page says the arrangement is unreviewed.** Not in a footnote: in the
+   lede, and again beside the picture. The arrangement is an agent's, the
+   records under it are a mixture of signed and authored, and those are two
+   different facts a reader has to be able to hold apart.
+
+**What did not change.** A derived view holds no text a record does not. No node
+carries a definition, a conclusion or an examination outcome; `_envelope()` copies
+the authoring block verbatim and never defaults `review_status`; and
+`test_neither_view_carries_a_definition` asserts the strings `"definition"` and
+`"approved_by"` appear nowhere in either payload.
+
+**Consequences.**
+
+1. **`site/README.md` §"What does not belong here" is amended** rather than
+   contradicted, and states the three conditions.
+2. **The block vocabulary grows by two**, `network` and `tree`, which is the one
+   kind of change `blocks.py` says needs both the Python and the JavaScript.
+3. **A third derived view is now a smaller decision than the first two**, and
+   that is the risk worth naming. The condition that keeps it honest is the
+   second one: if a future view cannot say, per node, which record put it there,
+   it is not a view — it is an assertion, and it needs an authored record and an
+   envelope like any other.
+
+## ADR-0104 — the map draws four edges, colours by origin, and rolls nothing up
+
+**Date** 2026-09-12 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** The node network has 130 concepts, 124 provisions and four candidate
+edge kinds, and three decisions about it were load-bearing enough to record.
+
+**Decision one — four edge kinds, all of them fields.** An edge is drawn for a
+`broader`/`narrower` pair, a `related` pair, a signed `GR-` relationship record,
+and a concept's `legislative_basis`. **Nothing is inferred.** A "these two share
+a Manual Part" edge was considered and rejected: it would have been the only edge
+on the canvas that no record states, and on a picture whose whole claim is
+traceability that is the one edge that cannot be there. The 35 signed
+relationships are drawn heavier than the rest, because they are the only edges in
+the project a person put their name to.
+
+**Decision two — colour carries origin, never the group.** Signed is one hue,
+authored is another *and* hollow with a dashed ring, a provision is a small
+neutral dot. The nine typing groups are a **highlight**, one at a time, in a
+third hue, with the group's name written on the canvas while it is on. Ten
+simultaneous hues cannot be told apart by a colour-blind reader — the three that
+are used were validated for that against both the light and the dark surface —
+and colouring by group would have put the least important distinction on the most
+visible channel. Signed versus authored is the distinction this repository exists
+to keep visible (ADR-0080), so it gets the channel.
+
+**Decision three — a provision node is the address the record cites.**
+`TMA1995/s41(3)(a)` is a node; its section is an attribute. Rolling subsections up
+into their sections is a toggle in the browser, and a rolled-up node says how many
+addresses it stands for. Collapsing in the builder would have been the same
+mistake as flattening upstream's `certainty` field: cheaper to draw, and it
+destroys the difference between what a record cited and what it might have meant
+(CLAUDE.md rule 2).
+
+**Consequences.**
+
+1. **The picture's shape is a finding and is stated as one.** With every
+   provision drawn the graph is in **44 separate pieces**; the largest holds 86
+   of 254 nodes and is the signed section 43 vocabulary. Nearly every other piece
+   is one authored concept and the provisions it cites, because
+   `authored/relationships.yaml` does not exist. The page says so beside the
+   picture rather than hoping a reader notices the rows of small stars.
+2. **The layout is deterministic and the seed is fixed.** Two people opening the
+   map see the same diagram, which is what makes it usable in a meeting; a
+   re-layout on every load would make every screenshot unciteable.
+3. **The force constants were tuned against the real graph, not guessed.** The
+   first plausible set diverged — positions grew without bound and the picture
+   rendered as a diagonal streak with everything else scaled to a dot. Divergence
+   in a spring model is silent, so the comment above the constants says what to
+   check if they are changed.
+
+## ADR-0105 — the decision tree hangs on the Act's sections, and shows what falls off
+
+**Date** 2026-09-12 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** "The examination process as a decision tree" needs a spine, and the
+repository holds no record of what the examination process is. Three candidate
+spines were built and measured against the 130 records.
+
+**Rejected — hang each concept off the nearest ground concept.** Greedy
+first-match gave `GC-0006` *ground for rejection* 59 children and `GC-0053`, which
+carries the same preferred label, none: `GC-0006` cites both section 33 and
+section 43, so it swallowed everything either section touched.
+
+**Rejected — join on a shared Manual Part.** Part 29 and Part 20 both appear on
+`GC-0006`, so all 30 of Part 29's factors landed under section 33 as well as
+section 43. A rule that produces a picture that confidently wrong is worse than a
+rule that leaves a gap.
+
+**Decision.** The spine is **the Act's own sections**, and a concept reaches one
+of four ways, in order:
+
+1. A section becomes a branch when a concept typed `ground_of_refusal` or
+   `legal_test` cites it. *Tests count as anchors* deliberately: three of the
+   eleven branches — sections 14, 41 and 51 — hold a test and no ground concept,
+   and anchoring on grounds alone would have dropped section 41, the largest of
+   the three, off the picture entirely.
+2. A concept joins a branch when its own record cites that section. 41 of 77 join
+   this way.
+3. Failing that, it joins when a signed relationship or a recorded
+   `broader`/`narrower`/`related` link joins it to a concept that does. 31 more
+   join this way, which is how Part 29's factors reach section 43 without a
+   Part-based rule.
+4. A **definition ref joins nothing.** `TMA1995/s6/assignment` says where a word
+   is defined, not where a step happens, and every defined term in the Act cites
+   the same provision; joining on one joins the dictionary to itself. The test is
+   the ref's shape, and nothing here asserts which section holds the definitions.
+
+Five concepts reach no branch and are shown under *Attached to no section*. Nine
+reach more than one and are shown under each, marked on both.
+
+**And every branch ends on the same leaf: the outcome, which the system does not
+state**, carrying the three signed `evaluative_conclusion` prohibited-use records
+in their own words. A decision tree with no leaf reads as though the branch above
+it reaches one. This is the node to read before anything is built on this tree
+(ADR-0082 consequence 4).
+
+**A second spine, for the process.** The five process groups — who acts, what is
+acted on, what act is performed, what it produces — hang off the 21 concepts typed
+`procedural_step`, ordered by the **first provision each record cites**, which
+puts them in the Act's order. Not the lowest-numbered provision: sorting on the
+minimum put *removal for non-use* ahead of *examination*, because it happens to
+also cite section 17. The page says the Act's order is not necessarily the order
+an examiner does things.
+
+**Consequences.**
+
+1. **The tree is regenerated from the records on every build and stored nowhere.**
+   When the vocabulary moves, so does the tree. Nothing has to be maintained by
+   hand, and there is no second copy to go stale.
+2. **Three findings come out of the arrangement itself**, and each is visible on
+   the page rather than in a report: three sections with tests and no ground
+   concept; five reasoning concepts attached to nothing; and, on the process
+   spine, **5 of 31 non-step concepts joined to any step at all**. The third is
+   the same hole ADR-0104 consequence 1 names, seen from the other side.
+3. **It is a framework a probabilistic model could be trained against, and one
+   approved record stands in the way of using it as one.** The shape is
+   deliberately suitable — stable ids, one node per record, the whole tree as
+   `site/data/tree.json` — but `PU-0003` prohibits the system stating a
+   confidence that a ground applies, on the reasoning that no probability here is
+   calibrated against examination outcomes. A corpus of historical decisions
+   changes that premise. It does not change the record, and no agent may:
+   `PU-0003` is signed, and only a person can withdraw or amend it. The page says
+   this where someone planning the work will read it.
