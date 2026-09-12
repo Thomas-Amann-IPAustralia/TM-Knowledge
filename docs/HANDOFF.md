@@ -3,10 +3,39 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-12 · session S021 · branch `claude/knowledge-graph-decision-tree-7h8ec6`
+**Last updated:** 2026-09-12 · session S022 · branch `claude/gallant-maxwell-nua5rd`
 
 ---
-## 0. What S021 did, in one paragraph
+## 0. What S022 did, in one paragraph
+
+**S021 drew the records and the owner came back with three objections, all of
+them about the drawing rather than the data: the decision tree was not shaped
+like a decision tree, the knowledge graph was not behaving or looking as he
+expected, and the content still seemed abstract.** All three are fixed and none
+of them needed a record to change. **The grounds spine is now a binary tree of
+questions** — each of the 11 anchoring sections asks whether a ground under it
+arises, *no* runs the spine straight down to the next section, *yes* opens that
+section's questions, and each `legal_test` is a question of its own because that
+is what the group already means. 31 questions, 32 leaves, 17 deep, drawn on a
+pan-and-zoom canvas where a node can be dragged and its branch comes with it
+(ADR-0106). **The map opens on one idea and what it is joined to**, and grows a
+hop at a time as the reader opens nodes; every node drags and stays dropped; the
+254-node picture is still one button away and still says the graph is in 44
+pieces (ADR-0107). **And every concept node now carries the passage its record
+quotes**, with the ref and whose evidence it is — which is the whole of the
+abstraction fix, and it needed nothing authored: all 130 already had one, four
+clicks down (ADR-0108).
+
+**Nothing was authored as legal content and no record changed.** The 190 signed
+and the 208 authored records are byte-identical to how S021 left them. The one
+thing to hold lightly is the question wording: *Is <label> made out?* is a
+mechanical template over a recorded label, and no expert has read a single
+question on that page — see ADR-0106 for exactly where the line between
+transcription and authorship was drawn, and why the factors hang off the section
+rather than off a question.
+
+---
+## 0a. What S021 did, in one paragraph
 
 **The project could be counted and could not be seen, and the owner said the
 tables and the abstractions were making it hard to comprehend and hard to explain
@@ -34,7 +63,7 @@ trained on this shape would want to do. It is signed, and only a person can
 change it (ADR-0105 consequence 3).
 
 ---
-## 0a. What S020 did, in one paragraph
+## 0b. What S020 did, in one paragraph
 
 **The question "what does the trade marks expert need to look at" had no
 answer in the repo, and the two obvious places to look were both wrong in
@@ -88,7 +117,7 @@ signed and the 208 authored records are byte-identical to how S019 left them,
 and `approved_by` is emptied by the pack in every row it writes.
 
 ---
-## 0b. What S019 did, in one paragraph
+## 0c. What S019 did, in one paragraph
 
 **The taxonomy stopped creaking, and the dashboard stopped contradicting
 itself.** The owner asked what was waiting on him or on the trade marks expert
@@ -141,7 +170,7 @@ invisible today only because the six classes in `examination.ttl` are all
 UNDEFINED. Q-58.
 
 ---
-## 0c. What S018 did, in one paragraph
+## 0d. What S018 did, in one paragraph
 
 **The rules stopped saying section 43 in S015. The artefacts stopped saying it in
 S018.** The owner asked for the boundary's removal to reach
@@ -671,10 +700,26 @@ relevance grade each. The scoped workbook for all ten is rendered.
   shared Part put all 30 of Part 29's factors under section 33 as well as section
   43, because one concept cites both sections and the Part is the join. The rule
   that works is in ADR-0105 and the numbers are in `views.py`.
+- **Do not turn the grounds spine back into an outline, and do not make a factor
+  a branch point.** The bands — *Ground of refusal*, *Legal test*, *Relevant
+  factor* — read as steps and are not: a reader met three headings before they
+  met anything they could answer. A `legal_test` is a question because the group
+  is defined as one; a `relevant_factor` is *something that feeds into that
+  answer* and is read **at** a branch point, hanging off the section rather than
+  off a question. Section 33 settles it independently — it holds factors and no
+  test, so a factor filed against a question is a factor nobody can reach.
+  ADR-0106, and three tests pin it.
+- **Do not make the procedural spine binary.** A step is reached, not decided.
+  `test_the_process_spine_asks_nothing` fails if a gate ever appears on it.
 - **Do not join two records on a definition ref.** `TMA1995/s6/assignment` says
   where a word is defined, not where a step happens; every defined term in the
   Act cites the same provision, so joining on one joins the dictionary to itself.
   `ConceptView.joinable_sections` is the filter and a test pins it.
+- **Do not fit, measure or lay out inside a renderer's first pass.** A block is
+  built detached and every measurement reads 0 until the router appends it, with
+  no error anywhere. Measure in a `requestAnimationFrame` after returning the
+  block, and let the "already done" flag record whether the measurement
+  *succeeded*. Q-63.
 - **Do not retune the map's force constants without checking the result.** The
   first plausible set diverged: positions grew without bound and the picture
   rendered as a diagonal streak. Divergence in a spring model is silent — the
@@ -863,6 +908,37 @@ relevance grade each. The scoped workbook for all ten is rendered.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S022 — 2026-09-12 — the tree became a tree, the map became walkable, the nodes learned to quote
+
+**Branch** `claude/gallant-maxwell-nua5rd`
+
+Three objections from the owner, all about the drawing: the decision tree was not
+shaped like one, the knowledge graph was not behaving or looking as expected, and
+the content still seemed abstract. No record changed and nothing was authored.
+
+**The tree is binary now (ADR-0106).** Bands went; questions came. Each anchoring
+section asks whether a ground under it arises, *no* chains down the spine, *yes*
+opens the section's `legal_test` concepts as questions in their own right — which
+is licensed by the group's own definition, *a question the decision maker has to
+answer*, and by nothing else. Factors hang off the **section**, not off a
+question, because no record says which test a factor feeds and section 33 holds
+factors and no test at all. Three tests pin the shape: two answers per question,
+every path ending on the outcome leaf, and the process spine asking nothing.
+
+**The map walks (ADR-0107).** It opens on one concept and its neighbours and
+grows a hop at a time; nodes drag and stay dropped, and only newly drawn nodes
+settle, so an arrangement made by hand survives the next expansion. The whole
+254-node canvas is one button away, unchanged.
+
+**Every node quotes its passage (ADR-0108).** All 130 concepts had one already,
+in the `evidence` of the envelope that authored or typed them. A test fails if a
+character of a quote does not appear verbatim, against the same ref, in the
+store — it is a quotation, never a definition.
+
+**Cost:** 432 passing, 3 new tests, 0 new failures. Q-63 records the trap that
+cost the most: a block measures zero until the router appends it, and a layout
+built on that overlaps silently.
 
 ### S021 — 2026-09-12 — two visualisations, and what the picture shows that the tables did not
 

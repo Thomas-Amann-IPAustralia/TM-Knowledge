@@ -159,8 +159,8 @@ decisions waiting on the owner in front of them as a form they can answer.
 | Deliverable | Status | Where it lives |
 |---|---|---|
 | The site | **done** — 11 pages, no framework, no CDN, no build step | `site/` |
-| The map | **done** — every concept and provision as a node network, coloured by who wrote the record, with a panel carrying each record's evidence and reasoning (ADR-0104) | `site/network.js`, `views.network` |
-| The examination path | **done** — the reasoning groups as a decision tree on the Act's sections, and the process groups on the steps, every branch ending on the outcome the system does not state (ADR-0105) | `site/tree.js`, `views.decision_tree` |
+| The map | **done** — every concept and provision as a node network, coloured by who wrote the record, with a panel carrying each record's evidence and reasoning (ADR-0104). **S022: it opens on one idea and grows a hop at a time as the reader opens nodes; every node drags and stays dropped; the whole 254-node canvas is one button away** (ADR-0107) | `site/network.js`, `views.network` |
+| The examination path | **done** — the reasoning groups as a decision tree on the Act's sections, and the process groups on the steps, every path ending on the outcome the system does not state. **S022: a binary tree of questions rather than an outline — 31 questions, 32 leaves, 17 deep, on a canvas whose nodes can be dragged** (ADR-0106, superseding ADR-0105 on shape) | `site/tree.js`, `views.decision_tree` |
 | Site data generator | **done** — generated, drift-checked in CI | `tmk-dashboard` → `site/data/` |
 | Publication | **done and live** — Pages source is GitHub Actions; deploying, and manually re-runnable from the Actions tab | `.github/workflows/pages.yml` |
 | Owner question queue | **done** — 10 asked, 2 parked, 10 answered, schema-validated | `review/questions/open-questions.yaml` |
@@ -178,6 +178,8 @@ unapproved candidates on a public page.
 something already committed; where the number needs the snapshot the site renders
 the generated report instead of paraphrasing it. That is also why moving a record
 without running `tmk-dashboard --write` fails CI.
+
+Every concept node on both carries **the passage its record quotes**, with the ref and whose evidence it is — a quotation, never a definition, and pinned verbatim against the store by a test (ADR-0108).
 
 **Nine of the eleven pages restate and never derive. Two arrange** — the map and
 the examination path — and that is a deliberate exception with three conditions on

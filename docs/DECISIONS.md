@@ -4645,7 +4645,9 @@ destroys the difference between what a record cited and what it might have meant
 
 ## ADR-0105 — the decision tree hangs on the Act's sections, and shows what falls off
 
-**Date** 2026-09-12 · **Authority** agent-proposed · **Status** accepted
+**Date** 2026-09-12 · **Authority** agent-proposed · **Status** **superseded by ADR-0106**
+— the four joining rules and the leaf stand and are restated there; the bands,
+the residue branch and the per-branch outcome node do not
 
 **Context.** "The examination process as a decision tree" needs a spine, and the
 repository holds no record of what the examination process is. Three candidate
@@ -4716,3 +4718,167 @@ an examiner does things.
    changes that premise. It does not change the record, and no agent may:
    `PU-0003` is signed, and only a person can withdraw or amend it. The page says
    this where someone planning the work will read it.
+
+## ADR-0106 — the grounds spine is a binary tree of questions, and the questions come from the groups
+
+**Date** 2026-09-12 · **Authority** agent-proposed · **Status** accepted ·
+supersedes ADR-0105 on shape
+
+**Context.** ADR-0105 built the arrangement and the page drew it as a collapsible
+outline: section, then a band per group, then the concepts in it. The owner's
+objection was that it is not shaped like a decision tree — "node with binary
+branches etc" — and he is right. An outline can show *what is filed under what*.
+It cannot show the thing a decision tree exists to show, which is that answering a
+question here takes you *there* and nowhere else. Bands made that worse: *Relevant
+factor* is a heading, not a step, and a reader walking down the page met three
+headings before they met anything they could answer.
+
+**The licence, and where it stops.** The four reasoning groups are already
+defined, in `stage0/typing.py` and on the page, by the part a concept plays in
+*reaching a decision*:
+
+- `ground_of_refusal` — *a reason an application can be refused*
+- `legal_test` — **a question the decision maker has to answer**
+- `relevant_factor` — *something that feeds into that answer*
+- `exception` — *something that takes a case out of the rule*
+
+A `legal_test` is already recorded as a question. Turning its label into question
+form is a **transcription**, not an authorship: a label goes into a template and a
+question comes out, in one dictionary of three strings, and nothing anywhere
+decides how the question is answered. That is the line. Putting a recorded label
+into question form is arranging, which ADR-0103 permits; saying what the answer is
+would be stating an examination outcome, which the programme does not do and no
+agent may widen it to do (CLAUDE.md §2, ADR-0082 consequence 4).
+
+**Decision — the shape.** ADR-0105's joining rules are unchanged and restated
+here for completeness: a section anchors when a ground or a test cites it; a
+concept joins by citing it, or by a signed relationship or a SKOS link to a
+concept that does; a definition ref joins nothing. What changes is what is drawn:
+
+1. **Each anchoring section is one branch point**, asking whether a ground under
+   it arises. **No** goes to the next section in the Act's numbering — that chain
+   *is* the spine, and it is drawn straight down the page. **Yes** opens what the
+   section holds.
+2. **Each `legal_test` at that section is a branch point of its own**, in the
+   order the records list them. **That is an order and not a claim that they are
+   cumulative.** Nothing in the records says which must be answered before which,
+   or that all of them must be answered yes; the rules printed under the tree say
+   so in those words.
+3. **Where the records hold exceptions, the last question at a section asks
+   whether one applies.** Both answers lead to the leaf, which is the point.
+4. **A factor is not a branch point.** It is read *at* one, and it hangs off the
+   **section**, not off a question. No record says which test a factor feeds, and
+   filing 32 of section 43's factors under its first question would say one does.
+   Section 33 settles the placement independently: it holds factors and no test at
+   all, so a factor filed against a question can be a factor nobody can reach.
+5. **Every path ends on the outcome leaf** — 32 of them on the current records,
+   which is why the leaf's wording and the three signed `evaluative_conclusion`
+   records it rests on are held **once**, in `outcome`, and the leaves carry an
+   id. Repeating the paragraph at each leaf put the same three approved records in
+   the file thirty-two times and tripled the height of the picture.
+6. **The residue comes off the canvas and sits beneath it**, in a box that is
+   open, not folded. A concept that joins no section is *not on a path*, and
+   drawing it as a branch said it was one. Coming off the tree is not coming off
+   the page: hiding a gap is the whole failure mode of a picture (ADR-0105's own
+   reasoning, unchanged).
+
+**Consequences.**
+
+1. **The arrangement's claim is now checkable node by node.** 31 questions, 32
+   leaves, 17 deep. `test_every_question_has_exactly_two_answers` pins the binary
+   property, `test_every_path_ends_on_the_outcome_it_does_not_state` pins the
+   leaf, and `test_every_reasoning_concept_reaches_the_tree_or_the_residue` pins
+   that placed and stranded are a partition — a concept cannot fall out of the
+   arrangement without being named somewhere.
+2. **The process spine is deliberately *not* binary and a test enforces it.** A
+   step is reached, not decided; drawing the 21 procedural steps as questions
+   would assert that something turns on arriving at *examination*, and nothing in
+   the records says that. `test_the_process_spine_asks_nothing` fails if a gate or
+   a `question` field ever appears on it.
+3. **The tree is still not a procedure anybody wrote down.** The section order is
+   the Act's numbering, the question order within a section is the records' order,
+   and no expert has read either. Everything ADR-0105 said about `PU-0003` stands
+   unchanged: the shape is suitable scaffolding for learning from historical
+   outcomes, and one signed record stands between that and the product.
+
+## ADR-0107 — the map opens on one idea, and every node can be moved
+
+**Date** 2026-09-12 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** ADR-0104's map drew all 254 nodes at once. That is the honest picture
+of a graph in 44 pieces, and it is also, as the owner put it, not behaving or
+looking as anyone would expect: a reader who wants to know what *connotation* is
+joined to is given a field of two hundred and fifty dots and a search box, and the
+answer is somewhere in the middle of it. Nothing was wrong with the drawing. What
+was missing was a way to ask a question of it.
+
+**Decision — two canvases, and the walk is the default.**
+
+1. **Walk it one node at a time (default).** The canvas holds what the reader has
+   opened and its neighbours, and nothing else. Opening a node — double-click, or
+   the button in its panel — draws what it is joined to. The frontier is visible:
+   a node that is drawn but not opened says there is more this way.
+2. **Show the whole map.** ADR-0104's picture, unchanged, including the shelf
+   packing and the row of unjoined nodes along the bottom. It is where the shape
+   of the graph is the finding, and the note under it still says so.
+3. **Every node can be dragged, and stays where it is dropped.** Positions are
+   remembered across re-layouts, so arranging the canvas by hand is worth doing;
+   opening one more node grows the new nodes out of the node they came from and
+   **settles only them**, leaving everything the reader has arranged where it is.
+4. **Search reads the whole project, never the drawn set.** In a walk the answer
+   is usually a node that is not on the canvas yet, and "no match" would be a lie.
+   A search that lands off-canvas opens its way to the hit.
+
+**Consequences.**
+
+1. **A default is a claim and this one is stated.** The walk opens on the
+   best-connected concept in the project, which is a choice an agent made; the
+   note under the canvas says how the canvas got to where it is and how many
+   nodes the reader has opened.
+2. **Nothing about what an edge *is* changed.** ADR-0104's four edge kinds, its
+   colour rule and its refusal to roll a provision up all stand. This decision is
+   about what is on screen and where it sits, and about nothing else.
+3. **The whole-map layout stays deterministic**, and the remembered positions are
+   cleared whenever the drawn set changes wholesale — a mode switch, the
+   provisions toggle, the roll-up toggle — because a coordinate chosen under one
+   rule means nothing under another.
+
+## ADR-0108 — a node carries the passage its record quotes
+
+**Date** 2026-09-12 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** The owner's third objection was the broadest: *the content still
+seems abstract*. It was. A node said `GC-0001`, *connotation*, **Legal test** —
+three names for a thing and not a word of the thing itself. The passage that makes
+*connotation* concrete was in the repository the whole time, four clicks down, in
+the `evidence` of the envelope that authored or typed the record.
+
+**Decision.** Every concept node on both views carries a `quote`: the **first
+evidence entry** of the record's own authoring envelope, or, for a signed concept
+that has no envelope of its own, of the machine typing that sorted it. It is
+carried with its `ref` and with a `from` naming which of the two it came from, and
+it appears on the face of the node and at the top of the panel — above the
+provenance, because a reader wants to know what the Manual says before they want
+to know who wrote the record that quotes it.
+
+**What it is not.** It is a **quotation**, never a definition. No record in this
+project holds the text of a definition and none may acquire one by the back door
+of a view (ADR-0079 guard 2; `test_neither_view_carries_a_definition`). The text
+is copied whole from an entry a record already carries — never trimmed to a gist,
+never stitched from two — and `test_every_quote_is_a_passage_a_record_already_carries`
+fails if a single character of one does not appear, verbatim and against the same
+ref, in the store.
+
+**Consequences.**
+
+1. **All 130 concepts carry one.** Nothing had to be authored to make the pages
+   concrete, which is the finding: the corpus was already there and the site was
+   not showing it.
+2. **The face of a node is clipped and the panel is not.** The canvas shows the
+   first 96 characters with an ellipsis; the panel shows the passage whole, with
+   its ref. A clipped quotation is still a quotation, and the untruncated one is
+   one click away.
+3. **A signed concept shows a machine's evidence and says so.** The 52 records a
+   person signed carry no envelope, so their quote comes from the unreviewed
+   typing — which is exactly the sort of blur ADR-0080 exists to prevent, and why
+   `from` is a required field rather than a nicety.

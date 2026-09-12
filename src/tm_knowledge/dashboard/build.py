@@ -811,8 +811,11 @@ def _map(facts: Facts) -> dict[str, Any]:
             f"{counts['provisions']} provisions they cite, drawn as the network they are. "
             f"**{counts['signed']} of the ideas were signed by a named person; "
             f"{counts['authored']} were written by a machine and nobody has read them** — "
-            "and the picture says which is which on every node. Start anywhere, click to "
-            "open a node, and follow the edges."
+            "and the picture says which is which on every node. It opens on **one concept and "
+            "what it is joined to**: double-click a node to open it and draw its neighbours, "
+            "drag any node to move it, and click one to read the passage its record quotes. "
+            "*Show the whole map* draws all of it at once, which is the honest picture of a "
+            "graph in pieces and not a way to answer a question about one idea."
         ),
         "blocks": [
             blocks.stats(
@@ -870,17 +873,20 @@ def _tree(facts: Facts) -> dict[str, Any]:
         "lede": (
             "The same records as the map, arranged the way an examination reasons: a "
             "**ground for rejection**, the **tests** it turns on, the **factors** that feed "
-            "them, and the **exceptions** that take a case out. "
-            f"{grounds['placed']} of {grounds['concepts']} reasoning concepts hang off a "
-            "section of the Act; the rest are shown where they fall, not filed somewhere "
-            "plausible. **Every branch ends on the same leaf — the outcome, which this "
-            "system does not state.**"
+            "them, and the **exceptions** that take a case out — drawn as the questions they "
+            f"are. Each of the {grounds['sections']} sections that holds a ground or a test is "
+            "a branch point: **no** carries the walk down to the next section, **yes** opens "
+            f"what that section holds. {grounds['gates']} questions, {grounds['depth']} deep at "
+            "its deepest. Drag a node to pull its branch clear; click one to read the passage "
+            "behind it. **Every path ends on the same leaf — the outcome, which this system "
+            "does not state.**"
         ),
         "blocks": [
             blocks.stats(
                 [
-                    {"label": "Sections with a branch", "value": grounds["sections"],
-                     "note": "a ground or a test cites each one", "tone": "note"},
+                    {"label": "Questions on the walk", "value": grounds["gates"],
+                     "note": f"across {grounds['sections']} sections, "
+                             f"{grounds['depth']} deep at its deepest", "tone": "note"},
                     {"label": "Branches with no ground concept",
                      "value": grounds["without_a_ground"],
                      "note": "tests, but nothing typed as the ground they serve", "tone": "gap"},

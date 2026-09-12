@@ -199,27 +199,62 @@ def _walk(node):
         yield from _walk(child)
 
 
+def _records_on(node):
+    """Every record a node points at: the one it *is*, and the ones it holds."""
+    if node.get("record"):
+        yield node
+    yield from node.get("considerations") or ()
+
+
+def _sections(tree):
+    """The section gates, which are chained one inside the next rather than
+    listed as siblings — the *no* answer of each holds the rest of the walk."""
+    return [
+        node
+        for node in _walk(tree["spines"][0]["root"])
+        if node["kind"] == "gate" and node.get("gate") == "section"
+    ]
+
+
 def test_every_tree_node_points_at_a_record_or_says_it_is_structure(tree):
     for spine in tree["spines"]:
         for node in _walk(spine["root"]):
-            if node.get("record") and node["kind"] != "prohibited":
-                assert node["record"] in tree["records"]
-            else:
-                assert node["kind"] in {
-                    "root", "section", "band", "residue", "outcome", "prohibited",
-                }
+            for item in _records_on(node):
+                assert item["record"] in tree["records"]
+            if not node.get("record"):
+                assert node["kind"] in {"root", "gate", "residue", "outcome", "step"}
 
 
 def test_every_concept_on_the_tree_says_why_it_is_there(tree):
-    """The four rules are the whole of the claim this page makes. A node that
+    """The rules are the whole of the claim this page makes. A node that
     arrived without one would be an arrangement nobody could check."""
     for spine in tree["spines"]:
         for node in _walk(spine["root"]):
-            if node.get("record") and node["kind"] != "prohibited":
-                assert node["basis"], f"{node['id']} is on a branch for no stated reason"
+            for item in _records_on(node):
+                assert item["basis"], f"{item['id']} is on a path for no stated reason"
 
 
-def test_every_branch_ends_on_the_outcome_it_does_not_state(tree, stores):
+def test_every_question_has_exactly_two_answers(tree):
+    """The point of the rebuild. A gate with one child is not a decision and a
+    gate with three is not a binary one; either would make the picture a
+    different claim from the one the rules state (ADR-0106)."""
+    gates = [node for node in _walk(tree["spines"][0]["root"]) if node["kind"] == "gate"]
+    assert gates, "the grounds spine asks nothing"
+    for gate in gates:
+        answers = [child.get("answer") for child in gate["children"]]
+        assert answers == ["yes", "no"], f"{gate['id']} branches on {answers}"
+
+
+def test_the_process_spine_asks_nothing(tree):
+    """A step is reached, not decided. Drawing the procedural path as questions
+    would assert that something turns on arriving at *examination*, and nothing
+    in the records says that."""
+    for node in _walk(tree["spines"][1]["root"]):
+        assert node["kind"] != "gate"
+        assert "question" not in node
+
+
+def test_every_path_ends_on_the_outcome_it_does_not_state(tree, stores):
     gold, _ = stores
     prohibited = {
         record["id"]
@@ -227,42 +262,56 @@ def test_every_branch_ends_on_the_outcome_it_does_not_state(tree, stores):
         if record["kind"] == "evaluative_conclusion"
     }
     assert prohibited, "the signed records this leaf rests on have gone"
-    sections = [
-        node for node in tree["spines"][0]["root"]["children"] if node["kind"] == "section"
+    assert {record["id"] for record in tree["outcome"]["records"]} == prohibited
+
+    leaves = [
+        node for node in _walk(tree["spines"][0]["root"]) if not (node.get("children") or ())
     ]
-    assert sections
-    for section in sections:
-        leaves = [child for child in section["children"] if child["kind"] == "outcome"]
-        assert len(leaves) == 1, f"{section['id']} does not end on the outcome leaf"
-        assert {child["record"] for child in leaves[0]["children"]} == prohibited
+    assert leaves
+    for leaf in leaves:
+        assert leaf["kind"] == "outcome", f"{leaf['id']} ends a path on something else"
 
 
 def test_a_branch_with_no_ground_concept_says_so(tree):
     """Three sections hold a test and nothing typed as the ground it serves.
     That is a hole in the vocabulary and the tree has to show it: a picture that
     quietly filled it in would be authoring the missing record."""
-    sections = [
-        node for node in tree["spines"][0]["root"]["children"] if node["kind"] == "section"
-    ]
-    for section in sections:
+    for section in _sections(tree):
         grounds = [
-            child
-            for band in section["children"]
-            for child in (band.get("children") or ())
-            if child.get("kind") == "ground_of_refusal"
+            item
+            for item in section.get("considerations") or ()
+            if item.get("group") == "ground_of_refusal"
         ]
-        assert bool(grounds) != bool(section["gap"]), section["id"]
+        assert bool(grounds) != bool(section.get("gap")), section["id"]
 
 
 def test_a_concept_that_joins_nothing_is_shown_rather_than_filed(tree):
-    residue = [
-        node for node in tree["spines"][0]["root"]["children"] if node["kind"] == "residue"
-    ]
+    """Off the walk, but never off the page. The residue sits beside the tree
+    rather than inside it, because a concept that joins no section is not on a
+    path and drawing it as though it were would be the invention the rules
+    forbid."""
     counts = tree["spines"][0]["counts"]
+    residue = tree["spines"][0]["residue"]
     if counts["stranded"]:
-        assert len(residue) == 1
-        assert len(residue[0]["children"]) == counts["stranded"]
+        assert residue and len(residue["children"]) == counts["stranded"]
+        assert residue["gap"]
+    else:
+        assert residue is None
     assert counts["placed"] + counts["stranded"] == counts["concepts"]
+
+
+def test_every_reasoning_concept_reaches_the_tree_or_the_residue(tree):
+    """Placed and stranded are a partition, and the picture has to show both
+    halves of it — a concept that fell out of the arrangement without being
+    named anywhere is the failure this page exists to prevent."""
+    spine = tree["spines"][0]
+    drawn = {
+        item["record"] for node in _walk(spine["root"]) for item in _records_on(node)
+    }
+    stranded = {item["record"] for item in (spine["residue"] or {}).get("children", ())}
+    assert len(drawn) == spine["counts"]["placed"]
+    assert len(stranded) == spine["counts"]["stranded"]
+    assert not drawn & stranded
 
 
 def test_the_reasoning_and_process_spines_cover_every_concept(tree):
@@ -286,6 +335,32 @@ def test_the_arrangement_is_a_rule_and_not_a_memory(stores):
     assert json.dumps(views.decision_tree(*stores), sort_keys=True) == json.dumps(
         views.decision_tree(*stores), sort_keys=True
     )
+
+
+def test_every_quote_is_a_passage_a_record_already_carries(graph, tree, stores):
+    """The concrete line on a node. It is a **quotation**, which means it is
+    someone else's words copied whole: if a view could trim one to a gist or
+    stitch two together, the node would be saying something no record says."""
+    _, authored = stores
+    passages = set()
+    for kind in ("gold_concept", "concept_type"):
+        for entry in authored.of(kind):
+            if not entry.sound:
+                continue
+            for item in entry.envelope.get("evidence") or ():
+                passages.add((str(item.get("ref")), str(item.get("quote")).strip()))
+    assert passages, "there is no evidence in the store to quote from"
+
+    seen = 0
+    for payload in (graph["nodes"], tree["records"].values()):
+        for node in payload:
+            quote = node.get("quote")
+            if not quote:
+                continue
+            seen += 1
+            assert (quote["ref"], quote["text"]) in passages, node["id"]
+            assert quote["from"], f"{node['id']} does not say whose evidence this is"
+    assert seen, "no node carries a passage, which is the abstraction this fixed"
 
 
 def test_neither_view_carries_a_definition(graph, tree):
