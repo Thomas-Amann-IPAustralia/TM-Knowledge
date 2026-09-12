@@ -1,14 +1,14 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "105 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "108 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 105,
+     "value": 108,
      "note": null,
      "tone": null,
      "href": null
@@ -78,6 +78,90 @@
    ],
    "rows": [
     {
+     "id": "`ADR-0108`",
+     "title": "a node carries the passage its record quotes",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-12",
+     "search": "ADR-0108 a node carries the passage its record quotes agent-proposed accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner's third objection was the broadest: *the content still seems abstract*. It was. A node said `GC-0001`, *connotation*, **Legal test** — three names for a thing and not a word of the thing itself. The passage that makes *connotation* concrete was in the repository the whole time, four clicks down, in the…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0108-a-node-carries-the-passage-its-record-quotes)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0107`",
+     "title": "the map opens on one idea, and every node can be moved",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-12",
+     "search": "ADR-0107 the map opens on one idea, and every node can be moved agent-proposed accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0104's map drew all 254 nodes at once. That is the honest picture of a graph in 44 pieces, and it is also, as the owner put it, not behaving or looking as anyone would expect: a reader who wants to know what *connotation* is joined to is given a field of two hundred and fifty dots and a search box, and the answer…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0107-the-map-opens-on-one-idea-and-every-node-can-be-moved)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0106`",
+     "title": "the grounds spine is a binary tree of questions, and the questions come from the groups",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-12",
+     "search": "ADR-0106 the grounds spine is a binary tree of questions, and the questions come from the groups agent-proposed accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "ADR-0105 built the arrangement and the page drew it as a collapsible outline: section, then a band per group, then the concepts in it. The owner's objection was that it is not shaped like a decision tree — \"node with binary branches etc\" — and he is right. An outline can show *what is filed under what*. It cannot show…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0106-the-grounds-spine-is-a-binary-tree-of-questions-and-the-questions-come-from-the-groups)"
+      }
+     ]
+    },
+    {
      "id": "`ADR-0105`",
      "title": "the decision tree hangs on the Act's sections, and shows what falls off",
      "authority": {
@@ -89,11 +173,11 @@
       ]
      },
      "date": "2026-09-12",
-     "search": "ADR-0105 the decision tree hangs on the Act's sections, and shows what falls off agent-proposed accepted",
+     "search": "ADR-0105 the decision tree hangs on the Act's sections, and shows what falls off agent-proposed **superseded by ADR-0106**",
      "detail": [
       {
        "kind": "prose",
-       "text": "**Status.** accepted"
+       "text": "**Status.** **superseded by ADR-0106**"
       },
       {
        "kind": "prose",

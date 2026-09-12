@@ -1,7 +1,7 @@
 {
  "id": "map",
  "title": "The map",
- "lede": "All 130 legal ideas the project holds and the 124 provisions they cite, drawn as the network they are. **52 of the ideas were signed by a named person; 78 were written by a machine and nobody has read them** — and the picture says which is which on every node. Start anywhere, click to open a node, and follow the edges.",
+ "lede": "All 130 legal ideas the project holds and the 124 provisions they cite, drawn as the network they are. **52 of the ideas were signed by a named person; 78 were written by a machine and nobody has read them** — and the picture says which is which on every node. It opens on **one concept and what it is joined to**: double-click a node to open it and draw its neighbours, drag any node to move it, and click one to read the passage its record quotes. *Show the whole map* draws all of it at once, which is the honest picture of a graph in pieces and not a way to answer a question about one idea.",
  "blocks": [
   {
    "kind": "stats",
@@ -71,6 +71,11 @@
        "descriptive meaning"
       ],
       "notes": "The Manual states that for section 43 the term has a wider meaning than the dictionary sense and includes direct statements. That widening is a practice position, and whether it survives into the ontology as one concept or two is a judgement.",
+      "quote": {
+       "ref": "TMM/Part29/2/2/4",
+       "text": "If there is doubt that a connotation exists, then the ground for rejection should not be raised.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -136,6 +141,11 @@
        "likelihood of confusion between trade marks"
       ],
       "notes": "Whether this should be one concept or two is a real question. The Manual quotes Lord Denning distinguishing them sharply, then applies them as a single threshold. We have kept them together with the two narrower concepts underneath; splitting them is a defensible correction.",
+      "quote": {
+       "ref": "TMM/Part29/1#1",
+       "text": "it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the specified goods and / or services would be likely to deceive or cause confusion",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -194,6 +204,11 @@
        "scandalous"
       ],
       "notes": "\"Misdescriptive\" is listed as an alt label on the strength of one passage. It may be a related but distinct idea rather than a synonym.",
+      "quote": {
+       "ref": "TMM/Part29/3#1~2",
+       "text": "When you deceive a man, you tell him a lie.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -259,6 +274,11 @@
        "deceptively similar"
       ],
       "notes": "\"Caused to wonder\" comes from a passage quoted from a decision under earlier legislation. Whether it is a synonym or a test is a reading.",
+      "quote": {
+       "ref": "TMM/Part29/3#1~2",
+       "text": "But you may cause confusion without telling him a lie at all, and without making any false representation to him.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -317,6 +337,11 @@
        "connotation"
       ],
       "notes": "The Manual gives the denotation of a mark as the connection in trade between the applicant and the goods or services.",
+      "quote": {
+       "ref": "TMM/Part29/2/2/1~2",
+       "text": "a distinction is to be made between the denotation of the mark and its connotation",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -383,6 +408,11 @@
        "ground for revocation"
       ],
       "notes": "The Manual uses \"objection\" and \"ground for rejection\" interchangeably in places. If they are not interchangeable in practice, that is a correction with consequences across the whole entity set.",
+      "quote": {
+       "ref": "TMM/Part20/5#1",
+       "text": "the trade mark is registrable provided none of the grounds referred to in sections 39 to 44 of the Act are found to apply",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -444,6 +474,11 @@
        "onus on the applicant"
       ],
       "notes": "The not_label is a live one: a passage quoted in 29.3.1 places the onus on the applicant, in the context of earlier legislation. Whether the two sit together is a legal question, not a drafting one.",
+      "quote": {
+       "ref": "TMM/Part29/2/2/4",
+       "text": "The presumption of registrability applies to section 43.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -504,6 +539,11 @@
        "actual probability of deception"
       ],
       "notes": "The not_labels are both phrases the Manual uses to say what the test is *not*, which makes them unusually well-evidenced near-misses.",
+      "quote": {
+       "ref": "TMM/Part29/3/3/1~1",
+       "text": "There must be a real and obvious danger of the buying public being deceived and/or confused by the secondary meaning within the trade mark. A possibility of confusion or a suggestion that deception might occur is not sufficient.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -563,6 +603,11 @@
        "relevant trade"
       ],
       "notes": "Low confidence. These may be four distinct ideas that an examiner chooses between deliberately.",
+      "quote": {
+       "ref": "TMM/Part29/1#1",
+       "text": "would be likely to deceive or confuse consumers within the relevant market",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -623,6 +668,11 @@
        "expert consumer"
       ],
       "notes": "The first not_label is the Manual's own words, quoted from a decision. It is the clearest negative boundary marker in the pilot area.",
+      "quote": {
+       "ref": "TMM/Part29/3/3/1~1",
+       "text": "The tests lie in the perception of the ordinary person",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -681,6 +731,11 @@
        "reputation in another trade mark"
       ],
       "notes": "The not_labels matter: Part 29.9.7 says expressly that the connotation must come from the mark itself and not from external considerations such as reputation in another mark. So \"surrounding circumstances\" is admissible and \"external considerations\" is not, and the two phrases look alike.",
+      "quote": {
+       "ref": "TMM/Part29/3/3/1~1",
+       "text": "In considering the probability of deception, all the surrounding circumstances have to be taken into consideration.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -740,6 +795,11 @@
        "goods actually supplied"
       ],
       "notes": "The Manual reasons about what a specification \"notionally includes\", which is a different thing from what the applicant sells.",
+      "quote": {
+       "ref": "TMM/Part29/4#1",
+       "text": "If, however, there is a connotation present within the trade mark that is directly contradicted by the specification, there is a high likelihood of consumers being deceived or confused.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -798,6 +858,11 @@
        "specification amendment"
       ],
       "notes": "Whether an endorsement is the record of a condition or a separate thing is exactly the sort of tacit distinction this exercise is trying to surface.",
+      "quote": {
+       "ref": "TMM/Part29/5/5/4",
+       "text": "A section 43 ground for rejection may be overcome by the applicant agreeing to a condition of registration limiting use of the trade mark to goods containing the substance indicated by the relevant INN.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -856,6 +921,11 @@
        "condition of registration",
        "disclaimer"
       ],
+      "quote": {
+       "ref": "TMM/Part29/9/9/2",
+       "text": "The risk of deception can be mitigated by a suitably specific endorsement or an amendment or limitation to the specification of goods or services.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -915,6 +985,11 @@
        "deletion of goods"
       ],
       "notes": "The second not_label is unsure: Part 12 discusses deleting goods and filing a divisional as related moves, and whether deletion is a limitation or something else is a practice question.",
+      "quote": {
+       "ref": "TMM/Part29/9/9/5",
+       "text": "An applicant will be able to overcome a geographical section 43 objection by agreeing to a condition of registration or a specification amendment which removes the likelihood of consumers being deceived or confused.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -974,6 +1049,11 @@
        "last amended date"
       ],
       "notes": "Whether the filing date and the priority date are distinct enough to be a not_label here is a practice question; they coincide in most applications and diverge in the ones that matter.",
+      "quote": {
+       "ref": "TMM/Part29/6#1~2",
+       "text": "Firstly, how well known is the person among relevant Australian consumers, as at the priority date?",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1033,6 +1113,11 @@
        "business identifier"
       ],
       "notes": "The first not_label is the important one: every geographical indication is a geographical reference and the reverse is false, and the two terms are used within a few paragraphs of each other.",
+      "quote": {
+       "ref": "TMM/Part29/9#1",
+       "text": "Trade marks which contain a geographical reference will often connote the geographical origin or some other attribute of goods or services.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1095,6 +1180,11 @@
        "place name"
       ],
       "notes": "The pilot area's material on GIs mostly points elsewhere — Part 29.1.1 sends the reader to Part 32B. Whether those destinations are in the pilot boundary is deliverable 1's question.",
+      "quote": {
+       "ref": "TMM/Part29/11#1",
+       "text": "If during examination of a new application research reveals that a trade mark is identical or similar to a listed EU GI, consideration should then be given to whether or not the use of the trade mark would potentially deceive or confuse Australian consumers and make grounds for rejection under s 43 appropriate.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1149,6 +1239,11 @@
        "geographical reference",
        "geographical indication"
       ],
+      "quote": {
+       "ref": "TMM/Part29/9#1",
+       "text": "If a trade mark containing a geographical reference is found to connote geographical origin, consideration must then be given to whether ordinary consumers would be deceived or confused as a result.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1202,6 +1297,11 @@
        "geographical origin"
       ],
       "notes": "The Manual's examples both contain place names, which is what makes this a genuine trap rather than a distinction on paper.",
+      "quote": {
+       "ref": "TMM/Part29/9/9/6",
+       "text": "Where business identifiers are included in a trade mark (e.g. A TASMANIAN COMPANY, RIVERINA DAIRY CO.) this tends to indicate a characteristic of a business rather than the goods or services themselves. A ground for rejection will rarely apply in these cases.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1257,6 +1357,11 @@
        "standalone geographical reference"
       ],
       "notes": "Whether \"made in\" and \"product of\" are labels for this concept or examples of it is a modelling choice, not a legal one — but it changes how the entity annotations attach.",
+      "quote": {
+       "ref": "TMM/Part29/9/9/3~1",
+       "text": "are not necessary for a connotation to be present in a mark",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1316,6 +1421,11 @@
        "brand name"
       ],
       "notes": "The first not_label is the whole difficulty of Part 29.5: an INN and an INN stem are governed by different rules and named almost identically.",
+      "quote": {
+       "ref": "TMM/Part29/5/5/4",
+       "text": "A ground for rejection under section 43 exists where a trade mark, or part of a trade mark, to be used in relation to pharmaceuticals or veterinary substances is the same as, or may connote, a notified INN and use of the trade mark in respect of the goods covered by the specification are not restricted to the particular substance indicated by the INN.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1375,6 +1485,11 @@
        "suffix"
       ],
       "notes": "\"Prefix\" and \"suffix\" are listed as not_labels because the Manual uses them to describe a stem's *position*, not as names for it — a stem can be a prefix, a suffix or an infix.",
+      "quote": {
+       "ref": "TMM/Part29/5/5/2",
+       "text": "improper use of an INN stem in a trade mark may lead to deception or confusion",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1437,6 +1552,11 @@
        "obvious derivation of an INN"
       ],
       "notes": "The `pref_label` is our coinage, not the Manual's. If the practice has a name for this, using it is a real improvement; if it does not, that is itself worth recording.",
+      "quote": {
+       "ref": "TMM/Part29/5/5/6~1",
+       "text": "An examiner will need to consider whether the presence of an INN stem in a word is “meaningful” enough to give rise to a connotation leading to likely deception or confusion under section 43.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1491,6 +1611,11 @@
        "medical services"
       ],
       "notes": "The first not_label is deliberately provocative: the Manual names supplements as goods that \"could be pharmaceutical in nature\", so they may be inside this concept rather than beside it.",
+      "quote": {
+       "ref": "TMM/Part29/5/5/3",
+       "text": "Claims for specific pharmaceutical or veterinary goods in Class 5 may also trigger the provisions of section 43 in relation to INNs and INN stems.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1551,6 +1676,11 @@
        "surname"
       ],
       "notes": "\"Celebrity\" is an alt label on the strength of ordinary usage, not of the corpus — the Manual never uses the word. The not_labels point at Part 22 material, where a name is a distinctiveness question under section 41 rather than a connotation question.",
+      "quote": {
+       "ref": "TMM/Part29/6#1~1",
+       "text": "If a trade mark contains a name of a person (or group of people) which is well known in relation to the specified goods or services, the provisions of section 43 may be triggered.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1609,6 +1739,11 @@
        "authorised entity"
       ],
       "notes": "The not_labels are the actors that continue to control a name after death. They are what makes the exception operate, so they must not cluster with the person.",
+      "quote": {
+       "ref": "TMM/Part29/6/6/2~1",
+       "text": "Generally, a section 43 ground for rejection will not arise in respect of long deceased historical figures, even if they were well known for the same field as the specified goods/services are in.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1664,6 +1799,11 @@
        "written permission"
       ],
       "notes": "The first not_label is a genuine collision inside one Part: an \"endorsement\" on a registration and an \"endorsement\" by a celebrity are unrelated ideas sharing a word, two screens apart.",
+      "quote": {
+       "ref": "TMM/Part29/9/9/7",
+       "text": "The inclusion of such material may result in ordinary consumers being deceived and confused on the basis of incorrectly believing that the trade mark indicates an endorsement or approval from the party or parties that own and have control over the well- known material.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1723,6 +1863,11 @@
        "authorised user"
       ],
       "notes": "\"Letter of consent\" is a not_label because it is a term of art used in the section 42 and section 44 material for a different mechanism.",
+      "quote": {
+       "ref": "TMM/Part29/6#1~2",
+       "text": "An applicant may overcome a section 43 ground for rejection in relation to a name by providing the well-known person’s written permission to use their name as a trade mark.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1783,6 +1928,11 @@
        "device",
        "signature"
       ],
+      "quote": {
+       "ref": "TMM/Part29/6/6/1",
+       "text": "A section 43 ground for rejection should not be raised merely because a trade mark contains the image of a person.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1846,6 +1996,11 @@
        "numeral"
       ],
       "notes": "The not_label is well evidenced: the Manual says other phone numbers that do not appear to represent a phoneword should not be queried.",
+      "quote": {
+       "ref": "TMM/Part29/7#1",
+       "text": "A section 43 ground for rejection will apply if the applicant for a trade mark containing material likely to be viewed as a phoneword, or the numbers representing a phoneword, is not also the owner (or authorised user) of that phoneword.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1908,6 +2063,11 @@
        "website"
       ],
       "notes": "\"Standard address code material\" is the Manual's own term for the common parts, which it distinguishes from the identifier. Treating them as the same thing would make every mark containing \"com\" a candidate.",
+      "quote": {
+       "ref": "TMM/Part29/8#1",
+       "text": "A section 43 ground for rejection will apply if the applicant for a trade mark consisting of, or containing, material likely to be viewed as an Internet domain name is not also the registrant or authorised user of that Internet domain name.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -1967,6 +2127,11 @@
        "subdomain"
       ],
       "notes": "Generic and country-code TLDs are treated differently by the Manual, so holding them as alt labels of one concept may be wrong.",
+      "quote": {
+       "ref": "TMM/Part29/8/8/1",
+       "text": "In the case of a generic TLD, the trade mark application needs to be holistically considered, including the relevant specification, when determining whether the material (.SOMETHING) is likely to connote a generic TLD.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2027,6 +2192,11 @@
        "licence"
       ],
       "notes": "Holding call sign and frequency as one concept is a simplification. The Manual treats them together but they are administered differently — the broadcaster may choose one and never chooses the other.",
+      "quote": {
+       "ref": "TMM/Part29/8/8/3",
+       "text": "A section 43 ground for rejection will apply if the applicant for a trade mark containing a radio call sign or frequency, in class 38 for broadcasting or related services, is not also the licensed owner/operator of a radio station with that radio call sign or frequency.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2083,6 +2253,11 @@
        "owner of the trade mark"
       ],
       "notes": "Low confidence, and deliberately included at low confidence. The not_labels are the point: the owner of the phoneword and the owner of the trade mark are different roles that the same word names.",
+      "quote": {
+       "ref": "TMM/Part29/8#1",
+       "text": "Consumers are likely to believe that the applicant is the registrant or authorised user of the Internet domain name connoted within the trade mark, and on this basis be deceived and confused if in fact this is not the case.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2146,6 +2321,11 @@
        "genus",
        "plant materials"
       ],
+      "quote": {
+       "ref": "TMM/Part29/1/1/2",
+       "text": "If a trade mark contains or consists of word/s which connote a particular plant variety or other plant name, and is applied to plants or plant materials of the same or a closely related genus, it is likely to deceive or cause confusion as to the true nature of those plants or plant materials and a ground for rejection under section 43 of the Act will be appropriate.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2208,6 +2388,11 @@
        "prescribed sign"
       ],
       "notes": "Low confidence and high sensitivity. The labelling here should be checked against how the office actually speaks about this material, not just against the passage.",
+      "quote": {
+       "ref": "TMM/Part29/10#1",
+       "text": "If a trade mark, or some part of the trade mark, contains a reference to Indigenous people and a connotation arises from the mark that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection under s43 should be raised.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2267,6 +2452,11 @@
        "essential feature"
       ],
       "notes": "The not_label matters because the Act itself contemplates a connotation arising from \"a sign contained in the trade mark\" — so the whole and the part are both operative and must not merge.",
+      "quote": {
+       "ref": "TMM/Part29/3/3/5",
+       "text": "When determining the potential connotation within a trade mark, the trade mark as a whole should be considered. Other features incorporated as part of the trade mark can diminish the impact of the offending material and cast doubt as to how it will be seen and interpreted by the relevant consumer.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2320,6 +2510,11 @@
        "reputation"
       ],
       "notes": "The first not_label is the most valuable one in this file: acquired distinctiveness is section 41 material and means something a system must never carry into section 43, but the two are described in almost identical words.",
+      "quote": {
+       "ref": "TMM/Part29/3/3/4",
+       "text": "This circumstance need not point to a fault in the examination process, but to the capacity for a trade mark to develop a connotation over time.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2379,6 +2574,11 @@
        "hearing",
        "revocation of acceptance"
       ],
+      "quote": {
+       "ref": "TMM/Part29/3/3/4",
+       "text": "These kinds of cases are most appropriately identified and dealt with during opposition proceedings when considerable evidence of use is often supplied by the opposing party.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2439,6 +2639,11 @@
        "state of the Register"
       ],
       "notes": "The not_labels separate evidence a party files from material an examiner gathers. That distinction is load-bearing under section 43, where the Manual asks examiners to research rather than to require evidence.",
+      "quote": {
+       "ref": "TMM/Part29/9/9/7",
+       "text": "This issue is one where evidence will in most cases play an important role in determining the strength of the connotation and for that reason, an objection on this basis is usually more appropriate for consideration during the opposition stage.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2495,6 +2700,11 @@
        "opposition"
       ],
       "notes": "On the edge of the pilot. It is here mainly because the not_label — revocation of *registration* — is a different thing under a different provision and the labels are one word apart.",
+      "quote": {
+       "ref": "TMM/Part51/10#1~1",
+       "text": "before a trade mark is registered, the Registrar may revoke the acceptance of the application for registration of the trade mark if he or she is satisfied that",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2559,6 +2769,11 @@
        "amendment"
       ],
       "notes": "This record exists to make the scope question concrete. If it is out of scope, saying so is more useful than correcting its labels.",
+      "quote": {
+       "ref": "TMM/Part12/2#1",
+       "text": "if only some of the goods/services of the parent application have attracted a ground for rejection under sections 39, 41, 42 or 43, the applicant may decide to exclude the goods/services which have attracted the ground(s) for rejection from the parent application, so that the parent application can proceed to acceptance",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2615,6 +2830,11 @@
        "Registrar"
       ],
       "notes": "Deliberately separated from decision maker and delegate. The Manual switches between them and it is not obvious whether the switch is meaningful. This is exactly the sort of thing that is innate to your reading and invisible in the text.",
+      "quote": {
+       "ref": "TMM/Part29/3/3/2",
+       "text": "Examiners must ensure that they are considering the current marketplace when deciding whether a sign is likely to offend under section 43",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2672,6 +2892,11 @@
        "examiner",
        "hearing officer"
       ],
+      "quote": {
+       "ref": "TMM/Part29/1#1",
+       "text": "it is necessary for a decision maker to be clearly satisfied",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2731,6 +2956,11 @@
        "IP Australia"
       ],
       "notes": "Holding \"the Registrar's delegate\" as an alt label is probably wrong — a delegate exercises the power and is not the Registrar. It is here to be corrected.",
+      "quote": {
+       "ref": "TMM/Part29/2/2/4",
+       "text": "The Registrar must be satisfied that a ground for rejection exists before section 33(3) can be applied to reject the trade mark.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2790,6 +3020,11 @@
        "non-distinctive"
       ],
       "notes": "The second not_label points at section 41 territory. Descriptiveness is a distinctiveness question there and a connotation question here, using the same word.",
+      "quote": {
+       "ref": "TMM/Part29/2/2/1~1",
+       "text": "It does not follow that all trade marks containing descriptive matter would attract a section 43 objection.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2848,6 +3083,11 @@
        "misdescriptive",
        "arbitrary mark"
       ],
+      "quote": {
+       "ref": "TMM/Part29/9#1",
+       "text": "Deception or confusion is not likely to occur if the geographic reference is ambiguous or fanciful (FORGED IN THE OUTBACK on Vehicles, ANTARCTIC BERRIES for Frozen strawberries) or when a word will not be seen as a geographical reference in the eyes of an average consumer (MOCHA for confectionery).",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2906,6 +3146,11 @@
        "the marketplace as it was"
       ],
       "notes": "The tension is real and worth a decision: 29.3.2 directs attention to the current marketplace, 29.6 asks how well known a person was at the priority date. Whether that is a difference in the rules or a looseness in the drafting is a legal reading.",
+      "quote": {
+       "ref": "TMM/Part29/3/3/2",
+       "text": "Each application must be considered as it stands in the current marketplace, not in the marketplace as it was in the past and not as it may be in the future.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -2965,6 +3210,11 @@
        "acquired distinctiveness"
       ],
       "notes": "The first not_label is quoted practice: reputation in another mark is an external consideration and expressly not the source of a connotation.",
+      "quote": {
+       "ref": "TMM/Part29/9/9/7",
+       "text": "The particular currency (or relevance) that the reference currently has and the extent to which it is well known are also important considerations.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -3026,6 +3276,11 @@
        "discretion"
       ],
       "notes": "This concept and GC-0007 pull in opposite directions and both are stated in the pilot area. How they sit together is one of the most useful things an expert could write down here.",
+      "quote": {
+       "ref": "TMM/Part29/1#1",
+       "text": "The application of section 43 is, by the wording of the section, mandatory. There is, therefore, no discretion to accept a trade mark that is caught by the provisions of this section.",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -3085,6 +3340,11 @@
        "state of the Register"
       ],
       "notes": "\"State of the Register\" is a not_label because the Manual names it as a specific source in the INN-stem discussion, where it is evidence of common use rather than research into a fact.",
+      "quote": {
+       "ref": "TMM/Part29/6#1~1",
+       "text": "then careful consideration of several factors in combination, informed by research, is required",
+       "from": "the evidence for the group it was sorted into"
+      },
       "signed": {
        "by": "TC",
        "date": "2026-08-25"
@@ -3149,6 +3409,11 @@
        "objection"
       ],
       "notes": "The Manual treats the grounds as a closed set fixed by the Act and Regulations. Whether a formality failure under paragraph 33(1)(a) is a 'ground for rejection' in the same sense as sections 39-44 is a real question the passage leaves open.",
+      "quote": {
+       "ref": "TMM/Part20/5#1",
+       "text": "The Act and Regulations contain all the grounds upon which an application for registration of a trade mark may have to be rejected.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -3227,6 +3492,11 @@
        "sign so nearly resembling"
       ],
       "notes": "The Manual records that there are currently no regulations made for the purposes of section 18, so this ground is never raised in examination. The concept is real in law and inert in practice, and that gap is the most useful thing about the record.",
+      "quote": {
+       "ref": "TMM/Part31/1#1",
+       "text": "There are currently no regulations made for the purposes of section 18, which means grounds for rejection under s 39(1) are not raised during examination.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -3303,6 +3573,11 @@
        "scandalous matter"
       ],
       "notes": "Unlike s 39(1) this ground is live: the Manual records six types of prescribed sign in the regulations. Note the modality — subsection 39(2) says an application 'may' be rejected, where s 39(1) says 'must'.",
+      "quote": {
+       "ref": "TMM/Part31/2#1",
+       "text": "a trade mark may be rejected if it contains or consists of a sign that is prescribed in the regulations for the purposes of subsection 39(2)",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -3377,6 +3652,11 @@
        "substantially identical"
       ],
       "notes": "A resemblance test that is not the section 44 one. The comparison is between the applicant's sign and a prescribed or prohibited sign, and the threshold is 'likely to be taken for it' rather than 'likely to deceive or cause confusion'.",
+      "quote": {
+       "ref": "TMA1995/s39",
+       "text": "a sign so nearly resembling",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -3452,6 +3732,11 @@
        "non-traditional sign"
       ],
       "notes": "The shortest ground in the Act and the one most likely to be confused with a formality requirement. It bites on the mark itself, not on the paperwork.",
+      "quote": {
+       "ref": "TMA1995/s40",
+       "text": "An application for the registration of a trade mark must be rejected if the trade mark cannot be represented graphically.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -3527,6 +3812,11 @@
        "distinctive"
       ],
       "notes": "The section 41 ground turns on this and nothing else; inherent adaptation and use are the two routes to it, not synonyms for it. The Manual's Part 22 is titled 'Section 41 - Capable of Distinguishing'.",
+      "quote": {
+       "ref": "TMA1995/s41",
+       "text": "An application for the registration of a trade mark must be rejected if the trade mark is not capable of distinguishing the applicant’s goods or services",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -3605,6 +3895,11 @@
        "evidence of use"
       ],
       "notes": "The Manual sets out a two-part process — ordinary signification, then the likelihood that other traders would legitimately wish to use the mark — and sorts every mark examined into one of three categories on the answer.",
+      "quote": {
+       "ref": "TMM/Part22/3#1~1",
+       "text": "to what extent is the applicant's trade mark inherently adapted to distinguish their goods or services? This determination involves a two-part process",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -3681,6 +3976,11 @@
        "dictionary meaning"
       ],
       "notes": "The first half of the Manual's two-part inherent-adaptation process. It is assessed 'in the light of the applied for goods and/or services', so it is not the word's meaning in the abstract.",
+      "quote": {
+       "ref": "TMM/Part22/3#1~1",
+       "text": "firstly, determining the ordinary signification of the trade mark in the light of the applied for goods and/or services",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -3753,6 +4053,11 @@
        "honest concurrent use"
       ],
       "notes": "The second half of the two-part process. The label is this repository's, not the Manual's — the Manual states the idea in a clause rather than naming it — and that is the most likely thing to be wrong about this record.",
+      "quote": {
+       "ref": "TMM/Part22/3#1~1",
+       "text": "secondly, determining the likelihood that other traders might legitimately wish to use the trade mark for that ordinary signification in connection with their similar goods or services",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -3826,6 +4131,11 @@
        "prescribed sign"
       ],
       "notes": "One of the two limbs of section 42; the Manual's Part 30 pairs it with use contrary to law but the Act keeps them as separate paragraphs, and only this one is about the mark's content rather than the consequences of using it.",
+      "quote": {
+       "ref": "TMM/Part30/2#1",
+       "text": "An application for the registration of a trade mark must be rejected if it contains or consists of scandalous matter (section 42(a)).",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -3902,6 +4212,11 @@
        "prohibited sign"
       ],
       "notes": "The second limb of section 42. The Manual's Annex A1 lists the other legislation that may trigger it, which is what makes this ground unusual: its content lives outside the Trade Marks Act entirely.",
+      "quote": {
+       "ref": "TMM/Part30/3#1",
+       "text": "Under section 42(b), an application for registration of a trade mark must be rejected if use of the trade mark would be contrary to law.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -3982,6 +4297,11 @@
        "prescribed sign"
       ],
       "notes": "The Manual's Part 26 title is 'Section 44 and Regulation 4.15A - Conflict with Other Signs'. Note that the Manual states the purpose of the section as preventing confusion, which is the same language section 43 uses for a different ground — the two must not be collapsed.",
+      "quote": {
+       "ref": "TMM/Part26/1#1",
+       "text": "Section 44 is intended to prevent registration of trade marks if the use of the two trade marks in the market would likely lead to confusion.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -4058,6 +4378,11 @@
        "identical"
       ],
       "notes": "One of the two comparisons section 44 turns on, and the only one the Act does not define. The Manual gives it no definition either — it states that the ground depends on the two comparisons and then works through the case law.",
+      "quote": {
+       "ref": "TMM/Part26/5#1",
+       "text": "The existence of grounds for rejection under section 44 will depend on whether the trade marks under consideration are “substantially identical” or “deceptively similar”.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -4135,6 +4460,11 @@
        "evidence of use"
       ],
       "notes": "The Manual sets out five criteria and makes honesty a threshold requirement without which paragraph 44(3)(a) cannot be satisfied. Note the modality: if satisfied, the Registrar *may* accept — this is a discretion, not an entitlement.",
+      "quote": {
+       "ref": "TMM/Part28/2#1",
+       "text": "In order to overcome grounds for rejection under ss 44(1) or 44(2) of the Act, an applicant may, under para 44(3)(a), file evidence to establish honest concurrent use of their trade mark in Australia.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -4211,6 +4541,11 @@
        "first use"
       ],
       "notes": "Distinguished from honest concurrent use by its modality as much as its content: where s 44(3) says the Registrar *may* accept, s 44(4) says the Registrar *may not reject*. The Manual sets out the elements an applicant must satisfy.",
+      "quote": {
+       "ref": "TMM/Part28/6#1",
+       "text": "Subsection 44(4) makes provision for the prior use of a trade mark in Australia, used continuously during a period beginning on a date before the priority date for the registration of a cited trade mark",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -4286,6 +4621,11 @@
        "conditions and limitations"
       ],
       "notes": "The Manual grounds this in the commercial realities that make acceptance proper notwithstanding a real risk of deception or confusion. It is the most open-textured of the three ways round section 44.",
+      "quote": {
+       "ref": "TMM/Part28/4#1",
+       "text": "Acceptance based on ‘other circumstances’ depends on a consideration of the commercial realities which, in the Registrar’s opinion, make the acceptance of an application proper notwithstanding a real risk of deception or confusion.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -4362,6 +4702,11 @@
        "other circumstances"
       ],
       "notes": "The Act defines 'limitations' in section 6 and uses 'conditions or limitations' as a pair in sections 33(2) and 44(3). The Manual treats them as the price of acceptance under subsection 44(3).",
+      "quote": {
+       "ref": "TMA1995/s44",
+       "text": "the Registrar may accept the application for the registration of the applicant’s trade mark subject to any conditions or limitations that the Registrar thinks fit to impose",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -4441,6 +4786,11 @@
        "classification of goods and services"
       ],
       "notes": "The Manual is explicit that classification is not the determining factor, which is the single most useful thing in this record: the class number and the similarity question are different things and are routinely confused.",
+      "quote": {
+       "ref": "TMM/Part26/4#1",
+       "text": "Classification is not the determining factor in considering the similarity of goods or services.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -4517,6 +4867,11 @@
        "similar services"
       ],
       "notes": "Section 44 pairs 'similar goods' with 'closely related services' and vice versa. Unlike similarity, the Act does not define closeness of relation anywhere.",
+      "quote": {
+       "ref": "TMA1995/s44",
+       "text": "a trade mark registered by another person in respect of similar goods or closely related services",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -4592,6 +4947,11 @@
        "business name"
       ],
       "notes": "The Manual makes the point that matters most here: the definition of trade mark is closed and exhaustive, while the definition of sign is open and inclusive. A sign is a trade mark only when used or intended to be used to distinguish in the course of trade.",
+      "quote": {
+       "ref": "TMA1995/s17",
+       "text": "A trade mark is a sign used, or intended to be used, to distinguish goods or services dealt with or provided in the course of trade by a person from goods or services so dealt with or provided by any other person.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -4667,6 +5027,11 @@
        "representation of the trade mark"
       ],
       "notes": "Section 6's list is inclusive, so the enumerated items — letter, word, name, signature, numeral, device, brand, heading, label, ticket, aspect of packaging, shape, colour, sound, scent — are examples rather than a closed set. That is the whole basis of the Manual's Part 21 on non-traditional signs.",
+      "quote": {
+       "ref": "TMA1995/s6/sign",
+       "text": "sign includes the following or any combination of the following, namely, any letter, word, name, signature, numeral, device, brand, heading, label, ticket, aspect of packaging, shape, colour, sound or scent.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -4746,6 +5111,11 @@
        "device"
       ],
       "notes": "Not a statutory category. The Manual groups shapes, colours, sounds, scents, moving images, holograms and gestures under this heading because the 1995 Act broadened the definition of a trade mark to reach them.",
+      "quote": {
+       "ref": "TMM/Part21/1#1",
+       "text": "One of the intentions of the introduction of the Trade Marks Act 1995 was to broaden the definition of a trade mark.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -4819,6 +5189,11 @@
        "colour trade mark"
       ],
       "notes": "Registrable because section 6 names 'shape' in the definition of sign. The Manual records that this reversed the pre-1995 position, in which a mark had to be something separate from the goods.",
+      "quote": {
+       "ref": "TMM/Part21/3#1",
+       "text": "Since the definition of \"sign\" in section 6 of the 1995 Act specifically mentions ‘shape’ as a sign, there is no doubt that a three-dimensional shape is registrable as a trade mark",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -4892,6 +5267,11 @@
        "composite trade mark"
       ],
       "notes": "The Manual distinguishes a colour used as the trade mark from colour as an aspect of packaging or of a label — the same colour can be either, and which it is changes the examination.",
+      "quote": {
+       "ref": "TMM/Part21/4#1",
+       "text": "A colour, by itself or in combination with other colours and/or any of the other features which fall within the definition of a sign, may be used as a trade mark.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -4964,6 +5344,11 @@
        "sign"
       ],
       "notes": "The Manual's test is functional rather than formal: whatever the sound is, it must serve the purpose of identifying the trade source.",
+      "quote": {
+       "ref": "TMM/Part21/6#1",
+       "text": "A sound trade mark can be anything auditory.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -5042,6 +5427,11 @@
        "sign"
       ],
       "notes": "The Manual identifies graphical representation as the hard problem for scent, which ties this concept to the section 40 ground more tightly than any other sign kind.",
+      "quote": {
+       "ref": "TMM/Part21/7#1",
+       "text": "Scent is one of the most difficult non-traditional signs to represent graphically.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -5115,6 +5505,11 @@
        "composite trade mark"
       ],
       "notes": "A single application for two or more marks that resemble each other in material particulars and differ only in the ways section 51 lists. The 'material particulars' requirement is what does the work and the Manual gives it its own numbered section.",
+      "quote": {
+       "ref": "TMA1995/s51",
+       "text": "A person may make a single application under subsection 27(1) for the registration of 2 or more trade marks in respect of goods and/or services if the trade marks resemble each other in material particulars",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -5190,6 +5585,11 @@
        "deceptively similar"
       ],
       "notes": "A third resemblance test, and the corpus defines it no better than it defines substantial identity. Distinct from both section 44 comparisons: it asks whether two marks of one owner are close enough to share an application.",
+      "quote": {
+       "ref": "TMA1995/s51",
+       "text": "the trade marks resemble each other in material particulars",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -5267,6 +5667,11 @@
        "evidence of use"
       ],
       "notes": "The Manual calls use a concept fundamental to trade mark law and lists the questions it bears on: capability to distinguish, honest concurrent or prior use, ownership. Section 6 says its meaning is 'affected by' subsections 7(1), (2) and (3) — which is not the same as being defined by them.",
+      "quote": {
+       "ref": "TMM/Part19A/1#1",
+       "text": "As such, ‘use’ is a concept fundamental to trade mark law.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -5345,6 +5750,11 @@
        "assignment"
       ],
       "notes": "Control by the owner is the whole of it: section 8(2) makes use authorised only to the extent the user acts under the owner's control. Section 7(3) then treats authorised use as use by the owner, which is why it matters to section 41 and section 44(4).",
+      "quote": {
+       "ref": "TMA1995/s8",
+       "text": "The use of a trade mark by an authorised user of the trade mark is an authorised use of the trade mark to the extent only that the user uses the trade mark under the co",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -5415,6 +5825,11 @@
        "predecessor in title"
       ],
       "notes": "The person, as against the use. Section 8(1) makes control the test for both, but the Act keeps them in separate subsections and section 26 gives the authorised user rights of its own.",
+      "quote": {
+       "ref": "TMA1995/s8",
+       "text": "A person is an authorised user of a trade mark if the person uses the trade mark in relation to goods or services under the control of the owner of the trade mark.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -5490,6 +5905,11 @@
        "predecessor in title"
       ],
       "notes": "Defined by the Register: the person in whose name the mark is registered. That is narrower than ownership at common law, and the Manual's Part 19B treats the registration as personal property held by that person.",
+      "quote": {
+       "ref": "TMA1995/s6/registered-owner",
+       "text": "registered owner, in relation to a registered trade mark, means the person in whose name the trade mark is registered.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -5567,6 +5987,11 @@
        "assignment"
       ],
       "notes": "Load-bearing in two places at once: section 41(5) makes a predecessor's use count as the applicant's for distinctiveness, and section 44(4) does the same for prior use. The section 6 definition itself is a stub that continues into a list.",
+      "quote": {
+       "ref": "TMA1995/s41",
+       "text": "the use of a trade mark by a predecessor in title of an applicant for the registration of the trade mark is taken to be a use of the trade mark by the applicant",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -5640,6 +6065,11 @@
        "change of ownership"
       ],
       "notes": "Defined narrowly by the Act as an assignment by act of the parties. Transmission is the other half of the pair and covers what happens without such an act — the Manual's Part 43 title carries both.",
+      "quote": {
+       "ref": "TMA1995/s6/assignment",
+       "text": "assignment, in relation to a trade mark, means an assignment by act of the parties concerned.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -5708,6 +6138,11 @@
        "change of ownership"
       ],
       "notes": "The section 6 definition is a stub continuing into a list, so this record's evidence comes from the Manual rather than from the definition itself.",
+      "quote": {
+       "ref": "TMM/Part43/1#1~1",
+       "text": "Assignment or transmission of a trade mark refers to the process by which ownership of a registered trade mark or a trade mark whose registration is being sought may be passed from one party to another.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -5781,6 +6216,11 @@
        "protected international trade mark"
       ],
       "notes": "Defined by an entry in the Register, not by any quality of the mark. Distinguished from 'trade mark' — section 17's definition is satisfied by use or intended use, with no registration required.",
+      "quote": {
+       "ref": "TMA1995/s6/registered-trade-mark",
+       "text": "registered trade mark means a trade mark whose particulars are entered in the Register under this Act.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -5859,6 +6299,11 @@
        "old register"
       ],
       "notes": "Kept under section 207. The Act also defines 'old register' and the Regulations define a 'Record of International Registrations', and the three must not be merged — an entry in one is not an entry in another.",
+      "quote": {
+       "ref": "TMA1995/s6/register",
+       "text": "Register means the Register of Trade Marks kept under section 207.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -5929,6 +6374,11 @@
        "date of registration"
       ],
       "notes": "Section 44 turns on a comparison of priority dates, and a convention claim can move one. Distinct from the filing date, which section 6 defines separately, though for many applications the two coincide. GC-0016 already holds this term from the section 43 pilot.",
+      "quote": {
+       "ref": "TMA1995/s12",
+       "text": "The priority date for the registration of a trade mark in respect of particular goods or services is:",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6002,6 +6452,11 @@
        "date of registration"
       ],
       "notes": "Section 41(3)(b) makes use 'before the filing date' the thing that can rescue a mark with no inherent adaptation, so the filing date is not merely administrative.",
+      "quote": {
+       "ref": "TMA1995/s41",
+       "text": "the applicant has not used the trade mark before the filing date in respect of the application",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6075,6 +6530,11 @@
        "hearing"
       ],
       "notes": "Section 31 gives examination two subjects and only two: whether the application was made in accordance with the Act, and whether there are grounds for rejecting it. Section 33 then makes acceptance the default unless the Registrar is satisfied of one of those.",
+      "quote": {
+       "ref": "TMA1995/s31",
+       "text": "The Registrar must, in accordance with the regulations, examine and report on: (a) whether the application has been made in accordance with this Act; and (b) whether there are grounds under this Act for rejecting it.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6150,6 +6610,11 @@
        "deferment of acceptance"
       ],
       "notes": "Section 33(1) makes acceptance mandatory unless the Registrar is satisfied of a defect or a ground — that is the presumption of registrability in operation. Acceptance is not registration: section 33 accepts, publication and opposition follow, and registration comes later.",
+      "quote": {
+       "ref": "TMA1995/s33",
+       "text": "The Registrar must, after the examination, accept the application unless he or she is satisfied that:",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6226,6 +6691,11 @@
        "rectification"
       ],
       "notes": "Available where information received after acceptance indicates the mark should not have been accepted. Distinct from revocation of registration under sections 84A to 84D, which the Manual gives a separate Part. GC-0042 already holds this term.",
+      "quote": {
+       "ref": "TMM/Part38/1#1",
+       "text": "The acceptance of an application can be revoked if information is received after acceptance that indicates the trade mark should not have been accepted.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6299,6 +6769,11 @@
        "removal for non-use"
       ],
       "notes": "The Manual expects it to be rare and records that the Registrar is not obliged to consider it even on a third party's request. That discretion is the most examinable thing about the concept.",
+      "quote": {
+       "ref": "TMM/Part62/1#1",
+       "text": "Sections 84A to 84D allow the Registrar of Trade Marks to revoke the registration of a trade mark in circumstances in which it appears that the registration should not have occurred.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6380,6 +6855,11 @@
        "lapsing"
       ],
       "notes": "The Manual's own gloss is the useful part: the acceptance period is 'set in abeyance'. That distinguishes it from an extension of time, which lengthens a period rather than suspending it.",
+      "quote": {
+       "ref": "TMM/Part17/1#1",
+       "text": "Deferment of acceptance is where the period of time that is allowed under subsection 37(1) and reg 4.12 for an application to gain acceptance is set in abeyance - deferred - because a request for deferment has been made",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6454,6 +6934,11 @@
        "cooling-off period"
       ],
       "notes": "Available across the Act wherever a time is set, and the Manual notes the procedure differs by which time is being extended. That variability is why it is one concept with many procedures rather than many concepts.",
+      "quote": {
+       "ref": "TMM/Part15/1#1~1",
+       "text": "When the Act and Regulations set a time in which to perform an act or file a document, that time can frequently be extended upon request.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6527,6 +7012,11 @@
        "rejection"
       ],
       "notes": "Automatic on the expiry of the acceptance period, so it is not a decision anybody makes. That is what separates it from rejection and from withdrawal.",
+      "quote": {
+       "ref": "TMM/Part16/1/1/1",
+       "text": "an application lapses if it is not accepted within the prescribed period or within that period as extended in accordance with the regulations",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6599,6 +7089,11 @@
        "conditions or limitations"
       ],
       "notes": "The Manual defines it as a limitation of the exclusive rights given by registration, and explains that the owner never had exclusive rights in part of a mark anyway — so a disclaimer records something rather than creating it.",
+      "quote": {
+       "ref": "TMM/Part24/1#1",
+       "text": "A disclaimer is a limitation of the exclusive rights given by registration to use and authorise the use of a trade mark (subsection 74(1)).",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6672,6 +7167,11 @@
        "conditions or limitations"
       ],
       "notes": "The Manual treats an endorsement as what goes on the Register to record that an application was accepted on evidence or other circumstances. It is a record of how a ground was overcome, which makes it evidence about the mark's history.",
+      "quote": {
+       "ref": "TMM/Part23/6#1",
+       "text": "If an application is accepted on the basis of evidence or other circumstances, the relevant endorsement will be entered on the Register.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6746,6 +7246,11 @@
        "evidence in support"
       ],
       "notes": "Formal evidence filed to overcome a section 41 ground, once the Registrar remains satisfied after submissions that the mark is not capable of distinguishing. The Manual makes the sequence explicit and it matters: evidence comes after argument, not instead of it.",
+      "quote": {
+       "ref": "TMM/Part23/3#1",
+       "text": "When grounds for rejection under s 41 have been raised and the Registrar remains satisfied (after considering any submissions or proposed amendments filed by the applicant) that the trade mark is not capable of distinguishing the applicant's goods and/or services, the trade mark owner may provide formal evidence of use.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6820,6 +7325,11 @@
        "rectification"
       ],
       "notes": "A formal objection by a third party. The Manual notes that any person may oppose but that the opponent is generally somebody affected — which is a practice observation rather than a standing requirement, and the record keeps it in notes for that reason.",
+      "quote": {
+       "ref": "TMM/Part46/1#1",
+       "text": "Opposition is a formal objection by a third party to registration of a trade mark or to protection of an International Trade Mark Designating Australia (IRDA).",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6891,6 +7401,11 @@
        "notice of intention to defend"
       ],
       "notes": "A composite: the Regulations define it as a notice of intention to oppose plus a statement of grounds and particulars. Both components are separately defined terms, so the corpus holds three related definitions where a reader might expect one.",
+      "quote": {
+       "ref": "TMM/Part47/1#1",
+       "text": "A notice of opposition means a notice of intention to oppose and a statement of grounds and particulars (regs 5.2, 17A.29).",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -6966,6 +7481,11 @@
        "cancellation of registration"
       ],
       "notes": "The Manual grounds it in section 17: use is inherent in what a trade mark is, so a mark that is not used may be removed. The onus sits on the opponent once the application is opposed, which is unusual and worth carrying.",
+      "quote": {
+       "ref": "TMM/Part48/1#1",
+       "text": "Section 92 provides for a person to apply for a trade mark to be removed from the Register if the trade mark has not been used.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -7048,6 +7568,11 @@
        "amendment"
       ],
       "notes": "A court remedy, not a Registrar's one: the amendment or cancellation results from an order of a prescribed court. That is what separates it from every other correction mechanism in the Act.",
+      "quote": {
+       "ref": "TMM/Part42/1#1",
+       "text": "Rectification involves the amendment or cancellation of an entry in the Register. The amendment or cancellation results from an order given by a prescribed court.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -7121,6 +7646,11 @@
        "restoration"
       ],
       "notes": "Renewable indefinitely at ten-year intervals from the filing date, and — unusually — any person may effect it, not only the owner.",
+      "quote": {
+       "ref": "TMM/Part40/1#1",
+       "text": "A trade mark registration may be renewed at ten year intervals dating from the original filing date of the application for registration.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -7202,6 +7732,11 @@
        "trade mark"
       ],
       "notes": "Distinguishes certified goods or services from uncertified ones, and the certifying is done by the owner or an approved certifier. The ACCC has a role the ordinary registration process does not have.",
+      "quote": {
+       "ref": "TMM/Part35/1#1",
+       "text": "A certification trade mark is used or intended to be used to distinguish goods or services dealt with or provided in the course of trade and certified by the owner of the trade mark or by another person approved by the owner of the trade mark (an approved certifier), from goods or services not so certified (section 169).",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -7276,6 +7811,11 @@
        "defensive trade mark"
       ],
       "notes": "Distinguishes the goods or services of members of an association from those of non-members. The Manual's own contrast is the useful part: unlike a certification mark, use of a collective mark need not be subject to approved rules.",
+      "quote": {
+       "ref": "TMM/Part33/1#1",
+       "text": "A collective trade mark is a sign used or intended to be used, in relation to goods or services dealt with or provided in the course of trade by members of an association to distinguish those goods or services from goods or services so dealt with or provided by persons who are not",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -7351,6 +7891,11 @@
        "registered trade mark"
       ],
       "notes": "Requires an existing registration and a reputation extensive enough that use on other goods would be taken to indicate a connection. It is the one registration in the Act that does not require an intention to use.",
+      "quote": {
+       "ref": "TMM/Part34/1/1/1",
+       "text": "To qualify for a defensive trade mark registration, the trade mark had to be already registered in Australia as a distinctive trade mark.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -7428,6 +7973,11 @@
        "convention application"
       ],
       "notes": "A limited continuation of a parent application that keeps the parent's priority date but takes a new number. The priority-date inheritance is what makes it matter to section 44. GC-0043 already holds this term.",
+      "quote": {
+       "ref": "TMM/Part12/1#1",
+       "text": "Divisional applications claim the priority date of the original parent application, however, they receive a new trade mark number",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -7508,6 +8058,11 @@
        "international registration"
       ],
       "notes": "A claim under the Paris Convention that moves the priority date back to an earlier foreign filing. The Manual defines 'Convention country' by two routes — Paris signatory or full WTO member — which is worth carrying because they are not the same set.",
+      "quote": {
+       "ref": "TMM/Part11/1/1/2",
+       "text": "A Convention country is a foreign country or region of a kind prescribed by the regulations (section 6).",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -7582,6 +8137,11 @@
        "IRDA"
       ],
       "notes": "A treaty, administered by WIPO's International Bureau, under which one application in English with one set of fees produces one international registration. Everything in Part 60 hangs off it.",
+      "quote": {
+       "ref": "TMM/Part60/1/1/1",
+       "text": "The Madrid Protocol is a treaty providing for the international registration of trade marks. It is administered by the International Bureau (IB) of the World Intellectual Property Organization (WIPO).",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -7657,6 +8217,11 @@
        "trade mark application"
       ],
       "notes": "The Australian half of a Madrid registration. It is examined much as a domestic application is, which is why the Manual's Parts 26 to 31 keep referring to it, and it becomes a protected international trade mark rather than a registered trade mark.",
+      "quote": {
+       "ref": "TMR1995/r2.1/irda",
+       "text": "IRDA has the meaning given by regulation 17A.2.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -7735,6 +8300,11 @@
        "international registration"
       ],
       "notes": "The Madrid equivalent of a registered trade mark, and section 44's note 4 makes it citable against a domestic application. Holding it apart from 'registered trade mark' is what lets a citation search reach both.",
+      "quote": {
+       "ref": "TMA1995/s44",
+       "text": "The regulations may provide that an application must also be rejected if the trade mark is substantially identical with, or deceptively similar to, a protected international trade mark",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -7812,6 +8382,11 @@
        "prescribed court"
       ],
       "notes": "Almost every duty and discretion in the Act is the Registrar's. Section 205 makes a Deputy Registrar's exercise of a power count as the Registrar's, which is why decisions issued by a Deputy are the Registrar's decisions. GC-0046 already holds this term.",
+      "quote": {
+       "ref": "TMA1995/s6/registrar",
+       "text": "Registrar means the Registrar of Trade Marks.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -7887,6 +8462,11 @@
        "authorised user"
       ],
       "notes": "Defined by the Act as the person in whose name the application currently stands — so the applicant can change without the application changing. The Manual's Part 10 treats getting the identity right as a formality requirement in its own right.",
+      "quote": {
+       "ref": "TMA1995/s6/applicant",
+       "text": "applicant, in relation to an application, means the person in whose name the application is for the time being",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -7958,6 +8538,11 @@
        "requester"
       ],
       "notes": "Defined in five different places across the Regulations as well as in section 6 — one per opposition type. The multiplicity is real and this record does not resolve it.",
+      "quote": {
+       "ref": "TMM/Part46/1#1",
+       "text": "Any person may oppose but the opponent is generally a person who will be in some way affected by the presence of the trade mark on the Register.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -8032,6 +8617,11 @@
        "acceptance"
       ],
       "notes": "The Manual is careful here and the record follows it: the expression does not appear in the Act. It is a reading of section 33's structure, endorsed by Branson J in Blount, that the Registrar must accept unless satisfied of a ground. GC-0007 already holds this term.",
+      "quote": {
+       "ref": "TMM/Part22/2#1",
+       "text": "However the expression does not appear in the Act itself.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -8109,6 +8699,11 @@
        "inherent adaptation to distinguish"
       ],
       "notes": "The first of the Manual's three categories. A mark is here if it has no ordinary signification for the goods, or has one that other traders are not likely to want without improper motive.",
+      "quote": {
+       "ref": "TMM/Part22/4#1",
+       "text": "If the trade mark has no ordinary signification in connection with the goods and/or services applied for then it can be taken to be inherently adapted to distinguish.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -8179,6 +8774,11 @@
        "inherent adaptation to distinguish"
       ],
       "notes": "The Manual's third category and the hardest to overcome: only use before the filing date sufficient to make the mark in fact distinguish will do it. The Manual's list of examples — pictorial representations, geographical names, laudatory words — is the practical content of the category.",
+      "quote": {
+       "ref": "TMM/Part22/6#1",
+       "text": "Trade marks that have no inherent adaptation to distinguish the goods or services of one trader from those of other traders include signs which are: pictorial representations of the goods or services, geographical names like OREGON, MICHIGAN and OXFORD; highly laudatory words like PERFECTION and BEAUTIFUL",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -8253,6 +8853,11 @@
        "specification of goods and services"
       ],
       "notes": "The largest Part of the Manual by chunk count — 743 of 2,460 — and the one most easily confused with the similarity question. Part 26 says in terms that classification does not determine similarity.",
+      "quote": {
+       "ref": "TMM/Part14/1#1~1",
+       "text": "This Part of the Manual sets out the purpose of classification, guidelines for classification, restrictions applying to amendments, and examination practice.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -8331,6 +8936,11 @@
        "deferment of acceptance"
       ],
       "notes": "Applications are examined in filing order unless the Registrar reasonably believes expedition is warranted. Note the modality — the Registrar *may* expedite, on a reasonable belief.",
+      "quote": {
+       "ref": "TMM/Part6/1#1",
+       "text": "The Registrar may expedite examination of an application if he or she reasonably believes that expedited examination is warranted (reg 4.19).",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -8406,6 +9016,11 @@
        "amendment"
       ],
       "notes": "Available at any time while the thing withdrawn is still being considered, and the Registrar must publish it. Distinct from lapsing, which happens without anybody doing anything.",
+      "quote": {
+       "ref": "TMM/Part7/1#1",
+       "text": "Section 214 provides that a person who has filed an application, notice or request may withdraw it by giving the Registrar notice of withdrawal in writing.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -8485,6 +9100,11 @@
        "divisional application"
       ],
       "notes": "Part 6 of the Act governs amendment before registration and Division 1 of Part 8 after it — two regimes, and which one applies depends on where the mark has got to.",
+      "quote": {
+       "ref": "TMM/Part9/1#1",
+       "text": "Amendments to trade mark application details, and other documents, can be made under Part 6 of the Act. Amendments to details of a registered trade mark can be made under Division 1 of Part 8 of the Act.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -8560,6 +9180,11 @@
        "generic term"
       ],
       "notes": "Examination of Class 31 plant applications takes in the Plant Breeder's Rights Act 1994 — legislation outside the Trade Marks Act entirely. That is the interesting thing about this concept and the reason it is held.",
+      "quote": {
+       "ref": "TMM/Part32A/1/1/1",
+       "text": "Examination of trade mark applications filed in Class 31 in respect of plants and plant material involves consideration of additional requirements arising from the Plant Breeder’s Rights Act 1994",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -8634,6 +9259,11 @@
        "plant varietal name"
       ],
       "notes": "The second place examination reaches outside the trade marks legislation: the Wine Australia Act 2013. Distinguished from the section 6 'geographical indication' because the protection comes from a different statute.",
+      "quote": {
+       "ref": "TMM/Part32B/1/1/1",
+       "text": "Examination of trade mark applications filed in respect of wines and grape products such as brandy, grappa and fortified wines involves consideration of additional requirements arising from the Wine Australia Act 2013.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -8708,6 +9338,11 @@
        "ground for rejection"
       ],
       "notes": "The Manual's Part 52 opens by listing what gets decided — oppositions to registration, to removal for non-use, to procedural matters — and section 205 makes a Deputy Registrar's decision the Registrar's.",
+      "quote": {
+       "ref": "TMM/Part52/1#1~1",
+       "text": "Opposition to registration of a trade mark, opposition to removal of a trade mark from the Register for non- use, opposition to procedural",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -8783,6 +9418,11 @@
        "examination"
       ],
       "notes": "Section 33(4) makes an opportunity to be heard a precondition of rejection, which is what ties hearings to examination rather than to opposition alone.",
+      "quote": {
+       "ref": "TMA1995/s33",
+       "text": "The Registrar may not reject an application without giving the applicant an opportunity of being heard.",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -8857,6 +9497,11 @@
        "similarity of goods and services"
       ],
       "notes": "What the applicant claims, as against how it is classified and whether it is similar to something else. Amending it is one of the Manual's named ways of overcoming a section 44 ground. GC-0012 already holds this term.",
+      "quote": {
+       "ref": "TMM/Part27/1#1",
+       "text": "Amend the specification in order to remove all goods/services that conflict with the earlier trade mark(s)",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",
@@ -8931,6 +9576,11 @@
        "connotation"
       ],
       "notes": "Does different work in different places: it is what a defensive registration rests on, and it is the basis of the section 60 opposition ground. GC-0050 already holds this term from the section 43 pilot.",
+      "quote": {
+       "ref": "TMM/Part34/1/1/1",
+       "text": "The trade mark had also to have been used to such an extent, on some or all of the goods and/or services for which it was registered, that the use of the trade mark in relation to other goods or services would b",
+       "from": "the record's own evidence"
+      },
       "authored": {
        "review_status": "unreviewed",
        "authored_by": "claude-opus-5",

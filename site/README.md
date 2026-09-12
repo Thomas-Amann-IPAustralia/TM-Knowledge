@@ -58,7 +58,17 @@ the decision form, which has state and owns `inbox.js`.
 
 `network` and `tree` are big enough to own a file each — `network.js` and
 `tree.js` — and they are still only renderers: they decide where a dot goes and
-what is dimmed, never which dots exist or what joins them.
+what is dimmed, never which dots exist or what joins them. Both are canvases the
+reader moves around in: pan, zoom, and **drag a node** — on the map it stays
+where it is dropped, on the tree its whole branch travels with it. The map opens
+on one idea and grows a hop at a time (ADR-0107); the tree opens on the eleven
+section questions with each *yes* branch still folded (ADR-0106). Every concept
+node on both shows **the passage its record quotes** (ADR-0108).
+
+Two traps live in these two files and both are recorded. A renderer must not
+measure anything on its first pass — a block is detached until the router
+appends it, so `offsetHeight` reads 0 with no error (Q-63) — and the map's force
+constants must be measured rather than eyeballed after a change (Q-62).
 
 That split is the point, and it is what makes the site cheap to change as the
 ontology moves:

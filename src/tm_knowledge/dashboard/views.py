@@ -26,14 +26,23 @@ collapses a provision ref into its root: `TMA1995/s41(3)(a)` is a node, `root`
 is an attribute of it, and the rolling-up happens in the browser where the
 reader can turn it off.
 
-*The decision tree* hangs the four reasoning groups off the sections of the Act
-they cite. A section becomes a branch when a `ground_of_refusal` or a
-`legal_test` concept cites it; a concept joins that branch when it cites the
-section itself, or when a signed relationship or a SKOS edge joins it to a
-concept that does. A concept that joins no branch is shown in a branch of its
-own, and a branch holding tests but no ground concept is marked as such —
-both of those are findings, and hiding them would be the whole failure mode of
-a picture (ADR-0105).
+*The decision tree* is a **binary tree of questions** over the four reasoning
+groups. A section of the Act becomes a branch point when a `ground_of_refusal` or
+a `legal_test` concept cites it, and asks whether a ground under it arises: *no*
+carries the walk to the next section — that chain is the spine — and *yes* opens
+the questions recorded at that one, each of them a `legal_test` whose label has
+been put into question form. A concept joins a section when it cites the section
+itself, or when a signed relationship or a SKOS edge joins it to a concept that
+does. A factor is read *at* a branch point rather than being one, and hangs off
+the section. A concept that joins nothing is shown beside the tree, and a section
+with no ground concept is marked — both of those are findings, and hiding them
+would be the whole failure mode of a picture (ADR-0106, superseding ADR-0105 on
+shape).
+
+**Turning a label into a question is the furthest this module goes.** It is a
+transcription through one of three templates, and nothing here decides how a
+question is answered: every path, at every branch point, ends on the leaf that
+says the system does not state an outcome.
 """
 
 from __future__ import annotations
@@ -282,6 +291,9 @@ def _concept_node(view: ConceptView) -> dict[str, Any]:
         node["not"] = list(view.not_labels)
     if view.notes:
         node["notes"] = str(view.notes)
+    quote = _quote(view)
+    if quote:
+        node["quote"] = quote
     if view.origin == "approved":
         node["signed"] = {"by": view.signed_by, "date": view.signed_date}
     if view.authored:
@@ -295,6 +307,33 @@ def _concept_node(view: ConceptView) -> dict[str, Any]:
             "authored": _envelope(view.typed_by) if view.typed_by else None,
         }
     return node
+
+
+def _quote(view: ConceptView) -> dict[str, Any] | None:
+    """The first passage the record's own envelope quotes, verbatim.
+
+    Every node on both views used to show a label and a group name, and a
+    reader who did not already know the vocabulary had nothing concrete to hold
+    on to — the owner's word for it was *abstract*. This puts the corpus's own
+    sentence on the face of the node.
+
+    It is a **quotation and never a definition** (the distinction the harness
+    enforces, and `test_neither_view_carries_a_definition` pins). The text is
+    copied from an `evidence` entry a record already carries, with the ref it
+    was taken from, and nothing is written, trimmed to a gist or paraphrased. A
+    signed concept carries no envelope of its own, so its quote comes from the
+    machine typing that sorted it — and `from` says which of the two it was, so
+    a reader is never left guessing whose evidence they are reading.
+    """
+    for envelope, provenance in (
+        (view.authored, "the record's own evidence"),
+        (view.typed_by, "the evidence for the group it was sorted into"),
+    ):
+        for item in (envelope or {}).get("evidence") or ():
+            text = str(item.get("quote") or "").strip()
+            if text:
+                return {"ref": str(item.get("ref") or ""), "text": text, "from": provenance}
+    return None
 
 
 def _envelope(envelope: dict[str, Any]) -> dict[str, Any]:
@@ -535,11 +574,126 @@ def _tree_node(view: ConceptView, *, basis: str, also: Sequence[str] = ()) -> di
     return node
 
 
+# --------------------------------------------------------------- the questions
+
+#: How a record becomes a question, and nothing more than this happens.
+#:
+#: A `legal_test` is, in the taxonomy's own words, *"a question the decision
+#: maker has to answer"* — so the label of one is put into question form and
+#: becomes a branch point. A `ground_of_refusal` is *"a reason an application
+#: can be refused"*, so the section that holds one becomes the gate that asks
+#: whether it arises. An `exception` is *"something that takes a case out of the
+#: rule"*, so it is asked after the tests on the path where they were answered
+#: yes.
+#:
+#: The templates are **mechanical**: a label goes in, a question comes out, and
+#: nothing anywhere decides how the question is answered. That distinction is
+#: the whole licence for this page — putting a recorded label into question form
+#: is arranging, and saying what the answer is would be stating an examination
+#: outcome, which the programme does not do (CLAUDE.md §2, ADR-0082).
+GATE_TEMPLATES: dict[str, str] = {
+    "section": "Does a ground under {provision} arise on this application?",
+    "test": "Is {label} made out?",
+    "exception": "Does an exception recorded at {provision} apply?",
+}
+
+
+def _depth(node: dict[str, Any]) -> int:
+    """The longest path from a node to a leaf, in branch points."""
+    children = node.get("children") or ()
+    return 1 + max((_depth(child) for child in children), default=0)
+
+
+def _outcome_leaf(identifier: str, *, variant: str, answer: str | None = None) -> dict[str, Any]:
+    """The leaf every path ends on. There are two wordings and neither is an outcome.
+
+    `not_stated` closes a path where a gate was answered; `clear` closes the one
+    path where every gate on the spine was answered no. They say different
+    things about *where the walk got to* and the same thing about what the
+    system concludes, which is nothing (ADR-0105, `PU-0003`).
+    """
+    node: dict[str, Any] = {
+        "id": identifier,
+        "kind": "outcome",
+        "variant": variant,
+        "label": (
+            "The outcome — which this system does not state"
+            if variant == "not_stated"
+            else "No ground recorded here is reached — which is still not an outcome"
+        ),
+    }
+    if answer:
+        node["answer"] = answer
+    return node
+
+
+def _consideration(
+    view: ConceptView,
+    *,
+    basis: str,
+    also: Sequence[str] = (),
+) -> dict[str, Any]:
+    """A record to read *at* a gate rather than a branch point of its own.
+
+    Grounds, factors and exceptions arrive here. They are not gates: a factor is
+    *"something that feeds into that answer"*, and drawing 32 of them as
+    branches off section 43 would say the walk turns on each one in turn, which
+    is a claim about practice nobody has made.
+    """
+    node = _tree_node(view, basis=basis, also=also)
+    node["group"] = view.group
+    return node
+
+
+def _gate(
+    identifier: str,
+    *,
+    question: str,
+    kind: str,
+    yes: dict[str, Any],
+    no: dict[str, Any],
+    **extra: Any,
+) -> dict[str, Any]:
+    """One branch point: a question, and exactly two answers.
+
+    Every internal node of the grounds spine is built by this function, which is
+    what makes the spine a tree in the ordinary sense rather than an outline
+    with indentation. A node with three children would be a node that is not a
+    question.
+    """
+    yes = {**yes, "answer": "yes"}
+    no = {**no, "answer": "no"}
+    node: dict[str, Any] = {
+        "id": identifier,
+        "kind": "gate",
+        "gate": kind,
+        "question": question,
+        "children": [yes, no],
+    }
+    node.update({key: value for key, value in extra.items() if value not in (None, "", [])})
+    return node
+
+
 def _grounds_spine(
     views: Sequence[ConceptView],
     relationships: Sequence[dict[str, Any]],
     prohibited: Sequence[dict[str, Any]],
 ) -> dict[str, Any]:
+    """The grounds, as a binary tree of questions.
+
+    The shape is the one an examiner's own working order suggests and the Act's
+    numbering supplies: take the sections that hold a ground or a test, in order,
+    and ask at each whether a ground under it arises. **No** carries the walk to
+    the next section — that is the spine. **Yes** opens the questions recorded at
+    that section, each of them a `legal_test` put into question form, and then,
+    where the records hold one, the exception.
+
+    Two things this deliberately does not do. It does not say that the tests at a
+    section are cumulative: they are chained in the order the records list them,
+    and the chain is a walk through the questions rather than a claim that all of
+    them must be answered yes. And it does not answer a single one of them — every
+    path, at every gate, ends on the same leaf.
+    """
     reasoning = [view for view in views if view.group in REASONING_GROUPS]
     by_id = {view.identifier: view for view in reasoning}
     anchors = [view for view in reasoning if view.group in ANCHOR_GROUPS]
@@ -566,84 +720,150 @@ def _grounds_spine(
                 nxt.append(neighbour)
         frontier = sorted(nxt)
 
-    branches: list[dict[str, Any]] = []
-    for section in sorted(sections, key=_section_sort):
-        members = [view for view in reasoning if section in assigned.get(view.identifier, ())]
-        children: list[dict[str, Any]] = []
-        for group in REASONING_GROUPS:
-            at_group = [view for view in members if view.group == group]
-            if not at_group:
-                continue
-            children.append(
-                {
-                    "id": f"{section}::{group}",
-                    "label": _group_label(group),
-                    "kind": "band",
-                    "meaning": GROUP_MEANING.get(group),
-                    "children": [
-                        _tree_node(
-                            view,
-                            basis=basis[view.identifier],
-                            also=sorted(assigned[view.identifier] - {section}, key=_section_sort),
-                        )
-                        for view in at_group
-                    ],
-                }
+    ordered = sorted(sections, key=_section_sort)
+
+    def at(section: str, group: str) -> list[ConceptView]:
+        return [
+            view
+            for view in reasoning
+            if view.group == group and section in assigned.get(view.identifier, ())
+        ]
+
+    def considerations(section: str, group: str) -> list[dict[str, Any]]:
+        return [
+            _consideration(
+                view,
+                basis=basis[view.identifier],
+                also=sorted(assigned[view.identifier] - {section}, key=_section_sort),
             )
-        has_ground = any(view.group == "ground_of_refusal" for view in members)
-        children.append(_outcome_node(section, prohibited))
-        branches.append(
-            {
-                "id": section,
-                "label": _provision_label(section),
-                "kind": "section",
-                "instrument": section.partition("/")[0],
-                "provision": section,
-                "children": children,
-                "count": len(members),
-                "gap": None if has_ground else (
-                    "No concept in either store is typed as a ground for refusal at this "
-                    "section, although a test or a factor here is. That is a hole in the "
-                    "vocabulary, not a fact about the Act."
+            for view in at(section, group)
+        ]
+
+    def section_gate(position: int) -> dict[str, Any]:
+        """The gate for one section, with the rest of the spine hanging off *no*."""
+        section = ordered[position]
+        grounds = considerations(section, "ground_of_refusal")
+        factors = considerations(section, "relevant_factor")
+        exceptions = considerations(section, "exception")
+        tests = at(section, "legal_test")
+
+        # The yes path, built from the inside out: the last thing on it is the
+        # leaf, then the exception if there is one, then the tests in reverse.
+        tail = (
+            _gate(
+                f"{section}::exception",
+                question=GATE_TEMPLATES["exception"].format(provision=_provision_label(section)),
+                kind="exception",
+                provision=section,
+                yes=_outcome_leaf(f"{section}::exception::yes", variant="not_stated"),
+                no=_outcome_leaf(f"{section}::exception::no", variant="not_stated"),
+                considerations=exceptions,
+                note=(
+                    "Whether any of these applies is the decision maker's, and either answer "
+                    "leaves the outcome where the records leave it."
                 ),
-            }
+            )
+            if exceptions
+            else _outcome_leaf(f"{section}::outcome", variant="not_stated")
         )
+        for order, view in enumerate(reversed(tests)):
+            tail = _gate(
+                f"{view.identifier}@{section}",
+                question=GATE_TEMPLATES["test"].format(label=view.label),
+                kind="test",
+                record=view.identifier,
+                label=view.label,
+                origin=view.origin,
+                provision=section,
+                basis=basis[view.identifier],
+                also_under=sorted(assigned[view.identifier] - {section}, key=_section_sort),
+                position=len(tests) - order,
+                of=len(tests),
+                yes=tail,
+                no=_outcome_leaf(f"{view.identifier}@{section}::no", variant="not_stated"),
+            )
+
+        no_path = (
+            section_gate(position + 1)
+            if position + 1 < len(ordered)
+            else _outcome_leaf("spine::clear", variant="clear")
+        )
+        return _gate(
+            section,
+            question=GATE_TEMPLATES["section"].format(provision=_provision_label(section)),
+            kind="section",
+            provision=section,
+            instrument=section.partition("/")[0],
+            label=_provision_label(section),
+            yes=tail,
+            no=no_path,
+            #: The grounds **and** the factors, on the gate for the section that
+            #: holds them. A factor is read at the branch point, not walked
+            #: through: no record says which test a factor feeds, and hanging
+            #: them off the first question would say one does. It also has to be
+            #: here rather than there because three sections hold factors and no
+            #: test at all — section 33 among them — and a factor filed against a
+            #: question that does not exist is a factor nobody can reach.
+            considerations=grounds + factors,
+            count=len([view for view in reasoning if section in assigned.get(view.identifier, ())]),
+            tests=len(tests),
+            factors=len(factors),
+            exceptions=len(exceptions),
+            gap=None if grounds else (
+                "No concept in either store is typed as a ground for refusal at this section, "
+                "although a test or a factor here is. The question above is still asked, "
+                "because the Act's section is there; what is missing is the record naming the "
+                "ground it asks about. That is a hole in the vocabulary, not a fact about the Act."
+            ),
+        )
+
+    root = {
+        "id": "root",
+        "kind": "root",
+        "label": "An application under examination",
+        "meaning": (
+            "The walk starts here and goes section by section. Nothing about the application "
+            "itself is held anywhere in this project — the mark, the goods and the applicant "
+            "are all outside it — so this node is the starting point and not a record."
+        ),
+        "children": [section_gate(0)] if ordered else [],
+    }
 
     stranded = [view for view in reasoning if view.identifier not in assigned]
-    if stranded:
-        branches.append(
-            {
-                "id": "unattached",
-                "label": "Attached to no section",
-                "kind": "residue",
-                "children": [
-                    _tree_node(view, basis="nothing joins it to a section that anchors a branch")
-                    for view in stranded
-                ],
-                "count": len(stranded),
-                "gap": (
-                    "These records cite a provision, but no ground or test concept cites the "
-                    "same one, and nothing joins them to a concept that does. They are shown "
-                    "here rather than filed somewhere plausible."
-                ),
-            }
-        )
 
+    def walk(node: dict[str, Any]) -> Iterable[dict[str, Any]]:
+        yield node
+        for child in node.get("children") or ():
+            yield from walk(child)
+
+    drawn = list(walk(root))
     return {
         "id": "grounds",
         "label": "Grounds for rejection",
         "lede": (
             "Every concept typed as a **ground**, a **test**, a **factor** or an "
-            "**exception**, hung off the section of the Act its record cites. The shape is "
-            "computed from the records on every build — it is not a procedure anybody wrote "
-            "down, and no expert has read it."
+            "**exception**, arranged as the questions they are. Each section of the Act that "
+            "holds a ground or a test becomes one branch point: answer **no** and the walk "
+            "moves to the next section, answer **yes** and it opens the questions recorded "
+            "there. The shape is computed from the records on every build — it is not a "
+            "procedure anybody wrote down, and no expert has read it."
         ),
-        "root": {
-            "id": "root",
-            "label": "An application under examination",
-            "kind": "root",
-            "children": branches,
-        },
+        "root": root,
+        "residue": {
+            "id": "unattached",
+            "label": "Attached to no section, so on no path",
+            "kind": "residue",
+            "count": len(stranded),
+            "children": [
+                _consideration(view, basis="nothing joins it to a section that anchors a gate")
+                for view in stranded
+            ],
+            "gap": (
+                "These records cite a provision, but no ground or test concept cites the same "
+                "one, and nothing joins them to a concept that does. They are shown here, off "
+                "the walk, rather than filed somewhere plausible."
+            ),
+        } if stranded else None,
         "counts": {
             "concepts": len(reasoning),
             "placed": len(assigned),
@@ -651,30 +871,42 @@ def _grounds_spine(
             "by_link": sum(1 for value in basis.values() if not value.startswith("its record")),
             "stranded": len(stranded),
             "sections": len(sections),
-            "without_a_ground": sum(1 for branch in branches if branch.get("gap") and branch["kind"] == "section"),
+            #: Branch points actually drawn, not concepts that could be one. A test
+            #: cited by two sections is asked on both paths, and a reader counting
+            #: the diamonds on the canvas has to arrive at this number.
+            "gates": sum(1 for node in drawn if node["kind"] == "gate"),
+            "leaves": sum(1 for node in drawn if node["kind"] == "outcome"),
+            "depth": _depth(root),
+            "without_a_ground": sum(
+                1
+                for section in ordered
+                if not any(
+                    view.group == "ground_of_refusal" and section in assigned.get(view.identifier, ())
+                    for view in reasoning
+                )
+            ),
             "in_more_than_one": sum(1 for value in assigned.values() if len(value) > 1),
         },
     }
 
 
-def _outcome_node(section: str, prohibited: Sequence[dict[str, Any]]) -> dict[str, Any]:
-    """The leaf every branch ends on, and the only node the tree adds itself.
+def _outcome(prohibited: Sequence[dict[str, Any]]) -> dict[str, Any]:
+    """What the leaf means, and the signed records it rests on — held once.
 
-    A decision tree with no leaf reads as though the branch above it reaches
-    one. This one says, in the signed records' own terms, that it does not —
-    and it is the node to read before anything is built on this tree.
+    Every path on the grounds spine ends on an outcome leaf and there are
+    thirty-odd of them, so the wording and the records sit here and the leaves
+    carry an id. Repeating this at each leaf put the same three approved records
+    in the file thirty times.
     """
     conclusions = [record for record in prohibited if record.get("kind") == "evaluative_conclusion"]
     return {
-        "id": f"{section}::outcome",
         "label": "The outcome — which this system does not state",
-        "kind": "outcome",
         "meaning": (
             "Whether a ground arises on a given application is the decision maker's "
             "judgement. The project does not automate it, and "
             f"{len(conclusions)} expert-approved prohibited-use records say so in terms."
         ),
-        "children": [
+        "records": [
             {
                 "id": str(record["id"]),
                 "label": str(record["prohibited"]),
@@ -696,6 +928,11 @@ def _procedure_spine(views: Sequence[ConceptView], relationships: Sequence[dict[
     happens to number its Parts roughly in process order, which is why this is
     legible at all; where it does not, the tree is wrong about sequence and
     right about content, and the lede says so.
+
+    This spine is **not** binary and must not be drawn as though it were. A step
+    is not a question — nothing is decided by reaching *examination* — so the
+    steps run one after another and what is recorded at each hangs off it. The
+    grounds spine asks; this one sequences.
     """
     process = [view for view in views if view.group in PROCESS_GROUPS]
     steps = [view for view in process if view.group == "procedural_step"]
@@ -718,64 +955,68 @@ def _procedure_spine(views: Sequence[ConceptView], relationships: Sequence[dict[
 
     attached: set[str] = set()
     children: list[dict[str, Any]] = []
-    for step in sorted(steps, key=first_section):
+    for order, step in enumerate(sorted(steps, key=first_section), start=1):
         near: list[dict[str, Any]] = []
         for other in process:
             if other.identifier == step.identifier or other.group == "procedural_step":
                 continue
             shared = sorted(other.joinable_sections & step.joinable_sections, key=_section_sort)
             if shared:
-                near.append(_tree_node(other, basis=f"shares {shared[0]} with this step"))
+                near.append(_consideration(other, basis=f"shares {shared[0]} with this step"))
                 attached.add(other.identifier)
             elif other.identifier in adjacency.get(step.identifier, {}):
                 near.append(
-                    _tree_node(other, basis=adjacency[step.identifier][other.identifier])
+                    _consideration(other, basis=adjacency[step.identifier][other.identifier])
                 )
                 attached.add(other.identifier)
         node = _tree_node(step, basis="typed as a step in the process")
+        node["kind"] = "step"
+        node["group"] = step.group
+        node["position"] = order
+        node["of"] = len(steps)
         node["children"] = near
         node["count"] = len(near)
         children.append(node)
 
     loose = [view for view in process if view.group != "procedural_step" and view.identifier not in attached]
-    root_children: list[dict[str, Any]] = list(children)
-    if loose:
-        root_children.append(
-            {
-                "id": "unattached-process",
-                "label": "Attached to no step",
-                "kind": "residue",
-                "count": len(loose),
-                "children": [
-                    _tree_node(view, basis="shares no provision and no recorded link with any step")
-                    for view in loose
-                ],
-                "gap": (
-                    "Who acts, what is acted on and what the process produces — held as "
-                    "records, joined to no step by anything either store states."
-                ),
-            }
-        )
-
     return {
         "id": "procedure",
         "label": "The procedural path",
         "lede": (
             f"The {len(process)} concepts typed as part of the **process** rather than the "
             "reasoning: who acts, what is acted on, what act is performed, what it produces. "
-            "The steps are ordered by the **first provision each record cites**, which puts "
-            "them in the Act's order — not necessarily the order an examiner does them, and "
-            f"nothing here claims otherwise. **Only {len(attached)} of the "
-            f"{len(process) - len(steps)} non-step concepts join a step at all**: the edges "
-            "that would join the rest have not been written yet, and this spine is mostly a "
-            "picture of that."
+            "**Nothing here is a question** — a step is reached, not decided — so this spine "
+            "runs in sequence rather than branching. The steps are ordered by the **first "
+            "provision each record cites**, which puts them in the Act's order, not "
+            "necessarily the order an examiner does them. **Only "
+            f"{len(attached)} of the {len(process) - len(steps)} non-step concepts join a step "
+            "at all**: the edges that would join the rest have not been written yet, and this "
+            "spine is mostly a picture of that."
         ),
         "root": {
             "id": "root",
-            "label": "An application, from filing to the Register",
             "kind": "root",
-            "children": root_children,
+            "label": "An application, from filing to the Register",
+            "meaning": (
+                "The 21 steps the records hold, in the Act's order. Following one opens what "
+                "the records attach to it."
+            ),
+            "children": children,
         },
+        "residue": {
+            "id": "unattached-process",
+            "label": "Attached to no step",
+            "kind": "residue",
+            "count": len(loose),
+            "children": [
+                _consideration(view, basis="shares no provision and no recorded link with any step")
+                for view in loose
+            ],
+            "gap": (
+                "Who acts, what is acted on and what the process produces — held as records, "
+                "joined to no step by anything either store states."
+            ),
+        } if loose else None,
         "counts": {
             "concepts": len(process),
             "steps": len(steps),
@@ -797,16 +1038,30 @@ def decision_tree(gold: Any, authored: Any) -> dict[str, Any]:
 
     return {
         "records": {view.identifier: _concept_node(view) for view in views},
+        "outcome": _outcome(prohibited),
         "spines": [grounds, procedure],
         "rules": [
-            "A section of the Act becomes a branch when a concept typed as a **ground for "
-            "refusal** or a **legal test** cites it.",
-            "A concept joins that branch when its own record cites the section.",
-            "Failing that, it joins when a **signed relationship** or a recorded "
-            "`broader` / `narrower` / `related` link joins it to a concept that does.",
-            "A concept that joins nothing is shown under *Attached to no section*, and a "
-            "branch with no ground concept is marked. Both are gaps in the vocabulary.",
-            "Every branch ends on the same leaf: the outcome, which this system does not state.",
+            "A section of the Act becomes a **branch point** when a concept typed as a "
+            "**ground for refusal** or a **legal test** cites it. The question it asks is "
+            "whether a ground under that section arises.",
+            "**No** goes to the next section, in the Act's numbering. **Yes** opens the "
+            "questions recorded at this one.",
+            "Each concept typed as a **legal test** becomes a question of its own, because "
+            "that is what the group means — *a question the decision maker has to answer*. "
+            "Its label is put into question form and nothing else is done to it.",
+            "The tests at a section are walked in the order the records list them. **That is "
+            "an order, not a claim that they are cumulative** — nothing in the records says "
+            "which must be answered before which, or that all of them must be answered yes.",
+            "A concept typed as a **factor** is not a branch point: it is read *at* one. "
+            "Factors hang off the section that holds them, because no record says which test "
+            "a factor feeds.",
+            "A concept joins a section when its own record cites it; failing that, when a "
+            "**signed relationship** or a recorded `broader` / `narrower` / `related` link "
+            "joins it to a concept that does.",
+            "A concept that joins nothing is shown beneath the tree, off the walk, and a "
+            "section with no ground concept is marked. Both are gaps in the vocabulary.",
+            "**Every path ends on the same leaf: the outcome, which this system does not "
+            "state.** No answer anywhere in this tree is supplied by the project.",
         ],
         "counts": {
             "concepts": len(views),
@@ -814,6 +1069,7 @@ def decision_tree(gold: Any, authored: Any) -> dict[str, Any]:
             "process": procedure["counts"]["concepts"],
             "outside": len(outside),
             "untyped": len(untyped),
+            "gates": grounds["counts"]["gates"],
         },
         "outside": [
             {

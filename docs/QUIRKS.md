@@ -1183,3 +1183,28 @@ the median edge length. `3000 / 0.25 / 0.75` over 600 steps gives a roughly
 square box and a median edge near 60, which is what the constants in
 `site/network.js` are. If they are changed, measure the same three numbers before
 looking at the picture.
+
+---
+### Q-63 — a block measures zero until the router has appended it, and a layout built on that silently overlaps
+
+`site/blocks.js` builds a block into a **detached** element tree and the router
+appends it afterwards. Anything inside a renderer that reads a real measurement —
+`offsetHeight`, `offsetWidth`, `getBoundingClientRect()` — gets **0** at build
+time, with no error and nothing in the console.
+
+This bit the decision tree twice in one sitting, in two different disguises.
+
+- The tidy layout stacks rows against each node's measured height. With every
+  height reading 0, the code fell back to its guess of 56px, the boxes that
+  needed 110 were laid 72 apart, and the picture came out as a tree **whose rows
+  overlapped by exactly the amount the guess was wrong**. It looked like a
+  spacing constant that needed nudging; no constant would have fixed it.
+- The fit-to-frame call read a canvas of zero width, correctly declined to divide
+  by it, and returned — having already set the *fitted* flag, so nothing ever
+  fitted the canvas again.
+
+**What to do instead:** in a renderer that measures anything, do the measuring
+pass in a `requestAnimationFrame` after returning the block, and make the
+"already done" flag record whether the measurement *succeeded* rather than
+whether it was attempted. `site/tree.js` builds once for the DOM and once more on
+the next frame for the real heights, which is the cheap and honest version.

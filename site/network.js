@@ -14,8 +14,13 @@
       the group's name written on the canvas while it is on. Ten simultaneous
       hues could not be told apart by a colour-blind reader and would put the
       least important distinction on the most visible channel.
-   2. **Nothing is hidden by default that changes the shape.** Filters exist, but
-      the first thing a reader sees is the whole graph, isolated nodes included.
+   2. **What is on the canvas is always accounted for.** The canvas opens on one
+      concept and what it is joined to, and grows as the reader opens nodes — so
+      the note under it says how many nodes are drawn, from how many the reader
+      has opened, and that everything else is off the canvas until they open
+      their way to it. *Show the whole map* draws all of it, isolated nodes
+      included, and is one button away. A default that showed part of a graph
+      without saying so would be the one thing this file must not do.
 
    The layout is deterministic: the same records produce the same picture on
    every load, so two people looking at "the map" are looking at one thing. */
@@ -86,6 +91,13 @@ export function renderNetwork(block, context = {}) {
   svg.appendChild(world);
 
   const state = {
+    /* Two ways of reading 254 nodes, and the second one is why this page was
+       hard to use. **whole** draws everything, which is the honest picture of a
+       graph in 44 pieces and is unreadable as a way of answering a question
+       about one concept. **explore** starts at one node and grows: what is on
+       the canvas is what the reader has opened, so every node on it is there
+       because they asked for it. */
+    mode: "explore",
     rollUp: false,
     showProvisions: true,
     group: null,
@@ -95,6 +107,17 @@ export function renderNetwork(block, context = {}) {
     panX: 0,
     panY: 0,
   };
+
+  /* Which nodes the reader has opened, in explore mode. A node is drawn when it
+     is open or when it is the neighbour of one — so opening a node is exactly
+     "show me what this is joined to", and nothing else appears. */
+  const opened = new Set();
+
+  /* Where every node has been put, kept across re-layouts. A node the reader
+     dragged stays where they dropped it when the canvas is rebuilt; without
+     this, expanding a neighbour threw away the arrangement they had just made
+     by hand, which is the single most annoying thing a graph can do. */
+  const placed = new Map();
 
   let view = null; // the derived node/edge set currently drawn
 
@@ -107,8 +130,10 @@ export function renderNetwork(block, context = {}) {
     const nodes = [];
     const byId = new Map();
     const merged = new Map(); // original provision id -> drawn id
+    const visible = state.mode === "explore" ? exploreSet() : null;
 
     for (const node of data.nodes) {
+      if (visible && !visible.has(node.id)) continue;
       if (node.kind === "provision") {
         if (!state.showProvisions) continue;
         const id = state.rollUp ? node.root : node.id;
@@ -149,6 +174,29 @@ export function renderNetwork(block, context = {}) {
       neighbours.get(edge.target).add(edge.source);
     }
     return { nodes, byId, edges, neighbours };
+  }
+
+  /* The whole graph, once, so "what is this joined to" can be answered without
+     deriving the drawn set first — which is the thing that depends on it. */
+  const wholeNeighbours = (() => {
+    const map = new Map(data.nodes.map((node) => [node.id, new Set()]));
+    for (const edge of data.edges) {
+      map.get(edge.source)?.add(edge.target);
+      map.get(edge.target)?.add(edge.source);
+    }
+    return map;
+  })();
+
+  /* Everything opened, plus everything one step from it. A node drawn but not
+     opened is the frontier: it says there is more this way, and opening it is
+     how the reader goes there. */
+  function exploreSet() {
+    const shown = new Set();
+    for (const id of opened) {
+      shown.add(id);
+      for (const neighbour of wholeNeighbours.get(id) || []) shown.add(neighbour);
+    }
+    return shown;
   }
 
   const labelOf = (ref) => {
@@ -397,18 +445,95 @@ export function renderNetwork(block, context = {}) {
   let named_always = new Set();
   let unjoined = 0;
 
-  function paint() {
+  /* Keep what the reader has arranged, and grow what is new out of where it
+     came from. `layout` still computes the deterministic picture from scratch
+     every time — this runs after it and is the only thing that remembers
+     anything. */
+  function place(around) {
+    const fresh = view.nodes.filter((node) => !placed.has(node.id));
+    if (placed.size) {
+      for (const node of view.nodes) {
+        const known = placed.get(node.id);
+        if (known) {
+          node.x = known.x;
+          node.y = known.y;
+        }
+      }
+      const source = (around && placed.get(around)) || null;
+      const random = seeded(4517);
+      fresh.forEach((node, order) => {
+        const anchor =
+          source ||
+          [...(view.neighbours.get(node.id) || [])]
+            .map((id) => placed.get(id))
+            .find(Boolean) || { x: WIDTH / 2, y: HEIGHT / 2 };
+        const theta = order * 2.399 + random() * 0.6;
+        const reach = 56 + Math.sqrt(fresh.length) * 9;
+        node.x = anchor.x + Math.cos(theta) * reach;
+        node.y = anchor.y + Math.sin(theta) * reach;
+        node.r = radius(node);
+      });
+      /* Only the new nodes move. Settling the whole canvas on every expansion
+         would shuffle the nodes the reader is currently looking at, which is
+         the opposite of what "show me one more step" should do. */
+      if (fresh.length) relax(fresh);
+    }
+    for (const node of view.nodes) placed.set(node.id, { x: node.x, y: node.y });
+  }
+
+  function relax(moving) {
+    const others = view.nodes;
+    const set = new Set(moving.map((node) => node.id));
+    for (let step = 0; step < 160; step += 1) {
+      const alpha = 1 - step / 160;
+      for (const node of moving) {
+        let fx = 0;
+        let fy = 0;
+        for (const other of others) {
+          if (other === node) continue;
+          const dx = node.x - other.x;
+          const dy = node.y - other.y;
+          const d2 = Math.max(dx * dx + dy * dy, 36);
+          const push = (1600 * alpha) / d2;
+          const d = Math.sqrt(d2);
+          fx += (dx / d) * push;
+          fy += (dy / d) * push;
+        }
+        for (const id of view.neighbours.get(node.id) || []) {
+          const other = view.byId.get(id);
+          if (!other) continue;
+          const dx = other.x - node.x;
+          const dy = other.y - node.y;
+          const d = Math.hypot(dx, dy) || 0.01;
+          const pull = ((d - 78) / d) * 0.14 * alpha;
+          fx += dx * pull;
+          fy += dy * pull;
+        }
+        node.x += Math.max(-12, Math.min(12, fx));
+        node.y += Math.max(-12, Math.min(12, fy));
+      }
+      void set;
+    }
+  }
+
+  function paint(options = {}) {
     view = derive();
     const parts = layout(view.nodes, view.edges, view.neighbours);
+    place(options.around);
     const note = root.querySelector(".viz-islands");
     if (note) {
       note.textContent =
-        `${parts.length} separate islands are drawn. The largest holds ${parts[0].length} ` +
-        `of the ${view.nodes.length} nodes; ${parts.filter((p) => p.length <= 3).length} ` +
-        `hold three or fewer` +
-        (unjoined
-          ? `, and ${unjoined} nodes are joined to nothing at all — they are the row along the bottom.`
-          : `.`);
+        state.mode === "explore"
+          ? `${view.nodes.length} nodes on the canvas, from ${opened.size} ` +
+            `${opened.size === 1 ? "node" : "nodes"} you have opened. Everything else in the ` +
+            `project is off the canvas until you open your way to it — double-click a node, ` +
+            `or use Open this node in the panel.`
+          : `${parts.length} separate islands are drawn. The largest holds ${parts[0].length} ` +
+            `of the ${view.nodes.length} nodes; ${parts.filter((p) => p.length <= 3).length} ` +
+            `hold three or fewer` +
+            (unjoined
+              ? `, and ${unjoined} nodes are joined to nothing at all — they are the row along the bottom.`
+              : `.`);
     }
     /* Which labels are drawn when nothing is picked: the twenty best-connected
        concepts, so the canvas is legible at a glance and the choice does not
@@ -454,8 +579,20 @@ export function renderNetwork(block, context = {}) {
         `${node.label} · ${node.id}${node.group ? ` · ${titleCase(node.group)}` : ""}`;
       circle.addEventListener("click", (event) => {
         event.stopPropagation();
+        if (circle.dataset.dragged) {
+          delete circle.dataset.dragged;
+          return;
+        }
         select(node.id);
       });
+      /* Double-click is the shortcut for the panel's own *open* button. It is
+         the gesture every other graph tool uses for "show me more of this", and
+         a reader who tries it should not find nothing happens. */
+      circle.addEventListener("dblclick", (event) => {
+        event.stopPropagation();
+        expand(node.id);
+      });
+      dragNode(circle, node);
       node.el = circle;
       nodeLayer.appendChild(circle);
 
@@ -469,6 +606,90 @@ export function renderNetwork(block, context = {}) {
       labelLayer.appendChild(label);
     }
     refresh();
+  }
+
+  /* Dragging a node. The whole canvas is one <svg> with a transform on it, so
+     the pointer has to be converted out of screen pixels into the canvas's own
+     units before it means anything — and the conversion has to divide by the
+     zoom, or a dragged node runs away from the cursor as soon as the reader
+     has zoomed in.
+
+     A dropped node stays dropped: the position goes into `placed`, which
+     survives every later re-layout. That is what makes arranging the picture
+     worth the effort. */
+  function dragNode(circle, node) {
+    let drag = null;
+    circle.addEventListener("pointerdown", (event) => {
+      event.stopPropagation(); // never start a canvas pan from a node
+      const point = toCanvas(event);
+      drag = { dx: node.x - point.x, dy: node.y - point.y, moved: false };
+      circle.setPointerCapture(event.pointerId);
+      circle.classList.add("is-dragging");
+    });
+    circle.addEventListener("pointermove", (event) => {
+      if (!drag) return;
+      const point = toCanvas(event);
+      node.x = point.x + drag.dx;
+      node.y = point.y + drag.dy;
+      drag.moved = true;
+      circle.dataset.dragged = "1";
+      moveNode(node);
+    });
+    const drop = (event) => {
+      if (!drag) return;
+      circle.classList.remove("is-dragging");
+      if (drag.moved) {
+        placed.set(node.id, { x: node.x, y: node.y });
+        declutter();
+      }
+      drag = null;
+      if (circle.hasPointerCapture?.(event.pointerId)) circle.releasePointerCapture(event.pointerId);
+    };
+    circle.addEventListener("pointerup", drop);
+    circle.addEventListener("pointercancel", drop);
+  }
+
+  function toCanvas(event) {
+    const box = svg.getBoundingClientRect();
+    const scale = WIDTH / box.width;
+    return {
+      x: ((event.clientX - box.left) * scale - state.panX) / state.zoom,
+      y: ((event.clientY - box.top) * scale - state.panY) / state.zoom,
+    };
+  }
+
+  /* Only what touches this node is redrawn, so a drag stays smooth on the
+     whole map. */
+  function moveNode(node) {
+    node.el.setAttribute("cx", node.x);
+    node.el.setAttribute("cy", node.y);
+    node.labelEl.setAttribute("x", node.x + node.r + 4);
+    node.labelEl.setAttribute("y", node.y + 4);
+    for (const edge of view.edges) {
+      if (edge.source !== node.id && edge.target !== node.id) continue;
+      const a = view.byId.get(edge.source);
+      const b = view.byId.get(edge.target);
+      edge.el.setAttribute("x1", a.x);
+      edge.el.setAttribute("y1", a.y);
+      edge.el.setAttribute("x2", b.x);
+      edge.el.setAttribute("y2", b.y);
+    }
+  }
+
+  /* Open a node: draw what it is joined to. This is the whole of explore mode
+     — the reader walks the graph one hop at a time and the canvas holds only
+     what they asked for. */
+  function expand(id) {
+    if (state.mode !== "explore") {
+      state.mode = "explore";
+      opened.clear();
+      placed.clear();
+      syncMode();
+    }
+    if (opened.has(id)) return;
+    opened.add(id);
+    paint({ around: id });
+    select(id, { keep: true });
   }
 
   /* What is emphasised, what is dimmed, and which labels are drawn. This is the
@@ -505,6 +726,7 @@ export function renderNetwork(block, context = {}) {
       node.el.classList.toggle("is-selected", isSelected);
       node.el.classList.toggle("is-neighbour", isNeighbour);
       const named =
+        state.mode === "explore" ||
         isSelected ||
         isNeighbour ||
         (state.group && node.group === state.group) ||
@@ -558,8 +780,8 @@ export function renderNetwork(block, context = {}) {
 
   const panel = root.querySelector(".viz-panel");
 
-  function select(id) {
-    state.selected = state.selected === id ? null : id;
+  function select(id, options = {}) {
+    state.selected = state.selected === id && !options.keep ? null : id;
     if (!state.selected) {
       panel.innerHTML = emptyPanel();
       refresh();
@@ -569,6 +791,16 @@ export function renderNetwork(block, context = {}) {
     panel.innerHTML = node.kind === "provision" ? provisionPanel(node, view) : conceptPanel(node, view);
     panel.querySelectorAll("[data-goto]").forEach((button) => {
       button.addEventListener("click", () => select(button.dataset.goto));
+    });
+    panel.querySelector("[data-open]")?.addEventListener("click", () => expand(node.id));
+    panel.querySelector("[data-focus]")?.addEventListener("click", () => {
+      state.mode = "explore";
+      opened.clear();
+      opened.add(node.id);
+      placed.clear();
+      syncMode();
+      paint();
+      select(node.id, { keep: true });
     });
     const deeper = panel.querySelector("[data-expand]");
     if (deeper) {
@@ -641,6 +873,42 @@ export function renderNetwork(block, context = {}) {
     );
   }
 
+  /* The passage the record itself quotes, at the top of the panel. Before this
+     the panel opened on a label, an id and a group name — all three of them
+     names for a thing rather than the thing — and the owner's word for the
+     result was *abstract*. This is the Manual's own sentence, and it is the
+     first thing on the panel for that reason. */
+  function quoteBlock(node) {
+    if (!node.quote) return "";
+    return (
+      `<blockquote class="panel-quote">${escape(node.quote.text)}` +
+      `<cite><code>${escape(node.quote.ref)}</code> — ${escape(node.quote.from)}</cite>` +
+      `</blockquote>`
+    );
+  }
+
+  /* The two ways of going deeper, and which one is offered depends on where the
+     reader is. On the whole map the useful move is to start a walk from here;
+     inside a walk it is to take one more step. */
+  function deeper(node) {
+    const joined = (wholeNeighbours.get(node.id) || new Set()).size;
+    if (state.mode !== "explore") {
+      return (
+        `<p><button type="button" class="pressable" data-focus>Start a walk from here</button> ` +
+        `<span class="muted">draws this node and the ${joined} it is joined to, and nothing ` +
+        `else</span></p>`
+      );
+    }
+    if (opened.has(node.id)) {
+      return `<p class="muted">Opened — everything this is joined to is already on the canvas.</p>`;
+    }
+    return (
+      `<p><button type="button" class="pressable" data-open>Open this node</button> ` +
+      `<span class="muted">adds the ${joined} ${joined === 1 ? "node" : "nodes"} it is joined ` +
+      `to. Double-clicking it on the canvas does the same.</span></p>`
+    );
+  }
+
   function conceptPanel(node, current) {
     const chips = (values, tone) =>
       values && values.length
@@ -661,6 +929,8 @@ export function renderNetwork(block, context = {}) {
           )}</code>), which no person has checked.</p>`
         : "") +
       `</div>` +
+      quoteBlock(node) +
+      deeper(node) +
       chips(node.alt, "muted") +
       (node.not && node.not.length
         ? `<p class="muted">Must not be confused with:</p>${chips(node.not, "gap")}`
@@ -694,15 +964,19 @@ export function renderNetwork(block, context = {}) {
       `<div class="panel-head"><h3>${escape(node.label)}</h3>` +
       `<p class="muted"><code>${escape(node.id)}</code> · ${escape(node.instrument)}</p>` +
       originBadge(node) +
-      `</div>` + covers +
+      `</div>` + covers + deeper(node) +
       `<h4>Cited by ${node.degree} ${node.degree === 1 ? "record" : "records"}</h4>` +
       neighbourList(node, current)
     );
   }
 
   const emptyPanel = () =>
-    `<div class="panel-empty"><p><strong>Click a node</strong> — or search for one — to read ` +
-    `the record behind it.</p></div>`;
+    `<div class="panel-empty"><p><strong>Click a node</strong> to read the record behind it — ` +
+    `the passage it quotes, what it is joined to and why.</p>` +
+    `<p><strong>Double-click one</strong> to open it and draw everything it is joined to. ` +
+    `<strong>Drag</strong> a node to move it; it stays where you put it.</p>` +
+    `<p class="muted">Searching finds a node anywhere in the project, not only one already on ` +
+    `the canvas.</p></div>`;
 
   /* --------------------------------------------------------------- controls */
 
@@ -746,26 +1020,74 @@ export function renderNetwork(block, context = {}) {
     if (event.target === svg || event.target === world) select(null);
   });
 
+  function syncMode() {
+    root.querySelectorAll("[data-mode]").forEach((button) =>
+      button.setAttribute("aria-pressed", String(button.dataset.mode === state.mode))
+    );
+    root.querySelector(".viz-canvas").classList.toggle("is-explore", state.mode === "explore");
+  }
+
+  root.querySelectorAll("[data-mode]").forEach((button) => {
+    button.addEventListener("click", () => {
+      if (state.mode === button.dataset.mode) return;
+      state.mode = button.dataset.mode;
+      /* Positions do not survive the switch. The two modes lay the canvas out
+         on different rules, and carrying a coordinate from one into the other
+         puts a node somewhere neither rule chose. */
+      placed.clear();
+      state.selected = null;
+      state.zoom = 1;
+      state.panX = 0;
+      state.panY = 0;
+      if (state.mode === "explore" && !opened.size) opened.add(busiest());
+      syncMode();
+      transform();
+      panel.innerHTML = emptyPanel();
+      paint();
+    });
+  });
+
+  /* The default starting point: the best-connected concept in the project. It
+     is a choice, and the note under the canvas says so — but a canvas that
+     opens empty and asks the reader to guess a search term is worse than one
+     that opens somewhere and says how it got there. */
+  function busiest() {
+    return data.nodes
+      .filter((node) => node.kind === "concept")
+      .sort((a, b) => b.degree - a.degree || a.id.localeCompare(b.id))[0].id;
+  }
+
   root.querySelector("[data-search]").addEventListener("input", (event) => {
     const term = event.target.value.trim().toLowerCase();
     if (term.length < 2) return;
+    /* Searched against the whole project, never against what happens to be
+       drawn: in explore mode the answer is usually a node that is not on the
+       canvas yet, and "no match" would be a lie. */
+    const pool = data.nodes;
     const hit =
-      view.nodes.find((node) => node.label.toLowerCase() === term) ||
-      view.nodes.find((node) => node.id.toLowerCase() === term) ||
-      view.nodes.find((node) => node.label.toLowerCase().includes(term)) ||
-      view.nodes.find((node) => (node.alt || []).some((alt) => alt.toLowerCase().includes(term)));
-    if (hit && hit.id !== state.selected) select(hit.id);
+      pool.find((node) => node.label.toLowerCase() === term) ||
+      pool.find((node) => node.id.toLowerCase() === term) ||
+      pool.find((node) => node.label.toLowerCase().includes(term)) ||
+      pool.find((node) => (node.alt || []).some((alt) => alt.toLowerCase().includes(term)));
+    if (!hit || hit.id === state.selected) return;
+    if (view.byId.has(hit.id)) select(hit.id, { keep: true });
+    else expand(hit.id);
   });
 
+  /* Both of these change which nodes exist, not where they sit, so the
+     remembered positions go: keeping them would grow a hundred and twenty
+     provisions back onto the canvas one radial ring at a time. */
   root.querySelector("[data-provisions]").addEventListener("change", (event) => {
     state.showProvisions = event.target.checked;
     state.selected = null;
+    placed.clear();
     panel.innerHTML = emptyPanel();
     paint();
   });
   root.querySelector("[data-rollup]").addEventListener("change", (event) => {
     state.rollUp = event.target.checked;
     state.selected = null;
+    placed.clear();
     panel.innerHTML = emptyPanel();
     paint();
   });
@@ -780,6 +1102,11 @@ export function renderNetwork(block, context = {}) {
     state.selected = null;
     state.group = null;
     state.depth = 0;
+    placed.clear();
+    if (state.mode === "explore") {
+      opened.clear();
+      opened.add(busiest());
+    }
     root.querySelector("[data-depth]").value = "0";
     root.querySelector("[data-search]").value = "";
     root.querySelector(".viz-group-note").textContent = "";
@@ -788,7 +1115,7 @@ export function renderNetwork(block, context = {}) {
     );
     panel.innerHTML = emptyPanel();
     transform();
-    refresh();
+    paint();
   });
   root.querySelectorAll("[data-group]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -811,6 +1138,8 @@ export function renderNetwork(block, context = {}) {
   });
 
   panel.innerHTML = emptyPanel();
+  if (state.mode === "explore") opened.add(busiest());
+  syncMode();
   paint();
   transform();
   return root;
@@ -848,6 +1177,11 @@ function shell(data) {
 
   return `
 <div class="viz-controls">
+  <span class="key-label">Canvas:</span>
+  <button type="button" class="pressable" data-mode="explore" aria-pressed="true">Walk it one node at a time</button>
+  <button type="button" class="pressable" data-mode="whole" aria-pressed="false">Show the whole map</button>
+</div>
+<div class="viz-controls">
   <label class="field"><span>Find</span>
     <input type="search" data-search placeholder="a label, or an id like GC-0043" list="viz-terms">
   </label>
@@ -875,6 +1209,8 @@ function shell(data) {
   ${groups}
 </div>
 <p class="viz-group-note"></p>
+<p class="viz-hint">Drag a node to move it — it stays where you put it · double-click one to
+open what it is joined to · drag the background to pan, scroll to zoom</p>
 <p class="viz-islands note"></p>
 <div class="viz-stage">
   <div class="viz-canvas"></div>
