@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-09",
+ "generated": "2026-09-12",
  "repo": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge",
  "pin": {
   "commit": "c490a9927f1ab67c1c2fe4afdc758c79f35430c8",
@@ -19,6 +19,16 @@
    "id": "inbox",
    "label": "Your decisions",
    "blurb": "Questions waiting on you, and what happens to your answers"
+  },
+  {
+   "id": "map",
+   "label": "The map",
+   "blurb": "Every concept and provision, as a network you can walk"
+  },
+  {
+   "id": "tree",
+   "label": "Examination path",
+   "blurb": "The grounds, tests and factors, as a tree you can open"
   },
   {
    "id": "vocabulary",
