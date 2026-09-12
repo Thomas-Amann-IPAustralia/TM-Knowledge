@@ -1,14 +1,14 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "102 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "105 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 102,
+     "value": 105,
      "note": null,
      "tone": null,
      "href": null
@@ -77,6 +77,90 @@
     }
    ],
    "rows": [
+    {
+     "id": "`ADR-0105`",
+     "title": "the decision tree hangs on the Act's sections, and shows what falls off",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-12",
+     "search": "ADR-0105 the decision tree hangs on the Act's sections, and shows what falls off agent-proposed accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "\"The examination process as a decision tree\" needs a spine, and the repository holds no record of what the examination process is. Three candidate spines were built and measured against the 130 records."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0105-the-decision-tree-hangs-on-the-acts-sections-and-shows-what-falls-off)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0104`",
+     "title": "the map draws four edges, colours by origin, and rolls nothing up",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-12",
+     "search": "ADR-0104 the map draws four edges, colours by origin, and rolls nothing up agent-proposed accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "The node network has 130 concepts, 124 provisions and four candidate edge kinds, and three decisions about it were load-bearing enough to record."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0104-the-map-draws-four-edges-colours-by-origin-and-rolls-nothing-up)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0103`",
+     "title": "the site may arrange records, on three conditions",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-12",
+     "search": "ADR-0103 the site may arrange records, on three conditions agent-proposed accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "`site/README.md` has said since the site was built that the dashboard \"restates committed artefacts and authors nothing\": every sentence on a page traces to `build.py`, a generated report, or the question queue. That rule was easy to keep while every page was a count or a table, because a count of a field is not a…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0103-the-site-may-arrange-records-on-three-conditions)"
+      }
+     ]
+    },
     {
      "id": "`ADR-0102`",
      "title": "one request to the expert, in one workbook, with one covering note",

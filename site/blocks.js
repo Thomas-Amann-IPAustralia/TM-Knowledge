@@ -1,13 +1,19 @@
 /* One renderer per block kind, and nothing else.
 
    These functions know about `stats`, `prose`, `callout`, `table`, `cards`,
-   `bars`, `list` and `report` — the vocabulary in
+   `bars`, `list`, `report`, `network` and `tree` — the vocabulary in
    `src/tm_knowledge/dashboard/blocks.py` — and nothing about section 43, the
    ontology or the review process. Changing what the dashboard *says* is a
-   change to the Python. Changing how a kind *looks* is a change here. Adding a
-   ninth kind is the only thing that needs both. */
+   change to the Python. Changing how a kind *looks* is a change here. Adding an
+   eleventh kind is the only thing that needs both.
+
+   The last two are big enough to own a file each. They are still renderers of a
+   block and nothing more: the arrangement they draw is computed in
+   `views.py`, and neither file decides what belongs where. */
 
 import { render, inline, escape } from "./md.js";
+import { renderNetwork } from "./network.js";
+import { renderTree } from "./tree.js";
 
 const el = (html) => {
   const wrap = document.createElement("div");
@@ -249,6 +255,14 @@ const renderers = {
     details.addEventListener("toggle", () => details.open && load());
     if (open) load();
     return node;
+  },
+
+  network(block, context) {
+    return renderNetwork(block, context);
+  },
+
+  tree(block, context) {
+    return renderTree(block, context);
   },
 };
 

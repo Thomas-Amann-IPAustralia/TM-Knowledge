@@ -158,7 +158,9 @@ decisions waiting on the owner in front of them as a form they can answer.
 
 | Deliverable | Status | Where it lives |
 |---|---|---|
-| The site | **done** — 9 pages, no framework, no CDN, no build step | `site/` |
+| The site | **done** — 11 pages, no framework, no CDN, no build step | `site/` |
+| The map | **done** — every concept and provision as a node network, coloured by who wrote the record, with a panel carrying each record's evidence and reasoning (ADR-0104) | `site/network.js`, `views.network` |
+| The examination path | **done** — the reasoning groups as a decision tree on the Act's sections, and the process groups on the steps, every branch ending on the outcome the system does not state (ADR-0105) | `site/tree.js`, `views.decision_tree` |
 | Site data generator | **done** — generated, drift-checked in CI | `tmk-dashboard` → `site/data/` |
 | Publication | **done and live** — Pages source is GitHub Actions; deploying, and manually re-runnable from the Actions tab | `.github/workflows/pages.yml` |
 | Owner question queue | **done** — 10 asked, 2 parked, 10 answered, schema-validated | `review/questions/open-questions.yaml` |
@@ -172,10 +174,18 @@ the owner's decisions. When the Stage 2 review interface is built it is a
 different tool with a different audience, and reusing this one for it would put
 unapproved candidates on a public page.
 
-**It restates and never derives** (ADR-0063). Every figure on it is a count of
+**It reads committed artefacts only** (ADR-0063). Every figure on it is a count of
 something already committed; where the number needs the snapshot the site renders
 the generated report instead of paraphrasing it. That is also why moving a record
 without running `tmk-dashboard --write` fails CI.
+
+**Nine of the eleven pages restate and never derive. Two arrange** — the map and
+the examination path — and that is a deliberate exception with three conditions on
+it (ADR-0103): the arrangement rule is computed in `dashboard/views.py` on every
+build, every node and edge carries the rule that put it there, and the page says
+in its lede that nobody has reviewed the arrangement. ADR-0063 is untouched by
+this: both views read the same committed artefacts as every other page and neither
+touches the snapshot.
 
 ## Stage 1 — inherited, and what is missing from it
 

@@ -1,6 +1,6 @@
 # Stage 0 — coverage and gaps
 
-**Generated** 2026-09-09 · **Source** `eval/gold/` and `authored/` against the pinned snapshot `c490a9927f1a` · **Regenerate** `tmk-coverage`
+**Generated** 2026-09-12 · **Source** `eval/gold/` and `authored/` against the pinned snapshot `c490a9927f1a` · **Regenerate** `tmk-coverage`
 
 This report is **derived**. It counts what `eval/gold/` holds against the definition of done in `eval/STAGE-0-INPUT-GUIDE.md` §7, and it names what is absent. It does not propose content for any gap, and it must not be read as doing so: every field it reports as empty is one only a domain expert may fill (CLAUDE.md rule 1, guide §9).
 
@@ -20,7 +20,7 @@ This report is **derived**. It counts what `eval/gold/` holds against the defini
 | Search questions | 20–50 | 1 | 0 | 19 short |
 | AI retrieval questions | 20–50 | 10 | 0 | 10 short |
 | Reasoning expectations | at least 1 | 6 | 0 | in band |
-| Concepts sorted into one of the four groups | 50–100 | 0 | 130 | 50 short |
+| Concepts sorted into one of the nine groups | 50–100 | 0 | 130 | 50 short |
 | A threshold against every metric | eval/measures.md | — | — | not written |
 
 ## 2. Defects
@@ -35,7 +35,7 @@ None. Everything in `eval/gold/` and `authored/` is well formed and lands where 
 - **relationships.yaml** — Gold relationships — 35 of 50–100
 - **search-questions.yaml** — Search questions — 1 of 20–50
 - **retrieval-questions.yaml** — AI retrieval questions — 10 of 20–50
-- **concept-types.yaml** — Concepts sorted into one of the four groups — 0 of 50–100
+- **concept-types.yaml** — Concepts sorted into one of the nine groups — 0 of 50–100
 - **eval/measures.md** — A threshold against every metric — not written
 
 ### Coverage the definition of done requires

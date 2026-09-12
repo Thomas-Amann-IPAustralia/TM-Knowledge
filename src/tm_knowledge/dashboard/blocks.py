@@ -1,10 +1,16 @@
 """The block vocabulary the site renders.
 
-A page is `{id, title, lede, blocks: [...]}` and every block is one of eight
+A page is `{id, title, lede, blocks: [...]}` and every block is one of ten
 kinds. `site/blocks.js` has one renderer per kind and knows nothing else about
 the repo, which is the whole point: **changing what the dashboard says is a
-change to this file and to `build.py`, never to the JavaScript.** Adding a
-ninth kind is the only thing that needs both.
+change to this file and to `build.py`, never to the JavaScript.** Adding an
+eleventh kind is the only thing that needs both.
+
+Two of the ten are different in a way worth naming. `network` and `tree` carry a
+derived arrangement rather than a restatement — the rules that produced them are
+in `views.py` and the browser applies none of its own. They still hold no text
+the records do not, and `site/network.js` and `site/tree.js` know as little
+about trade marks as `blocks.js` does.
 
 Cell and text values are markdown-lite (`**bold**`, `` `code` ``, `[a](b)`) and
 may carry `{{glossary term}}` markers, which the browser turns into a tooltip
@@ -27,6 +33,8 @@ __all__ = [
     "listing",
     "report",
     "chips",
+    "network",
+    "tree",
 ]
 
 #: The tones a badge, stat or callout may carry. Tone is meaning, not colour:
@@ -121,6 +129,21 @@ def report(path: str, title: str, *, lede: str | None = None) -> dict[str, Any]:
     stale on its own schedule.
     """
     return {"kind": "report", "path": path, "title": title, "lede": lede}
+
+
+def network(payload: dict[str, Any], *, note: str | None = None) -> dict[str, Any]:
+    """The node network. `payload` is `views.network()` — nodes, edges, legend.
+
+    The block carries the whole graph rather than a path to it, so the page is
+    one fetch and the picture cannot disagree with the counts printed beside it.
+    """
+    return {"kind": "network", "data": payload, "note": note}
+
+
+def tree(payload: dict[str, Any], *, note: str | None = None) -> dict[str, Any]:
+    """The decision tree. `payload` is `views.decision_tree()` — spines, rules,
+    and one `records` map the nodes point into."""
+    return {"kind": "tree", "data": payload, "note": note}
 
 
 def chips(values: Iterable[str], *, tone: str | None = None) -> dict[str, Any]:

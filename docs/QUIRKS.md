@@ -1133,3 +1133,53 @@ not change. A proper rewrite has not been done.
 the document nobody in a session opens, because its audience is not in the
 session. When an operating rule changes, grep for the *old rule's wording*
 across the tree rather than for the files an agent happens to read.
+
+### Q-61 — every defined term in the Act cites the same provision, so joining records on a shared basis joins the dictionary to itself
+
+Upstream addresses a defined term as a provision with a second segment:
+`TMA1995/s6/assignment`, `TMA1995/s6/registrar`, `TMR1995/r2.1/madrid-protocol`.
+**25 of the 130 concepts carry at least one of these**, because a concept whose
+name the Act defines records where it is defined.
+
+Any rule that joins two records because their `legislative_basis` shares a
+provision will therefore join, in one stroke, every concept the Act defines to
+every other one. In S021's procedure spine that showed up as *assignment*,
+*transmission* and *divisional application* each arriving with **eighteen
+children**, none of which had anything to do with them: the join was section 6.
+
+`views.ConceptView.joinable_sections` is the filter — `sections` minus every ref
+with a second address segment — and a test pins it. The test is the **ref's
+shape**, never its number: nothing in this repository asserts which provision of
+which instrument holds the definitions, and a rule that hard-coded `s6` would be
+the guess CLAUDE.md rule 6 forbids.
+
+**The general trap:** `legislative_basis` answers two different questions at once
+— *what provision does this concept operate under* and *where is this word
+defined* — and only the first one joins. Anything new that reasons over that
+field needs to decide which of the two it wants before it reads a ref.
+
+### Q-62 — a spring layout that diverges looks like a rendering bug, not a maths bug
+
+The map's force layout was first written with a spring coefficient of 0.6 and a
+velocity damping of 0.7. On the 86-node island it looked cramped; on the 149-node
+island it produced a **diagonal streak** with everything else scaled to a dot, and
+the obvious readings were all wrong — the packing, the label rule, the viewBox.
+
+It was none of those. The simulation was diverging: measured offline against the
+real graph, the bounding box of the largest island came out **378,762 × 3,354,174
+units** with a median edge length of 30,147. Every subsequent step — the
+bounding-box fit, the packing, the label declutter — then did exactly what it was
+told with numbers that had already exploded.
+
+Two things made it slow to find. Divergence in a spring model is **silent**: no
+error, no warning, nothing in the console; the maths runs and the picture just
+looks odd. And a force layout is the kind of code where "it looks wrong" is the
+normal state during tuning, so a genuine failure hides inside the ordinary
+iteration.
+
+**What to do instead:** tune the constants in a plain Node script against the
+real payload and print the bounding box, the mean nearest-neighbour distance and
+the median edge length. `3000 / 0.25 / 0.75` over 600 steps gives a roughly
+square box and a median edge near 60, which is what the constants in
+`site/network.js` are. If they are changed, measure the same three numbers before
+looking at the picture.
