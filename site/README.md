@@ -10,9 +10,11 @@ answer the questions that are waiting on them.
 ## What belongs here
 
 Hand-written: `index.html`, `app.css`, `app.js`, `blocks.js`, `md.js`,
-`inbox.js`. That is the whole site. No framework, no package manager, no build
-step, nothing loaded from a CDN — this is published by a government agency and
-every byte it serves is in this repository. A test asserts that.
+`inbox.js`, `network.js`, `tree.js`. That is the whole site. No framework, no
+package manager, no build step, nothing loaded from a CDN — this is published by
+a government agency and every byte it serves is in this repository. A test
+asserts that, and it is why the force layout on the map is about eighty lines of
+arithmetic rather than a graph library.
 
 Generated: everything under `data/`, written by `tmk-dashboard --write` from
 `src/tm_knowledge/dashboard/`. **Do not hand-edit a file in `data/`.** It is
@@ -27,6 +29,20 @@ generated report, or in `review/questions/open-questions.yaml`, it should not
 exist. In particular, no page may state a legal proposition, a definition or a
 judgement that is not already in an approved record (CLAUDE.md rule 1).
 
+**Two pages arrange rather than restate, and they are the exception that proves
+the rule** (ADR-0103). *The map* and *the examination path* put records next to
+each other in an order nothing in the repository states. That is allowed on
+three conditions, and a change that breaks any of them is a defect:
+
+1. **The arrangement rule is computed in Python**, in
+   `src/tm_knowledge/dashboard/views.py`, on every build. Not stored, not
+   hand-maintained, and never decided in the JavaScript.
+2. **Every node and every edge carries the rule that put it there** — which
+   field of which record, or which of the tree's four attachment rules — so a
+   reader can check the arrangement against the records.
+3. **The rules are printed on the page**, and the page says in its own lede that
+   nobody has reviewed the arrangement.
+
 ## How it is put together
 
     site.json      nav, the build stamp, the upstream pin
@@ -35,10 +51,14 @@ judgement that is not already in an approved record (CLAUDE.md rule 1).
     <page>.json    { title, lede, blocks: [...] }
     reports/*.md   copies of data/derived/reports/, fetched and rendered whole
 
-Eight of the nine pages are a list of **blocks** — `stats`, `prose`, `callout`,
-`table`, `cards`, `bars`, `list`, `report` — and `blocks.js` has one renderer
-per kind and knows nothing about trade marks. The ninth is the decision form,
-which has state and owns `inbox.js`.
+Ten of the eleven pages are a list of **blocks** — `stats`, `prose`, `callout`,
+`table`, `cards`, `bars`, `list`, `report`, `network`, `tree` — and `blocks.js`
+has one renderer per kind and knows nothing about trade marks. The eleventh is
+the decision form, which has state and owns `inbox.js`.
+
+`network` and `tree` are big enough to own a file each — `network.js` and
+`tree.js` — and they are still only renderers: they decide where a dot goes and
+what is dimmed, never which dots exist or what joins them.
 
 That split is the point, and it is what makes the site cheap to change as the
 ontology moves:
@@ -50,6 +70,8 @@ ontology moves:
 | how a kind of block looks | `blocks.js` and `app.css` |
 | what a term means in a tooltip | `docs/GLOSSARY.md` |
 | adding a page | one builder in `build.py`, one line in `PAGES` |
+| which concepts and edges are drawn | `views.py` — never the JavaScript |
+| how the map or the tree *looks* | `network.js` / `tree.js` and `app.css` |
 
 Anything in prose may carry a `{{glossary term}}` marker, which becomes a
 tooltip. A marker naming a term `docs/GLOSSARY.md` does not define **fails the

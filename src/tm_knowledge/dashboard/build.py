@@ -36,7 +36,7 @@ from rdflib.namespace import OWL, RDF, RDFS, SH
 
 from tm_knowledge.authored import store as authored_store
 from tm_knowledge.config import DEFAULT_BASE_IRI, PIN_PATH, REPO_ROOT
-from tm_knowledge.dashboard import blocks, questions as questions_module, sources
+from tm_knowledge.dashboard import blocks, questions as questions_module, sources, views
 from tm_knowledge.ontology import ask as ask_module
 from tm_knowledge.ontology import rules as rules_module
 from tm_knowledge.ontology import tbox, validate
@@ -55,6 +55,8 @@ BLOB = f"{REPO_URL}/blob/main"
 PAGES: tuple[tuple[str, str, str], ...] = (
     ("overview", "Overview", "What this is, and where it stands today"),
     ("inbox", "Your decisions", "Questions waiting on you, and what happens to your answers"),
+    ("map", "The map", "Every concept and provision, as a network you can walk"),
+    ("tree", "Examination path", "The grounds, tests and factors, as a tree you can open"),
     ("vocabulary", "Vocabulary", "The 52 approved legal ideas and how they relate"),
     ("ontology", "The model", "Classes, predicates and the nine draft modules"),
     ("graph", "The graph", "What is stored, and the trust metadata on every claim"),
@@ -795,6 +797,127 @@ def _graph_page(facts: Facts) -> dict[str, Any]:
     }
 
 
+def _map(facts: Facts) -> dict[str, Any]:
+    """The node network — every concept, every provision they cite, every edge
+    either store states."""
+    payload = views.network(facts.gold, facts.authored)
+    counts = payload["counts"]
+
+    return {
+        "id": "map",
+        "title": "The map",
+        "lede": (
+            f"All {counts['concepts']} legal ideas the project holds and the "
+            f"{counts['provisions']} provisions they cite, drawn as the network they are. "
+            f"**{counts['signed']} of the ideas were signed by a named person; "
+            f"{counts['authored']} were written by a machine and nobody has read them** — "
+            "and the picture says which is which on every node. Start anywhere, click to "
+            "open a node, and follow the edges."
+        ),
+        "blocks": [
+            blocks.stats(
+                [
+                    {"label": "Ideas on the canvas", "value": counts["concepts"],
+                     "note": f"{counts['signed']} signed · {counts['authored']} authored",
+                     "tone": "note"},
+                    {"label": "Provisions they cite", "value": counts["provisions"],
+                     "note": "at the address the record uses, never rolled up", "tone": "note"},
+                    {"label": "Edges", "value": counts["edges"],
+                     "note": "each one a field in a record, not an inference", "tone": "note"},
+                    {"label": "Separate islands", "value": counts["islands"],
+                     "note": f"the biggest holds {counts['largest_island']} of "
+                             f"{counts['concepts'] + counts['provisions']}",
+                     "tone": "gap"},
+                ]
+            ),
+            blocks.network(payload),
+            blocks.callout(
+                "warn",
+                "What an edge on this map is, and what it is not",
+                "Four things put an edge here, and all four are already written down in a "
+                "record: a `broader` / `narrower` pair, a `related` pair, a signed "
+                "**relationship** record, and a concept naming the provision it rests on. "
+                "**Nothing on this canvas was inferred, and no edge means one idea implies "
+                "another.** The thin ones are vocabulary structure; the thick ones are the "
+                f"{counts['signed_edges']} a reviewer put their name to, and those are the "
+                "only ones carrying a modality and a passage.",
+                links=[{"label": "How the vocabulary is held", "href": "#/vocabulary"}],
+            ),
+            blocks.callout(
+                "gap",
+                "The shape of this picture is itself the finding",
+                f"The graph is in **{counts['islands']} separate pieces**. One of them holds "
+                f"{counts['largest_island']} nodes and is the signed vocabulary with its "
+                "hierarchy and its 35 asserted edges; almost every other piece is a single "
+                "authored concept with the provisions it cites and nothing else. "
+                "`authored/relationships.yaml` does not exist, so what the rows below the "
+                "core show is a **vocabulary drawn next to a graph**, not a graph. Writing "
+                "those edges is the largest single piece of work still to do, and this "
+                "picture is what it would change.",
+            ),
+        ],
+    }
+
+
+def _tree(facts: Facts) -> dict[str, Any]:
+    """The examination path — the reasoning groups hung off the sections they cite."""
+    payload = views.decision_tree(facts.gold, facts.authored)
+    grounds = payload["spines"][0]["counts"]
+
+    return {
+        "id": "tree",
+        "title": "The examination path",
+        "lede": (
+            "The same records as the map, arranged the way an examination reasons: a "
+            "**ground for rejection**, the **tests** it turns on, the **factors** that feed "
+            "them, and the **exceptions** that take a case out. "
+            f"{grounds['placed']} of {grounds['concepts']} reasoning concepts hang off a "
+            "section of the Act; the rest are shown where they fall, not filed somewhere "
+            "plausible. **Every branch ends on the same leaf — the outcome, which this "
+            "system does not state.**"
+        ),
+        "blocks": [
+            blocks.stats(
+                [
+                    {"label": "Sections with a branch", "value": grounds["sections"],
+                     "note": "a ground or a test cites each one", "tone": "note"},
+                    {"label": "Branches with no ground concept",
+                     "value": grounds["without_a_ground"],
+                     "note": "tests, but nothing typed as the ground they serve", "tone": "gap"},
+                    {"label": "Concepts under more than one section",
+                     "value": grounds["in_more_than_one"],
+                     "note": "shown under each, marked on both", "tone": "note"},
+                    {"label": "Attached to no section", "value": grounds["stranded"],
+                     "note": "shown in a branch of their own", "tone": "gap"},
+                ]
+            ),
+            blocks.tree(payload),
+            blocks.callout(
+                "warn",
+                "This tree is computed, and nobody has signed it",
+                "It is built on every page build from four rules, and the rules are printed "
+                "under it. **No expert has read this arrangement** — not the branches, not "
+                "the order, not which test belongs to which ground. It is a way of looking "
+                "at 130 records, and the records are what is authoritative.",
+                links=[{"label": "The records themselves", "href": "#/map"}],
+            ),
+            blocks.callout(
+                "gap",
+                "Before this becomes training scaffolding",
+                "A tree of decisions is the natural frame for learning from historical "
+                "outcomes, and this one is deliberately shaped so it could be — stable ids, "
+                "one node per record, the file itself at `data/tree.json`. **One approved "
+                "record stands between that and the product**: `PU-0003` prohibits the "
+                "system stating a confidence that a ground applies, on the reasoning that no "
+                "probability here is calibrated against examination outcomes. A decision "
+                "corpus would change the premise and not the record — and only a person can "
+                "change the record.",
+                links=[{"label": "What the system must never say", "href": "#/limits"}],
+            ),
+        ],
+    }
+
+
 def _shape_rows(facts: Facts) -> list[dict[str, Any]]:
     rows = []
     for name, graph in facts.shapes.items():
@@ -1247,6 +1370,8 @@ def build(*, generated: str | None = None) -> dict[str, Any]:
     stamp = generated or date.today().isoformat()
     pages = {
         "overview.json": _overview(facts),
+        "map.json": _map(facts),
+        "tree.json": _tree(facts),
         "vocabulary.json": _vocabulary(facts),
         "ontology.json": _ontology(facts),
         "graph.json": _graph_page(facts),

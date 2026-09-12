@@ -258,10 +258,14 @@ def test_the_site_is_self_contained():
         assert name in html
         assert (SITE / name).exists()
     assert "http://" not in html.replace("http://www.w3.org", "")
-    for module in ("app.js", "blocks.js", "inbox.js", "md.js"):
+    for module in ("app.js", "blocks.js", "inbox.js", "md.js", "network.js", "tree.js"):
         source = (SITE / module).read_text(encoding="utf-8")
         assert "cdn" not in source.lower()
         assert "import(" not in source
+        # The two view modules draw a force layout and a tree by hand for this
+        # reason: a graph library would be the first thing on this site loaded
+        # from somewhere else, and the rule is that every byte is in the repo.
+        assert "unpkg" not in source and "jsdelivr" not in source
 
 
 def test_every_nav_entry_has_a_data_file():
