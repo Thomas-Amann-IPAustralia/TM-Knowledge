@@ -3,10 +3,50 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-12 · session S022 · branch `claude/gallant-maxwell-nua5rd`
+**Last updated:** 2026-09-12 · session S023 · branch `claude/gracious-edison-vu5avc`
 
 ---
-## 0. What S022 did, in one paragraph
+## 0. What S023 did, in one paragraph
+
+**The owner asked whether `ontology/README.md` was still right to say the
+ontology is built from section 43. It was — in one place, and it was the place
+that mattered.** The class skeleton never was section 43: `document.ttl`,
+`authority.ttl`, `provenance.ttl`, `time.ttl` and `evaluation.ttl` model
+upstream's shapes and would be identical for any Part. The concept layer stopped
+being section 43 in S018. **The relational layer had not moved at all.**
+`relations.ttl` is the closed list of predicates extraction may draw from, and
+it was generated from `eval/gold/relationships.yaml` alone — 35 signed records
+whose **37 source refs all point at `TMM/Part29`**. So the ontology's entire
+relational expressiveness was whatever section 43 had happened to need: 14
+terms, 6 used exactly once, with no way to say that a concept is *defined by* a
+provision, that a step is *performed by* an office, or that one *must occur
+within* a period. That is why the graph was in 44 pieces with 0 authored
+relationships.
+
+**`tmk-relationships` is the pass that fixes it (ADR-0109).** Deterministic,
+seven patterns, each one fixing where the subject and the object sit in the
+sentence before it fires. **219 relationships across 45 Parts and both
+instruments**, every record stamped `unreviewed` with its span, its
+`content_hash`, its reasoning, the readings it rejected and the thing it most
+expects to have got wrong. `relations.ttl` is now generated from both registers:
+`tmk:ApprovedRelation` keeps its meaning and its 14 terms, `tmk:AuthoredRelation`
+holds the 7 a machine used, 4 of them new. The counters are never added. Two
+modules stopped explaining their own emptiness by naming the withdrawn boundary
+(ADR-0110), and two real defects fell out of the first build (ADR-0111, Q-64,
+Q-65).
+
+**Nothing was signed and `eval/gold/` is byte-identical.** The store went from
+208 authored records to **427**, and the honest headline is the one on every one
+of them: *no expert has read a single relationship in this repository outside
+the 35 signed ones.* What the pass produces is evidenced, stamped and
+correctable — **not correct**. A sample of the first run found inverted edges on
+the active *overcome*, role words read as subjects, and a flattened annex table
+read as one sentence; each is now a guard with a test, and
+`expert_should_check` on every record names the failure mode its own pattern
+still has.
+
+---
+## 0a. What S022 did, in one paragraph
 
 **S021 drew the records and the owner came back with three objections, all of
 them about the drawing rather than the data: the decision tree was not shaped
@@ -35,7 +75,7 @@ transcription and authorship was drawn, and why the factors hang off the section
 rather than off a question.
 
 ---
-## 0a. What S021 did, in one paragraph
+## 0b. What S021 did, in one paragraph
 
 **The project could be counted and could not be seen, and the owner said the
 tables and the abstractions were making it hard to comprehend and hard to explain
@@ -63,7 +103,7 @@ trained on this shape would want to do. It is signed, and only a person can
 change it (ADR-0105 consequence 3).
 
 ---
-## 0b. What S020 did, in one paragraph
+## 0c. What S020 did, in one paragraph
 
 **The question "what does the trade marks expert need to look at" had no
 answer in the repo, and the two obvious places to look were both wrong in
@@ -117,7 +157,7 @@ signed and the 208 authored records are byte-identical to how S019 left them,
 and `approved_by` is emptied by the pack in every row it writes.
 
 ---
-## 0c. What S019 did, in one paragraph
+## 0d. What S019 did, in one paragraph
 
 **The taxonomy stopped creaking, and the dashboard stopped contradicting
 itself.** The owner asked what was waiting on him or on the trade marks expert
@@ -170,7 +210,7 @@ invisible today only because the six classes in `examination.ttl` are all
 UNDEFINED. Q-58.
 
 ---
-## 0d. What S018 did, in one paragraph
+## 0e. What S018 did, in one paragraph
 
 **The rules stopped saying section 43 in S015. The artefacts stopped saying it in
 S018.** The owner asked for the boundary's removal to reach
@@ -311,6 +351,27 @@ confidence in the model. If `authored/` ever fills with `general_knowledge`
 records carrying no spans, the scheme has failed quietly and this paragraph is
 where somebody should have looked.
 
+### The numbers as at S023
+
+Superseding the S018 table below wherever the two disagree. The S018 figures are
+kept because the prose around them explains how each was arrived at.
+
+| | |
+|---|---|
+| Ontology modules | 9, OWL 2 RL, in `ontology/draft/` — **none approved** |
+| Classes declared | **59** (was 50) — three evidence stages added, and more of them hold nothing than before, which is the honest direction (ADR-0110) |
+| Predicates | **18** — 14 `tmk:ApprovedRelation` (35 signed records, every source ref `TMM/Part29`) and 7 `tmk:AuthoredRelation` (219 records, read by nobody). 4 of the 7 are new terms. **Never summed** (ADR-0109) |
+| Source graph | **53,168 triples over 892 chunks** (was 32,922 over 508). No rule changed — the records now speak about 45 Parts and both instruments |
+| Approved graph | 3,243 triples, unchanged, every one traceable to a signed record |
+| Authored graph | **8,568 triples** (was 3,441) |
+| SHACL | **0 defects, 0 gaps**, 209 notes |
+| Harness | **0 defects**, 12 gaps, 10 notes |
+| Tests | **573 passing** (was 528), 22 of them new |
+| Signed records | **190, frozen, byte-identical** |
+| Authored records | **427** (was 208): 78 concepts, 130 typings, **219 relationships**. All `unreviewed`, 0 refused. **0 `general_knowledge`** — 131 `corpus_explicit`, 88 `corpus_inferred` on the relationships |
+| Relationship modality | **181 of 219 null**, 38 `must`. Only `must` is read from grammar and every null is reported as a gap (ADR-0109 c3) |
+| Relationship sources | **45** Parts and instruments. `Part29` is 10 of 219 |
+
 ### The numbers as at S018
 
 Everything about the vocabulary moved, and the source graph moved with it. The
@@ -418,24 +479,30 @@ table they come from.
 
 **In order of value:**
 
-1. **Relationships, and they are the biggest hole in the graph.** Since S021
-   there is a picture of exactly how big: open `#/map` and the graph is in **44
-   separate pieces**, one holding 86 of 254 nodes and almost every other holding
-   a single authored concept beside the provisions it cites. Writing these edges
-   is the one change that would visibly redraw that page.
-   `authored/relationships.yaml` does not exist and `eval/gold/relationships.yaml`
-   holds 35 of a 50–100 band. The 78 new concepts have almost no edges between
-   them — the store holds 78 concepts and **0 authored relationships** — so the
-   graph is a vocabulary rather than a knowledge graph. Every concept authored in
-   S018 names near-misses and several name a broader or narrower in prose that no
-   record carries. Do it the way S018 did the concepts: evidence sliced from the
-   snapshot, `corpus_inferred` unless the corpus states it in terms, and an
-   `expert_should_check` naming something specific.
+1. ~~**Relationships, and they are the biggest hole in the graph.**~~ **Done in
+   S023** — `tmk-relationships` authored 219 across 45 Parts and both
+   instruments (ADR-0109). What is left of it, and what to do next:
 
-   **Read the `modality` trap first.** Signed `GR-` records have five blank
-   modality fields and an agent may not fill a field inside a signature. A new
-   authored relationship carries its own modality and is fine; an old signed one
-   is not, and needs a record type that does not exist (ADR-0071's shape).
+   - **Read `data/derived/reports/relationships.md` §4 first.** It lists the 25
+     weakest edges, lowest confidence first. `requiresElement` and
+     `isPerformedBy` are the two patterns to distrust: the first reads the
+     direction of a requirement off word order, and the second's 9
+     applicant-performs edges are the ones most likely to be passives it could
+     not see.
+   - **Three predicates in the authored half are barely used** —
+     `isOvercomeBy` 2, `requiresElement` 7, `doesNotGiveRiseTo` 0. The corpus
+     states more of all three than that; the patterns are narrow on purpose
+     after the first run produced inversions. Widening one is a pattern change
+     with a test, not a threshold tweak.
+   - **The `modality` trap is unchanged.** Signed `GR-` records have five blank
+     modality fields and an agent may not fill a field inside a signature. A new
+     authored relationship carries its own and is fine; an old signed one is
+     not, and needs a record type that does not exist (ADR-0071's shape).
+   - **Concept-to-concept edges from the concept records themselves.** Every
+     concept authored in S018 names near-misses and several name a broader or
+     narrower *in prose* that no record carries. This pass read the corpus, not
+     the records, so none of that was picked up — and it is cheaper and better
+     evidenced than anything sentence matching can do.
 
 2. **The record types still furthest under their band**, all additions needing no
    new machinery: `search-questions.yaml` (1 of 20–50),
@@ -513,6 +580,9 @@ four modules to find out.
 | an authored typing naming a concept in neither store | defect, `authored-cross-reference`. Added S018 — the schema had promised this check since ADR-0071 and nothing performed it | ADR-0095 c4 |
 | a concept only `authored/` holds | it reaches `data/derived/concept-typing.xlsx` like any other, with `[concept authored by a machine, unreviewed]` in its `notes` cell | ADR-0095 |
 | a record citing a Manual passage nothing else cites | the passage joins `graph/source.ttl` on the next build, with its page-mates. No scope decision, no code change | ADR-0097 |
+| a record citing an Act or Regulations ref as its `source_ref` | resolves, and staleness is checked against the unit or provision. It did **not** until S023 — the lookup read `corpus.chunks` only and reported 46 perfectly good refs as "naming a source not held" | ADR-0111, Q-64 |
+| an authored relationship using a predicate no signed record uses | `relations.ttl` gains the term on the next `tmk-ontology-relations --write`, typed `tmk:AuthoredRelation` and **not** `tmk:ApprovedRelation`. A test fails if the committed file has drifted from a regeneration | ADR-0109 |
+| `modality` on an authored relationship | only `must` is ever written from grammar. `may` and `should` stay null and are reported as gaps — 181 of 219 are | ADR-0109 c3 |
 
 `tmk-harness --authored-dir <dir>` and `tmk-coverage --authored-dir <dir>` point
 the checks somewhere else, which is how the fixtures are exercised.
@@ -908,6 +978,44 @@ relevance grade each. The scoped workbook for all ten is rendered.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S023 — 2026-09-12 — the relational layer came off section 43
+
+**Branch** `claude/gracious-edison-vu5avc`
+
+The owner asked whether `ontology/README.md` was still right that the ontology is
+built from section 43. Reading the nine `.ttl` files against the stores: **partly,
+and the part still true was the load-bearing one.** The class skeleton never was;
+the concept layer stopped being in S018; `relations.ttl` — the closed predicate
+list — still was, because it was generated from the 35 signed relationships and
+all 37 of their source refs point at `TMM/Part29`.
+
+**219 relationships, 45 sources (ADR-0109).** `tmk-relationships` is a
+deterministic pass over the whole corpus and both instruments. Seven patterns,
+each fixing where subject and object sit before it fires: `isDefinedIn` (46, from
+the Act's and the Regulations' own definition provisions), `hasStatutoryBasis`
+(85, from the Manual's own hyperlinks introduced by *under* / *pursuant to*),
+`mayGiveRiseTo` (37), `isPerformedBy` (31), `mustOccurWithin` (11),
+`requiresElement` (7), `isOvercomeBy` (2). `relations.ttl` now generates from both
+registers with `tmk:AuthoredRelation` beside `tmk:ApprovedRelation`, counters
+never summed.
+
+**Two defects fell out of the first build (ADR-0111).** The concept scheme's label
+was `"Section 43 examination vocabulary — pilot"` on all 130 concepts in the
+committed graph; corrected, while the IRI `tmkc:scheme-s43` was deliberately kept
+(IDENTIFIERS.md §3 — labels get revised, identifiers must not). And `_provenance`
+resolved `source_ref` against `corpus.chunks` only, so the first 46 records ever
+to cite legislation as their *source* all reported as "naming a source not held";
+it now reads units and provisions too (Q-64).
+
+**Cost:** 573 passing (was 528), 22 new tests, 0 defects in the harness, 0 in
+SHACL. **Distrust the precision, not the provenance.** A sample of the first run
+found inverted edges on the active *overcome*, roles read as subjects and a
+flattened annex table read as one sentence; each is a guard with a test now, and
+what survives is evidenced and correctable rather than correct. Q-65 records the
+trap worth carrying: a withdrawn boundary survives in prose and in hardcoded
+labels long after the code that enforced it is deleted, and grepping for `s43`
+does not find a paraphrase.
 
 ### S022 — 2026-09-12 — the tree became a tree, the map became walkable, the nodes learned to quote
 

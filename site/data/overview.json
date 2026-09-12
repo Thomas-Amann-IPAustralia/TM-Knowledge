@@ -1,7 +1,7 @@
 {
  "id": "overview",
  "title": "A knowledge base for trade marks examination",
- "lede": "This project is turning the **Trade Marks Manual of Practice and Procedure** — all 54 Parts of it, together with the legislation it runs on — into something a machine can reason over without ever deciding a case. **190 records here were signed by a named person on a date. 208 were written by a machine and no expert has read any of them.** Which is which is recorded on every record, shown on every count on this site, and never summed into one number (ADR-0079, ADR-0080).",
+ "lede": "This project is turning the **Trade Marks Manual of Practice and Procedure** — all 54 Parts of it, together with the legislation it runs on — into something a machine can reason over without ever deciding a case. **190 records here were signed by a named person on a date. 427 were written by a machine and no expert has read any of them.** Which is which is recorded on every record, shown on every count on this site, and never summed into one number (ADR-0079, ADR-0080).",
  "blocks": [
   {
    "kind": "callout",
@@ -27,7 +27,7 @@
     },
     {
      "label": "Records a machine wrote",
-     "value": 208,
+     "value": 427,
      "note": "none of them read by an expert — usable, never validated",
      "tone": "warn",
      "href": null
@@ -42,7 +42,7 @@
     {
      "label": "Relationships",
      "value": 35,
-     "note": "target 50–100 · 35 signed · 0 authored",
+     "note": "target 50–100 · 35 signed · 219 authored",
      "tone": "gap",
      "href": null
     },
@@ -86,14 +86,14 @@
     },
     {
      "label": "Classes declared",
-     "value": 55,
+     "value": 59,
      "note": "10 hold approved content",
      "tone": null,
      "href": null
     },
     {
      "label": "Predicates",
-     "value": 14,
+     "value": 18,
      "note": "generated from approved relationships, never hand-written",
      "tone": null,
      "href": null
@@ -107,7 +107,7 @@
     },
     {
      "label": "Statements a machine wrote",
-     "value": 3493,
+     "value": 8568,
      "note": "a separate named graph — no query for signed knowledge reaches them",
      "tone": "warn",
      "href": null
@@ -264,7 +264,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "nine OWL 2 RL modules drafted in `ontology/draft/`; nothing approved, so `ontology/` stays empty (ADR-0056, ADR-0057). The concept classes now also fill from **authored** `concept_type` records, not only signed ones (ADR-0079 amends ADR-0071) — the 0-of-130 signed taxonomy is an agent's to fill. Whole-Manual scope means the class list stops being 30-of-49 empty for want of material (ADR-0081). **S019 added five concept classes** — `ProcessRole`, `SubjectMatter`, `ProceduralStep`, `InstrumentOrRecord`, `ExternalInstrument` — beside the owner's original four (ADR-0098)"
+       "text": "nine OWL 2 RL modules drafted in `ontology/draft/`; nothing approved, so `ontology/` stays empty (ADR-0056, ADR-0057). The concept classes now also fill from **authored** `concept_type` records, not only signed ones (ADR-0079 amends ADR-0071) — the 0-of-130 signed taxonomy is an agent's to fill. Whole-Manual scope means the class list stops being 30-of-49 empty for want of material (ADR-0081). **S019 added five concept classes** — `ProcessRole`, `SubjectMatter`, `ProceduralStep`, `InstrumentOrRecord`, `ExternalInstrument` — beside the owner's original four (ADR-0098). **S023 took the relational layer off section 43**: `relations.ttl` was generated from the 35 signed relationships alone, every one sourced to `TMM/Part29`, so the closed predicate list was whatever one Part needed. It is now generated from both registers, with `tmk:ApprovedRelation` (14 terms, unchanged) and `tmk:AuthoredRelation` (7, read by nobody) kept apart (ADR-0109). Two modules stopped explaining their emptiness by naming the withdrawn boundary (ADR-0110)"
       }
      ]
     },
@@ -283,7 +283,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "S010, S012, S016. Graph built (16,405 source + 3,230 approved + 0 authored triples), SHACL gate **0 defects, 0 gaps, 29 notes**, against a *draft* TBox. S012: **all files committed** (ADR-0070) and `tmk-graph --check` fails on drift. **S016: a fourth named graph, `graph/authored.ttl`** — built from `authored/` by the same mapping, every node stamped `tmk:origin` and `tmk:reviewStatus`, an authored relationship typed `tmk:AuthoredAssertion` and never `tmk:ApprovedAssertion` (ADR-0091). Empty until something is authored, and the approved count rose by 284 because both stores now stamp their origin"
+       "text": "S010, S012, S016. Graph built — as at S023, **53,168 source + 3,243 approved + 8,568 authored triples over 892 chunks**, SHACL gate **0 defects, 0 gaps, 209 notes**, against a *draft* TBox. The source graph tripled because the records now speak about 45 Parts and both instruments rather than one Part (ADR-0097's rule, unchanged; ADR-0109's records). S012: **all files committed** (ADR-0070) and `tmk-graph --check` fails on drift. **S016: a fourth named graph, `graph/authored.ttl`** — built from `authored/` by the same mapping, every node stamped `tmk:origin` and `tmk:reviewStatus`, an authored relationship typed `tmk:AuthoredAssertion` and never `tmk:ApprovedAssertion` (ADR-0091). Empty until something is authored, and the approved count rose by 284 because both stores now stamp their origin"
       }
      ]
     },

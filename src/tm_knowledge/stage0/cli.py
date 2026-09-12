@@ -854,3 +854,72 @@ def concepts(argv: list[str] | None = None) -> int:
         "envelope — `authored/concepts.yaml`, never `eval/gold/`."
     )
     return 0
+
+
+def relationships(argv: list[str] | None = None) -> int:
+    """`tmk-relationships` — edges across the whole Manual and both instruments.
+
+    Unlike `tmk-concepts`, this one **authors**. A relationship has no useful
+    candidate form: a proposal saying "these two concepts are related, in some
+    way, somewhere in this sentence" is not something a reviewer can correct,
+    and the predicate is the whole of the content. So the pass commits to a
+    predicate, stamps the record `unreviewed` with its evidence, its reasoning
+    and the thing it most expects to have got wrong, and writes it to
+    `authored/relationships.yaml` (ADR-0079, ADR-0109).
+    """
+    parser = argparse.ArgumentParser(
+        prog="tmk-relationships",
+        description=(
+            "Deterministic relationship extraction over the whole corpus. Writes "
+            "authored records, stamped unreviewed, never to eval/gold/."
+        ),
+    )
+    parser.add_argument("--write", action="store_true", help="write the records and the report")
+    parser.add_argument("--out", type=Path, default=None, help="authored records path")
+    parser.add_argument("--report", type=Path, default=None, help="report path")
+    parser.add_argument("--generated", default=None, help="build stamp, for a reproducible run")
+    args = parser.parse_args(argv)
+
+    try:
+        corpus = load_corpus()
+    except (UnpinnedSnapshot, SnapshotMismatch) as error:
+        print(f"refusing to run: {error}", file=sys.stderr)
+        return 2
+
+    from tm_knowledge.stage0 import relationships as relationships_module
+
+    lexicon = relationships_module.build_lexicon()
+    findings = relationships_module.extract(corpus, lexicon)
+
+    by_predicate: dict[str, int] = {}
+    for finding in findings:
+        by_predicate[finding.predicate] = by_predicate.get(finding.predicate, 0) + 1
+    sources = {relationships_module._part_of(f.source_ref) for f in findings}
+    explicit = sum(1 for f in findings if f.basis == "corpus_explicit")
+
+    print(f"{len(findings)} relationships from {len(corpus.chunks)} chunks and "
+          f"{len(corpus.units)} legislative units")
+    for predicate in sorted(by_predicate):
+        new = "" if predicate in relationships_module.APPROVED_PREDICATES else "  (new predicate)"
+        print(f"  {predicate:<20} {by_predicate[predicate]:>4}{new}")
+    print(f"  corpus_explicit: {explicit} · corpus_inferred: {len(findings) - explicit}")
+    print(f"  drawn from {len(sources)} Parts and instruments")
+
+    if not args.write:
+        print("\n(dry run — nothing written. Pass --write.)")
+        return 0
+
+    records = relationships_module.render_records(
+        findings, lexicon=lexicon, authored_date=args.generated
+    )
+    written = relationships_module.write_records(records, args.out, generated=args.generated)
+    report = relationships_module.write_report(
+        findings, args.report, lexicon=lexicon, generated=args.generated
+    )
+    print(f"\nwrote {written}")
+    print(f"wrote {report}")
+    print(
+        "\nEvery record is `unreviewed` and was read by nobody. Only `tmk-transcribe`, "
+        "from a workbook carrying a person's verdict and name, moves one (ADR-0086)."
+    )
+    return 0

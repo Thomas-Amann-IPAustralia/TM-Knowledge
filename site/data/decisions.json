@@ -1,14 +1,14 @@
 {
  "id": "decisions",
  "title": "Every decision on the record",
- "lede": "108 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
+ "lede": "111 decisions, each with a date and — the part that matters — a stated **authority**: who was entitled to make it. The log is append-only. A decision is never edited or deleted; it is superseded by a new one that says so.",
  "blocks": [
   {
    "kind": "stats",
    "items": [
     {
      "label": "Decisions recorded",
-     "value": 108,
+     "value": 111,
      "note": null,
      "tone": null,
      "href": null
@@ -22,7 +22,7 @@
     },
     {
      "label": "Forced by the evidence",
-     "value": 26,
+     "value": 28,
      "note": "defensible without a human",
      "tone": null,
      "href": null
@@ -77,6 +77,90 @@
     }
    ],
    "rows": [
+    {
+     "id": "`ADR-0111`",
+     "title": "a label may be corrected; the identifier it was minted from may not",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-12",
+     "search": "ADR-0111 a label may be corrected; the identifier it was minted from may not derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "Two defects surfaced on the first build that carried whole-Manual relationships, and they are recorded together because the right answer to one is the opposite of the right answer to the other."
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0111-a-label-may-be-corrected-the-identifier-it-was-minted-from-may-not)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0110`",
+     "title": "a module's emptiness is a measured gap, never a withdrawn boundary",
+     "authority": {
+      "chips": [
+       {
+        "label": "derived",
+        "tone": "note"
+       }
+      ]
+     },
+     "date": "2026-09-12",
+     "search": "ADR-0110 a module's emptiness is a measured gap, never a withdrawn boundary derived accepted",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted"
+      },
+      {
+       "kind": "prose",
+       "text": "Two of the nine draft modules explained their own emptiness by naming the section 43 boundary, four days after ADR-0081 withdrew it. `evidence.ttl` said populating it *\"is a Part 22/23 job (evidence of use under s 41), and Part 22 is explicitly out of the pilot scope draft\"*. `examination.ttl` said *\"the approved set…"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0110-a-modules-emptiness-is-a-measured-gap-never-a-withdrawn-boundary)"
+      }
+     ]
+    },
+    {
+     "id": "`ADR-0109`",
+     "title": "the closed predicate list is generated from both registers, and an authored predicate is a class of its own",
+     "authority": {
+      "chips": [
+       {
+        "label": "agent-proposed",
+        "tone": "warn"
+       }
+      ]
+     },
+     "date": "2026-09-12",
+     "search": "ADR-0109 the closed predicate list is generated from both registers, and an authored predicate is a class of its own agent-proposed accepted ·",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "**Status.** accepted ·"
+      },
+      {
+       "kind": "prose",
+       "text": "The owner asked whether `ontology/README.md` was still right to say the ontology is built over the section 43 pilot. Reading the nine `.ttl` files against the stores, the answer was **partly, and the part that was still true was the load-bearing one.**"
+      },
+      {
+       "kind": "prose",
+       "text": "[Read it in full](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/blob/main/docs/DECISIONS.md#adr-0109-the-closed-predicate-list-is-generated-from-both-registers-and-an-authored-predicate-is-a-class-of-its-own)"
+      }
+     ]
+    },
     {
      "id": "`ADR-0108`",
      "title": "a node carries the passage its record quotes",

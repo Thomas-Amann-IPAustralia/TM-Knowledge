@@ -4882,3 +4882,207 @@ ref, in the store.
    person signed carry no envelope, so their quote comes from the unreviewed
    typing — which is exactly the sort of blur ADR-0080 exists to prevent, and why
    `from` is a required field rather than a nicety.
+
+---
+
+## ADR-0109 — the closed predicate list is generated from both registers, and an authored predicate is a class of its own
+
+**Date** 2026-09-12 · **Authority** agent-proposed · **Status** accepted ·
+**Amends ADR-0057's generation rule; does not supersede it**
+
+**Context.** The owner asked whether `ontology/README.md` was still right to say
+the ontology is built over the section 43 pilot. Reading the nine `.ttl` files
+against the stores, the answer was **partly, and the part that was still true
+was the load-bearing one.**
+
+The class skeleton was never section 43: `document.ttl`, `authority.ttl`,
+`provenance.ttl`, `time.ttl` and `evaluation.ttl` model upstream's shapes and
+would be identical for any Part. The concept layer stopped being section 43 in
+S018 — ADR-0095 authored 78 concepts from the 53 hidden Parts and ADR-0098 grew
+the taxonomy to nine classes to hold them.
+
+**The relational layer had not moved at all.** `relations.ttl` is the *closed
+list extraction may draw from*, and it was generated from
+`eval/gold/relationships.yaml` alone. Every one of the 37 source refs in those
+35 signed records points at `TMM/Part29`. So the ontology's entire relational
+expressiveness — 14 predicates, 6 used exactly once — was whatever section 43
+had happened to need. Nothing in it can say that a concept is **defined by** a
+provision, that a step is **performed by** an office, or that one **must occur
+within** a period, and those are most of what the Manual's other 53 Parts are
+about. The consequence was already measured and already on the dashboard: the
+graph is in 44 pieces with 0 authored relationships (S021), which is a
+vocabulary rather than a knowledge graph.
+
+The generation rule was not wrong when it was written. *"To add a predicate,
+have an expert approve a relationship that uses it"* was the only honest rule
+while CLAUDE.md rule 1 forbade an agent to author a relationship at all. ADR-0079
+removed that prohibition on 2026-09-08 and nothing downstream noticed.
+
+**Decision.** Three parts.
+
+1. **`tmk-relationships` authors relationships across the whole corpus.**
+   `tm_knowledge.stage0.relationships` — deterministic, seven patterns, every
+   one fixing where the subject and the object sit in the sentence before it
+   fires. 219 records, 45 Parts and both instruments, each stamped
+   `unreviewed` with its span, its `content_hash`, its reasoning, the readings
+   it rejected and the thing it most expects to have got wrong.
+2. **`relations.ttl` is generated from both registers.**
+   `tmk:ApprovedRelation` keeps its exact meaning — *an expert used this term
+   in a record they signed* — and keeps its exact membership, 14 terms.
+   `tmk:AuthoredRelation` is new and means *a machine used it and nobody has
+   read a single record that does*. A predicate both stores use carries both
+   types.
+3. **The two counters are never added.** `tmk:usageCount` stays the signed
+   count so that nothing reading it starts silently including unreviewed
+   records; `tmk:authoredUsageCount` sits beside it (ADR-0080 consequence 3).
+
+**Why a class rather than a flag, and why authored predicates at all.**
+
+A class for ADR-0007's reason, which has not changed: a flag can be dropped by
+a careless projection and a class has to be asked for. The alternative
+considered was leaving the 14 alone and forcing every authored edge into one of
+them. It was rejected because it is the more dishonest option, not the more
+conservative one: `isDefinedIn` pushed into `appliesTo` would put a machine's
+reading inside a term an expert defined, and the expert would have no way to
+see that it had happened. A new term that says on its face that nobody has
+approved it is the safer artefact.
+
+**Consequences.**
+
+1. **Four new predicates exist that no expert has seen** — `isDefinedIn`,
+   `hasStatutoryBasis`, `isPerformedBy`, `mustOccurWithin`. Three approved
+   terms are also now used by authored records: `mayGiveRiseTo`,
+   `requiresElement`, `isOvercomeBy`. All seven are on the expert's list.
+2. **The graph stops being a vocabulary.** 219 edges join 45 sources' worth of
+   concepts to each other and to the Act and the Regulations. The `#/map` page
+   will redraw and the 44-piece figure will change; nothing about the drawing
+   code needed to change for that.
+3. **Modality is read only where it is `must`.** ADR-0079 permits an agent to
+   author a modality reading and this pass takes the narrowest version of that
+   permission: `must` is unambiguously deontic in Australian legislative
+   drafting, `may` is the word `gold-relationship.schema.json` singles out as
+   ambiguous, and `should` in the Manual is practice direction whose force is
+   what CQ-0024 exists to ask. **181 of the 219 records carry a null modality**
+   and 38 carry `must`. A null is a gap, it is reported as one, and that is the
+   right number to be uncomfortable about.
+4. **`relationships.yaml` still reads `35 of 50–100` on the completeness gate**
+   and is right to: the gate counts `eval/gold/`. The authored 219 are in the
+   authored column and the two are never summed (ADR-0080 c3).
+5. **The precision is not the point and must not be reported as though it
+   were.** A sample of the first run found inverted edges on the active
+   *overcome*, role words read as subjects, and a flattened annex table read as
+   one sentence. Each was fixed by a guard with a test. What survives is
+   evidenced, stamped and correctable — not correct. `expert_should_check` on
+   every record names the specific failure mode its own pattern has.
+
+---
+
+## ADR-0110 — a module's emptiness is a measured gap, never a withdrawn boundary
+
+**Date** 2026-09-12 · **Authority** derived · **Status** accepted
+
+**Context.** Two of the nine draft modules explained their own emptiness by
+naming the section 43 boundary, four days after ADR-0081 withdrew it.
+`evidence.ttl` said populating it *"is a Part 22/23 job (evidence of use under
+s 41), and Part 22 is explicitly out of the pilot scope draft"*.
+`examination.ttl` said *"the approved set describes what the Manual says about
+section 43, not a process model of examination, and inventing one would be
+authoring practice"* — whose second half described a prohibition ADR-0079 had
+removed.
+
+Both sentences were true when written. Neither was true when read, and a
+session reading either would have concluded that a whole area of the Manual was
+out of bounds.
+
+**Decision.** A module comment may say a class holds nothing. It may not
+attribute that to scope. Where a class is empty the comment states **the
+measured reason** — how much the corpus says, how much of it the vocabulary
+holds, and what would fill it.
+
+Applied:
+
+- **`evidence.ttl`.** The real reason, measured: 226 chunks across 37 Parts
+  mention evidence, and the vocabulary holds two concepts for it — `GC-0041`
+  and `GC-0101`, which are the same label twice and one of ADR-0101's ten
+  duplicate pairs. Two concepts, one a duplicate of the other, is not a
+  taxonomy. Three classes were added for the three stages the corpus names in
+  terms — `EvidenceInSupport` (16 chunks), `EvidenceInAnswer` (7),
+  `EvidenceInReply` (6) — and all three are marked `AUTHORED, unreviewed`.
+- **`examination.ttl`.** 31 authored `isPerformedBy` edges now attach to it,
+  and the role classes are re-commented against what the two stores actually
+  hold: five of the reviewer's nine terms now have a concept record, four still
+  do not (*Office Practice*, *Subject Matter Expert*, *Adverse Report*, *Team
+  Leader*).
+- **`AUTHORED` joins `UNPOPULATED` and `UNDEFINED`** as a marker word in
+  `rdfs:comment`, meaning *a machine wrote this declaration and no expert has
+  read it*. It is not a synonym for `UNPOPULATED`: a class can be authored and
+  hold records, or declared by an expert and hold nothing.
+
+**Rationale.** `ontology/draft/README.md` already argued that a class holding
+nothing is *"a gap someone can close in an afternoon"* and a class quietly
+populated by a machine is *"a taxonomy that reads as authoritative and was
+authored by nobody"*. Both depend on the reader being able to tell which is
+which, and an emptiness explained by a fence nobody can find is neither.
+
+**Consequences.**
+
+1. `tmk-ontology-report` counts 59 declared classes where it counted 50, and
+   more of them hold nothing. That is a worse-looking number and a more honest
+   one — the three evidence stages are real gaps that were previously not even
+   declared.
+2. The `AUTHORED` marker is prose, not a triple. It is not machine-counted
+   today and it should be: a later pass can make it an annotation property and
+   report it, which is strictly better than a convention.
+
+---
+
+## ADR-0111 — a label may be corrected; the identifier it was minted from may not
+
+**Date** 2026-09-12 · **Authority** derived · **Status** accepted
+
+**Context.** Two defects surfaced on the first build that carried whole-Manual
+relationships, and they are recorded together because the right answer to one
+is the opposite of the right answer to the other.
+
+**The concept scheme called itself a section 43 pilot.**
+`ontology.build` asserted `rdfs:label` and `skos:prefLabel`
+`"Section 43 examination vocabulary — pilot"` on `tmkc:scheme-s43`, and every
+concept in the project is `skos:inScheme` it. So all 130 concepts, drawn from 39
+Parts, sat in a committed graph inside something that named itself for one
+provision.
+
+**A record's source was resolved against the Manual only.**
+`_provenance` looked `source_ref` up in `corpus.chunks` and reported anything it
+could not find as *"naming a source not held"*. The first 46 records ever to
+cite the Act or the Regulations as their source — the `isDefinedIn`
+relationships — all came back unresolvable. The corpus holds every one of them,
+in `corpus.units` and `corpus.provisions` (Q-64).
+
+**Decision.**
+
+1. **The label is corrected** to `"Australian trade marks examination
+   vocabulary"`, in one constant, `build.SCHEME_LABEL`.
+2. **The IRI `tmkc:scheme-s43` is kept.** `docs/IDENTIFIERS.md` §3:
+   *"Never derive these from the preferred label. Labels get revised;
+   identifiers must not."* Renaming it would rewrite every `skos:inScheme`
+   triple in the committed graph in order to track a label change, which is
+   exactly the practice that rule exists to prevent. The mismatch between a
+   stale-looking id and a current label is the rule working, not a defect, and
+   the constant now carries a comment saying so.
+3. **`_provenance` resolves chunks, then units, then provisions**, and
+   staleness comes from whichever holds the ref.
+
+**Rationale.** The two halves are the same principle applied to different
+things. An identifier is a promise that a thing stays findable; a label is a
+description that must stay true. Correcting a description costs nothing and
+leaving it wrong misleads every reader. Correcting an identifier costs every
+reference to it and buys nothing a reader could not get from the label.
+
+**Consequences.**
+
+1. `graph/approved.ttl` and `graph/authored.ttl` change by two triples and the
+   `skos:inScheme` object is unchanged, so no query breaks.
+2. **A grep for `s43` and `Part29` would not have found either defect.** One was
+   a prose label, the other a missing dict lookup. The generalisation is in
+   Q-64: `refs.parse_ref` has always known about four kinds of ref, and code
+   downstream of it has mostly only ever seen one.

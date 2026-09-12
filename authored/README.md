@@ -55,12 +55,24 @@ schemas:
 | `reasoning-expected.yaml` | reasoning expectation |
 | `prohibited-uses.yaml` | prohibited use |
 
-**What is in it today:** `concepts.yaml`, 78 records, and `concept-types.yaml`,
-130. The concepts are the vocabulary of the 53 Parts the section 43 boundary hid
-(ADR-0095); the typings are one per concept in the project, signed and authored
-alike (ADR-0092, ADR-0095). **No expert has read any of it.** Every other file in
-the table is absent, which is the honest state of a store filled for two record
+**What is in it today:** `concepts.yaml`, 78 records; `concept-types.yaml`, 130;
+and `relationships.yaml`, **219**. The concepts are the vocabulary of the 53
+Parts the section 43 boundary hid (ADR-0095); the typings are one per concept in
+the project, signed and authored alike (ADR-0092, ADR-0095); the relationships
+are the edges between them, found deterministically across all 54 Parts, the Act
+and the Regulations (ADR-0109). **No expert has read any of it.** Six of the nine
+files are absent, which is the honest state of a store filled for three record
 types out of nine.
+
+**The relationships are the ones to read with the most suspicion, and the
+reasons are on each record.** They are the first authored records whose content
+is a *reading of a sentence* rather than a property of a term: 131 are
+`corpus_explicit` and 88 `corpus_inferred`, and every one of the 88 carries an
+`expert_should_check` naming the specific way its own pattern can be wrong —
+the direction of a requirement, a passive the matcher could not see, a citation
+that is mentioned rather than relied on.
+`data/derived/reports/relationships.md` §4 lists the 25 weakest, lowest
+confidence first.
 
 **Eight of the 78 concepts cover ground a signed record already claims** —
 GC-0007, GC-0012, GC-0016, GC-0035, GC-0042, GC-0043, GC-0046, GC-0050. Each

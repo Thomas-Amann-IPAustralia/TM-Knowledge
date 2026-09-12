@@ -216,11 +216,48 @@ tmk:Chunk rdfs:subClassOf tmk:LegalMatter .
 
 tmk:ApprovedRelation a owl:Class ;
     rdfs:label "Approved relation"@en-AU ;
-    rdfs:comment """A predicate on the closed list in `relations.ttl`.
+    rdfs:comment """A predicate on the closed list in `relations.ttl` **that a named expert used in
+a record they signed**.
 
-Extraction may only propose relationships from this list. An open predicate set
-makes precision unmeasurable — with no fixed vocabulary, a wrong predicate and a
-new one are the same event, so nothing can be scored (ontology/README.md)."""@en-AU .
+Extraction may only propose relationships from the closed list. An open
+predicate set makes precision unmeasurable — with no fixed vocabulary, a wrong
+predicate and a new one are the same event, so nothing can be scored
+(ontology/README.md).
+
+Membership has not changed and is not expected to: the fourteen terms here come
+from the 35 signed relationships, every one of which is sourced to TMM/Part29.
+A fifteenth arrives when an expert approves a relationship that uses one."""@en-AU .
+
+tmk:AuthoredRelation a owl:Class ;
+    rdfs:label "Authored relation"@en-AU ;
+    rdfs:comment """A predicate on the closed list that **a machine used and no expert has read**.
+
+Added 2026-09-12 (ADR-0109). Until then the closed list was generated from the
+signed register alone, which was correct while an agent could not author a
+relationship at all — and which left the dictionary a section 43 dictionary for
+four days after ADR-0081 withdrew the boundary. Nothing in the fourteen
+approved terms can say that a concept is *defined by* a provision, that a step
+is *performed by* an office, or that one *must occur within* a period, and
+those are most of what the Manual's other 53 Parts state.
+
+A class rather than a flag, for ADR-0007's reason: a flag can be dropped by a
+careless projection and a class has to be asked for. A predicate both stores
+use carries both types, and the two usage counters beside it are never added —
+`tmk:usageCount` keeps its meaning as the signed count so that nothing reading
+it starts silently including unreviewed records (ADR-0080 consequence 3).
+
+**A term being here is not evidence the relation it names is real.** It is
+evidence that a deterministic pass found sentences stating it and committed to
+a reading, with the evidence and the doubt recorded on every record
+(`authored/relationships.yaml`)."""@en-AU .
+
+tmk:authoredUsageCount a owl:AnnotationProperty ;
+    rdfs:label "authored usage count"@en-AU ;
+    rdfs:comment "How many authored relationships use this predicate. Beside tmk:usageCount and never summed with it: one counts records a person signed and the other counts records nobody has read, and a single figure would answer the only question that matters — how much of this has been looked at — in the wrong direction (ADR-0080 c3)."@en-AU .
+
+tmk:authoredUsedBy a owl:AnnotationProperty ;
+    rdfs:label "authored used by"@en-AU ;
+    rdfs:comment "The authored record ids that use this predicate, truncated past a dozen because the route back to the sentences is only useful while it is short. The full set is in `authored/relationships.yaml`, which is the register; this is the index."@en-AU .
 
 tmk:observedSubjectType a owl:AnnotationProperty ;
     rdfs:label "observed subject type"@en-AU ;

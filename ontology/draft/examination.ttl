@@ -13,19 +13,30 @@
     rdfs:label "TM-Knowledge — examination module"@en-AU ;
     rdfs:comment """Who does what, and to what.
 
-Almost entirely **declared and unpopulated**, and that is the honest state: the
-approved set describes what the Manual says about section 43, not a process
-model of examination, and inventing one would be authoring practice.
+**No longer entirely unpopulated, and the change is worth stating precisely.**
+Until 2026-09-12 this module said that *"the approved set describes what the
+Manual says about section 43, not a process model of examination, and inventing
+one would be authoring practice"*. The first half is still true of the
+**approved** set and always will be — all 35 signed relationships are sourced
+to `TMM/Part29`. The second half described a prohibition ADR-0079 removed on
+2026-09-08: authoring practice, stamped and evidenced, is the job.
 
-The role classes below are here for a specific reason. The reviewer's covering
-note (`review/returned/260826-expert-feedback.md`, HANDOFF Q17) named nine terms
-that need high-level definitions — Registrar, Delegate, Examiner, Decision
-Maker, Office Practice, Subject Matter Expert, Oppositions, Grounds for
-Rejection, Adverse Report — because the seed vocabulary was drawn from Part 29
-alone and gives a narrow view of the roles. Declaring the classes empty is how
-that gap is made visible in the model rather than only in a document. Note also
-Q-28: a term's definition is usually not in a passage that cites anything, so
-ADR-0022's scope rule will not find these on its own."""@en-AU ;
+What now stands behind these classes is content, not a proposal. The
+vocabulary holds 21 concepts typed `procedural_step` and 8 typed
+`process_role` (ADR-0098), and `authored/relationships.yaml` holds 31
+`isPerformedBy` edges joining the second to the first across the whole Manual
+— acceptance to the examiner, revocation of acceptance to the Registrar,
+opposition to the opponent. **Every one of those was written by a machine and
+read by nobody** (ADR-0109, ADR-0110).
+
+The role classes were declared empty to make a gap visible. Five of the nine
+terms the reviewer's covering note named
+(`review/returned/260826-expert-feedback.md`, HANDOFF Q17) now have a concept
+record behind them and **four still do not** — *Office Practice*, *Subject
+Matter Expert*, *Adverse Report* and *Team Leader* are absent from both stores.
+Q-28's cause is Q-53: a term's definition is usually not in a passage that
+cites anything, so no citation-based rule reaches them, and the boundary that
+was blamed for this in the first place is gone."""@en-AU ;
     owl:imports <https://data.ipaustralia.gov.au/tmk/ns/legal-concepts> ;
     owl:versionInfo "draft — not approved" .
 
@@ -57,15 +68,15 @@ tmk:Role a owl:Class ;
 
 tmk:Registrar a owl:Class ; rdfs:subClassOf tmk:Role ;
     rdfs:label "Registrar"@en-AU ;
-    rdfs:comment "UNDEFINED — named in HANDOFF Q17 as needing a definition. Load-bearing here: the Manual states practice and does not bind this office's discretion."@en-AU .
+    rdfs:comment "UNDEFINED as a class, but the vocabulary now carries the term twice — GC-0046 signed, GC-0115 authored — and that duplication is one of the ten ADR-0101 put to the expert rather than something to tidy away. Load-bearing here: the Manual states practice and does not bind this office's discretion."@en-AU .
 
 tmk:Delegate a owl:Class ; rdfs:subClassOf tmk:Role ;
     rdfs:label "Delegate"@en-AU ;
-    rdfs:comment "UNDEFINED — HANDOFF Q17."@en-AU .
+    rdfs:comment "UNDEFINED — HANDOFF Q17. The word exists in the vocabulary only inside GC-0046's alt label «the Registrar's delegate», which is not the same as holding the term: nothing can say that a delegate decided something."@en-AU .
 
 tmk:Examiner a owl:Class ; rdfs:subClassOf tmk:Role ;
     rdfs:label "Examiner"@en-AU ;
-    rdfs:comment "UNDEFINED — HANDOFF Q17."@en-AU .
+    rdfs:comment "UNDEFINED as a class. GC-0044 carries the term and 7 of the 31 authored isPerformedBy edges name it as the office that takes a step — the Registrar takes 13 of the rest, the applicant 9. Every one of them is unreviewed, and the applicant's 9 are the ones to distrust: an applicant more often has a step done to them than does one."@en-AU .
 
 tmk:DecisionMaker a owl:Class ; rdfs:subClassOf tmk:Role ;
     rdfs:label "Decision maker"@en-AU ;
@@ -79,11 +90,11 @@ loses that distinction silently."""@en-AU .
 
 tmk:SubjectMatterExpert a owl:Class ; rdfs:subClassOf tmk:Role ;
     rdfs:label "Subject matter expert"@en-AU ;
-    rdfs:comment "UNDEFINED — HANDOFF Q17."@en-AU .
+    rdfs:comment "UNDEFINED, and the term is ABSENT FROM BOTH STORES — one of the four of the reviewer's nine that the whole-Manual concept pass still did not reach (Q-53). The expert request asks for it in prose rather than guessing at a record."@en-AU .
 
 tmk:TeamLeader a owl:Class ; rdfs:subClassOf tmk:Role ;
     rdfs:label "Team leader"@en-AU ;
-    rdfs:comment "UNDEFINED — named in the reviewer's note as part of the consultation the office expects before a connotation is accepted on the basis of doubt (Q16)."@en-AU .
+    rdfs:comment "UNDEFINED, and ABSENT FROM BOTH STORES. Named in the reviewer's note as part of the consultation the office expects before a connotation is accepted on the basis of doubt (Q16), and the Manual names a «Examination team leader» in Part 38 — so the corpus has the words and the vocabulary has not taken them."@en-AU .
 
 tmk:decidedBy a owl:ObjectProperty ;
     rdfs:range tmk:Role ;
@@ -93,3 +104,28 @@ tmk:constrainsRole a owl:ObjectProperty ;
     rdfs:range tmk:Role ;
     rdfs:label "constrains role"@en-AU ;
     rdfs:comment "Links a proposition to the role whose conduct it governs. The hook Q16's rule about examiner conduct would attach to — no record type currently holds such a rule, and whether one should is an expert-and-owner call."@en-AU .
+
+# --- what the authored edges now attach to ----------------------------------
+#
+# AUTHORED 2026-09-12, read by nobody (ADR-0110).
+#
+# `tmk:isPerformedBy` is declared in relations.ttl, where it is generated from
+# the records that use it and typed tmk:AuthoredRelation. What it needed here
+# was somewhere for its two ends to mean something: a step is a
+# tmk:ProceduralStep in the concept vocabulary, an office is a
+# tmk:ProcessRole, and NEITHER of those is tmk:Role.
+#
+# That distinction is the one legal-concepts.ttl already draws and it is the
+# reason this comment exists. A tmk:Role is somebody who acts — an examiner who
+# signs a report. A tmk:ProcessRole is the *term* "examiner" as an entry in the
+# vocabulary. Every authored isPerformedBy edge joins two vocabulary entries,
+# so it runs ProceduralStep to ProcessRole, and nothing in this repo has ever
+# asserted anything about a tmk:Role instance because no application data
+# exists. Merging the two would make the concept record for examiner an
+# examiner, and Q-58 is the note that saw the collision coming.
+
+tmk:ProcessRole rdfs:seeAlso tmk:Role .
+
+tmk:performsInPractice a owl:AnnotationProperty ;
+    rdfs:label "performs in practice"@en-AU ;
+    rdfs:comment "AUTHORED, unreviewed, and deliberately an annotation so it licenses no inference. The bridge a later pass would need between the vocabulary's tmk:ProcessRole entry and the tmk:Role that acts. Declared and UNUSED: asserting it today would join a term to an office on nothing but the two having the same label, which is the inference Q-58 exists to prevent."@en-AU .

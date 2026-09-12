@@ -22,21 +22,21 @@
     },
     {
      "label": "Classes declared",
-     "value": 55,
+     "value": 59,
      "note": null,
      "tone": null,
      "href": null
     },
     {
      "label": "Classes with no approved content",
-     "value": 45,
+     "value": 49,
      "note": "measured over the approved graph alone",
      "tone": "gap",
      "href": null
     },
     {
      "label": "Predicates",
-     "value": 14,
+     "value": 18,
      "note": "the closed list extraction may use",
      "tone": null,
      "href": null
@@ -144,7 +144,7 @@
     {
      "module": "`legal-concepts.ttl`",
      "what": "legal concepts module",
-     "classes": 14,
+     "classes": 15,
      "holds": {
       "chips": [
        {
@@ -162,6 +162,7 @@
        "kind": "list",
        "items": [
         "`ApprovedRelation` — empty",
+        "`AuthoredRelation` — empty",
         "`ConceptScheme` — 1",
         "`Exception` — empty",
         "`ExternalInstrument` — empty",
@@ -227,7 +228,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "The closed list of predicates extraction may propose. Derived from the 35 approved relationships in `eval/gold/relationships.yaml`: 14 distinct predicates, of which 6 are used exactly once. That last number is the one to read before treating this dictionary as settled — a term seen once is a term whose boundaries nobody has tested. Domain and range are `tmk:LegalMatter` throughout. The narrow types each predicate has actually been seen with are annotations and infer nothing; see tmk:LegalMatter in the legal-concepts module for why."
+       "text": "The closed list of predicates extraction may propose, in two halves that are never added together. **14 approved terms**, from the 35 relationships in `eval/gold/relationships.yaml` that a named expert signed. 6 of them are used exactly once, and that number is the one to read before treating this half as settled — a term seen once is a term whose boundaries nobody has tested. Every one of those 37 source refs points at `TMM/Part29`, so this half of the dictionary is what section 43 needed and nothing else. **7 authored terms**, from the 219 relationships in `authored/relationships.yaml` that a machine wrote across the whole Manual and both instruments. **No expert has read any of them.** 4 of the 7 appear in no signed record at all and exist only because the corpus outside Part 29 states relations the approved half cannot express. A predicate carries `tmk:ApprovedRelation`, `tmk:AuthoredRelation`, or both. Reading the class rather than the presence of the term is the difference between a dictionary an expert built and one a model did (ADR-0109). Domain and range are `tmk:LegalMatter` throughout. The narrow types each predicate has actually been seen with are annotations and infer nothing; see tmk:LegalMatter in the legal-concepts module for why."
       },
       {
        "kind": "prose",
@@ -250,7 +251,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Who does what, and to what. Almost entirely **declared and unpopulated**, and that is the honest state: the approved set describes what the Manual says about section 43, not a process model of examination, and inventing one would be authoring practice. The role classes below are here for a specific reason. The reviewer's covering note (`review/returned/260826-expert-feedback.md`, HANDOFF Q17) named nine terms that need high-level definitions — Registrar, Delegate, Examiner, Decision Maker, Office Practice, Subject Matter Expert, Oppositions, Grounds for Rejection, Adverse Report — because the seed vocabulary was drawn from Part 29 alone and gives a narrow view of the roles. Declaring the classes empty is how that gap is made visible in the model rather than only in a document. Note also Q-28: a term's definition is usually not in a passage that cites anything, so ADR-0022's scope rule will not find these on its own."
+       "text": "Who does what, and to what. **No longer entirely unpopulated, and the change is worth stating precisely.** Until 2026-09-12 this module said that *\"the approved set describes what the Manual says about section 43, not a process model of examination, and inventing one would be authoring practice\"*. The first half is still true of the **approved** set and always will be — all 35 signed relationships are sourced to `TMM/Part29`. The second half described a prohibition ADR-0079 removed on 2026-09-08: authoring practice, stamped and evidenced, is the job. What now stands behind these classes is content, not a proposal. The vocabulary holds 21 concepts typed `procedural_step` and 8 typed `process_role` (ADR-0098), and `authored/relationships.yaml` holds 31 `isPerformedBy` edges joining the second to the first across the whole Manual — acceptance to the examiner, revocation of acceptance to the Registrar, opposition to the opponent. **Every one of those was written by a machine and read by nobody** (ADR-0109, ADR-0110). The role classes were declared empty to make a gap visible. Five of the nine terms the reviewer's covering note named (`review/returned/260826-expert-feedback.md`, HANDOFF Q17) now have a concept record behind them and **four still do not** — *Office Practice*, *Subject Matter Expert*, *Adverse Report* and *Team Leader* are absent from both stores. Q-28's cause is Q-53: a term's definition is usually not in a passage that cites anything, so no citation-based rule reaches them, and the boundary that was blamed for this in the first place is gone."
       },
       {
        "kind": "list",
@@ -275,7 +276,7 @@
     {
      "module": "`evidence.ttl`",
      "what": "evidence module",
-     "classes": 4,
+     "classes": 7,
      "holds": {
       "chips": [
        {
@@ -287,13 +288,16 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "**Entirely unpopulated, and the emptiest module in the draft on purpose.** The roadmap names it and the approved section 43 set says almost nothing about evidence: the pilot's material is about what a sign connotes, not about what an applicant files to establish something. Two records touch it — written permission overcoming a ground (GR-0039), information establishing that an applicant is the owner of a phoneword (GX-0010) — and neither is enough to model an evidence taxonomy from. Populating this is a Part 22/23 job (evidence of use under s 41), and Part 22 is explicitly out of the pilot scope draft. Left declared so the module list is complete and so nobody builds a second one."
+       "text": "**Still almost unpopulated — but for a different reason than the one this comment used to give, and the difference is worth reading.** Until 2026-09-12 this module said that populating it *\"is a Part 22/23 job… and Part 22 is explicitly out of the pilot scope draft\"*. That sentence was true when it was written and ADR-0081 falsified it on 2026-09-08: the section 43 boundary is withdrawn, the whole Manual is in scope, and there is no part of this corpus a module may decline on scope grounds. A boundary that no longer exists was still being cited here as a live reason four days later, which is what a fence left in prose does (ADR-0110). **The real reason, measured.** 226 chunks across 37 Parts mention evidence, so the corpus has plenty to say. What the *vocabulary* holds is two concepts — `GC-0041` and `GC-0101`, both labelled *evidence of use*, and they are one of the ten duplicate-label pairs ADR-0101 put in front of the expert. Two concepts, one of them a duplicate of the other, is not a taxonomy, and declaring classes over it would produce a structure with nothing under it and an expert's name nowhere near it. So this module stays thin, and its emptiness is now a **gap with a size** — the next concept pass over Parts 22, 23, 28, 34 and the opposition Parts is what fills it — rather than a boundary. `tmk-ontology-report` counts every class here that holds nothing."
       },
       {
        "kind": "list",
        "items": [
         "`Evidence` — empty",
         "`EvidenceCategory` — empty",
+        "`EvidenceInAnswer` — empty",
+        "`EvidenceInReply` — empty",
+        "`EvidenceInSupport` — empty",
         "`EvidenceSubmission` — empty",
         "`EvidentiaryProposition` — empty"
        ],
@@ -408,7 +412,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 6 relationships (GR-0007, GR-0024, GR-0037, GR-0044, GR-0048, GR-0057)."
+       "text": "Approved usage: 6 relationships (GR-0007, GR-0024, GR-0037, GR-0044, GR-0048, GR-0057), every one sourced to TMM/Part29. Authored usage: 37 relationships (GR-0661, GR-0662, GR-0663, GR-0664, GR-0665, GR-0666, GR-0667, GR-0668, GR-0669, GR-0670, GR-0671, GR-0672, and 25 more), read by nobody."
       },
       {
        "kind": "prose",
@@ -432,7 +436,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 6 relationships (GR-0003, GR-0008, GR-0010, GR-0014, GR-0016, GR-0054)."
+       "text": "Approved usage: 6 relationships (GR-0003, GR-0008, GR-0010, GR-0014, GR-0016, GR-0054), every one sourced to TMM/Part29. Authored usage: 7 relationships (GR-0709, GR-0710, GR-0711, GR-0712, GR-0713, GR-0714, GR-0715), read by nobody."
       },
       {
        "kind": "prose",
@@ -456,7 +460,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 4 relationships (GR-0002, GR-0011, GR-0022, GR-0046)."
+       "text": "Approved usage: 4 relationships (GR-0002, GR-0011, GR-0022, GR-0046), every one sourced to TMM/Part29."
       },
       {
        "kind": "prose",
@@ -480,7 +484,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 4 relationships (GR-0017, GR-0023, GR-0035, GR-0040)."
+       "text": "Approved usage: 4 relationships (GR-0017, GR-0023, GR-0035, GR-0040), every one sourced to TMM/Part29."
       },
       {
        "kind": "prose",
@@ -504,7 +508,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 3 relationships (GR-0032, GR-0034, GR-0039)."
+       "text": "Approved usage: 3 relationships (GR-0032, GR-0034, GR-0039), every one sourced to TMM/Part29. Authored usage: 2 relationships (GR-0628, GR-0629), read by nobody."
       },
       {
        "kind": "prose",
@@ -528,7 +532,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 2 relationships (GR-0036, GR-0058)."
+       "text": "Approved usage: 2 relationships (GR-0036, GR-0058), every one sourced to TMM/Part29."
       },
       {
        "kind": "prose",
@@ -552,7 +556,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 2 relationships (GR-0015, GR-0042)."
+       "text": "Approved usage: 2 relationships (GR-0015, GR-0042), every one sourced to TMM/Part29."
       },
       {
        "kind": "prose",
@@ -576,7 +580,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 2 relationships (GR-0005, GR-0056)."
+       "text": "Approved usage: 2 relationships (GR-0005, GR-0056), every one sourced to TMM/Part29."
       },
       {
        "kind": "prose",
@@ -600,7 +604,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 1 relationship (GR-0006)."
+       "text": "Approved usage: 1 relationship (GR-0006), sourced to TMM/Part29."
       },
       {
        "kind": "prose",
@@ -624,7 +628,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 1 relationship (GR-0001)."
+       "text": "Approved usage: 1 relationship (GR-0001), sourced to TMM/Part29."
       },
       {
        "kind": "prose",
@@ -648,7 +652,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 1 relationship (GR-0013)."
+       "text": "Approved usage: 1 relationship (GR-0013), sourced to TMM/Part29."
       },
       {
        "kind": "prose",
@@ -672,7 +676,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 1 relationship (GR-0052)."
+       "text": "Approved usage: 1 relationship (GR-0052), sourced to TMM/Part29."
       },
       {
        "kind": "prose",
@@ -696,7 +700,7 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 1 relationship (GR-0012)."
+       "text": "Approved usage: 1 relationship (GR-0012), sourced to TMM/Part29."
       },
       {
        "kind": "prose",
@@ -720,11 +724,107 @@
      "detail": [
       {
        "kind": "prose",
-       "text": "Approved usage: 1 relationship (GR-0018)."
+       "text": "Approved usage: 1 relationship (GR-0018), sourced to TMM/Part29."
       },
       {
        "kind": "prose",
        "text": "Used by: `GR-0018`"
+      }
+     ]
+    },
+    {
+     "label": "has statutory basis",
+     "name": "`hasStatutoryBasis`",
+     "uses": {
+      "chips": [
+       {
+        "label": "0",
+        "tone": "good"
+       }
+      ]
+     },
+     "seen": "LegalConcept → LegislativeProvision",
+     "search": "has statutory basis hasStatutoryBasis",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "NOT APPROVED VOCABULARY. No expert has used this term in a signed record; it exists because the corpus outside Part 29 states a relation the fourteen approved terms cannot express. Authored usage: 85 relationships (GR-0497, GR-0498, GR-0499, GR-0500, GR-0501, GR-0502, GR-0503, GR-0504, GR-0505, GR-0506, GR-0507, GR-0508, and 73 more), read by nobody."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by:"
+      }
+     ]
+    },
+    {
+     "label": "is defined in",
+     "name": "`isDefinedIn`",
+     "uses": {
+      "chips": [
+       {
+        "label": "0",
+        "tone": "good"
+       }
+      ]
+     },
+     "seen": "LegalConcept → LegislativeProvision",
+     "search": "is defined in isDefinedIn",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "NOT APPROVED VOCABULARY. No expert has used this term in a signed record; it exists because the corpus outside Part 29 states a relation the fourteen approved terms cannot express. Authored usage: 46 relationships (GR-0582, GR-0583, GR-0584, GR-0585, GR-0586, GR-0587, GR-0588, GR-0589, GR-0590, GR-0591, GR-0592, GR-0593, and 34 more), read by nobody."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by:"
+      }
+     ]
+    },
+    {
+     "label": "is performed by",
+     "name": "`isPerformedBy`",
+     "uses": {
+      "chips": [
+       {
+        "label": "0",
+        "tone": "good"
+       }
+      ]
+     },
+     "seen": "LegalConcept → LegalConcept",
+     "search": "is performed by isPerformedBy",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "NOT APPROVED VOCABULARY. No expert has used this term in a signed record; it exists because the corpus outside Part 29 states a relation the fourteen approved terms cannot express. Authored usage: 31 relationships (GR-0630, GR-0631, GR-0632, GR-0633, GR-0634, GR-0635, GR-0636, GR-0637, GR-0638, GR-0639, GR-0640, GR-0641, and 19 more), read by nobody."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by:"
+      }
+     ]
+    },
+    {
+     "label": "must occur within",
+     "name": "`mustOccurWithin`",
+     "uses": {
+      "chips": [
+       {
+        "label": "0",
+        "tone": "good"
+       }
+      ]
+     },
+     "seen": "LegalConcept → LegislativeProvision",
+     "search": "must occur within mustOccurWithin",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "NOT APPROVED VOCABULARY. No expert has used this term in a signed record; it exists because the corpus outside Part 29 states a relation the fourteen approved terms cannot express. Authored usage: 11 relationships (GR-0698, GR-0699, GR-0700, GR-0701, GR-0702, GR-0703, GR-0704, GR-0705, GR-0706, GR-0707, GR-0708), read by nobody."
+      },
+      {
+       "kind": "prose",
+       "text": "Used by:"
       }
      ]
     }
@@ -784,11 +884,11 @@
        }
       ]
      },
-     "search": "ApprovedRelation Approved relation A predicate on the closed list in `relations.ttl`. Extraction may only propose relationships from this list. An open predicate set makes precision unmeasurable — with no fixed vocabulary, a wrong predicate and a new one are the same event, so nothing can be scored (ontology/README.md).",
+     "search": "ApprovedRelation Approved relation A predicate on the closed list in `relations.ttl` **that a named expert used in a record they signed**. Extraction may only propose relationships from the closed list. An open predicate set makes precision unmeasurable — with no fixed vocabulary, a wrong predicate and a new one are the same event, so nothing can be scored (ontology/README.md). Membership has not changed and is not expected to: the fourteen terms here come from the 35 signed relationships, every one of which is sourced to TMM/Part29. A fifteenth arrives when an expert approves a relationship that uses one.",
      "detail": [
       {
        "kind": "prose",
-       "text": "A predicate on the closed list in `relations.ttl`. Extraction may only propose relationships from this list. An open predicate set makes precision unmeasurable — with no fixed vocabulary, a wrong predicate and a new one are the same event, so nothing can be scored (ontology/README.md)."
+       "text": "A predicate on the closed list in `relations.ttl` **that a named expert used in a record they signed**. Extraction may only propose relationships from the closed list. An open predicate set makes precision unmeasurable — with no fixed vocabulary, a wrong predicate and a new one are the same event, so nothing can be scored (ontology/README.md). Membership has not changed and is not expected to: the fourteen terms here come from the 35 signed relationships, every one of which is sourced to TMM/Part29. A fifteenth arrives when an expert approves a relationship that uses one."
       }
      ]
     },
@@ -827,6 +927,25 @@
       {
        "kind": "prose",
        "text": "An assertion a machine wrote and no expert has validated (ADR-0079, ADR-0080). Deliberately NOT a subclass of tmk:ApprovedAssertion and deliberately not in the approved named graph. It is the same shape as one — same subject, predicate, object, passage, span and hash — and differs in exactly the fact that matters: nobody signed it. A query written against tmk:ApprovedAssertion therefore cannot pick one of these up by accident, which is the whole point of giving it its own class rather than a flag. It carries tmk:reviewStatus \"unreviewed\" and never \"approved\": approval moves a record to eval/gold/ through tmk-transcribe, and a record that has moved is rebuilt as a tmk:ApprovedAssertion on the next build (ADR-0086)."
+      }
+     ]
+    },
+    {
+     "name": "`AuthoredRelation`",
+     "label": "Authored relation",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "AuthoredRelation Authored relation A predicate on the closed list that **a machine used and no expert has read**. Added 2026-09-12 (ADR-0109). Until then the closed list was generated from the signed register alone, which was correct while an agent could not author a relationship at all — and which left the dictionary a section 43 dictionary for four days after ADR-0081 withdrew the boundary. Nothing in the fourteen approved terms can say that a concept is *defined by* a provision, that a step is *performed by* an office, or that one *must occur within* a period, and those are most of what the Manual's other 53 Parts state. A class rather than a flag, for ADR-0007's reason: a flag can be dropped by a careless projection and a class has to be asked for. A predicate both stores use carries both types, and the two usage counters beside it are never added — `tmk:usageCount` keeps its meaning as the signed count so that nothing reading it starts silently including unreviewed records (ADR-0080 consequence 3). **A term being here is not evidence the relation it names is real.** It is evidence that a deterministic pass found sentences stating it and committed to a reading, with the evidence and the doubt recorded on every record (`authored/relationships.yaml`).",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "A predicate on the closed list that **a machine used and no expert has read**. Added 2026-09-12 (ADR-0109). Until then the closed list was generated from the signed register alone, which was correct while an agent could not author a relationship at all — and which left the dictionary a section 43 dictionary for four days after ADR-0081 withdrew the boundary. Nothing in the fourteen approved terms can say that a concept is *defined by* a provision, that a step is *performed by* an office, or that one *must occur within* a period, and those are most of what the Manual's other 53 Parts state. A class rather than a flag, for ADR-0007's reason: a flag can be dropped by a careless projection and a class has to be asked for. A predicate both stores use carries both types, and the two usage counters beside it are never added — `tmk:usageCount` keeps its meaning as the signed count so that nothing reading it starts silently including unreviewed records (ADR-0080 consequence 3). **A term being here is not evidence the relation it names is real.** It is evidence that a deterministic pass found sentences stating it and committed to a reading, with the evidence and the doubt recorded on every record (`authored/relationships.yaml`)."
       }
      ]
     },
@@ -993,11 +1112,11 @@
        }
       ]
      },
-     "search": "Delegate Delegate UNDEFINED — HANDOFF Q17.",
+     "search": "Delegate Delegate UNDEFINED — HANDOFF Q17. The word exists in the vocabulary only inside GC-0046's alt label «the Registrar's delegate», which is not the same as holding the term: nothing can say that a delegate decided something.",
      "detail": [
       {
        "kind": "prose",
-       "text": "UNDEFINED — HANDOFF Q17."
+       "text": "UNDEFINED — HANDOFF Q17. The word exists in the vocabulary only inside GC-0046's alt label «the Registrar's delegate», which is not the same as holding the term: nothing can say that a delegate decided something."
       }
      ]
     },
@@ -1097,6 +1216,63 @@
      ]
     },
     {
+     "name": "`EvidenceInAnswer`",
+     "label": "Evidence in answer",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "EvidenceInAnswer Evidence in answer UNPOPULATED · AUTHORED, unreviewed. The applicant's evidence, filed in answer to evidence in support. No expert has read this declaration.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED · AUTHORED, unreviewed. The applicant's evidence, filed in answer to evidence in support. No expert has read this declaration."
+      }
+     ]
+    },
+    {
+     "name": "`EvidenceInReply`",
+     "label": "Evidence in reply",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "EvidenceInReply Evidence in reply UNPOPULATED · AUTHORED, unreviewed. The opponent's evidence in reply, which closes the sequence. No expert has read this declaration.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED · AUTHORED, unreviewed. The opponent's evidence in reply, which closes the sequence. No expert has read this declaration."
+      }
+     ]
+    },
+    {
+     "name": "`EvidenceInSupport`",
+     "label": "Evidence in support",
+     "holds": {
+      "chips": [
+       {
+        "label": "empty",
+        "tone": "gap"
+       }
+      ]
+     },
+     "search": "EvidenceInSupport Evidence in support UNPOPULATED · AUTHORED, unreviewed. The opponent's evidence, filed first. Named in terms across the opposition Parts; no expert has read this declaration.",
+     "detail": [
+      {
+       "kind": "prose",
+       "text": "UNPOPULATED · AUTHORED, unreviewed. The opponent's evidence, filed first. Named in terms across the opposition Parts; no expert has read this declaration."
+      }
+     ]
+    },
+    {
      "name": "`EvidenceSubmission`",
      "label": "Evidence submission",
      "holds": {
@@ -1183,11 +1359,11 @@
        }
       ]
      },
-     "search": "Examiner Examiner UNDEFINED — HANDOFF Q17.",
+     "search": "Examiner Examiner UNDEFINED as a class. GC-0044 carries the term and 7 of the 31 authored isPerformedBy edges name it as the office that takes a step — the Registrar takes 13 of the rest, the applicant 9. Every one of them is unreviewed, and the applicant's 9 are the ones to distrust: an applicant more often has a step done to them than does one.",
      "detail": [
       {
        "kind": "prose",
-       "text": "UNDEFINED — HANDOFF Q17."
+       "text": "UNDEFINED as a class. GC-0044 carries the term and 7 of the 31 authored isPerformedBy edges name it as the office that takes a step — the Registrar takes 13 of the rest, the applicant 9. Every one of them is unreviewed, and the applicant's 9 are the ones to distrust: an applicant more often has a step done to them than does one."
       }
      ]
     },
@@ -1620,11 +1796,11 @@
        }
       ]
      },
-     "search": "Registrar Registrar UNDEFINED — named in HANDOFF Q17 as needing a definition. Load-bearing here: the Manual states practice and does not bind this office's discretion.",
+     "search": "Registrar Registrar UNDEFINED as a class, but the vocabulary now carries the term twice — GC-0046 signed, GC-0115 authored — and that duplication is one of the ten ADR-0101 put to the expert rather than something to tidy away. Load-bearing here: the Manual states practice and does not bind this office's discretion.",
      "detail": [
       {
        "kind": "prose",
-       "text": "UNDEFINED — named in HANDOFF Q17 as needing a definition. Load-bearing here: the Manual states practice and does not bind this office's discretion."
+       "text": "UNDEFINED as a class, but the vocabulary now carries the term twice — GC-0046 signed, GC-0115 authored — and that duplication is one of the ten ADR-0101 put to the expert rather than something to tidy away. Load-bearing here: the Manual states practice and does not bind this office's discretion."
       }
      ]
     },
@@ -1753,11 +1929,11 @@
        }
       ]
      },
-     "search": "SubjectMatterExpert Subject matter expert UNDEFINED — HANDOFF Q17.",
+     "search": "SubjectMatterExpert Subject matter expert UNDEFINED, and the term is ABSENT FROM BOTH STORES — one of the four of the reviewer's nine that the whole-Manual concept pass still did not reach (Q-53). The expert request asks for it in prose rather than guessing at a record.",
      "detail": [
       {
        "kind": "prose",
-       "text": "UNDEFINED — HANDOFF Q17."
+       "text": "UNDEFINED, and the term is ABSENT FROM BOTH STORES — one of the four of the reviewer's nine that the whole-Manual concept pass still did not reach (Q-53). The expert request asks for it in prose rather than guessing at a record."
       }
      ]
     },
@@ -1772,11 +1948,11 @@
        }
       ]
      },
-     "search": "TeamLeader Team leader UNDEFINED — named in the reviewer's note as part of the consultation the office expects before a connotation is accepted on the basis of doubt (Q16).",
+     "search": "TeamLeader Team leader UNDEFINED, and ABSENT FROM BOTH STORES. Named in the reviewer's note as part of the consultation the office expects before a connotation is accepted on the basis of doubt (Q16), and the Manual names a «Examination team leader» in Part 38 — so the corpus has the words and the vocabulary has not taken them.",
      "detail": [
       {
        "kind": "prose",
-       "text": "UNDEFINED — named in the reviewer's note as part of the consultation the office expects before a connotation is accepted on the basis of doubt (Q16)."
+       "text": "UNDEFINED, and ABSENT FROM BOTH STORES. Named in the reviewer's note as part of the consultation the office expects before a connotation is accepted on the basis of doubt (Q16), and the Manual names a «Examination team leader» in Part 38 — so the corpus has the words and the vocabulary has not taken them."
       }
      ]
     },

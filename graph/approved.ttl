@@ -3443,6 +3443,6 @@ tmkc:GC-0001 a skos:Concept,
         tmkc:GC-0002 .
 
 tmkc:scheme-s43 a tmk:ConceptScheme ;
-    rdfs:label "Section 43 examination vocabulary — pilot"@en-AU ;
-    skos:prefLabel "Section 43 examination vocabulary — pilot"@en-AU .
+    rdfs:label "Australian trade marks examination vocabulary"@en-AU ;
+    skos:prefLabel "Australian trade marks examination vocabulary"@en-AU .
 

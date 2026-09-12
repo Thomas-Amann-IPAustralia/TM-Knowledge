@@ -1208,3 +1208,62 @@ pass in a `requestAnimationFrame` after returning the block, and make the
 "already done" flag record whether the measurement *succeeded* rather than
 whether it was attempted. `site/tree.js` builds once for the DOM and once more on
 the next frame for the real heights, which is the cheap and honest version.
+
+---
+
+### Q-64 — a record's source was resolved against the Manual only, and the legislation was invisible to it
+
+`ontology.build._provenance` looked `source_ref` up in `corpus.chunks` and
+nowhere else. Anything it could not find was reported as *"naming a source not
+held"* — a statement about the corpus, and a false one.
+
+It was correct for four months because it was never wrong: every record in the
+project cited a Manual passage, because the vocabulary came out of Part 29 and
+Part 29 is Manual text. The first records to cite the Act and the Regulations
+as their *source* rather than as their object are the 46 `isDefinedIn`
+relationships authored on 2026-09-12, and all 46 came back unresolvable on
+their first build. The corpus holds every one of them — in `corpus.units` and
+`corpus.provisions`, which the lookup did not consult.
+
+**The trap is the shape of the failure, not the missing dict.** The check
+reported a *finding about the data* when what had happened was a gap in the
+code, and it reported it in the same words it uses for a genuinely dangling
+ref. A session reading `authored records naming a source not held: 46` has
+every reason to go and look at the records.
+
+Fixed: chunks, then units, then provisions, and staleness comes from whichever
+holds it (ADR-0111). **The lesson generalises to every other lookup in this
+repo that assumes a ref is a Manual ref.** `refs.parse_ref` has always known
+about four kinds; code downstream of it has mostly only ever seen one.
+
+---
+
+### Q-65 — a boundary removed from the rules survives in generated prose and in a hardcoded label
+
+ADR-0081 withdrew the section 43 boundary on 2026-09-08. S018 removed it from
+the artefacts — `tmk-boundary` deleted, the scope rule replaced, the sorting
+sheet widened. Four days later three things still said section 43, and none of
+them was a scope rule:
+
+1. `evidence.ttl` explained its own emptiness with *"Part 22 is explicitly out
+   of the pilot scope draft"* — a withdrawn fence, cited as a live reason, in a
+   file nobody had cause to open.
+2. `ontology.build.SCHEME_LABEL` was the string
+   `"Section 43 examination vocabulary — pilot"`, asserted as `rdfs:label` and
+   `skos:prefLabel` on the concept scheme — so **every one of the 130 concept
+   nodes was `skos:inScheme` something that called itself a section 43 pilot**,
+   in the committed graph, eleven days after the vocabulary reached 39 Parts.
+3. `ontology/README.md` described the draft as *"nine OWL 2 RL modules over the
+   section 43 pilot"*, which is the sentence that started this session.
+
+**Why prose is the worst place for a withdrawn constraint to hide.** A scope
+rule in code gets deleted because something imports it. A scope rule in an
+`rdfs:comment` is read by a person, believed, and acted on — and the S018 pass
+that swept the artefacts had no way to find it, because grepping for `s43` and
+`Part29` finds identifiers, not paraphrases.
+
+The IRI `tmkc:scheme-s43` was **kept**, and that is not an oversight:
+`docs/IDENTIFIERS.md` §3 says labels get revised and identifiers must not.
+Renaming it would rewrite every `skos:inScheme` triple in the committed graph to
+track a label change, which is the practice the rule exists to prevent
+(ADR-0111).

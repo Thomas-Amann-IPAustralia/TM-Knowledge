@@ -78,10 +78,23 @@ __all__ = [
 
 GRAPH_DIR = REPO_ROOT / "graph"
 
-#: The scheme every approved concept is `skos:inScheme`. One scheme, named for
-#: the pilot provision, because a second scheme would be a claim that the
-#: vocabulary divides — and nobody has ruled on that.
+#: The scheme every concept is `skos:inScheme`. One scheme, because a second
+#: would be a claim that the vocabulary divides — and nobody has ruled on that.
+#:
+#: **The identifier still reads `scheme-s43` and the label no longer does, and
+#: that mismatch is correct.** `docs/IDENTIFIERS.md` §3: *"Never derive these
+#: from the preferred label. Labels get revised; identifiers must not."* The
+#: scheme was minted when the vocabulary was 52 concepts from Part 29. It now
+#: holds 130 from 39 Parts, so the label was wrong and is fixed; renaming the
+#: IRI to match would rewrite every `skos:inScheme` triple in the committed
+#: graph to track a label change, which is the exact practice that rule
+#: forbids (ADR-0111).
 SCHEME = URIRef(TMKC["scheme-s43"])
+
+#: What the scheme is called, now that it is not a section 43 vocabulary.
+#: ADR-0081 withdrew the boundary on 2026-09-08 and this string went on saying
+#: "pilot" for four days, in the graph, on every concept node.
+SCHEME_LABEL = "Australian trade marks examination vocabulary"
 
 #: How a signed assertion got here: a person read a passage and said so.
 ELICITATION = "expert_elicitation"
@@ -722,11 +735,28 @@ def _provenance(
     recorded = record.get("source_content_hash")
     if recorded:
         graph.add((node, TMK.sourceContentHash, _lit(recorded)))
-    chunk = corpus.chunks.get(source_ref)
-    if chunk is None:
+    # Chunks, then legislative units, then provisions — in that order because
+    # the Manual is where almost every record's evidence is and the lookup
+    # should be one dict hit for those.
+    #
+    # **Units and provisions were added on 2026-09-12 and the omission was a
+    # real defect, not a tightening.** This function resolved `source_ref`
+    # against `corpus.chunks` alone, which was correct for as long as every
+    # record in the project cited a Manual passage — and every record did,
+    # because the vocabulary came out of Part 29. The first records to cite the
+    # Act and the Regulations as their source are the `isDefinedIn`
+    # relationships, and all 46 of them reported as "naming a source not held"
+    # on their first build. The corpus holds them; this did not look
+    # (ADR-0111).
+    held = (
+        corpus.chunks.get(source_ref)
+        or corpus.units.get(source_ref)
+        or corpus.provisions.get(source_ref)
+    )
+    if held is None:
         counts.unresolvable_sources.append(record["id"])
         return
-    stale = bool(recorded) and recorded != chunk.content_hash
+    stale = bool(recorded) and recorded != held.content_hash
     graph.add((node, TMK.isStale, _lit(stale, XSD.boolean)))
     if stale:
         counts.stale.append(record["id"])
@@ -740,10 +770,8 @@ def _build_concepts(graph: Graph, store: Store, counts: StoreReport) -> None:
     # a puzzle.
     if store.records.count("gold_concept"):
         graph.add((SCHEME, RDF.type, TMK.ConceptScheme))
-        graph.add((SCHEME, RDFS.label, _en("Section 43 examination vocabulary — pilot")))
-        graph.add(
-            (SCHEME, SKOS.prefLabel, _en("Section 43 examination vocabulary — pilot"))
-        )
+        graph.add((SCHEME, RDFS.label, _en(SCHEME_LABEL)))
+        graph.add((SCHEME, SKOS.prefLabel, _en(SCHEME_LABEL)))
 
     for record in store.records["gold_concept"]:
         node = concept_node(record["id"])

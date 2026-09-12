@@ -16,7 +16,7 @@ This report is **derived**. It counts what `eval/gold/` holds against the defini
 | Prohibited uses, covering all six kinds | at least 6 | 11 | 0 | in band |
 | Gold concepts | 50–100 | 52 | 78 | in band |
 | Gold entities, over an exhaustively annotated chunk set | 100–300 | 55 | 0 | 45 short |
-| Gold relationships | 50–100 | 35 | 0 | 15 short |
+| Gold relationships | 50–100 | 35 | 219 | 15 short |
 | Search questions | 20–50 | 1 | 0 | 19 short |
 | AI retrieval questions | 20–50 | 10 | 0 | 10 short |
 | Reasoning expectations | at least 1 | 6 | 0 | in band |
@@ -105,7 +105,7 @@ Both lists are read from the schemas, not restated here. §7 requires the set as
 
 ## 7. The authored store
 
-**208 record(s), none of them validated by a trade marks expert.** They may be relied on and they may be served, always carrying that status at the point of use (ADR-0082). None of them becomes approved by being old, by being unchallenged, or by having appeared in a review round somebody worked through — only a signature moves a record, and only `tmk-transcribe` writes one (ADR-0086).
+**427 record(s), none of them validated by a trade marks expert.** They may be relied on and they may be served, always carrying that status at the point of use (ADR-0082). None of them becomes approved by being old, by being unchallenged, or by having appeared in a review round somebody worked through — only a signature moves a record, and only `tmk-transcribe` writes one (ADR-0086).
 
 | Record type | File | Authored | Signed |
 |---|---|---|---|
@@ -113,7 +113,7 @@ Both lists are read from the schemas, not restated here. §7 requires the set as
 | concept_type | `authored/concept-types.yaml` (present) | 130 | 0 |
 | gold_concept | `authored/concepts.yaml` (present) | 78 | 52 |
 | gold_entity | `authored/entities.yaml` (absent) | 0 | 55 |
-| gold_relationship | `authored/relationships.yaml` (absent) | 0 | 35 |
+| gold_relationship | `authored/relationships.yaml` (present) | 219 | 35 |
 | gold_retrieval_question | `authored/retrieval-questions.yaml` (absent) | 0 | 10 |
 | gold_search_question | `authored/search-questions.yaml` (absent) | 0 | 1 |
 | prohibited_use | `authored/prohibited-uses.yaml` (absent) | 0 | 11 |
@@ -123,7 +123,7 @@ Both lists are read from the schemas, not restated here. §7 requires the set as
 
 | `authoring_basis` | records | means |
 |---|---|---|
-| corpus_explicit | 91 | the corpus states it in terms; the span shows where |
-| corpus_inferred | 117 | the corpus supports it, but the reading is the agent's |
+| corpus_explicit | 222 | the corpus states it in terms; the span shows where |
+| corpus_inferred | 205 | the corpus supports it, but the reading is the agent's |
 | general_knowledge | 0 | **the corpus does not say this** — written from what the model knows about trade marks law. Unevidenced, not thereby wrong, and a reviewer reaches these first |
 
