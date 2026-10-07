@@ -4,9 +4,10 @@
    results become claims is the project owner's decision (OQ-0029). */
 
 import { esc, fmt, load, kindColour } from "./app.js";
+import * as lib from "./lib.js";
 
 export async function render(root, { ontology }) {
-  const [examples, chat, live] = await Promise.all([load("examples"), load("chat"), load("live").catch(() => ({ enabled: false }))]);
+  const [examples, chat, live, Plot] = await Promise.all([load("examples"), load("chat"), load("live").catch(() => ({ enabled: false })), lib.plot()]);
   const c = ontology.counts;
   const s = examples.summary || {};
   const kinds = examples.kinds;
@@ -55,10 +56,12 @@ export async function render(root, { ontology }) {
     <p>Three ways of searching were fixed before any result was graded, and each question's top ten passages were scored (nDCG@10, out of 100):
     <b>keyword</b> — words only, like a search box; <b>hybrid</b> — keyword plus matching by meaning, good modern search with no ontology;
     <b>ontology</b> — hybrid plus the steps above. Differences are shown with 95% intervals.</p>
-    <div style="overflow-x:auto"><table>
+    <div class="card" style="padding:.8rem 1rem;margin:.6rem 0 1rem"><div class="measure-plot"></div>
+      <p class="tiny" style="margin:.3rem 0 0">Difference in top-ten quality (nDCG@10 × 100) with its 95% interval. Right of the line: the ontology system ranked better; left: worse. An interval crossing the line is not established.</p></div>
+    <details><summary>The same numbers as a table</summary><div style="overflow-x:auto"><table>
       <tr><th>Questions</th><th class="num">n</th><th class="num">Keyword</th><th class="num">Hybrid</th><th class="num">Ontology</th><th class="num">Ontology − keyword</th><th class="num">Ontology − hybrid</th></tr>
       ${row("all", "All")}${Object.entries(kinds).map(([k, label]) => row(k, label)).join("")}
-    </table></div>
+    </table></div></details>
     <p>Read both ways. Against keyword search, the ontology-assisted search ranked better passages, most clearly for questions in everyday
     words. Against modern search that also matches meaning, it ranked worse, by a small margin that is clearly real. Diagnosed afterwards:
     very common ideas (such as <i>Registrar</i>, named in hundreds of passages) pull loosely related passages into the top ten.</p>
@@ -74,4 +77,30 @@ export async function render(root, { ontology }) {
       <li>One snapshot of the Manual. There is no update loop yet, though every record is anchored so that one can be built.</li>
     </ul>
   </div>`;
+
+  // The measurement as intervals (Observable Plot): both comparisons, every kind of question.
+  const groups = [["all", "All questions"], ...Object.entries(kinds)].filter(([k]) => s[k]);
+  const rows = [];
+  for (const [key, label] of groups) {
+    for (const [field, name] of [["ndcg:ontology-keyword", "vs keyword search"], ["ndcg:ontology-hybrid", "vs search by meaning"]]) {
+      const v = s[key][field];
+      if (v) rows.push({ group: `${label} (${s[key].n})`, comparison: name, est: v[0] * 100, lo: v[1] * 100, hi: v[2] * 100 });
+    }
+  }
+  const holder = root.querySelector(".measure-plot");
+  holder.appendChild(Plot.plot({
+    width: Math.max(320, holder.clientWidth), marginLeft: 8, marginRight: 8, height: 54 * groups.length + 40,
+    style: { background: "transparent", color: "var(--ink-2)", fontFamily: "var(--sans)", fontSize: "11.5px" },
+    x: { label: "difference in top-ten quality (× 100) →", grid: true, nice: true },
+    y: { axis: null, domain: ["vs keyword search", "vs search by meaning"], insetTop: 14 },
+    fy: { label: null, domain: groups.map(([key, label]) => `${label} (${s[key].n})`) },
+    color: { domain: ["vs keyword search", "vs search by meaning"], range: ["var(--k-relevant_factor)", "var(--k-process_role)"], legend: true },
+    marks: [
+      Plot.ruleX([0], { stroke: "var(--ink-3)" }),
+      Plot.ruleY(rows, { fy: "group", y: "comparison", x1: "lo", x2: "hi", stroke: "comparison", strokeWidth: 2.5 }),
+      Plot.dot(rows, { fy: "group", y: "comparison", x: "est", fill: "comparison", r: 4, tip: true,
+        title: (d) => `${d.group}, ${d.comparison}: ${d.est >= 0 ? "+" : ""}${d.est.toFixed(1)} [${d.lo.toFixed(1)}, ${d.hi.toFixed(1)}]` }),
+      Plot.text(groups.map(([key, label]) => ({ group: `${label} (${s[key].n})` })), { fy: "group", frameAnchor: "top-left", text: "group", dy: -2, fill: "var(--ink)", fontWeight: 600 }),
+    ],
+  }));
 }

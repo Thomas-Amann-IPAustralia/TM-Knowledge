@@ -7,10 +7,24 @@
    answer is stamped unreviewed, keeps the Manual and the legislation apart, and
    declines to say how an application would be decided. */
 
-import { esc, fmt, load, kindColour, refChip, refLabel, md, isLaw, stampIcon, srcBadge } from "./app.js";
+import { esc, fmt, load, kindColour, refChip, refLabel, isLaw, stampIcon, srcBadge } from "./app.js";
 import { svg, curve, wrapText, wait } from "./graph.js";
 import { Engine, Recogniser } from "./engine.js";
-import { answer as callModel, cost } from "./live.js";
+import { answer as callModel, cost, partialField } from "./live.js";
+import * as lib from "./lib.js";
+
+/** Markdown → sanitised HTML, with bracketed refs turned into passage chips. */
+async function renderAnswer(text) {
+  const markdown = await lib.markdown();
+  const refs = [];
+  const tokenised = String(text || "").replace(/\[([^\]\n]{3,400})\]/g, (whole, inner) => {
+    const parts = inner.split(/\s*[;,]\s*/).map((x) => x.trim()).filter(Boolean);
+    if (!parts.length || !parts.every((x) => /^(TMM|TMA1995|TMR1995)\//.test(x))) return whole;
+    refs.push(parts);
+    return `@@REF${refs.length - 1}@@`;
+  });
+  return markdown(tokenised).replace(/@@REF(\d+)@@/g, (_, i) => refs[Number(i)].map((ref) => refChip(ref)).join(" "));
+}
 
 let engine = null;
 let recogniser = null;
@@ -144,11 +158,29 @@ export async function render(root, { ontology, params }) {
       view.body.innerHTML = `<p class="muted">This browser has asked ${chat.daily_limit} live questions today, the courtesy limit. The prepared questions still work.</p>`;
       return;
     }
-    view.body.innerHTML = `<div class="thinking"><span class="spinner"></span><span>Writing a cited answer from the ${prep.passages.length} passages${prep.legislation.length ? ` and ${prep.legislation.length} provisions` : ""}…</span></div>
-      <p class="tiny">This usually takes 10 to 40 seconds.</p>`;
+    view.body.innerHTML = `<div class="thinking"><span class="spinner"></span><span class="thinking-text">Reading the ${prep.passages.length} passages${prep.legislation.length ? ` and ${prep.legislation.length} provisions` : ""}…</span></div>
+      <div class="answer streaming"></div>`;
     countOne(); liveStatus();
+    // Stream: the model chooses its citations first, then writes the answer.
+    let lastPaint = 0, painting = false;
+    const onText = async (text) => {
+      const now = performance.now();
+      if (painting || now - lastPaint < 120) return;
+      painting = true; lastPaint = now;
+      const sofar = partialField(text, "answer");
+      const status = view.body.querySelector(".thinking-text");
+      if (sofar === null) {
+        const n = (text.match(/"ref"\s*:/g) || []).length;
+        if (status) status.textContent = n ? `Choosing what to cite — ${n} quote${n > 1 ? "s" : ""} so far, each to be checked against the text…` : "Reading the passages…";
+      } else {
+        if (status) status.textContent = "Writing the answer…";
+        const holder = view.body.querySelector(".answer.streaming");
+        if (holder) holder.innerHTML = await renderAnswer(sofar);
+      }
+      painting = false;
+    };
     try {
-      const reply = await callModel(live, chat, eng.prompt(prep, chat), signal);
+      const reply = await callModel(live, chat, eng.prompt(prep, chat), signal, onText);
       await animation;
       const checked = eng.verify(reply.parsed.citations, prep);
       showAnswer(view, {
@@ -309,7 +341,18 @@ export async function render(root, { ontology, params }) {
       if (!linked && !law) linkEls.push(svg("path", { d: curve(qAnchor, at, 0, 10, -0.12).d, class: "edge machine", opacity: 0, "stroke-opacity": 0.22 }, lines));
     });
 
-    const show = (els) => els.forEach((e) => { e.style.transition = "opacity .45s"; e.setAttribute("opacity", 1); });
+    // Solid lines draw themselves in; dashed ones (machine-written) fade in.
+    const show = (els) => els.forEach((e) => {
+      if (e.tagName === "path" && !e.getAttribute("stroke-dasharray") && !e.classList.contains("machine") && e.getTotalLength && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const length = e.getTotalLength();
+        e.style.strokeDasharray = `${length}`;
+        e.style.strokeDashoffset = `${length}`;
+        e.setAttribute("opacity", 1);
+        requestAnimationFrame(() => { e.style.transition = "stroke-dashoffset .7s ease-out"; e.style.strokeDashoffset = "0"; });
+        return;
+      }
+      e.style.transition = "opacity .45s"; e.setAttribute("opacity", 1);
+    });
     show([qg]);
     await wait(350); items[0]?.classList.add("on"); show(recEls.flat());
     await wait(750); items[1]?.classList.add("on"); show([...pathEls, ...nbEls]);
@@ -341,13 +384,13 @@ export async function render(root, { ontology, params }) {
 
   // ------------------------------------------------------------ the answer
 
-  function showAnswer(view, a) {
+  async function showAnswer(view, a) {
     const cites = a.citations || [];
     const manual = cites.filter((x) => !isLaw(x.ref)).length, law = cites.length - manual;
     view.tags.innerHTML = `<span class="trust machine">Machine · unreviewed</span>`;
     view.body.innerHTML = `
       ${a.declined ? `<div class="stamp" style="margin-bottom:.8rem">${stampIcon}<span><b>Part of this question asked how an application would be decided, and the answer declines that part.</b>${a.decline_reason ? " " + esc(a.decline_reason) : ""}</span></div>` : ""}
-      <div class="answer">${md(a.answer)}</div>
+      <div class="answer">${await renderAnswer(a.answer)}</div>
       <div class="cites">
         <h4 style="margin:.8rem 0 .2rem;font-size:.85rem">Citations · ${cites.length} <span class="tiny">(${manual} Manual · ${law} legislation) — each quote found word for word in the passage</span></h4>
         <ul>${cites.map((x) => `<li>${srcBadge(x.ref)} ${refChip(x.ref)} <span class="muted">“${esc(String(x.quote || "").slice(0, 220))}${String(x.quote || "").length > 220 ? "…" : ""}”</span></li>`).join("")}</ul>

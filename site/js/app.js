@@ -101,37 +101,6 @@ export const legend = () => `
 
 export const stampIcon = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm1 15h-2v-2h2v2zm0-4h-2V9h2v4z"/></svg>`;
 
-/** A small, safe Markdown subset: paragraphs, lists, bold, italics and [ref] chips. */
-export function md(text, known = null) {
-  const inline = (s) => esc(s)
-    .replace(/\*\*(.+?)\*\*/g, "<b>$1</b>")
-    .replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<i>$2</i>")
-    .replace(/\[([^\]\n]{3,400})\]/g, (whole, inner) => {
-      const parts = inner.split(/\s*[;,]\s*/).map((p) => p.trim()).filter(Boolean);
-      if (!parts.length || !parts.every((p) => /^(TMM|TMA1995|TMR1995)\//.test(p))) return whole;
-      return parts.map((p) => refChip(p.replace(/&amp;/g, "&"))).join(" ");
-    });
-  const out = [];
-  let list = null;
-  for (const raw of String(text || "").split(/\n/)) {
-    const line = raw.trimEnd();
-    const bullet = line.match(/^\s*[-*•]\s+(.*)$/);
-    const numbered = line.match(/^\s*\d+[.)]\s+(.*)$/);
-    if (bullet || numbered) {
-      const tag = bullet ? "ul" : "ol";
-      if (!list || list.tag !== tag) { if (list) out.push(`</${list.tag}>`); out.push(`<${tag}>`); list = { tag }; }
-      out.push(`<li>${inline((bullet || numbered)[1])}</li>`);
-      continue;
-    }
-    if (list) { out.push(`</${list.tag}>`); list = null; }
-    if (!line.trim()) continue;
-    const heading = line.match(/^#{1,4}\s+(.*)$/);
-    out.push(heading ? `<p><b>${inline(heading[1])}</b></p>` : `<p>${inline(line)}</p>`);
-  }
-  if (list) out.push(`</${list.tag}>`);
-  return out.join("");
-}
-
 // ------------------------------------------------------------------ the passage drawer
 
 const drawer = () => document.getElementById("drawer");

@@ -1,5 +1,18 @@
-/* The examiner's explorer. One stylesheet, no framework, no web fonts:
-   everything this page serves is in the repository. */
+/* The examiner's explorer. One stylesheet, no framework. Fonts are self-hosted
+   from vendor/fonts (ADR-0119): everything this page serves is in the repository. */
+
+@font-face {
+  font-family: "Inter Variable"; font-style: normal; font-display: swap; font-weight: 100 900;
+  src: url("vendor/fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
+}
+@font-face {
+  font-family: "Source Serif 4 Variable"; font-style: normal; font-display: swap; font-weight: 200 900;
+  src: url("vendor/fonts/source-serif-4-latin-opsz-normal.woff2") format("woff2-variations");
+}
+@font-face {
+  font-family: "Source Serif 4 Variable"; font-style: italic; font-display: swap; font-weight: 200 900;
+  src: url("vendor/fonts/source-serif-4-latin-opsz-italic.woff2") format("woff2-variations");
+}
 
 :root {
   --bg: #f7f6f2;
@@ -37,8 +50,8 @@
 
   --radius: 10px;
   --shadow: 0 1px 2px rgba(20, 24, 30, .06), 0 6px 24px rgba(20, 24, 30, .06);
-  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --serif: "Source Serif 4 Variable", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   color-scheme: light;
 }
@@ -418,3 +431,48 @@ svg.hop .family-label { font-size: 12px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* ------------------------------------------------------------ map (Cytoscape) */
+.canvas-wrap > .cy { position: absolute; inset: 0; }
+.canvas-title { z-index: 2; background: linear-gradient(var(--bg) 55%, transparent); padding-bottom: .6rem; }
+.hovercard {
+  position: absolute; z-index: 5; max-width: 300px; pointer-events: none; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; box-shadow: var(--shadow); padding: .6rem .75rem; font-size: .84rem;
+}
+.hovercard b { font-family: var(--serif); font-size: 1rem; display: block; margin-bottom: .2rem; }
+.hovercard .meta { display: flex; flex-wrap: wrap; gap: .3rem; margin: .2rem 0 .35rem; }
+.hovercard p { margin: 0 0 .35rem; font-family: var(--serif); color: var(--ink); }
+.toggles { display: flex; flex-direction: column; }
+.toggles label { display: flex; align-items: center; gap: .45rem; font-size: .85rem; color: var(--ink-2); margin: .15rem 0; cursor: pointer; }
+.toggles .tiny { margin-left: auto; }
+
+/* ------------------------------------------------------------ home: circle packing */
+.pack-card { padding: .8rem .9rem 1rem; }
+.pack svg { width: 100%; height: auto; display: block; max-height: 64vh; }
+.pack-crumbs { font-size: .84rem; color: var(--ink-3); min-height: 1.4rem; }
+.pack-crumbs button { background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; font-size: .84rem; }
+.pack-note { font-size: .9rem; color: var(--ink-2); min-height: 4.2rem; margin-top: .4rem; }
+.pack-note .meta { display: flex; flex-wrap: wrap; gap: .35rem; margin: .3rem 0; }
+.pack-idea b { font-family: var(--serif); font-size: 1.1rem; color: var(--ink); }
+.pack-label { font-family: var(--sans); fill: var(--ink); paint-order: stroke; stroke: var(--panel); stroke-width: 3px; stroke-linejoin: round; }
+.pack-label-family { font-family: var(--serif); font-size: 19px; font-weight: 600; }
+.pack-label-kind { font-family: var(--serif); font-size: 15px; font-weight: 600; }
+.pack-label-idea { font-size: 10.5px; }
+.pack-idea .quote { font-size: .92rem; }
+circle.pack-idea:hover, circle.pack-kind:hover { stroke-width: 2.6; }
+.levels { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; margin-top: 2.2rem; }
+.levels .rung { grid-template-columns: auto 1fr; align-items: start; }
+.levels .rung:hover { transform: translateY(-3px); }
+.levels-axis { display: flex; justify-content: space-between; font-size: .76rem; color: var(--ink-3); padding: .3rem .2rem 0; }
+@media (max-width: 900px) { .levels { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .levels { grid-template-columns: 1fr; } }
+circle.sel { stroke: var(--ink) !important; stroke-width: 3 !important; stroke-dasharray: none !important; }
+
+/* ------------------------------------------------------------ change: treemap and timeline */
+.timeline { padding: .9rem 1rem .7rem; margin-bottom: 1.2rem; }
+.timeline .plot svg { max-width: 100%; height: auto; }
+.treemap svg { width: 100%; height: auto; display: block; }
+.tm-label { font-size: 10px; fill: var(--ink-2); font-weight: 600; pointer-events: auto; }
+rect.tm-page { cursor: pointer; stroke: var(--panel); stroke-width: .5; transition: opacity .15s; }
+rect.tm-page:hover { opacity: .75; }
+rect.tm-page.on { stroke: var(--ink); stroke-width: 2.5; }

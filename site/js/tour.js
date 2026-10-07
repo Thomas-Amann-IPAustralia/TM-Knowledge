@@ -6,7 +6,7 @@
 
 import { esc, fmt, load, kindColour, refChip, trustBadge, isLaw, stampIcon } from "./app.js";
 import { svg, curve, arrowDefs, wrapText } from "./graph.js";
-import { drawKinds, W, H, specificCount } from "./map.js";
+import { drawKinds, W, H, specificCount } from "./kinds.js";
 
 const WORDING_COLOURS = ["var(--k-relevant_factor)", "var(--k-ground_of_refusal)", "var(--k-legal_test)", "var(--k-process_role)", "var(--k-subject_matter)"];
 
