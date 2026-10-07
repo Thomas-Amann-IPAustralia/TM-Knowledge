@@ -272,10 +272,15 @@ def test_the_site_is_self_contained():
         assert "unpkg" not in source and "jsdelivr" not in source
 
 
+@pytest.mark.rdf
 def test_every_nav_entry_has_a_data_file():
-    site = json.loads((SITE / "data" / "site.json").read_text(encoding="utf-8"))
-    for entry in site["nav"]:
-        assert (SITE / "data" / f"{entry['id']}.json").exists()
+    """Read from a fresh build, not from `site/data/`: that directory is generated
+    at deploy and is not in a clean checkout (ADR-0112)."""
+    from tm_knowledge.dashboard import build as build_module
+
+    pages = build_module.build(generated="2026-01-01")
+    for entry in pages["site.json"]["nav"]:
+        assert f"{entry['id']}.json" in pages
 
 
 # ---------------------------------------------------------- answers coming back
