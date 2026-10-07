@@ -1,16 +1,26 @@
-# The dashboard, published to GitHub Pages.
+# The examiner explorer and the owner's workbench, published to GitHub Pages.
 #
-# https://thomas-amann-ipaustralia.github.io/TM-Knowledge/
+# https://thomas-amann-ipaustralia.github.io/TM-Knowledge/            the explorer
+# https://thomas-amann-ipaustralia.github.io/TM-Knowledge/workbench/  the workbench
 #
-# The site is regenerated here rather than deployed from what is committed, so
-# the published page can never be older than the branch it was built from. It
-# reads committed artefacts only — no upstream snapshot, no network — which is
-# why this job has no fetch step and cannot fail because upstream was
-# unreachable.
+# Both sites are regenerated here rather than deployed from what is committed,
+# so the published pages can never be older than the branch they were built
+# from. The workbench reads committed artefacts only (ADR-0063); the explorer
+# also reads the pinned upstream snapshot, because "Ask the Manual" searches the
+# Manual's text in the browser (ADR-0117). If the snapshot cannot be fetched the
+# deploy fails and the previous site stays up.
 #
-# One-time repository setting: Settings → Pages → Build and deployment →
-# Source: **GitHub Actions**. Without it this workflow runs and publishes
-# nothing.
+# Live answers (ADR-0118). When the `OPENAI_API_KEY` secret is set — an
+# environment secret on `github-pages` is the narrower choice, since only this
+# job can read it — the explorer is built with live answers on and the key is
+# published, masked, in `data/live.json`. Anyone who reads the page can recover
+# it; the owner accepted that. Set the repository variable `TMK_LIVE_ENDPOINT`
+# to a proxy URL instead to answer through a proxy that holds the key. With
+# neither, the site publishes with live answers off and everything else works.
+#
+# One job, under the `github-pages` environment, so the environment secret is in
+# reach of the step that needs it. One-time repository setting: Settings → Pages
+# → Build and deployment → Source: **GitHub Actions**.
 
 name: pages
 
@@ -19,7 +29,7 @@ on:
     branches: [main]
     paths:
       - "site/**"
-      - "src/tm_knowledge/dashboard/**"
+      - "src/**"
       - "eval/gold/**"
       - "authored/**"
       - "ontology/draft/**"
@@ -28,11 +38,12 @@ on:
       - "queries/**"
       - "review/questions/**"
       - "review/rulings/**"
-      - "data/derived/reports/**"
+      - "data/derived/**"
       - "data/pin.json"
       - "docs/DECISIONS.md"
       - "docs/ROADMAP-STATUS.md"
       - "docs/GLOSSARY.md"
+      - "pyproject.toml"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -49,8 +60,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -62,20 +76,44 @@ jobs:
       - name: Install
         run: pip install -e ".[rdf]"
 
-      # Regenerate rather than trust the committed copies. If this step fails,
-      # nothing publishes — a dashboard that cannot be rebuilt from the repo is
-      # a dashboard making claims the repo no longer supports.
-      - name: Generate the site data
-        run: tmk-dashboard --write
+      - name: Fetch the pinned upstream snapshot
+        env:
+          UPSTREAM_TOKEN: ${{ secrets.UPSTREAM_TOKEN }}
+        run: |
+          if [ -n "${UPSTREAM_TOKEN}" ]; then
+            git config --global \
+              url."https://x-access-token:${UPSTREAM_TOKEN}@github.com/".insteadOf \
+              "https://github.com/"
+          fi
+          tmk-fetch-upstream
+
+      # Regenerate rather than trust anything committed. If either step fails,
+      # nothing publishes.
+      - name: Generate the workbench data
+        run: |
+          set -o pipefail
+          tmk-dashboard --write | tee "$RUNNER_TEMP/workbench.txt"
+
+      - name: Generate the explorer data
+        env:
+          TMK_LIVE_OPENAI_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TMK_LIVE_ENDPOINT: ${{ vars.TMK_LIVE_ENDPOINT }}
+        run: |
+          set -o pipefail
+          tmk-explorer --write | tee "$RUNNER_TEMP/explorer.txt"
 
       - name: Say what was published
         run: |
           {
-            echo "### Dashboard"
+            echo "### Explorer"
             echo
             echo "Built from \`${GITHUB_SHA:0:12}\`."
             echo
-            tmk-dashboard | sed 's/^/    /'
+            sed 's/^/    /' "$RUNNER_TEMP/explorer.txt"
+            echo
+            echo "### Workbench (at /workbench/)"
+            echo
+            sed 's/^/    /' "$RUNNER_TEMP/workbench.txt"
           } >> "$GITHUB_STEP_SUMMARY"
 
       - uses: actions/configure-pages@v5
@@ -84,12 +122,5 @@ jobs:
         with:
           path: site
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-    steps:
       - id: deploy
         uses: actions/deploy-pages@v4
