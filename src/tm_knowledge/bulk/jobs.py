@@ -408,7 +408,16 @@ _RELATIONSHIPS_HEADER = """\
 
 
 def _write_relationships(records: dict[str, list[dict[str, Any]]]) -> list[Path]:
-    rows = records.get("relationships") or []
+    # Idempotent: a re-run replays accepted answers from the cache, and a triple
+    # either store already holds is not written twice.
+    held = {(str(r["subject"]), str(r["predicate"]), str(r["object"]))
+            for store in (goldset.load(), authored_store.load()) for r in store["gold_relationship"]}
+    rows = []
+    for row in records.get("relationships") or []:
+        triple = (row["subject"], row["predicate"], row["object"])
+        if triple not in held:
+            held.add(triple)
+            rows.append(row)
     if not rows:
         return []
     number = next_number("GR")
@@ -548,7 +557,16 @@ def _define_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict
 
 
 def _write_concepts(records: dict[str, list[dict[str, Any]]]) -> list[Path]:
-    concepts, types = records.get("concepts") or [], records.get("concept_types") or []
+    # Idempotent on the label: a concept whose preferred label either store already
+    # uses is not written again when a run replays the cache.
+    held = {str(label).lower() for store in (goldset.load(), authored_store.load())
+            for c in store["gold_concept"] for label in [c.get("pref_label"), *(c.get("alt_labels") or ())] if label}
+    concepts, types = [], []
+    for concept, typing_row in zip(records.get("concepts") or [], records.get("concept_types") or []):
+        if concept["pref_label"].lower() not in held:
+            held.add(concept["pref_label"].lower())
+            concepts.append(concept)
+            types.append(typing_row)
     if not concepts:
         return []
     gc, gt = next_number("GC"), next_number("GT")
@@ -749,6 +767,10 @@ def _write_needs(records: dict[str, list[dict[str, Any]]]) -> list[Path]:
         return []
     path = BENCH_DIR / "needs.yaml"
     existing = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("needs", []) if path.exists() else []
+    asked = {n["question"] for n in existing}
+    rows = [r for r in rows if r["question"] not in asked]
+    if not rows:
+        return []
     start = len(existing) + 1
     for offset, row in enumerate(rows):
         row["id"] = f"BN-{start + offset:04d}"

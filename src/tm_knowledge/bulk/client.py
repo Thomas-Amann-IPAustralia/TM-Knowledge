@@ -105,6 +105,10 @@ class BudgetExceeded(RuntimeError):
     """The call could take recorded spend past the cap. Nothing was sent."""
 
 
+class Queued(RuntimeError):
+    """The request is already in an open batch; it is collected, never sent again."""
+
+
 class NotConfirmed(RuntimeError):
     """A paid call was asked for without `--confirm`. Nothing was sent."""
 
@@ -311,6 +315,9 @@ def respond(
         return None, estimate
     if not confirm:
         raise NotConfirmed(f"{job}/{item}: a paid call needs --confirm (dry run: --dry-run)")
+    for batch in _load_batches(cache):
+        if batch.get("collected") is None and key in batch["requests"]:
+            raise Queued(f"{job}/{item}: waiting in {batch['id']}; `tmk-bulk collect` records it")
     for attempt, wait in enumerate((0, *RETRY_WAITS)):
         time.sleep(wait if attempt else 0)
         token = _reserve(cache, estimate.worst_case_usd, f"{job}/{item}")

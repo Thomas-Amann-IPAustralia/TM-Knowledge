@@ -155,6 +155,8 @@ def _run(args: argparse.Namespace) -> int:
         except (client.BudgetExceeded, client.NotConfirmed) as error:
             stop.set()
             return item, None, None, f"stopped: {error}"
+        except client.Queued as error:
+            return item, None, None, f"queued: {error}"
         except RuntimeError as error:  # an HTTP failure: no answer, reported, the run goes on
             return item, None, None, f"failed: {error}"
 
@@ -174,6 +176,7 @@ def _run(args: argparse.Namespace) -> int:
             results = [(item, None, None, f"stopped: {error}") for item in items]
     else:
         # Parallel calls, results handled in item order so a run reads the same twice.
+        client.RETRY_WAITS = client.RETRY_WAITS[: max(0, args.retries)]
         with ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
             results = list(pool.map(call, items))
 
@@ -365,6 +368,7 @@ def main(argv: list[str] | None = None) -> int:
     # default because flex can be unavailable for long stretches (Q-67).
     p.add_argument("--tier", choices=["batch", "flex", "default"], default="batch")
     p.add_argument("--workers", type=int, default=6, help="calls in flight at once")
+    p.add_argument("--retries", type=int, default=5, help="retries of an overloaded flex call")
     p = sub.add_parser("embed", help="vectors for every passage and benchmark question")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--confirm", action="store_true")
@@ -372,11 +376,13 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--write", action="store_true")
     p = sub.add_parser("measure", help="score the systems from the judged pools")
     p.add_argument("--write", action="store_true")
+    sub.add_parser("collect", help="record every finished batch")
     sub.add_parser("spend", help="recorded spend against the cap")
     p = sub.add_parser("quote", help="price the full runs")
     p.add_argument("--write", action="store_true")
     args = parser.parse_args(argv)
     return {"links": _links, "run": _run, "embed": _embed, "pools": _pools_cmd, "measure": _measure,
+            "collect": lambda a: (print("open:", client.collect_batches()) or 0),
             "spend": _spend, "quote": _quote}[args.command](args)
 
 
