@@ -177,7 +177,8 @@ unapproved candidates on a public page.
 **It reads committed artefacts only** (ADR-0063). Every figure on it is a count of
 something already committed; where the number needs the snapshot the site renders
 the generated report instead of paraphrasing it. That is also why moving a record
-without running `tmk-dashboard --write` fails CI.
+without running `tmk-dashboard --write` no longer fails CI: the Pages workflow
+regenerates the data on every deploy and `site/data/` is not committed (ADR-0112).
 
 Every concept node on both carries **the passage its record quotes**, with the ref and whose evidence it is — a quotation, never a definition, and pinned verbatim against the store by a test (ADR-0108).
 

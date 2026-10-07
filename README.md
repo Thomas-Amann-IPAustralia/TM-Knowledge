@@ -67,7 +67,7 @@ python3 -m pytest -q  # `python3 -m`, not bare `pytest`, in a container (QUIRKS 
 
 tmk-dashboard --write             # the dashboard's data → site/data/
 python3 -m http.server -d site 8000   # then open http://localhost:8000
-tmk-dashboard --check             # fails if the published site has gone stale
+#   site/data/ is generated, not committed — Pages rebuilds it on deploy (ADR-0112)
 ```
 
 `tmk-harness` exiting non-zero is the intended state, not a broken checkout: **0**

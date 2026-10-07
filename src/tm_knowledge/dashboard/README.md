@@ -4,7 +4,7 @@ Generates `site/data/` and transcribes answers coming back. Two commands:
 
 ```bash
 tmk-dashboard --write     # regenerate the site's data
-tmk-dashboard --check     # fail if what is committed has gone stale (CI runs this)
+tmk-dashboard --check     # compare a local copy with a regeneration (not in CI since ADR-0112)
 tmk-ruling --body issue.md --issue-number 12 --issue-url … --author … --write
 ```
 
@@ -39,6 +39,7 @@ check it against the data, so a wrong number here is worse than a missing page.
 
 1. Write `_yourpage(facts)` in `build.py` returning `{id, title, lede, blocks}`.
 2. Add it to `PAGES` and to the dict in `build()`.
-3. `tmk-dashboard --write` and commit the JSON.
+3. Nothing to commit: the Pages workflow regenerates `site/data/` on every deploy
+   (ADR-0112). Run `tmk-dashboard --write` only to preview locally.
 
 No JavaScript changes unless the page needs a block kind that does not exist.

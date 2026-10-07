@@ -1,8 +1,8 @@
 """The two derived views arrange records, and must not invent any.
 
-Every other page on the site restates an artefact, and the test that protects
-those is `test_committed_data_is_current`: a number on the page must be a number
-in the repository. **These two pages are different in kind** — they compute an
+Every other page on the site restates an artefact, and the Pages workflow
+rebuilds them from the repository on every deploy (ADR-0112), so a number on
+the page is a number in the repository. **These two pages are different in kind** — they compute an
 arrangement, which is the first thing the site does that a reader could take for
 a claim (ADR-0103). So the guards here are about the arrangement:
 

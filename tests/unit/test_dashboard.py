@@ -5,8 +5,8 @@ Two things are being protected here.
 **The site must not be able to say something the repository does not hold.**
 Every page is generated from committed artefacts, so the failure mode is not a
 wrong number typed by hand — it is a *stale* number, left behind when a record
-moved and nobody rebuilt. `test_committed_data_is_current` is that guard, and it
-is the same check CI runs.
+moved and nobody rebuilt. The Pages workflow rebuilds on every deploy, so the
+guard here is that every page *can* be built (ADR-0112).
 
 **An answer coming back must be transcribed or refused, never guessed.** A
 submission naming a question that does not exist, or an option that is not on
@@ -234,12 +234,16 @@ def test_a_glossary_marker_naming_an_unknown_term_is_refused():
 
 
 @pytest.mark.rdf
-def test_committed_data_is_current():
-    """The site reads only what is committed, so a stale file is a number on a
-    public page that this repository no longer holds. `tmk-dashboard --write`."""
+def test_the_site_data_builds():
+    """The Pages workflow generates `site/data/` on every deploy (ADR-0112), so the
+    failure that matters is a page that cannot be built from the repository —
+    that would publish nothing. Every page must build and serialise."""
     from tm_knowledge.dashboard import build as build_module
 
-    assert build_module.check() == []
+    pages = build_module.build()
+    assert {"overview.json", "decisions.json", "inbox.json", "site.json"} <= set(pages)
+    for payload in pages.values():
+        json.dumps(payload)
 
 
 def test_an_unknown_tone_is_refused():
