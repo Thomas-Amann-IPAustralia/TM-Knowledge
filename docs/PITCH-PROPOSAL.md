@@ -1,7 +1,10 @@
 # Proposal: what to take from the KB SOP to reach a working pitch, fast
 
-**Status:** a proposal, 2026-10-07, S023. **Nothing here is adopted** until the
-owner says which parts (OQ-0028). The rules in `CLAUDE.md` are unchanged.
+**Status: adopted, 2026-10-07 — this is the plan** (ADR-0110, answering
+OQ-0028). **One amendment: no Gemini.** Wherever this page says Gemini, read
+OpenAI — `gpt-6.1-sol` at medium effort for the knowledge work, OpenAI
+embeddings for search — and spend is capped at US$1 until the owner approves
+`docs/QUOTE.md` (ADR-0111).
 **Answers:** the owner's request to *"consider the approach and come back with
 some suggestions for anything we could/should adopt to speed up the ontology
 creation"*, and the purpose set in ADR-0109 — *"this whole project is to merely

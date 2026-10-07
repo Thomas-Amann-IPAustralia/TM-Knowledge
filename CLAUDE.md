@@ -8,38 +8,45 @@ Australian trade marks examination corpus. The upstream extraction repo
 Manual and the legislation. This repo does everything *interpretive* on top of
 it: vocabulary, ontology, relationships, graph, search, retrieval, reasoning.
 
-**The operating model changed on 2026-09-08 and this file is the amended
-version.** Until that date an agent was forbidden to author legal content at all
-and the pilot was fenced to section 43. Both restrictions are gone. An agent now
-authors legal content directly, stamped as never validated by an expert, across
-the whole Manual. What did **not** change is every rule about provenance,
-citation and the separation of what a machine wrote from what a person signed —
-those got stricter, because they are now the only thing holding the line.
-ADR-0079 to ADR-0088 record the change and why.
+**Two changes of operating model, and this file carries both.** On 2026-09-08 an
+agent became free to author legal content, stamped as never validated by an
+expert, across the whole Manual (ADR-0079 to ADR-0088). On 2026-10-07 the owner
+set the project's purpose — *a pitch that demonstrates the value of an ontology
+for the Trade Marks Manual; a system that works, soon, not every nuance* — and
+adopted a faster way of working: a finish line, a model pipeline instead of
+hand-authoring, lighter paperwork, and questions to the owner only at named gates
+(ADR-0109 to ADR-0111). What changed neither time is every rule about provenance,
+citation and the separation of what a machine wrote from what a person signed.
+
+## 0. Current scope: the demonstrator
+
+Build only this (ADR-0110). Done when each line's test holds.
+
+| | Deliverable | Done when |
+|---|---|---|
+| D1 | A connected ontology over the whole Manual — concepts, labels, groups, relationships, and links from concepts to passages and provisions | The graph builds with 0 SHACL defects; most concepts sit in one connected piece; every machine-written record carries its envelope |
+| D2 | "Ask the Manual" — concepts recognised, graph path, passages with the Act and the Manual kept apart, a cited answer, the unreviewed stamp; plain search beside it | Runs on every benchmark question; never states an examination outcome |
+| D3 | The value measurement — plain search against ontology-enhanced search | Numbers with intervals, per kind of question |
+| D4 | A pitch pack — the numbers, screenshots, the honest limits | The owner has seen it |
+
+`docs/PITCH-PROPOSAL.md` is the plan and `docs/QUOTE.md` what the model work
+costs. **Future state — context only, do not build yet:** the rest of
+`docs/roadmap/AUTOMATION-FIRST-ROADMAP.md` (OpenSearch, a triple store, Stage 10
+maintenance) and the expert-review apparatus in `src/tm_knowledge/stage0/`, which
+is parked, not deleted.
 
 ## 1. Read order for a new session
 
 1. This file.
-2. `review/rulings/` — **anything the owner has decided and nobody has acted on.**
-   A ruling outranks any `agent-proposed` ADR it touches. Empty is the normal
-   state; a file with `applied: null` is work waiting for you.
-3. `docs/HANDOFF.md` — **where the last session stopped and what to do next.**
-4. `docs/DECISIONS.md` — what has already been settled, and why. Do not relitigate.
-   **Start at ADR-0079** if you only read part of it: ten decisions there rewrote
-   the operating model and supersede rules stated elsewhere in older files.
-   ADR-0085 is superseded by ADR-0086 — read the later one.
-5. `docs/QUIRKS.md` — traps that have already cost someone time.
-6. Then, only what your task needs:
-   - `authored/README.md` — **the authored knowledge store. Read before writing
-     any legal content.** What an authoring envelope must carry, and the one door
-     from authored to approved.
-   - `docs/ARCHITECTURE.md` — intended shape of the system and what lives where.
-   - `docs/IDENTIFIERS.md` — the identifier and IRI rules. Read before writing any ID.
-   - `docs/ROADMAP-STATUS.md` — stage-by-stage status board.
-   - `docs/UPSTREAM.md` — the upstream data contract: record shapes, the join, what upstream refuses to do.
-   - `docs/roadmap/AUTOMATION-FIRST-ROADMAP.md` — the full programme (Stages 0–10). Long; consult sections, don't re-read whole.
-   - `docs/roadmap/PARALLEL-TRACK-ROADMAP.md` — what proceeds while Stage 0 content is pending, and the gates where expert input becomes required. **Largely superseded by ADR-0083** — read it for the package list, not for the gates.
-   - `docs/GLOSSARY.md` — domain and project terms.
+2. `review/rulings/` — anything the owner decided that nobody has acted on
+   (`applied: null`). A ruling outranks any `agent-proposed` ADR it touches.
+3. `docs/HANDOFF.md` — under 150 lines: where things stand and what is next.
+4. `docs/RULES-IN-FORCE.md` — one page of what 112 decisions add up to.
+   **Do not read `docs/DECISIONS.md` or `docs/QUIRKS.md` end to end.** Search
+   them (`grep -n`) when your task touches something they cover.
+5. Then only what your task needs: `authored/README.md` before writing legal
+   content; `docs/IDENTIFIERS.md` before minting an id; `docs/UPSTREAM.md` for
+   record shapes; `docs/ARCHITECTURE.md` for where things live.
 
 ## 2. Hard rules
 
@@ -124,58 +131,59 @@ ADR-0079 removed a restriction on *authorship*. It removed nothing about
 
 ## 3. Session protocol
 
-**At the start:** read `docs/HANDOFF.md` first. It is authoritative on current
-state — more so than your reading of the file tree.
+Act by default and record instead of asking (ADR-0110). A session that asks
+permission for every design choice, or writes an essay where a line would do,
+is failing this file.
 
-**During:** if you discover a trap, a surprising upstream behaviour, or a wrong
-assumption, write it into `docs/QUIRKS.md` *when you find it*, not at the end.
+**During:** a trap that would cost the next session time goes in
+`docs/QUIRKS.md`, a paragraph, when you hit it.
 
-**Before you finish, always:**
+**Before you finish:**
 
-1. Update `docs/HANDOFF.md`: state now, next action, new open questions, and a
-   new dated entry in the session log.
-2. Add any decision you made to `docs/DECISIONS.md` as a new numbered ADR.
-   Include the ones you made implicitly by choosing an approach.
-3. Update the relevant row of `docs/ROADMAP-STATUS.md` if a deliverable moved.
-4. If you acted on a ruling, close it out: `applied:` in the ruling file, an ADR
-   with authority `human`, and `status: answered` on the question.
-5. If anything you changed is on the dashboard — a gold record, an authored
-   record, the ontology, the graph, an ADR, the status board — run
-   `tmk-dashboard --write` and commit the result. CI fails on drift, because the
-   published site reads only what is committed.
-6. Ask the owner anything you needed and could not get: add it to
-   `review/questions/open-questions.yaml`, in the plain language its README sets
-   out. **The bar for this moved on 2026-09-08.** A question you can answer
-   yourself and stamp `unreviewed` is no longer a question for the owner — author
-   it. Reserve the queue for what an agent genuinely cannot settle: agency
-   permissions, priorities, resourcing, and anything where being wrong is
-   expensive and the corpus holds no evidence either way.
-7. Commit and push. An unpushed container is a lost container.
+1. **Rewrite `docs/HANDOFF.md`** — do not append. Under 150 lines: state, next
+   actions, open items, what to distrust. History goes in the git log.
+2. **An ADR only for an owner decision or a genuinely non-obvious choice**, in the
+   four-part form of §4. Engineering, layout and naming calls are made and, at
+   most, mentioned in a commit body.
+3. **Close out any ruling you acted on**: `applied:` in the file, an ADR with
+   authority `human`, `status: answered` on the question.
+4. If you changed authored or signed records, rebuild the graph
+   (`tmk-graph --write --rules`); CI fails on graph drift (ADR-0070). The site
+   rebuilds itself on deploy (ADR-0112).
+5. Commit and push. An unpushed container is a lost container.
 
-A session that produced work but left `HANDOFF.md` stale has failed the next
-session. Treat step 1 as part of the task, not as paperwork.
+## 3a. When to stop and ask the owner
+
+Only at these gates (ADR-0110, P6). Everything else: decide, log it, move on.
+
+- **Spending** beyond the cap in force (`config.SPEND_CAP_USD`, ADR-0111). Give
+  the dry-run estimate and wait.
+- **Anything outward-facing or irreversible** — publishing somewhere new, sending
+  anything to the expert, making the repository public, rewriting history.
+- **Changing what the system may say to an examiner.**
+- **Putting an expert's own notes into a model prompt** (ADR-0088).
+- **Which measured results become claims in the pitch.**
+- **Model choice for measurement work** — the owner chose the model for knowledge
+  work; who writes and judges the benchmark is theirs to choose from the quote.
+
+Ask in the chat when the owner is there; otherwise one entry in
+`review/questions/open-questions.yaml`, in the plain language its README sets out.
 
 ## 4. Writing decisions
 
 `docs/DECISIONS.md` is append-only. Never edit or delete a past ADR — supersede
-it with a new one and mark the old `Superseded by ADR-nnn`. Every ADR records its
-**authority**:
+it with a new one and mark the old `Superseded by ADR-nnn`. Four parts, short:
+**Context** (what prompted it, with numbers), **Decision** (whose, and precisely
+enough to reproduce), **What it does not decide** (if anything), **Consequences**.
+Every ADR records its **authority**:
 
-- `inherited` — comes from the roadmap or the upstream contract; you may not
-  overturn it, only surface a conflict. **Note ADR-0082 and ADR-0083: two
-  `inherited` decisions were overturned by the owner on 2026-09-08. `inherited`
-  binds agents, not him.**
-- `derived` — forced by evidence in the repo or upstream data; defensible without
-  a human.
-- `agent-proposed` — a judgement call an agent made to keep moving. **Provisional.**
-  Flag it in `HANDOFF.md` under open questions until a human confirms it.
-- `human` — a decision the repo owner made.
-
-**A decision the owner makes in a chat window counts** (his instruction,
-2026-09-08). It is recorded the same way anything else is: his words transcribed
-into `review/returned/` with the date and who relayed them, a ruling file, and an
-ADR with authority `human` quoting him. The route does not change the weight; the
-absence of a record does.
+- `inherited` — from the roadmap or the upstream contract. Binds agents, not the
+  owner (ADR-0082, ADR-0083 overturned two).
+- `derived` — forced by evidence in the repo or upstream data.
+- `agent-proposed` — a judgement call an agent made to keep moving. Provisional;
+  name it in the handoff's open items.
+- `human` — a decision the owner made. **A decision made in a chat window counts**:
+  the words verbatim in `review/returned/`, a ruling file, and an ADR quoting them.
 
 ## 5. Conventions
 
@@ -192,6 +200,11 @@ absence of a record does.
   when the change encodes a decision.
 - Every directory carries a `README.md` saying what belongs in it and what must
   not. If you create a directory, write its README in the same commit.
+- **Paid model calls** go through `tm_knowledge.bulk` and nowhere else: a dry-run
+  that estimates and spends nothing, `--confirm` to spend, `--limit N` for a smoke
+  run, a response cache committed to the repo so a re-run is free, and a hard cap
+  checked before every call (ADR-0111). Read the smoke run's output yourself
+  before a full run.
 
 ## 6. What this repo does not do
 
