@@ -1393,7 +1393,7 @@ questions:
 
   - id: OQ-0028
     theme: unblocks
-    status: open
+    status: answered
     needs: owner
     urgency: high
     raised: S023

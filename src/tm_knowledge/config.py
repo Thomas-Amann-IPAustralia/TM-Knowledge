@@ -24,57 +24,78 @@ UPSTREAM_DIR = REPO_ROOT / "data" / "upstream"
 #: The tracked pin manifest (ADR-0004, ADR-0021).
 PIN_PATH = REPO_ROOT / "data" / "pin.json"
 
-#: The model that authors legal content and backs Stage 2-4 extraction (ADR-0087,
-#: answering HANDOFF Q3). It lives here and nowhere else, for the same reason the
-#: base IRI does: the string ends up stamped on every record the model touches, so
-#: changing it must be a configuration change and a re-measurement rather than a
-#: find-and-replace.
+#: The model that does the bulk knowledge work (ADR-0111, superseding ADR-0087).
+#: It lives here and nowhere else, for the same reason the base IRI does: the string
+#: ends up stamped on every record the model touches, so changing it is a
+#: configuration change and a re-measurement rather than a find-and-replace.
 #:
-#: **Confirm this against Google's current model list before the first real call.**
-#: A wrong identifier fails loudly at the API, which is the safe failure. The unsafe
-#: one is a silently substituted model: an id recorded on ten thousand records that
-#: is not the model that wrote them is provenance corruption nothing can undo.
-#:
-#: Changing it is a superseding ADR (ADR-0087 consequence 3). Output from a
-#: different model is different output, and every baseline measured before the
-#: change is invalid after it.
-DEFAULT_AUTHORING_MODEL = "gemini-3.8-flash"
+#: What goes in `authored_by` is the model id **the API reports** in its response,
+#: never this constant (ADR-0094) — a silently substituted model is provenance
+#: corruption nothing can undo. Changing it is a superseding ADR.
+DEFAULT_AUTHORING_MODEL = "gpt-6.1-sol"
 
-#: The environment variable holding the API credential. The value is a repository
-#: secret and appears nowhere in this repository, in any generated artefact, or in
-#: any log line. A repository secret reaches GitHub Actions and **not** a local
-#: container, so a session doing model-backed work outside CI must supply it
-#: itself — and an absent key must raise, never return an empty result set
-#: (ADR-0087 consequence 2).
-AUTHORING_API_KEY_VAR = "GEMINI_API_KEY"
+#: Reasoning effort for the bulk work — the owner's "medium effort" (ADR-0111).
+DEFAULT_AUTHORING_EFFORT = "medium"
+
+#: The API endpoint, pinned here so an ambient environment variable cannot
+#: redirect calls somewhere else (KB SOP §9).
+OPENAI_BASE_URL = "https://api.openai.com/v1"
+
+#: The environment variable holding the credential. In a session container the
+#: egress proxy supplies the real key whatever this holds (Q-65), so a placeholder
+#: is enough; in any other environment the real key goes here. The value appears
+#: nowhere in this repository, in any generated artefact, or in any log line.
+AUTHORING_API_KEY_VAR = "OPENAI_API_KEY"
+
+#: Hard cap on total recorded spend across every paid call, in US dollars. The
+#: owner's: "For now, you may spend a maximum of $1" (ADR-0111). Raising it is the
+#: owner's decision, made on a quote — overridable for one run by
+#: `TMK_SPEND_CAP_USD`, and only on the owner's word.
+SPEND_CAP_USD = 1.00
+
+#: US dollars per million tokens, from OpenAI's pricing page on 2026-10-07
+#: (ADR-0111). `flex` and `batch` are half of `default`. Reasoning tokens bill as
+#: output. The spend ledger computes cost from these and the usage each response
+#: reports; a model missing here cannot be called, because its spend could not be
+#: counted against the cap.
+PRICES_PER_MTOK: dict[str, dict[str, dict[str, float]]] = {
+    "gpt-6.1-sol": {
+        "default": {"input": 2.00, "cached_input": 0.10, "output": 10.00},
+        "flex": {"input": 1.00, "cached_input": 0.05, "output": 5.00},
+        "batch": {"input": 1.00, "cached_input": 0.05, "output": 5.00},
+    },
+    "gpt-5.4-mini": {
+        "default": {"input": 0.75, "cached_input": 0.075, "output": 4.50},
+        "batch": {"input": 0.375, "cached_input": 0.0375, "output": 2.25},
+    },
+    "text-embedding-3-small": {"default": {"input": 0.02, "cached_input": 0.02, "output": 0.0}},
+    "text-embedding-3-large": {"default": {"input": 0.13, "cached_input": 0.13, "output": 0.0}},
+}
 
 
 def authoring_model() -> str:
     """Return the configured authoring model, overridable for a one-off run.
 
-    Anything that overrides it still has to stamp what it actually used on every
-    record it writes — the envelope's `authored_by` is not defaulted from this
-    constant at read time, it is written at authoring time (ADR-0079 guard 1).
+    Anything that overrides it still stamps what the API reports on every record
+    it writes — `authored_by` is written at authoring time from the response,
+    never defaulted from this constant (ADR-0079 guard 1, ADR-0094).
     """
     return os.environ.get("TMK_AUTHORING_MODEL", DEFAULT_AUTHORING_MODEL)
 
 
-def authoring_api_key() -> str:
-    """The API credential, or raise saying exactly what is missing.
+def spend_cap_usd() -> float:
+    """The spend cap in force for this run (ADR-0111)."""
+    return float(os.environ.get("TMK_SPEND_CAP_USD", SPEND_CAP_USD))
 
-    Never returns an empty string: a model-backed run that quietly produces
-    nothing because a key was absent looks identical to one that found nothing,
-    and the second is a finding while the first is a broken pipeline.
+
+def authoring_api_key() -> str:
+    """The API credential, or a placeholder the session proxy replaces (Q-65).
+
+    Never raises in a session container: the proxy injects the real key over
+    whatever is sent. Outside one, an absent key fails at the API with a 401 —
+    loudly, which is the failure mode wanted, never an empty result set.
     """
-    key = os.environ.get(AUTHORING_API_KEY_VAR, "").strip()
-    if not key:
-        raise RuntimeError(
-            f"{AUTHORING_API_KEY_VAR} is not set. It is a repository secret, so it "
-            f"reaches GitHub Actions but not a local container — export it for a "
-            f"local run. Refusing to continue rather than returning no results "
-            f"(ADR-0087)."
-        )
-    return key
+    return os.environ.get(AUTHORING_API_KEY_VAR, "").strip() or "proxy-supplied"
 
 
 def base_iri() -> str:

@@ -1245,3 +1245,24 @@ presence check passes and the proxy supplies the real key. Not yet verified for 
 placeholder header rather than forwarding it, and record which model id the API
 reports in its response, since that, not the configured constant, is what goes in
 `authored_by` (ADR-0094).
+
+---
+### Q-65 — OpenAI is reached through the session proxy; any key you send is replaced
+
+ADR-0111 moved the bulk work to OpenAI's `gpt-6.1-sol`. In a session container the
+egress proxy injects the OpenAI credential for `api.openai.com`, exactly as Q-64
+found for Gemini. Measured S023, all on free endpoints: `GET /v1/models` returns
+200 with **no** `Authorization` header and with `Bearer sk-placeholder…`, and
+Python's standard `urllib` reaches it through `HTTPS_PROXY` with the system CA —
+so the client needs no third-party library and the core install stays at three
+dependencies.
+
+That is why `config.authoring_api_key()` no longer raises on an empty variable: it
+returns a placeholder the proxy replaces. Outside a session container the API
+answers a placeholder with 401, which is still loud — the failure ADR-0087 cared
+about was an absent key producing an *empty result set*, and an HTTP error cannot
+be mistaken for one.
+
+**"Sol 6.1" is `gpt-6.1-sol`.** The model list holds `gpt-5.6-sol`, `gpt-6-sol`
+and `gpt-6.1-sol`; the owner's name maps to the last. Record what the response's
+`model` field says, which may carry a date suffix, not the configured string.
