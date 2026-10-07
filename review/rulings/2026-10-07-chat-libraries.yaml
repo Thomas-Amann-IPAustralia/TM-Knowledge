@@ -1,0 +1,32 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S024
+# agent; no issue behind it. The artefact is
+# `review/returned/261007-owner-chat-libraries.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-07T20:00:00Z'
+questions_updated: '2026-10-07'
+source:
+  kind: chat
+  artefact: review/returned/261007-owner-chat-libraries.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S024 agent
+  title: Use whatever libraries help make the explorer the best it can be
+applied:
+  session: S024
+  date: '2026-10-07'
+  branch: claude/affectionate-lamport-8g14rj
+  what_changed: >-
+    Libraries vendored into site/vendor/ with a checksum manifest: Cytoscape.js
+    (the map, rebuilt with kinds as boxes that open and close), D3 (a zoomable
+    circle packing on the home page, a treemap of the Manual), Observable Plot
+    (the amendment timeline, the measurement intervals), marked and DOMPurify
+    (answers' Markdown, sanitised), Fuse.js (fuzzy idea search), Inter and
+    Source Serif 4. Live answers now stream.
+  corrections_owed: null
+answers:
+- id: CHAT-0016
+  question: May the explorer use third-party libraries?
+  kind: instruction
+  value: libraries_allowed
+  label: Yes — whatever helps make it the best it can be
+  quote: You can use more than basic JavaScript. Use whatever libraries and things that will help make it the best it can be
+  recorded_as: [ADR-0119]

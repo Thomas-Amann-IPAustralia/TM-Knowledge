@@ -5209,3 +5209,40 @@ the expert-review apparatus restarts.
    exception to CLAUDE.md §5's rule, and it is the owner's. The agent's own test call went
    through `bulk` and is in the ledger (job `live-answer`, US$0.03).
 2. With no secret set, the site publishes with live answers off; everything else works.
+
+## ADR-0119 — the explorer may use libraries; they are vendored, checksummed and loaded per view
+
+**Date** 2026-10-07 · **Authority** human · **Status** accepted
+
+**Context.** The explorer was first written without libraries, the rule the dashboard
+kept (its README; `test_the_site_is_self_contained`). The owner replied in chat
+(verbatim in `review/returned/261007-owner-chat-libraries.md`): *"You can use more than
+basic JavaScript. Use whatever libraries and things that will help make it the best it
+can be."*
+
+**Decision (the owner's).** The explorer may use third-party libraries and fonts.
+
+**Decision (the agent's, inside it).**
+
+1. **Vendored, not from a CDN.** Files live in `site/vendor/` beside their licences;
+   `manifest.json` records package, version, licence, purpose and SHA-256, and a test
+   fails when a file and its hash disagree. Government networks often block CDNs, and
+   a library then changes only by a commit.
+2. **Loaded per view** through `site/js/lib.js`, so the home page never fetches the
+   map's graph library.
+3. **What each buys.** Cytoscape.js — the map, with kinds as compound nodes that open
+   and close and roll their connections up while closed. D3 — a zoomable circle
+   packing (families → kinds → ideas) on the home page and a treemap of the Manual.
+   Observable Plot — the amendment timeline and the measurement as intervals.
+   marked + DOMPurify — answers rendered from Markdown and sanitised, since a model
+   wrote them. Fuse.js — fuzzy idea search. Inter and Source Serif 4 (OFL).
+4. **Positions on the map are computed, not simulated.** fcose was tried and dropped:
+   with hundreds of connections between compound boxes it overlapped them. The map
+   places closed kinds as the tour does, packs open kinds into family regions, and grids
+   ideas inside each box, so the same state always draws the same picture.
+5. **Live answers stream** (`stream: true`), with the measured prompt and schema
+   unchanged; the page shows citation progress, then the answer as it is written.
+
+**Consequences.** About 1.4 MB of vendored files — 1.1 MB of scripts (≈350 KB compressed) and 0.3 MB of fonts — most loaded only
+on the map and the change page. The dashboard's no-library rule still governs
+`site/workbench/`.

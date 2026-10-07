@@ -4,7 +4,7 @@ Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-07, ADR-0118.
+**As at:** 2026-10-07, ADR-0119.
 
 ## Purpose and scope
 
@@ -77,6 +77,9 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   (ADR-0042, ADR-0070).
 - **The site rebuilds itself on deploy**; `site/data/` is not committed (ADR-0112).
   The explorer's build reads the pinned snapshot; the workbench's does not (ADR-0117).
+- **The explorer may use libraries, vendored** under `site/vendor/` with a checksum
+  manifest a test enforces, loaded per view by `site/js/lib.js` — never from a CDN
+  (ADR-0119). The workbench keeps its no-library rule.
 - **The browser's search is a copy of `search.index`** (`site/js/engine.js`, no
   vectors). A test holds the two identical, prompt included; change both or neither.
   The measured BM25 weights the heading in full, not by half (Q-69).

@@ -23,6 +23,12 @@ for trade marks examiners.** Everything machine-written is unreviewed.
   - `#/change` — every Manual page as a heat map; pick one to see what a rewrite
     touches, layer by layer (kinds: never);
   - `#/about` — what it is, how it works, the measurement both ways, limits.
+- **Libraries are allowed (owner, ADR-0119)** and vendored in `site/vendor/` with a
+  checksum manifest: Cytoscape.js (the map — kinds are boxes that open and close and
+  roll their connections up while closed), D3 (home circle packing; Manual treemap),
+  Observable Plot (amendment timeline; measurement intervals), marked + DOMPurify
+  (answers), Fuse.js (fuzzy idea search), Inter + Source Serif 4. Loaded per view.
+- **Live answers stream**; real event names checked against the API (a few tokens).
 - **The old dashboard is at `site/workbench/`** (`/workbench/`), unlinked.
 - **Data:** `tmk-explorer --write` (`src/tm_knowledge/explorer/`) builds `site/data/`
   from the stores, the bench files and the **pinned snapshot** (ADR-0117).
@@ -72,8 +78,8 @@ for trade marks examiners.** Everything machine-written is unreviewed.
 - **The kinds view is an arrangement**: kind-to-kind arrows count relationship
   records; the tour's sentence "factors feed tests; tests and factors give rise to
   grounds" reads the top arrows, which are mostly machine-written relationships.
-- **Ideas-level layout** is a hand-tuned force layout (`map.js` `conceptPositions`);
-  clusters touch, labels overlap when zoomed out. Measure before retuning (Q-62).
+- **The all-open map is dense** when fitted: names appear only as you zoom in, and
+  lines between boxes are many. Opening two or three kinds reads best.
 - The benchmark is model-written and model-graded (unchanged from S023).
 
 ## Things a session will trip on
@@ -85,8 +91,11 @@ for trade marks examiners.** Everything machine-written is unreviewed.
   otherwise. So must `bulk.jobs._answer_render` and `engine.prompt`.
 - **`site/data/live.json` can hold a key.** It is git-ignored; keep it that way. The
   build only writes a key when `TMK_LIVE_OPENAI_KEY` is set (not `OPENAI_API_KEY`).
-- **In the map, query `.canvas-wrap > svg`**, not the first `svg` — the legend has
-  inline SVGs and a bare `querySelector("svg")` draws the map into a 26-pixel swatch.
+- **The map's positions are computed** (`map.js` `graphPositions`/`textPositions`).
+  Do not reach for a force layout: fcose overlapped the compound kind boxes. The
+  Cytoscape instance is on `.cy` as `container.cy` for browser checks.
+- **Updating a vendored library**: copy the same dist file, then update its `sha256`,
+  `bytes` and `version` in `site/vendor/manifest.json` — the test fails otherwise.
 - Vectors are not committed (ADR-0115); flex tier overloads (Q-67); never kill a
   relate run (Q-68) — all unchanged.
 
@@ -94,5 +103,6 @@ for trade marks examiners.** Everything machine-written is unreviewed.
 
 - ADR-0117 (explorer reads the snapshot; browser search without vectors).
 - ADR-0118's agent part: environment secret, masking, low effort for live answers,
-  40-a-day courtesy limit.
+  40-a-day courtesy limit. ADR-0119's agent part: vendoring, the library choices,
+  computed map positions, streaming.
 - ADR-0113 and ADR-0115 from S023.

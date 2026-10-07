@@ -7,9 +7,14 @@ nothing here.
 
 ## What belongs here
 
-Hand-written: `index.html`, `explorer.css`, and the modules in `js/`. No framework, no
-package manager, no build step, nothing loaded from a CDN, no web fonts — every byte is
-in this repository, and `tests/unit/test_explorer.py` asserts it.
+Hand-written: `index.html`, `explorer.css`, and the modules in `js/`. No build step and
+no package manager at run time.
+
+Vendored: libraries and fonts in `vendor/` (ADR-0119) — Cytoscape.js, D3, Observable
+Plot, marked, DOMPurify, Fuse.js, Inter, Source Serif 4 — each pinned in
+`vendor/manifest.json` with its SHA-256 and licence. Nothing is loaded from a CDN; every
+byte is in this repository, and `tests/unit/test_explorer.py` asserts both that and the
+checksums. `js/lib.js` loads each library only on the view that needs it.
 
 Generated: everything under `data/`, written by `tmk-explorer --write` from
 `src/tm_knowledge/explorer/`. **Do not hand-edit it; it is not committed** (ADR-0112).
@@ -38,19 +43,24 @@ look at; it does not state the law.
 
 | Route | Module | What it shows |
 |---|---|---|
-| `#/` | `home.js` | what this is, and the four levels from kinds down to text |
+| `#/` | `home.js` | a zoomable circle packing of the ontology (D3): families → kinds → ideas |
 | `#/tour/N` | `tour.js` | seven steps: text, wordings, connections, kinds, change, retrieval, limits |
-| `#/map/{kinds,ideas,text}/GC-…` | `map.js` | the ontology at three levels; the same nodes move between them |
-| `#/ask/BN-…` | `ask.js` | a question's ideas, connections and passages drawn hop by hop, then a cited answer |
-| `#/change/TMM/…` | `change.js` | pick a page; see what a rewrite would touch, layer by layer |
-| `#/about` | `about.js` | what it is, how it works, the measurement both ways, the limits |
+| `#/map/{kinds,ideas,text}/GC-…` | `map.js` | Cytoscape: kinds open and close as boxes; an idea opens into Parts, then passages |
+| `#/ask/BN-…` | `ask.js` | a question's ideas, connections and passages drawn hop by hop, then a streamed, cited answer |
+| `#/change/TMM/…` | `change.js` | an amendment timeline (Plot) and a treemap of every page (D3); pick one to see the ripple |
+| `#/about` | `about.js` | what it is, how it works, the measurement as intervals (Plot), the limits |
+
+The map's positions are **computed, not simulated** (`graphPositions`, `textPositions`):
+closed kinds sit where the tour draws them, open kinds pack into their family's region,
+ideas grid inside each box. A force layout overlapped the boxes (ADR-0119).
 
 `engine.js` is the browser's copy of `search.index.Systems` (keyword and ontology, no
 vectors) plus the answer prompt and the verbatim quote check. **It must stay identical to
 Python**: `tests/explorer_parity.mjs` runs it under Node and the test compares rankings,
 recognised concepts, paths and the prompt itself, question by question. Change one side,
-change the other. `live.js` makes the model call; `graph.js` holds the force layout, pan
-and zoom; `app.js` routes, loads data and draws the passage drawer.
+change the other. `live.js` makes the streamed model call; `kinds.js` draws the tour's
+kinds diagram; `graph.js` holds small SVG helpers; `app.js` routes, loads data and draws
+the passage drawer.
 
 ## Live answers
 
