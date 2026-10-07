@@ -892,6 +892,17 @@ _ANSWER_SCHEMA = _strict({
 })
 
 
+def _excerpt(ctx: Context, ref: str, limit: int = 320) -> dict[str, str]:
+    chunk = ctx.corpus.chunks.get(ref)
+    if chunk is not None:
+        text, heading = chunk.text, (chunk.heading_path[-1] if chunk.heading_path else ref)
+    else:
+        passage = passage_at(ctx.corpus, ref)
+        text, heading = ((passage.text or "") if passage else ""), ref
+    return {"ref": ref, "source": _source(ref), "heading": heading,
+            "excerpt": text[:limit] + ("…" if len(text) > limit else "")}
+
+
 def _answer_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict[str, Any]) -> Outcome:
     outcome = Outcome(proposed=1)
     cited = []
@@ -904,12 +915,19 @@ def _answer_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict
             continue
         cited.append(found)
     p = item.payload
+    labels = {cid: c.pref_label for cid, c in ctx.links.concepts.items()}
     outcome.records["answers"] = [{
         "key": item.key, "kind": p.get("kind"), "question": p["question"],
         "answer": str(parsed.get("answer", "")),
-        "recognised": list(p.get("recognised") or ()), "paths": list(p.get("paths") or ()),
-        "passages": list(p["passages"]), "legislation": list(p.get("legislation") or ()),
-        "plain_search": list(p.get("plain") or ()),
+        # Everything the demo page shows is carried here, because the site reads
+        # committed artefacts and never the snapshot (ADR-0063).
+        "recognised": [{"id": c, "label": labels.get(c, c)} for c in p.get("recognised") or ()],
+        "paths": [{"subject": s, "subject_label": labels.get(s, s), "predicate": pred, "object": o,
+                   "object_label": labels.get(o, o), "record": rid, "origin": origin}
+                  for s, pred, o, rid, origin in p.get("paths") or ()],
+        "passages": [_excerpt(ctx, ref) for ref in p["passages"]],
+        "legislation": [_excerpt(ctx, ref) for ref in p.get("legislation") or ()],
+        "plain_search": [_excerpt(ctx, ref) for ref in p.get("plain") or ()],
         "citations": cited, "concepts_used": list(parsed.get("concepts_used") or ()),
         "declined": bool(parsed.get("declined")), "decline_reason": str(parsed.get("decline_reason", "")),
         "model": entry["model_reported"], "date": date.today().isoformat(), "review_status": "unreviewed",

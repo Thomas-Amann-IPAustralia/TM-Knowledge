@@ -31,6 +31,7 @@ from pathlib import Path
 from typing import Any, Iterable
 from urllib.parse import unquote
 
+import yaml
 from rdflib import Graph, URIRef
 from rdflib.namespace import OWL, RDF, RDFS, SH
 
@@ -134,6 +135,9 @@ class Facts:
     glossary: dict[str, dict[str, str]]
     questions: questions_module.QuestionSet
     rulings: tuple[questions_module.Ruling, ...]
+    #: "Ask the Manual" answers and the value measurement, when they exist (D2, D3).
+    answers: tuple[dict[str, Any], ...] = ()
+    measurement: dict[str, Any] | None = None
 
 
 def _read_graph(path: Path) -> Graph:
@@ -177,7 +181,24 @@ def gather() -> Facts:
         glossary=sources.read_glossary(),
         questions=questions_module.load(),
         rulings=questions_module.load_rulings(),
+        answers=_read_answers(),
+        measurement=_read_measurement(),
     )
+
+
+BENCH_DIR = REPO_ROOT / "data" / "derived" / "bench"
+
+
+def _read_answers() -> tuple[dict[str, Any], ...]:
+    path = BENCH_DIR / "answers.yaml"
+    if not path.exists():
+        return ()
+    return tuple((yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("answers") or ())
+
+
+def _read_measurement() -> dict[str, Any] | None:
+    path = BENCH_DIR / "results.json"
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
 
 
 # ------------------------------------------------------------------- helpers
