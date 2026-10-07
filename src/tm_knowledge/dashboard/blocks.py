@@ -14,7 +14,7 @@ about trade marks as `blocks.js` does.
 
 Cell and text values are markdown-lite (`**bold**`, `` `code` ``, `[a](b)`) and
 may carry `{{glossary term}}` markers, which the browser turns into a tooltip
-from `site/data/glossary.json`. A marker naming a term the glossary does not
+from `site/workbench/data/glossary.json`. A marker naming a term the glossary does not
 hold is a build error, not a silently plain word — see `build.check_glossary`.
 """
 

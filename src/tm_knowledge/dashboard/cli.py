@@ -30,12 +30,12 @@ __all__ = ["dashboard", "ruling"]
 
 
 def dashboard(argv: list[str] | None = None) -> int:
-    """`tmk-dashboard` — generate `site/data/`, or check it has not gone stale."""
+    """`tmk-dashboard` — generate `site/workbench/data/`, or check it has not gone stale."""
     parser = argparse.ArgumentParser(
         prog="tmk-dashboard",
         description="Generate the dashboard's data from the committed artefacts.",
     )
-    parser.add_argument("--write", action="store_true", help="write into site/data/")
+    parser.add_argument("--write", action="store_true", help="write into site/workbench/data/")
     parser.add_argument(
         "--check",
         action="store_true",
@@ -82,7 +82,7 @@ def dashboard(argv: list[str] | None = None) -> int:
 
     if args.write:
         written = build_module.write(pages, args.out)
-        root = (args.out or build_module.DATA_DIR).parents[1]
+        root = (args.out or build_module.DATA_DIR).parents[2]
         print()
         for path in written:
             print(f"wrote {path.relative_to(root)}")

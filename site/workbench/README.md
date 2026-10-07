@@ -1,7 +1,12 @@
-# site/ — the dashboard
+# site/workbench/ — the owner's workbench (the former dashboard)
 
 A static site, published to
-<https://thomas-amann-ipaustralia.github.io/TM-Knowledge/>.
+<https://thomas-amann-ipaustralia.github.io/TM-Knowledge/workbench/>.
+
+**Moved here from `site/` on 2026-10-07 (ADR-0118).** The site root is now the
+examiner explorer (`site/README.md`). This one is kept for the repo owner, built on
+every deploy, and linked from nothing an examiner opens. Below, "the site" means this
+workbench; its data is `site/workbench/data/`, written by `tmk-dashboard --write`.
 
 It exists to do two things: let someone who does not read Turtle understand the
 shape of the ontology, the vocabulary and the graph — and let the repo owner
@@ -92,7 +97,7 @@ from the reader who needed it.
 ```bash
 pip install -e ".[rdf]"
 tmk-dashboard --write
-python3 -m http.server -d site 8000    # then open http://localhost:8000
+python3 -m http.server -d site 8000    # then open http://localhost:8000/workbench/
 ```
 
 Opening `index.html` from disk will not work: the browser blocks `fetch` on
@@ -114,8 +119,8 @@ wrong is more often a rendering bug. These two answer it:
 
 ```bash
 tmk-dashboard --write                  # regenerate locally from this checkout
-curl -s https://thomas-amann-ipaustralia.github.io/TM-Knowledge/data/inbox.json \
-  | diff - site/data/inbox.json          # what is published vs this checkout
+curl -s https://thomas-amann-ipaustralia.github.io/TM-Knowledge/workbench/data/inbox.json \
+  | diff - site/workbench/data/inbox.json          # what is published vs this checkout
 ```
 
 The footer's *"Generated …"* stamp answers the same question for a reader who has
