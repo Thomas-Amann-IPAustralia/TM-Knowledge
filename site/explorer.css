@@ -356,6 +356,23 @@ svg.hop .family-label { font-size: 12px; }
 .hop-steps li::before { content: counter(s); width: 1.35rem; height: 1.35rem; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; font-size: .72rem; font-weight: 700; }
 .hop-steps li.on { color: var(--ink); }
 .hop-steps li.on::before { border-color: var(--ink); background: var(--ink); color: var(--bg); }
+.hop-more { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 1.4rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--line-2); align-items: start; }
+@media (max-width: 900px) { .hop-more { grid-template-columns: 1fr; } }
+.hop-more h4 { margin: 0 0 .4rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); }
+@media (min-width: 901px) { .hop-map { position: sticky; top: 76px; } }
+.why-step { display: grid; grid-template-columns: 1.6rem 1fr; gap: .5rem; padding: .2rem 0 .7rem; font-size: .9rem; color: var(--ink-2); }
+.why-step + .why-step { border-top: 1px solid var(--line-2); padding-top: .7rem; }
+.why-step .n { width: 1.35rem; height: 1.35rem; border-radius: 50%; background: var(--ink); color: var(--bg); display: grid; place-items: center; font-size: .72rem; font-weight: 700; margin-top: .15rem; }
+.why-step b { color: var(--ink); }
+.why-step > div > b:first-child { display: block; font-size: .98rem; margin-bottom: .25rem; }
+.why-step p { margin: 0 0 .5rem; }
+.said-list { list-style: none; padding: 0; margin: .3rem 0 .4rem; }
+.said-list li { display: grid; grid-template-columns: auto auto 1fr; gap: .45rem; align-items: baseline; padding: .3rem 0; border-top: 1px dashed var(--line-2); }
+.said-list .said { font-family: var(--serif); color: var(--ink); background: color-mix(in srgb, var(--glow) 22%, transparent); padding: 0 .3rem; border-radius: 3px; }
+.said-list .arrow { color: var(--ink-3); }
+@media (max-width: 560px) { .said-list li { display: block; } .said-list .arrow { margin: 0 .3rem; } }
+.why-step .lists { margin: .2rem 0 .5rem; padding-left: 1.2rem; }
+.why-step .lists li { margin: .15rem 0; }
 .answer-card { padding: 1.1rem 1.25rem; }
 .answer-card .answer { font-size: .98rem; }
 .answer-card .answer p { margin: 0 0 .7rem; }
