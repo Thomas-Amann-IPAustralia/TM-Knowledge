@@ -1331,3 +1331,16 @@ Two consequences to keep in mind. A relate process writes only when it finishes,
 re-run will not write them either; let it finish. And a second pass beside a
 running one must not overlap it: `--touching <ids>` restricts a pass to pairs
 touching concepts the running pass did not have.
+
+### Q-69 — `bm25(passages, 0.5, 1.0)` does not halve the heading: the first weight lands on `ref`
+
+`search.index.KeywordIndex` creates `fts5(ref UNINDEXED, heading, body)` and ranks
+with `bm25(passages, 0.5, 1.0)`. FTS5 assigns bm25 weights to columns **in
+declaration order, unindexed ones included**, so 0.5 goes to `ref` (which holds no
+tokens), 1.0 to `heading`, and `body` takes the default 1.0. The heading is weighted
+in full, not by half as the call reads. Every measured number (D3) was taken with
+this behaviour, so it is not a bug to fix silently — changing it changes the systems
+the benchmark measured. The explorer's browser engine (`site/js/engine.js`) copies
+the *actual* behaviour; with the heading at 0.5 its rankings matched Python on only
+24 of 131 questions, at 1.0 on all 131. If you ever mean to halve the heading, pass
+`bm25(passages, 0.0, 0.5, 1.0)`, change the browser engine to match, and re-measure.
