@@ -11,7 +11,7 @@
 # the parts a machine can check.
 
 version: 1
-updated: '2026-09-09'
+updated: '2026-10-07'
 
 themes:
   - id: unblocks
@@ -1390,3 +1390,65 @@ questions:
     if_unanswered: >
       Citation resolution in a later stage has no agreed rule, and one kind of
       prohibited use rests on a single record.
+
+  - id: OQ-0028
+    theme: unblocks
+    status: open
+    needs: owner
+    urgency: high
+    raised: S023
+    tracked_as: ['ADR-0109', 'docs/PITCH-PROPOSAL.md']
+    title: The fast route to a working pitch — which parts do you want?
+    plain: >
+      You said the project is a pitch and needs a system that works soon, and asked
+      what to borrow from the way your other project was built. The proposal has
+      three parts. **A finish line:** a connected map of the Manual's legal ideas,
+      an "Ask the Manual" page that shows how those ideas improve a search, a
+      measurement comparing plain search with ontology-enhanced search, and a short
+      pitch pack. **A pipeline:** the model you approved writes the relationships
+      and new ideas in bulk, every quote checked against the Manual by code and
+      every record still stamped as unreviewed — instead of an agent writing each
+      one by hand. **Less paperwork per session:** a short handover note, decision
+      records only for real decisions, and questions to you only for money,
+      anything public or irreversible, and what the system may say to an examiner.
+    why_you: >
+      The finish line and the paperwork rules are your rulebook, and an agent may
+      not rewrite the rules it works under. The pipeline spends money, and you have
+      asked to be considerate of cost — a cap you name once lets each session spend
+      within it without asking run by run.
+    background:
+      - label: The decision that set the purpose — your words, recorded
+        href: '#/decisions'
+    answer:
+      kind: choice
+      prompt: Which parts of the proposal should the project adopt?
+      options:
+        - value: adopt_all
+          label: All of it — the finish line, the pipeline and the lighter process
+          help: >-
+            The next session trims the handover and the rules first, then builds
+            the connected map within your spend cap. Roughly three sessions to a
+            demonstrator, on the agent's own unmeasured estimate.
+        - value: build_only
+          label: The finish line and the pipeline, but keep the current process
+          help: >-
+            The same build, under today's rules. Each session keeps its full reading
+            list and closing paperwork, so expect it to take noticeably longer.
+        - value: smaller_first
+          label: Show me one piece working first — the connected map
+          help: >-
+            One session builds only the relationship pipeline, on a small spend, and
+            shows you the map with its pieces joined up before anything else is
+            decided.
+        - value: leave_it
+          label: Leave the approach as it is
+          help: >-
+            Nothing changes. The proposal stays on file as a record of what was
+            considered.
+    notes_prompt: >-
+      Name a spend cap for model calls (for example, a dollar figure for the whole
+      demonstrator), and say if any part of the finish line is wrong — the audience
+      for the pitch changes what is worth showing.
+    if_unanswered: >
+      Nothing breaks. Work continues under the current rules towards the old list,
+      and no money is spent on the model.

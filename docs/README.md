@@ -13,6 +13,8 @@ of all.
 | `ROADMAP-STATUS.md` | Stage-by-stage status board | When a deliverable moves |
 | `EXPERT-REVIEW-SCOPE.md` | **What a trade marks expert is asked to look at, and what is not theirs.** Dated statement, not a live report | When what is waiting on an expert changes |
 | `EXPERT-REQUEST.md` | **The covering note that goes to the expert with `data/derived/expert-request.xlsx`.** Plain English, no project vocabulary | **Never by hand** — `tmk-expert-pack --write` regenerates both |
+| `PITCH-PROPOSAL.md` | **What to adopt from the KB SOP to reach a working pitch fast** (ADR-0109). A proposal — nothing in it binds until OQ-0028 is answered | When the owner answers OQ-0028 |
+| `KB-SOP.md` | The method behind the owner's other Claude Code project, a knowledge base for an agent. Source material for `PITCH-PROPOSAL.md` | **Never** — source document, from the owner |
 | `GLOSSARY.md` | Domain and project terms | When you meet a term you had to look up |
 | `UPSTREAM.md` | The upstream data contract — record shapes, the join, its refusals | Only when upstream changes |
 | `roadmap/AUTOMATION-FIRST-ROADMAP.md` | The full programme, Stages 0–10 | **Never** — source document |
