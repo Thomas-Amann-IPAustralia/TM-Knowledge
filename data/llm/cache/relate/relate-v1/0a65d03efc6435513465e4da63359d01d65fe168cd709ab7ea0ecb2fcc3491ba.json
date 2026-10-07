@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004127,
+ "created_utc": "2026-10-07T11:25:55Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0074",
+ "job": "relate",
+ "key": "0a65d03efc6435513465e4da63359d01d65fe168cd709ab7ea0ecb2fcc3491ba",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"An application must include a graphical representation of the trade mark and, under section 40, the application must be rejected if the trade mark cannot be represented graphically.\",\"relation\":\"appliesTo\",\"alternative\":\"requiresElement would fit graphical representability as a positive requirement, but the neighbour is classified as the ground of refusal.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.88,\"reasoning\":\"The Manual describes inability to represent a trade mark graphically as a section 40 rejection ground and expressly discusses representations for non-traditional signs. Its application to non-traditional signs is inferred from that context and the general wording, not a statement that non-traditional signs necessarily attract rejection.\",\"modality\":\"must\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the neighbour denotes the refusal ground rather than graphical representation generally.\",\"passage_ref\":\"TMM/Part20/5/5/2\",\"neighbour\":\"GC-0057\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"Treating a label as a kind of non-traditional sign merely because it appears in the statutory list of signs.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.97,\"reasoning\":\"The passages include labels in the definition of sign but do not classify labels as non-traditional signs or otherwise connect labels specifically to that category.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether any wording in the supplied passages includes labels within the non-traditional category.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0140\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"Inferring a relationship to lawyers from the statement that a trade mark attorney can assist with evidence of use.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.95,\"reasoning\":\"The passage gives evidence requirements for non-traditional trade marks and mentions assistance by a trade mark attorney. It does not identify that role as a lawyer or state a relationship between lawyers and non-traditional signs.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the lawyer record is intended to encompass trade mark attorneys; the supplied passage does not establish that equivalence.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0148\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "751b3ac7921fda6160b8ded9babcc718e7cf187808ac2acb663edb32f478fcff",
+ "response_id": "resp_022170d2de9a8f71006ac62c259b1087d2be3dd51732bd9b2f",
+ "seconds": 30.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2989,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2986
+  },
+  "output_tokens": 795,
+  "output_tokens_details": {
+   "reasoning_tokens": 332
+  },
+  "total_tokens": 3784
+ }
+}

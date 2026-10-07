@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012227,
+ "created_utc": "2026-10-07T12:25:56Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0091",
+ "job": "answer",
+ "key": "0fafa1f190546dd1588b1c129bf96770e24954580dea921c31e4bcc02e8d0f4c",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{ \"concepts_used\": [\"GC-0070\"], \"decline_reason\": \"\", \"declined\": false, \"citations\": [ { \"ref\": \"TMA1995/s14(1)\", \"quote\": \"(1) For the purposes of this Act, goods are similar to other goods:\" }, { \"ref\": \"TMM/Part26/4/4/1\", \"quote\": \"Sub-section 14(1) of the Act defines goods as being similar to other goods if they are the same as those other goods or if they are of the same description as those other goods.\" }, { \"ref\": \"TMM/Part26/4/4/1\", \"quote\": \"In Jellinek's Application (1946) 63 RPC 59 (Jellinek), Romer J. set out the following matters for enquiry in assessing whether goods are of the same description: the nature of the goods; the respective uses of the articles; the trade channels through which the commodities are respectively bought and sold. These are the primary criteria. However, it is unlikely that any single factor is conclusive.\" }, { \"ref\": \"TMM/Part26/4/4/1\", \"quote\": \"the nature and characteristics of the goods; the origin of the goods; the purpose of the goods; whether the goods are usually produced by one and the same manufacturer; whether the goods are distributed by the same wholesale houses; whether the goods are sold in the same shops, over the same counter, during the same season and to the same class or classes of customer; whether those engaged in the manufacture and distribution of the goods are regarded as belonging to the same trade.\" } ], \"answer\": \"“Goods of the same description” need not be identical goods: the Manual explains that section 14(1) treats goods as similar if they are either the same goods or goods of the same description. [TMM/Part26/4/4/1]\\n\\nManual practice — assessment: the Manual sets out three primary criteria, drawn from Jellinek's Application:\\n• the nature of the goods;\\n• their respective uses; and\\n• the trade channels through which they are bought and sold.\\nIt cautions that no single factor is likely to be conclusive. [TMM/Part26/4/4/1]\\n\\nThe fuller enquiry includes the goods’ characteristics, origin and purpose; whether they are usually made by the same manufacturer or distributed by the same wholesalers; whether they are sold in the same shops, over the same counter, in the same season and to the same classes of customers; and whether their manufacturers and distributors are regarded as belonging to the same trade. Thus, the assessment compares the goods and their trading circumstances, rather than requiring identity. [TMM/Part26/4/4/1]\\n\\nAct — source limitation: the supplied section 14(1) extract ends at the introductory colon and omits the operative alternatives. The statutory relationship above is therefore supported by the Manual’s account of the Act, not independently verified from the supplied legislative extract. The assessment criteria are presented here as Manual guidance, not as statutory wording. [TMA1995/s14(1); TMM/Part26/4/4/1]\" }",
+ "prompt_version": "answer-v2",
+ "request_sha256": "37f3e7f711969df4c2659d00b0d9e7bfa72feebe511967192e52e114bd548f61",
+ "response_id": "resp_08c19e0ef254e364006ac63a437b0087d2b7e8f3ac4a2a8b4f",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6766,
+  "input_tokens_details": {
+   "cache_write_tokens": 6763,
+   "cached_tokens": 0
+  },
+  "output_tokens": 754,
+  "output_tokens_details": {
+   "reasoning_tokens": 65
+  },
+  "total_tokens": 7520
+ }
+}

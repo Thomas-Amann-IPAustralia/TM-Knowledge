@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005496,
+ "created_utc": "2026-10-07T12:28:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0013",
+ "job": "judge",
+ "key": "560d7ab2ef3d7d76fe39ef23840e1194b913d24904de021ca15691811fec7e2d",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part29/5/5/6~2\",\"grade\":2},{\"ref\":\"TMM/Part22/24#1\",\"grade\":2},{\"ref\":\"TMM/Part30/3/3/5/5~2\",\"grade\":0},{\"ref\":\"TMM/Part29/x-annex-a1---table-of-inn-stems/y\",\"grade\":1},{\"ref\":\"TMM/Part29/5/5/1\",\"grade\":1},{\"ref\":\"TMM/Part5/x-word-constituents/letters-or-words\",\"grade\":0},{\"ref\":\"TMM/Part22/24/24/2\",\"grade\":2},{\"ref\":\"TMM/Part29/5/5/4\",\"grade\":1},{\"ref\":\"TMM/Part29/5/5/2\",\"grade\":2},{\"ref\":\"TMM/Part29/x-annex-a1---table-of-inn-stems/inn-stems\",\"grade\":1},{\"ref\":\"TMM/Part29/5/5/6~1\",\"grade\":3},{\"ref\":\"TMM/Part29/5/5/5\",\"grade\":3},{\"ref\":\"TMM/Part29/5/5/3\",\"grade\":2}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "d0940bea43df7a17f2b2828f0c773c6039e3fcac884d02a55747578ba9673a7e",
+ "response_id": "resp_087811c2196536ea006ac63af165c887d29f2098a14af003a7",
+ "seconds": 18.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2885,
+  "input_tokens_details": {
+   "cache_write_tokens": 2882,
+   "cached_tokens": 0
+  },
+  "output_tokens": 378,
+  "output_tokens_details": {
+   "reasoning_tokens": 102
+  },
+  "total_tokens": 3263
+ }
+}

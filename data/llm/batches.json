@@ -1,0 +1,266 @@
+[
+ {
+  "collected": "2026-10-07T09:10:50Z",
+  "id": "batch_6ac5ff27559c81909ab8306b552afadb",
+  "job": "define",
+  "note": "Submitted by the first batch run, before the registry existed; registered from the same prompts.",
+  "requests": {
+   "31eb963d6899e310ecacc1fe88989841e8884dd6777b8bb2a3008d22e0cc87df": {
+    "effort": "medium",
+    "item": "deceptively similar",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "ebb2497ac9356c4b486c8689e387288a40b243ff055987e96fadd5896fc68786"
+   },
+   "573ade4d1b7d9653b6a7c9c07c33d9652004227456bb2b2df442227a1a06fb5c": {
+    "effort": "medium",
+    "item": "statement of grounds and particulars",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "8e4a367bf323fa3008c985b1953f2aaaad04c60146030e41586937efdb161e29"
+   },
+   "b0d1351dc39fad279b66ea41fc11c5f5279ca6eb8c77841dcfb0c282df9ab23a": {
+    "effort": "medium",
+    "item": "pending",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "c51b9b5d66b0593670642c6390e0159f63ee7ec52266929e8fb4638866714b9a"
+   },
+   "d3b3ebff35ccce053474f3f348c34ebb4e35d1358e4ee401c7a25d0ac3d0455f": {
+    "effort": "medium",
+    "item": "international registration",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "55ba638874ac790864ad0114dad2a93da012327848ad77d7d85d48e3ecb80dee"
+   }
+  },
+  "status": "cancelled",
+  "submitted": "2026-10-07T08:13:27Z",
+  "worst": 0.174084
+ },
+ {
+  "collected": "2026-10-07T09:10:51Z",
+  "id": "batch_6ac6067ecbc081908b80944ca0c54bbf",
+  "job": "define",
+  "requests": {
+   "053563fe73a49412c562feb796d9b5f5ac09bc1b975435f2549e9866af774ba1": {
+    "effort": "medium",
+    "item": "preferred",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "d721995bc20dc7de02ad5c7446302452f691e45f73e91f8beb4983f5dc5f57e3"
+   },
+   "0e6533ac29b37dae3d157e759c8cc9e41454558584b40c69cace8aa7114066de": {
+    "effort": "medium",
+    "item": "notice of intention to defend",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "a28120829da230e7de8014d444744f3416566dbe49f533ed984d987fa86a948e"
+   },
+   "10afb7572f1f59b21a6388a2035d9c7c23aec345d91973e17286615919d472d5": {
+    "effort": "medium",
+    "item": "deceptively similar",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "3373918401bcc6fb0af0d49b1478cd236cd5cdd4267a82e783ad9208d0a711c1"
+   },
+   "2c8ae2afc6c3b19552e6aeceee901655a02794dcd60d615e1d2703325d8660b8": {
+    "effort": "medium",
+    "item": "examine",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "88677edb2c686db75ca21e74a24a8300add1f66b87a6b8a9d54a7ed00e041d62"
+   },
+   "2fa1f4c5f454b790dd88e6960d6d62acd60bef309b4b6610a5d91904753483e7": {
+    "effort": "medium",
+    "item": "trademark",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "effa6153755b1f32169b9be2ce9b6ab9749dda61d17ffa385b2e047c55ae3218"
+   },
+   "4c61e374cc5c32a7cd8a1f187cb5f8b6461e7c90c5229a88758c9fe162efdc91": {
+    "effort": "medium",
+    "item": "statement of grounds and particulars",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "2427b43da139ec3e6875fba3538158e23f6404ba153c63bf59d6270e9afe69d7"
+   },
+   "5881be07a10192c8053d27935c1a11a84cd70ce94490f2a7b07b1f240074250e": {
+    "effort": "medium",
+    "item": "Record of International Registrations",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "e35549f639241a723d5d3ae39bc6d5609def407d9d6d18074ce83341778fd8a2"
+   },
+   "5b70b62a455a8ff7689fb181d082390f2fd224c58998993089e4ba177b615c98": {
+    "effort": "medium",
+    "item": "pending",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "38eb4b08de9cc840e71b37885bba729836a0247e909be511a3c6caadd9993a4f"
+   },
+   "6097c1a86ce5bc18e714c592c299200884b8bd78a156246341e9e481a405d22c": {
+    "effort": "medium",
+    "item": "certificate of verification",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "252eefa2416822c3f01a8f01b1f195e9dc724aaa7b50ffdd30eaa495b04dd492"
+   },
+   "665dbbb8f534d4bda0e5d0249118ed072225ec0a33d9e840bdd6d7b1f85a6e13": {
+    "effort": "medium",
+    "item": "Convention country",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "1e7be3770216874fef79e292a4d821391ca613f8cb64f9eabaab003074e548b8"
+   },
+   "6aeba12b029cda2aafd2d8d7552e08ceb69d614c360dcf0310d9cc9303b819d7": {
+    "effort": "medium",
+    "item": "represent",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "d58a9359d501e362fd51871e464636680a822224a0a46fbcaa1a72d3e74a37c9"
+   },
+   "79822bc9e32e620e6b490b0e81a7e6b4c8ea33e4c8a4ae0cfddaedd2d82802f9": {
+    "effort": "medium",
+    "item": "the date of registration",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "fcb4e06222c4bda4952922aa4ce7aecfe260d2707f824cd80bd373b3e30d42b3"
+   },
+   "8e1ba2d8659760891c128f2250a47150738098e7564825081859433f3c02aeee": {
+    "effort": "medium",
+    "item": "In this Part",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "7dffd324e5bbb4d4fe5b20ea3d540c148303d548d675f5b71f0fb3d5a60cb9c1"
+   },
+   "b426f1ff53844ccb02dec4e17529ba554e904c47596f7880a216b5ee55b8ad97": {
+    "effort": "medium",
+    "item": "registration number",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "baa7a0bf1c90f0126bfb8c393a69e9b84fa08488c0e423ae2f53bcec7f16ca8a"
+   },
+   "b77d079089234730c30d82cf8ec579672370e585eebf08e1abeaaacb40ea713b": {
+    "effort": "medium",
+    "item": "repealed Act",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "d3033c534480a2300c33477996f68433861cd31a3a4f2318cf46f4887392080d"
+   },
+   "c06dec7fe177c8b4754b4e937c2ba1f8f2c62f67d4a4e5d59568661ddb11aab0": {
+    "effort": "medium",
+    "item": "kiwi",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "3f0ffc08cd2edf8f39a697f27232ed7705d287c9ed03f14ccb3e493e82b35dc2"
+   },
+   "cee5507975124ab8020d3256116b6d38c0bc2f36d358bb6700941a6a716127e4": {
+    "effort": "medium",
+    "item": "International Register",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "2f974999ac81ec9b91db6aac1fd156eb281a2e327c0e59e6366bff6e12cd859f"
+   },
+   "d2e7ee934a11763485ba15231528ca22a9779d74747f34a3775630b22db74664": {
+    "effort": "medium",
+    "item": "Deputy Registrar",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "392a1e756f3979fcaf18af9423f579af1bc38ed888cb0e73433a4920fcb1a8c5"
+   },
+   "d775d005aec7a8b550df79de14b627c34b8a1c2f27a1bd1a6ccde300b35528f0": {
+    "effort": "medium",
+    "item": "approved form",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "4b5250f9043c7fc83d61ce6ebbc29588892c852a39402eed63ebbc8e520eb2d3"
+   },
+   "e501f8e8e93efafa599344d5e07253f4a0d5ff2f1f1b0c4ddb4cf141a117ec23": {
+    "effort": "medium",
+    "item": "plant variety",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "3a3798e8da52515fa065db0e55c3cc70d64cac1512ce2029c2b722ae8dcd0d75"
+   },
+   "e50f91f1fa4c6258b35e940e6cf3d5294593fd02cc0e1bb25cf6cd28ea890629": {
+    "effort": "medium",
+    "item": "cartoon",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "740c8995e08842c23decc91fceb7c330ce536273c23d29d4d651f37cbbab3ee0"
+   },
+   "f352ea2669dd6d1883158aa3c37e0d4877ab4a5f16f0d16f3fec1c97252d5bcf": {
+    "effort": "medium",
+    "item": "capture",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "7364965934f5e6c7c0acddc9ab9fe157f4fa4e22344adc946c831d26f5ab5a2c"
+   },
+   "fa95bc3e8bef64a0c92a2af2cc94161948f22f3bad1ad52a60984148689e121e": {
+    "effort": "medium",
+    "item": "change of ownership",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "cfab73c9acf2e6c775d0c6882c513bbea721f67f8e20eeac1b7fcdc2d923e9a4"
+   }
+  },
+  "status": "cancelled",
+  "submitted": "2026-10-07T08:44:47Z",
+  "worst": 1.004414
+ }
+]

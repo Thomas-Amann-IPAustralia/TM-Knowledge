@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004447,
+ "created_utc": "2026-10-07T11:41:48Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0136",
+ "job": "relate",
+ "key": "149304e4f501f138b09634d087d0b8bf183aad74df37f3da90132970b019aa39",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"To ensure that the date of receipt of the international application by the Office of origin is the date of the resulting international registration, the application must be certified by the Office of origin and received by the IB within two months of receipt by the Office of origin.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement would overstate the passage: the requirements concern retaining a particular registration date, not obtaining international registration generally.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual expressly connects the Office of origin's receipt and certification of the application with the date of the resulting international registration. No listed specialised predicate precisely captures that procedural role.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology intends qualifies to encompass an Office's procedural role in determining a registration date.\",\n      \"passage_ref\": \"TMM/Part60/2/2/2/2/4~5\",\n      \"neighbour\": \"GC-0150\"\n    },\n    {\n      \"quote\": \"The international registration, which has designated Australia, is then cancelled because the holder's Office of origin is no longer party to the Madrid Protocol.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement is not supported: the passage identifies the holder's associated Office, rather than defining the elements necessary to be a holder.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly identifies an Office of origin associated with the holder. The possessive relationship is not captured by a more specific listed predicate.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the possessive wording supports any more specific relationship recognised elsewhere in the ontology.\",\n      \"passage_ref\": \"TMM/Part60/4/25/4/25/4\",\n      \"neighbour\": \"GC-0132\"\n    },\n    {\n      \"quote\": \"This does not apply to Madrid Protocol export applications where in the event of a dispute between an Office of origin and the International Bureau (IB) the opinion of the IB stands.\",\n      \"relation\": \"dependsOnExternalSource\",\n      \"alternative\": \"related_to would capture the dispute relationship but omit the stated precedence of the IB's opinion.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.8,\n      \"reasoning\": \"The Manual gives the IB's opinion precedence in the classification dispute described. This supports an inferred dependency of the Office of origin on the IB's determination in that limited context, not a general institutional dependency.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether dependsOnExternalSource appropriately captures binding precedence in a classification dispute, rather than reliance on an external information source.\",\n      \"passage_ref\": \"TMM/Part14/2/2/2/2\",\n      \"neighbour\": \"GC-0138\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "6cd433794cb31d7a95375c4d2d92188cf0606cf18b61e02c4ec94be0909a7988",
+ "response_id": "resp_09cb2f97328314e9006ac62fdfdc2c87d28a5b66f2cef27481",
+ "seconds": 29.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2788,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2785
+  },
+  "output_tokens": 861,
+  "output_tokens_details": {
+   "reasoning_tokens": 182
+  },
+  "total_tokens": 3649
+ }
+}

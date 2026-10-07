@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004456,
+ "created_utc": "2026-10-07T09:00:44Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0117",
+ "job": "relate",
+ "key": "145b272e2df6c53a629b7a8abeab3d495724d0de07106a387748d06667280a32",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"In some matters the Act refers to both an applicant and an opponent, for example opposition to registration under Part 5.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement would overstate the passage as establishing a necessary element of opposition rather than identifying a party role.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly identifies the opponent as a party in opposition to registration. No listed predicate more specifically captures participation in proceedings.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this neighbour is confined to opposition to registration rather than encompassing other opposition proceedings.\",\n      \"passage_ref\": \"TMM/Part52/2/2/2\",\n      \"neighbour\": \"GC-0102\"\n    },\n    {\n      \"quote\": \"In some matters the Act refers to both an applicant and an opponent, for example opposition to registration under Part 5.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none would overlook the express connection to opposition proceedings, although the passage does not specifically connect the opponent to a notice of intention to oppose.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual expressly connects the opponent role with opposition to registration. This supports the neighbour's opposition label, but I am unsure whether its notice-of-intention alias denotes a narrower procedural step.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether GC-0040 denotes opposition generally or specifically the notice of intention to oppose.\",\n      \"passage_ref\": \"TMM/Part52/2/2/2\",\n      \"neighbour\": \"GC-0040\"\n    },\n    {\n      \"quote\": \"In such cases an opponent can request that the Registrar send the opponent a copy of the earlier application.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo would mischaracterise a request between procedural roles as an allocation to an authority or provision.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly describes an opponent requesting documents from the Registrar where the applicant claims priority. No listed predicate specifically captures that request relationship.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour's inclusion of the Registrar's delegate is supported for this particular function.\",\n      \"passage_ref\": \"TMM/Part11/4/4/2\",\n      \"neighbour\": \"GC-0046\"\n    },\n    {\n      \"quote\": \"In such cases an opponent can request that the Registrar send the opponent a copy of the earlier application.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement would incorrectly treat the Registrar as an element required of the opponent role.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly describes an opponent's ability to request a copy of the earlier application from the Registrar in the stated priority context. The relationship is a procedural interaction, not a subtype or identity relationship.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this context-limited document-request relationship is appropriately represented as a general link between the two roles.\",\n      \"passage_ref\": \"TMM/Part11/4/4/2\",\n      \"neighbour\": \"GC-0115\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "ae874b9c82959a74047f7bb538f15589996c60a378233f4a01d49634543b5d45",
+ "response_id": "resp_0d23636fb5190e3b006ac60a20422087d2b5645679c14c840e",
+ "seconds": 30.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3271,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3268
+  },
+  "output_tokens": 858,
+  "output_tokens_details": {
+   "reasoning_tokens": 61
+  },
+  "total_tokens": 4129
+ }
+}

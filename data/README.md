@@ -12,6 +12,7 @@ data/upstream/            pinned manual-XtrACTor snapshot   — git-ignored
 data/upstream/.fetch.json the receipt for THIS fetch        — git-ignored
 data/derived/             worksheet, recon, coverage, intake workbook — tracked; commit a re-run's diff
 data/pin.json             the pinned upstream version       — tracked
+data/llm/cache/           every paid model response — tracked; it is the spend ledger (ADR-0111)
 ```
 
 ## The pin

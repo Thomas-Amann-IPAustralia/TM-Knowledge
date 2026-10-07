@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003297,
+ "created_utc": "2026-10-07T12:24:03Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0073",
+ "job": "answer",
+ "key": "91fd952073e234d3b088d83fa08ac64cb6423b84746d2e6861d615ac8805da70",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0038\",\"GC-0072\",\"GC-0073\",\"GC-0057\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part5/x-device-constituents/conventional-decorative-elements\",\"quote\":\"Where decorative elements form a frame or border around significant figures or scenes they are generally not indexed, for example, leaves, arabesques, medals, scrolls.\"},{\"ref\":\"TMM/Part5/x-device-constituents/conventional-decorative-elements\",\"quote\":\"Generally it is the main 'idea' of the mark that is significant and that needs to be captured with the appropriate device constituent terms.\"},{\"ref\":\"TMM/Part5/x-device-constituents/conventional-decorative-elements\",\"quote\":\"In the case of trade marks where the decorative elements are the main or only constituents, these elements will be captured.\"},{\"ref\":\"TMA1995/s40\",\"quote\":\"An application for the registration of a trade mark must be rejected if the trade mark cannot be represented graphically.\"}],\"answer\":\"If you mean **listing device constituents for indexing**, generally capture the main picture or ‘idea’, rather than decorative border leaves and scrolls. The Manual says those elements are generally not indexed when they frame significant figures or scenes. This is **Manual practice**, not a legislative requirement. [TMM/Part5/x-device-constituents/conventional-decorative-elements]\\n\\nThe exception is where the decorative elements are themselves the **main or only constituents**: the Manual says they will then be captured. The rule is therefore not ‘always list only the main picture’. [TMM/Part5/x-device-constituents/conventional-decorative-elements]\\n\\nIf you mean a formal description accompanying an application rather than indexing, I am unsure which you intend; this indexing guidance does not answer that separate question. **The Act**, separately, requires rejection if the trade mark cannot be represented graphically—it does not prescribe a list of border elements in the supplied section. [TMA1995/s40]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "a018128e978be550b26d95603405ca19915d9529f21acae958fc837c4bf0543d",
+ "response_id": "resp_0e66088f66f7f8d9006ac639cf762c87d2acb331ff492f3fcb",
+ "seconds": 20.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6780,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6777
+  },
+  "output_tokens": 591,
+  "output_tokens_details": {
+   "reasoning_tokens": 147
+  },
+  "total_tokens": 7371
+ }
+}

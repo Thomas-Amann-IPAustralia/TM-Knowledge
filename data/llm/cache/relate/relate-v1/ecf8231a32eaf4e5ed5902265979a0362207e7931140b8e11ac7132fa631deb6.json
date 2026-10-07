@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010792,
+ "created_utc": "2026-10-07T08:35:11Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0024",
+ "job": "relate",
+ "key": "ecf8231a32eaf4e5ed5902265979a0362207e7931140b8e11ac7132fa631deb6",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"In addition, a stem may not be included meaningfully in a trade mark where its presence is clearly overwhelmed by the meaning of the trade mark as a whole.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"The trade mark as a whole necessarily prevents meaningful inclusion of an INN stem.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly identifies the meaning of the whole trade mark as a factor that can negate meaningful inclusion of an INN stem. This is a qualification, not an unconditional exclusion.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour should be confined here to the meaning of the whole trade mark rather than all its other features.\",\n      \"passage_ref\": \"TMM/Part29/5/5/6~1\",\n      \"neighbour\": \"GC-0038\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Meaningful inclusion of an INN stem mayGiveRiseTo a connotation.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.67,\n      \"reasoning\": \"The supplied extract discusses meaningful inclusion and separately mentions an INN-stem connotation, but does not clearly state the connection between them. I am unsure whether the truncated opening would supply that connection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the omitted opening expressly links meaningful inclusion to an INN-stem connotation.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0001\"\n    },\n    {\n      \"quote\": \"Some INN stems consist of simple two or three letter combinations and their presence in a larger word may not be meaningful and as a result would not lead to deception or confusion.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"Meaningful inclusion of an INN stem necessarily gives rise to likely deception or confusion.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual links lack of meaningful inclusion to the absence of deception or confusion, supporting meaningfulness as a qualification on that assessment. It does not establish that meaningful inclusion alone is sufficient.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether qualifies adequately captures a relationship expressed through the absence of meaningful inclusion.\",\n      \"passage_ref\": \"TMM/Part29/5/5/6~1\",\n      \"neighbour\": \"GC-0002\"\n    },\n    {\n      \"quote\": \"Some INN stems consist of simple two or three letter combinations and their presence in a larger word may not be meaningful and as a result would not lead to deception or confusion.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"Meaningful inclusion of an INN stem necessarily gives rise to deception.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.83,\n      \"reasoning\": \"The Manual treats meaningfulness of the stem's inclusion as relevant to whether deception or confusion results. Applying that qualification to deception separately is inferred from the combined expression, not a distinct statement about deception alone.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the combined expression 'deception or confusion' supports a separate edge to deception.\",\n      \"passage_ref\": \"TMM/Part29/5/5/6~1\",\n      \"neighbour\": \"GC-0003\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"A hearing determines whether an INN stem is meaningfully included.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The extract attributes general principles to a Hearing Officer but states no relationship between meaningful inclusion and a hearing as a procedural step. The officer's title does not establish such a relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether any procedural relationship can properly be inferred from the cited decision rather than merely the officer's title.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0128\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "58a25fe447deedfcec8849e2d96cce459f35c31efe249b27ffbbb7496ae1973f",
+ "response_id": "resp_08f6542c61265b48006ac60422ac2887d2b6fbd151afb7e11c",
+ "seconds": 28.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3898,
+  "input_tokens_details": {
+   "cache_write_tokens": 3895,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1184,
+  "output_tokens_details": {
+   "reasoning_tokens": 221
+  },
+  "total_tokens": 5082
+ }
+}

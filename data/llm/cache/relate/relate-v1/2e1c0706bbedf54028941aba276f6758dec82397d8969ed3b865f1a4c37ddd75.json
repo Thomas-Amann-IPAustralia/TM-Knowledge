@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008348,
+ "created_utc": "2026-10-07T08:40:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0043",
+ "job": "relate",
+ "key": "2e1c0706bbedf54028941aba276f6758dec82397d8969ed3b865f1a4c37ddd75",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"Treat the general capacity-to-distinguish requirement for registration applications as applying specifically to divisional applications.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.91,\"reasoning\":\"The supplied section 41 passage states a general registration requirement but does not identify divisional applications or connect that procedure with capacity to distinguish. A divisional-specific relationship would require support beyond this passage.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the general reference to an application sufficiently supports an inferred relationship to divisional applications.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0058\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"Infer a connection through distinctiveness requirements applicable to plant varietal names.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.99,\"reasoning\":\"The supplied passage mentions neither plant varietal names nor divisional applications. It does not support a relationship between these concepts.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether omitted source text contains a relevant connection; the supplied excerpt does not.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0125\"},{\"quote\":\"A divisional application will have the filing date of its parent application as the priority date, unless the convention priority claim of the parent is also made when filing the divisional application or within the period provided for in regulation 4.5, that is, within two working days after filing the application.\",\"relation\":\"related_to\",\"alternative\":\"Use allocatesTo for the assignment of a priority date to a divisional application.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.96,\"reasoning\":\"The Manual expressly connects a divisional application with its priority date and explains the effect of claiming the parent's convention priority. None of the more specific listed predicates accurately captures this date-setting relationship.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether allocatesTo is intended to encompass assignment of dates rather than allocation to statutory provisions.\",\"passage_ref\":\"TMM/Part12/5#1\",\"neighbour\":\"GC-0016\"},{\"quote\":\"If a divisional application is considered valid, section 46(2) requires the Registrar to, unless the parent application has since lapsed, amend the parent application by excluding the goods and/or services in respect of which the divisional application is made.\",\"relation\":\"qualifies\",\"alternative\":\"Use related_to because lapse qualifies the parent-amendment requirement rather than the divisional application itself.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.84,\"reasoning\":\"The Manual describes the statutory parent-amendment requirement following a valid divisional application as subject to an exception where the parent has lapsed. This supports a qualifying relationship to the divisional procedure, not a conclusion that lapse invalidates the divisional application.\",\"modality\":\"must\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether qualifies should target a separate parent-amendment requirement rather than the broader divisional-application concept.\",\"passage_ref\":\"TMM/Part12/3/3/3~1\",\"neighbour\":\"GC-0098\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "4609b1bddd3449b26d83f708af5f5ca9deb14eaf501f2e64c21f8a1acba50d93",
+ "response_id": "resp_0e69769a0c451110006ac60553835c87d2bc7d21cf6908994a",
+ "seconds": 31.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3435,
+  "input_tokens_details": {
+   "cache_write_tokens": 3432,
+   "cached_tokens": 0
+  },
+  "output_tokens": 811,
+  "output_tokens_details": {
+   "reasoning_tokens": 157
+  },
+  "total_tokens": 4246
+ }
+}

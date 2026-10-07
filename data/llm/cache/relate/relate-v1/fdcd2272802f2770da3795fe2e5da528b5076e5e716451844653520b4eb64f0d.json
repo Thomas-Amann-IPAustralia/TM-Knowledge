@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002761,
+ "created_utc": "2026-10-07T11:24:14Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0067",
+ "job": "relate",
+ "key": "fdcd2272802f2770da3795fe2e5da528b5076e5e716451844653520b4eb64f0d",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"As such, any person wishing to rely on prior use of an unregistered trade mark by a predecessor in title must demonstrate they are the assignee of goodwill in the relevant business.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"requiresElement would misleadingly suggest that a predecessor in title is necessary for every prior-use claim.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.91,\n      \"reasoning\": \"The Manual qualifies reliance on prior use by a predecessor in title: for an unregistered trade mark, the claimant must demonstrate assignment of the relevant business goodwill. This is a conditional requirement stated by the Manual, not a requirement that every prior-use claim involve a predecessor.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether qualifies adequately captures the condition on relying on a predecessor's use, rather than the predecessor merely being a permitted source of use.\",\n      \"passage_ref\": \"TMM/Part19A/6/6/2\",\n      \"neighbour\": \"GC-0085\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to based on the inclusion of authorised-user provisions and section 124 in the same legislative lists.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The supplied passages list provisions concerning owners, authorised users and prior use, but do not state how owner or authorised-user status relates to prior use. Co-listing alone does not support a relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether any relationship can properly be inferred from these legislative lists alone.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0035\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "e951620aadd00afcf129e794967ed80264ed1f31035342560ff62cc35779fa3a",
+ "response_id": "resp_0965889016a5116e006ac62bc0f35c87d295662ca2af0f8001",
+ "seconds": 29.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2356,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2353
+  },
+  "output_tokens": 528,
+  "output_tokens_details": {
+   "reasoning_tokens": 110
+  },
+  "total_tokens": 2884
+ }
+}

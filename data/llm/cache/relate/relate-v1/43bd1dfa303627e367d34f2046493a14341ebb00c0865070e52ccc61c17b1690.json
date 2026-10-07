@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011021,
+ "created_utc": "2026-10-07T08:59:24Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0115",
+ "job": "relate",
+ "key": "43bd1dfa303627e367d34f2046493a14341ebb00c0865070e52ccc61c17b1690",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Review of a Registrar's decision not to extend time for the doing of a relevant act may be sought from the Administrative Review Tribunal (ART) (subsection 224(7)).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo was rejected because the passage identifies whose decision is reviewed, rather than allocating a decision-making function.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly identifies the decision as the Registrar's. No listed specific predicate captures this authorship relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour is intended to cover decisions generally rather than only written decisions.\",\n      \"passage_ref\": \"TMM/Part15/7#1\",\n      \"neighbour\": \"GC-0127\"\n    },\n    {\n      \"quote\": \"In opposition proceedings the Registrar has the power to award costs (s 221(1)) up to the limit in the official scale (Schedule 8 of the Regulations), or as is considered reasonable in the case of failure to file a summary of submissions (regs 21.13(1), 5.17(7), 9.20(6), 17A.34M(7) and 17A.48V(6)).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo was rejected because the Registrar is the empowered role, not a provision applied to opposition proceedings.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual describes the Registrar's power to award costs in opposition proceedings, citing legislative provisions. The available predicates do not specifically express this procedural power.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology needs a specific predicate for exercising powers in proceedings.\",\n      \"passage_ref\": \"TMM/Part51/7#1\",\n      \"neighbour\": \"GC-0040\"\n    },\n    {\n      \"quote\": \"Section 202(b) allows the Registrar to take evidence on oath or affirmation and section 154 provides that it is an offence of strict liability2 for a person appearing as a witness before the Registrar to refuse to be sworn or make an affirmation.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none would be appropriate if the neighbour were restricted to evidence of trade mark use rather than its supplied alias, evidence.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.78,\n      \"reasoning\": \"The Manual expressly connects the Registrar with taking evidence, describing statutory authority. This supports the supplied alias 'evidence', but I am unsure whether the record is intended to encompass evidence generally; the passage does not specifically address evidence of use.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether GC-0041 includes general evidence or only evidence of trade mark use.\",\n      \"passage_ref\": \"TMM/Part54/2/2/4\",\n      \"neighbour\": \"GC-0041\"\n    },\n    {\n      \"quote\": \"Although reg 5.4(3) gives the objector the option to request a hearing, regs 21.15 and 21.16 provide that it is at the Registrar’s discretion whether such a hearing would be an oral hearing, or by way of written submissions.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"qualifies was rejected because the passage describes the Registrar's discretion over hearing format, rather than a qualification expressed by the role itself.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual describes the Registrar's discretion to determine the hearing's format and attributes that discretion to the Regulations. No listed specific predicate captures control over procedural format.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a specific procedural-control predicate should replace related_to.\",\n      \"passage_ref\": \"TMM/Part47/1/1/3/6~2\",\n      \"neighbour\": \"GC-0128\"\n    },\n    {\n      \"quote\": \"1.2 The Registrar must publish the withdrawal (reg 21.10).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement was rejected because publication is a duty concerning withdrawal, not expressly an element required for withdrawal to occur.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The Manual expressly states the Registrar's duty to publish withdrawal, citing regulation 21.10. The available predicates do not specifically express a publication duty.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology should distinguish the publication duty from receipt of a withdrawal notice.\",\n      \"passage_ref\": \"TMM/Part7/1#1\",\n      \"neighbour\": \"GC-0123\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "429e2b80ac0c8fba3da7b2f5181902a3166fdbb51ef1b91fa9a1ce36b7b8b74d",
+ "response_id": "resp_01e85686c78e0f34006ac609bfda1c87d29093ced84823612c",
+ "seconds": 45.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3629,
+  "input_tokens_details": {
+   "cache_write_tokens": 3626,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1297,
+  "output_tokens_details": {
+   "reasoning_tokens": 175
+  },
+  "total_tokens": 4926
+ }
+}

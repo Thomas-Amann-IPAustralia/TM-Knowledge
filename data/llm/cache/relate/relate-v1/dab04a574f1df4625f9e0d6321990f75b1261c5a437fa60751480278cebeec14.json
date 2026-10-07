@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001753,
+ "created_utc": "2026-10-07T11:29:01Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0141",
+ "job": "relate",
+ "key": "dab04a574f1df4625f9e0d6321990f75b1261c5a437fa60751480278cebeec14",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"In the latter case the date of registration will be the date on which the application was made in the Convention country in respect of those goods and services.\",\"relation\":\"related_to\",\"alternative\":\"dependsOnExternalSource would treat the Convention country itself as the external source, whereas the passage makes the application date in that country determinative.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.9,\"reasoning\":\"The Manual connects the date of registration with the application date in a Convention country where priority is claimed under subsection 29(b). No listed specific predicate precisely captures that conditional date-setting relationship between these two concepts.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether dependsOnExternalSource is intended to include a country as shorthand for the application made there.\",\"passage_ref\":\"TMM/Part26/7#1~1\",\"neighbour\":\"GC-0157\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "5aa82bfefd73c9ee67f4d6f7d5ffbe17357410a590c8fde835f36fbbaa17966c",
+ "response_id": "resp_0483f08d85443480006ac62ceb8cdc87d2bcb26391550cbef2",
+ "seconds": 18.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1994,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1991
+  },
+  "output_tokens": 330,
+  "output_tokens_details": {
+   "reasoning_tokens": 131
+  },
+  "total_tokens": 2324
+ }
+}

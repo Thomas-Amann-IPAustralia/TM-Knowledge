@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012038,
+ "created_utc": "2026-10-07T09:01:23Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0121",
+ "job": "relate",
+ "key": "e6439821b9233c692bbde31bdd5196ef2bff3b0737c07f236561b5d28c092e0c",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Under regulation 4.4(6) specifications should, if practicable, be framed using the terms listed in the NICE classification and the picklist.\",\n      \"relation\": \"dependsOnExternalSource\",\n      \"alternative\": \"A generic related_to relationship between specification and classification.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual expressly identifies the NICE classification as a source of terms for framing specifications, attributing this requirement to regulation 4.4(6). The dependence is qualified by practicability and does not make NICE the exclusive source.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the practicability qualification makes dependsOnExternalSource too strong.\",\n      \"passage_ref\": \"TMM/Part14/3#1~1\",\n      \"neighbour\": \"GC-0129\"\n    },\n    {\n      \"quote\": \"Under regulation 4.4(6) specifications should, if practicable, be framed using the terms listed in the NICE classification and the picklist.\",\n      \"relation\": \"dependsOnExternalSource\",\n      \"alternative\": \"Classification merely relates to the claimed goods and services without supplying specification terminology.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.91,\n      \"reasoning\": \"The passage expressly connects the framing of specifications to terms from the NICE classification. This supports the relationship for the neighbour's specification meaning, although I am less certain that it extends equally to its broader alias, claimed goods and services.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this record denotes the specification itself or only the goods and services claimed.\",\n      \"passage_ref\": \"TMM/Part14/3#1~1\",\n      \"neighbour\": \"GC-0012\"\n    },\n    {\n      \"quote\": \"The first reference point for Examiners when considering the classification of particular goods and/or services should be IP Australia’s Trade Mark Classification Search (refer to Annex A5 of this Part).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Classification constrainsExaminerTo the examiner role.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual connects examiners with classification work and prescribes their first reference point. The more specific constrainsExaminerTo predicate would require a prescribed action or limitation as its object, rather than the examiner role supplied here.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether constrainsExaminerTo is intended to accept an examiner role as its object.\",\n      \"passage_ref\": \"TMM/Part14/5/5/1/1\",\n      \"neighbour\": \"GC-0044\"\n    },\n    {\n      \"quote\": \"Subsection 65(4) amendments correct an error in the classification of any goods or services specified in the application.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Classification isOvercomeBy amendment.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly describes amendments under subsection 65(4) as correcting classification errors. Classification itself is not an objection or error to be overcome, so isOvercomeBy would overstate the relationship between these records.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a separate classification-error concept is needed to capture the correction relationship more precisely.\",\n      \"passage_ref\": \"TMM/Part9/4/4/3\",\n      \"neighbour\": \"GC-0124\"\n    },\n    {\n      \"quote\": \"Claims for specific pharmaceutical or veterinary goods in Class 5 may also trigger the provisions of section 43 in relation to INNs and INN stems.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"The passage merely mentions classification alongside pharmaceutical or veterinary goods.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.8,\n      \"reasoning\": \"The express identification of these goods as being in Class 5 supports an inference that classification applies to them. I am unsure whether this should instead be represented as allocation to a separate Class 5 concept; the passage does not allocate all pharmaceutical or veterinary substances to that class.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the relationship should target Class 5 specifically rather than classification generally.\",\n      \"passage_ref\": \"TMM/Part29/5/5/3\",\n      \"neighbour\": \"GC-0025\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "40a3c0e103843ce9a1a1257f031fa8c3e1ceb75f6c099cc8be49971fbc7ffe8a",
+ "response_id": "resp_02fa666663701640006ac60a37a1e887d2a6ec650d2a5dc7bd",
+ "seconds": 44.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3867,
+  "input_tokens_details": {
+   "cache_write_tokens": 3864,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1441,
+  "output_tokens_details": {
+   "reasoning_tokens": 392
+  },
+  "total_tokens": 5308
+ }
+}

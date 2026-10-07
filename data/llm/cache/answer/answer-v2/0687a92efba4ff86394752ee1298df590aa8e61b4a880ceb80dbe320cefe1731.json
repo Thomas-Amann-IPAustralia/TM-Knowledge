@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004941,
+ "created_utc": "2026-10-07T12:30:30Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0004",
+ "job": "answer",
+ "key": "0687a92efba4ff86394752ee1298df590aa8e61b4a880ceb80dbe320cefe1731",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0017\",\"GC-0072\",\"GC-0001\",\"GC-0002\",\"GC-0004\",\"GC-0006\",\"GC-0010\",\"GC-0011\",\"GC-0012\",\"GC-0019\",\"GC-0021\",\"GC-0038\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part29/3#1~1\",\"quote\":\"However, the mere presence within a trade mark of a person's name, a descriptive term, a geographical place name or a reference to the size of packages or intended use of a product does not automatically demonstrate a connotation sufficient to trigger section 43.\"},{\"ref\":\"TMM/Part29/9/9/3~1\",\"quote\":\"A trade mark containing a standalone geographical reference will cause confusion if each of the following criteria are met: Consumers would have reason to associate the goods/services with the geographical location; The association between the place and the goods/services would influence the purchasing decision of an average consumer of the goods/services. There are no other elements in the mark, or surrounding circumstances, which would mitigate the risk of confusion.\"},{\"ref\":\"TMM/Part29/9/9/3~1\",\"quote\":\"Surrounding circumstances include the manner in which the goods/services are purchased, the physical characteristics of goods and any other factor which would affect consumer perceptions.\"},{\"ref\":\"TMM/Part29/9/9/3~1\",\"quote\":\"Qualifiers (e.g. “made in”, “product of”) are not necessary for a connotation to be present in a mark. A geographical reference used without any qualifying information may not result in consumers being deceived, but may be likely to cause confusion.\"},{\"ref\":\"TMM/Part29/3#1~2\",\"quote\":\"For a ground for rejection to be raised the connotation must be obvious, direct, and immediate and within the trade mark itself. Importantly it must be judged as giving rise to deception and / or confusion.\"},{\"ref\":\"TMM/Part29/9#1\",\"quote\":\"This includes assessing whether the scope of the specification would include goods/services produced in areas outside the geographical location when a consumer would reasonably expect them to originate from the location referenced in the trade mark.\"}],\"answer\":\"**Act — section 43:** The statutory test is whether, because of a connotation of the mark or a sign within it, use for the particular goods or services would be likely to deceive or cause confusion. If that test is met, rejection is mandatory. [TMA1995/s43]\\n\\n**Manual practice — a place name is not automatically objectionable.** Its mere presence does not establish a sufficient connotation for section 43. [TMM/Part29/3#1~1]\\n\\nFor a **standalone geographical reference**, the Manual says confusion arises when all three criteria are met:\\n1. Consumers have reason to associate the goods or services with the place.\\n2. That association would influence an average consumer’s purchasing decision.\\n3. No other elements of the mark or surrounding circumstances mitigate the risk of confusion. [TMM/Part29/9/9/3~1]\\n\\nSurrounding circumstances include how the goods or services are purchased, the goods’ physical characteristics and other factors affecting consumer perceptions. Wording such as “made in” or “product of” is not necessary: an unqualified place name may cause confusion without deceiving consumers. [TMM/Part29/9/9/3~1]\\n\\n**Examination focus under the Manual:** The connotation must be obvious, direct and immediate, arise within the mark itself, and be judged to give rise to deception or confusion. Where geographical origin is connoted, assess whether the specification includes goods or services from outside the named place when consumers would reasonably expect them to originate there. [TMM/Part29/3#1~2; TMM/Part29/9#1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "a66bb659b613b240587e851a8ac950f2757076cd26be3012997f5ac120ea2d4a",
+ "response_id": "resp_03a5fe7b2644f686006ac63b4a7af887d2a795bf1641cd9d2e",
+ "seconds": 29.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7266,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7263
+  },
+  "output_tokens": 915,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 8181
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002811,
+ "created_utc": "2026-10-07T08:33:17Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "application for removal",
+ "job": "define",
+ "key": "b7872c9dee43fe5cd7157dfec7463d77e86e1925b85bde07cc99a2e7ab5b93f9",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"If GC-0104 removal for non-use already includes the initiating application as well as the removal process, this term could instead be treated as a label within that concept.\",\n  \"definition_quote\": \"application for removal means an application for removal of a trade mark from the Register.\",\n  \"alt_labels\": [\n    \"non-use application\",\n    \"application for removal for non-use\"\n  ],\n  \"confidence\": 0.88,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: An application for removal initiates a process seeking removal of a trade mark from the Register, described in the supplied Manual passages in the context of non-use.\",\n  \"expert_should_check\": \"Check whether GC-0104 already encompasses the initiating application; the existing concept's label alone does not establish its scope.\",\n  \"legislative_basis\": [\n    \"TMA1995/s92\",\n    \"TMA1995/s100\",\n    \"TMA1995/s100(3)(c)\"\n  ],\n  \"pref_label\": \"application for removal\",\n  \"definition_ref\": \"TMR1995/r9.2/application-for-removal\",\n  \"reasoning\": \"The Regulations expressly define the term. The Manual describes filing the application, opposition to it and rebuttal, supporting a distinct procedural concept rather than a generic phrase. It is provisionally distinguished from GC-0104 removal for non-use because the application initiates the process and is not itself removal. The Manual also expressly distinguishes it from an application for cessation of protection concerning a protected international trade mark.\",\n  \"not_labels\": [\n    \"removal for non-use\",\n    \"application for cessation of protection\",\n    \"notice of opposition\"\n  ],\n  \"group\": \"procedural_step\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "4cc9750bca96a8c5d62f78554dda3b130fd8aaf6f421cebf0cfb178d797a8220",
+ "response_id": "resp_02222ac6a5d6c43e006ac603b1a40487d293c10934ce2b9b88",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2859,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2856
+  },
+  "output_tokens": 533,
+  "output_tokens_details": {
+   "reasoning_tokens": 142
+  },
+  "total_tokens": 3392
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004658,
+ "created_utc": "2026-10-07T08:55:52Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0100",
+ "job": "relate",
+ "key": "279f1dfb3132f09fc3f2d62909325135d1bd7396285cc921ef8e95a4db4f73fa",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"Note: A geographical limitation is entered onto the Register as an endorsement.\",\"relation\":\"related_to\",\"alternative\":\"is_kind_of: conditions or limitations are a kind of endorsement.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.94,\"reasoning\":\"The Manual expressly connects a geographical limitation with its recording as an endorsement. This supports a relationship for that form of limitation, not a classification of all conditions or limitations as endorsements.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the relationship should be restricted to a separate concept for geographical limitations.\",\"passage_ref\":\"TMM/Part23/4/4/4\",\"neighbour\":\"GC-0069\"},{\"quote\":\"If a certification trade mark is accepted on the basis of evidence of use or other circumstances, the following endorsement is entered on the Register: Provisions of paragraph 177(2)(b) applied.\",\"relation\":\"related_to\",\"alternative\":\"none: the endorsement concerns evidence-based acceptance rather than the prima facie test itself.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.73,\"reasoning\":\"The Manual links a lack of prima facie capacity to possible evidence requirements, then specifies an endorsement for acceptance based on evidence or other circumstances. The connection is indirect: the endorsement records the evidence-based route, not a finding of prima facie capacity.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether this indirect connection is sufficient, or should instead link the endorsement only to evidence-based acceptance.\",\"passage_ref\":\"TMM/Part35/4/4/1\",\"neighbour\":\"GC-0119\"},{\"quote\":\"The risk of deception can be mitigated by a suitably specific endorsement or an amendment or limitation to the specification of goods or services.\",\"relation\":\"related_to\",\"alternative\":\"same_concept: an endorsement and a specification limitation are interchangeable records.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.96,\"reasoning\":\"The Manual expressly presents an endorsement and amendment or limitation of the specification as alternative ways of mitigating the identified risk. It does not equate these records or state that one necessarily modifies the other.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether a more specific predicate is needed for alternative mechanisms addressing the same risk.\",\"passage_ref\":\"TMM/Part29/9/9/2\",\"neighbour\":\"GC-0012\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to: the applicant or owner is asked to consent to an endorsement.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.77,\"reasoning\":\"The passages concern agreement to an endorsement and its conditions, not written permission to use a name or another protected element. I am unsure whether the neighbour's alias ‘consent’ is intended to include this procedural agreement; on its stated permission-to-use sense, no relationship is supported.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether GC-0029 includes consent to an endorsement, rather than only permission to use protected material.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0029\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "8f4758b7bc0496d1cc466b38659a8802235fde38870c2803fd69005d5f228eb3",
+ "response_id": "resp_097506044673f61d006ac608fc099c87d2857f514b4d53787a",
+ "seconds": 29.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3505,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3502
+  },
+  "output_tokens": 896,
+  "output_tokens_details": {
+   "reasoning_tokens": 247
+  },
+  "total_tokens": 4401
+ }
+}

@@ -5,8 +5,8 @@ Two things are being protected here.
 **The site must not be able to say something the repository does not hold.**
 Every page is generated from committed artefacts, so the failure mode is not a
 wrong number typed by hand — it is a *stale* number, left behind when a record
-moved and nobody rebuilt. `test_committed_data_is_current` is that guard, and it
-is the same check CI runs.
+moved and nobody rebuilt. The Pages workflow rebuilds on every deploy, so the
+guard here is that every page *can* be built (ADR-0112).
 
 **An answer coming back must be transcribed or refused, never guessed.** A
 submission naming a question that does not exist, or an option that is not on
@@ -234,12 +234,16 @@ def test_a_glossary_marker_naming_an_unknown_term_is_refused():
 
 
 @pytest.mark.rdf
-def test_committed_data_is_current():
-    """The site reads only what is committed, so a stale file is a number on a
-    public page that this repository no longer holds. `tmk-dashboard --write`."""
+def test_the_site_data_builds():
+    """The Pages workflow generates `site/data/` on every deploy (ADR-0112), so the
+    failure that matters is a page that cannot be built from the repository —
+    that would publish nothing. Every page must build and serialise."""
     from tm_knowledge.dashboard import build as build_module
 
-    assert build_module.check() == []
+    pages = build_module.build()
+    assert {"overview.json", "decisions.json", "inbox.json", "site.json"} <= set(pages)
+    for payload in pages.values():
+        json.dumps(payload)
 
 
 def test_an_unknown_tone_is_refused():
@@ -268,10 +272,15 @@ def test_the_site_is_self_contained():
         assert "unpkg" not in source and "jsdelivr" not in source
 
 
+@pytest.mark.rdf
 def test_every_nav_entry_has_a_data_file():
-    site = json.loads((SITE / "data" / "site.json").read_text(encoding="utf-8"))
-    for entry in site["nav"]:
-        assert (SITE / "data" / f"{entry['id']}.json").exists()
+    """Read from a fresh build, not from `site/data/`: that directory is generated
+    at deploy and is not in a clean checkout (ADR-0112)."""
+    from tm_knowledge.dashboard import build as build_module
+
+    pages = build_module.build(generated="2026-01-01")
+    for entry in pages["site.json"]["nav"]:
+        assert f"{entry['id']}.json" in pages
 
 
 # ---------------------------------------------------------- answers coming back
@@ -430,3 +439,24 @@ def test_recorded_rulings_load():
     for entry in questions.load_rulings():
         assert entry.answers
         assert entry.origin, f"{entry.path.name} names no source"
+
+
+def test_the_ask_page_shows_the_working_and_says_it_is_unreviewed():
+    """D2: each answer carries what the page shows, and the page says, where the
+    answers are shown, that no person has reviewed them (ADR-0082)."""
+    from types import SimpleNamespace
+
+    from tm_knowledge.dashboard import build as build_module
+
+    answer = {
+        "key": "BN-0001", "kind": "problem", "question": "Can I oppose a mark?", "answer": "Yes — see s 52.",
+        "recognised": [{"id": "GC-0102", "label": "opposition"}], "paths": [], "citations": [{"ref": "TMA1995/s52"}],
+        "passages": [], "legislation": [], "plain_search": [], "declined": False, "decline_reason": "",
+        "model": "gpt-6.1-sol", "review_status": "unreviewed",
+    }
+    page = build_module._ask(SimpleNamespace(answers=(answer,), measurement=None))
+    kinds = [block["kind"] for block in page["blocks"]]
+    assert "qa" in kinds and "No person has reviewed" in page["lede"]
+    qa = next(block for block in page["blocks"] if block["kind"] == "qa")
+    assert qa["data"]["questions"][0]["review_status"] == "unreviewed"
+    assert qa["data"]["kinds"] == [{"id": "problem", "label": build_module.KIND_LABELS["problem"]}]

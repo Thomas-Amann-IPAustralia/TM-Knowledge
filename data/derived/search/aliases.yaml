@@ -1,0 +1,2893 @@
+note: Everyday phrasings per concept, written by a model for search only. Unreviewed, general
+  knowledge, never shown as legal content (ADR-0111).
+aliases:
+- concept: GC-0001
+  everyday_phrases:
+  - hidden meaning
+  - suggested meaning
+  - what it implies
+  - what it suggests
+  - meaning behind name
+  - brand name implication
+  related_search_terms:
+  - trade mark connotation
+  - implied representation
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0002
+  everyday_phrases:
+  - could mislead customers
+  - likely to mislead
+  - could confuse buyers
+  - misleading brand name
+  - customers getting confused
+  - risk of misleading
+  related_search_terms:
+  - section 43
+  - probability of deception
+  - likelihood of consumer confusion
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0003
+  everyday_phrases:
+  - misleading customers
+  - tricking buyers
+  - false claim
+  - telling customers lies
+  - untrue brand claim
+  - giving false information
+  related_search_terms:
+  - false representation
+  - consumer deception
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0004
+  everyday_phrases:
+  - confusing customers
+  - puzzled buyers
+  - making buyers wonder
+  - unsure what it means
+  - customer uncertainty
+  - confusing brand name
+  related_search_terms:
+  - consumer confusion
+  - probability of confusion
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0005
+  everyday_phrases:
+  - dictionary meaning
+  - basic meaning
+  - what it literally means
+  - plain meaning
+  - word meaning
+  - actual meaning
+  related_search_terms:
+  - literal meaning
+  - direct meaning
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0006
+  everyday_phrases:
+  - reason for rejection
+  - why marks get rejected
+  - registration refusal reason
+  - grounds to refuse
+  - reason to refuse
+  - registration barrier
+  related_search_terms:
+  - grounds of refusal
+  - sections 39 to 44
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0007
+  everyday_phrases:
+  - presumed registrable
+  - assumed registrable
+  - registration starting point
+  - register unless barred
+  - default registration position
+  related_search_terms:
+  - registrability
+  - section 43 presumption
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0008
+  everyday_phrases:
+  - real risk
+  - serious confusion risk
+  - actual danger
+  - more than possible
+  - genuine risk
+  - not just speculation
+  related_search_terms:
+  - probability of deception
+  - danger of consumer confusion
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0009
+  everyday_phrases:
+  - target customers
+  - who buys it
+  - likely buyers
+  - customer group
+  - people buying it
+  - Australian buyers
+  related_search_terms:
+  - relevant consumers
+  - market perception
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0010
+  everyday_phrases:
+  - typical customer
+  - everyday shopper
+  - normal buyer
+  - regular customer
+  - what shoppers think
+  - typical buyer
+  related_search_terms:
+  - consumer perception
+  - ordinary purchaser
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0011
+  everyday_phrases:
+  - whole situation
+  - wider context
+  - other factors
+  - context matters
+  - everything around it
+  - overall circumstances
+  related_search_terms:
+  - context of use
+  - circumstances affecting deception
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0012
+  everyday_phrases:
+  - product list
+  - services list
+  - what registration covers
+  - goods covered
+  - services covered
+  - listed products
+  related_search_terms:
+  - goods and services specification
+  - specification wording
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0013
+  everyday_phrases:
+  - limits on brand use
+  - agree to use restrictions
+  - register with restrictions
+  - restricted brand use
+  - ingredient use requirement
+  related_search_terms:
+  - section 43
+  - conditional registration
+  - restriction on use
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0014
+  everyday_phrases:
+  - add clarifying wording
+  - wording to avoid confusion
+  - clarify my mark
+  - add an explanation
+  - suggested clarification
+  related_search_terms:
+  - section 43
+  - specific endorsement
+  - risk of deception
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0015
+  everyday_phrases:
+  - narrow my goods list
+  - change my goods list
+  - remove some goods
+  - restrict covered services
+  - reduce application coverage
+  - amend goods wording
+  related_search_terms:
+  - section 43
+  - geographical objection
+  - goods and services specification
+  - specification limitation
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0016
+  everyday_phrases:
+  - when I applied
+  - application filing date
+  - date that counts
+  - known when filed
+  - famous when filed
+  related_search_terms:
+  - filing date
+  - relevant date
+  - consumer recognition
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0017
+  everyday_phrases:
+  - town in brand name
+  - country in brand name
+  - regional brand name
+  - location in my mark
+  - brand mentions a place
+  - city in logo
+  related_search_terms:
+  - geographical connotation
+  - geographical origin
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0018
+  everyday_phrases:
+  - protected wine name
+  - protected regional name
+  - European wine names
+  - wine region protection
+  - brand resembles wine region
+  - using protected place names
+  related_search_terms:
+  - EU geographical indication
+  - GI similarity
+  - GI examination
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0019
+  everyday_phrases:
+  - where goods come from
+  - where products are made
+  - where it was produced
+  - product comes from
+  - misleading country claim
+  - confusing product origins
+  related_search_terms:
+  - geographical connotation
+  - geographical reference
+  - consumer deception
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0020
+  everyday_phrases:
+  - location in company name
+  - regional company name
+  - business location wording
+  - company not product
+  - where business is based
+  related_search_terms:
+  - business characteristic
+  - geographical reference
+  - geographical connotation
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0021
+  everyday_phrases:
+  - country of manufacture wording
+  - words showing product origin
+  - do I need made
+  - origin clarification
+  - manufactured in
+  related_search_terms:
+  - geographical connotation
+  - geographical reference
+  - origin wording
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0022
+  everyday_phrases:
+  - generic drug name
+  - medicine ingredient name
+  - drug name conflict
+  - brand resembles drug name
+  - medicine name objection
+  - veterinary drug name
+  related_search_terms:
+  - section 43
+  - pharmaceutical trade marks
+  - veterinary substances
+  - INN connotation
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0023
+  everyday_phrases:
+  - drug name ending
+  - shared medicine name part
+  - drug naming fragment
+  - brand contains drug ending
+  - medicine name prefix
+  - using drug name parts
+  related_search_terms:
+  - INN stem misuse
+  - pharmaceutical trade marks
+  - deception or confusion
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0024
+  everyday_phrases:
+  - does drug ending matter
+  - meaningful drug name part
+  - accidental drug name overlap
+  - brand suggests a drug
+  - stem creates confusion
+  - recognisable medicine name part
+  related_search_terms:
+  - INN stem connotation
+  - section 43
+  - likely deception or confusion
+  - meaningful stem inclusion
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0025
+  everyday_phrases:
+  - medicines
+  - drug products
+  - pet medicines
+  - animal medicines
+  - medicine brand
+  - drug name
+  related_search_terms:
+  - International Nonproprietary Names
+  - INNs
+  - INN stems
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0026
+  everyday_phrases:
+  - famous person
+  - famous name
+  - public figure
+  - celebrity name
+  - using someone's name
+  - famous group
+  related_search_terms:
+  - personal names
+  - section 43
+  - specified goods or services
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0027
+  everyday_phrases:
+  - dead person's name
+  - historical person's name
+  - dead celebrity
+  - famous person who died
+  - using a historical name
+  related_search_terms:
+  - historical figures
+  - personal names
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0028
+  everyday_phrases:
+  - looks sponsored
+  - suggests approval
+  - celebrity backing
+  - looks officially approved
+  - suggests a connection
+  - appears licensed
+  related_search_terms:
+  - consumer deception
+  - consumer confusion
+  - false endorsement
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0029
+  everyday_phrases:
+  - permission letter
+  - signed permission
+  - get permission
+  - name owner's approval
+  - permission in writing
+  - allowed to use name
+  related_search_terms:
+  - written consent
+  - personal names
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0030
+  everyday_phrases:
+  - someone's face
+  - person's picture
+  - photo in logo
+  - face in logo
+  - drawing of someone
+  - celebrity picture
+  related_search_terms:
+  - personal likeness
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0031
+  everyday_phrases:
+  - phone number with letters
+  - word phone number
+  - letters instead of numbers
+  - business phone number
+  - number spelling a word
+  - memorable phone number
+  related_search_terms:
+  - alphanumeric telephone number
+  - phoneword ownership
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0032
+  everyday_phrases:
+  - website address
+  - web address
+  - website name
+  - URL
+  - website in logo
+  - using someone else's domain
+  related_search_terms:
+  - domain registration
+  - domain registrant
+  - authorised domain user
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0033
+  everyday_phrases:
+  - website ending
+  - web address ending
+  - dot com
+  - dot au
+  - dot something
+  - ending after the dot
+  related_search_terms:
+  - domain suffix
+  - generic top-level domain
+  - country-code top-level domain
+  - domain extension
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0034
+  everyday_phrases:
+  - radio station identifier
+  - station letters
+  - radio station number
+  - broadcast frequency
+  - station frequency
+  - radio channel number
+  related_search_terms:
+  - broadcasting services
+  - Class 38
+  - licensed operator
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0035
+  everyday_phrases:
+  - who owns the website
+  - allowed to use domain
+  - website owner's permission
+  - registered website owner
+  - permission to use website
+  related_search_terms:
+  - domain registrant
+  - authorised domain user
+  - licensed operator
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0036
+  everyday_phrases:
+  - plant type name
+  - name of a plant
+  - flower variety
+  - seed variety
+  - plant breed name
+  - same kind of plant
+  related_search_terms:
+  - plant materials
+  - closely related genus
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0037
+  everyday_phrases:
+  - Indigenous made
+  - Aboriginal artwork
+  - looks Aboriginal
+  - suggests Indigenous involvement
+  - authentic Indigenous product
+  - claims Aboriginal roots
+  related_search_terms:
+  - Indigenous provenance
+  - Indigenous origin connotation
+  - misleading Indigenous reference
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0038
+  everyday_phrases:
+  - overall brand impression
+  - look at everything
+  - words and logo together
+  - rest of the logo
+  - other wording helps
+  - consider the full name
+  related_search_terms:
+  - overall connotation
+  - whole mark assessment
+  - contextual features
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0039
+  everyday_phrases:
+  - meaning changed over time
+  - brand now means something
+  - meaning gained from use
+  - customers learned the meaning
+  - new meaning developed
+  - became misleading over time
+  related_search_terms:
+  - acquired connotation
+  - change in connotation
+  - use-based meaning
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0040
+  everyday_phrases:
+  - oppose
+  - opposing a mark
+  - challenge a trade mark
+  - object to registration
+  - stop someone registering
+  - fight a registration
+  related_search_terms:
+  - trade mark opponent
+  - opposition evidence
+  - opposition procedure
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0041
+  everyday_phrases:
+  - proof of brand use
+  - show how it's used
+  - examples of actual use
+  - proof from the market
+  - documents showing use
+  - advertising examples
+  related_search_terms:
+  - use evidence
+  - marketplace evidence
+  - evidence of connotation
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0042
+  everyday_phrases:
+  - acceptance cancelled
+  - take back acceptance
+  - undo acceptance
+  - accepted then reconsidered
+  - cancel acceptance before registration
+  - acceptance withdrawn
+  related_search_terms:
+  - revocation before registration
+  - Registrar's revocation power
+  - revoking acceptance
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0043
+  everyday_phrases:
+  - split my application
+  - separate the goods
+  - divide the application
+  - split off disputed goods
+  - put goods another application
+  - separate rejected services
+  related_search_terms:
+  - division of application
+  - divided goods and services
+  - division following objection
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0044
+  everyday_phrases:
+  - person checking my application
+  - application reviewer
+  - trade mark assessor
+  - who examines applications
+  - IP Australia reviewer
+  - person assessing my brand
+  related_search_terms:
+  - trade mark examination officer
+  - examination staff
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0045
+  everyday_phrases:
+  - who decides
+  - person making the decision
+  - who makes the call
+  - official deciding
+  - person deciding my application
+  related_search_terms:
+  - decision-making authority
+  - statutory decision-maker
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0046
+  everyday_phrases:
+  - trade marks authority
+  - official in charge
+  - who runs registration
+  - registration authority
+  - official authorised to reject
+  related_search_terms:
+  - Registrar's statutory satisfaction
+  - Registrar's rejection power
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0047
+  everyday_phrases:
+  - words describing the product
+  - says what it is
+  - product description in name
+  - name describes the service
+  - describing what I sell
+  - descriptive brand words
+  related_search_terms:
+  - descriptive wording
+  - descriptive indication
+  - section 43 connotation
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0048
+  everyday_phrases:
+  - imaginary place name
+  - unclear place reference
+  - made up origin
+  - obviously imaginary origin
+  - place name joke
+  - impossible product origin
+  related_search_terms:
+  - fanciful geographic connotation
+  - geographic ambiguity
+  - unrealistic geographic connotation
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0049
+  everyday_phrases:
+  - market today
+  - today's market
+  - still relevant
+  - relevant now
+  - outdated reference
+  - what people know now
+  related_search_terms:
+  - present market conditions
+  - contemporary relevance
+  - current commercial context
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0050
+  everyday_phrases:
+  - how widely known
+  - famous reference
+  - people recognise it
+  - widely recognised
+  - name recognition
+  - public awareness
+  related_search_terms:
+  - public recognition
+  - extent of recognition
+  - reference recognition
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0051
+  everyday_phrases:
+  - must refuse
+  - must reject
+  - can examiner make exceptions
+  - can registrar allow it
+  - compulsory rejection
+  - automatic refusal
+  related_search_terms:
+  - section 43
+  - mandatory refusal
+  - absence of discretion
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0052
+  everyday_phrases:
+  - examiner checks
+  - examiner searches
+  - checking the facts
+  - looking up references
+  - investigating a mark
+  - what examiners look up
+  related_search_terms:
+  - examination enquiries
+  - investigation of relevant factors
+  - research-informed assessment
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0053
+  everyday_phrases:
+  - reasons for refusal
+  - why marks get rejected
+  - registration refused
+  - rejecting an application
+  - registration objections
+  - reasons to reject
+  related_search_terms:
+  - statutory refusal grounds
+  - examination objections
+  - Act and Regulations
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0054
+  everyday_phrases:
+  - banned symbol
+  - forbidden symbol
+  - symbols not allowed
+  - banned trade mark
+  - cannot use symbol
+  - forbidden brand symbol
+  related_search_terms:
+  - section 18
+  - subsection 39(1)
+  - section 18 regulations
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0055
+  everyday_phrases:
+  - restricted symbol
+  - listed symbol
+  - symbols in regulations
+  - restricted brand symbols
+  - rules about symbols
+  - symbol on restricted list
+  related_search_terms:
+  - subsection 39(2)
+  - signs specified in regulations
+  - regulatory sign restrictions
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0056
+  everyday_phrases:
+  - looks almost identical
+  - nearly the same
+  - looks like that sign
+  - mistaken for that sign
+  - very similar symbol
+  - close resemblance
+  related_search_terms:
+  - near resemblance
+  - degree of resemblance
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0057
+  everyday_phrases:
+  - cannot draw it
+  - showing the mark
+  - put mark on paper
+  - mark cannot be pictured
+  - drawing requirement
+  - representing my mark
+  related_search_terms:
+  - representation requirement
+  - graphic representability
+  - graphically representable mark
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0058
+  everyday_phrases:
+  - distinctive enough
+  - identifies my business
+  - sets my products apart
+  - not distinctive
+  - shows whose goods
+  - brand stands out
+  related_search_terms:
+  - distinctiveness
+  - distinctive character
+  - ability to distinguish
+  - non-distinctive mark
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0059
+  everyday_phrases:
+  - naturally distinctive
+  - distinctive by itself
+  - name distinctive on its own
+  - word distinctive on its own
+  - naturally identifies my goods
+  - built in distinctiveness
+  related_search_terms:
+  - inherent distinctiveness
+  - degree of inherent distinctiveness
+  - two-part distinctiveness assessment
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0060
+  everyday_phrases:
+  - what the name means
+  - usual meaning
+  - everyday meaning
+  - meaning for these products
+  - what customers understand
+  - word meaning
+  related_search_terms:
+  - ordinary meaning
+  - signification in context
+  - meaning in relation to goods
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0061
+  everyday_phrases:
+  - words competitors need
+  - competitors using these words
+  - keeping descriptive words free
+  - others need this name
+  - common industry wording
+  related_search_terms:
+  - ordinary signification
+  - descriptive trade marks
+  - legitimate trader use
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0062
+  everyday_phrases:
+  - offensive brand name
+  - rude logo
+  - swear word trademark
+  - obscene wording
+  - offensive trademark rejection
+  related_search_terms:
+  - section 42(a)
+  - scandalous trade marks
+  - scandalous matter objection
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0063
+  everyday_phrases:
+  - illegal brand name
+  - unlawful branding
+  - name breaks the law
+  - illegal trademark use
+  - legally prohibited name
+  related_search_terms:
+  - section 42(b)
+  - unlawful trade mark use
+  - contrary to law objection
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0064
+  everyday_phrases:
+  - name already registered
+  - clashing brand names
+  - another similar trademark
+  - confusingly similar brands
+  - existing trademark objection
+  related_search_terms:
+  - section 44
+  - cited trade mark
+  - likelihood of confusion
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0065
+  everyday_phrases:
+  - almost identical logos
+  - essentially the same mark
+  - near identical names
+  - same overall mark
+  - tiny differences between marks
+  related_search_terms:
+  - section 44
+  - trade mark comparison
+  - substantial identity
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0066
+  everyday_phrases:
+  - both using the name
+  - using similar brands honestly
+  - sharing a brand name
+  - independently adopted same name
+  - longstanding overlapping brand use
+  related_search_terms:
+  - paragraph 44(3)(a)
+  - evidence of concurrent use
+  - honesty of adoption
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0067
+  everyday_phrases:
+  - used the name first
+  - using it before them
+  - earlier brand use
+  - never stopped using it
+  - first user evidence
+  related_search_terms:
+  - subsection 44(4)
+  - priority date
+  - evidence of earlier use
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0068
+  everyday_phrases:
+  - alternative reasons for acceptance
+  - special reasons to accept
+  - business realities
+  - exception despite conflicting trademark
+  - acceptance despite brand clash
+  related_search_terms:
+  - commercial realities
+  - Registrar’s discretion
+  - acceptance despite conflict
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0069
+  everyday_phrases:
+  - restricted trademark registration
+  - approval with restrictions
+  - registration with strings attached
+  - limits on registration
+  - conditional trademark approval
+  related_search_terms:
+  - conditional acceptance
+  - registration limitations
+  - Registrar-imposed conditions
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0070
+  everyday_phrases:
+  - similar products
+  - overlapping services
+  - same type of products
+  - comparing product categories
+  - different classes same products
+  related_search_terms:
+  - goods and services comparison
+  - classification
+  - similarity assessment
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0071
+  everyday_phrases:
+  - products linked to services
+  - related products and services
+  - services connected to products
+  - product versus service clash
+  - connected business offerings
+  related_search_terms:
+  - goods–services relationship
+  - section 44
+  - cross-category conflict
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0072
+  everyday_phrases:
+  - brand name
+  - business logo
+  - product name
+  - brand symbol
+  - trademark
+  - branding
+  related_search_terms:
+  - sign
+  - source identifier
+  - distinguishing goods or services
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0073
+  everyday_phrases:
+  - brand name
+  - logo
+  - brand symbol
+  - packaging design
+  - what can I register
+  - business name
+  related_search_terms:
+  - trade mark subject matter
+  - section 6
+  - word mark
+  - device mark
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0074
+  everyday_phrases:
+  - unusual brand features
+  - register a shape
+  - register a colour
+  - protect a sound
+  - trademark a smell
+  - not just a logo
+  related_search_terms:
+  - unconventional trade mark
+  - shape mark
+  - colour mark
+  - sound mark
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0075
+  everyday_phrases:
+  - register a shape
+  - protect a bottle shape
+  - trademark product shape
+  - 3D logo
+  - container shape
+  - protect packaging shape
+  related_search_terms:
+  - three-dimensional sign
+  - product shape
+  - packaging shape
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0076
+  everyday_phrases:
+  - register a colour
+  - protect my brand colour
+  - trademark a colour
+  - colour alone
+  - combination of colours
+  - coloured logo
+  related_search_terms:
+  - colour combination
+  - colour sign
+  - single-colour mark
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0077
+  everyday_phrases:
+  - register a sound
+  - protect a jingle
+  - trademark a tune
+  - audio logo
+  - brand sound
+  - musical logo
+  related_search_terms:
+  - auditory sign
+  - audio mark
+  - sonic branding
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0078
+  everyday_phrases:
+  - trademark a smell
+  - register a fragrance
+  - protect a scent
+  - brand smell
+  - describe a smell
+  - represent a scent
+  related_search_terms:
+  - olfactory sign
+  - scent mark
+  - graphical representation
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0079
+  everyday_phrases:
+  - multiple marks together
+  - one application several logos
+  - register brand variations
+  - similar logos together
+  - two marks one application
+  - brand name variants
+  related_search_terms:
+  - section 51
+  - series registration
+  - material particulars
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0080
+  everyday_phrases:
+  - same main features
+  - alike in important ways
+  - matching essential details
+  - similar brand variants
+  - how similar is enough
+  - important similarities
+  related_search_terms:
+  - series registration
+  - section 51
+  - material resemblance
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0081
+  everyday_phrases:
+  - using my brand
+  - using a logo
+  - brand on products
+  - name on packaging
+  - what counts as use
+  - actually using the name
+  related_search_terms:
+  - use as a trade mark
+  - brand use
+  - commercial use
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0082
+  everyday_phrases:
+  - using someone else's brand
+  - use with permission
+  - licensed brand use
+  - owner controls use
+  - permitted logo use
+  - using a licensed logo
+  related_search_terms:
+  - controlled use
+  - owner control
+  - authorised user
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0083
+  everyday_phrases:
+  - licensed brand user
+  - person using my brand
+  - who can use it
+  - approved logo user
+  - permitted brand user
+  - licensee
+  related_search_terms:
+  - trade mark licensee
+  - owner control
+  - authorised use
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0084
+  everyday_phrases:
+  - who owns the mark
+  - whose name is registered
+  - brand owner
+  - trademark holder
+  - registered in my name
+  - logo owner
+  related_search_terms:
+  - trade mark ownership
+  - registered ownership
+  - proprietorship
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0085
+  everyday_phrases:
+  - previous owner
+  - former brand owner
+  - previous owner's branding
+  - use by previous owner
+  - who owned it before
+  related_search_terms:
+  - prior proprietor
+  - previous owner's use
+  - chain of title
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0086
+  everyday_phrases:
+  - sell my brand
+  - buy a brand
+  - transfer my trade mark
+  - give my brand away
+  - selling a trade mark
+  - agreed ownership transfer
+  related_search_terms:
+  - transfer of ownership
+  - transfer of title
+  - trade mark transfer
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0087
+  everyday_phrases:
+  - ownership passed on
+  - brand changes hands
+  - change of owner
+  - new brand owner
+  - passing on ownership
+  related_search_terms:
+  - transfer of ownership
+  - transfer of title
+  - change of proprietorship
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0088
+  everyday_phrases:
+  - registered brand
+  - registered logo
+  - officially registered name
+  - is my brand registered
+  - brand on the register
+  related_search_terms:
+  - registered particulars
+  - trade mark registration
+  - Register entry
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0089
+  everyday_phrases:
+  - trade mark database
+  - official brand list
+  - search registered brands
+  - look up trade marks
+  - registration record
+  - find registered names
+  related_search_terms:
+  - section 207
+  - registered particulars
+  - registration records
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0090
+  everyday_phrases:
+  - date priority starts
+  - which date counts
+  - earliest priority date
+  - priority for my goods
+  - priority for my services
+  related_search_terms:
+  - registration priority
+  - priority for goods
+  - priority for services
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0091
+  everyday_phrases:
+  - date I applied
+  - when I filed
+  - application submission date
+  - lodgement date
+  - when application was lodged
+  related_search_terms:
+  - application filing
+  - date of filing
+  - application date
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0092
+  everyday_phrases:
+  - checking my application
+  - examiner review
+  - application being checked
+  - trade mark assessment
+  - examining my application
+  related_search_terms:
+  - examination report
+  - statutory grounds
+  - application compliance
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0093
+  everyday_phrases:
+  - application approved
+  - initial approval
+  - passed examiner checks
+  - examiner approved it
+  - accepting my application
+  related_search_terms:
+  - post-examination acceptance
+  - application acceptance
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0094
+  everyday_phrases:
+  - approval taken back
+  - undo application approval
+  - acceptance withdrawn
+  - previous approval reversed
+  - accepted then reconsidered
+  related_search_terms:
+  - post-acceptance information
+  - withdrawal of acceptance
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0095
+  everyday_phrases:
+  - registration cancelled
+  - undoing registration
+  - registration taken back
+  - registered by mistake
+  - wrongly registered brand
+  - cancelling a registration
+  related_search_terms:
+  - sections 84A–84D
+  - Registrar's revocation powers
+  - erroneous registration
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0096
+  everyday_phrases:
+  - pause acceptance clock
+  - put acceptance on hold
+  - stop the acceptance clock
+  - pause my application
+  - defer my application
+  - acceptance deadline paused
+  related_search_terms:
+  - acceptance period
+  - subsection 37(1)
+  - regulation 4.12
+  - period in abeyance
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0097
+  everyday_phrases:
+  - more time
+  - extend my deadline
+  - extra time to file
+  - push back deadline
+  - request extra time
+  - extend filing deadline
+  related_search_terms:
+  - time extension request
+  - prescribed time limit
+  - extended filing period
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0098
+  everyday_phrases:
+  - application ran out
+  - missed acceptance deadline
+  - application expired
+  - ran out of time
+  - application no longer active
+  related_search_terms:
+  - prescribed acceptance period
+  - extended acceptance period
+  - application lapse
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0099
+  everyday_phrases:
+  - give up exclusive rights
+  - limit my rights
+  - no exclusive claim
+  - exclude words from protection
+  - rights in part only
+  related_search_terms:
+  - limitation of exclusive rights
+  - subsection 74(1)
+  - registration rights limitation
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0100
+  everyday_phrases:
+  - note on registration
+  - register annotation
+  - acceptance note
+  - added register wording
+  - record acceptance basis
+  related_search_terms:
+  - Register entry
+  - acceptance on evidence
+  - acceptance circumstances
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0101
+  everyday_phrases:
+  - proof of use
+  - show brand use
+  - prove I've used it
+  - documents showing use
+  - brand usage evidence
+  - prove business use
+  related_search_terms:
+  - section 41 evidence
+  - trade mark use
+  - use submissions
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0102
+  everyday_phrases:
+  - oppose
+  - opposing a mark
+  - object to registration
+  - challenge someone's trade mark
+  - block a trade mark
+  - stop someone registering
+  related_search_terms:
+  - third-party objection
+  - objection to registration
+  - IRDA opposition
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0103
+  everyday_phrases:
+  - opposition paperwork
+  - formal objection documents
+  - file opposition documents
+  - papers to oppose
+  - written opposition notice
+  - grounds for opposing
+  related_search_terms:
+  - notice of intention to oppose
+  - statement of grounds and particulars
+  - regulation 5.2
+  - regulation 17A.29
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0104
+  everyday_phrases:
+  - remove unused trade mark
+  - cancel unused brand
+  - challenge unused trade mark
+  - brand never used
+  - trade mark not used
+  - unused mark removal
+  related_search_terms:
+  - section 92
+  - non-use application
+  - unused registered trade mark
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0105
+  everyday_phrases:
+  - correct the register
+  - fix register entry
+  - change register entry
+  - cancel register entry
+  - court ordered correction
+  - court ordered cancellation
+  related_search_terms:
+  - court-ordered amendment
+  - court-ordered cancellation
+  - Register entry amendment
+  - prescribed court
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0106
+  everyday_phrases:
+  - renew my trade mark
+  - keep registration active
+  - extend my registration
+  - registration running out
+  - renew every ten years
+  - when to renew
+  related_search_terms:
+  - ten-year registration period
+  - registration renewal date
+  - original filing date
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0107
+  everyday_phrases:
+  - certified product logo
+  - certified service badge
+  - certification logo
+  - certification badge
+  - mark showing certification
+  related_search_terms:
+  - certification mark
+  - certified goods
+  - certified services
+  - certifying owner
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0108
+  everyday_phrases:
+  - members' shared brand
+  - association brand
+  - association members' logo
+  - group trade mark
+  - shared member logo
+  - brand for members
+  related_search_terms:
+  - association members
+  - association member goods
+  - association member services
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0109
+  everyday_phrases:
+  - extra brand protection
+  - protect registered brand
+  - defensive brand protection
+  - defensively register
+  related_search_terms:
+  - distinctive trade mark
+  - existing Australian registration
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0110
+  everyday_phrases:
+  - split my application
+  - splitting an application
+  - divide my application
+  - keep original filing date
+  - new application number
+  related_search_terms:
+  - parent application
+  - priority date
+  - new trade mark number
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0111
+  everyday_phrases:
+  - claim overseas priority
+  - foreign priority
+  - earlier overseas filing
+  - use foreign filing date
+  related_search_terms:
+  - Convention country
+  - priority claim
+  - section 6
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0112
+  everyday_phrases:
+  - international brand registration
+  - register brand internationally
+  - overseas trade mark treaty
+  - Madrid system
+  - WIPO registration
+  related_search_terms:
+  - international registration
+  - International Bureau
+  - WIPO
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0113
+  everyday_phrases:
+  - international mark naming Australia
+  - Australian designation
+  - designating Australia
+  - international registration for Australia
+  related_search_terms:
+  - regulation 17A.2
+  - Australia designation
+  - international registration
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0114
+  everyday_phrases:
+  - protected overseas mark
+  - international mark protection
+  - similar protected international mark
+  - conflicting international brand
+  related_search_terms:
+  - substantially identical
+  - deceptively similar
+  - protected international registration
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0115
+  everyday_phrases:
+  - trade marks registrar
+  - registration authority
+  - who is the registrar
+  - contact the registrar
+  related_search_terms:
+  - Registrar's office
+  - trade marks registration authority
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0116
+  everyday_phrases:
+  - person applying
+  - who is applying
+  - name on application
+  - application holder
+  - applying for a mark
+  related_search_terms:
+  - application in a person's name
+  - named applicant
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0117
+  everyday_phrases:
+  - objector
+  - person objecting
+  - who can oppose
+  - opposing a mark
+  - challenge a registration
+  - oppose
+  related_search_terms:
+  - opposition
+  - opposing party
+  - person affected by registration
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0118
+  everyday_phrases:
+  - assumed registrable
+  - presumed acceptable
+  - registration starting assumption
+  - assumption of eligibility
+  related_search_terms:
+  - registrability presumption
+  - presumed registrable
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0119
+  everyday_phrases:
+  - distinctive enough
+  - naturally distinctive
+  - brand stands out
+  - meaning unrelated to goods
+  - name distinguishes my goods
+  related_search_terms:
+  - inherent distinctiveness
+  - ordinary signification
+  - inherently adapted to distinguish
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0120
+  everyday_phrases:
+  - not distinctive
+  - no distinctiveness
+  - picture of the product
+  - product image as logo
+  - cannot distinguish my goods
+  related_search_terms:
+  - non-distinctive sign
+  - lack of inherent distinctiveness
+  - pictorial representations of goods
+  - pictorial representations of services
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0121
+  everyday_phrases:
+  - which class
+  - choose a class
+  - product categories
+  - service categories
+  - class numbers
+  - categorise my products
+  related_search_terms:
+  - Nice Classification
+  - classification guidelines
+  - classification amendments
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0122
+  everyday_phrases:
+  - fast track
+  - speed up examination
+  - urgent examination
+  - quicker assessment
+  - examine sooner
+  - priority examination
+  related_search_terms:
+  - reg 4.19
+  - expedition request
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0123
+  everyday_phrases:
+  - cancel my application
+  - pull out
+  - withdraw my application
+  - take back request
+  - stop my application
+  - withdrawing a request
+  related_search_terms:
+  - section 214
+  - written withdrawal
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0124
+  everyday_phrases:
+  - change my application
+  - fix application details
+  - correct a mistake
+  - edit my application
+  - update application details
+  - amending my application
+  related_search_terms:
+  - application amendment
+  - Part 6
+  - amendment of documents
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0125
+  everyday_phrases:
+  - plant variety name
+  - name of cultivar
+  - naming a plant
+  - register a plant name
+  - plant name restrictions
+  - plant breeder rights
+  related_search_terms:
+  - Plant Breeder’s Rights Act
+  - Class 31
+  - plant material
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0126
+  everyday_phrases:
+  - wine region name
+  - protected wine name
+  - wine name restrictions
+  - naming a wine
+  - wine origin name
+  - place names on wine
+  related_search_terms:
+  - grape products
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0127
+  everyday_phrases:
+  - case outcome
+  - official ruling
+  - opposition outcome
+  - who won
+  - reasons for ruling
+  - result of opposition
+  related_search_terms:
+  - opposition decision
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0128
+  everyday_phrases:
+  - ask for a hearing
+  - present my case
+  - chance to respond
+  - being heard
+  - speak to Registrar
+  - hearing before rejection
+  related_search_terms:
+  - opportunity of being heard
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0129
+  everyday_phrases:
+  - list of products
+  - list of services
+  - what my mark covers
+  - goods and services list
+  - remove products
+  - narrow my coverage
+  related_search_terms:
+  - amendment of specification
+  - conflicting goods and services
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0130
+  everyday_phrases:
+  - well known brand
+  - brand recognition
+  - how well known
+  - famous brand
+  - known in Australia
+  - brand awareness
+  related_search_terms:
+  - extent of use
+  - trade mark reputation
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0131
+  everyday_phrases:
+  - apply for a trademark
+  - register my brand
+  - brand registration application
+  - trademark paperwork
+  - registration request
+  - applying for registration
+  related_search_terms:
+  - application for registration
+  - section 27
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0132
+  everyday_phrases:
+  - owner of international mark
+  - international trademark owner
+  - who receives examination report
+  - international registration owner
+  - owner responding to report
+  related_search_terms:
+  - IRDA holder
+  - report to holder
+  - holder’s response
+  - reg 17A.16
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0133
+  everyday_phrases:
+  - competition watchdog
+  - consumer watchdog
+  - consumer regulator
+  - competition authority
+  related_search_terms:
+  - competition regulator
+  - consumer protection regulator
+  - Competition and Consumer Act 2010
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0134
+  everyday_phrases:
+  - government review tribunal
+  - administrative tribunal
+  - tribunal review
+  related_search_terms:
+  - administrative review
+  - review tribunal
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0135
+  everyday_phrases:
+  - protection ending
+  - protection stopped
+  - end international protection
+  - international protection ceased
+  - no longer protected
+  related_search_terms:
+  - protected international trade mark
+  - international trade mark protection
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0136
+  everyday_phrases:
+  - originating trade mark office
+  - home trade mark office
+  - office verifying claim
+  - original filing office
+  related_search_terms:
+  - international registration
+  - IRDA
+  - international registration designating Australia
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0137
+  everyday_phrases:
+  - product wrapping
+  - product packaging
+  - bottle cap
+  - container lid
+  - packaging frame
+  related_search_terms:
+  - packaging
+  - wrapper
+  - container
+  - stopper
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0138
+  everyday_phrases:
+  - international trade mark office
+  - world intellectual property office
+  - WIPO bureau
+  related_search_terms:
+  - World Intellectual Property Organisation
+  - WIPO
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0139
+  everyday_phrases:
+  - which court
+  - appropriate court
+  - trade mark court
+  - court for trademarks
+  related_search_terms:
+  - Federal Court
+  - Federal Circuit and Family Court of Australia (Division 2)
+  - Supreme Court
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0140
+  everyday_phrases:
+  - product tag
+  - product sticker
+  - packaging sticker
+  - branded tag
+  - product band
+  related_search_terms:
+  - band
+  - ticket
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0141
+  everyday_phrases:
+  - registration date
+  - registered on
+  - when registered
+  - registration start date
+  - when registration starts
+  related_search_terms:
+  - priority claims
+  - convention application
+  - earlier applications
+  - convention countries
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0142
+  everyday_phrases:
+  - remove a trade mark
+  - removing a trademark
+  - delete unused mark
+  - remove unused brand
+  - apply for removal
+  - take off register
+  related_search_terms:
+  - removal from the Register
+  - trade mark removal
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0143
+  everyday_phrases:
+  - extend protection
+  - protect in Australia
+  - add Australian protection
+  - extend to Australia
+  - protect international brand
+  - Australian protection
+  related_search_terms:
+  - IRDA
+  - international registration designating Australia
+  - protection in Australia
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0144
+  everyday_phrases:
+  - court witness summons
+  - ordered to give evidence
+  - ordered to produce documents
+  - court demands documents
+  - compelled to attend court
+  - bring documents to court
+  related_search_terms:
+  - oral evidence
+  - production of documents
+  - court-issued document
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0145
+  everyday_phrases:
+  - where grapes were grown
+  - where wine comes from
+  - wine's home country
+  - Australian grown grapes
+  - foreign grown grapes
+  related_search_terms:
+  - wine origin
+  - grape provenance
+  - country of origin
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0146
+  everyday_phrases:
+  - which board
+  - what board means
+  - board mentioned in legislation
+  related_search_terms:
+  - Patents Act 1990
+  - Board under Patents Act
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0147
+  everyday_phrases:
+  - personal details
+  - information about me
+  - my private information
+  - data about a person
+  - my personal data
+  related_search_terms:
+  - Privacy Act 1988
+  - privacy legislation
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0148
+  everyday_phrases:
+  - legal adviser
+  - legal professional
+  - qualified legal representative
+  - who counts as lawyer
+  related_search_terms:
+  - barrister
+  - solicitor
+  - High Court
+  - Supreme Court
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0149
+  everyday_phrases:
+  - which contracting party
+  - party for the holder
+  - holder's contracting party
+  - Madrid holder's party
+  related_search_terms:
+  - Madrid Regulations
+  - Rule 1(xxvibis)
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0150
+  everyday_phrases:
+  - register my brand internationally
+  - internationally registered brand
+  - global brand registration
+  - overseas trade mark registration
+  related_search_terms:
+  - International Register
+  - internationally registered trade mark
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0151
+  everyday_phrases:
+  - previous trade mark register
+  - earlier registration records
+  - register under old law
+  - historic trade mark register
+  related_search_terms:
+  - repealed Act
+  - Register of Trade Marks
+  - former trade marks register
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0152
+  everyday_phrases:
+  - services I provide
+  - what my business does
+  - services my business offers
+  - services I sell
+  - my business services
+  related_search_terms:
+  - services in trade
+  - services provided
+  - services dealt with
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0153
+  everyday_phrases:
+  - reasons for opposing
+  - details of my objection
+  - written opposition reasons
+  - opposition reasons document
+  - explain my opposition
+  related_search_terms:
+  - opponent's statement
+  - opposition grounds
+  - opposition particulars
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0154
+  everyday_phrases:
+  - confusingly alike
+  - looks too similar
+  - customers might get confused
+  - easily mistaken for
+  - brands too alike
+  - confusing brand names
+  related_search_terms:
+  - likelihood of confusion
+  - deceptive similarity
+  - trade mark resemblance
+  - likely to deceive
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0155
+  everyday_phrases:
+  - application still active
+  - waiting for registration
+  - application in progress
+  - not yet registered
+  - application still open
+  - still being processed
+  related_search_terms:
+  - application status
+  - filed application
+  - pendency
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0156
+  everyday_phrases:
+  - official form
+  - correct form
+  - required paperwork
+  - which form to use
+  - accepted form
+  - right application form
+  related_search_terms:
+  - Registrar-approved form
+  - form approval
+  - Registrar
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0157
+  everyday_phrases:
+  - eligible overseas country
+  - recognised foreign country
+  - qualifying overseas region
+  - which countries qualify
+  related_search_terms:
+  - prescribed foreign country
+  - prescribed foreign region
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0158
+  everyday_phrases:
+  - defend my mark
+  - defending my trade mark
+  - respond to opposition
+  - file defence notice
+  - time to defend
+  - defence form
+  related_search_terms:
+  - IRDA defence notice
+  - opposition defence notice
+  - defence filing deadline
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0159
+  everyday_phrases:
+  - deputy registry official
+  - registrar's second in command
+  - trade mark deputy
+  related_search_terms:
+  - Registrar's deputy
+  - deputy trade marks official
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0160
+  everyday_phrases:
+  - registered mark number
+  - trade mark number
+  - my trademark number
+  - registration ID
+  - number identifying my mark
+  related_search_terms:
+  - registered trade mark identifier
+  - trade mark registration identifier
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0161
+  everyday_phrases:
+  - international trade mark register
+  - overseas trade mark register
+  - international registration database
+  - international trademark records
+  related_search_terms:
+  - International Bureau register
+  - Protocol register
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0162
+  everyday_phrases:
+  - transfer my trade mark
+  - sell my trade mark
+  - new trade mark owner
+  - change the owner
+  - transfer brand ownership
+  - give someone my trademark
+  related_search_terms:
+  - assignment
+  - transmission
+  - ownership transfer
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0163
+  everyday_phrases:
+  - old trade mark law
+  - previous trade marks legislation
+  - 1955 trade mark law
+  - old trade mark regulations
+  - law before repeal
+  related_search_terms:
+  - Trade Marks Act 1955
+  - regulations under 1955 Act
+  - pre-repeal legislation
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0164
+  everyday_phrases:
+  - record an image
+  - draw the image
+  - film the image
+  - save the image electronically
+  - make an image recording
+  related_search_terms:
+  - image recording
+  - artistic representation
+  - electronic medium
+  - videotape recording
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0165
+  everyday_phrases:
+  - Australian international registration records
+  - local international registration list
+  - international marks record
+  - Australia's international marks list
+  related_search_terms:
+  - Registrar's international registration record
+  - IRDA record
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0166
+  everyday_phrases:
+  - funny drawing
+  - exaggerated drawing
+  - comic picture
+  - drawn character
+  - caricature drawing
+  related_search_terms:
+  - caricature
+  - symbolic drawing
+  - exaggerated depiction
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0167
+  everyday_phrases:
+  - translation confirmation certificate
+  - signed translation certificate
+  - proof translation is correct
+  - verify a translation
+  - translation sign off
+  - dated translation certificate
+  related_search_terms:
+  - translation verification
+  - translated certified copy
+  - regulation 4.11
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.

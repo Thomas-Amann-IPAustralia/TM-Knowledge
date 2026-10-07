@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01002,
+ "created_utc": "2026-10-07T12:22:08Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0069",
+ "job": "answer",
+ "key": "27f548c485643a67e4d0c4a05a62748ea8280554114918829150221cf83f19e4",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0022\", \"GC-0023\", \"GC-0025\", \"GC-0044\", \"GC-0092\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part29/5/5/3\",\n      \"quote\": \"When examining applications for registration of trade marks in class 5 covering pharmaceuticals or veterinary substances, examiners should check the trade mark against the INN list using the Search for International Nonproprietary Names for Pharmaceutical Substances and the list of INN stems found at Annex 1 in this Part of the Manual.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/5/5/3\",\n      \"quote\": \"Claims for specific pharmaceutical or veterinary goods in Class 5 may also trigger the provisions of section 43 in relation to INNs and INN stems. Examples include classes of pharmaceutical or veterinary substances (e.g. analgesics or pain relieving preparations) as well as goods which could be pharmaceutical or veterinary in nature (e.g. dietary or nutritional supplements).\"\n    }\n  ],\n  \"answer\": \"Yes—as Manual practice, examiners should check the trade mark (rather than the goods themselves) against both the INN list and the INN stems when examining Class 5 applications covering pharmaceuticals or veterinary substances. Use the Search for International Nonproprietary Names for Pharmaceutical Substances and the INN stems list in Annex 1 to Part 29 [TMM/Part29/5/5/3].\\n\\nThe Manual also identifies claims such as analgesics, pain relieving preparations, and potentially pharmaceutical or veterinary goods such as dietary or nutritional supplements as potentially triggering section 43 considerations concerning INNs and INN stems [TMM/Part29/5/5/3]. This checking direction is Manual practice, not a legislative requirement stated in the supplied Act passages.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "fbdb485853d1335c26677e867b1e762bb0aaacc74213b51c4a998a291d340ca5",
+ "response_id": "resp_0cd7a7715bd96f7c006ac6395f30e087d2ad7e6f4124e843a2",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6357,
+  "input_tokens_details": {
+   "cache_write_tokens": 6354,
+   "cached_tokens": 0
+  },
+  "output_tokens": 415,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 6772
+ }
+}

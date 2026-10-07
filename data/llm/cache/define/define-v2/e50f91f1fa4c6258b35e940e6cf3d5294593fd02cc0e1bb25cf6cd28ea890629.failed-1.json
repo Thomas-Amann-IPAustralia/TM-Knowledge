@@ -1,0 +1,24 @@
+{
+ "batch_id": "batch_6ac6067ecbc081908b80944ca0c54bbf",
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T09:10:50Z",
+ "effort": "medium",
+ "error": {
+  "code": "batch_cancelled",
+  "message": "This request was not executed because the batch was cancelled."
+ },
+ "incomplete_details": null,
+ "item": "cartoon",
+ "job": "define",
+ "key": "e50f91f1fa4c6258b35e940e6cf3d5294593fd02cc0e1bb25cf6cd28ea890629",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "740c8995e08842c23decc91fceb7c330ce536273c23d29d4d651f37cbbab3ee0",
+ "response_id": null,
+ "service_tier": "batch",
+ "status": "failed",
+ "usage": {}
+}

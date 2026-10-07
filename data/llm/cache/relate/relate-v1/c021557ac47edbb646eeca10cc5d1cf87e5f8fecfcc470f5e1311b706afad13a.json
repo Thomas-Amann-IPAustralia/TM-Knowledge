@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006345,
+ "created_utc": "2026-10-07T11:25:42Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0081",
+ "job": "relate",
+ "key": "c021557ac47edbb646eeca10cc5d1cf87e5f8fecfcc470f5e1311b706afad13a",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"In many cases, even if the use relied on is use ‘as a trade mark’ the weight that it should be given may be significantly diminished by the context of use.\",\"relation\":\"qualifies\",\"alternative\":\"related_to: the passage connects trade mark use and evidence of use without expressly naming a qualification relationship.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.86,\"reasoning\":\"The Manual indicates that the context of trade mark use can diminish the evidentiary weight of that use. This supports use qualifying evidence of use, although the relationship is inferred from the discussion of evidentiary weight.\",\"modality\":\"should\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the qualifying factor should instead be modelled separately as context of use, rather than use of a trade mark generally.\",\"passage_ref\":\"TMM/Part19A/2/2/2~2\",\"neighbour\":\"GC-0101\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to: infer a connection between trade mark use and an owner or authorised user from the listed legislative provisions.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.98,\"reasoning\":\"The passages list legislative headings concerning use, registered owners and authorised users, but do not state how these concepts relate. The headings alone do not support a substantive relationship.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether substantive text of the listed provisions supplies a relationship not stated in these extracts.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0035\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to: infer that an authorised user performs trade mark use from the adjacent references to sections 7 and 8.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.98,\"reasoning\":\"The passages mention use of a trade mark and authorised users only in lists of relevant legislation. They do not state a relationship between them.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the substantive definition of authorised user establishes a relationship absent from these legislative headings.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0083\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "86a2af3fbb69a9f7667633744b27ca4f51a865d9e119353ec32e035594006fe3",
+ "response_id": "resp_0f4b3c8fad23548f006ac62c2515bc87d2b65c4427a26282c6",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2949,
+  "input_tokens_details": {
+   "cache_write_tokens": 2946,
+   "cached_tokens": 0
+  },
+  "output_tokens": 532,
+  "output_tokens_details": {
+   "reasoning_tokens": 84
+  },
+  "total_tokens": 3481
+ }
+}

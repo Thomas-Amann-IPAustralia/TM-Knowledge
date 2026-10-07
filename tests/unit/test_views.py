@@ -1,8 +1,8 @@
 """The two derived views arrange records, and must not invent any.
 
-Every other page on the site restates an artefact, and the test that protects
-those is `test_committed_data_is_current`: a number on the page must be a number
-in the repository. **These two pages are different in kind** — they compute an
+Every other page on the site restates an artefact, and the Pages workflow
+rebuilds them from the repository on every deploy (ADR-0112), so a number on
+the page is a number in the repository. **These two pages are different in kind** — they compute an
 arrangement, which is the first thing the site does that a reader could take for
 a claim (ADR-0103). So the guards here are about the arrangement:
 
@@ -116,13 +116,17 @@ def test_every_edge_joins_two_nodes_that_are_drawn(graph):
         assert edge["source"] in drawn and edge["target"] in drawn
 
 
-def test_every_signed_edge_names_the_record_that_asserts_it(graph, stores):
-    gold, _ = stores
-    records = {record["id"]: record for record in gold["gold_relationship"]}
-    signed = [edge for edge in graph["edges"] if edge["kind"] == "asserted"]
-    assert signed, "no signed relationship reached the map"
-    for edge in signed:
-        record = records[edge["record"]]
+def test_every_asserted_edge_names_the_record_that_asserts_it_in_its_own_store(graph, stores):
+    gold, authored = stores
+    records = {
+        "approved": {record["id"]: record for record in gold["gold_relationship"]},
+        "authored": {record["id"]: record for record in authored["gold_relationship"]},
+    }
+    asserted = [edge for edge in graph["edges"] if edge["kind"] == "asserted"]
+    assert any(edge["origin"] == "approved" for edge in asserted), "no signed relationship reached the map"
+    for edge in asserted:
+        assert ("signed" in edge) == (edge["origin"] == "approved"), "only a signed edge says who signed it"
+        record = records[edge["origin"]][edge["record"]]
         assert edge["source"] == record["subject"]
         assert edge["target"] == record["object"]
         assert edge["predicate"] == record["predicate"]

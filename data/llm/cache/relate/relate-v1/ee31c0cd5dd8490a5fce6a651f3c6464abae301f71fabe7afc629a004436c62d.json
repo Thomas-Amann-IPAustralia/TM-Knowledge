@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00339,
+ "created_utc": "2026-10-07T11:45:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0137",
+ "job": "relate",
+ "key": "ee31c0cd5dd8490a5fce6a651f3c6464abae301f71fabe7afc629a004436c62d",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Read 'covering' as the scope of a Class 5 application and infer a relationship to the examiner's INN-checking practice.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual directs examiners to check trade marks in applications covering specified goods. It does not state a relationship to 'covering' as a distinct concept; that word describes the applications' scope.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether 'covering' is intended to represent application scope rather than the word alone.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0044\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Treat coverage of plants or plant materials as qualifying the likelihood of deception or confusion.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The plant passage connects likely deception or confusion to plant-name connotations and use on plants of the same or a closely related genus. 'Covering' appears in the subsequent practice cross-reference, not as a distinct element of that test.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the anchor denotes goods covered by an application, which could support a broader contextual connection.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0002\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Infer that amendment by adding classes requires an expanded search 'covering' those classes.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"The passages connect adding classes with further searching and restrictions on extending a specification. 'Covering' describes the reach of classes or searches, rather than a distinct concept related to amendment.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the anchor is intended to denote search coverage, rather than application or classification scope.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0124\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "425cb03bf77bcac68031ccfa08949637670eef807331ce912543eeb687b08c58",
+ "response_id": "resp_0dbdd08374eb87fe006ac630d3afb887d29551358373cc088e",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2934,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2931
+  },
+  "output_tokens": 648,
+  "output_tokens_details": {
+   "reasoning_tokens": 126
+  },
+  "total_tokens": 3582
+ }
+}

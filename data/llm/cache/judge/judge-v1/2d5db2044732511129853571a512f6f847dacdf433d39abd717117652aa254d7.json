@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008633,
+ "created_utc": "2026-10-07T12:23:48Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0088",
+ "job": "judge",
+ "key": "2d5db2044732511129853571a512f6f847dacdf433d39abd717117652aa254d7",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part55/x-annex-a1---taxing-of-costs-in--multiple--oppositions-relying-on-same-evidence#1\",\"grade\":1},{\"ref\":\"TMM/Part60/4/17/4/17/2~1\",\"grade\":1},{\"ref\":\"TMM/Part51/1#1~2\",\"grade\":2},{\"ref\":\"TMM/Part60/4/17/4/17/2~3\",\"grade\":1},{\"ref\":\"TMM/Part51/1/1/2\",\"grade\":2},{\"ref\":\"TMM/Part51/5#1~1\",\"grade\":2},{\"ref\":\"TMM/Part51/1/1/3\",\"grade\":2},{\"ref\":\"TMM/Part60/4/16/4/16/2\",\"grade\":1},{\"ref\":\"TMM/Part51/2/2/1\",\"grade\":1},{\"ref\":\"TMM/Part55/2#1\",\"grade\":1},{\"ref\":\"TMM/Part49/2/2/3/6\",\"grade\":1},{\"ref\":\"TMM/Part15/1/1/1\",\"grade\":0},{\"ref\":\"TMM/Part51/4/4/1~1\",\"grade\":1},{\"ref\":\"TMM/Part47/1/1/3/6~2\",\"grade\":1},{\"ref\":\"TMM/Part51/2#1~1\",\"grade\":1},{\"ref\":\"TMM/Part51/2/2/4\",\"grade\":3},{\"ref\":\"TMM/Part51/2/2/3\",\"grade\":2},{\"ref\":\"TMM/Part47/1/1/3/3\",\"grade\":1},{\"ref\":\"TMM/Part15/6/6/4\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "8181be083da21dcb4745dcc8f4752cb5654324f06bd22270f4e87c3a9aa166ca",
+ "response_id": "resp_0d2535633623ac0c006ac639c2291487d2b384bb04d83a748b",
+ "seconds": 18.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4799,
+  "input_tokens_details": {
+   "cache_write_tokens": 4796,
+   "cached_tokens": 0
+  },
+  "output_tokens": 527,
+  "output_tokens_details": {
+   "reasoning_tokens": 127
+  },
+  "total_tokens": 5326
+ }
+}

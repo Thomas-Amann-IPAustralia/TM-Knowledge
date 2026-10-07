@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005323,
+ "created_utc": "2026-10-07T08:58:37Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0112",
+ "job": "relate",
+ "key": "746d1132df27955a7de8f9c7ed6316a40ccf6a02d41ea6b199f25cc74505d30d",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"There are no provisions for extensions of time in the Madrid Protocol. A holder of an IRDA may however, take advantage of IP Australia's existing extension of time provisions.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo would assert a general scope relationship beyond the extension-of-time distinction stated here.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The Manual connects the Protocol with IRDAs by contrasting the absence of Protocol extension provisions with the availability of IP Australia's provisions to IRDA holders. This supports a contextual relationship, not a Protocol requirement governing extensions.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether this procedural contrast supports a concept-level relationship rather than merely contextual association.\",\n      \"passage_ref\": \"TMM/Part60/4/12/4/12/2\",\n      \"neighbour\": \"GC-0113\"\n    },\n    {\n      \"quote\": \"The Madrid Protocol has no direct provisions for revocation of acceptance. However it is possible to notify the IB of additional provisional refusals based on examination during the 18-month refusal period.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"constrainsExaminerTo would attribute the stated time constraint directly to the Protocol without an express attribution in this passage.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.8,\n      \"reasoning\": \"The Manual connects the Protocol framework with examination-based additional provisional refusals. The connection is indirect; the passage does not expressly identify a Protocol provision governing examination itself.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the examination-based refusal mechanism is sufficiently connected to the Protocol itself in this passage.\",\n      \"passage_ref\": \"TMM/Part60/4/15/4/15/2~1\",\n      \"neighbour\": \"GC-0092\"\n    },\n    {\n      \"quote\": \"Part 60 The Madrid Protocol - 4.16 Extension of Time to File Notice of Opposition to Protection\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo would treat a Manual cross-reference as an express statement of the Protocol's legal application to opposition.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.77,\n      \"reasoning\": \"The cross-reference expressly places extensions for filing opposition to protection within the Manual's Madrid Protocol discussion. It supports a topical relationship, but does not establish that the Protocol itself supplies the opposition rules.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether a Manual section cross-reference is sufficient evidence for this concept-level relationship.\",\n      \"passage_ref\": \"TMM/Part47/1/1/3/3\",\n      \"neighbour\": \"GC-0102\"\n    },\n    {\n      \"quote\": \"International Registrations Designating Australia (IRDA) are applications that have been filed through the Madrid Protocol. These applications are sent electronically by WIPO after they have checked formalities, fees and classification of the goods and/or services.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement would imply that the Protocol itself expressly requires classification checking, whereas this passage describes WIPO's processing.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The Manual connects filing through the Protocol with WIPO's checking of goods and services classification before transmission. This supports a procedural association, not an express Protocol classification obligation or identification with the Nice Classification.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the neighbour's inclusion of the Nice Classification is broader than the classification concept supported by this passage.\",\n      \"passage_ref\": \"TMM/Part5/2/2/3\",\n      \"neighbour\": \"GC-0121\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "a26e839a55ac8e5fb6da5e884ddb36ee9bcfd070e653cebb61df2df78e58fdf4",
+ "response_id": "resp_0a0f0b559afed734006ac609a2005887d2a3a622152847270c",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3300,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3297
+  },
+  "output_tokens": 1031,
+  "output_tokens_details": {
+   "reasoning_tokens": 149
+  },
+  "total_tokens": 4331
+ }
+}

@@ -18,7 +18,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-test = ["pytest>=8.0", "openpyxl>=3.1", "rdflib>=7.0", "pyshacl>=0.26"]
+test = ["pytest>=8.0", "openpyxl>=3.1", "rdflib>=7.0", "pyshacl>=0.26", "numpy>=1.26"]
 # The intake path (P7, P8) writes and reads .xlsx. Optional on purpose: it is
 # the only thing in the repo that needs a spreadsheet library, and the core
 # install stays at three dependencies. ADR-0035 — raise it if that is wrong.
@@ -29,6 +29,10 @@ intake = ["openpyxl>=3.1"]
 # own choices — ARCHITECTURE.md §5 names RDFLib and pySHACL — so this is the
 # reference stack, not a substitution (ADR-0056).
 rdf = ["rdflib>=7.0", "pyshacl>=0.26"]
+# Dense search (D2, D3): passage vectors are a matrix and a dot product, and numpy
+# is the one library that does that without a service. Optional, like the two
+# above, so the core install stays at three dependencies (ADR-0115).
+search = ["numpy>=1.26"]
 
 [project.scripts]
 tmk-fetch-upstream = "tm_knowledge.upstream.fetch:main"
@@ -52,6 +56,7 @@ tmk-ontology-report = "tm_knowledge.ontology.cli:ontology_report"
 tmk-flags = "tm_knowledge.ontology.cli:flags"
 tmk-dashboard = "tm_knowledge.dashboard.cli:dashboard"
 tmk-ruling = "tm_knowledge.dashboard.cli:ruling"
+tmk-bulk = "tm_knowledge.bulk.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge"

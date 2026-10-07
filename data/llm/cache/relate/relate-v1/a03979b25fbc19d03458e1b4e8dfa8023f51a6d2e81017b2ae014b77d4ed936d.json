@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005892,
+ "created_utc": "2026-10-07T08:46:39Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0065",
+ "job": "relate",
+ "key": "a03979b25fbc19d03458e1b4e8dfa8023f51a6d2e81017b2ae014b77d4ed936d",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The two key enquiries under s 44 are whether the respective trade marks are substantially identical or deceptively similar, and whether the respective goods/services are similar or closely related.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Closely related goods and services qualifies substantial identity.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual expressly connects the two tests as separate enquiries under s 44. It does not make the relationship between goods and services an element of substantial identity itself.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a more specific predicate should capture the conjunction of separate s 44 enquiries.\",\n      \"passage_ref\": \"TMM/Part26/1#1\",\n      \"neighbour\": \"GC-0071\"\n    },\n    {\n      \"quote\": \"In some cases, the use of a similar trade mark that is not substantially identical to the trade mark applied for may be a relevant circumstance that can be given weight under s 41(4).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Substantial identity is a required element of relevant circumstances.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual expressly connects absence of substantial identity with use that may nevertheless count as a relevant circumstance under s 41(4). No listed specific predicate adequately captures that permission without treating substantial identity as a prerequisite.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour's broad label encompasses the particular relevant circumstance of use of a non-substantially-identical mark.\",\n      \"passage_ref\": \"TMM/Part23/2/2/5\",\n      \"neighbour\": \"GC-0011\"\n    },\n    {\n      \"quote\": \"As such, any evidence of use must relate to use in Australia of the trade mark applied for or a substantially identical mark.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"Evidence of use requires substantial identity in every case.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"In its s 41(3) discussion, the Manual uses substantial identity to delimit acceptable evidence concerning a mark other than the mark applied for. This qualification is not a general restriction on all evidence under s 41, given the separate s 41(4) passage.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether qualifies adequately represents the alternative evidentiary routes of the applied-for mark and a substantially identical mark.\",\n      \"passage_ref\": \"TMM/Part23/5/5/2\",\n      \"neighbour\": \"GC-0101\"\n    },\n    {\n      \"quote\": \"Section 102 provides for circumstances where the challenged trade mark is substantially identical or deceptively similar to a registered trade mark owned by the applicant for removal\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"Substantial identity requires registration of both marks.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The Manual's account of s 102 expressly applies substantial identity as a comparison with a registered trade mark. This supports application of the test in that context, not a universal registration requirement.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether appliesTo should identify the comparison involving the registered mark rather than the registered mark alone.\",\n      \"passage_ref\": \"TMM/Part48/9#1\",\n      \"neighbour\": \"GC-0088\"\n    },\n    {\n      \"quote\": \"The two key enquiries under s 44 are whether the respective trade marks are substantially identical or deceptively similar, and whether the respective goods/services are similar or closely related.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Similarity of goods and services is a required element of substantial identity.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual connects mark comparison and goods/services comparison as separate enquiries under s 44. The passage does not define substantial identity by reference to similarity of goods and services.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a more specific predicate should capture the conjunction of separate s 44 enquiries.\",\n      \"passage_ref\": \"TMM/Part26/1#1\",\n      \"neighbour\": \"GC-0070\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "f4763c84c99c471db7fd42e2f1fd7a68549a644cc2b586cd64ef164508ae32f9",
+ "response_id": "resp_00cf182216936abe006ac606d2b96887d2af6ca256ba591416",
+ "seconds": 28.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4292,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4289
+  },
+  "output_tokens": 1135,
+  "output_tokens_details": {
+   "reasoning_tokens": 102
+  },
+  "total_tokens": 5427
+ }
+}

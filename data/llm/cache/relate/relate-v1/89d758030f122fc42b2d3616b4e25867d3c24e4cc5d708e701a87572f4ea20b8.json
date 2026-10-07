@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010368,
+ "created_utc": "2026-10-07T08:57:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0106",
+ "job": "relate",
+ "key": "89d758030f122fc42b2d3616b4e25867d3c24e4cc5d708e701a87572f4ea20b8",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Deferment of the acceptance date of the application can be sought on the basis that a citation raised against the application is in this status see (subparagraph 4.13(1)(c)(v) of the Regulations).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Renewal itself mayGiveRiseTo deferment of acceptance.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The Manual connects deferment with a cited registration's expired-but-renewable status. The connection is to the opportunity for renewal, rather than completed renewal, so a more specific causal predicate would overstate it.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether a connection through renewal-possible status is sufficient to relate these procedural steps.\",\n      \"passage_ref\": \"TMM/Part26/9#1\",\n      \"neighbour\": \"GC-0096\"\n    },\n    {\n      \"quote\": \"A trade mark registration may be renewed at ten year intervals dating from the original filing date of the application for registration.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"Filing date is merely related_to renewal.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual expressly uses the original filing date to determine the timing of renewal intervals. Filing date therefore qualifies renewal temporally.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether qualifies is the intended predicate for determining renewal timing.\",\n      \"passage_ref\": \"TMM/Part40/1#1\",\n      \"neighbour\": \"GC-0091\"\n    },\n    {\n      \"quote\": \"Madrid Protocol Article 7 Renewal of International Registration\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"The Madrid Protocol is only related_to renewal because the passage is an authority listing.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.8,\n      \"reasoning\": \"The authority listing supports application of the Madrid Protocol to renewal of international registrations. This does not establish that the Protocol applies to every form of registration renewal.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the authority heading alone sufficiently supports appliesTo rather than related_to.\",\n      \"passage_ref\": \"TMM/Part60/2/6/2/6/1\",\n      \"neighbour\": \"GC-0112\"\n    },\n    {\n      \"quote\": \"If a trade mark is within its 6 month grace period (as per section 79) in which the registration has expired however renewal may be requested, a claimed interest may be recorded in the database, however this will only be entered in the Register if the trade mark is renewed.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Renewal requiresElement the Register of Trade Marks.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual connects renewal with whether a claimed interest can be entered in the Register. The conditional requirement concerns entry of the interest, not the Register itself as an element of renewal.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the conditional entry restriction should instead be represented through a separate recording-of-interest concept.\",\n      \"passage_ref\": \"TMM/Part44/3#1\",\n      \"neighbour\": \"GC-0089\"\n    },\n    {\n      \"quote\": \"Any person may effect the renewal (subject to their making their request in an approved form, and upon payment of the correct fee). Renewal is not restricted to the owner of the trade mark (sections 75 and 77).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Renewal requiresElement participation by the registered owner.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly addresses the owner's role by stating that renewal is not restricted to the owner. None of the more specific predicates accurately expresses this non-exclusive entitlement.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology needs a dedicated predicate for an action not being restricted to a specified role.\",\n      \"passage_ref\": \"TMM/Part40/1#1\",\n      \"neighbour\": \"GC-0084\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "293e31af66e952036cfe720247bc271c8877685cdf1222ac7cb339601159fa6f",
+ "response_id": "resp_0052030754e28209006ac60950a4d887d2b0a38a338c4f5d2e",
+ "seconds": 28.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3307,
+  "input_tokens_details": {
+   "cache_write_tokens": 3304,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1247,
+  "output_tokens_details": {
+   "reasoning_tokens": 242
+  },
+  "total_tokens": 4554
+ }
+}

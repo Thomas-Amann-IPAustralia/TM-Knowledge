@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003193,
+ "created_utc": "2026-10-07T12:25:49Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0097",
+ "job": "judge",
+ "key": "ef9569f92fd1bac7a3dc26c07f9f80670e91774e28a6d8c0aad64199fcb8decf",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part17/1#1\",\"grade\":2},{\"ref\":\"TMM/Part60/4/16/4/16/2\",\"grade\":1},{\"ref\":\"TMM/Part15/3/3/2\",\"grade\":2},{\"ref\":\"TMM/Part15/3/3/3\",\"grade\":2},{\"ref\":\"TMM/Part15/3/3/1\",\"grade\":2},{\"ref\":\"TMM/Part16/1/1/3\",\"grade\":3},{\"ref\":\"TMM/Part17/3#1~3\",\"grade\":1},{\"ref\":\"TMM/Part38/2/2/3\",\"grade\":0},{\"ref\":\"TMM/Part15/3/3/8\",\"grade\":1},{\"ref\":\"TMM/Part15/6/6/3\",\"grade\":2},{\"ref\":\"TMM/Part16/1/1/5\",\"grade\":2},{\"ref\":\"TMM/Part15/3/3/4\",\"grade\":2},{\"ref\":\"TMM/Part16/1/1/2\",\"grade\":3},{\"ref\":\"TMM/Part17/4/4/3\",\"grade\":1},{\"ref\":\"TMM/Part47/3/3/3\",\"grade\":1},{\"ref\":\"TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1\",\"grade\":1},{\"ref\":\"TMM/Part49/2/2/3/3\",\"grade\":1},{\"ref\":\"TMM/Part15/3/3/7\",\"grade\":2},{\"ref\":\"TMM/Part16/1/1/1\",\"grade\":3},{\"ref\":\"TMM/Part15/3#1\",\"grade\":2}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "f266c792a582f564330b1e85f183ef27a6884283f969d0bb906f308dda81bc4d",
+ "response_id": "resp_09f227546e048495006ac63a315e1087d2898dcec869bca3cb",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3703,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3700
+  },
+  "output_tokens": 601,
+  "output_tokens_details": {
+   "reasoning_tokens": 209
+  },
+  "total_tokens": 4304
+ }
+}

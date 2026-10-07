@@ -422,25 +422,31 @@ def network(gold: Any, authored: Any) -> dict[str, Any]:
             }
         return ref
 
-    for record in gold["gold_relationship"]:
-        subject, obj = str(record["subject"]), str(record["object"])
-        for value in (subject, obj):
-            if value not in by_id:
-                provision_node(value)
-        if (subject in by_id or subject in provisions) and (obj in by_id or obj in provisions):
-            push(
-                subject,
-                obj,
-                "asserted",
-                origin="approved",
-                record=str(record["id"]),
-                predicate=str(record["predicate"]),
-                modality=record.get("modality"),
-                tier=record.get("tier"),
-                text=record.get("supporting_text"),
-                passage=record.get("source_ref"),
-                signed={"by": record.get("approved_by"), "date": record.get("approved_date")},
-            )
+    #    Since S023 the machine-written relationships too (ADR-0113), drawn with
+    #    `origin: authored` so the page can mark them unreviewed where they are
+    #    shown (ADR-0082). They are what joins the graph's pieces.
+    for origin, records in (("approved", gold["gold_relationship"]), ("authored", authored["gold_relationship"])):
+        for record in records:
+            subject, obj = str(record["subject"]), str(record["object"])
+            for value in (subject, obj):
+                if value not in by_id:
+                    provision_node(value)
+            if (subject in by_id or subject in provisions) and (obj in by_id or obj in provisions):
+                extra = ({"signed": {"by": record.get("approved_by"), "date": record.get("approved_date")}}
+                         if origin == "approved" else {"review": "unreviewed"})
+                push(
+                    subject,
+                    obj,
+                    "asserted",
+                    origin=origin,
+                    record=str(record["id"]),
+                    predicate=str(record["predicate"]),
+                    modality=record.get("modality"),
+                    tier=record.get("tier"),
+                    text=record.get("supporting_text"),
+                    passage=record.get("source_ref"),
+                    **extra,
+                )
 
     # 4 — every provision a concept names as its basis, at the address the
     # record uses. Never rolled up: `root` is an attribute, and the browser
@@ -499,7 +505,8 @@ def network(gold: Any, authored: Any) -> dict[str, Any]:
             "authored": sum(1 for view in views if view.origin == "authored"),
             "provisions": len(provisions),
             "edges": len(edges),
-            "signed_edges": sum(1 for edge in edges if edge["kind"] == "asserted"),
+            "signed_edges": sum(1 for e in edges if e["kind"] == "asserted" and e["origin"] == "approved"),
+            "authored_edges": sum(1 for e in edges if e["kind"] == "asserted" and e["origin"] == "authored"),
             "isolated": sum(1 for node in nodes if node["degree"] == 0),
             "islands": len(islands),
             "largest_island": islands[0] if islands else 0,

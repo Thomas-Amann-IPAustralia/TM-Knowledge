@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003845,
+ "created_utc": "2026-10-07T11:17:05Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0032",
+ "job": "relate",
+ "key": "54a5201cb9d90ef37dad8555d8700fa1eb3562e0aa8c811cfb3315c0accdc7fd",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"Treat the shared list of activities insufficient by themselves to constitute use in the course of trade as establishing a related_to relationship.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.99,\"reasoning\":\"The passage lists domain name registration and use of an A-frame board as separate activities; it does not connect those concepts. Further, the physical board mentioned does not clearly denote the process role named by the neighbour.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the neighbour ‘Board’ actually denotes the physical A-frame board rather than a process role.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0146\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"Treat domain name registration and product label design as related_to because they appear in the same list.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.99,\"reasoning\":\"The passage separately lists domain name registration and commissioning product label design as activities insufficient by themselves to constitute use in the course of trade. That shared context does not state or clearly support a relationship between a domain name and a label.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the shared evidentiary context is intended to count as a relationship between the concepts.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0140\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "064a7cad111f8eda5e615ceb059fefe98717778f68eaabd02d048879dc9eacd3",
+ "response_id": "resp_03ebeefafe3c5a8f006ac62a2027f087d29814645b7d0ea6c3",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1937,
+  "input_tokens_details": {
+   "cache_write_tokens": 1934,
+   "cached_tokens": 0
+  },
+  "output_tokens": 285,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 2222
+ }
+}

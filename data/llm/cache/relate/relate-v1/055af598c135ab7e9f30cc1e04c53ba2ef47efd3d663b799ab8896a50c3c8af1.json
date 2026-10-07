@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003074,
+ "created_utc": "2026-10-07T11:22:57Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0057",
+ "job": "relate",
+ "key": "055af598c135ab7e9f30cc1e04c53ba2ef47efd3d663b799ab8896a50c3c8af1",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"This requirement has the most impact in regard to sensory trade marks such as sound and scent trade marks because other kinds of signs are, by their very nature, graphical.\",\"relation\":\"appliesTo\",\"alternative\":\"The passage merely connects scent trade marks with graphical representation, without identifying the refusal ground as applicable to them.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.94,\"reasoning\":\"The Manual expressly identifies scent trade marks as particularly affected by the graphical representation requirement associated with section 40. This supports applicability of the ground, not a conclusion that scent trade marks necessarily fail that requirement.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether 'appliesTo' appropriately captures the stated impact of the requirement on scent trade marks.\",\"passage_ref\":\"TMM/Part21/5/5/1\",\"neighbour\":\"GC-0078\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"Infer that the refusal ground applies to signs when they constitute trade marks, from the general registrability requirement and the discussion of non-traditional signs.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.76,\"reasoning\":\"The legislation list merely lists both concepts. The substantive passage attaches the graphical representation requirement to trade marks and separately discusses descriptions of non-traditional signs; I am unsure that this supports a relationship to 'sign' generally without adding a qualification absent from the neighbour.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the reference to trade marks consisting of or containing non-traditional signs sufficiently supports a qualified applicability relationship to 'sign'.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0073\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "f0e4e55cb6067892c4e05a880ba28107fc94675e5e8727aabccf783da1d574ff",
+ "response_id": "resp_07a1d04a04f90738006ac62b73bcd887d2a50bf7ca1a367caa",
+ "seconds": 29.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2316,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2313
+  },
+  "output_tokens": 591,
+  "output_tokens_details": {
+   "reasoning_tokens": 239
+  },
+  "total_tokens": 2907
+ }
+}

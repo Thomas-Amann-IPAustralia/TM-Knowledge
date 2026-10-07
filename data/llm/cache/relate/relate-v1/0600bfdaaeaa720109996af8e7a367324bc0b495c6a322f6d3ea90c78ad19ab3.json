@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003155,
+ "created_utc": "2026-10-07T08:48:49Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0074",
+ "job": "relate",
+ "key": "0600bfdaaeaa720109996af8e7a367324bc0b495c6a322f6d3ea90c78ad19ab3",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"Part 21 Non-traditional signs - 7.1. Representations and descriptions of scent trade marks\",\"relation\":\"is_kind_of\",\"alternative\":\"The cross-reference merely connects scent trade marks with guidance on non-traditional signs, without establishing a classification.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.91,\"reasoning\":\"The Manual places guidance on scent trade marks within its treatment of non-traditional signs. This clearly supports the classification, although it is inferred from the cross-reference rather than expressly defined.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the cross-reference is sufficient to establish scent trade marks as a kind of non-traditional sign.\",\"passage_ref\":\"TMM/Part10/3/3/4/3\",\"neighbour\":\"GC-0078\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"Sound trade marks are a kind of non-traditional sign.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.98,\"reasoning\":\"The statutory definition includes sound as a sign but does not identify any signs as non-traditional. The proposed classification is therefore not supported by this passage alone.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether any classification as non-traditional can legitimately be inferred from this definition alone.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0077\"},{\"quote\":\"Applications for a series of trade marks that consist of non-traditional signs must be assessed on their merits, and should not be treated differently to traditional signs.\",\"relation\":\"extendsTo\",\"alternative\":\"The passage supports only a general association between series of trade marks and non-traditional signs.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.85,\"reasoning\":\"The Manual expressly extends assessment of series applications to trade marks consisting of non-traditional signs. This is examination practice, not a statement that every such series satisfies the statutory requirements.\",\"modality\":\"must\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether extendsTo appropriately captures the inclusion of non-traditional signs within series assessment rather than a broader entitlement to series registration.\",\"passage_ref\":\"TMM/Part13/4#1~1\",\"neighbour\":\"GC-0079\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "c24c1f29593ccc5967ebdadd006ddc78023f1ad599d16e86d1d25c9674257874",
+ "response_id": "resp_02e3101bb3f6e6c0006ac60754cb6887d28860c3a276738257",
+ "seconds": 29.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2449,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2446
+  },
+  "output_tokens": 606,
+  "output_tokens_details": {
+   "reasoning_tokens": 139
+  },
+  "total_tokens": 3055
+ }
+}

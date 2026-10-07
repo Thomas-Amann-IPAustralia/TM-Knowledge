@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013609,
+ "created_utc": "2026-10-07T12:26:45Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0098",
+ "job": "answer",
+ "key": "2d2c799695489755651cb0a636699bfde039ea9010088c1bc804851e9f636677",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0012\",\"GC-0044\",\"GC-0121\",\"GC-0124\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMR1995/r4.4\",\"quote\":\"(2) The expression ‘all goods’, ‘all services’, ‘all other goods’, or ‘all other services’ must not be used in an application for registration of a trade mark to specify the goods and/or services in respect of which registration is sought. (3) The goods and/or services must be grouped according to the appropriate classes described in Schedule 1. (4) The applicant must nominate the class number that is appropriate to the goods or services in each group.\"},{\"ref\":\"TMM/Part14/3#1~2\",\"quote\":\"Examiners must check that goods and services are adequately described and that they are, on the basis of the description supplied, correctly classified.\"},{\"ref\":\"TMM/Part10/5/5/2/1\",\"quote\":\"If, at the time of examination, the expression has not been deleted, the examiner will again require the expression to be deleted. Additional items within the class claimed may be entered in place of the prohibited terms.\"},{\"ref\":\"TMM/Part14/4/4/6/2\",\"quote\":\"If part or all of the specification is vague or unclear to the extent that it cannot be classified, the Examiner should request further information from the applicant. It should not be suggested to the applicant at this stage that they may be able to add a class or classes.\"},{\"ref\":\"TMM/Part14/4/4/6/2\",\"quote\":\"The request should be for further information in the form of information from the applicant's website, or trade brochures or pamphlets published by the applicant, which are directly relevant to the application (reg 4.4(7)).\"},{\"ref\":\"TMM/Part14/4/4/8/2~1\",\"quote\":\"The application could be extended to cover an additional class, because class 5 goods are specified and are intended to be covered by the application. The separation of the goods into the added class would not widen the specification.\"}],\"answer\":\"The supplied passages identify two separate matters to fix, rather than establish an outcome for your application:\\n\\n1. **Correct the classification of the specified goods.** The Regulations require goods and services to be grouped in their appropriate classes and the appropriate class numbers nominated. Manual practice requires examiners to check both the adequacy of the descriptions and their classification. [TMR1995/r4.4; TMM/Part14/3#1~2]\\n\\n2. **Delete the unqualified expression “all goods”.** The Regulations prohibit that expression. Under Manual practice, if it remains at examination, the examiner requires its deletion; additional items within the class claimed may be entered in its place. [TMR1995/r4.4; TMM/Part10/5/5/2/1]\\n\\n**If the description is too vague to classify**, Manual practice is to request further information—directly relevant material from your website, trade brochures or pamphlets—not to suggest adding classes at that stage. [TMM/Part14/4/4/6/2]\\n\\n**Adding a class is not automatic.** The Manual gives an example where an additional class can cover goods already specified and intended to be covered, because separating them into that class would not widen the specification. [TMM/Part14/4/4/8/2~1]\\n\\nWithout the actual goods descriptions, I cannot identify the correct class or say whether that additional-class example fits your specification.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "9db0a9cf4f6f3966c8311d08d02354f0094d51ba074398f337a0dad3323020cf",
+ "response_id": "resp_0eef74ec7b560da9006ac63a682e1487d2b2d4daa80d0052fd",
+ "seconds": 29.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7236,
+  "input_tokens_details": {
+   "cache_write_tokens": 7233,
+   "cached_tokens": 0
+  },
+  "output_tokens": 913,
+  "output_tokens_details": {
+   "reasoning_tokens": 136
+  },
+  "total_tokens": 8149
+ }
+}

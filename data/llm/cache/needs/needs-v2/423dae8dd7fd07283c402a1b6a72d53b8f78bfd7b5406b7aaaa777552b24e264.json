@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005835,
+ "created_utc": "2026-10-07T08:29:02Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-021",
+ "job": "needs",
+ "key": "423dae8dd7fd07283c402a1b6a72d53b8f78bfd7b5406b7aaaa777552b24e264",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must identify how letter-based trade marks are recorded for indexing, including single letters, groups of letters and acronyms. It should also explain when LTR, # and an equals-sign prefix are used so a searcher can tell letters used as letters from letters used as a word.\",\"search\":\"letters in a trade mark indexed as letters acronym single letter LTR # equals sign\",\"seed_refs\":[\"TMM/Part5/x-word-constituents/letters\"],\"kind\":\"lookup\",\"question\":\"How are single letters, letter groups and acronyms recorded in a trade mark search? \"},{\"narrative\":\"A helpful answer must explain the practical situation where goods carry a warning or prohibition notice and someone later buys or deals with them. It should also cover the role of the trade mark owner's notice, the buyer acting in trade, and the good faith exception for someone who did not know about the notice.\",\"search\":\"goods with prohibition notice bought in good faith trade mark\",\"seed_refs\":[\"TMM/Part60/1/1/2\"],\"kind\":\"problem\",\"question\":\"If goods have a prohibition notice on them and I buy them without knowing about it, can that still matter for the trade mark? \"},{\"narrative\":\"A helpful answer must bring together the rule about displaying a prohibition notice on goods and the broader point that infringement depends on use of a trade mark in trade. It should explain how those two ideas relate without assuming the outcome in any particular dispute.\",\"search\":\"use of trade mark and prohibition notice on goods infringement\",\"seed_refs\":[\"TMM/Part19B/4/4/3\",\"TMM/Part19A/1#1\"],\"kind\":\"cross_part\",\"question\":\"Does putting a prohibition notice on goods count as use of the trade mark for infringement purposes? \"},{\"narrative\":\"A helpful answer must explain who is affected by the opposition filing fee thresholds and what changes once the number of grounds or particularised trade marks goes over the limits. It should cover the filing fee consequences for the opponent, including the extra amount added for each item above the threshold.\",\"search\":\"opposition statement fee threshold extra grounds extra trade marks\",\"seed_refs\":[\"TMM/Part47/1/1/2/2\"],\"kind\":\"impact\",\"question\":\"Who has to pay extra when an opposition statement includes more grounds or more trade marks than the free limit? \"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "764d2aace6cea7fedd067974373ced38849f68ef9fdf9e6da7f1bf6423aa07a2",
+ "response_id": "resp_0f44469e44b6e02d006ac602c9151487d28580dd2193cf7272",
+ "seconds": 6.1,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1966,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 969,
+  "output_tokens_details": {
+   "reasoning_tokens": 233
+  },
+  "total_tokens": 2935
+ }
+}

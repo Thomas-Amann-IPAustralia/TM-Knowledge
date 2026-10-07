@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003305,
+ "created_utc": "2026-10-07T12:15:22Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0012",
+ "job": "judge",
+ "key": "09f854be0369060a54250a83d2b5e52095b9f5ad102a2c8fbc73a540a5c4a45b",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part29/5/5/4\",\"grade\":0},{\"ref\":\"TMM/Part32A/2/3/2-3-5-b-evidence-of-use\",\"grade\":2},{\"ref\":\"TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1\",\"grade\":2},{\"ref\":\"TMM/Part32A/2/3/2/3/1\",\"grade\":1},{\"ref\":\"TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/appendix-x-trade-designations~1\",\"grade\":2},{\"ref\":\"TMM/Part32A/1/1/3\",\"grade\":0},{\"ref\":\"TMM/Part32B/2/1/2/1/1\",\"grade\":0},{\"ref\":\"TMM/Part29/1/1/2\",\"grade\":1},{\"ref\":\"TMM/Part32A/2/4/2/4/1\",\"grade\":1},{\"ref\":\"TMM/Part32A/x-annex-5---case-law-summaries/wheatcroft-bros-ltd-s-trade-marks-1954-71-rpc-43\",\"grade\":1},{\"ref\":\"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\"grade\":2},{\"ref\":\"TMM/Part32A/2/3#1\",\"grade\":1},{\"ref\":\"TMM/Part32A/x-annex-5---case-law-summaries/ogen-trade-mark-1977-rpc-529\",\"grade\":1},{\"ref\":\"TMM/Part32A/2/4/2-4-3-b-examples-of-use\",\"grade\":3},{\"ref\":\"TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/article-13-trade-designations\",\"grade\":1},{\"ref\":\"TMM/Part29/5/5/5\",\"grade\":0},{\"ref\":\"TMM/Part32A/2/3/2-3-1-a-variety-names\",\"grade\":1},{\"ref\":\"TMM/Part22/27#1\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "8c1e26fac0caea06617faaa9e36c5e530b2547ab36e8236e8cbdb2e576645b09",
+ "response_id": "resp_06cb3a96f378bfb4006ac637bf259087d28ac87e459448d680",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5149,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 5146
+  },
+  "output_tokens": 609,
+  "output_tokens_details": {
+   "reasoning_tokens": 115
+  },
+  "total_tokens": 5758
+ }
+}

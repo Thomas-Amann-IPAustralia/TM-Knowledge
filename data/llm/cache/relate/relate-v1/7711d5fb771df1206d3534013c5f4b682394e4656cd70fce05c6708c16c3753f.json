@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003805,
+ "created_utc": "2026-10-07T11:22:25Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0043",
+ "job": "relate",
+ "key": "7711d5fb771df1206d3534013c5f4b682394e4656cd70fce05c6708c16c3753f",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Division 3 of Part 4 of the Act sets out a process whereby a trade mark applicant may file an application (divisional application) as a limited continuation of their current application (parent application) under certain circumstances.\",\n      \"relation\": \"same_concept\",\n      \"alternative\": \"related_to, if the anchor were intended to denote the parent application rather than the divisional application.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"Both records name a divisional application, which the Manual describes here as a limited continuation of a parent application. The passage distinguishes the parent application from the divisional application, so the anchor's parent application alias introduces some uncertainty.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the anchor's parent application alias incorrectly combines two distinct concepts.\",\n      \"passage_ref\": \"TMM/Part12/1#1\",\n      \"neighbour\": \"GC-0110\"\n    },\n    {\n      \"quote\": \"Note: Section 6 of the Act defines the filing date of a divisional application as the filing date of the parent application.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement, rejected because the passage defines the applicable filing date rather than stating a required element of a divisional application.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly reports that a divisional application's filing date is defined by reference to its parent's filing date. No listed specific predicate captures this date-attribution relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether related_to adequately represents the statutory date attribution reported by the Manual.\",\n      \"passage_ref\": \"TMM/Part22/1/1/2\",\n      \"neighbour\": \"GC-0091\"\n    },\n    {\n      \"quote\": \"The exceptions are trade mark registrations resulting from divisional applications for which the filing date and therefore the date of registration are taken to be the date on which the parent application was filed, and from applications which claim priority under subsection 29(b) on the basis of an application made in a Convention country.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none, rejected because the passage expressly connects registrations resulting from divisional applications with their attributed date of registration.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly links registrations resulting from divisional applications to a date of registration attributed by reference to the parent's filing date. No listed specific predicate captures that relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the relationship should attach to the resulting registration rather than directly to the divisional application.\",\n      \"passage_ref\": \"TMM/Part26/7#1~1\",\n      \"neighbour\": \"GC-0141\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "93dff1061bbc3741ffc3ff48c92259e58b7f4179b91c03c3fa881ed00b394276",
+ "response_id": "resp_0ebd376167f95d9e006ac62b5f080887d29d4a5bb73727fc03",
+ "seconds": 18.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2746,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2743
+  },
+  "output_tokens": 733,
+  "output_tokens_details": {
+   "reasoning_tokens": 59
+  },
+  "total_tokens": 3479
+ }
+}

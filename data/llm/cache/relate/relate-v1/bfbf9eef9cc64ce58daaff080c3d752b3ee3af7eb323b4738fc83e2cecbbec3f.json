@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003659,
+ "created_utc": "2026-10-07T11:15:25Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0019",
+ "job": "relate",
+ "key": "bfbf9eef9cc64ce58daaff080c3d752b3ee3af7eb323b4738fc83e2cecbbec3f",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"Only if there is a real and tangible danger that the consumer’s expectations may turn out to be false and result in confusion, would section 43 be triggered.\",\"relation\":\"related_to\",\"alternative\":\"Geographical origin itself qualifies the real and tangible danger threshold.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.83,\"reasoning\":\"The passage identifies geographical origin as a possible subject of deceptive connotation and then quotes a real and tangible danger threshold for section 43. This supports a connection, but does not establish that geographical origin itself modifies or states that threshold.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the quoted threshold for descriptive matter can properly be linked to geographical-origin connotations generally.\",\"passage_ref\":\"TMM/Part29/3#1~1\",\"neighbour\":\"GC-0008\"},{\"quote\":\"the kind, quality, quantity, intended purpose, value, geographical origin, or some other characteristic, of goods or services;\",\"relation\":\"appliesTo\",\"alternative\":\"No relationship, because the passage mentions services of a person only in a separate cross-reference.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.77,\"reasoning\":\"The reproduced statutory note expressly treats geographical origin as a characteristic of services as well as goods. Applying that statement to the defined concept ‘services of a person’ is inferred; the supplied passage does not reproduce the section 6 definition.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether ‘services of a person’ is sufficiently equivalent to the services addressed by the geographical-origin note.\",\"passage_ref\":\"TMM/Part22/x-annex-a1-section-41-prior-to-raising-the-bar#1~2\",\"neighbour\":\"GC-0152\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "08888e0a543aadaeb9e8367636cf477aca53e584bf4c9dc3295ef6977bacbe2e",
+ "response_id": "resp_0aa499dcafd043c1006ac629b1f7dc87d283d747ff90884543",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2625,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2622
+  },
+  "output_tokens": 705,
+  "output_tokens_details": {
+   "reasoning_tokens": 327
+  },
+  "total_tokens": 3330
+ }
+}

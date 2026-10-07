@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014233,
+ "created_utc": "2026-10-07T08:28:43Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-013",
+ "job": "needs",
+ "key": "69bc22030b9efd7395346b8c66e4550ee2f8aa815518a4e2cfd5721fb3b1900d",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must say how the Register will label a disclaimer that was asked for voluntarily under subsection 74(1). It should also make clear what that wording is meant to distinguish it from.\",\"search\":\"voluntary disclaimer wording on the Register\",\"seed_refs\":[\"TMM/Part24/2#1~2\"],\"kind\":\"lookup\",\"question\":\"How will a disclaimer be shown on the Register if it was requested voluntarily?\"},{\"narrative\":\"A helpful answer must explain that turnover and marketing figures are not always the only sensible evidence, and that the commercial realities of the business matter. It should also identify other kinds of figures that may be relevant when sales or promotional spend are not practical.\",\"search\":\"evidence other than sales figures charity website analytics\",\"seed_refs\":[\"TMM/Part23/4/4/1/1\"],\"kind\":\"problem\",\"question\":\"Can I rely on website stats or other figures instead of sales figures if my business does not have much turnover?\"},{\"narrative\":\"A helpful answer must cover both the effect of selling goods through wholesale or retail channels and the rule that this does not automatically make the goods closely related to wholesale or retail services. It should also explain when a narrowed specification and a divisional application affect the handling of convention claims.\",\"search\":\"wholesale retail goods closely related divisional priority claim\",\"seed_refs\":[\"TMM/Part26/4/4/3/1~1\",\"TMM/Part11/5/5/2/3\"],\"kind\":\"cross_part\",\"question\":\"If my goods are sold through wholesalers or shops and I later narrow the application into a divisional, do I still need to change the priority claim and are those goods automatically close to retail services?\"},{\"narrative\":\"A helpful answer must identify which kinds of Registrar decisions can be appealed to the Federal Court or the Federal Circuit and Family Court of Australia (Division 2). It should also say what the alternative route is if the Act does not give a statutory appeal right.\",\"search\":\"appeal registrar decisions court or judicial review\",\"seed_refs\":[\"TMM/Part52/5/5/1~1\"],\"kind\":\"impact\",\"question\":\"Which Registrar decisions can I take to court, and what happens if there is no appeal right in the Act?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "22ff7e4a4262af1cd1d4f09c0f968f168b0257fe9ddd2e17d2308fe17762e1b6",
+ "response_id": "resp_0d4fb3b0b70fe692006ac602b0025887d281a0457c466cef8e",
+ "seconds": 12.0,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1643,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 2889,
+  "output_tokens_details": {
+   "reasoning_tokens": 2753
+  },
+  "total_tokens": 4532
+ }
+}

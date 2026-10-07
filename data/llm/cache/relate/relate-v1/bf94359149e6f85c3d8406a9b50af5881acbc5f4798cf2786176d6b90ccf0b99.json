@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005928,
+ "created_utc": "2026-10-07T08:50:39Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0079",
+ "job": "relate",
+ "key": "bf94359149e6f85c3d8406a9b50af5881acbc5f4798cf2786176d6b90ccf0b99",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Under section 51 of the Act, a person may make a single application for a series of two or more trade marks if: the trade marks resemble each other in material particulars\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"statesThresholdFor, treating resemblance in material particulars as a threshold rather than a required element of a valid series.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual's account of section 51 expressly makes resemblance in material particulars a condition of a series application. This supports a required element, rather than merely an association.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether 'must' appropriately represents the necessary condition expressed through 'may ... if'.\",\n      \"passage_ref\": \"TMM/Part13/1#1\",\n      \"neighbour\": \"GC-0080\"\n    },\n    {\n      \"quote\": \"A divisional application may be made in respect of a series application, in accordance with the general divisional provisions.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"extendsTo, treating the passage as extending the divisional procedure's scope to series applications.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual expressly states that the divisional application procedure is available for a series application. This is an application of that procedure to series applications, subject to the general divisional provisions.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether appliesTo or extendsTo better represents the availability of a procedural application type.\",\n      \"passage_ref\": \"TMM/Part13/8#1\",\n      \"neighbour\": \"GC-0110\"\n    },\n    {\n      \"quote\": \"A divisional application may be made in respect of a series application, in accordance with the general divisional provisions.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"extendsTo, treating the passage as extending the divisional procedure's scope to series applications.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual expressly states that the divisional application procedure is available for a series application. The neighbour's additional label 'parent application' does not change the relationship supported for its primary concept, divisional application.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this neighbour represents divisional applications alone or also a distinct parent-application concept.\",\n      \"passage_ref\": \"TMM/Part13/8#1\",\n      \"neighbour\": \"GC-0043\"\n    },\n    {\n      \"quote\": \"Trade mark applications/registrations which are linked and have the same convention country priority claims will carry the convention claim on the “Parent”.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none, reading the quoted statement as concerning linked applications generally without sufficiently connecting it to series applications.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.76,\n      \"reasoning\": \"In the context of the Manual's discussion of linking series applications and registrations, the quoted sentence supports a connection to convention priority claims carried on the parent. This contextual inference is limited to linked series with the same claims; it does not equate series applications with convention applications.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the contextual linking statement sufficiently supports a relationship to series applications specifically.\",\n      \"passage_ref\": \"TMM/Part8/2#1~1\",\n      \"neighbour\": \"GC-0111\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "5537973c99236546c4823d9407f4241f82787629655958a16810cfb2720c5a4c",
+ "response_id": "resp_02b4c657b518d79a006ac607c2cee487d2b0501acf42d7d495",
+ "seconds": 29.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3807,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3804
+  },
+  "output_tokens": 1147,
+  "output_tokens_details": {
+   "reasoning_tokens": 308
+  },
+  "total_tokens": 4954
+ }
+}

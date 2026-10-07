@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008487,
+ "created_utc": "2026-10-07T11:34:50Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0115",
+ "job": "relate",
+ "key": "9c28fa25f67fe843d0d39e5e2870a63bfcdb8540b1564a79858465d77f8ee4fe",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"In opposition proceedings the Registrar has the power to award costs (s 221(1)) up to the limit in the official scale (Schedule 8 of the Regulations), or as is considered reasonable in the case of failure to file a summary of submissions (regs 21.13(1), 5.17(7), 9.20(6), 17A.34M(7) and 17A.48V(6)).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo: the passage describes a power in opposition proceedings, rather than allocating a matter to the Registrar.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly connects the Registrar with opposition proceedings through a power to award costs, citing legislative provisions. No listed specific predicate captures that procedural power.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the permission implicit in 'has the power' should receive modality may.\",\n      \"passage_ref\": \"TMM/Part51/7#1\",\n      \"neighbour\": \"GC-0102\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: infer a connection with the Register from the Registrar's registration functions.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The passages describe the Registrar's functions and acceptance or registration of trade marks, but do not identify the Register of Trade Marks as a record. Treating the verb 'register' as that record would require an unsupported inference.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether registration functions alone sufficiently support a relationship with the Register as an instrument or record.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0089\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: treat the neighbour's aliases 'amendment' and 'amendments' as encompassing amendment of an opposition notice.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"Both passages expressly concern amendment of a notice of intention to oppose, not amendment of an application. I am unsure whether the neighbour's broad aliases are intended to include that distinct procedural step.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether GC-0124 includes amendments to opposition notices despite its application-specific primary label.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0124\"\n    },\n    {\n      \"quote\": \"Review of a Registrar's decision not to extend time for the doing of a relevant act may be sought from the Administrative Review Tribunal (ART) (subsection 224(7)).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo: the passage identifies an available review forum, rather than allocating the Registrar or the Registrar's functions to the ART.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly connects the Registrar and the ART through review of a specified Registrar decision, citing subsection 224(7). None of the more specific listed predicates captures this review relationship between decision maker and tribunal.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a more specific review predicate is needed instead of related_to.\",\n      \"passage_ref\": \"TMM/Part15/7#1\",\n      \"neighbour\": \"GC-0134\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "68ba3aa80ebdbe246ea92355ac731a6086fab70a7879ba7315e46bab24c32c86",
+ "response_id": "resp_0ad85305cfda0cae006ac62e3d3ee887d2859f37c24f141d19",
+ "seconds": 29.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3178,
+  "input_tokens_details": {
+   "cache_write_tokens": 3175,
+   "cached_tokens": 0
+  },
+  "output_tokens": 903,
+  "output_tokens_details": {
+   "reasoning_tokens": 71
+  },
+  "total_tokens": 4081
+ }
+}

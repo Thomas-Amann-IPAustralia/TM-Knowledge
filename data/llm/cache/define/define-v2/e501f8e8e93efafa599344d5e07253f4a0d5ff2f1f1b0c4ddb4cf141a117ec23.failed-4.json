@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T11:12:53Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "plant variety",
+ "job": "define",
+ "key": "e501f8e8e93efafa599344d5e07253f4a0d5ff2f1f1b0c4ddb4cf141a117ec23",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "121ba8a9dbabc7252d5db887ea01a5659695efcd60cf3f7d81697d22a0c8a8bb",
+ "response_id": "resp_056da4d213d4734a006ac6292f0be487d296ab798c255277b3",
+ "seconds": 6.5,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

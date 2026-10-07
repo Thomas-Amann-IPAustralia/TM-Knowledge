@@ -1876,7 +1876,8 @@ tmkp:CQ-0007 a tmk:CompetencyQuestion ;
     tmk:askedBy "applicant" ;
     tmk:caveat "This is the highest-frequency false positive in the pilot area. An answer that lands anywhere in Part 29.3 is wrong in a way that reads entirely plausibly."@en-AU ;
     tmk:expectsBoundaryLabel "deceptively similar"@en-AU ;
-    tmk:expectsConcept tmkc:GC-0001 ;
+    tmk:expectsConcept tmkc:GC-0001,
+        tmkc:GC-0154 ;
     tmk:expectsConceptLabel "connotation"@en-AU,
         "deceptively similar"@en-AU ;
     tmk:goldRecord "CQ-0007" ;

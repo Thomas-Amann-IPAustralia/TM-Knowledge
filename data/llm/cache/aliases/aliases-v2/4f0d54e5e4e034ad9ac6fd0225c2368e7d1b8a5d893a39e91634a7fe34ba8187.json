@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007844,
+ "created_utc": "2026-10-07T08:28:29Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0025..GC-0036",
+ "job": "aliases",
+ "key": "4f0d54e5e4e034ad9ac6fd0225c2368e7d1b8a5d893a39e91634a7fe34ba8187",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0025\",\n      \"related_search_terms\": [\n        \"International Nonproprietary Names\",\n        \"INNs\",\n        \"INN stems\",\n        \"section 43\"\n      ],\n      \"everyday_phrases\": [\n        \"medicines\",\n        \"drug products\",\n        \"pet medicines\",\n        \"animal medicines\",\n        \"medicine brand\",\n        \"drug name\"\n      ]\n    },\n    {\n      \"id\": \"GC-0026\",\n      \"related_search_terms\": [\n        \"personal names\",\n        \"section 43\",\n        \"specified goods or services\"\n      ],\n      \"everyday_phrases\": [\n        \"famous person\",\n        \"famous name\",\n        \"public figure\",\n        \"celebrity name\",\n        \"using someone's name\",\n        \"famous group\"\n      ]\n    },\n    {\n      \"id\": \"GC-0027\",\n      \"related_search_terms\": [\n        \"historical figures\",\n        \"personal names\",\n        \"section 43\"\n      ],\n      \"everyday_phrases\": [\n        \"dead person's name\",\n        \"historical person's name\",\n        \"dead celebrity\",\n        \"famous person who died\",\n        \"using a historical name\"\n      ]\n    },\n    {\n      \"id\": \"GC-0028\",\n      \"related_search_terms\": [\n        \"consumer deception\",\n        \"consumer confusion\",\n        \"false endorsement\",\n        \"section 43\"\n      ],\n      \"everyday_phrases\": [\n        \"looks sponsored\",\n        \"suggests approval\",\n        \"celebrity backing\",\n        \"looks officially approved\",\n        \"suggests a connection\",\n        \"appears licensed\"\n      ]\n    },\n    {\n      \"id\": \"GC-0029\",\n      \"related_search_terms\": [\n        \"written consent\",\n        \"personal names\",\n        \"section 43\"\n      ],\n      \"everyday_phrases\": [\n        \"permission letter\",\n        \"signed permission\",\n        \"get permission\",\n        \"name owner's approval\",\n        \"permission in writing\",\n        \"allowed to use name\"\n      ]\n    },\n    {\n      \"id\": \"GC-0030\",\n      \"related_search_terms\": [\n        \"personal likeness\",\n        \"representation of a person\",\n        \"section 43\"\n      ],\n      \"everyday_phrases\": [\n        \"someone's face\",\n        \"person's picture\",\n        \"photo in logo\",\n        \"face in logo\",\n        \"drawing of someone\",\n        \"celebrity picture\"\n      ]\n    },\n    {\n      \"id\": \"GC-0031\",\n      \"related_search_terms\": [\n        \"alphanumeric telephone number\",\n        \"alphabetic phone number\",\n        \"phoneword ownership\",\n        \"section 43\"\n      ],\n      \"everyday_phrases\": [\n        \"phone number with letters\",\n        \"word phone number\",\n        \"letters instead of numbers\",\n        \"business phone number\",\n        \"number spelling a word\",\n        \"memorable phone number\"\n      ]\n    },\n    {\n      \"id\": \"GC-0032\",\n      \"related_search_terms\": [\n        \"domain registration\",\n        \"domain registrant\",\n        \"authorised domain user\",\n        \"section 43\"\n      ],\n      \"everyday_phrases\": [\n        \"website address\",\n        \"web address\",\n        \"website name\",\n        \"URL\",\n        \"website in logo\",\n        \"using someone else's domain\"\n      ]\n    },\n    {\n      \"id\": \"GC-0033\",\n      \"related_search_terms\": [\n        \"domain suffix\",\n        \"generic top-level domain\",\n        \"country-code top-level domain\",\n        \"domain extension\"\n      ],\n      \"everyday_phrases\": [\n        \"website ending\",\n        \"web address ending\",\n        \"dot com\",\n        \"dot au\",\n        \"dot something\",\n        \"ending after the dot\"\n      ]\n    },\n    {\n      \"id\": \"GC-0034\",\n      \"related_search_terms\": [\n        \"broadcasting services\",\n        \"Class 38\",\n        \"licensed operator\",\n        \"section 43\"\n      ],\n      \"everyday_phrases\": [\n        \"radio station identifier\",\n        \"station letters\",\n        \"radio station number\",\n        \"broadcast frequency\",\n        \"station frequency\",\n        \"radio channel number\"\n      ]\n    },\n    {\n      \"id\": \"GC-0035\",\n      \"related_search_terms\": [\n        \"domain registrant\",\n        \"authorised domain user\",\n        \"licensed operator\",\n        \"section 43\"\n      ],\n      \"everyday_phrases\": [\n        \"who owns the website\",\n        \"allowed to use domain\",\n        \"website owner's permission\",\n        \"registered website owner\",\n        \"permission to use website\"\n      ]\n    },\n    {\n      \"id\": \"GC-0036\",\n      \"related_search_terms\": [\n        \"plant variety denomination\",\n        \"plant materials\",\n        \"closely related genus\",\n        \"section 43\"\n      ],\n      \"everyday_phrases\": [\n        \"plant type name\",\n        \"name of a plant\",\n        \"flower variety\",\n        \"seed variety\",\n        \"plant breed name\",\n        \"same kind of plant\"\n      ]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "4db76d792878db6f9b12812b3ca3d9cb7e5d6d811c8066e513e1c26fa7ff3ee2",
+ "response_id": "resp_0a972963c20ba9e8006ac60291271887d292faf4122993d04f",
+ "seconds": 28.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1280,
+  "input_tokens_details": {
+   "cache_write_tokens": 1277,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1249,
+  "output_tokens_details": {
+   "reasoning_tokens": 145
+  },
+  "total_tokens": 2529
+ }
+}

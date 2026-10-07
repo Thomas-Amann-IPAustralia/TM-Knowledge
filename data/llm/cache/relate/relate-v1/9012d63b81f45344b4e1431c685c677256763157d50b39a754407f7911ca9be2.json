@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002973,
+ "created_utc": "2026-10-07T11:48:36Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0148",
+ "job": "relate",
+ "key": "9012d63b81f45344b4e1431c685c677256763157d50b39a754407f7911ca9be2",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The declaration must be from: you, if you are the applicant, OR a principal officer or other authorised employee of the company (e.g. a director) if the applicant is a company, OR someone you have authorised to make the declaration on your behalf (e.g. a lawyer or trade mark attorney).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement was rejected because a lawyer is only one possible authorised declarant, not a required participant.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual connects a lawyer to evidence of use by identifying an authorised lawyer as someone who can make the required declaration on the applicant's behalf. No listed specific predicate captures this declarant role.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the connection mediated through the declaration should be recorded directly between lawyer and evidence of use.\",\n      \"passage_ref\": \"TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2\",\n      \"neighbour\": \"GC-0101\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to was rejected because the passage describes authorised declarants and evidence requirements without connecting lawyers to surrounding circumstances.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The supplied passage identifies a lawyer as a possible authorised declarant, but does not state or clearly support a relationship between that role and surrounding circumstances.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether any wording in the supplied extract supports surrounding circumstances beyond the stated evidence requirements.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0011\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "dda01486fdd4e7b676690dc3214e04544b799df7ea5931bbca63271927a390f5",
+ "response_id": "resp_0482ebd12121d5c3006ac63182811c87d2a4022decb71c9199",
+ "seconds": 19.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2696,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2693
+  },
+  "output_tokens": 567,
+  "output_tokens_details": {
+   "reasoning_tokens": 108
+  },
+  "total_tokens": 3263
+ }
+}

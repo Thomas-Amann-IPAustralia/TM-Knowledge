@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00519,
+ "created_utc": "2026-10-07T12:21:21Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0057",
+ "job": "answer",
+ "key": "b52e2b9a993fa7ef4007be4532fd6b2ba036c6a30a0aa114f3832e80ece507e3",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0097\",\"GC-0102\",\"GC-0092\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part51/1/1/2\",\"quote\":\"Evidence in answer must be filed with IP Australia within 3 months from the day the Registrar gives the applicant all of the evidence in support and notifies the applicant that all evidence in support has been filed (regs 5.14(4), 9.16(4), 17A.34J(4), 17A.48R(4).\"},{\"ref\":\"TMA1995/s224\",\"quote\":\"(2) If, because of: (a) an error or omission by the person concerned or by his or her agent; or (b) circumstances beyond the control of the person concerned; a relevant act that is required by this Act to be done within a certain time is not, or cannot be, done within that time, the Registrar may, on application made by the person concerned in accordance with the regulations, extend the time for doing the act.\"},{\"ref\":\"TMA1995/s224\",\"quote\":\"(3) If: (a) a relevant act that a person is required by this Act to do within a certain time is not, or cannot be, done within that time; and (b) on application made by that person in accordance with the regulations, the Registrar is of the opinion that special circumstances exist that justify an extension of that time; the Registrar may extend the time for doing the act.\"},{\"ref\":\"TMM/Part51/4/4/1~1\",\"quote\":\"PLEASE NOTE: Suspension of the opposition proceedings is available (in certain circumstances) once the option of the (two 6 month) cooling-off provisions has been fully utilised, following the filing of a Notice of Intention to Oppose and a supporting Statement of Grounds and Particulars.\"},{\"ref\":\"TMM/Part51/4/4/1~1\",\"quote\":\"A direction may be made for the evidence stage of opposition proceedings to be temporarily suspended in order to give the parties the opportunity to conduct settlement negotiations without the need to apply and pay for successive extensions of the period within which to file evidence.\"}],\"answer\":\"The supplied passages do not establish the specific test for extending an opposition evidence deadline. I therefore cannot reliably tell you what you must show to obtain that extension.\\n\\n**Act — general extension provisions:** Section 224(2) provides for a discretionary extension where a relevant act cannot be, or was not, done in time because of the person's or their agent's error or omission, or circumstances beyond the person's control. Section 224(3) provides for a discretionary extension where the Registrar considers that special circumstances justify it. However, the supplied material does not establish whether those provisions apply to the opposition evidence deadline concerned; they should not be treated as the applicable evidence-extension test without further provisions. [TMA1995/s224]\\n\\n**Manual practice — evidence timetable:** The Manual states that evidence in answer is generally due within three months of the Registrar giving the applicant all evidence in support and notifying them that all of it has been filed. That passage gives a deadline, not the grounds for extending it. [TMM/Part51/1/1/2]\\n\\n**Manual practice — settlement alternative:** The Manual describes temporary suspension of the evidence stage to allow settlement negotiations, rather than successive evidence extensions. It states that suspension is available in certain circumstances after the two six-month cooling-off provisions have been fully utilised. The supplied excerpt does not contain the complete suspension criteria. [TMM/Part51/4/4/1~1]\\n\\nThe missing material is the applicable provision governing extensions of the opposition evidence period, together with the Manual's guidance on that provision.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "eb39175814825d41a986b4275f5cc25f9600b07fb96d5d305c46bc086bfd3beb",
+ "response_id": "resp_029ba84131e5329c006ac6392617f487d2941a5f680da29f5c",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8239,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 8236
+  },
+  "output_tokens": 955,
+  "output_tokens_details": {
+   "reasoning_tokens": 158
+  },
+  "total_tokens": 9194
+ }
+}

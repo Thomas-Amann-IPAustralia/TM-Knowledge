@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002901,
+ "created_utc": "2026-10-07T11:55:23Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0100",
+ "job": "relate",
+ "key": "187cb3f197ce3bb957ac5a65fd2030175867f8826b32ac82565367412bfa90fb",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to, if the neighbour is read as graphical representation generally rather than the refusal ground of inability to represent the mark graphically.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.78,\"reasoning\":\"The passages connect an endorsement with a suitable description and separately require adequate graphical representation. They do not state a relationship between endorsement and the refusal ground of inability to represent the trade mark graphically.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the alias ‘graphical representation’ makes this neighbour broader than its named refusal ground.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0057\"},{\"quote\":\"No reference is to be made to any additional goods or services in the endorsement that are included in the specification but for which no claim to a priority date has been made as the Australian filing date is the priority date for such goods and/or services.\",\"relation\":\"related_to\",\"alternative\":\"qualifies, treating the endorsement as qualifying the specification itself.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.94,\"reasoning\":\"The Manual expressly connects endorsement content with goods or services included in the specification, prohibiting reference to those for which no priority-date claim has been made. No listed specific predicate accurately captures this content restriction between the two records.\",\"modality\":\"must\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether a more specific predicate is intended to capture this restriction on endorsement content.\",\"passage_ref\":\"TMM/Part11/6/6/4\",\"neighbour\":\"GC-0129\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "b06609250205fc564bde56c22783eabff58f1cf5ca3ee879efbbd2367637f3e0",
+ "response_id": "resp_0acd0aa644dd3597006ac6330fbcbc87d29178fd000868cea2",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2173,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2170
+  },
+  "output_tokens": 558,
+  "output_tokens_details": {
+   "reasoning_tokens": 223
+  },
+  "total_tokens": 2731
+ }
+}

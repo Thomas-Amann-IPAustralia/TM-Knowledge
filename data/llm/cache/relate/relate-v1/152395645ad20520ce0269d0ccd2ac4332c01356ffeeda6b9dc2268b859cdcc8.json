@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003745,
+ "created_utc": "2026-10-07T11:55:10Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0093",
+ "job": "relate",
+ "key": "152395645ad20520ce0269d0ccd2ac4332c01356ffeeda6b9dc2268b859cdcc8",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"The presumption of registrability applies when the Registrar or their delegate is not satisfied that any grounds for rejecting a trade mark application exist. If this is the case, the application must be accepted for possible registration provided it is otherwise in accord with the Act and Regulations.\",\"relation\":\"qualifies\",\"alternative\":\"requiresElement: the passage does not establish the presumption as a necessary element of every acceptance.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.9,\"reasoning\":\"The Manual connects the circumstances in which the presumption applies with mandatory acceptance, subject to compliance with the Act and Regulations. This supports treating the presumption as qualifying acceptance rather than as an unconditional entitlement.\",\"modality\":\"must\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether qualifies adequately represents this conditional requirement to accept.\",\"passage_ref\":\"TMM/Part20/4/4/1\",\"neighbour\":\"GC-0118\"},{\"quote\":\"The legislation states that \\\"an application lapses if it is not accepted within the prescribed period or within that period as extended in accordance with the regulations\\\" (section 37).\",\"relation\":\"qualifies\",\"alternative\":\"doesNotGiveRiseTo: acceptance is not stated to prevent every form of lapse, and the other passage expressly recognises lapse after acceptance.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.83,\"reasoning\":\"The Manual's account of section 37 makes the absence of timely acceptance a condition for lapsing, supporting a qualifying relationship. This is limited to the acceptance deadline; the supplied passages also recognise lapsing after acceptance.\",\"modality\":\"must\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether qualifies can represent a condition expressed through the absence of timely acceptance.\",\"passage_ref\":\"TMM/Part16/1/1/1\",\"neighbour\":\"GC-0098\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"qualifies: the discussion of distinctiveness might affect acceptance in a broader examination context, but this passage does not establish that relationship.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.97,\"reasoning\":\"The passage discusses plant varietal names, genericness and distinctiveness, but does not connect them to procedural acceptance. Its references to accepted descriptions do not concern acceptance of an application.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether any statement about distinctiveness clearly supports a relationship to acceptance without additional passages.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0125\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "9cda2bb0f7acf2890fb9a7ef5c4c49573c352a16268eef8255dcc48bb8fa84bd",
+ "response_id": "resp_039be179cc1e88a9006ac6330246d887d2b9a756f501be4ae5",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2745,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2742
+  },
+  "output_tokens": 721,
+  "output_tokens_details": {
+   "reasoning_tokens": 202
+  },
+  "total_tokens": 3466
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006023,
+ "created_utc": "2026-10-07T11:19:44Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0044",
+ "job": "relate",
+ "key": "ff3794c1cd35cebda322559a766ef66d029b0a3bc75d73d0739771405bbed7e8",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Examiners should raise a ground for rejection under section 41 where a trade mark directly describes the potential subject matter of goods in class 9 and 16, or services in class 41.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo was rejected because the passage directs examiners to raise a ground, rather than allocating a matter to a statutory provision.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly connects examiners with raising grounds for rejection in the stated circumstances. No listed narrower predicate captures the examiner's act of raising a ground.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology has a narrower intended predicate for an examiner raising a ground for rejection.\",\n      \"passage_ref\": \"TMM/Part22/21#1\",\n      \"neighbour\": \"GC-0053\"\n    },\n    {\n      \"quote\": \"Such research where appropriate should be provided to an applicant where it underpins the ground for rejection raised by the examiner.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"constrainsExaminerTo was rejected because the ground itself is not presented as the source of the constraint on the examiner.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual explicitly identifies the examiner as raising the ground for rejection. Its accompanying direction concerns providing supporting research, rather than a narrower relationship between the examiner and the ground.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this record includes section 41 grounds, given its additional label 's 43 objection'.\",\n      \"passage_ref\": \"TMM/Part23/2/2/4\",\n      \"neighbour\": \"GC-0006\"\n    },\n    {\n      \"quote\": \"If, during the course of examination an examiner becomes aware that a registered trade mark, or an application for registration of a trade mark, that was previously in the name of the applicant (and therefore not a citation) has been assigned to a different person then a citation should be raised.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"is_kind_of was rejected because an examiner is a participant in examination, not a kind of examination.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual connects the examiner's awareness and consequent citation practice with the course of examination. None of the narrower listed predicates captures this role-to-process relationship.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a role-to-process relationship should instead be represented by a dedicated participation predicate.\",\n      \"passage_ref\": \"TMM/Part26/8/8/2\",\n      \"neighbour\": \"GC-0092\"\n    },\n    {\n      \"quote\": \"Examiners must ensure that they are considering the current marketplace when deciding whether a sign is likely to offend under section 43, remembering there will be signs in that marketplace which have kept their connotations over long periods of time.\",\n      \"relation\": \"constrainsExaminerTo\",\n      \"alternative\": \"related_to is the safer alternative if constrainsExaminerTo requires its subject to be a provision or rule rather than a mandatory relevant factor.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.78,\n      \"reasoning\": \"The Manual requires examiners to consider the current marketplace when assessing section 43. Treating that mandatory factor as constraining the examiner is an inferred relationship; the passage states Registrar practice, not an independent legislative command.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether constrainsExaminerTo permits a relevant factor as its subject and the examiner as its object.\",\n      \"passage_ref\": \"TMM/Part29/3/3/2\",\n      \"neighbour\": \"GC-0049\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "a927d2e26509129ede2ffd3615a797093a8c2f3ab4ae9a958c5b53755d645cef",
+ "response_id": "resp_03570223d0161c9b006ac62ab490bc87d28b7da2cd95c3d1f3",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3297,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3294
+  },
+  "output_tokens": 1171,
+  "output_tokens_details": {
+   "reasoning_tokens": 267
+  },
+  "total_tokens": 4468
+ }
+}

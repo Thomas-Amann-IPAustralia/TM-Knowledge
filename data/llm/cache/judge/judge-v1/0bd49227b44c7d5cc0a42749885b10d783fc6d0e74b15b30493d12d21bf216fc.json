@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006439,
+ "created_utc": "2026-10-07T12:28:45Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0012",
+ "job": "judge",
+ "key": "0bd49227b44c7d5cc0a42749885b10d783fc6d0e74b15b30493d12d21bf216fc",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part29/4#1\",\"grade\":1},{\"ref\":\"TMM/Part29/2/2/1~2\",\"grade\":1},{\"ref\":\"TMM/Part29/9/9/7\",\"grade\":1},{\"ref\":\"TMM/Part29/2/2/3\",\"grade\":1},{\"ref\":\"TMM/Part23/2/2/2/2\",\"grade\":0},{\"ref\":\"TMM/Part29/2/2/2\",\"grade\":2},{\"ref\":\"TMM/Part29/2/2/4\",\"grade\":1},{\"ref\":\"TMM/Part29/3#1~1\",\"grade\":2},{\"ref\":\"TMM/Part29/3/3/2\",\"grade\":1},{\"ref\":\"TMM/Part29/9/9/3~1\",\"grade\":2},{\"ref\":\"TMM/Part29/3/3/4\",\"grade\":1},{\"ref\":\"TMM/Part5/x-device-constituents/conventional-decorative-elements\",\"grade\":0},{\"ref\":\"TMM/Part29/3/3/5\",\"grade\":3},{\"ref\":\"TMM/Part29/3/3/1~2\",\"grade\":1},{\"ref\":\"TMM/Part29/9/9/3~2\",\"grade\":2},{\"ref\":\"TMM/Part29/2/2/1~1\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "e427db7b4050bd48c8066df663b1ec809886d3e2ce6c3790a34eb3538b555f16",
+ "response_id": "resp_02f19fede2589737006ac63ae9d68c87d29cdffae563194dfa",
+ "seconds": 20.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3556,
+  "input_tokens_details": {
+   "cache_write_tokens": 3553,
+   "cached_tokens": 0
+  },
+  "output_tokens": 399,
+  "output_tokens_details": {
+   "reasoning_tokens": 81
+  },
+  "total_tokens": 3955
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003229,
+ "created_utc": "2026-10-07T12:28:15Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0107",
+ "job": "answer",
+ "key": "4758abf26863d7cead4b364262be00e90959e0283546978d3a1ec68741058dc3",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0131\",\"GC-0116\",\"GC-0061\",\"GC-0153\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part2/3/2/3/6\",\"quote\":\"If a declaration is required to be filed with an application, notice or request, it should conform with the provisions of regs 21.6 and 21.7.\"},{\"ref\":\"TMM/Part2/3/2/3/6\",\"quote\":\"Under the provisions of reg 21.4, any application, notice or request that is required to be accompanied by a supporting declaration under the Act or Regulations, and is not so accompanied, may be taken as not having been filed until the declaration is provided.\"},{\"ref\":\"TMM/Part47/1/1/2/5~1\",\"quote\":\"That is, the particulars need to provide brief reasons why other traders, acting without improper motive, are likely to want to use the sign/trade mark.\"}],\"answer\":\"The supplied passages do not establish who must sign the supporting declaration or what it must say about other traders using the mark.\\n\\n**Manual practice:** Where a declaration is required, the Manual says it should conform with regulations 21.6 and 21.7. It also explains that, under regulation 21.4, an application requiring a supporting declaration may be treated as not filed until that declaration is provided [TMM/Part2/3/2/3/6]. Those Regulations are not reproduced here, so I cannot confirm their requirements from the supplied legislation.\\n\\n**Other traders:** The Manual’s requirement to give brief reasons why other traders, acting without improper motive, are likely to want to use the mark concerns section 41 opposition particulars—not the supporting declaration for an application [TMM/Part47/1/1/2/5~1]. It should not be treated as a declaration-content requirement.\\n\\nThe supplied Act excerpts do not answer either part of the question.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "d67d98eac9bdb595c021ca5a4574964bce3919631ea37a84991ee9bcad5392d0",
+ "response_id": "resp_049c677bcf4fa045006ac63ac197d487d2a9a4946288f0b336",
+ "seconds": 30.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7027,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7024
+  },
+  "output_tokens": 575,
+  "output_tokens_details": {
+   "reasoning_tokens": 144
+  },
+  "total_tokens": 7602
+ }
+}

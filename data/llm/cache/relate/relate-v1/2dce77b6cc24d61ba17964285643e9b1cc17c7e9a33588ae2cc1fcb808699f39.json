@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005519,
+ "created_utc": "2026-10-07T08:44:42Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0059",
+ "job": "relate",
+ "key": "2dce77b6cc24d61ba17964285643e9b1cc17c7e9a33588ae2cc1fcb808699f39",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Sounds which are functional or very commonplace are likely to be wanted and needed by other traders in the same field. They therefore have no inherent adaptation to distinguish.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"is_kind_of: treating no inherent adaptation as a subtype of inherent adaptation.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.82,\n      \"reasoning\": \"The Manual describes the absence of the anchor quality. This supports a relationship of absence, but the available predicates do not precisely express that relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether a zero degree of inherent adaptation should instead be modelled as a subtype of the legal test.\",\n      \"passage_ref\": \"TMM/Part21/6/6/2/4\",\n      \"neighbour\": \"GC-0120\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"same_concept: equating inherent capacity to distinguish with the broader capacity to distinguish.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"These passages discuss inherent capacity to distinguish, an alias of the anchor, but do not connect it to the broader capable-of-distinguishing test. They do not support treating those tests as identical.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether GC-0058 is intended to include inherent capacity despite the separate anchor record.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0058\"\n    },\n    {\n      \"quote\": \"[70] In accordance with the principles established in Mark Foy’s and restated in Clark Equipment, Faulding and Burger King, determining whether a trade mark is “inherently adapted to distinguish”, as required by s 41(3), requires consideration of the “ordinary signification” of the words proposed as trade marks to any person in Australia concerned with the goods to which the proposed trade mark is to be applied.\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"qualifies: treating ordinary signification merely as a factor affecting inherent adaptation.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The judicial extract reproduced in the Manual expressly requires consideration of ordinary signification when determining inherent adaptation. The required element is that consideration, not that the mark must possess an ordinary signification.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the relation needs an express scope restriction to trade marks consisting of words.\",\n      \"passage_ref\": \"TMM/Part22/3#1~5\",\n      \"neighbour\": \"GC-0060\"\n    },\n    {\n      \"quote\": \"This determination involves a two-part process: firstly, determining the ordinary signification of the trade mark in the light of the applied for goods and/or services; and secondly, determining the likelihood that other traders might legitimately wish to use the trade mark for that ordinary signification in connection with their similar goods or services.\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"qualifies: treating other traders' legitimate desire to use merely as a relevant consideration.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly identifies assessment of other traders' legitimate desire to use as the second part of determining inherent adaptation. This requires assessing the likelihood of that desire, not establishing that the desire exists.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the descriptive wording of the two-part process warrants must modality.\",\n      \"passage_ref\": \"TMM/Part22/3#1~1\",\n      \"neighbour\": \"GC-0061\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "d263ae27818806a00fd37c11ad27a590cfcf5926112f330c601e4e1e517261f7",
+ "response_id": "resp_0a4d58cef764f60c006ac6065d4f1887d2801ba70ac57507b9",
+ "seconds": 30.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3421,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3418
+  },
+  "output_tokens": 1069,
+  "output_tokens_details": {
+   "reasoning_tokens": 202
+  },
+  "total_tokens": 4490
+ }
+}

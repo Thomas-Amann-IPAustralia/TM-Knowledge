@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003325,
+ "created_utc": "2026-10-07T12:29:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0118",
+ "job": "answer",
+ "key": "9e019ac993d23ef56a5706e6d5cfc345b7e1e079227af4f56bb23bd3141a62e3",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0020\",\"GC-0072\",\"GC-0084\",\"GC-0088\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part10/1/1/1/1\",\"quote\":\"If a trading style or business name is included on the application in addition to the name of an applicant with legal personality (e.g. Joe Dover t/a Joe's Plumbing), those details will be entered on to the register, however it will have no bearing on the ownership of the trade mark right. The owner of the trade mark right ultimately is the legal entity in question, not the trading style or business name.\"},{\"ref\":\"TMM/Part41/1#1\",\"quote\":\"After cancellation, the owner no longer has the rights given by registration of the trade mark including the exclusive right to use or to authorise the use of the trade mark and the right to seek relief under this Act if the trade mark is infringed (section 20).\"},{\"ref\":\"TMA1995/s84(1)\",\"quote\":\"(1) The Registrar must cancel the registration of a trade mark in accordance with the regulations if the registered owner asks in writing that the registration be cancelled.\"}],\"answer\":\"No—not in the sense that the trading name itself owns the trade mark.\\n\\n• Manual practice: the owner is the legal entity, not its trading style or business name. Recording a trading name alongside the applicant’s legal name has no bearing on ownership. [TMM/Part10/1/1/1/1]\\n\\n• Manual practice: after cancellation, the owner no longer has the rights conferred by registration, including the exclusive right to use or authorise use and the right to seek relief under the Act for infringement. [TMM/Part41/1#1]\\n\\n• Act: section 84(1) requires the Registrar to cancel registration in accordance with the regulations when the registered owner requests cancellation in writing. It addresses cancellation of registration, rather than continued ownership of an unregistered trade mark. [TMA1995/s84(1)]\\n\\nThe supplied passages do not establish whether the legal entity retains any unregistered rights after cancellation. I therefore cannot conclude that cancellation extinguishes every possible right in the trade mark, or confirm continued ownership in a particular case.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b36490dba4f6f2e30d6fbbdfc74c3ecb034e4ca23aa31f11a5e71e7d71117f43",
+ "response_id": "resp_0376e244e93e279c006ac63afd876087d2920639b60842eaba",
+ "seconds": 28.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6737,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6734
+  },
+  "output_tokens": 597,
+  "output_tokens_details": {
+   "reasoning_tokens": 103
+  },
+  "total_tokens": 7334
+ }
+}

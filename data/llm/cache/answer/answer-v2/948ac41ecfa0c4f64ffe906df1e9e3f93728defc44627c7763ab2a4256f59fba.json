@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011598,
+ "created_utc": "2026-10-07T12:26:24Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0094",
+ "job": "answer",
+ "key": "948ac41ecfa0c4f64ffe906df1e9e3f93728defc44627c7763ab2a4256f59fba",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0066\",\"GC-0064\",\"GC-0001\",\"GC-0002\",\"GC-0041\"],\"decline_reason\":\"I cannot determine whether you can rely on honest concurrent use for your particular application. The supplied passages also do not set out the test for misleading connotations arising from the trade mark’s own meaning.\",\"declined\":true,\"citations\":[{\"ref\":\"TMA1995/s44(3)(a)\",\"quote\":\"(a) that there has been honest concurrent use of the 2 trade marks; or\"},{\"ref\":\"TMM/Part28/2#1\",\"quote\":\"In order to overcome grounds for rejection under ss 44(1) or 44(2) of the Act, an applicant may, under para 44(3)(a), file evidence to establish honest concurrent use of their trade mark in Australia.\"},{\"ref\":\"TMM/Part28/2#1\",\"quote\":\"the degree of confusion likely between the trade marks in question\"},{\"ref\":\"TMM/Part28/3#1\",\"quote\":\"The honesty of the use is a threshold requirement, without which s 44(3)(a) cannot be satisfied (‘Zip Co’, [42]).\"}],\"answer\":\"Honest concurrent use is not shown by these extracts to cure a misleading meaning in the trade mark itself. I cannot determine whether your particular application could rely on it.\\n\\n• Act: section 44(3)(a) refers to honest concurrent use “of the 2 trade marks”. The supplied statutory fragment does not address misleading connotations arising from a mark’s own meaning [TMA1995/s44(3)(a)].\\n\\n• Manual practice: honest concurrent use evidence is a route to overcoming grounds for rejection under sections 44(1) or 44(2)—conflict with another trade mark. The listed considerations include the degree of confusion likely between the marks. Honesty is a threshold requirement, not the whole assessment [TMM/Part28/2#1; TMM/Part28/3#1].\\n\\nThe distinction is therefore between confusion involving competing marks and deception or confusion arising from your mark’s own meaning. These passages explain the former route, but do not supply the test or exceptions for the latter. In particular, no section 43 passage is supplied, so I cannot give a complete, source-supported answer about that separate issue.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "2fb3bf4e7477b030bfa8015409b816240f5811a704d45a3c5fa48551034edc15",
+ "response_id": "resp_01562e5b8f011ae2006ac63a556eb087d290e10ef19f6a35b4",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6915,
+  "input_tokens_details": {
+   "cache_write_tokens": 6912,
+   "cached_tokens": 0
+  },
+  "output_tokens": 591,
+  "output_tokens_details": {
+   "reasoning_tokens": 82
+  },
+  "total_tokens": 7506
+ }
+}

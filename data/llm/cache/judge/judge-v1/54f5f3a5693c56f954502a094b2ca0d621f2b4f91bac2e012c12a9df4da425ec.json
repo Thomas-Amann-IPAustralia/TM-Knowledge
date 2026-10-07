@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006762,
+ "created_utc": "2026-10-07T12:16:30Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0025",
+ "job": "judge",
+ "key": "54f5f3a5693c56f954502a094b2ca0d621f2b4f91bac2e012c12a9df4da425ec",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part5/x-device-constituents/borders-frames\",\"grade\":0},{\"ref\":\"TMM/Part32B/2/3/2/3/7\",\"grade\":0},{\"ref\":\"TMM/Part14/4/4/3/1\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/7\",\"grade\":1},{\"ref\":\"TMM/Part5/x-device-constituents/conventions-used-in-device-phrases\",\"grade\":0},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\",\"grade\":3},{\"ref\":\"TMM/Part5/x-device-constituents/types-of-terms-descriptors~2\",\"grade\":0},{\"ref\":\"TMM/Part5/x-device-constituents/types-of-terms-descriptors~1\",\"grade\":0},{\"ref\":\"TMM/Part14/4/4/3/2\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/8/1\",\"grade\":1},{\"ref\":\"TMM/Part22/25/25/6\",\"grade\":0},{\"ref\":\"TMM/Part14/6/6/2/4\",\"grade\":1},{\"ref\":\"TMM/Part22/7/22/7/10\",\"grade\":0},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/portfolios\",\"grade\":1},{\"ref\":\"TMM/Part38/2/2/2\",\"grade\":0}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "4c1de49b7b41be5d1a959a1dc1b647cb2411de81bd3911501aedf861289cd4b3",
+ "response_id": "resp_0c00205dcb328978006ac6380c4e9c87d281a62a4300230a0d",
+ "seconds": 18.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3338,
+  "input_tokens_details": {
+   "cache_write_tokens": 3335,
+   "cached_tokens": 0
+  },
+  "output_tokens": 518,
+  "output_tokens_details": {
+   "reasoning_tokens": 162
+  },
+  "total_tokens": 3856
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007716,
+ "created_utc": "2026-10-07T12:19:26Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0050",
+ "job": "judge",
+ "key": "456a2f3cd51b2ab2b057f4116845199b1fc64bcca8906e12d365443422498457",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part23/x-annex-a7---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-413---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2\",\"grade\":1},{\"ref\":\"TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2\",\"grade\":1},{\"ref\":\"TMM/Part23/4/4/5\",\"grade\":2},{\"ref\":\"TMM/Part23/x-annex-a1-information-for-applicants-on-the-preparation-and-presentation-of-a-declaration-including-model-layout#1\",\"grade\":1},{\"ref\":\"TMM/Part23/4/4/1/1\",\"grade\":3},{\"ref\":\"TMM/Part23/4/4/1~2\",\"grade\":2},{\"ref\":\"TMM/Part23/4/4/1/2\",\"grade\":1},{\"ref\":\"TMM/Part23/x-annex-a2---model-layout-for-statutory-declaration-affidavit#1\",\"grade\":1},{\"ref\":\"TMM/Part46/4/4/5/1\",\"grade\":2},{\"ref\":\"TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~3\",\"grade\":1},{\"ref\":\"TMM/Part5/x-device-constituents/types-of-terms-descriptors~2\",\"grade\":0},{\"ref\":\"TMM/Part23/3/3/4~1\",\"grade\":1},{\"ref\":\"TMM/Part23/4/4/1~1\",\"grade\":2},{\"ref\":\"TMM/Part23/3/3/4~2\",\"grade\":2},{\"ref\":\"TMM/Part38/2/2/2\",\"grade\":0}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "f2215b2ddeda954785960b809fad1c631924963fbd7be3c21d130c5411095830",
+ "response_id": "resp_08749089fb1d3f72006ac638ba377487d2bb9f8831272d695c",
+ "seconds": 20.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3833,
+  "input_tokens_details": {
+   "cache_write_tokens": 3830,
+   "cached_tokens": 0
+  },
+  "output_tokens": 585,
+  "output_tokens_details": {
+   "reasoning_tokens": 133
+  },
+  "total_tokens": 4418
+ }
+}

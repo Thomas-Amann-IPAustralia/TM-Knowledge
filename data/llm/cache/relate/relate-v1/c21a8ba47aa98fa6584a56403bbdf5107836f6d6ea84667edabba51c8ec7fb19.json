@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003218,
+ "created_utc": "2026-10-07T11:22:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0055",
+ "job": "relate",
+ "key": "c21a8ba47aa98fa6584a56403bbdf5107836f6d6ea84667edabba51c8ec7fb19",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to, on the basis that the Manual describes common indexing and search arrangements for prohibited and prescribed signs.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.93,\"reasoning\":\"The passage describes shared administrative treatment of prohibited and prescribed signs, but does not state that either category includes, qualifies or otherwise relates to the other. Their joint mention does not establish a relationship between the concepts.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether shared indexing and search arrangements should count as related_to rather than mere co-mention.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0054\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "f8a051706ac9d96af057bb5d6c77bec42b39b2b1547f177b8d84ef003db0aa5b",
+ "response_id": "resp_0cf01b2b5041e0cd006ac62b52732087d296a1b9a0205668c6",
+ "seconds": 19.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1643,
+  "input_tokens_details": {
+   "cache_write_tokens": 1640,
+   "cached_tokens": 0
+  },
+  "output_tokens": 233,
+  "output_tokens_details": {
+   "reasoning_tokens": 85
+  },
+  "total_tokens": 1876
+ }
+}

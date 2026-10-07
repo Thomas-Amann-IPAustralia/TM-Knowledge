@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007865,
+ "created_utc": "2026-10-07T07:19:06Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-001",
+ "job": "needs",
+ "key": "48db5770d63d072b21a97b0fd02de0328c7938c68d402b467861ae487cd544cb",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"The answer should identify which legislative provisions are relevant to applying for a collective trade mark, including the Act provisions and the regulation dealing with collective trade marks. It should also indicate the sections listed as the surrounding legislative framework for that topic.\",\"search\":\"collective trade mark application sections and regulations\",\"seed_refs\":[\"TMM/Part33/x-relevant-legislation27#1\"],\"kind\":\"lookup\",\"question\":\"Which Act sections and regulations do I need to check for a collective trade mark application?\"},{\"narrative\":\"The answer should explain when the Registrar can require a person to produce documents or articles for a trade marks matter, and that the material must be for the purposes of the Act and relevant to the proceedings. It should also cover the limit that the request must not really be a discovery request in disguise.\",\"search\":\"registrar ask for documents in trade mark matter\",\"seed_refs\":[\"TMM/Part54/3#1\"],\"kind\":\"problem\",\"question\":\"Can the Registrar make me hand over documents in a trade marks dispute, and when does that go too far?\"},{\"narrative\":\"The answer should connect the relationship between goods and services that are closely related with the ability to restrict a specification or add an endorsement to avoid deception or confusion. It should cover both the test for closeness and the practical use of a restriction to manage confusion risk.\",\"search\":\"closely related goods services and restricting specification to avoid confusion\",\"seed_refs\":[\"TMM/Part26/4/4/3~1\",\"TMM/Part14/6/6/4/4\"],\"kind\":\"cross_part\",\"question\":\"If goods and services are closely related, can the specification be restricted to stop confusion?\"},{\"narrative\":\"The answer should explain who is affected when a goods or services specification is unrealistically broad, and what change may be required of the applicant. It should cover the declaration of intention to use on all the specified goods or services, or amending the specification to match the actual range used or intended to be used.\",\"search\":\"too broad goods list declaration amend specification\",\"seed_refs\":[\"TMM/Part14/6/6/6\"],\"kind\":\"impact\",\"question\":\"If my goods list is too broad, what do I have to change or confirm?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "016f398840f3cd127a7a75b501a798297178f4520f9ea603a1fb3fd48b4ffd3a",
+ "response_id": "resp_09b87e6748125834006ac5f2601aa887d28b330717c537d779",
+ "seconds": 11.4,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1427,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1510,
+  "output_tokens_details": {
+   "reasoning_tokens": 516
+  },
+  "total_tokens": 2937
+ }
+}

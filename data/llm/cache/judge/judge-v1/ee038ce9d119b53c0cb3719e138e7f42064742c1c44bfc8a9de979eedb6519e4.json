@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002809,
+ "created_utc": "2026-10-07T12:28:01Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0084",
+ "job": "judge",
+ "key": "ee038ce9d119b53c0cb3719e138e7f42064742c1c44bfc8a9de979eedb6519e4",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mousse\",\"grade\":0},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mousses\",\"grade\":0},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/investigations\",\"grade\":0},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/ginger\",\"grade\":0},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings\",\"grade\":3},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/trim\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/laminate\",\"grade\":0},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/truffles\",\"grade\":0},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/chambers\",\"grade\":0},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/moulds\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification#1\",\"grade\":2},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/molds\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/glasses\",\"grade\":0},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/moldings\",\"grade\":3}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "9af5881bbbd1b39a3ec94427ee2b976ecf70930d14e4693f41762c96fc51955e",
+ "response_id": "resp_085881d165eb4f23006ac63ac043b887d286ff147fab7efea8",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1529,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1526
+  },
+  "output_tokens": 546,
+  "output_tokens_details": {
+   "reasoning_tokens": 75
+  },
+  "total_tokens": 2075
+ }
+}

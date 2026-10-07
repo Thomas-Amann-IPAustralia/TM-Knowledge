@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011005,
+ "created_utc": "2026-10-07T11:55:11Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0163",
+ "job": "relate",
+ "key": "b70b960de839761dc57bc14643905a89c59366079cff190b27c17dc31acbb214",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Section 240 Matters pending immediately before repeal of repealed Act - Applications, notices etc - general\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none: treating the section heading as mere co-occurrence rather than a temporal connection.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual's section listing expressly connects pending matters with the time immediately before repeal of the repealed Act. The heading does not supply the substantive transitional rule.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the record 'pending' denotes the transitional status identified in this heading.\",\n      \"passage_ref\": \"TMM/Part2/1/trade-marks-act-1995\",\n      \"neighbour\": \"GC-0155\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: inferring a connection from the concepts' inclusion in statutory definitions.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The supplied extract defines Commission but does not mention the repealed Act or connect it with the Commission. A shared definitions provision would not itself establish a relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether omitted text contains an express connection with the repealed Act.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0133\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: assuming that a prescribed court has a role under the repealed Act.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"Neither prescribed court nor the repealed Act appears in the supplied, truncated extract. It provides no support for a relationship between them.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the omitted definitions supply a connection between these concepts.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0139\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: inferring a historical connection between wine origin requirements and the repealed Act.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The supplied extract contains neither the wine-origin concept nor the repealed Act. No relationship can be grounded in this text.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether omitted text expressly links wine origin to the repealed Act.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0145\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: assuming continuity of the services concept between the current and repealed Acts.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The supplied extract does not mention services of a person or the repealed Act. Any historical connection would require additional source text.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether omitted text establishes a historical relationship for this services concept.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0152\"\n    },\n    {\n      \"quote\": \"In this situation, an amendment to the specification of the conflicting application or registration would also be required to differentiate the goods.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement: treating the repealed Act itself as requiring a specification amendment.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.78,\n      \"reasoning\": \"The Manual connects specification amendment with conflicting all-goods specifications, which its accompanying note says may survive in registrations entered under the repealed Act. This supports an indirect relationship, not a requirement imposed by the repealed Act itself.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether this contextual connection is sufficient for a direct ontology edge to the repealed Act.\",\n      \"passage_ref\": \"TMM/Part27/3/3/2/3\",\n      \"neighbour\": \"GC-0015\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: interpreting the ordinary verb 'stem' as a reference to an INN stem.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The passage discusses colour trade marks accepted under the repealed Act, not INN stems. Its use of 'stem' means arise from and does not name the neighbour concept.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the neighbour was retrieved solely because of the ordinary verb 'stem'.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0023\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "8f4a6bd322b2e84ed1c1c301b6ec2cd79d0152189b2c9409b225b6505571907c",
+ "response_id": "resp_0129763bfb122e6c006ac63302bfac87d29438ca7ee03ae7b3",
+ "seconds": 29.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3849,
+  "input_tokens_details": {
+   "cache_write_tokens": 3846,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1239,
+  "output_tokens_details": {
+   "reasoning_tokens": 88
+  },
+  "total_tokens": 5088
+ }
+}

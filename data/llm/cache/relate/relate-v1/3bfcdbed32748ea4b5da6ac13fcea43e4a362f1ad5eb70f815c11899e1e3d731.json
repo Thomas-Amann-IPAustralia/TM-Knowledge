@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006454,
+ "created_utc": "2026-10-07T11:34:00Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0161",
+ "job": "relate",
+ "key": "3bfcdbed32748ea4b5da6ac13fcea43e4a362f1ad5eb70f815c11899e1e3d731",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"After the international registration is recorded in the International Register by the IB, the IB sends the Certificate of Registration to the applicant who is then known as the holder.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"is_kind_of: an international registration is not a kind of International Register.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The Manual expressly describes the international registration as being recorded in the International Register. No listed predicate specifically captures this recording relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology has a more specific predicate for being recorded in a register.\",\n      \"passage_ref\": \"TMM/Part60/2/4/2/4/3~2\",\n      \"neighbour\": \"GC-0150\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, based on treating references to national offices as an implicit connection to the Australian Register.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"These passages describe the International Register and national examination processes, but do not identify the Register of Trade Marks or connect the two registers. A relationship would require material beyond the passages provided.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether any reference in these passages actually denotes the Australian Register rather than a national office or registration.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0089\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, through the connection between receipt of a subsequent-designation request at the holder's national or regional office and its recording date.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.85,\n      \"reasoning\": \"The passage connects receipt at an office with the effective date of a subsequent designation, not the Contracting Party of the holder itself with the International Register. I am unsure whether that indirect procedural connection is intended to qualify as an ontology relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the indirect connection through the Contracting Party's office is sufficient for related_to.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0149\"\n    },\n    {\n      \"quote\": \"After the international registration is recorded in the International Register by the IB, the IB sends the Certificate of Registration to the applicant who is then known as the holder.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"mayGiveRiseTo: recording is described as preceding the holder designation, but the passage does not expressly make the Register itself the cause of that status.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"The Manual links the applicant's designation as holder to the sequence following recording in the International Register. The relationship to the Register is indirect, so I infer only a general connection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the holder's connection should instead be modelled solely through the international registration.\",\n      \"passage_ref\": \"TMM/Part60/2/4/2/4/3~2\",\n      \"neighbour\": \"GC-0132\"\n    },\n    {\n      \"quote\": \"In practice, where an IRDA contains the © or the ® symbol a ground for rejection will not be raised under section 39(2). This is because Australia has an obligation to protect trade marks as they are recorded on the International Register.\",\n      \"relation\": \"dependsOnExternalSource\",\n      \"alternative\": \"related_to, capturing only the recording of Australian protection limitations in the International Register.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual explains its examination practice for IRDAs by reference to the representation recorded in the International Register, supporting a dependency on that external record. This is the Manual's account of practice and an obligation, not an independently established legislative rule.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether dependsOnExternalSource appropriately applies to the IRDA itself rather than to the examination practice concerning its representation.\",\n      \"passage_ref\": \"TMM/Part60/4/7/4/7/3\",\n      \"neighbour\": \"GC-0113\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "0bb00c491853730393361207a1f7e0c65cd687fc62af95d146ff217c2fefeb60",
+ "response_id": "resp_06d033d9f4c00627006ac62e0d660c87d2864f221e29b2c39e",
+ "seconds": 28.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4328,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4325
+  },
+  "output_tokens": 1247,
+  "output_tokens_details": {
+   "reasoning_tokens": 226
+  },
+  "total_tokens": 5575
+ }
+}

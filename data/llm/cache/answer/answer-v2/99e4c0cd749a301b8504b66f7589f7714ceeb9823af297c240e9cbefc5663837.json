@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011554,
+ "created_utc": "2026-10-07T12:28:30Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0114",
+ "job": "answer",
+ "key": "99e4c0cd749a301b8504b66f7589f7714ceeb9823af297c240e9cbefc5663837",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0001\",\"GC-0002\",\"GC-0006\",\"GC-0012\",\"GC-0014\",\"GC-0015\",\"GC-0019\",\"GC-0072\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part20/5/5/5/2\",\"quote\":\"In many instances a ground for rejecting an application under section 43 can be overcome by restricting the specification of goods and services so that the application only covers goods for which the connotation in the trade mark is not deceptive or confusing.\"},{\"ref\":\"TMM/Part29/9/9/2\",\"quote\":\"The risk of deception can be mitigated by a suitably specific endorsement or an amendment or limitation to the specification of goods or services.\"},{\"ref\":\"TMM/Part20/5/5/5/2\",\"quote\":\"Where the trade mark contains or consists of a name or representation which is likely to lead the purchaser to the conclusion that there is a connection between a particular person or organisation and the goods or services bearing the trade mark, evidence that there is such a connection would usually be sufficient to overcome the ground for rejection.\"},{\"ref\":\"TMM/Part29/3#1~1\",\"quote\":\"However, the mere presence within a trade mark of a person's name, a descriptive term, a geographical place name or a reference to the size of packages or intended use of a product does not automatically demonstrate a connotation sufficient to trigger section 43.\"}],\"answer\":\"Yes—narrowing the goods list can overcome a section 43 objection, but it is not an automatic cure.\\n\\n**Act:** Section 43 requires rejection where a connotation of the mark makes its use in relation to the particular goods or services likely to deceive or cause confusion [TMA1995/s43].\\n\\n**Manual practice:** In many instances, restricting the specification can overcome that objection if the remaining goods are ones for which the connotation is not deceptive or confusing. The restriction must therefore address the misleading connotation, rather than merely shorten the list [TMM/Part20/5/5/5/2].\\n\\n• **Geographical origin:** For an explicit geographical claim about the goods, the Manual says a suitably specific endorsement or an amendment or limitation to the specification can mitigate the risk of deception [TMM/Part29/9/9/2].\\n• **Connection with a person or organisation:** The Manual also identifies evidence of an actual connection as usually sufficient to overcome the objection arising from a name or representation suggesting that connection [TMM/Part20/5/5/5/2].\\n\\nA name or place name alone does not automatically establish a section 43 connotation [TMM/Part29/3#1~1]. These passages support possible ways to address the objection; they do not establish that any particular proposed restriction would succeed.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "882f4d7d2e7a1e00f994589929af113f4a27854e8a071735c9068c5fbe70e90b",
+ "response_id": "resp_0dd4c201b8f40f15006ac63add610887d2a7f70abfa327d108",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6492,
+  "input_tokens_details": {
+   "cache_write_tokens": 6489,
+   "cached_tokens": 0
+  },
+  "output_tokens": 688,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7180
+ }
+}

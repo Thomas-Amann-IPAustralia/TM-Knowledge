@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006228,
+ "created_utc": "2026-10-07T08:33:31Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0013",
+ "job": "relate",
+ "key": "2326dd6fcdde02267c1b53f0ff281858e78e02afe742164f162266ce57bcd549",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"The rights of the owner of a registered trade mark are limited by any conditions or limitations that apply to the registration (subsection 20(4)).\",\"relation\":\"is_kind_of\",\"alternative\":\"same_concept: the anchor's aliases overlap with the neighbour, but conditions or limitations appears to be a broader category.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.79,\"reasoning\":\"The Manual identifies conditions or limitations applying to registration as a category encompassing a condition of registration. This supports inclusion rather than establishing that conditions and limitations are identical concepts.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether these records intentionally name one concept rather than a narrower condition and a broader category.\",\"passage_ref\":\"TMM/Part19B/2#1\",\"neighbour\":\"GC-0069\"},{\"quote\":\"agree to an appropriate endorsement as a condition of registration, and would therefore not require consent from the Minister of Defence.\",\"relation\":\"is_kind_of\",\"alternative\":\"same_concept: the passage treats an appropriate endorsement as a condition in this context, but does not equate all endorsements with conditions of registration.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.86,\"reasoning\":\"The Manual expressly describes an appropriate endorsement as a condition of registration in this context. The classification is supported for the endorsement described, not necessarily for every endorsement.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the contextual classification can safely be attached to the general endorsement concept.\",\"passage_ref\":\"TMM/Part30/3/3/5~5\",\"neighbour\":\"GC-0100\"},{\"quote\":\"An applicant will be able to overcome a geographical section 43 objection by agreeing to a condition of registration or a specification amendment which removes the likelihood of consumers being deceived or confused.\",\"relation\":\"related_to\",\"alternative\":\"qualifies: the passage does not say that the condition modifies the specification; it presents a condition and a specification amendment as alternative mechanisms.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.9,\"reasoning\":\"The Manual connects a condition of registration with amendment of the specification as alternative ways of addressing a geographical section 43 objection. No listed, more specific predicate captures that alternative-mechanism relationship.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether a relationship with specification amendment should instead be recorded against a separate amendment concept.\",\"passage_ref\":\"TMM/Part29/9/9/5\",\"neighbour\":\"GC-0129\"},{\"quote\":\"This is the sole criterion for conditions or limitations applied in order to overcome grounds for rejection raised under section 43.\",\"relation\":\"isOvercomeBy\",\"alternative\":\"anchor_to_neighbour follows the supplied signed example's direction, but the ordinary grammatical subject of isOvercomeBy is the ground for rejection.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.92,\"reasoning\":\"The Manual expressly identifies conditions or limitations as a means of overcoming section 43 grounds for rejection. I have used the ground as the subject of isOvercomeBy; this differs from the direction in the supplied signed example.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether isOvercomeBy is intentionally defined with the reversed direction illustrated by the signed example.\",\"passage_ref\":\"TMM/Part29/9/9/5\",\"neighbour\":\"GC-0053\"},{\"quote\":\"It is a condition of registration that the trade mark will only be used under the conditions entered on the Register of Protected Geographical Indications and Other Terms for use of the Geographical Indication GREATER PERTH and that the use will accord with the Wine Australia Act 2013.\",\"relation\":\"appliesTo\",\"alternative\":\"dependsOnExternalSource: the condition depends on the Wine Register, but that external register is not the geographical indication neighbour itself.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.85,\"reasoning\":\"The Manual's example condition applies to use involving the named geographical indication and requires compliance with its registered conditions. This supports a context-specific relationship, not a claim that every condition of registration concerns a geographical indication.\",\"modality\":\"must\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether appliesTo adequately captures a condition regulating trade mark use involving a geographical indication.\",\"passage_ref\":\"TMM/Part32B/2/1/2/1/1\",\"neighbour\":\"GC-0018\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "8181802a2621ebe356d412f8c5dd432f165f5bba5cfe9047ac6533bc3c18eb00",
+ "response_id": "resp_085ea6cb4804d577006ac603a06db887d296d1bf4f4ee944cc",
+ "seconds": 59.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3705,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3702
+  },
+  "output_tokens": 1208,
+  "output_tokens_details": {
+   "reasoning_tokens": 286
+  },
+  "total_tokens": 4913
+ }
+}

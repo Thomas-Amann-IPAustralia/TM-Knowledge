@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003911,
+ "created_utc": "2026-10-07T11:41:00Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0124",
+ "job": "relate",
+ "key": "420cccaaeaaa72aa8a7a11ade6192c3c5de3780026ccbbbbaba18392524b6207",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"If submissions are received requesting the deletion of certain goods/services from an application that also state that a divisional application is to be filed from that application, any deletion or amendment to the specification of goods/services should be delayed until the divisional application has been filed.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to, if appliesTo is reserved for provisions rather than procedural steps.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The Manual expressly identifies the specification of goods/services as an object of amendment. Its timing guidance is conditional on submissions stating that a divisional application is to be filed.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether appliesTo appropriately covers a procedural step acting on a record.\",\n      \"passage_ref\": \"TMM/Part12/2#1\",\n      \"neighbour\": \"GC-0129\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, if the anchor is intended to include amendment of opposition notices as well as applications.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"These passages describe the Registrar granting amendments to notices of intention to oppose, not amendments of applications. I have not treated the anchor's broad alias 'amendment' as overriding its application-specific name.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the anchor's intended scope includes amendment of opposition notices.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0046\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to based on their inclusion in the same relevant-legislation list.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The legislation list mentions application amendment and removal from the Register without connecting them. The other passage concerns amendment before publication of application particulars and states no relationship to the Register.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether any relationship to the Register is actually expressed, rather than assumed from the registration process.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0089\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "6e7744cbb82e87e3ab717f48973687308eddf9756b123a34780c633d04ddc47f",
+ "response_id": "resp_031fdf45a407f283006ac62fafa08887d287a3f43f8cf381d3",
+ "seconds": 28.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2759,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2756
+  },
+  "output_tokens": 754,
+  "output_tokens_details": {
+   "reasoning_tokens": 206
+  },
+  "total_tokens": 3513
+ }
+}

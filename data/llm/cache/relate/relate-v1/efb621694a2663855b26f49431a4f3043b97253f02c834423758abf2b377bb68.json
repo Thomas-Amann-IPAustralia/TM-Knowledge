@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007128,
+ "created_utc": "2026-10-07T08:57:45Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0108",
+ "job": "relate",
+ "key": "efb621694a2663855b26f49431a4f3043b97253f02c834423758abf2b377bb68",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"Section 163(1) of the Act provides that except for Part 10 of the Act (Assignment and Transmission of Trade Marks), a collective trade mark is to be considered in the equivalent manner to an ordinary trade mark.\",\"relation\":\"related_to\",\"alternative\":\"excludesBasis: the exception concerns the application of Part 10, rather than assignment as a basis for some other determination.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.92,\"reasoning\":\"The Manual expressly connects collective trade marks with assignment by identifying Part 10 as an exception to their equivalent treatment with ordinary trade marks. This passage does not itself state that collective trade marks cannot be assigned.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether a more specific predicate can represent the exception to the application of Part 10 without implying an assignment prohibition.\",\"passage_ref\":\"TMM/Part33/2/2/1\",\"neighbour\":\"GC-0086\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to, based on the references to the Federal Register of Legislation.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.99,\"reasoning\":\"The references are to the Federal Register of Legislation, not the Register of Trade Marks. Neither passage connects collective trade marks with the neighbour concept.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether any reference to the Register of Trade Marks is present beyond the supplied passages.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0089\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"appliesTo, treating the general registration-particulars list as establishing that conditions or limitations apply specifically to collective trade marks.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.88,\"reasoning\":\"The registration-particulars passage lists collective-mark status and conditions or limitations as separate particulars, without stating a relationship between them. The heading ‘Limitations on rights’ alone does not establish that those limitations are the neighbour concept.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether section 165 limitations on rights fall within the intended scope of ‘conditions or limitations’.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0069\"},{\"quote\":\"Neither the Madrid Protocol, nor the Guide to the Madrid Agreement and the Madrid Protocol provide a definition of a collective mark.\",\"relation\":\"related_to\",\"alternative\":\"dependsOnExternalSource: the passage does not make the Australian collective trade mark concept dependent on a Protocol definition.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.95,\"reasoning\":\"The Manual expressly connects the Madrid Protocol with collective trade marks by stating that it supplies no definition of a collective mark. No listed specific predicate captures that absence of a definition.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the ontology should represent the absence of a definition as a relationship rather than use none.\",\"passage_ref\":\"TMM/Part60/4/7/4/7/14/2\",\"neighbour\":\"GC-0112\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "e1bc326817b2ec04e0cd171776da08ee64e622fa58a337c1be5fd58b6a150141",
+ "response_id": "resp_0d3fedbc216397ae006ac6096d783c87d28928b34679add3a9",
+ "seconds": 29.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2759,
+  "input_tokens_details": {
+   "cache_write_tokens": 2756,
+   "cached_tokens": 0
+  },
+  "output_tokens": 736,
+  "output_tokens_details": {
+   "reasoning_tokens": 101
+  },
+  "total_tokens": 3495
+ }
+}

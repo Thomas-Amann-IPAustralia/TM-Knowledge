@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014708,
+ "created_utc": "2026-10-07T12:27:36Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0105",
+ "job": "answer",
+ "key": "d9885f375af0f49a16acb8a2097f1003dcf802514d417d52cc19412a643756e9",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0072\", \"GC-0032\", \"GC-0059\", \"GC-0061\", \"GC-0119\", \"GC-0006\", \"GC-0035\", \"GC-0041\", \"GC-0001\", \"GC-0002\"],\n  \"decline_reason\": \"I cannot say how your particular application would be decided. I can explain the examination guidance in the supplied passages.\",\n  \"declined\": true,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part22/14/14/2~1\",\n      \"quote\": \"In other words, it is the identifier which is the distinguishing element of a domain name, and this is the element which should be considered when assessing the inherent adaptation to distinguish.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/14/14/2~1\",\n      \"quote\": \"Where a trade mark consists only of standard address code material and an identifier it will not be prima facie capable of distinguishing if the identifier is a word, phrase or combination of letters and/or numbers which other traders would wish to use in the normal course of their trade.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/14/14/2~2\",\n      \"quote\": \"Where a section 41 ground for rejection has been raised, the fact that the applicant is the registrant or authorised user of the domain name is not sufficient on its own to overcome the ground for rejection. However, if the applicant has been using the domain name for a sufficient period of time and it has developed the secondary meaning of indicating trade origin, this may support applying the evidence provisions of section 41. When assessing evidence in relation to domain names examiners should be mindful that use does not always equal distinctiveness.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/8#1\",\n      \"quote\": \"A section 43 ground for rejection will apply if the applicant for a trade mark consisting of, or containing, material likely to be viewed as an Internet domain name is not also the registrant or authorised user of that Internet domain name.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/8#1\",\n      \"quote\": \"A section 43 ground for rejection will be reconsidered if it is established that the applicant is the owner or authorised user of the Internet domain name reference.\"\n    },\n    {\n      \"ref\": \"TMA1995/s43\",\n      \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n    }\n  ],\n  \"answer\": \"It can raise an issue, but I cannot predict the outcome for your particular application. The supplied passages identify two separate concerns.\\n\\n1. Distinctiveness — Manual practice. The examiner focuses on the identifier within the web address, rather than its standard address components. If the mark consists only of standard address code material and an identifier that other traders would wish to use in the normal course of trade, the Manual says it is not prima facie capable of distinguishing. The relevant question is therefore not simply whether the word is common, but whether other traders would wish to use it in their trade. [TMM/Part22/14/14/2~1]\\n\\nOwning or being authorised to use the domain name does not, by itself, overcome a section 41 objection. Under the Manual’s guidance, evidence that use has given the domain name a secondary meaning indicating trade origin may help; use alone does not necessarily establish distinctiveness. The supplied legislation does not include section 41, so this is an account of Manual practice, not the complete statutory test. [TMM/Part22/14/14/2~2]\\n\\n2. Domain-name entitlement — Manual practice. Separately, the Manual says a section 43 objection applies where the mark is likely to be viewed as an internet domain name but the applicant is not its registrant or authorised user. That objection will be reconsidered if ownership or authorised use is established. [TMM/Part29/8#1]\\n\\nThe law — Act, section 43. The statutory ground is that a connotation of the mark makes its use for the particular goods or services likely to deceive or cause confusion. The domain-name guidance above is the Manual’s application of that provision, not the wording of the Act itself. [TMA1995/s43; TMM/Part29/8#1]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "6defe716c778defca8f3b7f37f0607354fcd1faa26f6af148ed0cde7b2c55d7d",
+ "response_id": "resp_0c40a8f59d87cf0e006ac63a9b5fb087d29a7158061f8061b6",
+ "seconds": 29.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7371,
+  "input_tokens_details": {
+   "cache_write_tokens": 7368,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1099,
+  "output_tokens_details": {
+   "reasoning_tokens": 104
+  },
+  "total_tokens": 8470
+ }
+}

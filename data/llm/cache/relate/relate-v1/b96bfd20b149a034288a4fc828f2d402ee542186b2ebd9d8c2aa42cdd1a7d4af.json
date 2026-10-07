@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00192,
+ "created_utc": "2026-10-07T11:12:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0005",
+ "job": "relate",
+ "key": "b96bfd20b149a034288a4fc828f2d402ee542186b2ebd9d8c2aa42cdd1a7d4af",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"Accordingly, the denotation is firstly as a trade mark of the applicant, despite any descriptive matter contained within.\",\"relation\":\"related_to\",\"alternative\":\"descriptive matter qualifies denotation\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.9,\"reasoning\":\"The Manual’s quoted Hearings decision expressly connects denotation with descriptive matter: the primary meaning remains identification as the applicant’s trade mark despite that matter. No listed, more specific predicate clearly captures this contrast.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether qualifies is intended to cover descriptive matter that expressly does not displace the primary meaning.\",\"passage_ref\":\"TMM/Part29/2/2/1~1\",\"neighbour\":\"GC-0047\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"denotation related_to originate\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.95,\"reasoning\":\"The passage discusses regional origin statements in explaining the scope of connotation, but does not connect originate with denotation. It also does not address the wine-specific legal test named by the neighbour.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the neighbour denotes ordinary regional origin rather than the wine-specific legal test.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0145\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "d3a584e7e52a334bf5bfcbb45b5ca4cda87733e2f2dbac96c831621ab9f08b49",
+ "response_id": "resp_08c73ef61889114b006ac6290182e887d29c9dc73de539cbd3",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2251,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2248
+  },
+  "output_tokens": 361,
+  "output_tokens_details": {
+   "reasoning_tokens": 78
+  },
+  "total_tokens": 2612
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010733,
+ "created_utc": "2026-10-07T08:28:26Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-008",
+ "job": "needs",
+ "key": "f2050c524a4dba31d392a2d263f128d2320413bf8db0c68aee666346f700d50a",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must identify the relevant time limit for notifying a provisional refusal when the refusal is based on an opposition. It should also mention the connected steps that follow if the refusal is notified under the Madrid route.\",\"search\":\"Madrid refusal based on opposition time limit\",\"seed_refs\":[\"TMM/Part60/4/9/4/9/1\"],\"kind\":\"lookup\",\"question\":\"How long do I have to notify a provisional refusal if it is based on an opposition?\"},{\"narrative\":\"A helpful answer must explain whether an applicant can change a shape or colour claim to pick up words or other features shown in the filed representation. It should also say what happens if the existing description already fixes the scope of the claim.\",\"search\":\"change description to include words in shape mark\",\"seed_refs\":[\"TMM/Part21/2/2/3\"],\"kind\":\"problem\",\"question\":\"Can I change my description to include the words shown on my trade mark, not just the shape or colour?\"},{\"narrative\":\"A helpful answer must cover two opposition issues: whether priority documents can be obtained by the opponent, and when late evidence may still be taken into account. It should explain both within the same opposition proceeding.\",\"search\":\"opposition priority documents late evidence\",\"seed_refs\":[\"TMM/Part51/2/2/5~1\",\"TMM/Part11/4/4/2\"],\"kind\":\"cross_part\",\"question\":\"In an opposition, can the other side get the earlier application papers and can late evidence still be considered?\"},{\"narrative\":\"A helpful answer must explain what changes to the acceptance timetable when an ex parte hearing is requested or an appeal is filed. It should identify who is affected and how the lapse period is altered.\",\"search\":\"application acceptance deferred appeal hearing\",\"seed_refs\":[\"TMM/Part16/1/1/1\"],\"kind\":\"impact\",\"question\":\"What happens to my application’s acceptance deadline if I ask for a hearing or appeal the examiner’s decision?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "e873dae292a3d048835f2e6d03083eb56e3cc62b7ec057430fc340be0dda6d0a",
+ "response_id": "resp_0881fe9c4e6eacc6006ac6029ebabc87d2ab3c530a92e51aa9",
+ "seconds": 12.0,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1692,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 2103,
+  "output_tokens_details": {
+   "reasoning_tokens": 1354
+  },
+  "total_tokens": 3795
+ }
+}

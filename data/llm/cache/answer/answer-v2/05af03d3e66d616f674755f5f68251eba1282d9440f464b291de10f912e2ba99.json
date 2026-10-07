@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004364,
+ "created_utc": "2026-10-07T12:31:05Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0010",
+ "job": "answer",
+ "key": "05af03d3e66d616f674755f5f68251eba1282d9440f464b291de10f912e2ba99",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0001\",\"GC-0002\",\"GC-0005\",\"GC-0009\",\"GC-0072\",\"GC-0073\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part29/2/2/1~1\",\"quote\":\"Connotation is not defined in the Trade Marks Act 1995 (the Act).\"},{\"ref\":\"TMM/Part29/2/2/1~1\",\"quote\":\"It is clear from these definitions that the word connotation refers to something implied in a trade mark, in addition to its essential or primary meaning.\"},{\"ref\":\"TMM/Part29/2/2/1~1\",\"quote\":\"In respect of section 43, connotation has a wide meaning beyond the above definitions and includes direct statements.\"},{\"ref\":\"TMM/Part29/3#1~1\",\"quote\":\"the section is concerned with whether the mark the subject of the application (or a sign contained in the mark) connotes something other than a connection in the course of trade between the relevant goods or services and the person who applied (or intended to apply) it to those goods or services.\"},{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part29/3#1~1\",\"quote\":\"For a trade mark to trigger section 43 there must be some connotation within the trade mark that would reasonably be expected to cause deception or confusion in the mind of the relevant buying public.\"}],\"answer\":\"**Meaning — Manual practice:** The Manual states that the Act does not define ‘connotation’. For practical purposes, it means something implied by a trade mark in addition to its essential or primary meaning (denotation). For section 43, however, its meaning is wider than merely an implication: it also includes direct statements. [TMM/Part29/2/2/1~1]\\n\\nThe Manual also quotes judicial explanation that section 43 concerns whether the mark, or a sign within it, conveys something other than a connection in the course of trade between the goods or services and the person applying the mark. [TMM/Part29/3#1~1]\\n\\n**Statutory significance — Act:** Section 43 requires rejection where, because of that connotation, use of the trade mark for the particular goods or services would be likely to deceive or cause confusion. The existence of a connotation alone is therefore not the statutory test; the connotation must produce the specified likelihood when the mark is used for those goods or services. [TMA1995/s43]\\n\\n**Examination — Manual practice:** The Manual expresses this as a connotation that would reasonably be expected to cause deception or confusion in the mind of the relevant buying public. [TMM/Part29/3#1~1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "89dd6e5516384008c277a6a6255fc678a4ff05235ca4a5905af7b8d7d41ae7e4",
+ "response_id": "resp_06efa99e91c8e9a4006ac63b6bc49087d28afe59a60190f051",
+ "seconds": 29.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6717,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6714
+  },
+  "output_tokens": 805,
+  "output_tokens_details": {
+   "reasoning_tokens": 142
+  },
+  "total_tokens": 7522
+ }
+}

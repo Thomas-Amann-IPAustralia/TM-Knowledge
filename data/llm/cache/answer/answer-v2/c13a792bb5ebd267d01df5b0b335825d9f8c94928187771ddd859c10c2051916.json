@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013323,
+ "created_utc": "2026-10-07T12:26:37Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0097",
+ "job": "answer",
+ "key": "c13a792bb5ebd267d01df5b0b335825d9f8c94928187771ddd859c10c2051916",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0093\",\"GC-0097\",\"GC-0098\",\"GC-0096\",\"GC-0115\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part17/1#1\",\"quote\":\"If a trade mark application has lapsed prior to acceptance, an extension of time for acceptance will need to be filed. This extension will need to be approved before a deferment request can be processed.\"},{\"ref\":\"TMA1995/s224\",\"quote\":\"(4) The time allowed for doing a relevant act may be extended, whether before or after that time has expired.\"},{\"ref\":\"TMA1995/s224\",\"quote\":\"(2) If, because of: (a) an error or omission by the person concerned or by his or her agent; or (b) circumstances beyond the control of the person concerned; a relevant act that is required by this Act to be done within a certain time is not, or cannot be, done within that time, the Registrar may, on application made by the person concerned in accordance with the regulations, extend the time for doing the act.\"},{\"ref\":\"TMA1995/s224\",\"quote\":\"(3) If: (a) a relevant act that a person is required by this Act to do within a certain time is not, or cannot be, done within that time; and (b) on application made by that person in accordance with the regulations, the Registrar is of the opinion that special circumstances exist that justify an extension of that time; the Registrar may extend the time for doing the act.\"},{\"ref\":\"TMA1995/s224\",\"quote\":\"(1) The Registrar must extend the time for doing a relevant act that is required by this Act to be done within a certain time if the act is not, or cannot be, done within that time because of an error or omission by: (a) the Registrar or a Deputy Registrar; or (b) an employee; or (c) a person providing, or proposing to provide, services for the benefit of the Trade Marks Office.\"}],\"answer\":\"You need to seek an **extension of time for acceptance**, rather than rely on a new deferment request.\\n\\n1. **Manual practice:** If the application has lapsed before acceptance, file an extension of time for acceptance. That extension must be approved before a deferment request can be processed. [TMM/Part17/1#1]\\n\\n2. **Act:** Missing the deadline does not itself prevent an extension: section 224(4) permits time for a relevant act to be extended before or after expiry. [TMA1995/s224]\\n\\n3. **Act — identify the applicable ground:** An application under section 224(2) must concern delay caused by your or your agent’s error or omission, or circumstances beyond your control. Under section 224(3), the Registrar may extend time if satisfied that special circumstances justify it. Both provisions require an application made in accordance with the regulations; neither makes an extension automatic. Section 224(1) instead requires an extension where the delay results from an error or omission by one of the specified Office-side persons. [TMA1995/s224]\\n\\n**Limits of the supplied material:** No Regulations passage setting out the filing requirements for an acceptance extension has been supplied. I therefore cannot confirm the required form, supporting documents, fee or any further timing requirements from these passages. The supplied Manual passage establishes that an extension must be filed after lapse, but does not give those practical filing details. This answer does not determine whether any particular extension request would be granted.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "bd2cb4fe7e1f54ea45d5fbd1040a5e2441267bd697e7dc1f11a538c46784b1b3",
+ "response_id": "resp_0627fc03f258b882006ac63a62779087d280c43fa58a3cb807",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7247,
+  "input_tokens_details": {
+   "cache_write_tokens": 7244,
+   "cached_tokens": 0
+  },
+  "output_tokens": 853,
+  "output_tokens_details": {
+   "reasoning_tokens": 91
+  },
+  "total_tokens": 8100
+ }
+}

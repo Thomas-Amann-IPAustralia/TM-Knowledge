@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010511,
+ "created_utc": "2026-10-07T11:17:08Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0031",
+ "job": "relate",
+ "key": "ae169974e90c2ea33e2f54f4ecbbefe0a3a63905cfb00387c12b9d6a577a8c38",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The section 43 ground for rejection will be reconsidered if an applicant provides information confirming that they are the owner or authorised user of the phoneword.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement: authorised-user status is not an element of a phoneword; the passage also allows ownership.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly connects a phoneword with authorised-user status when describing reconsideration of a section 43 ground. No listed specific predicate accurately expresses that user relationship.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the conditional reconsideration practice is appropriately represented by must.\",\n      \"passage_ref\": \"TMM/Part29/7#1\",\n      \"neighbour\": \"GC-0083\"\n    },\n    {\n      \"quote\": \"However, if the applicant has been using the phoneword for a sufficient period of time and it has developed the secondary meaning of indicating trade origin, this may support applying the evidence provisions of section 41.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"none: secondary meaning indicating trade origin may fall outside the intended scope of connotation.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.65,\n      \"reasoning\": \"The passage supports a phoneword developing secondary meaning through use, matching one of the neighbour's alternative names. I am unsure whether this record includes trade-origin meaning under section 41 or is confined to potentially deceptive connotation.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether connotation includes acquired secondary meaning indicating trade origin.\",\n      \"passage_ref\": \"TMM/Part22/14/14/4\",\n      \"neighbour\": \"GC-0001\"\n    },\n    {\n      \"quote\": \"Examiners will need to consider if the material in the trade mark, apart from the 13/1300/1800/197 element, has any inherent adaptation to distinguish.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"constrainsExaminerTo: the neighbour names the examiner, not the action to which an examiner is constrained.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.91,\n      \"reasoning\": \"In its phoneword discussion, the Manual directs examiners to assess the inherent adaptation to distinguish of material apart from the numerical prefix. This supports an examiner–phoneword assessment relationship, but none of the more specific predicates fits these two endpoints.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the contextual connection to phonewords warrants related_to with the examiner as subject.\",\n      \"passage_ref\": \"TMM/Part22/14/14/4\",\n      \"neighbour\": \"GC-0044\"\n    },\n    {\n      \"quote\": \"A section 43 ground for rejection will apply if the applicant for a trade mark containing material likely to be viewed as a phoneword, or the numbers representing a phoneword, is not also the owner (or authorised user) of that phoneword.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"requiresElement: the passage states a conditional ground involving phoneword material, not that every ground for rejection requires a phoneword.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly identifies phoneword material as capable of giving rise to a section 43 ground when the applicant lacks ownership or authorised-user status. The relationship is conditional, while the stated practice within that condition is mandatory.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ownership or authorised-user condition is adequately preserved by this binary relationship.\",\n      \"passage_ref\": \"TMM/Part29/7#1\",\n      \"neighbour\": \"GC-0006\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "d53d138b97d3074f78e4ad3cd594b3b8b4188e20146c0b1c3f28c0ab72e44c29",
+ "response_id": "resp_0eec2f3df16ada34006ac62a18482887d2acbbb51c22db3943",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4257,
+  "input_tokens_details": {
+   "cache_write_tokens": 4254,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1038,
+  "output_tokens_details": {
+   "reasoning_tokens": 145
+  },
+  "total_tokens": 5295
+ }
+}

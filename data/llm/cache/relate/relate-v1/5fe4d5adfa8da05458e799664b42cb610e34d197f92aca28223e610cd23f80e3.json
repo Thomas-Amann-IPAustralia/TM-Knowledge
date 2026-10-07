@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004904,
+ "created_utc": "2026-10-07T08:42:08Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0047",
+ "job": "relate",
+ "key": "5fe4d5adfa8da05458e799664b42cb610e34d197f92aca28223e610cd23f80e3",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"It does not follow that all trade marks containing descriptive matter would attract a section 43 objection. Only if there is a real and tangible danger that the consumer’s expectations may turn out to be false and result in confusion, would section 43 be triggered.\",\"relation\":\"qualifies\",\"alternative\":\"statesThresholdFor: the danger threshold is expressly attached to triggering section 43, not to descriptive matter itself.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.88,\"reasoning\":\"The Manual qualifies the significance of descriptive matter for section 43 by requiring a real and tangible danger of false consumer expectations resulting in confusion. The relationship to descriptive matter is contextual rather than a threshold defining descriptive matter itself.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether this contextual qualification should instead be recorded only against the section 43 ground for rejection.\",\"passage_ref\":\"TMM/Part29/2/2/1~1\",\"neighbour\":\"GC-0008\"},{\"quote\":\"Examiners should familiarise themselves with the list in Annex A3 and if these, or other, trade marks appear in a specification, the applicant should be requested to delete them and provide a generic description of the goods or services, along the lines of the alternative descriptions given in Annex 3.\",\"relation\":\"related_to\",\"alternative\":\"requiresElement: the passage concerns a particular replacement of trade marks in specifications, not a requirement for every specification amendment.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.72,\"reasoning\":\"The Manual connects specification amendment with replacing trade marks by generic descriptions of the goods or services. This supports a relationship only if the anchor includes such generic descriptions, rather than being confined to descriptive matter within a trade mark.\",\"modality\":\"should\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether generic descriptions in specifications fall within the intended scope of the descriptive matter concept.\",\"passage_ref\":\"TMM/Part14/6/6/3/2\",\"neighbour\":\"GC-0015\"},{\"quote\":\"A descriptive element within a trade mark may be to some extent discounted in a comparison (or to paraphrase Hornsby, a certain risk of confusion due to the presence of that element may be accepted), but those descriptive elements cannot be entirely ignored in the overall comparison.\",\"relation\":\"qualifies\",\"alternative\":\"doesNotGiveRiseTo: the passage allows some risk of confusion to be accepted; it does not say descriptive matter cannot cause confusion.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.96,\"reasoning\":\"The Manual's quoted reasoning treats descriptive matter as qualifying the treatment of confusion risk in comparing marks. It permits some discounting or acceptance of risk while expressly rejecting complete exclusion of descriptive elements.\",\"modality\":\"may\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether qualifies adequately captures acceptance of confusion risk without implying that descriptive matter is disregarded.\",\"passage_ref\":\"TMM/Part26/6/6/7~2\",\"neighbour\":\"GC-0004\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "16ee51b6d33766cfc6167555ca961ff0f26072669658a452fd7ea8bc93382eea",
+ "response_id": "resp_0be4efe2c4771ee7006ac605c470ac87d2886e9d36c851e783",
+ "seconds": 29.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3219,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3216
+  },
+  "output_tokens": 948,
+  "output_tokens_details": {
+   "reasoning_tokens": 320
+  },
+  "total_tokens": 4167
+ }
+}

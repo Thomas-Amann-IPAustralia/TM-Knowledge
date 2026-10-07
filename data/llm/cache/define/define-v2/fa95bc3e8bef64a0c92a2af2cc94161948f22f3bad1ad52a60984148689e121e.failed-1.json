@@ -1,0 +1,24 @@
+{
+ "batch_id": "batch_6ac6067ecbc081908b80944ca0c54bbf",
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T09:10:50Z",
+ "effort": "medium",
+ "error": {
+  "code": "batch_cancelled",
+  "message": "This request was not executed because the batch was cancelled."
+ },
+ "incomplete_details": null,
+ "item": "change of ownership",
+ "job": "define",
+ "key": "fa95bc3e8bef64a0c92a2af2cc94161948f22f3bad1ad52a60984148689e121e",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "cfab73c9acf2e6c775d0c6882c513bbea721f67f8e20eeac1b7fcdc2d923e9a4",
+ "response_id": null,
+ "service_tier": "batch",
+ "status": "failed",
+ "usage": {}
+}

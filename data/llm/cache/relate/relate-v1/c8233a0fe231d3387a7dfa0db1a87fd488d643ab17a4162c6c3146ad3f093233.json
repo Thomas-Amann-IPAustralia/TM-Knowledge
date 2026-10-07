@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002924,
+ "created_utc": "2026-10-07T11:35:45Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0120",
+ "job": "relate",
+ "key": "c8233a0fe231d3387a7dfa0db1a87fd488d643ab17a4162c6c3146ad3f093233",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"All trade marks examined will fall into one of three categories: a. trade marks that are sufficiently inherently adapted to distinguish and are therefore prima facie capable of distinguishing; b. trade marks that have some limited inherent adaptation to distinguish but are not prima facie capable of distinguishing; c. trade marks that, prima facie, have no inherent adaptation to distinguish.\",\"relation\":\"related_to\",\"alternative\":\"none: the passage merely mentions separate categories without relating them.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.86,\"reasoning\":\"The Manual expressly contrasts these concepts as distinct categories within the same assessment of inherent adaptation to distinguish. No listed predicate more specifically captures that contrast.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether contrasting categories within a shared assessment warrants related_to rather than none.\",\"passage_ref\":\"TMM/Part22/3#1~1\",\"neighbour\":\"GC-0119\"},{\"quote\":\"Has the primary meaning of the sign been displaced to the extent that, in relation to the relevant goods/services, it has come to denote those of the applicant?\",\"relation\":\"qualifies\",\"alternative\":\"requiresElement: displacement of primary meaning is a mandatory requirement for assessing a sign with no inherent adaptation to distinguish.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.79,\"reasoning\":\"In the Manual's assessment of a sign with no inherent adaptation to distinguish, displacement of its primary meaning is a relevant evidentiary consideration. This does not alter its inherent adaptation, and the passage expressly says that no individual criterion is mandatory.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether qualifies adequately represents an evidentiary consideration in this assessment, rather than a qualification of the inherent-adaptation finding itself.\",\"passage_ref\":\"TMM/Part23/5/5/5\",\"neighbour\":\"GC-0005\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "b264680f8091c2964989f12c032914fbbb5397f6106fcaccdb23953b27cbe19f",
+ "response_id": "resp_09b084a5ca98ab21006ac62e7df27c87d29a935c81c6ec5eb2",
+ "seconds": 20.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2322,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2319
+  },
+  "output_tokens": 561,
+  "output_tokens_details": {
+   "reasoning_tokens": 161
+  },
+  "total_tokens": 2883
+ }
+}

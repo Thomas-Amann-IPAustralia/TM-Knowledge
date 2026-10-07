@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:28:50Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "Office of origin",
+ "job": "define",
+ "key": "5029aae3b1c15f11ed100a2061f6f3be3a0888e671b6683c172055c317af21d8",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "87539338f199373f6a97bdf52eae9362041accc19d65852b9907389c3a30e11e",
+ "response_id": "resp_05aa1eb8f01195c7006ac602bc185487d2b6a2f0ea7dcebab6",
+ "seconds": 6.8,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

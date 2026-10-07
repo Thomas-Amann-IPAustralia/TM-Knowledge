@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.000111,
+ "created_utc": "2026-10-07T08:26:20Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "flex-health-0826",
+ "job": "probe",
+ "key": "1fe84a147bb90621128d78c21556385277585b81d91d50dc00861360f09dc3b7",
+ "max_output_tokens": 300,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"answer\":\"Four\"}",
+ "prompt_version": "probe-v1",
+ "request_sha256": "8325eaecd770895089a439ccc7312f44e9988bf2a361aeab7d70e747b91515da",
+ "response_id": "resp_08ec4b79109fb6e8006ac602212b9487d2bed94a53530538cc",
+ "seconds": 12.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 51,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 12,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 63
+ }
+}

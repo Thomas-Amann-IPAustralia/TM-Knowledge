@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006345,
+ "created_utc": "2026-10-07T08:38:44Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "international registration of a trade mark",
+ "job": "define",
+ "key": "f37ff5624c88e744498c276f47db56b37c29960e67564dbcc92682da253c1a86",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"international registration of a trade mark means registration of the mark in the International Register.\",\n  \"alt_labels\": [\n    \"international registration\"\n  ],\n  \"confidence\": 0.97,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: International registration of a trade mark is registration of that mark in the International Register, rather than its protection specifically in Australia.\",\n  \"expert_should_check\": \"Confirm the relationship to GC-0113 and GC-0114 against their full definitions; only their labels are supplied.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"international registration of a trade mark\",\n  \"definition_ref\": \"TMR1995/r17A.2/international-registration\",\n  \"reasoning\": \"The Regulations expressly define the term, making it a distinct legal concept best classified as a registration record. It is broader than GC-0113, international registration designating Australia, because its definition does not require an Australian designation. The Manual also distinguishes international registration from Australian protection by describing the effect of cancellation on a protected international trade mark. The defining legislative passage is regulation 17A.2. The only reference supplied under PROVISIONS, regulation 17A.27, is described in the Manual as defining a declaration period for limitations, so it is not listed as a legislative basis for this concept.\",\n  \"not_labels\": [\n    \"international registration designating Australia\",\n    \"protected international trade mark\",\n    \"international application\",\n    \"International Register\",\n    \"Record of International Registrations\"\n  ],\n  \"group\": \"instrument_or_record\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "477a15223f4a5bbd8424bb2d6105c2c67c816632716f77f27ebe978284daf9a4",
+ "response_id": "resp_0dad9db2ef1ff80f006ac604f844ec87d28e200f28b9678b85",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2937,
+  "input_tokens_details": {
+   "cache_write_tokens": 2934,
+   "cached_tokens": 0
+  },
+  "output_tokens": 535,
+  "output_tokens_details": {
+   "reasoning_tokens": 172
+  },
+  "total_tokens": 3472
+ }
+}

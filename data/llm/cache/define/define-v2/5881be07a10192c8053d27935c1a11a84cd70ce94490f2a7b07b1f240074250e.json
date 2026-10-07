@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001974,
+ "created_utc": "2026-10-07T11:15:48Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "Record of International Registrations",
+ "job": "define",
+ "key": "5881be07a10192c8053d27935c1a11a84cd70ce94490f2a7b07b1f240074250e",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"(1) The Registrar must maintain a Record of International Registrations for the purposes of this Part.\",\n  \"alt_labels\": [\n    \"Record of international registrations\",\n    \"Record of International Registration\"\n  ],\n  \"confidence\": 0.99,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: The Record of International Registrations is the record maintained by the Registrar under Part 17A containing prescribed particulars of international registrations designating Australia and protected international trade marks.\",\n  \"expert_should_check\": \"Check whether the singular Manual form 'Record of International Registration' should be retained as an alternative label or treated as an editorial inconsistency.\",\n  \"legislative_basis\": [\n    \"TMR1995/r17A.66\"\n  ],\n  \"pref_label\": \"Record of International Registrations\",\n  \"definition_ref\": \"TMR1995/r17A.66\",\n  \"reasoning\": \"Regulation 17A.2 expressly identifies this as the record required by regulation 17A.66. The latter provision requires the Registrar to maintain it and specifies particulars for each notified IRDA and each protected international trade mark. It is therefore a distinct statutory record, not a generic phrase or a duplicate of GC-0089 Register of Trade Marks. Regulation 17A.2 also distinguishes it from the International Register maintained by the International Bureau.\",\n  \"not_labels\": [\n    \"Register of Trade Marks\",\n    \"International Register\",\n    \"international registration of a trade mark\",\n    \"international registration designating Australia\"\n  ],\n  \"group\": \"instrument_or_record\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "d1839e3f71d2ec081ccba123e53e305d96279f7175434880a020bee33617e0c9",
+ "response_id": "resp_0f53e834b6761ab9006ac629d2607c87d289d28896b41f1015",
+ "seconds": 18.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3429,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3426
+  },
+  "output_tokens": 360,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 3789
+ }
+}

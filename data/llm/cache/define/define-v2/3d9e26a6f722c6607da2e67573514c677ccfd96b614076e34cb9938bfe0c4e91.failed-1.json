@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:29:31Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "International Bureau",
+ "job": "define",
+ "key": "3d9e26a6f722c6607da2e67573514c677ccfd96b614076e34cb9938bfe0c4e91",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "afb0f358d628d8011bac476c0862b9d93892c9419eaebed2b7b645e9c4f295c6",
+ "response_id": "resp_0aa0cb900c55cfa0006ac602e5b84887d2be2c8313e09388b0",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00613,
+ "created_utc": "2026-10-07T08:30:27Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0049..GC-0060",
+ "job": "aliases",
+ "key": "120cb3373f48056cdbdb56e97b6dc5dcb3b95367fc558b9dae3c7fea65200b13",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0049\",\n      \"related_search_terms\": [\n        \"present market conditions\",\n        \"contemporary relevance\",\n        \"current commercial context\"\n      ],\n      \"everyday_phrases\": [\n        \"market today\",\n        \"today's market\",\n        \"still relevant\",\n        \"relevant now\",\n        \"outdated reference\",\n        \"what people know now\"\n      ]\n    },\n    {\n      \"id\": \"GC-0050\",\n      \"related_search_terms\": [\n        \"public recognition\",\n        \"extent of recognition\",\n        \"reference recognition\"\n      ],\n      \"everyday_phrases\": [\n        \"how widely known\",\n        \"famous reference\",\n        \"people recognise it\",\n        \"widely recognised\",\n        \"name recognition\",\n        \"public awareness\"\n      ]\n    },\n    {\n      \"id\": \"GC-0051\",\n      \"related_search_terms\": [\n        \"section 43\",\n        \"mandatory refusal\",\n        \"absence of discretion\"\n      ],\n      \"everyday_phrases\": [\n        \"must refuse\",\n        \"must reject\",\n        \"can examiner make exceptions\",\n        \"can registrar allow it\",\n        \"compulsory rejection\",\n        \"automatic refusal\"\n      ]\n    },\n    {\n      \"id\": \"GC-0052\",\n      \"related_search_terms\": [\n        \"examination enquiries\",\n        \"investigation of relevant factors\",\n        \"research-informed assessment\"\n      ],\n      \"everyday_phrases\": [\n        \"examiner checks\",\n        \"examiner searches\",\n        \"checking the facts\",\n        \"looking up references\",\n        \"investigating a mark\",\n        \"what examiners look up\"\n      ]\n    },\n    {\n      \"id\": \"GC-0053\",\n      \"related_search_terms\": [\n        \"statutory refusal grounds\",\n        \"examination objections\",\n        \"Act and Regulations\"\n      ],\n      \"everyday_phrases\": [\n        \"reasons for refusal\",\n        \"why marks get rejected\",\n        \"registration refused\",\n        \"rejecting an application\",\n        \"registration objections\",\n        \"reasons to reject\"\n      ]\n    },\n    {\n      \"id\": \"GC-0054\",\n      \"related_search_terms\": [\n        \"section 18\",\n        \"subsection 39(1)\",\n        \"section 18 regulations\"\n      ],\n      \"everyday_phrases\": [\n        \"banned symbol\",\n        \"forbidden symbol\",\n        \"symbols not allowed\",\n        \"banned trade mark\",\n        \"cannot use symbol\",\n        \"forbidden brand symbol\"\n      ]\n    },\n    {\n      \"id\": \"GC-0055\",\n      \"related_search_terms\": [\n        \"subsection 39(2)\",\n        \"signs specified in regulations\",\n        \"regulatory sign restrictions\"\n      ],\n      \"everyday_phrases\": [\n        \"restricted symbol\",\n        \"listed symbol\",\n        \"symbols in regulations\",\n        \"restricted brand symbols\",\n        \"rules about symbols\",\n        \"symbol on restricted list\"\n      ]\n    },\n    {\n      \"id\": \"GC-0056\",\n      \"related_search_terms\": [\n        \"near resemblance\",\n        \"degree of resemblance\"\n      ],\n      \"everyday_phrases\": [\n        \"looks almost identical\",\n        \"nearly the same\",\n        \"looks like that sign\",\n        \"mistaken for that sign\",\n        \"very similar symbol\",\n        \"close resemblance\"\n      ]\n    },\n    {\n      \"id\": \"GC-0057\",\n      \"related_search_terms\": [\n        \"representation requirement\",\n        \"graphic representability\",\n        \"graphically representable mark\"\n      ],\n      \"everyday_phrases\": [\n        \"cannot draw it\",\n        \"showing the mark\",\n        \"put mark on paper\",\n        \"mark cannot be pictured\",\n        \"drawing requirement\",\n        \"representing my mark\"\n      ]\n    },\n    {\n      \"id\": \"GC-0058\",\n      \"related_search_terms\": [\n        \"distinctiveness\",\n        \"distinctive character\",\n        \"ability to distinguish\",\n        \"non-distinctive mark\"\n      ],\n      \"everyday_phrases\": [\n        \"distinctive enough\",\n        \"identifies my business\",\n        \"sets my products apart\",\n        \"not distinctive\",\n        \"shows whose goods\",\n        \"brand stands out\"\n      ]\n    },\n    {\n      \"id\": \"GC-0059\",\n      \"related_search_terms\": [\n        \"inherent distinctiveness\",\n        \"degree of inherent distinctiveness\",\n        \"two-part distinctiveness assessment\"\n      ],\n      \"everyday_phrases\": [\n        \"naturally distinctive\",\n        \"distinctive by itself\",\n        \"name distinctive on its own\",\n        \"word distinctive on its own\",\n        \"naturally identifies my goods\",\n        \"built in distinctiveness\"\n      ]\n    },\n    {\n      \"id\": \"GC-0060\",\n      \"related_search_terms\": [\n        \"ordinary meaning\",\n        \"signification in context\",\n        \"meaning in relation to goods\"\n      ],\n      \"everyday_phrases\": [\n        \"what the name means\",\n        \"usual meaning\",\n        \"everyday meaning\",\n        \"meaning for these products\",\n        \"what customers understand\",\n        \"word meaning\"\n      ]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "1b5de45ae927d2348cf5b0a8ad4ce2a1417be5a4a68f1cf0a53c4b6ddaa107b1",
+ "response_id": "resp_0957a2af3066fc6e006ac602f8432c87d289743a9be48fddd6",
+ "seconds": 43.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1150,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1147
+  },
+  "output_tokens": 1214,
+  "output_tokens_details": {
+   "reasoning_tokens": 101
+  },
+  "total_tokens": 2364
+ }
+}

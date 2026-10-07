@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005698,
+ "created_utc": "2026-10-07T08:39:03Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "services of a person",
+ "job": "define",
+ "key": "8f82df7d9797c8b4c1a142e48f32f5f787fdf23c0f0d656c6f309c2dae54a25b",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"Treat as a statutory attribution concept rather than a category of services.\",\n  \"definition_quote\": \"services of a person means services dealt with or provided in the course of trade by the person.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.94,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: This statutory expression identifies services attributable to a person through that person's dealing with or providing them in the course of trade.\",\n  \"expert_should_check\": \"Check whether subject_matter is the preferred grouping for statutory attribution concepts; the supplied section 41 extracts concern the version prior to Raising the Bar, not necessarily the current provision.\",\n  \"legislative_basis\": [\n    \"TMA1995/s6\"\n  ],\n  \"pref_label\": \"services of a person\",\n  \"definition_ref\": \"TMA1995/s6/services-of-a-person\",\n  \"reasoning\": \"Section 6 expressly defines the expression by reference to a person's trade activities. It is therefore a legal attribution concept, not merely a services category or generic phrase, and no existing concept duplicates it. The historical section 41 extracts illustrate its role in distinguishing an applicant's services from those of other persons. Subject_matter fits best because the expression identifies the services to which trade mark protection relates. Sections 8 and 7(3) are mentioned in nearby notes about authorised use, but the supplied passages do not establish them as grounds for this definition.\",\n  \"not_labels\": [\n    \"specification of goods and services\",\n    \"classification of goods and services\",\n    \"authorised use\"\n  ],\n  \"group\": \"subject_matter\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "414987e337738fb980ca404d1abc7751819a4b8c3ca49a09f07afdea3d00fb34",
+ "response_id": "resp_02c10454bf6673b5006ac60514fc2887d29f6e6feb51175ef1",
+ "seconds": 18.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2883,
+  "input_tokens_details": {
+   "cache_write_tokens": 2880,
+   "cached_tokens": 0
+  },
+  "output_tokens": 419,
+  "output_tokens_details": {
+   "reasoning_tokens": 51
+  },
+  "total_tokens": 3302
+ }
+}

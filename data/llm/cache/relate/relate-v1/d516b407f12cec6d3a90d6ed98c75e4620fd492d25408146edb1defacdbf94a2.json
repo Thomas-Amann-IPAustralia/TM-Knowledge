@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004384,
+ "created_utc": "2026-10-07T11:12:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0003",
+ "job": "relate",
+ "key": "d516b407f12cec6d3a90d6ed98c75e4620fd492d25408146edb1defacdbf94a2",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Applied to clothing, the trade mark connotes the goods originate from the Shetland Islands. There is a real likelihood of deception or confusion if the goods are not in fact produced there.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"none: the passage concerns a false geographical-origin connotation, rather than the statutory meaning of originate in relation to wine.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"The Manual example supports a relationship between an origin connotation and deception where the goods do not have that origin. This is conditional on the connotation being false; origin itself is not presented as deceptive.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether this record covers geographical origin generally or only the statutory wine-specific concept.\",\n      \"passage_ref\": \"TMM/Part29/9/9/3~1\",\n      \"neighbour\": \"GC-0145\"\n    },\n    {\n      \"quote\": \"If during examination of a new application research reveals that a trade mark is identical or similar to a listed EU GI, consideration should then be given to whether or not the use of the trade mark would potentially deceive or confuse Australian consumers and make grounds for rejection under s 43 appropriate.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"related_to: the passage directs consideration of possible deception without asserting that similarity to a listed EU GI necessarily causes it.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"The Manual supports possible deception arising from use of a mark identical or similar to a listed EU GI. The causal relationship is inferred from the direction to assess that possibility, not stated as an automatic consequence.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the relationship should be limited expressly to marks identical or similar to listed EU GIs, rather than geographical indications generally.\",\n      \"passage_ref\": \"TMM/Part29/11#1\",\n      \"neighbour\": \"GC-0018\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: applications covering particular goods are discussed alongside section 43 examination.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"“Covering” describes the goods within an application’s scope. The passages connect deception with particular trade mark content and goods, but do not establish a relationship between deception and covering as a separate concept.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether “covering” has an intended technical meaning beyond its ordinary specification-scope usage.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0137\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "348ee4492e5f92662e5ba2e7cb280f08558152dc597fad1da0e3cc8ef0dea4d8",
+ "response_id": "resp_03c2845650413824006ac62902bc5087d2898ddecdbaaa018d",
+ "seconds": 30.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2926,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2923
+  },
+  "output_tokens": 847,
+  "output_tokens_details": {
+   "reasoning_tokens": 197
+  },
+  "total_tokens": 3773
+ }
+}

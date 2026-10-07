@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002079,
+ "created_utc": "2026-10-07T08:38:55Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "lawyer",
+ "job": "define",
+ "key": "2e7e8e8d2335fea42a9c0bb121062bc72a15d0386fe35edc268c78e0dfa8f8b1",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"lawyer means a barrister or solicitor of the High Court or of the Supreme Court of a State or Territory.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.99,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: A lawyer is a statutorily defined legal professional whom the Manual identifies as an example of someone an applicant may authorise to make an evidence declaration on their behalf.\",\n  \"expert_should_check\": \"The supplied passages do not establish how the cited sections 41(3), 41(4) and 44 ground this role; check those links before recording them as legislative bases.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"lawyer\",\n  \"definition_ref\": \"TMA1995/s6/lawyer\",\n  \"reasoning\": \"Section 6 expressly defines the term, and the Manual passages give lawyers a procedural role as possible authorised declarants. This is a distinct process role, not a generic phrase or an existing concept. The declaration guidance is Registrar practice, whereas the definition is statutory. None of the listed PROVISIONS is supplied with text establishing a legislative basis for this role.\",\n  \"not_labels\": [\n    \"trade mark attorney\"\n  ],\n  \"group\": \"process_role\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "908b9c7011d24566b07ede6b8a5720fae29a986fd1b69ae77e11a15a360b95f0",
+ "response_id": "resp_07954b3b1be6aacd006ac6050c87f887d2b1af2824de240153",
+ "seconds": 19.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3120,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3117
+  },
+  "output_tokens": 384,
+  "output_tokens_details": {
+   "reasoning_tokens": 84
+  },
+  "total_tokens": 3504
+ }
+}

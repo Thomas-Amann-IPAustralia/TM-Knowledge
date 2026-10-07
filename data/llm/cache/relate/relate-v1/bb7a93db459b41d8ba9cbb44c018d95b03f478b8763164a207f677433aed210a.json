@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00551,
+ "created_utc": "2026-10-07T08:28:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0002",
+ "job": "relate",
+ "key": "bb7a93db459b41d8ba9cbb44c018d95b03f478b8763164a207f677433aed210a",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Accordingly, improper use of an INN stem in a trade mark may lead to deception or confusion.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"qualifies: whether the stem is meaningful also affects the assessment, but this sentence directly states a potential causal relationship.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly identifies improper use of an INN stem as a potential source of deception or confusion. This does not mean that the mere presence of a stem satisfies the test.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the relationship needs an explicit restriction to improper, meaningful use of the stem.\",\n      \"passage_ref\": \"TMM/Part29/5/5/2\",\n      \"neighbour\": \"GC-0023\"\n    },\n    {\n      \"quote\": \"If a geographical reference is included, but also has other meanings and / or associations, this should be considered as part of assessing whether there is a real likelihood of deception or confusion.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"mayGiveRiseTo: geographical references can generate deceptive connotations, but this clause more specifically identifies how their alternative meanings qualify the assessment.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual directs that other meanings or associations of a geographical reference be considered in assessing likelihood of deception or confusion. The supported relationship concerns contextual assessment, not an automatic consequence of including a place name.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the narrower factor of alternative geographical meanings should be represented separately from geographical reference generally.\",\n      \"passage_ref\": \"TMM/Part32B/2/2#1\",\n      \"neighbour\": \"GC-0017\"\n    },\n    {\n      \"quote\": \"The tests lie in the perception of the ordinary person, as noted by Kitto J in Southern Cross Refrigerating Co v Toowoomba Foundry Pty Ltd [1954] HCA 82 at [4] (referred to with approval by French J in Woolworths Metro):\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"statesThresholdFor: the surrounding text supplies a threshold, but this sentence identifies the relevant perceptual standpoint rather than the degree of likelihood required.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The passage expressly places the deception or confusion tests in the perception of the ordinary person. This supports treating the ordinary consumer as qualifying the assessment rather than as a source of deception.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether ordinary person and ordinary consumer are sufficiently equivalent for this relationship.\",\n      \"passage_ref\": \"TMM/Part29/3/3/1~1\",\n      \"neighbour\": \"GC-0010\"\n    },\n    {\n      \"quote\": \"The likelihood of confusion must depend on the reputation of the opponent’s trade mark, but have regard (amongst other factors) to the level of similarity of the goods/services and the degree of similarity of the trade marks, greater or smaller.\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"qualifies: reputation also affects the assessment, but the quoted statement makes dependence on reputation necessary in the section 60 context.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"In its section 60 discussion, the Manual quotes the Registrar’s delegate as requiring the likelihood of confusion to depend on the opponent’s trade mark reputation. This relationship is confined to that context; it is not a general requirement of every deception or confusion test.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology can preserve the section 60 limitation, without implying that reputation is required under section 43.\",\n      \"passage_ref\": \"TMM/Part46/4/4/5/2\",\n      \"neighbour\": \"GC-0050\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "24ec481d81f0ea8c9006825814c0d13c3b97084f32f8101fe6023c44f1a4a35e",
+ "response_id": "resp_080ff5ef6fe48d36006ac602a70d9487d2bc567dca2d1f1407",
+ "seconds": 29.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4449,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4446
+  },
+  "output_tokens": 1057,
+  "output_tokens_details": {
+   "reasoning_tokens": 127
+  },
+  "total_tokens": 5506
+ }
+}

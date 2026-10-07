@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011248,
+ "created_utc": "2026-10-07T12:29:28Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0007",
+ "job": "answer",
+ "key": "b7d7afca55fae4f104b4d4e8bfd1caf8f68b88cffe542a575081dcf1113b08cd",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0072\", \"GC-0017\", \"GC-0012\", \"GC-0060\", \"GC-0061\", \"GC-0015\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part22/15#1\",\n      \"quote\": \"When assessing the registrability of geographical names we need to assess whether (i) the sign conveys the significance of the geographical name when applied to the goods or services claimed, and (ii) if so, is it likely other traders would desire to use it for this significance?\"\n    },\n    {\n      \"ref\": \"TMM/Part22/15/15/1~1\",\n      \"quote\": \"It is important to remember, that although a sign may in fact be the name of a place, it may not always signify that location\"\n    },\n    {\n      \"ref\": \"TMM/Part22/15/15/3\",\n      \"quote\": \"Words which function solely as geographical names, and which have some obvious or potential connection with the goods or services, have no inherent adaptation to distinguish.\"\n    }\n  ],\n  \"answer\": \"The supplied passages do not establish that a country name always requires a limitation. They also do not explain when a limitation would be required or sufficient.\\n\\nManual practice instead calls for a contextual assessment:\\n• Does the name convey geographical significance for the claimed goods or services, and would other traders want to use it for that significance? [TMM/Part22/15#1]\\n• A place name does not necessarily signify that location when used as a trade mark. [TMM/Part22/15/15/1~1]\\n• Conversely, words functioning solely as geographical names, with an obvious or potential connection to the goods or services, have no inherent adaptation to distinguish. [TMM/Part22/15/15/3]\\n\\nAccordingly, these passages support assessing the name in relation to the goods or services—not assuming an automatic limitation requirement. I cannot determine the applicable limitation requirements from the supplied material. These are statements of Manual practice; no Act or Regulations passages were provided.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "fcdf2ea0f29d55e52c3de382734c963a8ad697436f9639889c82b3f6774a2af3",
+ "response_id": "resp_092a70bf86633b2e006ac63b0baa0c87d2aac411c0f50a0a2d",
+ "seconds": 29.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6695,
+  "input_tokens_details": {
+   "cache_write_tokens": 6692,
+   "cached_tokens": 0
+  },
+  "output_tokens": 576,
+  "output_tokens_details": {
+   "reasoning_tokens": 100
+  },
+  "total_tokens": 7271
+ }
+}

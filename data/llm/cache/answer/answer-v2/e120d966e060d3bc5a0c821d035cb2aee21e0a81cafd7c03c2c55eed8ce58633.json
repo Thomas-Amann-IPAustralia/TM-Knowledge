@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003645,
+ "created_utc": "2026-10-07T12:19:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0029",
+ "job": "answer",
+ "key": "e120d966e060d3bc5a0c821d035cb2aee21e0a81cafd7c03c2c55eed8ce58633",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0102\",\"GC-0113\",\"GC-0097\",\"GC-0138\",\"GC-0093\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part60/4/16/4/16/2\",\"quote\":\"IP Australia must notify the IB of any opposition within: four months of the publication of acceptance, or seven months of the publication of acceptance where an extension of time for filing Notice of Opposition has been granted.\"},{\"ref\":\"TMM/Part60/4/17/4/17/2~2\",\"quote\":\"IP Australia must notify the IB of provisional refusal based on opposition including all the relevant details listed in Rule 17.\"},{\"ref\":\"TMR1995/r17A.34C\",\"quote\":\"(1) A person who intends to oppose the extension of protection may request the Registrar to extend: (a) the period for filing a notice of intention to oppose under subregulation 17A.33(1); or (b) the period for filing a statement of grounds and particulars under subregulation 17A.34A(1).\"}],\"answer\":\"For an IRDA, the Manual states that IP Australia must notify the International Bureau (IB) of an opposition-based provisional refusal:\\n\\n- within **four months of publication of acceptance**; or\\n- within **seven months of publication of acceptance**, where an extension of time for filing the notice of opposition has been granted.\\n\\nThese are **Manual practice** deadlines, and the notification is made by IP Australia to the IB—not by the opponent. [TMM/Part60/4/16/4/16/2; TMM/Part60/4/17/4/17/2~2]\\n\\n**Legislation:** regulation 17A.34C permits requests to extend the periods for filing a notice of intention to oppose or a statement of grounds and particulars. The supplied legislative passages do not themselves set out the four- or seven-month notification deadlines, so their legislative basis cannot be verified from these extracts alone. [TMR1995/r17A.34C]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "8cae4ed18eedec04192d3517c1d15a7cca155ea5fe3a5cbca896a4fbfc24d0e8",
+ "response_id": "resp_0bd8588ee5940cd0006ac638a8853887d2aceb1fe77f578890",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8051,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 8048
+  },
+  "output_tokens": 648,
+  "output_tokens_details": {
+   "reasoning_tokens": 191
+  },
+  "total_tokens": 8699
+ }
+}

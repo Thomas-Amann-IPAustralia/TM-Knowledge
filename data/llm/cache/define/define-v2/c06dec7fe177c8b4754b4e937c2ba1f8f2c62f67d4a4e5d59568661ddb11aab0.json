@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005533,
+ "created_utc": "2026-10-07T11:16:48Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "kiwi",
+ "job": "define",
+ "key": "c06dec7fe177c8b4754b4e937c2ba1f8f2c62f67d4a4e5d59568661ddb11aab0",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"Treat KIWI as an example associated with geographical reference and ordinary signification, rather than as a separate ontology concept.\",\n  \"definition_quote\": \"For instance, the word KIWI is defined by the Macquarie Dictionary as of or relating to New Zealand\",\n  \"alt_labels\": [\n    \"KIWI\",\n    \"Kiwi\"\n  ],\n  \"confidence\": 0.98,\n  \"is_concept\": false,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: KIWI is an illustrative word or bird representation that may suggest a connection with New Zealand, not a distinct legal or procedural idea.\",\n  \"expert_should_check\": \"No material uncertainty about exclusion; an expert could check whether examples of geographical references should be recorded separately from ontology concepts.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"KIWI\",\n  \"definition_ref\": \"TMM/Part22/15/15/4\",\n  \"reasoning\": \"The passages use KIWI as an ordinary word, Kiwi as a bird whose representation may indicate a geographic connection, and ‘Kiwi Cuvee’ as a cited case example. None establishes a distinct legal or procedural concept. The relevant ideas are already represented by geographical reference (GC-0017), geographical origin (GC-0019) and ordinary signification (GC-0060), but KIWI is an example rather than a synonym of any one of them. The supplied Manual passages describe examination practice; although s 43 is listed among the cited provisions, its text is not supplied and does not establish KIWI as a legislative concept.\",\n  \"not_labels\": [\n    \"geographical reference\",\n    \"geographical origin\",\n    \"ordinary signification\"\n  ],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "93e65f86af8394d318279e4966a7b4011e4a0c24a288dea4251f6683b5bcb95d",
+ "response_id": "resp_0ad5261a804f99f4006ac62a0dd67087d28dff6407ae3e59d6",
+ "seconds": 19.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2887,
+  "input_tokens_details": {
+   "cache_write_tokens": 2884,
+   "cached_tokens": 0
+  },
+  "output_tokens": 385,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 3272
+ }
+}

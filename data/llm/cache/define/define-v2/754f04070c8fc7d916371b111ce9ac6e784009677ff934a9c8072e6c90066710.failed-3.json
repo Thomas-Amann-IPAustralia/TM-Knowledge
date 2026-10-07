@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:36:08Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "capture",
+ "job": "define",
+ "key": "754f04070c8fc7d916371b111ce9ac6e784009677ff934a9c8072e6c90066710",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "690b76eef797a6a20206a75d28ae725bebd1cbcc11628d27060676ba55d795f6",
+ "response_id": "resp_076f5f5e83dda9b0006ac60475d0ac87d2a831216943b07383",
+ "seconds": 3.4,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

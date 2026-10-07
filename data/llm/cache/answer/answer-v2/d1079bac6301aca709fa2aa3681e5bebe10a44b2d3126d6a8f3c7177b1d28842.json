@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004698,
+ "created_utc": "2026-10-07T12:21:02Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0014",
+ "job": "answer",
+ "key": "d1079bac6301aca709fa2aa3681e5bebe10a44b2d3126d6a8f3c7177b1d28842",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0073\",\"GC-0072\",\"GC-0058\",\"GC-0059\",\"GC-0060\",\"GC-0061\",\"GC-0009\",\"GC-0048\",\"GC-0119\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s17\",\"quote\":\"A trade mark is a sign used, or intended to be used, to distinguish goods or services dealt with or provided in the course of trade by a person from goods or services so dealt with or provided by any other person.\"},{\"ref\":\"TMM/Part22/25#1\",\"quote\":\"A device trade mark is a drawing, picture or other image that appears without text, letters or numerals.\"},{\"ref\":\"TMM/Part22/25#1\",\"quote\":\"The first step of the enquiry is to determine the “ordinary signification” of the device. This is to be determined by reference to the “target audience” of the goods and services. Once that signification has been determined, the second step is to enquire as to the likelihood of other traders wanting to use that device or some deceptively similar variant for the sake of that signification.\"},{\"ref\":\"TMM/Part22/25/25/1\",\"quote\":\"A device which is an ordinary depiction of the goods upon which, or in connection with which, it will be used is generally not prima facie capable of distinguishing.\"},{\"ref\":\"TMM/Part22/25/25/1\",\"quote\":\"A trade mark which consists solely of a device which is common to the trade will be considered to have insufficient inherent adaptation to distinguish unless it is depicted in a special or fanciful manner.\"},{\"ref\":\"TMM/Part22/x-registrability-of-various-kinds-of-signs#1\",\"quote\":\"Each application must be taken on face value, and be considered under section 41 in the usual fashion.\"}],\"answer\":\"**Act — the basic function:** Section 17 defines a trade mark by its use, or intended use, to distinguish one person’s goods or services from those of others. [TMA1995/s17]\\n\\n**Manual practice — assessing a picture-only logo:** The Manual calls a drawing, picture or image without text, letters or numerals a ‘device trade mark’. Its assessment proceeds in two steps: [TMM/Part22/25#1]\\n\\n1. **Identify its ordinary signification:** What meaning does the picture convey to the target audience for the relevant goods or services?\\n2. **Consider other traders’ likely need to use it:** Would other traders want to use that picture, or a deceptively similar variant, for that meaning? [TMM/Part22/25#1]\\n\\n**Manual practice — common pictures:** An ordinary depiction of the goods is generally not prima facie capable of distinguishing. A mark consisting solely of a device common to the trade is treated as having insufficient inherent adaptation to distinguish unless depicted in a special or fanciful manner. The assessment therefore concerns the picture’s meaning and depiction in relation to the goods or services—not merely whether it looks familiar. [TMM/Part22/25/25/1; TMM/Part22/25#1]\\n\\n**Scope of this answer:** The Manual directs examination under section 41, but the supplied legislation does not include that section. These passages explain the Manual’s approach to inherent distinctiveness; they do not supply the complete statutory assessment or establish an outcome for your logo. [TMM/Part22/x-registrability-of-various-kinds-of-signs#1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b6b862629466379225446c210aff7a33b015aa208292f2163d3fecafc02ed1ba",
+ "response_id": "resp_02779373953e8f13006ac639123fdc87d2837f90d349ab6bea",
+ "seconds": 28.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7500,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7497
+  },
+  "output_tokens": 864,
+  "output_tokens_details": {
+   "reasoning_tokens": 104
+  },
+  "total_tokens": 8364
+ }
+}

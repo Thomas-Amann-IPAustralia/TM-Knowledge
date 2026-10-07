@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005161,
+ "created_utc": "2026-10-07T11:45:20Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0134",
+ "job": "relate",
+ "key": "9a9d58fc0be41c2fdfcdf72fb9d0da7c81c19e1d3a627ffc08b4856ff182320d",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"A decision by the Australian Competition and Consumer Commission in relation to a certification trade mark: not to give a certificate as to the competence of the certifying body, or the appropriateness of the rules (section 175(5)), or to approve, or not to approve, a subsequent variation of the rules governing the use of a registered certification trade mark (section 178(5)), or to refuse consent to the assignment of a registered certification trade mark (section 180(4)).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo was rejected because the passage identifies reviewable Commission decisions, rather than allocating the Commission itself to the ART.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"This item appears in the Manual's express list of matters for which the Act provides ART review, connecting the ART with specified Commission decisions. No listed predicate precisely captures that review relationship between the two bodies.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the relationship needs a dedicated reviewsDecisionsOf predicate to preserve its limited scope.\",\n      \"passage_ref\": \"TMM/Part52/5/5/2\",\n      \"neighbour\": \"GC-0133\"\n    },\n    {\n      \"quote\": \"A decision by the Australian Competition and Consumer Commission in relation to a certification trade mark: not to give a certificate as to the competence of the certifying body, or the appropriateness of the rules (section 175(5)), or to approve, or not to approve, a subsequent variation of the rules governing the use of a registered certification trade mark (section 178(5)), or to refuse consent to the assignment of a registered certification trade mark (section 180(4)).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo was rejected because the passage concerns ART review of specified decisions about certification trade marks, not application of the tribunal itself to that subject matter.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"Within its list of ART-reviewable matters, the Manual expressly includes specified Commission decisions concerning certification trade marks. This supports a subject-matter connection, not a general claim that all certification trade mark matters are reviewable by the ART.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a direct tribunal-to-subject-matter relationship adequately preserves the restriction to the enumerated decisions.\",\n      \"passage_ref\": \"TMM/Part52/5/5/2\",\n      \"neighbour\": \"GC-0107\"\n    },\n    {\n      \"quote\": \"Review of a Registrar's decision not to extend time for the doing of a relevant act may be sought from the Administrative Review Tribunal (ART) (subsection 224(7)).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo was rejected because the passage assigns a review avenue for a particular decision, not the Registrar as a role to the ART.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly describes ART review of a specified Registrar decision and cites subsection 224(7). None of the listed specific predicates captures the relationship between the reviewing body and the original decision maker.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a dedicated reviewsDecisionsOf predicate should replace this broad relationship.\",\n      \"passage_ref\": \"TMM/Part15/7#1\",\n      \"neighbour\": \"GC-0046\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "c0762c509b40067f782a2ba349d7eec0c3c4b999735a5bdaa5670df4a443dca6",
+ "response_id": "resp_0cf01b37dc4a6133006ac630b4821c87d293ddbf06c6307d04",
+ "seconds": 28.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3155,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3152
+  },
+  "output_tokens": 1000,
+  "output_tokens_details": {
+   "reasoning_tokens": 187
+  },
+  "total_tokens": 4155
+ }
+}

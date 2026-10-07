@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004026,
+ "created_utc": "2026-10-07T11:17:23Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0023",
+ "job": "relate",
+ "key": "0373d0ebf396ad86548d44ef047d9fa11d3cd45efc8628385608fae5eb161ac7",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Since the INN stem describes families of pharmacologically related substances it should be available for use by anyone in a descriptive context.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo: the stem applies to pharmaceutical or veterinary substances.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The Manual expressly connects an INN stem with the families of pharmacologically related substances it describes. No listed specific predicate accurately captures that descriptive relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour's broad scope, including class 5 goods, exceeds the substances described by this passage.\",\n      \"passage_ref\": \"TMM/Part22/24/24/2\",\n      \"neighbour\": \"GC-0025\"\n    },\n    {\n      \"quote\": \"Accordingly, improper use of an INN stem in a trade mark may lead to deception or confusion.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"doesNotGiveRiseTo, based on the discussion of stems whose presence is not meaningful.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The Manual expressly states that improper use of an INN stem may lead to confusion. This is a conditional causal relationship, not a claim that every occurrence of a stem causes confusion.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology can retain the qualification that the relationship concerns improper use of the stem.\",\n      \"passage_ref\": \"TMM/Part29/5/5/2\",\n      \"neighbour\": \"GC-0004\"\n    },\n    {\n      \"quote\": \"A ground for rejection under section 43 exists where a trade mark to be used in relation to pharmaceuticals or veterinary substances consists of an INN stem, or contains a notified INN stem in a meaningful way, and use of the trade mark in respect of the goods covered by the specification are not restricted to substances indicated by the INN stem.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"requiresElement: a ground for rejection requires an INN stem.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual states circumstances in which an INN stem gives rise to a section 43 ground for rejection, including meaningful inclusion and unrestricted goods. It does not make an INN stem necessary for grounds for rejection generally.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the edge adequately preserves the meaningful-inclusion and goods-restriction conditions.\",\n      \"passage_ref\": \"TMM/Part29/5/5/5\",\n      \"neighbour\": \"GC-0006\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "ddf4ee4d9974fcaba94c1ef8150cba6a6ec13bb0a2c2c6ca37d4b0e803f6cb69",
+ "response_id": "resp_0f653cb5497cd2ba006ac62a27655087d2a22beb453a0478b0",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2857,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2854
+  },
+  "output_tokens": 776,
+  "output_tokens_details": {
+   "reasoning_tokens": 125
+  },
+  "total_tokens": 3633
+ }
+}

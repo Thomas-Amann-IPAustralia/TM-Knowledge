@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004917,
+ "created_utc": "2026-10-07T08:31:10Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0009",
+ "job": "relate",
+ "key": "7168d44612250db05f12f7e36a70a9a6e2eca734c4ed6e99021255b74084b70f",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"A proposed exclusion may result in the trade mark which has a particular connotation as being likely to deceive or confuse a significant portion of the relevant market (when applied to the goods and/or services that remain).\",\"relation\":\"qualifies\",\"alternative\":\"related_to: the passage connects connotation and the relevant market without expressly saying the market qualifies the connotation itself.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.78,\"reasoning\":\"The Manual supports treating the relevant market as qualifying the assessment of a connotation's deceptive or confusing effect. This is inferred: the passage does not say that the market determines whether the connotation exists.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether qualifies should attach only to the likelihood of deception or confusion, rather than to connotation.\",\"passage_ref\":\"TMM/Part23/2/2/2/2\",\"neighbour\":\"GC-0001\"},{\"quote\":\"A proposed exclusion may result in the trade mark which has a particular connotation as being likely to deceive or confuse a significant portion of the relevant market (when applied to the goods and/or services that remain).\",\"relation\":\"qualifies\",\"alternative\":\"related_to: the relevant market merely identifies the people who might be confused.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.93,\"reasoning\":\"The passage expressly assesses likely confusion by reference to a significant portion of the relevant market. The market therefore qualifies the population within which confusion is assessed.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the population limitation is appropriately represented by qualifies.\",\"passage_ref\":\"TMM/Part23/2/2/2/2\",\"neighbour\":\"GC-0004\"},{\"quote\":\"a significant number or a significant sector of relevant Australian consumers would know that use of the deceased person’s name/image is associated with their estate (or other authorised entity);\",\"relation\":\"related_to\",\"alternative\":\"qualifies: consumer awareness qualifies the assessment concerning a deceased person's name or image.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.9,\"reasoning\":\"The Manual expressly connects relevant Australian consumers with knowledge of the association between a deceased person's name or image and their estate or another authorised entity. No more specific listed predicate clearly captures that knowledge relationship between these two concepts.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether a more specific relationship should instead be modelled through consumer awareness of estate control.\",\"passage_ref\":\"TMM/Part29/6/6/2~1\",\"neighbour\":\"GC-0027\"},{\"quote\":\"However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the specified goods and / or services would be likely to deceive or cause confusion. If the trade mark, or some part of the trade mark, contains a connotation that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection should be raised.\",\"relation\":\"related_to\",\"alternative\":\"none: the passage states separate propositions about the decision maker and the relevant market without expressly connecting them.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.83,\"reasoning\":\"Read together, these sentences support a connection between the decision maker's assessment and consumers within the relevant market. The connection is inferred from the Manual's explanation, rather than expressed as a separate statutory duty to identify that market.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the adjacent sentences sufficiently support a direct relationship between the decision maker and the relevant market.\",\"passage_ref\":\"TMM/Part29/1#1\",\"neighbour\":\"GC-0045\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "a3a8a69d80047747f68f476e05959f1b4a52e84da8378d55ae523cae8269d407",
+ "response_id": "resp_0c9948cd680e59ea006ac603230d2c87d2bb4aec304bd93e57",
+ "seconds": 43.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3486,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3483
+  },
+  "output_tokens": 948,
+  "output_tokens_details": {
+   "reasoning_tokens": 172
+  },
+  "total_tokens": 4434
+ }
+}

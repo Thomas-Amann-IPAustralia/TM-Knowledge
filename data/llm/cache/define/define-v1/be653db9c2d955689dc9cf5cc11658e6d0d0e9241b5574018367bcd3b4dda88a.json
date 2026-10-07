@@ -1,0 +1,31 @@
+{
+ "cost_usd": 0.0044,
+ "created_utc": "2026-10-07T07:11:47Z",
+ "effort": "medium",
+ "incomplete_details": null,
+ "item": "accredited course of study",
+ "job": "define",
+ "key": "be653db9c2d955689dc9cf5cc11658e6d0d0e9241b5574018367bcd3b4dda88a",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"Treat as an ancillary educational category rather than a standalone concept if the ontology excludes regulatory qualification terminology.\",\n  \"definition_quote\": \"accredited course of study means a course of study that is accredited by the Board under regulation 20.2A of the Patents Regulations 1991.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.87,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: An accredited course of study is a course accredited by the Board under the specified provision of the Patents Regulations 1991.\",\n  \"expert_should_check\": \"Check its role in the wider regulatory scheme; the supplied passage defines the term but does not explain its relevance to trade marks procedures or identify the Board.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"accredited course of study\",\n  \"definition_ref\": \"TMR1995/r2.1/accredited-course-of-study\",\n  \"reasoning\": \"The Regulations expressly define a status conferred through accreditation under a specified regulatory provision, rather than a generic educational phrase or a category of goods or services. No existing concept duplicates it. None of the supplied groups describes this regulatory qualification category. No PROVISIONS were supplied for legislative_basis; the definition itself cross-refers to regulation 20.2A of the Patents Regulations 1991.\",\n  \"not_labels\": [\n    \"course of study\"\n  ],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v1",
+ "request_sha256": "5752996445ade234671fedeb7c0e7ffcc1ca9c86c0db332019bca01f34cd0f59",
+ "response_id": "resp_0c5d6323e2247988006ac5f0a14ca487d2a6f7dc97e2718869",
+ "seconds": 19.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1877,
+  "input_tokens_details": {
+   "cache_write_tokens": 1874,
+   "cached_tokens": 0
+  },
+  "output_tokens": 411,
+  "output_tokens_details": {
+   "reasoning_tokens": 81
+  },
+  "total_tokens": 2288
+ }
+}

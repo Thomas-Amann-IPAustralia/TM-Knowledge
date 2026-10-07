@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009978,
+ "created_utc": "2026-10-07T08:29:25Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-028",
+ "job": "needs",
+ "key": "8f7ca12ca5b6034d5b7ff2a12b8914f5e8f61c7285e26a0fe0fbba7bd898c443",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer should identify the tool and the two access paths mentioned. It should distinguish the examiner location from the external user location.\",\"search\":\"where to find the trade marks classification search\",\"seed_refs\":[\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services\"],\"kind\":\"lookup\",\"question\":\"Where can I access the Trade Marks Classification Search as an examiner or as an external user?\"},{\"narrative\":\"A helpful answer should explain the general issue raised when a surname is combined with descriptive words for the goods or services. It should also note that an unusual presentation of the surname may matter.\",\"search\":\"common surname plus descriptive services mark\",\"seed_refs\":[\"TMM/Part22/16/16/3\"],\"kind\":\"problem\",\"question\":\"Will a mark with a common surname and a description of the services be hard to distinguish?\"},{\"narrative\":\"A helpful answer should cover both when information from others can prompt revocation action and when extra material may be needed to define a non-traditional sign. It should connect the need for clearer scope with the kind of information that can start the revocation process.\",\"search\":\"revocation and extra info for movement mark\",\"seed_refs\":[\"TMM/Part38/2/2/1\",\"TMM/Part10/3/3/6/3\"],\"kind\":\"cross_part\",\"question\":\"If outside information raises doubts about a mark, can the examiner ask for more material to clearly define a movement mark before any revocation step starts?\"},{\"narrative\":\"A helpful answer should identify the people, documents and time limits touched by the listed provisions. It should explain the practical effect areas named in the list without trying to decide a particular case.\",\"search\":\"who is affected by extension of time fees and filing rules\",\"seed_refs\":[\"TMM/Part15/x-relevant-legislation13#1\"],\"kind\":\"impact\",\"question\":\"Who is affected by the listed rules on fees, filing, lapsing and extensions of time?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "d623b8fbeab6dc13e227e87448acd175e6a3141d573fa5a966f77bc06a4d5752",
+ "response_id": "resp_0f5368d0e436f03e006ac602da1bd487d28c0081a792fdf654",
+ "seconds": 11.3,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1226,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 2013,
+  "output_tokens_details": {
+   "reasoning_tokens": 1305
+  },
+  "total_tokens": 3239
+ }
+}

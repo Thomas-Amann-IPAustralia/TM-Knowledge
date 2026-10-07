@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004506,
+ "created_utc": "2026-10-07T12:18:57Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0027",
+ "job": "answer",
+ "key": "8d2a5fc7236ed1d24369fb743d00c113c0a1f5c6bb45846a28321d2295d409ed",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0059\",\"GC-0058\",\"GC-0101\",\"GC-0069\",\"GC-0100\",\"GC-0038\"],\"decline_reason\":\"I cannot determine whether your particular application requires a colour limitation. I can explain the general Manual practice, but not how your application would be decided.\",\"declined\":true,\"citations\":[{\"ref\":\"TMM/Part10/3/3/5/3~1\",\"quote\":\"This situation is most likely to occur when a trade mark which is lacking in inherent adaptation to distinguish is shown through evidence of use to be capable of distinguishing when used in particular colours. Acceptance for registration may then be allowed on the basis of a limitation to colour.\"},{\"ref\":\"TMM/Part10/3/3/5/3~1\",\"quote\":\"Registration of this trade mark is limited to the colours ____________, ________ and _________ as shown in the representation of the trade mark attached to the application form. If an applicant chooses to limit to colour during examination, this same form of endorsement would be the appropriate one.\"},{\"ref\":\"TMM/Part21/4/4/1~2\",\"quote\":\"Descriptions for COLOURED trade marks which are allowable but will not be considered to be indicative of a restriction or limitation to colour “The trade mark is depicted in the colours green and blue as shown in the representation attached to the application form.”\"},{\"ref\":\"TMM/Part22/25/25/8\",\"quote\":\"As such a trade mark which consists entirely of a simple barcode is unlikely to be prima facie capable of distinguishing.\"},{\"ref\":\"TMM/Part22/25/25/8\",\"quote\":\"In contrast a trade mark which contains a barcode along with other material would need to be considered as a whole, in a similar manner to other composite trade marks.\"}],\"answer\":\"The passages do not establish that always using a barcode in green and blue automatically requires a colour limitation. I cannot determine whether your particular application needs one.\\n\\nAll the following is **Manual practice**, not legislation:\\n\\n• A colour limitation may be relevant where a mark lacks inherent adaptation to distinguish, but evidence of use shows that it is capable of distinguishing when used in particular colours. The Manual says acceptance may then be allowed on that basis—not that a limitation is invariably required. [1]\\n\\n• If an applicant chooses to limit the mark to colour during examination, the Manual provides this endorsement: “Registration of this trade mark is limited to the colours ____________, ________ and _________ as shown in the representation of the trade mark attached to the application form.” [2]\\n\\n• Merely describing the mark as “depicted” in green and blue is not treated as a colour restriction or limitation. [3]\\n\\n• Separately, the Manual says a mark consisting entirely of a simple barcode is unlikely to be prima facie capable of distinguishing. A barcode combined with other material must be considered as a whole. Those statements do not determine the outcome for your coloured barcode. [4–5]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "876aad28c8dce1116f7a1cdfa85c26cdbcae111f6c694587f9b96bb98ae4233a",
+ "response_id": "resp_0287b002b4a28ed7006ac6389644c487d2b4fb03547a680394",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6656,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6653
+  },
+  "output_tokens": 834,
+  "output_tokens_details": {
+   "reasoning_tokens": 188
+  },
+  "total_tokens": 7490
+ }
+}

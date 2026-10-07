@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002402,
+ "created_utc": "2026-10-07T11:12:23Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "statement of grounds and particulars",
+ "job": "define",
+ "key": "4c61e374cc5c32a7cd8a1f187cb5f8b6461e7c90c5229a88758c9fe162efdc91",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"statement of grounds and particulars means a statement by an opponent that sets out:\",\n  \"alt_labels\": [],\n  \"confidence\": 0.94,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: A statement by an opponent that forms part of a notice of opposition and, together with the notice of intention to oppose, completes that notice.\",\n  \"expert_should_check\": \"The supplied legislative definitions stop at the colon, so the required contents cannot be established from these passages; check the complete definitions and the filing requirements in regulation 17A.32.\",\n  \"legislative_basis\": [\n    \"TMR1995/r17A.29\",\n    \"TMR1995/r17A.32\"\n  ],\n  \"pref_label\": \"statement of grounds and particulars\",\n  \"definition_ref\": \"TMR1995/r17A.29/statement-of-grounds-and-particulars\",\n  \"reasoning\": \"The Regulations expressly name and partially define this document. TMM/Part47/1/1/1 explains that it must be filed to complete the notice of opposition and cites regulation 17A.32. It is a distinct component of GC-0103 notice of opposition, not a duplicate of that concept or of opposition generally. The supplied definition is incomplete, so no claim is made about its required contents. The Manual passage explains practice and cites legislation; it is not itself legislation.\",\n  \"not_labels\": [\n    \"notice of opposition\",\n    \"notice of intention to oppose\"\n  ],\n  \"group\": \"instrument_or_record\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "15909ae30ee5e3de35e00d47d7f8f35b2865e0f198ab49a85a6fc58540432687",
+ "response_id": "resp_039838f81b2a28e2006ac62905128487d2bd812c55ff9ae798",
+ "seconds": 18.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2791,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2788
+  },
+  "output_tokens": 452,
+  "output_tokens_details": {
+   "reasoning_tokens": 92
+  },
+  "total_tokens": 3243
+ }
+}

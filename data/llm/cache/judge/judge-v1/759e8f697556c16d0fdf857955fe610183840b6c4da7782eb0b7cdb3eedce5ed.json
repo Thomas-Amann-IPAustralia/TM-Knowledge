@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002245,
+ "created_utc": "2026-10-07T12:19:05Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0041",
+ "job": "judge",
+ "key": "759e8f697556c16d0fdf857955fe610183840b6c4da7782eb0b7cdb3eedce5ed",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names#1~2\",\"grade\":1},{\"ref\":\"TMM/Part20/5/5/5\",\"grade\":1},{\"ref\":\"TMM/Part29/3#1~1\",\"grade\":1},{\"ref\":\"TMM/Part29/3#1~2\",\"grade\":1},{\"ref\":\"TMM/Part22/14#1\",\"grade\":2},{\"ref\":\"TMM/Part29/3/3/1~1\",\"grade\":1},{\"ref\":\"TMM/Part26/6/6/6~1\",\"grade\":1},{\"ref\":\"TMM/Part46/4/4/5/2\",\"grade\":1},{\"ref\":\"TMM/Part28/2#1\",\"grade\":1},{\"ref\":\"TMM/Part29/9/9/4\",\"grade\":1},{\"ref\":\"TMM/Part29/3/3/1~2\",\"grade\":1},{\"ref\":\"TMM/Part29/5/5/4\",\"grade\":1},{\"ref\":\"TMM/Part29/3/3/3\",\"grade\":1},{\"ref\":\"TMM/Part26/2#1\",\"grade\":1},{\"ref\":\"TMM/Part26/6/6/7~1\",\"grade\":1},{\"ref\":\"TMM/Part22/16/16/5\",\"grade\":0},{\"ref\":\"TMM/Part30/2/2/7\",\"grade\":1},{\"ref\":\"TMM/Part32A/x-annex-5---case-law-summaries/mastronardi-produce-ltd-v-registrar-of-trade-marks-2014-fca-1021-zima\",\"grade\":1},{\"ref\":\"TMM/Part29/3/3/2\",\"grade\":3}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "c9c5ba83bbaa178ace35c6fa81d89324b17ebfbf09db39ca4f298633ffa7b4df",
+ "response_id": "resp_0ad636214bbd2c25006ac638a6f4b487d2899809c4e357518d",
+ "seconds": 19.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4734,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4731
+  },
+  "output_tokens": 401,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 5135
+ }
+}

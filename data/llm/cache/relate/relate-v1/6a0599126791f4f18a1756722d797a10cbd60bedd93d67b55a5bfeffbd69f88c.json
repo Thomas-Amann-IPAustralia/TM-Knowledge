@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004951,
+ "created_utc": "2026-10-07T11:40:02Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0131",
+ "job": "relate",
+ "key": "6a0599126791f4f18a1756722d797a10cbd60bedd93d67b55a5bfeffbd69f88c",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The relevant act for which an extension of time under section 224 is most commonly required is the acceptance of a trade mark application for possible registration.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to would capture the connection without treating acceptance as a procedural step applying to the application.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.91,\n      \"reasoning\": \"The Manual expressly identifies the trade mark application as the object of acceptance. This supports acceptance applying to the application, without implying that every application must be accepted.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether appliesTo is intended to cover procedural steps acting on records.\",\n      \"passage_ref\": \"TMM/Part15/1#1~1\",\n      \"neighbour\": \"GC-0093\"\n    },\n    {\n      \"quote\": \"The presumption of registrability applies when the Registrar or their delegate is not satisfied that any grounds for rejecting a trade mark application exist.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"requiresElement would incorrectly suggest that a ground for rejection is a required element of an application.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The Manual expressly connects grounds for rejection with rejecting a trade mark application. The relationship is conditional: the passage does not assert that such grounds exist for every application.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether appliesTo adequately represents a potentially applicable ground rather than an established ground.\",\n      \"passage_ref\": \"TMM/Part20/4/4/1\",\n      \"neighbour\": \"GC-0053\"\n    },\n    {\n      \"quote\": \"As part of the examination of an application for registration of a trade mark, carried out under section 31, the Registrar must report on whether or not the application has been made in accordance with the Act.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"constrainsExaminerTo would require the constraining provision, rather than the application, to be the subject.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual describes the Registrar's obligation to report on the application's compliance with the Act. None of the more specific listed predicates captures this role-to-record reporting relationship.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology has a narrower reporting relationship not included in the supplied predicates.\",\n      \"passage_ref\": \"TMM/Part10/x-introduction#1\",\n      \"neighbour\": \"GC-0115\"\n    },\n    {\n      \"quote\": \"An example of oppressive width would be “all documents referring to” a trade mark application or registration.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none would treat the application as merely incidental to an example rather than as the reference point defining the subpoena's document scope.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.8,\n      \"reasoning\": \"In the surrounding subpoena discussion, the application is a reference point for identifying documents sought for production. The connection is indirect and illustrative; it does not establish that an application itself must be produced.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether this illustrative document-scope connection is sufficient for related_to rather than none.\",\n      \"passage_ref\": \"TMM/Part54/1/1/4/2\",\n      \"neighbour\": \"GC-0144\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "5813d95cb0333a784a3332f5feea0dd014e145f320502813aea9819cb9efc9cf",
+ "response_id": "resp_0d698e0a33302676006ac62f7471ac87d2862352f8388f4564",
+ "seconds": 30.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3367,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3364
+  },
+  "output_tokens": 956,
+  "output_tokens_details": {
+   "reasoning_tokens": 133
+  },
+  "total_tokens": 4323
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003217,
+ "created_utc": "2026-10-07T12:26:37Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0096",
+ "job": "answer",
+ "key": "5d6e677d6d693e13f1e457b53aaa44e328c28558bc6ae6a030d8a10e91b735aa",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0078\",\"GC-0058\",\"GC-0120\",\"GC-0093\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part21/7/7/2/1~2\",\"quote\":\"To be capable of distinguishing the applicant's goods, the scent needs to be something apart from the goods themselves. It should be neither a natural characteristic nor an expected characteristic of the product, but something added to identify the applicant's goods from those of others in the same market.\"},{\"ref\":\"TMM/Part21/7/7/2/1~1\",\"quote\":\"The natural scent of a product will have no inherent adaptation to distinguish the goods.\"},{\"ref\":\"TMM/Part21/7/7/2/1~1\",\"quote\":\"A masking scent has a functional purpose, and is not capable of distinguishing for that reason.\"},{\"ref\":\"TMA1995/s33\",\"quote\":\"(1) The Registrar must, after the examination, accept the application unless he or she is satisfied that: (a) the application has not been made in accordance with this Act; or (b) there are grounds under this Act for rejecting it.\"}],\"answer\":\"Yes—as a statement of the Manual’s practice on a scent’s capacity to distinguish, rather than an absolute statutory rule about acceptance.\\n\\n**Manual practice:** The scent should be separate from the goods themselves: neither a natural nor an expected characteristic, but something added to identify the applicant’s goods from those of others in the same market (TMM/Part21/7/7/2/1~2). The Manual states that a product’s natural scent has no inherent adaptation to distinguish (TMM/Part21/7/7/2/1~1). Merely adding a scent is not enough: a functional masking scent is also described as not capable of distinguishing (TMM/Part21/7/7/2/1~1).\\n\\n**Act:** Section 33(1) requires acceptance unless the Registrar is satisfied that the application does not comply with the Act or that there are statutory grounds for rejection (TMA1995/s33). The supplied legislation does not set out a scent-specific rule or the statutory provisions governing capacity to distinguish. These passages therefore do not establish that every natural-scent mark must ultimately be refused, or that every added scent can be accepted.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "1a959b8a1a189f7a1ab5a7f8311daebfa27bd2ba0491b446d558c9710271234a",
+ "response_id": "resp_00147c65a8c12861006ac63a6c368487d2a2f5aa0d5da10b60",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7275,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7272
+  },
+  "output_tokens": 570,
+  "output_tokens_details": {
+   "reasoning_tokens": 60
+  },
+  "total_tokens": 7845
+ }
+}

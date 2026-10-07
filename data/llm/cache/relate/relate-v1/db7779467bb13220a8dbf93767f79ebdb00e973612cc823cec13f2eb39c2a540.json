@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004222,
+ "created_utc": "2026-10-07T11:35:58Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0114",
+ "job": "relate",
+ "key": "db7779467bb13220a8dbf93767f79ebdb00e973612cc823cec13f2eb39c2a540",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"It is possible that the holder of a protected international trade mark may already own an existing Australian trade mark registration for the same trade mark containing some or all of the goods and/or services claimed in the protected international trade mark, and which has an earlier priority date than the protected international trade mark in respect of those goods and/or services.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement was rejected because the passage identifies a holder relationship, rather than prescribing an element required for protection.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly identifies a holder of a protected international trade mark. No listed specific predicate accurately expresses that holding relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology has a more specific ownership or holding predicate outside the supplied list.\",\n      \"passage_ref\": \"TMM/Part60/4/26/4/26/2\",\n      \"neighbour\": \"GC-0132\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to was rejected because inclusion in the same list of definitions does not establish a relationship between the concepts.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"Both passages list International Bureau and protected international trade mark as terms defined in regulation 17A.2, but neither states how they relate.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether any substantive relationship can properly be inferred from the legislative index alone.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0138\"\n    },\n    {\n      \"quote\": \"The Madrid Protocol provides for the transformation of an IRDA or protected international trade mark into a national application. There are two circumstances in which an IRDA or protected international trade mark could be transformed: The basic trade mark has ceased to exist or its scope has been limited in the Office of origin within the 5 year dependency period or as a result of an action that commenced within that period.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"dependsOnExternalSource was rejected because the passage connects transformation to the status of the basic trade mark in the Office of origin, rather than expressly making the Office itself an external source on which protection depends.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual connects a protected international trade mark's transformation pathway with cessation or limitation of its basic trade mark in the Office of origin. This supports a contextual relationship, but I am unsure that any more specific supplied predicate accurately captures it.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether this transformation connection warrants a direct relationship to the Office of origin rather than only to the basic trade mark.\",\n      \"passage_ref\": \"TMM/Part60/4/25/4/25/2\",\n      \"neighbour\": \"GC-0136\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "e938bd26d403f4c2bf108ea448ab60d7621d55cffd8577b443964a321e063d34",
+ "response_id": "resp_03ae0f8f6b4140ce006ac62e80f8f487d29c4491408e314c0f",
+ "seconds": 30.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2785,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2782
+  },
+  "output_tokens": 816,
+  "output_tokens_details": {
+   "reasoning_tokens": 120
+  },
+  "total_tokens": 3601
+ }
+}

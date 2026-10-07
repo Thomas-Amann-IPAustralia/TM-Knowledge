@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010834,
+ "created_utc": "2026-10-07T08:56:47Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0105",
+ "job": "relate",
+ "key": "6642e783bff53ff26940ded5f1b064eb2f2705acbb3a654e6df863d6f6aa2a8b",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Where a citation has been raised against an application under subsection 44(1) or (2) and an action by the applicant for rectification of the Register regarding the cited trade mark is pending (subreg 4.13(1)(c)(iv)).\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to would capture the connection but would not identify the Register as the record to which rectification applies.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly describes rectification of the Register regarding a cited trade mark. This supports treating the Register as the object of the rectification procedure.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether appliesTo is intended to cover the record that a procedural step seeks to rectify.\",\n      \"passage_ref\": \"TMM/Part17/2/2/1\",\n      \"neighbour\": \"GC-0089\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to on the basis that both prior use and rectification are discussed as grounds for deferment.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The passages describe prior use and rectification as separate bases for deferment, with separate checks and termination rules. They do not state a relationship between the two concepts themselves.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether sharing a deferment context is intended to count as a direct relationship in this ontology.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0067\"\n    },\n    {\n      \"quote\": \"Where deferment is sought on the grounds that rectification action has been taken in respect of at least one of the cited trade marks\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"requiresElement in the reverse direction would incorrectly suggest that rectification is required for deferment generally.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual identifies rectification action concerning a cited trade mark as a ground on which deferment may be sought. This supports a contingent relationship, not automatic deferment whenever rectification action occurs.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether mayGiveRiseTo adequately captures a ground for requesting deferment rather than an automatic procedural consequence.\",\n      \"passage_ref\": \"TMM/Part17/4/4/2\",\n      \"neighbour\": \"GC-0096\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to because other circumstances and rectification appear among the bases for deferment.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The passages discuss other circumstances and rectification in separate deferment provisions. They do not identify rectification as an instance of other circumstances or otherwise connect the two directly.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether any direct connection is supported beyond their shared deferment context.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0068\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "901f23c595c6609aa5d99dd61ddaf96dce09c9f7f96f0a83ad8dd6cd7a4b8942",
+ "response_id": "resp_0958459fa90a4fa1006ac609339fcc87d2bb652cebf287cfc2",
+ "seconds": 28.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4736,
+  "input_tokens_details": {
+   "cache_write_tokens": 4733,
+   "cached_tokens": 0
+  },
+  "output_tokens": 983,
+  "output_tokens_details": {
+   "reasoning_tokens": 219
+  },
+  "total_tokens": 5719
+ }
+}

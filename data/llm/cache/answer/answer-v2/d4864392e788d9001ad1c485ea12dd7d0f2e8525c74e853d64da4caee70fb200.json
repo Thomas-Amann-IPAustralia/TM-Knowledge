@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002048,
+ "created_utc": "2026-10-07T12:18:50Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0026",
+ "job": "answer",
+ "key": "d4864392e788d9001ad1c485ea12dd7d0f2e8525c74e853d64da4caee70fb200",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0121\",\"GC-0129\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part14/5/5/2/15~1\",\"quote\":\"However, terms such as “virtual goods” or “downloadable goods” alone lack specificity and are not acceptable.\"},{\"ref\":\"TMM/Part14/5/5/2/15~1\",\"quote\":\"Applications must specify the exact nature of the virtual goods (such as software, image files, music, or clothing).\"},{\"ref\":\"TMM/Part14/5/5/2/15~1\",\"quote\":\"Virtual goods are correctly classified in class 9 because the goods to which they relate consist essentially of data.\"},{\"ref\":\"TMM/Part14/5/5/2/15~1\",\"quote\":\"For example: Class 9: Downloadable virtual clothing\"}],\"answer\":\"Under the Manual’s practice, you need to specify what kind of digital item you are claiming: “virtual goods” or “downloadable goods” on its own is not acceptable because it lacks specificity. The specification must state the exact nature of the goods—for example, software, image files, music or clothing. [TMM/Part14/5/5/2/15~1]\\n\\nThe Manual classifies virtual goods in Class 9 and gives “Class 9: Downloadable virtual clothing” as an example. [TMM/Part14/5/5/2/15~1]\\n\\nThis is Manual practice, not a statement of a requirement in the Act or Regulations; no legislative passage was supplied.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "26a2a4a72a87204fa4931fb59dc838638d1fc1acc3af77a5a0904e6a7e30ded8",
+ "response_id": "resp_01e20c7f108a9236006ac6389804d087d289ff08888fcdc8d4",
+ "seconds": 19.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5804,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 5801
+  },
+  "output_tokens": 351,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 6155
+ }
+}

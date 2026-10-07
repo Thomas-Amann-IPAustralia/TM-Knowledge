@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006787,
+ "created_utc": "2026-10-07T08:42:54Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0051",
+ "job": "relate",
+ "key": "60d1965d06ed82aa4ffe2739cf96d7ecdf6cd44e5b086c1c45d27b446a6f4ef2",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"If the trade mark, or some part of the trade mark, contains a connotation that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection should be raised.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"none: the relevant market informs the substantive test but is not expressly linked to the absence of discretion.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.77,\n      \"reasoning\": \"The Manual identifies consumers within the relevant market as the reference point for the rejection ground. Read with the preceding mandatory-application statements, this qualifies when the absence of discretion operates.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the relevant-market qualification should attach only to the likelihood test rather than directly to mandatory application.\",\n      \"passage_ref\": \"TMM/Part29/1#1\",\n      \"neighbour\": \"GC-0009\"\n    },\n    {\n      \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"qualifies: connotation qualifies the circumstances in which mandatory rejection operates.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The statutory wording reproduced in the Manual makes a causative connotation an element of the mandatory rejection trigger. The relationship to the anchor is inferred from the Manual's ensuing explanation that there is no discretion for a mark caught by the section.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether requiresElement may take mandatory application, rather than section 43 itself, as its subject.\",\n      \"passage_ref\": \"TMM/Part29/1#1\",\n      \"neighbour\": \"GC-0001\"\n    },\n    {\n      \"quote\": \"However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the specified goods and / or services would be likely to deceive or cause confusion.\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"qualifies: the likelihood test limits the operation of mandatory application rather than constituting its required element.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The Manual expressly makes clear satisfaction of this likelihood test necessary before a mark is caught by the provisions. In context, that is a prerequisite to the stated absence of discretion, not an unconditional duty to reject.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether this prerequisite should be modelled against section 43 rather than the mandatory-application concept.\",\n      \"passage_ref\": \"TMM/Part29/1#1\",\n      \"neighbour\": \"GC-0002\"\n    },\n    {\n      \"quote\": \"However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the specified goods and / or services would be likely to deceive or cause confusion.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"requiresElement: deception is independently required for mandatory application.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.81,\n      \"reasoning\": \"Likely deception is one alternative limb of the prerequisite limiting mandatory application in the Manual's explanation. Deception alone is not independently required, because likely confusion is the other limb.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the standalone deception concept adequately represents likelihood of deception rather than actual deception.\",\n      \"passage_ref\": \"TMM/Part29/1#1\",\n      \"neighbour\": \"GC-0003\"\n    },\n    {\n      \"quote\": \"However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the specified goods and / or services would be likely to deceive or cause confusion.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"requiresElement: confusion is independently required for mandatory application.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.81,\n      \"reasoning\": \"Likely confusion is one alternative limb of the prerequisite limiting mandatory application in the Manual's explanation. Confusion alone is not independently required, because likely deception is the other limb.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the standalone confusion concept adequately represents likelihood of confusion rather than actual confusion.\",\n      \"passage_ref\": \"TMM/Part29/1#1\",\n      \"neighbour\": \"GC-0004\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "1ac6d892e971032c93a92c45b54f203f65b8b07aa48301e65ee62f77748559c1",
+ "response_id": "resp_0cf0d27689f611d2006ac605f2692c87d2852146a03814ea1b",
+ "seconds": 28.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2681,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2678
+  },
+  "output_tokens": 1330,
+  "output_tokens_details": {
+   "reasoning_tokens": 217
+  },
+  "total_tokens": 4011
+ }
+}

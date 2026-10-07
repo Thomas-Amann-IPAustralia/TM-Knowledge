@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:36:12Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "Board",
+ "job": "define",
+ "key": "11e66aba5379df3e9278c9b3f4c9b57101080cd211d76c7f722abdf667e1a2fa",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "11f2449206522745d76d343f49570d3a61ed6fc8c1e3711fa2f3c9424c04f089",
+ "response_id": "resp_033e66d756d0afd2006ac60478f31887d2a606b769e962bed1",
+ "seconds": 3.8,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

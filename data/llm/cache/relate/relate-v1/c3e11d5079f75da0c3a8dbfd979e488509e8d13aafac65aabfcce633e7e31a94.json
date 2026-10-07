@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006476,
+ "created_utc": "2026-10-07T08:45:53Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0064",
+ "job": "relate",
+ "key": "c3e11d5079f75da0c3a8dbfd979e488509e8d13aafac65aabfcce633e7e31a94",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"PRIOR USE: The evidence must show that your trade mark was first used before the priority date of any conflicting trade mark and was then used continuously up to at least the time you applied to register the trade mark.\",\n      \"relation\": \"isOvercomeBy\",\n      \"alternative\": \"related_to: prior use is merely an evidentiary topic associated with section 44.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.91,\n      \"reasoning\": \"The Manual introduces the listed evidence as potentially overcoming problems under section 44 and then specifies prior use evidence. This supports a possible means of overcoming the ground, not automatic acceptance.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the introductory statement about overcoming problems sufficiently supports isOvercomeBy for prior use specifically.\",\n      \"passage_ref\": \"TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2\",\n      \"neighbour\": \"GC-0067\"\n    },\n    {\n      \"quote\": \"This abridged process is intended to establish as fully as possible the rights of all parties, as would likely unfold more slowly during a process for revocation of a domestic registration, eg where, after revocation of registration and then acceptance, and a new citation having been raised, an owner would be entitled to file evidence of prior or honest concurrent use of their trade mark, which may allow them to be re-accepted in the face of an identical mark for identical goods.\",\n      \"relation\": \"isOvercomeBy\",\n      \"alternative\": \"related_to: honest concurrent use is linked only to the procedural opportunity to file evidence.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual expressly describes honest concurrent use evidence as potentially allowing re-acceptance despite a new citation. The relationship is conditional and is stated as practice, not as a guarantee of acceptance.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the domestic re-acceptance example supports the relationship beyond that procedural context.\",\n      \"passage_ref\": \"TMM/Part62/8#1\",\n      \"neighbour\": \"GC-0066\"\n    },\n    {\n      \"quote\": \"Gathering evidence to overcome section 44 citation by proving “honest concurrent use”, “other circumstances” or “prior use” 6 months from the date of deferment\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"isOvercomeBy: deferment itself overcomes the section 44 ground.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual's table identifies gathering evidence to overcome a section 44 citation as a reason for deferment. This supports the ground occasioning deferment in specified circumstances, rather than deferment removing the ground.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether mayGiveRiseTo adequately captures a procedural basis for deferment rather than a direct consequence of the ground.\",\n      \"passage_ref\": \"TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1\",\n      \"neighbour\": \"GC-0096\"\n    },\n    {\n      \"quote\": \"If a conflicting application with a later priority date has already been accepted, then the Registrar may revoke acceptance of that application.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"related_to: conflict and revocation are only associated examination procedures.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly connects an already accepted conflicting application with possible revocation of acceptance. The stated practice is limited to the later-priority conflict described in the passage.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the relationship needs an explicit qualifier for the convention-priority context.\",\n      \"passage_ref\": \"TMM/Part11/3#1\",\n      \"neighbour\": \"GC-0042\"\n    },\n    {\n      \"quote\": \"If a conflicting application with a later priority date has already been accepted, then the Registrar may revoke acceptance of that application.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"related_to: conflict and revocation are only associated examination procedures.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly connects an already accepted conflicting application with possible revocation of acceptance. The stated practice is limited to the later-priority conflict described in the passage.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the relationship needs an explicit qualifier for the convention-priority context.\",\n      \"passage_ref\": \"TMM/Part11/3#1\",\n      \"neighbour\": \"GC-0094\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "a34a79731010a194722a44de2e77e5e4b67c9a7c6346478ae333ff81c59fc37b",
+ "response_id": "resp_064cf9176ca1cd6d006ac60695ea3087d2b9accb94c1aec902",
+ "seconds": 44.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4962,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4959
+  },
+  "output_tokens": 1245,
+  "output_tokens_details": {
+   "reasoning_tokens": 122
+  },
+  "total_tokens": 6207
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001449,
+ "created_utc": "2026-10-07T11:16:39Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0010",
+ "job": "relate",
+ "key": "f34fddcc40934d66c42886403c33e8cb905710eee3808afd826e3a3dcf1c1c68",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"Italy has a reputation for producing high-quality furniture and this reputation would likely be influential to consumers purchasing furniture.\",\"relation\":\"related_to\",\"alternative\":\"Use none because the quoted example refers to consumers generally rather than expressly to the ordinary consumer.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.9,\"reasoning\":\"The Manual connects geographical reputation with its influence on consumers’ purchasing decisions. The preceding criterion expressly identifies the average consumer, supporting this connection to the anchor, but no more specific listed predicate fits.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the example’s reference to consumers should be mapped to the ordinary-consumer concept.\",\"passage_ref\":\"TMM/Part29/9/9/3~1\",\"neighbour\":\"GC-0050\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "dcb7fd602940fb0ad60388a02b333e57839da6c47e80d2c8a18333d0bf238310",
+ "response_id": "resp_0d7db19ff717463e006ac62a05ee4487d2ae5948fcccdda8f9",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2024,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2021
+  },
+  "output_tokens": 269,
+  "output_tokens_details": {
+   "reasoning_tokens": 92
+  },
+  "total_tokens": 2293
+ }
+}

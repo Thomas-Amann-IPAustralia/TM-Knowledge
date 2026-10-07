@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006332,
+ "created_utc": "2026-10-07T12:17:15Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0028",
+ "job": "judge",
+ "key": "a70ce1e343f0cfe8c53b092aedd6df7b7a40be98df300ea90bf63c82885cb0cd",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part32B/2/3/2/3/7\",\"grade\":1},{\"ref\":\"TMM/Part9/4/4/1\",\"grade\":0},{\"ref\":\"TMM/Part29/9#1\",\"grade\":3},{\"ref\":\"TMM/Part14/4/4/2/7\",\"grade\":0},{\"ref\":\"TMM/Part30/2/2/3\",\"grade\":0},{\"ref\":\"TMM/Part9/4/4/7/2\",\"grade\":0},{\"ref\":\"TMM/Part22/25/25/6\",\"grade\":1},{\"ref\":\"TMM/Part29/9/9/3~1\",\"grade\":3},{\"ref\":\"TMM/Part5/x-device-constituents/types-of-terms-descriptors~2\",\"grade\":0},{\"ref\":\"TMM/Part60/4/24/4/24/3\",\"grade\":0},{\"ref\":\"TMM/Part29/4#1\",\"grade\":2},{\"ref\":\"TMM/Part5/x-device-constituents/grid-mesh-graph\",\"grade\":0},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names#1~2\",\"grade\":1},{\"ref\":\"TMM/Part60/4/10/4/10/3\",\"grade\":0},{\"ref\":\"TMM/Part29/2/2/2\",\"grade\":2},{\"ref\":\"TMM/Part29/9/9/3~2\",\"grade\":3}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "5804bfd597252a4454ba0da67f8b8e69403409afa4f170e15ec43d7eb316e519",
+ "response_id": "resp_0992b3b80af4dc9e006ac6383a5dd887d2a76e8fae28c4f5f1",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3534,
+  "input_tokens_details": {
+   "cache_write_tokens": 3531,
+   "cached_tokens": 0
+  },
+  "output_tokens": 383,
+  "output_tokens_details": {
+   "reasoning_tokens": 41
+  },
+  "total_tokens": 3917
+ }
+}

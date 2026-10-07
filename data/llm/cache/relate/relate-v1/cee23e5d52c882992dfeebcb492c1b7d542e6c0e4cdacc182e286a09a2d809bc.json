@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003864,
+ "created_utc": "2026-10-07T11:22:59Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0061",
+ "job": "relate",
+ "key": "cee23e5d52c882992dfeebcb492c1b7d542e6c0e4cdacc182e286a09a2d809bc",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"This determination involves a two-part process: firstly, determining the ordinary signification of the trade mark in the light of the applied for goods and/or services; and secondly, determining the likelihood that other traders might legitimately wish to use the trade mark for that ordinary signification in connection with their similar goods or services.\",\"relation\":\"qualifies\",\"alternative\":\"requiresElement, with prima facie capability as the subject, was rejected because the passage describes an assessment process rather than making other traders' desire a necessary substantive element of capability.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.8,\"reasoning\":\"The Manual makes other traders' legitimate desire to use a consideration in assessing inherent adaptation, and links sufficient inherent adaptation to prima facie capability of distinguishing. The qualifying relationship is therefore inferred through that intermediate assessment, rather than stated directly.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether qualifies appropriately captures the indirect connection through inherent adaptation to distinguish.\",\"passage_ref\":\"TMM/Part22/3#1~1\",\"neighbour\":\"GC-0119\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "51465ea97d4138c1e3a75822d53006fea8f35d95d0c97d589efa3f259c4152e5",
+ "response_id": "resp_00ece5e01010aa3f006ac62b80120c87d29cd6dc9b7158fcba",
+ "seconds": 20.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1844,
+  "input_tokens_details": {
+   "cache_write_tokens": 1841,
+   "cached_tokens": 0
+  },
+  "output_tokens": 312,
+  "output_tokens_details": {
+   "reasoning_tokens": 75
+  },
+  "total_tokens": 2156
+ }
+}

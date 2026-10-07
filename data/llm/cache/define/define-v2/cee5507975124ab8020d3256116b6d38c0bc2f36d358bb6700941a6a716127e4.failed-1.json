@@ -1,0 +1,24 @@
+{
+ "batch_id": "batch_6ac6067ecbc081908b80944ca0c54bbf",
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T09:10:50Z",
+ "effort": "medium",
+ "error": {
+  "code": "batch_cancelled",
+  "message": "This request was not executed because the batch was cancelled."
+ },
+ "incomplete_details": null,
+ "item": "International Register",
+ "job": "define",
+ "key": "cee5507975124ab8020d3256116b6d38c0bc2f36d358bb6700941a6a716127e4",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "2f974999ac81ec9b91db6aac1fd156eb281a2e327c0e59e6366bff6e12cd859f",
+ "response_id": null,
+ "service_tier": "batch",
+ "status": "failed",
+ "usage": {}
+}

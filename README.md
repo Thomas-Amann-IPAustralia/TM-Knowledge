@@ -65,9 +65,17 @@ tmk-seed --only "$(tmk-blockers --ids)" --pack PACK --workbook BOOK
 #   a review round scoped to the records on the critical path (ADR-0055)
 python3 -m pytest -q  # `python3 -m`, not bare `pytest`, in a container (QUIRKS Q-29)
 
+# The pipeline (ADR-0110, ADR-0111) — see docs/QUOTE.md before spending
+tmk-bulk links --write                # free: which passages name which concept, candidate pairs
+tmk-bulk run relate --dry-run         # what a run would cost; spends nothing
+tmk-bulk run relate --limit 3 --confirm   # a smoke run: cached, capped at config.SPEND_CAP_USD
+tmk-bulk run relate --confirm --write     # write what passed the checks (from the cache: free)
+tmk-bulk spend                        # recorded spend against the cap
+tmk-bulk quote --write                # price the full runs from what was measured
+
 tmk-dashboard --write             # the dashboard's data → site/data/
 python3 -m http.server -d site 8000   # then open http://localhost:8000
-tmk-dashboard --check             # fails if the published site has gone stale
+#   site/data/ is generated, not committed — Pages rebuilds it on deploy (ADR-0112)
 ```
 
 `tmk-harness` exiting non-zero is the intended state, not a broken checkout: **0**

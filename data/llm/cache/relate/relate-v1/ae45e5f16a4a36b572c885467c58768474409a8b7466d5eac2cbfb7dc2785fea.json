@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003174,
+ "created_utc": "2026-10-07T11:24:15Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0016",
+ "job": "relate",
+ "key": "ae45e5f16a4a36b572c885467c58768474409a8b7466d5eac2cbfb7dc2785fea",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"To gain the same priority date the specification of the convention application must claim at least one good or service covered by the earlier application or applications.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"appliesTo, with priority date as the subject, was rejected because the passage specifically conditions entitlement to the earlier date rather than stating its general application.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual makes entitlement to the earlier priority date conditional on overlap between the specifications. This supports treating the convention application as qualifying the priority date available, although the condition attaches specifically to its specification.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether qualifies adequately captures a condition attached to the convention application's specification rather than to the application generally.\",\n      \"passage_ref\": \"TMM/Part11/1/1/6\",\n      \"neighbour\": \"GC-0111\"\n    },\n    {\n      \"quote\": \"A divisional application will have the filing date of its parent application as the priority date, unless the convention priority claim of the parent is also made when filing the divisional application or within the period provided for in regulation 4.5, that is, within two working days after filing the application.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to was rejected because the passage gives a specific default and exception for determining the divisional application's priority date.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The Manual states that divisional status affects which date supplies the priority date, subject to a timely convention priority claim. This supports qualifies as a date-determination relationship, rather than merely an association.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether qualifies is the appropriate predicate for the stated default priority-date rule and its exception.\",\n      \"passage_ref\": \"TMM/Part12/5#1\",\n      \"neighbour\": \"GC-0110\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "1fb4550741bb0cae91feeb31745ccf5e5353f94c5f26d315d2c1be6b7b3ff0bd",
+ "response_id": "resp_0ac02b6c7c7181af006ac62bc25f4487d28af95e257d1f8d52",
+ "seconds": 29.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2322,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2319
+  },
+  "output_tokens": 611,
+  "output_tokens_details": {
+   "reasoning_tokens": 135
+  },
+  "total_tokens": 2933
+ }
+}

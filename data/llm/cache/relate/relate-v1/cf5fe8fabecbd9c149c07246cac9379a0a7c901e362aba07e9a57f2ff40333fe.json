@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007065,
+ "created_utc": "2026-10-07T11:21:10Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0050",
+ "job": "relate",
+ "key": "cf5fe8fabecbd9c149c07246cac9379a0a7c901e362aba07e9a57f2ff40333fe",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"same_concept: both records use the label ‘reputation’, but the passages do not establish that general fame and trade mark reputation in Australia are one ontology concept.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.7,\"reasoning\":\"The passages discuss commercial reputation and common law rights developed through use. They do not establish how that reputation relates to the anchor’s broader sense of being well known or noted for something; I am unsure whether these records are intended as duplicates.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the two records intentionally represent the same concept despite their different contextual scope.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0130\"},{\"quote\":\"The likelihood of confusion must depend on the reputation of the opponent’s trade mark, but have regard (amongst other factors) to the level of similarity of the goods/services and the degree of similarity of the trade marks, greater or smaller.\",\"relation\":\"qualifies\",\"alternative\":\"mayGiveRiseTo: reputation can contribute to confusion, but this passage more specifically makes reputation a factor in assessing its likelihood alongside similarity.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.91,\"reasoning\":\"The delegate’s statement quoted in the Manual expressly makes reputation a factor qualifying the assessment of likely confusion. This is a criterion reported by the Manual, not legislative wording, and reputation alone is expressly insufficient in the surrounding passage.\",\"modality\":\"must\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the anchor’s general reputation concept extends to the opponent’s trade mark reputation discussed here.\",\"passage_ref\":\"TMM/Part46/4/4/5/2\",\"neighbour\":\"GC-0004\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "6fc5f9c53cab274f38755fcad4b5f12886f09a4e071838bbc752552144f88f21",
+ "response_id": "resp_0e2e46b7038bb8a6006ac62b0a979c87d29ed4b269218c8049",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2913,
+  "input_tokens_details": {
+   "cache_write_tokens": 2910,
+   "cached_tokens": 0
+  },
+  "output_tokens": 685,
+  "output_tokens_details": {
+   "reasoning_tokens": 318
+  },
+  "total_tokens": 3598
+ }
+}

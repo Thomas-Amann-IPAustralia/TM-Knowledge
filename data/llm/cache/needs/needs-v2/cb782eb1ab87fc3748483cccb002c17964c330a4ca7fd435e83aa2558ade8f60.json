@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008997,
+ "created_utc": "2026-10-07T08:29:21Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-026",
+ "job": "needs",
+ "key": "cb782eb1ab87fc3748483cccb002c17964c330a4ca7fd435e83aa2558ade8f60",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must explain when a non-use removal matter can continue in the name of someone other than the original filer. It must also cover the need for the relevant right or interest to have passed and for written notice to the Registrar or the court.\",\"search\":\"non-use application someone else continue after transfer notice\",\"seed_refs\":[\"TMM/Part48/2/2/1\"],\"kind\":\"lookup\",\"question\":\"Can a non-use removal application go ahead in someone else’s name after the original filer’s right has passed to them, and do I need to tell the Registrar or the court in writing?\"},{\"narrative\":\"A helpful answer must explain what an international application has to be based on and whose ownership it must match. It must also cover the need for the mark to be identical and for the goods or services to be the same, or only some of them, as the basic trade mark, including the possibility of more than one basic trade mark.\",\"search\":\"international application based on basic trade mark same owner same goods\",\"seed_refs\":[\"TMM/Part60/3/3/2\"],\"kind\":\"problem\",\"question\":\"Can I base an international trade mark application on my existing mark if it has the same owner and is the same mark, even if I only want some of the same goods or services?\"},{\"narrative\":\"A helpful answer must cover both the fee side and the filing requirements side. It needs to identify who fees may be payable to and what extra material or description is required for non-traditional trade marks such as sound, shape, colour or scent.\",\"search\":\"fees and representation for sound or shape trade mark application\",\"seed_refs\":[\"TMM/Part4/1#1\",\"TMM/Part10/3/3/1\"],\"kind\":\"cross_part\",\"question\":\"When I file a trade mark application, do I have to pay fees to bodies other than IP Australia, and what extra files or description do I need for a sound, shape or other non-traditional mark?\"},{\"narrative\":\"A helpful answer must explain what changes when a matter is treated as inter partes. It should cover who gets a chance to be heard and the kinds of proceedings that fall into this category.\",\"search\":\"inter partes hearing who can be heard and what cases\", \"seed_refs\":[\"TMM/Part52/2/2/1\"],\"kind\":\"impact\",\"question\":\"If a trade marks matter is inter partes, who gets to be heard and what kinds of proceedings does that include?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "5c5886ddf3d7be6507a651bf6cb55372651516868d9e5119ac449e26cfc643cb",
+ "response_id": "resp_090eafaf91d2b3d6006ac602d767bc87d2a2266e8312356b2b",
+ "seconds": 10.9,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1094,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1817,
+  "output_tokens_details": {
+   "reasoning_tokens": 1160
+  },
+  "total_tokens": 2911
+ }
+}

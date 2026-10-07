@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002568,
+ "created_utc": "2026-10-07T12:26:22Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0067",
+ "job": "judge",
+ "key": "20bcd82dc488497cd1f29acf1f447c56c3113d99fce34fada05964c251ba9cfb",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part12/3/3/1~2\",\"grade\":1},{\"ref\":\"TMM/Part16/1/1/5\",\"grade\":0},{\"ref\":\"TMM/Part12/7#1\",\"grade\":1},{\"ref\":\"TMM/Part12/3/3/7\",\"grade\":3},{\"ref\":\"TMM/Part51/x-relevant-legislation3#1\",\"grade\":1},{\"ref\":\"TMM/Part12/3/3/3~1\",\"grade\":2},{\"ref\":\"TMM/Part12/8#1\",\"grade\":1},{\"ref\":\"TMM/Part12/5#1\",\"grade\":1},{\"ref\":\"TMM/Part12/3/3/5\",\"grade\":1},{\"ref\":\"TMM/Part12/2#1\",\"grade\":1},{\"ref\":\"TMM/Part51/9#1~1\",\"grade\":0},{\"ref\":\"TMM/Part12/3/3/4\",\"grade\":1},{\"ref\":\"TMM/Part60/4/17/4/17/2~1\",\"grade\":0},{\"ref\":\"TMM/Part12/3/3/1~1\",\"grade\":1},{\"ref\":\"TMM/Part12/3/3/6\",\"grade\":1},{\"ref\":\"TMM/Part12/3#1\",\"grade\":2},{\"ref\":\"TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1\",\"grade\":2}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "88ffe5519c320adf02e9acb0d8596e4ea17b8428af84cb87a19a0f48c1643c7e",
+ "response_id": "resp_09c753f73a95ea12006ac63a5bd27c87d2838c40e3876d9b4a",
+ "seconds": 19.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4005,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4002
+  },
+  "output_tokens": 473,
+  "output_tokens_details": {
+   "reasoning_tokens": 127
+  },
+  "total_tokens": 4478
+ }
+}

@@ -24,7 +24,7 @@
     "authored_by": {
       "type": "string",
       "minLength": 1,
-      "description": "The model that wrote this record, with its version — `gemini-3.8-flash` (ADR-0087). A bare vendor name is not enough: a silent model change alters what gets authored and invalidates any baseline measured before it (ADR-0011, ADR-0019 consequence 2), which is why ADR-0087 makes changing the model a superseding ADR rather than a configuration tweak. Never a person's name; a person's name goes in `approved_by` and only `tmk-transcribe` puts it there."
+      "description": "The model that wrote this record, with its version, as the API reported it (ADR-0094, ADR-0111). A bare vendor name is not enough: a silent model change alters what gets authored and invalidates any baseline measured before it (ADR-0011, ADR-0019 consequence 2), which is why ADR-0087 makes changing the model a superseding ADR rather than a configuration tweak. Never a person's name; a person's name goes in `approved_by` and only `tmk-transcribe` puts it there."
     },
     "authored_date": {
       "type": "string",

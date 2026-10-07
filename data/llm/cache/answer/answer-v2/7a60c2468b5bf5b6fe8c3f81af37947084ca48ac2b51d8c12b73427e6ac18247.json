@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004335,
+ "created_utc": "2026-10-07T12:26:09Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0050",
+ "job": "answer",
+ "key": "7a60c2468b5bf5b6fe8c3f81af37947084ca48ac2b51d8c12b73427e6ac18247",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0058\", \"GC-0059\", \"GC-0101\", \"GC-0081\", \"GC-0009\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part23/4/4/1/1\",\n      \"quote\": \"It is not always appropriate to insist on provision of turnover and/or marketing figures. Examiners must always consider the commercial realities relevant to the claimed goods and/or services when assessing evidence and maintaining grounds for rejection.\"\n    },\n    {\n      \"ref\": \"TMM/Part23/4/4/1/1\",\n      \"quote\": \"Other metrics that are relevant may include website and social media analytic figures, funds managed, raised, or distributed by an entity (e.g. in the case of a investment company or a charity), or viewership figures for videos, podcasts etc.\"\n    },\n    {\n      \"ref\": \"TMM/Part23/3/3/4~2\",\n      \"quote\": \"references to Internet website/s where trade mark is used, together with analytic figures which assist in determining the number of visitors to the website from Australia since the date of first use (if possible, broken down periodically)\"\n    },\n    {\n      \"ref\": \"TMM/Part23/4/4/1~1\",\n      \"quote\": \"Massive turnover may compensate for short use, likewise, long use may compensate for small turnover, especially in relation to trade marks with some inherent adaptation to distinguish. However, total turnover must be considered in the context of the relevant market and balanced against unit cost before a decision can be made on this issue.\"\n    },\n    {\n      \"ref\": \"TMM/Part23/4/4/1~2\",\n      \"quote\": \"As a general comment, it is necessary to balance the level of inherent adaptation of the trade mark with the strength of the evidence provided.\"\n    }\n  ],\n  \"answer\": \"Yes, in principle. Under Manual practice, website statistics or other relevant metrics can be used rather than insisting on sales or marketing figures. Examiners must consider the commercial realities of the claimed goods or services. This is not an automatic exemption simply because turnover is low. [TMM/Part23/4/4/1/1]\\n\\nUseful alternatives include website and social media analytics, funds managed, raised or distributed, and video or podcast viewership figures. For website evidence, the Manual specifically identifies websites where the trade mark is used, supported by figures showing Australian visitors since first use, preferably broken down periodically. [TMM/Part23/4/4/1/1; TMM/Part23/3/3/4~2]\\n\\nSmall turnover is not assessed in isolation: the Manual says long use may compensate for small turnover, particularly where the mark has some inherent adaptation to distinguish. Turnover must also be considered against the relevant market and unit cost. [TMM/Part23/4/4/1~1]\\n\\nI cannot say whether your statistics would be sufficient: the Manual requires the strength of the evidence to be balanced against the mark’s inherent adaptation to distinguish. [TMM/Part23/4/4/1~2]\\n\\nThese statements describe Manual practice, not legislation. No Act or Regulations passages were supplied.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "cf56fb2817ab83d83cb867b7268c9a5648572508856cbdd6c0988c70e91a6fe2",
+ "response_id": "resp_04942f1df525d394006ac63a456a5087d28190fe6bf7002849",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6635,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6632
+  },
+  "output_tokens": 800,
+  "output_tokens_details": {
+   "reasoning_tokens": 83
+  },
+  "total_tokens": 7435
+ }
+}

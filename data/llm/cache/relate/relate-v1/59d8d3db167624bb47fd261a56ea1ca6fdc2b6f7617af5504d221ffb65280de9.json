@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008389,
+ "created_utc": "2026-10-07T11:25:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0080",
+ "job": "relate",
+ "key": "59d8d3db167624bb47fd261a56ea1ca6fdc2b6f7617af5504d221ffb65280de9",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Material particulars may give rise to revocation of acceptance.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The passage connects revocation of acceptance with subsection 62(a), whereas false evidence or representations in material particulars are discussed separately under subsection 62(b). It does not connect revocation with the anchor's series resemblance test.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the anchor also encompasses material particulars of false evidence or representations, rather than only the series resemblance test.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0042\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Material particulars may give rise to revocation of acceptance.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The passage connects revocation of acceptance with subsection 62(a), whereas false evidence or representations in material particulars are discussed separately under subsection 62(b). It does not connect revocation with the anchor's series resemblance test.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the anchor also encompasses material particulars of false evidence or representations, rather than only the series resemblance test.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0094\"\n    },\n    {\n      \"quote\": \"For example: if the trade marks consist only of colours, then differences in colour may mean the trade marks do not resemble each other in material particulars\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"The passage merely associates non-traditional signs with section 51 without applying the material-particulars test to them.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual applies the material-particulars resemblance test to colour-only trade marks in its discussion of non-traditional signs. This supports applicability to non-traditional signs when assessed as a series, not to such signs irrespective of a series application.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether appliesTo adequately preserves the limitation to series applications involving non-traditional signs.\",\n      \"passage_ref\": \"TMM/Part13/4#1~1\",\n      \"neighbour\": \"GC-0074\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"The material-particulars resemblance test constrains amendment of an application.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The series passage explains material particulars but does not discuss amendment of an application. The opposition passage discusses improper amendments and false representations as separate grounds, without connecting amendment to the anchor's resemblance test.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether any connection between amendment and the series resemblance test is present beyond the supplied excerpts.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0124\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "ca8563f2dcb1df203846053d643e2262df5e13dc7eb4d14d7581e33216d9153a",
+ "response_id": "resp_0953add37ae7f273006ac62c1fe29487d281d6a0b288950ae6",
+ "seconds": 31.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3156,
+  "input_tokens_details": {
+   "cache_write_tokens": 3153,
+   "cached_tokens": 0
+  },
+  "output_tokens": 889,
+  "output_tokens_details": {
+   "reasoning_tokens": 161
+  },
+  "total_tokens": 4045
+ }
+}

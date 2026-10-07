@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010987,
+ "created_utc": "2026-10-07T12:23:30Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0085",
+ "job": "judge",
+ "key": "65c2903b8ba702734e0ff95a7ad0bda47c20715a2de61a6636502737e2892b33",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part32A/2/4/2-4-3-a-amending-the-goods\",\"grade\":1},{\"ref\":\"TMM/Part21/1#1\",\"grade\":0},{\"ref\":\"TMM/Part22/15/15/1~1\",\"grade\":0},{\"ref\":\"TMM/Part22/14/14/5\",\"grade\":0},{\"ref\":\"TMM/Part26/6/6/4~1\",\"grade\":1},{\"ref\":\"TMM/Part21/3/3/2\",\"grade\":0},{\"ref\":\"TMM/Part31/2#1\",\"grade\":0},{\"ref\":\"TMM/Part22/15/15/7\",\"grade\":0},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names#1~1\",\"grade\":1},{\"ref\":\"TMM/Part22/x-registrability-of-various-kinds-of-signs#1\",\"grade\":0},{\"ref\":\"TMM/Part5/4#1\",\"grade\":0},{\"ref\":\"TMM/Part21/3/3/6~2\",\"grade\":0},{\"ref\":\"TMM/Part22/15/15/1~2\",\"grade\":0},{\"ref\":\"TMM/Part19A/2/2/3\",\"grade\":1},{\"ref\":\"TMM/Part26/6/6/4~3\",\"grade\":1},{\"ref\":\"TMM/Part19A/3/3/4\",\"grade\":1},{\"ref\":\"TMM/Part14/5/5/2/3\",\"grade\":0},{\"ref\":\"TMM/Part14/x-annex-a2---principles-of-classification/classification-of-services\",\"grade\":0},{\"ref\":\"TMM/Part32A/2/3/2-3-5-b-evidence-of-use\",\"grade\":0},{\"ref\":\"TMM/Part10/1/1/1/1\",\"grade\":1},{\"ref\":\"TMM/Part46/4/4/1/2\",\"grade\":0},{\"ref\":\"TMM/Part26/4/4/3/1~2\",\"grade\":1},{\"ref\":\"TMM/Part33/3/3/2\",\"grade\":0},{\"ref\":\"TMM/Part26/6/6/8~2\",\"grade\":1},{\"ref\":\"TMM/Part26/6/6/12\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "9627751f8ea21c5e229ca78a840ff1dd601e7f2820ea6d9fa76689dd4371615f",
+ "response_id": "resp_08c7c528db096eea006ac639b17b7487d2842092e6542cb818",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6214,
+  "input_tokens_details": {
+   "cache_write_tokens": 6211,
+   "cached_tokens": 0
+  },
+  "output_tokens": 644,
+  "output_tokens_details": {
+   "reasoning_tokens": 114
+  },
+  "total_tokens": 6858
+ }
+}

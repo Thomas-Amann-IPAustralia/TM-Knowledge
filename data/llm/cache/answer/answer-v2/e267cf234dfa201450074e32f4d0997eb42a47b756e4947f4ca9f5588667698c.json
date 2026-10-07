@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003788,
+ "created_utc": "2026-10-07T12:18:12Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0030",
+ "job": "answer",
+ "key": "e267cf234dfa201450074e32f4d0997eb42a47b756e4947f4ca9f5588667698c",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0072\", \"GC-0075\", \"GC-0076\", \"GC-0124\", \"GC-0038\", \"GC-0100\"],\n  \"decline_reason\": \"I cannot say whether an amendment to your particular application would be allowed. The supplied passages explain the general Manual practice instead.\",\n  \"declined\": true,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part21/2/2/3\",\n      \"quote\": \"In these cases, it may be appropriate for the applicant to amend the description to clearly refer to all the individual elements in a way which leaves no doubt that it is the combination being claimed that is registrable - not its independent parts.\"\n    },\n    {\n      \"ref\": \"TMM/Part21/2/2/3\",\n      \"quote\": \"If the description is broad, vague or absent, a change of this nature does not necessarily extend the applicant's rights but will still need to be considered carefully.\"\n    },\n    {\n      \"ref\": \"TMM/Part21/2/2/3\",\n      \"quote\": \"If, however, there is a description which already clearly specifies the scope of the trade mark, it is not possible to extend the claim to include items not in the existing description.\"\n    },\n    {\n      \"ref\": \"TMM/Part10/3/3/2/2\",\n      \"quote\": \"There should be no discrepancy between the representation and the description.\"\n    }\n  ],\n  \"answer\": \"Possibly, under the Manual’s practice—but not if the change would extend an already clearly defined claim. I cannot determine whether your particular amendment would be allowed.\\n\\n• Where the filed representation includes words alongside the shape or colour, the Manual says it may be appropriate to amend the description to identify all the elements as a combination, rather than claiming the parts independently. [TMM/Part21/2/2/3]\\n\\n• If the existing description is broad, vague or absent, adding that clarification does not necessarily extend your rights, but requires careful consideration. [TMM/Part21/2/2/3]\\n\\n• If the existing description already clearly specifies the scope of the mark, the Manual says the claim cannot be extended to include items outside that description. Words appearing in the representation are therefore not, by themselves, enough to justify adding them to a clearly restricted claim. [TMM/Part21/2/2/3]\\n\\nFor shape marks, the Manual also says there should be no discrepancy between the representation and description. [TMM/Part10/3/3/2/2]\\n\\nThese statements describe Manual practice, not legislation. No Act or Regulations passages were supplied to establish the legislative position.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "16b83e0bd34b31c4d7ce28ed531b9151b911b7f945a9e5eac4a2777f426ede6d",
+ "response_id": "resp_06fefb95c1722854006ac63867176c87d294e19e8a65e07c29",
+ "seconds": 29.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6798,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6795
+  },
+  "output_tokens": 689,
+  "output_tokens_details": {
+   "reasoning_tokens": 96
+  },
+  "total_tokens": 7487
+ }
+}

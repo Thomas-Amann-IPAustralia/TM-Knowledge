@@ -18,8 +18,7 @@ arithmetic rather than a graph library.
 
 Generated: everything under `data/`, written by `tmk-dashboard --write` from
 `src/tm_knowledge/dashboard/`. **Do not hand-edit a file in `data/`.** It is
-regenerated on every deploy and a hand edit would be silently overwritten. CI
-fails if what is committed there differs from a regeneration.
+regenerated on every deploy and is not committed (ADR-0112).
 
 ## What does not belong here
 
@@ -114,9 +113,9 @@ repository no longer holds is a real failure mode, and a page that merely *looks
 wrong is more often a rendering bug. These two answer it:
 
 ```bash
+tmk-dashboard --write                  # regenerate locally from this checkout
 curl -s https://thomas-amann-ipaustralia.github.io/TM-Knowledge/data/inbox.json \
-  | diff - site/data/inbox.json          # what is published vs what is committed
-tmk-dashboard --write && git status --short site/data/   # committed vs regenerated
+  | diff - site/data/inbox.json          # what is published vs this checkout
 ```
 
 The footer's *"Generated …"* stamp answers the same question for a reader who has

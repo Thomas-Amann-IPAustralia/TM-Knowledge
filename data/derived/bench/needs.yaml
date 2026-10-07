@@ -1,0 +1,1639 @@
+note: Benchmark information needs written by a model from sampled passages. Kept apart from
+  eval/gold/, which stays frozen (ADR-0080). Unreviewed.
+needs:
+- id: BN-0001
+  kind: lookup
+  question: Which Act sections and regulations do I need to check for a collective trade mark
+    application?
+  search: collective trade mark application sections and regulations
+  narrative: The answer should identify which legislative provisions are relevant to applying
+    for a collective trade mark, including the Act provisions and the regulation dealing with
+    collective trade marks. It should also indicate the sections listed as the surrounding
+    legislative framework for that topic.
+  seed_refs:
+  - TMM/Part33/x-relevant-legislation27#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0002
+  kind: problem
+  question: Can the Registrar make me hand over documents in a trade marks dispute, and when
+    does that go too far?
+  search: registrar ask for documents in trade mark matter
+  narrative: The answer should explain when the Registrar can require a person to produce
+    documents or articles for a trade marks matter, and that the material must be for the
+    purposes of the Act and relevant to the proceedings. It should also cover the limit that
+    the request must not really be a discovery request in disguise.
+  seed_refs:
+  - TMM/Part54/3#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0003
+  kind: cross_part
+  question: If goods and services are closely related, can the specification be restricted
+    to stop confusion?
+  search: closely related goods services and restricting specification to avoid confusion
+  narrative: The answer should connect the relationship between goods and services that are
+    closely related with the ability to restrict a specification or add an endorsement to
+    avoid deception or confusion. It should cover both the test for closeness and the practical
+    use of a restriction to manage confusion risk.
+  seed_refs:
+  - TMM/Part26/4/4/3~1
+  - TMM/Part14/6/6/4/4
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0004
+  kind: impact
+  question: If my goods list is too broad, what do I have to change or confirm?
+  search: too broad goods list declaration amend specification
+  narrative: The answer should explain who is affected when a goods or services specification
+    is unrealistically broad, and what change may be required of the applicant. It should
+    cover the declaration of intention to use on all the specified goods or services, or amending
+    the specification to match the actual range used or intended to be used.
+  seed_refs:
+  - TMM/Part14/6/6/6
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0005
+  kind: lookup
+  question: Can we suspend the opposition evidence timetable after the cooling-off period,
+    and do both sides have to agree?
+  search: suspend opposition evidence timetable cooling-off agreement
+  narrative: A helpful answer must say whether opposition proceedings can be suspended only
+    after both cooling-off periods have been used, and whether the request needs both parties'
+    agreement or written consent. It should also mention that there is no fee for asking for
+    suspension.
+  seed_refs:
+  - TMM/Part51/4/4/1~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0006
+  kind: problem
+  question: I missed the deadline to oppose a trade mark — what do I need to lodge to ask
+    for more time?
+  search: missed opposition deadline ask for more time
+  narrative: A helpful answer must explain what an applicant or potential opponent has to
+    lodge when asking for more time to oppose. It should cover the approved form, the fee,
+    the declaration, and the extra reason needed if the first period has already run out.
+  seed_refs:
+  - TMM/Part49/2/2/3/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0007
+  kind: cross_part
+  question: If my extension request was filed late, what has to be shown before it can be
+    granted?
+  search: late extension request what has to be shown
+  narrative: A helpful answer must cover the grounds the Registrar needs to be satisfied about
+    when an extension is filed in time, and the extra sufficient-reason requirement when it
+    is filed late. It should also note the notice and response steps that apply before the
+    extension is granted.
+  seed_refs:
+  - TMM/Part47/1/1/3/3
+  - TMM/Part10/4#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0008
+  kind: impact
+  question: What happens to the time left on a deferred acceptance date when the reason for
+    the deferment ends?
+  search: deferred acceptance date time left when reason ends
+  narrative: A helpful answer must explain what happens to the remaining deferment time when
+    the stated reason for deferment ends. It should cover the different end points for the
+    various deferment reasons and who is affected by each trigger.
+  seed_refs:
+  - TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0009
+  kind: lookup
+  question: What happens if a required fee is underpaid and the Registrar does not tell us
+    within 14 working days?
+  search: underpaid fee 14 working days treated as filed
+  narrative: A helpful answer must say when an application, notice or request is treated as
+    filed or an act is treated as done if a required fee is unpaid or underpaid. It must also
+    cover the Registrar’s obligation not to do the act until the fee is paid, and that the
+    unpaid amount remains owed.
+  seed_refs:
+  - TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0010
+  kind: problem
+  question: I want to file a moving logo—what do I need to show so the motion is properly
+    described?
+  search: moving logo description video clip clear
+  narrative: A helpful answer must explain what kind of representation and description are
+    needed for a moving trade mark, hologram or gesture. It must also cover whether a video
+    clip or other copy of the actual trade mark is needed.
+  seed_refs:
+  - TMM/Part21/9#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0011
+  kind: cross_part
+  question: How does having a logo, or not having one, affect whether a sign is deceptively
+    similar and likely to confuse people?
+  search: logo versus plain words deceptive similarity confusion
+  narrative: A helpful answer must cover how a composite logo and plain words are compared
+    as wholes, and why the presence or absence of a device may matter. It must also explain
+    how that comparison connects with the separate test for use as a trade mark that is likely
+    to deceive or cause confusion.
+  seed_refs:
+  - TMM/Part26/6/6/8~3
+  - TMM/Part19B/4/4/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0012
+  kind: impact
+  question: If a plant mark is registered with a condition about varietal names, who has to
+    follow it and what changes in how the mark is used?
+  search: plant mark varietal name condition of registration
+  narrative: A helpful answer must identify who is affected when a plant trade mark is used
+    together with genus, species or varietal name information. It must also explain what changes
+    in use if a condition is attached to registration.
+  seed_refs:
+  - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0013
+  kind: lookup
+  question: Which INN stems are listed under the -g entries?
+  search: which inn stems are listed under -g
+  narrative: A helpful answer must identify the specific inn stem entries in the list that
+    end with “-g” and show the exact wording used for each entry. It should be clear whether
+    the list is giving stems on their own or stems cross-referenced to other endings.
+  seed_refs:
+  - TMM/Part29/x-annex-a1---table-of-inn-stems/g
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0014
+  kind: problem
+  question: If my logo is a picture that looks common in the trade, how is its ability to
+    distinguish my goods or services assessed?
+  search: picture mark common to trade distinguish goods services
+  narrative: A helpful answer must explain the difference between a device trade mark and
+    a composite trade mark, and set out the two-step inquiry for assessing whether a device
+    can distinguish goods or services. It should also note that common pictorial signs may
+    not be capable of distinguishing a trader’s goods or services.
+  seed_refs:
+  - TMM/Part22/25#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0015
+  kind: cross_part
+  question: Can I apply for a certification trade mark in a business name, and who can use
+    the mark once it is registered?
+  search: certification trade mark business name applicant use by owner or approved certifier
+  narrative: A helpful answer must cover whether a certification trade mark application can
+    be made in a name without legal personality, and how that interacts with who may use the
+    mark. It should explain the roles of the owner and an approved certifier, and whether
+    approval of the use rules is part of the process.
+  seed_refs:
+  - TMM/Part35/1#1
+  - TMM/Part10/1/1/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0016
+  kind: impact
+  question: If a refusal on a certification trade mark matter is reviewable by the ART, who
+    can take part in the review and what happens to the original decision?
+  search: ART review refusal extension time certification trade mark who can join review
+  narrative: A helpful answer must identify which listed decisions can be reviewed by the
+    Administrative Review Tribunal and what effect that review has on the original decision.
+    It should also cover who may be involved in the review process if their interests are
+    affected.
+  seed_refs:
+  - TMM/Part52/5/5/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0017
+  kind: lookup
+  question: Does using a well-known person's name in my trade mark raise a refusal if my goods
+    are in their field?
+  search: famous person's name trade mark goods related endorsement refusal
+  narrative: A helpful answer should explain when a name of a well-known person can trigger
+    the relevant objection. It should also cover the types of names included and the permission
+    exception.
+  seed_refs:
+  - TMM/Part29/6#1~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0018
+  kind: problem
+  question: What can I do if the examiner takes a long time to answer my response and my deadline
+    is getting close?
+  search: examiner delayed reply extension of time deadline
+  narrative: A helpful answer should explain when a delay by Trade Marks Office staff can
+    lead to extra time for the applicant. It should also note that a delay does not automatically
+    mean extra time will be given and mention the timing limits in that process.
+  seed_refs:
+  - TMM/Part15/1/1/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0019
+  kind: cross_part
+  question: Where can I check the current rules for identifying an applicant and make sure
+    I’m using the latest version of the Manual?
+  search: current manual applicant identity details latest version
+  narrative: A helpful answer should show that the Manual on the website is the official controlled
+    record of examination practice and procedures. It should also explain why the applicant’s
+    identity details matter and where a user can check for updates.
+  seed_refs:
+  - TMM/Part1/x-1.-introduction7#1
+  - TMM/Part10/2#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0020
+  kind: impact
+  question: If I delete some goods from my application to get around a conflict, what happens
+    to the rest of the specification?
+  search: delete goods to overcome refusal remaining goods conflict impact
+  narrative: A helpful answer should explain what effect a deletion has on the goods and services
+    that remain in the application. It should also cover the examiner’s role in checking whether
+    the conflict is fully removed and whether further reasons and options may follow.
+  seed_refs:
+  - TMM/Part27/3/3/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0021
+  kind: lookup
+  question: Do I need to give evidence if there have been any actual confusion incidents,
+    and what does that mean for my application?
+  search: evidence of confusion in a trade mark application
+  narrative: A helpful answer must say whether evidence of actual confusion is usually provided,
+    what the applicant should do if such evidence is available, and how any instances of actual
+    confusion are treated in relation to honesty and the assessment of likely confusion. It
+    should also note that actual confusion is not necessarily fatal, without going beyond
+    the passage.
+  seed_refs:
+  - TMM/Part28/3/3/3
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0022
+  kind: problem
+  question: Can I register a brand name that is almost the same as a protected wine region
+    name, if it’s only a slight spelling change?
+  search: name like a protected wine region
+  narrative: A helpful answer must explain the effect of a trade mark or word that closely
+    resembles a protected wine term, including English translations, and whether that resemblance
+    can mislead if the use conditions are not met. It should also cover the link to the rejection
+    ground and the examples of slight variations described in the passage.
+  seed_refs:
+  - TMM/Part32B/2/1/2/1/5
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0023
+  kind: cross_part
+  question: If I give a general consent for future applications, do I still have to name the
+    applicant, and what if there are formality issues to fix?
+  search: general consent letter and missing formality details
+  narrative: A helpful answer must cover what a general letter of consent has to identify,
+    what it does not need to identify, and that it must not contain conditions. It must also
+    explain the procedure for unresolved formality requirements, including the preferred contact
+    method and the need to use the online services page for amendable responses.
+  seed_refs:
+  - TMM/Part27/4/4/2/5
+  - TMM/Part10/8#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0024
+  kind: impact
+  question: If a Deputy Registrar handles my matter, is that treated as a Registrar decision?
+  search: deputy registrar treated as registrar decision
+  narrative: A helpful answer must explain that a Deputy Registrar has all the powers and
+    functions of the Registrar except delegation, and that anything the Deputy Registrar exercises
+    is taken to have been exercised by the Registrar. It should also note the consequence
+    for how the decision is headed, without adding anything beyond the passage.
+  seed_refs:
+  - TMM/Part52/1#1~2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0025
+  kind: lookup
+  question: What other class terms can I use instead of just 'cases'?
+  search: other names for cases by class
+  narrative: A helpful answer must list the narrower goods terms suggested for 'cases' across
+    the relevant classes. It should make clear that the issue is classification, not a legal
+    test.
+  seed_refs:
+  - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0026
+  kind: problem
+  question: Can I file 'virtual goods' on its own, or do I need to say exactly what kind of
+    digital item it is?
+  search: virtual goods need exact type
+  narrative: A helpful answer must explain that virtual goods and downloadable goods are too
+    vague on their own. It should say what kind of digital item needs to be named and note
+    that related services may belong in other classes.
+  seed_refs:
+  - TMM/Part14/5/5/2/15~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0027
+  kind: cross_part
+  question: If my mark is a barcode and I always use it in green and blue, do I need a colour
+    limitation as well?
+  search: barcode mark in colours
+  narrative: A helpful answer must combine the treatment of simple barcodes with the practice
+    on colour limitations in trade mark descriptions. It should cover both the distinctiveness
+    concern for a bare barcode and the kind of colour restriction wording used when colour
+    is part of the mark.
+  seed_refs:
+  - TMM/Part22/25/25/8
+  - TMM/Part10/3/3/5/3~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0028
+  kind: impact
+  question: If a mark suggests a place like Tuscany, who is affected by that and what changes
+    in how shoppers see the goods?
+  search: place name in mark effect on consumers
+  narrative: A helpful answer must explain the practical effect of a place reference on consumer
+    perception and confusion. It should identify whether the focus is on the buying public's
+    understanding of origin or on some other consequence.
+  seed_refs:
+  - TMM/Part29/9/9/3~2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0029
+  kind: lookup
+  question: How long do I have to notify a provisional refusal if it is based on an opposition?
+  search: Madrid refusal based on opposition time limit
+  narrative: A helpful answer must identify the relevant time limit for notifying a provisional
+    refusal when the refusal is based on an opposition. It should also mention the connected
+    steps that follow if the refusal is notified under the Madrid route.
+  seed_refs:
+  - TMM/Part60/4/9/4/9/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0030
+  kind: problem
+  question: Can I change my description to include the words shown on my trade mark, not just
+    the shape or colour?
+  search: change description to include words in shape mark
+  narrative: A helpful answer must explain whether an applicant can change a shape or colour
+    claim to pick up words or other features shown in the filed representation. It should
+    also say what happens if the existing description already fixes the scope of the claim.
+  seed_refs:
+  - TMM/Part21/2/2/3
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0031
+  kind: cross_part
+  question: In an opposition, can the other side get the earlier application papers and can
+    late evidence still be considered?
+  search: opposition priority documents late evidence
+  narrative: 'A helpful answer must cover two opposition issues: whether priority documents
+    can be obtained by the opponent, and when late evidence may still be taken into account.
+    It should explain both within the same opposition proceeding.'
+  seed_refs:
+  - TMM/Part51/2/2/5~1
+  - TMM/Part11/4/4/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0032
+  kind: impact
+  question: What happens to my application’s acceptance deadline if I ask for a hearing or
+    appeal the examiner’s decision?
+  search: application acceptance deferred appeal hearing
+  narrative: A helpful answer must explain what changes to the acceptance timetable when an
+    ex parte hearing is requested or an appeal is filed. It should identify who is affected
+    and how the lapse period is altered.
+  seed_refs:
+  - TMM/Part16/1/1/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0033
+  kind: lookup
+  question: Which Trade Marks Regulations cover filing an application, the goods and services
+    specification, priority claims, declarations and fee notices?
+  search: regulations about filing a trade mark application and related filing rules
+  narrative: A helpful answer should identify which Regulations cover the main filing steps
+    for a trade mark application, including the form of the application, how the mark is shown,
+    the goods and services specification, priority claims, publication, office hours, declarations
+    and fee-related notices. It should be clear that this is a list of regulatory topics,
+    not an explanation of how any application is decided.
+  seed_refs:
+  - TMM/Part2/1/trade-mark-regulations-1995
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0034
+  kind: problem
+  question: What do I do if the goods and services wording in my international trade mark
+    application does not fit the usual classification terms?
+  search: international trade mark application goods and services wording problem classification
+  narrative: A helpful answer should explain what to do when the goods or services wording
+    in an international trade mark application causes a classification or wording problem.
+    It should cover the relevant rules about classification, indication of goods and services,
+    and the need for the application to be in the approved form.
+  seed_refs:
+  - TMM/Part60/4/6/4/6/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0035
+  kind: cross_part
+  question: Can a published goods or services description be corrected later, and do I need
+    to give more detail if the goods or services cannot be described clearly?
+  search: fix published goods description and add more detail if needed
+  narrative: A helpful answer should explain when the Registrar may correct an error in a
+    published specification and what conditions must be satisfied, including fairness, possible
+    extension of rights and publication for third-party opposition. It should also cover the
+    separate point that adequate information may be needed where the goods or services cannot
+    be described using the preferred terms.
+  seed_refs:
+  - TMM/Part14/4/4/2/7
+  - TMM/Part10/5/5/1/3
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0036
+  kind: impact
+  question: Who has to file evidence first in a trade mark opposition, and what happens if
+    they do not want to rely on evidence in support?
+  search: who files evidence first in a trade mark opposition and by when
+  narrative: A helpful answer should explain who must take the first evidence step in an opposition,
+    how long that party has to file evidence in support, and what the text says about a party
+    that does not intend to rely on evidence in support. It should make clear who is affected
+    by the deadline and the choice not to file evidence.
+  seed_refs:
+  - TMM/Part51/1/1/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0037
+  kind: lookup
+  question: Can I keep a wine term like champagne in the goods list if it is only meant to
+    describe the style of wine?
+  search: wine term in goods list champagne style wine
+  narrative: A helpful answer must explain how wine-related terms in a goods specification
+    are treated during examination, including the concern about protected terms and what amendment
+    might be suggested. It should also make clear that the issue is about wording in the specification,
+    not what is actually used on a label.
+  seed_refs:
+  - TMM/Part32B/3#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0038
+  kind: problem
+  question: What if my late extension request says I could not file earlier, but the declaration
+    does not really prove it?
+  search: late extension request declaration reasons
+  narrative: A helpful answer must cover why an extension request can be refused when the
+    supporting declaration does not show the stated grounds, and why a late request may fail
+    if the reasons do not explain why the application could not have been made earlier. It
+    should distinguish between the content of the declaration and the timing explanation.
+  seed_refs:
+  - TMM/Part49/2/2/3/4
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0039
+  kind: cross_part
+  question: If my mark contains a prescribed sign, do they still have to look at whether it
+    is actually likely to deceive or confuse?
+  search: prescribed sign and deception confusion
+  narrative: A helpful answer must explain the interaction between the prescribed-sign ground
+    for refusal and the broader practice of starting from a presumption that marks are registrable
+    unless there is a clear reason to refuse. It should also say whether the mere presence
+    of a prescribed sign is enough on its own, or whether the risk of deception or confusion
+    still matters.
+  seed_refs:
+  - TMM/Part32A/x-relevant-legislation22#1
+  - TMM/Part20/5/5/1/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0040
+  kind: impact
+  question: If I register a defensive trade mark, do I still have to show intention to use
+    and can it be removed for non-use?
+  search: defensive trade mark what rules do not apply
+  narrative: A helpful answer must identify which ordinary trade mark provisions do not apply
+    to defensive trade marks and what that means for the owner of a defensive registration.
+    It should cover the affected rights, filing requirements and non-use consequences without
+    suggesting how any particular matter would be decided.
+  seed_refs:
+  - TMM/Part34/3#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0041
+  kind: lookup
+  question: Is confusion or deception assessed against the current market, not how things
+    were years ago?
+  search: current market deception confusion
+  narrative: A helpful answer must explain that the inquiry is made against the current marketplace,
+    not an earlier or later one. It should also say why older or newer connotations can matter.
+  seed_refs:
+  - TMM/Part29/3/3/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0042
+  kind: problem
+  question: Could a name or symbol in my mark be left out if it is likely to confuse people?
+  search: sign linked with person confusion buyers
+  narrative: A helpful answer must identify the person or organisation the sign points to,
+    the goods or services that person or organisation is associated with, and the relevant
+    purchasing public. It should also cover whether use of the trade mark is likely to confuse
+    and whether removing the offending part would change the trade mark's identity.
+  seed_refs:
+  - TMM/Part31/3#1~2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0043
+  kind: cross_part
+  question: If a company wants a defensive trade mark, do I need to check its legal status
+    as well as the old registration?
+  search: defensive trade mark company status check
+  narrative: A helpful answer must cover both the special position of defensive trade marks
+    and the separate need to confirm a corporate applicant's legal personality under the relevant
+    state or territory law. It should explain that the applicant may need to provide evidence
+    of incorporation if the name is uncertain.
+  seed_refs:
+  - TMM/Part34/6/6/2/1
+  - TMM/Part10/1/1/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0044
+  kind: impact
+  question: What happens if the fee is not paid, and can the fee be refunded?
+  search: fee not paid no action refund
+  narrative: A helpful answer must list the fee-related provisions in scope and explain the
+    practical consequences tied to payment, non-payment, refund and remission. It should also
+    note any transitional fee rules mentioned in the same set of provisions.
+  seed_refs:
+  - TMM/Part4/x-relevant-legislation15#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0045
+  kind: lookup
+  question: When I compare a word mark with a device mark, what exactly should I look at to
+    judge whether they are deceptively similar?
+  search: word mark vs device mark overall impression name and idea
+  narrative: The answer must explain what the examiner compares when a word mark is being
+    assessed against a device mark. It should focus on the overall impression, including the
+    name and idea conveyed, and note that identical name and idea can be enough for the relevant
+    ground to arise.
+  seed_refs:
+  - TMM/Part26/6/6/12
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0046
+  kind: problem
+  question: If someone is using my trade mark with my permission, what do I need to show about
+    my control over that use?
+  search: someone else using my trade mark with permission control quality financial
+  narrative: The answer must explain, in plain language, that permission alone is not enough
+    if the use is not under the trade mark owner’s control. It should cover the need to show
+    authorised use and the kinds of control the source passage mentions, such as quality or
+    financial control.
+  seed_refs:
+  - TMM/Part48/7#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0047
+  kind: cross_part
+  question: If a trade mark is transferred to the estate of a well-known deceased person,
+    do I need to record the ownership change and does the estate’s ongoing control of the
+    name still matter?
+  search: transfer of trade mark to estate deceased person's name control and recordal
+  narrative: The answer must cover both the recording of a transfer of ownership and the separate
+    question of whether use of a deceased person’s name still suggests an ongoing connection.
+    It should explain the effect of an assignment or transmission recordal and also whether
+    continued control by an estate or authorised body may matter.
+  seed_refs:
+  - TMM/Part43/1#1~1
+  - TMM/Part29/6/6/2~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0048
+  kind: impact
+  question: What happens to my application if the Registrar thinks an earlier trade mark ground
+    applies?
+  search: what happens if earlier mark ground is relevant to my application
+  narrative: The answer must explain the practical effect of the Registrar being satisfied
+    that the cited provision is relevant to the application. It should say what happens to
+    the application at that point, and contrast that with the situation where there is doubt.
+  seed_refs:
+  - TMM/Part20/5/5/6/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0049
+  kind: lookup
+  question: How will a disclaimer be shown on the Register if it was requested voluntarily?
+  search: voluntary disclaimer wording on the Register
+  narrative: A helpful answer must say how the Register will label a disclaimer that was asked
+    for voluntarily under subsection 74(1). It should also make clear what that wording is
+    meant to distinguish it from.
+  seed_refs:
+  - TMM/Part24/2#1~2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0050
+  kind: problem
+  question: Can I rely on website stats or other figures instead of sales figures if my business
+    does not have much turnover?
+  search: evidence other than sales figures charity website analytics
+  narrative: A helpful answer must explain that turnover and marketing figures are not always
+    the only sensible evidence, and that the commercial realities of the business matter.
+    It should also identify other kinds of figures that may be relevant when sales or promotional
+    spend are not practical.
+  seed_refs:
+  - TMM/Part23/4/4/1/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0051
+  kind: cross_part
+  question: If my goods are sold through wholesalers or shops and I later narrow the application
+    into a divisional, do I still need to change the priority claim and are those goods automatically
+    close to retail services?
+  search: wholesale retail goods closely related divisional priority claim
+  narrative: A helpful answer must cover both the effect of selling goods through wholesale
+    or retail channels and the rule that this does not automatically make the goods closely
+    related to wholesale or retail services. It should also explain when a narrowed specification
+    and a divisional application affect the handling of convention claims.
+  seed_refs:
+  - TMM/Part26/4/4/3/1~1
+  - TMM/Part11/5/5/2/3
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0052
+  kind: impact
+  question: Which Registrar decisions can I take to court, and what happens if there is no
+    appeal right in the Act?
+  search: appeal registrar decisions court or judicial review
+  narrative: A helpful answer must identify which kinds of Registrar decisions can be appealed
+    to the Federal Court or the Federal Circuit and Family Court of Australia (Division 2).
+    It should also say what the alternative route is if the Act does not give a statutory
+    appeal right.
+  seed_refs:
+  - TMM/Part52/5/5/1~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0053
+  kind: lookup
+  question: What has to be satisfied before acceptance of my trade mark application can be
+    revoked before registration?
+  search: revoking acceptance before registration
+  narrative: A helpful answer must state the two conditions that must be satisfied before
+    acceptance may be revoked, and make clear that this can happen only before the trade mark
+    is registered. It should also note that the relevant circumstances are those that existed
+    when the application was accepted, whether or not the Registrar knew about them then.
+  seed_refs:
+  - TMM/Part38/2#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0054
+  kind: problem
+  question: How does IP Australia check that trade mark examination work is being done properly?
+  search: trade mark examination quality checks
+  narrative: A helpful answer must explain that the quality system and standards are used
+    to assess the work done on trade mark applications, and that the Manual is a guide to
+    be read with the Act and Regulations. It should also mention the service commitments and
+    the examples given of quality standards for search and examination work.
+  seed_refs:
+  - TMM/Part1/2#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0055
+  kind: cross_part
+  question: Can I use a defensive trade mark for an international application and still claim
+    priority from an earlier filing?
+  search: defensive trade mark international priority claim
+  narrative: A helpful answer must combine the rule that a defensive trade mark can be certified
+    as the basis for an international application with the rule that priority can be claimed
+    only if the same trade mark was first filed in a Paris Convention country within six months.
+    It should also explain that the international registration is treated as a standard trade
+    mark overseas, so different use requirements may apply there.
+  seed_refs:
+  - TMM/Part60/2/2/2/2/4~2
+  - TMM/Part11/1/1/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0056
+  kind: impact
+  question: If my trade mark is for plants or plant material, what kind of evidence do I need
+    to give and what has it got to show?
+  search: evidence of use for plant trade marks
+  narrative: A helpful answer must identify the kinds of material that count as evidence of
+    use and the difference between existing use and documented preparations to begin use.
+    It should also explain that, for plant material, the evidence must show the mark with
+    genus, species and variety information, and that a trade name is not the same as a trade
+    mark.
+  seed_refs:
+  - TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0057
+  kind: lookup
+  question: What do I need to show to get more time to file evidence in an opposition?
+  search: what do I need to show to get more time to file evidence in an opposition
+  narrative: A helpful answer must identify the Registrar’s expectations for filing evidence
+    and the strict requirements for getting more time. It should also mention the kind of
+    explanation and chronology that are said to be useful.
+  seed_refs:
+  - TMM/Part51/2#1~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0058
+  kind: problem
+  question: Can the same trade mark with a city name or number be filed as a set?
+  search: can the same trade mark with a city name or number be filed as a set
+  narrative: A helpful answer must explain whether a set of marks can still be treated as
+    a valid series when the differences are only in place name, quality or number. It should
+    refer to the examples with city names, quality words and numbers, without saying how a
+    real application should be decided.
+  seed_refs:
+  - TMM/Part13/6/6/4
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0059
+  kind: cross_part
+  question: Do I need a picture and a written description for a scent mark?
+  search: do I need a picture and a written description for a scent mark
+  narrative: A helpful answer must cover both the need for a graphical representation and
+    an accurate description when the sign is a scent. It should also explain the point of
+    the rejection rule for marks that cannot be represented graphically, and that the representation
+    must make the scope clear.
+  seed_refs:
+  - TMM/Part10/3/3/4/3
+  - TMM/Part21/5/5/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0060
+  kind: impact
+  question: Who looks at all the evidence when there could be confusion between trade marks?
+  search: who looks at all the evidence when there could be confusion between trade marks
+  narrative: A helpful answer must identify who is required to consider the evidence as a
+    whole in this context and who exercises the discretion. It should explain what matters
+    are taken into account when there is a real and tangible danger of confusion, without
+    stating the outcome in any particular case.
+  seed_refs:
+  - TMM/Part28/4/28/4/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0061
+  kind: lookup
+  question: What alternative terms can I use instead of monitoring services, and which classes
+    do they belong in?
+  search: monitoring services alternatives class 35
+  narrative: A helpful answer should list the alternative goods and services terms suggested
+    for the broad heading "monitoring services". It should show the different classes those
+    alternatives sit in so a person can narrow the specification appropriately.
+  seed_refs:
+  - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring-services
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0062
+  kind: problem
+  question: If I knew about an earlier trade mark, what do I need to explain about my enquiries
+    and reasons for using mine?
+  search: earlier trade mark known honesty what enquiries made
+  narrative: A helpful answer should explain what an applicant needs to say about enquiries,
+    knowledge of earlier marks, and reasons for choosing the trade mark. It should make clear
+    that bare assertions are not enough if the person knew about the earlier mark before starting
+    use.
+  seed_refs:
+  - TMM/Part28/3/3/1~4
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0063
+  kind: cross_part
+  question: How narrow do I need to make my goods list if I want to cover drinks in classes
+    32 and 33?
+  search: class 32 and 33 goods similar specification restrictions
+  narrative: A helpful answer should explain how the overlap between the two classes affects
+    the assessment of whether the claimed goods are sufficiently related. It should cover
+    both the general rule about restriction of specifications and the specific point that
+    some class 32 and class 33 goods are considered similar.
+  seed_refs:
+  - TMM/Part32B/2/4/2/4/3~1
+  - TMM/Part10/5/5/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0064
+  kind: impact
+  question: If a trade mark is likely to mislead customers, what happens to the application
+    and who has to refuse it?
+  search: trade mark likely to deceive mandatory rejection no discretion
+  narrative: A helpful answer should identify who must act once the ground is made out and
+    what happens to the application. It should make clear that the provision is mandatory
+    and that there is no discretion to accept the mark if the relevant likelihood is established.
+  seed_refs:
+  - TMM/Part29/1#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0065
+  kind: lookup
+  question: How long do I have to ask for internal review, and who is allowed to apply?
+  search: FOI internal review time limit and who can apply
+  narrative: The answer must state which FOI decisions can be internally reviewed, who may
+    apply in each category, and the time limit for applying. It must also explain when a longer
+    period applies and note that the agency may extend time after the statutory period has
+    expired.
+  seed_refs:
+  - TMM/Part61/2/2/4
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0066
+  kind: problem
+  question: Why does searching for CAR show CARS but not CARPET?
+  search: why does CAR return some words but not others
+  narrative: The answer must explain why a search for CAR brings up some close matches but
+    not broader word beginnings like CARPET or CARRIAGE. It should also mention the available
+    result limits and filters in the search screen.
+  seed_refs:
+  - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/search-results-screen-keyword-search
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0067
+  kind: cross_part
+  question: If a divisional application was not valid when filed, can it still be fixed and
+    then published for opposition?
+  search: divisional application invalid amendment clerical error opposition published
+  narrative: The answer must cover the rules for amending a divisional application when it
+    was not valid, including the limits on section 65 amendments and the possible use of section
+    65A for clerical error or obvious mistake. It must also mention what happens if a proposed
+    amendment is published for opposition and how that sits alongside the separate note about
+    section 65(7) where the divisional application is otherwise valid.
+  seed_refs:
+  - TMM/Part12/3/3/7
+  - TMM/Part15/1#1~2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0068
+  kind: impact
+  question: What does treating an invented shape like an invented word mean for people trying
+    to register a shape as a trade mark?
+  search: invented shape treated like invented word shape trade marks
+  narrative: The answer must explain how treating an invented shape like an invented word
+    affects shape trade marks, including the role of what is common to the trade and research
+    into the market. It should identify who is affected by that approach and what it changes
+    for applicants trying to rely on shape marks in different kinds of goods.
+  seed_refs:
+  - TMM/Part21/3/3/6~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0069
+  kind: lookup
+  question: Do class 5 pharmaceutical or veterinary goods need to be checked against the INN
+    list and INN stems?
+  search: class 5 pharmaceuticals INN list stems
+  narrative: A helpful answer must identify the check examiners make for class 5 pharmaceutical
+    or veterinary goods against the INN list and the INN stems list. It must also note the
+    kinds of goods that may trigger that check, including examples like analgesics, pain relieving
+    preparations and dietary or nutritional supplements.
+  seed_refs:
+  - TMM/Part29/5/5/3
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0070
+  kind: cross_part
+  question: If I need to split off some goods from a parent application and I also have a
+    late costs filing, what do I have to lodge and when?
+  search: late costs extension divisional application
+  narrative: A helpful answer must cover the requirements for an extension of time before
+    a late costs application or late bill of costs can be considered, including the approved
+    form, fee and supporting declaration. It must also cover the divisional filing point about
+    keeping the parent application pending and delaying deletion or amendment until the divisional
+    has been filed.
+  seed_refs:
+  - TMM/Part55/3/3/4
+  - TMM/Part12/2#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0071
+  kind: impact
+  question: Who can ask for a disclaimer, and what changes when it is recorded?
+  search: who can request disclaimer and what happens
+  narrative: A helpful answer must say who may request a disclaimer and that there is no fee.
+    It must also explain that the request is not examined, but the notice is checked for the
+    required written request and wording, and that the disclaimer may affect what is entered
+    before or after registration.
+  seed_refs:
+  - TMM/Part24/2#1~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0072
+  kind: lookup
+  question: If my mark uses the name of a plant variety, can it be rejected for plants from
+    the same or a closely related genus?
+  search: plant variety name for plants same genus misleading section 43
+  narrative: A helpful answer must say whether wording that names a plant variety or plant
+    can mislead when used for plants or plant materials from the same or a closely related
+    genus. It should also point to the relevant examination ground and note that further practice
+    for class 31 plants is dealt with elsewhere.
+  seed_refs:
+  - TMM/Part29/1/1/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0073
+  kind: problem
+  question: Do I need to list the border leaves and scrolls in this logo, or only the main
+    picture?
+  search: do I need to index decorative border leaves in a logo
+  narrative: A helpful answer must explain whether decorative borders or other minor decoration
+    need to be picked out separately when describing a complex trade mark. It should cover
+    the difference between decorative features that are just background and those that are
+    the main feature of the mark.
+  seed_refs:
+  - TMM/Part5/x-device-constituents/conventional-decorative-elements
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0074
+  kind: cross_part
+  question: When two series marks use the same common surname and initial, is that usually
+    the part people focus on to compare them?
+  search: common surname and initial series marks shared element
+  narrative: A helpful answer must explain how a common surname combined with a common initial
+    is treated when looking at shared identifying features. It should also say how that fits
+    with comparing series marks where shared elements are important, even if one shared element
+    is not very distinctive.
+  seed_refs:
+  - TMM/Part22/17/17/2
+  - TMM/Part13/2#1~2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0075
+  kind: impact
+  question: If a mark is opposed, can the opponent rely on the same grounds used in examination,
+    and who has to prove them?
+  search: grounds of opposition same as examination who proves it
+  narrative: A helpful answer must say what grounds can be used in opposition, who must prove
+    them, and whether the same grounds used during examination can be relied on later. It
+    should also note the exception for the ground about graphical representation.
+  seed_refs:
+  - TMM/Part46/4#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0076
+  kind: lookup
+  question: Does advertising count as use if the goods are not yet for sale?
+  search: Does advertising count as use if the goods are not yet for sale?
+  narrative: A helpful answer must say whether a genuine offer for sale can amount to use
+    in trade even if nothing has been sold yet. It should also cover the limits on advertising,
+    brochures and samples when the goods or services are not actually available.
+  seed_refs:
+  - TMM/Part19A/3/3/2~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0077
+  kind: problem
+  question: Can a rose variety name also be my trade mark?
+  search: Can a rose variety name also be my trade mark?
+  narrative: A helpful answer must explain whether a plant variety name can also serve as
+    a trade mark. It should cover the conflict between using the word as a variety name and
+    using it to distinguish one trader's goods from another's.
+  seed_refs:
+  - TMM/Part32A/x-annex-5---case-law-summaries/wheatcroft-bros-ltd-s-trade-marks-1954-71-rpc-43
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0078
+  kind: cross_part
+  question: Can I file one trade mark application in more than one class?
+  search: Can I file one trade mark application in more than one class?
+  narrative: A helpful answer must explain how goods and services are split into classes and
+    where those class headings are found. It should also cover whether one application can
+    cover more than one class.
+  seed_refs:
+  - TMM/Part14/2/2/1/1
+  - TMM/Part10/5#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0079
+  kind: impact
+  question: Does the target market matter for an offensive trade mark?
+  search: Does the target market matter for an offensive trade mark?
+  narrative: A helpful answer must explain how the intended market for the goods affects the
+    assessment of an offensive mark. It should cover the difference between adult goods and
+    children's goods, and who the mark will be seen by.
+  seed_refs:
+  - TMM/Part30/2/2/10
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0080
+  kind: lookup
+  question: How are single letters, letter groups and acronyms recorded in a trade mark search?
+  search: 'letters in a trade mark indexed as letters acronym single letter LTR # equals sign'
+  narrative: 'A helpful answer must identify how letter-based trade marks are recorded for
+    indexing, including single letters, groups of letters and acronyms. It should also explain
+    when LTR, # and an equals-sign prefix are used so a searcher can tell letters used as
+    letters from letters used as a word.'
+  seed_refs:
+  - TMM/Part5/x-word-constituents/letters
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0081
+  kind: problem
+  question: If goods have a prohibition notice on them and I buy them without knowing about
+    it, can that still matter for the trade mark?
+  search: goods with prohibition notice bought in good faith trade mark
+  narrative: A helpful answer must explain the practical situation where goods carry a warning
+    or prohibition notice and someone later buys or deals with them. It should also cover
+    the role of the trade mark owner's notice, the buyer acting in trade, and the good faith
+    exception for someone who did not know about the notice.
+  seed_refs:
+  - TMM/Part60/1/1/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0082
+  kind: cross_part
+  question: Does putting a prohibition notice on goods count as use of the trade mark for
+    infringement purposes?
+  search: use of trade mark and prohibition notice on goods infringement
+  narrative: A helpful answer must bring together the rule about displaying a prohibition
+    notice on goods and the broader point that infringement depends on use of a trade mark
+    in trade. It should explain how those two ideas relate without assuming the outcome in
+    any particular dispute.
+  seed_refs:
+  - TMM/Part19B/4/4/3
+  - TMM/Part19A/1#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0083
+  kind: impact
+  question: Who has to pay extra when an opposition statement includes more grounds or more
+    trade marks than the free limit?
+  search: opposition statement fee threshold extra grounds extra trade marks
+  narrative: A helpful answer must explain who is affected by the opposition filing fee thresholds
+    and what changes once the number of grounds or particularised trade marks goes over the
+    limits. It should cover the filing fee consequences for the opponent, including the extra
+    amount added for each item above the threshold.
+  seed_refs:
+  - TMM/Part47/1/1/2/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0084
+  kind: lookup
+  question: What are the suggested class terms for mouldings?
+  search: mouldings class alternatives
+  narrative: A helpful answer must list the suggested alternative class terms given for mouldings
+    and show which class each one belongs to. It should make clear that the user can compare
+    the wording across the classes without having to infer it.
+  seed_refs:
+  - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/moldings
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0085
+  kind: problem
+  question: Can I object if the problem is really about a similar business name, not what’s
+    in the mark itself?
+  search: confusion from other name not mark
+  narrative: The answer should explain that, at examination, deception or confusion must come
+    from something in the mark under consideration itself, not only from comparing it with
+    another mark or name. It should also make clear that the cited cases are examples of that
+    approach.
+  seed_refs:
+  - TMM/Part29/3/3/3
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0086
+  kind: cross_part
+  question: If my shape also has a design registration, do I still need to check for a divisional
+    trade mark citation?
+  search: shape mark design registration pending citation divisional
+  narrative: 'A helpful answer must cover both points: a design registration for the same
+    shape does not by itself block a trade mark application for that shape, and a pending
+    trade mark citation may still need checking for a divisional application if it has lapsed
+    or been narrowed. It should explain the practical steps an examiner needs to take before
+    moving on.'
+  seed_refs:
+  - TMM/Part21/3/3/10
+  - TMM/Part12/8#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0087
+  kind: impact
+  question: Who is affected when a well known mark is used on unrelated goods, and what must
+    the owner show?
+  search: well known mark unrelated goods connection adverse interests
+  narrative: 'The answer should identify who is affected by the provision: the registered
+    owner of a well known trade mark and the person using a substantially identical or deceptively
+    similar sign on unrelated goods or services. It should state the findings the owner must
+    establish about connection and likely adverse effect on their interests.'
+  seed_refs:
+  - TMM/Part19B/4/4/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0088
+  kind: lookup
+  question: If my extension to file evidence in reply is refused in an opposition, what happens
+    next?
+  search: what happens if my extension to file evidence in reply is refused in an opposition
+  narrative: A helpful answer should explain the procedural consequence when an extension
+    to file evidence is refused in the different opposition settings. It should distinguish
+    between evidence in support, in answer and in reply, and note when a hearing can be requested.
+  seed_refs:
+  - TMM/Part51/2/2/4
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0089
+  kind: problem
+  question: If the other side files a bill of costs after the case is over, do I get a chance
+    to comment before it is taxed?
+  search: do i get to comment on the bill of costs before it is taxed
+  narrative: A helpful answer should explain what happens after a successful party seeks costs
+    after the proceedings have ended. It should cover the bill of costs, taxation, the opportunity
+    for the other side to comment, and any review if the amount is challenged.
+  seed_refs:
+  - TMM/Part55/4#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0090
+  kind: cross_part
+  question: When I file a Madrid application through IP Australia, who decides any class dispute,
+    and what happens if the Office of origin and the International Bureau disagree?
+  search: Madrid application class dispute who decides and what if Office of origin and IB
+    disagree
+  narrative: A helpful answer should cover how an international registration application is
+    filed through IP Australia and who decides class questions if there is a disagreement.
+    It should also note the special rule for Madrid Protocol export applications where the
+    Office of origin and the International Bureau disagree.
+  seed_refs:
+  - TMM/Part60/2/2/2/2/2
+  - TMM/Part14/2/2/2/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0091
+  kind: impact
+  question: What does it mean for goods to be of the same description under the Act?
+  search: what goods does the Act treat as similar
+  narrative: A helpful answer should explain the effect of the Act's definition of similar
+    goods and the kind of comparison it requires. It should also identify the main factors
+    that are relevant when working out whether goods are of the same description.
+  seed_refs:
+  - TMM/Part26/4/4/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0092
+  kind: lookup
+  question: If my file has sensitive business or personal information, will I get a chance
+    to argue it should not be released before the documents go out?
+  search: FOI documents with sensitive information exemption review rights
+  narrative: A helpful answer must say what happens when documents contain sensitive business
+    or personal information, including that the applicant or their representative may be contacted
+    and given a chance to argue exemption from release. It should also cover the review rights
+    mentioned before release to the FOI applicant, including internal review and OAIC review.
+  seed_refs:
+  - TMM/Part61/3/3/3
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0093
+  kind: problem
+  question: My goods are just described as powder — how should I word them so they fit the
+    right class?
+  search: classifying powder goods better wording
+  narrative: A helpful answer must give practical wording options for goods described only
+    as powder, showing that different kinds of powder may belong in different classes. It
+    should also make clear the answer is about suggested alternative descriptions rather than
+    a single blanket wording.
+  seed_refs:
+  - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0094
+  kind: cross_part
+  question: Can I rely on honest concurrent use if my trade mark's own meaning might still
+    mislead people?
+  search: honest concurrent use and misleading meaning of trade mark
+  narrative: A helpful answer must explain how honest concurrent use is used to address rejection
+    under the overlap provisions for similar trade marks, and it must also explain the separate
+    rule about refusal where the mark's connotation would itself mislead or confuse. It should
+    distinguish between confusion from conflict with another mark and confusion arising from
+    the mark's own meaning.
+  seed_refs:
+  - TMM/Part28/2#1
+  - TMM/Part20/5/5/5
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0095
+  kind: impact
+  question: Who has to give an Australia or New Zealand service address when filing a trade
+    mark-related document?
+  search: who needs service address australia new zealand filing
+  narrative: A helpful answer must identify which filings are affected by the service address
+    rule and who is usually expected to provide that address. It should also note the stated
+    exception for international registrations designating Australia and say whether the address
+    may be the applicant's or its agent's.
+  seed_refs:
+  - TMM/Part10/6#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0096
+  kind: lookup
+  question: Can a scent be accepted only if it is something added to the goods and not just
+    their natural smell?
+  search: scent mark must be separate from the goods themselves
+  narrative: A helpful answer must explain that the scent has to be separate from the goods
+    themselves and not an expected or natural characteristic. It should also mention the kind
+    of added smell used to identify goods by smell alone, with the examples given in the source
+    material.
+  seed_refs:
+  - TMM/Part21/7/7/2/1~2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0097
+  kind: problem
+  question: If I missed the acceptance deadline and need more time, what do I do to extend
+    it?
+  search: need more time after acceptance period extension
+  narrative: A helpful answer must explain when more time can be sought after a time limit
+    for an act has passed. It should cover the ordinary extension route, the special acceptance
+    period, and when the general extension provision has to be used instead.
+  seed_refs:
+  - TMM/Part15/1#1~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0098
+  kind: cross_part
+  question: If my specification has goods in the wrong class and also says “all goods”, what
+    does the examiner ask me to fix?
+  search: wrong class and all goods in specification
+  narrative: A helpful answer must cover both the wrong-class problem and the rule against
+    using broad expressions like “all goods” or “all services”. It should explain what the
+    examiner would require to be changed or removed when both issues appear in the same specification.
+  seed_refs:
+  - TMM/Part14/4/4/11/1
+  - TMM/Part10/5/5/2/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0099
+  kind: impact
+  question: Which documents become public, and does that include a TM Headstart before the
+    Part 2 fee is paid?
+  search: public inspection documents TM Headstart Part 2 fee
+  narrative: A helpful answer must explain which documents become open to public inspection
+    and when that happens. It should also cover the effect on a TM Headstart before the Part
+    2 fee has been paid, and whether documents linked only to that stage are included.
+  seed_refs:
+  - TMM/Part61/6/6/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0100
+  kind: lookup
+  question: Can a non-use removal application go ahead in someone else’s name after the original
+    filer’s right has passed to them, and do I need to tell the Registrar or the court in
+    writing?
+  search: non-use application someone else continue after transfer notice
+  narrative: A helpful answer must explain when a non-use removal matter can continue in the
+    name of someone other than the original filer. It must also cover the need for the relevant
+    right or interest to have passed and for written notice to the Registrar or the court.
+  seed_refs:
+  - TMM/Part48/2/2/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0101
+  kind: problem
+  question: Can I base an international trade mark application on my existing mark if it has
+    the same owner and is the same mark, even if I only want some of the same goods or services?
+  search: international application based on basic trade mark same owner same goods
+  narrative: A helpful answer must explain what an international application has to be based
+    on and whose ownership it must match. It must also cover the need for the mark to be identical
+    and for the goods or services to be the same, or only some of them, as the basic trade
+    mark, including the possibility of more than one basic trade mark.
+  seed_refs:
+  - TMM/Part60/3/3/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0102
+  kind: cross_part
+  question: When I file a trade mark application, do I have to pay fees to bodies other than
+    IP Australia, and what extra files or description do I need for a sound, shape or other
+    non-traditional mark?
+  search: fees and representation for sound or shape trade mark application
+  narrative: A helpful answer must cover both the fee side and the filing requirements side.
+    It needs to identify who fees may be payable to and what extra material or description
+    is required for non-traditional trade marks such as sound, shape, colour or scent.
+  seed_refs:
+  - TMM/Part4/1#1
+  - TMM/Part10/3/3/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0103
+  kind: impact
+  question: If a trade marks matter is inter partes, who gets to be heard and what kinds of
+    proceedings does that include?
+  search: inter partes hearing who can be heard and what cases
+  narrative: A helpful answer must explain what changes when a matter is treated as inter
+    partes. It should cover who gets a chance to be heard and the kinds of proceedings that
+    fall into this category.
+  seed_refs:
+  - TMM/Part52/2/2/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0104
+  kind: lookup
+  question: Can an ordinary picture of the goods themselves distinguish my product from other
+    traders' goods?
+  search: picture of the goods as a trade mark
+  narrative: A helpful answer must cover whether an ordinary picture of the goods, or something
+    common to the trade, is usually enough to distinguish one trader's goods. It should also
+    note the need for a special or fanciful depiction if the device is common to the trade.
+  seed_refs:
+  - TMM/Part22/25/25/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0105
+  kind: problem
+  question: If my trade mark is basically a web address with a common word in it, will that
+    be a problem?
+  search: web address with common word trade mark
+  narrative: A helpful answer must explain the distinction between standard web address material
+    and the identifier part of a domain name. It should say when the common or ordinary part
+    may still be available for others to use and why that can matter for inherent adaptation.
+  seed_refs:
+  - TMM/Part22/14/14/2~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0106
+  kind: cross_part
+  question: If part of my sign is descriptive but it is also used as my brand, can I get past
+    a place-based objection by narrowing the goods or services?
+  search: descriptive brand place objection narrow goods
+  narrative: A helpful answer must cover both whether descriptive material can still function
+    as a trade mark and how that affects the analysis of the sign. It must also explain that
+    a geographical objection may be addressed by a condition or specification amendment that
+    directly removes the likelihood of deception or confusion.
+  seed_refs:
+  - TMM/Part29/9/9/5
+  - TMM/Part19A/2#1~2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0107
+  kind: impact
+  question: Who has to sign the supporting declaration for an application, and what does it
+    need to say about other traders using the mark?
+  search: supporting declaration for registration who signs
+  narrative: A helpful answer must identify who gives the declaration, what their relationship
+    to the applicant is, and what factual matters the declaration addresses. It should also
+    explain that the declaration is aimed at supporting acceptance for registration by dealing
+    with use, identification with the applicant, and possible confusion from other traders.
+  seed_refs:
+  - TMM/Part23/x-annex-a3---model-layout-for-supporting-statutory-declaration#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0108
+  kind: lookup
+  question: Where can I access the Trade Marks Classification Search as an examiner or as
+    an external user?
+  search: where to find the trade marks classification search
+  narrative: A helpful answer should identify the tool and the two access paths mentioned.
+    It should distinguish the examiner location from the external user location.
+  seed_refs:
+  - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0109
+  kind: problem
+  question: Will a mark with a common surname and a description of the services be hard to
+    distinguish?
+  search: common surname plus descriptive services mark
+  narrative: A helpful answer should explain the general issue raised when a surname is combined
+    with descriptive words for the goods or services. It should also note that an unusual
+    presentation of the surname may matter.
+  seed_refs:
+  - TMM/Part22/16/16/3
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0110
+  kind: cross_part
+  question: If outside information raises doubts about a mark, can the examiner ask for more
+    material to clearly define a movement mark before any revocation step starts?
+  search: revocation and extra info for movement mark
+  narrative: A helpful answer should cover both when information from others can prompt revocation
+    action and when extra material may be needed to define a non-traditional sign. It should
+    connect the need for clearer scope with the kind of information that can start the revocation
+    process.
+  seed_refs:
+  - TMM/Part38/2/2/1
+  - TMM/Part10/3/3/6/3
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0111
+  kind: impact
+  question: Who is affected by the listed rules on fees, filing, lapsing and extensions of
+    time?
+  search: who is affected by extension of time fees and filing rules
+  narrative: A helpful answer should identify the people, documents and time limits touched
+    by the listed provisions. It should explain the practical effect areas named in the list
+    without trying to decide a particular case.
+  seed_refs:
+  - TMM/Part15/x-relevant-legislation13#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0112
+  kind: lookup
+  question: Is a geographical indication protected in Australia by registering it as a certification
+    trade mark?
+  search: geographical indication protected by certification trade mark
+  narrative: A helpful answer must say whether a geographical indication can be protected
+    in Australia through registration as a certification trade mark. It should also note that
+    this is presented as the principal way to protect a GI and give the TEQUILA example as
+    an illustration.
+  seed_refs:
+  - TMM/Part35/2/2/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0113
+  kind: problem
+  question: Can I split off part of a series application if one of the trade marks in the
+    parent is wrong?
+  search: split series application wrong mark
+  narrative: A helpful answer must explain what has to line up between a parent series application
+    and a divisional filed from it. It should cover that the marks must be identical at filing,
+    what can be done if the series is invalid, and that the divisional is checked again at
+    examination against the goods and services included.
+  seed_refs:
+  - TMM/Part13/8#1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0114
+  kind: cross_part
+  question: Can narrowing the goods list fix a trade mark that seems to suggest a false connection
+    or origin?
+  search: misleading mark narrow goods origin
+  narrative: A helpful answer must explain when a mark may be rejected because it could mislead
+    or confuse people about the goods or services. It should also cover that narrowing the
+    goods or services can sometimes remove the problem, and that proof of a real connection
+    may be enough where the mark suggests one.
+  seed_refs:
+  - TMM/Part29/3#1~1
+  - TMM/Part20/5/5/5/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0115
+  kind: impact
+  question: If the Registrar issues a notice to produce, who gets it and what has to happen
+    next?
+  search: who serves notice to produce and what goes with it
+  narrative: A helpful answer must explain who receives the completed notice and what they
+    must do with it. It should also cover any extra material that may be attached, the timing
+    for service, and the need to tell the Registrar when service happens.
+  seed_refs:
+  - TMM/Part54/3/3/3/2
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0116
+  kind: lookup
+  question: What class wording should I use instead of just "powders"?
+  search: powders class alternatives
+  narrative: The answer must list the suggested class descriptions for different kinds of
+    powders, so the user can choose a narrower term. It should cover the range of classes
+    shown for powders across goods, not just one example.
+  seed_refs:
+  - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0117
+  kind: problem
+  question: Can I rely on use made before I bought the business, or by someone I authorised
+    to use the mark?
+  search: rely on use by previous owner or authorised user
+  narrative: The answer must explain whether use by someone before the current proprietor
+    can count, and what has to be shown in each timing scenario. It should also cover the
+    point about use by an authorised user and the need for actual control.
+  seed_refs:
+  - TMM/Part23/3/3/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0118
+  kind: cross_part
+  question: If a registration is cancelled, does the trading name on the application still
+    own the trade mark?
+  search: what happens if registration is cancelled and application has trading name
+  narrative: The answer must connect cancellation of a registration with the loss of the rights
+    that came from registration, and then explain whether the applicant name or business name
+    affects ownership. It should make clear what changes when the registration ends and who
+    is treated as the owner.
+  seed_refs:
+  - TMM/Part41/1#1
+  - TMM/Part10/1/1/1/1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed
+- id: BN-0119
+  kind: impact
+  question: Who needs written permission before using the Red Cross or Red Crescent signs?
+  search: using red cross or red crescent without consent
+  narrative: The answer must explain who is affected when the listed signs are used without
+    written consent, and what kind of consent is required. It should cover the practical effect
+    of the prohibition on using those signs for any purpose.
+  seed_refs:
+  - TMM/Part30/3/3/5~1
+  model: gpt-5.4-mini-2026-03-17
+  date: '2026-10-07'
+  review_status: unreviewed

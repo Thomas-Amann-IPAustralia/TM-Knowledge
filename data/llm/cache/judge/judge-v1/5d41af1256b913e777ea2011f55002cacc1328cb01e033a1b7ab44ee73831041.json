@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00324,
+ "created_utc": "2026-10-07T12:26:31Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0105",
+ "job": "judge",
+ "key": "5d41af1256b913e777ea2011f55002cacc1328cb01e033a1b7ab44ee73831041",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part32A/2/3/2-3-5-b-evidence-of-use\",\"grade\":1},{\"ref\":\"TMM/Part60/1/1/2\",\"grade\":0},{\"ref\":\"TMM/Part22/13/13/3\",\"grade\":2},{\"ref\":\"TMM/Part34/4/4/1\",\"grade\":0},{\"ref\":\"TMM/Part22/13/13/2\",\"grade\":1},{\"ref\":\"TMM/Part29/8/8/1\",\"grade\":1},{\"ref\":\"TMM/Part26/6/6/8~1\",\"grade\":1},{\"ref\":\"TMM/Part22/14/14/2~2\",\"grade\":2},{\"ref\":\"TMM/Part9/x-relevant-legislation23#1\",\"grade\":0},{\"ref\":\"TMM/Part27/5/5/1/2\",\"grade\":1},{\"ref\":\"TMM/Part22/14/14/2~1\",\"grade\":3},{\"ref\":\"TMM/Part22/11#1~2\",\"grade\":1},{\"ref\":\"TMM/Part29/8/8/2\",\"grade\":2},{\"ref\":\"TMM/Part29/8#1\",\"grade\":2},{\"ref\":\"TMM/Part60/2/4/2/4/3~1\",\"grade\":0},{\"ref\":\"TMM/Part19A/2/2/2~1\",\"grade\":1},{\"ref\":\"TMM/Part22/16/16/4\",\"grade\":1},{\"ref\":\"TMM/Part29/9/9/3~2\",\"grade\":0},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-consist-of-multiple-given-names\",\"grade\":0},{\"ref\":\"TMM/Part22/14/14/5\",\"grade\":2},{\"ref\":\"TMM/Part23/3/3/5\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "1daf037a856a0926d4372f3c4b7c922709e9b32d481511d40ca8f5cbeb56ec30",
+ "response_id": "resp_0b6cee95c13ed1e8006ac63a5bf12087d2bb39024fcab9ba2a",
+ "seconds": 28.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5348,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 5345
+  },
+  "output_tokens": 594,
+  "output_tokens_details": {
+   "reasoning_tokens": 142
+  },
+  "total_tokens": 5942
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005609,
+ "created_utc": "2026-10-07T12:17:26Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0007",
+ "job": "answer",
+ "key": "b538543af3e3d7f3995419833e119273314bfe89e4ffd18b924150673dc89ff0",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0097\", \"GC-0115\", \"GC-0102\", \"GC-0153\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part15/5/5/2\",\n      \"quote\": \"The declaration should support the grounds for the application by setting out the facts on which the grounds for requiring the extension are based. If the application is made after the period has expired, the declaration should also set out why the application is late.\"\n    },\n    {\n      \"ref\": \"TMM/Part49/2/2/3/3\",\n      \"quote\": \"If the extension application was made out of time, that is, after the period for filing the notice of intention to oppose or statement of grounds and particulars had ended, the Registrar will not necessarily grant the extension even if the extension ground has been made out (regs 9.12(2), 17A.48M(2)). The potential opponent must also satisfy the Registrar there was sufficient reason for the application not being made before the end of that period.\"\n    },\n    {\n      \"ref\": \"TMM/Part49/2/2/3/4\",\n      \"quote\": \"In the event of a late extension being applied for, the reasons provided in terms of regs 9.12(2) or 17A.48M(2) may not satisfy the Registrar that the application could not have been made before the end of the period.\"\n    },\n    {\n      \"ref\": \"TMA1995/s224\",\n      \"quote\": \"(2) If, because of: (a) an error or omission by the person concerned or by his or her agent; or (b) circumstances beyond the control of the person concerned; a relevant act that is required by this Act to be done within a certain time is not, or cannot be, done within that time, the Registrar may, on application made by the person concerned in accordance with the regulations, extend the time for doing the act.\"\n    },\n    {\n      \"ref\": \"TMA1995/s224\",\n      \"quote\": \"(3) If: (a) a relevant act that a person is required by this Act to do within a certain time is not, or cannot be, done within that time; and (b) on application made by that person in accordance with the regulations, the Registrar is of the opinion that special circumstances exist that justify an extension of that time; the Registrar may extend the time for doing the act.\"\n    },\n    {\n      \"ref\": \"TMA1995/s224\",\n      \"quote\": \"(4) The time allowed for doing a relevant act may be extended, whether before or after that time has expired.\"\n    }\n  ],\n  \"answer\": \"You need to address both **why the extension is needed** and **why the extension request itself was late**. I cannot identify the precise procedure without knowing what deadline you seek to extend.\\n\\n**Manual practice:** The supporting declaration should set out the facts establishing the extension grounds and, where the period has expired, explain why the request is late (TMM/Part15/5/5/2).\\n\\nFor a late request to extend the period for filing a notice of intention to oppose or a statement of grounds and particulars, establishing an extension ground is not enough: the Registrar must also be satisfied that there was sufficient reason for not requesting the extension before the period ended (TMM/Part49/2/2/3/3). The Manual also describes scrutiny of whether the request could have been made before that deadline (TMM/Part49/2/2/3/4). These are statements of Manual practice; the relevant Regulations are referenced there, but their text is not supplied.\\n\\n**Act:** If section 224 applies, subsection (4) permits an extension before or after expiry. Under subsection (2), the relevant act must have been prevented or delayed by an error or omission by the person or their agent, or circumstances beyond that person's control. Alternatively, subsection (3) requires the Registrar to consider that special circumstances justify an extension. Both provisions say the Registrar *may* extend time, rather than requiring a grant merely because a ground is established (TMA1995/s224).\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "4cdfab8679dc0158cd7619fefea68e2c9f4ee330ba26bb28f1b66ba996dee645",
+ "response_id": "resp_02311675217ba86d006ac6383925cc87d295533d2ff9bd12af",
+ "seconds": 29.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6733,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6730
+  },
+  "output_tokens": 1054,
+  "output_tokens_details": {
+   "reasoning_tokens": 141
+  },
+  "total_tokens": 7787
+ }
+}

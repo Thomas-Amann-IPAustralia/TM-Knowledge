@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T12:20:27Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "BN-0055",
+ "job": "judge",
+ "key": "95857f3921622b5af0d952cef728b312f6fba7a9f7fc74fd20b1b3f57515ed53",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "judge-v1",
+ "request_sha256": "da96e38b0fb04dff44658da29ba23a3d0d8c93da7d6f62089bd01fbd7127132d",
+ "response_id": "resp_011176f771ca8c96006ac63909019c87d28d820bd22a7f25df",
+ "seconds": 2.9,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

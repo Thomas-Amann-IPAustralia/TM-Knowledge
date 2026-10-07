@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006642,
+ "created_utc": "2026-10-07T08:48:59Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0133..GC-0144",
+ "job": "aliases",
+ "key": "2497c3750d2bd2c5d71a0eb9bcfc6732650eb7b144bd16516a4c58cbf477d90b",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0133\",\n      \"related_search_terms\": [\n        \"competition regulator\",\n        \"consumer protection regulator\",\n        \"Competition and Consumer Act 2010\"\n      ],\n      \"everyday_phrases\": [\n        \"competition watchdog\",\n        \"consumer watchdog\",\n        \"consumer regulator\",\n        \"competition authority\"\n      ]\n    },\n    {\n      \"id\": \"GC-0134\",\n      \"related_search_terms\": [\n        \"administrative review\",\n        \"review tribunal\"\n      ],\n      \"everyday_phrases\": [\n        \"government review tribunal\",\n        \"administrative tribunal\",\n        \"tribunal review\"\n      ]\n    },\n    {\n      \"id\": \"GC-0135\",\n      \"related_search_terms\": [\n        \"protected international trade mark\",\n        \"international trade mark protection\"\n      ],\n      \"everyday_phrases\": [\n        \"protection ending\",\n        \"protection stopped\",\n        \"end international protection\",\n        \"international protection ceased\",\n        \"no longer protected\"\n      ]\n    },\n    {\n      \"id\": \"GC-0136\",\n      \"related_search_terms\": [\n        \"international registration\",\n        \"IRDA\",\n        \"international registration designating Australia\"\n      ],\n      \"everyday_phrases\": [\n        \"originating trade mark office\",\n        \"home trade mark office\",\n        \"office verifying claim\",\n        \"original filing office\"\n      ]\n    },\n    {\n      \"id\": \"GC-0137\",\n      \"related_search_terms\": [\n        \"packaging\",\n        \"wrapper\",\n        \"container\",\n        \"stopper\"\n      ],\n      \"everyday_phrases\": [\n        \"product wrapping\",\n        \"product packaging\",\n        \"bottle cap\",\n        \"container lid\",\n        \"packaging frame\"\n      ]\n    },\n    {\n      \"id\": \"GC-0138\",\n      \"related_search_terms\": [\n        \"World Intellectual Property Organisation\",\n        \"WIPO\"\n      ],\n      \"everyday_phrases\": [\n        \"international trade mark office\",\n        \"world intellectual property office\",\n        \"WIPO bureau\"\n      ]\n    },\n    {\n      \"id\": \"GC-0139\",\n      \"related_search_terms\": [\n        \"Federal Court\",\n        \"Federal Circuit and Family Court of Australia (Division 2)\",\n        \"Supreme Court\"\n      ],\n      \"everyday_phrases\": [\n        \"which court\",\n        \"appropriate court\",\n        \"trade mark court\",\n        \"court for trademarks\"\n      ]\n    },\n    {\n      \"id\": \"GC-0140\",\n      \"related_search_terms\": [\n        \"band\",\n        \"ticket\"\n      ],\n      \"everyday_phrases\": [\n        \"product tag\",\n        \"product sticker\",\n        \"packaging sticker\",\n        \"branded tag\",\n        \"product band\"\n      ]\n    },\n    {\n      \"id\": \"GC-0141\",\n      \"related_search_terms\": [\n        \"priority claims\",\n        \"convention application\",\n        \"earlier applications\",\n        \"convention countries\"\n      ],\n      \"everyday_phrases\": [\n        \"registration date\",\n        \"registered on\",\n        \"when registered\",\n        \"registration start date\",\n        \"when registration starts\"\n      ]\n    },\n    {\n      \"id\": \"GC-0142\",\n      \"related_search_terms\": [\n        \"removal from the Register\",\n        \"trade mark removal\"\n      ],\n      \"everyday_phrases\": [\n        \"remove a trade mark\",\n        \"removing a trademark\",\n        \"delete unused mark\",\n        \"remove unused brand\",\n        \"apply for removal\",\n        \"take off register\"\n      ]\n    },\n    {\n      \"id\": \"GC-0143\",\n      \"related_search_terms\": [\n        \"IRDA\",\n        \"international registration designating Australia\",\n        \"protection in Australia\"\n      ],\n      \"everyday_phrases\": [\n        \"extend protection\",\n        \"protect in Australia\",\n        \"add Australian protection\",\n        \"extend to Australia\",\n        \"protect international brand\",\n        \"Australian protection\"\n      ]\n    },\n    {\n      \"id\": \"GC-0144\",\n      \"related_search_terms\": [\n        \"oral evidence\",\n        \"production of documents\",\n        \"court-issued document\"\n      ],\n      \"everyday_phrases\": [\n        \"court witness summons\",\n        \"ordered to give evidence\",\n        \"ordered to produce documents\",\n        \"court demands documents\",\n        \"compelled to attend court\",\n        \"bring documents to court\"\n      ]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "060fc5f1790254577e7ebe19bd68601da498086f905ba7f2f6a36630805e09e0",
+ "response_id": "resp_03f85120b4390d05006ac6075f0fbc87d2836fa9143f6b3e95",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1002,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1128,
+  "output_tokens_details": {
+   "reasoning_tokens": 169
+  },
+  "total_tokens": 2130
+ }
+}

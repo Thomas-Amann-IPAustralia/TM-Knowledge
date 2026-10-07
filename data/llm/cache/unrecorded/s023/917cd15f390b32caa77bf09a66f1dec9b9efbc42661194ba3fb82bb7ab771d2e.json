@@ -1,0 +1,14 @@
+{
+ "cost_usd": 0.048912,
+ "created_utc": "2026-10-07T07:10:00Z",
+ "item": "relate/GC-0001, four attempts sent without background mode on 2026-10-07 and cut by the session proxy at about 30 seconds (HTTP 502, Q-66). OpenAI may have completed and billed them; nothing was received. Booked at the measured cost of the same prompt, four times, so the cap counts them.",
+ "job": "unrecorded",
+ "key": "917cd15f390b32caa77bf09a66f1dec9b9efbc42661194ba3fb82bb7ab771d2e",
+ "model_reported": null,
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "s023",
+ "service_tier": "flex",
+ "status": "assumed_billed",
+ "usage": {}
+}

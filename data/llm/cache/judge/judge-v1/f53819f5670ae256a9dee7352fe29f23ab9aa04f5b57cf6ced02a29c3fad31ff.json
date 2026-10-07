@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001924,
+ "created_utc": "2026-10-07T12:17:28Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0027",
+ "job": "judge",
+ "key": "f53819f5670ae256a9dee7352fe29f23ab9aa04f5b57cf6ced02a29c3fad31ff",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part21/2/2/3\",\"grade\":2},{\"ref\":\"TMM/Part21/4/4/1~1\",\"grade\":2},{\"ref\":\"TMM/Part21/8#1\",\"grade\":2},{\"ref\":\"TMM/Part10/3/3/5/3~1\",\"grade\":3},{\"ref\":\"TMM/Part21/4/4/3/1~2\",\"grade\":1},{\"ref\":\"TMM/Part19A/2/examples-where-use-as-a-trade-mark-found~3\",\"grade\":1},{\"ref\":\"TMM/Part22/25/25/8\",\"grade\":3},{\"ref\":\"TMM/Part10/3/3/5/3~2\",\"grade\":2},{\"ref\":\"TMM/Part21/4/4/7\",\"grade\":1},{\"ref\":\"TMM/Part21/4/4/2\",\"grade\":1},{\"ref\":\"TMM/Part21/4/4/1~2\",\"grade\":3},{\"ref\":\"TMM/Part21/4/4/5/2\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "85468c17b275538a6fc3c07e66ed2a767bec4212470bc6fc7d553686b05e72e0",
+ "response_id": "resp_06a9b3821d56b5a9006ac63846f81487d29e04bf6334690dc7",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3126,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3123
+  },
+  "output_tokens": 353,
+  "output_tokens_details": {
+   "reasoning_tokens": 98
+  },
+  "total_tokens": 3479
+ }
+}

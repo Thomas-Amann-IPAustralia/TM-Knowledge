@@ -31,6 +31,7 @@ from pathlib import Path
 from typing import Any, Iterable
 from urllib.parse import unquote
 
+import yaml
 from rdflib import Graph, URIRef
 from rdflib.namespace import OWL, RDF, RDFS, SH
 
@@ -54,6 +55,7 @@ BLOB = f"{REPO_URL}/blob/main"
 #: Page id -> (nav label, one-line blurb). The order is the navigation order.
 PAGES: tuple[tuple[str, str, str], ...] = (
     ("overview", "Overview", "What this is, and where it stands today"),
+    ("ask", "Ask the Manual", "Questions answered with the ontology's working shown, beside plain search"),
     ("inbox", "Your decisions", "Questions waiting on you, and what happens to your answers"),
     ("map", "The map", "Every concept and provision, as a network you can walk"),
     ("tree", "Examination path", "The grounds, tests and factors, as a tree you can open"),
@@ -134,6 +136,9 @@ class Facts:
     glossary: dict[str, dict[str, str]]
     questions: questions_module.QuestionSet
     rulings: tuple[questions_module.Ruling, ...]
+    #: "Ask the Manual" answers and the value measurement, when they exist (D2, D3).
+    answers: tuple[dict[str, Any], ...] = ()
+    measurement: dict[str, Any] | None = None
 
 
 def _read_graph(path: Path) -> Graph:
@@ -177,7 +182,24 @@ def gather() -> Facts:
         glossary=sources.read_glossary(),
         questions=questions_module.load(),
         rulings=questions_module.load_rulings(),
+        answers=_read_answers(),
+        measurement=_read_measurement(),
     )
+
+
+BENCH_DIR = REPO_ROOT / "data" / "derived" / "bench"
+
+
+def _read_answers() -> tuple[dict[str, Any], ...]:
+    path = BENCH_DIR / "answers.yaml"
+    if not path.exists():
+        return ()
+    return tuple((yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("answers") or ())
+
+
+def _read_measurement() -> dict[str, Any] | None:
+    path = BENCH_DIR / "results.json"
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
 
 
 # ------------------------------------------------------------------- helpers
@@ -862,6 +884,83 @@ def _map(facts: Facts) -> dict[str, Any]:
     }
 
 
+KIND_LABELS = {
+    "lookup": "Looking something up",
+    "problem": "Everyday problems, in plain words",
+    "cross_part": "Questions that cross Parts of the Manual",
+    "impact": "What a provision changes",
+    "signed": "The expert's own questions (signed)",
+}
+
+
+def _ask(facts: Facts) -> dict[str, Any]:
+    """D2 — every benchmark question answered, with the ontology's working shown."""
+    answers = sorted(facts.answers, key=lambda a: (list(KIND_LABELS).index(a.get("kind") or "lookup")
+                                                   if (a.get("kind") or "lookup") in KIND_LABELS else 9,
+                                                   str(a.get("key"))))
+    lede = (
+        "Questions answered from the Manual and the Act, **with the ontology's working shown** — the "
+        "legal ideas it recognised in the question, the relationships it followed, and the passages it "
+        "found — beside what plain keyword search returns for the same words. Every citation was checked "
+        "by code to be a passage that exists, quoted exactly. **No person has reviewed these answers**, "
+        "and the system never says how a particular application would be decided."
+    )
+    if not answers:
+        return {"id": "ask", "title": "Ask the Manual", "lede": lede, "blocks": [
+            blocks.callout("gap", "No answers yet",
+                           "The answer job has not been run. `tmk-bulk run answer --confirm --write` "
+                           "writes them to `data/derived/bench/answers.yaml`."),
+        ]}
+    cited = sum(1 for a in answers if a.get("citations"))
+    declined = sum(1 for a in answers if a.get("declined"))
+    recognised = sum(1 for a in answers if a.get("recognised"))
+    stats = [
+        {"label": "Questions answered", "value": len(answers), "tone": "note",
+         "note": "the whole benchmark, plus the expert's signed questions"},
+        {"label": "With a verified citation", "value": cited, "tone": "good" if cited == len(answers) else "warn",
+         "note": "every quote located verbatim in the snapshot"},
+        {"label": "Ideas recognised", "value": recognised, "tone": "note",
+         "note": "questions where the ontology found a concept to work with"},
+        {"label": "Declined in part", "value": declined, "tone": "note",
+         "note": "asked for an outcome; the system said what the Manual says instead"},
+    ]
+    out_blocks = [blocks.stats(stats)]
+    if facts.measurement:
+        summary = facts.measurement["summary"]
+        rows = []
+        for kind, entry in summary.items():
+            mean, low, high = entry["ndcg:ontology-hybrid"]
+            verdict = "better" if low > 0 else ("worse" if high < 0 else "not established")
+            rows.append({"kind": KIND_LABELS.get(kind, "All questions" if kind == "all" else kind),
+                         "n": str(entry["n"]), "keyword": f"{entry['ndcg:keyword']:.3f}",
+                         "hybrid": f"{entry['ndcg:hybrid']:.3f}", "ontology": f"{entry['ndcg:ontology']:.3f}",
+                         "diff": f"{mean:+.3f} [{low:+.3f}, {high:+.3f}] — {verdict}"})
+        out_blocks.append(blocks.table(
+            [("kind", "Questions"), ("n", "n"), ("keyword", "Keyword"), ("hybrid", "Keyword + vectors"),
+             ("ontology", "With the ontology"), ("diff", "Ontology's difference")],
+            rows,
+            note="Search quality (nDCG@10; 1.0 is perfect) on the same questions. The difference is against "
+                 "keyword + vectors, with a 95% interval. The full report is under Reports.",
+        ))
+    out_blocks.append(blocks.callout(
+        "warn", "What this page is, and what it is not",
+        "A demonstration of retrieval and citation over the Trade Marks Manual. The answers are a "
+        "model's, written from the passages shown and checked only by code. **Manual statements are "
+        "practice, not law**, and each source says which it is. Nothing here is advice, and no answer "
+        "states an examination outcome.",
+    ))
+    payload = {
+        "kinds": [{"id": k, "label": v} for k, v in KIND_LABELS.items()
+                  if any((a.get("kind") or "") == k for a in answers)],
+        "questions": [{k: a.get(k) for k in ("key", "kind", "question", "answer", "recognised", "paths",
+                                              "passages", "legislation", "plain_search", "citations",
+                                              "declined", "decline_reason", "model", "review_status")}
+                      for a in answers],
+    }
+    out_blocks.append(blocks.qa(payload))
+    return {"id": "ask", "title": "Ask the Manual", "lede": lede, "blocks": out_blocks}
+
+
 def _tree(facts: Facts) -> dict[str, Any]:
     """The examination path — the reasoning groups hung off the sections they cite."""
     payload = views.decision_tree(facts.gold, facts.authored)
@@ -1376,6 +1475,7 @@ def build(*, generated: str | None = None) -> dict[str, Any]:
     stamp = generated or date.today().isoformat()
     pages = {
         "overview.json": _overview(facts),
+        "ask.json": _ask(facts),
         "map.json": _map(facts),
         "tree.json": _tree(facts),
         "vocabulary.json": _vocabulary(facts),

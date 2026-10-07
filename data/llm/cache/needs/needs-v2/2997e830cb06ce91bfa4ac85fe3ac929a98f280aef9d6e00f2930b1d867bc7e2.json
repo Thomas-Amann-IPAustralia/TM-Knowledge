@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008374,
+ "created_utc": "2026-10-07T08:28:14Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-004",
+ "job": "needs",
+ "key": "2997e830cb06ce91bfa4ac85fe3ac929a98f280aef9d6e00f2930b1d867bc7e2",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must identify the specific inn stem entries in the list that end with “-g” and show the exact wording used for each entry. It should be clear whether the list is giving stems on their own or stems cross-referenced to other endings.\",\"search\":\"which inn stems are listed under -g\",\"seed_refs\":[\"TMM/Part29/x-annex-a1---table-of-inn-stems/g\"],\"kind\":\"lookup\",\"question\":\"Which INN stems are listed under the -g entries?\"},{\"narrative\":\"A helpful answer must explain the difference between a device trade mark and a composite trade mark, and set out the two-step inquiry for assessing whether a device can distinguish goods or services. It should also note that common pictorial signs may not be capable of distinguishing a trader’s goods or services.\",\"search\":\"picture mark common to trade distinguish goods services\",\"seed_refs\":[\"TMM/Part22/25#1\"],\"kind\":\"problem\",\"question\":\"If my logo is a picture that looks common in the trade, how is its ability to distinguish my goods or services assessed?\"},{\"narrative\":\"A helpful answer must cover whether a certification trade mark application can be made in a name without legal personality, and how that interacts with who may use the mark. It should explain the roles of the owner and an approved certifier, and whether approval of the use rules is part of the process.\",\"search\":\"certification trade mark business name applicant use by owner or approved certifier\",\"seed_refs\":[\"TMM/Part35/1#1\",\"TMM/Part10/1/1/1\"],\"kind\":\"cross_part\",\"question\":\"Can I apply for a certification trade mark in a business name, and who can use the mark once it is registered?\"},{\"narrative\":\"A helpful answer must identify which listed decisions can be reviewed by the Administrative Review Tribunal and what effect that review has on the original decision. It should also cover who may be involved in the review process if their interests are affected.\",\"search\":\"ART review refusal extension time certification trade mark who can join review\",\"seed_refs\":[\"TMM/Part52/5/5/2\"],\"kind\":\"impact\",\"question\":\"If a refusal on a certification trade mark matter is reviewable by the ART, who can take part in the review and what happens to the original decision?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "ae8cd6edbabff4a8123f790333aa88095d3cf7d1f4e1cb221729cd6d2854ea26",
+ "response_id": "resp_0bda478ce805d1d3006ac602930bcc87d2a9d034f58a078a56",
+ "seconds": 11.5,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2021,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1524,
+  "output_tokens_details": {
+   "reasoning_tokens": 513
+  },
+  "total_tokens": 3545
+ }
+}

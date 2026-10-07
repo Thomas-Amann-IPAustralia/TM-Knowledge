@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006118,
+ "created_utc": "2026-10-07T08:40:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0042",
+ "job": "relate",
+ "key": "8bc6b686b3f25d3ead61081ed11c576664b1ba650e75d769c0f78b488829cd6e",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"If a conflicting application with a later priority date has already been accepted, then the Registrar may revoke acceptance of that application.\",\n      \"relation\": \"same_concept\",\n      \"alternative\": \"Treat the records as distinct revocation procedures arising in different contexts.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"Both records name revocation of acceptance. The Manual passages describe that same procedural step, rather than establish separate concepts.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the records have any intended scope distinction not evident in the supplied passages.\",\n      \"passage_ref\": \"TMM/Part11/3#1\",\n      \"neighbour\": \"GC-0094\"\n    },\n    {\n      \"quote\": \"Some examples where it may be reasonable to consider revocation include\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Use requiresElement to represent prior acceptance as a prerequisite for revocation.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual links revocation to acceptance through examples of acceptance affected by examination deficiencies. None of the listed predicates precisely expresses undoing an earlier procedural step.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether requiresElement is intended to encompass the procedural prerequisite of an existing acceptance.\",\n      \"passage_ref\": \"TMM/Part38/2/2/3\",\n      \"neighbour\": \"GC-0093\"\n    },\n    {\n      \"quote\": \"The regulations do not provide for cessation of protection to be followed by possible opposition or revocation of acceptance and re-examination.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Return none because the sentence excludes that procedural sequence in the cessation-of-protection context.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.78,\n      \"reasoning\": \"The Manual connects revocation of acceptance with re-examination while explaining that this sequence is not provided for following cessation of protection. Mapping re-examination to the broader examination concept is inferred; the passage does not establish that every revocation requires re-examination.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the examination record includes re-examination.\",\n      \"passage_ref\": \"TMM/Part62/8#1\",\n      \"neighbour\": \"GC-0092\"\n    },\n    {\n      \"quote\": \"The information must support a conclusion that it is reasonable to revoke acceptance taking into account all the relevant circumstances.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"Use requiresElement from revocation to circumstances, treating circumstances themselves as a required element rather than factors qualifying the assessment.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual requires the reasonableness assessment for revocation to take account of all relevant circumstances. Those circumstances qualify the assessment rather than independently authorise revocation.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the surrounding-circumstances record covers all relevant circumstances in this procedural context.\",\n      \"passage_ref\": \"TMM/Part38/2/2/3\",\n      \"neighbour\": \"GC-0011\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Infer related_to from the description of a domestic procedural sequence involving revocation of registration and then revocation of acceptance.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.65,\n      \"reasoning\": \"The passage mentions both procedures, but its later wording refers to revocation of registration followed by 'acceptance', without clearly identifying a second revocation. I am unsure whether that wording is elliptical; it does not safely establish a relationship between the two revocation concepts.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether 'revocation of registration and then acceptance' means revocation of registration followed by revocation of acceptance.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0095\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "f9566117e4a5cdcc05931b05341a2b827972c27d724f9db26c75b1ea25253777",
+ "response_id": "resp_0243a4ef2cca445d006ac6055599bc87d2a67c33b755123cf4",
+ "seconds": 29.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4011,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4008
+  },
+  "output_tokens": 1183,
+  "output_tokens_details": {
+   "reasoning_tokens": 229
+  },
+  "total_tokens": 5194
+ }
+}

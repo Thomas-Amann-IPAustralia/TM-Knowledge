@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006369,
+ "created_utc": "2026-10-07T08:34:39Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0016",
+ "job": "relate",
+ "key": "e1da23360616adf808a4751f6944501eebe52c39b7881d594f0b57af9448349f",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The earlier priority date will only apply to goods and/or services in common with both applications.\",\n      \"relation\": \"same_concept\",\n      \"alternative\": \"Treat convention priority as a distinct concept rather than an instance of the same priority-date concept.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"Both records name the priority date. The passage describes its operation for convention applications rather than identifying a different kind of date.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the neighbour is intended to represent convention priority specifically, rather than priority date generally.\",\n      \"passage_ref\": \"TMM/Part11/1/1/6\",\n      \"neighbour\": \"GC-0090\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Treat filing date and priority date as the same concept because filing date is the relevant date in the supplied honest concurrent use passage.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The passages identify uses of the filing date but do not explain its relationship to the priority date. They do not support equating the two dates.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether a relationship between filing date and priority date is established elsewhere; it is not established in these passages.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0091\"\n    },\n    {\n      \"quote\": \"The evidence must show that your trade mark was first used before the priority date of any conflicting trade mark and was then used continuously up to at least the time you applied to register the trade mark.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"Use isOvercomeBy, treating the priority date itself as what overcomes the section 44 ground.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual makes the conflicting trade mark’s priority date a temporal benchmark for prior-use evidence supplied to address a section 44 conflict. The date qualifies that route for addressing the conflict; it does not itself overcome the ground.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether qualifies adequately captures a temporal benchmark for overcoming a conflict, rather than a qualification of the conflict itself.\",\n      \"passage_ref\": \"TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2\",\n      \"neighbour\": \"GC-0064\"\n    },\n    {\n      \"quote\": \"(iv) The rights of the parties are to be determined as at the date of the application.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"Use none because the passage states separate propositions about surrounding circumstances and the assessment date without expressly linking them.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.73,\n      \"reasoning\": \"Read together with the preceding requirement to consider all surrounding circumstances, the quoted proposition supports a temporal qualification of that assessment. This is inferred from the connected tests reproduced in the Manual, not expressly stated as a relationship between these two concepts.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the date-of-application rule qualifies the assessment of surrounding circumstances specifically, rather than only the determination of the parties’ rights.\",\n      \"passage_ref\": \"TMM/Part26/2#1\",\n      \"neighbour\": \"GC-0011\"\n    },\n    {\n      \"quote\": \"As with national applications, IP Australia will routinely expedite IRDAs with a convention claim in order to minimise the risk of a trade mark with an earlier priority date being overlooked in the examination of other applications.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Use qualifies, treating priority date as a direct condition for expedited examination.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The Manual expressly connects routine expedition with protecting examination against overlooking earlier priority dates. The stated trigger is a convention claim, so the passage does not make priority date itself a direct condition for expedition.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the policy rationale warrants a more specific predicate than related_to.\",\n      \"passage_ref\": \"TMM/Part60/4/5/4/5/2\",\n      \"neighbour\": \"GC-0122\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "e4de6ba5851b9bf859d15ebd45375f564fb15059fd101c1332fec7704ef5909b",
+ "response_id": "resp_02e59b4515f73b07006ac603f414a887d28238ec4a5db49a03",
+ "seconds": 44.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4430,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4427
+  },
+  "output_tokens": 1229,
+  "output_tokens_details": {
+   "reasoning_tokens": 202
+  },
+  "total_tokens": 5659
+ }
+}

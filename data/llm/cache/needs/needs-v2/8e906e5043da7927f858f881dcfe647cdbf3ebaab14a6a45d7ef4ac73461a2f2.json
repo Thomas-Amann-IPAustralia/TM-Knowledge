@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011943,
+ "created_utc": "2026-10-07T08:28:59Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-018",
+ "job": "needs",
+ "key": "8e906e5043da7927f858f881dcfe647cdbf3ebaab14a6a45d7ef4ac73461a2f2",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must identify the check examiners make for class 5 pharmaceutical or veterinary goods against the INN list and the INN stems list. It must also note the kinds of goods that may trigger that check, including examples like analgesics, pain relieving preparations and dietary or nutritional supplements.\",\"search\":\"class 5 pharmaceuticals INN list stems\",\"seed_refs\":[\"TMM/Part29/5/5/3\"],\"kind\":\"lookup\",\"question\":\"Do class 5 pharmaceutical or veterinary goods need to be checked against the INN list and INN stems?\"},{\"narrative\":\"A helpful answer must explain how a trade mark made up of a sound is indexed in the search facility. It must also cover what happens on the first screen when the mark is a non-traditional sign.\",\"search\":\"sound trade mark search\",\"seed_refs\":[\"TMM/Part10/3/3/2\"],\"kind\":\"problem\",\"question\":\"If my mark is a sound, how will it show up in the search?\"},{\"narrative\":\"A helpful answer must cover the requirements for an extension of time before a late costs application or late bill of costs can be considered, including the approved form, fee and supporting declaration. It must also cover the divisional filing point about keeping the parent application pending and delaying deletion or amendment until the divisional has been filed.\",\"search\":\"late costs extension divisional application\",\"seed_refs\":[\"TMM/Part55/3/3/4\",\"TMM/Part12/2#1\"],\"kind\":\"cross_part\",\"question\":\"If I need to split off some goods from a parent application and I also have a late costs filing, what do I have to lodge and when?\"},{\"narrative\":\"A helpful answer must say who may request a disclaimer and that there is no fee. It must also explain that the request is not examined, but the notice is checked for the required written request and wording, and that the disclaimer may affect what is entered before or after registration.\",\"search\":\"who can request disclaimer and what happens\",\"seed_refs\":[\"TMM/Part24/2#1~1\"],\"kind\":\"impact\",\"question\":\"Who can ask for a disclaimer, and what changes when it is recorded?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "811f0196b0095f7f0fc09a742ec299512eb2b855708b069cbe0ce19f5942e71d",
+ "response_id": "resp_0c03a496c64a5dc8006ac602c0b41c87d284873b419c158239",
+ "seconds": 10.9,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1596,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 2388,
+  "output_tokens_details": {
+   "reasoning_tokens": 1474
+  },
+  "total_tokens": 3984
+ }
+}

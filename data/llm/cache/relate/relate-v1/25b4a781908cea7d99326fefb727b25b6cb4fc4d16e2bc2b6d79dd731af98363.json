@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002198,
+ "created_utc": "2026-10-07T11:20:42Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0033",
+ "job": "relate",
+ "key": "25b4a781908cea7d99326fefb727b25b6cb4fc4d16e2bc2b6d79dd731af98363",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"In the case of a generic TLD, the trade mark application needs to be holistically considered, including the relevant specification, when determining whether the material (.SOMETHING) is likely to connote a generic TLD.\",\"relation\":\"related_to\",\"alternative\":\"qualifies: the application and specification inform the assessment of a generic TLD connotation, but the passage does not directly qualify the TLD itself.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.9,\"reasoning\":\"The Manual expressly connects generic TLD connotation with holistic consideration of the trade mark application, including its specification. No listed specific predicate accurately captures that assessment relationship.\",\"modality\":\"must\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether 'needs to be holistically considered' should be encoded as must rather than should for this Manual practice.\",\"passage_ref\":\"TMM/Part29/8/8/1\",\"neighbour\":\"GC-0131\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "b82e4e774950eb9400d6da9f43de13b49936d3310b6c118be81df5e55df00f36",
+ "response_id": "resp_0919888c68a40ec0006ac62aed402087d2b864b1dd73d87fa4",
+ "seconds": 29.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1695,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1692
+  },
+  "output_tokens": 422,
+  "output_tokens_details": {
+   "reasoning_tokens": 211
+  },
+  "total_tokens": 2117
+ }
+}

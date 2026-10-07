@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006901,
+ "created_utc": "2026-10-07T11:30:01Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0096",
+ "job": "relate",
+ "key": "48ce1fe6197282dda941de7cfca3b7c9ad2300e928cccf7ff941ffb82e456070",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Where, in the case of a certification trade mark, the Registrar sends a copy of the rules governing use of the certification trade mark to the Australian Competition and Consumer Commission (ACCC). The Registrar has no discretion as to whether deferment is granted - they must defer acceptance in this circumstance (subreg 4.13(3)).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"dependsOnExternalSource was rejected because this trigger is the Registrar sending rules to the ACCC, not obtaining information or a decision from it.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual expressly connects mandatory deferment with referral of certification trade mark rules to the ACCC. No more specific listed predicate accurately captures the relationship between the procedural step and the receiving body.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ACCC's role should instead be modelled through a separate referral-event concept.\",\n      \"passage_ref\": \"TMM/Part17/2/2/2\",\n      \"neighbour\": \"GC-0133\"\n    },\n    {\n      \"quote\": \"Where the Registrar or the Australian Competition and Consumer Commission (ACCC) makes a decision adverse to an applicant, and that decision is appealable under the Act to a prescribed court, or may be reviewed by the ART, the Registrar will defer acceptance of the application for 2 months.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement was rejected because appealability to a prescribed court is one conditional basis for deferment, not an element required for all deferment.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The Manual connects deferment with the availability of an appeal to a prescribed court following an adverse decision. The court is the potential appeal forum rather than the body directed to defer acceptance, so no more specific listed predicate fits.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether 'will defer' warrants the normative modality 'must' for this statement of Manual practice.\",\n      \"passage_ref\": \"TMM/Part17/5/5/1\",\n      \"neighbour\": \"GC-0139\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "1d379d620adfbdd9ebaab7056135e6698b51acc1fd5d9ff3117772e109f2262e",
+ "response_id": "resp_0ccce80d37e34314006ac62d1d36d087d2975db7a02d7ce5b4",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2765,
+  "input_tokens_details": {
+   "cache_write_tokens": 2762,
+   "cached_tokens": 0
+  },
+  "output_tokens": 689,
+  "output_tokens_details": {
+   "reasoning_tokens": 166
+  },
+  "total_tokens": 3454
+ }
+}

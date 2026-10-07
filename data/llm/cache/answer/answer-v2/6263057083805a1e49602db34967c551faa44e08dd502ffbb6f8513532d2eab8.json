@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009313,
+ "created_utc": "2026-10-07T12:25:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0084",
+ "job": "answer",
+ "key": "6263057083805a1e49602db34967c551faa44e08dd502ffbb6f8513532d2eab8",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0121\", \"GC-0129\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings\",\n      \"quote\": \"Suggested Alternatives Class 5: Moulding wax for dentists Class 6: Mouldings made of metal for building Class 16: Moulding preparations for modelling (artists' materials) Class 17: Mouldings of plastics for packing Class 19: Mouldings, not of metal, for building Class 20: Non-metallic mouldings for furniture Class 21: Moulds (kitchen utensils) Class 37: Moulding of concrete for construction purposes Class 40: Moulding of metals\"\n    },\n    {\n      \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification#1\",\n      \"quote\": \"Please note that the suggested alternatives are not intended to be exhaustive. Examiners should use this list in conjunction with other resources, including the class headings and IP Australia Classification Search, to determine appropriate alternatives.\"\n    }\n  ],\n  \"answer\": \"The Manual suggests the following alternatives for ‘mouldings’ (Manual practice, not legislation) [TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings]:\\n\\n| Class | Suggested term |\\n|---|---|\\n| 5 | Moulding wax for dentists |\\n| 6 | Mouldings made of metal for building |\\n| 16 | Moulding preparations for modelling (artists' materials) |\\n| 17 | Mouldings of plastics for packing |\\n| 19 | Mouldings, not of metal, for building |\\n| 20 | Non-metallic mouldings for furniture |\\n| 21 | Moulds (kitchen utensils) |\\n| 37 | Moulding of concrete for construction purposes |\\n| 40 | Moulding of metals |\\n\\nThese alternatives are non-exhaustive. The Manual directs examiners to use the list alongside other resources, including class headings and IP Australia Classification Search [TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification#1].\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "ad5f4f4a0be5f280d79415375660797315b18a533167847d11613a4223932383",
+ "response_id": "resp_0c0a9235dd250cae006ac63a1ae10487d28955a13c4766176d",
+ "seconds": 20.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5331,
+  "input_tokens_details": {
+   "cache_write_tokens": 5328,
+   "cached_tokens": 0
+  },
+  "output_tokens": 530,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 5861
+ }
+}

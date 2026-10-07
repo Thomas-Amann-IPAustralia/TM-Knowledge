@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005629,
+ "created_utc": "2026-10-07T08:38:17Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "Contracting Party of the holder",
+ "job": "define",
+ "key": "a35a293a31a1c9d31a99a2f2bbf7d38f7ab262a1e727617521d22b58c1765cd4",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"none_of_these if the ontology treats the holder's associated treaty jurisdiction as distinct from a procedural actor.\",\n  \"definition_quote\": \"Contracting Party of the holder has the meaning given by Rule 1(xxvibis) of the Madrid Regulations.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.88,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: This is a defined Madrid-system role associated with the holder, whose Office the Manual describes as the holder's \\\"home\\\" Office for presenting certain requests to the IB.\",\n  \"expert_should_check\": \"Check Rule 1(xxvibis) of the Madrid Regulations for the substantive definition, which is not supplied, and confirm whether process_role is the best classification for the Contracting Party rather than its Office.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"Contracting Party of the holder\",\n  \"definition_ref\": \"TMR1995/r17A.2/contracting-party-of-the-holder\",\n  \"reasoning\": \"The Regulations expressly define this term by reference to the Madrid Regulations, making it a distinct legal concept rather than a generic phrase or a duplicate of the Madrid Protocol. The referenced substantive definition is unavailable in the supplied passages. The Manual explains the associated Office's procedural role in transmitting limitation and subsequent-designation requests; this supports process_role, while not equating the Contracting Party with its Office. No references were supplied under PROVISIONS, so legislative_basis is empty.\",\n  \"not_labels\": [\n    \"Office of the Contracting Party of the holder\",\n    \"designated Contracting Parties\",\n    \"Madrid Protocol\"\n  ],\n  \"group\": \"process_role\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "f4c86c7c814d8a3341b42862a5955e495e2b9cf08053a1b52fe065941d1166bc",
+ "response_id": "resp_06c4f57421abc627006ac604dd030887d2ab7eacc2a4ca484b",
+ "seconds": 28.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2532,
+  "input_tokens_details": {
+   "cache_write_tokens": 2529,
+   "cached_tokens": 0
+  },
+  "output_tokens": 493,
+  "output_tokens_details": {
+   "reasoning_tokens": 114
+  },
+  "total_tokens": 3025
+ }
+}

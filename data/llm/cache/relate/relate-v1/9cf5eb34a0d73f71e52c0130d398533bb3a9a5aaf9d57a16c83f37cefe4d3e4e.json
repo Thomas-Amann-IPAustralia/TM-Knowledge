@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003839,
+ "created_utc": "2026-10-07T11:19:47Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0041",
+ "job": "relate",
+ "key": "9cf5eb34a0d73f71e52c0130d398533bb3a9a5aaf9d57a16c83f37cefe4d3e4e",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The declaration must be from: you, if you are the applicant, OR a principal officer or other authorised employee of the company (e.g. a director) if the applicant is a company, OR someone you have authorised to make the declaration on your behalf (e.g. a lawyer or trade mark attorney).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement would incorrectly suggest that evidence must come from a lawyer.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual identifies an authorised lawyer as one permitted declarant for evidence of use. No listed specific predicate adequately expresses this optional declarant role.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the permitted declarant role should be represented by a more specific predicate.\",\n      \"passage_ref\": \"TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~2\",\n      \"neighbour\": \"GC-0148\"\n    },\n    {\n      \"quote\": \"An application for a defensive registration must be supported by evidence (Regulation 17.1).\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"related_to would capture the connection but omit the stated requirement for supporting evidence.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual expressly states that an application for defensive registration requires supporting evidence, citing Regulation 17.1. Its subsequent description includes evidence establishing the extent of use of the basic trade mark.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour should be narrowed to an application for defensive registration rather than a defensive trade mark generally.\",\n      \"passage_ref\": \"TMM/Part34/7#1~1\",\n      \"neighbour\": \"GC-0109\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to could be inferred if the anchor's alias 'evidence' were read as covering all court evidence.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The passages describe subpoenas for oral evidence or document production, without identifying that material as evidence of trade mark use. I do not treat generic court evidence as the anchor merely because 'evidence' is an alias.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the anchor intentionally encompasses generic court evidence as well as evidence of trade mark use.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0144\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "d33f6049152549ce06e153e160b3e1e51390f7b94b8cdd7ada37294502993478",
+ "response_id": "resp_050d3faaf67d0404006ac62ab715c087d2b7eeeb50c9fcbdda",
+ "seconds": 28.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3120,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3117
+  },
+  "output_tokens": 736,
+  "output_tokens_details": {
+   "reasoning_tokens": 104
+  },
+  "total_tokens": 3856
+ }
+}

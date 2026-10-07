@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001696,
+ "created_utc": "2026-10-07T11:23:00Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0060",
+ "job": "relate",
+ "key": "8b4c263dd6e6c64a1a77b7ef790abf937b8a0a742747dd1c0e1d1a59e7396fdc",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"This determination involves a two-part process: firstly, determining the ordinary signification of the trade mark in the light of the applied for goods and/or services; and secondly, determining the likelihood that other traders might legitimately wish to use the trade mark for that ordinary signification in connection with their similar goods or services.\",\"relation\":\"related_to\",\"alternative\":\"none: the passage refers to similar goods or services without establishing a relationship to a distinct similarity-of-goods-and-services test.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.83,\"reasoning\":\"The Manual expressly links ordinary signification to other traders’ potential legitimate use for similar goods or services when assessing inherent adaptation to distinguish. It does not state that ordinary signification determines similarity, so a more specific predicate is not supported.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the neighbour encompasses this reference to similar goods or services, rather than only a separate legal test for similarity.\",\"passage_ref\":\"TMM/Part22/3#1~1\",\"neighbour\":\"GC-0070\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "b260c9d074c7d1f1c18b48403624b111a9a2ff3d722e8442b057a8ba464fb52c",
+ "response_id": "resp_00eafc963fe40269006ac62b7f9d3087d2abca6ab2a1af4629",
+ "seconds": 21.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2263,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2260
+  },
+  "output_tokens": 316,
+  "output_tokens_details": {
+   "reasoning_tokens": 80
+  },
+  "total_tokens": 2579
+ }
+}

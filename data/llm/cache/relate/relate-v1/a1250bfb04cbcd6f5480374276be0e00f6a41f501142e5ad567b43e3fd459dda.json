@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001689,
+ "created_utc": "2026-10-07T11:33:38Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0105",
+ "job": "relate",
+ "key": "a1250bfb04cbcd6f5480374276be0e00f6a41f501142e5ad567b43e3fd459dda",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"The Registrar must be notified by the applicant for rectification of any rectification application to a prescribed court.\",\"relation\":\"related_to\",\"alternative\":\"allocatesTo: the passage identifies a court forum but does not allocate rectification exclusively to that court.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.92,\"reasoning\":\"The Manual expressly connects rectification with applications to a prescribed court. related_to captures that forum relationship without implying that the court alone performs rectification.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether allocatesTo is intended to cover a non-exclusive court forum for rectification applications.\",\"passage_ref\":\"TMM/Part42/2#1\",\"neighbour\":\"GC-0139\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "de6ff6397b08efc49c49db7058ae163e7bd8b715e7a3a4225e733d3a87330839",
+ "response_id": "resp_0621d7db2f8b717f006ac62e00677087d2ac17efa7f218aee3",
+ "seconds": 18.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1820,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1817
+  },
+  "output_tokens": 319,
+  "output_tokens_details": {
+   "reasoning_tokens": 151
+  },
+  "total_tokens": 2139
+ }
+}

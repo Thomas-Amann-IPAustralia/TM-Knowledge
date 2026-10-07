@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00483,
+ "created_utc": "2026-10-07T12:23:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0065",
+ "job": "answer",
+ "key": "1bd7b6ade58cb8be198b89a99e8013fffd807834b8c56cafa523b0cf0237e476",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0097\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part61/2/2/4/2\",\"quote\":\"A person generally has 30 calendar days after being notified of an agency’s access refusal or access grant decision to apply for internal review (Section 54B(1)(a)).\"},{\"ref\":\"TMM/Part61/2/2/4/2\",\"quote\":\"A longer period may apply for the following access refusal decisions: a decision giving access to documents in accordance with a request but not giving access to all the documents covered by the request, or a decision purporting to give access to documents in accordance with a request but not in fact doing so.\"},{\"ref\":\"TMM/Part61/2/2/4\",\"quote\":\"The time limit for applying for internal review is either 30 calendar days after notification of the decision or 15 calendar days after access to documents is given or purported to be given, whichever period is longer (Section 54B(1)(b)).\"},{\"ref\":\"TMM/Part61/2/2/4\",\"quote\":\"Under Section 54B(2), it is possible for an agency to extend the period for an applicant to apply for internal review, even if the statutory period has already expired.\"},{\"ref\":\"TMM/Part61/2/2/4\",\"quote\":\"Two categories of FOI decision can be internally reviewed under the FOI Act by the agency who made the decision: an ‘access refusal decision’ (Section 53A) in respect of which the FOI applicant may apply for internal review (Section 54) and an ‘access grant decision’ (Section 53B) in respect of which an affected third party may apply for internal review (Section 54A).\"}],\"answer\":\"If you mean **internal review of an FOI decision**, the supplied Manual gives the following guidance:\\n\\n**Time limit**\\n- Generally, apply within **30 calendar days after notification** of an access refusal or access grant decision (TMM/Part61/2/2/4/2).\\n- For access refusal decisions involving incomplete access, or purported access that was not actually provided, a longer period may apply: **30 calendar days after notification or 15 calendar days after access is given or purportedly given, whichever is longer** (TMM/Part61/2/2/4/2; TMM/Part61/2/2/4).\\n- The agency may extend the period, even after it has expired (TMM/Part61/2/2/4).\\n\\n**Who may apply?**\\n- For an **access refusal decision**: the FOI applicant.\\n- For an **access grant decision**: an affected third party.\\nThe review is by the agency that made the decision (TMM/Part61/2/2/4).\\n\\n**Source status:** These are Manual statements describing the FOI framework, not direct quotations from legislation. The FOI Act provisions mentioned in the Manual have not been supplied, so I cannot independently verify their statutory wording here.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "7d6aa1019647dd24fe36585c9edfeb62fde3f1c32e26617632d12bbf3a546bed",
+ "response_id": "resp_071351113e97d44c006ac639987bec87d28468e40e0d1706c2",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7241,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7238
+  },
+  "output_tokens": 893,
+  "output_tokens_details": {
+   "reasoning_tokens": 226
+  },
+  "total_tokens": 8134
+ }
+}

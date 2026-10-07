@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004583,
+ "created_utc": "2026-10-07T11:16:48Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0030",
+ "job": "relate",
+ "key": "9cf57e2f322d38aa8cdca8cfa057718cadedeb9bebf99b2954b8c7be831358cb",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Section 43 may also be triggered if the image of a person contained in the trade mark has some fame, renown or notoriety in relation to the specified goods and services. Refer to Part 29 Trade Marks Likely to Deceive or Cause Confusion - 4.4 Marks suggesting endorsement, licence or approval.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"If this record means an administrative endorsement recording consent, related_to would be more appropriate.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.72,\n      \"reasoning\": \"The Manual links a person's image with relevant fame to section 43 and directs readers to marks suggesting endorsement, licence or approval. This supports, by inference, a possible suggestion of endorsement, rather than an inevitable connotation from any image.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether GC-0014 denotes suggested endorsement rather than an administrative endorsement recording consent.\",\n      \"passage_ref\": \"TMM/Part30/2/2/12\",\n      \"neighbour\": \"GC-0014\"\n    },\n    {\n      \"quote\": \"An applicant may overcome a section 43 ground for rejection in relation to such an image by providing the well-known person’s written permission to use their image as a trade mark. Where permission is provided, this should be made clear by way of an endorsement.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"isOvercomeBy would incorrectly treat the endorsement itself, rather than the written permission, as overcoming the ground for rejection.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual says an endorsement should make clear the permission to use the well-known person's image. No listed specific predicate captures this recording function between the endorsement and the image.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology has a more specific predicate for recording permission to use an image.\",\n      \"passage_ref\": \"TMM/Part29/6/6/1\",\n      \"neighbour\": \"GC-0100\"\n    },\n    {\n      \"quote\": \"Section 43 may also be triggered if the image of a person contained in the trade mark has some fame, renown or notoriety in relation to the specified goods and services.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to would capture the association but omit reputation's qualifying role in the stated section 43 consideration.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual makes fame, renown or notoriety in relation to the specified goods and services a qualification of the image's potential section 43 significance. The reputation-to-image relationship is inferred from that conditional statement.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether qualifies should connect reputation to the image itself or only to its potential section 43 significance.\",\n      \"passage_ref\": \"TMM/Part30/2/2/12\",\n      \"neighbour\": \"GC-0050\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "59c76ae53dca77a7f0f8c48e9ff1a3cf069dd0753199bfe1ad6075297021f59a",
+ "response_id": "resp_0a8200d9f8d0b98c006ac62a03fb5887d2a043fe8384c62804",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2698,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2695
+  },
+  "output_tokens": 889,
+  "output_tokens_details": {
+   "reasoning_tokens": 174
+  },
+  "total_tokens": 3587
+ }
+}

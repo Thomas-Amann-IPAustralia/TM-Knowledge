@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006548,
+ "created_utc": "2026-10-07T08:29:59Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0003",
+ "job": "relate",
+ "key": "b9d5c03e98615692858761ed2b269c9abfb56e0dd1e494a12341d8575bc99ca5",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"For a trade mark to trigger section 43 there must be some connotation within the trade mark that would reasonably be expected to cause deception or confusion in the mind of the relevant buying public.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to: the relevant buying public is merely associated with deception.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The Manual locates the assessment of deception in the mind of the relevant buying public. This supports treating the relevant market as qualifying whose perception matters, rather than as a cause of deception.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether 'relevant market' and 'relevant buying public' are sufficiently equivalent for this qualification.\",\n      \"passage_ref\": \"TMM/Part29/3#1~1\",\n      \"neighbour\": \"GC-0009\"\n    },\n    {\n      \"quote\": \"Accordingly, improper use of an INN stem in a trade mark may lead to deception or confusion.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"qualifies: the meaningfulness of the INN stem only qualifies the assessment of deception.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly identifies improper use of an INN stem as a possible source of deception. The relationship is conditional on improper use, not the mere presence of a stem.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology can preserve the improper-use condition on the INN-stem relationship.\",\n      \"passage_ref\": \"TMM/Part29/5/5/2\",\n      \"neighbour\": \"GC-0023\"\n    },\n    {\n      \"quote\": \"Determining the likelihood of deception or confusion resulting from use of the applied-for trade mark because of the reputation of the other trade mark requires the consideration of several issues including the similarity, or otherwise, of the trade marks.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"qualifies: reputation is only a factor qualifying the assessment of deception.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"In its discussion of section 60, the Manual describes deception or confusion resulting from use because of another trade mark's reputation. This supports a possible causal relationship, but the passage also makes clear that reputation alone is insufficient.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether mayGiveRiseTo adequately preserves the requirement for some similarity rather than suggesting reputation alone suffices.\",\n      \"passage_ref\": \"TMM/Part46/4/4/5/2\",\n      \"neighbour\": \"GC-0050\"\n    },\n    {\n      \"quote\": \"The tests lie in the perception of the ordinary person, as noted by Kitto J in Southern Cross Refrigerating Co v Toowoomba Foundry Pty Ltd [1954] HCA 82 at [4] (referred to with approval by French J in Woolworths Metro):\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"statesThresholdFor: the ordinary consumer itself states the threshold for deception.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual identifies the ordinary person's perception as the perspective through which the deception test is assessed. The consumer is an assessment reference point, rather than itself the threshold of danger required.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether qualifies is the intended predicate for the consumer perspective governing assessment.\",\n      \"passage_ref\": \"TMM/Part29/3/3/1~1\",\n      \"neighbour\": \"GC-0010\"\n    },\n    {\n      \"quote\": \"This type of material can form a connotation within a trade mark which would lead consumers into being misled into thinking that the goods or services bearing the applicant’s mark come from a source with an Indigenous connection.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"requiresElement: a claim to Indigenous origin is necessary for deception.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly describes Indigenous-origin material as capable of forming a connotation that misleads consumers about the source's Indigenous connection. It identifies a possible source of deception, not a necessary element of deception generally.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour covers all Indigenous-connection references described, rather than only express claims of origin.\",\n      \"passage_ref\": \"TMM/Part29/10#1\",\n      \"neighbour\": \"GC-0037\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "882ccce5f5f31cbfdc205d36d7c63f6f81b152234fc203910ec2eb5f4c332fc9",
+ "response_id": "resp_07f4708b49d50946006ac602dbe01c87d2a3fe88aa0fbd72ee",
+ "seconds": 44.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4397,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4394
+  },
+  "output_tokens": 1265,
+  "output_tokens_details": {
+   "reasoning_tokens": 170
+  },
+  "total_tokens": 5662
+ }
+}

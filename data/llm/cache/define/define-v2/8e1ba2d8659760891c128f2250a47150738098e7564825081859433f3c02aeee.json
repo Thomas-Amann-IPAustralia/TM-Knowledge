@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005143,
+ "created_utc": "2026-10-07T11:14:33Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "In this Part",
+ "job": "define",
+ "key": "8e1ba2d8659760891c128f2250a47150738098e7564825081859433f3c02aeee",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"In this Part, a reference to the ComptrollerGeneral of Customs includes a reference to:\",\n  \"alt_labels\": [],\n  \"confidence\": 0.99,\n  \"is_concept\": false,\n  \"basis\": \"corpus_inferred\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: “In this Part” is a contextual phrase identifying the part of a document to which a statement applies, not a distinct legal or procedural concept.\",\n  \"expert_should_check\": \"\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"In this Part\",\n  \"definition_ref\": \"TMR1995/r13.1A~1\",\n  \"reasoning\": \"The Regulations passage uses the phrase to scope a reference to the ComptrollerGeneral of Customs. The Manual passages similarly use it to locate discussion within a particular part. These uses show a generic contextual phrase rather than a standalone legal or procedural idea. None of the listed provisions establishes a distinct concept named by this phrase in the supplied passages.\",\n  \"not_labels\": [],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "77f5a1a74d978cc6761ff2a35e43056a35203a75f5fb568a86e19c436196a5eb",
+ "response_id": "resp_0ea667e862b37f87006ac62987ceb087d29848123c31dc25d8",
+ "seconds": 18.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3139,
+  "input_tokens_details": {
+   "cache_write_tokens": 3136,
+   "cached_tokens": 0
+  },
+  "output_tokens": 244,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 3383
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013837,
+ "created_utc": "2026-10-07T12:27:35Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0106",
+ "job": "answer",
+ "key": "1fab298226d0a56b781554df9e0c2de2a80578f2570f5d2dc65fc95c23cba292",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0073\",\"GC-0006\",\"GC-0001\",\"GC-0002\",\"GC-0012\",\"GC-0015\",\"GC-0019\",\"GC-0047\",\"GC-0069\"],\"decline_reason\":\"I cannot say whether narrowing the goods or services would overcome the objection to your particular application. The supplied passages do not expressly address narrowing a specification to overcome a geographical-origin objection.\",\"declined\":true,\"citations\":[{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part29/3#1~1\",\"quote\":\"However, the mere presence within a trade mark of a person's name, a descriptive term, a geographical place name or a reference to the size of packages or intended use of a product does not automatically demonstrate a connotation sufficient to trigger section 43.\"},{\"ref\":\"TMM/Part29/3#1~1\",\"quote\":\"….the section is concerned with whether the mark the subject of the application (or a sign contained in the mark) connotes something other than a connection in the course of trade between the relevant goods or services and the person who applied (or intended to apply) it to those goods or services.\"},{\"ref\":\"TMM/Part29/4#1\",\"quote\":\"A term within a trade mark describing particular goods/services will not trigger section 43 as long as those goods/services are covered by the specification.\"},{\"ref\":\"TMM/Part29/4#1\",\"quote\":\"If, however, there is a connotation present within the trade mark that is directly contradicted by the specification, there is a high likelihood of consumers being deceived or confused.\"},{\"ref\":\"TMA1995/s33\",\"quote\":\"(2) The Registrar may accept the application subject to conditions or limitations.\"}],\"answer\":\"I cannot determine whether narrowing would overcome the objection to your particular application. The supplied passages support the following general guidance, but do not expressly explain how to overcome a geographical-origin objection by narrowing the specification.\\n\\n**Act:** Section 43 assesses the connotation of the trade mark—or a sign within it—in relation to the particular goods or services. Rejection is mandatory if use for those goods or services would be likely to deceive or cause confusion because of that connotation. The focus is therefore not simply whether the descriptive element is also used as a brand. [TMA1995/s43]\\n\\n**Manual practice:** A descriptive term or place name does not automatically trigger section 43. The Manual distinguishes a connotation from the mark’s function of indicating a connection in the course of trade. Accordingly, brand use alone does not answer whether the sign also conveys a misleading connotation. [TMM/Part29/3#1~1]\\n\\n**Manual practice on the specification:** A descriptive term will not trigger section 43 where the goods/services it describes are covered by the specification. Conversely, a specification directly contradicting the connotation presents a high likelihood of deception or confusion. This supports examining whether the proposed narrower specification addresses the connotation, but does not establish that narrowing necessarily cures a place-based objection. [TMM/Part29/4#1]\\n\\n**Act:** Section 33(2) permits acceptance subject to conditions or limitations. That general power is not, by itself, assurance that a proposed restriction resolves the section 43 issue. [TMA1995/s33; TMA1995/s43]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "c46a285efcdb44df157803dc47b3683372b0c0f99136bdfd04158674c18cfc0a",
+ "response_id": "resp_0ecd2f6fb3686950006ac63a9b859087d2bf2ae210d65afd1a",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7638,
+  "input_tokens_details": {
+   "cache_write_tokens": 7635,
+   "cached_tokens": 0
+  },
+  "output_tokens": 858,
+  "output_tokens_details": {
+   "reasoning_tokens": 75
+  },
+  "total_tokens": 8496
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005262,
+ "created_utc": "2026-10-07T11:24:45Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0046",
+ "job": "relate",
+ "key": "131bc1ab98b7b85a02c84568248bb4de06b8a2e7164418e92ab295f2f8db74e3",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Review of a Registrar's decision not to extend time for the doing of a relevant act may be sought from the Administrative Review Tribunal (ART) (subsection 224(7)).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo would imply an allocation rule rather than identify whose decision is reviewed.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly identifies the Registrar as the maker of the decision described. No listed predicate more specifically captures that maker–decision relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a decision-maker predicate should replace the generic relationship.\",\n      \"passage_ref\": \"TMM/Part15/7#1\",\n      \"neighbour\": \"GC-0127\"\n    },\n    {\n      \"quote\": \"If a notice of intention to defend is not filed, the Registrar may take the opposition to have succeeded and refuse to remove the trade mark from the Register, or refuse to cease protection of an international trade mark (regs 9.15, 17A.48Q).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo would treat the Registrar as a provision or rule applying to opposition, rather than as the actor exercising the stated power.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The Manual describes a conditional power of the Registrar concerning the outcome of an opposition. This supports an actor–proceeding relationship, although the passage concerns non-use opposition rather than opposition to registration.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this neighbour includes non-use opposition as well as opposition to registration.\",\n      \"passage_ref\": \"TMM/Part48/3#1~2\",\n      \"neighbour\": \"GC-0102\"\n    },\n    {\n      \"quote\": \"The presumption of registrability applies when the Registrar or their delegate is not satisfied that any grounds for rejecting a trade mark application exist. If this is the case, the application must be accepted for possible registration provided it is otherwise in accord with the Act and Regulations.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"constrainsExaminerTo would require the acceptance rule, rather than the application itself, to be the subject.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual connects the Registrar or delegate's assessment of rejection grounds with conditional acceptance of the application. The listed predicates do not specifically express this assessment relationship.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the conditional acceptance obligation should instead be represented through a separate rule concept.\",\n      \"passage_ref\": \"TMM/Part20/4/4/1\",\n      \"neighbour\": \"GC-0131\"\n    },\n    {\n      \"quote\": \"1.2 The Registrar must publish the withdrawal (reg 21.10).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo would overstate the passage as allocating withdrawal itself to the Registrar, rather than imposing a publication obligation.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly describes the Registrar's obligation to publish the withdrawal, citing regulation 21.10. No listed predicate specifically captures publication by an actor.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a publication predicate should replace the generic relationship.\",\n      \"passage_ref\": \"TMM/Part7/1#1\",\n      \"neighbour\": \"GC-0123\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "2e246aa37bbe96f529298085e696e1ee2ced6e0951fd8cfc79ab1abc3711ed37",
+ "response_id": "resp_0c1045a34bc944b3006ac62be143f087d2804b73406e27a037",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2782,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2779
+  },
+  "output_tokens": 1024,
+  "output_tokens_details": {
+   "reasoning_tokens": 174
+  },
+  "total_tokens": 3806
+ }
+}

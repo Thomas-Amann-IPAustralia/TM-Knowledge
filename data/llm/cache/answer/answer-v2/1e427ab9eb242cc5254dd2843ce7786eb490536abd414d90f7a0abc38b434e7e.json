@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004517,
+ "created_utc": "2026-10-07T12:19:43Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0040",
+ "job": "answer",
+ "key": "1e427ab9eb242cc5254dd2843ce7786eb490536abd414d90f7a0abc38b434e7e",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0109\",\"GC-0081\",\"GC-0104\",\"GC-0088\",\"GC-0084\",\"GC-0095\",\"GC-0089\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s185\",\"quote\":\"(2) A trade mark may be registered as a defensive trade mark in respect of particular goods or services even if the registered owner does not use or intend to use the trade mark in relation to those goods or services.\"},{\"ref\":\"TMA1995/s185\",\"quote\":\"(1) If, because of the extent to which a registered trade mark has been used in relation to all or any of the goods or services in respect of which it is registered, it is likely that its use in relation to other goods or services will be taken to indicate that there is a connection between those other goods or services and the registered owner of the trade mark, the trade mark may, on the application of the registered owner, be registered as a defensive trade mark in respect of any or all of those other goods or services.\"},{\"ref\":\"TMM/Part34/8#1\",\"quote\":\"A defensive trade mark may not be removed from the Register on grounds of non-use.\"},{\"ref\":\"TMM/Part34/10#1\",\"quote\":\"Although Part 9 (Removal of Trade Mark from Register for Non-use) is not directly applicable to defensive trade marks, it may indirectly be used to attack the defensive registration. An action to cancel or remove the primary trade mark registration upon which the defensive registration is based may be brought, thus enabling the provisions of sections 88 and 189 of the Act to be invoked for the purpose of cancelling the defensive registration.\"},{\"ref\":\"TMM/Part34/10#1\",\"quote\":\"Section 189 states that the Registrar may cancel registration of a trade mark as a defensive trade mark if the trade mark is not otherwise registered in the name of the registered owner of the defensive trade mark.\"}],\"answer\":\"No intention to use is required for the goods or services covered by the defensive registration, and the defensive registration cannot itself be removed for non-use. There is, however, a possible indirect vulnerability.\\n\\n• Act — intention to use: Section 185(2) expressly permits defensive registration even where the registered owner neither uses nor intends to use the mark for those particular goods or services. This does not dispense with the separate requirement in s 185(1): use of the existing registered mark must be sufficiently extensive that use on the other goods or services would likely indicate a connection with its registered owner. [TMA1995/s185]\\n\\n• Manual practice — direct non-use removal: The Manual states that a defensive trade mark may not be removed from the Register on grounds of non-use. [TMM/Part34/8#1]\\n\\n• Manual practice — indirect cancellation risk: The Manual explains that cancellation or removal of the underlying primary registration may enable cancellation of the defensive registration. It describes s 189 as permitting the Registrar to cancel where the mark is not otherwise registered in the defensive registration owner’s name. This is a possible cancellation route, not direct removal of the defensive registration for non-use. [TMM/Part34/10#1]\\n\\nThe supplied legislation does not include ss 186 or 189; the non-use exclusion and indirect cancellation explanation above therefore rely on the supplied Manual passages, rather than the text of those statutory provisions.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "0617c6f946644ff4bf28d5705c8e7302875fa0c34507ec5846cde4184c13daf7",
+ "response_id": "resp_02ff31fa645d449d006ac638c3014487d2a661d82834df9963",
+ "seconds": 29.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7676,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7673
+  },
+  "output_tokens": 826,
+  "output_tokens_details": {
+   "reasoning_tokens": 100
+  },
+  "total_tokens": 8502
+ }
+}

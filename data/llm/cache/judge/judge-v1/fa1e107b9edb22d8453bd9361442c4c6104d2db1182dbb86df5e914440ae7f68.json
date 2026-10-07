@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002655,
+ "created_utc": "2026-10-07T12:16:02Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0017",
+ "job": "judge",
+ "key": "fa1e107b9edb22d8453bd9361442c4c6104d2db1182dbb86df5e914440ae7f68",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part29/6/6/2~1\",\"grade\":2},{\"ref\":\"TMM/Part22/27#1\",\"grade\":0},{\"ref\":\"TMM/Part29/9/9/3~1\",\"grade\":0},{\"ref\":\"TMM/Part29/6#1~2\",\"grade\":3},{\"ref\":\"TMM/Part22/15/15/8\",\"grade\":0},{\"ref\":\"TMM/Part19B/4/4/2\",\"grade\":1},{\"ref\":\"TMM/Part29/6#1~1\",\"grade\":3},{\"ref\":\"TMM/Part19A/8#1~2\",\"grade\":0},{\"ref\":\"TMM/Part30/2/2/12\",\"grade\":1},{\"ref\":\"TMM/Part29/5/5/4\",\"grade\":0},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names#1~2\",\"grade\":1},{\"ref\":\"TMM/Part22/15/15/12\",\"grade\":0},{\"ref\":\"TMM/Part29/6/6/1\",\"grade\":1},{\"ref\":\"TMM/Part29/6/6/2~2\",\"grade\":2},{\"ref\":\"TMM/Part29/9/9/7\",\"grade\":2},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-the-name-of-a-person-incorporating-the-given-name\",\"grade\":1},{\"ref\":\"TMM/Part32B/2/3/2/3/6~2\",\"grade\":0},{\"ref\":\"TMM/Part22/25/25/7\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "9abf64f127e35949bcc1721fe426d897137188148b957073e254492759ed915e",
+ "response_id": "resp_0f67efc3e4f15728006ac637e5921c87d2a7cc4611b84f7574",
+ "seconds": 29.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4651,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4648
+  },
+  "output_tokens": 484,
+  "output_tokens_details": {
+   "reasoning_tokens": 89
+  },
+  "total_tokens": 5135
+ }
+}

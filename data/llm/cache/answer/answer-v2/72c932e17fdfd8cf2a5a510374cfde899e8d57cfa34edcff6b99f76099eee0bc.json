@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002876,
+ "created_utc": "2026-10-07T12:17:33Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0025",
+ "job": "answer",
+ "key": "72c932e17fdfd8cf2a5a510374cfde899e8d57cfa34edcff6b99f76099eee0bc",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0121\",\"GC-0129\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\",\"quote\":\"Suggested Alternatives Class 3: Lipstick cases Class 5: Medicine cases (portable) (filled) Class 6: Door cases of metal Class 8: Razor cases Class 9: Cases for smartphones Class 10: Cases fitted for medical tools Class 12: Roof cases for vehicles Class 13: Gun cases Class 14: Jewellery cases Class 15: Cases for musical instruments Class 16: Pencil cases Class 18: Travelling cases Class 20: Display cases Class 21: Toothbrush cases Class 24: Pillow cases Class 26: Needle cases Class 28: Cases adapted for sporting articles Class 30: Pastry cases Class 34: Cigar cases\"}],\"answer\":\"The Manual lists the following suggested alternatives to ‘cases’, according to the type of goods. These are Manual classification suggestions, not legislative provisions. [1]\\n\\n| Class | Suggested wording |\\n|---|---|\\n| 3 | Lipstick cases |\\n| 5 | Medicine cases (portable) (filled) |\\n| 6 | Door cases of metal |\\n| 8 | Razor cases |\\n| 9 | Cases for smartphones |\\n| 10 | Cases fitted for medical tools |\\n| 12 | Roof cases for vehicles |\\n| 13 | Gun cases |\\n| 14 | Jewellery cases |\\n| 15 | Cases for musical instruments |\\n| 16 | Pencil cases |\\n| 18 | Travelling cases |\\n| 20 | Display cases |\\n| 21 | Toothbrush cases |\\n| 24 | Pillow cases |\\n| 26 | Needle cases |\\n| 28 | Cases adapted for sporting articles |\\n| 30 | Pastry cases |\\n| 34 | Cigar cases |\\n\\nAll entries above come from the Manual’s ‘cases’ passage. [1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "46d83443e944076afbe1f6a3e2fb16fb8b1c1b1c2c72e097b24b779e4cc9fa6d",
+ "response_id": "resp_0cdcda65b3677961006ac6384c609487d2ac68a61dc62d6ac9",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6363,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6360
+  },
+  "output_tokens": 511,
+  "output_tokens_details": {
+   "reasoning_tokens": 59
+  },
+  "total_tokens": 6874
+ }
+}

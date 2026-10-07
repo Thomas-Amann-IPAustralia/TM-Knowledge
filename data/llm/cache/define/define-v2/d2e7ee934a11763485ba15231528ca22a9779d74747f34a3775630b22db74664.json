@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002438,
+ "created_utc": "2026-10-07T11:12:57Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "Deputy Registrar",
+ "job": "define",
+ "key": "d2e7ee934a11763485ba15231528ca22a9779d74747f34a3775630b22db74664",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"Deputy Registrar means a Deputy Registrar of Trade Marks.\",\n  \"alt_labels\": [\n    \"Deputy Registrar of Trade Marks\"\n  ],\n  \"confidence\": 0.97,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: A Deputy Registrar is a distinct trade marks office-holder whom the Manual identifies as acting in acceptance, proposed revocation notification and the direction of Register rectification.\",\n  \"expert_should_check\": \"Check the appointment and powers provisions, particularly sections 203 and 205, whose text was not supplied, before adding a fuller statutory description of the office.\",\n  \"legislative_basis\": [\n    \"TMA1995/s203\",\n    \"TMA1995/s205\"\n  ],\n  \"pref_label\": \"Deputy Registrar\",\n  \"definition_ref\": \"TMA1995/s6/deputy-registrar\",\n  \"reasoning\": \"Section 6 expressly identifies the office. The Manual distinguishes a Deputy Registrar from the Registrar and from a person acting under a signed delegation, and assigns the office procedural responsibilities. It therefore warrants a process-role concept distinct from the existing Registrar and generic decision-maker concepts. The supplied section 6 definition identifies the office but does not explain its appointment or statutory powers; the legislative-basis references are provisional because their text was not supplied.\",\n  \"not_labels\": [\n    \"Registrar\",\n    \"Registrar of Trade Marks\",\n    \"acceptance officers\",\n    \"Examination team leader\"\n  ],\n  \"group\": \"process_role\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "0f8f0c27e78c0de5e71d2f9908cce4211d0c2a9e84a9b610de74e41e50a465f5",
+ "response_id": "resp_0b8eab3084013f92006ac629277e0087d285133480f4e9e7c0",
+ "seconds": 18.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2694,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2691
+  },
+  "output_tokens": 460,
+  "output_tokens_details": {
+   "reasoning_tokens": 113
+  },
+  "total_tokens": 3154
+ }
+}

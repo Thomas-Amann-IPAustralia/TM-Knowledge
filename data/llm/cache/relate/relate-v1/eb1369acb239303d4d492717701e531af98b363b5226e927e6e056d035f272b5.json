@@ -1,0 +1,31 @@
+{
+ "cost_usd": 0.012228,
+ "created_utc": "2026-10-07T07:09:03Z",
+ "effort": "medium",
+ "incomplete_details": null,
+ "item": "GC-0001",
+ "job": "relate",
+ "key": "eb1369acb239303d4d492717701e531af98b363b5226e927e6e056d035f272b5",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"An examiner will need to consider whether the presence of an INN stem in a word is “meaningful” enough to give rise to a connotation leading to likely deception or confusion under section 43.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"requiresElement: deception requires a connotation in every context.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly connects a meaningful INN-stem connotation with likely deception. This supports a possible causal relationship, not a claim that every connotation is deceptive.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the relationship should be restricted explicitly to meaningful INN-stem connotations.\",\n      \"passage_ref\": \"TMM/Part29/5/5/6~1\",\n      \"neighbour\": \"GC-0003\"\n    },\n    {\n      \"quote\": \"For a ground for rejection to be raised the connotation must be obvious, direct, and immediate and within the trade mark itself.\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"mayGiveRiseTo: a connotation merely makes a ground for rejection possible.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly makes a connotation with specified characteristics necessary for raising the ground discussed here. This records section 43 examination practice, not a requirement for every ground for rejection.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ground-for-rejection record can preserve the section 43 limitation.\",\n      \"passage_ref\": \"TMM/Part29/3#1~2\",\n      \"neighbour\": \"GC-0053\"\n    },\n    {\n      \"quote\": \"There must be a real and obvious danger of the buying public being deceived and/or confused by the secondary meaning within the trade mark.\",\n      \"relation\": \"statesThresholdFor\",\n      \"alternative\": \"requiresElement: every connotation must itself contain a real and tangible danger.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual states the required danger threshold for deception or confusion arising from a connotation. I infer the relationship to the anchor through that consequence; the threshold does not govern whether a connotation exists.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether statesThresholdFor should target deception or confusion instead of connotation.\",\n      \"passage_ref\": \"TMM/Part29/3/3/1~1\",\n      \"neighbour\": \"GC-0008\"\n    },\n    {\n      \"quote\": \"For example, a geographical reference can connote that: The grapes are grown at that location or within that region; The wine is produced (bottled, packaged, distributed) from that location or within that region; Wine produced at that location or within that region is also sold at that location.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"requiresElement: a geographical connotation requires qualifying words such as “made in”.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The Manual expressly identifies geographical references as capable of conveying connotations about grape origin, wine production or sale. It does not say that every geographical reference necessarily conveys these meanings.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the relationship needs a wine-specific scope.\",\n      \"passage_ref\": \"TMM/Part32B/2/2#1\",\n      \"neighbour\": \"GC-0017\"\n    },\n    {\n      \"quote\": \"In the case of a generic TLD, the trade mark application needs to be holistically considered, including the relevant specification, when determining whether the material (.SOMETHING) is likely to connote a generic TLD.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"same_concept: a domain name and its connotation are the same idea.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.84,\n      \"reasoning\": \"The Manual recognises that domain-like material can convey a generic-TLD connotation. I infer the relationship to the broader domain-name record from its TLD component, rather than equating acquired trade-origin meaning under section 41 with section 43 connotation.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether generic-TLD material is sufficiently within the internet-domain-name record to support this broader relationship.\",\n      \"passage_ref\": \"TMM/Part29/8/8/1\",\n      \"neighbour\": \"GC-0032\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "c0ea8a369c06c05fec3c015ee367d561cfda45dd31eedd1bd73a103b309e8615",
+ "response_id": "resp_0a0c6e4f392b479d006ac5eff0d05087d2907a9c2ebce619dd",
+ "seconds": 31.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4591,
+  "input_tokens_details": {
+   "cache_write_tokens": 4588,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1298,
+  "output_tokens_details": {
+   "reasoning_tokens": 214
+  },
+  "total_tokens": 5889
+ }
+}

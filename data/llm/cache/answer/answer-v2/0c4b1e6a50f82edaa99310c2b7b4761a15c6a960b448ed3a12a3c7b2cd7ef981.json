@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003682,
+ "created_utc": "2026-10-07T12:26:35Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0089",
+ "job": "answer",
+ "key": "0c4b1e6a50f82edaa99310c2b7b4761a15c6a960b448ed3a12a3c7b2cd7ef981",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0115\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part55/4#1\",\"quote\":\"A copy of the bill of costs is sent to the party against whom costs have been awarded and 21 days allowed for their comments.\"},{\"ref\":\"TMM/Part55/4#1\",\"quote\":\"If the amount of costs is challenged, the Registrar may review the taxation of costs taking into account any submissions from the parties (subreg 21.13(4)).\"},{\"ref\":\"TMR1995/r21.13\",\"quote\":\"(2) The costs must be taxed, allowed and certified by an employee appointed by the Registrar. (3) The Registrar may review the taxation of costs by the employee.\"},{\"ref\":\"TMR1995/r21.12(3)\",\"quote\":\"(3) Before awarding costs in respect of the proceedings, the Registrar must give each party to the proceedings a reasonable opportunity to be heard in relation to the award of costs.\"}],\"answer\":\"You get an opportunity to comment under Manual practice: the party against whom costs have been awarded is sent a copy of the bill and allowed **21 days for comments**. However, the passage does not expressly say whether those comments must precede the initial taxation, so I cannot confirm that precise timing from the supplied material. [TMM/Part55/4#1]\\n\\nThe Manual also says that, if the amount is challenged, the Registrar may review the taxation taking account of the parties’ submissions. The Regulations require taxation, allowance and certification by an appointed employee and permit Registrar review; the supplied regulation does not specify the Manual’s 21-day comment period. [TMM/Part55/4#1; TMR1995/r21.13]\\n\\nSeparately, **before costs are awarded**, regulation 21.12(3) requires each party to have a reasonable opportunity to be heard about the award. That is an express legislative requirement about the award, rather than the subsequent taxation of the bill. [TMR1995/r21.12(3)]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "9f18d076a0321f3b24ce23657e0621b24f4929ebcb22f7cd1ab59b43968a62c5",
+ "response_id": "resp_08fef39a71df04de006ac63a5e9cfc87d29cc5741be316c96c",
+ "seconds": 29.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6991,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6988
+  },
+  "output_tokens": 666,
+  "output_tokens_details": {
+   "reasoning_tokens": 217
+  },
+  "total_tokens": 7657
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010892,
+ "created_utc": "2026-10-07T12:14:47Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0008",
+ "job": "answer",
+ "key": "bc15f7fb9d98af4d22726ee2bfb88a4ece0cce8d57491a3ffecc1d540b4d04c2",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0093\",\"GC-0096\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part17/1#1\",\"quote\":\"After termination of deferment, the amount of time that is left of the time period for acceptance will be the amount of time that was left at the date the request for deferment of acceptance was filed.\"},{\"ref\":\"TMM/Part17/1#1\",\"quote\":\"Deferment of acceptance is where the period of time that is allowed under subsection 37(1) and reg 4.12 for an application to gain acceptance is set in abeyance - deferred - because a request for deferment has been made and/or certain conditions are met (reg 4.13).\"}],\"answer\":\"Manual practice: once deferment terminates, the acceptance clock resumes with the same amount of time remaining as when the deferment request was filed. The acceptance period is paused during deferment; it does not restart as a fresh full period (TMM/Part17/1#1).\\n\\nThis answer rests on the Manual’s statement of practice. The supplied Act passages do not address the calculation of time remaining after deferment.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "398756916c11c5e2026d4000ef80416eb587012f5c7b447144f04b0133529854",
+ "response_id": "resp_0d1ca36df84f40ec006ac637a5818487d2b5c78879ba0c8f1d",
+ "seconds": 19.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7666,
+  "input_tokens_details": {
+   "cache_write_tokens": 7663,
+   "cached_tokens": 0
+  },
+  "output_tokens": 262,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7928
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014729,
+ "created_utc": "2026-10-07T12:20:14Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0047",
+ "job": "answer",
+ "key": "98fd03781a3a4375a93d193fa7e199752897255aac555113ad12d5776ee65b2b",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0027\",\"GC-0026\",\"GC-0086\",\"GC-0087\",\"GC-0162\",\"GC-0089\",\"GC-0001\",\"GC-0002\",\"GC-0006\",\"GC-0028\",\"GC-0009\",\"GC-0016\",\"GC-0012\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part43/1#1~1\",\"quote\":\"The Act requires that the Registrar be advised of this change of ownership as soon as it occurs.\"},{\"ref\":\"TMM/Part43/1#1~1\",\"quote\":\"If the application to record complies with the formal requirements and is supported by a document that establishes title to the trade mark, the Registrar must record the change of ownership.\"},{\"ref\":\"TMA1995/s108\",\"quote\":\"(1) If the application complies with this Act, the Registrar must: (a) at, or within, the time provided for in the regulations, record in the manner that the Registrar thinks fit (but not in the Register) the particulars of the assignment or transmission;\"},{\"ref\":\"TMM/Part29/6/6/2~1\",\"quote\":\"Generally, a section 43 ground for rejection will not arise in respect of long deceased historical figures, even if they were well known for the same field as the specified goods/services are in.\"},{\"ref\":\"TMM/Part29/6/6/2~1\",\"quote\":\"However, a relevant connotation may arise if the deceased person’s estate (or other authorised entity) has continued to control the use of the person’s name/image after their death, e.g. by commercialising directly or licensing to third parties.\"},{\"ref\":\"TMM/Part29/6/6/2~1\",\"quote\":\"The more well-known the person is, and the more recently they died (especially from the mid-twentieth century onwards), the more likely consumers will be to know about or expect this kind of control.\"},{\"ref\":\"TMM/Part29/6/6/2~2\",\"quote\":\"In these circumstances, use of the deceased person’s name/image in the trade mark may connote some connection between the deceased person or their estate (or other authorised entity) and the specified goods/services, which would confuse or deceive consumers.\"},{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"}],\"answer\":\"Yes—recording the ownership change and considering the estate’s ongoing control are separate issues.\\n\\n**1. Ownership recordal**\\nThe Manual says the Registrar must be advised of a change of ownership as soon as it occurs. It also says that, where the recordal application meets the formal requirements and includes a document establishing title, the Registrar must record the change. These are the Manual’s statements about the statutory requirements, not themselves legislation. [TMM/Part43/1#1~1]\\n\\nFor a trade mark whose registration is being sought, the supplied Act provision, s 108, requires the Registrar to record a compliant assignment or transmission, but not in the Register. The supplied legislation does not include the corresponding provision for registered trade marks, so the broader recordal guidance above rests on the Manual passage. [TMA1995/s108; TMM/Part43/1#1~1]\\n\\n**2. The estate’s ongoing control still matters**\\nUnder Manual practice, long-deceased historical figures generally do not attract a s 43 objection. However, continuing commercialisation or licensing of the deceased person’s name/image by their estate can give rise to a relevant connotation. Greater fame and a more recent death make consumers more likely to know about or expect that control. [TMM/Part29/6/6/2~1]\\n\\nThe examination concern is whether use of the name/image suggests a connection between the estate and the specified goods/services that would deceive or confuse consumers—not simply whether an ownership change has been recorded. [TMM/Part29/6/6/2~2; TMA1995/s43]\\n\\n**Act test:** section 43 requires rejection where the trade mark’s connotation makes its use for the particular goods/services likely to deceive or cause confusion. The Manual’s estate-control guidance informs that assessment; it does not determine the outcome of any particular application. [TMA1995/s43; TMM/Part29/6/6/2~1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "752904fd366ce077927f1f2b69d4f2c7a8b5c6b9b246aecfcb23bb5c5bdc6928",
+ "response_id": "resp_0ad2ef414b64b91e006ac638e221e887d2889090499f71da3e",
+ "seconds": 29.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7252,
+  "input_tokens_details": {
+   "cache_write_tokens": 7249,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1133,
+  "output_tokens_details": {
+   "reasoning_tokens": 133
+  },
+  "total_tokens": 8385
+ }
+}

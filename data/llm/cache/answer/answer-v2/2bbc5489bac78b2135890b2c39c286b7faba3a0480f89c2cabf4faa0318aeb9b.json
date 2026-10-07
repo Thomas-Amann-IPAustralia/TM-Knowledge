@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013172,
+ "created_utc": "2026-10-07T12:20:24Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0048",
+ "job": "answer",
+ "key": "2bbc5489bac78b2135890b2c39c286b7faba3a0480f89c2cabf4faa0318aeb9b",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0064\", \"GC-0007\", \"GC-0053\", \"GC-0067\", \"GC-0093\", \"GC-0115\"],\n  \"decline_reason\": \"I cannot say how your particular application would be decided. I can explain the general practice described in the supplied Manual passages.\",\n  \"declined\": true,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part20/5/5/6/2\",\n      \"quote\": \"Given the presumption of registrability, a critical approach must be taken in applying these tests so that only soundly based citations are raised.\"\n    },\n    {\n      \"ref\": \"TMM/Part20/5/5/6/2\",\n      \"quote\": \"However, it the Registrar or their delegate is satisfied, on the balance of probabilities, that the provisions of section 44 are relevant to the application then the ground for rejection should be raised.\"\n    },\n    {\n      \"ref\": \"TMM/Part20/4/4/2\",\n      \"quote\": \"If the Registrar or their delegate is satisfied that a ground (or grounds) for rejection does exist, then the presumption of registrability no longer applies. The ground or grounds upon which rejection is based must be articulated in a specific and supported manner, and documented in line with administrative requirements.\"\n    },\n    {\n      \"ref\": \"TMM/Part20/5/5/6/2\",\n      \"quote\": \"If there is a doubt that a ground for rejection exists, then the Registrar or their delegate is not satisfied and the ground for rejection should not be raised.\"\n    },\n    {\n      \"ref\": \"TMM/Part46/4/4/3\",\n      \"quote\": \"In recognition of this the legislation (subsection 44(4) and reg 4.15A(5)) requires the Registrar to accept (or register) the applicant’s trade mark if there is evidence that the trade mark has been used continuously in relation to the relevant goods and/or services from before the priority date of the earlier trade mark.\"\n    }\n  ],\n  \"answer\": \"I cannot predict the outcome of your application, but the supplied passages explain the general approach:\\n\\n• **Manual practice — raising the ground:** only soundly based earlier-mark citations should be raised. If the Registrar or their delegate is satisfied, on the balance of probabilities, that section 44 is relevant, the ground for rejection should be raised. Mere doubt is not enough: if there is doubt that the ground exists, it should not be raised. [TMM/Part20/5/5/6/2]\\n\\n• **Manual practice — explaining the objection:** once satisfied that a rejection ground exists, the Registrar no longer applies the presumption of registrability. The ground must be stated specifically, supported and documented. [TMM/Part20/4/4/2]\\n\\n• **Manual account of a legislative exception:** the Manual describes continuous use before the earlier mark’s priority date as a basis requiring acceptance or registration under subsection 44(4) and regulation 4.15A(5). This is the Manual’s description of legislation, not a quotation from those provisions themselves. [TMM/Part46/4/4/3]\\n\\n**Limits of the supplied material:** section 44 and regulation 4.15A are not supplied as legislation here. The passages therefore support this explanation of Manual practice, but do not establish the full statutory requirements or explain the response procedure and deadlines after the ground is raised.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "c31e89b98512773c64aadc9add29ec56fd6cc2c61690cabb8dde7ab2d421e5c4",
+ "response_id": "resp_0f0d646a4168c40a006ac638ea75cc87d2bc26951ec82f11fe",
+ "seconds": 30.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6926,
+  "input_tokens_details": {
+   "cache_write_tokens": 6923,
+   "cached_tokens": 0
+  },
+  "output_tokens": 903,
+  "output_tokens_details": {
+   "reasoning_tokens": 143
+  },
+  "total_tokens": 7829
+ }
+}

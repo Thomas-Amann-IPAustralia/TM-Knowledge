@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005014,
+ "created_utc": "2026-10-07T08:47:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0073..GC-0084",
+ "job": "aliases",
+ "key": "adfe6762d96c49162831e0c0e9b8496d62b96f9adc5553bec533be6ffc347e02",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0073\",\n      \"related_search_terms\": [\"trade mark subject matter\", \"section 6\", \"word mark\", \"device mark\"],\n      \"everyday_phrases\": [\"brand name\", \"logo\", \"brand symbol\", \"packaging design\", \"what can I register\", \"business name\"]\n    },\n    {\n      \"id\": \"GC-0074\",\n      \"related_search_terms\": [\"unconventional trade mark\", \"shape mark\", \"colour mark\", \"sound mark\"],\n      \"everyday_phrases\": [\"unusual brand features\", \"register a shape\", \"register a colour\", \"protect a sound\", \"trademark a smell\", \"not just a logo\"]\n    },\n    {\n      \"id\": \"GC-0075\",\n      \"related_search_terms\": [\"three-dimensional sign\", \"product shape\", \"packaging shape\"],\n      \"everyday_phrases\": [\"register a shape\", \"protect a bottle shape\", \"trademark product shape\", \"3D logo\", \"container shape\", \"protect packaging shape\"]\n    },\n    {\n      \"id\": \"GC-0076\",\n      \"related_search_terms\": [\"colour combination\", \"colour sign\", \"single-colour mark\"],\n      \"everyday_phrases\": [\"register a colour\", \"protect my brand colour\", \"trademark a colour\", \"colour alone\", \"combination of colours\", \"coloured logo\"]\n    },\n    {\n      \"id\": \"GC-0077\",\n      \"related_search_terms\": [\"auditory sign\", \"audio mark\", \"sonic branding\"],\n      \"everyday_phrases\": [\"register a sound\", \"protect a jingle\", \"trademark a tune\", \"audio logo\", \"brand sound\", \"musical logo\"]\n    },\n    {\n      \"id\": \"GC-0078\",\n      \"related_search_terms\": [\"olfactory sign\", \"scent mark\", \"graphical representation\"],\n      \"everyday_phrases\": [\"trademark a smell\", \"register a fragrance\", \"protect a scent\", \"brand smell\", \"describe a smell\", \"represent a scent\"]\n    },\n    {\n      \"id\": \"GC-0079\",\n      \"related_search_terms\": [\"section 51\", \"series registration\", \"material particulars\"],\n      \"everyday_phrases\": [\"multiple marks together\", \"one application several logos\", \"register brand variations\", \"similar logos together\", \"two marks one application\", \"brand name variants\"]\n    },\n    {\n      \"id\": \"GC-0080\",\n      \"related_search_terms\": [\"series registration\", \"section 51\", \"material resemblance\"],\n      \"everyday_phrases\": [\"same main features\", \"alike in important ways\", \"matching essential details\", \"similar brand variants\", \"how similar is enough\", \"important similarities\"]\n    },\n    {\n      \"id\": \"GC-0081\",\n      \"related_search_terms\": [\"use as a trade mark\", \"brand use\", \"commercial use\"],\n      \"everyday_phrases\": [\"using my brand\", \"using a logo\", \"brand on products\", \"name on packaging\", \"what counts as use\", \"actually using the name\"]\n    },\n    {\n      \"id\": \"GC-0082\",\n      \"related_search_terms\": [\"controlled use\", \"owner control\", \"authorised user\"],\n      \"everyday_phrases\": [\"using someone else's brand\", \"use with permission\", \"licensed brand use\", \"owner controls use\", \"permitted logo use\", \"using a licensed logo\"]\n    },\n    {\n      \"id\": \"GC-0083\",\n      \"related_search_terms\": [\"trade mark licensee\", \"owner control\", \"authorised use\"],\n      \"everyday_phrases\": [\"licensed brand user\", \"person using my brand\", \"who can use it\", \"approved logo user\", \"permitted brand user\", \"licensee\"]\n    },\n    {\n      \"id\": \"GC-0084\",\n      \"related_search_terms\": [\"trade mark ownership\", \"registered ownership\", \"proprietorship\"],\n      \"everyday_phrases\": [\"who owns the mark\", \"whose name is registered\", \"brand owner\", \"trademark holder\", \"registered in my name\", \"logo owner\"]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "600f54050aadc59bd95ca962ecb3e5592fb0138348a08bef90dfe3db8e4131c5",
+ "response_id": "resp_06b66ffa2cfa4c1a006ac60716112887d2bde9773bdd64c843",
+ "seconds": 29.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1116,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1113
+  },
+  "output_tokens": 991,
+  "output_tokens_details": {
+   "reasoning_tokens": 84
+  },
+  "total_tokens": 2107
+ }
+}

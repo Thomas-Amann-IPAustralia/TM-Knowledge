@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007432,
+ "created_utc": "2026-10-07T12:22:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0070",
+ "job": "judge",
+ "key": "037412c2de690a5b82fe2dd3c3e67ef02f848995f3f6f4d459da2ccb1d97f6bd",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part15/1#1~2\",\"grade\":1},{\"ref\":\"TMM/Part12/3#1\",\"grade\":2},{\"ref\":\"TMM/Part48/4#1~2\",\"grade\":0},{\"ref\":\"TMM/Part12/3/3/6\",\"grade\":1},{\"ref\":\"TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1\",\"grade\":2},{\"ref\":\"TMM/Part12/3/3/1~2\",\"grade\":2},{\"ref\":\"TMM/Part2/3/2/3/2/1\",\"grade\":2},{\"ref\":\"TMM/Part12/3/3/3~1\",\"grade\":2},{\"ref\":\"TMM/Part55/4/4/1~2\",\"grade\":1},{\"ref\":\"TMM/Part12/2#1\",\"grade\":2},{\"ref\":\"TMM/Part12/3/3/1~1\",\"grade\":2},{\"ref\":\"TMM/Part55/3/3/4\",\"grade\":3},{\"ref\":\"TMM/Part12/6#1\",\"grade\":1},{\"ref\":\"TMM/Part12/3/3/3~2\",\"grade\":2},{\"ref\":\"TMM/Part12/5#1\",\"grade\":1},{\"ref\":\"TMM/Part26/8/8/1\",\"grade\":0}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "1eadbc298e4d894c5fcfbbcf5ab699e12e1c8203b759ceb94eb623b8a972b38e",
+ "response_id": "resp_0cbe804bb8ec9150006ac6395e72e487d29845122f621f2fad",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4038,
+  "input_tokens_details": {
+   "cache_write_tokens": 4035,
+   "cached_tokens": 0
+  },
+  "output_tokens": 477,
+  "output_tokens_details": {
+   "reasoning_tokens": 147
+  },
+  "total_tokens": 4515
+ }
+}

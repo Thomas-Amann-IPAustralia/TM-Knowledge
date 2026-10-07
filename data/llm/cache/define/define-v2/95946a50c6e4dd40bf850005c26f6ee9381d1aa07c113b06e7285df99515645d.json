@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001332,
+ "created_utc": "2026-10-07T08:36:07Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "In this Part",
+ "job": "define",
+ "key": "95946a50c6e4dd40bf850005c26f6ee9381d1aa07c113b06e7285df99515645d",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"In this Part, a reference to the ComptrollerGeneral of Customs includes a reference to:\",\n  \"alt_labels\": [],\n  \"confidence\": 0.99,\n  \"is_concept\": false,\n  \"basis\": \"corpus_inferred\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: “In this Part” is a contextual reference to the current division of a document, not a distinct legal or procedural concept.\",\n  \"expert_should_check\": \"\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"In this Part\",\n  \"definition_ref\": \"TMR1995/r13.1A~1\",\n  \"reasoning\": \"In the Regulations passage, the phrase limits the scope of the reference that follows; in the Manual passages, it locates discussion within the relevant Part. These uses indicate a generic document-scoping phrase rather than a separately named legal or procedural idea. The listed provisions do not establish a concept corresponding to this phrase.\",\n  \"not_labels\": [],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "2684dcb16ee3e4b56f63b9780e5c90298a87ddf5f8796569c70a26a190fc9c97",
+ "response_id": "resp_0b6db7076f681c03006ac6044b4ed487d28f24d419744294f8",
+ "seconds": 45.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2978,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2975
+  },
+  "output_tokens": 236,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 3214
+ }
+}

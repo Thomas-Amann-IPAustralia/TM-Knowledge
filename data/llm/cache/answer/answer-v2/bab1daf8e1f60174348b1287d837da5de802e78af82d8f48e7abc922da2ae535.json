@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004282,
+ "created_utc": "2026-10-07T12:24:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0076",
+ "job": "answer",
+ "key": "bab1daf8e1f60174348b1287d837da5de802e78af82d8f48e7abc922da2ae535",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0081\",\"GC-0072\",\"GC-0011\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part19A/3/3/2~1\",\"quote\":\"Use of a trade mark in advertising must be concurrent with the placing of the goods or services on the market. Advertisement where the goods/services are not immediately available for sale does not constitute use within the meaning of the Act (see the decision of the British Registrar in Radford & Co's Application (1951) 68 RPC 221 and John Toh v Paris Croissant Co. Ltd [2010] ATMO 34).\"},{\"ref\":\"TMM/Part19A/3/3/2~1\",\"quote\":\"It is not necessary for goods or services to have actually been sold for use ‘in the course of trade’ to have occurred. The offering for sale of goods or services, if genuine, will suffice.\"},{\"ref\":\"TMM/Part19A/3/3/2~1\",\"quote\":\"However, it is important to note that while advertising by itself will not constitute an offer for sale, it will be relevant in determining an objective commitment to use (see 3.3 below).\"},{\"ref\":\"TMM/Part19A/3#1\",\"quote\":\"use through an intention to offer the goods and/or services which is manifested through preparatory steps showing an objective commitment to using the trade mark\"},{\"ref\":\"TMM/Part19A/3/3/3~2\",\"quote\":\"Whether an objective commitment has been demonstrated will depend on all the relevant circumstances. A case for objective commitment to use the mark at a particular date may also be difficult to establish where the person claiming use has not subsequently sold or offered for sale the goods or services in question (see Woolly Bull Enterprises Pty Ltd v Reynolds [2001] FCA 261).\"}],\"answer\":\"**Not by itself, where the goods are not immediately available for sale.** The Manual states that advertising use must be concurrent with placing the goods or services on the market; advertising before they are immediately available for sale does not constitute use within the meaning of the Act. This is the Manual’s account of practice, not a quotation from legislation. [TMM/Part19A/3/3/2~1]\\n\\nDistinguish **goods not yet sold** from **goods not yet available for sale**: under the Manual, an actual sale is unnecessary—a genuine offer for sale can suffice. [TMM/Part19A/3/3/2~1]\\n\\nThere is also an **objective commitment to use** route. The Manual recognises an intention to offer goods manifested through preparatory steps showing objective commitment. Advertising alone is not an offer for sale, but can be relevant to establishing that commitment. [TMM/Part19A/3#1; TMM/Part19A/3/3/2~1] Whether commitment is demonstrated depends on all relevant circumstances; establishing it may be difficult if the goods are never subsequently sold or offered for sale. [TMM/Part19A/3/3/3~2]\\n\\nNo Act or Regulations passages were supplied, so this answer reports Manual practice only.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "9b378654e79f89ddd1494da7574a1d22c84ab98e5f80f8cef83ff64ba08f4f9e",
+ "response_id": "resp_03159310865c6c06006ac639e4c3f887d2a4da68278b9d7d75",
+ "seconds": 28.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6678,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6675
+  },
+  "output_tokens": 789,
+  "output_tokens_details": {
+   "reasoning_tokens": 104
+  },
+  "total_tokens": 7467
+ }
+}

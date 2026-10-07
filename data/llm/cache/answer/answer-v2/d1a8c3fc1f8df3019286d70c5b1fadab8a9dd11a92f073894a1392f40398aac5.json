@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014064,
+ "created_utc": "2026-10-07T12:14:57Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0001",
+ "job": "answer",
+ "key": "d1a8c3fc1f8df3019286d70c5b1fadab8a9dd11a92f073894a1392f40398aac5",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0108\",\"GC-0131\",\"GC-0072\",\"GC-0092\",\"GC-0086\",\"GC-0087\",\"GC-0098\",\"GC-0112\",\"GC-0113\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part60/4/7/4/7/14/1\",\"quote\":\"Trade Marks Act 1995 Part 15 Collective trade marks Trade Marks Regulations 1995 Regulation 17A.49 Collective trade marks Trade Marks Office Manual of Practice and Procedure Part 33 Collective Trade Marks\"},{\"ref\":\"TMA1995/s6/collective-trade-mark\",\"quote\":\"collective trade mark has the meaning given by section 162.\"},{\"ref\":\"TMA1995/s162\",\"quote\":\"A collective trade mark is a sign used, or intended to be used, in relation to goods or services dealt with or provided in the course of trade by members of an association to distinguish those goods or services from goods or services so dealt with or provided by persons who are not members of the association.\"},{\"ref\":\"TMM/Part33/2/2/1\",\"quote\":\"Section 163(1) of the Act provides that except for Part 10 of the Act (Assignment and Transmission of Trade Marks), a collective trade mark is to be considered in the equivalent manner to an ordinary trade mark. A reference in the Act to a trade mark registered by a person is taken to include a reference to a trade mark registered by an association.\"},{\"ref\":\"TMA1995/s166\",\"quote\":\"A collective trade mark may not be assigned or transmitted.\"},{\"ref\":\"TMM/Part10/x-introduction#1\",\"quote\":\"As part of the examination of an application for registration of a trade mark, carried out under section 31, the Registrar must report on whether or not the application has been made in accordance with the Act. If the Registrar reasonably believes that the application has not been made in accordance with the Act or Regulations, the Registrar must report that belief in writing to the applicant (reg 4.8). If any reported deficiencies are not corrected, the application must be rejected under sub-section 33(3).\"},{\"ref\":\"TMM/Part10/x-introduction#1\",\"quote\":\"As soon as possible after an application for registration of a trade mark is received, a check is made to ensure that the application meets minimum filing requirements which allow it to be taken as filed (reg 4.2). However, the check for compliance with minimum filing requirements does not cover all formality requirements which are dealt with later as part of the examination process.\"},{\"ref\":\"TMM/Part60/4/7/4/7/14/1\",\"quote\":\"Madrid Protocol Regulations Rule 9 Requirements Concerning the International Application\"}],\"answer\":\"Use the following checklist, distinguishing legislation supplied directly from legislative references identified by the Manual.\\n\\n**Collective trade mark provisions**\\n- **Act Part 15** is the collective trade mark Part identified by the Manual; **Manual Part 33** is the corresponding practice guidance. [TMM/Part60/4/7/4/7/14/1]\\n- **Act ss 6 and 162 — definition.** The supplied Act text defines a collective trade mark by reference to use or intended use by association members to distinguish their goods or services from those of non-members. [TMA1995/s6/collective-trade-mark; TMA1995/s162]\\n- **Act s 163(1) — application of ordinary trade mark provisions.** The Manual explains that collective trade marks are treated equivalently to ordinary trade marks, except for Act Part 10, and that references to registration by a person include registration by an association. This is the Manual’s account; s 163 itself is not supplied. [TMM/Part33/2/2/1]\\n- **Act s 166 — assignment and transmission.** The supplied Act expressly prohibits both for collective trade marks. [TMA1995/s166]\\n\\n**General application and examination checks**\\nThe Manual identifies **Act s 31** (examination), **s 33(3)** (rejection for uncorrected reported deficiencies), **reg 4.2** (minimum filing requirements) and **reg 4.8** (written reporting of non-compliance). These are legislative references reported in Manual practice; their legislative texts are not supplied here. [TMM/Part10/x-introduction#1]\\n\\n**Madrid/international route**\\nThe Manual’s Madrid passage identifies **reg 17A.49 — Collective trade marks**, together with **Madrid Protocol Regulations rule 9 — Requirements Concerning the International Application**. Neither provision’s text is supplied. [TMM/Part60/4/7/4/7/14/1]\\n\\n**Scope limitation:** these passages support a starting checklist, not an exhaustive list of every applicable section or regulation. In particular, the Manual’s explanation of s 163(1) indicates that ordinary trade mark provisions generally remain relevant. [TMM/Part33/2/2/1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "8df1a4c52c74c5e96fca68a8a48d875070351325a2d77e330c99bf091f120f7c",
+ "response_id": "resp_05d74c6b92f28358006ac637a4962887d2b122bb097b336582",
+ "seconds": 29.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6520,
+  "input_tokens_details": {
+   "cache_write_tokens": 6517,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1183,
+  "output_tokens_details": {
+   "reasoning_tokens": 96
+  },
+  "total_tokens": 7703
+ }
+}

@@ -24,19 +24,28 @@ Legend: **done** · **partial** · **not started** · **n/a here** (owned by
 Stage numbering is the roadmap's own, Stages 0–10. `docs/UPSTREAM.md` §6 summarises
 it as "Stages 0–7" — that summary undercounts; see Q-01.
 
+## The demonstrator — the current scope (ADR-0110)
+
+| | Deliverable | Status |
+|---|---|---|
+| D1 | A connected ontology over the whole Manual | **done (S023), unreviewed** — 167 concepts (52 signed, 115 machine-written) and 608 relationships (35 signed, 573 machine-written); 163 of 167 concepts in one connected piece, the map 3 islands with 308 of 312 nodes in the largest; SHACL 0 defects; every machine-written record carries its envelope |
+| D2 | "Ask the Manual" | **done (S023)** — a cited answer for all 129 benchmark questions beside plain search, the Act and the Manual labelled apart, every citation located verbatim, 14 declining the outcome part of a question; the site's *Ask the Manual* page |
+| D3 | The value measurement | **done (S023)** — `data/derived/reports/measure.md`: against keyword search the ontology system is better (nDCG@10 +0.069, established; +0.132 on everyday questions); against hybrid search it is worse (−0.050, established); on the expert's 10 questions nothing is established |
+| D4 | The pitch pack | **drafted (S023), with the owner** — `docs/PITCH-PACK.md` and a private slide deck; which results it claims is the owner's call (OQ-0029) |
+
 ## Board
 
 | Stage | Name | Status | Owner |
 |---|---|---|---|
 | 0 | Pilot selection and evaluation set | **partial — and no longer a blocker** (ADR-0083). 190 expert-signed records over all 8 types, harness 0 defects; `eval/gold/` now **frozen** at those 190 as the measurement yardstick (ADR-0080). The 178 held seed records are resolved by authoring rather than by an expert round, so the 10-decision critical path is gone (ADR-0084). **S016: the harness reads both stores** — `authored/` is checked on the same terms plus four of its own, and the completeness gate still counts the signed set alone, so a band met by unreviewed records cannot report Stage 0 finished (ADR-0090) | this repo |
 | 1 | Ingest and structure source documents | **done** (4 of 6 named deliverables); consumed here since S004 — pinned, fetched and loaded | `manual-XtrACTor` |
-| 2 | Candidate terminology and entities | **open, not started** — gate lifted 2026-09-08 (ADR-0083). Stack fixed (TextRank + YAKE + KeyBERT, spaCy NER as metadata, ADR-0019). **HANDOFF Q3 answered in full the same day it started blocking**: Gemini 3.8 Flash, credential in `GEMINI_API_KEY` (ADR-0087), and corpus text cleared to send (ADR-0088). Deterministic extraction stays preferred — now for cost as well as review debt (rule 7) | this repo |
+| 2 | Candidate terminology and entities | **demonstrator done (S023)** — `tmk-bulk links` links every concept to the passages that name it (1,663 of 2,460 passages, no model); `define` wrote 37 concepts for defined terms no record covered and `aliases` everyday phrasings for all 167, all unreviewed (ADR-0110, ADR-0111, ADR-0113) | this repo |
 | 3 | Controlled vocabulary (SKOS) | **open, not started** (ADR-0083) | this repo |
-| 4 | Relationships, propositions, candidate rules | **open, not started** (ADR-0083) | this repo |
+| 4 | Relationships, propositions, candidate rules | **demonstrator done (S023)** — the `relate` job wrote 573 typed relationships, each on a quote code found verbatim (`authored/relationships.yaml`, unreviewed); 0 harness and 0 SHACL defects. Twelve "same concept" findings are waiting for a person | this repo |
 | 5 | Formalise the ontology | **partial, and unblocked** — nine OWL 2 RL modules drafted in `ontology/draft/`; nothing approved, so `ontology/` stays empty (ADR-0056, ADR-0057). The concept classes now also fill from **authored** `concept_type` records, not only signed ones (ADR-0079 amends ADR-0071) — the 0-of-130 signed taxonomy is an agent's to fill. Whole-Manual scope means the class list stops being 30-of-49 empty for want of material (ADR-0081). **S019 added five concept classes** — `ProcessRole`, `SubjectMatter`, `ProceduralStep`, `InstrumentOrRecord`, `ExternalInstrument` — beside the owner's original four (ADR-0098) | this repo |
 | 6 | Populate and validate the knowledge graph | **partial** — S010, S012, S016. Graph built (16,405 source + 3,230 approved + 0 authored triples), SHACL gate **0 defects, 0 gaps, 29 notes**, against a *draft* TBox. S012: **all files committed** (ADR-0070) and `tmk-graph --check` fails on drift. **S016: a fourth named graph, `graph/authored.ttl`** — built from `authored/` by the same mapping, every node stamped `tmk:origin` and `tmk:reviewStatus`, an authored relationship typed `tmk:AuthoredAssertion` and never `tmk:ApprovedAssertion` (ADR-0091). Empty until something is authored, and the approved count rose by 284 because both stores now stamp their origin | this repo |
-| 7 | Ontology-enhanced search | **not started** | this repo |
-| 8 | Graph-aware AI retrieval | **not started** | this repo |
+| 7 | Ontology-enhanced search | **measured (S023)** — keyword, hybrid and ontology systems in `src/tm_knowledge/search/`; the ontology system beats keyword and trails hybrid (D3). An exploratory fix (specific concepts only, quarter weight) ties hybrid on the development half and is untested on the other | this repo |
+| 8 | Graph-aware AI retrieval | **demonstrator done (S023)** — the `answer` job gave a cited answer for all 129 benchmark questions, Manual practice and the Act kept apart, every citation located verbatim; unreviewed | this repo |
 | 9 | Automated reasoning | **partial** — two CONSTRUCT rules. **RULE-0002 approved by the owner** (ADR-0068). **RULE-0001 stays PENDING and an agent may not approve it**: a rule's `approved-by` line is the same kind of artefact as a record's `approved_by`, and ADR-0079 does not license filling either. What changed is that its output is no longer *quarantined* — under ADR-0082 an unapproved rule's conclusions may be served, stamped `candidate` / `requiresHumanReview`, like any other unreviewed content. OQ-0019 becomes optional rather than blocking | this repo |
 | 10 | Automated maintenance | **not started** | this repo |
 
@@ -177,7 +186,8 @@ unapproved candidates on a public page.
 **It reads committed artefacts only** (ADR-0063). Every figure on it is a count of
 something already committed; where the number needs the snapshot the site renders
 the generated report instead of paraphrasing it. That is also why moving a record
-without running `tmk-dashboard --write` fails CI.
+without running `tmk-dashboard --write` no longer fails CI: the Pages workflow
+regenerates the data on every deploy and `site/data/` is not committed (ADR-0112).
 
 Every concept node on both carries **the passage its record quotes**, with the ref and whose evidence it is — a quotation, never a definition, and pinned verbatim against the store by a test (ADR-0108).
 

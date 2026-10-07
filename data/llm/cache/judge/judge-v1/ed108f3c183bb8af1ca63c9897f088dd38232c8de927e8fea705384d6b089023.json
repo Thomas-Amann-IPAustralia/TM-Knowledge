@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006302,
+ "created_utc": "2026-10-07T12:16:11Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0020",
+ "job": "judge",
+ "key": "ed108f3c183bb8af1ca63c9897f088dd38232c8de927e8fea705384d6b089023",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part14/4/4/3/1\",\"grade\":1},{\"ref\":\"TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1\",\"grade\":1},{\"ref\":\"TMM/Part11/5/5/2\",\"grade\":1},{\"ref\":\"TMM/Part27/3/3/1\",\"grade\":3},{\"ref\":\"TMM/Part14/6/6/3/2\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/9/2\",\"grade\":1},{\"ref\":\"TMM/Part27/3/3/2~1\",\"grade\":2},{\"ref\":\"TMM/Part12/3/3/3~2\",\"grade\":1},{\"ref\":\"TMM/Part10/5/5/2/1\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/5/1\",\"grade\":1},{\"ref\":\"TMM/Part27/3/3/3\",\"grade\":2},{\"ref\":\"TMM/Part14/6/6/4/1\",\"grade\":2},{\"ref\":\"TMM/Part11/5/5/1/1\",\"grade\":0},{\"ref\":\"TMM/Part23/3/3/3/2\",\"grade\":1},{\"ref\":\"TMM/Part14/6/6/7\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "2d95023e8b53349d3f73801de0723e7e9347a96cb2b05a8e823a10f8e081b9d3",
+ "response_id": "resp_003f3b463f79e5e2006ac637f84ba487d287e2d8ea216b5326",
+ "seconds": 19.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3374,
+  "input_tokens_details": {
+   "cache_write_tokens": 3371,
+   "cached_tokens": 0
+  },
+  "output_tokens": 417,
+  "output_tokens_details": {
+   "reasoning_tokens": 91
+  },
+  "total_tokens": 3791
+ }
+}

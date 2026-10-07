@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009456,
+ "created_utc": "2026-10-07T09:03:11Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0130",
+ "job": "relate",
+ "key": "f0b02b862e88c787074c939621f04092af6a9b30674be5828cc05f0a33dc91b2",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Both use and marketing are important measures of reputation - see McCormick & Company Inc v McCormick [2000] FCA 1335.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"mayGiveRiseTo: evidence of use may give rise to reputation.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.85,\n      \"reasoning\": \"The Manual identifies use and marketing as measures of reputation, supporting a connection between evidence of use and assessing reputation. It does not say that the evidence itself creates reputation.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether identifying use as a measure sufficiently supports a relationship with the distinct concept evidence of use.\",\n      \"passage_ref\": \"TMM/Part34/6/6/2/3\",\n      \"neighbour\": \"GC-0041\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: reputation is assessed from the perspective of the ordinary consumer.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The scandalous-marks passage mentions reputation within a definition but connects the ordinary person to assessing offensiveness, not reputation. The geographical-names passage mentions ordinary consumer goods, not an ordinary consumer's assessment of reputation.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether any relationship beyond these separate mentions is actually supported by the supplied text.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0010\"\n    },\n    {\n      \"quote\": \"The opponent must establish the reputation of the other trade mark as a matter of fact.\",\n      \"relation\": \"allocatesTo\",\n      \"alternative\": \"requiresElement: the opponent requires reputation as an element.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.91,\n      \"reasoning\": \"The Manual expressly allocates responsibility for establishing reputation to the opponent. This is a statement of the Manual's account of the opposition burden, rather than a quotation from legislation.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether allocatesTo is intended to cover allocation of an evidentiary burden as well as allocation to a statutory provision.\",\n      \"passage_ref\": \"TMM/Part46/4/4/5/1\",\n      \"neighbour\": \"GC-0117\"\n    },\n    {\n      \"quote\": \"for example LYGON STREET has a reputation as a restaurant district and so does not have sufficient inherent capacity to distinguish in respect of restaurant services\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to: a geographical place can have a reputation, without reputation qualifying the assessment of its name.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.84,\n      \"reasoning\": \"The Manual's example connects a place's reputation with the assessment of its name's inherent capacity to distinguish, supporting reputation as a qualifying factor for a geographical reference. This concerns geographical reputation; its inclusion within the anchor's scope is uncertain.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the anchor includes geographical reputation rather than only reputation acquired by a trade mark.\",\n      \"passage_ref\": \"TMM/Part22/15/15/9\",\n      \"neighbour\": \"GC-0017\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "9255b222cf94188c8ef0e5ccd0bb43661e6126066a44688caee0a1a468134789",
+ "response_id": "resp_01b3469bea7eb24a006ac60aa4656887d28a3e11e1fc9c2128",
+ "seconds": 43.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3441,
+  "input_tokens_details": {
+   "cache_write_tokens": 3438,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1031,
+  "output_tokens_details": {
+   "reasoning_tokens": 247
+  },
+  "total_tokens": 4472
+ }
+}

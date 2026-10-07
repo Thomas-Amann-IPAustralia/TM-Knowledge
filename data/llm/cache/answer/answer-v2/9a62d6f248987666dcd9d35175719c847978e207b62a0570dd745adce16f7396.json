@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014773,
+ "created_utc": "2026-10-07T12:15:15Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0011",
+ "job": "answer",
+ "key": "9a62d6f248987666dcd9d35175719c847978e207b62a0570dd745adce16f7396",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0072\", \"GC-0073\", \"GC-0154\", \"GC-0002\", \"GC-0004\", \"GC-0038\", \"GC-0008\", \"GC-0010\", \"GC-0011\", \"GC-0001\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMA1995/s10\",\n      \"quote\": \"For the purposes of this Act, a trade mark is taken to be deceptively similar to another trade mark if it so nearly resembles that other trade mark that it is likely to deceive or cause confusion.\"\n    },\n    {\n      \"ref\": \"TMM/Part26/2#1\",\n      \"quote\": \"(i) To show that a trade mark is deceptively similar to another it is necessary to show that a real tangible danger of deception and confusion occurring. A mere possibility is not sufficient.\"\n    },\n    {\n      \"ref\": \"TMM/Part26/2#1\",\n      \"quote\": \"It is enough if the ordinary person entertains a reasonable doubt.\"\n    },\n    {\n      \"ref\": \"TMM/Part26/2#1\",\n      \"quote\": \"(iii) In considering whether there is a likelihood of deception or confusion all surrounding circumstances have to be taken into consideration.\"\n    },\n    {\n      \"ref\": \"TMM/Part26/6/6/8~3\",\n      \"quote\": \"In the Opposed Word Trade Mark there is no accompanying device to aid potential purchasers in distinguishing between it and the Opponent’s Registered Trade Mark. Deception or confusion is therefore likely to arise out of the use of the Opposed Word Trade Mark (at [77]) I therefore find that the Opposed Word Trade Mark is deceptively similar to the Opponent’s Registered Trade Mark but that the Opposed Logo Trade Mark is not deceptively similar to the Opponent’s Registered Trade Mark (at [78])\"\n    },\n    {\n      \"ref\": \"TMM/Part26/6/6/8~4\",\n      \"quote\": \"Whilst there are differences in font, colour and the use and placement of the house device as well as the existence of additional features, those elements do not do enough…to avoid the real danger of deception or confusion created by the common essential feature (at [236]).\"\n    },\n    {\n      \"ref\": \"TMA1995/s43\",\n      \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n    }\n  ],\n  \"answer\": \"A logo can help distinguish marks, but its presence is not a guarantee against deceptive similarity; equally, the absence of a logo is not an automatic finding of deceptive similarity. This is the practical lesson of the contrasting examples supplied in the Manual. [TMM/Part26/6/6/8~3; TMM/Part26/6/6/8~4]\\n\\n**Act — governing test:** Section 10 asks whether one trade mark so nearly resembles another that it is likely to deceive or cause confusion. The statutory test is resemblance and its likely effect, not simply whether a logo is present. [TMA1995/s10]\\n\\n**Manual practice — how the examples illustrate that test:**\\n- In *Combined Communications*, the Manual reproduces a finding that the plain-word mark lacked an accompanying device to help purchasers distinguish it. The word mark was found deceptively similar, whereas the logo mark was not. A device can therefore make a meaningful distinguishing contribution. [TMM/Part26/6/6/8~3]\\n- In the *realcommercial* example, differences in font, colour, the house device and additional features were insufficient to overcome the danger created by the common essential feature. A logo may therefore fail to distinguish marks where that shared feature remains decisive. [TMM/Part26/6/6/8~4]\\n\\nFor examination, the Manual requires a real tangible danger, rather than a mere possibility, of deception or confusion. An ordinary person's reasonable doubt can suffice, and all surrounding circumstances must be considered. The logo's contribution should be assessed within that enquiry, rather than treated as a categorical rule. [TMM/Part26/2#1]\\n\\n**Separate Act ground:** Section 43 concerns confusion arising from a connotation of the mark or a sign within it, rather than the section 10 comparison with another mark. [TMA1995/s43; TMA1995/s10]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "d568c95ea51d59253502f651744ced8e8e53c2bfa3b1a2cf983139f10c11836e",
+ "response_id": "resp_0540b859d30de9f0006ac637b7d1ec87d2968a4e0662ae4a95",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7119,
+  "input_tokens_details": {
+   "cache_write_tokens": 7116,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1175,
+  "output_tokens_details": {
+   "reasoning_tokens": 166
+  },
+  "total_tokens": 8294
+ }
+}

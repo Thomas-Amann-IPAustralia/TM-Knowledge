@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006005,
+ "created_utc": "2026-10-07T11:31:55Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0121..GC-0132",
+ "job": "aliases",
+ "key": "38ea1f6a8d029bf590376019f095ed45b1dff39cd74a49b510984ccb8945953c",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0121\",\n      \"related_search_terms\": [\n        \"Nice Classification\",\n        \"classification guidelines\",\n        \"classification amendments\"\n      ],\n      \"everyday_phrases\": [\n        \"which class\",\n        \"choose a class\",\n        \"product categories\",\n        \"service categories\",\n        \"class numbers\",\n        \"categorise my products\"\n      ]\n    },\n    {\n      \"id\": \"GC-0122\",\n      \"related_search_terms\": [\n        \"expedited examination\",\n        \"reg 4.19\",\n        \"expedition request\"\n      ],\n      \"everyday_phrases\": [\n        \"fast track\",\n        \"speed up examination\",\n        \"urgent examination\",\n        \"quicker assessment\",\n        \"examine sooner\",\n        \"priority examination\"\n      ]\n    },\n    {\n      \"id\": \"GC-0123\",\n      \"related_search_terms\": [\n        \"notice of withdrawal\",\n        \"section 214\",\n        \"written withdrawal\"\n      ],\n      \"everyday_phrases\": [\n        \"cancel my application\",\n        \"pull out\",\n        \"withdraw my application\",\n        \"take back request\",\n        \"stop my application\",\n        \"withdrawing a request\"\n      ]\n    },\n    {\n      \"id\": \"GC-0124\",\n      \"related_search_terms\": [\n        \"application amendment\",\n        \"Part 6\",\n        \"amendment of documents\"\n      ],\n      \"everyday_phrases\": [\n        \"change my application\",\n        \"fix application details\",\n        \"correct a mistake\",\n        \"edit my application\",\n        \"update application details\",\n        \"amending my application\"\n      ]\n    },\n    {\n      \"id\": \"GC-0125\",\n      \"related_search_terms\": [\n        \"plant variety denomination\",\n        \"Plant Breeder’s Rights Act\",\n        \"Class 31\",\n        \"plant material\"\n      ],\n      \"everyday_phrases\": [\n        \"plant variety name\",\n        \"name of cultivar\",\n        \"naming a plant\",\n        \"register a plant name\",\n        \"plant name restrictions\",\n        \"plant breeder rights\"\n      ]\n    },\n    {\n      \"id\": \"GC-0126\",\n      \"related_search_terms\": [\n        \"protected wine expression\",\n        \"geographical indication for wine\",\n        \"protected GI\",\n        \"grape products\"\n      ],\n      \"everyday_phrases\": [\n        \"wine region name\",\n        \"protected wine name\",\n        \"wine name restrictions\",\n        \"naming a wine\",\n        \"wine origin name\",\n        \"place names on wine\"\n      ]\n    },\n    {\n      \"id\": \"GC-0127\",\n      \"related_search_terms\": [\n        \"Registrar's decision\",\n        \"written decision\",\n        \"opposition decision\"\n      ],\n      \"everyday_phrases\": [\n        \"case outcome\",\n        \"official ruling\",\n        \"opposition outcome\",\n        \"who won\",\n        \"reasons for ruling\",\n        \"result of opposition\"\n      ]\n    },\n    {\n      \"id\": \"GC-0128\",\n      \"related_search_terms\": [\n        \"inter partes hearing\",\n        \"ex parte hearing\",\n        \"opportunity of being heard\"\n      ],\n      \"everyday_phrases\": [\n        \"ask for a hearing\",\n        \"present my case\",\n        \"chance to respond\",\n        \"being heard\",\n        \"speak to Registrar\",\n        \"hearing before rejection\"\n      ]\n    },\n    {\n      \"id\": \"GC-0129\",\n      \"related_search_terms\": [\n        \"specification of goods and services\",\n        \"amendment of specification\",\n        \"conflicting goods and services\"\n      ],\n      \"everyday_phrases\": [\n        \"list of products\",\n        \"list of services\",\n        \"what my mark covers\",\n        \"goods and services list\",\n        \"remove products\",\n        \"narrow my coverage\"\n      ]\n    },\n    {\n      \"id\": \"GC-0130\",\n      \"related_search_terms\": [\n        \"reputation in Australia\",\n        \"extent of use\",\n        \"trade mark reputation\"\n      ],\n      \"everyday_phrases\": [\n        \"well known brand\",\n        \"brand recognition\",\n        \"how well known\",\n        \"famous brand\",\n        \"known in Australia\",\n        \"brand awareness\"\n      ]\n    },\n    {\n      \"id\": \"GC-0131\",\n      \"related_search_terms\": [\n        \"application for registration\",\n        \"section 27\",\n        \"trade mark application\"\n      ],\n      \"everyday_phrases\": [\n        \"apply for a trademark\",\n        \"register my brand\",\n        \"brand registration application\",\n        \"trademark paperwork\",\n        \"registration request\",\n        \"applying for registration\"\n      ]\n    },\n    {\n      \"id\": \"GC-0132\",\n      \"related_search_terms\": [\n        \"IRDA holder\",\n        \"report to holder\",\n        \"holder’s response\",\n        \"reg 17A.16\"\n      ],\n      \"everyday_phrases\": [\n        \"owner of international mark\",\n        \"international trademark owner\",\n        \"who receives examination report\",\n        \"international registration owner\",\n        \"owner responding to report\"\n      ]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "dccba13c380db531fdbf3a078f140298fde0b987c4d76120b2b21dd7e9c78f04",
+ "response_id": "resp_04d414fe65efe896006ac62d8fe0ac87d2b240347123d53e79",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1136,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1133
+  },
+  "output_tokens": 1189,
+  "output_tokens_details": {
+   "reasoning_tokens": 85
+  },
+  "total_tokens": 2325
+ }
+}

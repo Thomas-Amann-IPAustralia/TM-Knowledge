@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002476,
+ "created_utc": "2026-10-07T08:36:56Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "preferred",
+ "job": "define",
+ "key": "00c98997b55aba2ece4e013f5a3b650df36eb2728c2019356d7f9ec493ce2663",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"Consider “preferred means” separately once its complete statutory definition and relevant filing provisions are available.\",\n  \"definition_quote\": \"While we will accept the terms “metaverse” and “web3” in specifications, the term “virtual environments” is preferred for its broad application to many contexts.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.95,\n  \"is_concept\": false,\n  \"basis\": \"corpus_inferred\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: “preferred” is an ordinary expression of preference, rather than a standalone legal or procedural concept in the supplied passages.\",\n  \"expert_should_check\": \"Check the complete section 6 definition of “preferred means” before assessing that distinct expression; the supplied fragment contains only its heading.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"preferred\",\n  \"definition_ref\": \"TMM/Part14/5/5/2/15~1\",\n  \"reasoning\": \"The Manual uses “preferred” to describe favoured specification wording and a favoured filing method, not a single standalone legal or procedural idea. These statements concern Registrar practice and do not themselves establish a legislative meaning for “preferred”. The section 6 fragment names “preferred means” but supplies no substantive definition. The listed provision references therefore do not establish a legislative basis for the standalone term.\",\n  \"not_labels\": [\n    \"preferred means\",\n    \"preferred method\"\n  ],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "58753a85812883d4af1254be94427f7d5e3d65a457ba199651691dbfa88ff4d3",
+ "response_id": "resp_05ed10827e8da8d5006ac6048c751087d28f4e12250a2be4fa",
+ "seconds": 28.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2760,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2757
+  },
+  "output_tokens": 467,
+  "output_tokens_details": {
+   "reasoning_tokens": 142
+  },
+  "total_tokens": 3227
+ }
+}

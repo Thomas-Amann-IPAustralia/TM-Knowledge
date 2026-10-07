@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010082,
+ "created_utc": "2026-10-07T12:18:27Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0042",
+ "job": "judge",
+ "key": "bf956bcbc853204188c464215376c2d9e391d97a9f5f77f8fb047097efe743bd",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part30/x-30.-annex-a5---examples-regarding-geneva-conventions-act-1957-s-151#1~1\",\"grade\":1},{\"ref\":\"TMM/Part29/1#1\",\"grade\":2},{\"ref\":\"TMM/Part29/6#1~1\",\"grade\":2},{\"ref\":\"TMM/Part26/2#1\",\"grade\":1},{\"ref\":\"TMM/Part29/6#1~2\",\"grade\":2},{\"ref\":\"TMM/Part29/10#1\",\"grade\":2},{\"ref\":\"TMM/Part5/x-device-constituents/symbols~1\",\"grade\":0},{\"ref\":\"TMM/Part26/6/6/9\",\"grade\":2},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names#1~1\",\"grade\":1},{\"ref\":\"TMM/Part26/6/6/6~2\",\"grade\":1},{\"ref\":\"TMM/Part32B/2/2#1\",\"grade\":1},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-consist-of-multiple-given-names\",\"grade\":1},{\"ref\":\"TMM/Part29/3/3/1~1\",\"grade\":2},{\"ref\":\"TMM/Part29/3#1~1\",\"grade\":2},{\"ref\":\"TMM/Part29/6/6/2~3\",\"grade\":2},{\"ref\":\"TMM/Part30/x-30.-annex-a5---examples-regarding-geneva-conventions-act-1957-s-151#1~2\",\"grade\":1},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-the-name-of-a-person-incorporating-the-given-name\",\"grade\":1},{\"ref\":\"TMM/Part29/3/3/2\",\"grade\":2},{\"ref\":\"TMM/Part29/9/9/3~1\",\"grade\":1},{\"ref\":\"TMM/Part22/25/25/7\",\"grade\":2},{\"ref\":\"TMM/Part22/25/25/2\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "365ffb93cd207fd1c32bef3cbd208875af1d3c2b0c859fdb61af7ff80e7ee1af",
+ "response_id": "resp_05d0926f9a6221d6006ac63882334487d293b659a7266a42f4",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5562,
+  "input_tokens_details": {
+   "cache_write_tokens": 5559,
+   "cached_tokens": 0
+  },
+  "output_tokens": 626,
+  "output_tokens_details": {
+   "reasoning_tokens": 107
+  },
+  "total_tokens": 6188
+ }
+}

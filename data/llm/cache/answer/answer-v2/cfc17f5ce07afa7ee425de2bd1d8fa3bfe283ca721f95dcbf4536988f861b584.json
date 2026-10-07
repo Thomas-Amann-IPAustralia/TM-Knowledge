@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004267,
+ "created_utc": "2026-10-07T12:23:06Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0064",
+ "job": "answer",
+ "key": "cfc17f5ce07afa7ee425de2bd1d8fa3bfe283ca721f95dcbf4536988f861b584",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0001\",\"GC-0002\",\"GC-0006\",\"GC-0051\",\"GC-0045\",\"GC-0012\",\"GC-0015\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part29/1#1\",\"quote\":\"The application of section 43 is, by the wording of the section, mandatory. There is, therefore, no discretion to accept a trade mark that is caught by the provisions of this section.\"},{\"ref\":\"TMM/Part29/1#1\",\"quote\":\"However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the specified goods and / or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part29/1#1\",\"quote\":\"If the trade mark, or some part of the trade mark, contains a connotation that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection should be raised.\"},{\"ref\":\"TMM/Part20/5/5/5/2\",\"quote\":\"In many instances a ground for rejecting an application under section 43 can be overcome by restricting the specification of goods and services so that the application only covers goods for which the connotation in the trade mark is not deceptive or confusing.\"}],\"answer\":\"**What happens to the application?** Under section 43 of the Trade Marks Act 1995, the application must be rejected if a connotation of the trade mark—or a sign within it—means its use for the specified goods or services would be likely to deceive or cause confusion. The statutory test is therefore more specific than simply saying the mark is ‘likely to mislead customers’. [TMA1995/s43]\\n\\n**Manual practice:** A ground for rejection should be raised where that deceptive or confusing connotation exists. The decision maker must be clearly satisfied that the test is met; the Manual says there is no discretion to accept a mark caught by section 43. However, raising the ground does not necessarily mean eventual rejection: the Manual says it can often be overcome by restricting the goods and services specification. [TMM/Part29/1#1; TMM/Part20/5/5/5/2]\\n\\n**Who must refuse it?** The supplied section 43 requires rejection but does not name the officer responsible for formally rejecting the application. The Manual refers to a ‘decision maker’, without expressly identifying that office in these passages. Accordingly, these extracts establish the mandatory duty to reject, but do not fully answer who exercises it. [TMA1995/s43; TMM/Part29/1#1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "9a258506d4ae19979f62b34b99fe8017cfe744d86ae73681823bec8c3ed7eca9",
+ "response_id": "resp_073e23244db1df2d006ac6398e107487d2a254ebf8b2424935",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6792,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6789
+  },
+  "output_tokens": 785,
+  "output_tokens_details": {
+   "reasoning_tokens": 129
+  },
+  "total_tokens": 7577
+ }
+}

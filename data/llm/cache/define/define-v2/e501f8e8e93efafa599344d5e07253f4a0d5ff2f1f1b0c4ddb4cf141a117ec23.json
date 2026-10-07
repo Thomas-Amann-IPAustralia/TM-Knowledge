@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003134,
+ "created_utc": "2026-10-07T11:14:03Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "plant variety",
+ "job": "define",
+ "key": "e501f8e8e93efafa599344d5e07253f4a0d5ff2f1f1b0c4ddb4cf141a117ec23",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"If the ontology also models biological entities defined under the PBR framework, plant variety could be retained there; that would extend beyond the stated exclusion of goods categories.\",\n  \"definition_quote\": \"\\\"plant variety\\\" means a plant grouping (including a hybrid): (a) that is contained within a single botanical taxon of the lowest known rank; and (b) that can be defined by the expression of the characteristics resulting from the genotype of each individual within that plant grouping; and (c) that can be distinguished from any other plant grouping by the expression of at least one of those characteristics; and (d) that can be considered as a functional unit because of its suitability for being propagated unchanged.\",\n  \"alt_labels\": [\n    \"Variety\"\n  ],\n  \"confidence\": 0.94,\n  \"is_concept\": false,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: A plant variety is a biological grouping of plants, distinct from the names or marketing designations used to identify it.\",\n  \"expert_should_check\": \"Check whether the ontology is intended to include PBR-defined biological entities despite the exclusion of goods categories; the Manual's botanical explanation of 'Variety' may not be fully equivalent to the reproduced PBR definition.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"plant variety\",\n  \"definition_ref\": \"TMM/Part32A/x-annex-1---applicable-sections-of-the-pbr-act#1\",\n  \"reasoning\": \"The annex explicitly defines a biological grouping, rather than a trade marks legal test or procedural idea. In the supplied examination passages, the legally relevant issue is the use of words naming or connoting that grouping. The term therefore falls within the exclusion for goods categories. It is not a duplicate of GC-0036 or GC-0125: those concepts concern names, not the plants named. None of the listed TMA provisions is established by the supplied passages as the legislative source of this definition.\",\n  \"not_labels\": [\n    \"plant variety name\",\n    \"plant varietal name\",\n    \"Species\",\n    \"Genus\",\n    \"Trade designation\",\n    \"Trade name\"\n  ],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "121ba8a9dbabc7252d5db887ea01a5659695efcd60cf3f7d81697d22a0c8a8bb",
+ "response_id": "resp_05c3bc51b7e2ad36006ac6295d89ec87d2b5f94b0194462cae",
+ "seconds": 30.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2830,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2827
+  },
+  "output_tokens": 598,
+  "output_tokens_details": {
+   "reasoning_tokens": 115
+  },
+  "total_tokens": 3428
+ }
+}

@@ -246,10 +246,15 @@ def test_the_committed_graph_matches_a_rebuild():
 
 
 def test_a_deliberately_excluded_label_is_a_boundary_and_not_a_gap():
-    """CQ-0007 expects "deceptively similar" and no concept carries it, because
-    three approved concepts carry it as a *not*-label. Counted as a missing
-    concept, it reported a miss on every measurement that used the question. The
-    owner ruled it is the boundary the question tests (OQ-0002, ADR-0075)."""
+    """CQ-0007 expects "deceptively similar" and no signed concept carries it,
+    because three approved concepts carry it as a *not*-label. Counted as a
+    missing concept, it reported a miss on every measurement that used the
+    question. The owner ruled it is the boundary the question tests (OQ-0002,
+    ADR-0075).
+
+    Since 2026-10-07 a machine-written concept carries the label (GC-0154, the
+    section 44 term). The question may point at it, but it stays a boundary:
+    writing a concept must never change what a signed question says."""
     _dataset, report = build()
     assert "CQ-0007:deceptively similar" in report.boundary_concept_labels
     assert "CQ-0007:deceptively similar" not in report.unmatched_concept_labels

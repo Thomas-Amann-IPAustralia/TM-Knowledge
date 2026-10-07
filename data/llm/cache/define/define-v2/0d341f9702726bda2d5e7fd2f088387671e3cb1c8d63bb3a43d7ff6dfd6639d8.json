@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002585,
+ "created_utc": "2026-10-07T08:34:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "extension of protection",
+ "job": "define",
+ "key": "0d341f9702726bda2d5e7fd2f088387671e3cb1c8d63bb3a43d7ff6dfd6639d8",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"The group none_of_these could fit if extension of protection is modelled as a legal effect rather than a procedural event.\",\n  \"definition_quote\": \"extension of protection means the extension of protection in Australia to the trade mark that is the subject of the IRDA.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.96,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: Extension of protection is the extension to Australia of protection for the trade mark that is the subject of an IRDA.\",\n  \"expert_should_check\": \"Confirm whether procedural_step best captures the extension itself, rather than the request for extension or the resulting protected status.\",\n  \"legislative_basis\": [\n    \"TMR1995/r17A.29\"\n  ],\n  \"pref_label\": \"extension of protection\",\n  \"definition_ref\": \"TMR1995/r17A.29/extension-of-protection\",\n  \"reasoning\": \"The Regulations expressly define the term, making it a distinct legal concept rather than a generic phrase. The Manual explains that an IRDA requests extension of protection in Australia and is not an application for registration. The extension is distinct from the IRDA that requests it (GC-0113) and the protected international trade mark status (GC-0114). Procedural_step is the closest fit for the event extending protection to Australia.\",\n  \"not_labels\": [\n    \"international registration designating Australia\",\n    \"protected international trade mark\",\n    \"application for registration\",\n    \"extension of time\"\n  ],\n  \"group\": \"procedural_step\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "a9a38c3a5ac2dcc3f2ed4605ff4a0a24a9da64fe6652f39c9c70e6f01a979038",
+ "response_id": "resp_023e822fc55a7e04006ac603eb341487d2904e1ad3c800c0fd",
+ "seconds": 30.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2536,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2533
+  },
+  "output_tokens": 491,
+  "output_tokens_details": {
+   "reasoning_tokens": 135
+  },
+  "total_tokens": 3027
+ }
+}

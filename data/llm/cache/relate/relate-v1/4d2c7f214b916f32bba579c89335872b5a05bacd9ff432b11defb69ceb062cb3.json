@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006194,
+ "created_utc": "2026-10-07T08:48:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0073",
+ "job": "relate",
+ "key": "4d2c7f214b916f32bba579c89335872b5a05bacd9ff432b11defb69ceb062cb3",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Additionally, in the case of a trade mark that consists of or contains a sign that is a colour, scent, shape, sound, aspect of packaging or other kind of non-traditional sign, the application must include a concise and accurate description of the trade mark (subreg 4.3(7)).\",\n      \"relation\": \"is_kind_of\",\n      \"alternative\": \"appliesTo would describe the description requirement, not the relationship between the two sign concepts.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The Manual expressly treats a non-traditional sign as a kind of sign. The quoted application requirement is separate from this taxonomic relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour's alternative label 'non-traditional trade mark' needs to be distinguished from the sign itself.\",\n      \"passage_ref\": \"TMM/Part10/3#1\",\n      \"neighbour\": \"GC-0074\"\n    },\n    {\n      \"quote\": \"Applications for shapes as trade marks should be considered under the same broad criteria as any other kind of sign.\",\n      \"relation\": \"is_kind_of\",\n      \"alternative\": \"extendsTo would capture the extension of assessment criteria, but those criteria are not either of the concepts being related.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The phrase 'any other kind of sign' expressly places shapes used as trade marks within the category of signs. The Manual's recommendation about assessment does not make this taxonomic relationship normative.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour is limited to three-dimensional shapes rather than shapes generally.\",\n      \"passage_ref\": \"TMM/Part21/3/3/2\",\n      \"neighbour\": \"GC-0075\"\n    },\n    {\n      \"quote\": \"Has the primary meaning of the sign been displaced to the extent that, in relation to the relevant goods/services, it has come to denote those of the applicant?\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"qualifies would overstate the relationship: the criterion concerns displacement of meaning and trade-origin significance, rather than primary meaning qualifying the category 'sign'.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The Manual explicitly connects a sign with its primary meaning, which is an alternative label for the neighbour. No listed specific predicate closely captures this meaning-bearing relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether 'denotation' and 'primary meaning' are sufficiently interchangeable for this passage.\",\n      \"passage_ref\": \"TMM/Part23/5/5/5\",\n      \"neighbour\": \"GC-0005\"\n    },\n    {\n      \"quote\": \"In this case, the domain name is more than an address for a website, the domain name is also a sign for the Applicant’s online retailing service available at the website.\",\n      \"relation\": \"is_kind_of\",\n      \"alternative\": \"related_to is a more cautious reading if the ontology cannot represent the context-dependent treatment of a domain name as a sign.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.84,\n      \"reasoning\": \"The judicial extract reproduced in the Manual expressly identifies a domain name as a sign in the circumstances discussed. The broader classification is inferred and should not be read as saying every domain name functions as a distinguishing sign.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether a context-specific instance supports a class-level relationship for internet domain names.\",\n      \"passage_ref\": \"TMM/Part19A/2/2/2~1\",\n      \"neighbour\": \"GC-0032\"\n    },\n    {\n      \"quote\": \"The use of certain signs or signs resembling them, other than by an authorised body, is prohibited in Australia under a number of laws.\",\n      \"relation\": \"is_kind_of\",\n      \"alternative\": \"appliesTo would concern the prohibition applying to use, not the relationship between prohibited signs and signs.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The Manual identifies prohibited signs as a subset of signs by describing the prohibition on use of certain signs. This class relationship does not itself assert a legislative prohibition independent of the Manual's account.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour includes prescribed signs as well as prohibited signs.\",\n      \"passage_ref\": \"TMM/Part5/4#1\",\n      \"neighbour\": \"GC-0054\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "bc31e32969351b1cd9f67a3b99ed75cf520cab655964f25432cb58e2d7cfaab7",
+ "response_id": "resp_060ec1ba3af4cb56006ac607536b5887d2b1d6cbc8401ccfd7",
+ "seconds": 28.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4221,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4218
+  },
+  "output_tokens": 1196,
+  "output_tokens_details": {
+   "reasoning_tokens": 117
+  },
+  "total_tokens": 5417
+ }
+}

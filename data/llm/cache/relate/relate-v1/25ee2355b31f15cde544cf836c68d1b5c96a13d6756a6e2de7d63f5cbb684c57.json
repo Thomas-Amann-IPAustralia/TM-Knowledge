@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005914,
+ "created_utc": "2026-10-07T11:35:09Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0118",
+ "job": "relate",
+ "key": "25ee2355b31f15cde544cf836c68d1b5c96a13d6756a6e2de7d63f5cbb684c57",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"It is clear from both the Oregon and Sports Warehouse decisions (as well as from other decisions from the Courts) that once the Registrar is satisfied on the balance of probabilities that a ground for rejection does exist, then the presumption of registrability no longer forms a part of the Registrar’s decision making process.\",\n      \"relation\": \"isOvercomeBy\",\n      \"alternative\": \"qualifies, treating an established ground for rejection as merely limiting the presumption rather than ending its role.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly states that the presumption ceases to form part of decision making once a ground for rejection is established on the balance of probabilities. The relationship therefore concerns an established ground, not merely a possible ground.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether isOvercomeBy adequately captures cessation of the presumption’s role rather than rebuttal of the presumption.\",\n      \"passage_ref\": \"TMM/Part20/4#1~2\",\n      \"neighbour\": \"GC-0053\"\n    },\n    {\n      \"quote\": \"The presumption of registrability applies when the Registrar or their delegate is not satisfied that any grounds for rejecting a trade mark application exist.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to, because the sentence expressly identifies a condition of application rather than naming the Registrar as its object.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The passage supports application of the presumption to the Registrar’s or delegate’s decision making when they are not satisfied that rejection grounds exist. This is a conditional relationship described by the Manual, not an unrestricted application to the role.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether appliesTo should target the Registrar’s decision-making process rather than the Registrar role.\",\n      \"passage_ref\": \"TMM/Part20/4/4/1\",\n      \"neighbour\": \"GC-0046\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "09f7fd9fe12a8f31e4cac421a3741942a89d9d22560f33eaab874e060012aab1",
+ "response_id": "resp_0e1cd3d4df21e533006ac62e5ac7a087d2a6da53918a3c4239",
+ "seconds": 18.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2176,
+  "input_tokens_details": {
+   "cache_write_tokens": 2173,
+   "cached_tokens": 0
+  },
+  "output_tokens": 639,
+  "output_tokens_details": {
+   "reasoning_tokens": 154
+  },
+  "total_tokens": 2815
+ }
+}

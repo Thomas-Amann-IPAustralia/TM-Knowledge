@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006391,
+ "created_utc": "2026-10-07T07:17:57Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0001..GC-0012",
+ "job": "aliases",
+ "key": "67e6b27cdd307f4c99f018314c22c3299be3f86d03cfa5023bd3a5bf0c4d7ceb",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0001\",\n      \"related_search_terms\": [\"trade mark connotation\", \"implied representation\"],\n      \"everyday_phrases\": [\"hidden meaning\", \"suggested meaning\", \"what it implies\", \"what it suggests\", \"meaning behind name\", \"brand name implication\"]\n    },\n    {\n      \"id\": \"GC-0002\",\n      \"related_search_terms\": [\"section 43\", \"probability of deception\", \"likelihood of consumer confusion\"],\n      \"everyday_phrases\": [\"could mislead customers\", \"likely to mislead\", \"could confuse buyers\", \"misleading brand name\", \"customers getting confused\", \"risk of misleading\"]\n    },\n    {\n      \"id\": \"GC-0003\",\n      \"related_search_terms\": [\"false representation\", \"consumer deception\"],\n      \"everyday_phrases\": [\"misleading customers\", \"tricking buyers\", \"false claim\", \"telling customers lies\", \"untrue brand claim\", \"giving false information\"]\n    },\n    {\n      \"id\": \"GC-0004\",\n      \"related_search_terms\": [\"consumer confusion\", \"probability of confusion\"],\n      \"everyday_phrases\": [\"confusing customers\", \"puzzled buyers\", \"making buyers wonder\", \"unsure what it means\", \"customer uncertainty\", \"confusing brand name\"]\n    },\n    {\n      \"id\": \"GC-0005\",\n      \"related_search_terms\": [\"literal meaning\", \"direct meaning\"],\n      \"everyday_phrases\": [\"dictionary meaning\", \"basic meaning\", \"what it literally means\", \"plain meaning\", \"word meaning\", \"actual meaning\"]\n    },\n    {\n      \"id\": \"GC-0006\",\n      \"related_search_terms\": [\"grounds of refusal\", \"sections 39 to 44\", \"section 43\"],\n      \"everyday_phrases\": [\"reason for rejection\", \"why marks get rejected\", \"registration refusal reason\", \"grounds to refuse\", \"reason to refuse\", \"registration barrier\"]\n    },\n    {\n      \"id\": \"GC-0007\",\n      \"related_search_terms\": [\"registrability\", \"section 43 presumption\"],\n      \"everyday_phrases\": [\"presumed registrable\", \"assumed registrable\", \"registration starting point\", \"register unless barred\", \"default registration position\"]\n    },\n    {\n      \"id\": \"GC-0008\",\n      \"related_search_terms\": [\"probability of deception\", \"danger of consumer confusion\"],\n      \"everyday_phrases\": [\"real risk\", \"serious confusion risk\", \"actual danger\", \"more than possible\", \"genuine risk\", \"not just speculation\"]\n    },\n    {\n      \"id\": \"GC-0009\",\n      \"related_search_terms\": [\"relevant consumers\", \"market perception\"],\n      \"everyday_phrases\": [\"target customers\", \"who buys it\", \"likely buyers\", \"customer group\", \"people buying it\", \"Australian buyers\"]\n    },\n    {\n      \"id\": \"GC-0010\",\n      \"related_search_terms\": [\"consumer perception\", \"ordinary purchaser\"],\n      \"everyday_phrases\": [\"typical customer\", \"everyday shopper\", \"normal buyer\", \"regular customer\", \"what shoppers think\", \"typical buyer\"]\n    },\n    {\n      \"id\": \"GC-0011\",\n      \"related_search_terms\": [\"context of use\", \"circumstances affecting deception\"],\n      \"everyday_phrases\": [\"whole situation\", \"wider context\", \"other factors\", \"context matters\", \"everything around it\", \"overall circumstances\"]\n    },\n    {\n      \"id\": \"GC-0012\",\n      \"related_search_terms\": [\"goods and services specification\", \"specification wording\"],\n      \"everyday_phrases\": [\"product list\", \"services list\", \"what registration covers\", \"goods covered\", \"services covered\", \"listed products\"]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "1c37c16cd17651481e78662a9b911e44fea75c3fd97de464b3f27795b8f40f6b",
+ "response_id": "resp_0cb0d24ff6a30047006ac5f2068db887d2a92c2760b605c097",
+ "seconds": 32.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1081,
+  "input_tokens_details": {
+   "cache_write_tokens": 1078,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1008,
+  "output_tokens_details": {
+   "reasoning_tokens": 175
+  },
+  "total_tokens": 2089
+ }
+}

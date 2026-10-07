@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001847,
+ "created_utc": "2026-10-07T11:25:06Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "registration number",
+ "job": "define",
+ "key": "b426f1ff53844ccb02dec4e17529ba554e904c47596f7880a216b5ee55b8ad97",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"(2) On registering the trade mark, the Registrar must give it a number by which it may be identified.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.98,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: A registration number is the identifying number the Registrar must give a trade mark on registration, which the Manual lists among the particulars entered in the Register.\",\n  \"expert_should_check\": \"Check whether the ontology treats an identifying number recorded in the Register as an instrument_or_record or as a data attribute.\",\n  \"legislative_basis\": [\n    \"TMA1995/s6/registration-number\",\n    \"TMA1995/s68(2)\"\n  ],\n  \"pref_label\": \"registration number\",\n  \"definition_ref\": \"TMA1995/s68(2)\",\n  \"reasoning\": \"Section 6 expressly defines the term by reference to subsection 68(2), which requires the Registrar to allocate an identifying number on registration. It is a specific statutory identifier, not a generic phrase or a duplicate of the registered trade mark or Register concepts. The Manual separately describes its recording in the Register and its use in consent letters and defensive applications. Instrument_or_record is the closest group because the number is a recorded registration particular, although it is not itself a document.\",\n  \"not_labels\": [\n    \"application number\",\n    \"registered trade mark\",\n    \"Register of Trade Marks\"\n  ],\n  \"group\": \"instrument_or_record\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "1ba8713f76488024cb6c370fd59dc1e3e90f615a53a1af196594175d0d551791",
+ "response_id": "resp_0370d36875c66531006ac62c007f4c87d28553e88b7387dbc9",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2978,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2975
+  },
+  "output_tokens": 339,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 3317
+ }
+}

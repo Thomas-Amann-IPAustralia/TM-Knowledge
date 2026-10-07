@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008507,
+ "created_utc": "2026-10-07T11:16:00Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0027",
+ "job": "relate",
+ "key": "112c6c5c89500f60b466ca889c16df306c9e8f4403205397a1574fc48eeafa4d",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The more well-known the person is, and the more recently they died (especially from the mid-twentieth century onwards), the more likely consumers will be to know about or expect this kind of control.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to: reputation is merely associated with the deceased person, rather than qualifying the treatment of deceased persons.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The Manual treats the deceased person's fame, together with the recency of death, as affecting consumers' expectations of continuing control over their name or image. This supports reputation qualifying the deceased-person exception, rather than establishing an unconditional exception.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the anchor's exception scope is sufficiently defined for reputation to qualify it.\",\n      \"passage_ref\": \"TMM/Part29/6/6/2~1\",\n      \"neighbour\": \"GC-0050\"\n    },\n    {\n      \"quote\": \"1.2 It defines transmission as transmission by operation of law, or devolution on the personal representative of a deceased person, or any other kind of transfer except assignment (section 6).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"is_kind_of: a deceased person is a kind of transmission, which would confuse the person with the transfer mechanism.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual's account of the Act's definition expressly connects transmission with devolution on a deceased person's personal representative. No more specific listed predicate accurately captures that connection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the exception-group anchor should also cover deceased persons in the ownership-transfer context.\",\n      \"passage_ref\": \"TMM/Part43/1#1~1\",\n      \"neighbour\": \"GC-0087\"\n    },\n    {\n      \"quote\": \"An access grant decision is a decision to grant access to a document where there is a requirement to consult with a State under s 26A, the Commonwealth or a State under s 26AA, a business entity under s 27, or an individual or legal personal representative of a deceased person under s 27A (Table 1 in section 53B.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none: the generic decision record and the deceased-person exception belong to different contexts and are only incidentally mentioned together.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.72,\n      \"reasoning\": \"The passage connects an access grant decision with consultation involving a deceased person's legal personal representative. Extending this narrow connection to the generic decision neighbour is inferred; it does not establish a relationship with trade marks examination decisions generally.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the decision neighbour includes access grant decisions rather than only trade marks examination decisions.\",\n      \"passage_ref\": \"TMM/Part61/2/2/4/2\",\n      \"neighbour\": \"GC-0127\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "404ccff95bd0a25258637d06922f8744c5752542b0b89d2f84c1985597160835",
+ "response_id": "resp_0f4bca76a94175dd006ac629d3dbd887d2b2221b85eeb7ca77",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3418,
+  "input_tokens_details": {
+   "cache_write_tokens": 3415,
+   "cached_tokens": 0
+  },
+  "output_tokens": 847,
+  "output_tokens_details": {
+   "reasoning_tokens": 128
+  },
+  "total_tokens": 4265
+ }
+}

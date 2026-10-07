@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013195,
+ "created_utc": "2026-10-07T08:29:12Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-023",
+ "job": "needs",
+ "key": "9334039a5d9ef09d0d503ee86b283ab17e02b2015a41f03328db43f570327677",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer should explain the procedural consequence when an extension to file evidence is refused in the different opposition settings. It should distinguish between evidence in support, in answer and in reply, and note when a hearing can be requested.\",\"search\":\"what happens if my extension to file evidence in reply is refused in an opposition\",\"seed_refs\":[\"TMM/Part51/2/2/4\"],\"kind\":\"lookup\",\"question\":\"If my extension to file evidence in reply is refused in an opposition, what happens next?\"},{\"narrative\":\"A helpful answer should explain what happens after a successful party seeks costs after the proceedings have ended. It should cover the bill of costs, taxation, the opportunity for the other side to comment, and any review if the amount is challenged.\",\"search\":\"do i get to comment on the bill of costs before it is taxed\",\"seed_refs\":[\"TMM/Part55/4#1\"],\"kind\":\"problem\",\"question\":\"If the other side files a bill of costs after the case is over, do I get a chance to comment before it is taxed?\"},{\"narrative\":\"A helpful answer should cover how an international registration application is filed through IP Australia and who decides class questions if there is a disagreement. It should also note the special rule for Madrid Protocol export applications where the Office of origin and the International Bureau disagree.\",\"search\":\"Madrid application class dispute who decides and what if Office of origin and IB disagree\",\"seed_refs\":[\"TMM/Part60/2/2/2/2/2\",\"TMM/Part14/2/2/2/2\"],\"kind\":\"cross_part\",\"question\":\"When I file a Madrid application through IP Australia, who decides any class dispute, and what happens if the Office of origin and the International Bureau disagree?\"},{\"narrative\":\"A helpful answer should explain the effect of the Act's definition of similar goods and the kind of comparison it requires. It should also identify the main factors that are relevant when working out whether goods are of the same description.\",\"search\":\"what goods does the Act treat as similar\",\"seed_refs\":[\"TMM/Part26/4/4/1\"],\"kind\":\"impact\",\"question\":\"What does it mean for goods to be of the same description under the Act?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "603ac2e5c4fdb0ddb8eb543f1ee570b6655c438e71aa535fa779fd1e3444d539",
+ "response_id": "resp_0d53f3206aba2481006ac602cc887087d2a589de2f308f50d6",
+ "seconds": 12.5,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1999,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 2599,
+  "output_tokens_details": {
+   "reasoning_tokens": 2599
+  },
+  "total_tokens": 4598
+ }
+}

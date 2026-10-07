@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003689,
+ "created_utc": "2026-10-07T08:50:24Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0081",
+ "job": "relate",
+ "key": "a08c54396cff0e19c1452c88f31b24562cacaeb8f35cade5da90f08b6afd8123",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"A successful opponent to an application under Section 92 may be entitled to have its full costs paid by the removal applicant where the current proceedings have been determined in favour of the opponent and a certificate attesting to use during the alleged period of non-use (provided by the Registrar or a court in earlier proceedings) was notified to the removal applicant either before or on filing the notice of opposition in the current proceedings (subsection 105(2)).\",\"relation\":\"related_to\",\"alternative\":\"none: the passage concerns costs rather than the substantive requirements for removal for non-use.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.85,\"reasoning\":\"The Manual connects use with non-use removal proceedings through a certificate attesting to use that can affect costs. It does not establish here that use necessarily defeats removal.\",\"modality\":\"may\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether this costs-specific connection should be recorded between the broader concepts of use and removal for non-use.\",\"passage_ref\":\"TMM/Part55/5#1\",\"neighbour\":\"GC-0104\"},{\"quote\":\"Authorised use of a trade mark is taken, for the purposes of the Act, to be use of the trade mark by the owner of the trade mark (s 7(3)).\",\"relation\":\"is_kind_of\",\"alternative\":\"same_concept: authorised use and use are not interchangeable concepts, despite the statutory attribution described here.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.93,\"reasoning\":\"The Manual expressly describes authorised use as counting as use by the owner for the purposes of the Act, citing s 7(3). This supports treating authorised use as a case of use, rather than identifying the two concepts.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether statutory attribution to the owner is better modelled separately from the subtype relationship.\",\"passage_ref\":\"TMM/Part19A/6/6/3\",\"neighbour\":\"GC-0082\"},{\"quote\":\"HOW TO SUPPLY EVIDENCE OF USE OF A TRADE MARK Under subsection 41(4) of the Trade Marks Act 1995\",\"relation\":\"related_to\",\"alternative\":\"requiresElement: the heading does not state that use requires evidence or specify an evidentiary requirement.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.96,\"reasoning\":\"The Manual heading expressly identifies the evidence as evidence of trade mark use. None of the more specific listed predicates captures that evidentiary connection without adding a requirement absent from the passage.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the ontology needs a dedicated predicate for evidence concerning a relevant factor.\",\"passage_ref\":\"TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~1\",\"neighbour\":\"GC-0041\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "5c627598b5bb0c5edc48613731ed7a6c07a0c22b9402d73d7d469b4f21af2d14",
+ "response_id": "resp_09cc4da6d58b18fb006ac607b294fc87d2b4f9053f8ec1a17b",
+ "seconds": 30.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2521,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2518
+  },
+  "output_tokens": 712,
+  "output_tokens_details": {
+   "reasoning_tokens": 80
+  },
+  "total_tokens": 3233
+ }
+}

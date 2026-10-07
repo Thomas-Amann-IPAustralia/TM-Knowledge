@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T11:12:29Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "Deputy Registrar",
+ "job": "define",
+ "key": "d2e7ee934a11763485ba15231528ca22a9779d74747f34a3775630b22db74664",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "0f8f0c27e78c0de5e71d2f9908cce4211d0c2a9e84a9b610de74e41e50a465f5",
+ "response_id": "resp_0a05bb3532a03e98006ac62918631087d2b7bea029861ba159",
+ "seconds": 5.4,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

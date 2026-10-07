@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006525,
+ "created_utc": "2026-10-07T08:38:04Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0032",
+ "job": "relate",
+ "key": "c824fb050e4f5b271828df87caa1494be8f003e44036ad53392a2f79818f6ba9",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"A section 43 ground for rejection will apply if the applicant for a trade mark, which connotes an Internet domain name (including a 2ND level domain / sub domain), is not the registrant or authorised user of that Internet domain name.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement: the passage does not require every domain name to have an authorised user; it addresses the applicant’s status in examination.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual expressly connects authorised-user status to the domain name connoted by the trade mark. No more specific listed predicate accurately captures that user-to-domain relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a more specific user-to-domain relationship should be added to the ontology.\",\n      \"passage_ref\": \"TMM/Part29/8/8/2\",\n      \"neighbour\": \"GC-0083\"\n    },\n    {\n      \"quote\": \"Use of a domain name may in some circumstances constitute use of a trade mark.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"is_kind_of: a domain name is not itself a kind of trade mark use, and its use does not invariably constitute trade mark use.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.85,\n      \"reasoning\": \"The Manual expressly recognises that using a domain name can constitute trade mark use. The edge is inferred because the anchor names the domain name rather than the activity of using it.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether this relationship should instead originate from a separate concept for use of a domain name.\",\n      \"passage_ref\": \"TMM/Part19A/2/2/2~1\",\n      \"neighbour\": \"GC-0081\"\n    },\n    {\n      \"quote\": \"A section 43 ground for rejection will apply if the applicant for a trade mark, which connotes an Internet domain name (including a 2ND level domain / sub domain), is not the registrant or authorised user of that Internet domain name.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"doesNotGiveRiseTo: registration or authorised-user status alone does not overcome a section 41 objection, but that does not negate the stated conditional section 43 ground.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual states that a domain-name connotation gives rise to a section 43 ground where the applicant lacks registrant or authorised-user status. This is conditional examination practice, not a statement that every domain-name reference attracts an objection.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the conditional lack of registrant or authorised-user status is adequately preserved by this edge.\",\n      \"passage_ref\": \"TMM/Part29/8/8/2\",\n      \"neighbour\": \"GC-0006\"\n    },\n    {\n      \"quote\": \"A section 43 ground for rejection will apply if the applicant for a trade mark, which connotes an Internet domain name (including a 2ND level domain / sub domain), is not the registrant or authorised user of that Internet domain name.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"isOvercomeBy: the passage does not say that a domain name itself overcomes a ground for rejection.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly identifies circumstances in which a domain-name connotation attracts a section 43 ground for rejection. The broad ground-for-rejection record supports this edge, provided its conditional scope is retained.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the broad neighbour record adequately distinguishes this section 43 relationship from section 41 objections.\",\n      \"passage_ref\": \"TMM/Part29/8/8/2\",\n      \"neighbour\": \"GC-0053\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"qualifies: the unfinished sentence about a composite trade mark might introduce a whole-mark assessment, but its operative content is missing.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"The supplied text discusses domain-name components and identifier distinctiveness, but does not state how other features or the trade mark as a whole affect assessment. I am unsure what relationship the truncated final sentence would support.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the omitted continuation supplies a relationship to assessment of the trade mark as a whole.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0038\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "1e2aeab89c6a0f15314553c6e892428e2f6266e479a38c6f734fe8fc632e465c",
+ "response_id": "resp_04b35ac4caf092fb006ac604af939487d28248d2d4d0248b48",
+ "seconds": 61.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3741,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3738
+  },
+  "output_tokens": 1267,
+  "output_tokens_details": {
+   "reasoning_tokens": 162
+  },
+  "total_tokens": 5008
+ }
+}

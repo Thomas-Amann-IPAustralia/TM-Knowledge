@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008198,
+ "created_utc": "2026-10-07T11:55:10Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0151",
+ "job": "relate",
+ "key": "200de5296ace83b2f45d3e6ba6cbfaea8f03b2e2b00dbdee81348d42b93ec92f",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"(At commencement of the new legislation, disclaimers entered as particulars of trade marks on the old register became particulars of the trade marks on the new Register).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none: the passage concerns disclaimer particulars rather than expressly describing registered trade marks as entries in the old register.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.84,\n      \"reasoning\": \"The Manual connects the old register with trade marks whose disclaimer particulars were recorded there. Reading those trade marks as registered trade marks is an inference; no listed predicate more precisely expresses this record–subject relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether 'trade marks on the old register' sufficiently identifies the neighbour concept 'registered trade mark'.\",\n      \"passage_ref\": \"TMM/Part24/4#1\",\n      \"neighbour\": \"GC-0088\"\n    },\n    {\n      \"quote\": \"Disclaimers on the old register, kept under the repealed Act, became particulars on the new Register at commencement, and have the same effect as voluntary disclaimers (section 238).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo, directed from the repealed Act to the old register.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly identifies the old register as kept under the repealed Act. This historical statutory connection is more accurately captured by related_to than by a predicate asserting application of a particular provision.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology intends appliesTo to encompass an instrument being kept under an Act.\",\n      \"passage_ref\": \"TMM/Part24/3#1\",\n      \"neighbour\": \"GC-0163\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to through the treatment of disclaimers transferred from the old register.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The passage separately addresses transfer of disclaimer particulars from the old register and consideration of trade marks as a whole. It does not state a relationship between the register itself and the whole-mark assessment.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether an indirect connection through transferred disclaimers is intended to count as a relationship.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0038\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to based on the occurrence of the words 'made in'.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The passage addresses disclaimers made in a register, not geographical qualifying information. The words 'made in' describe entry of a disclaimer and do not instantiate the neighbour concept.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether any geographical qualifier is actually identified in the supplied passage.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0021\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "ab4ff5e92891f0f24b321eca48775377cef9200f12e7c31d0aceb24c9302cf05",
+ "response_id": "resp_0245ba6f906fc004006ac633027da887d2a794e893135af774",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3355,
+  "input_tokens_details": {
+   "cache_write_tokens": 3352,
+   "cached_tokens": 0
+  },
+  "output_tokens": 801,
+  "output_tokens_details": {
+   "reasoning_tokens": 57
+  },
+  "total_tokens": 4156
+ }
+}

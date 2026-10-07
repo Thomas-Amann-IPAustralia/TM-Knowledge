@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003459,
+ "created_utc": "2026-10-07T12:29:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0119",
+ "job": "answer",
+ "key": "29b1c92a40f1957898f0408dd6390044ebe87b93473500653d621cf1b4409c65",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0029\",\"GC-0054\",\"GC-0116\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part30/3/3/5~1\",\"quote\":\"Section 15(1) of the Geneva Conventions Act 1957 (Cth) specifically prohibits the use for any purpose whatsoever, of the following signs, without the consent in writing of the Minister for Defence or a person authorised in writing by the Minister to give consent: (a) the emblem of a red cross with vertical and horizontal arms of the same length on, and completely surrounded by, a white ground, or the designation \\\"Red Cross\\\" or \\\"Geneva Cross\\\"; (b) the emblem of a red crescent moon on, and completely surrounded by, a white ground, or the designation \\\"Red Crescent\\\".\"},{\"ref\":\"TMM/Part30/3/3/5~5\",\"quote\":\"To overcome a section 42(b) ground for rejection based on a purported contravention of section 15 of the Geneva Conventions Act 1957, the applicant may be able to: obtain written consent from the Minister of Defence or a person authorised by the Minister.\"}],\"answer\":\"Anyone proposing to use the specified Red Cross or Red Crescent emblems or designations—for any purpose, not merely as a trade mark—needs written consent from the Minister for Defence or a person authorised in writing by the Minister to give consent. This includes the names “Red Cross”, “Geneva Cross” and “Red Crescent”. [TMM/Part30/3/3/5~1]\\n\\nSource distinction: this is the Manual’s description of section 15(1) of the Geneva Conventions Act 1957; that Act’s text was not supplied for direct verification. As examination practice, the Manual says a trade mark applicant may be able to overcome the relevant section 42(b) objection by obtaining that written consent. [TMM/Part30/3/3/5~5]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "0443c761138a7c5c1f41175e2b5f13a25e58eb7c2c17a1d799b7ad1bad0387f2",
+ "response_id": "resp_0bfec2ba35aafb18006ac63afcd04887d2b914169e79faa0af",
+ "seconds": 29.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7615,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7612
+  },
+  "output_tokens": 615,
+  "output_tokens_details": {
+   "reasoning_tokens": 181
+  },
+  "total_tokens": 8230
+ }
+}

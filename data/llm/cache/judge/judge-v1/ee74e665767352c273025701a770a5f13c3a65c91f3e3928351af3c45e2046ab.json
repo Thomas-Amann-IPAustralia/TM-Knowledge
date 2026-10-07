@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002418,
+ "created_utc": "2026-10-07T12:28:24Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0116",
+ "job": "judge",
+ "key": "ee74e665767352c273025701a770a5f13c3a65c91f3e3928351af3c45e2046ab",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part14/6/6/2\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\",\"grade\":3},{\"ref\":\"TMM/Part38/2/2/2\",\"grade\":0},{\"ref\":\"TMM/Part14/6/6/4/4\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder\",\"grade\":3},{\"ref\":\"TMM/Part14/3#1~2\",\"grade\":1},{\"ref\":\"TMM/Part24/3#1\",\"grade\":0},{\"ref\":\"TMM/Part14/4/4/8/2~2\",\"grade\":1},{\"ref\":\"TMM/Part14/6/6/4/2\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/thickeners\",\"grade\":1},{\"ref\":\"TMM/Part14/6/6/4/3\",\"grade\":1},{\"ref\":\"TMM/Part24/6#1\",\"grade\":0},{\"ref\":\"TMM/Part14/4/4/3/2\",\"grade\":1},{\"ref\":\"TMM/Part22/7/22/7/10\",\"grade\":0},{\"ref\":\"TMM/Part14/4/4/6/2\",\"grade\":1},{\"ref\":\"TMM/Part14/6/6/2/2\",\"grade\":1},{\"ref\":\"TMM/Part14/6/6/2/3\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "b9f172c53d2ca548a5dfca1032d8a592b146fbdf234c4105ce64a2cbf252f74f",
+ "response_id": "resp_0ef73a2db22fc74f006ac63ad6382487d2aee2563d010cfb3d",
+ "seconds": 19.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3104,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3101
+  },
+  "output_tokens": 452,
+  "output_tokens_details": {
+   "reasoning_tokens": 71
+  },
+  "total_tokens": 3556
+ }
+}

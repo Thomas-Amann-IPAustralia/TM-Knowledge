@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005147,
+ "created_utc": "2026-10-07T09:02:55Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0128",
+ "job": "relate",
+ "key": "367e6603cc29a778b711eb96f7273f9c45340483d660bb9fe4a78fd64b783401",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The decision may be made after hearing one or both parties or on the written record.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"mayGiveRiseTo: the passage permits a decision after a hearing but does not state that the hearing causes the decision.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly connects making a decision with hearing one or both parties, while also allowing a decision on the written record. No listed, more specific predicate captures that procedural relationship without adding a causal or mandatory element.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether 'hearing one or both parties' denotes the procedural hearing concept recorded by the anchor.\",\n      \"passage_ref\": \"TMM/Part49/6/6/1\",\n      \"neighbour\": \"GC-0127\"\n    },\n    {\n      \"quote\": \"When a late application is filed to extend the time for requesting a hearing of the opposition, see: Part 15 General Provision for Extensions of Time – 4. Grounds on which the Registrar may grant an extension of time.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo: the passage identifies a hearing of an opposition, rather than a rule whose application to opposition proceedings is stated.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual explicitly describes requesting a hearing of the opposition, establishing a procedural connection. It does not establish that every opposition requires a hearing.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this non-use opposition context falls within the intended scope of GC-0102.\",\n      \"passage_ref\": \"TMM/Part48/4#1~2\",\n      \"neighbour\": \"GC-0102\"\n    },\n    {\n      \"quote\": \"When a late application is filed to extend the time for requesting a hearing of the opposition, see: Part 15 General Provision for Extensions of Time – 4. Grounds on which the Registrar may grant an extension of time.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement: requesting a hearing is mentioned, but a hearing is not stated to be a required element of opposition proceedings.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual explicitly connects a hearing with an opposition. This supports a relationship to opposition proceedings, not specifically to the notice of intention to oppose.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether GC-0040 encompasses non-use opposition proceedings rather than only opposition to registration or its initiating notice.\",\n      \"passage_ref\": \"TMM/Part48/4#1~2\",\n      \"neighbour\": \"GC-0040\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: the joint absence of evidence in support and a hearing request could be read as connecting the two procedural matters.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.83,\n      \"reasoning\": \"The non-use passage makes the absence of evidence and a hearing request joint conditions for a particular process, but does not state a relationship between evidence of use and a hearing. The declaration passage discusses evidentiary weight and quotes a Hearing Officer, without connecting that evidence to the hearing step.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the joint-condition wording sufficiently supports a direct relationship between hearing and evidence under the ontology's intended scope.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0041\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "22602f19e923d34648f6d555d9656de4fefba9afeecef94dc8982a87c4e1d748",
+ "response_id": "resp_0b306e940a2111c9006ac60aa33bf487d2b5399ee5695af46e",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3484,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3481
+  },
+  "output_tokens": 994,
+  "output_tokens_details": {
+   "reasoning_tokens": 143
+  },
+  "total_tokens": 4478
+ }
+}

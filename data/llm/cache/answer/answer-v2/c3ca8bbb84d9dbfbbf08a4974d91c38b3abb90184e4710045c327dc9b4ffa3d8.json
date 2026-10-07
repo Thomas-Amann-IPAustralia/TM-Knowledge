@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003955,
+ "created_utc": "2026-10-07T12:28:53Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0112",
+ "job": "answer",
+ "key": "c3ca8bbb84d9dbfbbf08a4974d91c38b3abb90184e4710045c327dc9b4ffa3d8",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0018\",\"GC-0107\",\"GC-0072\",\"GC-0019\",\"GC-0013\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s169\",\"quote\":\"A certification trade mark is a sign used, or intended to be used, to distinguish goods or services: (a) dealt with or provided in the course of trade; and (b) certified by a person (owner of the certification trade mark), or by another person approved by that person, in relation to quality, accuracy or some other characteristic, including (in the case of goods) origin, material or mode of manufacture; from other goods or services dealt with or provided in the course of trade but not so certified.\"},{\"ref\":\"TMM/Part32B/2/1#1\",\"quote\":\"The presence of such a match on the Wine Register indicates that the use of the trade mark may contravene the Wine Australia Act, unless that use is in accord with conditions specified in the relevant entry on the Wine Register.\"},{\"ref\":\"TMM/Part32B/2/1#1\",\"quote\":\"It is a condition of registration that the trade mark will only be used under the conditions entered on the Register of Protected Geographical Indications and Other Terms for use of the <Geographical Indication/ Traditional Expression/ Quality Wine Term/ Additional Term> <> and that the use will accord with the Wine Australia Act 2013.\"}],\"answer\":\"The supplied passages do not expressly establish that a geographical indication is protected in Australia by registering it as a certification trade mark.\\n\\n**Act:** Section 169 expressly allows a certification trade mark to distinguish goods certified in relation to their origin from goods not so certified. This supports an origin-certification function, but the supplied provision does not explain whether or how registration protects a geographical indication itself [TMA1995/s169].\\n\\n**Manual practice:** For wine-related marks, the Manual separately discusses entries on the Register of Protected Geographical Indications and Other Terms and conditions ensuring that trade mark use accords with that register and the Wine Australia Act. It does not describe those entries as certification trade mark registrations [TMM/Part32B/2/1#1].\\n\\nAccordingly, origin certification is supported by the Act, but I cannot confirm the proposed GI protection mechanism from these passages alone.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "04c68309ab482e03af39d5b2e5b9c4ade746ff6c26115d6733c28d11f393fcaa",
+ "response_id": "resp_03493279bb3841b0006ac63ae94ba887d284d9acce81e131ef",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7134,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7131
+  },
+  "output_tokens": 719,
+  "output_tokens_details": {
+   "reasoning_tokens": 214
+  },
+  "total_tokens": 7853
+ }
+}

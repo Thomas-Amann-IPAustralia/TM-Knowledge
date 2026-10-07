@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012933,
+ "created_utc": "2026-10-07T12:19:01Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0035",
+ "job": "answer",
+ "key": "ebeb1daf6a0633d94a5caf774274bc86bfd56c4c6685bf1cb3996a6c8958be07",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0129\",\"GC-0124\",\"GC-0092\",\"GC-0115\",\"GC-0102\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part9/4/4/7\",\"quote\":\"Section 65A provides the Registrar with more scope, when this is fair and reasonable, to correct clerical errors or obvious mistakes in published applications, in cases where such amendments are not allowable under section 65.\"},{\"ref\":\"TMM/Part9/4/4/7\",\"quote\":\"Because these changes may result in an extension of the rights the applicant would otherwise have in the application, if the Registrar is satisfied that the request for amendment would be granted, it must be published on Australian Trade Mark Search, to give other parties an opportunity to oppose the amendment.\"},{\"ref\":\"TMM/Part14/4/4/2/6\",\"quote\":\"There is no provision under section 65 for items or classes to be added to applications where the items initially claimed have been clearly specified or qualified and are correctly classified.\"},{\"ref\":\"TMR1995/r4.2(1)(c)\",\"quote\":\"(c) specify the goods and/or services in relation to which the application is made; and\"},{\"ref\":\"TMM/Part10/5/5/1/3\",\"quote\":\"Adequate information regarding the goods and/or services should accompany any specification where the goods and/or services cannot be described using the terms preferred at 5.1.2 above (subreg 4.4(7)).\"},{\"ref\":\"TMM/Part14/4/4/6/2\",\"quote\":\"If part or all of the specification is vague or unclear to the extent that it cannot be classified, the Examiner should request further information from the applicant. It should not be suggested to the applicant at this stage that they may be able to add a class or classes. The request should be for further information in the form of information from the applicant's website, or trade brochures or pamphlets published by the applicant, which are directly relevant to the application (reg 4.4(7)).\"}],\"answer\":\"Yes, but correction is not unrestricted; and further information should be supplied where the goods or services cannot be adequately described.\\n\\n**Correction after publication — Manual practice:** The Manual explains that section 65A permits correction of clerical errors or obvious mistakes in published applications where this is fair and reasonable, including cases where section 65 does not allow the amendment. If the Registrar is satisfied that the amendment request would be granted, the request must be published on Australian Trade Mark Search so others can oppose it. [TMM/Part9/4/4/7]\\n\\nThis is not a general permission to broaden the specification: the Manual states that section 65 does not permit adding items or classes where the original items were clearly specified or qualified and correctly classified. [TMM/Part14/4/4/2/6]\\n\\n**Further detail — Regulations and Manual practice:** Regulation 4.2(1)(c) requires the application to specify its goods and/or services. [TMR1995/r4.2(1)(c)] The Manual says adequate information should accompany a specification where those goods or services cannot be described using its preferred terms. If the description is too vague or unclear to classify, the examiner should request directly relevant information from the applicant’s website, trade brochures or pamphlets—not suggest at that stage that classes could be added. [TMM/Part10/5/5/1/3; TMM/Part14/4/4/6/2]\\n\\n**Source limitation:** The supplied legislation does not include sections 65 or 65A or regulation 4.4(7). The explanations above concerning those provisions are therefore grounded in the Manual’s account, not an independent assessment of their statutory wording.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "a85caf5033b4aece8c9d94e8d1e9072b4425399cb44b5fb64a55e2c1b367adb1",
+ "response_id": "resp_0ae8473d8833d0db006ac6389a37d487d2b69770af52cf2655",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6567,
+  "input_tokens_details": {
+   "cache_write_tokens": 6564,
+   "cached_tokens": 0
+  },
+  "output_tokens": 945,
+  "output_tokens_details": {
+   "reasoning_tokens": 126
+  },
+  "total_tokens": 7512
+ }
+}

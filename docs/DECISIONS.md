@@ -2290,7 +2290,7 @@ suggestion was static scripts reading a dynamic JSON or YAML file.
 
 ## ADR-0063 — The dashboard is generated from committed artefacts only, and never from the snapshot
 
-**Date** 2026-09-04 · **Authority** agent-proposed · **Status** provisional
+**Date** 2026-09-04 · **Authority** agent-proposed · **Status** provisional · **Drift check superseded by ADR-0112**
 
 **Context.** The site needs numbers. Some of them — 52 concepts, 2,942 approved
 triples, 49 classes, 61 decisions — come from files this repo commits. Others —
@@ -3466,7 +3466,7 @@ will be wrong in the flattering direction.
 
 ## ADR-0087 — Gemini 3.8 Flash is the model for authoring and extraction
 
-**Date** 2026-09-08 · **Authority** human · **Status** accepted ·
+**Date** 2026-09-08 · **Authority** human · **Status** superseded by ADR-0111 ·
 **Answers HANDOFF Q3 and OQ-0007**
 
 **Context.** HANDOFF Q3 has been open since S001: *which LLM is agency-approved
@@ -4882,3 +4882,253 @@ ref, in the store.
    person signed carry no envelope, so their quote comes from the unreviewed
    typing — which is exactly the sort of blur ADR-0080 exists to prevent, and why
    `from` is a required field rather than a nicety.
+
+## ADR-0109 — the project is a pitch, and a working demonstrator soon outranks completeness
+
+**Date** 2026-10-07 · **Authority** human · **Status** accepted
+
+**Context.** The owner, in a chat session, after building a second project with
+Claude Code from concept to working prototype quickly and committing the method
+as `docs/KB-SOP.md`:
+
+> *"I've been getting frustrated by the slow progress of developing this
+> ontology. […] this whole project is to merely pitch the concept and demonstrate
+> the value of implementing an ontology for the TM Manual. Because of this, we
+> don't need to have every single nuance and complication addressed. I really
+> just need a system that works (and SOON!)"*
+
+Words in full at `review/returned/261007-owner-chat-pitch-purpose.md`; ruling at
+`review/rulings/2026-10-07-chat-pitch-purpose.yaml`.
+
+The measured state when it was said: 22 merged pull requests since 2026-08-03,
+content records added in 4 of them; 108 ADRs; a read order of about 8,000 lines
+before a session acts; 0 authored relationships and a graph in 44 pieces; no search or
+retrieval code at all — the stages that would show an ontology's value.
+
+**Decision (owner).**
+
+- The project's purpose is **a pitch**: to demonstrate the value of an ontology
+  for the Trade Marks Manual. It is not, for now, the production programme the
+  roadmap describes.
+- **A working system, soon, outranks completeness.** Where a nuance or a
+  complication can be left unresolved without making the demonstrator wrong or
+  dishonest, it is left, and the record says it was left.
+
+**What this does not decide.** It changes no hard rule in `CLAUDE.md`. Every
+guard on provenance stands — the unreviewed stamp, `approved_by` never filled by
+an agent, the frozen 190, the Act and the Manual kept apart, no examination
+outcome stated — because a demonstrator that blurs what an expert signed with
+what a machine wrote is not a smaller version of this system but a different and
+worse one. The owner asked for *suggestions* on process rather than issuing
+them; they are in `docs/PITCH-PROPOSAL.md` and none is adopted until the owner
+chooses (OQ-0028).
+
+**Consequences.**
+
+1. **HANDOFF's next action is the demonstrator**, not the old list. Work that
+   serves the production programme but not the pitch — the expert-review
+   apparatus, new rounds of owner questions, Stage 10 — waits; it is parked, not
+   deleted.
+2. **"Not every nuance" is a priority rule, not a licence.** A session may leave a
+   hard case open and say so in the record; it may not paper over one. The
+   difference is the same one rule 6 already draws.
+3. **Until OQ-0028 is answered, the process in `CLAUDE.md` §3 still applies** in
+   full. A session that slims it on the strength of this ADR alone is acting on a
+   proposal, not on a decision.
+
+## ADR-0110 — the pitch proposal is adopted: a finish line, a pipeline, lighter process
+
+**Date** 2026-10-07 · **Authority** human · **Status** accepted · **Answers OQ-0028**
+
+**Context.** `docs/PITCH-PROPOSAL.md` (ADR-0109) proposed a finish line, a batch
+pipeline in place of hand-authoring, a measured comparison with plain search, an
+"Ask the Manual" page, lighter session paperwork, and asking the owner only at
+named gates.
+
+**Decision (owner).** *"Yes, your suggested approach sounds excellent. I approve
+all of the things you've suggested except for the use of Gemini."* Words in full
+at `review/returned/261007-owner-chat-adopt-and-openai.md`.
+
+- **Current scope is the demonstrator, D1–D4**: a connected ontology over the
+  whole Manual, "Ask the Manual", the value measurement, a pitch pack. The
+  roadmap's Stages 0–10 become *future state — context only, do not build yet*.
+- **Content is generated by a pipeline**: deterministic passes first, then one
+  model stage in bulk, cached and committed, with provenance written by code.
+- **Process (P5, P6)**: `CLAUDE.md` gets a short read order and close-out, a
+  handover under ~150 lines, `docs/RULES-IN-FORCE.md` in place of reading this
+  log, ADRs only for owner decisions and non-obvious choices, and questions to
+  the owner only at the named gates. The hard rules in `CLAUDE.md` §2 are
+  unchanged (P7).
+- **Parked, not deleted**: the expert-review apparatus and further rounds of owner
+  questions. The code stays and its tests still run.
+
+**Consequences.** `CLAUDE.md` is rewritten in the same session. The old handover
+is archived under `docs/history/`. This log stays append-only; sessions search it
+rather than read it.
+
+## ADR-0111 — OpenAI `gpt-6.1-sol` at medium effort does the bulk work; US$1 until a quote
+
+**Date** 2026-10-07 · **Authority** human · **Status** accepted ·
+**Supersedes ADR-0087**
+
+**Context.** ADR-0087 named Gemini 3.8 Flash; it was never called (ADR-0094, Q-64).
+The owner adopted the pipeline but not the model.
+
+**Decision (owner).** *"I would like you to use Sol 6.1 on medium effort for the
+bulk knowledge work. I'm not ready to give you a precise costing for the full runs
+until you tell me what I'm getting for each spend. For now, you may spend a
+maximum of $1. From that, you should be able to provide me with a quote you'll
+expect the full run to cost."*
+
+- **Model:** `gpt-6.1-sol` — the API id the credential lists for "Sol 6.1" —
+  with reasoning effort `medium`, through the session proxy, which supplies the
+  credential (Q-65). No Gemini calls of any kind.
+- **Spend:** a hard cap of **US$1** across every paid call until the owner approves
+  a quote. The quote says what each spend buys.
+- **Price basis**, from OpenAI's pricing page on 2026-10-07, per million tokens:
+  input $2.00, cached input $0.10, output $10.00 (reasoning tokens bill as
+  output); the Batch and Flex tiers are half that.
+
+**What stays.** ADR-0088 in full: corpus text may go to the API, an expert's notes
+may not, and a call must be worth making. ADR-0094: `authored_by` records the
+model id the API reports, not the configured one.
+
+**Consequences.** `config.DEFAULT_AUTHORING_MODEL` becomes `gpt-6.1-sol` and the key
+variable `OPENAI_API_KEY`. The 208 records written by the session agent keep
+`authored_by: claude-opus-5`; records from the pipeline carry the API's model id,
+so the store will hold two authors and every count splits by author (ADR-0094
+consequence 2). Model choices for measurement work — writing benchmark
+questions, judging results — go to the owner with the quote rather than being
+assumed.
+
+## ADR-0112 — the site data is built at deploy and no longer committed
+
+**Date** 2026-10-07 · **Authority** derived · **Status** accepted ·
+**Supersedes ADR-0063's drift check (consequence 3)**
+
+**Context.** ADR-0063 committed `site/data/*.json` and failed CI when it drifted,
+on the reasoning that otherwise "a public page [would be] quoting a number the
+repository no longer holds". `pages.yml` has since regenerated the data on every
+deploy, so the published page cannot be stale whatever is committed. The drift
+check now only makes every session remember `tmk-dashboard --write`, which P5 of
+the adopted proposal removes (ADR-0110).
+
+**Decision.** `site/data/` is git-ignored and generated by the Pages workflow.
+The CI step `tmk-dashboard --check` goes, and `test_committed_data_is_current`
+becomes `test_the_site_data_builds`, which fails if a page cannot be generated
+from the repository — the failure that still matters. ADR-0063's main decision
+stands: the site reads committed artefacts only, never the snapshot.
+
+**Consequences.** A local preview needs `tmk-dashboard --write` first. A diff no
+longer shows what the page will say; the deploy summary does.
+
+## ADR-0113 — how the pipeline writes knowledge: code owns provenance, SKOS fills the gaps
+
+**Date** 2026-10-07 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** ADR-0110 adopted a pipeline in place of hand-authoring and ADR-0111
+named the model. Building it forced five choices with a real alternative.
+
+**Decision.**
+
+1. **Code, not the model, writes provenance.** The model returns a ref and a
+   quote; code finds the quote in the pinned snapshot (exactly, or after
+   collapsing whitespace and typographic marks), records the snapshot's own text
+   with its span and hash, and stamps the envelope. A quote that does not land
+   refuses the judgement. So the harness's "quote equals text at span" check
+   cannot fail on pipeline output.
+2. **Relationships use the approved dictionary's 14 predicates, plus SKOS.** The
+   model may answer `is_kind_of` (written as `skos:broader`, narrower concept as
+   subject) or `related_to` (`skos:related`) when no dictionary predicate fits —
+   the graph would otherwise stay disconnected for want of a legal predicate.
+   `same_concept` is reported for a person and never written (ADR-0101).
+3. **Generic concepts are linked but never paired.** A concept named in more than
+   a fifth of passages ("trade mark", "applicant") would pair with everything
+   (KB SOP D-020).
+4. **Everyday phrasings are search aids, not labels.** They go to
+   `data/derived/search/aliases.yaml`, stamped `general_knowledge`, and never into
+   a concept's `alt_labels`, which hold only forms the corpus uses.
+5. **Background mode and the flex tier.** Long calls are submitted in background
+   and polled (Q-66), which needs `store: true` — the stored text is published
+   corpus text (ADR-0088). Flex is half price on the same endpoint.
+
+**What it does not decide.** Which model writes and judges the benchmark — that
+is the owner's, from the quote (`CLAUDE.md` §3a).
+
+**Consequences.** `ontology/build.py` maps `broader`/`narrower`/`related` to SKOS.
+The benchmark lives in `data/derived/bench/`, never `eval/gold/` (ADR-0080).
+
+## ADR-0114 — the quote is approved: run the recommended package, all 130 answers
+
+**Date** 2026-10-07 · **Authority** human · **Status** accepted
+
+**Context.** `docs/QUOTE.md` priced the full runs from measured smoke calls: $6.41
+for the recommended package on the flex tier, and asked three things — approve,
+which models do the measurement work, and answers for 130 questions or 30.
+
+**Decision (owner).** *"Approved, go with your recommendations and run it all
+(including all 130 questions)"* (`review/returned/261007-owner-chat-quote-approval.md`).
+
+- The recommended package runs in full: `define`, `relate`, `aliases`, `embed`,
+  `needs`, `judge`, `answer`.
+- Benchmark questions by `gpt-5.4-mini`; judging by `gpt-6.1-sol`.
+- Answers for all 130 questions.
+- `config.SPEND_CAP_USD` becomes **6.60**: the $0.18 recorded plus the $6.41
+  package. The quote's 25% contingency is inside the $6.41, not on top of it.
+
+**What it does not decide.** Which measured results become claims in the pitch —
+still the owner's (`CLAUDE.md` §3a).
+
+**Consequences.** Spending past $6.60 is a new question for the owner, with a
+dry-run estimate. The cap counts the worst case of each call, so the last few
+calls may be refused while actual spend is still below it; that is the cap
+working, not a reason to raise it.
+
+## ADR-0115 — dense search needs numpy, as an optional extra; its vectors are not committed
+
+**Date** 2026-10-07 · **Authority** agent-proposed · **Status** accepted ·
+**An exception to ADR-0042 for one file type**
+
+**Context.** The hybrid and ontology search systems (D2, D3) rank passages by
+vector similarity: about 4,900 passages × 512 numbers, multiplied by a query
+vector. ADR-0035 and ADR-0056 kept the core install at three dependencies by
+making each heavier need an optional extra. The passage vectors are a 2.5MB
+binary file that `text-embedding-3-small` rebuilds for about US$0.01.
+
+**Decision.** numpy is the `search` extra (and in `test`), never a core
+dependency. The vector files (`*.npy`, already git-ignored) and the two indexes
+beside them stay out of git, although ADR-0042 commits `data/derived/`: a binary
+nobody can read in a diff, rebuilt for a cent by `tmk-bulk embed --confirm`,
+buys no paper trail. The response cache records the embedding calls' cost, so
+the spend ledger stays complete.
+
+**Consequences.** A fresh container runs `tmk-bulk embed --confirm` before
+`pools`, `answer` or anything that searches densely; without vectors the hybrid
+system would be keyword search under another name, so `pools` and `answer` refuse
+to run. The site does not need them — it reads the answers and results the runs
+committed.
+
+## ADR-0116 — a signed question's boundary is judged against the signed vocabulary only
+
+**Date** 2026-10-07 · **Authority** derived · **Status** accepted ·
+**Refines how ADR-0075 is built; does not change the ruling**
+
+**Context.** The owner ruled on OQ-0002 that "deceptively similar", which CQ-0007
+expects and three signed concepts exclude as a not-label, is the boundary the
+question tests (ADR-0075). The build applied that by asking whether *any* concept
+carried the label. On 2026-10-07 `define` wrote GC-0154 "deceptively similar" (the
+section 44 term, machine-written, unreviewed), the answer flipped, and the
+boundary triples left the approved graph on the next rebuild. The existing test
+caught it. A first fix that applied the boundary whenever any concept excluded a
+label turned 30 ordinary expected labels into boundaries, so the rule needs the
+signed/authored line, not a looser match.
+
+**Decision.** A signed competency question's expected label is a boundary when no
+*signed* concept carries it and some concept excludes it. The question still
+points at a machine-written concept carrying the label, through the deliberate
+crossing `_concept_labels` documents, and that concept keeps its own origin.
+
+**Consequences.** Writing a concept can add a pointer from a signed question to
+it, but can never remove what the owner ruled. The approved graph after the
+whole-Manual runs differs from before them by that one pointer (CQ-0007 →
+GC-0154).

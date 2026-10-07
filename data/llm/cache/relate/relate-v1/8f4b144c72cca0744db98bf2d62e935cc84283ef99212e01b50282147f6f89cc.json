@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004225,
+ "created_utc": "2026-10-07T11:17:55Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0001",
+ "job": "relate",
+ "key": "8f4b144c72cca0744db98bf2d62e935cc84283ef99212e01b50282147f6f89cc",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"An examiner will need to consider whether the presence of an INN stem in a word is “meaningful” enough to give rise to a connotation leading to likely deception or confusion under section 43.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"An INN stem necessarily gives rise to a connotation, irrespective of its significance within the word.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly connects the meaningful presence of an INN stem with the possibility of a connotation. The relationship is conditional, not an automatic consequence of including a stem.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour should be narrowed to an INN stem meaningfully present within a trade mark.\",\n      \"passage_ref\": \"TMM/Part29/5/5/6~1\",\n      \"neighbour\": \"GC-0023\"\n    },\n    {\n      \"quote\": \"When considering trade marks that include a clear connotation, the concept that this connotation would be understood as a fanciful or unrealistic description can also be taken into account.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"A fanciful or unrealistic description necessarily prevents a connotation from arising.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual permits consideration of whether an existing connotation would be understood as fanciful or unrealistic, qualifying its assessment rather than denying its existence. This passage does not expressly extend that treatment to every ambiguous geographic reference.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour's inclusion of ambiguous geographic references is supported by this passage.\",\n      \"passage_ref\": \"TMM/Part29/4#1\",\n      \"neighbour\": \"GC-0048\"\n    },\n    {\n      \"quote\": \"A section 43 ground for rejection should not be raised merely because a trade mark contains the image of a person. The section 43 ground for rejection should only be raised if the examiner considers that the confusing or deceptive connotation discussed above is likely to arise.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"The presence of an image of a person necessarily gives rise to a confusing or deceptive connotation.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual supports the inference that an image of a person may give rise to a connotation, while expressly rejecting mere presence as sufficient for a section 43 ground. The causal relationship is inferred from the conditional examination guidance.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether this relationship should be confined to images of well-known persons, given the passage's opening scope.\",\n      \"passage_ref\": \"TMM/Part29/6/6/1\",\n      \"neighbour\": \"GC-0030\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "92d59197738b83038f32c31b86e0853aaf89c99d1720655fa0934d078f7f2b90",
+ "response_id": "resp_03379f339591a5b4006ac62a44c23c87d29c8ac4ea30f1020e",
+ "seconds": 31.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2647,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2644
+  },
+  "output_tokens": 818,
+  "output_tokens_details": {
+   "reasoning_tokens": 134
+  },
+  "total_tokens": 3465
+ }
+}

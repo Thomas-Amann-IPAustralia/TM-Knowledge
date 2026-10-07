@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007338,
+ "created_utc": "2026-10-07T11:34:07Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0112",
+ "job": "relate",
+ "key": "509fe887672857b0f5390f93c1755c484d20b423d6c9769af8b3766219c146fe",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"This is the Protocol country through which the trade mark holder is applying.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none: the holder is mentioned only in describing the country through which an application is made.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.83,\n      \"reasoning\": \"The Manual connects the trade mark holder with the Protocol application process through a Protocol country. This supports a general relationship, but does not expressly define the holder's rights or obligations under the Madrid Protocol.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the trade mark holder mentioned here corresponds to the ontology's holder role rather than a distinct applicant role.\",\n      \"passage_ref\": \"TMM/Part60/2/2/2/2/4~1\",\n      \"neighbour\": \"GC-0132\"\n    },\n    {\n      \"quote\": \"Madrid Protocol Regulations Rule 2 Communication with the International Bureau\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo: the Madrid Protocol applies to the International Bureau.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual expressly links the Madrid Protocol Regulations with communication with the International Bureau. The citation supports a general connection, not a substantive conclusion about the Protocol's application to the Bureau.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a citation to the Madrid Protocol Regulations sufficiently supports a relationship to the Protocol itself.\",\n      \"passage_ref\": \"TMM/Part60/2/4/2/4/1\",\n      \"neighbour\": \"GC-0138\"\n    },\n    {\n      \"quote\": \"1. Name of the Office of origin This is the Protocol country through which the trade mark holder is applying.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"is_kind_of: the Office of origin is a kind of Madrid Protocol.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly identifies the Office of origin by its connection with the Protocol application process. This relates the role to the instrument without making the role a kind of that instrument.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the Manual's reference to a Protocol country should be distinguished from the Office of origin as an administrative office.\",\n      \"passage_ref\": \"TMM/Part60/2/2/2/2/4~1\",\n      \"neighbour\": \"GC-0136\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "45d48346e195cc627c8842055d0f54b1eae8e2febe4f3f607c965e38e5ed6cbb",
+ "response_id": "resp_0983c3d8e23bbe4e006ac62e115e5487d2968b04ccfc6117f0",
+ "seconds": 30.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2739,
+  "input_tokens_details": {
+   "cache_write_tokens": 2736,
+   "cached_tokens": 0
+  },
+  "output_tokens": 783,
+  "output_tokens_details": {
+   "reasoning_tokens": 179
+  },
+  "total_tokens": 3522
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007613,
+ "created_utc": "2026-10-07T08:44:02Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0056",
+ "job": "relate",
+ "key": "6f1f4c5cbf7e4cb3961d1f12b4c46982515e32ea8eece1dc1d50b798003e0093",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Section 39 of the Trade Marks Act 1995 therefore provides discretion to reject trade marks containing Australian flags or a sign so nearly resembling them as to be likely to be taken for them.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"The passage merely mentions signs and resemblance without connecting them.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly describes the resemblance test as applying to a sign compared with Australian flags. This is the Manual's account of section 39, not an independent legislative quotation.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this edge should be restricted to signs resembling prescribed Australian flags.\",\n      \"passage_ref\": \"TMM/Part31/4/4/2/2~1\",\n      \"neighbour\": \"GC-0073\"\n    },\n    {\n      \"quote\": \"Paragraph 39(2)(a) of the Trade Marks Act states that a trade mark may be rejected if it contains or consists of a sign that is prescribed in the regulations for the purposes of section 39(2), OR is a sign so nearly resembling the prescribed sign as to be likely to be taken for it (subparagraph 39(2)(b)(i)).\",\n      \"relation\": \"statesThresholdFor\",\n      \"alternative\": \"Resemblance merely relates to rejection without supplying a threshold.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual identifies resemblance sufficient for likely mistaken identification as an alternative threshold for discretionary rejection under section 39. It does not say that resemblance alone requires rejection.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the generic ground-for-rejection record needs an expressly section 39-specific edge.\",\n      \"passage_ref\": \"TMM/Part32A/2/2#1\",\n      \"neighbour\": \"GC-0053\"\n    },\n    {\n      \"quote\": \"Paragraph 39(2)(a) of the Trade Marks Act states that a trade mark may be rejected if it contains or consists of a sign that is prescribed in the regulations for the purposes of section 39(2), OR is a sign so nearly resembling the prescribed sign as to be likely to be taken for it (subparagraph 39(2)(b)(i)).\",\n      \"relation\": \"statesThresholdFor\",\n      \"alternative\": \"No relationship is supported if this neighbour denotes exclusively a section 43 objection.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.78,\n      \"reasoning\": \"Reading the neighbour's primary label as a generic ground for rejection, the passage supplies a section 39 rejection threshold. I am unsure whether its 's 43 objection' alias instead restricts this record to section 43, for which these passages provide no such relationship.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether GC-0006 is generic or confined to section 43 objections.\",\n      \"passage_ref\": \"TMM/Part32A/2/2#1\",\n      \"neighbour\": \"GC-0006\"\n    },\n    {\n      \"quote\": \"To overcome a section 42(b) ground for rejection based on a purported contravention of section 15 of the Geneva Conventions Act 1957, the applicant may be able to: obtain written consent from the Minister of Defence or a person authorised by the Minister.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"The resemblance test itself is overcome by written permission.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.75,\n      \"reasoning\": \"Read with the preceding discussion of nearly resembling emblems, written consent qualifies the rejection consequences of satisfying that test. This is an inferred connection: the Manual says consent may overcome the ground, not that it removes resemblance.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether an indirect qualification of the test's consequences should instead be represented only through the rejection ground.\",\n      \"passage_ref\": \"TMM/Part30/3/3/5~5\",\n      \"neighbour\": \"GC-0029\"\n    },\n    {\n      \"quote\": \"Under section 83(1) \\\"a person who is not a member of the Defence Force is guilty of an offence if: (a) the person uses or wears a defence emblem or an emblem so nearly resembling a defence emblem as to be capable of being mistaken for such an emblem; and (b) the person does not have the written authority of the Minister, or of a person authorised in writing by the Minister to do so.\\\"\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"Satisfying the resemblance test alone establishes use contrary to law.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"The statutory wording reproduced in the Manual supports nearly resembling defence emblems as a potential basis for unlawful use, subject to the stated membership and written-authority conditions. The connection to the general use-contrary-to-law ground is inferred rather than expressly stated for this example.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the anchor encompasses the 'capable of being mistaken' test as well as the section 39 'likely to be taken for' test.\",\n      \"passage_ref\": \"TMM/Part30/3/3/5/5~1\",\n      \"neighbour\": \"GC-0063\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "7369d1de4c4fc6f65448c1a9e617f7c72d2648b2c3b5d3e3c1af786c9698a75e",
+ "response_id": "resp_051999ff5ebd0316006ac60627478087d284877fdac0fbc550",
+ "seconds": 44.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5098,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 5095
+  },
+  "output_tokens": 1471,
+  "output_tokens_details": {
+   "reasoning_tokens": 217
+  },
+  "total_tokens": 6569
+ }
+}

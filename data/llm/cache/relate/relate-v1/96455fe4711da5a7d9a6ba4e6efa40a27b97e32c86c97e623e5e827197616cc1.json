@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00503,
+ "created_utc": "2026-10-07T08:52:26Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0087",
+ "job": "relate",
+ "key": "96455fe4711da5a7d9a6ba4e6efa40a27b97e32c86c97e623e5e827197616cc1",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Part 33 Collective Trade Marks - 5. Assignment or transmission of collective trade marks\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"Only related_to, because the passage is a cross-reference rather than a substantive rule.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"The Manual expressly identifies transmission of collective trade marks as a procedural topic. This supports the procedure's application to collective trade marks, without establishing its conditions.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a cross-reference heading sufficiently supports appliesTo.\",\n      \"passage_ref\": \"TMM/Part43/1#1~3\",\n      \"neighbour\": \"GC-0108\"\n    },\n    {\n      \"quote\": \"There are no provisions under the Trade Marks Act 1995 requiring consent from the ACCC before the transmission of a certification trade mark, whether registered or the subject of an application for registration.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"Only related_to, treating the passage solely as a statement about consent.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly discusses transmission of certification trade marks, both registered and pending registration. It therefore supports transmission applying to that subject matter.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether appliesTo adequately represents the procedural scope rather than the passage's specific consent qualification.\",\n      \"passage_ref\": \"TMM/Part43/7#1\",\n      \"neighbour\": \"GC-0107\"\n    },\n    {\n      \"quote\": \"Evidence of the consent of the ACCC to the transmission is not a pre-requisite.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"excludesBasis, which would overstate the absence of a prerequisite as exclusion of consent as a permissible basis.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.8,\n      \"reasoning\": \"The Manual expressly connects transmission of certification trade marks with consent by stating that evidence of ACCC consent is not a prerequisite. I am unsure whether this neighbour's broader label, written permission, is intended to encompass regulatory consent.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether GC-0029 encompasses ACCC consent rather than only permission to use a name.\",\n      \"passage_ref\": \"TMM/Part43/7#1\",\n      \"neighbour\": \"GC-0029\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, because amendment and transmission are listed as alternative routes to becoming the applicant.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The passage lists amendment and transmission as separate ways a person may become the applicant of the parent application. It does not state a relationship between those two procedures themselves.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether sharing an expressly stated procedural outcome should count as related_to in this ontology.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0124\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "f8f6c8178fed7352eb1e292f20105e86a1bda38a7af46a4f57c469ca51d0e8eb",
+ "response_id": "resp_0d3f3109a5afd33d006ac6082cbbd487d2a8a3c3edbe5c331a",
+ "seconds": 30.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3135,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3132
+  },
+  "output_tokens": 974,
+  "output_tokens_details": {
+   "reasoning_tokens": 224
+  },
+  "total_tokens": 4109
+ }
+}

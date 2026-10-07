@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005541,
+ "created_utc": "2026-10-07T08:31:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "label",
+ "job": "define",
+ "key": "371c5f7a7e714601107a1c36d45cf02e16d8d18f6e9474a7a04fd0e5c40c5d52",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"Treat label as ordinary packaging terminology if the ontology excludes expressly defined physical forms associated with trade marks.\",\n  \"definition_quote\": \"label includes a band or ticket.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.88,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: A label is an expressly defined item that includes a band or ticket, whose contents and presentation may be relevant to assessing use as a trade mark.\",\n  \"expert_should_check\": \"Verify the supplied TMA1995/s9/label reference and which listed provisions ground the concept; their text is not supplied.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"label\",\n  \"definition_ref\": \"TMA1995/s9/label\",\n  \"reasoning\": \"The legislative passage expressly gives label an inclusive definition, supporting a distinct concept rather than merely generic packaging terminology. The Manual passages also discuss a label's parts and presentation in assessing use as a trade mark. Label is not synonymous with the existing concepts sign or trade mark: the Manual indicates that parts of a label may perform a distinguishing function. Subject_matter is the closest group, although the supplied passages do not establish that every label is itself registrable. No listed legislative provision can be confirmed as grounding it from the supplied text.\",\n  \"not_labels\": [\n    \"sign\",\n    \"trade mark\",\n    \"descriptive matter\"\n  ],\n  \"group\": \"subject_matter\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "537240d36cf56dd468788150da73d540aab1aa13308c5fd11a05c9752f74762b",
+ "response_id": "resp_00eac1790a882156006ac6034b5c3c87d2a96c8ba3531e8930",
+ "seconds": 44.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2601,
+  "input_tokens_details": {
+   "cache_write_tokens": 2598,
+   "cached_tokens": 0
+  },
+  "output_tokens": 458,
+  "output_tokens_details": {
+   "reasoning_tokens": 128
+  },
+  "total_tokens": 3059
+ }
+}

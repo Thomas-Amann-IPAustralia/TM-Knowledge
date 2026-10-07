@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00938,
+ "created_utc": "2026-10-07T08:54:59Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0097",
+ "job": "relate",
+ "key": "c83178f2d37127d019e2df09e57b7ed65dc09239e52f667f76f17ebdce1d9579",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"In accordance with reg 21.20D, the procedures specified for oppositions to extensions of time of more than three months are to be decided by the Registrar according to the individual circumstances of each opposition.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"Use related_to because the passage describes a particular opposition procedure rather than opposition generally.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual expressly describes opposition procedures applying to extensions of time of more than three months. This relationship is limited to that class of extension, not all extensions of time.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether GC-0040 includes opposition to an extension of time, rather than only opposition to registration.\",\n      \"passage_ref\": \"TMM/Part15/6/6/2\",\n      \"neighbour\": \"GC-0040\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Treat the generic label 'opposition proceedings' as including opposition to an extension of time and use appliesTo.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.85,\n      \"reasoning\": \"The passages concern opposition to an extension of time, not opposition to registration. They do not establish a relationship with GC-0102 if its scope is opposition to registration; the overlapping generic labels leave some uncertainty.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether GC-0102 is restricted to opposition to registration.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0102\"\n    },\n    {\n      \"quote\": \"In granting an extension of time, the Registrar must be satisfied as to the grounds set out in the application and the reasons given in support of those grounds.\",\n      \"relation\": \"allocatesTo\",\n      \"alternative\": \"Use related_to because the sentence presupposes the Registrar's granting role rather than expressly conferring it.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The Manual identifies the Registrar as the decision-maker granting the extension and describes the required satisfaction. Allocation of the procedural step to that role is inferred, rather than treated as a statutory conferral of power.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether allocatesTo covers identification of a decision-maker where allocation is presupposed rather than expressly stated.\",\n      \"passage_ref\": \"TMM/Part47/1/1/3/3\",\n      \"neighbour\": \"GC-0115\"\n    },\n    {\n      \"quote\": \"They can object by filing written representations or by requesting a hearing in the matter of the extension application.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Use appliesTo from hearing to extension of time, treating the hearing as a procedure applicable to the extension request.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual connects the extension application with a hearing that the national trade mark applicant can request when objecting. The passage supports this procedural connection without making a hearing a required element of an extension.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether appliesTo is intended to cover an optional hearing concerning an extension application.\",\n      \"passage_ref\": \"TMM/Part47/1/1/3/6~1\",\n      \"neighbour\": \"GC-0128\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "874ac670f3e17e6b4ad0c51a34a3285032b8887c321db0927ad962f47739548f",
+ "response_id": "resp_0d42759db2bb7375006ac608c7581887d2a2d50c7aecb85a5c",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3485,
+  "input_tokens_details": {
+   "cache_write_tokens": 3482,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1005,
+  "output_tokens_details": {
+   "reasoning_tokens": 188
+  },
+  "total_tokens": 4490
+ }
+}

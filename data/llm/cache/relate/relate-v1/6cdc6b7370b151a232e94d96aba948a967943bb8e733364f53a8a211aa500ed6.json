@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004468,
+ "created_utc": "2026-10-07T08:44:56Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0060",
+ "job": "relate",
+ "key": "6cdc6b7370b151a232e94d96aba948a967943bb8e733364f53a8a211aa500ed6",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"For example, the ordinary signification of picture of a wheelbarrow is “this is a wheelbarrow”. Hence an imageof a wheelbarrow for wheelbarrows would not be prima facie capable of distinguishing any one trader's wheelbarrows in the marketplace.\",\"relation\":\"qualifies\",\"alternative\":\"related_to: the passage connects ordinary signification with distinguishing capacity without expressly describing it as a qualifying factor.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.87,\"reasoning\":\"The Manual uses the device’s ordinary signification to explain why it would not be prima facie capable of distinguishing for the depicted goods. This supports ordinary signification as a factor qualifying that assessment, rather than as an automatic bar for every sign.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether qualifies adequately captures the role of ordinary signification in assessing prima facie distinguishing capacity.\",\"passage_ref\":\"TMM/Part22/25/25/1\",\"neighbour\":\"GC-0119\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"A relationship might appear in fuller statutory or Manual material, but the supplied fragment does not establish one.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.99,\"reasoning\":\"The supplied statutory fragment mentions neither ordinary signification nor endorsement and provides no basis for connecting them.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the passage supplied for endorsement is incomplete or misassigned.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0100\"},{\"quote\":\"The ordinary signification of a sign is determined by reference to those ‘persons who will purchase, consume or trade in the goods’ (Cantarella at [59], see also at [75]) or ‘any person in Australia concerned with the goods’ (Cantarella at [70]), which the High Court also referred to as the ‘target audience’ (Cantarella at [28], [30] and [71]).\",\"relation\":\"appliesTo\",\"alternative\":\"related_to: ordinary signification could be modelled simply as a property of a sign rather than as an assessment applying to it.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.94,\"reasoning\":\"The Manual expressly describes determining the ordinary signification of a sign. This supports applying the ordinary-signification assessment to signs, with meaning assessed by reference to the relevant audience.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether appliesTo is appropriate for an assessment of a sign’s meaning rather than a provision applying to subject matter.\",\"passage_ref\":\"TMM/Part22/7/22/7/3\",\"neighbour\":\"GC-0073\"},{\"quote\":\"If there is a primary meaning for a sign other than the geographical name, the ordinary signification of the sign may not be that of the geographical name and the sign may be inherently adapted to distinguish the claims.\",\"relation\":\"qualifies\",\"alternative\":\"same_concept: primary meaning and ordinary signification might be treated as synonymous, but this passage instead presents the former as affecting the latter.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.92,\"reasoning\":\"The Manual expressly identifies an alternative primary meaning as a circumstance that can affect whether the ordinary signification is geographical. The relationship is conditional, not an assertion that primary meaning and ordinary signification are always identical.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the primary-meaning record denotes the audience-understood meaning contemplated by this passage.\",\"passage_ref\":\"TMM/Part22/15/15/1~2\",\"neighbour\":\"GC-0005\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "1e83bfa9f415ea7564ab7e229bbabb5a17a21275aa40eef3577950052df6abf6",
+ "response_id": "resp_008ec15ddeeb322a006ac6066acdb487d2ab529aa2fe3326b3",
+ "seconds": 30.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2911,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2908
+  },
+  "output_tokens": 864,
+  "output_tokens_details": {
+   "reasoning_tokens": 107
+  },
+  "total_tokens": 3775
+ }
+}

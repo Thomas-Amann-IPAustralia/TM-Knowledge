@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.0131,
+ "created_utc": "2026-10-07T08:34:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0019",
+ "job": "relate",
+ "key": "44e080b80c914d9a034cfc0b03e980d37d35d774beb4f969df1f5d4e884ddc00",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Geographical origin is a kind of descriptive matter.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The passages mention geographical origin and descriptive matter but do not expressly connect these concepts. The reference to 'origin' in the comparison passage concerns trade origin, not necessarily geographical origin.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the references to geographical place names clearly support classifying geographical-origin indications as descriptive matter.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0047\"\n    },\n    {\n      \"quote\": \"Note 1: Trade marks that are not [to any extent] inherently adapted to distinguish goods or services are mostly trade marks that consist wholly of a sign that is ordinarily used to indicate: a. the kind, quality, quantity, intended purpose, value, geographical origin, or some other characteristic, of goods or services; or b. the time of production of goods or of the rendering of services.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Geographical origin is a kind of sign.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The section 41 note reproduced in the Manual expressly identifies geographical origin as something a sign may indicate. No listed specific predicate captures that indicative relationship; geographical origin itself is not a sign.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a more specific predicate for 'indicates' should be added to the ontology.\",\n      \"passage_ref\": \"TMM/Part22/6/6/1\",\n      \"neighbour\": \"GC-0073\"\n    },\n    {\n      \"quote\": \"As merely a reference to origin and quality, the trade mark as a whole has no inherent adaptation to distinguish and will attract grounds for rejection under section 41(6) or 41(3) for trade mark applications with a filing date on or after 15 April 2013.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"Geographical origin necessarily entails no inherent adaptation to distinguish.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.84,\n      \"reasoning\": \"The Manual's example supports geographical-origin description as a possible basis for a finding of no inherent adaptation, here together with a quality reference. This is an inferred relationship concerning descriptive references, not a claim that geographical origin itself invariably produces that finding.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the example's combined origin-and-quality reasoning supports a separate relationship for geographical origin.\",\n      \"passage_ref\": \"TMM/Part32B/2/3/2/3/1\",\n      \"neighbour\": \"GC-0120\"\n    },\n    {\n      \"quote\": \"Note 1: Trade marks that are not inherently adapted to distinguish goods or services are mostly trade marks that consist wholly of a sign that is ordinarily used to indicate: (a) the kind, quality, quantity, intended purpose, value, geographical origin, or some other characteristic, of goods or services; or (b) the time of production of goods or of the rendering of services.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"Geographical origin necessarily excludes inherent adaptation to distinguish.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.82,\n      \"reasoning\": \"The quoted note supports treating a sign's ordinary use to indicate geographical origin as a factor qualifying the assessment of inherent adaptation. The relationship is inferred and conditional on the nature of the sign and the composition of the mark, rather than geographical origin alone.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether 'qualifies' adequately represents this factor's bearing on the assessment rather than a qualification of the legal test itself.\",\n      \"passage_ref\": \"TMM/Part23/5/5/1\",\n      \"neighbour\": \"GC-0059\"\n    },\n    {\n      \"quote\": \"For example, deception or confusion could arise in regard to the: Character of the goods and/or services including their composition, nature or other properties Quality or quantity of the goods and/or services Geographical origin of the goods and/or services Intended use or purpose of the goods and/or services Connection in the mind of the buying public with a person or organisation.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"Geographical origin is merely mentioned alongside confusion without a substantive connection.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual expressly identifies geographical origin as a subject about which confusion could arise. Mapping that statement to this predicate is inferred: the potential source is a connotation concerning geographical origin, not the geographical origin itself.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the ontology should instead represent geographical origin as the subject of confusion, rather than its potential source.\",\n      \"passage_ref\": \"TMM/Part29/3#1~1\",\n      \"neighbour\": \"GC-0004\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "44efbd7d92eec8409cc835af927ee0d8ab08a839e88b41e3b42c8b0ecb96d1b3",
+ "response_id": "resp_05c2df55238b4cf7006ac603dc058887d2af347228f5413c54",
+ "seconds": 44.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5349,
+  "input_tokens_details": {
+   "cache_write_tokens": 5346,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1283,
+  "output_tokens_details": {
+   "reasoning_tokens": 111
+  },
+  "total_tokens": 6632
+ }
+}

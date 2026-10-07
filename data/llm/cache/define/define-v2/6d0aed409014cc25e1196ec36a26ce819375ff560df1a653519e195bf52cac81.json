@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002494,
+ "created_utc": "2026-10-07T08:39:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "kiwi",
+ "job": "define",
+ "key": "6d0aed409014cc25e1196ec36a26ce819375ff560df1a653519e195bf52cac81",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"alternative\":\"Treat KIWI as an example associated with GC-0017 geographical reference and GC-0060 ordinary signification, rather than as a separate concept.\",\"definition_quote\":\"For instance, the word KIWI is defined by the Macquarie Dictionary as of or relating to New Zealand and therefore a ground for rejection may be appropriate where KIWI is a dominant part of the trade mark.\",\"alt_labels\":[\"Kiwi\"],\"confidence\":0.97,\"is_concept\":false,\"basis\":\"corpus_explicit\",\"duplicate_of\":\"\",\"notes\":\"Summary: KIWI is an ordinary word used in the Manual to illustrate a geographical association with New Zealand, not a distinct legal or procedural idea.\",\"expert_should_check\":\"Check whether illustrative words and national symbols should be retained as examples linked to existing concepts; the supplied material does not support a separate KIWI concept.\",\"legislative_basis\":[\"TMA1995/s43\"],\"pref_label\":\"KIWI\",\"definition_ref\":\"TMM/Part22/15/15/4\",\"reasoning\":\"The passages use KIWI as an example of a word suggesting a geographical relationship, Kiwi as a bird whose depiction may indicate a connection with New Zealand, and ‘Kiwi Cuvee’ as a case reference. None establishes a distinct legal or procedural meaning. The relevant ideas are already represented by geographical reference, geographical origin and ordinary signification. The supplied citation associates the term with section 43, but no text of that provision is supplied; the Manual's examples are examination practice, not legislation.\",\"not_labels\":[\"geographical reference\",\"geographical origin\",\"Kiwi Cuvee\"],\"group\":\"none_of_these\"}",
+ "prompt_version": "define-v2",
+ "request_sha256": "a3b0e126b576ea53f9e5491bd2de1dd2220f4ed304beda687374796013fdee9c",
+ "response_id": "resp_0cccf85c537d67e3006ac60518cc3887d2bac6e3300ed58fec",
+ "seconds": 29.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2726,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2723
+  },
+  "output_tokens": 471,
+  "output_tokens_details": {
+   "reasoning_tokens": 130
+  },
+  "total_tokens": 3197
+ }
+}

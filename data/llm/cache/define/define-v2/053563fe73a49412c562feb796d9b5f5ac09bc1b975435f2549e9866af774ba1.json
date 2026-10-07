@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005615,
+ "created_utc": "2026-10-07T11:14:52Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "preferred",
+ "job": "define",
+ "key": "053563fe73a49412c562feb796d9b5f5ac09bc1b975435f2549e9866af774ba1",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"Consider “preferred method” for filing documents separately; the supplied Manual passage identifies Online services as that method.\",\n  \"definition_quote\": \"While we will accept the terms “metaverse” and “web3” in specifications, the term “virtual environments” is preferred for its broad application to many contexts.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.96,\n  \"is_concept\": false,\n  \"basis\": \"corpus_inferred\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: “preferred” is an ordinary expression of preference in the supplied passages, not a standalone legal or procedural concept.\",\n  \"expert_should_check\": \"The section 6 fragment “preferred means:” is incomplete; check its full context before concluding whether it introduces a distinct statutory expression.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"preferred\",\n  \"definition_ref\": \"TMM/Part14/5/5/2/15~1\",\n  \"reasoning\": \"The Manual uses “preferred” to describe favoured specification wording and a favoured filing method, rather than a single defined idea. The cited provisions do not supply a substantive definition in the provided passages. The incomplete section 6 fragment is insufficient to establish a statutory concept. This is a generic word, not a duplicate of an existing concept.\",\n  \"not_labels\": [\n    \"preferred method\",\n    \"preferred means\"\n  ],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "768fdf34f41b9ac577e636b06e1f119920947d6b63f5582256dd0abfa0ceecc3",
+ "response_id": "resp_0035b3583cd27d60006ac6299a396487d2902375504cbeced3",
+ "seconds": 18.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2921,
+  "input_tokens_details": {
+   "cache_write_tokens": 2918,
+   "cached_tokens": 0
+  },
+  "output_tokens": 393,
+  "output_tokens_details": {
+   "reasoning_tokens": 75
+  },
+  "total_tokens": 3314
+ }
+}

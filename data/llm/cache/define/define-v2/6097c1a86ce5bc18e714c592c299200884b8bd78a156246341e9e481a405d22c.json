@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002674,
+ "created_utc": "2026-10-07T11:16:29Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "certificate of verification",
+ "job": "define",
+ "key": "6097c1a86ce5bc18e714c592c299200884b8bd78a156246341e9e481a405d22c",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"Treat as a specialised verification statement associated with a translation, rather than as a general certificate.\",\n  \"definition_quote\": \"A certificate of verification for a translated certified copy is required to be signed and dated (reg 4.11).\",\n  \"alt_labels\": [],\n  \"confidence\": 0.9,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: A certificate of verification is a statement accompanying a translation of an earlier Convention application, which the Manual says must be signed and dated when provided for a translated certified copy.\",\n  \"expert_should_check\": \"Check the complete legislative definition and its location: the supplied legislative fragment is labelled r2.1, whereas the Manual identifies r2.2 as the interpretation provision; the fragment does not disclose the statement’s required contents or who must sign it.\",\n  \"legislative_basis\": [\n    \"TMR1995/r2.2\",\n    \"TMR1995/r4.11\"\n  ],\n  \"pref_label\": \"certificate of verification\",\n  \"definition_ref\": \"TMM/Part2/3/2/3/4\",\n  \"reasoning\": \"The passages expressly identify a named statement with a specific documentary function, distinct from the existing concepts. The opposition passage associates it with an English translation of an earlier Convention application, and the signature passage explains its signing and dating requirements by reference to reg 4.11. It therefore fits instrument_or_record. The supplied legislative definition is incomplete, so the Manual passage provides the most useful available explanation; it is not itself legislation.\",\n  \"not_labels\": [\n    \"certification trade mark\",\n    \"translation of the earlier application into English\",\n    \"documentary evidence of passing of title\"\n  ],\n  \"group\": \"instrument_or_record\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "cede9f0275ae823b9e8470ab94279bf17e9afdb23f688304acf5b416eb5f82cc",
+ "response_id": "resp_087ce9c5ba425343006ac629f196d087d2855218c886b04d69",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2923,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2920
+  },
+  "output_tokens": 505,
+  "output_tokens_details": {
+   "reasoning_tokens": 110
+  },
+  "total_tokens": 3428
+ }
+}

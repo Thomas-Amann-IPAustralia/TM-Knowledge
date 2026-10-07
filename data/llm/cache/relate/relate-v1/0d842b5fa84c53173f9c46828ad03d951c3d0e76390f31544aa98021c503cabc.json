@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009483,
+ "created_utc": "2026-10-07T08:45:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0063",
+ "job": "relate",
+ "key": "0d842b5fa84c53173f9c46828ad03d951c3d0e76390f31544aa98021c503cabc",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"The examiner must consider whether a trade mark is or contains a term protected under the Wine Australia Act and whether a contrary to law ground for rejection applies under s 42 of the Trade Marks Act 1995.\",\"relation\":\"is_kind_of\",\"alternative\":\"same_concept: the contrary-to-law ground is not synonymous with grounds for rejection generally.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.98,\"reasoning\":\"The Manual expressly describes contrary to law as a ground for rejection. This supports a subtype relationship, rather than identity with the broader category.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether GC-0053 denotes the general category of grounds for rejection.\",\"passage_ref\":\"TMM/Part32B/1/1/1\",\"neighbour\":\"GC-0053\"},{\"quote\":\"The following are examples of plain word trade marks and PBR varieties/synonyms applying the s42 considerations: Trade mark under examination Existing PBR variety/synonym Contrary to law?\",\"relation\":\"appliesTo\",\"alternative\":\"none: the table does more than mention examination and contrary to law together; it presents the latter as an examination consideration.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.82,\"reasoning\":\"The Manual's examples support applying contrary-to-law considerations during examination of the illustrated plant-related marks. The connection is inferred from the table framing and should not be read as an unrestricted statement about all examination.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether appliesTo is appropriate for a ground considered during examination, rather than a provision governing examination.\",\"passage_ref\":\"TMM/Part32A/2/1/2-1-1-a-plain-word-trade-marks\",\"neighbour\":\"GC-0092\"},{\"quote\":\"The examiner must consider whether a trade mark is or contains a term protected under the Wine Australia Act and whether a contrary to law ground for rejection applies under s 42 of the Trade Marks Act 1995.\",\"relation\":\"is_kind_of\",\"alternative\":\"none: if GC-0006 denotes only a section 43 objection, the passage does not support this subtype relationship.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.7,\"reasoning\":\"Reading the neighbour's primary label generically, the Manual expressly identifies contrary to law as a ground for rejection. I am unsure whether the alias 's 43 objection' instead restricts this record to a distinct statutory ground.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether GC-0006 is a general ground-for-rejection concept or specifically a section 43 objection.\",\"passage_ref\":\"TMM/Part32B/1/1/1\",\"neighbour\":\"GC-0006\"},{\"quote\":\"Grounds for rejection for signs falling into this category will be taken under reg 4.15 (prescribed signs) or subsection 42(b) (contrary to law), as appropriate, rather than on the basis of the WIPO notification.\",\"relation\":\"related_to\",\"alternative\":\"is_kind_of: the passage does not establish that prescribed signs are a subtype of contrary-to-law use, or vice versa.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.8,\"reasoning\":\"The Manual connects prescribed signs and contrary to law as alternative bases for raising grounds in the specified category of signs. No listed predicate more precisely captures that practice relationship, and the passage does not establish equivalence or necessary overlap.\",\"modality\":\"must\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the alternative-basis connection warrants related_to rather than none.\",\"passage_ref\":\"TMM/Part31/5/5/3\",\"neighbour\":\"GC-0055\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "834b25897befd7a8535c79086abc905631766e072fd66efc5d4185c676d4c29b",
+ "response_id": "resp_08ab7c9eb08b2dca006ac6067b92a087d28bc1f17a652cc76c",
+ "seconds": 30.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3711,
+  "input_tokens_details": {
+   "cache_write_tokens": 3708,
+   "cached_tokens": 0
+  },
+  "output_tokens": 969,
+  "output_tokens_details": {
+   "reasoning_tokens": 189
+  },
+  "total_tokens": 4680
+ }
+}

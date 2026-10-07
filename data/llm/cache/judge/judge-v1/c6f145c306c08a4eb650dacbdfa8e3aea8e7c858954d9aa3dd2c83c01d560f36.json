@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002186,
+ "created_utc": "2026-10-07T12:23:29Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0081",
+ "job": "judge",
+ "key": "c6f145c306c08a4eb650dacbdfa8e3aea8e7c858954d9aa3dd2c83c01d560f36",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part55/3/3/2\",\"grade\":0},{\"ref\":\"TMM/Part60/4/27/4/27/2\",\"grade\":1},{\"ref\":\"TMM/Part38/3/3/1\",\"grade\":0},{\"ref\":\"TMM/Part55/2/2-see-akt-consultants-pty-ltd-v-alfa-laval-lund-ab-2006-70-ipr-347\",\"grade\":0},{\"ref\":\"TMM/Part62/5#1\",\"grade\":0},{\"ref\":\"TMM/Part31/4/4/4/3\",\"grade\":0},{\"ref\":\"TMM/Part54/3/3/3/2\",\"grade\":0},{\"ref\":\"TMM/Part12/3/3/3~2\",\"grade\":0},{\"ref\":\"TMM/Part54/3/3/4/3\",\"grade\":0},{\"ref\":\"TMM/Part47/3/3/2\",\"grade\":0},{\"ref\":\"TMM/Part29/4#1\",\"grade\":0},{\"ref\":\"TMM/Part52/3#1\",\"grade\":0},{\"ref\":\"TMM/Part19B/4/4/3\",\"grade\":3},{\"ref\":\"TMM/Part30/3/3/5~2\",\"grade\":0},{\"ref\":\"TMM/Part22/25/25/6\",\"grade\":0},{\"ref\":\"TMM/Part19A/2/examples-where-use-as-a-trade-mark-found~1\",\"grade\":0}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "dcaf4240f2605de0e6e5cc9a1b95ee4a23f6a4961751e1f65499b4a58491588f",
+ "response_id": "resp_0d968841740a8f91006ac639ade12087d295bf4209e913a714",
+ "seconds": 20.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3456,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3453
+  },
+  "output_tokens": 402,
+  "output_tokens_details": {
+   "reasoning_tokens": 57
+  },
+  "total_tokens": 3858
+ }
+}

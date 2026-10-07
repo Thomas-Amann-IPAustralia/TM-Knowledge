@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002055,
+ "created_utc": "2026-10-07T08:36:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "Board",
+ "job": "define",
+ "key": "11e66aba5379df3e9278c9b3f4c9b57101080cd211d76c7f722abdf667e1a2fa",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"Board has the same meaning as in the Patents Act 1990.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.86,\n  \"is_concept\": true,\n  \"basis\": \"corpus_inferred\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: Board is a defined statutory term whose meaning the Trade Marks Act 1995 adopts from the Patents Act 1990; the supplied passages do not identify the body or its functions.\",\n  \"expert_should_check\": \"Check the referenced definition in the applicable version of the Patents Act 1990 to establish the Board’s identity and confirm its classification as a process role.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"Board\",\n  \"definition_ref\": \"TMA1995/s6/board\",\n  \"reasoning\": \"Section 6 expressly defines the capitalised term by reference to another Act, supporting a distinct statutory concept not represented in the existing concepts. Classification as process_role is inferred and remains provisional because the referenced definition is not supplied. The Manual occurrences concern goods or physical boards, not this statutory term. Neither supplied passage establishes sections 41 or 42(b) as a legislative basis for Board.\",\n  \"not_labels\": [\n    \"body board\",\n    \"A-frame board\",\n    \"Board Games\"\n  ],\n  \"group\": \"process_role\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "11f2449206522745d76d343f49570d3a61ed6fc8c1e3711fa2f3c9424c04f089",
+ "response_id": "resp_09b5a6a80501e756006ac60490d37487d2b7fa6fc75e93db14",
+ "seconds": 19.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3052,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3049
+  },
+  "output_tokens": 380,
+  "output_tokens_details": {
+   "reasoning_tokens": 76
+  },
+  "total_tokens": 3432
+ }
+}

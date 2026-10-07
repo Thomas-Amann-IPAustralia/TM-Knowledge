@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00175,
+ "created_utc": "2026-10-07T08:34:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "subpoena",
+ "job": "define",
+ "key": "1c28942b7ffe3eb774fa81553e3478893d6d09c7ec29d36f15e49479d7538681",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"A subpoena is a document issued by a court, requiring the person named to attend at the court to give oral evidence and/or produce documents or other things.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.99,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: A subpoena is a court-issued document requiring a named person to attend court to give oral evidence, produce documents or other things, or both.\",\n  \"expert_should_check\": \"Check the relevance of TMA1995/s154 and TMA1995/s202(b): their text is not supplied, so their relationship to subpoenas cannot be verified from these passages.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"subpoena\",\n  \"definition_ref\": \"TMM/Part54/1/1/1\",\n  \"reasoning\": \"The Manual expressly defines a subpoena as a court-issued document and describes its service on, and handling by, the Registrar of Trade Marks. It is a distinct procedural instrument, not a goods or services category, generic phrase or existing concept. The Manual passages describe practice and court requirements; they do not establish that the cited Trade Marks Act provisions ground the concept.\",\n  \"not_labels\": [\n    \"subpoena to give evidence\",\n    \"subpoena for production\",\n    \"service of a subpoena\"\n  ],\n  \"group\": \"instrument_or_record\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "2b637197502b193eb675ff66318e0745d4f2f6db6cf9933983e2a3538c28bd2c",
+ "response_id": "resp_0ea87464fe87a403006ac60406a95887d2913818b1254e20a6",
+ "seconds": 18.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2534,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2531
+  },
+  "output_tokens": 324,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 2858
+ }
+}

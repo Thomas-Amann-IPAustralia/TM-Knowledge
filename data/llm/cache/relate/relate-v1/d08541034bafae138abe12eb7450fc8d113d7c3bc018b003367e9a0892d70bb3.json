@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005743,
+ "created_utc": "2026-10-07T11:12:52Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0006",
+ "job": "relate",
+ "key": "d08541034bafae138abe12eb7450fc8d113d7c3bc018b003367e9a0892d70bb3",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"A point of 'impasse' may be reached in the course of examining an application when the matter impeding acceptance is a ground for rejection under Part 4 Division 2 of the Act (sections 39 through 44).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"qualifies would suggest a more specific conditional relationship than the passage's statement that a ground impedes acceptance.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly identifies a ground for rejection as a matter impeding acceptance. No listed predicate specifically captures that impediment.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether an impediment to acceptance should instead be represented using qualifies.\",\n      \"passage_ref\": \"TMM/Part18/3#1\",\n      \"neighbour\": \"GC-0093\"\n    },\n    {\n      \"quote\": \"It is clear from both the Oregon and Sports Warehouse decisions (as well as from other decisions from the Courts) that once the Registrar is satisfied on the balance of probabilities that a ground for rejection does exist, then the presumption of registrability no longer forms a part of the Registrar’s decision making process.\",\n      \"relation\": \"isOvercomeBy\",\n      \"alternative\": \"related_to would preserve the connection but omit the stated displacement of the presumption.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The Manual states that the presumption ceases to form part of decision making once the Registrar is satisfied that a ground exists. The relationship is conditional on satisfaction on the balance of probabilities, not merely on raising an objection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether isOvercomeBy accurately captures the presumption ceasing to operate, rather than being rebutted.\",\n      \"passage_ref\": \"TMM/Part20/4#1~2\",\n      \"neighbour\": \"GC-0118\"\n    },\n    {\n      \"quote\": \"A ground for rejection under section 41(4) is applicable if research identifies a plant name of the relevant type that only differs from the applied for trade mark by words that are common to the trade. The trade mark as a whole would be material that others may think to use without improper motive.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to would avoid inferring that assessment of the whole mark qualifies the applicability of the ground.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.78,\n      \"reasoning\": \"The Manual connects applicability of the section 41(4) ground with the character of the trade mark as a whole. I infer that whole-mark assessment qualifies the applicability of the ground; this is not stated as a general rule for all grounds.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the whole-mark statement supplies a qualifying assessment or merely explains the preceding conclusion.\",\n      \"passage_ref\": \"TMM/Part32A/2/3/2/3/2\",\n      \"neighbour\": \"GC-0038\"\n    },\n    {\n      \"quote\": \"Example 1: A trade mark application for GOLDEN DAWN is filed in Class 31 for plants and plant material. Research shows that there is an accepted or granted PBR for ‘Golden Dawn’ for Narcissus. A s 42(b) ground for rejection should be taken as the trade mark claim notionally includes Narcissus bulbs, plants, flowers and plant tissues/cells.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"isOvercomeBy would concern amendment of the goods claimed, rather than the application itself.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual's hypothetical example supports applying a ground for rejection to a trade mark application because of the scope of its claim. This is conditional examination guidance, not a statement that every application attracts a ground.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the relationship's object should be the goods claim rather than the application containing it.\",\n      \"passage_ref\": \"TMM/Part32A/2/1/2-1-2-a-amending-the-goods\",\n      \"neighbour\": \"GC-0131\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "2d5cf87abec38e4ac755b4547a43c59e88b0637698f72705d34635654a637173",
+ "response_id": "resp_0a62b7966803d6a8006ac62917ed0c87d2afa3422e7302bd0b",
+ "seconds": 29.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3793,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3790
+  },
+  "output_tokens": 1110,
+  "output_tokens_details": {
+   "reasoning_tokens": 121
+  },
+  "total_tokens": 4903
+ }
+}

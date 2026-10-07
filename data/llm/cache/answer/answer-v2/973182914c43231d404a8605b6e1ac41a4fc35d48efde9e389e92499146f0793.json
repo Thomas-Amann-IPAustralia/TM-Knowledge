@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00299,
+ "created_utc": "2026-10-07T12:28:12Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0086",
+ "job": "answer",
+ "key": "973182914c43231d404a8605b6e1ac41a4fc35d48efde9e389e92499146f0793",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0075\",\"GC-0110\",\"GC-0064\",\"GC-0093\",\"GC-0070\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part12/8#1\",\"quote\":\"Before accepting, or recommending acceptance of, an application where a citation has lapsed or has been amended to delete the conflicting goods and/or services, it is always necessary to check whether a divisional application based on a citation has been filed.\"},{\"ref\":\"TMM/Part12/8#1\",\"quote\":\"If a divisional application based on a cited mark has been filed, late grounds for rejection must be raised based on the divisional application against the application under examination if the goods and/or services are still similar to the subject trade mark.\"}],\"answer\":\"Yes—in the circumstances specified by the Manual. Under Manual practice, before accepting or recommending acceptance where a citation has lapsed or been amended to delete conflicting goods or services, the examiner must check whether a divisional application based on that citation has been filed [TMM/Part12/8#1].\\n\\nThe Manual also says that, if such a divisional has been filed and the goods or services are still similar, late grounds for rejection must be raised based on the divisional [TMM/Part12/8#1]. These are statements of Manual practice, not quotations from legislation.\\n\\nThe supplied passages do not address the effect of a design registration or establish a design-registration exception to that check. I therefore cannot confirm any design-specific rule from these materials; the answer above explains the general examination practice, not how your particular application would be decided.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "3f3ba7898ca1667124e3f82c423c646cccff426f1c63b19c595c4032e92013c8",
+ "response_id": "resp_07c1e89c843061f9006ac63ac0e84c87d296978a6524d32334",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7638,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7635
+  },
+  "output_tokens": 521,
+  "output_tokens_details": {
+   "reasoning_tokens": 163
+  },
+  "total_tokens": 8159
+ }
+}

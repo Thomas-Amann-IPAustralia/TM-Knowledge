@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015151,
+ "created_utc": "2026-10-07T12:14:57Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0006",
+ "job": "answer",
+ "key": "4f6963e72f6c0577d32ed05381c88523ee40187f7cc236f99fec43db960ffa99",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0097\", \"GC-0102\", \"GC-0103\", \"GC-0153\", \"GC-0156\", \"GC-0115\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMA1995/s52\",\n      \"quote\": \"(2) The notice of opposition must be filed: (a) in accordance with the regulations; and (b) within the prescribed period, or within that period as extended in accordance with the regulations or in accordance with subsection (5).\"\n    },\n    {\n      \"ref\": \"TMM/Part47/1/1/3/2\",\n      \"quote\": \"The application for an extension of time to file a notice of intention to oppose or a statement of grounds and particulars must be filed with the Trade Marks Office in an approved form and accompanied by the relevant fee (see item 6 in Schedule 9 of the Trade Marks Regulations 1995). The application will not be processed until the fee is paid.\"\n    },\n    {\n      \"ref\": \"TMM/Part47/1/1/3/2\",\n      \"quote\": \"A form is available on IP Australia’s website. An opponent is not required to use this form however it may be useful as a guide.\"\n    },\n    {\n      \"ref\": \"TMM/Part47/1/1/3/2\",\n      \"quote\": \"The application must be accompanied by a declaration which complies with reg 21.6, setting out the reasons in support of the grounds on which the application is made. If the initial period has expired, the declaration should also include the reason why the application was not made within the period (regs 5.9, 17A.34C).\"\n    },\n    {\n      \"ref\": \"TMM/Part47/1/1/3/3\",\n      \"quote\": \"In granting an extension of time, the Registrar must be satisfied as to the grounds set out in the application and the reasons given in support of those grounds. If the extension application was filed out of time, the Registrar must also be satisfied that there was sufficient reason for the application not being made within time (regs 5.10, 17A.34D).\"\n    }\n  ],\n  \"answer\": \"For an opposition to registration, lodge the following with the Trade Marks Office:\\n\\n1. **An application for an extension of time**, in an approved form, identifying whether you seek more time to file the notice of intention to oppose or the statement of grounds and particulars.\\n2. **The relevant fee.** The Manual says the request will not be processed until it is paid. [TMM/Part47/1/1/3/2]\\n3. **A supporting declaration complying with reg 21.6**, explaining the reasons supporting your grounds for an extension. Because the deadline has expired, the Manual says the declaration should also explain why the extension application was not made within the original period. [TMM/Part47/1/1/3/2]\\n\\n**Manual practice:** IP Australia provides a form on its website, but the Manual says using that particular form is not compulsory. The approved-form requirement still applies. [TMM/Part47/1/1/3/2]\\n\\nFor a late request, the Manual says the Registrar must be satisfied both about the grounds and supporting reasons, and that there was sufficient reason for not applying within time. This is not a prediction that your request will succeed. [TMM/Part47/1/1/3/3]\\n\\n**Act:** Section 52(2) recognises filing within an extended opposition period. [TMA1995/s52]\\n\\n**Limit of the supplied material:** The Regulations themselves are not reproduced here. I cannot give the declaration’s detailed formal requirements, a complete list of allowable extension grounds or the fee amount from these extracts.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "96823ff5fc4baf223ef6812796ac15405a96220f36e5c9c43ee6b64654fde09d",
+ "response_id": "resp_03fbf64125b0d2d1006ac637a54ad487d2a47e63fe4dde8ca8",
+ "seconds": 29.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8029,
+  "input_tokens_details": {
+   "cache_write_tokens": 8026,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1023,
+  "output_tokens_details": {
+   "reasoning_tokens": 179
+  },
+  "total_tokens": 9052
+ }
+}

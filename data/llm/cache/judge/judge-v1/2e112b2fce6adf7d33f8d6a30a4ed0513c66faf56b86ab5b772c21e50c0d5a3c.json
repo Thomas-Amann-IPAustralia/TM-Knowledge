@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002759,
+ "created_utc": "2026-10-07T12:21:25Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0061",
+ "job": "judge",
+ "key": "2e112b2fce6adf7d33f8d6a30a4ed0513c66faf56b86ab5b772c21e50c0d5a3c",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/computer-services\",\"grade\":1},{\"ref\":\"TMM/Part5/3#1\",\"grade\":0},{\"ref\":\"TMM/Part15/2#1\",\"grade\":0},{\"ref\":\"TMM/Part31/4/4/3\",\"grade\":0},{\"ref\":\"TMM/Part14/4/4/6/2\",\"grade\":1},{\"ref\":\"TMM/Part38/2/2/2\",\"grade\":0},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring-services\",\"grade\":3},{\"ref\":\"TMM/Part14/1#1~1\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/3/2\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/9/2\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/online-services\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/auditing\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/4\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/8/2~1\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring\",\"grade\":3},{\"ref\":\"TMM/Part14/4/4/8/1\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/tracking-services\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/8/2~2\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "b66bf90c64284ee0b7fae568d77167522d17b5276cfa57fa16ed7f60757274bd",
+ "response_id": "resp_0765f87ca3894a12006ac639312cb087d2bb05d3ed53662a2c",
+ "seconds": 21.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3319,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3316
+  },
+  "output_tokens": 518,
+  "output_tokens_details": {
+   "reasoning_tokens": 77
+  },
+  "total_tokens": 3837
+ }
+}

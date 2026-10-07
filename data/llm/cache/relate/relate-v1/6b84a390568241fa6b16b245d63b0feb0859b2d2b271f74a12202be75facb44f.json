@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008484,
+ "created_utc": "2026-10-07T08:36:21Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0028",
+ "job": "relate",
+ "key": "6b84a390568241fa6b16b245d63b0feb0859b2d2b271f74a12202be75facb44f",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"When faced with this type of reference it is important to remember that the connotation must be from the trade mark itself and not from any other external considerations such as a reputation in another trade mark.\",\n      \"relation\": \"excludesBasis\",\n      \"alternative\": \"Reputation supplies a basis for the implied endorsement.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual expressly excludes reputation in another trade mark as the source of the endorsement connotation. This is a statement of examination practice, not a legislative provision.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether GC-0130 covers the specific reputation in another trade mark excluded here, rather than reputation more broadly.\",\n      \"passage_ref\": \"TMM/Part29/9/9/7\",\n      \"neighbour\": \"GC-0130\"\n    },\n    {\n      \"quote\": \"The particular currency (or relevance) that the reference currently has and the extent to which it is well known are also important considerations.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"The reference's fame necessarily gives rise to an implied endorsement.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"In the discussion of endorsement connotations, the Manual identifies how well known the reference is as an important consideration. This supports treating fame as qualifying the assessment, rather than independently establishing endorsement.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether GC-0050 denotes the reference's fame, rather than the external trade mark reputation excluded by the preceding sentence.\",\n      \"passage_ref\": \"TMM/Part29/9/9/7\",\n      \"neighbour\": \"GC-0050\"\n    },\n    {\n      \"quote\": \"The inclusion of such material may result in ordinary consumers being deceived and confused on the basis of incorrectly believing that the trade mark indicates an endorsement or approval from the party or parties that own and have control over the well- known material.\",\n      \"relation\": \"same_concept\",\n      \"alternative\": \"GC-0014 denotes a distinct exception involving express endorsement wording.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.76,\n      \"reasoning\": \"The passage describes suggested endorsement or approval, matching the anchor and GC-0014's alias 'suggested endorsement'. I am unsure whether GC-0014's exception grouping instead denotes a separate concept; no such exception is stated here.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether GC-0014 is the same suggested-endorsement concept or a distinct exception involving endorsement wording.\",\n      \"passage_ref\": \"TMM/Part29/9/9/7\",\n      \"neighbour\": \"GC-0014\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"The shared word 'endorsement' identifies the same concept.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The passage discusses consumers' belief in approval, not an endorsement as an instrument or record. It does not support linking implied endorsement to the record concept indicated by GC-0100's grouping.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether GC-0100 actually denotes a formal record endorsement rather than commercial approval.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0100\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "14a747cc1c72e6c3a496dd36e6c00e049fde900e30cf93220e128b0040979e91",
+ "response_id": "resp_0bb5dc1506fb8bb2006ac60469d04487d291068cc98d710924",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3036,
+  "input_tokens_details": {
+   "cache_write_tokens": 3033,
+   "cached_tokens": 0
+  },
+  "output_tokens": 938,
+  "output_tokens_details": {
+   "reasoning_tokens": 126
+  },
+  "total_tokens": 3974
+ }
+}

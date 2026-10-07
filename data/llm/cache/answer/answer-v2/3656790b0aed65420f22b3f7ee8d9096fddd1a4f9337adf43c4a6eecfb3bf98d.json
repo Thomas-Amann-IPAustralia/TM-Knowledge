@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002462,
+ "created_utc": "2026-10-07T12:25:24Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0083",
+ "job": "answer",
+ "key": "3656790b0aed65420f22b3f7ee8d9096fddd1a4f9337adf43c4a6eecfb3bf98d",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0102\", \"GC-0153\", \"GC-0117\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMR1995/r5.2\",\n      \"quote\": \"statement of grounds and particulars means a statement by an opponent that sets out: (a) the grounds on which the opponent intends to rely; and (b) the facts and circumstances forming the basis for the grounds.\"\n    },\n    {\n      \"ref\": \"TMM/Part47/1/1/2/3~1\",\n      \"quote\": \"The Registrar's delegate must assess the adequacy of the statement of grounds and particulars (regs 5.8, 17A.34B).\"\n    }\n  ],\n  \"answer\": \"The supplied passages do not answer who must pay the extra fee, or specify the free limits for grounds or trade marks.\\n\\nThe Regulations identify the statement of grounds and particulars as a statement by the opponent (TMR1995/r5.2), but that does not establish who is liable for an excess fee. The cited Manual practice concerns assessing the statement’s adequacy, not excess fees (TMM/Part47/1/1/2/3~1).\\n\\nI cannot identify the payer from these sources; the relevant fee provision would be needed.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "82733ca7ac87e1f655ef041079d595bce7da3185db1c8c27bea43dc5b384c6d9",
+ "response_id": "resp_04bbc17b302dda07006ac63a231e1c87d2bbd7b4c3ed87da7e",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8575,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 8572
+  },
+  "output_tokens": 406,
+  "output_tokens_details": {
+   "reasoning_tokens": 102
+  },
+  "total_tokens": 8981
+ }
+}

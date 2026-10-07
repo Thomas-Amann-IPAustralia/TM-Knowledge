@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004296,
+ "created_utc": "2026-10-07T11:14:20Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0014",
+ "job": "relate",
+ "key": "40589597572e12caa7b06a5e65c06f10a879219be0948bc090a799714bfd97fa",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Where permission is provided, this should be made clear by way of an endorsement. For example: The representation in the trade mark is that of <name of well-known person> who has consented to the use of their image as a trade mark.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo would suggest a broader application of endorsements to well-known persons, rather than the specific recording of permission described here.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual connects an endorsement with recording a well-known person’s permission to use their image as a trade mark. None of the more specific predicates precisely captures that recording function.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the anchor includes consent-recording endorsements, rather than only wording suggesting commercial endorsement.\",\n      \"passage_ref\": \"TMM/Part29/6/6/1\",\n      \"neighbour\": \"GC-0026\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, on the basis that both endorsements and fanciful descriptions occur in the discussion of section 43.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The passage discusses an unnecessary restrictive endorsement and, separately, taking fanciful or unrealistic descriptions into account. It does not connect those two concepts.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether any relationship between the two concepts is clearly implied by the supplied extract.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0048\"\n    },\n    {\n      \"quote\": \"This description will be entered as an endorsement of the registration and will thereby serve to define the scope of the registration.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"appliesTo, which captures the use of endorsements for shape trade marks but not their scope-defining function.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"In the context of shape trade marks, the Manual states that the descriptive endorsement defines the registration’s scope. I read this as the endorsement qualifying the scope of the shape trade mark, although that mapping is inferential.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether qualifies can link the endorsement to the shape trade mark itself, rather than requiring a separate registration-scope concept.\",\n      \"passage_ref\": \"TMM/Part10/3/3/2/2\",\n      \"neighbour\": \"GC-0075\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "73f8dca50842680639fa27360978eb6ea6296863e8ace17bd21a4dc6f2c335a1",
+ "response_id": "resp_09892c7f2691dc79006ac62970502c87d296a9a13bf59e8401",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2965,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2962
+  },
+  "output_tokens": 829,
+  "output_tokens_details": {
+   "reasoning_tokens": 212
+  },
+  "total_tokens": 3794
+ }
+}

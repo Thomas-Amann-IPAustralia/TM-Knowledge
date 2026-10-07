@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005732,
+ "created_utc": "2026-10-07T08:30:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "prescribed court",
+ "job": "define",
+ "key": "085076a0a7b1eef5cf331bd47e5f84aafc70632faec90208b89156a2304443ad",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"Each of the following courts is a prescribed court for the purposes of this Act: (a) the Federal Court; (aa) the Federal Circuit and Family Court of Australia (Division 2); (b) the Supreme Court of a State; (c) the Supreme Court of the Australian Capital Territory; (d) the Supreme Court of the Northern Territory; (e) the Supreme Court of Norfolk Island.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.99,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: A prescribed court is one of the courts designated by section 190 for the purposes of the Trade Marks Act 1995.\",\n  \"expert_should_check\": \"Check the currency of the supplied section 190 court list before using it as a statement of current law.\",\n  \"legislative_basis\": [\n    \"TMA1995/s6\",\n    \"TMA1995/s190\"\n  ],\n  \"pref_label\": \"prescribed court\",\n  \"definition_ref\": \"TMA1995/s190\",\n  \"reasoning\": \"The term names an expressly defined statutory class of courts, not a generic phrase or an existing concept. Section 6 refers to section 190, which supplies the substantive list and is therefore preferred for the definition quote. The process_role group fits because these courts are bodies in which proceedings under the Act may be brought. The Manual passages describe deferment practice associated with court proceedings; they do not define the statutory class. Other cited provisions are not supplied in full, so their precise contribution cannot be confirmed from these passages.\",\n  \"not_labels\": [\n    \"Administrative Review Tribunal (ART)\",\n    \"Registrar\"\n  ],\n  \"group\": \"process_role\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "291ba7e42d00abe0f8a8b458705857112dcb45d436501fb7a711b155510aa28e",
+ "response_id": "resp_0bb99750710230d2006ac602fc1a9487d2892d70802144cfbf",
+ "seconds": 28.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3030,
+  "input_tokens_details": {
+   "cache_write_tokens": 3027,
+   "cached_tokens": 0
+  },
+  "output_tokens": 389,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 3419
+ }
+}

@@ -1,0 +1,1727 @@
+{
+ "cases": {
+  "helped": [
+   {
+    "hybrid": 0.6475874573061806,
+    "key": "BN-0074",
+    "kind": "cross_part",
+    "ontology": 0.9083247466157296,
+    "question": "When two series marks use the same common surname and initial, is that usually the part people focus on to compare them?"
+   },
+   {
+    "hybrid": 0.6536440362379365,
+    "key": "BN-0052",
+    "kind": "impact",
+    "ontology": 0.8781146210127436,
+    "question": "Which Registrar decisions can I take to court, and what happens if there is no appeal right in the Act?"
+   },
+   {
+    "hybrid": 0.6933243695005504,
+    "key": "BN-0042",
+    "kind": "problem",
+    "ontology": 0.8692783878774748,
+    "question": "Could a name or symbol in my mark be left out if it is likely to confuse people?"
+   },
+   {
+    "hybrid": 0.7598703458119667,
+    "key": "BN-0034",
+    "kind": "problem",
+    "ontology": 0.9078639626754935,
+    "question": "What do I do if the goods and services wording in my international trade mark application does not fit the usual classification terms?"
+   }
+  ],
+  "hurt": [
+   {
+    "hybrid": 0.8971849102972047,
+    "key": "BN-0115",
+    "kind": "impact",
+    "ontology": 0.1200101394090263,
+    "question": "If the Registrar issues a notice to produce, who gets it and what has to happen next?"
+   },
+   {
+    "hybrid": 0.8572048559638626,
+    "key": "BN-0085",
+    "kind": "problem",
+    "ontology": 0.30523488393970116,
+    "question": "Can I object if the problem is really about a similar business name, not what\u2019s in the mark itself?"
+   },
+   {
+    "hybrid": 0.8675063637446014,
+    "key": "BN-0078",
+    "kind": "cross_part",
+    "ontology": 0.3238531104127581,
+    "question": "Can I file one trade mark application in more than one class?"
+   },
+   {
+    "hybrid": 0.8852476608563782,
+    "key": "BN-0107",
+    "kind": "impact",
+    "ontology": 0.3827987800865433,
+    "question": "Who has to sign the supporting declaration for an application, and what does it need to say about other traders using the mark?"
+   }
+  ]
+ },
+ "rows": [
+  {
+   "key": "BN-0001",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.8224602899576435,
+   "ndcg:keyword": 0.6979617233087799,
+   "ndcg:ontology": 0.7249548173938801,
+   "recall:hybrid": 0.8571428571428571,
+   "recall:keyword": 0.5714285714285714,
+   "recall:ontology": 0.7142857142857143,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0002",
+   "kind": "problem",
+   "ndcg:hybrid": 0.4425521415123179,
+   "ndcg:keyword": 0.49332425757718157,
+   "ndcg:ontology": 0.0857995644911883,
+   "recall:hybrid": 0.5,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.0,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0003",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.9280986516744872,
+   "ndcg:keyword": 0.8919319919813765,
+   "ndcg:ontology": 0.9079408006030164,
+   "recall:hybrid": 0.5625,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.5625,
+   "relevant": 16
+  },
+  {
+   "key": "BN-0004",
+   "kind": "impact",
+   "ndcg:hybrid": 0.9467783479966939,
+   "ndcg:keyword": 0.2827699073751236,
+   "ndcg:ontology": 0.9467783479966939,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 1
+  },
+  {
+   "key": "BN-0005",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.8440382539017024,
+   "ndcg:keyword": 0.7097548547795044,
+   "ndcg:ontology": 0.7919713158396705,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.75,
+   "recall:ontology": 0.75,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0006",
+   "kind": "problem",
+   "ndcg:hybrid": 0.7680372757919185,
+   "ndcg:keyword": 0.4266563076614683,
+   "ndcg:ontology": 0.8070043184302077,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.0,
+   "recall:ontology": 1.0,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0007",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.9339091084314125,
+   "ndcg:keyword": 0.7532583011598041,
+   "ndcg:ontology": 0.9339091084314125,
+   "recall:hybrid": 0.8333333333333334,
+   "recall:keyword": 0.5833333333333334,
+   "recall:ontology": 0.8333333333333334,
+   "relevant": 12
+  },
+  {
+   "key": "BN-0008",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8588629907712854,
+   "ndcg:keyword": 0.9087951779956669,
+   "ndcg:ontology": 0.9799224952193613,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0009",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9872314527775939,
+   "ndcg:keyword": 0.7111498379361267,
+   "ndcg:ontology": 0.6191986799427884,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.5555555555555556,
+   "recall:ontology": 0.5555555555555556,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0010",
+   "kind": "problem",
+   "ndcg:hybrid": 0.817739979520738,
+   "ndcg:keyword": 0.49533930024795986,
+   "ndcg:ontology": 0.7131416899163091,
+   "recall:hybrid": 0.75,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.75,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0011",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.8511762444754661,
+   "ndcg:keyword": 0.7563334124823566,
+   "ndcg:ontology": 0.848832827250733,
+   "recall:hybrid": 0.5,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.7,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0012",
+   "kind": "impact",
+   "ndcg:hybrid": 0.6231594856864598,
+   "ndcg:keyword": 0.8591130715410661,
+   "ndcg:ontology": 0.7590496901417033,
+   "recall:hybrid": 0.6,
+   "recall:keyword": 0.8,
+   "recall:ontology": 0.8,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0013",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.7827068917847372,
+   "ndcg:keyword": 0.694355946562825,
+   "ndcg:ontology": 0.7827068917847372,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.0,
+   "recall:ontology": 1.0,
+   "relevant": 1
+  },
+  {
+   "key": "BN-0014",
+   "kind": "problem",
+   "ndcg:hybrid": 0.9871991354393648,
+   "ndcg:keyword": 0.5648192565155434,
+   "ndcg:ontology": 0.7837767168288474,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.375,
+   "recall:ontology": 0.625,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0015",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.8519293429682218,
+   "ndcg:keyword": 0.6826039612664936,
+   "ndcg:ontology": 0.5696055501035626,
+   "recall:hybrid": 0.875,
+   "recall:keyword": 0.625,
+   "recall:ontology": 0.375,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0016",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8496485774900746,
+   "ndcg:keyword": 0.8279870801489959,
+   "ndcg:ontology": 0.9194008784906641,
+   "recall:hybrid": 0.6,
+   "recall:keyword": 0.8,
+   "recall:ontology": 0.8,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0017",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.8746442192270774,
+   "ndcg:keyword": 0.8382563938477572,
+   "ndcg:ontology": 0.8518072997977832,
+   "recall:hybrid": 0.8,
+   "recall:keyword": 0.8,
+   "recall:ontology": 0.8,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0018",
+   "kind": "problem",
+   "ndcg:hybrid": 0.860281773226428,
+   "ndcg:keyword": 0.7619480479587543,
+   "ndcg:ontology": 0.770501043038983,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0019",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.5054362225873951,
+   "ndcg:keyword": 0.4860282109914817,
+   "ndcg:ontology": 0.5054362225873951,
+   "recall:hybrid": 0.5,
+   "recall:keyword": 1.0,
+   "recall:ontology": 0.5,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0020",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8785611583708215,
+   "ndcg:keyword": 0.7261325085361642,
+   "ndcg:ontology": 0.8313520141060007,
+   "recall:hybrid": 0.75,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.75,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0021",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.7044902911291966,
+   "ndcg:keyword": 0.5040769908834082,
+   "ndcg:ontology": 0.7676954211827944,
+   "recall:hybrid": 0.5,
+   "recall:keyword": 0.5,
+   "recall:ontology": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0022",
+   "kind": "problem",
+   "ndcg:hybrid": 0.8682272149737348,
+   "ndcg:keyword": 0.8829588836448371,
+   "ndcg:ontology": 0.8178098445036313,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0023",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.9484040261189682,
+   "ndcg:keyword": 0.8937274626486406,
+   "ndcg:ontology": 0.589770054459673,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 0.6666666666666666,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0024",
+   "kind": "impact",
+   "ndcg:hybrid": 0.9408803699566423,
+   "ndcg:keyword": 0.7935876992662333,
+   "ndcg:ontology": 0.7863639746437394,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 1
+  },
+  {
+   "key": "BN-0025",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.8986541385239157,
+   "ndcg:keyword": 0.3416802281756763,
+   "ndcg:ontology": 0.8986541385239157,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 1
+  },
+  {
+   "key": "BN-0026",
+   "kind": "problem",
+   "ndcg:hybrid": 0.9467730236530674,
+   "ndcg:keyword": 0.6558075620350039,
+   "ndcg:ontology": 0.9467730236530674,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.5,
+   "recall:ontology": 1.0,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0027",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.9518139052127533,
+   "ndcg:keyword": 0.9890281390150232,
+   "ndcg:ontology": 0.9518139052127533,
+   "recall:hybrid": 0.8571428571428571,
+   "recall:keyword": 1.0,
+   "recall:ontology": 0.8571428571428571,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0028",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8949472303259611,
+   "ndcg:keyword": 0.44282795567867134,
+   "ndcg:ontology": 0.8949472303259611,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.4,
+   "recall:ontology": 1.0,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0029",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.6913524040223986,
+   "ndcg:keyword": 0.7119039099941492,
+   "ndcg:ontology": 0.8238773360101015,
+   "recall:hybrid": 0.4,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.7,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0030",
+   "kind": "problem",
+   "ndcg:hybrid": 0.9212408946300163,
+   "ndcg:keyword": 0.8513483949357025,
+   "ndcg:ontology": 0.9212408946300163,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.6,
+   "recall:ontology": 1.0,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0031",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.9110490367914239,
+   "ndcg:keyword": 0.3211534464704161,
+   "ndcg:ontology": 0.6393077925568296,
+   "recall:hybrid": 0.7142857142857143,
+   "recall:keyword": 0.42857142857142855,
+   "recall:ontology": 0.5714285714285714,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0032",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8632178275539621,
+   "ndcg:keyword": 0.8316300590340351,
+   "ndcg:ontology": 0.9345235088301861,
+   "recall:hybrid": 0.8333333333333334,
+   "recall:keyword": 0.8333333333333334,
+   "recall:ontology": 0.8333333333333334,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0033",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.8054150603611414,
+   "ndcg:keyword": 0.8050654861361963,
+   "ndcg:ontology": 0.7708113824603846,
+   "recall:hybrid": 0.5,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.4,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0034",
+   "kind": "problem",
+   "ndcg:hybrid": 0.7598703458119667,
+   "ndcg:keyword": 0.5465176397291128,
+   "ndcg:ontology": 0.9078639626754935,
+   "recall:hybrid": 0.46153846153846156,
+   "recall:keyword": 0.3076923076923077,
+   "recall:ontology": 0.6153846153846154,
+   "relevant": 13
+  },
+  {
+   "key": "BN-0035",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.8983468040632535,
+   "ndcg:keyword": 0.13299959672296136,
+   "ndcg:ontology": 0.8983468040632535,
+   "recall:hybrid": 0.8888888888888888,
+   "recall:keyword": 0.1111111111111111,
+   "recall:ontology": 0.8888888888888888,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0036",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8217922298677324,
+   "ndcg:keyword": 0.9064432670257093,
+   "ndcg:ontology": 0.7778124578062487,
+   "recall:hybrid": 0.625,
+   "recall:keyword": 0.75,
+   "recall:ontology": 0.5,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0037",
+   "kind": "lookup",
+   "ndcg:hybrid": 1.0,
+   "ndcg:keyword": 0.7835281790963998,
+   "ndcg:ontology": 1.0,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0038",
+   "kind": "problem",
+   "ndcg:hybrid": 0.8343927298577911,
+   "ndcg:keyword": 0.8783854467112802,
+   "ndcg:ontology": 0.8343927298577911,
+   "recall:hybrid": 0.625,
+   "recall:keyword": 0.875,
+   "recall:ontology": 0.625,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0039",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.7445164254491617,
+   "ndcg:keyword": 0.7582082253241579,
+   "ndcg:ontology": 0.5924949875045793,
+   "recall:hybrid": 0.6666666666666666,
+   "recall:keyword": 0.8333333333333334,
+   "recall:ontology": 0.16666666666666666,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0040",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8672555507249972,
+   "ndcg:keyword": 0.8031487907569138,
+   "ndcg:ontology": 0.9678197446124887,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.6666666666666666,
+   "recall:ontology": 1.0,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0041",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9560296388000018,
+   "ndcg:keyword": 0.9597093503628127,
+   "ndcg:ontology": 0.9120592776000036,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 0.5,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0042",
+   "kind": "problem",
+   "ndcg:hybrid": 0.6933243695005504,
+   "ndcg:keyword": 0.7456390622217693,
+   "ndcg:ontology": 0.8692783878774748,
+   "recall:hybrid": 0.4,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.7,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0043",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.6543357658296565,
+   "ndcg:keyword": 0.6283128411949584,
+   "ndcg:ontology": 0.6666396323118643,
+   "recall:hybrid": 0.42857142857142855,
+   "recall:keyword": 0.42857142857142855,
+   "recall:ontology": 0.5714285714285714,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0044",
+   "kind": "impact",
+   "ndcg:hybrid": 0.9464004029551656,
+   "ndcg:keyword": 0.8898102420327176,
+   "ndcg:ontology": 0.9464004029551656,
+   "recall:hybrid": 0.8181818181818182,
+   "recall:keyword": 0.7272727272727273,
+   "recall:ontology": 0.8181818181818182,
+   "relevant": 11
+  },
+  {
+   "key": "BN-0045",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9194189105381032,
+   "ndcg:keyword": 0.7960420112934496,
+   "ndcg:ontology": 0.7771961353951649,
+   "recall:hybrid": 0.8333333333333334,
+   "recall:keyword": 0.3333333333333333,
+   "recall:ontology": 0.6666666666666666,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0046",
+   "kind": "problem",
+   "ndcg:hybrid": 0.9257719708135268,
+   "ndcg:keyword": 0.7000292752521878,
+   "ndcg:ontology": 0.9257719708135268,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.6666666666666666,
+   "recall:ontology": 1.0,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0047",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.8669644304284739,
+   "ndcg:keyword": 0.9421647879145743,
+   "ndcg:ontology": 0.970285978401609,
+   "recall:hybrid": 0.7,
+   "recall:keyword": 0.8,
+   "recall:ontology": 0.9,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0048",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8133122314445369,
+   "ndcg:keyword": 0.3324191850375721,
+   "ndcg:ontology": 0.6871911255433195,
+   "recall:hybrid": 0.7142857142857143,
+   "recall:keyword": 0.42857142857142855,
+   "recall:ontology": 0.7142857142857143,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0049",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.8672425608848895,
+   "ndcg:keyword": 0.9005944730351809,
+   "ndcg:ontology": 0.9601008513235324,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0050",
+   "kind": "problem",
+   "ndcg:hybrid": 0.9827123336910931,
+   "ndcg:keyword": 0.8124380673943875,
+   "ndcg:ontology": 0.9827123336910931,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.6666666666666666,
+   "recall:ontology": 1.0,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0051",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.639765353420552,
+   "ndcg:keyword": 0.6002799710870971,
+   "ndcg:ontology": 0.6778155354734703,
+   "recall:hybrid": 0.5,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.5,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0052",
+   "kind": "impact",
+   "ndcg:hybrid": 0.6536440362379365,
+   "ndcg:keyword": 0.6280411192984051,
+   "ndcg:ontology": 0.8781146210127436,
+   "recall:hybrid": 0.5555555555555556,
+   "recall:keyword": 0.5555555555555556,
+   "recall:ontology": 0.7777777777777778,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0053",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9050480771139313,
+   "ndcg:keyword": 0.8201367149491171,
+   "ndcg:ontology": 0.9001965554579634,
+   "recall:hybrid": 0.7142857142857143,
+   "recall:keyword": 0.7142857142857143,
+   "recall:ontology": 0.7142857142857143,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0054",
+   "kind": "problem",
+   "ndcg:hybrid": 0.8186708372816823,
+   "ndcg:keyword": 0.6325961170025665,
+   "ndcg:ontology": 0.6552062481455674,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.5,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0055",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.9087557246958551,
+   "ndcg:keyword": 0.9782830277460698,
+   "ndcg:ontology": 0.8990522291177194,
+   "recall:hybrid": 0.6666666666666666,
+   "recall:keyword": 1.0,
+   "recall:ontology": 0.6666666666666666,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0056",
+   "kind": "impact",
+   "ndcg:hybrid": 0.9157841334667697,
+   "ndcg:keyword": 0.8273218908136153,
+   "ndcg:ontology": 0.8968628249445385,
+   "recall:hybrid": 0.6666666666666666,
+   "recall:keyword": 0.5,
+   "recall:ontology": 1.0,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0057",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9022220688738393,
+   "ndcg:keyword": 0.5876477470009699,
+   "ndcg:ontology": 0.6383052874377176,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.25,
+   "recall:ontology": 0.5,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0058",
+   "kind": "problem",
+   "ndcg:hybrid": 0.8503449055347546,
+   "ndcg:keyword": 0.0,
+   "ndcg:ontology": 0.8503449055347546,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.0,
+   "recall:ontology": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0059",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.9771186401765392,
+   "ndcg:keyword": 0.9054449977505815,
+   "ndcg:ontology": 0.9771186401765392,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0060",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8273608119456781,
+   "ndcg:keyword": 0.8106083306620322,
+   "ndcg:ontology": 0.7714091961726945,
+   "recall:hybrid": 0.6,
+   "recall:keyword": 0.6,
+   "recall:ontology": 0.5,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0061",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9173302514290901,
+   "ndcg:keyword": 0.823586844669514,
+   "ndcg:ontology": 0.7915805917934893,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0062",
+   "kind": "problem",
+   "ndcg:hybrid": 0.9209949770116804,
+   "ndcg:keyword": 0.6975018577735268,
+   "ndcg:ontology": 0.9209949770116804,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.6,
+   "recall:ontology": 1.0,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0063",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.927841200760793,
+   "ndcg:keyword": 0.9272102579108255,
+   "ndcg:ontology": 0.7049444882012591,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 0.6666666666666666,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0064",
+   "kind": "impact",
+   "ndcg:hybrid": 0.7851411036508058,
+   "ndcg:keyword": 0.15644807018024612,
+   "ndcg:ontology": 0.9199956611606563,
+   "recall:hybrid": 0.6,
+   "recall:keyword": 0.1,
+   "recall:ontology": 0.8,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0065",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.8099531166420328,
+   "ndcg:keyword": 1.0,
+   "ndcg:ontology": 0.8099531166420328,
+   "recall:hybrid": 0.6666666666666666,
+   "recall:keyword": 1.0,
+   "recall:ontology": 0.6666666666666666,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0066",
+   "kind": "problem",
+   "ndcg:hybrid": 0.9832843142264166,
+   "ndcg:keyword": 0.8401851084845681,
+   "ndcg:ontology": 0.9832843142264166,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0067",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.9860401134714399,
+   "ndcg:keyword": 0.8443141618969313,
+   "ndcg:ontology": 0.7787444522566598,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.75,
+   "recall:ontology": 0.5,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0068",
+   "kind": "impact",
+   "ndcg:hybrid": 0.954604587619356,
+   "ndcg:keyword": 0.48791244031867337,
+   "ndcg:ontology": 0.7050319479753835,
+   "recall:hybrid": 0.875,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.625,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0069",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9294792776898056,
+   "ndcg:keyword": 0.9351885419275077,
+   "ndcg:ontology": 0.9294792776898056,
+   "recall:hybrid": 0.8888888888888888,
+   "recall:keyword": 0.8888888888888888,
+   "recall:ontology": 0.8888888888888888,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0070",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.867569035315706,
+   "ndcg:keyword": 0.6533124175738572,
+   "ndcg:ontology": 0.8002586392634047,
+   "recall:hybrid": 0.8888888888888888,
+   "recall:keyword": 0.5555555555555556,
+   "recall:ontology": 0.7777777777777778,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0071",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8891688763430547,
+   "ndcg:keyword": 0.9215091422906759,
+   "ndcg:ontology": 0.9970311984445218,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0072",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9397983401779808,
+   "ndcg:keyword": 0.9397983401779808,
+   "ndcg:ontology": 0.9746027048589819,
+   "recall:hybrid": 0.6666666666666666,
+   "recall:keyword": 0.6666666666666666,
+   "recall:ontology": 1.0,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0073",
+   "kind": "problem",
+   "ndcg:hybrid": 0.8238146109813219,
+   "ndcg:keyword": 0.7177026217924811,
+   "ndcg:ontology": 0.7893677542383344,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.6666666666666666,
+   "recall:ontology": 0.6666666666666666,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0074",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.6475874573061806,
+   "ndcg:keyword": 0.6779491219475724,
+   "ndcg:ontology": 0.9083247466157296,
+   "recall:hybrid": 0.5,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.75,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0075",
+   "kind": "impact",
+   "ndcg:hybrid": 0.9554796683195447,
+   "ndcg:keyword": 0.8352413840492925,
+   "ndcg:ontology": 0.8145838552314862,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.5555555555555556,
+   "recall:ontology": 0.5555555555555556,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0076",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9486118137485415,
+   "ndcg:keyword": 0.7144732299003436,
+   "ndcg:ontology": 0.9486118137485415,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.625,
+   "recall:ontology": 1.0,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0077",
+   "kind": "problem",
+   "ndcg:hybrid": 0.8536820498239106,
+   "ndcg:keyword": 0.7505453598643862,
+   "ndcg:ontology": 0.8549183541835113,
+   "recall:hybrid": 0.6,
+   "recall:keyword": 0.4666666666666667,
+   "recall:ontology": 0.6,
+   "relevant": 15
+  },
+  {
+   "key": "BN-0078",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.8675063637446014,
+   "ndcg:keyword": 0.4189835643491573,
+   "ndcg:ontology": 0.3238531104127581,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.25,
+   "recall:ontology": 0.25,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0079",
+   "kind": "impact",
+   "ndcg:hybrid": 0.3564680220007183,
+   "ndcg:keyword": 0.8169714570783747,
+   "ndcg:ontology": 0.3564680220007183,
+   "recall:hybrid": 0.5,
+   "recall:keyword": 0.75,
+   "recall:ontology": 0.5,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0080",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.8344234152745562,
+   "ndcg:keyword": 0.8981335190790164,
+   "ndcg:ontology": 0.8344234152745562,
+   "recall:hybrid": 0.6666666666666666,
+   "recall:keyword": 1.0,
+   "recall:ontology": 0.6666666666666666,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0081",
+   "kind": "problem",
+   "ndcg:hybrid": 0.9058464496821221,
+   "ndcg:keyword": 0.8262346571285599,
+   "ndcg:ontology": 0.9058464496821221,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 1
+  },
+  {
+   "key": "BN-0082",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.791477234462737,
+   "ndcg:keyword": 0.8287112534608245,
+   "ndcg:ontology": 0.791477234462737,
+   "recall:hybrid": 0.8333333333333334,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.8333333333333334,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0083",
+   "kind": "impact",
+   "ndcg:hybrid": 0.9120592776000036,
+   "ndcg:keyword": 0.6735844326565442,
+   "ndcg:ontology": 0.6332937830193569,
+   "recall:hybrid": 0.5,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0084",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9608389714785489,
+   "ndcg:keyword": 0.8339018941620457,
+   "ndcg:ontology": 0.9608389714785489,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0085",
+   "kind": "problem",
+   "ndcg:hybrid": 0.8572048559638626,
+   "ndcg:keyword": 0.48471198902551854,
+   "ndcg:ontology": 0.30523488393970116,
+   "recall:hybrid": null,
+   "recall:keyword": null,
+   "recall:ontology": null,
+   "relevant": 0
+  },
+  {
+   "key": "BN-0086",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.8476226634880878,
+   "ndcg:keyword": 0.8603282033634491,
+   "ndcg:ontology": 0.9446575802244342,
+   "recall:hybrid": 0.5,
+   "recall:keyword": 0.75,
+   "recall:ontology": 1.0,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0087",
+   "kind": "impact",
+   "ndcg:hybrid": 0.642058502634153,
+   "ndcg:keyword": 0.9892896607088507,
+   "ndcg:ontology": 0.642058502634153,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0088",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9714643942872005,
+   "ndcg:keyword": 0.8071884738577423,
+   "ndcg:ontology": 0.7612933569132856,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.5,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0089",
+   "kind": "problem",
+   "ndcg:hybrid": 0.9331730030240227,
+   "ndcg:keyword": 0.8851994699253537,
+   "ndcg:ontology": 0.9331730030240227,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0090",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.9129638529509998,
+   "ndcg:keyword": 0.9133679811305536,
+   "ndcg:ontology": 0.8925041347447629,
+   "recall:hybrid": 0.9,
+   "recall:keyword": 0.9,
+   "recall:ontology": 0.7,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0091",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8214737995506485,
+   "ndcg:keyword": 0.7148536573434858,
+   "ndcg:ontology": 0.8214737995506485,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.5,
+   "recall:ontology": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0092",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9540952267624854,
+   "ndcg:keyword": 0.8316114133348735,
+   "ndcg:ontology": 0.79956218288434,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.75,
+   "recall:ontology": 0.75,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0093",
+   "kind": "problem",
+   "ndcg:hybrid": 0.957157297281177,
+   "ndcg:keyword": 0.5580590047026502,
+   "ndcg:ontology": 0.957157297281177,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.5,
+   "recall:ontology": 1.0,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0094",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.6984899848535218,
+   "ndcg:keyword": 0.653998191987832,
+   "ndcg:ontology": 0.8129625952732322,
+   "recall:hybrid": 0.4,
+   "recall:keyword": 0.2,
+   "recall:ontology": 0.8,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0095",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8855269342365094,
+   "ndcg:keyword": 0.9157816106937342,
+   "ndcg:ontology": 0.8855269342365094,
+   "recall:hybrid": 0.7,
+   "recall:keyword": 0.9,
+   "recall:ontology": 0.7,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0096",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9909670284107976,
+   "ndcg:keyword": 0.8826663660122922,
+   "ndcg:ontology": 0.7026903284773638,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0097",
+   "kind": "problem",
+   "ndcg:hybrid": 0.7466702925156322,
+   "ndcg:keyword": 0.7381769492380982,
+   "ndcg:ontology": 0.6324141867549204,
+   "recall:hybrid": 0.75,
+   "recall:keyword": 0.5833333333333334,
+   "recall:ontology": 0.3333333333333333,
+   "relevant": 12
+  },
+  {
+   "key": "BN-0098",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.8528314698034267,
+   "ndcg:keyword": 0.7977565431029979,
+   "ndcg:ontology": 0.5590868183372257,
+   "recall:hybrid": 0.8181818181818182,
+   "recall:keyword": 0.7272727272727273,
+   "recall:ontology": 0.45454545454545453,
+   "relevant": 11
+  },
+  {
+   "key": "BN-0099",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8401289604509518,
+   "ndcg:keyword": 0.7637250577484144,
+   "ndcg:ontology": 0.8401289604509518,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0100",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9659798846693279,
+   "ndcg:keyword": 0.9585201933634447,
+   "ndcg:ontology": 0.9485579751096731,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0101",
+   "kind": "problem",
+   "ndcg:hybrid": 0.7424645560308867,
+   "ndcg:keyword": 0.8119125292152201,
+   "ndcg:ontology": 0.7043106579435907,
+   "recall:hybrid": 0.5714285714285714,
+   "recall:keyword": 0.7142857142857143,
+   "recall:ontology": 0.42857142857142855,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0102",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.8284616190242765,
+   "ndcg:keyword": 0.8227468217472673,
+   "ndcg:ontology": 0.8856095504718972,
+   "recall:hybrid": 0.6666666666666666,
+   "recall:keyword": 0.6666666666666666,
+   "recall:ontology": 0.7777777777777778,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0103",
+   "kind": "impact",
+   "ndcg:hybrid": 0.873637855752951,
+   "ndcg:keyword": 0.8424910341768647,
+   "ndcg:ontology": 0.873637855752951,
+   "recall:hybrid": 0.7,
+   "recall:keyword": 0.7,
+   "recall:ontology": 0.7,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0104",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.8696486751773665,
+   "ndcg:keyword": 0.6066317881331335,
+   "ndcg:ontology": 0.8696486751773665,
+   "recall:hybrid": 0.8,
+   "recall:keyword": 0.6,
+   "recall:ontology": 0.8,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0105",
+   "kind": "problem",
+   "ndcg:hybrid": 0.7669733307272686,
+   "ndcg:keyword": 0.5462287028767652,
+   "ndcg:ontology": 0.8659037683120921,
+   "recall:hybrid": 0.5,
+   "recall:keyword": 0.16666666666666666,
+   "recall:ontology": 0.8333333333333334,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0106",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.6919769174627463,
+   "ndcg:keyword": 0.9286474753101561,
+   "ndcg:ontology": 0.6655591056239958,
+   "recall:hybrid": 0.3333333333333333,
+   "recall:keyword": 0.5333333333333333,
+   "recall:ontology": 0.3333333333333333,
+   "relevant": 15
+  },
+  {
+   "key": "BN-0107",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8852476608563782,
+   "ndcg:keyword": 0.7157214374224372,
+   "ndcg:ontology": 0.3827987800865433,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.42857142857142855,
+   "recall:ontology": 0.14285714285714285,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0108",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.9329681917613505,
+   "ndcg:keyword": 0.5870104632923209,
+   "ndcg:ontology": 0.7567948714636241,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.3333333333333333,
+   "recall:ontology": 0.6666666666666666,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0109",
+   "kind": "problem",
+   "ndcg:hybrid": 0.9606983581744843,
+   "ndcg:keyword": 0.9661052496228156,
+   "ndcg:ontology": 0.9606983581744843,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0110",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.9292866348454977,
+   "ndcg:keyword": 0.6381099368648039,
+   "ndcg:ontology": 0.5141328301197668,
+   "recall:hybrid": 0.8333333333333334,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.3333333333333333,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0111",
+   "kind": "impact",
+   "ndcg:hybrid": 0.9305687780632227,
+   "ndcg:keyword": 0.9608008655106622,
+   "ndcg:ontology": 1.0,
+   "recall:hybrid": 0.45,
+   "recall:keyword": 0.45,
+   "recall:ontology": 0.5,
+   "relevant": 20
+  },
+  {
+   "key": "BN-0112",
+   "kind": "lookup",
+   "ndcg:hybrid": 1.0,
+   "ndcg:keyword": 0.9237462009050439,
+   "ndcg:ontology": 0.6592367983634904,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 0.5,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0113",
+   "kind": "problem",
+   "ndcg:hybrid": 0.857990834750813,
+   "ndcg:keyword": 0.7666898049106017,
+   "ndcg:ontology": 0.959127016419772,
+   "recall:hybrid": 0.6666666666666666,
+   "recall:keyword": 0.5555555555555556,
+   "recall:ontology": 0.8888888888888888,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0114",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.8796781505711,
+   "ndcg:keyword": 0.4473641551182231,
+   "ndcg:ontology": 0.8796781505711,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.2857142857142857,
+   "recall:ontology": 1.0,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0115",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8971849102972047,
+   "ndcg:keyword": 0.5723310632718406,
+   "ndcg:ontology": 0.1200101394090263,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.0,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0116",
+   "kind": "lookup",
+   "ndcg:hybrid": 0.8833300639826207,
+   "ndcg:keyword": 0.6237384169953659,
+   "ndcg:ontology": 0.8833300639826207,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.5,
+   "recall:ontology": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0117",
+   "kind": "problem",
+   "ndcg:hybrid": 0.8340189794032848,
+   "ndcg:keyword": 0.6026405085315903,
+   "ndcg:ontology": 0.8340189794032848,
+   "recall:hybrid": 0.8571428571428571,
+   "recall:keyword": 0.42857142857142855,
+   "recall:ontology": 0.8571428571428571,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0118",
+   "kind": "cross_part",
+   "ndcg:hybrid": 0.7310382816380091,
+   "ndcg:keyword": 0.7591933607119231,
+   "ndcg:ontology": 0.7310382816380091,
+   "recall:hybrid": 0.6666666666666666,
+   "recall:keyword": 0.6666666666666666,
+   "recall:ontology": 0.6666666666666666,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0119",
+   "kind": "impact",
+   "ndcg:hybrid": 0.8609975405513514,
+   "ndcg:keyword": 0.7788982455206377,
+   "ndcg:ontology": 0.9822925435270468,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 0.8,
+   "recall:ontology": 1.0,
+   "relevant": 5
+  },
+  {
+   "key": "GA-0001",
+   "kind": "signed",
+   "ndcg:hybrid": 0.20866747359151264,
+   "ndcg:keyword": 0.46389300421189694,
+   "ndcg:ontology": 0.20866747359151264,
+   "recall:hybrid": 0.2,
+   "recall:keyword": 0.6,
+   "recall:ontology": 0.2,
+   "relevant": 5
+  },
+  {
+   "key": "GA-0003",
+   "kind": "signed",
+   "ndcg:hybrid": 0.6492780213245148,
+   "ndcg:keyword": 0.8165951292044206,
+   "ndcg:ontology": 0.7125635343460665,
+   "recall:hybrid": 0.3076923076923077,
+   "recall:keyword": 0.5384615384615384,
+   "recall:ontology": 0.46153846153846156,
+   "relevant": 13
+  },
+  {
+   "key": "GA-0004",
+   "kind": "signed",
+   "ndcg:hybrid": 0.8661561998928974,
+   "ndcg:keyword": 0.7437494625536456,
+   "ndcg:ontology": 0.9189788236163547,
+   "recall:hybrid": 0.75,
+   "recall:keyword": 0.5,
+   "recall:ontology": 0.75,
+   "relevant": 8
+  },
+  {
+   "key": "GA-0005",
+   "kind": "signed",
+   "ndcg:hybrid": 0.9015940630079066,
+   "ndcg:keyword": 0.8994443598279865,
+   "ndcg:ontology": 0.8736241033171072,
+   "recall:hybrid": 0.75,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 4
+  },
+  {
+   "key": "GA-0007",
+   "kind": "signed",
+   "ndcg:hybrid": 0.5296051131751949,
+   "ndcg:keyword": 0.15608558721158045,
+   "ndcg:ontology": 0.5296051131751949,
+   "recall:hybrid": 0.5714285714285714,
+   "recall:keyword": 0.2857142857142857,
+   "recall:ontology": 0.5714285714285714,
+   "relevant": 7
+  },
+  {
+   "key": "GA-0009",
+   "kind": "signed",
+   "ndcg:hybrid": 0.8285239702004665,
+   "ndcg:keyword": 0.7940116633854013,
+   "ndcg:ontology": 0.9262903256639385,
+   "recall:hybrid": 0.75,
+   "recall:keyword": 0.75,
+   "recall:ontology": 1.0,
+   "relevant": 4
+  },
+  {
+   "key": "GA-0010",
+   "kind": "signed",
+   "ndcg:hybrid": 0.8845760830771761,
+   "ndcg:keyword": 0.8538526353112385,
+   "ndcg:ontology": 0.808388139919548,
+   "recall:hybrid": 0.7777777777777778,
+   "recall:keyword": 0.6666666666666666,
+   "recall:ontology": 0.4444444444444444,
+   "relevant": 9
+  },
+  {
+   "key": "GA-0011",
+   "kind": "signed",
+   "ndcg:hybrid": 0.6850107762122462,
+   "ndcg:keyword": 0.46303842609705737,
+   "ndcg:ontology": 0.6850107762122462,
+   "recall:hybrid": 0.7142857142857143,
+   "recall:keyword": 0.0,
+   "recall:ontology": 0.7142857142857143,
+   "relevant": 7
+  },
+  {
+   "key": "GA-0012",
+   "kind": "signed",
+   "ndcg:hybrid": 0.8788904494023813,
+   "ndcg:keyword": 0.7871239027959592,
+   "ndcg:ontology": 0.8396379047897594,
+   "recall:hybrid": 0.6,
+   "recall:keyword": 0.6,
+   "recall:ontology": 0.8,
+   "relevant": 5
+  },
+  {
+   "key": "GA-0013",
+   "kind": "signed",
+   "ndcg:hybrid": 0.9217024888052177,
+   "ndcg:keyword": 0.8796328250488205,
+   "ndcg:ontology": 0.9833647614059987,
+   "recall:hybrid": 1.0,
+   "recall:keyword": 1.0,
+   "recall:ontology": 1.0,
+   "relevant": 7
+  }
+ ],
+ "summary": {
+  "all": {
+   "n": 129,
+   "ndcg:hybrid": 0.8454907202609111,
+   "ndcg:hybrid-keyword": [
+    0.11965245960039257,
+    0.08569997984006356,
+    0.15524489919836376
+   ],
+   "ndcg:keyword": 0.7258382606605186,
+   "ndcg:ontology": 0.7952544217634246,
+   "ndcg:ontology-hybrid": [
+    -0.05023629849748642,
+    -0.07866287114664383,
+    -0.024090235423524488
+   ],
+   "ndcg:ontology-keyword": [
+    0.06941616110290615,
+    0.03069542234090915,
+    0.10764961761588437
+   ],
+   "no_relevant": 1,
+   "recall:hybrid": 0.8009226125437063,
+   "recall:hybrid-keyword": [
+    0.15019790322524698,
+    0.10044730659965034,
+    0.20217639348498723
+   ],
+   "recall:keyword": 0.6507247093184593,
+   "recall:ontology": 0.7400378809558497,
+   "recall:ontology-hybrid": [
+    -0.06088473158785659,
+    -0.10579127903346654,
+    -0.018097939387001882
+   ],
+   "recall:ontology-keyword": [
+    0.08931317163739039,
+    0.0351103106962482,
+    0.14503411085442336
+   ]
+  },
+  "cross_part": {
+   "n": 30,
+   "ndcg:hybrid": 0.8343996887340914,
+   "ndcg:hybrid-keyword": [
+    0.10467462805967923,
+    0.03524662247947692,
+    0.18370912162089453
+   ],
+   "ndcg:keyword": 0.7297250606744122,
+   "ndcg:ontology": 0.7607067262157128,
+   "ndcg:ontology-hybrid": [
+    -0.0736929625183787,
+    -0.13862378327901456,
+    -0.014159356699139062
+   ],
+   "ndcg:ontology-keyword": [
+    0.03098166554130052,
+    -0.04102729190477825,
+    0.11321158741053271
+   ],
+   "no_relevant": 0,
+   "recall:hybrid": 0.7344486531986532,
+   "recall:hybrid-keyword": [
+    0.09794432419432418,
+    -0.0033730158730158927,
+    0.20499338624338623
+   ],
+   "recall:keyword": 0.636504329004329,
+   "recall:ontology": 0.6534385521885522,
+   "recall:ontology-hybrid": [
+    -0.08101010101010102,
+    -0.1841053391053391,
+    0.01885762385762386
+   ],
+   "recall:ontology-keyword": [
+    0.016934223184223173,
+    -0.09887926887926889,
+    0.13687109187109187
+   ]
+  },
+  "impact": {
+   "n": 30,
+   "ndcg:hybrid": 0.8397117287573858,
+   "ndcg:hybrid-keyword": [
+    0.10583853395159716,
+    0.01797976561634971,
+    0.19590286187551426
+   ],
+   "ndcg:keyword": 0.7338731948057885,
+   "ndcg:ontology": 0.7984093498760488,
+   "ndcg:ontology-hybrid": [
+    -0.04130237888133695,
+    -0.11694492770932267,
+    0.021113258530439414
+   ],
+   "ndcg:ontology-keyword": [
+    0.0645361550702602,
+    -0.027063993147164876,
+    0.1624786172738373
+   ],
+   "no_relevant": 0,
+   "recall:hybrid": 0.802934102934103,
+   "recall:hybrid-keyword": [
+    0.12808321308321308,
+    0.04059523809523809,
+    0.21726190476190474
+   ],
+   "recall:keyword": 0.6748508898508898,
+   "recall:ontology": 0.7338997113997114,
+   "recall:ontology-hybrid": [
+    -0.06903439153439153,
+    -0.17552910052910053,
+    0.02268518518518519
+   ],
+   "recall:ontology-keyword": [
+    0.05904882154882155,
+    -0.03891293891293892,
+    0.16121933621933623
+   ]
+  },
+  "lookup": {
+   "n": 30,
+   "ndcg:hybrid": 0.8956614303129292,
+   "ndcg:hybrid-keyword": [
+    0.12139277920716328,
+    0.07186243984879193,
+    0.17452088196761467
+   ],
+   "ndcg:keyword": 0.7742686511057659,
+   "ndcg:ontology": 0.8283379844669386,
+   "ndcg:ontology-hybrid": [
+    -0.06732344584599063,
+    -0.11228711313236327,
+    -0.0257484788831616
+   ],
+   "ndcg:ontology-keyword": [
+    0.054069333361172665,
+    9.437017346932696e-05,
+    0.11259115896166204
+   ],
+   "no_relevant": 0,
+   "recall:hybrid": 0.8764550264550265,
+   "recall:hybrid-keyword": [
+    0.16517195767195766,
+    0.05969576719576719,
+    0.27933862433862433
+   ],
+   "recall:keyword": 0.7112830687830687,
+   "recall:ontology": 0.7913227513227513,
+   "recall:ontology-hybrid": [
+    -0.08513227513227513,
+    -0.17037037037037037,
+    -7.401486830834377e-18
+   ],
+   "recall:ontology-keyword": [
+    0.08003968253968254,
+    -0.02349206349206349,
+    0.19194444444444442
+   ]
+  },
+  "problem": {
+   "n": 29,
+   "ndcg:hybrid": 0.8490038910633046,
+   "ndcg:hybrid-keyword": [
+    0.17177280720192908,
+    0.10795806963054906,
+    0.24384638770594472
+   ],
+   "ndcg:keyword": 0.6772310838613755,
+   "ndcg:ontology": 0.8095885391270021,
+   "ndcg:ontology-hybrid": [
+    -0.039415351936302495,
+    -0.09378827429111233,
+    0.006763133690798503
+   ],
+   "ndcg:ontology-keyword": [
+    0.1323574552656266,
+    0.05217412041219999,
+    0.2136249312529019
+   ],
+   "no_relevant": 1,
+   "recall:hybrid": 0.8457777341705913,
+   "recall:hybrid-keyword": [
+    0.2503216030001744,
+    0.14305664573521717,
+    0.36586865515436945
+   ],
+   "recall:keyword": 0.595456131170417,
+   "recall:ontology": 0.8008328972614687,
+   "recall:ontology-hybrid": [
+    -0.04494483690912262,
+    -0.12385204081632653,
+    0.026663614163614163
+   ],
+   "recall:ontology-keyword": [
+    0.2053767660910518,
+    0.08112244897959184,
+    0.3351190476190476
+   ]
+  },
+  "signed": {
+   "n": 10,
+   "ndcg:hybrid": 0.7354004638689514,
+   "ndcg:hybrid-keyword": [
+    0.049657764304150705,
+    -0.05632854234012803,
+    0.15363802566937337
+   ],
+   "ndcg:keyword": 0.6857426995648007,
+   "ndcg:ontology": 0.7486130956037726,
+   "ndcg:ontology-hybrid": [
+    0.01321263173482128,
+    -0.01925840223738893,
+    0.045015871240512116
+   ],
+   "ndcg:ontology-keyword": [
+    0.06287039603897197,
+    -0.04447501360080445,
+    0.16644352321288075
+   ],
+   "no_relevant": 0,
+   "recall:hybrid": 0.6421184371184372,
+   "recall:hybrid-keyword": [
+    0.04803418803418805,
+    -0.1342307692307692,
+    0.2447802197802198
+   ],
+   "recall:keyword": 0.5940842490842491,
+   "recall:ontology": 0.6941697191697191,
+   "recall:ontology-hybrid": [
+    0.05205128205128205,
+    -0.05500000000000001,
+    0.14615384615384616
+   ],
+   "recall:ontology-keyword": [
+    0.10008547008547011,
+    -0.08181318681318679,
+    0.29000000000000004
+   ]
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003774,
+ "created_utc": "2026-10-07T08:59:26Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0113",
+ "job": "relate",
+ "key": "4d0b5fc7af090d76b084b61091a36264b0d92dd8418b3387a4e5ea28e47c589f",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Treat a protected international trade mark as a protected form of an IRDA.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The passages apply common change-of-ownership procedures to IRDAs and protected international trade marks, but do not state a status or classification relationship between them.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a status relationship can properly be inferred from these passages rather than from definitions elsewhere.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0114\"\n    },\n    {\n      \"quote\": \"It is possible to oppose extension of protection to an IRDA.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"Use related_to because opposition concerns extension of protection rather than the IRDA itself.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual expressly identifies extension of protection to an IRDA as something that may be opposed. This supports opposition applying to an IRDA, specifically in respect of its protection.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether appliesTo should target extension of protection as a separate concept instead of the IRDA.\",\n      \"passage_ref\": \"TMM/Part60/4/17/4/17/2~1\",\n      \"neighbour\": \"GC-0040\"\n    },\n    {\n      \"quote\": \"A direction is made to suspend proceedings in relation to an opposition to protection of an IRDA if the Registrar is informed (with the appropriate document) the holder of the international registration has requested the International Bureau to record its renunciation of the Australian designation under rule 25 of the Common Regulations.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"Use none if this neighbour is confined to opposition to national registration and excludes opposition to protection.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"The Manual expressly recognises opposition proceedings concerning protection of an IRDA. The relationship is supported if this opposition record includes opposition to protection, rather than only opposition to national registration.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether GC-0102 includes opposition to protection of an IRDA within its scope.\",\n      \"passage_ref\": \"TMM/Part51/4/4/3\",\n      \"neighbour\": \"GC-0102\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "33fd156603b7b858b3c25e96c570ca17f3f490aa6d7bc47d0c57e9e7cc39fc08",
+ "response_id": "resp_09ffea01c02c3e35006ac609d2a06c87d2af9fb63a5afd7b9e",
+ "seconds": 28.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3018,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3015
+  },
+  "output_tokens": 724,
+  "output_tokens_details": {
+   "reasoning_tokens": 131
+  },
+  "total_tokens": 3742
+ }
+}

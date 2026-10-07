@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013159,
+ "created_utc": "2026-10-07T12:20:50Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0055",
+ "job": "answer",
+ "key": "2782ad679715f5faf38dac6723a8de16cff9f2edca0b21d779d22acb94312fbd",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0109\",\"GC-0072\",\"GC-0112\",\"GC-0150\",\"GC-0111\",\"GC-0090\",\"GC-0081\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part60/2/2/2/2/4~2\",\"quote\":\"However, a defensive trade mark that is pending or registered in Australia can still form the basis for an international application.\"},{\"ref\":\"TMM/Part60/2/2/2/2/4~2\",\"quote\":\"The Protocol also makes no provision for defensive trade marks, and as such, an international registration cannot be indicated as being for a defensive trade mark.\"},{\"ref\":\"TMM/Part60/2/2/2/2/4~2\",\"quote\":\"However, the trade mark subject of the international application will be effectively treated as a ‘standard’ trade mark by the International Bureau and designated jurisdictions. This means the applicant may be subject to ‘intention to use’ and ongoing use requirements in designated jurisdictions that they are not subject to in Australia as the owner/applicant of a defensive trade mark.\"},{\"ref\":\"TMM/Part60/2/2/2/2/4~2\",\"quote\":\"The applicant may claim a priority date earlier than the actual filing date of the international application if they have filed the same trade mark for the first time in a country party to the Paris Convention within 6 months prior to filing the international appl…\"},{\"ref\":\"TMA1995/s186\",\"quote\":\"Subject to this Part, the provisions of this Act (other than subsection 20(1), paragraph 27(1)(b), sections 41 and 59, sections 121 and 127, Part 9—Removal of trade mark from Register for nonuse and Part 16—Certification Trade Marks) apply to defensive trade marks and so apply as if a reference to a trade mark included a reference to a defensive trade mark.\"}],\"answer\":\"In general, yes—but distinguish the Australian basis from the status of the international registration.\\n\\n**Manual practice** (citations 1–4):\\n- A defensive trade mark pending or registered in Australia can form the basis for an international application [1].\\n- The international registration cannot itself be indicated as defensive. It is effectively treated as a standard trade mark, potentially attracting intention-to-use and ongoing use requirements in designated jurisdictions [2–3].\\n- The Manual permits an earlier priority claim where the same trade mark was first filed in a Paris Convention country within the six months before the international application [4]. The supplied priority paragraph is truncated, so I cannot confirm all priority requirements from these passages.\\n\\n**Act:** Section 186 applies the Act to defensive trade marks as though references to a trade mark included defensive trade marks, subject to the stated exceptions and the relevant Part [5].\\n\\nThus, the Manual supports using an Australian defensive trade mark as the basis while claiming earlier priority if the priority requirements are met; it does not support retaining defensive status internationally [1–4].\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "519bbc87ce173fbe6b3d53044665f2949e0203ec6d9ea4e8471fc38b841d4d8a",
+ "response_id": "resp_09bf115768aab8b9006ac63908e6e087d2b8b4e322f80bf980",
+ "seconds": 25.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7132,
+  "input_tokens_details": {
+   "cache_write_tokens": 7129,
+   "cached_tokens": 0
+  },
+  "output_tokens": 849,
+  "output_tokens_details": {
+   "reasoning_tokens": 195
+  },
+  "total_tokens": 7981
+ }
+}

@@ -1208,3 +1208,126 @@ pass in a `requestAnimationFrame` after returning the block, and make the
 "already done" flag record whether the measurement *succeeded* rather than
 whether it was attempted. `site/tree.js` builds once for the DOM and once more on
 the next frame for the real heights, which is the cheap and honest version.
+
+---
+### Q-64 — the approved model is reachable from a session container, which two ADRs say it is not
+
+ADR-0087 consequence 2 and ADR-0094 both rest on one claim: *the Gemini key is a
+repository secret, so it reaches GitHub Actions and not a local container.* That
+is why the 208 authored records were all written by the session agent by hand,
+and why `gemini-3.8-flash` has never been called.
+
+**In this environment the claim is false** — whether it was ever true of earlier
+sessions is not knowable from the repo, so do not read this as a past mistake.
+The session's egress proxy injects
+the Gemini credential for `generativelanguage.googleapis.com` (it is listed among
+the proxy-injected hosts, with OpenAI and Langfuse). Measured S023: a `GET
+https://generativelanguage.googleapis.com/v1beta/models` with **no key at all**
+returned HTTP 200 and 62 models. Free, read-only, no corpus text sent.
+
+Two things the same call settled:
+
+- **`gemini-3.8-flash` is a current model id** — the HANDOFF item *"confirm the
+  model id against Google's current list before it is trusted"* is done. It lists
+  `generateContent`, `countTokens`, `createCachedContent` and
+  `batchGenerateContent`, so batch inference (ADR-0087 consequence 4) is
+  available on the same id.
+- **Embeddings are reachable too** — `gemini-embedding-001` and
+  `gemini-embedding-2` — so dense retrieval needs no local torch or
+  sentence-transformers install.
+
+**The trap that remains.** `config.authoring_api_key()` raises when
+`GEMINI_API_KEY` is unset, by design (an absent key must be loud). In a session it
+is unset, so code calling it fails before the proxy gets the chance to help. The
+KB SOP met the same thing (its D-027): **set the variable to a placeholder** so the
+presence check passes and the proxy supplies the real key. Not yet verified for a
+*paid* call — confirm on the first `--limit` smoke run that the proxy overrides a
+placeholder header rather than forwarding it, and record which model id the API
+reports in its response, since that, not the configured constant, is what goes in
+`authored_by` (ADR-0094).
+
+---
+### Q-65 — OpenAI is reached through the session proxy; any key you send is replaced
+
+ADR-0111 moved the bulk work to OpenAI's `gpt-6.1-sol`. In a session container the
+egress proxy injects the OpenAI credential for `api.openai.com`, exactly as Q-64
+found for Gemini. Measured S023, all on free endpoints: `GET /v1/models` returns
+200 with **no** `Authorization` header and with `Bearer sk-placeholder…`, and
+Python's standard `urllib` reaches it through `HTTPS_PROXY` with the system CA —
+so the client needs no third-party library and the core install stays at three
+dependencies.
+
+That is why `config.authoring_api_key()` no longer raises on an empty variable: it
+returns a placeholder the proxy replaces. Outside a session container the API
+answers a placeholder with 401, which is still loud — the failure ADR-0087 cared
+about was an absent key producing an *empty result set*, and an HTTP error cannot
+be mistaken for one.
+
+**"Sol 6.1" is `gpt-6.1-sol`.** The model list holds `gpt-5.6-sol`, `gpt-6-sol`
+and `gpt-6.1-sol`; the owner's name maps to the last. Record what the response's
+`model` field says, which may carry a date suffix, not the configured string.
+
+---
+### Q-66 — the session proxy cuts a request held open for about 30 seconds, and the cut call may still be billed
+
+The first relationship call (medium effort, ~4,600 input tokens) failed four times
+with `HTTP 502: upstream request failed`, each after about 30 seconds. A tiny call
+on the same endpoint returned in 5 seconds; the same prompt took 32 seconds of
+server time once it worked. The egress proxy is cutting long-held requests.
+
+**A cut request is not a free request.** OpenAI may finish a non-streaming
+generation after the client is gone and bill it. The four were booked in the spend
+ledger at the measured cost of the same prompt (`data/llm/cache/unrecorded/`), so
+the cap counts them — $0.049 of the $1.
+
+**What to do instead:** `bulk.client` submits in **background mode** and polls with
+short GETs, so no single request lives long. Background mode needs `store: true`;
+the stored response holds only published corpus text (ADR-0088). The submit is
+never retried, so a failure there cannot double-bill.
+
+---
+### Q-67 — the flex tier can be unavailable for long stretches; the Batch API is the same price
+
+On 2026-10-07 from about 07:59 UTC, `gpt-6.1-sol` on `service_tier: flex` failed
+almost every request with `server_is_overloaded`, for over ten minutes and through
+five retries with waits of up to five minutes. A failed request costs nothing, but a
+run cannot finish on it. The standard tier would work and costs twice as much — more
+than the owner's approved cap.
+
+**The Batch API charges what flex charges** ($1 in, $5 out per million tokens for
+`gpt-6.1-sol` on 2026-10-07) and runs on its own capacity. `tmk-bulk run --tier batch`
+uploads the requests as one file, polls the batch, and records each answer in the
+ledger exactly as a direct call would. The KB SOP's warning applies: its first build
+found a batch transport ignoring the JSON schema, so the batch output goes through the
+same `accept()` checks, and a batch smoke run was read before any full run.
+
+**Update, same day: in practice flex beat batch.** Two `define` batches sat at
+`in_progress, 0/N` for 30 minutes and more and were cancelled. Flex, meanwhile,
+answered about one attempt in five, each failure arriving in about three seconds
+and costing nothing. So `--tier flex` is now the default, with up to 12 retries on
+a backoff from 10s to a 60s cap: a run grinds through rather than giving items up.
+
+---
+### Q-68 — a prompt that lists the store goes stale the moment the store grows
+
+The `define` prompt includes every existing concept ("do not duplicate"). Writing the
+first 22 new concepts therefore changed the text of every remaining `define` prompt,
+so their cache keys changed: the four already waiting in a batch were submitted again
+under new keys, and the three answered "not a concept" were re-asked. About two cents,
+but the same shape bites `relate` (its neighbour lists shrink as relationships are
+written) and anything else whose prompt reads the stores.
+
+**What to do instead:** finish a job — every item answered or deliberately abandoned —
+before writing its output, or accept that a re-run after a write is a partly new run.
+Never assume a re-run of a job that writes to the stores it reads is free.
+
+**For `relate`, fixed rather than avoided.** A pair any completed relate call
+answered for is read back from the cache (`jobs.judged_pairs`) and never sent
+again, whatever its anchor or prompt. It still holds its place in its concepts'
+best six (`links.pairs`): dropping it instead promoted the next-best pair, so
+every pass would find fresh pairs to ask about and the job would never run out.
+Two consequences to keep in mind. A relate process writes only when it finishes, so
+**killing one loses its answers** — they are cached, but counted as judged, so a
+re-run will not write them either; let it finish. And a second pass beside a
+running one must not overlap it: `--touching <ids>` restricts a pass to pairs
+touching concepts the running pass did not have.

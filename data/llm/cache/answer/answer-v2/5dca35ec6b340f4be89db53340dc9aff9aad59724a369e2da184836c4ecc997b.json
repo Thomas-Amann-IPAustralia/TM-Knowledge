@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01424,
+ "created_utc": "2026-10-07T12:29:56Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0011",
+ "job": "answer",
+ "key": "5dca35ec6b340f4be89db53340dc9aff9aad59724a369e2da184836c4ecc997b",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0001\", \"GC-0002\", \"GC-0008\", \"GC-0010\", \"GC-0038\", \"GC-0064\", \"GC-0065\", \"GC-0070\", \"GC-0071\", \"GC-0090\", \"GC-0154\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMA1995/s43\",\n      \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/3#1~1\",\n      \"quote\": \"For a trade mark to trigger section 43 there must be some connotation within the trade mark that would reasonably be expected to cause deception or confusion in the mind of the relevant buying public.\"\n    },\n    {\n      \"ref\": \"TMM/Part26/4/4/3~2\",\n      \"quote\": \"Section 44(2) is plainly intended to address the mischief that may be created where two marks are the same or deceptively similar.\"\n    },\n    {\n      \"ref\": \"TMA1995/s44\",\n      \"quote\": \"(1) Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s trade mark) in respect of goods (applicant’s goods) must be rejected if: (a) the applicant’s trade mark is substantially identical with, or deceptively similar to: (i) a trade mark registered by another person in respect of similar goods or closely related services; or (ii) a trade mark whose registration in respect of similar goods or closely related services is being sought by another person; and (b) the priority date for the registration of the applicant’s trade mark in respect of the applicant’s goods is not earlier than the priority date for the registration of the other trade mark in respect of the similar goods or closely related services.\"\n    },\n    {\n      \"ref\": \"TMM/Part26/6/6/4~1\",\n      \"quote\": \"What needs to be assessed is the effect of the similarities and differences on the impression or recollection an ordinary consumer of the goods or services would have of the trade marks and whether this creates a real and tangible danger of confusion.\"\n    }\n  ],\n  \"answer\": \"Not merely because two marks are similar and consumers may confuse them. That is generally a section 44 comparison issue; section 43 requires confusion arising from a connotation within the mark. [TMA1995/s43; TMM/Part26/4/4/3~2]\\n\\n• Act — section 43: the likely deception or confusion must arise because of a connotation of the trade mark or a sign within it, when used for the particular goods or services. Manual practice likewise requires a connotation reasonably expected to deceive or confuse the relevant buying public. [TMA1995/s43; TMM/Part29/3#1~1]\\n\\n• Act — section 44: for goods applications, subsection (1) addresses substantial identity or deceptive similarity to another person’s registered or pending mark for similar goods or closely related services, with the specified priority-date requirement and subject to subsections (3) and (4). Similarity alone is therefore not the complete statutory test. [TMA1995/s44]\\n\\n• Manual practice — comparison: assess the similarities and differences through the ordinary consumer’s impression or recollection, asking whether they create a real and tangible danger of confusion—not merely whether confusion is possible. [TMM/Part26/6/6/4~1]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "d4392f58f83eb20e63d1f6f9ce947a086c3ecb80c3638db82273a921f212d88b",
+ "response_id": "resp_09ea26e21ed4eeba006ac63b27576887d2994385ea5d891bd6",
+ "seconds": 30.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7533,
+  "input_tokens_details": {
+   "cache_write_tokens": 7530,
+   "cached_tokens": 0
+  },
+  "output_tokens": 965,
+  "output_tokens_details": {
+   "reasoning_tokens": 131
+  },
+  "total_tokens": 8498
+ }
+}

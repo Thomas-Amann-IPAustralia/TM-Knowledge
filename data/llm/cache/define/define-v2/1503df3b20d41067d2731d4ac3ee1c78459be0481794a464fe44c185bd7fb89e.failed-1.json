@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:37:02Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "cartoon",
+ "job": "define",
+ "key": "1503df3b20d41067d2731d4ac3ee1c78459be0481794a464fe44c185bd7fb89e",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "6777caf4083d068fbb3a82fcd9cea4b21f2b7cb79b5e28b5c929a505148927a9",
+ "response_id": "resp_04b290a739480e6c006ac604a3d9a887d2955987ccd3a66222",
+ "seconds": 11.6,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

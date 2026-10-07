@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002744,
+ "created_utc": "2026-10-07T08:29:55Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "Office of origin",
+ "job": "define",
+ "key": "5029aae3b1c15f11ed100a2061f6f3be3a0888e671b6683c172055c317af21d8",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"However, if the cited mark is an international registration designating Australia (IRDA) then it is not necessary to verify the claim, as the Office of Origin has already verified it and it has been accepted by the International Bureau of WIPO.\",\n  \"alt_labels\": [\n    \"Office of Origin\"\n  ],\n  \"confidence\": 0.9,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: The Office of origin is an office acting within the Madrid Protocol process, which the Manual describes as having verified the priority claim for an international registration designating Australia.\",\n  \"expert_should_check\": \"Check Article 2(2) of the Protocol for the full definition: regulation 17A.2 incorporates it, but that Article is not supplied here.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"Office of origin\",\n  \"definition_ref\": \"TMM/Part11/4/4/1\",\n  \"reasoning\": \"This is a named institutional role, not a generic phrase or a duplicate of the Registrar or Madrid Protocol concepts. The Manual describes its priority-verification role and distinguishes it from the International Bureau in classification disputes. Regulation 17A.2 expressly points to Article 2(2) for its meaning; because that Article is absent, the quotation provides a supported role description rather than a complete legal definition. None of the listed PROVISIONS is supplied with text establishing its legislative basis.\",\n  \"not_labels\": [\n    \"International Bureau\",\n    \"Registrar\"\n  ],\n  \"group\": \"process_role\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "87539338f199373f6a97bdf52eae9362041accc19d65852b9907389c3a30e11e",
+ "response_id": "resp_0f8e22180c6c7d53006ac602d6edf887d2b18f980a4a269991",
+ "seconds": 44.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2727,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2724
+  },
+  "output_tokens": 521,
+  "output_tokens_details": {
+   "reasoning_tokens": 162
+  },
+  "total_tokens": 3248
+ }
+}

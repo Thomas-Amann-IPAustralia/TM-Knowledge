@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003667,
+ "created_utc": "2026-10-07T11:31:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0091",
+ "job": "relate",
+ "key": "f71da28d3c51ae5669b2701a4b6d52e05e6c727043c81990d01d0d1a8fd9a159",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"To be able to demonstrate this, the use must be before the filing date. Use after that date will not be considered.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to: the passage merely connects filing date with evidence of use.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual makes the filing date a temporal limit on the use that evidence can demonstrate for a trade mark not to any extent inherently adapted to distinguish. This qualification is confined to the circumstances described, not evidence of use generally.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether qualifies adequately captures the temporal restriction on the use demonstrated by the evidence.\",\n      \"passage_ref\": \"TMM/Part23/5/5/3\",\n      \"neighbour\": \"GC-0101\"\n    },\n    {\n      \"quote\": \"The date at which all the criteria for a correct claim for priority must apply (regardless of whether the convention priority date is claimed at filing or within the next two working days) is the filing date of the application in Australia.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to: filing date and convention priority are connected without a more specific qualification.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The Manual identifies the Australian filing date as the date at which the criteria for a correct priority claim must apply. This supports a temporal qualification of the claim for priority, rather than equating the filing date with the convention priority date.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour's broader label convention application should be restricted here to its claim-for-priority meaning.\",\n      \"passage_ref\": \"TMM/Part11/2#1\",\n      \"neighbour\": \"GC-0111\"\n    },\n    {\n      \"quote\": \"In most cases, this means that the filing date of an application will be its registration date.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"same_concept: filing date and date of registration name the same idea.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly states that the two dates coincide in most cases, while explaining exceptions for Convention priority. They remain distinct concepts; none of the more specific listed predicates captures this usual coincidence.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology has a more precise way to represent conditional coincidence of distinct dates.\",\n      \"passage_ref\": \"TMM/Part39/5#1\",\n      \"neighbour\": \"GC-0141\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "87ab4462a484798b1da5e60c9f57217625c2e2f2e469fe374ff77b015cf442a5",
+ "response_id": "resp_0d3975a8074ec097006ac62d74836087d2971039ca76b1487e",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2678,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2675
+  },
+  "output_tokens": 706,
+  "output_tokens_details": {
+   "reasoning_tokens": 71
+  },
+  "total_tokens": 3384
+ }
+}

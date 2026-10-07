@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004422,
+ "created_utc": "2026-10-07T11:43:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0144",
+ "job": "relate",
+ "key": "2d2eff7f6668c4f67fadeb6eca66cc591fa97a0287b2bbce588db30153e9953e",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The Registrar of Trade Marks is usually the person named in a subpoena but it is also acceptable if the subpoena is directed to “the proper officer” of the Trade Marks Office.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo was rejected because the passage identifies the usual addressee, rather than stating the application of a provision or rule.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual expressly connects a subpoena with the Registrar as its usual named recipient. No listed specific predicate adequately captures that addressee relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this Registrar record denotes the Registrar of Trade Marks rather than the separately mentioned court registrar.\",\n      \"passage_ref\": \"TMM/Part54/1/1/3\",\n      \"neighbour\": \"GC-0046\"\n    },\n    {\n      \"quote\": \"The Registrar of Trade Marks is usually the person named in a subpoena but it is also acceptable if the subpoena is directed to “the proper officer” of the Trade Marks Office.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo was rejected because being named as the recipient of an instrument is more specifically an addressee relationship, for which no listed predicate is available.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly identifies the Registrar of Trade Marks as the person usually named in a subpoena. This supports a direct connection without making the Registrar the mandatory recipient of every subpoena.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology intends appliesTo to include an instrument's named addressee.\",\n      \"passage_ref\": \"TMM/Part54/1/1/3\",\n      \"neighbour\": \"GC-0115\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to could be considered if “covering” specifically denotes covering the expenses of complying with a subpoena.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The passage explains that conduct money covers expenses incurred in producing documents, but does not identify a concept called “covering”. I am unsure what this neighbour denotes and cannot ground a relationship to it from the label alone.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether “covering” denotes the expense-covering function of conduct money.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0137\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to was rejected because the potential production of examiner reports does not itself establish a relationship with the examiner as a process role.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The passage identifies examiner reports as documents potentially captured by an excessively broad subpoena. It does not assign the examiner a role in issuing, receiving or responding to the subpoena.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the ontology permits a relationship to a document's author role solely through mention of that document.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0044\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "7633408c4d6aee4f4d166a78bcc3c4b9b5a4f7c35785b399f702aaeda6839b7d",
+ "response_id": "resp_0a446b70500594f7006ac6305607a487d2bb406509f231e0e6",
+ "seconds": 29.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2686,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2683
+  },
+  "output_tokens": 857,
+  "output_tokens_details": {
+   "reasoning_tokens": 77
+  },
+  "total_tokens": 3543
+ }
+}

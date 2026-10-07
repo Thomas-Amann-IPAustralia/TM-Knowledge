@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006445,
+ "created_utc": "2026-10-07T11:45:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0150",
+ "job": "relate",
+ "key": "6c402097b939f10b105b45994cdab05ffac882916c45d10c2bcd3cd8af965655",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"Madrid Protocol Article 7 Renewal of International Registration\",\"relation\":\"appliesTo\",\"alternative\":\"related_to: the passage merely lists a relevant Protocol provision rather than stating its application in operative terms.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.86,\"reasoning\":\"The Manual's reference to Article 7 identifies renewal of international registration as a matter addressed by the Madrid Protocol. Application is inferred from the article heading; the passage does not reproduce the Protocol's operative provisions.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether this article-heading reference sufficiently supports appliesTo at the level of the whole Madrid Protocol.\",\"passage_ref\":\"TMM/Part60/2/6/2/6/1\",\"neighbour\":\"GC-0112\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to: both concepts are covered by the same appeal-notification and evidentiary arrangements.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.92,\"reasoning\":\"The passages give international registrations designating Australia and protected international trade marks parallel treatment for specified procedural purposes. They do not state a relationship between the two concepts themselves.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether parallel procedural treatment alone is intended to count as a relationship in this ontology.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0114\"},{\"quote\":\"There are no provisions in the Madrid Protocol for dealing directly with non-use actions against the international registration itself.\",\"relation\":\"related_to\",\"alternative\":\"excludesBasis: international registration is excluded as a basis for removal for non-use.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.88,\"reasoning\":\"The Manual expressly connects non-use actions with international registration by stating that the Protocol has no provisions for actions directly against the registration itself. related_to preserves that limited negative connection without asserting a general prohibition or treating the registration as a legal basis for removal.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether related_to adequately represents this negative procedural-scope relationship.\",\"passage_ref\":\"TMM/Part60/4/20/4/20/2\",\"neighbour\":\"GC-0104\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "f9709f1c92b144646bfd8033ede36e68630920347e51cd0d6b5b52eb7a4dd5bb",
+ "response_id": "resp_05f5ff1905010905006ac630af3ecc87d2a2590f7b64de990c",
+ "seconds": 29.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2825,
+  "input_tokens_details": {
+   "cache_write_tokens": 2822,
+   "cached_tokens": 0
+  },
+  "output_tokens": 583,
+  "output_tokens_details": {
+   "reasoning_tokens": 121
+  },
+  "total_tokens": 3408
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:28:06Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "ART",
+ "job": "define",
+ "key": "96ec56486eab49d805631f3cdf131c15367eaf4e2063e1625f355610a74c936a",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "e71323be6d345b2b6887ef19daf7a709ecef315b8c3334cc111802b6ec654fe1",
+ "response_id": "resp_07f5c0b4a896dc4d006ac6029375e887d28b0fcc49a4adfe22",
+ "seconds": 3.7,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

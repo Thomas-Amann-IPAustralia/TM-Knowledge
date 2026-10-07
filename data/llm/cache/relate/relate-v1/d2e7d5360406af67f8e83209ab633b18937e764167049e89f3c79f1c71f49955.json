@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009518,
+ "created_utc": "2026-10-07T08:31:58Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0012",
+ "job": "relate",
+ "key": "d2e7d5360406af67f8e83209ab633b18937e764167049e89f3c79f1c71f49955",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Restrictions exist as to the scope of the goods and/or services that may be claimed in a specification.\",\n      \"relation\": \"same_concept\",\n      \"alternative\": \"Treat the claimed goods and services as distinct from the specification record that contains them.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"Both records name the specification of goods and services. The passage supports treating the differing groups as different ontology roles for the same concept, rather than separate concepts.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the anchor intentionally represents the claimed scope rather than the specification record itself.\",\n      \"passage_ref\": \"TMM/Part10/5/5/2\",\n      \"neighbour\": \"GC-0129\"\n    },\n    {\n      \"quote\": \"If submissions are received requesting the deletion of certain goods/services from an application that also state that a divisional application is to be filed from that application, any deletion or amendment to the specification of goods/services should be delayed until the divisional application has been filed.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"Use related_to because amendment of an application is broader than amendment of its specification.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The Manual expressly identifies the specification as a target of amendment within an application. Its instruction to delay amendment is conditional on the stated divisional-filing circumstances.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether appliesTo adequately represents an amendment's target within the broader application.\",\n      \"passage_ref\": \"TMM/Part12/2#1\",\n      \"neighbour\": \"GC-0124\"\n    },\n    {\n      \"quote\": \"If the evidence does not support the applicant's complete claim, the examiner should consider suggesting the specification be restricted to include only the range of goods/services for which the mark is demonstrated to be capable of distinguishing and to which the grounds for rejection do not pertain.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Use constrainsExaminerTo from the specification to the examiner.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual connects the examiner with considering a suggested restriction of the specification. It does not make the specification itself the source of a constraint on the examiner, so constrainsExaminerTo would overstate the relationship.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a more specific predicate is intended for an examiner's consideration of specification restrictions.\",\n      \"passage_ref\": \"TMM/Part23/4/4/6\",\n      \"neighbour\": \"GC-0044\"\n    },\n    {\n      \"quote\": \"No reference is to be made to any additional goods or services in the endorsement that are included in the specification but for which no claim to a priority date has been made as the Australian filing date is the priority date for such goods and/or services.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Use qualifies on the reading that the endorsement qualifies the specification's scope.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The Manual expressly relates endorsement content to goods and services included in the specification but not covered by a priority claim. It regulates what the endorsement may mention, rather than stating that the endorsement changes or qualifies the specification itself.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the priority-endorsement relationship warrants a more specific predicate than related_to.\",\n      \"passage_ref\": \"TMM/Part11/6/6/4\",\n      \"neighbour\": \"GC-0014\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "31ad5c58dc8b1f5e6b7fc459bbdea36e22b348cce516fa43e804b31c93267bc9",
+ "response_id": "resp_0bc5c29e1c11c7d9006ac60353672c87d298765ea4eee8018f",
+ "seconds": 43.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3223,
+  "input_tokens_details": {
+   "cache_write_tokens": 3220,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1098,
+  "output_tokens_details": {
+   "reasoning_tokens": 230
+  },
+  "total_tokens": 4321
+ }
+}
