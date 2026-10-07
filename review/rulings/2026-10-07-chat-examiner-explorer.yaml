@@ -1,0 +1,52 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S024
+# agent; no issue behind it. The artefact is
+# `review/returned/261007-owner-chat-examiner-explorer.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-07T18:00:00Z'
+questions_updated: '2026-10-07'
+source:
+  kind: chat
+  artefact: review/returned/261007-owner-chat-examiner-explorer.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S024 agent
+  title: Rebuild the front end for examiners; bury the dashboard; live chatbot on the owner's key
+applied:
+  session: S024
+  date: '2026-10-07'
+  branch: claude/affectionate-lamport-8g14rj
+  what_changed: >-
+    site/ is now the examiner explorer (tmk-explorer builds its data): a home page,
+    a seven-step tour, a three-level map (kinds, ideas, text), Ask the Manual with
+    the multi-hop path drawn and live answers when a key is supplied, and a page
+    showing what a rewrite of any Manual page would touch. The dashboard moved to
+    site/workbench/, unlinked. The Pages workflow is one job under the github-pages
+    environment and builds the explorer with live answers on when the
+    OPENAI_API_KEY secret is set.
+  corrections_owed: >-
+    The owner wrote "the small local app". What was built runs in the published
+    page, not locally: that is the only way an examiner can use it without
+    installing anything, and it is what "does not need to be password protected"
+    implies. The key is therefore published (masked) in the page — said plainly
+    to the owner.
+answers:
+- id: CHAT-0013
+  question: What should the site be?
+  kind: instruction
+  value: rebuild_for_examiners
+  label: Completely reconstruct the front end for a trade marks examiner
+  quote: I would like to completely reconstruct the front end so that a Trade Mark examiner will quickly understand the value and construction of the ontology.
+  recorded_as: [ADR-0117, ADR-0118]
+- id: CHAT-0014
+  question: What happens to the existing pages?
+  kind: instruction
+  value: bury_dashboard
+  label: Keep them, somewhere an examiner is unlikely to find
+  quote: Please feel free to just bury the existing webpages somewhere on the local site so I can still access it but so it would be unlikely for someone from Trade Marks to find.
+  recorded_as: [ADR-0118]
+- id: CHAT-0015
+  question: May a live chatbot answer examiners' questions with the owner's key, unprotected?
+  kind: instruction
+  value: live_chat_unprotected
+  label: Yes — no password; the owner accepts others may use the key
+  quote: The chatbot does not need to be password protected. I know random people might be able to access it and use my tokens for free but I'm not popular enough to really worry about that.
+  recorded_as: [ADR-0118]

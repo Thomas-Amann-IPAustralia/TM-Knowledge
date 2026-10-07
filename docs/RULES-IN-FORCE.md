@@ -4,7 +4,7 @@ Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-07, ADR-0112.
+**As at:** 2026-10-07, ADR-0119.
 
 ## Purpose and scope
 
@@ -16,6 +16,10 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   applies (PU-0003). The eleven signed prohibited uses stand (ADR-0082 c4).
 - **The Manual is practice, not law.** Keep the Manual and the legislation
   distinguishable everywhere, including in an answer (CLAUDE.md rule 5).
+- **The published site is for trade marks examiners** (`site/`, the explorer); the
+  owner's workbench is at `/workbench/`, linked from nothing an examiner opens. A live
+  chatbot answers examiners' own questions with the owner's key, unprotected — the
+  owner's decision, and the key is recoverable from the page (ADR-0118).
 
 ## Knowledge: who wrote it, and the three states
 
@@ -57,9 +61,11 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
 - **Bulk knowledge work: OpenAI `gpt-6.1-sol`, medium reasoning effort**, through
   the session proxy (ADR-0111, Q-65). No Gemini.
-- **Spend cap: US$1** until the owner approves a quote (`config.SPEND_CAP_USD`).
+- **Spend cap: US$6.60**, the approved quote (`config.SPEND_CAP_USD`, ADR-0114).
   Every paid call goes through `tm_knowledge.bulk`: dry-run, `--confirm`,
-  `--limit`, a committed cache, the cap checked before each call.
+  `--limit`, a committed cache, the cap checked before each call. **One exception:**
+  the explorer's live answers are made from readers' browsers on the owner's key,
+  outside `bulk` and the cap (ADR-0118).
 - **Corpus text may go to the API; an expert's own notes may not** (ADR-0088).
 - **A call must be worth making**: deterministic first, batch related judgements,
   never re-send what already has a current record (ADR-0088 c2).
@@ -70,6 +76,13 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   drift, so rebuild with `tmk-graph --write --rules` after changing records
   (ADR-0042, ADR-0070).
 - **The site rebuilds itself on deploy**; `site/data/` is not committed (ADR-0112).
+  The explorer's build reads the pinned snapshot; the workbench's does not (ADR-0117).
+- **The explorer may use libraries, vendored** under `site/vendor/` with a checksum
+  manifest a test enforces, loaded per view by `site/js/lib.js` — never from a CDN
+  (ADR-0119). The workbench keeps its no-library rule.
+- **The browser's search is a copy of `search.index`** (`site/js/engine.js`, no
+  vectors). A test holds the two identical, prompt included; change both or neither.
+  The measured BM25 weights the heading in full, not by half (Q-69).
 - **The graph reads both stores through one mapping**, every node stamped with its
   origin; an authored relationship is a `tmk:AuthoredAssertion`, never a
   `tmk:ApprovedAssertion` (ADR-0091).

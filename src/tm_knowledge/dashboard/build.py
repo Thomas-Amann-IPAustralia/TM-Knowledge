@@ -14,7 +14,7 @@ here**; the site renders `data/derived/reports/ontology.md` instead, which is
 produced by the run that has the snapshot. The site restates nothing it can
 render.
 
-Output is one JSON file per page under `site/data/`, each in the block
+Output is one JSON file per page under `site/workbench/data/`, each in the block
 vocabulary of `blocks.py`. `--check` regenerates in memory and diffs against
 what is committed, ignoring only the generated-on stamp, so a content change
 that was never reflected on the site fails CI rather than going quietly stale.
@@ -45,7 +45,9 @@ from tm_knowledge.stage0 import goldset
 
 __all__ = ["SITE_DIR", "DATA_DIR", "PAGES", "build", "write", "check"]
 
-SITE_DIR = REPO_ROOT / "site"
+#: The owner's workbench, kept out of an examiner's way under `site/workbench/`
+#: (ADR-0118). The examiner-facing site at `site/` is `tm_knowledge.explorer`.
+SITE_DIR = REPO_ROOT / "site" / "workbench"
 DATA_DIR = SITE_DIR / "data"
 REPORTS_DIR = REPO_ROOT / "data" / "derived" / "reports"
 
@@ -70,7 +72,7 @@ PAGES: tuple[tuple[str, str, str], ...] = (
 
 #: Reports copied next to the site so a block can fetch them. They are already
 #: committed under `data/derived/reports/`; committing a second copy would put
-#: the same text in the history twice, so `site/data/reports/` is git-ignored
+#: the same text in the history twice, so `site/workbench/data/reports/` is git-ignored
 #: and rebuilt by every `--write`.
 REPORTS: tuple[tuple[str, str, str], ...] = (
     ("ontology.md", "The ontology draft — what it holds and what it cannot answer",
@@ -1379,7 +1381,7 @@ def _reports(facts: Facts) -> dict[str, Any]:
 
 
 def _inbox(facts: Facts) -> dict[str, Any]:
-    """The form's data. Rendered by `site/inbox.js`, not by the block renderer."""
+    """The form's data. Rendered by `site/workbench/inbox.js`, not by the block renderer."""
     question_set = facts.questions
     answered: dict[str, list[dict[str, Any]]] = {}
     for ruling in facts.rulings:

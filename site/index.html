@@ -1,52 +1,54 @@
 <!doctype html>
 <html lang="en-AU">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TM-Knowledge — the section 43 knowledge base</title>
-<meta name="description" content="Explore the ontology, vocabulary and knowledge graph built over the Australian trade marks examination corpus — and answer the decisions waiting on a person.">
-<meta name="color-scheme" content="light dark">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#129513;</text></svg>">
-<link rel="stylesheet" href="app.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trade Marks Manual Map</title>
+  <meta name="description" content="The Trade Marks Manual of Practice and Procedure as a map of the ideas an examiner reasons with — a demonstration of what an ontology adds.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='9' cy='10' r='5' fill='%231b7a74'/%3E%3Ccircle cx='23' cy='10' r='5' fill='%23b26b00'/%3E%3Ccircle cx='16' cy='23' r='5' fill='%23b4363f'/%3E%3Cpath d='M9 10L23 10L16 23Z' fill='none' stroke='%23333' stroke-width='1.5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="explorer.css">
+  <script type="module" src="js/app.js"></script>
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <a class="brand" href="#/" aria-label="Home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 10L23 10L16 23Z" class="brand-lines"/><circle cx="9" cy="10" r="4.5" class="k-relevant_factor"/><circle cx="23" cy="10" r="4.5" class="k-legal_test"/><circle cx="16" cy="23" r="4.5" class="k-ground_of_refusal"/></svg>
+      <span>Trade Marks Manual <b>Map</b></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#/tour" data-route="tour">Why it matters</a>
+      <a href="#/map" data-route="map">The map</a>
+      <a href="#/ask" data-route="ask">Ask the Manual</a>
+      <a href="#/change" data-route="change">When the text changes</a>
+      <a href="#/about" data-route="about">About</a>
+    </nav>
+    <button class="theme" type="button" aria-label="Switch light or dark" title="Light or dark">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+    </button>
+  </header>
 
-<header class="topbar">
-  <button class="menu" id="menu" aria-expanded="false" aria-controls="nav" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <a class="brand" href="#/overview">
-    <span class="brand-mark" aria-hidden="true">§43</span>
-    <span class="brand-text">
-      <strong>TM-Knowledge</strong>
-      <small>Trade marks examination knowledge base</small>
-    </span>
-  </a>
-  <div class="topbar-right">
-    <a class="waiting" id="waiting" href="#/inbox" hidden></a>
-    <button class="theme" id="theme" aria-label="Switch between light and dark">◐</button>
+  <div class="notice" role="note">
+    <strong>A demonstration.</strong> Most of what you will see was written by a machine and has not been checked by a trade marks expert — every item says which.
+    It explains the Manual; it never decides an application.
   </div>
-</header>
 
-<div class="shell">
-  <nav class="nav" id="nav" aria-label="Sections"></nav>
   <main id="main" tabindex="-1">
-    <div id="view" class="view" aria-live="polite"></div>
-    <footer class="foot" id="foot"></footer>
+    <p class="loading">Loading the map…</p>
   </main>
-</div>
 
-<div class="tip" id="tip" role="tooltip" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true" aria-label="Passage">
+    <div class="drawer-head">
+      <div class="drawer-title"></div>
+      <button type="button" class="drawer-close" aria-label="Close">×</button>
+    </div>
+    <div class="drawer-body"></div>
+  </aside>
 
-<script type="module" src="app.js"></script>
-<noscript>
-  <p style="padding:2rem;max-width:40rem">
-    This dashboard renders data files in the browser, so it needs JavaScript.
-    Everything it shows is also readable in the repository itself — the generated
-    reports are in <code>data/derived/reports/</code> and the questions waiting on
-    a person are in <code>review/questions/open-questions.yaml</code>.
-  </p>
-</noscript>
+  <footer class="foot">
+    <span class="foot-build"></span>
+    <span>The Manual states the Registrar's practice; it is not law. The Act and Regulations are shown apart from it everywhere on this site.</span>
+  </footer>
+  <noscript><p class="loading">This site needs JavaScript to draw the map.</p></noscript>
 </body>
 </html>

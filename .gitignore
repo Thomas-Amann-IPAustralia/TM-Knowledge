@@ -50,3 +50,7 @@ data/derived/search/queries.json
 
 # In-flight spend reservations: transient, per process (bulk.client).
 data/llm/reservations/
+
+# The explorer's data and the workbench's data — both generated at deploy
+# (ADR-0112, ADR-0117). live.json can hold the published chat key: never commit it.
+site/workbench/data/

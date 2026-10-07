@@ -1,0 +1,74 @@
+{
+ "d3.min.js": {
+  "package": "d3",
+  "version": "7.9.0",
+  "licence": "ISC",
+  "use": "global d3 \u2014 home circle-packing, change treemap, tour transitions",
+  "sha256": "f2094bbf6141b359722c4fe454eb6c4b0f0e42cc10cc7af921fc158fceb86539",
+  "bytes": 279706
+ },
+ "plot.umd.min.js": {
+  "package": "@observablehq/plot",
+  "version": "0.6.17",
+  "licence": "ISC",
+  "use": "global Plot \u2014 charts; needs d3 first",
+  "sha256": "4358086467740777dd788d6b27a95cebdbaefdd50c730a3060117073bd7134cb",
+  "bytes": 209183
+ },
+ "cytoscape.min.js": {
+  "package": "cytoscape",
+  "version": "3.34.3",
+  "licence": "MIT",
+  "use": "global cytoscape \u2014 the map",
+  "sha256": "5f3b5b529546d5af1fc5628590af033b74511a5b6f789f5f4682845863228b91",
+  "bytes": 435503
+ },
+ "fuse.min.mjs": {
+  "package": "fuse.js",
+  "version": "7.5.0",
+  "licence": "Apache-2.0",
+  "use": "ES module \u2014 fuzzy idea search",
+  "sha256": "5ab524d12492bb233568e9600046e1aaa9623d36ebe689589144f7dc9b1da6f7",
+  "bytes": 26095
+ },
+ "purify.es.mjs": {
+  "package": "dompurify",
+  "version": "3.4.16",
+  "licence": "MPL-2.0 OR Apache-2.0",
+  "use": "ES module \u2014 sanitises model-written HTML; source-map comment removed",
+  "sha256": "9c52577e368cdc6f3fb2bc87de222c8139e30655eef54a2bebde6d4b0a85ccb8",
+  "bytes": 84405
+ },
+ "marked.esm.js": {
+  "package": "marked",
+  "version": "15.0.12",
+  "licence": "MIT",
+  "use": "ES module \u2014 renders answers' Markdown; source-map comment removed",
+  "sha256": "f1aa922d9e1afcd6115b41e03a7c3443c5720440cd87028f340061ef294ec225",
+  "bytes": 71866
+ },
+ "fonts/inter-latin-wght-normal.woff2": {
+  "package": "@fontsource-variable/inter",
+  "version": "5.3.0",
+  "licence": "OFL-1.1",
+  "use": "UI typeface",
+  "sha256": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+  "bytes": 48256
+ },
+ "fonts/source-serif-4-latin-opsz-normal.woff2": {
+  "package": "@fontsource-variable/source-serif-4",
+  "version": "5.3.0",
+  "licence": "OFL-1.1",
+  "use": "headings and quotations",
+  "sha256": "f2ea9c12d2fe9bd3a9589b02ad2c0909da88f30938c91adc838c4f4098f9f9e0",
+  "bytes": 122360
+ },
+ "fonts/source-serif-4-latin-opsz-italic.woff2": {
+  "package": "@fontsource-variable/source-serif-4",
+  "version": "5.3.0",
+  "licence": "OFL-1.1",
+  "use": "headings and quotations, italic",
+  "sha256": "96e6393209728ab93c334ae739af8a040cd2006c82e8614d6465a8084db88f89",
+  "bytes": 130188
+ }
+}

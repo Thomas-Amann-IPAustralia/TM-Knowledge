@@ -1,7 +1,7 @@
 """The block vocabulary the site renders.
 
 A page is `{id, title, lede, blocks: [...]}` and every block is one of ten
-kinds. `site/blocks.js` has one renderer per kind and knows nothing else about
+kinds. `site/workbench/blocks.js` has one renderer per kind and knows nothing else about
 the repo, which is the whole point: **changing what the dashboard says is a
 change to this file and to `build.py`, never to the JavaScript.** Adding an
 eleventh kind is the only thing that needs both.
@@ -9,12 +9,12 @@ eleventh kind is the only thing that needs both.
 Two of the ten are different in a way worth naming. `network` and `tree` carry a
 derived arrangement rather than a restatement — the rules that produced them are
 in `views.py` and the browser applies none of its own. They still hold no text
-the records do not, and `site/network.js` and `site/tree.js` know as little
+the records do not, and `site/workbench/network.js` and `site/workbench/tree.js` know as little
 about trade marks as `blocks.js` does.
 
 Cell and text values are markdown-lite (`**bold**`, `` `code` ``, `[a](b)`) and
 may carry `{{glossary term}}` markers, which the browser turns into a tooltip
-from `site/data/glossary.json`. A marker naming a term the glossary does not
+from `site/workbench/data/glossary.json`. A marker naming a term the glossary does not
 hold is a build error, not a silently plain word — see `build.check_glossary`.
 """
 

@@ -28,7 +28,7 @@ from tm_knowledge.dashboard import blocks, questions, ruling, sources
 
 pytestmark = []
 
-SITE = REPO_ROOT / "site"
+SITE = REPO_ROOT / "site" / "workbench"
 
 
 # ------------------------------------------------------- reading the documents
