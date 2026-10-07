@@ -243,7 +243,35 @@ mark { background: color-mix(in srgb, var(--glow) 40%, transparent); color: inhe
 .fact { display: flex; gap: .75rem; align-items: baseline; margin: .3rem 0; }
 .fact .big { min-width: 4.5rem; text-align: right; }
 .wordings { display: flex; flex-wrap: wrap; gap: .35rem; margin: .6rem 0; }
-.cell { transition: fill .35s, opacity .35s; }
+.cell { transition: fill .35s, opacity .25s; cursor: pointer; }
+svg.waffle.hovering .cell:not(.in-part) { opacity: .32; }
+.lens { pointer-events: none; transition: transform .14s ease-out, opacity .15s; }
+.lens rect { stroke: var(--ink); stroke-width: 2.5; transform-box: fill-box; transform-origin: center; filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .25)); }
+.lens rect.pop { animation: lens-pop .32s cubic-bezier(.3, 1.6, .5, 1); }
+.lens.demo rect { animation: lens-pop .32s cubic-bezier(.3, 1.6, .5, 1), lens-beat 1.6s ease-in-out .4s infinite; }
+@keyframes lens-pop { from { transform: scale(.45); } to { transform: scale(1); } }
+@keyframes lens-beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.22); } }
+.cell-key { display: flex; gap: .6rem; align-items: flex-start; font-size: .86rem; color: var(--ink-2); margin: 0 0 .7rem; }
+.cell-key svg { width: 18px !important; height: 18px !important; flex: none; margin-top: .1rem; }
+.cell-key rect { fill: color-mix(in srgb, var(--ink-3) 45%, var(--line)); stroke: var(--ink); stroke-width: 1.5; }
+.cell-key b { color: var(--ink); }
+.cell-tip {
+  position: absolute; z-index: 6; width: min(300px, 70%); pointer-events: none; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; box-shadow: var(--shadow); padding: .6rem .75rem; font-size: .82rem; color: var(--ink-2);
+  display: flex; flex-direction: column; gap: .2rem; animation: tip-in .18s ease-out;
+}
+.cell-tip.flow { position: static; width: auto; margin-top: .6rem; }
+@keyframes tip-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.cell-tip .k { font-size: .7rem; text-transform: uppercase; letter-spacing: .07em; font-weight: 650; color: var(--ink-3); }
+.cell-tip b { font-family: var(--serif); font-size: 1.02rem; color: var(--ink); }
+.cell-tip .part { display: flex; gap: .4rem; align-items: baseline; color: var(--ink); font-weight: 550; }
+.cell-tip .part i { width: .7rem; height: .7rem; border-radius: 2px; flex: none; border: 1px solid var(--ink-3); transform: translateY(1px); }
+.cell-tip .page { color: var(--ink-2); }
+.cell-tip .words { font-family: var(--serif); color: var(--ink); font-size: .86rem; border-left: 2px solid var(--manual); padding-left: .5rem; margin: .15rem 0; }
+.cell-tip .names { color: var(--ink); }
+.cell-tip .names .dot { transform: translateY(1px); }
+.cell-tip .names strong { font-weight: 650; }
+.cell-tip .names.no { color: var(--ink-3); }
 
 /* ------------------------------------------------------------ map */
 .map-shell { display: grid; grid-template-columns: 250px minmax(0, 1fr) 380px; height: calc(100vh - 104px); min-height: 560px; }

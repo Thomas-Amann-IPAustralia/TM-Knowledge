@@ -4,7 +4,7 @@
    says what to look at. Step order is the argument: text → wordings → connections
    → kinds → change → retrieval → limits. */
 
-import { esc, fmt, load, kindColour, refChip, trustBadge, isLaw, stampIcon } from "./app.js";
+import { esc, fmt, load, kindColour, refChip, trustBadge, isLaw, stampIcon, openPassage } from "./app.js";
 import { svg, curve, arrowDefs, wrapText } from "./graph.js";
 import { drawKinds, W, H, specificCount } from "./kinds.js";
 
@@ -50,20 +50,117 @@ export async function render(root, { ontology, params }) {
 
   // ------------------------------------------------------------- 1. text
 
-  function waffle(colourFor, titleFor) {
-    const cols = 60, cell = 14, gap = 2;
-    const rows = Math.ceil(tour.passages / cols);
-    const root = svg("svg", { viewBox: `0 0 ${cols * (cell + gap)} ${rows * (cell + gap)}`, role: "img", "aria-label": "Every passage of the Manual, in order, one square each" });
-    let i = 0;
-    tour.parts.forEach((part, p) => {
-      for (let j = 0; j < part.n; j++, i++) {
-        const r = svg("rect", { x: (i % cols) * (cell + gap), y: Math.floor(i / cols) * (cell + gap), width: cell, height: cell, rx: 2, class: "cell", fill: colourFor(i, p) }, root);
-        if (titleFor) svg("title", {}, r).textContent = titleFor(i, part);
-        r.dataset.i = i;
-      }
+  // Which Part each square (passage, in reading order) belongs to.
+  const partAt = [];
+  tour.parts.forEach((part, p) => { for (let j = 0; j < part.n; j++) partAt.push(p); });
+  const partStart = tour.parts.map((_, p) => partAt.indexOf(p));
+
+  const CELL = 14, GAP = 2, COLS = 60;
+
+  /** The passages in the tour's reading order — by Part number, then page, then
+      position, as `explorer.build._display_order` — from passages.json, on demand. */
+  let ordered = null;
+  function readingOrder() {
+    ordered = ordered || load("passages").then((p) => {
+      const key = (part) => { const m = /^Part(\d+)(.*)$/.exec(part || ""); return m ? [Number(m[1]), m[2]] : [999, part || ""]; };
+      const cmp = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+      return p.chunks.map((c, i) => ({ c, i, k: key(p.pages[c[1]]?.part) }))
+        .sort((a, b) => a.k[0] - b.k[0] || cmp(a.k[1], b.k[1]) || cmp(a.c[1], b.c[1]) || a.i - b.i)
+        .map(({ c }) => ({ ref: c[0], page: p.pages[c[1]] || {}, heading: c[2], text: c[3] }));
     });
+    return ordered;
+  }
+
+  function waffle(colourFor, extra = () => "", { glowPart = true } = {}) {
+    const rows = Math.ceil(tour.passages / COLS);
+    const root = svg("svg", { viewBox: `-4 -4 ${COLS * (CELL + GAP) + 8} ${rows * (CELL + GAP) + 8}`, role: "img", class: "waffle",
+      "aria-label": "Every passage of the Manual, in order, one square each" });
+    for (let i = 0; i < tour.passages; i++) {
+      const r = svg("rect", { x: (i % COLS) * (CELL + GAP), y: Math.floor(i / COLS) * (CELL + GAP), width: CELL, height: CELL, rx: 2, class: "cell", fill: colourFor(i, partAt[i]) }, root);
+      r.dataset.i = i;
+    }
+    // The magnifier: an enlarged copy of the square under the pointer, drawn on top.
+    const lens = svg("g", { class: "lens", opacity: 0 }, root);
+    const lensRect = svg("rect", { x: -4, y: -4, width: CELL + 8, height: CELL + 8, rx: 4 }, lens);
+    const tip = document.createElement("div");
+    tip.className = "cell-tip";
+    tip.hidden = true;
+    let shown = -1, demo = true;
+
+    async function show(i, { example = false } = {}) {
+      const rect = root.querySelector(`rect.cell[data-i="${i}"]`);
+      if (!rect) return;
+      shown = i;
+      const p = partAt[i], part = tour.parts[p];
+      // Light up the square's Part, so "shaded by Part" can be seen at a glance.
+      root.classList.toggle("hovering", glowPart);
+      root.querySelectorAll("rect.cell.in-part").forEach((c) => c.classList.remove("in-part"));
+      for (let j = partStart[p]; j < partStart[p] + part.n; j++) root.querySelector(`rect.cell[data-i="${j}"]`)?.classList.add("in-part");
+      lens.style.transform = `translate(${rect.getAttribute("x")}px, ${rect.getAttribute("y")}px)`;
+      lensRect.setAttribute("fill", rect.getAttribute("fill"));
+      lens.setAttribute("opacity", 1);
+      lens.classList.toggle("demo", example);
+      lensRect.classList.remove("pop"); void lensRect.getBoundingClientRect(); lensRect.classList.add("pop");
+      const num = part.title.match(/^Part\s+(\S+)\s*(.*)$/) || [null, "", part.title];
+      tip.innerHTML = `<span class="k">${example ? "For example — " : ""}one square = one passage</span>
+        <b>Passage ${fmt(i + 1)} of ${fmt(tour.passages)}</b>
+        <span class="part"><i style="background:${rect.getAttribute("fill")}"></i>Part ${esc(num[1])} · ${esc(num[2])}</span>
+        <span class="more">…</span>${extra(i)}
+        <span class="tiny">Click to read it.</span>`;
+      tip.hidden = false;
+      place(rect);
+      const list = await readingOrder();
+      if (shown !== i) return;
+      const row = list[i];
+      if (!row) return;
+      const head = (row.heading || "").split(" > ").pop();
+      tip.querySelector(".more").outerHTML = `<span class="page">${esc(row.page.title || "")}${head && head !== row.page.title ? ` <span class="muted">› ${esc(head)}</span>` : ""}</span>
+        <span class="words">“${esc(row.text.length > 150 ? row.text.slice(0, 148).replace(/\s+\S*$/, "") + " …" : row.text)}”</span>`;
+      place(rect);
+    }
+    function place(rect) {
+      const host = stage.getBoundingClientRect(), r = rect.getBoundingClientRect();
+      // On a narrow screen the squares are small: put the callout under them, not over them.
+      tip.classList.toggle("flow", host.width < 560);
+      if (host.width < 560) return;
+      const w = tip.offsetWidth, h = tip.offsetHeight;
+      let left = r.right - host.left + 14;
+      if (left + w > host.width - 8) left = r.left - host.left - w - 14;
+      const top = Math.max(8, Math.min(host.height - h - 8, r.top - host.top + r.height / 2 - h / 2));
+      tip.style.left = `${Math.max(8, left)}px`;
+      tip.style.top = `${top}px`;
+    }
+    function hide() {
+      shown = -1;
+      root.classList.remove("hovering");
+      lens.setAttribute("opacity", 0);
+      tip.hidden = true;
+    }
+    root.addEventListener("mouseover", (e) => {
+      const i = e.target.closest("rect.cell")?.dataset.i;
+      if (i === undefined || Number(i) === shown) return;
+      demo = false;
+      show(Number(i));
+    });
+    root.addEventListener("mouseleave", () => { if (!demo) hide(); });
+    root.addEventListener("click", async (e) => {
+      const i = Number(e.target.closest("rect.cell")?.dataset.i ?? NaN);
+      if (Number.isNaN(i)) return;
+      const row = (await readingOrder())[i];
+      if (row) openPassage(row.ref);
+    });
+    root.repaint = () => { if (shown >= 0) lensRect.setAttribute("fill", root.querySelector(`rect.cell[data-i="${shown}"]`).getAttribute("fill")); };
+    root.attach = (example) => {
+      stage.appendChild(tip);
+      if (example !== undefined && example >= 0) setTimeout(() => { if (demo) show(example, { example: true }); }, 450);
+    };
+    readingOrder(); // start fetching the text, so the first hover has it
     return root;
   }
+
+  const key = () => `<div class="cell-key"><svg viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="1" width="14" height="14" rx="2"/></svg>
+    <span><b>One square is one passage</b> — a few paragraphs under a single heading of the Manual. All ${fmt(tour.passages)} are here,
+    in reading order: left to right, top to bottom, Part after Part.</span></div>`;
 
   function stepText() {
     const pages = stability.pages.length;
@@ -75,8 +172,13 @@ export async function render(root, { ontology, params }) {
       <p>Each square on the right is one passage, in reading order, shaded by Part. Beside them sit the
       <b>Trade Marks Act 1995</b> and <b>Regulations</b> — law, where the Manual is practice.</p>
       <p>A search box sees only this: words in passages. It finds a passage when the words you type are in it.</p>`;
-    stage.appendChild(waffle((i, p) => (p % 2 ? "var(--line)" : "color-mix(in srgb, var(--ink-3) 45%, var(--line))"), (i, part) => `${part.title}`));
-    stage.insertAdjacentHTML("beforeend", `<p class="caption">Hover over a square to see its Part.</p>`);
+    stage.insertAdjacentHTML("beforeend", key());
+    const pic = waffle((i, p) => (p % 2 ? "var(--line)" : "color-mix(in srgb, var(--ink-3) 45%, var(--line))"));
+    stage.appendChild(pic);
+    stage.insertAdjacentHTML("beforeend", `<p class="caption">Point at a square to see which passage it is — its Part lights up; click it to read the passage.</p>`);
+    // Open on an example: the first passage of the Part on deception and confusion, if present.
+    const sample = tour.parts.findIndex((x) => /Section 43/.test(x.title));
+    pic.attach(sample >= 0 ? partStart[sample] : 0);
   }
 
   // ------------------------------------------------------------- 2. wordings
@@ -102,18 +204,29 @@ export async function render(root, { ontology, params }) {
       <div class="wordings">${labels.map((label, li) => `<button type="button" class="chip on" data-w="${esc(label)}"><i class="dot" style="--c:${WORDING_COLOURS[li % 5]}"></i>${esc(label)} · ${s.wordings[label].length}</button>`).join("")}</div>
       <p class="tiny">The wordings are the record's own labels${concept?.origin === "signed" ? ", signed by a trade marks expert" : ""}. Try another idea:
       ${tour.showcase.map((x, i) => `<button type="button" class="chip${i === showcase ? " on" : ""}" data-sc="${i}">${esc(x.label)}</button>`).join(" ")}</p>`;
-    const pic = waffle(() => "var(--line-2)", (i, part) => part.title);
+    const says = (i) => {
+      const li = owner.get(i);
+      if (li === undefined) return `<span class="names no">Does not name <i>${esc(s.label)}</i> in any of its wordings.</span>`;
+      const label = labels[li];
+      return `<span class="names"><i class="dot" style="--c:${WORDING_COLOURS[li % 5]}"></i> Names <strong>${esc(s.label)}</strong>${label === s.label ? " by that term" : ` as “${esc(label)}” — a search for the formal term misses it`}.</span>`;
+    };
+    stage.insertAdjacentHTML("beforeend", key());
+    const pic = waffle(() => "var(--line-2)", says, { glowPart: false });
     stage.appendChild(pic);
-    stage.insertAdjacentHTML("beforeend", `<p class="caption">Coloured squares name <b>${esc(s.label)}</b>; the colour is the wording used.</p>`);
+    stage.insertAdjacentHTML("beforeend", `<p class="caption">Coloured squares name <b>${esc(s.label)}</b>; the colour is the wording used. Point at one to see its words; click to read it.</p>`);
     const paint = () => {
-      pic.querySelectorAll("rect").forEach((r) => {
+      pic.querySelectorAll("rect.cell").forEach((r) => {
         const i = Number(r.dataset.i);
         const li = owner.get(i);
         const label = li === undefined ? null : labels[li];
         r.setAttribute("fill", label && active.has(label) ? WORDING_COLOURS[li % 5] : "var(--line-2)");
       });
+      pic.repaint();
     };
     requestAnimationFrame(paint);
+    // Open on a passage that uses another wording: the case the step is about.
+    const other = [...owner.entries()].filter(([, li]) => labels[li] !== s.label).map(([i]) => i).sort((a, b) => a - b)[0];
+    pic.attach(other ?? formal[0] ?? 0);
     body.querySelectorAll("[data-w]").forEach((b) => b.addEventListener("click", () => {
       const w = b.dataset.w;
       if (active.size === labels.length) active = new Set([w]); else if (active.has(w) && active.size === 1) active = new Set(labels); else active.has(w) ? active.delete(w) : active.add(w);
