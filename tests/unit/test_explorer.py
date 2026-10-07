@@ -26,7 +26,8 @@ needs_snapshot = pytest.mark.skipif(not UPSTREAM_DIR.exists(), reason="needs the
 
 
 def test_the_site_is_self_contained():
-    """No framework, no CDN, no web fonts: every byte is in the repository."""
+    """Every byte the explorer serves is in the repository: its own code, and the
+    libraries and fonts vendored under site/vendor/ (ADR-0119). Nothing from a CDN."""
     html = (SITE / "index.html").read_text(encoding="utf-8")
     assert "explorer.css" in html and "js/app.js" in html
     assert not re.search(r"""(src|href)=["']https?://""", html)
@@ -34,12 +35,35 @@ def test_the_site_is_self_contained():
     assert sources, "the explorer's modules are missing"
     for path in sources:
         text = path.read_text(encoding="utf-8")
-        assert "import(" not in text, path.name
-        for host in ("cdn", "unpkg", "jsdelivr", "googleapis", "fonts.g"):
-            assert host not in text.lower(), f"{path.name} names {host}"
-        assert "api.openai.com" not in text, f"{path.name}: the endpoint comes from live.json, not the code"
+        if path.name != "lib.js":
+            assert "import(" not in text, f"{path.name}: load libraries through lib.js"
+        for host in ("cdn", "unpkg", "jsdelivr", "googleapis", "fonts.g", "http://", "https://"):
+            assert host not in text.lower().replace("http://www.w3.org", ""), f"{path.name} names {host}"
+    lib = (SITE / "js" / "lib.js").read_text(encoding="utf-8")
+    for target in re.findall(r"""import\(["']([^"']+)["']\)""", lib):
+        assert target.startswith("../vendor/"), target
     css = (SITE / "explorer.css").read_text(encoding="utf-8")
     assert "@import" not in css and "url(http" not in css
+    for font in re.findall(r'url\("([^"]+)"\)', css):
+        assert font.startswith("vendor/fonts/") and (SITE / font).exists(), font
+
+
+def test_every_vendored_file_matches_its_manifest():
+    """A vendored library changes only by a commit that also changes its hash."""
+    import hashlib
+
+    vendor = SITE / "vendor"
+    manifest = json.loads((vendor / "manifest.json").read_text(encoding="utf-8"))
+    for name, entry in manifest.items():
+        data = (vendor / name).read_bytes()
+        assert hashlib.sha256(data).hexdigest() == entry["sha256"], f"{name} differs from its manifest entry"
+        assert entry["licence"] and entry["version"], name
+    served = {str(p.relative_to(vendor)) for p in vendor.rglob("*")
+              if p.is_file() and p.name not in ("manifest.json", "README.md") and not p.name.startswith("LICENSE.")}
+    assert served == set(manifest), f"unlisted or missing: {served ^ set(manifest)}"
+    for package in {entry["package"] for entry in manifest.values()}:
+        licence = vendor / ("LICENSE." + package.replace("/", "_").replace("@", "").lstrip("_"))
+        assert licence.exists(), f"no licence beside {package}"
 
 
 def test_the_workbench_is_kept_but_not_linked():
