@@ -1208,3 +1208,40 @@ pass in a `requestAnimationFrame` after returning the block, and make the
 "already done" flag record whether the measurement *succeeded* rather than
 whether it was attempted. `site/tree.js` builds once for the DOM and once more on
 the next frame for the real heights, which is the cheap and honest version.
+
+---
+### Q-64 — the approved model is reachable from a session container, which two ADRs say it is not
+
+ADR-0087 consequence 2 and ADR-0094 both rest on one claim: *the Gemini key is a
+repository secret, so it reaches GitHub Actions and not a local container.* That
+is why the 208 authored records were all written by the session agent by hand,
+and why `gemini-3.8-flash` has never been called.
+
+**In this environment the claim is false** — whether it was ever true of earlier
+sessions is not knowable from the repo, so do not read this as a past mistake.
+The session's egress proxy injects
+the Gemini credential for `generativelanguage.googleapis.com` (it is listed among
+the proxy-injected hosts, with OpenAI and Langfuse). Measured S023: a `GET
+https://generativelanguage.googleapis.com/v1beta/models` with **no key at all**
+returned HTTP 200 and 62 models. Free, read-only, no corpus text sent.
+
+Two things the same call settled:
+
+- **`gemini-3.8-flash` is a current model id** — the HANDOFF item *"confirm the
+  model id against Google's current list before it is trusted"* is done. It lists
+  `generateContent`, `countTokens`, `createCachedContent` and
+  `batchGenerateContent`, so batch inference (ADR-0087 consequence 4) is
+  available on the same id.
+- **Embeddings are reachable too** — `gemini-embedding-001` and
+  `gemini-embedding-2` — so dense retrieval needs no local torch or
+  sentence-transformers install.
+
+**The trap that remains.** `config.authoring_api_key()` raises when
+`GEMINI_API_KEY` is unset, by design (an absent key must be loud). In a session it
+is unset, so code calling it fails before the proxy gets the chance to help. The
+KB SOP met the same thing (its D-027): **set the variable to a placeholder** so the
+presence check passes and the proxy supplies the real key. Not yet verified for a
+*paid* call — confirm on the first `--limit` smoke run that the proxy overrides a
+placeholder header rather than forwarding it, and record which model id the API
+reports in its response, since that, not the configured constant, is what goes in
+`authored_by` (ADR-0094).
