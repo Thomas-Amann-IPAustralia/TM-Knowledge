@@ -37,15 +37,18 @@ content that no amount of engineering substitutes for.
 - Stages 2–10 are this repo's work. Stages 2–4 opened on 2026-09-08 (ADR-0083);
   the deterministic passes run first and are measured against the frozen 190.
 
-`docs/ROADMAP-STATUS.md` has the full board, and the **dashboard** shows the same
-thing in a form you can read without opening a file:
+`docs/ROADMAP-STATUS.md` has the full board.
 
-### 📊 [The dashboard](https://thomas-amann-ipaustralia.github.io/TM-Knowledge/)
+### 🗺️ [The Trade Marks Manual Map](https://thomas-amann-ipaustralia.github.io/TM-Knowledge/)
 
-The vocabulary, the model, the graph, what the system can answer, what it must
-never say, every decision on the record — and the questions currently waiting on
-the repo owner, as a form they can answer. Generated from this repository on
-every push; it restates committed artefacts and authors nothing (ADR-0062).
+The site for examiners (ADR-0118): a short tour of why an ontology helps, the map at
+three levels of detail (kinds of idea → ideas → the text they rest on), *Ask the
+Manual* with each question's ideas, connections and passages drawn hop by hop, and
+what a rewrite of any Manual page would touch. Everything machine-written says so.
+Built from this repository and the pinned snapshot on every push (`site/README.md`).
+
+The owner's workbench — the former dashboard: decisions, reports and the questions
+waiting on the owner — is kept at `/workbench/` (`site/workbench/README.md`).
 
 ## Quickstart
 
@@ -73,9 +76,10 @@ tmk-bulk run relate --confirm --write     # write what passed the checks (from t
 tmk-bulk spend                        # recorded spend against the cap
 tmk-bulk quote --write                # price the full runs from what was measured
 
-tmk-dashboard --write             # the dashboard's data → site/data/
+tmk-explorer --write              # the examiner site's data → site/data/ (needs the snapshot)
+tmk-dashboard --write             # the workbench's data → site/workbench/data/
 python3 -m http.server -d site 8000   # then open http://localhost:8000
-#   site/data/ is generated, not committed — Pages rebuilds it on deploy (ADR-0112)
+#   neither is committed — Pages rebuilds both on deploy (ADR-0112, ADR-0117)
 ```
 
 `tmk-harness` exiting non-zero is the intended state, not a broken checkout: **0**

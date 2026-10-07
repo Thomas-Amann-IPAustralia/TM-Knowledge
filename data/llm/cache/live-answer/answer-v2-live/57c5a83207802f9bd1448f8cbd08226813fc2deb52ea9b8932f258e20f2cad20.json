@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.028356,
+ "created_utc": "2026-10-07T18:20:43Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "smoke-famous-name",
+ "job": "live-answer",
+ "key": "57c5a83207802f9bd1448f8cbd08226813fc2deb52ea9b8932f258e20f2cad20",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0026\", \"GC-0029\", \"GC-0001\", \"GC-0002\", \"GC-0006\", \"GC-0028\", \"GC-0009\", \"GC-0016\", \"GC-0012\"],\n  \"decline_reason\": \"I cannot say whether your particular application would be registered. The supplied passages support explaining the statutory test and examination practice, not predicting an individual outcome.\",\n  \"declined\": true,\n  \"citations\": [\n    {\n      \"ref\": \"TMA1995/s43\",\n      \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/6#1~1\",\n      \"quote\": \"For example, a section 43 ground for rejection may arise if a trade mark is the name of a well-known person, and the goods/services are in the field for which they are well known, such that consumers are clearly likely to assume that the person is connected with or has endorsed those goods/services, or are involved in their production or supply.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/6#1~1\",\n      \"quote\": \"If the trade mark application is submitted by the well-known person, or it is clear from other available information that the application was made with permission from the well-known person or their representative, a section 43 ground for rejection does not arise. However, if the examiner is not satisfied that the relevant relationship exists between the applicant and the well-known person referred to, a ground for rejection may be appropriate.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/6#1~2\",\n      \"quote\": \"Firstly, how well known is the person among relevant Australian consumers, as at the priority date? Secondly, are consumers likely to see the name as referring specifically to the well-known person, rather than someone else with the same name?\"\n    },\n    {\n      \"ref\": \"TMM/Part29/6#1~2\",\n      \"quote\": \"Thirdly, to what extent are the specified goods/services connected with the field that the name is well known for?\"\n    },\n    {\n      \"ref\": \"TMM/Part29/6#1~2\",\n      \"quote\": \"Consumers in today’s market may reasonably expect certain persons with a very high profile or celebrity status to endorse a wide range of goods/services, often completely unrelated to the areas in which they are well-known.\"\n    }\n  ],\n  \"answer\": \"Not necessarily prohibited, but consent can be important. I cannot determine whether your particular application would be registered.\\n\\n**Act — section 43:** The supplied provision does not impose a blanket consent requirement for famous names. It requires rejection where a connotation of the mark would make its use for the specified goods or services likely to deceive or cause confusion [TMA1995/s43].\\n\\n**Manual practice:** A famous name may attract a section 43 objection where consumers are likely to assume that the person is connected with, endorses, produces or supplies the goods or services. If permission from the person or their representative is clear, the Manual says that this section 43 ground does not arise; if the examiner is not satisfied that the relevant relationship exists, an objection may be appropriate [TMM/Part29/6#1~1]. Thus, absence of consent is not presented as an automatic bar, but a misleading implication of endorsement is a concern.\\n\\nThe examiner considers how well known the person was among relevant Australian consumers at the priority date, whether consumers would identify the name with that particular person, and the connection between the goods/services and their field of fame. Goods/services outside that field are not necessarily free of concern: consumers may expect high-profile celebrities to endorse unrelated products [TMM/Part29/6#1~2].\\n\\nThese passages address section 43 only; they do not establish that an application satisfying this test meets every requirement for registration.\"\n}",
+ "prompt_version": "answer-v2-live",
+ "request_sha256": "df49aa2c0292886a6dc1d158dc10c5c19ced80567e37ca946c88c1cb9149f32a",
+ "response_id": "resp_0a1c5629d734c52f006ac68d69046087d2bd7eb46046a432b9",
+ "seconds": 19.9,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7743,
+  "input_tokens_details": {
+   "cache_write_tokens": 7740,
+   "cached_tokens": 0
+  },
+  "output_tokens": 900,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 8643
+ }
+}

@@ -2290,7 +2290,7 @@ suggestion was static scripts reading a dynamic JSON or YAML file.
 
 ## ADR-0063 — The dashboard is generated from committed artefacts only, and never from the snapshot
 
-**Date** 2026-09-04 · **Authority** agent-proposed · **Status** provisional · **Drift check superseded by ADR-0112**
+**Date** 2026-09-04 · **Authority** agent-proposed · **Status** provisional · **Drift check superseded by ADR-0112** · **For the examiner explorer, superseded by ADR-0117** (the workbench keeps it)
 
 **Context.** The site needs numbers. Some of them — 52 concepts, 2,942 approved
 triples, 49 classes, 61 decisions — come from files this repo commits. Others —
@@ -5132,3 +5132,80 @@ crossing `_concept_labels` documents, and that concept keeps its own origin.
 it, but can never remove what the owner ruled. The approved graph after the
 whole-Manual runs differs from before them by that one pointer (CQ-0007 →
 GC-0154).
+
+## ADR-0117 — the examiner explorer reads the pinned snapshot at deploy, and searches it in the browser
+
+**Date** 2026-10-07 · **Authority** agent-proposed · **Status** provisional ·
+**Supersedes ADR-0063's main decision for the explorer only; the workbench keeps it**
+
+**Context.** The owner asked for a front end an examiner can explore, with a chatbot
+that shows multi-hop search (ADR-0118). Answering a question an examiner types needs
+the Manual's text in the page: the static site cannot run Python, and its search has
+to rank passages and hand them to the model. ADR-0063 kept the site off the snapshot so
+a deploy could not fail on upstream. Upstream is public and CI already fetches it.
+
+**Decision.** `tmk-explorer` (`src/tm_knowledge/explorer/`) builds `site/data/` from the
+two stores, the benchmark files and the pinned snapshot, read through
+`upstream.loader`. The Pages workflow fetches the snapshot before building. Search runs
+in the browser (`site/js/engine.js`): a copy of `search.index.Systems` keyword and
+ontology systems **without the vector ranking**, since the passage vectors are not
+committed (ADR-0115). A test pins the copy to Python: identical top tens, recognised
+concepts and graph paths on all 129 benchmark questions, and an identical answer prompt.
+Building it surfaced Q-69: the measured BM25 weights the heading in full, not by half.
+
+**What it does not decide.** Whether the passage text is committed. It is not: it is
+regenerated at every deploy, like the rest of `site/data/` (ADR-0112).
+
+**Consequences.** A deploy now fails, leaving the previous site up, if the snapshot
+cannot be fetched. About 750 KB of compressed passage text loads when someone first
+asks a question. The live configuration (keyword + ontology) was not itself measured,
+and the page says so.
+
+## ADR-0118 — the site is for examiners; the dashboard moves to /workbench/; a live chatbot on the owner's key
+
+**Date** 2026-10-07 · **Authority** human · **Status** accepted
+
+**Context.** Asked what remained before experts could explore the system, an agent
+listed a missing feedback route, stale expert documents, no way to ask new questions,
+and a site built around the owner. The owner replied in chat (verbatim in
+`review/returned/261007-owner-chat-examiner-explorer.md`, ruling
+`review/rulings/2026-10-07-chat-examiner-explorer.yaml`), including: *"I would like to
+completely reconstruct the front end so that a Trade Mark examiner will quickly
+understand the value and construction of the ontology"*; *"bury the existing webpages
+somewhere on the local site so I can still access it"*; and *"The chatbot does not need
+to be password protected. I know random people might be able to access it and use my
+tokens for free but I'm not popular enough to really worry about that."*
+
+**Decision (the owner's).**
+
+1. `site/` is the examiner explorer: tour, map at three levels (kinds, ideas, text),
+   Ask the Manual with the multi-hop path drawn, and what a change to the text touches.
+2. The dashboard lives at `site/workbench/` (published at `/workbench/`), still built by
+   `tmk-dashboard`, linked from nothing in the explorer.
+3. A live chatbot answers examiners' own questions with the owner's OpenAI key, with no
+   password. This changes what the system may say to an examiner — the owner's gate —
+   and the owner opened it. Its answers use the measured prompt verbatim (instructions,
+   schema and input shape from `bulk.jobs`), so the prohibited uses still bind: no
+   examination outcome, practice and law kept apart, every quote checked by code.
+
+**Decision (the agent's, inside it).** The key is supplied as an **environment secret
+named `OPENAI_API_KEY` on the `github-pages` environment** — readable only by the deploy
+job, which runs only on `main` — and published in `data/live.json` masked against
+pattern-matching scrapers. That is obfuscation, not protection: anyone who reads the
+page can recover the key and use it for anything. The owner was told this, and advised
+to use a dedicated OpenAI project key restricted to the Responses endpoint and one
+model, with a monthly budget. A per-browser courtesy limit (40 questions a day) is not
+a control. Setting the repository variable `TMK_LIVE_ENDPOINT` to a proxy that holds the
+key switches the page to that proxy and publishes no key. Live calls use `gpt-6.1-sol`
+(ADR-0111) at low effort for speed, where the prepared answers used medium.
+
+**What it does not decide.** Which measured results become claims (OQ-0029). Whether
+the expert-review apparatus restarts.
+
+**Consequences.**
+
+1. Live calls are paid calls outside `tm_knowledge.bulk` and outside `SPEND_CAP_USD`: they
+   spend the owner's key per reader's question, about US$0.02–0.03 each. This is the one
+   exception to CLAUDE.md §5's rule, and it is the owner's. The agent's own test call went
+   through `bulk` and is in the ledger (job `live-answer`, US$0.03).
+2. With no secret set, the site publishes with live answers off; everything else works.
