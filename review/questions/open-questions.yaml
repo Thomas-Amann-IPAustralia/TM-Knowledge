@@ -1452,3 +1452,61 @@ questions:
     if_unanswered: >
       Nothing breaks. Work continues under the current rules towards the old list,
       and no money is spent on the model.
+
+  - id: OQ-0029
+    theme: unblocks
+    status: open
+    needs: owner
+    urgency: high
+    raised: S023
+    tracked_as: ['docs/PITCH-PACK.md', 'data/derived/reports/measure.md']
+    title: The pitch is drafted — which results should it claim?
+    plain: >
+      The approved runs are finished: a connected map of 167 legal ideas, an "Ask the
+      Manual" answer with its working shown for all 129 test questions, and a
+      measurement of how well each kind of search finds the right passages. The result
+      is mixed. Against plain keyword search (what a search box does today) the
+      ontology-assisted search finds better passages, most clearly for questions in
+      everyday words. Against good modern search that also matches meaning — with no
+      ontology at all — it does worse, by a small margin that is clearly real. The
+      draft slide deck states every number with its margin of error and claims
+      nothing; what it claims is yours to choose.
+    why_you: >
+      Which results become claims in front of an audience is a judgement about the
+      pitch and its audience, and the project's rules reserve it for you. An agent
+      choosing would be picking its own headline.
+    background:
+      - label: The draft deck (opens only for you)
+        href: 'https://claude.ai/artifact/A8w4WZ99aFkm1w4MyfQrFA'
+    answer:
+      kind: choice
+      prompt: What should the pitch claim?
+      options:
+        - value: both_halves
+          label: The gain over keyword search, and plainly that modern search ranks better
+          help: >-
+            The pitch says the ontology improves on today's keyword search, most of
+            all for everyday questions, and that its distinct value is showing its
+            working, keeping the Act and the Manual apart, and refusing to decide a
+            case — not ranking.
+        - value: working_only
+          label: Only what the system does, with no search numbers as claims
+          help: >-
+            The working shown, the Act-and-Manual separation and the refusals are the
+            claims; the measurements go in an appendix as evidence, not headlines.
+        - value: test_fix_first
+          label: Test the search fix first, then decide
+          help: >-
+            A session grades the few new passages a fixed version of the search
+            brings in on the half of the questions it was not tuned on — a few cents
+            — and reports whether it beats, ties or trails modern search.
+        - value: no_view_yet
+          label: I have no view yet — I will look at the deck first
+          help: >-
+            Nothing changes until you have looked. The deck stays a draft.
+    notes_prompt: >-
+      Who is the audience, and what would they need to see to be persuaded? Say if
+      any slide claims more than you are comfortable with, or if a number is missing.
+    if_unanswered: >
+      The deck stays a draft and claims nothing. Everything else is finished, so
+      nothing else is blocked.

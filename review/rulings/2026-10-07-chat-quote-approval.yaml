@@ -10,7 +10,20 @@ source:
   author: Thomas-Amann-IPAustralia
   relayed_by: S023 agent
   title: Quote approved; measurement models as recommended; answers for all 130
-applied: null
+applied:
+  session: S023
+  date: '2026-10-07'
+  branch: claude/compassionate-pasteur-19firi
+  what_changed: >-
+    The recommended package ran in full inside the US$6.60 cap: define, relate,
+    aliases, embed, needs (gpt-5.4-mini), judge (gpt-6.1-sol) and answer. The map
+    holds 167 concepts and 573 machine-written relationships, 163 concepts in one
+    connected piece; every one of the 129 questions has a cited answer; the
+    measurement is in data/derived/reports/measure.md. Recorded spend US$3.46.
+  corrections_owed: >-
+    The owner asked for "all 130 questions". There are 129: one of the 120
+    model-written questions failed the automatic check (it cited a passage it was
+    not shown) and was dropped rather than patched.
 answers:
 - id: CHAT-0012
   question: Is the quote approved, and on which terms?
