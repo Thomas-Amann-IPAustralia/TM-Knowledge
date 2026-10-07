@@ -312,13 +312,15 @@ def _measure(args: argparse.Namespace) -> int:
     models = sorted({r.get("model", "?") for r in rows})
     scored = measure.score(pools, judgements)
     summary = measure.summarise(scored["rows"])
+    cases = measure.examples(scored["rows"], {p["key"]: p["question"] for p in pools})
     text = measure.render(summary, judged=sum(len(g) for g in judgements.values()), pooled=len(judgements),
-                          judge_model=", ".join(models))
+                          judge_model=", ".join(models), cases=cases)
     print(text)
     if args.write:
         (REPORTS_DIR / "measure.md").write_text(text, encoding="utf-8")
         (jobs.BENCH_DIR / "results.json").write_text(json.dumps(
-            {"summary": summary, "rows": scored["rows"]}, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+            {"summary": summary, "rows": scored["rows"], "cases": cases}, indent=1, sort_keys=True) + "\n",
+            encoding="utf-8")
         print("wrote data/derived/reports/measure.md and data/derived/bench/results.json")
     return 0
 

@@ -97,7 +97,16 @@ def _diff(triple: tuple[float, float, float]) -> str:
     return f"{mean:+.3f} [{low:+.3f}, {high:+.3f}]{mark}"
 
 
-def render(summary: dict[str, Any], *, judged: int, pooled: int, judge_model: str) -> str:
+def examples(rows: list[dict[str, Any]], questions: dict[str, str], n: int = 4) -> dict[str, list[dict]]:
+    """The questions where the ontology changed nDCG@10 most, each way."""
+    scored = sorted(rows, key=lambda r: r["ndcg:ontology"] - r["ndcg:hybrid"])
+    pick = lambda rs: [{"key": r["key"], "kind": r["kind"], "question": questions.get(r["key"], ""),
+                        "hybrid": r["ndcg:hybrid"], "ontology": r["ndcg:ontology"]} for rs_ in [rs] for r in rs_]
+    return {"helped": pick(list(reversed(scored))[:n]), "hurt": pick(scored[:n])}
+
+
+def render(summary: dict[str, Any], *, judged: int, pooled: int, judge_model: str,
+           cases: dict[str, list[dict]] | None = None) -> str:
     kinds = list(summary)
     lines = [
         "# The value measurement — does the ontology make search better?",
@@ -130,4 +139,9 @@ def render(summary: dict[str, Any], *, judged: int, pooled: int, judge_model: st
     lines += ["", "Recall counts only questions with at least one relevant passage in the pool. "
                   "`signed` is the expert's ten retrieval questions, run as a cross-check — they "
                   "were not written for this benchmark and are not in it."]
+    if cases:
+        for title, key in (("Where the ontology helped most", "helped"), ("Where it hurt most", "hurt")):
+            lines += ["", f"## {title}", "", "| Question | Kind | hybrid | ontology |", "|---|---|---|---|"]
+            lines += [f"| {c['question']} | {c['kind']} | {c['hybrid']:.3f} | {c['ontology']:.3f} |"
+                      for c in cases[key]]
     return "\n".join(lines) + "\n"
