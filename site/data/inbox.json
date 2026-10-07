@@ -2,7 +2,7 @@
  "id": "inbox",
  "title": "Your decisions",
  "lede": "Everything currently waiting on a person. Each item says what is going on, why only you can settle it, and what stays stuck until you do. Answer as many or as few as you like — a partial answer is useful and nothing is lost between visits.",
- "updated": "2026-09-09",
+ "updated": "2026-10-07",
  "repo": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge",
  "themes": [
   {
@@ -1119,9 +1119,68 @@
    "plain": "The expert rejected two draft prohibitions on a principle worth recording: that inferring a bare \"section 15(1)\" means the Trade Marks Act is acceptable given what this tool is for, and that the tool should be able to say when a passage is quoting legislation. That sits against the upstream position, which refuses to resolve an ambiguous reference at all. The two are not quite the same claim — upstream's ambiguity is about which of several instruments is meant — but a session must not quietly assume either reading.\n",
    "why_you": "Where the line sits between a safe inference and an invented one is a judgement about the corpus, not about code.\n",
    "if_unanswered": "Citation resolution in a later stage has no agreed rule, and one kind of prohibited use rests on a single record.\n"
+  },
+  {
+   "id": "OQ-0028",
+   "theme": "unblocks",
+   "status": "open",
+   "needs": "owner",
+   "urgency": "high",
+   "raised": "S023",
+   "tracked_as": [
+    "ADR-0109",
+    "docs/PITCH-PROPOSAL.md"
+   ],
+   "title": "The fast route to a working pitch — which parts do you want?",
+   "plain": "You said the project is a pitch and needs a system that works soon, and asked what to borrow from the way your other project was built. The proposal has three parts. **A finish line:** a connected map of the Manual's legal ideas, an \"Ask the Manual\" page that shows how those ideas improve a search, a measurement comparing plain search with ontology-enhanced search, and a short pitch pack. **A pipeline:** the model you approved writes the relationships and new ideas in bulk, every quote checked against the Manual by code and every record still stamped as unreviewed — instead of an agent writing each one by hand. **Less paperwork per session:** a short handover note, decision records only for real decisions, and questions to you only for money, anything public or irreversible, and what the system may say to an examiner.\n",
+   "why_you": "The finish line and the paperwork rules are your rulebook, and an agent may not rewrite the rules it works under. The pipeline spends money, and you have asked to be considerate of cost — a cap you name once lets each session spend within it without asking run by run.\n",
+   "background": [
+    {
+     "label": "The decision that set the purpose — your words, recorded",
+     "href": "#/decisions"
+    }
+   ],
+   "answer": {
+    "kind": "choice",
+    "prompt": "Which parts of the proposal should the project adopt?",
+    "options": [
+     {
+      "value": "adopt_all",
+      "label": "All of it — the finish line, the pipeline and the lighter process",
+      "help": "The next session trims the handover and the rules first, then builds the connected map within your spend cap. Roughly three sessions to a demonstrator, on the agent's own unmeasured estimate."
+     },
+     {
+      "value": "build_only",
+      "label": "The finish line and the pipeline, but keep the current process",
+      "help": "The same build, under today's rules. Each session keeps its full reading list and closing paperwork, so expect it to take noticeably longer."
+     },
+     {
+      "value": "smaller_first",
+      "label": "Show me one piece working first — the connected map",
+      "help": "One session builds only the relationship pipeline, on a small spend, and shows you the map with its pieces joined up before anything else is decided."
+     },
+     {
+      "value": "leave_it",
+      "label": "Leave the approach as it is",
+      "help": "Nothing changes. The proposal stays on file as a record of what was considered."
+     }
+    ]
+   },
+   "notes_prompt": "Name a spend cap for model calls (for example, a dollar figure for the whole demonstrator), and say if any part of the finish line is wrong — the audience for the pitch changes what is worth showing.",
+   "if_unanswered": "Nothing breaks. Work continues under the current rules towards the old list, and no money is spent on the model.\n"
   }
  ],
  "answered": {
+  "CHAT-0009": [
+   {
+    "value": "pitch_demonstrator_soon",
+    "label": "A pitch that demonstrates the value of an ontology — a working system soon, not every nuance",
+    "notes": "A statement of purpose and priority. It does not by itself change a rule: the owner asked for suggestions on process rather than issuing one, and those are proposed in docs/PITCH-PROPOSAL.md and asked as OQ-0028.",
+    "received": "2026-10-07T00:00:00Z",
+    "issue": "review/returned/261007-owner-chat-pitch-purpose.md",
+    "applied": true
+   }
+  ],
   "CHAT-0007": [
    {
     "value": "add_groups_and_sort_all",
@@ -1274,6 +1333,22 @@
   ]
  },
  "rulings": [
+  {
+   "file": "2026-10-07-chat-pitch-purpose.yaml",
+   "received": "2026-10-07T00:00:00Z",
+   "issue": {},
+   "origin": "review/returned/261007-owner-chat-pitch-purpose.md",
+   "origin_kind": "chat",
+   "count": 1,
+   "applied": {
+    "session": "S023",
+    "date": "2026-10-07",
+    "branch": "claude/compassionate-pasteur-19firi",
+    "what_changed": "Recorded, and the next action re-pointed — nothing else. ADR-0109 records the purpose: the project exists to pitch the concept and demonstrate the value of an ontology for the Trade Marks Manual, so a working demonstrator, soon, outranks completeness. HANDOFF's next action now points at the demonstrator rather than at the old list. The owner also asked what to adopt from docs/KB-SOP.md to go faster; the answer is docs/PITCH-PROPOSAL.md, and none of it is adopted until the owner chooses (OQ-0028, also asked in the chat). No rule in CLAUDE.md changed and no record moved.",
+    "corrections_owed": "None. The figures the owner was given in the same reply were measured in the session: 22 merged pull requests since 2026-08-03, content records added in 4 of them; 108 ADRs; a read order of about 8,000 lines before a session acts; 0 authored relationships and a graph in 44 pieces; no search or retrieval code; 62% of the Manual's 2,460 passages naming a non-generic concept label.",
+    "also": "One finding changes what is cheap. The approved model has never been called because its key was believed to reach GitHub Actions only (ADR-0094). This container reaches it through the session proxy, and gemini-3.8-flash is a current model id with batch support — confirmed by a free model-list call and recorded as QUIRKS Q-64. No corpus text was sent."
+   }
+  },
   {
    "file": "2026-09-09-chat-new-concept-groups.yaml",
    "received": "2026-09-09T00:00:00Z",

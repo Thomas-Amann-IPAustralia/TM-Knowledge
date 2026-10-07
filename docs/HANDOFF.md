@@ -3,10 +3,41 @@
 The baton between sessions. It is authoritative on current state. If it
 disagrees with your reading of the tree, trust it and then fix it.
 
-**Last updated:** 2026-09-12 · session S022 · branch `claude/gallant-maxwell-nua5rd`
+**Last updated:** 2026-10-07 · session S023 · branch `claude/compassionate-pasteur-19firi`
 
 ---
-## 0. What S022 did, in one paragraph
+## 0. S023 — the owner reset the purpose. Read this before anything below.
+
+**The project is a pitch.** The owner, 2026-10-07: *"this whole project is to
+merely pitch the concept and demonstrate the value of implementing an ontology
+for the TM Manual. Because of this, we don't need to have every single nuance and
+complication addressed. I really just need a system that works (and SOON!)"*
+Recorded as ADR-0109 (`human`); words in full at
+`review/returned/261007-owner-chat-pitch-purpose.md`.
+
+**What S023 produced is a proposal, not a change of rules.** Asked what to borrow
+from `docs/KB-SOP.md` — the method of the owner's faster project — the answer is
+`docs/PITCH-PROPOSAL.md`: a four-part finish line (a connected ontology, an "Ask
+the Manual" page, a measurement of plain against ontology-enhanced search, a
+pitch pack), a batch pipeline in place of hand-authoring, and a lighter session
+protocol. **Nothing in it is adopted until the owner answers OQ-0028** (also put
+to them in the chat). Until then `CLAUDE.md` applies in full — including the
+paperwork the proposal would cut.
+
+**Two findings change what is cheap, whatever the answer.**
+- **The approved model is reachable from this container** through the session
+  proxy, and `gemini-3.8-flash` is a current id with batch support (QUIRKS Q-64).
+  The reason ADR-0094 gives for never calling it does not hold here. Set
+  `GEMINI_API_KEY` to a placeholder so `config.authoring_api_key()` passes.
+- **The vocabulary already names a concept in 62% of the Manual's 2,460
+  passages** by plain label matching — no model, no spend — against 37%
+  reachable through provision citations.
+
+No record moved, nothing was authored, no money was spent, and no corpus text
+was sent anywhere.
+
+---
+## 0a. What S022 did, in one paragraph
 
 **S021 drew the records and the owner came back with three objections, all of
 them about the drawing rather than the data: the decision tree was not shaped
@@ -35,7 +66,7 @@ transcription and authorship was drawn, and why the factors hang off the section
 rather than off a question.
 
 ---
-## 0a. What S021 did, in one paragraph
+## 0b. What S021 did, in one paragraph
 
 **The project could be counted and could not be seen, and the owner said the
 tables and the abstractions were making it hard to comprehend and hard to explain
@@ -63,7 +94,7 @@ trained on this shape would want to do. It is signed, and only a person can
 change it (ADR-0105 consequence 3).
 
 ---
-## 0b. What S020 did, in one paragraph
+## 0c. What S020 did, in one paragraph
 
 **The question "what does the trade marks expert need to look at" had no
 answer in the repo, and the two obvious places to look were both wrong in
@@ -117,7 +148,7 @@ signed and the 208 authored records are byte-identical to how S019 left them,
 and `approved_by` is emptied by the pack in every row it writes.
 
 ---
-## 0c. What S019 did, in one paragraph
+## 0d. What S019 did, in one paragraph
 
 **The taxonomy stopped creaking, and the dashboard stopped contradicting
 itself.** The owner asked what was waiting on him or on the trade marks expert
@@ -170,7 +201,7 @@ invisible today only because the six classes in `examination.ttl` are all
 UNDEFINED. Q-58.
 
 ---
-## 0d. What S018 did, in one paragraph
+## 0e. What S018 did, in one paragraph
 
 **The rules stopped saying section 43 in S015. The artefacts stopped saying it in
 S018.** The owner asked for the boundary's removal to reach
@@ -354,6 +385,17 @@ Three findings worth carrying, all measured:
   retire one (ADR-0080 c2 runs the other way).
 
 ## 2. The next action
+
+> **S023 — the next action is the demonstrator (ADR-0109).** First check whether
+> the owner has answered OQ-0028, in `review/rulings/` or on the queue. If they
+> have, do what `docs/PITCH-PROPOSAL.md` §4 says for the parts they chose. If they
+> have not, the parts that need no rule change and no money can still start: the
+> deterministic concept–passage links (P2 step 1) and the keyword half of the
+> search index (P4); embeddings and model calls wait on the spend cap. The
+> list below this box is the pre-pitch list; read it as background, not as the
+> queue. Item 1 under *"Three things to know"* is **done** — the model id is
+> confirmed (Q-64) — and item 2 is overtaken in this environment by the same
+> finding.
 
 **Nothing is blocked on a human.** OQ-0007 — which model, and may Manual text be
 sent to it — was answered on 2026-09-08: **Gemini 3.8 Flash**, credential in the
@@ -908,6 +950,20 @@ relevance grade each. The scoped workbook for all ten is rendered.
 
 Newest first. One short entry per session: what changed, what it cost, what it
 revealed. Keep entries to a few lines — detail belongs in ADRs and QUIRKS.
+
+### S023 — 2026-10-07 — the purpose became a pitch, and the slowness got measured
+
+**Branch** `claude/compassionate-pasteur-19firi`
+
+The owner, frustrated by pace, set the purpose — a pitch, a working system soon,
+not every nuance (ADR-0109) — and asked what to borrow from `docs/KB-SOP.md`.
+Answered with `docs/PITCH-PROPOSAL.md` and OQ-0028; nothing adopted yet.
+**Measured for it:** content records added in 4 of 22 merged pull requests; a read
+order of ~8,000 lines; about 6,400 of ~19,700 lines of code are the
+expert-review apparatus; no search or retrieval code. **Revealed:** the approved
+model is reachable through the session proxy and its id is current (Q-64); label
+matching alone reaches 62% of passages. **Cost:** one free model-list call, no
+corpus text sent; no record changed.
 
 ### S022 — 2026-09-12 — the tree became a tree, the map became walkable, the nodes learned to quote
 

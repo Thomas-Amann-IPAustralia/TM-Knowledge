@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-12",
+ "generated": "2026-10-07",
  "repo": "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge",
  "pin": {
   "commit": "c490a9927f1ab67c1c2fe4afdc758c79f35430c8",
@@ -8,7 +8,7 @@
   "manual_version": "ingest/0.11.0",
   "legislation_version": "legislation/0.2.0"
  },
- "waiting": 11,
+ "waiting": 12,
  "nav": [
   {
    "id": "overview",
