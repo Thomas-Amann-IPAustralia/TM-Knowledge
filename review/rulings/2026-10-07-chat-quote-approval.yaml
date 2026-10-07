@@ -1,0 +1,21 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S023
+# agent; no issue behind it. The artefact is
+# `review/returned/261007-owner-chat-quote-approval.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-07T02:00:00Z'
+questions_updated: '2026-10-07'
+source:
+  kind: chat
+  artefact: review/returned/261007-owner-chat-quote-approval.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S023 agent
+  title: Quote approved; measurement models as recommended; answers for all 130
+applied: null
+answers:
+- id: CHAT-0012
+  question: Is the quote approved, and on which terms?
+  kind: instruction
+  value: approve_recommended_all_130
+  label: Approved — the recommended package, recommended models, all 130 answers
+  quote: Approved, go with your recommendations and run it all (including all 130 questions)
+  recorded_as: [ADR-0114]

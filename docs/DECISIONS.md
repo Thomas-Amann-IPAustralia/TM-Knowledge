@@ -5057,3 +5057,29 @@ is the owner's, from the quote (`CLAUDE.md` §3a).
 
 **Consequences.** `ontology/build.py` maps `broader`/`narrower`/`related` to SKOS.
 The benchmark lives in `data/derived/bench/`, never `eval/gold/` (ADR-0080).
+
+## ADR-0114 — the quote is approved: run the recommended package, all 130 answers
+
+**Date** 2026-10-07 · **Authority** human · **Status** accepted
+
+**Context.** `docs/QUOTE.md` priced the full runs from measured smoke calls: $6.41
+for the recommended package on the flex tier, and asked three things — approve,
+which models do the measurement work, and answers for 130 questions or 30.
+
+**Decision (owner).** *"Approved, go with your recommendations and run it all
+(including all 130 questions)"* (`review/returned/261007-owner-chat-quote-approval.md`).
+
+- The recommended package runs in full: `define`, `relate`, `aliases`, `embed`,
+  `needs`, `judge`, `answer`.
+- Benchmark questions by `gpt-5.4-mini`; judging by `gpt-6.1-sol`.
+- Answers for all 130 questions.
+- `config.SPEND_CAP_USD` becomes **6.60**: the $0.18 recorded plus the $6.41
+  package. The quote's 25% contingency is inside the $6.41, not on top of it.
+
+**What it does not decide.** Which measured results become claims in the pitch —
+still the owner's (`CLAUDE.md` §3a).
+
+**Consequences.** Spending past $6.60 is a new question for the owner, with a
+dry-run estimate. The cap counts the worst case of each call, so the last few
+calls may be refused while actual spend is still below it; that is the cap
+working, not a reason to raise it.

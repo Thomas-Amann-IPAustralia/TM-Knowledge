@@ -47,11 +47,13 @@ OPENAI_BASE_URL = "https://api.openai.com/v1"
 #: nowhere in this repository, in any generated artefact, or in any log line.
 AUTHORING_API_KEY_VAR = "OPENAI_API_KEY"
 
-#: Hard cap on total recorded spend across every paid call, in US dollars. The
-#: owner's: "For now, you may spend a maximum of $1" (ADR-0111). Raising it is the
-#: owner's decision, made on a quote — overridable for one run by
+#: Hard cap on total recorded spend across every paid call, in US dollars. First
+#: the owner's "a maximum of $1" for the smoke runs (ADR-0111); then the quote was
+#: approved — "Approved, go with your recommendations and run it all" — so the
+#: cap is the $0.18 already spent plus the $6.41 package (ADR-0114). Raising it
+#: again is the owner's decision, made on a quote — overridable for one run by
 #: `TMK_SPEND_CAP_USD`, and only on the owner's word.
-SPEND_CAP_USD = 1.00
+SPEND_CAP_USD = 6.60
 
 #: US dollars per million tokens, from OpenAI's pricing page on 2026-10-07
 #: (ADR-0111). `flex` and `batch` are half of `default`. Reasoning tokens bill as
