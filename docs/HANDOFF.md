@@ -1,6 +1,7 @@
 # HANDOFF
 
-**Last updated:** 2026-10-07 · S023 (end) · branch `claude/compassionate-pasteur-19firi`
+**Last updated:** 2026-10-07 · S023 (end) · branch `claude/compassionate-pasteur-19firi`,
+open as [PR #24](https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge/pull/24) into `main`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
