@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005065,
+ "created_utc": "2026-10-07T12:28:41Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0110",
+ "job": "answer",
+ "key": "47e18a5cd59f2dace792ceab62f8a8c7f5369236880f61daf95da6a06f32e741",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0072\", \"GC-0074\", \"GC-0044\", \"GC-0092\", \"GC-0006\", \"GC-0124\", \"GC-0094\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part10/3/3/6/3\",\n      \"quote\": \"At the time of examination, the examiner may need to request additional information from the applicant in order to clearly define the scope of the trade mark, keeping in mind the requirements of section 65.\"\n    },\n    {\n      \"ref\": \"TMM/Part21/9#1\",\n      \"quote\": \"The applicant must provide clear representations which show all the features of the trade mark. The application must be accompanied by a description of the trade mark which likewise clearly describes all the features of the trade mark. A copy of the actual trade mark, as a video clip for example, must also be provided.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/7#1\",\n      \"quote\": \"Where the examiner believes that a ground for rejection exists, the ground should be expressed in a manner that is specific and well documented if possible.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/7#1\",\n      \"quote\": \"Examiners should therefore be careful before basing conclusions on unsupported assertions that are not matters of general knowledge or notorious fact and cannot be supported by written evidence. Where references are used, they should be supplied to the applicant.\"\n    },\n    {\n      \"ref\": \"TMA1995/s65\",\n      \"quote\": \"(1) If the particulars of the application have been published under section 30, the application may be amended as provided in this section. (2) An amendment may be made to the representation of the trade mark if the amendment does not substantially affect the identity of the trade mark as at the time when the particulars of the application were published.\"\n    },\n    {\n      \"ref\": \"TMA1995/s65\",\n      \"quote\": \"(7) An amendment may be made to any other particular specified in the application unless the amendment would have the effect of extending the rights that (apart from the amendment) the applicant would have under the registration if it were granted.\"\n    }\n  ],\n  \"answer\": \"Yes—as an examination step. However, the supplied passages do not establish the procedure or timing for revocation.\\n\\n**Manual practice:** The Manual expressly allows the examiner to request additional information during examination to clearly define the scope of a movement mark, keeping section 65 in mind. It does not make that request conditional on starting revocation proceedings. [TMM/Part10/3/3/6/3] The relevant material includes clear representations, a description showing all features and a copy of the actual mark, such as a video clip. [TMM/Part21/9#1]\\n\\n**Outside information:** If the examiner believes that information establishes a ground for rejection, Manual practice requires the ground to be specific and well documented if possible. It cautions against unsupported assertions and says that references used should be supplied to the applicant. Doubts should therefore not simply be treated as an established ground without that assessment. [TMM/Part22/7#1]\\n\\n**Act—not merely practice:** Clarification must respect the statutory amendment limits. After publication under section 30, section 65(2) permits amendment of the representation only if it does not substantially affect the mark’s identity. Section 65(7) prohibits amendments to other particulars that would extend the rights obtainable on registration. [TMA1995/s65]\\n\\n**Limit:** The passages support requesting clarification during examination, but contain no revocation provisions. I cannot establish from them whether a particular pre-revocation process permits or requires such a request.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "6d638dadef2e5409255af9510d486d223d40c6efc147c6abb6b6e22caaff86aa",
+ "response_id": "resp_093a8bf6ddb6476d006ac63adc781487d28098786e3dc11512",
+ "seconds": 29.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8042,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 8039
+  },
+  "output_tokens": 932,
+  "output_tokens_details": {
+   "reasoning_tokens": 105
+  },
+  "total_tokens": 8974
+ }
+}

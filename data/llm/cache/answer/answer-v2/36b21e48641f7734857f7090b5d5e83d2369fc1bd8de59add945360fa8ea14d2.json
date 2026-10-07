@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002607,
+ "created_utc": "2026-10-07T12:29:26Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0005",
+ "job": "answer",
+ "key": "36b21e48641f7734857f7090b5d5e83d2369fc1bd8de59add945360fa8ea14d2",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0014\", \"GC-0023\", \"GC-0024\", \"GC-0013\", \"GC-0006\", \"GC-0025\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part29/5/5/5\",\n      \"quote\": \"The endorsement suggested by the Registrar in these circumstances is: It is a condition of registration that any use in respect of pharmaceuticals will be limited to such goods containing substances belonging to the pharmacological group designated by the International Non- Proprietary Name stem <stem>.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/5/5/5\",\n      \"quote\": \"A ground for rejection under section 43 exists where a trade mark to be used in relation to pharmaceuticals or veterinary substances consists of an INN stem, or contains a notified INN stem in a meaningful way, and use of the trade mark in respect of the goods covered by the specification are not restricted to substances indicated by the INN stem. A section 43 ground for rejection may be overcome by the applicant agreeing to a condition of registration limiting use of the trade mark to goods containing substances belonging to the relevant INN stem.\"\n    }\n  ],\n  \"answer\": \"Manual practice — TMM/Part29/5/5/5 suggests this endorsement:\\n\\n“It is a condition of registration that any use in respect of pharmaceuticals will be limited to such goods containing substances belonging to the pharmacological group designated by the International Non- Proprietary Name stem <stem>.”\\n\\nThis is not an automatic requirement whenever a mark contains an INN stem. The passage concerns marks for pharmaceuticals or veterinary substances that consist of an INN stem, or contain a notified INN stem meaningfully, where the specification does not restrict the goods to substances indicated by that stem. The Manual says the applicant’s agreement to this condition may overcome the section 43 ground for rejection [TMM/Part29/5/5/5]. The quoted endorsement is Manual practice, not legislative wording.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "1f78de3af26568ff01acf2602a3199e8002f4d7dfd4de5c51e921f989c27438a",
+ "response_id": "resp_0b40fab0d7a6315f006ac63b13b0c087d2bcd5c344aa374f6b",
+ "seconds": 19.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6875,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6872
+  },
+  "output_tokens": 452,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7327
+ }
+}

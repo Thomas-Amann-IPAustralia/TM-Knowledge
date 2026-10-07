@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003796,
+ "created_utc": "2026-10-07T12:25:29Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0081",
+ "job": "answer",
+ "key": "26f2278ac18052e7c5e701fbe4f63b9991e0d7b06bc1877450eb8de08e31e960",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0088\",\"GC-0084\",\"GC-0083\",\"GC-0081\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s121\",\"quote\":\"This section applies to a registered trade mark if the registered owner, or an authorised user of the trade mark having power to do so, has caused to be displayed on goods (registered goods) in respect of which the trade mark is registered, or on their package, or on the container in which they are offered to the public, a notice (notice of prohibition) prohibiting any act that is under subsection (2) a prohibited act in relation to the goods.\"},{\"ref\":\"TMM/Part19B/4/4/3\",\"quote\":\"Under section 121 a registered trade mark is infringed if the registered owner, or an authorised user of the trade mark having power to do so, has caused to be displayed on goods in respect of which the trade mark is registered a notice of prohibition, and a person who acquires the goods does or authorises an act, in the course of trade, that is prohibited.\"},{\"ref\":\"TMM/Part19B/4/4/3\",\"quote\":\"The trade mark is not infringed if the person acquired the goods in good faith and without being aware of the notice of prohibition or became the owner of the goods by virtue of a title derived from a person who had so acquired them.\"}],\"answer\":\"Yes, a prohibition notice can matter for trade mark infringement, but the Manual describes an exception for acquiring the goods in good faith without knowing about the notice.\\n\\n**Act:** The supplied section 121 extract applies where the registered owner, or an authorised user with power to do so, displays a notice prohibiting a specified act on the registered goods, their packaging or their container. [TMA1995/s121]\\n\\n**Manual practice:** The Manual explains that infringement arises where a person acquiring the goods does or authorises a prohibited act **in the course of trade**. Its explanation therefore concerns more than simply buying goods bearing a notice. [TMM/Part19B/4/4/3]\\n\\nImportantly, the Manual states that the trade mark is not infringed if the person acquired the goods **both in good faith and without being aware of the notice**. It also describes protection for a later owner whose title derives from such a purchaser. Lack of awareness alone is not the full exception described. [TMM/Part19B/4/4/3]\\n\\n**Source limitation:** The supplied Act extract is incomplete and does not include the exception described by the Manual. I can report that explanation as Manual practice, but cannot verify the exception’s precise statutory wording from the legislation supplied.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "dd7f9a107ef482dcb5e3bde4993efdc0be19b0e043e10b0bec35ab2ee50dd640",
+ "response_id": "resp_08b320832886bac7006ac63a28109887d2a6b3d9c411d26e34",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7373,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7370
+  },
+  "output_tokens": 685,
+  "output_tokens_details": {
+   "reasoning_tokens": 96
+  },
+  "total_tokens": 8058
+ }
+}

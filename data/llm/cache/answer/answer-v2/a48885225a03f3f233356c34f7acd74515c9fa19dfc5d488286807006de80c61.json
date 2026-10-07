@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003688,
+ "created_utc": "2026-10-07T12:23:49Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0074",
+ "job": "answer",
+ "key": "a48885225a03f3f233356c34f7acd74515c9fa19dfc5d488286807006de80c61",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0079\",\"GC-0080\",\"GC-0038\",\"GC-0058\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part13/2#1~2\",\"quote\":\"As a result, it is usually appropriate to focus on the shared elements when assessing the resemblance of material particulars. This approach may apply even where the identifying element is of low distinctiveness.\"},{\"ref\":\"TMM/Part13/2#1~2\",\"quote\":\"However, the effect of any differences between trade marks must be considered in the context of the trade marks as a whole.\"},{\"ref\":\"TMM/Part13/2#1~2\",\"quote\":\"(For clarity, this assessment is separate to, and does not affect the application of, section 41.\"},{\"ref\":\"TMA1995/s51\",\"quote\":\"(1) A person may make a single application under subsection 27(1) for the registration of 2 or more trade marks in respect of goods and/or services if the trade marks resemble each other in material particulars and differ only in respect of one or more of the following matters: (a) statements or representations as to the goods or services in relation to which the trade marks are used or are intended to be used; (b) statements or representations as to number, price, quality or names of places; (c) the colour of any part of the trade mark.\"}],\"answer\":\"Generally, yes—if the shared surname and initial function as the identifying features of both marks. However, the supplied passages do not establish a surname-and-initial-specific rule about what consumers usually focus on.\\n\\nManual practice: it is usually appropriate to focus on shared identifying elements when assessing resemblance in material particulars, even where those elements have low distinctiveness. That supports focusing on the shared surname and initial, but not automatically: differences must still be considered in the context of each trade mark as a whole (TMM/Part13/2#1~2). The Manual also expressly separates this series assessment from the section 41 assessment of capacity to distinguish (same passage).\\n\\nAct: section 51(1) requires both resemblance in material particulars and differences confined to the listed matters—goods or services statements or representations; number, price, quality or place-name statements or representations; or colour. A shared surname and initial alone therefore do not establish that the marks meet the statutory series requirements (TMA1995/s51).\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "a26da5cf6c4697861ed07d483ca4c1c8ab97a56de8e0164256509ff07478e9bb",
+ "response_id": "resp_0a56f92a7863ca46006ac639ba03dc87d285e126a73a8ca2ed",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7405,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7402
+  },
+  "output_tokens": 663,
+  "output_tokens_details": {
+   "reasoning_tokens": 140
+  },
+  "total_tokens": 8068
+ }
+}

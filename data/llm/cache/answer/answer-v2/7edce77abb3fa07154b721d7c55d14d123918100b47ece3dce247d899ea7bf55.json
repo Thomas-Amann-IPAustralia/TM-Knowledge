@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002963,
+ "created_utc": "2026-10-07T12:26:02Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0090",
+ "job": "answer",
+ "key": "7edce77abb3fa07154b721d7c55d14d123918100b47ece3dce247d899ea7bf55",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0121\", \"GC-0136\", \"GC-0138\", \"GC-0115\", \"GC-0112\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part60/1/1/5\",\n      \"quote\": \"The application must be made through that Protocol member’s trade mark office (Office of origin).\"\n    },\n    {\n      \"ref\": \"TMM/Part60/1/1/5\",\n      \"quote\": \"The IB checks the formalities, fees and classification of the goods and/or services of an international application.\"\n    },\n    {\n      \"ref\": \"TMM/Part14/2/2/2/2\",\n      \"quote\": \"This does not apply to Madrid Protocol export applications where in the event of a dispute between an Office of origin and the International Bureau (IB) the opinion of the IB stands.\"\n    },\n    {\n      \"ref\": \"TMA1995/s32\",\n      \"quote\": \"If a question arises as to the class in which goods or services are comprised: (a) that question is to be decided by the Registrar; and (b) the decision of the Registrar is not subject to appeal and may not be called into question in an appeal or other proceedings under this Act.\"\n    }\n  ],\n  \"answer\": \"For a Madrid application filed through IP Australia, the International Bureau (IB) checks classification. If IP Australia, acting as the Office of origin, and the IB disagree about classification, the IB’s opinion prevails. This is the position stated in the Manual for Madrid Protocol export applications [TMM/Part60/1/1/5; TMM/Part14/2/2/2/2].\\n\\nDistinguish the ordinary Australian statutory rule: section 32 of the Trade Marks Act 1995 provides that the Registrar decides questions about the class in which goods or services fall, and that the decision is not subject to appeal or challenge in proceedings under that Act [TMA1995/s32]. The Manual expressly says that this does not apply to Madrid Protocol export applications [TMM/Part14/2/2/2/2].\\n\\nSource qualification: the IB-prevails rule above is supported here by the Manual’s account, not by a supplied legislative extract setting out that Madrid rule.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b0fca84e1e1255cb25d055ee45c2a9b89c20813e6474f69e233577649ea656bc",
+ "response_id": "resp_0d5a0e029d123deb006ac63a48772487d28cfc88d54ec295cf",
+ "seconds": 18.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7609,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7606
+  },
+  "output_tokens": 516,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 8125
+ }
+}

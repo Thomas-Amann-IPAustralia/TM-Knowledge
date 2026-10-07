@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00589,
+ "created_utc": "2026-10-07T12:28:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0005",
+ "job": "judge",
+ "key": "3bf9a721b49ae111449f37b7953a983fe2515cd37cd291083342847b7c4e2943",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part29/5/5/5\",\"grade\":3},{\"ref\":\"TMM/Part22/24#1\",\"grade\":2},{\"ref\":\"TMM/Part22/17/17/5\",\"grade\":0},{\"ref\":\"TMM/Part29/5/5/6~1\",\"grade\":1},{\"ref\":\"TMM/Part29/9/9/2\",\"grade\":0},{\"ref\":\"TMM/Part29/5/5/2\",\"grade\":1},{\"ref\":\"TMM/Part13/9#1\",\"grade\":0},{\"ref\":\"TMM/Part29/5/5/6~2\",\"grade\":1},{\"ref\":\"TMM/Part29/5/5/4\",\"grade\":2},{\"ref\":\"TMM/Part29/x-annex-a1---table-of-inn-stems/y\",\"grade\":1},{\"ref\":\"TMM/Part22/24/24/1\",\"grade\":1},{\"ref\":\"TMM/Part22/24/24/2\",\"grade\":2},{\"ref\":\"TMM/Part29/x-annex-a1---table-of-inn-stems/inn-stems\",\"grade\":1},{\"ref\":\"TMM/Part29/5/5/3\",\"grade\":1},{\"ref\":\"TMM/Part29/6/6/1\",\"grade\":0}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "23bb221ade563b5d520f286a0b0f586917da9d6b4f20d542f967eb96270c0d7b",
+ "response_id": "resp_0eaf7bf49fdcc916006ac63acc36d487d28bccc528a2552e93",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3141,
+  "input_tokens_details": {
+   "cache_write_tokens": 3138,
+   "cached_tokens": 0
+  },
+  "output_tokens": 393,
+  "output_tokens_details": {
+   "reasoning_tokens": 92
+  },
+  "total_tokens": 3534
+ }
+}

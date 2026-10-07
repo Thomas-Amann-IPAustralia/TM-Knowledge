@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011464,
+ "created_utc": "2026-10-07T12:27:06Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0101",
+ "job": "answer",
+ "key": "e6fe3b1c7a3ef2e121cc0a36257c6fed04a69b3eabe8b288b4394290c151724c",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0131\",\"GC-0072\",\"GC-0112\",\"GC-0129\",\"GC-0116\",\"GC-0136\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part60/1/1/7\",\"quote\":\"An international application must be based on an existing application(s) or registration(s) (basic trade mark) in a Contracting Party to the Madrid Protocol. The international application must have the same owner(s) as the basic trade mark, the identical trade mark as the basic trade mark(s) and cover the same, or some only of the goods and/or services as the basic trade mark(s).\"},{\"ref\":\"TMM/Part60/1/1/7\",\"quote\":\"It must also contain any indications, such as a claim to colour as a distinctive feature of the mark, that are contained in the basic trade mark(s).\"},{\"ref\":\"TMM/Part60/1/1/5\",\"quote\":\"An international application must be based on one or more trade mark applications or registrations in a Protocol country or intergovernmental organisation where the applicant lives, carries on business or is of that nationality. The application must be made through that Protocol member’s trade mark office (Office of origin).\"}],\"answer\":\"Yes, in principle. Under the Manual’s practice, an international application may cover only some of the goods or services covered by the existing application or registration (the ‘basic trade mark’). It must have the same owner(s), be for the identical trade mark, and be based on an application or registration in a Contracting Party to the Madrid Protocol. [TMM/Part60/1/1/7]\\n\\nThe Manual also requires:\\n- Any indications in the basic trade mark, such as a claim to colour as a distinctive feature, to be included in the international application. [TMM/Part60/1/1/7]\\n- The basic application or registration to be in a Protocol country or intergovernmental organisation where the applicant lives, carries on business or is of that nationality, with the international application made through that member’s trade mark office. [TMM/Part60/1/1/5]\\n\\nThese are statements of Manual practice, not quotations from the Act or Regulations; no legislative passages were supplied. This explains the general requirements, not the outcome of any particular application.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "42fdabdd05fc28894e942bf3ffa86fc8dd253cca63eff77628b9ed3be0c3b51b",
+ "response_id": "resp_0d84b17ed3f85bec006ac63a7e843c87d2b88d828557baabbf",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6668,
+  "input_tokens_details": {
+   "cache_write_tokens": 6665,
+   "cached_tokens": 0
+  },
+  "output_tokens": 626,
+  "output_tokens_details": {
+   "reasoning_tokens": 119
+  },
+  "total_tokens": 7294
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002959,
+ "created_utc": "2026-10-07T12:28:58Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0115",
+ "job": "answer",
+ "key": "6bf23d0c647647a2a2e85bea4e072c2c06ff8f0f38de8aa503402a181fd7c467",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0115\",\"GC-0144\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part54/1/1/3\",\"quote\":\"Unless the court directs otherwise, the court registrar issues the subpoena under seal to the requesting party for service on the person named.\"},{\"ref\":\"TMM/Part54/1/1/3\",\"quote\":\"The Registrar of Trade Marks is usually the person named in a subpoena but it is also acceptable if the subpoena is directed to “the proper officer” of the Trade Marks Office.\"},{\"ref\":\"TMM/Part54/1/1/3\",\"quote\":\"The subpoena must state the date and place where the Registrar is to produce the documents. It must also specify the documents required for production.\"},{\"ref\":\"TMM/Part61/3/3/1\",\"quote\":\"whose production the Registrar has required under paragraph 202(c) of the Act;\"}],\"answer\":\"The supplied passages do not establish who receives a notice to produce issued by the Registrar, or what must happen next. The Manual mentions documents whose production the Registrar has required under paragraph 202(c), but does not give the notice or compliance procedure; section 202 itself is not supplied (TMM/Part61/3/3/1).\\n\\nDo not confuse that notice with a court-issued subpoena. The supplied Manual practice describes a different procedure:\\n• Unless the court directs otherwise, the court registrar issues the subpoena under seal to the requesting party, for service on the person named.\\n• The person named is usually the Registrar of Trade Marks, although “the proper officer” of the Trade Marks Office is also acceptable.\\n• The subpoena must specify the documents required and the date and place for production (TMM/Part54/1/1/3).\\n\\nThose are statements from the Manual, not requirements established by the supplied Act or Regulations passages. I cannot reliably apply that subpoena procedure to a Registrar-issued notice to produce from the material provided.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "2a540371b8384228a4b25742679ee9c6db2e80e2a279fda932f2d77fddfb691f",
+ "response_id": "resp_07d1019f0391d174006ac63aee861487d2a00f2ea3acf8f6cd",
+ "seconds": 29.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7325,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7322
+  },
+  "output_tokens": 518,
+  "output_tokens_details": {
+   "reasoning_tokens": 90
+  },
+  "total_tokens": 7843
+ }
+}

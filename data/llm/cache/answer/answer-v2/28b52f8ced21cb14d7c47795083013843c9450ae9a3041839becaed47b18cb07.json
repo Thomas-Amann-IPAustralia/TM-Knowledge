@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009772,
+ "created_utc": "2026-10-07T12:24:35Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0078",
+ "job": "answer",
+ "key": "28b52f8ced21cb14d7c47795083013843c9450ae9a3041839becaed47b18cb07",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0131\",\"GC-0121\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part14/4/4/5/2\",\"quote\":\"If an item can fall in more than one class it may be nominated in more than one class in a multi-class application.\"}],\"answer\":\"Yes. The supplied Manual passage recognises a single multi-class application and states that, if an item can fall in more than one class, it may be nominated in more than one class in that application [TMM/Part14/4/4/5/2]. This is Manual practice, not legislation. The supplied legislative passages do not address multi-class filing.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "ff4b25820b529ffc659d6f7bcbd07ba4e1a09900c48867c7b939daf3c490d4f9",
+ "response_id": "resp_0500029bdb37cda3006ac639efab6487d2a48e996d475a7902",
+ "seconds": 20.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7186,
+  "input_tokens_details": {
+   "cache_write_tokens": 7183,
+   "cached_tokens": 0
+  },
+  "output_tokens": 158,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7344
+ }
+}

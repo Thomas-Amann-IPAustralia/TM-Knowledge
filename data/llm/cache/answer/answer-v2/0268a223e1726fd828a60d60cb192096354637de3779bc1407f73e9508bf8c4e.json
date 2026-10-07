@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011493,
+ "created_utc": "2026-10-07T12:25:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0087",
+ "job": "answer",
+ "key": "0268a223e1726fd828a60d60cb192096354637de3779bc1407f73e9508bf8c4e",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0084\",\"GC-0088\",\"GC-0050\",\"GC-0081\",\"GC-0065\",\"GC-0154\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part19B/4/4/2\",\"quote\":\"Under subsection 120(3), a registered owner of a well known trade mark can take infringement action against a person who uses, as a trade mark, a substantially identical or deceptively similar sign in relation to goods or services unrelated to those in respect of which the well known trade mark is registered.\"},{\"ref\":\"TMM/Part19B/4/4/2\",\"quote\":\"The registered owner will be required to establish that, because the trade mark is well known, use of the sign would be likely to be taken as indicating a connection between the unrelated goods or services and the registered owner and for this reason the interests of the registered owner are likely to be adversely affected.\"}],\"answer\":\"**Who is affected?** The relevant adverse effect is on the **registered owner’s interests**. The Manual describes protection against another person’s use, as a trade mark, of a substantially identical or deceptively similar sign on unrelated goods or services. [Citation 1]\\n\\n**What must the owner show?** The registered owner must establish that:\\n- because the trade mark is well known, the sign’s use would likely be understood as indicating a connection between the unrelated goods or services and the registered owner; and\\n- because of that perceived connection, the registered owner’s interests are likely to be adversely affected. [Citation 2]\\n\\n**Source status:** This is the Manual’s account of subsection 120(3), not a quotation of the legislation. The supplied legislative passage does not include subsection 120(3), so its statutory wording cannot be checked here.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "e3128734337807576a38d8d87ddd67e29f457c3af405881beac5308d933c7f16",
+ "response_id": "resp_06b9ff575ed73584006ac63a2f62e087d2b9d7a93a2ee4963d",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6943,
+  "input_tokens_details": {
+   "cache_write_tokens": 6940,
+   "cached_tokens": 0
+  },
+  "output_tokens": 563,
+  "output_tokens_details": {
+   "reasoning_tokens": 162
+  },
+  "total_tokens": 7506
+ }
+}

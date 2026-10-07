@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003203,
+ "created_utc": "2026-10-07T12:24:21Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0075",
+ "job": "answer",
+ "key": "35d59b68843ad1ca2a24be261c2c2dfa8df17cd61682e483575aadc7e0404a94",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0117\",\"GC-0092\",\"GC-0053\",\"GC-0057\",\"GC-0102\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part46/4#1\",\"quote\":\"Registration may be opposed on the same grounds for rejecting an application during examination, with the exception of the ground under section 40 that the trade mark cannot be represented graphically (section 57).\"},{\"ref\":\"TMM/Part46/4#1\",\"quote\":\"The onus is upon the opponent to establish a ground of opposition and the standard of proof is on the balance of probabilities (Pfizer Products Inc v Karam (2006) FCA 1663 per Gyles J at [6] to [26]).\"},{\"ref\":\"TMM/Part46/4#1\",\"quote\":\"The only grounds on which registration may be opposed are those contained in the Act and Regulations.\"}],\"answer\":\"Yes, with one exception.\\n\\n• Same grounds: the Manual states that an opponent may rely on the grounds for rejection available during examination, except the section 40 ground that the trade mark cannot be represented graphically. It attributes this rule to section 57. [TMM/Part46/4#1]\\n\\n• Burden and standard of proof: the Manual states that the opponent must establish a ground of opposition on the balance of probabilities. [TMM/Part46/4#1]\\n\\n• Permitted grounds: the Manual states that opposition is confined to grounds contained in the Act and Regulations. [TMM/Part46/4#1]\\n\\nSource distinction: these are statements from the Manual (Registrar’s practice), including its account of section 57 and the cited case law—not quotations from legislation. The supplied legislative passages do not include section 57 or directly state the opposition burden or standard of proof.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "15afb26b5e5bb8d5e33bcaaab5dac98ec6f6bb047ea70bb5b886a940ed2e8f6b",
+ "response_id": "resp_0b9ebbb3ee955071006ac639d9183887d287e8b520b482fa06",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7494,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7491
+  },
+  "output_tokens": 565,
+  "output_tokens_details": {
+   "reasoning_tokens": 157
+  },
+  "total_tokens": 8059
+ }
+}

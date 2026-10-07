@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00276,
+ "created_utc": "2026-10-07T12:27:00Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0102",
+ "job": "judge",
+ "key": "d5de526eacbf6a7bc1c795abfc6fd1482c69c1eb04201e7884043036ba80b81d",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part21/3/3/6~1\",\"grade\":1},{\"ref\":\"TMM/Part5/2/2/2~1\",\"grade\":1},{\"ref\":\"TMM/Part21/2#1\",\"grade\":3},{\"ref\":\"TMM/Part10/3/3/3/3\",\"grade\":3},{\"ref\":\"TMM/Part10/3/3/1\",\"grade\":3},{\"ref\":\"TMM/Part60/2/2/2/2/4~1\",\"grade\":1},{\"ref\":\"TMM/Part49/2/2/1/2\",\"grade\":0},{\"ref\":\"TMM/Part2/3/2/3/2/1\",\"grade\":2},{\"ref\":\"TMM/Part10/3/3/3/4\",\"grade\":3},{\"ref\":\"TMM/Part21/6/6/1\",\"grade\":3},{\"ref\":\"TMM/Part22/x-registrability-of-various-kinds-of-signs#1\",\"grade\":1},{\"ref\":\"TMM/Part21/3/3/4~1\",\"grade\":1},{\"ref\":\"TMM/Part21/6/6/2\",\"grade\":1},{\"ref\":\"TMM/Part21/2/2/3\",\"grade\":2},{\"ref\":\"TMM/Part60/2/4/2/4/3~1\",\"grade\":3},{\"ref\":\"TMM/Part49/2/2/3/2\",\"grade\":0},{\"ref\":\"TMM/Part10/3#1\",\"grade\":3}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "24d404dc4615180e958c06a0f9a154f471bc9ce9d540dc7a0e5c528ed3223afd",
+ "response_id": "resp_0e4755173cd5e844006ac63a83bc0c87d285fe87a1e85121bb",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4246,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4243
+  },
+  "output_tokens": 509,
+  "output_tokens_details": {
+   "reasoning_tokens": 155
+  },
+  "total_tokens": 4755
+ }
+}

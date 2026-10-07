@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005938,
+ "created_utc": "2026-10-07T12:28:14Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0071",
+ "job": "answer",
+ "key": "d361680cfdf632f94e76ff1d08bcf97195d9f8ca29909c993ca2da310ebe8b5c",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0099\",\"GC-0116\",\"GC-0084\",\"GC-0115\",\"GC-0088\",\"GC-0089\",\"GC-0081\",\"GC-0082\",\"GC-0092\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s74(1)\",\"quote\":\"(1) An applicant for the registration of a trade mark, or the registered owner of a registered trade mark, may, by notice in writing given to the Registrar, disclaim any exclusive right to use, or authorise the use of, a specified part of the trade mark.\"},{\"ref\":\"TMM/Part24/1#1\",\"quote\":\"Under the current provisions any part or parts of a trade mark can be the subject of a disclaimer (whether descriptive or not) however, disclaimers will not be requested by the Registrar. They are voluntary only.\"},{\"ref\":\"TMM/Part24/2#1~1\",\"quote\":\"The request to enter a disclaimer in the Register may be made at any time by an applicant for registration of a trade mark or a registered owner of a trade mark. No fee is payable for such a request.\"},{\"ref\":\"TMA1995/s74\",\"quote\":\"(2) The disclaimer affects only the rights given by this Act to the registered owner of the trade mark on registration of the trade mark. (3) The Registrar must, on registering the trade mark or on receiving notice of the disclaimer (whichever is later), enter the particulars of the disclaimer in the Register. (4) A disclaimer properly made may not be revoked.\"},{\"ref\":\"TMM/Part24/3#1\",\"quote\":\"3.2 Registered owners cannot claim statutory rights in parts of the trade mark that have been disclaimed1. 3.3 Disclaimers only affect the registrations on which they are entered. 3.4 A person does not infringe a registered trade mark by using that part of the trade mark which has been disclaimed (subsection 122(2)). 3.5 A disclaimer is not a complete negation of rights. Disclaimers do not affect rights arising at common law and the fact that matter has been disclaimed in a registered trade mark does not prevent the owner succeeding in a passing off action 2.\"},{\"ref\":\"TMM/Part24/4#1\",\"quote\":\"A disclaimer, whether voluntary or imposed, does not affect examination. 4.1 No account is generally taken of a disclaimer during the examination process.\"},{\"ref\":\"TMM/Part24/4#1\",\"quote\":\"4.5 When considering a ground for rejection under s 44, it is necessary to consider the trade marks as a whole even if the earlier trade mark has a disclaimed element. However, there may be some cases where it may be relevant to consider a disclaimer on an earlier registered trade mark as a relevant ‘other circumstance’ under s 44(3)(b).\"}],\"answer\":\"**Who can request it?**\\n\\n- **Act — s 74(1):** An applicant for registration or the registered owner may give the Registrar written notice disclaiming the exclusive right to use, or authorise use of, a specified part of the trade mark. [TMA1995/s74(1)]\\n- **Manual practice:** Disclaimers are voluntary, not requested by the Registrar. Any part may be disclaimed, whether descriptive or not. The request may be made at any time, with no fee. [TMM/Part24/1#1; TMM/Part24/2#1~1]\\n\\n**What changes when it is recorded?**\\n\\n- **Act — s 74(2)–(4):** The disclaimer affects only rights conferred by the Act on registration. The Registrar must enter its particulars when the trade mark is registered or notice is received, whichever is later. A properly made disclaimer cannot be revoked. [TMA1995/s74]\\n- **Manual explanation of its effect:** The owner cannot claim statutory rights in the disclaimed parts; the disclaimer affects only the registrations on which it is entered. The Manual states that using the disclaimed part does not infringe the registered trade mark. Common law rights are unaffected, and a disclaimer does not itself prevent success in a passing off action. [TMM/Part24/3#1]\\n- **Manual examination practice:** A disclaimer does not affect examination, and generally no account is taken of it. For s 44, the marks must still be considered as wholes, although a disclaimer on an earlier registered mark may sometimes be relevant as an ‘other circumstance’ under s 44(3)(b). [TMM/Part24/4#1]\\n\\nThe infringement and common law explanations above are attributed to the Manual; the supplied legislation contains s 74, not s 122(2).\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "bc9c8452921a400d19b6ab567ccb521757426ce7f0a48cb928e3898f7651f7ec",
+ "response_id": "resp_0ced7d74934624b8006ac63ac2d65c87d28ad35ea5cd9c4b10",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7301,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7298
+  },
+  "output_tokens": 1114,
+  "output_tokens_details": {
+   "reasoning_tokens": 85
+  },
+  "total_tokens": 8415
+ }
+}

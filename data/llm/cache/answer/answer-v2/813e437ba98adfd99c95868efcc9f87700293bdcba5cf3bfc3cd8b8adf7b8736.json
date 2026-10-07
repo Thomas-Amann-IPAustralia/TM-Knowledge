@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002048,
+ "created_utc": "2026-10-07T12:25:27Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0080",
+ "job": "answer",
+ "key": "813e437ba98adfd99c95868efcc9f87700293bdcba5cf3bfc3cd8b8adf7b8736",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part5/x-word-constituents/letters\",\"quote\":\"To indicate a letter or letters the constituent LTR is used.\"},{\"ref\":\"TMM/Part5/x-word-constituents/letters\",\"quote\":\"Where there is a single letter in the trade mark, # is added to the constituents as well as LTR.\"},{\"ref\":\"TMM/Part5/x-word-constituents/letters\",\"quote\":\"A constituent with an equals sign prefix is added to the constituent for groups of letters. It is useful in enabling searchers to distinguish between a group of letters and the same letters used as a word.\"},{\"ref\":\"TMM/Part5/x-word-constituents/letters\",\"quote\":\"In addition, when a group of letters is clearly an acronym, although it spells a word, it is indexed as letters.\"}],\"answer\":\"Under the Manual’s search-indexing practice (not legislation), single letters, letter groups and acronyms are recorded as follows [TMM/Part5/x-word-constituents/letters]:\\n\\n- Letters generally: the constituent LTR identifies a letter or letters.\\n- Single letters: # is added to the constituents as well as LTR.\\n- Groups of letters: an additional constituent prefixed with an equals sign (=) is used, allowing searchers to distinguish the letter group from the same letters used as a word.\\n- Clear acronyms: these are indexed as letters even if they spell a word, so the letter-group indexing applies.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "f365843ae021489d051d1f60eab2af5ad4320aa2aff44b84093a52f681831f43",
+ "response_id": "resp_02a4b45563a68993006ac63a26525087d28a82e9c909d6a671",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6207,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6204
+  },
+  "output_tokens": 347,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 6554
+ }
+}

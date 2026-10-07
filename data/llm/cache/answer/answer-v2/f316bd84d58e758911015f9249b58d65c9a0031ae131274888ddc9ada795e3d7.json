@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012866,
+ "created_utc": "2026-10-07T12:25:38Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0085",
+ "job": "answer",
+ "key": "f316bd84d58e758911015f9249b58d65c9a0031ae131274888ddc9ada795e3d7",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0073\",\"GC-0081\",\"GC-0064\",\"GC-0008\",\"GC-0009\",\"GC-0070\",\"GC-0071\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s6/sign\",\"quote\":\"sign includes the following or any combination of the following, namely, any letter, word, name, signature, numeral, device, brand, heading, label, ticket, aspect of packaging, shape, colour, sound or scent.\"},{\"ref\":\"TMA1995/s17\",\"quote\":\"A trade mark is a sign used, or intended to be used, to distinguish goods or services dealt with or provided in the course of trade by a person from goods or services so dealt with or provided by any other person.\"},{\"ref\":\"TMM/Part19A/3/3/4\",\"quote\":\"The cases highlight a number of activities that will not by themselves constitute use ‘in the course of trade’.\"},{\"ref\":\"TMM/Part19A/3/3/4\",\"quote\":\"Registration of a business or domain name (see Angela Christou v Tonch Pty Ltd [2008] ATMO 24)\"},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names#1~1\",\"quote\":\"As with any conflict between marks, citations in respect of this scenario will depend on the likelihood of the two trade marks being confused within the relevant market. The tests require that there be a real tangible danger of confusion occurring if the two trade marks are used in relation to similar or closely related goods/services.\"}],\"answer\":\"The supplied passages do not establish a standalone examination objection merely because there is a similar business name. They also do not provide enough legislative grounds for rejection to give a definitive answer across all possible grounds.\\n\\n• **Act:** A “name” can be a sign under s 6, but s 17 defines a trade mark by its use, or intended use, to distinguish goods or services in the course of trade. So the label “business name” does not itself resolve whether the name is also a trade mark. [TMA1995/s6/sign; TMA1995/s17]\\n\\n• **Manual practice — use:** Registration of a business name does not, by itself, constitute use in the course of trade. Do not treat the business-name registration alone as establishing that use. [TMM/Part19A/3/3/4]\\n\\n• **Manual practice — conflicting marks:** In its discussion of multiple-name marks, the Manual says citations depend on the likelihood of the two trade marks being confused in the relevant market, requiring a real tangible danger of confusion for similar or closely related goods/services. That is guidance about conflict between trade marks, not authority for an objection based merely on similarity between business names. [TMM/Part26/x-annex-a1---citing-multiple-names#1~1]\\n\\nAccordingly, distinguish a possible conflict between trade marks from mere business-name registration. These extracts do not answer whether a problem arising outside the mark itself supplies some other ground of objection.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "ac666dce27a22575d6376b10f20c501fc18e9a5e276f1a32d812afa15daf795c",
+ "response_id": "resp_05a461a401dfb62b006ac63a25aab887d2b111d060e54e6646",
+ "seconds": 29.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7189,
+  "input_tokens_details": {
+   "cache_write_tokens": 7186,
+   "cached_tokens": 0
+  },
+  "output_tokens": 776,
+  "output_tokens_details": {
+   "reasoning_tokens": 105
+  },
+  "total_tokens": 7965
+ }
+}

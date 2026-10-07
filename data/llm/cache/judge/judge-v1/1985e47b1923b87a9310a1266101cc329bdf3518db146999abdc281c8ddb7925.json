@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001885,
+ "created_utc": "2026-10-07T12:31:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0109",
+ "job": "judge",
+ "key": "1985e47b1923b87a9310a1266101cc329bdf3518db146999abdc281c8ddb7925",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part22/13/13/1\",\"grade\":1},{\"ref\":\"TMM/Part22/17/17/3\",\"grade\":1},{\"ref\":\"TMM/Part22/16#1\",\"grade\":2},{\"ref\":\"TMM/Part22/17/17/4\",\"grade\":1},{\"ref\":\"TMM/Part22/17/17/2\",\"grade\":1},{\"ref\":\"TMM/Part22/16/16/3\",\"grade\":3},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names#1~2\",\"grade\":1},{\"ref\":\"TMM/Part22/16/16/4\",\"grade\":1},{\"ref\":\"TMM/Part22/13/13/2\",\"grade\":1},{\"ref\":\"TMM/Part22/18#1\",\"grade\":2},{\"ref\":\"TMM/Part22/16/16/1~1\",\"grade\":2},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-the-name-of-a-person-incorporating-the-given-name\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "4599e2ab96f89ce305615845812edbc3130bf9ae2dfef1d2491994b7bffb3985",
+ "response_id": "resp_068abd00b5af0bc0006ac63b83119c87d2be3cd2d59d3b7a5b",
+ "seconds": 18.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2536,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2533
+  },
+  "output_tokens": 351,
+  "output_tokens_details": {
+   "reasoning_tokens": 79
+  },
+  "total_tokens": 2887
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002091,
+ "created_utc": "2026-10-07T12:26:42Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0100",
+ "job": "judge",
+ "key": "0fbe87dabe45122679ae56f2df755a114ea652ca4028d24276f50d6e54154031",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part48/2/2/1\",\"grade\":3},{\"ref\":\"TMM/Part48/2/2/2\",\"grade\":1},{\"ref\":\"TMM/Part51/6/6/2\",\"grade\":1},{\"ref\":\"TMM/Part48/3#1~1\",\"grade\":1},{\"ref\":\"TMM/Part49/6/6/1\",\"grade\":1},{\"ref\":\"TMM/Part47/4#1\",\"grade\":1},{\"ref\":\"TMM/Part48/2/2/3\",\"grade\":1},{\"ref\":\"TMM/Part49/1/1/7\",\"grade\":1},{\"ref\":\"TMM/Part48/4#1~2\",\"grade\":1},{\"ref\":\"TMM/Part49/1/1/3\",\"grade\":1},{\"ref\":\"TMM/Part48/2/2/4\",\"grade\":1},{\"ref\":\"TMM/Part51/x-relevant-legislation3#1\",\"grade\":1},{\"ref\":\"TMM/Part49/6#1\",\"grade\":2},{\"ref\":\"TMM/Part49/1/1/8\",\"grade\":1},{\"ref\":\"TMM/Part49/5#1\",\"grade\":1},{\"ref\":\"TMM/Part51/5#1~1\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "d7a8d97c6fccfdc76707f942b1e84ddf5fa4bb45578e55c8bf2ccb7238122208",
+ "response_id": "resp_04c315858dcda5d7006ac63a717ba487d28ba88cb9632c4183",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3568,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3565
+  },
+  "output_tokens": 382,
+  "output_tokens_details": {
+   "reasoning_tokens": 84
+  },
+  "total_tokens": 3950
+ }
+}

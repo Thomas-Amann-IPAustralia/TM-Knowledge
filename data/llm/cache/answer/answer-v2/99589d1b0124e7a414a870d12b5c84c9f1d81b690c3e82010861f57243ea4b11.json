@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001752,
+ "created_utc": "2026-10-07T12:27:45Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0108",
+ "job": "answer",
+ "key": "99589d1b0124e7a414a870d12b5c84c9f1d81b690c3e82010861f57243ea4b11",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0121\",\"GC-0044\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services\",\"quote\":\"The Trade Marks Classification Search is available to examiners via RIO Dashboard > Register Search, under the heading ‘Classification search’ accessible from the drop-down menu in the top right corner of the screen.\"},{\"ref\":\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services\",\"quote\":\"For external users, the Trade Marks Classification Search is also available from the Advanced Search screen of the Australian Trade Mark Search.\"}],\"answer\":\"According to the Manual (practice), Annex A5:\\n\\n- **Examiners:** go to **RIO Dashboard > Register Search**, then open the drop-down menu in the top-right corner of the screen and select **‘Classification search’**. [citation 1]\\n- **External users:** access the Trade Marks Classification Search from the **Advanced Search** screen of **Australian Trade Mark Search**. [citation 2]\\n\\nThese access instructions are Manual practice, not requirements of the Act or Regulations.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "2ccbe0872c280a3048eded725e21c078bdc0b771414e2d8e7fbf583ebde97270",
+ "response_id": "resp_07d3400ec76d3331006ac63aafc50c87d2af79a4811fd5f0db",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7476,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7473
+  },
+  "output_tokens": 275,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7751
+ }
+}

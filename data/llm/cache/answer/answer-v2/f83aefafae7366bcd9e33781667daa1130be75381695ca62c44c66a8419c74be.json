@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00568,
+ "created_utc": "2026-10-07T12:35:34Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0009",
+ "job": "answer",
+ "key": "f83aefafae7366bcd9e33781667daa1130be75381695ca62c44c66a8419c74be",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0001\",\"GC-0005\",\"GC-0002\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part29/2/2/1~2\",\"quote\":\"plainly, if “connotation” in s 43 is to bear its ordinary meaning (and the respondents did not argue otherwise), then a distinction is to be made between the denotation of the mark and its connotation.\"},{\"ref\":\"TMM/Part29/2/2/1~2\",\"quote\":\"In my respectful opinion, subject to the qualification that “Primary Health Care” denotes a connection between the applicant and the designated services (rather than a connection between the applicant and its medical centres), her Honour was correct to do so. Her Honour went on to hold (at [164]) that the connotation in the marks is that the applicant provides “first level or first contact health care”.\"},{\"ref\":\"TMM/Part29/3#1~1\",\"quote\":\"The underlying purpose of section 43 is to prevent the public being deceived or confused as to the nature of the goods by reason of the secondary meaning connoted by the mark in question (Pfizer Products Inc v Karam [2006] FCA 1663, [53]).\"},{\"ref\":\"TMM/Part29/3#1~1\",\"quote\":\"In Primary Health Care Limited v Commonwealth of Australia [2017] FCAFC 174, Katzmann J said at 113: ….the section is concerned with whether the mark the subject of the application (or a sign contained in the mark) connotes something other than a connection in the course of trade between the relevant goods or services and the person who applied (or intended to apply) it to those goods or services.\"},{\"ref\":\"TMM/Part29/2/2/1~1\",\"quote\":\"In respect of section 43, connotation has a wide meaning beyond the above definitions and includes direct statements.\"},{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"}],\"answer\":\"Machine-authored and unreviewed.\\n\\n**The courts have distinguished a mark’s trade-source denotation from the additional meaning it conveys.** The following judicial treatment is reported in the supplied Manual passages, rather than supplied as judgments themselves.\\n\\n1. **Denotation and connotation are distinct.** The judicial extract expressly says that, if ‘connotation’ in s 43 bears its ordinary meaning, a distinction must be drawn between the mark’s denotation and its connotation. In the ‘Primary Health Care’ example, denotation was the connection between the applicant and the designated services; connotation was that the applicant provided ‘first level or first contact health care’. The extract does not identify its speaker, so I cannot confidently attribute that particular statement to a named judge. [TMM/Part29/2/2/1~2]\\n\\n2. **Section 43 concerns meaning beyond the trade connection.** The Manual reports Katzmann J in *Primary Health Care Limited v Commonwealth of Australia* [2017] FCAFC 174 at [113] as asking whether the mark connotes something other than a connection in the course of trade between the goods or services and the person applying it. It also reports *Pfizer Products Inc v Karam* [2006] FCA 1663 at [53] as identifying the section’s purpose as preventing deception or confusion about the nature of goods arising from the mark’s secondary meaning. [TMM/Part29/3#1~1]\\n\\n**Manual practice qualification:** the Manual says that connotation under s 43 has a wide meaning and includes direct statements. Accordingly, its examination approach does not confine connotation to indirectly expressed implications. [TMM/Part29/2/2/1~1]\\n\\n**Act:** section 43 itself requires rejection where, because of a connotation of the mark or a sign within it, use for the relevant goods or services would be likely to deceive or cause confusion. That is the statutory test, distinct from the Manual’s explanation of denotation and connotation. [TMA1995/s43]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "371931efc365676b05e3ea2360ec77dabb95137816fe36a2130f417a23400bd7",
+ "response_id": "resp_0848f8e44565965d006ac63c6b201087d29ce2c020ad8a1749",
+ "seconds": 44.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6949,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6946
+  },
+  "output_tokens": 1066,
+  "output_tokens_details": {
+   "reasoning_tokens": 129
+  },
+  "total_tokens": 8015
+ }
+}

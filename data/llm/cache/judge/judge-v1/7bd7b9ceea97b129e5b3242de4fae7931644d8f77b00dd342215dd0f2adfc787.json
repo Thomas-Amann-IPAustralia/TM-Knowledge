@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002378,
+ "created_utc": "2026-10-07T12:27:37Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0119",
+ "job": "judge",
+ "key": "7bd7b9ceea97b129e5b3242de4fae7931644d8f77b00dd342215dd0f2adfc787",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part31/4/4/2/2~1\",\"grade\":0},{\"ref\":\"TMM/Part30/3/3/5~4\",\"grade\":2},{\"ref\":\"TMM/Part30/3/3/5~2\",\"grade\":2},{\"ref\":\"TMM/Part29/6#1~2\",\"grade\":0},{\"ref\":\"TMM/Part30/3/3/5~5\",\"grade\":2},{\"ref\":\"TMM/Part30/3/3/4/1\",\"grade\":0},{\"ref\":\"TMM/Part30/3/3/5~3\",\"grade\":2},{\"ref\":\"TMM/Part30/x-30.-annex-a5---examples-regarding-geneva-conventions-act-1957-s-151#1~1\",\"grade\":1},{\"ref\":\"TMM/Part30/3/3/5~1\",\"grade\":3},{\"ref\":\"TMM/Part31/3#1~2\",\"grade\":0},{\"ref\":\"TMM/Part29/6/6/1\",\"grade\":0},{\"ref\":\"TMM/Part26/3#1\",\"grade\":0},{\"ref\":\"TMM/Part5/4/4/1\",\"grade\":0},{\"ref\":\"TMM/Part30/x-30.-annex-a5---examples-regarding-geneva-conventions-act-1957-s-151#1~2\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "e4f0d0d9462f3803da99f4b2b41d6cececfeb669fafe106171a975b8baa3f600",
+ "response_id": "resp_00293779c2a311f6006ac63aa7a5bc87d2abe8c837f1b6b526",
+ "seconds": 18.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3998,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3995
+  },
+  "output_tokens": 435,
+  "output_tokens_details": {
+   "reasoning_tokens": 111
+  },
+  "total_tokens": 4433
+ }
+}

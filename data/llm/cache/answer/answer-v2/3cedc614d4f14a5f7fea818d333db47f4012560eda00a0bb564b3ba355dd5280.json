@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004188,
+ "created_utc": "2026-10-07T12:24:14Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0072",
+ "job": "answer",
+ "key": "3cedc614d4f14a5f7fea818d333db47f4012560eda00a0bb564b3ba355dd5280",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0072\", \"GC-0036\", \"GC-0001\", \"GC-0002\", \"GC-0006\", \"GC-0038\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMA1995/s43\",\n      \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n    },\n    {\n      \"ref\": \"TMM/Part32A/2/4/2/4/1\",\n      \"quote\": \"If a trade mark contains or consists of material that connotes a particular plant variety, it would be deceptive or confusing if the trade mark was applied to goods which are a different variety of the same or closely related genus.\"\n    },\n    {\n      \"ref\": \"TMM/Part32A/2/4/2/4/1\",\n      \"quote\": \"In such a circumstance, a ground for rejection under section 43 is applicable.\"\n    },\n    {\n      \"ref\": \"TMM/Part32A/2/4/2/4/1\",\n      \"quote\": \"Therefore, if the trade mark contains or consists of a known variety name, the connotation may be immediate, and deception or confusion is likely if the trade mark is used on a different variety of the same or a closely related genus. However, the examiner needs to consider how the variety name appears within the trade mark as a whole. For example, if the plant name is a dictionary word appearing in a phrase then connotation may not be immediate.\"\n    }\n  ],\n  \"answer\": \"Yes, in principle—but the key concern is use on a DIFFERENT variety of the same or a closely related genus, not merely that the plants share a genus.\\n\\nAct: Section 43 requires rejection where a connotation of the trade mark, or a sign within it, makes use on the claimed goods likely to deceive or cause confusion [TMA1995/s43].\\n\\nManual practice: The Manual identifies a section 43 ground where a mark connotes a particular plant variety but is applied to a different variety of the same or a closely related genus [TMM/Part32A/2/4/2/4/1]. However, the examiner must consider the mark as a whole and whether the variety connotation is immediate. A variety name that is also a dictionary word within a phrase may not convey that immediate connotation [TMM/Part32A/2/4/2/4/1]. This is general examination guidance, not a determination of your application's outcome.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "7a2b1bedf35b5f09ec639262a959123ea1c31db4ee0ae9044a5e94fc8a1c4f3b",
+ "response_id": "resp_03edf439d8554906006ac639d335ec87d29d7b6b04823a692f",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7611,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7608
+  },
+  "output_tokens": 761,
+  "output_tokens_details": {
+   "reasoning_tokens": 151
+  },
+  "total_tokens": 8372
+ }
+}

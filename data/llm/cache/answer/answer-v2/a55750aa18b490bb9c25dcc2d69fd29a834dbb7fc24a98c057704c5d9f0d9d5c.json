@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00553,
+ "created_utc": "2026-10-07T12:29:26Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0117",
+ "job": "answer",
+ "key": "a55750aa18b490bb9c25dcc2d69fd29a834dbb7fc24a98c057704c5d9f0d9d5c",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0081\",\"GC-0082\",\"GC-0083\",\"GC-0085\",\"GC-0086\",\"GC-0101\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part19A/6/6/2\",\"quote\":\"Use by the predecessor in title will generally be taken to be use by the person who claims to be the owner.\"},{\"ref\":\"TMM/Part23/3/3/1\",\"quote\":\"Where the trade mark was the subject of a pending application (or another registration) at the time the claimed use of the trade mark occurred, then the applicant needs to show that rights in the trade mark subject of the application were simply assigned to them.\"},{\"ref\":\"TMM/Part23/3/3/1\",\"quote\":\"If the applicant seeks to rely on use of the trade mark by a predecessor before an application for registration is filed, they must also demonstrate they are the successor in title to the associated goodwill of the business that used the trade mark.\"},{\"ref\":\"TMA1995/s106\",\"quote\":\"(1) A registered trade mark, or a trade mark whose registration is being sought, may be assigned or transmitted in accordance with this section.\"},{\"ref\":\"TMA1995/s106\",\"quote\":\"(3) The assignment or transmission may be with or without the goodwill of the business concerned in the relevant goods and/or services.\"},{\"ref\":\"TMM/Part19A/6/6/3\",\"quote\":\"Authorised use of a trade mark is taken, for the purposes of the Act, to be use of the trade mark by the owner of the trade mark (s 7(3)). To be an authorised user the person who uses the trade mark must use the trade mark under the control of the owner of the trade mark (s 8(1)).\"},{\"ref\":\"TMM/Part23/3/3/1\",\"quote\":\"Authorised use requires some form of actual control by the applicant over the use by the authorised user.\"},{\"ref\":\"TMM/Part19A/6/6/3\",\"quote\":\"Two types of control have been set out in ss 8(3) and 8(4) but these in no way limit the meaning of the expression ‘under the control of’ (s 8(5)). The two types of control expressly set out in the Act are: where an owner of a trade mark exercises quality control over goods or services (s 8(3)); and where the owner of the trade mark exercises financial control over the other person's trading activities in relation to the subject goods or services.\"}],\"answer\":\"Yes, in principle—but the connection to the earlier user, or control over the authorised user, matters.\\n\\n**Use before you bought the business — Manual practice**\\nThe Manual generally treats use by a predecessor in title as use by the person claiming ownership (TMM/Part19A/6/6/2). It distinguishes:\\n• Use while the mark was subject to a pending application or another registration: the applicant must show that the relevant trade mark rights were assigned to them.\\n• Pre-application use by a predecessor: the applicant must also demonstrate succession to the associated goodwill of the business that used the mark.\\nThese are the Manual’s requirements, rather than a conclusion that any particular business purchase satisfies them (TMM/Part23/3/3/1).\\n\\n**Act — assignment**\\nSection 106 permits assignment or transmission of a registered trade mark or a mark whose registration is being sought, with or without the relevant business goodwill (TMA1995/s106). This statutory provision is distinct from the Manual’s guidance about relying on earlier use.\\n\\n**Use by someone you authorised — Manual practice explaining the Act**\\nThe Manual states that authorised use counts as use by the owner, but requires use under the owner’s control. Mere permission without actual control is therefore not enough. Quality control over the goods or services and financial control over the relevant trading activities are examples; they are not exhaustive (TMM/Part19A/6/6/3; TMM/Part23/3/3/1).\\n\\nSource limitation: sections 7 and 8 are not supplied as legislation here, so the explanation of authorised use relies on the Manual’s account of those provisions.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "fa748dbb327f102e41dccda2760fd0e79480ff06b7f299ad96919f702234af52",
+ "response_id": "resp_0d29397c887c778e006ac63b0a2c0887d28d6916e0db7ca598",
+ "seconds": 28.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7447,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7444
+  },
+  "output_tokens": 1031,
+  "output_tokens_details": {
+   "reasoning_tokens": 111
+  },
+  "total_tokens": 8478
+ }
+}

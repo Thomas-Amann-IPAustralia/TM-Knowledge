@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013312,
+ "created_utc": "2026-10-07T12:25:17Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0082",
+ "job": "answer",
+ "key": "70a0bfe15c253620266d72cc82f56e05a0cf3fcbcd2659988e4508282d811d07",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0081\",\"GC-0083\",\"GC-0084\",\"GC-0088\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part19B/4/4/1\",\"quote\":\"Subsection 120(1) provides that a registered trade mark is infringed if a person uses, as a trade mark, a sign that is substantially identical with, or deceptively similar to, the trade mark in relation to the goods or services in respect of which the trade mark is registered.\"},{\"ref\":\"TMA1995/s121\",\"quote\":\"(1) This section applies to a registered trade mark if the registered owner, or an authorised user of the trade mark having power to do so, has caused to be displayed on goods (registered goods) in respect of which the trade mark is registered, or on their package, or on the container in which they are offered to the public, a notice (notice of prohibition) prohibiting any act that is under subsection (2) a prohibited act in relation to the goods.\"},{\"ref\":\"TMM/Part19B/4/4/3\",\"quote\":\"Under section 121 a registered trade mark is infringed if the registered owner, or an authorised user of the trade mark having power to do so, has caused to be displayed on goods in respect of which the trade mark is registered a notice of prohibition, and a person who acquires the goods does or authorises an act, in the course of trade, that is prohibited.\"},{\"ref\":\"TMM/Part19B/4/4/3\",\"quote\":\"The trade mark is not infringed if the person acquired the goods in good faith and without being aware of the notice of prohibition or became the owner of the goods by virtue of a title derived from a person who had so acquired them.\"}],\"answer\":\"The supplied passages do not establish that putting a prohibition notice on goods is itself ‘use as a trade mark’. They describe a separate notice-based infringement mechanism under section 121, rather than treating the notice itself as the infringing use.\\n\\n• **Manual practice:** The Manual’s account of subsection 120(1) requires use of a sign ‘as a trade mark’. Its account of section 121 instead concerns an acquirer doing or authorising a prohibited act in the course of trade after the registered owner, or an authorised user with the necessary power, has caused a prohibition notice to be displayed. Displaying the notice alone is therefore not the infringement described by that practice. [TMM/Part19B/4/4/1; TMM/Part19B/4/4/3]\\n\\n• **Act:** The supplied subsection 121(1) makes the section applicable where the required notice is displayed on the registered goods, their package or the container in which they are offered to the public. It does not expressly classify displaying that notice as ‘use as a trade mark’. [TMA1995/s121]\\n\\n• **Manual practice—exception:** The Manual states that there is no infringement where the acquirer obtained the goods in good faith without awareness of the notice, or derived title from someone who did so. [TMM/Part19B/4/4/3]\\n\\nThe supplied legislative extract is incomplete, so the full section 121 infringement rule and exception are supported here by the Manual’s account, not by a complete statutory quotation.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "12d65d366ccdbd3b678a21a55bff66e167d35fcf4f268a0e6a5ba9d30126517c",
+ "response_id": "resp_01bd587e60cd86af006ac63a12334c87d28c2792cdd422e1e4",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7162,
+  "input_tokens_details": {
+   "cache_write_tokens": 7159,
+   "cached_tokens": 0
+  },
+  "output_tokens": 872,
+  "output_tokens_details": {
+   "reasoning_tokens": 148
+  },
+  "total_tokens": 8034
+ }
+}

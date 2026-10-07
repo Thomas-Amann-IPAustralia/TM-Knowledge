@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010898,
+ "created_utc": "2026-10-07T12:28:33Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0116",
+ "job": "answer",
+ "key": "83906f4b6c6589107ad153b448ae558d374f0c4f1d9eedac079e3c986dad6e69",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0121\",\"GC-0129\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\",\"quote\":\"Suggested Alternatives Class 1: Plastics in the form of powders Class 2: Paint powders Class 3: Cosmetic face powders Class 4: Wax powders for industrial purposes Class 5: Medicated baby powders Class 6: Common metal powders Class 13: Explosive powders Class 29: Powders for making milk shakes Class 30: Curry powders Class 32: Powders for effervescing beverages\"},{\"ref\":\"TMM/Part14/3#1~2\",\"quote\":\"Examiners must check that goods and services are adequately described and that they are, on the basis of the description supplied, correctly classified.\"},{\"ref\":\"TMM/Part14/4/4/6/2\",\"quote\":\"If part or all of the specification is vague or unclear to the extent that it cannot be classified, the Examiner should request further information from the applicant.\"},{\"ref\":\"TMR1995/r4.2(1)(c)\",\"quote\":\"(c) specify the goods and/or services in relation to which the application is made; and\"}],\"answer\":\"Use wording identifying the kind of powder, rather than just “powders”. The Manual gives these suggested alternatives (Manual practice, not legislation):\\n\\n| Class | Suggested wording |\\n|---|---|\\n| 1 | Plastics in the form of powders |\\n| 2 | Paint powders |\\n| 3 | Cosmetic face powders |\\n| 4 | Wax powders for industrial purposes |\\n| 5 | Medicated baby powders |\\n| 6 | Common metal powders |\\n| 13 | Explosive powders |\\n| 29 | Powders for making milk shakes |\\n| 30 | Curry powders |\\n| 32 | Powders for effervescing beverages |\\n\\nSource: TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders.\\n\\nChoose the wording that accurately describes the actual goods. I cannot identify the appropriate class without knowing what the powders are: Manual practice requires adequate description and correct classification, and further information where the specification cannot be classified (TMM/Part14/3#1~2; TMM/Part14/4/4/6/2).\\n\\nThe Regulations require the application to specify its goods and/or services; the suggested wording above comes from the Manual, not the Regulations (TMR1995/r4.2(1)(c)).\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "6b39bd23de03caaf4c8a920c9bb7e167a790715000de0bd576959522326e5d36",
+ "response_id": "resp_042cc05766eac7dd006ac63adfece887d2b37111930a0c05ac",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6419,
+  "input_tokens_details": {
+   "cache_write_tokens": 6416,
+   "cached_tokens": 0
+  },
+  "output_tokens": 575,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 6994
+ }
+}

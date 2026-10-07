@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003484,
+ "created_utc": "2026-10-07T12:26:06Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0088",
+ "job": "answer",
+ "key": "b218e66d0c1fbd1e36e2d76aaa6ea06e761fbc41f655cd5ce652c78e0fbd4a24",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0097\",\"GC-0102\",\"GC-0128\",\"GC-0127\",\"GC-0115\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part51/2/2/4\",\"quote\":\"Opposition to registration or protection\"},{\"ref\":\"TMM/Part51/2/2/4\",\"quote\":\"If the extension was for filing evidence in reply, the period allowed for the parties to file their evidence concludes and the parties will have the opportunity to request a hearing.\"},{\"ref\":\"TMM/Part51/5#1~1\",\"quote\":\"Once the period for the parties to serve their evidence has ended the Registrar must decide the opposition\"},{\"ref\":\"TMM/Part51/2/2/4\",\"quote\":\"Opposition to removal or cessation of protection\"},{\"ref\":\"TMM/Part51/2/2/4\",\"quote\":\"If the extension was for filing evidence in reply, the period allowed for the parties to file their evidence conclude…\"}],\"answer\":\"For an opposition to registration or protection, the Manual says that if an extension to file evidence in reply is refused:\\n\\n1. The period allowed for the parties to file evidence concludes.\\n2. The parties have the opportunity to request a hearing. [TMM/Part51/2/2/4]\\n\\nThe Manual also says that once the period for serving evidence has ended, the Registrar must decide the opposition. This describes the next procedural stage, not how your opposition will be decided. [TMM/Part51/5#1~1]\\n\\nThese statements are Manual practice. The supplied Act and Regulations passages do not directly address refusal of an extension to file evidence in reply.\\n\\nIf you mean an opposition to removal for non-use or cessation of protection, the relevant reply-evidence sentence in the supplied Manual passage is cut off. I therefore cannot confirm the complete consequence for that type of opposition from that passage. [TMM/Part51/2/2/4]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "8282276de4f6477d682d485481a048f3c42880b3bad81dd5a18a96d72c978e12",
+ "response_id": "resp_080aff6711f9cd28006ac63a426db087d2bc9e663fb8532a2a",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8423,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 8420
+  },
+  "output_tokens": 612,
+  "output_tokens_details": {
+   "reasoning_tokens": 179
+  },
+  "total_tokens": 9035
+ }
+}

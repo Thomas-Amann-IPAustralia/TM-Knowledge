@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008513,
+ "created_utc": "2026-10-07T12:27:55Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0004",
+ "job": "judge",
+ "key": "06e417a3bf52cc63e01e0575682973dd6824d9491f5bcd07c08bc0a06a633a43",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part29/1/1/1\",\"grade\":1},{\"ref\":\"TMM/Part32A/x-annex-5---case-law-summaries/mastronardi-produce-ltd-v-registrar-of-trade-marks-2014-fca-1021-zima\",\"grade\":1},{\"ref\":\"TMM/Part20/5/5/5/2\",\"grade\":1},{\"ref\":\"TMM/Part29/3/3/1~1\",\"grade\":2},{\"ref\":\"TMM/Part29/9#1\",\"grade\":2},{\"ref\":\"TMM/Part29/9/9/3~1\",\"grade\":3},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names#1~2\",\"grade\":1},{\"ref\":\"TMM/Part29/2/2/2\",\"grade\":2},{\"ref\":\"TMM/Part29/5/5/4\",\"grade\":1},{\"ref\":\"TMM/Part32B/2/2#1\",\"grade\":2},{\"ref\":\"TMM/Part29/1/1/2\",\"grade\":1},{\"ref\":\"TMM/Part29/6/6/2~3\",\"grade\":1},{\"ref\":\"TMM/Part29/x-relevant-legislation53#1\",\"grade\":1},{\"ref\":\"TMM/Part29/3#1~1\",\"grade\":2},{\"ref\":\"TMM/Part29/9#7\",\"grade\":0},{\"ref\":\"TMM/Part29/4#1\",\"grade\":1},{\"ref\":\"TMM/Part29/5/5/1\",\"grade\":1},{\"ref\":\"TMM/Part29/3#1~2\",\"grade\":2},{\"ref\":\"TMM/Part29/5/5/6~2\",\"grade\":1},{\"ref\":\"TMM/Part29/9/9/3~2\",\"grade\":2},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-consist-of-multiple-given-names\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "4bdde0d599057df417cb0e6b6f21f31a9adb932e0605d5e9d907c3f0cd9513f1",
+ "response_id": "resp_06a8d95b34336ca5006ac63aba2fd887d2b17867455e975d92",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4563,
+  "input_tokens_details": {
+   "cache_write_tokens": 4560,
+   "cached_tokens": 0
+  },
+  "output_tokens": 562,
+  "output_tokens_details": {
+   "reasoning_tokens": 87
+  },
+  "total_tokens": 5125
+ }
+}

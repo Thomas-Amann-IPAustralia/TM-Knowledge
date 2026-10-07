@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002335,
+ "created_utc": "2026-10-07T12:25:05Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0096",
+ "job": "judge",
+ "key": "6c7673461b7fc2d03f9d24fb3719838ce68c89561406fa08b0f4a4ec0dc11906",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part21/7/7/2/1~1\",\"grade\":2},{\"ref\":\"TMM/Part38/2/2/3\",\"grade\":0},{\"ref\":\"TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1\",\"grade\":0},{\"ref\":\"TMM/Part10/3/3/4/1\",\"grade\":1},{\"ref\":\"TMM/Part51/10#1~1\",\"grade\":0},{\"ref\":\"TMM/Part38/1/1/1\",\"grade\":0},{\"ref\":\"TMM/Part32B/2/1/2/1/3\",\"grade\":0},{\"ref\":\"TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/appendix-x-trade-designations~2\",\"grade\":0},{\"ref\":\"TMM/Part21/7/7/1\",\"grade\":1},{\"ref\":\"TMM/Part10/3/3/4/2\",\"grade\":1},{\"ref\":\"TMM/Part32A/2/3/2-3-5-b-evidence-of-use\",\"grade\":0},{\"ref\":\"TMM/Part22/7/22/7/10\",\"grade\":1},{\"ref\":\"TMM/Part20/3#1\",\"grade\":1},{\"ref\":\"TMM/Part21/4/4/5/2\",\"grade\":1},{\"ref\":\"TMM/Part21/7#1\",\"grade\":2},{\"ref\":\"TMM/Part21/7/7/2/1~2\",\"grade\":3},{\"ref\":\"TMM/Part10/3/3/4/3\",\"grade\":1},{\"ref\":\"TMM/Part60/4/7/4/7/13\",\"grade\":1},{\"ref\":\"TMM/Part10/3/3/4/4\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "1d502256c97f65be3bd3aa09c255e9610fde68de5ba04639df0262d456c90210",
+ "response_id": "resp_08ec43d673a442e0006ac63a0f0b3c87d28cfd79c889c170a5",
+ "seconds": 18.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3942,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3939
+  },
+  "output_tokens": 427,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4369
+ }
+}

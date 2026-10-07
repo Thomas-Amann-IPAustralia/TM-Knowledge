@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005526,
+ "created_utc": "2026-10-07T12:38:09Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0103",
+ "job": "answer",
+ "key": "8a411ccf24ad6a922c7074838a0825e5a52142c53bc7e68518bc8e2bae7b9f4b",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0128\",\"GC-0115\",\"GC-0116\",\"GC-0117\",\"GC-0102\",\"GC-0104\",\"GC-0097\",\"GC-0124\",\"GC-0113\",\"GC-0135\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part52/2/2/1\",\"quote\":\"Matters arising under the Act in which the Registrar is required to make a decision which will determine the rights of one of the parties involved relative to another party are referred to as “inter partes” matters.\"},{\"ref\":\"TMM/Part52/2/2/1\",\"quote\":\"Both of the interested parties have the opportunity to be heard before the decision is made, and the hearing is referred to as an inter partes hearing.\"},{\"ref\":\"TMM/Part55/2#1\",\"quote\":\"The legislation provides that the following actions may be opposed: Amendment of a trade mark application (s 65A) Registration of another party’s trade mark (s 52) Protection of an International Registration Designating Australia held by another party (reg 17A.33) Removal of a registered trade mark for non-use (s 96) Cessation of protection of a Protected International Trade Mark for non-use (reg 17A.48D) Grant of an extension of time of more than three months (s 224).\"},{\"ref\":\"TMM/Part46/2#1\",\"quote\":\"When all the evidence periods have ended the parties are given an opportunity to be heard, in person or in writing, by a delegate of the Registrar on the merits of the opposition (section 54 and reg 17A.34M).\"},{\"ref\":\"TMM/Part52/3#1\",\"quote\":\"In opposition matters, where the Registrar has allowed a reasonable time for all parties to indicate whether they wish to be heard, or where all parties indicate that they do not wish to be heard - per paragraph 21.15(5)(a) - the Registrar is not required to hold a hearing.\"},{\"ref\":\"TMA1995/s203\",\"quote\":\"The Registrar may not exercise a power under this Act in any way that adversely affects a person applying for the exercise of that power without first giving that person a reasonable opportunity of being heard.\"}],\"answer\":\"**Who gets to be heard — Manual practice:** Both interested parties have an opportunity to be heard before the decision is made. The Manual describes a matter as **inter partes** where the Registrar’s decision determines one party’s rights relative to another party. [TMM/Part52/2/2/1]\\n\\n**What proceedings are included — Manual description:** The Manual lists oppositions concerning:\\n- amendment of a trade mark application (s 65A);\\n- registration of another party’s trade mark (s 52);\\n- protection of another party’s International Registration Designating Australia (reg 17A.33);\\n- removal of a registered trade mark for non-use (s 96);\\n- cessation of protection of a protected international trade mark for non-use (reg 17A.48D); and\\n- grant of an extension of time of more than three months (s 224).\\nThese legislative references are reported by the Manual; the corresponding Act and Regulations provisions are not supplied here. [TMM/Part55/2#1]\\n\\n**Opportunity, rather than a compulsory hearing — Manual practice:** For opposition to registration or protection, the parties may be heard in person or in writing once the evidence periods have ended. The Manual also says a hearing need not be held where all parties decline to be heard, or a reasonable time has been allowed for them to indicate whether they wish to be heard. [TMM/Part46/2#1; TMM/Part52/3#1]\\n\\n**Separate statutory safeguard — Act:** Section 203 requires a reasonable opportunity to be heard for a person applying for the exercise of a power before the Registrar exercises that power adversely to that person. This is a statutory entitlement, distinct from the Manual’s description of inter partes proceedings. [TMA1995/s203]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "5af3f7db14866cb6b509f299db18e5477706032199d7fa164bbb36f6cddcc612",
+ "response_id": "resp_09ae23b4fb67a0a0006ac63d15095c87d2ac5aff10a644fd3f",
+ "seconds": 29.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7259,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7256
+  },
+  "output_tokens": 1032,
+  "output_tokens_details": {
+   "reasoning_tokens": 157
+  },
+  "total_tokens": 8291
+ }
+}

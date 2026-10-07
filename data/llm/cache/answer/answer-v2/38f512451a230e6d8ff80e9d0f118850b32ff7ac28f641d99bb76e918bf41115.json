@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007651,
+ "created_utc": "2026-10-07T12:25:08Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0077",
+ "job": "answer",
+ "key": "38f512451a230e6d8ff80e9d0f118850b32ff7ac28f641d99bb76e918bf41115",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0036\", \"GC-0072\", \"GC-0058\", \"GC-0001\", \"GC-0002\", \"GC-0038\", \"GC-0041\", \"GC-0013\", \"GC-0014\", \"GC-0029\", \"GC-0015\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part32A/2/3/2-3-1-a-variety-names\",\n      \"quote\": \"The name given to a plant variety is the name of the product. It is the apt name when referring to that particular plant.\"\n    },\n    {\n      \"ref\": \"TMM/Part32A/2/3/2-3-1-a-variety-names\",\n      \"quote\": \"However, a plant variety name in combination with other matter can be distinctive depending on the additional material in the mark.\"\n    },\n    {\n      \"ref\": \"TMA1995/s41\",\n      \"quote\": \"(1) An application for the registration of a trade mark must be rejected if the trade mark is not capable of distinguishing the applicant’s goods or services in respect of which the trade mark is sought to be registered (the designated goods or services) from the goods or services of other persons.\"\n    },\n    {\n      \"ref\": \"TMA1995/s43\",\n      \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n    },\n    {\n      \"ref\": \"TMM/Part32A/2/4/2/4/1\",\n      \"quote\": \"If a trade mark contains or consists of material that connotes a particular plant variety, it would be deceptive or confusing if the trade mark was applied to goods which are a different variety of the same or closely related genus.\"\n    },\n    {\n      \"ref\": \"TMM/Part32A/2/4/2/4/1\",\n      \"quote\": \"However, the examiner needs to consider how the variety name appears within the trade mark as a whole.\"\n    },\n    {\n      \"ref\": \"TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1\",\n      \"quote\": \"However, both agree that trade marks in use need to be clearly differentiated from the variety name and not used instead of it.\"\n    },\n    {\n      \"ref\": \"TMM/Part32A/2/3/2-3-5-b-evidence-of-use\",\n      \"quote\": \"While it is unlikely that evidence could overcome the problem in the conventional sense of examination, particularly in relation to s41(3), it may be possible to accept the trade mark with a condition of registration if the evidence demonstrates use of a trade mark in conjunction with genus, species and variety name information.\"\n    },\n    {\n      \"ref\": \"TMM/Part32A/2/4/2-4-3-b-examples-of-use\",\n      \"quote\": \"If the examples show that the trade mark is being used in close conjunction with named varieties of the problem plant type, it may be possible to accept the trade mark with a condition of registration.\"\n    },\n    {\n      \"ref\": \"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\n      \"quote\": \"The goods will also need to be restricted to accord with the plant variety name or synonym.\"\n    },\n    {\n      \"ref\": \"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\n      \"quote\": \"Note: In instances where an application has received a ground for rejection under more than one section of trade mark legislation, a Letter of Consent will not overcome a ground for rejection under sections 41 or 43.\"\n    }\n  ],\n  \"answer\": \"Potentially, particularly as part of a mark containing additional distinctive material—but a rose variety name is not automatically registrable as a trade mark. The Manual treats the variety name as the name of the product, while recognising that a combination with other matter can be distinctive. [TMM/Part32A/2/3/2-3-1-a-variety-names]\\n\\nTwo separate statutory requirements matter:\\n\\n• Act—section 41: the mark must be capable of distinguishing the applicant’s goods or services from those of other persons; otherwise the application must be rejected. [TMA1995/s41]\\n• Act—section 43: the application must be rejected where a connotation of the mark makes its use on the claimed goods or services likely to deceive or cause confusion. [TMA1995/s43]\\n\\nManual practice: a name connoting one rose variety can create deception or confusion when used on a different variety of the same or a closely related genus. The examiner must consider the mark as a whole, rather than the variety name in isolation. [TMM/Part32A/2/4/2/4/1]\\n\\nThe Manual also reports naming guidance that trade marks should be clearly differentiated from the variety name, not substituted for it. It describes possible conditional acceptance where evidence or examples show the mark used alongside appropriate scientific and variety names. These are practice-based possibilities, not guarantees of registration. [TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1; TMM/Part32A/2/3/2-3-5-b-evidence-of-use; TMM/Part32A/2/4/2-4-3-b-examples-of-use]\\n\\nIf relying on the Manual’s PBR consent route, the goods must also be restricted to accord with the variety name or synonym. A letter of consent does not overcome section 41 or section 43 objections. [TMM/Part32A/2/1/2-1-2-c-letter-of-consent]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "89933662f1a416d97dce91464cc2491f6881cfa3bed86bda4cc34b4c5d46a84f",
+ "response_id": "resp_071d822c068e80b3006ac639f9301087d2b161cdda61b3ae17",
+ "seconds": 44.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7558,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7555
+  },
+  "output_tokens": 1454,
+  "output_tokens_details": {
+   "reasoning_tokens": 129
+  },
+  "total_tokens": 9012
+ }
+}

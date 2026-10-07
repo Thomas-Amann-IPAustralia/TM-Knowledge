@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002797,
+ "created_utc": "2026-10-07T12:27:30Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0100",
+ "job": "answer",
+ "key": "9e4c76e255ce7f144370d115c5195e7f31627326519785d3f6c572811b82b740",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0104\",\"GC-0142\",\"GC-0115\",\"GC-0139\",\"GC-0116\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part48/2/2/1\",\"quote\":\"Subsection 92(5) provides that, under certain circumstances, a non-use application may proceed in the name of a person other than the person who filed the application. This may happen provided that the right or interest, upon which the person who filed the application for removal relied, has passed to the other person, and the Registrar or the court has been notified in writing of this fact.\"},{\"ref\":\"TMM/Part49/6#1\",\"quote\":\"If during proceedings the right or interest which caused the applicant to apply for removal becomes vested in another person, the other person may be substituted as the applicant (s 92(5) and reg 17A.48D).\"},{\"ref\":\"TMM/Part49/6#1\",\"quote\":\"In both cases the relevant party must inform the Registrar in writing.\"}],\"answer\":\"Yes, as a general statement of Manual practice. A non-use removal application may proceed in another person’s name if the right or interest relied on by the original filer has passed to that person, and the Registrar or the court has been notified in writing of that fact (TMM/Part48/2/2/1).\\n\\nFor proceedings before the Registrar, the Manual expressly says that the other person may be substituted as applicant and that the relevant party must inform the Registrar in writing (TMM/Part49/6#1).\\n\\nThese are statements of Manual practice, which attribute the position to subsection 92(5). That subsection and regulation 17A.48D are not included in the supplied legislation, so I cannot independently confirm their statutory wording from these materials.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "5312c651d4ecc21c5a500f166a853a66dca5eba98d14caec9b1e2fffd7b0c13b",
+ "response_id": "resp_0e87724322bac165006ac63aa0fdd087d29c4f9d4eb2acb83d",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6779,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6776
+  },
+  "output_tokens": 491,
+  "output_tokens_details": {
+   "reasoning_tokens": 90
+  },
+  "total_tokens": 7270
+ }
+}

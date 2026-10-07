@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006897,
+ "created_utc": "2026-10-07T12:24:33Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0094",
+ "job": "judge",
+ "key": "7fd31d64b68bf8c9fcde94f1471000f62d28ebca90dd6671951044a6c2c3724d",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part28/3/3/2/1\",\"grade\":1},{\"ref\":\"TMM/Part28/3/3/6~3\",\"grade\":1},{\"ref\":\"TMM/Part60/4/11/4/11/3\",\"grade\":1},{\"ref\":\"TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~1\",\"grade\":1},{\"ref\":\"TMM/Part28/3/3/5\",\"grade\":1},{\"ref\":\"TMM/Part28/3/3/1~3\",\"grade\":1},{\"ref\":\"TMM/Part28/3/similarity-of-trade-marks\",\"grade\":2},{\"ref\":\"TMM/Part28/3/3/6~1\",\"grade\":1},{\"ref\":\"TMM/Part28/4#1\",\"grade\":2},{\"ref\":\"TMM/Part28/3/the-distinctiveness-of-the-trade-mark\",\"grade\":1},{\"ref\":\"TMM/Part28/3/3/1~1\",\"grade\":1},{\"ref\":\"TMM/Part28/3/3/1~4\",\"grade\":1},{\"ref\":\"TMM/Part28/3/geographical-location-of-activities\",\"grade\":1},{\"ref\":\"TMM/Part28/1#1\",\"grade\":2},{\"ref\":\"TMM/Part28/2#1\",\"grade\":2},{\"ref\":\"TMM/Part28/3#1\",\"grade\":2},{\"ref\":\"TMM/Part28/3/3/1~2\",\"grade\":1},{\"ref\":\"TMM/Part28/3/similarity-of-goods-and-services\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "4fb7af580182ec2083f43b706482ea09d83f3ebf3343c3a9a467ec4092bf731d",
+ "response_id": "resp_07b43e3441857ff7006ac639ef8ff887d294dc7c36032e980f",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3514,
+  "input_tokens_details": {
+   "cache_write_tokens": 3511,
+   "cached_tokens": 0
+  },
+  "output_tokens": 501,
+  "output_tokens_details": {
+   "reasoning_tokens": 125
+  },
+  "total_tokens": 4015
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002664,
+ "created_utc": "2026-10-07T12:28:59Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0007",
+ "job": "judge",
+ "key": "a1636fc3e897fe5eb3cec3f61559e74a85d889a1903f6da1bca5d2b15d541ee9",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part22/15/15/6\",\"grade\":2},{\"ref\":\"TMM/Part29/9/9/3~2\",\"grade\":3},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names#1~2\",\"grade\":0},{\"ref\":\"TMM/Part22/15/15/1~1\",\"grade\":2},{\"ref\":\"TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/appendix-x-trade-designations~2\",\"grade\":0},{\"ref\":\"TMM/Part29/9#1\",\"grade\":2},{\"ref\":\"TMM/Part10/1/1/1/6\",\"grade\":0},{\"ref\":\"TMM/Part22/14/14/2~2\",\"grade\":0},{\"ref\":\"TMM/Part22/15/15/3\",\"grade\":2},{\"ref\":\"TMM/Part60/4/10/4/10/2\",\"grade\":0},{\"ref\":\"TMM/Part22/17#1\",\"grade\":0},{\"ref\":\"TMM/Part10/1/1/1/5\",\"grade\":0},{\"ref\":\"TMM/Part22/15#1\",\"grade\":2},{\"ref\":\"TMM/Part10/3/3/5/3~1\",\"grade\":0},{\"ref\":\"TMM/Part22/25/25/3\",\"grade\":1},{\"ref\":\"TMM/Part29/9/9/3~1\",\"grade\":3},{\"ref\":\"TMM/Part60/4/19/4/19/2~1\",\"grade\":0},{\"ref\":\"TMM/Part30/2/2/11\",\"grade\":0}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "6e9da369778da20214b53bc8e252370347626ef1e6e6878c9bb5f9e98fca0264",
+ "response_id": "resp_001755e6bdde8a0d006ac63af739ec87d2988dc18cfb738f67",
+ "seconds": 20.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4326,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4323
+  },
+  "output_tokens": 489,
+  "output_tokens_details": {
+   "reasoning_tokens": 100
+  },
+  "total_tokens": 4815
+ }
+}

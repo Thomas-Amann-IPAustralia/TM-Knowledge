@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011525,
+ "created_utc": "2026-10-07T12:27:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0104",
+ "job": "answer",
+ "key": "820241470976e01cbb3c3652dafbc7a92e1ea89b490ffd0843d31efd7933ceb7",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0058\",\"GC-0059\",\"GC-0060\",\"GC-0061\",\"GC-0119\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part22/25/25/1\",\"quote\":\"A device which is an ordinary depiction of the goods upon which, or in connection with which, it will be used is generally not prima facie capable of distinguishing.\"},{\"ref\":\"TMM/Part22/25/25/1\",\"quote\":\"For example, the ordinary signification of picture of a wheelbarrow is “this is a wheelbarrow”.\"},{\"ref\":\"TMM/Part22/25#1\",\"quote\":\"The first step of the enquiry is to determine the “ordinary signification” of the device. This is to be determined by reference to the “target audience” of the goods and services. Once that signification has been determined, the second step is to enquire as to the likelihood of other traders wanting to use that device or some deceptively similar variant for the sake of that signification.\"},{\"ref\":\"TMM/Part22/25/25/1\",\"quote\":\"A trade mark which consists solely of a device which is common to the trade will be considered to have insufficient inherent adaptation to distinguish unless it is depicted in a special or fanciful manner.\"},{\"ref\":\"TMA1995/s41(3)\",\"quote\":\"(3) This subsection applies to a trade mark if:\"},{\"ref\":\"TMA1995/s41(4)\",\"quote\":\"(4) This subsection applies to a trade mark if:\"}],\"answer\":\"Generally, not on its face. Under the Manual’s practice, an ordinary picture of the goods themselves is generally not prima facie capable of distinguishing one trader’s goods. For example, an ordinary picture of a wheelbarrow signifies “this is a wheelbarrow”, rather than identifying a particular trader. [TMM/Part22/25/25/1]\\n\\nThe Manual directs examiners to assess the picture’s ordinary signification to the target audience, then whether other traders would want to use that picture, or a deceptively similar variant, for that signification. [TMM/Part22/25#1]\\n\\nThe manner of depiction matters: the Manual says a mark consisting solely of a device common to the trade has insufficient inherent adaptation to distinguish unless depicted in a special or fanciful manner. This is not a prediction about your particular mark. [TMM/Part22/25/25/1]\\n\\nThese statements describe Manual practice, not legislation. The supplied Act extracts contain only the introductory words of s 41(3) and s 41(4); they do not provide enough text to explain the full statutory test. [TMA1995/s41(3); TMA1995/s41(4)]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b46a4085b6052280348cdb616a8298aa5b9379bd0137f325384234b6b5a8ce96",
+ "response_id": "resp_0089003e964ed547006ac63a85f02487d29f4d75eab202dfff",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6457,
+  "input_tokens_details": {
+   "cache_write_tokens": 6454,
+   "cached_tokens": 0
+  },
+  "output_tokens": 691,
+  "output_tokens_details": {
+   "reasoning_tokens": 87
+  },
+  "total_tokens": 7148
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004385,
+ "created_utc": "2026-10-07T12:26:44Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0095",
+ "job": "answer",
+ "key": "a577f511f580c976adb8f1a5fe4c358cf6ba5371c10fca3d63958b360345d1a5",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0084\",\"GC-0113\",\"GC-0116\",\"GC-0132\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part10/6#1\",\"quote\":\"Every application, notice or request filed (with the exception of International Registrations Designating Australia (IRDAs)) must contain details of an address for service in Australia or New Zealand (subsection 215(5)). Usually the address for service is that of the applicant itself or that of an intellectual property attorney or solicitor who is acting as the applicant's agent.\"},{\"ref\":\"TMM/Part2/3/2/3/5\",\"quote\":\"Section 215 provides that a person making an application, notice or request or the owner of a trade mark, or a person whose claim to an interest or right in a trade mark is recorded in the Register must supply an address for service in Australia or New Zealand.\"},{\"ref\":\"TMA1995/s215(5)\",\"quote\":\"(5) An address for service must be an address in Australia or New Zealand.\"},{\"ref\":\"TMA1995/s215\",\"quote\":\"(3) The registered owner of a registered trade mark, or any person whose claim to an interest in, or to a right in respect of, a trade mark is recorded in the Register, must notify the Registrar in writing of any change in his or her address for service and the Registrar must amend the Register accordingly.\"},{\"ref\":\"TMM/Part47/3/3/2\",\"quote\":\"However, as explained above, it is very important that an IRDA holder also provides notification of their address for service in Australia or New Zealand when they file a notice of intention to defend.\"},{\"ref\":\"TMM/Part60/4/9/4/9/2\",\"quote\":\"The provisional refusal will be sent to the International Bureau and will contain advice that the holder must provide an address for service in Australia or New Zealand if they wish to respond to the provisional refusal.\"}],\"answer\":\"**Generally, the person filing an application, notice or request must provide an address for service in Australia or New Zealand.**\\n\\n**Manual practice:** Every application, notice or request filed must contain that address, except International Registrations Designating Australia (IRDAs). The address will usually be the applicant’s own address or that of their intellectual property attorney or solicitor acting as agent. The Manual also identifies trade mark owners and persons whose claims to an interest or right are recorded in the Register as needing to supply an address for service (TMM/Part10/6#1; TMM/Part2/3/2/3/5).\\n\\n**Act requirements:** Section 215(5) requires an address for service to be in Australia or New Zealand. Section 215(3) requires registered owners and persons with recorded claims to interests or rights to notify the Registrar in writing of any change to their address for service (TMA1995/s215(5); TMA1995/s215).\\n\\n**IRDA qualification — Manual practice:** The filing exception is not a blanket exemption. An IRDA holder should provide an Australian or New Zealand address for service when filing a notice of intention to defend, and must provide one if wishing to respond to a provisional refusal (TMM/Part47/3/3/2; TMM/Part60/4/9/4/9/2).\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "1d05eff2350652b4c48586d8d0cc69ac158b2e66693d4b8106fa6f43c10fe5e2",
+ "response_id": "resp_094128d76cb37ce2006ac63a67f40c87d2b76abc6925a6b947",
+ "seconds": 29.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6848,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6845
+  },
+  "output_tokens": 808,
+  "output_tokens_details": {
+   "reasoning_tokens": 81
+  },
+  "total_tokens": 7656
+ }
+}

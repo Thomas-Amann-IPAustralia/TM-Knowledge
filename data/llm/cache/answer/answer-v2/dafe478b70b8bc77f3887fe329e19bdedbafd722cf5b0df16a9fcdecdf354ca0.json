@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006527,
+ "created_utc": "2026-10-07T12:24:58Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0070",
+ "job": "answer",
+ "key": "dafe478b70b8bc77f3887fe329e19bdedbafd722cf5b0df16a9fcdecdf354ca0",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0043\", \"GC-0129\", \"GC-0155\", \"GC-0116\", \"GC-0072\", \"GC-0124\", \"GC-0090\", \"GC-0111\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part12/3#1\",\n      \"quote\": \"These are: the trade marks must be the same; and the trade mark applicants must be the same; and the parent must be a single application; and the parent application must be pending when the divisional application is filed; and the divisional application must specify the goods or services to which it relates; and the divisional application must be for some only of the goods or services of the parent application; and the divisional application must specify the goods or services that are to remain in the parent application.\"\n    },\n    {\n      \"ref\": \"TMM/Part12/2#1\",\n      \"quote\": \"The parent application must be pending at the time the divisional application is filed and the goods/services of the divisional application must still be present in the parent application at the time of filing.\"\n    },\n    {\n      \"ref\": \"TMM/Part12/2#1\",\n      \"quote\": \"If submissions are received requesting the deletion of certain goods/services from an application that also state that a divisional application is to be filed from that application, any deletion or amendment to the specification of goods/services should be delayed until the divisional application has been filed.\"\n    },\n    {\n      \"ref\": \"TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1\",\n      \"quote\": \"Pending includes status “accepted” and status “opposed”.\"\n    },\n    {\n      \"ref\": \"TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1\",\n      \"quote\": \"If the answer to question 6 is no, and the divisional application is valid and complete, the examiner must (as soon as practicable) process the amendment to the specification of the parent application to exclude the claimed goods and/or services of the divisional application.\"\n    },\n    {\n      \"ref\": \"TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1\",\n      \"quote\": \"if possible, agree to the goods or services of the parent and/or child being restricted so as to eliminate any duplication (i.e. goods/services that are in substance the same) between the goods and/or services of the parent and child\"\n    },\n    {\n      \"ref\": \"TMM/Part12/5#1\",\n      \"quote\": \"A divisional application will have the filing date of its parent application as the priority date, unless the convention priority claim of the parent is also made when filing the divisional application or within the period provided for in regulation 4.5, that is, within two working days after filing the application.\"\n    }\n  ],\n  \"answer\": \"The supplied passages answer the divisional part, but not the late costs filing part.\\n\\n**Splitting off goods — Manual practice**\\n• Lodge a divisional application identifying both the goods/services being split off and those remaining in the parent. The Manual requires the same applicant and trade mark, a single parent application, and a divisional covering ‘some only’ of the parent’s goods/services. [TMM/Part12/3#1]\\n• File while the parent is still pending and before the goods being split off are deleted from it. ‘Pending’ includes accepted and opposed applications. If deletion submissions also state that a divisional will be filed, the Manual says to delay the deletion or amendment until that filing. [TMM/Part12/2#1; TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1]\\n• Avoid duplication between the divisional goods and those specified to remain in the parent, including overlap through broader wording. The checklist provides for restrictions to eliminate duplication. Once the divisional is valid and complete and there is no such overlap, the examiner is to process the parent’s amendment as soon as practicable. [TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1]\\n• If you want to carry across the parent’s convention priority claim, the Manual says to make that claim when filing the divisional or within two working days afterwards; otherwise it identifies the parent’s filing date as the divisional’s priority date. [TMM/Part12/5#1]\\n\\n**Late costs filing — not answered by the supplied material**\\nNo supplied passage addresses costs filings, their deadlines or any procedure for a late filing. I therefore cannot specify what to lodge or when for that part.\\n\\n**Source status:** The procedural guidance above is Manual practice. Although the Manual refers to sections 45–46 and regulation 4.5, those legislative provisions have not been supplied, so their text cannot be independently checked here.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "7ce70c60d8e11dfb7ea6bfa8825ee439dc82d07f3f18ecd2ef1d4d8b4a649bb4",
+ "response_id": "resp_04b03d02c11b320c006ac639fe77c487d29b59c69d279eb41f",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7384,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7381
+  },
+  "output_tokens": 1231,
+  "output_tokens_details": {
+   "reasoning_tokens": 86
+  },
+  "total_tokens": 8615
+ }
+}

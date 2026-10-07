@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008394,
+ "created_utc": "2026-10-07T12:26:19Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0108",
+ "job": "judge",
+ "key": "02dd0af041be6e98f42ed78499f9b2bcd7be9935b0df91867ebede1aa12dcbf3",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/internet-portals\",\"grade\":0},{\"ref\":\"TMM/Part14/4/4/9/2\",\"grade\":0},{\"ref\":\"TMM/Part14/4/4/5/1\",\"grade\":0},{\"ref\":\"TMM/Part26/3#1\",\"grade\":1},{\"ref\":\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/keyword-search-combination-of-terms\",\"grade\":1},{\"ref\":\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/introductory-search-screen\",\"grade\":1},{\"ref\":\"TMM/Part29/8/8/2\",\"grade\":0},{\"ref\":\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/search-results-screen-semantic-search\",\"grade\":1},{\"ref\":\"TMM/Part14/3#1~1\",\"grade\":1},{\"ref\":\"TMM/Part14/2/2/1/4\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/internet-portal-services\",\"grade\":0},{\"ref\":\"TMM/Part14/2/2/1/2\",\"grade\":2},{\"ref\":\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services\",\"grade\":3},{\"ref\":\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/search-results-screen-keyword-search\",\"grade\":1},{\"ref\":\"TMM/Part14/1#1~1\",\"grade\":1},{\"ref\":\"TMM/Part61/2/2/4/2\",\"grade\":0},{\"ref\":\"TMM/Part14/5/5/1/2\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/8/1\",\"grade\":0},{\"ref\":\"TMM/Part14/5/5/1/1\",\"grade\":1},{\"ref\":\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/search-results-screen-complete-class-lists\",\"grade\":1},{\"ref\":\"TMM/Part14/1#1~2\",\"grade\":2},{\"ref\":\"TMM/Part21/3/3/7\",\"grade\":0}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "e9f4e710b43e81be7980abd12a2473276a559707b6d281edb21b557ee2c5ef8c",
+ "response_id": "resp_064b86b994cd5ff4006ac63a5918d487d2b68c06fa7a04c00f",
+ "seconds": 18.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4008,
+  "input_tokens_details": {
+   "cache_write_tokens": 4005,
+   "cached_tokens": 0
+  },
+  "output_tokens": 677,
+  "output_tokens_details": {
+   "reasoning_tokens": 125
+  },
+  "total_tokens": 4685
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003132,
+ "created_utc": "2026-10-07T12:29:04Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0110",
+ "job": "judge",
+ "key": "e87c5f5be355fe6dfc68bab60e4f455c086c15b6cd9fa383546dc4d482da60f3",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part23/2/2/1\",\"grade\":1},{\"ref\":\"TMM/Part14/5/5/2/12~1\",\"grade\":0},{\"ref\":\"TMM/Part38/3/3/2\",\"grade\":1},{\"ref\":\"TMM/Part23/2/2/2/2\",\"grade\":1},{\"ref\":\"TMM/Part18/3/3/1\",\"grade\":1},{\"ref\":\"TMM/Part23/1#1\",\"grade\":1},{\"ref\":\"TMM/Part10/3/3/6/3\",\"grade\":3},{\"ref\":\"TMM/Part38/2/2/3\",\"grade\":2},{\"ref\":\"TMM/Part29/7#1\",\"grade\":0},{\"ref\":\"TMM/Part14/4/4/8/2~1\",\"grade\":0},{\"ref\":\"TMM/Part38/2/2/1\",\"grade\":3},{\"ref\":\"TMM/Part15/1#1~1\",\"grade\":0},{\"ref\":\"TMM/Part21/9#1\",\"grade\":2},{\"ref\":\"TMM/Part21/2/2/3\",\"grade\":2},{\"ref\":\"TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~1\",\"grade\":0},{\"ref\":\"TMM/Part22/7#1\",\"grade\":1},{\"ref\":\"TMM/Part62/3#1\",\"grade\":1},{\"ref\":\"TMM/Part22/14/14/5\",\"grade\":0},{\"ref\":\"TMM/Part60/4/15/4/15/2~1\",\"grade\":1},{\"ref\":\"TMM/Part38/3/3/1\",\"grade\":2},{\"ref\":\"TMM/Part14/4/4/3/2\",\"grade\":0}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "efcee3d36c9b91dd09f560db4fdbbce3e0d2d4170f236ce6e3fdcce8ef4d11ed",
+ "response_id": "resp_0f9b51ea2aaf4f35006ac63aff800487d2a0819220baaf6441",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5178,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 5175
+  },
+  "output_tokens": 574,
+  "output_tokens_details": {
+   "reasoning_tokens": 146
+  },
+  "total_tokens": 5752
+ }
+}

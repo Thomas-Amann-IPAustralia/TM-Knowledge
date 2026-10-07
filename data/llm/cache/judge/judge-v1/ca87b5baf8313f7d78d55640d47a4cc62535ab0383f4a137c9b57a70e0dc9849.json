@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005944,
+ "created_utc": "2026-10-07T12:24:43Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0095",
+ "job": "judge",
+ "key": "ca87b5baf8313f7d78d55640d47a4cc62535ab0383f4a137c9b57a70e0dc9849",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part49/1/1/1\",\"grade\":2},{\"ref\":\"TMM/Part9/7#1~1\",\"grade\":1},{\"ref\":\"TMM/Part60/4/9/4/9/2\",\"grade\":2},{\"ref\":\"TMM/Part47/3/3/2\",\"grade\":2},{\"ref\":\"TMM/Part44/4/4/1\",\"grade\":2},{\"ref\":\"TMM/Part10/x-annex-a2---identity-of-the-applicant#1\",\"grade\":2},{\"ref\":\"TMM/Part60/4/15/4/15/2~1\",\"grade\":2},{\"ref\":\"TMM/Part39/8#1\",\"grade\":1},{\"ref\":\"TMM/Part23/x-annex-a1-information-for-applicants-on-the-preparation-and-presentation-of-a-declaration-including-model-layout#1\",\"grade\":0},{\"ref\":\"TMM/Part2/3/2/3/5\",\"grade\":3},{\"ref\":\"TMM/Part60/4/7/4/7/15/3\",\"grade\":2},{\"ref\":\"TMM/Part10/6#1\",\"grade\":3},{\"ref\":\"TMM/Part47/3#1\",\"grade\":2}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "e0d847869c52f1d9e14720d42a76862025933946393bec38b0b84caac5c5c02a",
+ "response_id": "resp_0e1a0052f5332e3d006ac639fa1fd487d29aeb8e24d6503c7a",
+ "seconds": 18.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3080,
+  "input_tokens_details": {
+   "cache_write_tokens": 3077,
+   "cached_tokens": 0
+  },
+  "output_tokens": 419,
+  "output_tokens_details": {
+   "reasoning_tokens": 131
+  },
+  "total_tokens": 3499
+ }
+}
