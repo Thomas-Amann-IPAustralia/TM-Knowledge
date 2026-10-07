@@ -879,13 +879,20 @@ def _term(value: str) -> URIRef:
     return ref_node(value)
 
 
+#: Relationship predicates written as SKOS relations rather than tmk: terms.
+SKOS_PREDICATES = {"broader": SKOS.broader, "narrower": SKOS.narrower, "related": SKOS.related}
+
+
 def _build_relationships(
     graph: Graph, store: Store, corpus: Corpus, counts: StoreReport
 ) -> None:
     for record in store.records["gold_relationship"]:
         node = assertion_node(record["id"])
         subject = _term(str(record["subject"]))
-        predicate = URIRef(TMK[record["predicate"]])
+        # `broader` and `related` are SKOS's, not the relation dictionary's: the
+        # relationship job writes them for "is a kind of" and "connected, no
+        # dictionary predicate fits" (ADR-0113). Everything else is a tmk: term.
+        predicate = SKOS_PREDICATES.get(str(record["predicate"])) or URIRef(TMK[record["predicate"]])
         obj = _term(str(record["object"]))
 
         # Both forms, always. The direct triple is what SPARQL and OWL RL work

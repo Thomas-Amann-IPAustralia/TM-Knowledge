@@ -60,9 +60,9 @@ SPEND_CAP_USD = 1.00
 #: counted against the cap.
 PRICES_PER_MTOK: dict[str, dict[str, dict[str, float]]] = {
     "gpt-6.1-sol": {
-        "default": {"input": 2.00, "cached_input": 0.10, "output": 10.00},
-        "flex": {"input": 1.00, "cached_input": 0.05, "output": 5.00},
-        "batch": {"input": 1.00, "cached_input": 0.05, "output": 5.00},
+        "default": {"input": 2.00, "cached_input": 0.10, "cache_write": 2.50, "output": 10.00},
+        "flex": {"input": 1.00, "cached_input": 0.05, "cache_write": 1.25, "output": 5.00},
+        "batch": {"input": 1.00, "cached_input": 0.05, "cache_write": 1.25, "output": 5.00},
     },
     "gpt-5.4-mini": {
         "default": {"input": 0.75, "cached_input": 0.075, "output": 4.50},

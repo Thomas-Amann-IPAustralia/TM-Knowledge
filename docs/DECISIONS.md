@@ -5021,3 +5021,39 @@ stands: the site reads committed artefacts only, never the snapshot.
 
 **Consequences.** A local preview needs `tmk-dashboard --write` first. A diff no
 longer shows what the page will say; the deploy summary does.
+
+## ADR-0113 — how the pipeline writes knowledge: code owns provenance, SKOS fills the gaps
+
+**Date** 2026-10-07 · **Authority** agent-proposed · **Status** provisional
+
+**Context.** ADR-0110 adopted a pipeline in place of hand-authoring and ADR-0111
+named the model. Building it forced five choices with a real alternative.
+
+**Decision.**
+
+1. **Code, not the model, writes provenance.** The model returns a ref and a
+   quote; code finds the quote in the pinned snapshot (exactly, or after
+   collapsing whitespace and typographic marks), records the snapshot's own text
+   with its span and hash, and stamps the envelope. A quote that does not land
+   refuses the judgement. So the harness's "quote equals text at span" check
+   cannot fail on pipeline output.
+2. **Relationships use the approved dictionary's 14 predicates, plus SKOS.** The
+   model may answer `is_kind_of` (written as `skos:broader`, narrower concept as
+   subject) or `related_to` (`skos:related`) when no dictionary predicate fits —
+   the graph would otherwise stay disconnected for want of a legal predicate.
+   `same_concept` is reported for a person and never written (ADR-0101).
+3. **Generic concepts are linked but never paired.** A concept named in more than
+   a fifth of passages ("trade mark", "applicant") would pair with everything
+   (KB SOP D-020).
+4. **Everyday phrasings are search aids, not labels.** They go to
+   `data/derived/search/aliases.yaml`, stamped `general_knowledge`, and never into
+   a concept's `alt_labels`, which hold only forms the corpus uses.
+5. **Background mode and the flex tier.** Long calls are submitted in background
+   and polled (Q-66), which needs `store: true` — the stored text is published
+   corpus text (ADR-0088). Flex is half price on the same endpoint.
+
+**What it does not decide.** Which model writes and judges the benchmark — that
+is the owner's, from the quote (`CLAUDE.md` §3a).
+
+**Consequences.** `ontology/build.py` maps `broader`/`narrower`/`related` to SKOS.
+The benchmark lives in `data/derived/bench/`, never `eval/gold/` (ADR-0080).

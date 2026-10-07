@@ -1266,3 +1266,21 @@ be mistaken for one.
 **"Sol 6.1" is `gpt-6.1-sol`.** The model list holds `gpt-5.6-sol`, `gpt-6-sol`
 and `gpt-6.1-sol`; the owner's name maps to the last. Record what the response's
 `model` field says, which may carry a date suffix, not the configured string.
+
+---
+### Q-66 — the session proxy cuts a request held open for about 30 seconds, and the cut call may still be billed
+
+The first relationship call (medium effort, ~4,600 input tokens) failed four times
+with `HTTP 502: upstream request failed`, each after about 30 seconds. A tiny call
+on the same endpoint returned in 5 seconds; the same prompt took 32 seconds of
+server time once it worked. The egress proxy is cutting long-held requests.
+
+**A cut request is not a free request.** OpenAI may finish a non-streaming
+generation after the client is gone and bill it. The four were booked in the spend
+ledger at the measured cost of the same prompt (`data/llm/cache/unrecorded/`), so
+the cap counts them — $0.049 of the $1.
+
+**What to do instead:** `bulk.client` submits in **background mode** and polls with
+short GETs, so no single request lives long. Background mode needs `store: true`;
+the stored response holds only published corpus text (ADR-0088). The submit is
+never retried, so a failure there cannot double-bill.
