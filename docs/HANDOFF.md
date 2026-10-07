@@ -44,7 +44,7 @@ for trade marks examiners.** Everything machine-written is unreviewed.
   build workbench, build explorer (with `OPENAI_API_KEY` → masked key in
   `data/live.json`), deploy.
 - **Spend: US$3.49 of the $6.60 cap.** Live answers spend the owner's key outside it.
-- 611 tests pass (600 before + 11 explorer).
+- 612 tests pass (600 before + 12 explorer, including the vendor checksums).
 
 ## Waiting on the owner
 
