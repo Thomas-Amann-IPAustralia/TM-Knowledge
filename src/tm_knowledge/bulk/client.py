@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -35,6 +36,33 @@ CACHE_DIR = config.REPO_ROOT / "data" / "llm" / "cache"
 
 #: (path, body) -> parsed JSON response. Replaced only in tests.
 Transport = Callable[[str, dict[str, Any]], dict[str, Any]]
+
+
+#: Worst-case cost of calls in flight, so parallel workers cannot each pass the
+#: cap check and pass the cap together.
+_LOCK = threading.Lock()
+_RESERVED = [0.0]
+
+#: A flex request can come back `failed` because the discounted capacity is busy.
+#: That costs nothing and is retried, after these waits in seconds.
+RETRY_WAITS = (20, 45, 90, 180, 300)
+RETRYABLE = frozenset({"server_is_overloaded", "rate_limit_exceeded", "resource_unavailable"})
+
+
+def _reserve(cache: "Cache", worst: float, what: str) -> None:
+    with _LOCK:
+        spent, cap = cache.spent_usd(), config.spend_cap_usd()
+        if spent + _RESERVED[0] + worst > cap:
+            raise BudgetExceeded(
+                f"{what}: recorded spend ${spent:.4f} + in flight ${_RESERVED[0]:.4f} + worst case "
+                f"${worst:.4f} would pass the ${cap:.2f} cap (ADR-0111, ADR-0114). Nothing was sent."
+            )
+        _RESERVED[0] += worst
+
+
+def _release(worst: float) -> None:
+    with _LOCK:
+        _RESERVED[0] = max(0.0, _RESERVED[0] - worst)
 
 
 class BudgetExceeded(RuntimeError):
@@ -247,12 +275,23 @@ def respond(
         return None, estimate
     if not confirm:
         raise NotConfirmed(f"{job}/{item}: a paid call needs --confirm (dry run: --dry-run)")
-    spent, cap = cache.spent_usd(), config.spend_cap_usd()
-    if spent + estimate.worst_case_usd > cap:
-        raise BudgetExceeded(
-            f"{job}/{item}: recorded spend ${spent:.4f} + worst case ${estimate.worst_case_usd:.4f} "
-            f"would pass the ${cap:.2f} cap (ADR-0111). Nothing was sent."
-        )
+    for attempt, wait in enumerate((0, *RETRY_WAITS)):
+        time.sleep(wait if attempt else 0)
+        _reserve(cache, estimate.worst_case_usd, f"{job}/{item}")
+        try:
+            entry = _call_and_record(cache, body, job, prompt_version, key, item, model, effort, tier,
+                                     max_output_tokens, transport)
+        finally:
+            _release(estimate.worst_case_usd)
+        error = entry.get("error") or {}
+        if entry.get("status") == "failed" and error.get("code") in RETRYABLE and attempt < len(RETRY_WAITS):
+            continue
+        return entry, estimate
+    return entry, estimate
+
+
+def _call_and_record(cache, body, job, prompt_version, key, item, model, effort, tier,
+                     max_output_tokens, transport) -> dict[str, Any]:
     started = time.time()
     response = (transport or _urllib_transport)("/responses", body)
     usage = response.get("usage") or {}
@@ -280,7 +319,7 @@ def respond(
         "output_text": output_text(response),
     }
     cache.put(entry)
-    return entry, estimate
+    return entry
 
 
 def embed(
@@ -307,10 +346,11 @@ def embed(
         return None, [], estimate
     if not confirm:
         raise NotConfirmed(f"{job}: a paid call needs --confirm")
-    spent, cap = cache.spent_usd(), config.spend_cap_usd()
-    if spent + estimate.worst_case_usd > cap:
-        raise BudgetExceeded(f"{job}: ${spent:.4f} + ${estimate.worst_case_usd:.4f} passes the cap")
-    response = (transport or _urllib_transport)("/embeddings", body)
+    _reserve(cache, estimate.worst_case_usd, job)
+    try:
+        response = (transport or _urllib_transport)("/embeddings", body)
+    finally:
+        _release(estimate.worst_case_usd)
     usage = response.get("usage") or {}
     created = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
     entry = {

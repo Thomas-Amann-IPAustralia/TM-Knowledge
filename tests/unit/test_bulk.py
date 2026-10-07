@@ -220,3 +220,23 @@ def test_a_failed_response_is_kept_but_never_replayed(tmp_path):
     second, _ = _call(cache, transport)
     assert len(sent) == 1 and second["status"] == "completed" and not second.get("from_cache")
     assert len(list(tmp_path.rglob("*.failed-*.json"))) == 1
+
+
+def test_an_overloaded_flex_call_is_retried_and_the_answer_kept(tmp_path, monkeypatch):
+    monkeypatch.setattr(client, "RETRY_WAITS", (0, 0))
+    cache = client.Cache(tmp_path)
+    replies = iter([
+        {"model": "gpt-6.1-sol", "status": "failed", "usage": {}, "output": [],
+         "error": {"code": "server_is_overloaded"}},
+    ])
+    transport, sent = _stub()
+
+    def flaky(path, body):
+        try:
+            return next(replies)
+        except StopIteration:
+            return transport(path, body)
+
+    entry, _ = _call(cache, flaky)
+    assert entry["status"] == "completed" and len(sent) == 1
+    assert len(list(tmp_path.rglob("*.failed-*.json"))) == 1

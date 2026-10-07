@@ -16,6 +16,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import sys
+import threading
+from concurrent.futures import ThreadPoolExecutor
 from collections import Counter
 from pathlib import Path
 from typing import Any
@@ -137,18 +139,35 @@ def _run(args: argparse.Namespace) -> int:
     refused: list[str] = []
     notes: list[str] = []
     per_item: list[str] = []
-    for item in items:
-        text = job.render(ctx, item)
+    stop = threading.Event()
+
+    def call(item: jobs.Item):
+        if stop.is_set():
+            return item, None, None, "not sent: an earlier call stopped the run"
         try:
             entry, estimate = client.respond(
                 job=job.name, prompt_version=job.prompt_version, item=item.key,
-                instructions=job.instructions, input_text=text, schema=job.schema,
+                instructions=job.instructions, input_text=job.render(ctx, item), schema=job.schema,
                 max_output_tokens=job.max_output_tokens, model=model, effort=effort, tier=args.tier,
                 confirm=args.confirm, dry_run=args.dry_run,
             )
+            return item, entry, estimate, None
         except (client.BudgetExceeded, client.NotConfirmed) as error:
-            print(f"stopped: {error}", file=sys.stderr)
-            break
+            stop.set()
+            return item, None, None, f"stopped: {error}"
+        except RuntimeError as error:  # an HTTP failure: no answer, reported, the run goes on
+            return item, None, None, f"failed: {error}"
+
+    # Parallel calls, results handled in item order so a run reads the same twice.
+    with ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
+        results = list(pool.map(call, items))
+
+    for item, entry, estimate, problem in results:
+        if problem:
+            if problem.startswith("stopped"):
+                print(problem, file=sys.stderr)
+            refused.append(f"{item.key}: {problem}")
+            continue
         worst += estimate.worst_case_usd
         if entry is None:
             totals["estimated"] += 1
@@ -326,6 +345,7 @@ def main(argv: list[str] | None = None) -> int:
     # Flex is half price on the same endpoint (ADR-0111); the Batch API is the same
     # price through a different door, and not wired up here.
     p.add_argument("--tier", choices=["flex", "default"], default="flex")
+    p.add_argument("--workers", type=int, default=6, help="calls in flight at once")
     p = sub.add_parser("embed", help="vectors for every passage and benchmark question")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--confirm", action="store_true")
