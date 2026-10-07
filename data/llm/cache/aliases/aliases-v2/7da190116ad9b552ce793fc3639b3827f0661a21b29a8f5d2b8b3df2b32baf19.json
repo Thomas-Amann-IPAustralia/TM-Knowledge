@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006293,
+ "created_utc": "2026-10-07T08:50:53Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0013..GC-0024",
+ "job": "aliases",
+ "key": "7da190116ad9b552ce793fc3639b3827f0661a21b29a8f5d2b8b3df2b32baf19",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0013\",\n      \"related_search_terms\": [\n        \"section 43\",\n        \"conditional registration\",\n        \"restriction on use\"\n      ],\n      \"everyday_phrases\": [\n        \"limits on brand use\",\n        \"agree to use restrictions\",\n        \"register with restrictions\",\n        \"restricted brand use\",\n        \"ingredient use requirement\"\n      ]\n    },\n    {\n      \"id\": \"GC-0014\",\n      \"related_search_terms\": [\n        \"section 43\",\n        \"specific endorsement\",\n        \"risk of deception\"\n      ],\n      \"everyday_phrases\": [\n        \"add clarifying wording\",\n        \"wording to avoid confusion\",\n        \"clarify my mark\",\n        \"add an explanation\",\n        \"suggested clarification\"\n      ]\n    },\n    {\n      \"id\": \"GC-0015\",\n      \"related_search_terms\": [\n        \"section 43\",\n        \"geographical objection\",\n        \"goods and services specification\",\n        \"specification limitation\"\n      ],\n      \"everyday_phrases\": [\n        \"narrow my goods list\",\n        \"change my goods list\",\n        \"remove some goods\",\n        \"restrict covered services\",\n        \"reduce application coverage\",\n        \"amend goods wording\"\n      ]\n    },\n    {\n      \"id\": \"GC-0016\",\n      \"related_search_terms\": [\n        \"filing date\",\n        \"relevant date\",\n        \"consumer recognition\"\n      ],\n      \"everyday_phrases\": [\n        \"when I applied\",\n        \"application filing date\",\n        \"date that counts\",\n        \"known when filed\",\n        \"famous when filed\"\n      ]\n    },\n    {\n      \"id\": \"GC-0017\",\n      \"related_search_terms\": [\n        \"geographical connotation\",\n        \"geographical origin\",\n        \"section 43\"\n      ],\n      \"everyday_phrases\": [\n        \"town in brand name\",\n        \"country in brand name\",\n        \"regional brand name\",\n        \"location in my mark\",\n        \"brand mentions a place\",\n        \"city in logo\"\n      ]\n    },\n    {\n      \"id\": \"GC-0018\",\n      \"related_search_terms\": [\n        \"EU geographical indication\",\n        \"GI similarity\",\n        \"GI examination\"\n      ],\n      \"everyday_phrases\": [\n        \"protected wine name\",\n        \"protected regional name\",\n        \"European wine names\",\n        \"wine region protection\",\n        \"brand resembles wine region\",\n        \"using protected place names\"\n      ]\n    },\n    {\n      \"id\": \"GC-0019\",\n      \"related_search_terms\": [\n        \"geographical connotation\",\n        \"geographical reference\",\n        \"consumer deception\",\n        \"section 43\"\n      ],\n      \"everyday_phrases\": [\n        \"where goods come from\",\n        \"where products are made\",\n        \"where it was produced\",\n        \"product comes from\",\n        \"misleading country claim\",\n        \"confusing product origins\"\n      ]\n    },\n    {\n      \"id\": \"GC-0020\",\n      \"related_search_terms\": [\n        \"business characteristic\",\n        \"geographical reference\",\n        \"geographical connotation\"\n      ],\n      \"everyday_phrases\": [\n        \"location in company name\",\n        \"regional company name\",\n        \"business location wording\",\n        \"company not product\",\n        \"where business is based\"\n      ]\n    },\n    {\n      \"id\": \"GC-0021\",\n      \"related_search_terms\": [\n        \"geographical connotation\",\n        \"geographical reference\",\n        \"origin wording\"\n      ],\n      \"everyday_phrases\": [\n        \"country of manufacture wording\",\n        \"words showing product origin\",\n        \"do I need made\",\n        \"origin clarification\",\n        \"manufactured in\"\n      ]\n    },\n    {\n      \"id\": \"GC-0022\",\n      \"related_search_terms\": [\n        \"section 43\",\n        \"pharmaceutical trade marks\",\n        \"veterinary substances\",\n        \"INN connotation\"\n      ],\n      \"everyday_phrases\": [\n        \"generic drug name\",\n        \"medicine ingredient name\",\n        \"drug name conflict\",\n        \"brand resembles drug name\",\n        \"medicine name objection\",\n        \"veterinary drug name\"\n      ]\n    },\n    {\n      \"id\": \"GC-0023\",\n      \"related_search_terms\": [\n        \"INN stem misuse\",\n        \"pharmaceutical trade marks\",\n        \"deception or confusion\",\n        \"section 43\"\n      ],\n      \"everyday_phrases\": [\n        \"drug name ending\",\n        \"shared medicine name part\",\n        \"drug naming fragment\",\n        \"brand contains drug ending\",\n        \"medicine name prefix\",\n        \"using drug name parts\"\n      ]\n    },\n    {\n      \"id\": \"GC-0024\",\n      \"related_search_terms\": [\n        \"INN stem connotation\",\n        \"section 43\",\n        \"likely deception or confusion\",\n        \"meaningful stem inclusion\"\n      ],\n      \"everyday_phrases\": [\n        \"does drug ending matter\",\n        \"meaningful drug name part\",\n        \"accidental drug name overlap\",\n        \"brand suggests a drug\",\n        \"stem creates confusion\",\n        \"recognisable medicine name part\"\n      ]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "a958577792d72d0ae8420ee349f04f621f1fe476dc8df09dd3860c871ffe31bd",
+ "response_id": "resp_052395d5a5a15854006ac607c24df487d2af9d392f038d713a",
+ "seconds": 44.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1195,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1192
+  },
+  "output_tokens": 1246,
+  "output_tokens_details": {
+   "reasoning_tokens": 124
+  },
+  "total_tokens": 2441
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005005,
+ "created_utc": "2026-10-07T08:52:12Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0145..GC-0152",
+ "job": "aliases",
+ "key": "078f380b376c96d2948f5161ffb7e5d35a3c5382d335417fe6dde3c0bea5ab11",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0145\",\n      \"related_search_terms\": [\n        \"wine origin\",\n        \"grape origin\",\n        \"country of origin\"\n      ],\n      \"everyday_phrases\": [\n        \"where grapes grew\",\n        \"where wine comes from\",\n        \"wine's home country\",\n        \"Australian grown grapes\",\n        \"foreign grown grapes\"\n      ]\n    },\n    {\n      \"id\": \"GC-0146\",\n      \"related_search_terms\": [\n        \"Patents Act 1990\",\n        \"Board meaning\"\n      ],\n      \"everyday_phrases\": [\n        \"which board\",\n        \"what board\",\n        \"board definition\"\n      ]\n    },\n    {\n      \"id\": \"GC-0147\",\n      \"related_search_terms\": [\n        \"Privacy Act 1988\",\n        \"privacy legislation\"\n      ],\n      \"everyday_phrases\": [\n        \"my personal details\",\n        \"information about me\",\n        \"private details\",\n        \"personal data\",\n        \"my identifying details\"\n      ]\n    },\n    {\n      \"id\": \"GC-0148\",\n      \"related_search_terms\": [\n        \"barrister\",\n        \"solicitor\",\n        \"High Court\",\n        \"Supreme Court\"\n      ],\n      \"everyday_phrases\": [\n        \"legal professional\",\n        \"qualified legal adviser\",\n        \"who counts as solicitor\",\n        \"who counts as barrister\"\n      ]\n    },\n    {\n      \"id\": \"GC-0149\",\n      \"related_search_terms\": [\n        \"Madrid Regulations\",\n        \"Rule 1(xxvibis)\",\n        \"holder's Contracting Party\"\n      ],\n      \"everyday_phrases\": [\n        \"holder's treaty party\",\n        \"which contracting party\",\n        \"registration holder's contracting party\"\n      ]\n    },\n    {\n      \"id\": \"GC-0150\",\n      \"related_search_terms\": [\n        \"International Register\",\n        \"registration in International Register\"\n      ],\n      \"everyday_phrases\": [\n        \"internationally registered brand\",\n        \"registering internationally\",\n        \"international brand registration\",\n        \"internationally registered mark\"\n      ]\n    },\n    {\n      \"id\": \"GC-0151\",\n      \"related_search_terms\": [\n        \"repealed Act\",\n        \"Register of Trade Marks\",\n        \"register under repealed Act\"\n      ],\n      \"everyday_phrases\": [\n        \"previous trade mark register\",\n        \"former register\",\n        \"register under old law\",\n        \"earlier trade mark register\"\n      ]\n    },\n    {\n      \"id\": \"GC-0152\",\n      \"related_search_terms\": [\n        \"course of trade\",\n        \"services provided\",\n        \"services dealt with\"\n      ],\n      \"everyday_phrases\": [\n        \"services I provide\",\n        \"services I sell\",\n        \"what my business does\",\n        \"business services\",\n        \"services I offer\"\n      ]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "c4264069d070dbb9f25c0987a66451499d22c60b2843dc3e9f5142c0417db717",
+ "response_id": "resp_08711a924242c394006ac60820dbb087d2b52e91246a7c8e7e",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 770,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 847,
+  "output_tokens_details": {
+   "reasoning_tokens": 210
+  },
+  "total_tokens": 1617
+ }
+}

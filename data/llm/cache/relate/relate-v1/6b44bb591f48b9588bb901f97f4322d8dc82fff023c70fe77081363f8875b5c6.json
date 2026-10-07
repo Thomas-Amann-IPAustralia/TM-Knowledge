@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002612,
+ "created_utc": "2026-10-07T08:49:30Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0078",
+ "job": "relate",
+ "key": "6b44bb591f48b9588bb901f97f4322d8dc82fff023c70fe77081363f8875b5c6",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"Trade marks consisting of or containing a scent will be indexed as the kind of sign “scent” and therefore, all scent trade marks will come up on a search of the “scent” kinds of sign.\",\"relation\":\"is_kind_of\",\"alternative\":\"The passage describes indexing practice only, rather than classifying scent trade marks as signs.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.91,\"reasoning\":\"The Manual's classification of scent trade marks under the kind of sign “scent” supports treating a scent trade mark as a kind of sign. This is an inference from Manual indexing practice, not a statement of legislative classification.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether indexing under a kind of sign sufficiently supports the broader is_kind_of relationship.\",\"passage_ref\":\"TMM/Part10/3/3/4/2\",\"neighbour\":\"GC-0073\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"A related_to relationship could be inferred because shape and scent are both included in the statutory definition of sign.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.98,\"reasoning\":\"The statutory definition lists shape and scent as included signs but does not state a relationship between shape trade marks and scent trade marks. Their shared inclusion alone is insufficient.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether any relationship beyond shared inclusion in the definition is supported by this passage.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0075\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"A related_to relationship could be inferred because colour and scent are both included in the statutory definition of sign.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.98,\"reasoning\":\"The statutory definition lists colour and scent as included signs but does not state a relationship between colour trade marks and scent trade marks. Their shared inclusion alone is insufficient.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether any relationship beyond shared inclusion in the definition is supported by this passage.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0076\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "7649e6f30f3014b395afc737280001970a9d8c9b8a22a08f25c47682dacc55b8",
+ "response_id": "resp_07218510390d528b006ac60788db4c87d2a78e69f214077635",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2086,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2083
+  },
+  "output_tokens": 501,
+  "output_tokens_details": {
+   "reasoning_tokens": 56
+  },
+  "total_tokens": 2587
+ }
+}

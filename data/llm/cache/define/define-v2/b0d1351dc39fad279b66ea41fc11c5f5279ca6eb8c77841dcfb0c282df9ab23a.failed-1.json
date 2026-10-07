@@ -1,0 +1,24 @@
+{
+ "batch_id": "batch_6ac5ff27559c81909ab8306b552afadb",
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T09:10:50Z",
+ "effort": "medium",
+ "error": {
+  "code": "batch_cancelled",
+  "message": "This request was not executed because the batch was cancelled."
+ },
+ "incomplete_details": null,
+ "item": "pending",
+ "job": "define",
+ "key": "b0d1351dc39fad279b66ea41fc11c5f5279ca6eb8c77841dcfb0c282df9ab23a",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "c51b9b5d66b0593670642c6390e0159f63ee7ec52266929e8fb4638866714b9a",
+ "response_id": null,
+ "service_tier": "batch",
+ "status": "failed",
+ "usage": {}
+}

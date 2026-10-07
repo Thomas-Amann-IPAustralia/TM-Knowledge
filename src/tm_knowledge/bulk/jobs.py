@@ -207,6 +207,8 @@ class Context:
     links: links_module.Links
     gold: goldset.GoldSet = field(default_factory=goldset.load)
     authored: authored_store.AuthoredSet = field(default_factory=authored_store.load)
+    #: Concept pairs a relate call has already answered for (`judged_pairs`).
+    judged: set[frozenset[str]] = field(default_factory=set)
 
 
 @dataclass
@@ -259,9 +261,30 @@ def _predicate_examples(ctx: Context) -> dict[str, str]:
     return dict(sorted(examples.items()))
 
 
+def judged_pairs(entries: list[dict[str, Any]]) -> set[frozenset[str]]:
+    """Every pair a completed relate call answered for, whatever it answered.
+
+    The relate prompt is built from the whole concept set, so it changes as
+    `define` writes concepts: a re-run keyed on the prompt alone would pay again
+    for pairs already judged (Q-68). A pair answered `none`, or refused because
+    its quote did not land, has been asked; asking again buys nothing.
+    """
+    done: set[frozenset[str]] = set()
+    for entry in entries:
+        if entry.get("job") != "relate" or entry.get("status") != "completed":
+            continue
+        for j in (parse(entry) or {}).get("judgements") or ():
+            other = str(j.get("neighbour") or "")
+            if other:
+                done.add(frozenset({str(entry["item"]), other}))
+    return done
+
+
 def _relate_items(ctx: Context) -> list[Item]:
-    already = links_module.existing_edges(ctx.gold, ctx.authored)
-    groups = links_module.anchors(links_module.pairs(ctx.links, already))
+    # An edge relate wrote is a pair it judged: it holds its place, it does not
+    # make way for the next pair (`links.pairs`).
+    already = links_module.existing_edges(ctx.gold, ctx.authored) - ctx.judged
+    groups = links_module.anchors(links_module.pairs(ctx.links, already, ctx.judged))
     items = []
     for anchor, pair_list in groups.items():
         neighbours = []

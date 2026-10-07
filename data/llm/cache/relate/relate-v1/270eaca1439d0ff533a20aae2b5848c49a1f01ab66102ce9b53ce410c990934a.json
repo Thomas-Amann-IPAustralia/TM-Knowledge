@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007453,
+ "created_utc": "2026-10-07T09:00:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0120",
+ "job": "relate",
+ "key": "270eaca1439d0ff533a20aae2b5848c49a1f01ab66102ce9b53ce410c990934a",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Applications proceeding despite being not to any extent inherently adapted to distinguish require a demonstrated capacity to distinguish for particular goods/services.\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"Treat the concepts as merely related, rather than expressing a requirement for applications proceeding despite no inherent adaptation.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly requires demonstrated capacity to distinguish where an application proceeds despite no inherent adaptation to distinguish. This is a conditional requirement for proceeding, not an assertion that such marks inherently possess that capacity.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the conditional requirement for proceeding is adequately represented by requiresElement between these legal-test concepts.\",\n      \"passage_ref\": \"TMM/Part23/5/5/4/2\",\n      \"neighbour\": \"GC-0058\"\n    },\n    {\n      \"quote\": \"This determination involves a two-part process: firstly, determining the ordinary signification of the trade mark in the light of the applied for goods and/or services; and secondly, determining the likelihood that other traders might legitimately wish to use the trade mark for that ordinary signification in connection with their similar goods or services.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"Use none because the passage describes assessment of inherent adaptation generally, rather than expressly linking other traders' legitimate desire to the no-inherent-adaptation category.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.83,\n      \"reasoning\": \"The Manual identifies other traders' legitimate desire to use as part of assessing the extent of inherent adaptation, then lists no inherent adaptation as one possible category. Its bearing on that specific category is therefore inferred rather than separately stated.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether a factor in the general assessment sufficiently supports qualifies for the specific no-inherent-adaptation category.\",\n      \"passage_ref\": \"TMM/Part22/3#1~1\",\n      \"neighbour\": \"GC-0061\"\n    },\n    {\n      \"quote\": \"In some cases it may be considered that the trade mark has no inherent adaptation to distinguish and the applicant would therefore need to show sufficient evidence that the trade mark did distinguish the applicant's goods or services, at the date of filing.\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"Use isOvercomeBy to describe evidence overcoming an objection, although the passage states an evidentiary requirement rather than expressly identifying an objection being overcome.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual expressly links a finding of no inherent adaptation to a requirement for sufficient evidence of actual distinctiveness at filing. The requirement is conditional on that finding; it does not mean use changes the mark's inherent adaptation.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the broad evidence-of-use concept adequately captures the narrower requirement to demonstrate actual distinctiveness at filing.\",\n      \"passage_ref\": \"TMM/Part22/25/25/6\",\n      \"neighbour\": \"GC-0101\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "a2d8e266538d37f0eb451c4cb9ad94515776af5ae1238befe212be7f71f0c0fa",
+ "response_id": "resp_02dbb5f31b6dc31b006ac60a26551487d2a99e4a8881a4353b",
+ "seconds": 29.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2703,
+  "input_tokens_details": {
+   "cache_write_tokens": 2700,
+   "cached_tokens": 0
+  },
+  "output_tokens": 815,
+  "output_tokens_details": {
+   "reasoning_tokens": 93
+  },
+  "total_tokens": 3518
+ }
+}

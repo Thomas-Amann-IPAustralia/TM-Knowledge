@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010341,
+ "created_utc": "2026-10-07T08:57:43Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0107",
+ "job": "relate",
+ "key": "e1182f807209eed786ed7438ce988786749b4da4020e4266013834e7c4180a85",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The assignment of a certification trade mark follows the same processes as that of a partial assignment or a full assignment. However additional requirements apply for the recording of assignment of certification trade marks.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to would capture the connection but would not express that assignment applies to certification trade marks.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual expressly describes assignment of certification trade marks and the processes for recording it. This supports assignment applying to certification trade marks, subject to additional recording requirements.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether appliesTo is intended to cover procedural steps as well as statutory provisions.\",\n      \"passage_ref\": \"TMM/Part43/6#1\",\n      \"neighbour\": \"GC-0086\"\n    },\n    {\n      \"quote\": \"Collective trade marks cannot be assigned (section 166) and therefore no details of the assignment are to be entered on the database. The applicant for the assignment should be advised that the recordal of assignment cannot proceed. Certification trade marks can be assigned and follow the usual process for assignment.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none would treat the two categories as merely mentioned together rather than expressly contrasted.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.76,\n      \"reasoning\": \"The Manual expressly contrasts certification and collective trade marks by their assignability. No listed predicate captures that contrast more specifically; this does not establish that either category is a kind of the other.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether an express contrast in assignability warrants related_to rather than none in this ontology.\",\n      \"passage_ref\": \"TMM/Part43/4#1~1\",\n      \"neighbour\": \"GC-0108\"\n    },\n    {\n      \"quote\": \"The owner of the certification trade mark (or a person approved by the registered owner) can use the trade mark on goods or services in respect of which it is registered (see the Note to section 169) provided that the use is in accordance with the rules governing the use of the certification trade mark (section 171).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement would wrongly suggest that use by the registered owner is necessary; the other passage expressly says it is not.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.91,\n      \"reasoning\": \"The Manual describes the owner's permission to use the certification trade mark, conditional on compliance with its rules. The listed predicates do not specifically express this owner–mark use relationship.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the passage's reference to the owner supports the registered-owner record without qualification.\",\n      \"passage_ref\": \"TMM/Part35/1#1\",\n      \"neighbour\": \"GC-0084\"\n    },\n    {\n      \"quote\": \"The grounds for rectification set out in Division 2 of Part 8 of the Act apply to certification trade marks, noting that section 177 applies to certification trade marks instead of section 41.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to would omit the expressly stated applicability of rectification grounds.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly states that the Act's rectification grounds apply to certification trade marks, with a substitution of section 177 for section 41. This supports applicability of rectification, rather than any prediction about a particular proceeding.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the procedural-step record should encompass applicability of rectification grounds, rather than only the rectification procedure itself.\",\n      \"passage_ref\": \"TMM/Part35/12#1\",\n      \"neighbour\": \"GC-0105\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "2bee37ecee5b2767b80c42cda1b7db2eacd94fcfc315ea5adce822963e7209f0",
+ "response_id": "resp_0ef790ffb570951f006ac6096b6a2487d28679ae9a71664b2d",
+ "seconds": 29.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3773,
+  "input_tokens_details": {
+   "cache_write_tokens": 3770,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1125,
+  "output_tokens_details": {
+   "reasoning_tokens": 215
+  },
+  "total_tokens": 4898
+ }
+}

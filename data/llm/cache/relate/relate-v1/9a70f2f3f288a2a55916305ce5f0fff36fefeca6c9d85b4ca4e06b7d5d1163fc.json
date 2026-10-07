@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009304,
+ "created_utc": "2026-10-07T09:01:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0122",
+ "job": "relate",
+ "key": "9a70f2f3f288a2a55916305ce5f0fff36fefeca6c9d85b4ca4e06b7d5d1163fc",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"However, applicants may request that their application be examined ahead of time (reg 4.18).\",\n      \"relation\": \"is_kind_of\",\n      \"alternative\": \"related_to would understate that expedited examination is examination performed ahead of the ordinary order.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual describes expedition as having an application examined ahead of time. This clearly supports treating expedited examination as a kind of examination, although the taxonomy is inferred rather than expressly stated.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the ontology treats a timing variant of examination as a subtype rather than a qualification.\",\n      \"passage_ref\": \"TMM/Part6/1#1\",\n      \"neighbour\": \"GC-0092\"\n    },\n    {\n      \"quote\": \"The Registrar may expedite examination of an application if he or she reasonably believes that expedited examination is warranted (reg 4.19).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo would suggest an allocation of examination work, whereas the passage describes the Registrar's conditional power to expedite.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual expressly identifies the Registrar as able to expedite examination, subject to the stated reasonable belief, and attributes that power to reg 4.19. No listed specific predicate precisely captures this authorising relationship.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether allocatesTo is intended to encompass conferral of procedural authority as well as allocation of work or subject matter.\",\n      \"passage_ref\": \"TMM/Part6/1#1\",\n      \"neighbour\": \"GC-0046\"\n    },\n    {\n      \"quote\": \"The Registrar may expedite examination of an application if he or she reasonably believes that expedited examination is warranted (reg 4.19).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo would suggest an allocation of examination work rather than the conditional power to expedite described here.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual expressly connects the Registrar of Trade Marks with the power to expedite examination and attributes that power to reg 4.19. The available specific predicates do not precisely express this authorising relationship.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether allocatesTo is intended to include conferral of procedural authority.\",\n      \"passage_ref\": \"TMM/Part6/1#1\",\n      \"neighbour\": \"GC-0115\"\n    },\n    {\n      \"quote\": \"Where an expedited application has a citation against it, the cited application, if it is not already being examined, will be expedited.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"A general rule that every section 44 conflict triggers expedition is not supported; the stated trigger concerns a citation against an already expedited application.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The Manual states that a citation against an expedited application triggers expedition of the cited application if it is not already being examined. This supports the relationship through the neighbour's 'citation' meaning, subject to those conditions; it is a statement of Manual practice, not independently quoted legislation.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour's broad conflict concept adequately represents the narrower citation circumstance stated in the passage.\",\n      \"passage_ref\": \"TMM/Part6/1/1/2\",\n      \"neighbour\": \"GC-0064\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "faf6f81c45cc12911907ebcbf542f644a6f244e28b2b3279cf59a080ce2c64d4",
+ "response_id": "resp_0c849f5565aa7504006ac60a3d289887d289706b8220d9d6e5",
+ "seconds": 29.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3376,
+  "input_tokens_details": {
+   "cache_write_tokens": 3373,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1017,
+  "output_tokens_details": {
+   "reasoning_tokens": 162
+  },
+  "total_tokens": 4393
+ }
+}

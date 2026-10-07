@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009188,
+ "created_utc": "2026-10-07T08:54:44Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0096",
+ "job": "relate",
+ "key": "dc1ac5a396556894db383e473f08d768a5649c8f132dd5384eab1006b3452471",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Where deferment has been requested for the purpose of gathering evidence to prove “prior use”, “honest concurrent use” or “other circumstances”, the examiner’s report is checked to ensure that a section 44 ground for rejection has been raised.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"mayGiveRiseTo, with prior use as the subject; rejected because the passage identifies gathering evidence to prove prior use as a purpose of deferment, not prior use itself as a trigger.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual expressly connects deferment with gathering evidence to prove prior use. No more specific listed predicate accurately captures this evidentiary purpose.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology treats seeking to establish prior use as sufficiently equivalent to prior use to support mayGiveRiseTo.\",\n      \"passage_ref\": \"TMM/Part17/4/4/2\",\n      \"neighbour\": \"GC-0067\"\n    },\n    {\n      \"quote\": \"Where deferment has been requested for the purpose of gathering evidence to prove “prior use”, “honest concurrent use” or “other circumstances”, the examiner’s report is checked to ensure that a section 44 ground for rejection has been raised.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"mayGiveRiseTo, with honest concurrent use as the subject; rejected because the passage identifies gathering evidence to prove honest concurrent use as a purpose of deferment, not honest concurrent use itself as a trigger.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual expressly connects deferment with gathering evidence to prove honest concurrent use. No more specific listed predicate accurately captures this evidentiary purpose.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology treats seeking to establish honest concurrent use as sufficiently equivalent to honest concurrent use to support mayGiveRiseTo.\",\n      \"passage_ref\": \"TMM/Part17/4/4/2\",\n      \"neighbour\": \"GC-0066\"\n    },\n    {\n      \"quote\": \"Deferment of acceptance is where the period of time that is allowed under subsection 37(1) and reg 4.12 for an application to gain acceptance is set in abeyance - deferred - because a request for deferment has been made and/or certain conditions are met (reg 4.13).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"qualifies; rejected because the passage describes suspension of the period for gaining acceptance rather than qualification of acceptance itself.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The Manual defines deferment by reference to suspending the time allowed to gain acceptance. The listed predicates do not specifically express that temporal relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether qualifies is intended to include procedural changes to the time allowed for acceptance.\",\n      \"passage_ref\": \"TMM/Part17/1#1\",\n      \"neighbour\": \"GC-0093\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "8942aec2043513f29ec66c6109f1f6fb123f4c91d642afe3ba54687422ff4394",
+ "response_id": "resp_0591aef132c7ed00006ac608b88e5c87d29bc7b6c3f0df8e24",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3491,
+  "input_tokens_details": {
+   "cache_write_tokens": 3488,
+   "cached_tokens": 0
+  },
+  "output_tokens": 965,
+  "output_tokens_details": {
+   "reasoning_tokens": 233
+  },
+  "total_tokens": 4456
+ }
+}

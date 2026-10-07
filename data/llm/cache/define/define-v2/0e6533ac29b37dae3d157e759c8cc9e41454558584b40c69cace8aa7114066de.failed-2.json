@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T11:11:55Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "notice of intention to defend",
+ "job": "define",
+ "key": "0e6533ac29b37dae3d157e759c8cc9e41454558584b40c69cace8aa7114066de",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "d942329c603b59c2a12789833a383f26d9cd2286d178120ceb8f6dd17d462e51",
+ "response_id": "resp_01a01646b2a2c8eb006ac628f78bcc87d2a905a5a32c816ee5",
+ "seconds": 4.8,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

@@ -36,7 +36,8 @@ def _context() -> jobs.Context:
     from tm_knowledge.upstream.loader import load_corpus
 
     corpus = load_corpus()
-    return jobs.Context(corpus=corpus, links=links_module.link(corpus))
+    return jobs.Context(corpus=corpus, links=links_module.link(corpus),
+                        judged=jobs.judged_pairs(client.Cache().entries("relate")))
 
 
 def search_systems(ctx: jobs.Context):
@@ -176,7 +177,9 @@ def _run(args: argparse.Namespace) -> int:
             results = [(item, None, None, f"stopped: {error}") for item in items]
     else:
         # Parallel calls, results handled in item order so a run reads the same twice.
-        client.RETRY_WAITS = client.RETRY_WAITS[: max(0, args.retries)]
+        # An overloaded flex call fails in seconds and costs nothing (Q-67), so keep
+        # trying on a short, capped backoff rather than giving the item up.
+        client.RETRY_WAITS = tuple(min(10 * 2 ** i, 60) for i in range(max(0, args.retries)))
         with ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
             results = list(pool.map(call, items))
 
@@ -196,6 +199,10 @@ def _run(args: argparse.Namespace) -> int:
             continue
         if not entry.get("from_cache"):
             new_cost += float(entry["cost_usd"])
+        if entry.get("status") == "failed":  # nothing came back and nothing was billed
+            code = (entry.get("error") or {}).get("code") if isinstance(entry.get("error"), dict) else None
+            refused.append(f"{item.key}: no answer ({code or 'failed'}) — a re-run asks again")
+            continue
         totals["calls"] += 1
         parsed = jobs.parse(entry)
         if parsed is None:

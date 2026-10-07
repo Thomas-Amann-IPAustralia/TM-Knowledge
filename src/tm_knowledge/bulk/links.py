@@ -209,15 +209,23 @@ def existing_edges(
     return edges
 
 
-def pairs(links: Links, already: set[frozenset[str]] | None = None) -> list[Pair]:
+def pairs(
+    links: Links, already: set[frozenset[str]] | None = None, judged: set[frozenset[str]] | None = None
+) -> list[Pair]:
     """Concept pairs worth one model judgement each, best first.
 
     Score is co-mentions over the geometric mean of the two concepts' passage
     counts — a cosine over passages — plus one for a shared legislative basis.
     Each concept keeps its best `PARTNERS_PER_CONCEPT`; a pair either side keeps
     is kept.
+
+    A pair in `already` has a record and is no candidate at all. A pair in
+    `judged` has been asked: it keeps its place in each concept's best six but is
+    not returned — otherwise every answer would promote the next-best pair, and a
+    re-run would never run out of pairs to ask about.
     """
     already = already or set()
+    judged = judged or set()
     index = links.by_passage()
     df = {cid: len(hits) for cid, hits in links.mentions.items()}
     co: dict[frozenset[str], list[tuple[int, str]]] = defaultdict(list)
@@ -265,7 +273,7 @@ def pairs(links: Links, already: set[frozenset[str]] | None = None) -> list[Pair
         candidates.sort(key=lambda p: (-p.score, p.a, p.b))
         for pair in candidates[:PARTNERS_PER_CONCEPT]:
             keep.add(frozenset((pair.a, pair.b)))
-    return sorted((scored[k] for k in keep), key=lambda p: (-p.score, p.a, p.b))
+    return sorted((scored[k] for k in keep - judged), key=lambda p: (-p.score, p.a, p.b))
 
 
 def anchors(pair_list: Iterable[Pair]) -> dict[str, list[Pair]]:

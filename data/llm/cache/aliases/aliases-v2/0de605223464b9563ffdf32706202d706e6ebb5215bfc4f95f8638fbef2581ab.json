@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006251,
+ "created_utc": "2026-10-07T08:48:01Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0037..GC-0048",
+ "job": "aliases",
+ "key": "0de605223464b9563ffdf32706202d706e6ebb5215bfc4f95f8638fbef2581ab",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0037\",\n      \"related_search_terms\": [\n        \"Indigenous provenance\",\n        \"Indigenous origin connotation\",\n        \"misleading Indigenous reference\"\n      ],\n      \"everyday_phrases\": [\n        \"Indigenous made\",\n        \"Aboriginal artwork\",\n        \"looks Aboriginal\",\n        \"suggests Indigenous involvement\",\n        \"authentic Indigenous product\",\n        \"claims Aboriginal roots\"\n      ]\n    },\n    {\n      \"id\": \"GC-0038\",\n      \"related_search_terms\": [\n        \"overall connotation\",\n        \"whole mark assessment\",\n        \"contextual features\"\n      ],\n      \"everyday_phrases\": [\n        \"overall brand impression\",\n        \"look at everything\",\n        \"words and logo together\",\n        \"rest of the logo\",\n        \"other wording helps\",\n        \"consider the full name\"\n      ]\n    },\n    {\n      \"id\": \"GC-0039\",\n      \"related_search_terms\": [\n        \"acquired connotation\",\n        \"change in connotation\",\n        \"use-based meaning\"\n      ],\n      \"everyday_phrases\": [\n        \"meaning changed over time\",\n        \"brand now means something\",\n        \"meaning gained from use\",\n        \"customers learned the meaning\",\n        \"new meaning developed\",\n        \"became misleading over time\"\n      ]\n    },\n    {\n      \"id\": \"GC-0040\",\n      \"related_search_terms\": [\n        \"trade mark opponent\",\n        \"opposition evidence\",\n        \"opposition procedure\"\n      ],\n      \"everyday_phrases\": [\n        \"oppose\",\n        \"opposing a mark\",\n        \"challenge a trade mark\",\n        \"object to registration\",\n        \"stop someone registering\",\n        \"fight a registration\"\n      ]\n    },\n    {\n      \"id\": \"GC-0041\",\n      \"related_search_terms\": [\n        \"use evidence\",\n        \"marketplace evidence\",\n        \"evidence of connotation\"\n      ],\n      \"everyday_phrases\": [\n        \"proof of brand use\",\n        \"show how it's used\",\n        \"examples of actual use\",\n        \"proof from the market\",\n        \"documents showing use\",\n        \"advertising examples\"\n      ]\n    },\n    {\n      \"id\": \"GC-0042\",\n      \"related_search_terms\": [\n        \"revocation before registration\",\n        \"Registrar's revocation power\",\n        \"revoking acceptance\"\n      ],\n      \"everyday_phrases\": [\n        \"acceptance cancelled\",\n        \"take back acceptance\",\n        \"undo acceptance\",\n        \"accepted then reconsidered\",\n        \"cancel acceptance before registration\",\n        \"acceptance withdrawn\"\n      ]\n    },\n    {\n      \"id\": \"GC-0043\",\n      \"related_search_terms\": [\n        \"division of application\",\n        \"divided goods and services\",\n        \"division following objection\"\n      ],\n      \"everyday_phrases\": [\n        \"split my application\",\n        \"separate the goods\",\n        \"divide the application\",\n        \"split off disputed goods\",\n        \"put goods another application\",\n        \"separate rejected services\"\n      ]\n    },\n    {\n      \"id\": \"GC-0044\",\n      \"related_search_terms\": [\n        \"trade mark examination officer\",\n        \"examination staff\"\n      ],\n      \"everyday_phrases\": [\n        \"person checking my application\",\n        \"application reviewer\",\n        \"trade mark assessor\",\n        \"who examines applications\",\n        \"IP Australia reviewer\",\n        \"person assessing my brand\"\n      ]\n    },\n    {\n      \"id\": \"GC-0045\",\n      \"related_search_terms\": [\n        \"decision-making authority\",\n        \"statutory decision-maker\"\n      ],\n      \"everyday_phrases\": [\n        \"who decides\",\n        \"person making the decision\",\n        \"who makes the call\",\n        \"official deciding\",\n        \"person deciding my application\"\n      ]\n    },\n    {\n      \"id\": \"GC-0046\",\n      \"related_search_terms\": [\n        \"Registrar's statutory satisfaction\",\n        \"Registrar's rejection power\"\n      ],\n      \"everyday_phrases\": [\n        \"trade marks authority\",\n        \"official in charge\",\n        \"who runs registration\",\n        \"registration authority\",\n        \"official authorised to reject\"\n      ]\n    },\n    {\n      \"id\": \"GC-0047\",\n      \"related_search_terms\": [\n        \"descriptive wording\",\n        \"descriptive indication\",\n        \"section 43 connotation\"\n      ],\n      \"everyday_phrases\": [\n        \"words describing the product\",\n        \"says what it is\",\n        \"product description in name\",\n        \"name describes the service\",\n        \"describing what I sell\",\n        \"descriptive brand words\"\n      ]\n    },\n    {\n      \"id\": \"GC-0048\",\n      \"related_search_terms\": [\n        \"fanciful geographic connotation\",\n        \"geographic ambiguity\",\n        \"unrealistic geographic connotation\"\n      ],\n      \"everyday_phrases\": [\n        \"imaginary place name\",\n        \"unclear place reference\",\n        \"made up origin\",\n        \"obviously imaginary origin\",\n        \"place name joke\",\n        \"impossible product origin\"\n      ]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "b0a05c410a502e69dd4b11ecbbed0100afe0ac61dcc0dc1e555522b9e1b58839",
+ "response_id": "resp_041f6ff32d876ae2006ac60715ff2487d2967e36173a26bd4d",
+ "seconds": 44.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1171,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1168
+  },
+  "output_tokens": 1238,
+  "output_tokens_details": {
+   "reasoning_tokens": 135
+  },
+  "total_tokens": 2409
+ }
+}

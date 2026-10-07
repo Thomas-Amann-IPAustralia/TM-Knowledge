@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006398,
+ "created_utc": "2026-10-07T11:13:04Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "trademark",
+ "job": "define",
+ "key": "2fa1f4c5f454b790dd88e6960d6d62acd60bef309b4b6610a5d91904753483e7",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"The quoted WIPO Model Law distinguishes a goods-focused “trademark” from a “service mark”, but the supplied passages do not establish a separate Australian concept on that basis.\",\n  \"definition_quote\": \"“trademark” means any visible sign serving to distinguish the goods of one enterprise from those of other enterprises;\",\n  \"alt_labels\": [\n    \"trademark\"\n  ],\n  \"confidence\": 0.98,\n  \"is_concept\": false,\n  \"basis\": \"corpus_inferred\",\n  \"duplicate_of\": \"GC-0072\",\n  \"notes\": \"Summary: In these passages, trademark is a spelling variant of the existing trade mark concept, not a separate Australian legal or procedural idea.\",\n  \"expert_should_check\": \"Confirm the spelling-variant mapping; the quoted definition belongs to WIPO's Model Law, not Australian legislation, and the text of section 17 has not been supplied.\",\n  \"legislative_basis\": [\n    \"TMA1995/s17\"\n  ],\n  \"pref_label\": \"trade mark\",\n  \"definition_ref\": \"TMM/Part20/2/2/1\",\n  \"reasoning\": \"GC-0072 already holds trade mark. TMM/Part15/2/2/1/2 uses both trade mark and trademark in discussing opposition procedures, while TMM/Part18/1/1/1 uses Trademark in a registration heading. These uses support treating the term as an orthographic variant rather than creating another concept. The definition quoted here explains the term in an external model law discussed by the Manual; it is not an Australian statutory definition. Section 17 is listed among the associated provisions, but its wording cannot be verified from the supplied passages.\",\n  \"not_labels\": [\n    \"service mark\",\n    \"trade mark application\"\n  ],\n  \"group\": \"subject_matter\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "8677748425d996bde589b95933577b32de0f44671b833896635f0a74509a6a16",
+ "response_id": "resp_0118513217f2ee15006ac629239e1c87d29c267b2efe754dd9",
+ "seconds": 28.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2983,
+  "input_tokens_details": {
+   "cache_write_tokens": 2980,
+   "cached_tokens": 0
+  },
+  "output_tokens": 534,
+  "output_tokens_details": {
+   "reasoning_tokens": 136
+  },
+  "total_tokens": 3517
+ }
+}

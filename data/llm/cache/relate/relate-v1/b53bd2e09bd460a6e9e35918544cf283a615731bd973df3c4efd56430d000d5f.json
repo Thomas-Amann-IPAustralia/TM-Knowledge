@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005217,
+ "created_utc": "2026-10-07T09:00:21Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0114",
+ "job": "relate",
+ "key": "b53bd2e09bd460a6e9e35918544cf283a615731bd973df3c4efd56430d000d5f",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The Madrid Protocol provides for the transformation of an IRDA or protected international trade mark into a national application.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to: the passage connects the Protocol with transformation without using the words 'applies to'.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual describes the Protocol as providing a transformation mechanism for protected international trade marks. Applicability is inferred from that mechanism, not asserted as a provision governing every aspect of protection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether appliesTo is appropriately scoped to the transformation mechanism described here.\",\n      \"passage_ref\": \"TMM/Part60/4/25/4/25/2\",\n      \"neighbour\": \"GC-0112\"\n    },\n    {\n      \"quote\": \"When an IRDA has successfully gone through IP Australia's examination and opposition processes, it will be known as a Protected International Trade Mark and will have the same level of protection as if it had been registered nationally.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"requiresElement: opposition is a necessary prerequisite to protected status.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.85,\n      \"reasoning\": \"The Manual identifies successful passage through examination and opposition processes as a route to protected status. The mapping is inferential: opposition alone does not confer that status, and the passage also describes another route to protection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether mayGiveRiseTo adequately represents successful completion of the opposition process rather than opposition itself.\",\n      \"passage_ref\": \"TMM/Part60/4/18/4/18/2\",\n      \"neighbour\": \"GC-0040\"\n    },\n    {\n      \"quote\": \"When an IRDA has successfully gone through IP Australia's examination and opposition processes, it will be known as a Protected International Trade Mark and will have the same level of protection as if it had been registered nationally.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"requiresElement: opposition is a necessary prerequisite to protected status.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.85,\n      \"reasoning\": \"The Manual identifies successful passage through examination and opposition processes as a route to protected status. The mapping is inferential: opposition alone does not confer that status, and the passage also describes another route to protection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether mayGiveRiseTo adequately represents successful completion of the opposition process rather than opposition itself.\",\n      \"passage_ref\": \"TMM/Part60/4/18/4/18/2\",\n      \"neighbour\": \"GC-0102\"\n    },\n    {\n      \"quote\": \"By virtue of Article 4bis of the Madrid Protocol the priority date <day month year> based on national registration number(s) <123456> applies to the following goods/services <>.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to: the priority date applies to specified goods or services rather than directly to the protected international trade mark.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual places this endorsement on the protected international trade mark when replacement is recorded. Application to the anchor is inferred and limited to the goods or services specified in that endorsement.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the relationship should instead target the specified goods or services rather than the protected international trade mark.\",\n      \"passage_ref\": \"TMM/Part60/4/26/4/26/3~2\",\n      \"neighbour\": \"GC-0090\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "9d436bd0e33a608054c1c4321da3d27d74799e6ea477414839249d27fbc98cba",
+ "response_id": "resp_0964b96f741c1132006ac60a09022487d2b2fea62038e20a57",
+ "seconds": 29.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3485,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3482
+  },
+  "output_tokens": 1008,
+  "output_tokens_details": {
+   "reasoning_tokens": 130
+  },
+  "total_tokens": 4493
+ }
+}

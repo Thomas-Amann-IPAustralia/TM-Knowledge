@@ -181,6 +181,19 @@ def test_is_kind_of_becomes_skos_broader_with_the_narrower_concept_as_subject():
     assert record["modality"] is None and record["tier"] == 2
 
 
+def test_a_pair_already_answered_is_never_asked_again_even_when_the_answer_was_none():
+    import json
+
+    def answered(item, status, *neighbours):
+        text = json.dumps({"judgements": [{"neighbour": n, "relation": "none"} for n in neighbours]})
+        return {"job": "relate", "status": status, "item": item, "output_text": text}
+
+    judged = jobs.judged_pairs([answered("GC-0001", "completed", "GC-0002", "GC-0003"),
+                                answered("GC-0004", "failed", "GC-0005"),
+                                {**answered("GC-0006", "completed", "GC-0007"), "job": "define"}])
+    assert judged == {frozenset({"GC-0001", "GC-0002"}), frozenset({"GC-0001", "GC-0003"})}
+
+
 # ----------------------------------------------------------------- links
 
 

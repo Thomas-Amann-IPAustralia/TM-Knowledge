@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006335,
+ "created_utc": "2026-10-07T08:48:30Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0097..GC-0108",
+ "job": "aliases",
+ "key": "e27f07e08e41e8d94c861f8f1786a1ffa96673713896ec8f8a8f8805dc493fbe",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0097\",\n      \"related_search_terms\": [\n        \"time extension request\",\n        \"prescribed time limit\",\n        \"extended filing period\"\n      ],\n      \"everyday_phrases\": [\n        \"more time\",\n        \"extend my deadline\",\n        \"extra time to file\",\n        \"push back deadline\",\n        \"request extra time\",\n        \"extend filing deadline\"\n      ]\n    },\n    {\n      \"id\": \"GC-0098\",\n      \"related_search_terms\": [\n        \"prescribed acceptance period\",\n        \"extended acceptance period\",\n        \"application lapse\"\n      ],\n      \"everyday_phrases\": [\n        \"application ran out\",\n        \"missed acceptance deadline\",\n        \"application expired\",\n        \"ran out of time\",\n        \"application no longer active\"\n      ]\n    },\n    {\n      \"id\": \"GC-0099\",\n      \"related_search_terms\": [\n        \"limitation of exclusive rights\",\n        \"subsection 74(1)\",\n        \"registration rights limitation\"\n      ],\n      \"everyday_phrases\": [\n        \"give up exclusive rights\",\n        \"limit my rights\",\n        \"no exclusive claim\",\n        \"exclude words from protection\",\n        \"rights in part only\"\n      ]\n    },\n    {\n      \"id\": \"GC-0100\",\n      \"related_search_terms\": [\n        \"Register entry\",\n        \"acceptance on evidence\",\n        \"acceptance circumstances\"\n      ],\n      \"everyday_phrases\": [\n        \"note on registration\",\n        \"register annotation\",\n        \"acceptance note\",\n        \"added register wording\",\n        \"record acceptance basis\"\n      ]\n    },\n    {\n      \"id\": \"GC-0101\",\n      \"related_search_terms\": [\n        \"section 41 evidence\",\n        \"trade mark use\",\n        \"use submissions\"\n      ],\n      \"everyday_phrases\": [\n        \"proof of use\",\n        \"show brand use\",\n        \"prove I've used it\",\n        \"documents showing use\",\n        \"brand usage evidence\",\n        \"prove business use\"\n      ]\n    },\n    {\n      \"id\": \"GC-0102\",\n      \"related_search_terms\": [\n        \"third-party objection\",\n        \"objection to registration\",\n        \"IRDA opposition\"\n      ],\n      \"everyday_phrases\": [\n        \"oppose\",\n        \"opposing a mark\",\n        \"object to registration\",\n        \"challenge someone's trade mark\",\n        \"block a trade mark\",\n        \"stop someone registering\"\n      ]\n    },\n    {\n      \"id\": \"GC-0103\",\n      \"related_search_terms\": [\n        \"notice of intention to oppose\",\n        \"statement of grounds and particulars\",\n        \"regulation 5.2\",\n        \"regulation 17A.29\"\n      ],\n      \"everyday_phrases\": [\n        \"opposition paperwork\",\n        \"formal objection documents\",\n        \"file opposition documents\",\n        \"papers to oppose\",\n        \"written opposition notice\",\n        \"grounds for opposing\"\n      ]\n    },\n    {\n      \"id\": \"GC-0104\",\n      \"related_search_terms\": [\n        \"section 92\",\n        \"non-use application\",\n        \"unused registered trade mark\"\n      ],\n      \"everyday_phrases\": [\n        \"remove unused trade mark\",\n        \"cancel unused brand\",\n        \"challenge unused trade mark\",\n        \"brand never used\",\n        \"trade mark not used\",\n        \"unused mark removal\"\n      ]\n    },\n    {\n      \"id\": \"GC-0105\",\n      \"related_search_terms\": [\n        \"court-ordered amendment\",\n        \"court-ordered cancellation\",\n        \"Register entry amendment\",\n        \"prescribed court\"\n      ],\n      \"everyday_phrases\": [\n        \"correct the register\",\n        \"fix register entry\",\n        \"change register entry\",\n        \"cancel register entry\",\n        \"court ordered correction\",\n        \"court ordered cancellation\"\n      ]\n    },\n    {\n      \"id\": \"GC-0106\",\n      \"related_search_terms\": [\n        \"ten-year registration period\",\n        \"registration renewal date\",\n        \"original filing date\"\n      ],\n      \"everyday_phrases\": [\n        \"renew my trade mark\",\n        \"keep registration active\",\n        \"extend my registration\",\n        \"registration running out\",\n        \"renew every ten years\",\n        \"when to renew\"\n      ]\n    },\n    {\n      \"id\": \"GC-0107\",\n      \"related_search_terms\": [\n        \"certification mark\",\n        \"certified goods\",\n        \"certified services\",\n        \"certifying owner\"\n      ],\n      \"everyday_phrases\": [\n        \"certified product logo\",\n        \"certified service badge\",\n        \"certification logo\",\n        \"certification badge\",\n        \"mark showing certification\"\n      ]\n    },\n    {\n      \"id\": \"GC-0108\",\n      \"related_search_terms\": [\n        \"association members\",\n        \"association member goods\",\n        \"association member services\"\n      ],\n      \"everyday_phrases\": [\n        \"members' shared brand\",\n        \"association brand\",\n        \"association members' logo\",\n        \"group trade mark\",\n        \"shared member logo\",\n        \"brand for members\"\n      ]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "c834241df74058da29a6ad64c5d3c13dc9a95a8181ae9097a258e6da7b31195e",
+ "response_id": "resp_036bfb6544fe7f08006ac60732f9fc87d2971a8e541a979160",
+ "seconds": 44.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1134,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1131
+  },
+  "output_tokens": 1255,
+  "output_tokens_details": {
+   "reasoning_tokens": 150
+  },
+  "total_tokens": 2389
+ }
+}

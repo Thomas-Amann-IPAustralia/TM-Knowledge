@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006157,
+ "created_utc": "2026-10-07T11:12:09Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "approved form",
+ "job": "define",
+ "key": "d775d005aec7a8b550df79de14b627c34b8a1c2f27a1bd1a6ccde300b35528f0",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"If instrument_or_record is restricted to documents produced by the process rather than approved forms used in it, none_of_these would be the alternative grouping.\",\n  \"definition_quote\": \"approved form means a form approved by the Registrar for the purposes of the provision in which the expression appears.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.98,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: An approved form is a form the Registrar has approved for use under the particular provision that requires it.\",\n  \"expert_should_check\": \"Check the full text of the cited Regulations before adding detailed requirements; the supplied Manual passages only identify relevant provisions and report the requirement under regulation 21.25.\",\n  \"legislative_basis\": [\n    \"TMR1995/r21.1\",\n    \"TMR1995/r21.25\"\n  ],\n  \"pref_label\": \"approved form\",\n  \"definition_ref\": \"TMA1995/s6/approved-form\",\n  \"reasoning\": \"Section 6 expressly defines a provision-specific form approved by the Registrar, making this a distinct legal and procedural concept rather than a generic phrase. No existing concept captures that approval status. The Manual identifies regulation 21.1 as concerning compliance with instructions on approved forms and reports that regulation 21.25 requires an extension-of-time application to use an approved form. Instrument_or_record is the closest group because the concept concerns a form used in the process, not the act of filing it.\",\n  \"not_labels\": [\n    \"trade mark application\",\n    \"application for an extension of time\",\n    \"declaration\"\n  ],\n  \"group\": \"instrument_or_record\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "7bc2babf85dd738ba1d54d05f29cd55bf2f5e40d5d93c789813a6d4665387d19",
+ "response_id": "resp_0d9ab7c5771e517b006ac628f765d087d29bd37b8313110563",
+ "seconds": 18.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2514,
+  "input_tokens_details": {
+   "cache_write_tokens": 2511,
+   "cached_tokens": 0
+  },
+  "output_tokens": 603,
+  "output_tokens_details": {
+   "reasoning_tokens": 228
+  },
+  "total_tokens": 3117
+ }
+}
