@@ -240,3 +240,25 @@ def test_an_overloaded_flex_call_is_retried_and_the_answer_kept(tmp_path, monkey
     entry, _ = _call(cache, flaky)
     assert entry["status"] == "completed" and len(sent) == 1
     assert len(list(tmp_path.rglob("*.failed-*.json"))) == 1
+
+
+def test_a_batch_answers_each_request_and_caches_it_as_one_call(tmp_path):
+    cache = client.Cache(tmp_path)
+    submitted: list[list[dict]] = []
+
+    def fake_batch(lines, poll, progress):
+        submitted.append(lines)
+        return {line["custom_id"]: {"custom_id": line["custom_id"], "response": {"status_code": 200, "body": {
+            "model": "gpt-6.1-sol", "status": "completed",
+            "usage": {"input_tokens": 1000, "output_tokens": 100},
+            "output": [{"type": "message", "content": [{"type": "output_text", "text": '{"answer": "ok"}'}]}]}}}
+            for line in lines}
+
+    rq = dict(job="t", prompt_version="t-v1", instructions="Be brief.", schema=SCHEMA, max_output_tokens=1000,
+              model="gpt-6.1-sol", effort="medium")
+    requests = [dict(rq, item="a", input_text="One?"), dict(rq, item="b", input_text="Two?")]
+    results = client.batch_respond(requests, confirm=True, cache=cache, transport=fake_batch, progress=lambda s: None)
+    assert [e["service_tier"] for e, _ in results] == ["batch", "batch"]
+    assert results[0][0]["cost_usd"] == pytest.approx((1000 * 1.00 + 100 * 5.00) / 1_000_000)
+    again = client.batch_respond(requests, confirm=True, cache=cache, transport=fake_batch, progress=lambda s: None)
+    assert len(submitted) == 1 and all(e["from_cache"] for e, _ in again)

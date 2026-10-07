@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:01:33Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "trade mark application",
+ "job": "define",
+ "key": "b4270268730cbc70e188e1e7e571538eefd15f68af084959f1ec26b280678672",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "ebaed5ae8523c4217fc4915161a5e08315fca8587c133d0cecb6911b1ccc95f2",
+ "response_id": "resp_05015637969d7fce006ac5fc5ab0c887d2aa09b3563c0de487",
+ "seconds": 3.5,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

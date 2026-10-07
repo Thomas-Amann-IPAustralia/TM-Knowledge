@@ -158,11 +158,30 @@ def _run(args: argparse.Namespace) -> int:
         except RuntimeError as error:  # an HTTP failure: no answer, reported, the run goes on
             return item, None, None, f"failed: {error}"
 
-    # Parallel calls, results handled in item order so a run reads the same twice.
-    with ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
-        results = list(pool.map(call, items))
+    if args.tier == "batch":
+        # One upload per batch; answers come back together and are handled in order.
+        requests = [dict(job=job.name, prompt_version=job.prompt_version, item=item.key,
+                         instructions=job.instructions, input_text=job.render(ctx, item), schema=job.schema,
+                         max_output_tokens=job.max_output_tokens, model=model, effort=effort)
+                    for item in items]
+        try:
+            answers = client.batch_respond(requests, confirm=args.confirm, dry_run=args.dry_run,
+                                           progress=lambda line: print(line, file=sys.stderr, flush=True))
+            results = [(item, entry, estimate, None if (entry or args.dry_run) else "no answer")
+                       for item, (entry, estimate) in zip(items, answers)]
+        except (client.BudgetExceeded, client.NotConfirmed) as error:
+            print(f"stopped: {error}", file=sys.stderr)
+            results = [(item, None, None, f"stopped: {error}") for item in items]
+    else:
+        # Parallel calls, results handled in item order so a run reads the same twice.
+        with ThreadPoolExecutor(max_workers=max(1, args.workers)) as pool:
+            results = list(pool.map(call, items))
 
     for item, entry, estimate, problem in results:
+        if args.dry_run and problem is None and entry is None:
+            worst += estimate.worst_case_usd if estimate else 0.0
+            totals["estimated"] += 1
+            continue
         if problem:
             if problem.startswith("stopped"):
                 print(problem, file=sys.stderr)
@@ -342,9 +361,9 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--write", action="store_true", help="write accepted records")
     p.add_argument("--model")
     p.add_argument("--effort", choices=["none", "low", "medium", "high"])
-    # Flex is half price on the same endpoint (ADR-0111); the Batch API is the same
-    # price through a different door, and not wired up here.
-    p.add_argument("--tier", choices=["flex", "default"], default="flex")
+    # Batch and flex both cost half the standard price (ADR-0111). Batch is the
+    # default because flex can be unavailable for long stretches (Q-67).
+    p.add_argument("--tier", choices=["batch", "flex", "default"], default="batch")
     p.add_argument("--workers", type=int, default=6, help="calls in flight at once")
     p = sub.add_parser("embed", help="vectors for every passage and benchmark question")
     p.add_argument("--dry-run", action="store_true")

@@ -367,3 +367,141 @@ def embed(
     cache.put(entry)
     data = sorted(response.get("data") or (), key=lambda d: d.get("index", 0))
     return entry, [d.get("embedding") for d in data], estimate
+
+
+# ---------------------------------------------------------------------------
+# The Batch API — the flex price on its own capacity (Q-67)
+# ---------------------------------------------------------------------------
+
+#: Requests per batch. Each batch's worst case is reserved against the cap while
+#: it runs, so a batch is sized to fit inside what is left.
+BATCH_CHUNK = 60
+
+
+def _request_body(rq: dict[str, Any]) -> dict[str, Any]:
+    """The body `respond()` would send, minus what only shapes the price."""
+    body: dict[str, Any] = {
+        "model": rq["model"],
+        "instructions": rq["instructions"],
+        "input": rq["input_text"],
+        "text": {"format": {"type": "json_schema", "name": rq["job"].replace("-", "_"),
+                            "schema": rq["schema"], "strict": True}},
+        "max_output_tokens": rq["max_output_tokens"],
+        "store": False,
+    }
+    if rq["effort"] != "none":
+        body["reasoning"] = {"effort": rq["effort"]}
+    return body
+
+
+def _multipart(content: bytes) -> tuple[bytes, str]:
+    boundary = "tmk" + hashlib.sha256(content).hexdigest()[:30]
+    head = (f"--{boundary}\r\nContent-Disposition: form-data; name=\"purpose\"\r\n\r\nbatch\r\n"
+            f"--{boundary}\r\nContent-Disposition: form-data; name=\"file\"; filename=\"requests.jsonl\"\r\n"
+            f"Content-Type: application/jsonl\r\n\r\n").encode()
+    return head + content + f"\r\n--{boundary}--\r\n".encode(), f"multipart/form-data; boundary={boundary}"
+
+
+def _raw(method: str, path: str, data: bytes | None = None, content_type: str | None = None) -> bytes:
+    headers = {"Authorization": "Bearer " + config.authoring_api_key()}
+    if content_type:
+        headers["Content-Type"] = content_type
+    request = urllib.request.Request(config.OPENAI_BASE_URL + path, data=data, headers=headers, method=method)
+    with urllib.request.urlopen(request, timeout=300) as response:
+        return response.read()
+
+
+def _batch_transport(lines: list[dict[str, Any]], poll: float, progress: Callable[[str], None]) -> dict[str, dict]:
+    """Upload, create, poll, download. Returns custom_id -> output or error line."""
+    content = "\n".join(json.dumps(line, ensure_ascii=False) for line in lines).encode("utf-8")
+    data, ctype = _multipart(content)
+    file_id = json.loads(_raw("POST", "/files", data, ctype))["id"]
+    batch = _http("POST", "/batches", {"input_file_id": file_id, "endpoint": "/v1/responses",
+                                       "completion_window": "24h"}, attempts=1)
+    progress(f"batch {batch['id']}: {len(lines)} requests submitted")
+    started = time.time()
+    while batch.get("status") in ("validating", "in_progress", "finalizing", "cancelling"):
+        time.sleep(poll)
+        batch = _http("GET", f"/batches/{batch['id']}")
+        counts = batch.get("request_counts") or {}
+        progress(f"batch {batch['id']}: {batch.get('status')} — {counts.get('completed', 0)}/"
+                 f"{counts.get('total', len(lines))} done, {counts.get('failed', 0)} failed, "
+                 f"{time.time() - started:.0f}s")
+    out: dict[str, dict] = {}
+    for file_key in ("output_file_id", "error_file_id"):
+        if batch.get(file_key):
+            for raw in _raw("GET", f"/files/{batch[file_key]}/content").decode("utf-8").splitlines():
+                if raw.strip():
+                    record = json.loads(raw)
+                    out[record["custom_id"]] = record
+    if batch.get("status") != "completed" and not out:
+        progress(f"batch {batch['id']} ended {batch.get('status')}: {batch.get('errors')}")
+    return out
+
+
+def batch_respond(
+    requests: list[dict[str, Any]], *, confirm: bool = False, dry_run: bool = False,
+    cache: Cache | None = None, poll: float = 20.0, progress: Callable[[str], None] = print,
+    transport: Callable[..., dict[str, dict]] | None = None,
+) -> list[tuple[dict[str, Any] | None, Estimate]]:
+    """Many structured calls through the Batch API, each cached and priced as one call.
+
+    Each request is a dict of `respond()`'s keyword arguments. Cached answers are
+    returned without being sent. A request the batch could not answer is recorded
+    as failed (cost nothing) and is retried by the next run, like any failure.
+    """
+    cache = cache or Cache()
+    results: list[tuple[dict[str, Any] | None, Estimate] | None] = [None] * len(requests)
+    pending: list[tuple[int, dict[str, Any], dict[str, Any], str, Estimate]] = []
+    seen: set[str] = set()
+    for i, rq in enumerate(requests):
+        body = _request_body(rq)
+        key = cache_key(body, rq["prompt_version"])
+        prices = _prices(rq["model"], "batch")
+        est_in = estimate_tokens(rq["instructions"] + rq["input_text"] + _canonical(rq["schema"]))
+        estimate = Estimate(est_in, rq["max_output_tokens"],
+                            (est_in * prices["input"] + rq["max_output_tokens"] * prices["output"]) / 1_000_000)
+        hit = cache.get(rq["job"], rq["prompt_version"], key)
+        if hit is not None:
+            results[i] = ({**hit, "from_cache": True}, estimate)
+        elif dry_run or key in seen:
+            results[i] = (None, estimate)
+        else:
+            seen.add(key)
+            pending.append((i, rq, body, key, estimate))
+    if dry_run or not pending:
+        return [r if r is not None else (None, Estimate(0, 0, 0.0)) for r in results]
+    if not confirm:
+        raise NotConfirmed(f"{len(pending)} paid calls need --confirm")
+
+    for start in range(0, len(pending), BATCH_CHUNK):
+        chunk = pending[start:start + BATCH_CHUNK]
+        worst = sum(est.worst_case_usd for *_, est in chunk)
+        _reserve(cache, worst, f"batch of {len(chunk)}")
+        try:
+            outputs = (transport or _batch_transport)(
+                [{"custom_id": key, "method": "POST", "url": "/v1/responses", "body": body}
+                 for _, _, body, key, _ in chunk], poll, progress)
+        finally:
+            _release(worst)
+        for i, rq, body, key, estimate in chunk:
+            record = outputs.get(key) or {}
+            response = (record.get("response") or {}).get("body") or {
+                "status": "failed", "usage": {}, "output": [],
+                "error": record.get("error") or {"code": "missing_from_batch"}}
+            entry = {
+                "job": rq["job"], "prompt_version": rq["prompt_version"], "key": key, "item": rq["item"],
+                "request_sha256": hashlib.sha256(_canonical(body).encode()).hexdigest(),
+                "response_id": response.get("id"), "model_requested": rq["model"],
+                "model_reported": str(response.get("model") or rq["model"]), "effort": rq["effort"],
+                "service_tier": "batch", "max_output_tokens": rq["max_output_tokens"],
+                "status": response.get("status"), "incomplete_details": response.get("incomplete_details"),
+                "error": response.get("error"), "usage": response.get("usage") or {},
+                "cost_usd": round(cost_usd(str(response.get("model") or rq["model"]), "batch",
+                                           response.get("usage") or {}), 6),
+                "created_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "output_text": output_text(response),
+            }
+            cache.put(entry)
+            results[i] = (entry, estimate)
+    return [r if r is not None else (None, Estimate(0, 0, 0.0)) for r in results]

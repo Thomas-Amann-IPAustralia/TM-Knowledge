@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002607,
+ "created_utc": "2026-10-07T08:03:11Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "trade mark application",
+ "job": "define",
+ "key": "b4270268730cbc70e188e1e7e571538eefd15f68af084959f1ec26b280678672",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"The act of applying could be modelled separately as a procedural_step; this concept represents the application itself.\",\n  \"definition_quote\": \"trade mark application means an application for registration of a trade mark under section 27 of the Act.\",\n  \"alt_labels\": [\n    \"application for registration of a trade mark\"\n  ],\n  \"confidence\": 0.96,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: A trade mark application is an application seeking registration of a trade mark under section 27, including a representation of the mark and a specification of the relevant goods and/or services.\",\n  \"expert_should_check\": \"Check whether the definition in regulation 5.2 has a limited contextual scope before adopting it throughout the ontology.\",\n  \"legislative_basis\": [\n    \"TMR1995/r5.2\",\n    \"TMA1995/s27\"\n  ],\n  \"pref_label\": \"trade mark application\",\n  \"definition_ref\": \"TMR1995/r5.2/trade-mark-application\",\n  \"reasoning\": \"The Regulations expressly define the term, and section 27 supplies the application requirements and required contents. The application is best treated as an instrument or record, rather than the act of filing or the trade mark sought to be registered. No existing concept covers the general application: divisional and convention applications are more specific concepts, while examination, acceptance and amendment concern its processing. The regulatory definition is substantive rather than merely a direction to another definition, so it is retained as the definition quote.\",\n  \"not_labels\": [\n    \"trade mark\",\n    \"divisional application\",\n    \"convention application\",\n    \"examination\",\n    \"amendment of an application\"\n  ],\n  \"group\": \"instrument_or_record\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "ebaed5ae8523c4217fc4915161a5e08315fca8587c133d0cecb6911b1ccc95f2",
+ "response_id": "resp_0596c044e72324be006ac5fca2ae7487d2945006621dfaebc7",
+ "seconds": 29.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2985,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2982
+  },
+  "output_tokens": 491,
+  "output_tokens_details": {
+   "reasoning_tokens": 96
+  },
+  "total_tokens": 3476
+ }
+}

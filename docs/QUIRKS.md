@@ -1284,3 +1284,19 @@ the cap counts them — $0.049 of the $1.
 short GETs, so no single request lives long. Background mode needs `store: true`;
 the stored response holds only published corpus text (ADR-0088). The submit is
 never retried, so a failure there cannot double-bill.
+
+---
+### Q-67 — the flex tier can be unavailable for long stretches; the Batch API is the same price
+
+On 2026-10-07 from about 07:59 UTC, `gpt-6.1-sol` on `service_tier: flex` failed
+almost every request with `server_is_overloaded`, for over ten minutes and through
+five retries with waits of up to five minutes. A failed request costs nothing, but a
+run cannot finish on it. The standard tier would work and costs twice as much — more
+than the owner's approved cap.
+
+**The Batch API charges what flex charges** ($1 in, $5 out per million tokens for
+`gpt-6.1-sol` on 2026-10-07) and runs on its own capacity. `tmk-bulk run --tier batch`
+uploads the requests as one file, polls the batch, and records each answer in the
+ledger exactly as a direct call would. The KB SOP's warning applies: its first build
+found a batch transport ignoring the JSON schema, so the batch output goes through the
+same `accept()` checks, and a batch smoke run was read before any full run.

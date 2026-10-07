@@ -1,17 +1,18 @@
 # `tmk-bulk run define` — New concepts (with their group) for defined terms no record covers
 
-Prompt `define-v1` · model `gpt-6.1-sol` · effort `medium` · tier `flex` · 3 of 104 items · written: no
+Prompt `define-v2` · model `gpt-6.1-sol` · effort `medium` · tier `flex` · 4 of 46 items · written: no
 
-**3 calls, 2 judgements proposed, 2 accepted, 1 refused.** This run spent $0.0088; recorded spend across every job $0.0935 of the $1.00 cap.
+**4 calls, 2 judgements proposed, 2 accepted, 2 refused.** This run spent $0.0087; recorded spend across every job $0.1894 of the $6.60 cap.
 
 Everything accepted is machine-written and unreviewed; nothing here was read by an expert.
 
 | Item | Input tokens | Reasoning tokens | Output tokens | Cost | Proposed | Accepted |
 |---|---|---|---|---|---|---|
-| `accredited course of study` | 1877 | 81 | 411 | $0.0044 | 1 | 1 |
-| `AFS request` | 1860 | 111 | 415 | $0.0044 | 1 | 1 |
+| `trade mark application` | 2985 | 96 | 491 | $0.0026 | 1 | 1 |
+| `holder` | 2710 | 136 | 548 | $0.0061 | 1 | 1 |
 
 ## Refused — and why
 
-- action period: response not parseable (status failed)
+- international registration: response not parseable (status failed)
+- statement of grounds and particulars: response not parseable (status failed)
 

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006127,
+ "created_utc": "2026-10-07T08:01:48Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "holder",
+ "job": "define",
+ "key": "177e783c8960a9164188ad4ab2626acb56ac0318c85afe97e81664fba878d3ee",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"If a complete statutory definition is required before creating the concept, defer inclusion until the remainder of regulation 17A.2 is supplied.\",\n  \"definition_quote\": \"Reg 17A.16 Examination of IRDA – report to holder Reg 17A.17 Examination – holder’s response to report Reg 17A.18 Examination – further response to holder\",\n  \"alt_labels\": [],\n  \"confidence\": 0.84,\n  \"is_concept\": true,\n  \"basis\": \"corpus_inferred\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: In the international-registration examination context, the holder is the party to whom examination reports are directed and who responds to those reports.\",\n  \"expert_should_check\": \"Check the complete definition in regulation 17A.2: the supplied statutory passage stops at ‘holder means:’ and does not establish precisely who qualifies as the holder.\",\n  \"legislative_basis\": [\n    \"TMR1995/r17A.2\",\n    \"TMR1995/r17A.17\"\n  ],\n  \"pref_label\": \"holder\",\n  \"definition_ref\": \"TMM/Part27/x-relevant-legislation26#1\",\n  \"reasoning\": \"The Regulations expressly introduce a definition of holder, although its substance is missing from the supplied passage. The Manual’s legislative-reference list identifies the holder as the recipient of reports and the responding party in examination of an IRDA, supporting a distinct process role. The supplied material does not establish equivalence with the existing applicant or registered owner concepts. Uses concerning business names and copyright are separate contexts, not evidence of the international-registration meaning. The quoted Manual text identifies procedural provisions; it is not itself legislation or a complete legal definition.\",\n  \"not_labels\": [\n    \"applicant\",\n    \"registered owner\",\n    \"copyright holder\",\n    \"holder of a business name\"\n  ],\n  \"group\": \"process_role\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "eddaa86321abfad2ed6a8d6c044f3f8e7568e40336ed461aa382dffea9b0aaab",
+ "response_id": "resp_0b78883b3f33228d006ac5fc5ab34c87d2bca27c9501e80062",
+ "seconds": 18.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2710,
+  "input_tokens_details": {
+   "cache_write_tokens": 2707,
+   "cached_tokens": 0
+  },
+  "output_tokens": 548,
+  "output_tokens_details": {
+   "reasoning_tokens": 136
+  },
+  "total_tokens": 3258
+ }
+}
