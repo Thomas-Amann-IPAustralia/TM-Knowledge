@@ -4882,3 +4882,56 @@ ref, in the store.
    person signed carry no envelope, so their quote comes from the unreviewed
    typing — which is exactly the sort of blur ADR-0080 exists to prevent, and why
    `from` is a required field rather than a nicety.
+
+## ADR-0109 — the project is a pitch, and a working demonstrator soon outranks completeness
+
+**Date** 2026-10-07 · **Authority** human · **Status** accepted
+
+**Context.** The owner, in a chat session, after building a second project with
+Claude Code from concept to working prototype quickly and committing the method
+as `docs/KB-SOP.md`:
+
+> *"I've been getting frustrated by the slow progress of developing this
+> ontology. […] this whole project is to merely pitch the concept and demonstrate
+> the value of implementing an ontology for the TM Manual. Because of this, we
+> don't need to have every single nuance and complication addressed. I really
+> just need a system that works (and SOON!)"*
+
+Words in full at `review/returned/261007-owner-chat-pitch-purpose.md`; ruling at
+`review/rulings/2026-10-07-chat-pitch-purpose.yaml`.
+
+The measured state when it was said: 22 merged pull requests since 2026-08-03,
+content records added in 4 of them; 108 ADRs; a read order of about 8,000 lines
+before a session acts; 0 authored relationships and a graph in 44 pieces; no search or
+retrieval code at all — the stages that would show an ontology's value.
+
+**Decision (owner).**
+
+- The project's purpose is **a pitch**: to demonstrate the value of an ontology
+  for the Trade Marks Manual. It is not, for now, the production programme the
+  roadmap describes.
+- **A working system, soon, outranks completeness.** Where a nuance or a
+  complication can be left unresolved without making the demonstrator wrong or
+  dishonest, it is left, and the record says it was left.
+
+**What this does not decide.** It changes no hard rule in `CLAUDE.md`. Every
+guard on provenance stands — the unreviewed stamp, `approved_by` never filled by
+an agent, the frozen 190, the Act and the Manual kept apart, no examination
+outcome stated — because a demonstrator that blurs what an expert signed with
+what a machine wrote is not a smaller version of this system but a different and
+worse one. The owner asked for *suggestions* on process rather than issuing
+them; they are in `docs/PITCH-PROPOSAL.md` and none is adopted until the owner
+chooses (OQ-0028).
+
+**Consequences.**
+
+1. **HANDOFF's next action is the demonstrator**, not the old list. Work that
+   serves the production programme but not the pitch — the expert-review
+   apparatus, new rounds of owner questions, Stage 10 — waits; it is parked, not
+   deleted.
+2. **"Not every nuance" is a priority rule, not a licence.** A session may leave a
+   hard case open and say so in the record; it may not paper over one. The
+   difference is the same one rule 6 already draws.
+3. **Until OQ-0028 is answered, the process in `CLAUDE.md` §3 still applies** in
+   full. A session that slims it on the strength of this ADR alone is acting on a
+   proposal, not on a decision.
