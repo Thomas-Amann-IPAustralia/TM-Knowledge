@@ -1025,7 +1025,8 @@ def _build_questions(
                 # which is what it looked like until OQ-0002 settled it. Asked of
                 # the signed vocabulary only: since ADR-0079 a machine may write a
                 # concept carrying the label (GC-0154 "deceptively similar"), and
-                # writing a concept must never change what a signed question says.
+                # writing a concept must never change what a signed question says
+                # (ADR-0116).
                 boundary = excluded.get(label.casefold(), ())
                 if boundary:
                     graph.add((node, TMK.expectsBoundaryLabel, _en(label)))

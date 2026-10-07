@@ -5107,3 +5107,28 @@ the spend ledger stays complete.
 system would be keyword search under another name, so `pools` and `answer` refuse
 to run. The site does not need them — it reads the answers and results the runs
 committed.
+
+## ADR-0116 — a signed question's boundary is judged against the signed vocabulary only
+
+**Date** 2026-10-07 · **Authority** derived · **Status** accepted ·
+**Refines how ADR-0075 is built; does not change the ruling**
+
+**Context.** The owner ruled on OQ-0002 that "deceptively similar", which CQ-0007
+expects and three signed concepts exclude as a not-label, is the boundary the
+question tests (ADR-0075). The build applied that by asking whether *any* concept
+carried the label. On 2026-10-07 `define` wrote GC-0154 "deceptively similar" (the
+section 44 term, machine-written, unreviewed), the answer flipped, and the
+boundary triples left the approved graph on the next rebuild. The existing test
+caught it. A first fix that applied the boundary whenever any concept excluded a
+label turned 30 ordinary expected labels into boundaries, so the rule needs the
+signed/authored line, not a looser match.
+
+**Decision.** A signed competency question's expected label is a boundary when no
+*signed* concept carries it and some concept excludes it. The question still
+points at a machine-written concept carrying the label, through the deliberate
+crossing `_concept_labels` documents, and that concept keeps its own origin.
+
+**Consequences.** Writing a concept can add a pointer from a signed question to
+it, but can never remove what the owner ruled. The approved graph after the
+whole-Manual runs differs from before them by that one pointer (CQ-0007 →
+GC-0154).
