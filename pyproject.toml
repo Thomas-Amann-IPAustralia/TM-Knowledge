@@ -57,6 +57,7 @@ tmk-flags = "tm_knowledge.ontology.cli:flags"
 tmk-dashboard = "tm_knowledge.dashboard.cli:dashboard"
 tmk-ruling = "tm_knowledge.dashboard.cli:ruling"
 tmk-bulk = "tm_knowledge.bulk.cli:main"
+tmk-explorer = "tm_knowledge.explorer.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/Thomas-Amann-IPAustralia/TM-Knowledge"
