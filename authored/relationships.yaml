@@ -1,0 +1,597 @@
+# Relationships between concepts, written by a model, unreviewed, signed by nobody
+# (ADR-0079, ADR-0110, ADR-0111).
+#
+# Written by `tmk-bulk run relate`: the model judged candidate pairs of concepts that
+# the Manual mentions together (`data/derived/links/pairs.json`), and code located
+# every quote verbatim in the pinned snapshot and computed its span and hash.
+# `predicate: broader` and `related` are SKOS relations; the rest are the approved
+# relation dictionary's. **No expert has read any of this.**
+- id: GR-0059
+  subject: GC-0001
+  predicate: mayGiveRiseTo
+  object: GC-0003
+  source_ref: TMM/Part29/5/5/6~1
+  supporting_text: An examiner will need to consider whether the presence of an INN stem in
+    a word is “meaningful” enough to give rise to a connotation leading to likely deception
+    or confusion under section 43.
+  span:
+  - 0
+  - 191
+  source_content_hash: sha256:66817de6196f7150720015e718aecdc209059307b7d11869b0767ecd18e8e89a
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/5/5/6~1
+      span:
+      - 0
+      - 191
+      content_hash: sha256:66817de6196f7150720015e718aecdc209059307b7d11869b0767ecd18e8e89a
+      quote: An examiner will need to consider whether the presence of an INN stem in a word
+        is “meaningful” enough to give rise to a connotation leading to likely deception or
+        confusion under section 43.
+    confidence: 0.97
+    reasoning: The Manual expressly connects a meaningful INN-stem connotation with likely
+      deception. This supports a possible causal relationship, not a claim that every connotation
+      is deceptive.
+    alternatives_considered:
+    - 'requiresElement: deception requires a connotation in every context.'
+    expert_should_check: Whether the relationship should be restricted explicitly to meaningful
+      INN-stem connotations.
+- id: GR-0060
+  subject: GC-0053
+  predicate: requiresElement
+  object: GC-0001
+  source_ref: TMM/Part29/3#1~2
+  supporting_text: For a ground for rejection to be raised the connotation must be obvious,
+    direct, and immediate and within the trade mark itself.
+  span:
+  - 1086
+  - 1214
+  source_content_hash: sha256:e910adb71eb7f1d52d06e37ed7b46dc618fcc4f6c6df770466fce554ec158e85
+  tier: 3
+  modality: must
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/3#1~2
+      span:
+      - 1086
+      - 1214
+      content_hash: sha256:e910adb71eb7f1d52d06e37ed7b46dc618fcc4f6c6df770466fce554ec158e85
+      quote: For a ground for rejection to be raised the connotation must be obvious, direct,
+        and immediate and within the trade mark itself.
+    confidence: 0.98
+    reasoning: The Manual expressly makes a connotation with specified characteristics necessary
+      for raising the ground discussed here. This records section 43 examination practice,
+      not a requirement for every ground for rejection.
+    alternatives_considered:
+    - 'mayGiveRiseTo: a connotation merely makes a ground for rejection possible.'
+    expert_should_check: Whether the ground-for-rejection record can preserve the section
+      43 limitation.
+- id: GR-0061
+  subject: GC-0008
+  predicate: statesThresholdFor
+  object: GC-0001
+  source_ref: TMM/Part29/3/3/1~1
+  supporting_text: There must be a real and obvious danger of the buying public being deceived
+    and/or confused by the secondary meaning within the trade mark.
+  span:
+  - 0
+  - 139
+  source_content_hash: sha256:20e9513b402bf082b2df83f8f7f0c9c9631b4ffbb949ecb0422e39cceb3341e8
+  tier: 3
+  modality: must
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part29/3/3/1~1
+      span:
+      - 0
+      - 139
+      content_hash: sha256:20e9513b402bf082b2df83f8f7f0c9c9631b4ffbb949ecb0422e39cceb3341e8
+      quote: There must be a real and obvious danger of the buying public being deceived and/or
+        confused by the secondary meaning within the trade mark.
+    confidence: 0.88
+    reasoning: The Manual states the required danger threshold for deception or confusion
+      arising from a connotation. I infer the relationship to the anchor through that consequence;
+      the threshold does not govern whether a connotation exists.
+    alternatives_considered:
+    - 'requiresElement: every connotation must itself contain a real and tangible danger.'
+    expert_should_check: Whether statesThresholdFor should target deception or confusion instead
+      of connotation.
+- id: GR-0062
+  subject: GC-0017
+  predicate: mayGiveRiseTo
+  object: GC-0001
+  source_ref: TMM/Part32B/2/2#1
+  supporting_text: 'For example, a geographical reference can connote that: The grapes are
+    grown at that location or within that region; The wine is produced (bottled, packaged,
+    distributed) from that location or within that region; Wine produced at that location
+    or within that region is also sold at that location.'
+  span:
+  - 481
+  - 777
+  source_content_hash: sha256:671892952f127e4e7f895f72e137affe3d6a97e2b2241226928aa3b5216a520f
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part32B/2/2#1
+      span:
+      - 481
+      - 777
+      content_hash: sha256:671892952f127e4e7f895f72e137affe3d6a97e2b2241226928aa3b5216a520f
+      quote: 'For example, a geographical reference can connote that: The grapes are grown
+        at that location or within that region; The wine is produced (bottled, packaged, distributed)
+        from that location or within that region; Wine produced at that location or within
+        that region is also sold at that location.'
+    confidence: 0.99
+    reasoning: The Manual expressly identifies geographical references as capable of conveying
+      connotations about grape origin, wine production or sale. It does not say that every
+      geographical reference necessarily conveys these meanings.
+    alternatives_considered:
+    - 'requiresElement: a geographical connotation requires qualifying words such as “made
+      in”.'
+    expert_should_check: Whether the relationship needs a wine-specific scope.
+- id: GR-0063
+  subject: GC-0032
+  predicate: mayGiveRiseTo
+  object: GC-0001
+  source_ref: TMM/Part29/8/8/1
+  supporting_text: In the case of a generic TLD, the trade mark application needs to be holistically
+    considered, including the relevant specification, when determining whether the material
+    (.SOMETHING) is likely to connote a generic TLD.
+  span:
+  - 265
+  - 483
+  source_content_hash: sha256:3264c706f600642da5ed333d95290b16d856bad2a6b6f6170d7761522bf49c0f
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part29/8/8/1
+      span:
+      - 265
+      - 483
+      content_hash: sha256:3264c706f600642da5ed333d95290b16d856bad2a6b6f6170d7761522bf49c0f
+      quote: In the case of a generic TLD, the trade mark application needs to be holistically
+        considered, including the relevant specification, when determining whether the material
+        (.SOMETHING) is likely to connote a generic TLD.
+    confidence: 0.84
+    reasoning: The Manual recognises that domain-like material can convey a generic-TLD connotation.
+      I infer the relationship to the broader domain-name record from its TLD component, rather
+      than equating acquired trade-origin meaning under section 41 with section 43 connotation.
+    alternatives_considered:
+    - 'same_concept: a domain name and its connotation are the same idea.'
+    expert_should_check: Whether generic-TLD material is sufficiently within the internet-domain-name
+      record to support this broader relationship.
+- id: GR-0064
+  subject: GC-0001
+  predicate: mayGiveRiseTo
+  object: GC-0002
+  source_ref: TMM/Part29/5/5/6~1
+  supporting_text: An examiner will need to consider whether the presence of an INN stem in
+    a word is “meaningful” enough to give rise to a connotation leading to likely deception
+    or confusion under section 43.
+  span:
+  - 0
+  - 191
+  source_content_hash: sha256:66817de6196f7150720015e718aecdc209059307b7d11869b0767ecd18e8e89a
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/5/5/6~1
+      span:
+      - 0
+      - 191
+      content_hash: sha256:66817de6196f7150720015e718aecdc209059307b7d11869b0767ecd18e8e89a
+      quote: An examiner will need to consider whether the presence of an INN stem in a word
+        is “meaningful” enough to give rise to a connotation leading to likely deception or
+        confusion under section 43.
+    confidence: 0.94
+    reasoning: The Manual expressly links a connotation arising from a meaningful INN stem
+      to likely deception or confusion. The selected relationship describes that potential
+      consequence, rather than the examiner's obligation to consider it.
+    alternatives_considered:
+    - requiresElement would treat connotation as a necessary element of the test generally,
+      which this INN-specific passage does not establish.
+    expert_should_check: Whether this INN-specific link should be represented as a general
+      relationship between the concepts.
+- id: GR-0065
+  subject: GC-0002
+  predicate: mayGiveRiseTo
+  object: GC-0053
+  source_ref: TMM/Part29/11#1
+  supporting_text: If during examination of a new application research reveals that a trade
+    mark is identical or similar to a listed EU GI, consideration should then be given to
+    whether or not the use of the trade mark would potentially deceive or confuse Australian
+    consumers and make grounds for rejection under s 43 appropriate.
+  span:
+  - 384
+  - 696
+  source_content_hash: sha256:4c484f11bb81ae9e0b8453152cd0145a12d14fa09ab434e1c68288097f23886a
+  tier: 3
+  modality: should
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/11#1
+      span:
+      - 384
+      - 696
+      content_hash: sha256:4c484f11bb81ae9e0b8453152cd0145a12d14fa09ab434e1c68288097f23886a
+      quote: If during examination of a new application research reveals that a trade mark
+        is identical or similar to a listed EU GI, consideration should then be given to whether
+        or not the use of the trade mark would potentially deceive or confuse Australian consumers
+        and make grounds for rejection under s 43 appropriate.
+    confidence: 0.9
+    reasoning: The Manual connects potential deception or confusion with the appropriateness
+      of section 43 grounds for rejection in the listed EU GI context. Its direction to consider
+      that connection is practice guidance, not a legislative rule.
+    alternatives_considered:
+    - requiresElement would make a stronger statement about the necessary elements of every
+      ground for rejection than this contextual passage supports.
+    expert_should_check: Whether the relationship needs an explicit restriction to the listed
+      EU GI context.
+- id: GR-0066
+  subject: GC-0002
+  predicate: mayGiveRiseTo
+  object: GC-0006
+  source_ref: TMM/Part29/10#1
+  supporting_text: If a trade mark, or some part of the trade mark, contains a reference to
+    Indigenous people and a connotation arises from the mark that would be likely to deceive
+    or confuse consumers within the relevant market, then a ground for rejection under s43
+    should be raised.
+  span:
+  - 0
+  - 266
+  source_content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+  tier: 3
+  modality: should
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/10#1
+      span:
+      - 0
+      - 266
+      content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+      quote: If a trade mark, or some part of the trade mark, contains a reference to Indigenous
+        people and a connotation arises from the mark that would be likely to deceive or confuse
+        consumers within the relevant market, then a ground for rejection under s43 should
+        be raised.
+    confidence: 0.95
+    reasoning: The Manual states that likely deception or confusion from the specified connotation
+      should lead to a section 43 ground for rejection. The relationship is conditional on
+      the Indigenous-reference context and the connotation arising from the mark.
+    alternatives_considered:
+    - requiresElement would recast a contextual instruction to raise a ground as a general
+      statement of necessary elements.
+    expert_should_check: Whether mayGiveRiseTo adequately captures the conditional instruction
+      that a ground should be raised.
+- id: GR-0067
+  subject: GC-0009
+  predicate: qualifies
+  object: GC-0002
+  source_ref: TMM/Part23/2/2/2/2
+  supporting_text: A proposed exclusion may result in the trade mark which has a particular
+    connotation as being likely to deceive or confuse a significant portion of the relevant
+    market (when applied to the goods and/or services that remain).
+  span:
+  - 1452
+  - 1676
+  source_content_hash: sha256:3c86122b3b7c65690104fc43cb2b18de3feb35fbe2870369e1eb5892a8d918b8
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part23/2/2/2/2
+      span:
+      - 1452
+      - 1676
+      content_hash: sha256:3c86122b3b7c65690104fc43cb2b18de3feb35fbe2870369e1eb5892a8d918b8
+      quote: A proposed exclusion may result in the trade mark which has a particular connotation
+        as being likely to deceive or confuse a significant portion of the relevant market
+        (when applied to the goods and/or services that remain).
+    confidence: 0.93
+    reasoning: The passage qualifies likely deception or confusion by reference to a significant
+      portion of the relevant market. This supports treating the market as the relevant audience
+      for the assessment, without asserting a universal quantitative threshold.
+    alternatives_considered:
+    - statesThresholdFor would treat the relevant market itself as a threshold, rather than
+      the population by reference to which deception or confusion is assessed.
+    expert_should_check: Whether the reference to a significant portion is intended to state
+      a broader threshold beyond proposed exclusions.
+- id: GR-0068
+  subject: GC-0011
+  predicate: qualifies
+  object: GC-0002
+  source_ref: TMM/Part29/9/9/3~1
+  supporting_text: There are no other elements in the mark, or surrounding circumstances,
+    which would mitigate the risk of confusion. Surrounding circumstances include the manner
+    in which the goods/services are purchased, the physical characteristics of goods and any
+    other factor which would affect consumer perceptions.
+  span:
+  - 609
+  - 911
+  source_content_hash: sha256:67e2721f9a84ad01289f7b3ee6a65ec86e7be0a016c468e3eb7c3094b6166356
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/9/9/3~1
+      span:
+      - 609
+      - 911
+      content_hash: sha256:67e2721f9a84ad01289f7b3ee6a65ec86e7be0a016c468e3eb7c3094b6166356
+      quote: There are no other elements in the mark, or surrounding circumstances, which
+        would mitigate the risk of confusion. Surrounding circumstances include the manner
+        in which the goods/services are purchased, the physical characteristics of goods and
+        any other factor which would affect consumer perceptions.
+    confidence: 0.94
+    reasoning: The Manual identifies surrounding circumstances as potentially mitigating the
+      risk of confusion and affecting consumer perceptions. This supports their role as a
+      qualifying factor, although the quoted opening sentence is part of a larger, truncated
+      discussion.
+    alternatives_considered:
+    - related_to would capture the connection but omit the more specific role of surrounding
+      circumstances in mitigating the risk.
+    expert_should_check: Whether the omitted preceding context limits the mitigating role
+      described here.
+- id: GR-0069
+  subject: GC-0003
+  predicate: mayGiveRiseTo
+  object: GC-0006
+  source_ref: TMM/Part29/10#1
+  supporting_text: If a trade mark, or some part of the trade mark, contains a reference to
+    Indigenous people and a connotation arises from the mark that would be likely to deceive
+    or confuse consumers within the relevant market, then a ground for rejection under s43
+    should be raised.
+  span:
+  - 0
+  - 266
+  source_content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+  tier: 3
+  modality: should
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/10#1
+      span:
+      - 0
+      - 266
+      content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+      quote: If a trade mark, or some part of the trade mark, contains a reference to Indigenous
+        people and a connotation arises from the mark that would be likely to deceive or confuse
+        consumers within the relevant market, then a ground for rejection under s43 should
+        be raised.
+    confidence: 0.96
+    reasoning: The Manual expressly connects a connotation likely to deceive or confuse with
+      raising a section 43 ground for rejection. This is conditional examination practice
+      concerning Indigenous references, not a statement that deception invariably produces
+      a ground.
+    alternatives_considered:
+    - 'requiresElement: the passage does not state a general requirement for every ground
+      for rejection.'
+    expert_should_check: Whether the combined reference to deception or confusion can safely
+      be represented by the deception anchor alone.
+- id: GR-0070
+  subject: GC-0003
+  predicate: mayGiveRiseTo
+  object: GC-0053
+  source_ref: TMM/Part29/11#1
+  supporting_text: If during examination of a new application research reveals that a trade
+    mark is identical or similar to a listed EU GI, consideration should then be given to
+    whether or not the use of the trade mark would potentially deceive or confuse Australian
+    consumers and make grounds for rejection under s 43 appropriate.
+  span:
+  - 384
+  - 696
+  source_content_hash: sha256:4c484f11bb81ae9e0b8453152cd0145a12d14fa09ab434e1c68288097f23886a
+  tier: 3
+  modality: should
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/11#1
+      span:
+      - 384
+      - 696
+      content_hash: sha256:4c484f11bb81ae9e0b8453152cd0145a12d14fa09ab434e1c68288097f23886a
+      quote: If during examination of a new application research reveals that a trade mark
+        is identical or similar to a listed EU GI, consideration should then be given to whether
+        or not the use of the trade mark would potentially deceive or confuse Australian consumers
+        and make grounds for rejection under s 43 appropriate.
+    confidence: 0.93
+    reasoning: The Manual connects potential deception or confusion arising from a listed
+      EU GI with the possible appropriateness of section 43 grounds. It directs consideration,
+      not automatic raising of a ground.
+    alternatives_considered:
+    - 'requiresElement: this passage directs consideration of a possible ground rather than
+      prescribing its necessary elements generally.'
+    expert_should_check: Whether the relationship needs an explicit scope restriction to the
+      listed EU GI context.
+- id: GR-0071
+  subject: GC-0008
+  predicate: statesThresholdFor
+  object: GC-0003
+  source_ref: TMM/Part29/3/3/1~1
+  supporting_text: There must be a real and obvious danger of the buying public being deceived
+    and/or confused by the secondary meaning within the trade mark.
+  span:
+  - 0
+  - 139
+  source_content_hash: sha256:20e9513b402bf082b2df83f8f7f0c9c9631b4ffbb949ecb0422e39cceb3341e8
+  tier: 3
+  modality: must
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/3/3/1~1
+      span:
+      - 0
+      - 139
+      content_hash: sha256:20e9513b402bf082b2df83f8f7f0c9c9631b4ffbb949ecb0422e39cceb3341e8
+      quote: There must be a real and obvious danger of the buying public being deceived and/or
+        confused by the secondary meaning within the trade mark.
+    confidence: 0.98
+    reasoning: The Manual expressly states the required danger threshold for deception or
+      confusion arising from the trade mark's secondary meaning. The threshold concerns prospective
+      deception, not proof that deception has actually occurred.
+    alternatives_considered:
+    - 'same_concept: a danger threshold is not the same concept as deception itself.'
+    expert_should_check: Whether the ontology should attach this threshold to likelihood of
+      deception rather than to deception broadly.
+- id: GR-0072
+  subject: GC-0017
+  predicate: qualifies
+  object: GC-0003
+  source_ref: TMM/Part32B/2/2#1
+  supporting_text: If a geographical reference is included, but also has other meanings and
+    / or associations, this should be considered as part of assessing whether there is a real
+    likelihood of deception or confusion.
+  span:
+  - 949
+  - 1149
+  source_content_hash: sha256:671892952f127e4e7f895f72e137affe3d6a97e2b2241226928aa3b5216a520f
+  tier: 3
+  modality: should
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part32B/2/2#1
+      span:
+      - 949
+      - 1149
+      content_hash: sha256:671892952f127e4e7f895f72e137affe3d6a97e2b2241226928aa3b5216a520f
+      quote: If a geographical reference is included, but also has other meanings and / or
+        associations, this should be considered as part of assessing whether there is a real
+        likelihood of deception or confusion.
+    confidence: 0.88
+    reasoning: The Manual directs consideration of a geographical reference's other meanings
+      or associations when assessing the likelihood of deception or confusion. I infer a qualifying
+      relationship to the broad deception anchor; the sentence directly addresses its assessment.
+    alternatives_considered:
+    - 'mayGiveRiseTo: although geographical references can contribute to deceptive connotations,
+      this sentence more specifically makes their other meanings relevant to the likelihood
+      assessment.'
+    expert_should_check: Whether qualifies should link the geographical reference itself or
+      a separate concept for its alternative meanings.
+- id: GR-0073
+  subject: GC-0028
+  predicate: mayGiveRiseTo
+  object: GC-0003
+  source_ref: TMM/Part29/9/9/7
+  supporting_text: The inclusion of such material may result in ordinary consumers being deceived
+    and confused on the basis of incorrectly believing that the trade mark indicates an endorsement
+    or approval from the party or parties that own and have control over the well- known material.
+  span:
+  - 166
+  - 435
+  source_content_hash: sha256:4a152ff8e285012f7bc44941664602f7d5ebbe7775f61faa73472e1827a6bc60
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/9/9/7
+      span:
+      - 166
+      - 435
+      content_hash: sha256:4a152ff8e285012f7bc44941664602f7d5ebbe7775f61faa73472e1827a6bc60
+      quote: The inclusion of such material may result in ordinary consumers being deceived
+        and confused on the basis of incorrectly believing that the trade mark indicates an
+        endorsement or approval from the party or parties that own and have control over the
+        well- known material.
+    confidence: 0.96
+    reasoning: The Manual expressly identifies an incorrect belief in endorsement or approval
+      as a possible basis for consumer deception and confusion. The relationship is limited
+      to a misleading implication, not endorsement generally.
+    alternatives_considered:
+    - 'is_kind_of: implied endorsement is a possible basis for deception, not necessarily
+      a type of deception in itself.'
+    expert_should_check: Whether the implied endorsement record is restricted to falsely implied
+      endorsement, as this relationship requires.

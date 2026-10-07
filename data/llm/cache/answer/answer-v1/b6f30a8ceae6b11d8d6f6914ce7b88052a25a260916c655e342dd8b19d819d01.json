@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010279,
+ "created_utc": "2026-10-07T07:21:05Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0001",
+ "job": "answer",
+ "key": "b6f30a8ceae6b11d8d6f6914ce7b88052a25a260916c655e342dd8b19d819d01",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0001\", \"GC-0002\", \"GC-0005\", \"GC-0006\", \"GC-0009\", \"GC-0012\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part29/10#1\",\n      \"quote\": \"If a trade mark, or some part of the trade mark, contains a reference to Indigenous people and a connotation arises from the mark that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection under s43 should be raised.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/2/2/1~1\",\n      \"quote\": \"Connotation is not defined in the Trade Marks Act 1995 (the Act). The meaning for practical purposes has been taken from the ordinary dictionary definitions as set out below:\"\n    },\n    {\n      \"ref\": \"TMM/Part29/2/2/1~1\",\n      \"quote\": \"It is clear from these definitions that the word connotation refers to something implied in a trade mark, in addition to its essential or primary meaning. This has been supported and expanded upon by various Hearings decisions and the courts. In respect of section 43, connotation has a wide meaning beyond the above definitions and includes direct statements.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/2/2/1~1\",\n      \"quote\": \"In Mount Everest Mineral Water Limited v Himalayan Spring Mineral Water [2010] ATMO 85, Hearing Officer Wilson stated: if a trade mark consists of a direct statement that the goods will originate from a particular region or outlines the nature of the goods, and there is scope within the goods/services for that statement to be misdescriptive, confusion will result.\"\n    }\n  ],\n  \"answer\": \"**Test — Manual practice:** The supplied Manual passages frame the enquiry as whether a connotation arising from the trade mark would be likely to deceive or confuse consumers within the relevant market. The express formulation supplied concerns references to Indigenous people; it directs that a section 43 ground for rejection should then be raised. [TMM/Part29/10#1]\\n\\n**Meaning and source of ‘connotation’:** The Manual says the Act does not define it. Its practical meaning comes from dictionary definitions: something implied in addition to the mark’s essential or primary meaning. The Manual says hearings decisions and courts have expanded that meaning, and that section 43 connotation includes direct statements. It illustrates this with *Mount Everest Mineral Water Limited v Himalayan Spring Mineral Water* [2010] ATMO 85, concerning potentially misdescriptive statements about origin or the nature of goods. [TMM/Part29/2/2/1~1]\\n\\n**Limit of these sources:** These are Manual statements of practice and explanation, not the legislative text. No passage reproduces section 43 of the Act or any relevant Regulation. Consequently, the supplied passages do not establish the exact statutory test or the judicial origin of the complete test; they establish the Manual’s formulation and its explanation of ‘connotation’.\"\n}",
+ "prompt_version": "answer-v1",
+ "request_sha256": "19d67176e6ae5b0972d41be03031e2e855cffdc60fc67329c75dd2aeafd0dd09",
+ "response_id": "resp_0f264f9c350a7954006ac5f2cf00cc87d2962fd631f7f45a30",
+ "seconds": 19.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5176,
+  "input_tokens_details": {
+   "cache_write_tokens": 5173,
+   "cached_tokens": 0
+  },
+  "output_tokens": 762,
+  "output_tokens_details": {
+   "reasoning_tokens": 83
+  },
+  "total_tokens": 5938
+ }
+}

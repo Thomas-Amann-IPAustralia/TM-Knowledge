@@ -1,0 +1,208 @@
+note: Everyday phrasings per concept, written by a model for search only. Unreviewed, general
+  knowledge, never shown as legal content (ADR-0111).
+aliases:
+- concept: GC-0001
+  everyday_phrases:
+  - hidden meaning
+  - suggested meaning
+  - what it implies
+  - what it suggests
+  - meaning behind name
+  - brand name implication
+  related_search_terms:
+  - trade mark connotation
+  - implied representation
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0002
+  everyday_phrases:
+  - could mislead customers
+  - likely to mislead
+  - could confuse buyers
+  - misleading brand name
+  - customers getting confused
+  - risk of misleading
+  related_search_terms:
+  - section 43
+  - probability of deception
+  - likelihood of consumer confusion
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0003
+  everyday_phrases:
+  - misleading customers
+  - tricking buyers
+  - false claim
+  - telling customers lies
+  - untrue brand claim
+  - giving false information
+  related_search_terms:
+  - false representation
+  - consumer deception
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0004
+  everyday_phrases:
+  - confusing customers
+  - puzzled buyers
+  - making buyers wonder
+  - unsure what it means
+  - customer uncertainty
+  - confusing brand name
+  related_search_terms:
+  - consumer confusion
+  - probability of confusion
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0005
+  everyday_phrases:
+  - dictionary meaning
+  - basic meaning
+  - what it literally means
+  - plain meaning
+  - word meaning
+  - actual meaning
+  related_search_terms:
+  - literal meaning
+  - direct meaning
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0006
+  everyday_phrases:
+  - reason for rejection
+  - why marks get rejected
+  - registration refusal reason
+  - grounds to refuse
+  - reason to refuse
+  - registration barrier
+  related_search_terms:
+  - grounds of refusal
+  - sections 39 to 44
+  - section 43
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0007
+  everyday_phrases:
+  - presumed registrable
+  - assumed registrable
+  - registration starting point
+  - register unless barred
+  - default registration position
+  related_search_terms:
+  - registrability
+  - section 43 presumption
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0008
+  everyday_phrases:
+  - real risk
+  - serious confusion risk
+  - actual danger
+  - more than possible
+  - genuine risk
+  - not just speculation
+  related_search_terms:
+  - probability of deception
+  - danger of consumer confusion
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0009
+  everyday_phrases:
+  - target customers
+  - who buys it
+  - likely buyers
+  - customer group
+  - people buying it
+  - Australian buyers
+  related_search_terms:
+  - relevant consumers
+  - market perception
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0010
+  everyday_phrases:
+  - typical customer
+  - everyday shopper
+  - normal buyer
+  - regular customer
+  - what shoppers think
+  - typical buyer
+  related_search_terms:
+  - consumer perception
+  - ordinary purchaser
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0011
+  everyday_phrases:
+  - whole situation
+  - wider context
+  - other factors
+  - context matters
+  - everything around it
+  - overall circumstances
+  related_search_terms:
+  - context of use
+  - circumstances affecting deception
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.
+- concept: GC-0012
+  everyday_phrases:
+  - product list
+  - services list
+  - what registration covers
+  - goods covered
+  - services covered
+  - listed products
+  related_search_terms:
+  - goods and services specification
+  - specification wording
+  method: model
+  model: gpt-6.1-sol
+  date: '2026-10-07'
+  basis: general_knowledge
+  review_status: unreviewed
+  note: A search aid — how someone might ask — never legal content.

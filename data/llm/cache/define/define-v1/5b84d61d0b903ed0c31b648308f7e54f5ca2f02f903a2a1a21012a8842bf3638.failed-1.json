@@ -1,0 +1,20 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T07:11:51Z",
+ "effort": "medium",
+ "incomplete_details": null,
+ "item": "action period",
+ "job": "define",
+ "key": "5b84d61d0b903ed0c31b648308f7e54f5ca2f02f903a2a1a21012a8842bf3638",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v1",
+ "request_sha256": "b14d278057957ce0a81224f0525aaa59c7c206b08db17c4827a5b08b033dd29a",
+ "response_id": "resp_0f72d504f1b1528f006ac5f0b4746087d2b8edb76a0ecc8656",
+ "seconds": 4.1,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

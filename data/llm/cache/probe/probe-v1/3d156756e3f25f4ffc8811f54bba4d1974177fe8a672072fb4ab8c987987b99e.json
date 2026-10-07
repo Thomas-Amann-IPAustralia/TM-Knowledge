@@ -1,0 +1,30 @@
+{
+ "cost_usd": 0.000212,
+ "created_utc": "2026-10-07T07:07:39Z",
+ "effort": "low",
+ "incomplete_details": null,
+ "item": "tiny-default",
+ "job": "probe",
+ "key": "3d156756e3f25f4ffc8811f54bba4d1974177fe8a672072fb4ab8c987987b99e",
+ "max_output_tokens": 600,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"answer\":\"Blue\"}",
+ "prompt_version": "probe-v1",
+ "request_sha256": "7713bfc12e1da97b5397a2c69f048b1410f70f2e6e09a0de6aeaf0638290717f",
+ "seconds": 5.4,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 46,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 12,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 58
+ }
+}

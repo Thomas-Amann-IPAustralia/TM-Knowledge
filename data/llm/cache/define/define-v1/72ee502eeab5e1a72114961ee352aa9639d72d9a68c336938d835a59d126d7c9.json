@@ -1,0 +1,31 @@
+{
+ "cost_usd": 0.004399,
+ "created_utc": "2026-10-07T07:12:10Z",
+ "effort": "medium",
+ "incomplete_details": null,
+ "item": "AFS request",
+ "job": "define",
+ "key": "72ee502eeab5e1a72114961ee352aa9639d72d9a68c336938d835a59d126d7c9",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"procedural_step may fit if subregulation 3A.3(1) establishes that the request initiates or advances a procedure.\",\n  \"definition_quote\": \"AFS request has the meaning given by subregulation 3A.3(1).\",\n  \"alt_labels\": [],\n  \"confidence\": 0.8,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: AFS request is a defined term in the Regulations, with its meaning assigned by subregulation 3A.3(1), which is not supplied here.\",\n  \"expert_should_check\": \"Check subregulation 3A.3(1) for the substantive meaning, any expansion of AFS, the appropriate group and possible overlap with existing concepts.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"AFS request\",\n  \"definition_ref\": \"TMR1995/r2.1/afs-request\",\n  \"reasoning\": \"The passage expressly recognises a defined legislative term, supporting a distinct concept rather than a generic phrase. No existing concept expressly covers it. However, the cross-reference alone does not establish its substance or procedural function, so classification remains uncertain. No PROVISIONS were supplied for legislative_basis.\",\n  \"not_labels\": [],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v1",
+ "request_sha256": "7da352d21ed2edf55c0271337b0d66aa07bb817aff66b29939fbf4178907e8d5",
+ "response_id": "resp_0f6fb8e74ab5aff2006ac5f0b8909087d288350b28b62ac0bb",
+ "seconds": 19.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1860,
+  "input_tokens_details": {
+   "cache_write_tokens": 1857,
+   "cached_tokens": 0
+  },
+  "output_tokens": 415,
+  "output_tokens_details": {
+   "reasoning_tokens": 111
+  },
+  "total_tokens": 2275
+ }
+}

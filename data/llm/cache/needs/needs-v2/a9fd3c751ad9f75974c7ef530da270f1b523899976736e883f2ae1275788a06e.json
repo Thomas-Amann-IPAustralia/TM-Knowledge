@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004133,
+ "created_utc": "2026-10-07T07:18:33Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-001",
+ "job": "needs",
+ "key": "a9fd3c751ad9f75974c7ef530da270f1b523899976736e883f2ae1275788a06e",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must identify the Act provisions listed for collective trade marks and the relevant Regulations provision. It must distinguish the legislative references from the Manual's listing of them.\",\"search\":\"collective trade mark relevant legislation Australia\",\"seed_refs\":[\"TMM/Part33/x-relevant-legislation27#1\"],\"kind\":\"lookup\",\"question\":\"Which provisions of the Australian trade marks legislation cover collective trade marks?\"},{\"narrative\":\"A helpful answer must explain the Registrar's power to require production of documents relevant to proceedings and that a party may request its exercise. It must also explain the distinction between production and discovery, without suggesting that a request will necessarily be granted.\",\"search\":\"get documents from other party trade mark proceedings\",\"seed_refs\":[\"TMM/Part54/3#1\"],\"kind\":\"problem\",\"question\":\"I need documents from the other side in proceedings before the Registrar; can I ask the Registrar to make them hand those documents over?\"},{\"narrative\":\"A helpful answer must explain how the relationship between goods and services and the degree of resemblance between marks bear on the confusion assessment described in the cited case discussion. It must also cover the Manual's practice of restricting a specification or limiting use through an endorsement, without predicting whether either step would resolve a particular objection.\",\"search\":\"similar trade marks goods services confusion limit goods or use\",\"seed_refs\":[\"TMM/Part26/4/4/3~1\",\"TMM/Part14/6/6/4/4\"],\"kind\":\"cross_part\",\"question\":\"How does the relationship between goods and services affect confusion between similar marks, and could narrowing my goods list or limiting how I use my mark help address it?\"},{\"narrative\":\"A helpful answer must explain the restriction attributed to regulation 4.8(3) on commercially unrealistic ranges of goods or services. It must distinguish that restriction from the Manual's practice of asking the applicant for a declaration of intention to use or a narrower specification.\",\"search\":\"trade mark goods list too broad declaration narrow list\",\"seed_refs\":[\"TMM/Part14/6/6/6\"],\"kind\":\"impact\",\"question\":\"If my trade mark application lists an unrealistically broad range of goods, what might I be asked to provide or change?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "f8c4349e27db2157f887f69a78072dbd51078ce9e04dcd19859fe8d6a6d6bb93",
+ "response_id": "resp_0aa177f7a39088d3006ac5f23ea84087d2b0ebed42503ba42b",
+ "seconds": 12.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1427,
+  "input_tokens_details": {
+   "cache_write_tokens": 1424,
+   "cached_tokens": 0
+  },
+  "output_tokens": 470,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 1897
+ }
+}
