@@ -40,7 +40,7 @@ import tempfile
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any, Container, Iterable
 
 from rdflib import Dataset, Graph, Literal, URIRef
 from rdflib.namespace import DCTERMS, OWL, PROV, RDF, RDFS, SKOS, XSD
@@ -991,7 +991,9 @@ def _build_questions(
     counts: StoreReport,
     labels: dict[str, tuple[URIRef, ...]],
     excluded: dict[str, tuple[URIRef, ...]],
+    signed_labels: Container[str] | None = None,
 ) -> None:
+    signed_labels = labels if signed_labels is None else signed_labels
     for record in store.records["competency_question"]:
         node = proposition_node(record["id"])
         graph.add((node, RDF.type, TMK.CompetencyQuestion))
@@ -1016,18 +1018,21 @@ def _build_questions(
             # it would get wrong first is the one GX-0005 is about.
             for concept in labels.get(label.casefold(), ()):
                 graph.add((node, TMK.expectsConcept, concept))
-            if label.casefold() not in labels:
-                # A label no concept carries, but one an approved concept
-                # explicitly excludes, is the question naming the boundary it
-                # tests. Recorded as such rather than counted as a missing
-                # concept, which is what it looked like until OQ-0002 settled it.
+            if label.casefold() not in signed_labels:
+                # A label no signed concept carries, but one a concept explicitly
+                # excludes, is the question naming the boundary it tests.
+                # Recorded as such rather than counted as a missing concept,
+                # which is what it looked like until OQ-0002 settled it. Asked of
+                # the signed vocabulary only: since ADR-0079 a machine may write a
+                # concept carrying the label (GC-0154 "deceptively similar"), and
+                # writing a concept must never change what a signed question says.
                 boundary = excluded.get(label.casefold(), ())
                 if boundary:
                     graph.add((node, TMK.expectsBoundaryLabel, _en(label)))
                     for concept in boundary:
                         graph.add((node, TMK.testsBoundaryOf, concept))
                     counts.boundary_concept_labels.append(f"{record['id']}:{label}")
-                else:
+                elif label.casefold() not in labels:
                     counts.unmatched_concept_labels.append(f"{record['id']}:{label}")
         _origin(graph, node, record, store)
         if record.get("approved_by"):
@@ -1139,6 +1144,7 @@ def _build_store(
     counts: StoreReport,
     labels: dict[str, tuple[URIRef, ...]],
     excluded: dict[str, tuple[URIRef, ...]],
+    signed_labels: Container[str] | None = None,
 ) -> Graph:
     """One store's records as RDF. Run once per store, over the same mapping.
 
@@ -1153,7 +1159,7 @@ def _build_store(
     _build_concepts(graph, store, counts)
     _build_relationships(graph, store, corpus, counts)
     _build_mentions(graph, store, corpus, counts)
-    _build_questions(graph, store, counts, labels, excluded)
+    _build_questions(graph, store, counts, labels, excluded, signed_labels)
     _build_reasoning(graph, store, corpus, counts)
     _build_prohibitions(graph, store, counts)
     return graph
@@ -1201,12 +1207,13 @@ def build(
     # `_concept_labels`).
     labels = _concept_labels(signed, machine)
     excluded = _not_labels(signed, machine)
+    signed_labels = frozenset(_concept_labels(signed))
 
     if chunks is None:
         chunks = source_chunks(corpus, gold, authored)
     source = _build_source(corpus, chunks, report)
-    approved = _build_store(corpus, signed, report.approved, labels, excluded)
-    authored_graph = _build_store(corpus, machine, report.authored, labels, excluded)
+    approved = _build_store(corpus, signed, report.approved, labels, excluded, signed_labels)
+    authored_graph = _build_store(corpus, machine, report.authored, labels, excluded, signed_labels)
 
     in_scope = {
         str(ref) for ref in source.subjects(RDF.type, TMK.Chunk)
