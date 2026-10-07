@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007428,
+ "created_utc": "2026-10-07T12:20:58Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0060",
+ "job": "judge",
+ "key": "e12bf8260825f2b1a4b8a098f07a900e4b7b09ad64c4271dda6d4eee4ffe2f2a",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part28/3/3/6~3\",\"grade\":2},{\"ref\":\"TMM/Part26/6/6/7~1\",\"grade\":1},{\"ref\":\"TMM/Part28/3/3/2/1\",\"grade\":1},{\"ref\":\"TMM/Part28/3/similarity-of-goods-and-services\",\"grade\":2},{\"ref\":\"TMM/Part26/2#1\",\"grade\":2},{\"ref\":\"TMM/Part28/3/geographical-location-of-activities\",\"grade\":2},{\"ref\":\"TMM/Part20/5/5/5/2\",\"grade\":1},{\"ref\":\"TMM/Part28/3/similarity-of-trade-marks\",\"grade\":2},{\"ref\":\"TMM/Part29/3#1~1\",\"grade\":1},{\"ref\":\"TMM/Part23/4/4/8~2\",\"grade\":1},{\"ref\":\"TMM/Part28/3/the-distinctiveness-of-the-trade-mark\",\"grade\":2},{\"ref\":\"TMM/Part29/6/6/2~3\",\"grade\":1},{\"ref\":\"TMM/Part28/3/3/3\",\"grade\":2},{\"ref\":\"TMM/Part29/3/3/1~1\",\"grade\":1},{\"ref\":\"TMM/Part46/4/4/5/2\",\"grade\":2},{\"ref\":\"TMM/Part28/3/3/4~2\",\"grade\":2},{\"ref\":\"TMM/Part28/3/3/4~1\",\"grade\":2},{\"ref\":\"TMM/Part32B/2/4/2/4/2~1\",\"grade\":1},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-consist-of-multiple-given-names\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "5baf54cfb9d936c5929059df1d8bafb31c279385c0e8c4bc670a95dc0cae4f64",
+ "response_id": "resp_0a4f6d033d8a95a4006ac63919bbe087d292bf4e7d6aebde37",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3923,
+  "input_tokens_details": {
+   "cache_write_tokens": 3920,
+   "cached_tokens": 0
+  },
+  "output_tokens": 505,
+  "output_tokens_details": {
+   "reasoning_tokens": 78
+  },
+  "total_tokens": 4428
+ }
+}

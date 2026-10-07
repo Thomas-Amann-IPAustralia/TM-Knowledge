@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003444,
+ "created_utc": "2026-10-07T11:14:59Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0021",
+ "job": "relate",
+ "key": "88741e9073933bec0748f8cfeb54594acc355088c0b4de8c967978f1a0f2ae2e",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Infer a relationship from the Registrar’s general role in administering trade mark applications.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The passages discuss bad faith and amendment procedures, but neither connects the Registrar with geographical qualifiers.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether any of the amendment material expressly concerns geographical qualifiers rather than endorsements generally.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0046\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Infer a relationship from the Registrar of Trade Marks’ general administrative powers.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The passages describe the Registrar’s experience with bad faith and powers concerning amendment requests. They do not support a relationship with geographical qualifiers.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the general endorsement references can support any geographical-qualifier-specific relationship.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0115\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Read the acceptance of terms as a secondary qualifier as applying to geographical qualifiers.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The first passage concerns secondary qualifiers describing related goods, services or activities, not geographical origin. The general acceptance provisions in the second passage do not supply that missing connection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the anchor’s alias ‘qualifier’ is intended to include non-geographical secondary qualifiers; that scope is uncertain.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0093\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Infer that geographical qualifiers affect grounds for rejection from the general acceptance framework.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The passages address certification procedures and the general framework for acceptance and rejection. Neither identifies geographical qualifiers as creating, modifying or overcoming a ground for rejection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether a geographical-qualifier-specific connection exists in these passages rather than elsewhere in the corpus.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0053\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "bed525ec2a4582035ea30e526996cf34d3912aa9c9fa18c18815c936205ecd17",
+ "response_id": "resp_03c17ed907eb261b006ac629a1ca0087d28b7850e1fc94a56a",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3824,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3821
+  },
+  "output_tokens": 650,
+  "output_tokens_details": {
+   "reasoning_tokens": 37
+  },
+  "total_tokens": 4474
+ }
+}

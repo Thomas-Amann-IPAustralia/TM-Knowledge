@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001671,
+ "created_utc": "2026-10-07T11:21:23Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0045",
+ "job": "relate",
+ "key": "528a843f30bd90edd274de4e58b0438f59e97327ccfb19ed399226ebee76c46f",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to, because both roles occur in the revocation procedure.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.96,\"reasoning\":\"The passage assigns separate procedural functions to the decision maker and the holder’s home Office. It does not state or clearly support a relationship between the decision maker and the Contracting Party of the holder.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the shared revocation context supports more than mere co-occurrence of the two roles.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0149\"},{\"quote\":\"The tribunal stands in the shoes of the original decision maker and can exercise all of the powers open to that person.\",\"relation\":\"related_to\",\"alternative\":\"is_kind_of, treating the ART as an instance of a decision maker rather than a reviewing tribunal exercising the original decision maker’s powers.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.95,\"reasoning\":\"The Manual expressly connects the ART to the original decision maker by describing its merits-review role and access to that person’s powers. None of the more specific listed predicates accurately captures this substitution of role and powers.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the ART’s exercise of the original decision maker’s powers should instead be classified as is_kind_of.\",\"passage_ref\":\"TMM/Part52/5/5/2\",\"neighbour\":\"GC-0134\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "291b8617c2396b3fb9e9067e22d86fe8a2ae74b7dd02f7dbe58c27e02147b4a2",
+ "response_id": "resp_0e6aeeec54756489006ac62b21f9b087d2ae7381a3d24bfb0d",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2054,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2051
+  },
+  "output_tokens": 313,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 2367
+ }
+}

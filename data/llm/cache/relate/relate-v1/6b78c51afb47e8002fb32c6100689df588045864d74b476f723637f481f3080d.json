@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001656,
+ "created_utc": "2026-10-07T11:14:27Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0015",
+ "job": "relate",
+ "key": "6b78c51afb47e8002fb32c6100689df588045864d74b476f723637f481f3080d",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"An applicant will be able to overcome a geographical section 43 objection by agreeing to a condition of registration or a specification amendment which removes the likelihood of consumers being deceived or confused. This is the sole criterion for conditions or limitations applied in order to overcome grounds for rejection raised under section 43.\",\"relation\":\"is_kind_of\",\"alternative\":\"related_to: the passage connects specification amendments with conditions or limitations without expressly classifying amendments as limitations.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.8,\"reasoning\":\"The Manual appears to treat a specification amendment as a form of limitation within the broader category of conditions or limitations used to overcome section 43 objections. That classification is inferred from the consecutive sentences, rather than expressly defined.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether ‘conditions or limitations’ encompasses specification amendments here, rather than referring only to restrictions on registration or use.\",\"passage_ref\":\"TMM/Part29/9/9/5\",\"neighbour\":\"GC-0069\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "20433baaedc1897428ac1c3be5efc2b5205e800c31881102e46a63a262c2470b",
+ "response_id": "resp_05c9bbf84e9c9625006ac629827a1887d29df30f78dbe74580",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1565,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1562
+  },
+  "output_tokens": 315,
+  "output_tokens_details": {
+   "reasoning_tokens": 89
+  },
+  "total_tokens": 1880
+ }
+}

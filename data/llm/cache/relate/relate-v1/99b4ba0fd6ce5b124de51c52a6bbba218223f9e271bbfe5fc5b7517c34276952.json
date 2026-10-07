@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.000832,
+ "created_utc": "2026-10-07T11:35:11Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0108",
+ "job": "relate",
+ "key": "99b4ba0fd6ce5b124de51c52a6bbba218223f9e271bbfe5fc5b7517c34276952",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"The Commission's consent role for assignment of certification trade marks could be mistakenly extended to collective trade marks.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.99,\"reasoning\":\"The Manual passages prohibit assignment or transmission of collective trade marks and separately describe the Commission's consent role for certification trade marks. They do not support a relationship between collective trade marks and the Commission.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether any Commission role concerning collective trade marks is supported here, rather than only a role concerning certification trade marks.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0133\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "79894772316090498738016fe811dea050a5c7ee82f301d898f25e94ad4bfb80",
+ "response_id": "resp_031378995a33ca36006ac62e5e00d087d2929a007bc9ad7aea",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1992,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1989
+  },
+  "output_tokens": 146,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 2138
+ }
+}

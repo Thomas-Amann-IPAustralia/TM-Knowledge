@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005809,
+ "created_utc": "2026-10-07T12:21:39Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0065",
+ "job": "judge",
+ "key": "df3226568b80bcd16d23df7a2e3dddd730f618ba7088c8e2d5110a158de762e2",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part17/5/5/1\",\"grade\":0},{\"ref\":\"TMM/Part60/4/11/4/11/4\",\"grade\":0},{\"ref\":\"TMM/Part15/7#1\",\"grade\":0},{\"ref\":\"TMM/Part15/7/7/2\",\"grade\":0},{\"ref\":\"TMM/Part49/2/2/3/7\",\"grade\":0},{\"ref\":\"TMM/Part61/3/3/3\",\"grade\":2},{\"ref\":\"TMM/Part15/1#1~1\",\"grade\":0},{\"ref\":\"TMM/Part52/5/5/2\",\"grade\":0},{\"ref\":\"TMM/Part49/6#1\",\"grade\":0},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/fans\",\"grade\":0},{\"ref\":\"TMM/Part61/2/2/4/2\",\"grade\":2},{\"ref\":\"TMM/Part61/2/2/4\",\"grade\":3},{\"ref\":\"TMM/Part17/5/5/2\",\"grade\":0},{\"ref\":\"TMM/Part15/7/7/1\",\"grade\":0},{\"ref\":\"TMM/Part52/5/5/3\",\"grade\":0}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "80d85f32eee34ad880d0852edce4163e19b45fed7d7b572b9ed9afd3ac42bea8",
+ "response_id": "resp_06b16cc4ab056e7d006ac63941f4d087d2adc92b397ccc8386",
+ "seconds": 18.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3160,
+  "input_tokens_details": {
+   "cache_write_tokens": 3157,
+   "cached_tokens": 0
+  },
+  "output_tokens": 372,
+  "output_tokens_details": {
+   "reasoning_tokens": 70
+  },
+  "total_tokens": 3532
+ }
+}

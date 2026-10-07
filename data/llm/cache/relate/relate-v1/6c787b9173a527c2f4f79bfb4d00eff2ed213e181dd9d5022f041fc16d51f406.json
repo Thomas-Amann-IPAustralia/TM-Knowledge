@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007423,
+ "created_utc": "2026-10-07T11:41:05Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0135",
+ "job": "relate",
+ "key": "6c787b9173a527c2f4f79bfb4d00eff2ed213e181dd9d5022f041fc16d51f406",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Please Note: Unless stated otherwise, all references in this Manual part to the removal of a trade mark from the Register also apply to the cessation of protection of a protected international trade mark.\",\n      \"relation\": \"extendsTo\",\n      \"alternative\": \"related_to: removal applications and cessation of protection are connected procedures, without an extension of procedural coverage.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual expressly extends references to removal to cessation of protection, subject to stated exceptions. Applying that extension specifically to the application-for-removal concept is inferred from the surrounding discussion of non-use applications.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether extending references to removal supports extending the application-for-removal concept itself, rather than only its procedural treatment.\",\n      \"passage_ref\": \"TMM/Part49/1/1/1\",\n      \"neighbour\": \"GC-0142\"\n    },\n    {\n      \"quote\": \"Cessation of protection of a Protected International Trade Mark for non-use (reg 17A.48D)\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to: the passage merely connects cessation proceedings with protected international trade marks.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly identifies a protected international trade mark as the subject of cessation of protection for non-use. This supports appliesTo without treating the Manual's account as the legislation itself.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the relationship should be expressly restricted to cessation for non-use.\",\n      \"passage_ref\": \"TMM/Part55/2#1\",\n      \"neighbour\": \"GC-0114\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: both procedures have opposition evidence periods and avenues of appeal.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The passages list extension and cessation of protection as separate opposition categories with procedural provisions. They do not state a relationship between the two steps themselves; shared procedural treatment is insufficient here.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether shared opposition procedures are intended to count as a relationship between the underlying steps.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0143\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "f6aefb209697c3d34d480d613c7f59e5ee98a477717ccbc153849732ae6a70e2",
+ "response_id": "resp_08de99b8df3ecc34006ac62fb503a887d2b608cbcc3cd774eb",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3219,
+  "input_tokens_details": {
+   "cache_write_tokens": 3216,
+   "cached_tokens": 0
+  },
+  "output_tokens": 680,
+  "output_tokens_details": {
+   "reasoning_tokens": 99
+  },
+  "total_tokens": 3899
+ }
+}

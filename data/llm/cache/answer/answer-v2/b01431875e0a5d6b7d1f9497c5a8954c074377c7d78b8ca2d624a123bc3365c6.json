@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014776,
+ "created_utc": "2026-10-07T12:18:33Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0032",
+ "job": "answer",
+ "key": "b01431875e0a5d6b7d1f9497c5a8954c074377c7d78b8ca2d624a123bc3365c6",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0093\",\"GC-0096\",\"GC-0128\",\"GC-0127\",\"GC-0046\",\"GC-0098\",\"GC-0134\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part16/1/1/1\",\"quote\":\"If an applicant requests an ex parte hearing on an exam matter, the Registrar will defer acceptance of that application. The applicant need not separately apply for an extension of time or deferment.\"},{\"ref\":\"TMM/Part17/5/5/2\",\"quote\":\"5.3.1 Where the applicant has made a request to the Registrar to be heard in relation to the application, the Registrar will defer acceptance of the application until the earlier of: (i) the day the applicant withdraws the request to be heard; and (ii) the day the Registrar decides to accept or reject the application.\"},{\"ref\":\"TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1\",\"quote\":\"Applicant has requested ex parte hearing When the applicant withdraws the request, or the Registrar decides to accept or reject the application Balance of time remaining prior to deferment\"},{\"ref\":\"TMM/Part17/5/5/2\",\"quote\":\"5.2.1 Where an appeal to a court has begun or an application to the ART for review has been made, the Registrar will defer acceptance of the application up until 3 months after the determination or other disposal of the appeal or review or until the expiration of such further time as the court to which the appeal, or any further appeal is brought, or the ART, or the court to which any appeal, arising out of the decision of the ART, is brought, allows.\"},{\"ref\":\"TMM/Part17/5/5/2\",\"quote\":\"On such notification, as long as the application is still pending, the deferment will be entered on the system.\"},{\"ref\":\"TMA1995/s33\",\"quote\":\"(4) The Registrar may not reject an application without giving the applicant an opportunity of being heard. Note: For applicant see section 6.\"}],\"answer\":\"The Manual describes a deferment of acceptance rather than requiring a separate extension request for an examination hearing.\\n\\n• Hearing — Manual practice: If you request an ex parte hearing on an examination matter, the Registrar will defer acceptance automatically; you need not separately apply for an extension of time or deferment. The deferment ends when you withdraw the hearing request or when the Registrar decides to accept or reject the application, whichever happens first. [TMM/Part16/1/1/1; TMM/Part17/5/5/2]\\n\\n• Time remaining after the hearing deferment — Manual practice: The annex records that the balance of time remaining before deferment remains available afterwards. In that sense, the acceptance clock is paused, rather than restarted with a fresh full period. [TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1]\\n\\n• Court appeal or ART review — Manual practice: Once a court appeal has begun or an ART review application has been made, acceptance is deferred until three months after determination or other disposal, or until expiry of any further time allowed by the relevant court or ART. The Registrar enters the deferment on notification, provided the trade mark application is still pending. These passages concern appeals or reviews of the Registrar’s decision. [TMM/Part17/5/5/2]\\n\\n• Act: Section 33(4) separately requires the Registrar to give the applicant an opportunity to be heard before rejecting the application. It does not itself specify the deferment timetable. [TMA1995/s33]\\n\\nThe timing explanation above is Manual practice, not a quotation of the Regulations: the relevant Regulations are not included in the supplied legislation. I cannot calculate your actual revised deadline from these passages alone.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "8e1fabde8c6357a69e6dfd7e0c78a3fa47ca13df9fa1622928c32576a2b506a3",
+ "response_id": "resp_034cd2fe517653fc006ac6387cf64487d282aaf0360987de7b",
+ "seconds": 29.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7985,
+  "input_tokens_details": {
+   "cache_write_tokens": 7982,
+   "cached_tokens": 0
+  },
+  "output_tokens": 959,
+  "output_tokens_details": {
+   "reasoning_tokens": 118
+  },
+  "total_tokens": 8944
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014675,
+ "created_utc": "2026-10-07T12:18:42Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0033",
+ "job": "answer",
+ "key": "53167566ada175148302fb3592e5024a06c781c8659563cf2b384c95d1b6d22f",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0129\",\"GC-0121\",\"GC-0111\",\"GC-0156\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part2/1/trade-mark-regulations-1995\",\"quote\":\"Regulation 4.1 Applications - approved form Regulation 4.2 Applications in approved form - requirements for filing Regulation 4.3 Representation of trade marks\"},{\"ref\":\"TMM/Part2/1/trade-mark-regulations-1995\",\"quote\":\"Regulation 21.1 Compliance with instruction on approved forms Regulation 21.2 Requirements for filing documents\"},{\"ref\":\"TMM/Part2/1/trade-mark-regulations-1995\",\"quote\":\"Regulation 21.3 Filing of documents - common requirements Regulation 21.4 Consequences for documents not meeting filing requirements Regulation 21.5 Filing of documents - date of receipt to be marked\"},{\"ref\":\"TMM/Part14/x-relevant-legislation10#1\",\"quote\":\"The Regulations Reg 3.1 Classification of goods and services Reg 4.1 Applications - approved form Reg 4.2 Applications - requirements for filing Reg 4.4 Specification of goods and/or services Schedule 1 Classification of goods and services\"},{\"ref\":\"TMM/Part2/1/trade-mark-regulations-1995\",\"quote\":\"Regulation 4.5 Period for claiming priority of an application Regulation 4.6 How to claim priority\"},{\"ref\":\"TMM/Part2/1/trade-mark-regulations-1995\",\"quote\":\"Regulation 21.6 Declarations Regulation 21.7 Declarations - additional material Regulation 21.23 Notice of non-payment of fee\"},{\"ref\":\"TMR1995/r4.4\",\"quote\":\"(2) The expression ‘all goods’, ‘all services’, ‘all other goods’, or ‘all other services’ must not be used in an application for registration of a trade mark to specify the goods and/or services in respect of which registration is sought. (3) The goods and/or services must be grouped according to the appropriate classes described in Schedule 1. (4) The applicant must nominate the class number that is appropriate to the goods or services in each group. (5) The groups must be listed in the order of their class numbers.\"},{\"ref\":\"TMR1995/r4.4\",\"quote\":\"(6) The goods and/or services must, as far as practicable, be specified in terms appearing in any listing of goods and services that is: (a) published by the Registrar; and (b) made available for inspection by the public at the Trade Marks Office and its suboffices (if any). (7) If any of the goods and/or services cannot be specified using terms referred to in subregulation (6), the applicant must provide sufficient information to enable the Registrar to decide the classification of the goods and/or services.\"}],\"answer\":\"The supplied Manual identifies the following provisions of the **Trade Marks Regulations 1995**. These are references listed by the Manual (practice), not quotations of the legislative provisions themselves:\\n\\n| Topic | Regulations identified by the Manual |\\n|---|---|\\n| Filing an application | **4.1** — approved form; **4.2** — filing requirements; **4.3** — representation of trade marks. [1] |\\n| General document-filing requirements | **21.1–21.2** — approved-form instructions and filing requirements; **21.3–21.5** — common requirements, consequences of non-compliance and marking the date of receipt. [2–3] |\\n| Goods and services specification | **4.4** — specification of goods and/or services; also **3.1** and **Schedule 1** for classification. [4] |\\n| Priority claims | **4.5** — period for claiming priority; **4.6** — how to claim priority. [5] |\\n| Declarations | **21.6** — declarations; **21.7** — additional material. [6] |\\n| Fee notices | **21.23** — notice of non-payment of fee. [6] |\\n\\n**Legislation directly supplied:** regulation **4.4** prohibits blanket expressions such as ‘all goods’; requires grouping by the appropriate Schedule 1 classes, nomination of class numbers and listing in class-number order; and requires use of Registrar-published terms as far as practicable, or sufficient information to determine classification where those terms cannot be used. These are Regulations requirements, not merely Manual practice. [7–8]\\n\\nThe actual legislative text of the other listed regulations has not been supplied, so their detailed requirements cannot be confirmed from these passages.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "5841d892d889264ca9f406423f91583bfeeb880864103007e6e2ddc66458cd9e",
+ "response_id": "resp_034d3cba5bef1beb006ac6388513f887d2b127acec5b6be277",
+ "seconds": 30.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7209,
+  "input_tokens_details": {
+   "cache_write_tokens": 7206,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1133,
+  "output_tokens_details": {
+   "reasoning_tokens": 129
+  },
+  "total_tokens": 8342
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002745,
+ "created_utc": "2026-10-07T12:20:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0057",
+ "job": "judge",
+ "key": "a3452b4ecf5c58e1435a35fd4bd6cc9cb5017e73f5e15287791ae0177420b12d",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part51/2/2/2~2\",\"grade\":3},{\"ref\":\"TMM/Part60/4/17/4/17/2~3\",\"grade\":1},{\"ref\":\"TMM/Part51/1/1/2\",\"grade\":2},{\"ref\":\"TMM/Part47/1/1/3/6~2\",\"grade\":1},{\"ref\":\"TMM/Part51/2#1~1\",\"grade\":3},{\"ref\":\"TMM/Part60/4/16/4/16/2\",\"grade\":1},{\"ref\":\"TMM/Part15/6/6/1\",\"grade\":1},{\"ref\":\"TMM/Part55/x-annex-a1---taxing-of-costs-in--multiple--oppositions-relying-on-same-evidence#1\",\"grade\":0},{\"ref\":\"TMM/Part51/2/2/1\",\"grade\":2},{\"ref\":\"TMM/Part15/6/6/4\",\"grade\":1},{\"ref\":\"TMM/Part51/2/2/4\",\"grade\":1},{\"ref\":\"TMM/Part62/5#1\",\"grade\":0},{\"ref\":\"TMM/Part48/4#1~1\",\"grade\":1},{\"ref\":\"TMM/Part51/4/4/1~1\",\"grade\":1},{\"ref\":\"TMM/Part51/1#1~1\",\"grade\":1},{\"ref\":\"TMM/Part47/5/5/2\",\"grade\":1},{\"ref\":\"TMM/Part15/6/6/3\",\"grade\":1},{\"ref\":\"TMM/Part60/4/17/4/17/2~1\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "fb1ccc295070a4f4ed4e14a5e3476902edd30e68f146a13b1a5b0e6d81717ec4",
+ "response_id": "resp_0b36763e36707aed006ac6391255b087d2abac2a329b16b337",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4551,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4548
+  },
+  "output_tokens": 503,
+  "output_tokens_details": {
+   "reasoning_tokens": 123
+  },
+  "total_tokens": 5054
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001884,
+ "created_utc": "2026-10-07T11:14:35Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0007",
+ "job": "relate",
+ "key": "e95edc3a13c418cfd576652b55ceaa1d0ff834ef361ea7736a0f036ae869ffa6",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"However, if the Registrar or their delegate is satisfied that the ground for rejection exists, the presumption no longer applies.\",\"relation\":\"isOvercomeBy\",\"alternative\":\"appliesTo: the presumption must initially be taken into account when assessing scandalous matter.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.94,\"reasoning\":\"The Manual states that the presumption ceases to apply once the Registrar or their delegate is satisfied that the scandalous-matter ground for rejection exists. This describes Registrar practice, not an independent legislative rule.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether 'scandalous matter' denotes the established ground for rejection sufficiently precisely, rather than merely potentially scandalous content.\",\"passage_ref\":\"TMM/Part20/5/5/4/1\",\"neighbour\":\"GC-0062\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "5bbc6bae2f53eda8a050ca6d69d6bbad3463bd7038c51f1ff438c6783ee840ad",
+ "response_id": "resp_01ab27c74e7b2784006ac6298a602487d28849b03afd222c8d",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1626,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1623
+  },
+  "output_tokens": 360,
+  "output_tokens_details": {
+   "reasoning_tokens": 167
+  },
+  "total_tokens": 1986
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00335,
+ "created_utc": "2026-10-07T11:44:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0149",
+ "job": "relate",
+ "key": "33cc643cfa6b6f91b58c88fbf50913f7ca3aa35f0551567db4295e759ea06907",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"through their \\\"home\\\" Office (i.e., the Office of the Contracting Party of the holder)\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"same_concept: the holder and its Contracting Party are not the same entity.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual expressly connects the holder's home Office with the Office of the Contracting Party of the holder. No listed, more specific predicate captures this institutional association.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this association should instead be represented through a separate record for the home Office.\",\n      \"passage_ref\": \"TMM/Part38/3/3/3\",\n      \"neighbour\": \"GC-0132\"\n    },\n    {\n      \"quote\": \"If the application is an IRDA and the submissions in regards to the proposed revocation amend goods and services that have not been notified to the IB as refused, the holder will be required to submit an MM6 [Request for the recordal of a Limitation of the List of Goods and Services] form directly to the IB or through their \\\"home\\\" Office (i.e., the Office of the Contracting Party of the holder).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none: the procedural connection could be confined to the holder's home Office, rather than attributed to the Contracting Party itself.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.78,\n      \"reasoning\": \"The Manual connects an IRDA limitation procedure with submission through the Office of the holder's Contracting Party. The relationship to the Contracting Party itself is indirect; it does not establish that the Party administers or decides the IRDA.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the indirect connection through the Party's Office is sufficient for a relationship to the Contracting Party record.\",\n      \"passage_ref\": \"TMM/Part38/3/3/3\",\n      \"neighbour\": \"GC-0113\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "bda72a33c988d5b2105337b340207d3b6f48a2c6d5cd0717929dc5a8cb22998e",
+ "response_id": "resp_0127c09089ef58dc006ac6309272f487d2a3e37d474e25c538",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2151,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2148
+  },
+  "output_tokens": 648,
+  "output_tokens_details": {
+   "reasoning_tokens": 157
+  },
+  "total_tokens": 2799
+ }
+}

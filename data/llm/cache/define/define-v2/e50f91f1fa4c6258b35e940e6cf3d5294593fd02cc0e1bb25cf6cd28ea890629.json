@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002689,
+ "created_utc": "2026-10-07T11:19:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "cartoon",
+ "job": "define",
+ "key": "e50f91f1fa4c6258b35e940e6cf3d5294593fd02cc0e1bb25cf6cd28ea890629",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"Exclude it if the ontology excludes Manual device-constituent terminology and includes only substantive legal and procedural concepts.\",\n  \"definition_quote\": \"The word CARTOON means a drawing which symbolises or caricatures some subject or person in an exaggerated way.\",\n  \"alt_labels\": [\n    \"cartoon\"\n  ],\n  \"confidence\": 0.86,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: CARTOON is a defined Manual device-constituent term for an exaggerated symbolic or caricature drawing, principally of animals or objects with human characteristics but also of people.\",\n  \"expert_should_check\": \"Confirm that device-constituent terminology belongs within the ontology and that subject_matter is the appropriate group.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"CARTOON\",\n  \"definition_ref\": \"TMM/Part5/x-device-constituents/cartoon\",\n  \"reasoning\": \"The Manual gives CARTOON a specific definition and usage boundaries, supporting a distinct controlled concept rather than merely a generic English word. It is not equivalent to the existing image of a person concept: it also covers animals and objects, while images of persons include other forms of representation. The other passages discuss cartoon imagery in applying sections 42 and 43, but do not establish a legislative definition or a separate ground for refusal based on cartoon form.\",\n  \"not_labels\": [\n    \"CARTOON-CHARACTER\",\n    \"image of a person\"\n  ],\n  \"group\": \"subject_matter\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "d45b7416521f9ee332330923b190fa9b8fdf81d52cd32e357a01e20744099310",
+ "response_id": "resp_08701617eeb8911c006ac62abb43fc87d28c5b9d1071d20f35",
+ "seconds": 28.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3022,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3019
+  },
+  "output_tokens": 507,
+  "output_tokens_details": {
+   "reasoning_tokens": 155
+  },
+  "total_tokens": 3529
+ }
+}

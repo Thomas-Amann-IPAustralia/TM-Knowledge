@@ -36,8 +36,10 @@ def _context() -> jobs.Context:
     from tm_knowledge.upstream.loader import load_corpus
 
     corpus = load_corpus()
+    cache = client.Cache()
     return jobs.Context(corpus=corpus, links=links_module.link(corpus),
-                        judged=jobs.judged_pairs(client.Cache().entries("relate")))
+                        judged=jobs.judged_pairs(cache.entries("relate")),
+                        defined={str(e["item"]) for e in cache.entries("define") if e.get("status") == "completed"})
 
 
 def search_systems(ctx: jobs.Context):
@@ -68,11 +70,23 @@ def _questions(ctx: jobs.Context) -> list[dict[str, Any]]:
 POOLS_PATH = jobs.BENCH_DIR / "pools.yaml"
 
 
+def _require_vectors(systems: Any, questions: list[dict[str, Any]]) -> None:
+    """Without vectors "hybrid" is keyword search under another name: refuse to measure it."""
+    if systems.dense is None:
+        raise SystemExit("no passage vectors: run `tmk-bulk embed --confirm` first (ADR-0115)")
+    missing = [q["key"] for q in questions if systems.dense.query_vector(q["question"]) is None]
+    if missing:
+        raise SystemExit(f"{len(missing)} questions have no vector (first: {missing[0]}): "
+                         "run `tmk-bulk embed --confirm` first (ADR-0115)")
+
+
 def _pools(ctx: jobs.Context) -> list[dict[str, Any]]:
     """Every question's top ten from each system, and the pool the judge grades."""
     systems = search_systems(ctx)
+    questions = _questions(ctx)
+    _require_vectors(systems, questions)
     out = []
-    for q in _questions(ctx):
+    for q in questions:
         ranked = {
             "keyword": [h.ref for h in systems.keyword(q["question"], 10)],
             "hybrid": [h.ref for h in systems.hybrid(q["question"], 10)],
@@ -94,6 +108,7 @@ def _measurement_items(job: str, ctx: jobs.Context) -> list[jobs.Item]:
         return [jobs.Item(p["key"], {**questions[p["key"]], "pool": p["pool"]})
                 for p in pools if p["key"] in questions]
     systems = search_systems(ctx)
+    _require_vectors(systems, list(questions.values()))
     items = []
     for q in questions.values():
         hits, trace = systems.ontology(q["question"], 8)
@@ -128,6 +143,8 @@ def _run(args: argparse.Namespace) -> int:
         print(f"unknown job {args.job!r}; one of {', '.join(registry)}", file=sys.stderr)
         return 2
     job = registry[args.job]
+    if args.touching:
+        ctx.touching = {cid.strip() for cid in args.touching.split(",") if cid.strip()}
     all_items = _measurement_items(args.job, ctx) if args.job in ("judge", "answer") else job.items(ctx)
     items = _select(all_items, args)
     model = args.model or config.authoring_model()
@@ -373,11 +390,14 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--write", action="store_true", help="write accepted records")
     p.add_argument("--model")
     p.add_argument("--effort", choices=["none", "low", "medium", "high"])
-    # Batch and flex both cost half the standard price (ADR-0111). Batch is the
-    # default because flex can be unavailable for long stretches (Q-67).
-    p.add_argument("--tier", choices=["batch", "flex", "default"], default="batch")
+    # Batch and flex both cost half the standard price (ADR-0111). Flex is the
+    # default: an overloaded flex call fails fast and free and is retried, while
+    # a batch can sit untouched for half an hour or more (Q-67).
+    p.add_argument("--tier", choices=["batch", "flex", "default"], default="flex")
     p.add_argument("--workers", type=int, default=6, help="calls in flight at once")
-    p.add_argument("--retries", type=int, default=5, help="retries of an overloaded flex call")
+    p.add_argument("--retries", type=int, default=12, help="retries of an overloaded flex call")
+    p.add_argument("--touching", help="relate only: just the pairs that touch these concept ids, "
+                                      "so a pass for new concepts can run beside another pass")
     p = sub.add_parser("embed", help="vectors for every passage and benchmark question")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--confirm", action="store_true")

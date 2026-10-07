@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002599,
+ "created_utc": "2026-10-07T11:18:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "Convention country",
+ "job": "define",
+ "key": "665dbbb8f534d4bda0e5d0249118ed072225ec0a33d9e840bdd6d7b1f85a6e13",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"none_of_these if jurisdictional status is treated as a standalone category rather than a relevant factor in priority entitlement.\",\n  \"definition_quote\": \"Convention country means a foreign country or region of a kind prescribed by the regulations.\",\n  \"alt_labels\": [\n    \"convention country\"\n  ],\n  \"confidence\": 0.96,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: A Convention country is a prescribed foreign country or region whose status is relevant to claiming priority from an earlier trade mark application filed there.\",\n  \"expert_should_check\": \"Check regulation 21.29 directly for the prescribed countries and regions, as its content is supplied only through the Manual extract; also confirm the relevant_factor grouping.\",\n  \"legislative_basis\": [\n    \"TMA1995/s6\",\n    \"TMR1995/r21.29\",\n    \"TMA1995/s29\"\n  ],\n  \"pref_label\": \"Convention country\",\n  \"definition_ref\": \"TMA1995/s6/convention-country\",\n  \"reasoning\": \"Section 6 expressly defines a legally significant category of foreign country or region. The Manual explains its relevance to priority under section 29 and describes the prescriptions in regulation 21.29. It is distinct from the existing convention application concept: it identifies the qualifying jurisdiction, not the application. relevant_factor fits best because this status feeds into priority entitlement; the country or region is not itself a treaty or an actor in the described process.\",\n  \"not_labels\": [\n    \"convention application\",\n    \"Paris Convention\",\n    \"priority date\"\n  ],\n  \"group\": \"relevant_factor\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "feba18d5169662452a701a74b15e7de310a73926efca6f4c35189a89c2ebb578",
+ "response_id": "resp_04036cf5fdcd5acb006ac62a88931887d2892f8b86d29fafd8",
+ "seconds": 18.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2614,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2611
+  },
+  "output_tokens": 493,
+  "output_tokens_details": {
+   "reasoning_tokens": 124
+  },
+  "total_tokens": 3107
+ }
+}

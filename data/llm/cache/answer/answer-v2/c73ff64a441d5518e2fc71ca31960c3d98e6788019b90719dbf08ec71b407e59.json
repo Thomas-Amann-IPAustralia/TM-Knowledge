@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005707,
+ "created_utc": "2026-10-07T12:22:23Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0068",
+ "job": "answer",
+ "key": "c73ff64a441d5518e2fc71ca31960c3d98e6788019b90719dbf08ec71b407e59",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0075\",\"GC-0119\",\"GC-0059\",\"GC-0060\",\"GC-0061\",\"GC-0052\",\"GC-0081\",\"GC-0101\",\"GC-0057\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part21/3/3/6~1\",\"quote\":\"An invented shape should be treated in a similar manner to an invented word, and is equally entitled to prima facie acceptance.\"},{\"ref\":\"TMM/Part21/3/3/6~1\",\"quote\":\"Kenman Kandy gives some guidance on what may be regarded as invention in the confectionery trade, but does not offer clear guidance on what amounts to invention in other trades.\"},{\"ref\":\"TMM/Part21/3/3/6~1\",\"quote\":\"A starting point for all trade marks including “shape” trade marks is the question “what is common to the trade”? This can be assessed through research into the shape applied for in the relevant trade. If research shows a number of parties using a shape in a non-trade mark sense, this will tend to support a view that the marketplace does not regard it as a trade mark and a ground for rejection is in order.\"},{\"ref\":\"TMM/Part21/3/3/6~2\",\"quote\":\"The ultimate question on the issue of inherent adaptation is whether a sign – in this case, a shape – possesses any ordinary significations and, if it does, whether or not other traders might think of the shape and want to use it for those ordinary significations in a manner which would infringe a registered mark in respect of the sign.\"},{\"ref\":\"TMM/Part21/3/3/6~2\",\"quote\":\"An important consideration in all of this is the nature of the goods for which the shape mark is to be used.\"},{\"ref\":\"TMM/Part21/3/3/6~1\",\"quote\":\"In a similar vein, the shapes of decorative items such as ornaments or jewellery will be unlikely to be acceptable prima facie because it is normal within these trades to provide unusual and imaginative creations.\"},{\"ref\":\"TMM/Part19A/8#1~2\",\"quote\":\"Where an application for registration relies on use, the question is whether the particular sign for which registration is sought has itself been used as a trade mark so as to become capable of distinguishing the relevant goods or services.\"},{\"ref\":\"TMA1995/s40\",\"quote\":\"An application for the registration of a trade mark must be rejected if the trade mark cannot be represented graphically.\"}],\"answer\":\"**It means an invented shape receives the same starting treatment as an invented word—not a guarantee of registration.** The Manual expressly says it is “equally entitled to prima facie acceptance”. That is the Registrar’s practice, not a separate legislative entitlement. [TMM/Part21/3/3/6~1]\\n\\nFor someone seeking to register a shape, the practical implications are:\\n\\n- **Assess invention in the relevant trade.** The Manual starts with “what is common to the trade” and calls for research. Use of the shape by several traders in a non-trade mark sense tends to support a ground for rejection. What counts as invention outside confectionery is uncertain: the Manual expressly says Kenman Kandy does not offer clear guidance for other trades. [TMM/Part21/3/3/6~1]\\n- **Consider the shape’s meaning and other traders’ legitimate need for it.** Under the Manual’s account of inherent adaptation, the inquiry is whether the shape has ordinary significations and whether other traders would want to use it for those significations in a way that would infringe a registration. The nature of the goods matters. [TMM/Part21/3/3/6~2]\\n- **Unusual design alone is not necessarily enough.** The Manual says ornaments and jewellery are unlikely to be acceptable prima facie merely as unusual or imaginative shapes, because such creations are normal in those trades. [TMM/Part21/3/3/6~1]\\n- **If relying on use, demonstrate trade mark use of the shape itself.** The Manual asks whether the particular sign sought to be registered has itself been used as a trade mark so as to become capable of distinguishing the relevant goods or services. [TMM/Part19A/8#1~2]\\n\\n**Separate statutory requirement:** section 40 of the Trade Marks Act 1995 requires rejection if the trade mark cannot be represented graphically. Treating a shape like an invented word does not remove that requirement. [TMA1995/s40]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "4b4b337ad455ee84d63884356c85ea0ec32f1b4d5a6391b6493215f56f7046ed",
+ "response_id": "resp_0bb4c1c982c040ee006ac639637c5087d2b320fd73924b4498",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7578,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7575
+  },
+  "output_tokens": 1065,
+  "output_tokens_details": {
+   "reasoning_tokens": 76
+  },
+  "total_tokens": 8643
+ }
+}

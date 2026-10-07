@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004895,
+ "created_utc": "2026-10-07T11:29:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0095",
+ "job": "relate",
+ "key": "db2fbe7d910c863f1dcb1095dd558d80b0e9edc88df6a464419013a6cffb8597",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to, treating the parallel registration and protection procedures as a substantive connection.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.9,\"reasoning\":\"The passages mention revocation of registration and cessation of protection, but do not state a relationship between those procedures. Their inclusion in the same discussion and legislative list is insufficient by itself.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the parallel procedures support a substantive relationship beyond co-mention.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0135\"},{\"quote\":\"Sections 84A to 84D allow the Registrar of Trade Marks to revoke the registration of a trade mark in circumstances in which it appears that the registration should not have occurred.\",\"relation\":\"allocatesTo\",\"alternative\":\"related_to, if allocatesTo is restricted to allocation between examination issues and statutory provisions.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.87,\"reasoning\":\"The Manual expressly identifies the Registrar as the role empowered to revoke registration, supporting allocation of the procedural step to that role. This is the Manual's account of statutory powers, not a quotation from the Act.\",\"modality\":\"may\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether allocatesTo encompasses allocation of a procedural power to an official.\",\"passage_ref\":\"TMM/Part62/1#1\",\"neighbour\":\"GC-0046\"},{\"quote\":\"Sections 84A to 84D allow the Registrar of Trade Marks to revoke the registration of a trade mark in circumstances in which it appears that the registration should not have occurred.\",\"relation\":\"allocatesTo\",\"alternative\":\"related_to, if allocatesTo is restricted to allocation between examination issues and statutory provisions.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.87,\"reasoning\":\"The Manual expressly identifies the Registrar of Trade Marks as the role empowered to revoke registration, supporting allocation of the procedural step to that role. This is the Manual's account of statutory powers, not a quotation from the Act.\",\"modality\":\"may\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether allocatesTo encompasses allocation of a procedural power to an official.\",\"passage_ref\":\"TMM/Part62/1#1\",\"neighbour\":\"GC-0115\"},{\"quote\":\"There is a mandatory provision (section 84B) relating to revocation of registration within one month of a component of a notice of opposition being filed, or an application for extension of time to file a notice being made, if the Registrar has inadvertently registered a trade mark in the face of a properly filed component of a notice of opposition to registration, or an application for extension of time to file.\",\"relation\":\"mayGiveRiseTo\",\"alternative\":\"requiresElement, which would incorrectly suggest that opposition is necessary for every revocation of registration.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.89,\"reasoning\":\"The Manual describes an ignored, properly filed opposition component as a trigger for mandatory revocation within the stated circumstances and timeframe. The relationship does not imply that opposition generally or automatically results in revocation.\",\"modality\":\"must\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether mayGiveRiseTo adequately represents a trigger that is mandatory within the specified circumstances.\",\"passage_ref\":\"TMM/Part62/5#1\",\"neighbour\":\"GC-0102\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "0eaeebe2c007a66586174a2cf85e5898c7c3874d077fd2440571fdfdd7930ae0",
+ "response_id": "resp_0e6c09fd052e96a4006ac62cffd82c87d28e8172d6adb72ad1",
+ "seconds": 29.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3045,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3042
+  },
+  "output_tokens": 948,
+  "output_tokens_details": {
+   "reasoning_tokens": 248
+  },
+  "total_tokens": 3993
+ }
+}

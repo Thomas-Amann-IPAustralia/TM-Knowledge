@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001988,
+ "created_utc": "2026-10-07T11:25:19Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0075",
+ "job": "relate",
+ "key": "09244fb38faf542d4ae092b014de0a7adb4d24cc3a41fec4749165848f75f956",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"Part 21 - Non-traditional signs 2.1 Description endorsement 3.1 Representations and descriptions of shape trade marks\",\"relation\":\"is_kind_of\",\"alternative\":\"The cross-reference merely connects the topics without classifying shape trade marks as non-traditional signs.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.86,\"reasoning\":\"The Manual cross-reference places representations and descriptions of shape trade marks within Part 21, Non-traditional signs. This supports a classification by inference, rather than an express definition.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the cross-reference structure sufficiently supports classification as a non-traditional sign.\",\"passage_ref\":\"TMM/Part10/3/3/2/2\",\"neighbour\":\"GC-0074\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"Shape trade marks and colour trade marks are related because shape and colour both appear in the statutory definition of sign.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.98,\"reasoning\":\"The statutory definition lists shape and colour as possible signs but does not state a relationship between shape trade marks and colour trade marks. Their inclusion in the same list is insufficient under the task's co-mention rule.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the permission for combinations supports any direct relationship between these two trade mark categories.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0076\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "a1d676cc2ffb2f62bec16800a6cac53735536f4c5755d98e2bcac6a4cfe07594",
+ "response_id": "resp_038fbedb2cac16b1006ac62c0d235087d2a31f62c7cfa994ce",
+ "seconds": 18.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1795,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1792
+  },
+  "output_tokens": 379,
+  "output_tokens_details": {
+   "reasoning_tokens": 67
+  },
+  "total_tokens": 2174
+ }
+}

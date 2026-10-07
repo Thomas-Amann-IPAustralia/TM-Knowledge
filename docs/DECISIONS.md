@@ -5083,3 +5083,27 @@ still the owner's (`CLAUDE.md` §3a).
 dry-run estimate. The cap counts the worst case of each call, so the last few
 calls may be refused while actual spend is still below it; that is the cap
 working, not a reason to raise it.
+
+## ADR-0115 — dense search needs numpy, as an optional extra; its vectors are not committed
+
+**Date** 2026-10-07 · **Authority** agent-proposed · **Status** accepted ·
+**An exception to ADR-0042 for one file type**
+
+**Context.** The hybrid and ontology search systems (D2, D3) rank passages by
+vector similarity: about 4,900 passages × 512 numbers, multiplied by a query
+vector. ADR-0035 and ADR-0056 kept the core install at three dependencies by
+making each heavier need an optional extra. The passage vectors are a 2.5MB
+binary file that `text-embedding-3-small` rebuilds for about US$0.01.
+
+**Decision.** numpy is the `search` extra (and in `test`), never a core
+dependency. The vector files (`*.npy`, already git-ignored) and the two indexes
+beside them stay out of git, although ADR-0042 commits `data/derived/`: a binary
+nobody can read in a diff, rebuilt for a cent by `tmk-bulk embed --confirm`,
+buys no paper trail. The response cache records the embedding calls' cost, so
+the spend ledger stays complete.
+
+**Consequences.** A fresh container runs `tmk-bulk embed --confirm` before
+`pools`, `answer` or anything that searches densely; without vectors the hybrid
+system would be keyword search under another name, so `pools` and `answer` refuse
+to run. The site does not need them — it reads the answers and results the runs
+committed.

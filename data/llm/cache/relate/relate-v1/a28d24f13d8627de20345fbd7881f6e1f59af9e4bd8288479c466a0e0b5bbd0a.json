@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001463,
+ "created_utc": "2026-10-07T11:38:11Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0087",
+ "job": "relate",
+ "key": "a28d24f13d8627de20345fbd7881f6e1f59af9e4bd8288479c466a0e0b5bbd0a",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"There are no provisions under the Trade Marks Act 1995 requiring consent from the Commission before the transmission of a certification trade mark, whether registered or the subject of an application for registration.\",\"relation\":\"related_to\",\"alternative\":\"excludesBasis was rejected because the passage negates a consent requirement, rather than excluding the Commission as a basis for transmission.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.95,\"reasoning\":\"The Manual expressly connects transmission of a certification trade mark with the Commission by stating that its consent is not required under the Act. No listed specific predicate adequately captures this absence of a consent requirement.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the ontology intends excludesBasis to encompass the absence of a requirement for Commission consent.\",\"passage_ref\":\"TMM/Part35/11#1\",\"neighbour\":\"GC-0133\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "59b79a6edb93028dddb462ed5a3946af1b458e5f59dd32bc16daa7fac6b16bb1",
+ "response_id": "resp_05710d3d254d9b0e006ac62f102e3887d2879aa3bf007d937a",
+ "seconds": 20.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1996,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1993
+  },
+  "output_tokens": 272,
+  "output_tokens_details": {
+   "reasoning_tokens": 76
+  },
+  "total_tokens": 2268
+ }
+}

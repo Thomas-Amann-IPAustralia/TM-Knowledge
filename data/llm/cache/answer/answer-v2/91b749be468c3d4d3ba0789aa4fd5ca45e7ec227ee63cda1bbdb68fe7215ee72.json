@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011574,
+ "created_utc": "2026-10-07T12:21:11Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0058",
+ "job": "answer",
+ "key": "91b749be468c3d4d3ba0789aa4fd5ca45e7ec227ee63cda1bbdb68fe7215ee72",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0079\",\"GC-0080\",\"GC-0017\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part13/6/6/4\",\"quote\":\"Example 1 IDAK SYDNEY STANDARD 1 IDAK MELBOURNE DELUXE 2 Class 43: Hotel accommodation. This example is a valid series because the trade marks differ by statements as to place name, quality and number.\"},{\"ref\":\"TMM/Part13/6/6/4\",\"quote\":\"Example 2 IDAK IDAK SYDNEY IDAK SYDNEY 1 IDAK $500 This example is a valid series because the trade marks differ by the presence or absence of statements as to place name and number.\"},{\"ref\":\"TMM/Part13/7/7/1\",\"quote\":\"The below are examples of invalid series, because the trade marks do not resemble each other in material particulars. The differences are such that they affect the identity of the trade marks when each member of the series is compared to each of the others.\"},{\"ref\":\"TMM/Part13/7/7/1\",\"quote\":\"The large difference in the relative size of the words in each trade mark significantly changes the prominence of the shared IDAK, as well as the overall visual impression.\"}],\"answer\":\"Yes, in principle—the Manual treats some variants with city names or numbers as a valid **series of trade marks** (your “set”). This is Manual practice, not a statement of legislation.\\n\\nFor example, the Manual identifies IDAK SYDNEY STANDARD 1 and IDAK MELBOURNE DELUXE 2 as a valid series for hotel accommodation. It also gives a valid series containing IDAK, IDAK SYDNEY, IDAK SYDNEY 1 and IDAK $500, explaining that differences may include the presence or absence of place-name and number statements. [TMM/Part13/6/6/4]\\n\\n**It is not automatic:** the marks must resemble each other in material particulars. The Manual gives an invalid IDAK MELBOURNE / IDAK SYDNEY example where differences in relative word size change the prominence of IDAK and the overall visual impression. [TMM/Part13/7/7/1]\\n\\nThe supplied legislation does not contain the statutory series requirements, so these passages support a practice-based explanation, not a complete account of the legislative test.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "8cf17172398c36e99c2e419f93e3a6fa889731bcb2160dea66ee056ae286ae74",
+ "response_id": "resp_05ed2f312e0e15d7006ac6391be0f087d2b3f5c9a7a0f786c7",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6596,
+  "input_tokens_details": {
+   "cache_write_tokens": 6593,
+   "cached_tokens": 0
+  },
+  "output_tokens": 666,
+  "output_tokens_details": {
+   "reasoning_tokens": 138
+  },
+  "total_tokens": 7262
+ }
+}

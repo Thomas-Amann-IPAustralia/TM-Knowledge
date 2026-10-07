@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010077,
+ "created_utc": "2026-10-07T12:21:07Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0059",
+ "job": "answer",
+ "key": "06603ebf09afa24f0ccc733c50f378c19c8efc8395eb7b581375789141633c37",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0078\",\"GC-0057\",\"GC-0100\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part21/7/7/1\",\"quote\":\"The application must include a graphical representation of the scent mark. This could be by way of a verbal description of the scent such as \\\"the scent of pine\\\".\"},{\"ref\":\"TMM/Part21/7/7/1\",\"quote\":\"The applicant must include a precise and accurate description of the scent that will be entered as an endorsement of the application. The description must include both what the scent is, and how it is to be used in respect of the goods or services claimed.\"},{\"ref\":\"TMM/Part10/3/3/4/3\",\"quote\":\"In some cases the description may also be used as the representation where there is no other form of graphic representation.\"},{\"ref\":\"TMM/Part10/3/3/4/3\",\"quote\":\"A precise word description of the trade mark would be a satisfactory representation of a scent trade mark, however the results of analytical techniques would not be as they would not be readily understood by the ordinary person searching the Register.\"}],\"answer\":\"No—not necessarily a picture, but you do need a written description.\\n\\nUnder the supplied Manual practice:\\n• A scent mark needs a graphical representation, but this can be a verbal description such as “the scent of pine”; a precise word description can be satisfactory. [TMM/Part21/7/7/1; TMM/Part10/3/3/4/3]\\n• You must also provide a precise and accurate description stating both what the scent is and how it is to be used for the claimed goods or services. That description is entered as an endorsement of the application. [TMM/Part21/7/7/1]\\n• These need not always be separate items: in some cases, the description can also serve as the graphical representation where there is no other form of graphic representation. [TMM/Part10/3/3/4/3]\\n\\nThis explains the Manual’s practice. No direct Act or Regulations passages were supplied.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "53c86e3c2e25c6be75d0f38ba130ba859144bfe687ebe101dc0b77b2339382c4",
+ "response_id": "resp_0fb798c5fca574f8006ac63922252c87d2ad4a931f756c0934",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5782,
+  "input_tokens_details": {
+   "cache_write_tokens": 5779,
+   "cached_tokens": 0
+  },
+  "output_tokens": 570,
+  "output_tokens_details": {
+   "reasoning_tokens": 96
+  },
+  "total_tokens": 6352
+ }
+}

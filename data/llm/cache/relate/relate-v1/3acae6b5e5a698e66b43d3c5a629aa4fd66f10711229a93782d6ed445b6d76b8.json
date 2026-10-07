@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002481,
+ "created_utc": "2026-10-07T11:42:41Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0138",
+ "job": "relate",
+ "key": "3acae6b5e5a698e66b43d3c5a629aa4fd66f10711229a93782d6ed445b6d76b8",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, based on their shared Madrid Protocol context.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The glossary defines IB and IRDA separately, and the relevant-legislation list mentions both among definitions. Neither passage states or clearly supports a relationship between the International Bureau and an IRDA.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the shared definitions context supports any relationship beyond co-occurrence.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0113\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, inferring an International Bureau role in international registration.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The passages mention international registration and define IB, but do not describe the Bureau's role in creating or administering a registration. Such a relationship would require material beyond the supplied passages.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether any supplied wording actually connects the Bureau to international registration rather than merely listing both.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0150\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, based on inclusion in the same relevant-legislation lists.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"These Manual lists identify provisions concerning authorised use and provisions defining the International Bureau. They do not state a relationship between those concepts.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether inclusion in the same legislative-reference list has been mistaken for a substantive relationship.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0082\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "546df05fdcfbba15904ada83ac68d639da689846da4aee9120015a3571a8678e",
+ "response_id": "resp_028a1df56bf2971f006ac6301e866487d2b5da3836b83e0a94",
+ "seconds": 19.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2964,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2961
+  },
+  "output_tokens": 466,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 3430
+ }
+}

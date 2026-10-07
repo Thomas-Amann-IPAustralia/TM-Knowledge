@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003464,
+ "created_utc": "2026-10-07T12:17:07Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0020",
+ "job": "answer",
+ "key": "f6bec04b6c9e5a94f8da473f98b80f23eb602219ccc97a6784cc7fa46aaaaf41",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0012\",\"GC-0064\",\"GC-0070\",\"GC-0071\",\"GC-0092\",\"GC-0124\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part27/3/3/1\",\"quote\":\"The examiner must consider whether a proposed deletion removes all similar and/or closely related goods and services.\"},{\"ref\":\"TMM/Part27/3/3/1\",\"quote\":\"If the examiner is satisfied that goods or services that remain still conflict with those of the cited trade mark, the examiner must provide reasons and further options.\"},{\"ref\":\"TMM/Part27/3/3/2~1\",\"quote\":\"If an applicant offers to exclude goods and/or services, examiners need to carefully assess whether the proposed amendment excludes goods and/or services which are similar or closely related to the goods and/or services claimed by the conflicting trade mark.\"},{\"ref\":\"TMA1995/s65\",\"quote\":\"(1) If the particulars of the application have been published under section 30, the application may be amended as provided in this section.\"},{\"ref\":\"TMA1995/s65\",\"quote\":\"(7) An amendment may be made to any other particular specified in the application unless the amendment would have the effect of extending the rights that (apart from the amendment) the applicant would have under the registration if it were granted.\"}],\"answer\":\"**The remaining specification is still assessed for conflict; deleting some goods does not automatically resolve the objection.**\\n\\n**Manual practice:** The examiner must check whether the proposed deletion removes all goods or services that are similar or closely related to those of the earlier trade mark. If the remaining goods or services still conflict, the examiner must give reasons and further options. [TMM/Part27/3/3/1]\\n\\nIf you instead retain a broad description but exclude particular goods, the examiner must likewise assess whether the exclusion removes the similar or closely related goods or services. [TMM/Part27/3/3/2~1]\\n\\n**Act:** Where the application particulars have been published under section 30, section 65 governs amendments. Under subsection 65(7), an amendment to another particular must not extend the rights the applicant would have under registration if granted. [TMA1995/s65]\\n\\nThese are general requirements, not a prediction of whether a particular deletion would overcome a conflict.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b6be61ea605eae5ba118665593934dc74ed341a3bf0f61f731a1b2beb4cbaaa6",
+ "response_id": "resp_02ede8e3b830b757006ac63831c42c87d2aeedb23aae1bdc03",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7523,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7520
+  },
+  "output_tokens": 617,
+  "output_tokens_details": {
+   "reasoning_tokens": 100
+  },
+  "total_tokens": 8140
+ }
+}

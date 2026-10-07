@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001437,
+ "created_utc": "2026-10-07T11:40:19Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0129",
+ "job": "relate",
+ "key": "0c357cd5f8453b343f1293c49f346e03424810da42b57a97656edcc1672ba5fa",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"If the evidence does not support the applicant's complete claim, the examiner should consider suggesting the specification be restricted to include only the range of goods/services for which the mark is demonstrated to be capable of distinguishing and to which the grounds for rejection do not pertain.\",\"relation\":\"related_to\",\"alternative\":\"constrainsExaminerTo was rejected because the specification itself does not impose the stated constraint on the examiner.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.96,\"reasoning\":\"The Manual expressly connects the examiner with considering a suggested restriction of the specification where evidence does not support the complete claim. This is examination practice, not a legislative requirement to restrict the specification.\",\"modality\":\"should\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether a more specific predicate than related_to is appropriate for the examiner's role in suggesting specification restrictions.\",\"passage_ref\":\"TMM/Part23/4/4/6\",\"neighbour\":\"GC-0044\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "b93be7ef6888f5ff8030e95ea9761d00697cbea4c128c078d4a7dc43930953d3",
+ "response_id": "resp_0f757907502ce5d7006ac62f90cc3087d2824e948fe65b8999",
+ "seconds": 19.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2090,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2087
+  },
+  "output_tokens": 266,
+  "output_tokens_details": {
+   "reasoning_tokens": 54
+  },
+  "total_tokens": 2356
+ }
+}

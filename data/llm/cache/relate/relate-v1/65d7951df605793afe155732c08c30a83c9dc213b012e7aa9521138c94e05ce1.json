@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004627,
+ "created_utc": "2026-10-07T11:28:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0084",
+ "job": "relate",
+ "key": "65d7951df605793afe155732c08c30a83c9dc213b012e7aa9521138c94e05ce1",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"Under section 121 a registered trade mark is infringed if the registered owner, or an authorised user of the trade mark having power to do so, has caused to be displayed on goods in respect of which the trade mark is registered a notice of prohibition, and a person who acquires the goods does or authorises an act, in the course of trade, that is prohibited.\",\"relation\":\"related_to\",\"alternative\":\"requiresElement would wrongly suggest that action by the registered owner is indispensable, despite the alternative of an authorised user.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.95,\"reasoning\":\"The Manual's account of section 121 expressly connects the registered owner with the registered trade mark through the display of a notice of prohibition. No listed, more specific predicate accurately captures that connection.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the ontology has a more precise ownership or exercise-of-rights predicate outside the supplied list.\",\"passage_ref\":\"TMM/Part19B/4/4/3\",\"neighbour\":\"GC-0088\"},{\"quote\":\"the registered owner, or an authorised user of the trade mark having power to do so\",\"relation\":\"is_kind_of\",\"alternative\":\"same_concept would conflate the registered owner with a category that also includes an authorised user.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.83,\"reasoning\":\"The registered owner is expressly one alternative within the composite category ‘owner or authorised user’. This classification is inferred from that disjunction and does not identify an owner as an authorised user.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether GC-0035 denotes the composite category rather than only the authorised-user role suggested by some of its aliases.\",\"passage_ref\":\"TMM/Part19B/4/4/3\",\"neighbour\":\"GC-0035\"},{\"quote\":\"In a partial assignment, the original owner of the trade mark retains the trade mark in respect of some of the goods and/or services in the application or registration and the assignee is assigned the trade mark in respect of the other goods and/or services in the application or registration.\",\"relation\":\"related_to\",\"alternative\":\"allocatesTo would mischaracterise this passage as allocating assignment to the owner, rather than describing the ownership consequences of partial assignment.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.88,\"reasoning\":\"The Manual expressly connects partial assignment with the original owner's retention of ownership for some goods or services. Its reference to both applications and registrations supports the connection for registered owners, but the passage is not confined to them.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the anchor's registered-owner scope permits reliance on a passage covering owners of both applications and registrations.\",\"passage_ref\":\"TMM/Part43/1#1~2\",\"neighbour\":\"GC-0086\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to could be inferred from general knowledge of registration, but these legislative-reference lists do not state that relationship.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.98,\"reasoning\":\"Both passages list provisions concerning ‘registered owner’ and removal from the Register without supplying their definitions or explaining a relationship between the owner and the Register. Co-mention in those lists is insufficient.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether substantive definition text, absent from these passages, was intended to be included as evidence.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0089\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "80920f406ef7f95da2a26da84fb10e124b1d70f39b0866750463f1a935f23495",
+ "response_id": "resp_0ca6accb0a132103006ac62cd29f7887d2b5b639c0f5edcdf1",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3491,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3488
+  },
+  "output_tokens": 890,
+  "output_tokens_details": {
+   "reasoning_tokens": 152
+  },
+  "total_tokens": 4381
+ }
+}

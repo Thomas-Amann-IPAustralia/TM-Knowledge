@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007184,
+ "created_utc": "2026-10-07T11:32:20Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0104",
+ "job": "relate",
+ "key": "968d4e8884ff2f8da2df138b2e8151db56cc1abebb858ef31813f60950307387",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"Once an application for removal has been filed, the onus is on the owner of the registered trade mark to demonstrate use during the relevant period, or other compelling reasons why the registered trade mark should not be removed for some or all goods or services.\",\"relation\":\"related_to\",\"alternative\":\"mayGiveRiseTo: the application could be read as potentially leading to removal, but this passage describes the owner's response rather than expressly stating that outcome.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.91,\"reasoning\":\"The Manual connects filing an application for removal with the owner's opportunity to demonstrate why removal should not occur. It distinguishes the application from removal itself without expressly establishing a more specific listed relationship.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether a more specific causal relationship is sufficiently supported by the filing-and-response sequence.\",\"passage_ref\":\"TMM/Part27/6#1\",\"neighbour\":\"GC-0142\"},{\"quote\":\"Under the Protocol a full removal is known as cessation of protection, and a partial removal is a limitation of protection.\",\"relation\":\"is_kind_of\",\"alternative\":\"same_concept: the terms are equivalent for full removal in this Protocol context, but cessation of protection does not encompass the anchor's partial-removal scope.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.9,\"reasoning\":\"In this non-use context, the Manual identifies cessation of protection as full removal under the Protocol. This supports treating it as a particular form of removal for non-use rather than equating it with the broader anchor.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether cessation of protection should be modelled as a form of removal or as its Protocol-specific equivalent outcome.\",\"passage_ref\":\"TMM/Part60/4/20/4/20/2\",\"neighbour\":\"GC-0135\"},{\"quote\":\"A successful opponent to an application under Section 92 may be entitled to have its full costs paid by the removal applicant where the current proceedings have been determined in favour of the opponent and a certificate attesting to use during the alleged period of non-use (provided by the Registrar or a court in earlier proceedings) was notified to the removal applicant either before or on filing the notice of opposition in the current proceedings (subsection 105(2)).\",\"relation\":\"related_to\",\"alternative\":\"none: appropriate if this neighbour denotes only opposition to registration, rather than opposition proceedings generally.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.86,\"reasoning\":\"The Manual's account of costs expressly connects opposition proceedings with a non-use removal application. It does not establish that opposition necessarily prevents removal or supports another more specific listed predicate.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether GC-0102 includes opposition to non-use removal applications, given its opposition-to-registration alias.\",\"passage_ref\":\"TMM/Part55/5#1\",\"neighbour\":\"GC-0102\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "817262e1a449558a84a884d660ba808047dd7190e0f2e041190f5b5b60c98508",
+ "response_id": "resp_0a1b8eaf39be5bd3006ac62da7960487d29563fa6a2e6b9422",
+ "seconds": 29.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2704,
+  "input_tokens_details": {
+   "cache_write_tokens": 2701,
+   "cached_tokens": 0
+  },
+  "output_tokens": 761,
+  "output_tokens_details": {
+   "reasoning_tokens": 139
+  },
+  "total_tokens": 3465
+ }
+}

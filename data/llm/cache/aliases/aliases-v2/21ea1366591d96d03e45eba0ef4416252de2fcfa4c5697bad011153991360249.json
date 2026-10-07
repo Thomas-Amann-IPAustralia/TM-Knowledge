@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007061,
+ "created_utc": "2026-10-07T11:28:42Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0145..GC-0156",
+ "job": "aliases",
+ "key": "21ea1366591d96d03e45eba0ef4416252de2fcfa4c5697bad011153991360249",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0145\",\n      \"related_search_terms\": [\n        \"wine origin\",\n        \"grape provenance\",\n        \"country of origin\"\n      ],\n      \"everyday_phrases\": [\n        \"where grapes were grown\",\n        \"where wine comes from\",\n        \"wine's home country\",\n        \"Australian grown grapes\",\n        \"foreign grown grapes\"\n      ]\n    },\n    {\n      \"id\": \"GC-0146\",\n      \"related_search_terms\": [\n        \"Patents Act 1990\",\n        \"Board under Patents Act\"\n      ],\n      \"everyday_phrases\": [\n        \"which board\",\n        \"what board means\",\n        \"board mentioned in legislation\"\n      ]\n    },\n    {\n      \"id\": \"GC-0147\",\n      \"related_search_terms\": [\n        \"Privacy Act 1988\",\n        \"privacy legislation\"\n      ],\n      \"everyday_phrases\": [\n        \"personal details\",\n        \"information about me\",\n        \"my private information\",\n        \"data about a person\",\n        \"my personal data\"\n      ]\n    },\n    {\n      \"id\": \"GC-0148\",\n      \"related_search_terms\": [\n        \"barrister\",\n        \"solicitor\",\n        \"High Court\",\n        \"Supreme Court\"\n      ],\n      \"everyday_phrases\": [\n        \"legal adviser\",\n        \"legal professional\",\n        \"qualified legal representative\",\n        \"who counts as lawyer\"\n      ]\n    },\n    {\n      \"id\": \"GC-0149\",\n      \"related_search_terms\": [\n        \"Madrid Regulations\",\n        \"Rule 1(xxvibis)\"\n      ],\n      \"everyday_phrases\": [\n        \"which contracting party\",\n        \"party for the holder\",\n        \"holder's contracting party\",\n        \"Madrid holder's party\"\n      ]\n    },\n    {\n      \"id\": \"GC-0150\",\n      \"related_search_terms\": [\n        \"International Register\",\n        \"internationally registered trade mark\"\n      ],\n      \"everyday_phrases\": [\n        \"register my brand internationally\",\n        \"internationally registered brand\",\n        \"global brand registration\",\n        \"overseas trade mark registration\"\n      ]\n    },\n    {\n      \"id\": \"GC-0151\",\n      \"related_search_terms\": [\n        \"repealed Act\",\n        \"Register of Trade Marks\",\n        \"former trade marks register\"\n      ],\n      \"everyday_phrases\": [\n        \"previous trade mark register\",\n        \"earlier registration records\",\n        \"register under old law\",\n        \"historic trade mark register\"\n      ]\n    },\n    {\n      \"id\": \"GC-0152\",\n      \"related_search_terms\": [\n        \"services in trade\",\n        \"services provided\",\n        \"services dealt with\"\n      ],\n      \"everyday_phrases\": [\n        \"services I provide\",\n        \"what my business does\",\n        \"services my business offers\",\n        \"services I sell\",\n        \"my business services\"\n      ]\n    },\n    {\n      \"id\": \"GC-0153\",\n      \"related_search_terms\": [\n        \"opponent's statement\",\n        \"opposition grounds\",\n        \"opposition particulars\"\n      ],\n      \"everyday_phrases\": [\n        \"reasons for opposing\",\n        \"details of my objection\",\n        \"written opposition reasons\",\n        \"opposition reasons document\",\n        \"explain my opposition\"\n      ]\n    },\n    {\n      \"id\": \"GC-0154\",\n      \"related_search_terms\": [\n        \"likelihood of confusion\",\n        \"deceptive similarity\",\n        \"trade mark resemblance\",\n        \"likely to deceive\"\n      ],\n      \"everyday_phrases\": [\n        \"confusingly alike\",\n        \"looks too similar\",\n        \"customers might get confused\",\n        \"easily mistaken for\",\n        \"brands too alike\",\n        \"confusing brand names\"\n      ]\n    },\n    {\n      \"id\": \"GC-0155\",\n      \"related_search_terms\": [\n        \"application status\",\n        \"filed application\",\n        \"pendency\"\n      ],\n      \"everyday_phrases\": [\n        \"application still active\",\n        \"waiting for registration\",\n        \"application in progress\",\n        \"not yet registered\",\n        \"application still open\",\n        \"still being processed\"\n      ]\n    },\n    {\n      \"id\": \"GC-0156\",\n      \"related_search_terms\": [\n        \"Registrar-approved form\",\n        \"form approval\",\n        \"Registrar\"\n      ],\n      \"everyday_phrases\": [\n        \"official form\",\n        \"correct form\",\n        \"required paperwork\",\n        \"which form to use\",\n        \"accepted form\",\n        \"right application form\"\n      ]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "92f0da711e75474fbcd7d2901eab0c00148fe8922b26f8ead9c8383dac866227",
+ "response_id": "resp_01952ecc4545cfbd006ac62ccb397887d2bd70687b10babf67",
+ "seconds": 31.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 986,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1215,
+  "output_tokens_details": {
+   "reasoning_tokens": 214
+  },
+  "total_tokens": 2201
+ }
+}

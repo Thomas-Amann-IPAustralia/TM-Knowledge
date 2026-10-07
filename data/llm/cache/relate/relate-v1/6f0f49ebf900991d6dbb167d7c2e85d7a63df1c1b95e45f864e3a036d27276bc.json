@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007149,
+ "created_utc": "2026-10-07T11:55:48Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0158",
+ "job": "relate",
+ "key": "6f0f49ebf900991d6dbb167d7c2e85d7a63df1c1b95e45f864e3a036d27276bc",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Once an opponent has filed a notice of opposition (comprised of a notice of intention to oppose and an adequate statement of grounds and particulars) the trade mark applicant or IRDA holder must file a notice of intention to defend if they wish to contest the opposition and maintain their rights.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement: a notice of opposition comprises a notice of intention to defend.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The supplied passages connect filing a notice of opposition with the subsequent requirement to file a notice of intention to defend. However, the quoted sentence is not in either passage supplied for this neighbour, so it cannot support this judgement.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the references to 'intention to defend' as a component of the notice of opposition in Part 60 are textual errors.\",\n      \"passage_ref\": \"TMM/Part60/4/17/4/17/2~2\",\n      \"neighbour\": \"GC-0103\"\n    },\n    {\n      \"quote\": \"If the notice of intention to defend is not filed, the opposition may be taken to have succeeded and the IRDA will not be protected.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"requiresElement: every extension of protection requires a notice of intention to defend.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.8,\n      \"reasoning\": \"The Manual connects failure to file the notice with a possible successful opposition and consequent non-protection of the IRDA. I infer a conditional qualification of extension of protection, not a requirement applying to all extensions of protection.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether qualifies adequately represents this conditional procedural consequence rather than requiring related_to.\",\n      \"passage_ref\": \"TMM/Part60/4/17/4/17/2~1\",\n      \"neighbour\": \"GC-0143\"\n    },\n    {\n      \"quote\": \"Once an opponent has filed a notice of opposition (comprised of a notice of intention to oppose and an adequate statement of grounds and particulars) the trade mark applicant or IRDA holder must file a notice of intention to defend if they wish to contest the opposition and maintain their rights.\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"requiresElement without qualification: commencing any opposition requires a notice of intention to defend.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.91,\n      \"reasoning\": \"The Manual expressly makes filing the notice a requirement for contesting the opposition and maintaining rights, rather than for commencing opposition proceedings. The same passage excludes proceedings commenced before 15 April 2013.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the opposition concept can carry a requirement limited to contesting proceedings commenced under the newer procedure.\",\n      \"passage_ref\": \"TMM/Part47/3#1\",\n      \"neighbour\": \"GC-0102\"\n    },\n    {\n      \"quote\": \"Once an opponent has filed a notice of opposition (comprised of a notice of intention to oppose and an adequate statement of grounds and particulars) the trade mark applicant or IRDA holder must file a notice of intention to defend if they wish to contest the opposition and maintain their rights.\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"related_to, treating the neighbour solely as the instrument 'notice of intention to oppose'.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.83,\n      \"reasoning\": \"Reading the neighbour as opposition proceedings, the Manual expressly requires the notice to contest the opposition and maintain rights, subject to its historical exclusion. I am unsure whether the instrument alias denotes the intended concept; that reading would support only a procedural connection.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether GC-0040 denotes opposition proceedings or the distinct notice of intention to oppose.\",\n      \"passage_ref\": \"TMM/Part47/3#1\",\n      \"neighbour\": \"GC-0040\"\n    },\n    {\n      \"quote\": \"Once an opponent has filed a complete notice of opposition (comprised of a notice of intention to oppose and an adequate statement of grounds and particulars) the applicant must file a notice of intention to defend if it wishes to continue with the non-use application.\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"requiresElement without qualification: lodging any application for removal requires a notice of intention to defend.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual expressly requires the notice for continuing a non-use application after a complete notice of opposition has been filed. This is a conditional continuation requirement, not an initial filing requirement.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether requiresElement preserves the condition that a complete notice of opposition has already been filed.\",\n      \"passage_ref\": \"TMM/Part49/4#1\",\n      \"neighbour\": \"GC-0142\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "fface180097bd1727c44f823ad846f8996dbb091d5bf73b3cc5a1dd9505ad783",
+ "response_id": "resp_026868865e8b84b5006ac6332758c487d2a1c0b6644792ab15",
+ "seconds": 29.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4213,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4210
+  },
+  "output_tokens": 1387,
+  "output_tokens_details": {
+   "reasoning_tokens": 221
+  },
+  "total_tokens": 5600
+ }
+}

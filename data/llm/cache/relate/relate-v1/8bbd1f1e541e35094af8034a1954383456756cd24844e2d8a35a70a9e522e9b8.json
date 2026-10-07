@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.000859,
+ "created_utc": "2026-10-07T11:28:11Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0021",
+ "job": "relate",
+ "key": "8bbd1f1e541e35094af8034a1954383456756cd24844e2d8a35a70a9e522e9b8",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"A geographical connection might be inferred from the word ‘country’, but these passages concern Convention priority rather than geographical qualifying information.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.99,\"reasoning\":\"The passages discuss filing in a Convention country and its effect on priority dates and filing periods. Neither passage connects a Convention country with a geographical qualifier in a trade mark.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether any reference to filing location is intended to fall within the anchor’s meaning of geographical qualifier; these passages do not support that reading.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0157\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "bc0eddcad6c98a67f83ec68db317e53bdd522c968ef947f9e26a7743120c4a80",
+ "response_id": "resp_0f1ef5016d45b140006ac62cb894f487d2a151bde10806a652",
+ "seconds": 19.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2117,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2114
+  },
+  "output_tokens": 150,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 2267
+ }
+}

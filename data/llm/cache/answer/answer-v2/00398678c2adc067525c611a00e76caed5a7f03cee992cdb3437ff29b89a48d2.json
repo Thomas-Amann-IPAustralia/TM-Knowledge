@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013934,
+ "created_utc": "2026-10-07T12:19:53Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0044",
+ "job": "answer",
+ "key": "00398678c2adc067525c611a00e76caed5a7f03cee992cdb3437ff29b89a48d2",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0098\",\"GC-0115\",\"GC-0116\",\"GC-0131\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part4/1/1/3/1\",\"quote\":\"If the correct fee is not paid as prescribed in the regulations in relation to: doing an act, the act is not to be done, or is taken not to have been done, if the fee has not paid. filing a document, the document is taken not to be filed if the fee has not been paid, filing an application for registration of a trade mark, the application is taken to have lapsed if the fee has not been paid.\"},{\"ref\":\"TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid\",\"quote\":\"Where the Registrar fails to notify the person of an underpayment within 14 working days of the person making an application, notice or request, then the application, notice or request is treated as filed despite the failure to pay the relevant fee (reg 21.21A(2)). However, reg 21.21A(2) does not have the effect of waiving the fee. The fee or amount unpaid remains a debt owed to the Commonwealth.\"},{\"ref\":\"TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid\",\"quote\":\"If a fee is payable in respect of the doing of an act by the Registrar (such as the examination of a trade mark), the Registrar must not do that act until the fee has been paid (reg 21.21A(1)).\"},{\"ref\":\"TMM/Part4/1/1/3/1\",\"quote\":\"However, the applicant or his or her agent must be notified in writing within 14 days that the correct fee has not been paid.\"},{\"ref\":\"TMM/Part4/5#1\",\"quote\":\"Fees are refunded where: The fee has been overpaid; Applications or other documents are taken not to have been filed; A fee is a duplicate payment; A fee has been incurred as a result of an officer error; or An inapplicable payment has been submitted by the customer. All refunds or waivers must be considered and approved by the appropriate delegate, where necessary, before being processed.\"},{\"ref\":\"TMM/Part4/2/2/5\",\"quote\":\"If, within 14 days of a fee being paid for the doing of an act or the filing of a document, the Registrar notifies the person who did the act or filed the document that the correct fee was not paid, the act is taken as not done or the document is taken as not filed until the deficiency in the fee is made good. If the deficiency is not made good, any fees paid will be refunded after two months.\"},{\"ref\":\"TMM/Part4/2/2/1\",\"quote\":\"If a person becomes liable to pay a fee because of an error or omission on the part of a trade marks officer, the Registrar may remit the whole or part of the fee if the fee has not been paid, or refund the whole or part of the fee to that person if the fee has been paid.\"},{\"ref\":\"TMR1995/r21.24(1)\",\"quote\":\"(1) If, because of an error or omission by an employee, a person becomes liable to pay a fee for which the person would not otherwise have been liable, the Registrar may:\"}],\"answer\":\"### If the fee is not paid\\n**Manual practice:** Part 4 states that an unpaid correct fee can mean an act is not done or is treated as not done, a document is treated as not filed, or an application for registration is treated as lapsed. It also requires written notification to the applicant or agent within 14 days. [TMM/Part4/1/1/3/1]\\n\\nPart 2 states that, if notification of underpayment is not given within **14 working days**, the application, notice or request is treated as filed. This does not waive the fee: the unpaid amount remains a debt to the Commonwealth. It also states that the Registrar must not perform an act for which a fee is payable until that fee is paid. [TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid]\\n\\n**Uncertainty:** the supplied Manual passages use different notification periods—“14 days” and “14 working days”. I cannot resolve that discrepancy from the supplied legislation, which does not include the relevant non-payment provisions. [TMM/Part4/1/1/3/1; TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid]\\n\\n### Can the fee be refunded?\\n**Manual practice:** yes. The Manual lists overpayments, documents treated as not filed, duplicate payments, officer errors and inapplicable payments as refund circumstances. Refunds or waivers require consideration and approval by the appropriate delegate, where necessary, before processing. [TMM/Part4/5#1]\\n\\nFor an insufficient fee paid for an act or document, where the Registrar gives the specified notification within 14 days, the Manual says the act or filing remains ineffective until the deficiency is corrected. If it is not corrected, any fees paid will be refunded after two months. [TMM/Part4/2/2/5]\\n\\nFor liability arising from a trade marks officer’s error or omission, the Manual says the Registrar may remit all or part of an unpaid fee, or refund all or part of a paid fee. [TMM/Part4/2/2/1]\\n\\n**Regulations:** the supplied extract of regulation 21.24(1) identifies liability caused by an employee’s error or omission, but ends at “the Registrar may:”. It therefore does not itself provide the complete statutory refund power; the remission and refund detail above is reported as Manual practice. [TMR1995/r21.24(1); TMM/Part4/2/2/1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "c1f471b4e279abf125d28e4833123d9550ed9ab0220c15a63176184183f912b8",
+ "response_id": "resp_057424bfa73f175a006ac638cde11487d2a3523b19a63e11df",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5664,
+  "input_tokens_details": {
+   "cache_write_tokens": 5661,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1371,
+  "output_tokens_details": {
+   "reasoning_tokens": 88
+  },
+  "total_tokens": 7035
+ }
+}

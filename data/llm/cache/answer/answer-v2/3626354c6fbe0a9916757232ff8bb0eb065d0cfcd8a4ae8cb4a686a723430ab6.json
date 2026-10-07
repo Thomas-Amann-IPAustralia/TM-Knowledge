@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012437,
+ "created_utc": "2026-10-07T12:19:45Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0042",
+ "job": "answer",
+ "key": "3626354c6fbe0a9916757232ff8bb0eb065d0cfcd8a4ae8cb4a686a723430ab6",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0073\",\"GC-0001\",\"GC-0002\",\"GC-0006\",\"GC-0124\"],\"decline_reason\":\"I cannot determine whether your particular mark could be amended or accepted. The supplied passages do not explain whether deleting a name or symbol is permitted.\",\"declined\":true,\"citations\":[{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part29/1#1\",\"quote\":\"If the trade mark, or some part of the trade mark, contains a connotation that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection should be raised.\"},{\"ref\":\"TMM/Part29/3#1~1\",\"quote\":\"However, the mere presence within a trade mark of a person's name, a descriptive term, a geographical place name or a reference to the size of packages or intended use of a product does not automatically demonstrate a connotation sufficient to trigger section 43.\"}],\"answer\":\"The supplied passages do not explain whether you can delete a name or symbol from an application. I therefore cannot say whether that amendment would be permitted for your mark.\\n\\nWhat they do establish is:\\n\\n• **Act — section 43:** An application must be rejected if a connotation of the mark, or a sign within it, makes use for the specified goods or services likely to deceive or cause confusion. This provision addresses rejection of the application, not permission to delete the offending element. [TMA1995/s43]\\n\\n• **Manual practice:** An examiner should raise a ground for rejection where the mark, or part of it, has a connotation likely to deceive or confuse consumers in the relevant market. The passage does not provide a procedure for leaving that part out. [TMM/Part29/1#1]\\n\\n• **Manual practice:** A person's name or geographical place name does not automatically create a connotation sufficient to trigger section 43. The issue is the connotation conveyed, rather than merely the presence of that name. [TMM/Part29/3#1~1]\\n\\nIn short, these passages explain when a confusing connotation warrants an objection, but do not answer whether deleting the name or symbol is an available amendment.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "7b98e2b83755fea16f70a1f9fa307eebb75e49fb2f69d5fa9433f6afa5cf0819",
+ "response_id": "resp_0465a19b7b630b2d006ac638c50d0487d2a73047b2e62dcdb7",
+ "seconds": 29.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7310,
+  "input_tokens_details": {
+   "cache_write_tokens": 7307,
+   "cached_tokens": 0
+  },
+  "output_tokens": 660,
+  "output_tokens_details": {
+   "reasoning_tokens": 113
+  },
+  "total_tokens": 7970
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006056,
+ "created_utc": "2026-10-07T12:15:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0018",
+ "job": "judge",
+ "key": "d6eaf5cb910e3e5a6081aa02ffa2f2481f036009fee66ca663a028bf42f941ef",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1\",\"grade\":0},{\"ref\":\"TMM/Part15/3/3/5\",\"grade\":2},{\"ref\":\"TMM/Part54/x-annex-a1---consequences-of-mishandling-a-subpoena#1~1\",\"grade\":0},{\"ref\":\"TMM/Part18/3/3/3/3\",\"grade\":1},{\"ref\":\"TMM/Part15/1/1/1\",\"grade\":3},{\"ref\":\"TMM/Part4/7/7/4\",\"grade\":0},{\"ref\":\"TMM/Part16/2/4/3\",\"grade\":2},{\"ref\":\"TMM/Part54/1/1/4/1\",\"grade\":0},{\"ref\":\"TMM/Part16/2/4/2\",\"grade\":1},{\"ref\":\"TMM/Part29/8/8/1\",\"grade\":0},{\"ref\":\"TMM/Part17/1#1\",\"grade\":1},{\"ref\":\"TMM/Part16/2/4/1\",\"grade\":2},{\"ref\":\"TMM/Part29/3/3/2\",\"grade\":0},{\"ref\":\"TMM/Part10/8#1\",\"grade\":1},{\"ref\":\"TMM/Part47/3/3/3\",\"grade\":1},{\"ref\":\"TMM/Part16/2#1\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "b4d03f37f098e2b38ce78cef94a6d6f0b3d438ede5f307cd64da06eac49e3dc6",
+ "response_id": "resp_0982dd907d082d76006ac637db478c87d294dc74dbbbdf0e8b",
+ "seconds": 28.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3281,
+  "input_tokens_details": {
+   "cache_write_tokens": 3278,
+   "cached_tokens": 0
+  },
+  "output_tokens": 391,
+  "output_tokens_details": {
+   "reasoning_tokens": 53
+  },
+  "total_tokens": 3672
+ }
+}

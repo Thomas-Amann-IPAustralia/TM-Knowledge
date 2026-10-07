@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011384,
+ "created_utc": "2026-10-07T12:19:01Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0037",
+ "job": "answer",
+ "key": "459bcc96568f89e0b28151d603a515cc5e766fe817decb065adb3d224fe95d12",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0012\",\"GC-0015\",\"GC-0053\",\"GC-0126\"],\"decline_reason\":\"I cannot determine whether the term can remain in the goods list of a particular application. I can explain the general Manual practice.\",\"declined\":true,\"citations\":[{\"ref\":\"TMM/Part32B/3#1\",\"quote\":\"In the course of examination this will not usually result in a ground for rejection when protected terms appear in specification of goods.\"},{\"ref\":\"TMM/Part32B/3#1\",\"quote\":\"However, although terminology contained in the specification may not be what is actually used commercially on a label, it is appropriate for the Registrar to carefully consider any specifications that contain protected terms.\"},{\"ref\":\"TMM/Part32B/3#1\",\"quote\":\"If the specification of goods contains a term which is clearly inconsistent with the trade mark application this should be raised with the applicant. Appropriate action could include deleting the term from the specification of goods or replacing it with a more acceptable term. One such example would be replacing champagne, where it is being used to describe the style of wine, with sparkling wine.\"}],\"answer\":\"I cannot determine whether “champagne” can remain in your particular application's goods list.\\n\\nThe general Manual practice—not legislation—is that protected terms appearing in the goods specification will not usually result in a ground for rejection, but specifications containing them should be carefully considered. [TMM/Part32B/3#1]\\n\\nIf a term is clearly inconsistent with the application, the examiner should raise it with the applicant. Appropriate action may include deletion or replacement. The Manual expressly gives replacing “champagne”, when used to describe the style of wine, with “sparkling wine” as an example. Describing style is therefore not, by itself, an assurance that the term may be retained. [TMM/Part32B/3#1]\\n\\nThe supplied legislation does not directly answer whether such a term may remain in the goods list; this guidance rests on the Manual passage.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "446a07cb44188e863f4f831de4dbbd87d76efb7865ec5ddc35d59bc9bf715746",
+ "response_id": "resp_0d239e2081f11969006ac638a3a47087d29cf2dd92a6a46182",
+ "seconds": 18.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6804,
+  "input_tokens_details": {
+   "cache_write_tokens": 6801,
+   "cached_tokens": 0
+  },
+  "output_tokens": 576,
+  "output_tokens_details": {
+   "reasoning_tokens": 140
+  },
+  "total_tokens": 7380
+ }
+}

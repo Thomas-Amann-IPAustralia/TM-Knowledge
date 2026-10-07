@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004446,
+ "created_utc": "2026-10-07T11:30:58Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0094",
+ "job": "relate",
+ "key": "254a0b027823aa524c4095b027aebdae7d547ee171ba0c051eb7ad54fa7d9936",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The information must support a conclusion that it is reasonable to revoke acceptance taking into account all the relevant circumstances.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to, if appliesTo is reserved for provisions rather than procedural steps.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.84,\n      \"reasoning\": \"The Manual identifies acceptance as the procedural status upon which revocation operates. I infer appliesTo from that relationship; the quoted requirement concerns the information supporting revocation, not a requirement to revoke.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether appliesTo accommodates a procedural step acting upon an existing procedural status.\",\n      \"passage_ref\": \"TMM/Part38/2/2/3\",\n      \"neighbour\": \"GC-0093\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, through the holder’s home Office receiving a limitation request arising from submissions on proposed revocation.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.79,\n      \"reasoning\": \"The passage assigns the holder’s home Office a possible role in transmitting a limitation request, rather than a role in revocation of acceptance itself. I do not read that contingent amendment route as establishing a relationship between revocation and the Contracting Party.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the contingent limitation-request route is sufficient to support related_to.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0149\"\n    },\n    {\n      \"quote\": \"The regulations do not provide for cessation of protection to be followed by possible opposition or revocation of acceptance and re-examination.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none, if the excluded sequence is treated as merely mentioning both procedures.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"The Manual links revocation of acceptance with re-examination when explaining the sequence unavailable following cessation of protection of PITMs. This supports a contextual procedural connection, not a general requirement that revocation lead to re-examination.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the examination concept includes the re-examination expressly mentioned here.\",\n      \"passage_ref\": \"TMM/Part62/8#1\",\n      \"neighbour\": \"GC-0092\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "965d80454de2d88b5fa4ea725203147454a9ffefd268c86a490082d93afd45e9",
+ "response_id": "resp_0af4cdcdc744540c006ac62d56c86087d28cd1abfed20246e7",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2654,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2651
+  },
+  "output_tokens": 862,
+  "output_tokens_details": {
+   "reasoning_tokens": 283
+  },
+  "total_tokens": 3516
+ }
+}

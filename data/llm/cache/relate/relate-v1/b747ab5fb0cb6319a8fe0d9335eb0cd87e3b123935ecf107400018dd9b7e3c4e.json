@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001997,
+ "created_utc": "2026-10-07T11:26:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0085",
+ "job": "relate",
+ "key": "b747ab5fb0cb6319a8fe0d9335eb0cd87e3b123935ecf107400018dd9b7e3c4e",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"A lawyer might assist with preparing evidence concerning a predecessor in title, but the supplied passages do not state that connection.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The Manual passages describe evidence of use by a predecessor in title but do not mention a lawyer or connect that role with the predecessor.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether any reference to a lawyer is present in source text outside the supplied excerpts.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0148\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"The attribution of a predecessor's use to the applicant could indirectly affect the assessment of distinctiveness for services, but it does not establish a relationship with the defined concept ‘services of a person’.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The historical section 41 text reproduced in the Manual attributes a predecessor's use to the applicant and separately refers readers to section 6 for ‘services of a person’. These provisions do not expressly or clearly connect the two concepts.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the use-attribution provision should be read as clearly supporting an indirect relationship with ‘services of a person’.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0152\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "8882963f20c3b6f16bcadd016b28dab016f08acf7029dadf0fb894e8093fd053",
+ "response_id": "resp_07225a072b3915a3006ac62c54473887d2bb3d2b16868174c4",
+ "seconds": 20.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3090,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3087
+  },
+  "output_tokens": 368,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 3458
+ }
+}

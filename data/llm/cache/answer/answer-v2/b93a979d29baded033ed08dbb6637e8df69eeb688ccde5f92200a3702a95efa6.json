@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003499,
+ "created_utc": "2026-10-07T12:20:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0046",
+ "job": "answer",
+ "key": "b93a979d29baded033ed08dbb6637e8df69eeb688ccde5f92200a3702a95efa6",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0081\",\"GC-0082\",\"GC-0083\",\"GC-0084\",\"GC-0101\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s8(1)\",\"quote\":\"(1) A person is an authorised user of a trade mark if the person uses the trade mark in relation to goods or services under the control of the owner of the trade mark.\"},{\"ref\":\"TMM/Part23/3/3/1\",\"quote\":\"Authorised use requires some form of actual control by the applicant over the use by the authorised user.\"},{\"ref\":\"TMM/Part48/7#1\",\"quote\":\"Subsections 8(3) and 8(4) provide two non-exclusive examples of where such control is taken to exist. These are: where the owner of a trade mark exercises quality control over the goods or services in relation to which the trade mark is used by the authorised user (subsection 8(3)), and where the owner of the trade mark exercises financial control over the authorised user’s relevant trading activities (subsection 8(4)).\"},{\"ref\":\"TMA1995/s7(3)\",\"quote\":\"(3) An authorised use of a trade mark by a person (see section 8) is taken, for the purposes of this Act, to be a use of the trade mark by the owner of the trade mark.\"}],\"answer\":\"You need to show **actual control, not merely permission**, if you want the other person’s use to count as authorised use.\\n\\n**Act:** Section 8(1) requires the person to use the trade mark in relation to goods or services under your control as owner. [TMA1995/s8(1)]\\n\\n**Manual practice:** The Manual expressly requires some form of actual control. It identifies two non-exclusive ways of demonstrating control:\\n- **Quality control** exercised over the goods or services bearing the trade mark.\\n- **Financial control** exercised over the user’s relevant trading activities.\\n\\nThese are alternatives, not an exhaustive list; the focus is on control actually exercised. [TMM/Part23/3/3/1; TMM/Part48/7#1]\\n\\n**Why it matters under the Act:** Authorised use is treated as use by the trade mark owner for the purposes of the Act. [TMA1995/s7(3)]\\n\\nThe supplied passages do not specify a detailed checklist of documents needed to prove that control.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "deca130d90b095607be81a5bef5334b602f6dcf0dec85c8f84060622cb31d9bf",
+ "response_id": "resp_0fb4d4b1469fbea8006ac638edadb487d2a7fbcce487dfb929",
+ "seconds": 19.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7630,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7627
+  },
+  "output_tokens": 623,
+  "output_tokens_details": {
+   "reasoning_tokens": 77
+  },
+  "total_tokens": 8253
+ }
+}

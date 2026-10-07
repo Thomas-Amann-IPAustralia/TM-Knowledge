@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002992,
+ "created_utc": "2026-10-07T12:21:55Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0063",
+ "job": "judge",
+ "key": "074b58c3cf8a4b08177ee20949b8dfd9824ef1bf602b2764bfccac199e906b46",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/glasses\",\"grade\":0},{\"ref\":\"TMM/Part32B/2/4/2/4/3~2\",\"grade\":3},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/concentrates\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/8/4\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/4\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/3/2\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/8/1\",\"grade\":1},{\"ref\":\"TMM/Part14/4/4/8/2~1\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/carbonated-drinks\",\"grade\":2},{\"ref\":\"TMM/Part10/5/5/3/1\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/carbonated-beverages\",\"grade\":2},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/essences\",\"grade\":1},{\"ref\":\"TMM/Part32B/2/4/2/4/3~1\",\"grade\":3},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/drinks\",\"grade\":2},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/beverages\",\"grade\":2},{\"ref\":\"TMM/Part14/4/4/9/2\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "1e5246866c1dbb1e5225980ad89543eea2b96d32d41dba03ccd5b541ecff2e9d",
+ "response_id": "resp_0c0d3faf4203d838006ac63951e13487d2b733a0638a1a8e1c",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3089,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3086
+  },
+  "output_tokens": 567,
+  "output_tokens_details": {
+   "reasoning_tokens": 131
+  },
+  "total_tokens": 3656
+ }
+}

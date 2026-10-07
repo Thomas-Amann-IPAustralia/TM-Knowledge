@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004297,
+ "created_utc": "2026-10-07T11:27:34Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0091",
+ "job": "relate",
+ "key": "8094933af561d7cc8251dcc64be98d3e31d19af20bdda0ce8762c81e5dc9241f",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"4.1.1 If an application for deferment has been made on the ground that a pending application has been cited against the application and that citation has the same filing date as the application for which the request for deferral has been made, that request will be denied.\",\"relation\":\"related_to\",\"alternative\":\"qualifies: the same filing date limits reliance on a pending citation as a ground for deferment, but does not qualify the pending status itself.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.9,\"reasoning\":\"The Manual expressly connects the filing date of a pending cited application with denial of a deferment request. The connection concerns deferment practice, rather than the meaning or requirements of pending status.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether 'pending' denotes pending status itself or a pending citation as a ground for deferment, which could support 'qualifies'.\",\"passage_ref\":\"TMM/Part17/4/4/1\",\"neighbour\":\"GC-0155\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "3cb8bff756915e30e5dd393086efffc38b3f1810b47a63a912d15bcaf2a6c14d",
+ "response_id": "resp_05ecd7b8dd52be77006ac62c94ed4087d2adc8d56460c60784",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1826,
+  "input_tokens_details": {
+   "cache_write_tokens": 1823,
+   "cached_tokens": 0
+  },
+  "output_tokens": 403,
+  "output_tokens_details": {
+   "reasoning_tokens": 174
+  },
+  "total_tokens": 2229
+ }
+}

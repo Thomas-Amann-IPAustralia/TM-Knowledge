@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005478,
+ "created_utc": "2026-10-07T11:37:11Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0125",
+ "job": "relate",
+ "key": "fdfb2b064c44893b0b723677eb62857e3112d3daf951c69650036d2091e81026",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Both factors might be relevant to distinctiveness under section 41, but that does not establish a relationship between them.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The supplied section 41 passage does not mention plant varietal names or radio call signs. It therefore does not support a relationship between these concepts.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether another passage, not supplied here, directly connects these factors.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0034\"\n    },\n    {\n      \"quote\": \"In the context of plant material and plant mark examination, however, “variety” has specific meaning as the name of a particular member of a species within a genus.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none: the reference to examination could be read as contextual mention rather than a substantive relationship.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.8,\n      \"reasoning\": \"The Manual expressly connects the meaning of a plant variety name to plant mark examination, and the following text treats ‘variety’ and ‘plant varietal name’ as synonymous. This supports a contextual relationship, but not a particular examination requirement.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this contextual definition sufficiently connects plant varietal names to the broader examination concept.\",\n      \"passage_ref\": \"TMM/Part32A/2/3/2-3-1-a-variety-names\",\n      \"neighbour\": \"GC-0092\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "dc738720653cc32fc30f636b1dc75b53aa389adcef6e1bb53d62d6b75ebd4b32",
+ "response_id": "resp_00f6bf3a08361776006ac62eca0b9487d29979d8c5f9d20827",
+ "seconds": 29.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2323,
+  "input_tokens_details": {
+   "cache_write_tokens": 2320,
+   "cached_tokens": 0
+  },
+  "output_tokens": 515,
+  "output_tokens_details": {
+   "reasoning_tokens": 113
+  },
+  "total_tokens": 2838
+ }
+}

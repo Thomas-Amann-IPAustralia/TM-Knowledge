@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013242,
+ "created_utc": "2026-10-07T12:20:43Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0053",
+ "job": "answer",
+ "key": "f9d4e19c9720b0ec120236d964eee668023d1485ad33e0de7edd829f8cc9771a",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0094\",\"GC-0093\",\"GC-0131\",\"GC-0115\",\"GC-0069\",\"GC-0124\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part38/2#1\",\"quote\":\"Before a trade mark is registered, the Registrar may revoke the acceptance of the application for registration of the trade mark if he or she is satisfied that: a. the application should not have been accepted, taking account of all the circumstances that existed when the application was accepted (whether or not the Registrar knew then of their existence); and b. it is reasonable to revoke the acceptance, taking account of all the circumstances.\"},{\"ref\":\"TMM/Part38/1/1/1\",\"quote\":\"An error of judgement or omission on the part of the examiner is not required, nor is it necessary that the Registrar knew or was in a position to know of the existence of the circumstances at the time the application was accepted for this paragraph to apply.\"},{\"ref\":\"TMM/Part38/1/1/1\",\"quote\":\"Paragraph 38(1)(b) applies only if the Registrar has decided that the trade mark should not have been accepted under 38(1)(a).\"},{\"ref\":\"TMM/Part38/1/1/1\",\"quote\":\"For example, the Registrar may consider that it is not reasonable to revoke acceptance if the applicant agrees to amend the application so that certain conditions and limitations are placed upon the trade mark. This consideration is not limited to the circumstances as they existed when the trade mark was accepted.\"},{\"ref\":\"TMM/Part20/4#1~1\",\"quote\":\"Where the Act requires the Registrar to be 'satisfied' of any matter, it is to be understood as requiring that he or she be persuaded of the matter according to the balance of probabilities:\"}],\"answer\":\"Both requirements must be satisfied. The supplied Manual describes the section 38(1) test as follows:\\n\\n1. **Acceptance should not have occurred:** the Registrar must be satisfied that the application should not have been accepted, considering all circumstances existing when it was accepted—even circumstances the Registrar did not then know about. [1]\\n2. **Revocation is reasonable:** the Registrar must also be satisfied that revoking acceptance is reasonable, considering all the circumstances. Before registration, the power is expressed as “may revoke”, rather than an automatic requirement to revoke. [1]\\n\\n**Manual practice and explanation:**\\n- An examiner’s error or omission is not required, and the Registrar need not have known—or been able to know—about the relevant circumstances at acceptance. [2]\\n- The reasonableness question arises only after the Registrar has concluded that acceptance should not have occurred. [3]\\n- Reasonableness is not confined to circumstances existing at acceptance. For example, an applicant’s agreement to amend the application to impose conditions and limitations may make revocation unreasonable. [4]\\n- The Manual’s general explanation of being “satisfied” is persuasion on the balance of probabilities. [5]\\n\\n**Source limitation:** these revocation requirements are reported here from the Manual, which states the Registrar’s practice and describes section 38; it is not itself legislation. The supplied Act extracts contain section 33, not section 38, so the statutory revocation wording cannot be independently checked against the supplied legislation. This explains the general requirements, not whether your particular application’s acceptance would be revoked.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "56f170b85bb187f708bc662a431aec33646ef01f60031bd3024b4587dc63989d",
+ "response_id": "resp_07adf4c99a7055c9006ac638ff6e5887d28478afe19295a675",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6894,
+  "input_tokens_details": {
+   "cache_write_tokens": 6891,
+   "cached_tokens": 0
+  },
+  "output_tokens": 925,
+  "output_tokens_details": {
+   "reasoning_tokens": 193
+  },
+  "total_tokens": 7819
+ }
+}

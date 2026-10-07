@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002698,
+ "created_utc": "2026-10-07T11:17:21Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "change of ownership",
+ "job": "define",
+ "key": "fa95bc3e8bef64a0c92a2af2cc94161948f22f3bad1ad52a60984148689e121e",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"Model as an umbrella concept encompassing assignment and transmission, with recordal treated separately.\",\n  \"definition_quote\": \"change of ownership includes assignment or transmission.\",\n  \"alt_labels\": [\n    \"change in ownership\"\n  ],\n  \"confidence\": 0.94,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: Change of ownership encompasses assignment or transmission of a trade mark from one party to another, rather than a name change by the same entity.\",\n  \"expert_should_check\": \"Check the scope of the regulation 17A.2 definition, which appears in the international-registration context, before applying it as a statutory definition across all trade marks.\",\n  \"legislative_basis\": [\n    \"TMA1995/s110\"\n  ],\n  \"pref_label\": \"change of ownership\",\n  \"definition_ref\": \"TMR1995/r17A.2/change-of-ownership\",\n  \"reasoning\": \"The Regulations expressly identify change of ownership as including assignment or transmission. It is a useful umbrella concept rather than a duplicate of GC-0086 assignment or GC-0087 transmission individually. The Manual explains the passing of ownership between parties, distinguishes it from a change of name by the same entity, and describes recordal under section 110. The ownership-transfer event fits procedural_step; the Manual's account of recordal is practice guidance, not itself legislation.\",\n  \"not_labels\": [\n    \"change of name\",\n    \"recordal of change of ownership\"\n  ],\n  \"group\": \"procedural_step\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "214b965a882b42bace99637f92beea826bfc5e5a3fed279034611979cb5d43c5",
+ "response_id": "resp_07c2a3175199ec79006ac62a2dfc7087d290c956b2402a0bd1",
+ "seconds": 19.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3002,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2999
+  },
+  "output_tokens": 509,
+  "output_tokens_details": {
+   "reasoning_tokens": 164
+  },
+  "total_tokens": 3511
+ }
+}

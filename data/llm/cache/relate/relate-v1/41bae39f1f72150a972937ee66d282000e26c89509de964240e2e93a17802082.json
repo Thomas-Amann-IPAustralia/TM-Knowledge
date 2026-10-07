@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001329,
+ "created_utc": "2026-10-07T11:26:56Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0078",
+ "job": "relate",
+ "key": "41bae39f1f72150a972937ee66d282000e26c89509de964240e2e93a17802082",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"Treat sound and scent trade marks as related because both correspond to signs listed in section 6.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.99,\"reasoning\":\"The statutory definition lists sound and scent as separate forms of sign. It does not state a relationship between sound trade marks and scent trade marks.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether shared membership of the statutory list is intended to count as a relationship in this ontology.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0077\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"Infer a relationship through representation or description requirements for non-traditional trade marks.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.99,\"reasoning\":\"The Manual passage compares the description expected for taste trade marks with that expected for scent trade marks. It does not mention labels or support a relationship between labels and scent trade marks.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the supplied passage is the intended evidence for the label neighbour.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0140\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "20b581a8327548a4278342dbc2a599d5cdd86ce1ca96d5052210360925df5dae",
+ "response_id": "resp_0576d1c396721782006ac62c6d640c87d28a0af6ae0e2a9608",
+ "seconds": 19.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1928,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1925
+  },
+  "output_tokens": 246,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 2174
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001882,
+ "created_utc": "2026-10-07T12:19:57Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0044",
+ "job": "judge",
+ "key": "c1ecf7a03ddcbcc1188f11bbe68af0cdbfd00fee21962d82a34e7e296050bbd8",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part4/5/5/7\",\"grade\":3},{\"ref\":\"TMM/Part4/5#1\",\"grade\":3},{\"ref\":\"TMM/Part4/6#1\",\"grade\":2},{\"ref\":\"TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid\",\"grade\":3},{\"ref\":\"TMM/Part4/2/2/5\",\"grade\":3},{\"ref\":\"TMM/Part4/5/5/3/1\",\"grade\":3},{\"ref\":\"TMM/Part4/2/2/1\",\"grade\":3},{\"ref\":\"TMM/Part4/6/6/1/2\",\"grade\":1},{\"ref\":\"TMM/Part4/2/2/2\",\"grade\":2},{\"ref\":\"TMM/Part4/1/1/3/1\",\"grade\":3},{\"ref\":\"TMM/Part4/1/1/3\",\"grade\":1},{\"ref\":\"TMM/Part4/6/6/3/2\",\"grade\":3},{\"ref\":\"TMM/Part4/6/6/1/1\",\"grade\":2}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "2b0f787015b5e3509fbab5e3655c1b4b64ea2878194b144c0a0e3e1e6fca375d",
+ "response_id": "resp_010f19e059c30952006ac638dbe43c87d28685f8c85a4ac626",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1692,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1689
+  },
+  "output_tokens": 359,
+  "output_tokens_details": {
+   "reasoning_tokens": 94
+  },
+  "total_tokens": 2051
+ }
+}

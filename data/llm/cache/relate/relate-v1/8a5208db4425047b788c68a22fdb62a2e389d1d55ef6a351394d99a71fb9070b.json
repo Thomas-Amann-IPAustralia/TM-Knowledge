@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003074,
+ "created_utc": "2026-10-07T11:22:20Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0052",
+ "job": "relate",
+ "key": "8a5208db4425047b788c68a22fdb62a2e389d1d55ef6a351394d99a71fb9070b",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"research during normal examination indicates otherwise\",\"relation\":\"related_to\",\"alternative\":\"is_kind_of: examiner research is a kind of examination.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.94,\"reasoning\":\"The passage expressly places research within normal examination. It does not establish research as a kind of examination or support a more specific listed predicate.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether research within examination should instead be modelled using a part-of relationship not listed here.\",\"passage_ref\":\"TMM/Part10/4/4/1/3\",\"neighbour\":\"GC-0092\"},{\"quote\":\"If research shows that there are strong community, governmental or other significant concerns then this is relevant information that may support raising a section 42 ground for rejection.\",\"relation\":\"related_to\",\"alternative\":\"qualifies: examiner research qualifies the image of a person itself.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.85,\"reasoning\":\"In this passage about images of persons, research revealing significant concerns may inform the Registrar’s practice of raising a section 42 ground. The connection to images is contextual; the research informs their assessment rather than qualifying the image itself.\",\"modality\":\"may\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the contextual connection supports a direct relationship to images of persons, rather than only to the section 42 ground.\",\"passage_ref\":\"TMM/Part30/2/2/12\",\"neighbour\":\"GC-0030\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "e332d2653e4c9d9528373f82dae26468d15a3a7870a92fb75a7517df3313e285",
+ "response_id": "resp_0af6fe85a8b6b81e006ac62b4f040c87d2b2b63538475886fd",
+ "seconds": 30.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2031,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2028
+  },
+  "output_tokens": 594,
+  "output_tokens_details": {
+   "reasoning_tokens": 270
+  },
+  "total_tokens": 2625
+ }
+}

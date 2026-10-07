@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010899,
+ "created_utc": "2026-10-07T12:20:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0049",
+ "job": "answer",
+ "key": "23be949dfa5e3ac0fea411d2ca91b11cf52b5bda7ed3aecc2fb69c0f74891b9d",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0099\",\"GC-0089\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part24/2#1~2\",\"quote\":\"Entry in the Register will make it clear the disclaimer is voluntary and to that end will be prefaced by the words: The following disclaimer has been requested under subsection 74(1): This will differentiate such disclaimers from the compulsory disclaimers imposed under the repealed legislation.\"},{\"ref\":\"TMA1995/s74\",\"quote\":\"(3) The Registrar must, on registering the trade mark or on receiving notice of the disclaimer (whichever is later), enter the particulars of the disclaimer in the Register.\"}],\"answer\":\"Manual practice: the Register entry will identify the disclaimer as voluntary by prefacing it with the exact words:\\n\\n“The following disclaimer has been requested under subsection 74(1):”\\n\\nThis distinguishes it from compulsory disclaimers imposed under the repealed legislation (TMM/Part24/2#1~2).\\n\\nAct: subsection 74(3) requires the Registrar to enter the disclaimer’s particulars in the Register. The quoted prefatory wording is Manual practice, not wording prescribed by that subsection (TMA1995/s74).\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "61aee1dca31f48d6140b866c9a9fd766047cb0c74bb2331bd9415b4d2002e474",
+ "response_id": "resp_05d2e16f2538f9bb006ac638ec365487d298a7dc50a917dfa2",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7636,
+  "input_tokens_details": {
+   "cache_write_tokens": 7633,
+   "cached_tokens": 0
+  },
+  "output_tokens": 271,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7907
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00512,
+ "created_utc": "2026-10-07T12:16:59Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0017",
+ "job": "answer",
+ "key": "122ff48374fd369333124e2cb800d2148a38e63a8ef58e0e8b2edc6aa3e50e80",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0001\",\"GC-0002\",\"GC-0006\",\"GC-0009\",\"GC-0012\",\"GC-0016\",\"GC-0026\",\"GC-0028\",\"GC-0029\",\"GC-0072\"],\"decline_reason\":\"I cannot state whether your particular application would be refused. The supplied passages support explaining the statutory test and the Registrar’s examination practice instead.\",\"declined\":true,\"citations\":[{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part29/6#1~1\",\"quote\":\"For example, a section 43 ground for rejection may arise if a trade mark is the name of a well-known person, and the goods/services are in the field for which they are well known, such that consumers are clearly likely to assume that the person is connected with or has endorsed those goods/services, or are involved in their production or supply.\"},{\"ref\":\"TMM/Part29/6#1~2\",\"quote\":\"Firstly, how well known is the person among relevant Australian consumers, as at the priority date? Secondly, are consumers likely to see the name as referring specifically to the well-known person, rather than someone else with the same name?\"},{\"ref\":\"TMM/Part29/6#1~2\",\"quote\":\"The closer the link between the goods/services and the particular field in which the name is well-known, the more likely that consumers will assume that use of the trade mark is associated with the well-known person. Of course, this should be weighed together with the other factors.\"},{\"ref\":\"TMM/Part29/6#1~1\",\"quote\":\"If the trade mark application is submitted by the well-known person, or it is clear from other available information that the application was made with permission from the well-known person or their representative, a section 43 ground for rejection does not arise. However, if the examiner is not satisfied that the relevant relationship exists between the applicant and the well-known person referred to, a ground for rejection may be appropriate.\"}],\"answer\":\"Potentially, but not automatically. I cannot say whether your particular application would be refused.\\n\\n**Act — the legal test:** Section 43 requires rejection if a connotation of the trade mark, or a sign within it, makes use for the specified goods or services likely to deceive or cause confusion. Merely using a well-known person’s name in their field is not itself the statutory test. [TMA1995/s43]\\n\\n**Manual practice — names in the person’s field:** A section 43 ground may arise where consumers are clearly likely to assume that the person is connected with, has endorsed, or is involved in producing or supplying the goods or services. [TMM/Part29/6#1~1]\\n\\nThe examiner considers how well known the person is among relevant Australian consumers at the priority date, whether consumers would identify that particular person rather than someone sharing the name, and the connection between the specified goods or services and their field. A closer connection increases the likelihood of an assumed association, but must be weighed with the other factors. [TMM/Part29/6#1~2]\\n\\n**Manual practice — permission or relationship:** The Manual says this ground does not arise where the person applies themselves, or available information clearly shows permission from them or their representative. If the examiner is not satisfied that the relevant relationship exists, a ground may be appropriate. This is the Manual’s practice, not a separate statutory rule. [TMM/Part29/6#1~1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b979c29ab70e2ad09fa91099256cef03e2159b9b33124325ef17cc1a1afd78d6",
+ "response_id": "resp_0187dc621d69e921006ac6381ecbb887d28152c971fef6d6b1",
+ "seconds": 29.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7146,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7143
+  },
+  "output_tokens": 952,
+  "output_tokens_details": {
+   "reasoning_tokens": 140
+  },
+  "total_tokens": 8098
+ }
+}

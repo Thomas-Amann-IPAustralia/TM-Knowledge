@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005526,
+ "created_utc": "2026-10-07T11:28:02Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0088",
+ "job": "relate",
+ "key": "71e226baf7ac712555bb0e2d99d1151b885c11cb1c9c481e416ec6b489a72446",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The fact that a record has been made in the Register that a person claims an interest or right in a registered trade mark is not of itself proof or evidence that the person has that right or interest (section 116).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"doesNotGiveRiseTo was rejected because the evidentiary limitation concerns the recorded claim, not the relationship between the Register and the registered trade mark.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly connects the Register with records of claimed rights or interests in registered trade marks. No listed specific predicate adequately describes that recording relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology has a more specific predicate for recording claimed interests in a registered trade mark.\",\n      \"passage_ref\": \"TMM/Part44/2#1\",\n      \"neighbour\": \"GC-0089\"\n    },\n    {\n      \"quote\": \"The registered owner, and in some instances the authorised user, may take an action for infringement of a registered trade mark.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo was rejected because the neighbour is a participant entitled to bring proceedings, rather than a provision applying to registered trade marks.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual describes the owner's and, conditionally, the authorised user's ability to bring infringement proceedings concerning a registered trade mark. The available predicates do not specifically express that entitlement.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the combined neighbour preserves the qualification that only some authorised users may bring infringement proceedings.\",\n      \"passage_ref\": \"TMM/Part19B/4#1\",\n      \"neighbour\": \"GC-0035\"\n    },\n    {\n      \"quote\": \"The registered owner, and in some instances the authorised user, may take an action for infringement of a registered trade mark.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement was rejected because the passage does not make an authorised user necessary for a registered trade mark.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly connects an authorised user with the ability, in some instances, to bring proceedings for infringement of a registered trade mark. No listed specific predicate captures that conditional entitlement.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"The limits of the phrase 'in some instances' on an authorised user's entitlement to sue.\",\n      \"passage_ref\": \"TMM/Part19B/4#1\",\n      \"neighbour\": \"GC-0083\"\n    },\n    {\n      \"quote\": \"A primary consideration in deciding whether the trade mark qualifies for registration as a defensive trade mark in terms of subsection 185(1) is the extent to which the registered trade mark upon which the application is based has been used in respect of any or all of the goods for which it is registered.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"requiresElement was rejected because this sentence identifies an assessment factor rather than expressly stating a universal prerequisite for defensive registration.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.8,\n      \"reasoning\": \"The Manual identifies use of the underlying registered trade mark as a primary consideration in assessing eligibility for defensive registration. This relationship is inferred at concept level: it is the extent of use, not registered status alone, that qualifies the assessment.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether qualifies should instead link a separate concept for extent of use to defensive registration.\",\n      \"passage_ref\": \"TMM/Part34/6/6/2/3\",\n      \"neighbour\": \"GC-0109\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "c3ed06afa84bdcb48407da568016d77b59051d31c421a79b420ae337df6815f6",
+ "response_id": "resp_067748f222db1b69006ac62ca5366487d291719ed28aea1aa4",
+ "seconds": 29.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2858,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2855
+  },
+  "output_tokens": 1076,
+  "output_tokens_details": {
+   "reasoning_tokens": 188
+  },
+  "total_tokens": 3934
+ }
+}

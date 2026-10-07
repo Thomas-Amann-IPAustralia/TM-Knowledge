@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003238,
+ "created_utc": "2026-10-07T11:24:03Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0059",
+ "job": "relate",
+ "key": "7ee417401ae33e88d9f603ca6f028b4dc9c0f330e2b689770a59dfae2aded731",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Trade marks consisting of the combination of a word that has some reference to the goods or services, followed by the word SMART or INTELLIGENT, will usually be prima facie capable of distinguishing. For example LIGHT SMART would be inherently adapted to distinguish lighting apparatus or the installation of lighting apparatus and therefore a section 41 ground for rejection would not be appropriate.\",\n      \"relation\": \"statesThresholdFor\",\n      \"alternative\": \"same_concept: the passage uses closely connected expressions, but does not establish that inherent adaptation at any degree is identical to prima facie capability.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.78,\n      \"reasoning\": \"The Manual's examples support sufficient inherent adaptation as the threshold for prima facie capability of distinguishing. This threshold relationship is inferred from the contrasting examples rather than expressly defined.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether these examples sufficiently support a threshold relationship rather than merely a contextual association.\",\n      \"passage_ref\": \"TMM/Part22/14/14/3\",\n      \"neighbour\": \"GC-0119\"\n    },\n    {\n      \"quote\": \"If there is a primary meaning for a sign other than the geographical name, the ordinary signification of the sign may not be that of the geographical name and the sign may be inherently adapted to distinguish the claims.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"mayGiveRiseTo: a non-geographical primary meaning informs the assessment but does not necessarily produce inherent adaptation.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The passage expressly identifies a non-geographical primary meaning as a factor affecting whether a sign is inherently adapted to distinguish. Its conditional wording does not make that meaning sufficient in every case.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the relationship should be limited expressly to primary meanings competing with geographical significance.\",\n      \"passage_ref\": \"TMM/Part22/15/15/1~2\",\n      \"neighbour\": \"GC-0005\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "a223437a5dd9839536af5f43d14f7fabda3bab4ec3e44c370fd0549c2bdbbb2d",
+ "response_id": "resp_0ed63aac3bc7d945006ac62bc152ec87d285ae44c7fb2eb0de",
+ "seconds": 19.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2596,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2593
+  },
+  "output_tokens": 621,
+  "output_tokens_details": {
+   "reasoning_tokens": 130
+  },
+  "total_tokens": 3217
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002478,
+ "created_utc": "2026-10-07T11:14:08Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "International Register",
+ "job": "define",
+ "key": "cee5507975124ab8020d3256116b6d38c0bc2f36d358bb6700941a6a716127e4",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"International Register means the register maintained by the International Bureau for the purposes of the Protocol.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.99,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: The International Register is the register maintained by the International Bureau for the purposes of the Madrid Protocol, in which international registrations and subsequent designations are recorded.\",\n  \"expert_should_check\": \"Check any additional legislative links to the listed cited provisions, whose text was not supplied.\",\n  \"legislative_basis\": [\n    \"TMR1995/r17A.2\",\n    \"TMR1995/r2.1/international-register\"\n  ],\n  \"pref_label\": \"International Register\",\n  \"definition_ref\": \"TMR1995/r17A.2/international-register\",\n  \"reasoning\": \"The Regulations expressly define a specific register, making this a legal record rather than a generic phrase. Regulation 2.1 points to regulation 17A.2, so the substantive definition is preferred. The Manual describes international registrations and subsequent designations being recorded in it. It is distinct from the existing concepts for the Register of Trade Marks, the International Bureau, the Madrid Protocol and international registration of a trade mark.\",\n  \"not_labels\": [\n    \"Register of Trade Marks\",\n    \"Record of International Registrations\",\n    \"international registration of a trade mark\",\n    \"International Bureau\",\n    \"Madrid Protocol\"\n  ],\n  \"group\": \"instrument_or_record\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "420107287e4c8c237e4c772cfec18866c980dac81faab139ae385b7c32a1d9a0",
+ "response_id": "resp_0f658a610157729f006ac62964607887d2a81a633a54b32dcd",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3494,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3491
+  },
+  "output_tokens": 460,
+  "output_tokens_details": {
+   "reasoning_tokens": 117
+  },
+  "total_tokens": 3954
+ }
+}

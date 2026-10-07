@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004064,
+ "created_utc": "2026-10-07T11:31:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0083",
+ "job": "relate",
+ "key": "71abdbf89dd02d4a49c8c8c719053ce1e21e4080d8955c16123a90939e44e713",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, on the basis that section 8 is listed as defining both concepts.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The passages list authorised user and authorised use together but do not explain the relationship between them. A shared legislative reference alone does not establish the requested relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the shared section heading is intended to count as more than co-mention.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0082\"\n    },\n    {\n      \"quote\": \"Use of the trade mark must be by either the person claiming to be the owner, its predecessor in title or an authorised user.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement, treating a predecessor in title as a prerequisite for being an authorised user.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The Manual connects these roles as alternative persons whose use can meet the stated requirement. It does not make either role a prerequisite or subtype of the other.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether alternative qualifying users warrant a related_to edge rather than separate edges to the use requirement.\",\n      \"passage_ref\": \"TMM/Part19A/6#1\",\n      \"neighbour\": \"GC-0085\"\n    },\n    {\n      \"quote\": \"To be an authorised user the person who uses the trade mark must use the trade mark under the control of the owner of the trade mark (s 8(1)).\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"related_to, because the required element is the owner's control rather than the owner considered alone.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual's account of section 8(1) expressly makes use under the trade mark owner's control a requirement for authorised-user status. This supports requiresElement, provided the edge is understood as requiring that control relationship, not identity with the owner.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour's inclusion of 'owner of the trade mark' permits this edge without implying that the owner must be registered.\",\n      \"passage_ref\": \"TMM/Part19A/6/6/3\",\n      \"neighbour\": \"GC-0084\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "bedee40fd4facf17c4e981c349887606c9c83880f022c64e3484a374966ec229",
+ "response_id": "resp_0df9252aeb66c748006ac62d8b744487d2815041e01c6a2648",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2915,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2912
+  },
+  "output_tokens": 783,
+  "output_tokens_details": {
+   "reasoning_tokens": 189
+  },
+  "total_tokens": 3698
+ }
+}

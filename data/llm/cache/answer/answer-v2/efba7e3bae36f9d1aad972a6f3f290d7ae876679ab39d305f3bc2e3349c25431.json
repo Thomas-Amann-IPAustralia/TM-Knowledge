@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011701,
+ "created_utc": "2026-10-07T12:15:29Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0016",
+ "job": "answer",
+ "key": "efba7e3bae36f9d1aad972a6f3f290d7ae876679ab39d305f3bc2e3349c25431",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0107\",\"GC-0134\",\"GC-0127\",\"GC-0045\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part52/5/5/2\",\"quote\":\"Where a right to review by the ART exists, it is not confined to the parties who were involved in the matter leading to the decision concerned any person whose interests are affected by the decision can request to be made a party.\"},{\"ref\":\"TMM/Part52/5/5/2\",\"quote\":\"A review by the ART leads to a full re-decision of the matter on its merits. The tribunal stands in the shoes of the original decision maker and can exercise all of the powers open to that person. Additional evidence can be admitted.\"}],\"answer\":\"Manual practice — TMM/Part52/5/5/2:\\n\\n• Who can take part: participation is not confined to the original parties. Any person whose interests are affected by the decision can request to be made a party. The passage describes a right to request participation, not automatic admission.\\n\\n• What happens to the decision: the ART undertakes a full re-decision on the merits, standing in the shoes of the original decision maker and exercising all powers available to that person. Additional evidence can be admitted.\\n\\nThese statements describe the Manual’s account of review, not legislative provisions supplied here. The supplied passages do not specify whether requesting review automatically stays the original refusal, or precisely how the original decision is formally disposed of following review; those points cannot be confirmed from these extracts.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "07e5c0a46e4e10bf1cab49005bce019823dd69441f71c42697edd6bdd2034e00",
+ "response_id": "resp_0a06de5b5565bd21006ac637cefa3487d290becdfed163f57c",
+ "seconds": 18.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7705,
+  "input_tokens_details": {
+   "cache_write_tokens": 7702,
+   "cached_tokens": 0
+  },
+  "output_tokens": 414,
+  "output_tokens_details": {
+   "reasoning_tokens": 72
+  },
+  "total_tokens": 8119
+ }
+}

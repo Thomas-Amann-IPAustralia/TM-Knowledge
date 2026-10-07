@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00423,
+ "created_utc": "2026-10-07T11:19:02Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0002",
+ "job": "relate",
+ "key": "6055702b04278c5fb57ad52a422ebb6c235a8c5a358036b4936de692397e06c9",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"If a trade mark containing a geographical reference is found to connote geographical origin, consideration must then be given to whether ordinary consumers would be deceived or confused as a result. This includes assessing whether the scope of the specification would include goods/services produced in areas outside the geographical location when a consumer would reasonably expect them to originate from the location referenced in the trade mark.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"none: the neighbour denotes the specific legal meaning of ‘originate’ in relation to wine, which these passages do not explain or apply.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.72,\n      \"reasoning\": \"The Manual makes expected geographical origin and the specification’s coverage of goods from elsewhere relevant to assessing deception or confusion. This supports the relationship for geographical origin generally; its extension to the wine-specific legal test is uncertain.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether GC-0145 encompasses ordinary geographical origin or is confined to the statutory wine-specific meaning.\",\n      \"passage_ref\": \"TMM/Part29/9#1\",\n      \"neighbour\": \"GC-0145\"\n    },\n    {\n      \"quote\": \"If during examination of a new application research reveals that a trade mark is identical or similar to a listed EU GI, consideration should then be given to whether or not the use of the trade mark would potentially deceive or confuse Australian consumers and make grounds for rejection under s 43 appropriate.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"mayGiveRiseTo: similarity to a listed EU GI can itself generate deception or confusion.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual treats identity or similarity to a listed EU GI as a factor prompting assessment of potential deception or confusion. It does not state that such similarity itself establishes that risk, and the passage supports only the listed-EU-GI context.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether ‘qualifies’ appropriately captures a trigger for assessment rather than a substantive qualification of the legal test.\",\n      \"passage_ref\": \"TMM/Part29/11#1\",\n      \"neighbour\": \"GC-0018\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "2af3c75cddb63c0457d4672176b25921e00e139ba8e9e07ad8b184a6b76704d2",
+ "response_id": "resp_0d22373be35c484f006ac62a88d93087d29b529ff1916e5238",
+ "seconds": 29.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2550,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2547
+  },
+  "output_tokens": 820,
+  "output_tokens_details": {
+   "reasoning_tokens": 296
+  },
+  "total_tokens": 3370
+ }
+}

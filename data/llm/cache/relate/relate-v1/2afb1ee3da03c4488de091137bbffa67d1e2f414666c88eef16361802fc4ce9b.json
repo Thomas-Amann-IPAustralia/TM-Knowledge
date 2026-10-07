@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006025,
+ "created_utc": "2026-10-07T11:21:10Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0029",
+ "job": "relate",
+ "key": "2afb1ee3da03c4488de091137bbffa67d1e2f414666c88eef16361802fc4ce9b",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The owner of a registered certification trade mark may only assign the trade mark with the consent of the Commission (section 180(1)).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo: the passage identifies the consent-giving body, but does not expressly allocate an examination issue to it.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual identifies the Commission as the body whose consent is required for this assignment. This connects the Commission with consent, but does not establish that its consent is the same exception as a person's written permission to use their name or image.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the anchor is intended to include Commission consent rather than only personal name or image permissions.\",\n      \"passage_ref\": \"TMM/Part35/9#1\",\n      \"neighbour\": \"GC-0133\"\n    },\n    {\n      \"quote\": \"A registered certification trade mark may only be assigned with the consent of the Australian Competition and Consumer Commission (ACCC).\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"requiresElement: consent is a requirement for assignment, not an element of a certification trade mark itself.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.79,\n      \"reasoning\": \"The Manual describes consent as applying to assignment of a registered certification trade mark, not to certification trade marks generally. The accompanying passage expressly distinguishes transmission, for which ACCC consent is not required.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether appliesTo adequately preserves the assignment-only scope of this consent requirement.\",\n      \"passage_ref\": \"TMM/Part43/1#1~2\",\n      \"neighbour\": \"GC-0107\"\n    },\n    {\n      \"quote\": \"If an application to record assignment is received after the documentation required under reg 16.2 has been sent to the Commission but before the trade mark has been registered, the assignment will not be recorded unless the applicant provides evidence that the Commission has consented to the transfer of ownership (section 180A).\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"appliesTo: the passage states a specific prerequisite to recordal, rather than merely identifying where consent applies.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The Manual makes evidence of Commission consent a prerequisite to recording assignment in the specified pre-registration period. This is not a requirement for every assignment, and the passage permits assignment without Commission consent before referral of the documentation.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the assignment node can represent a requirement limited to recordal during this particular period.\",\n      \"passage_ref\": \"TMM/Part35/10#1\",\n      \"neighbour\": \"GC-0086\"\n    },\n    {\n      \"quote\": \"An applicant may overcome a section 43 ground for rejection in relation to such an image by providing the well-known person’s written permission to use their image as a trade mark.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"isOvercomeBy: the ground for rejection, rather than the image itself, is what may be overcome by permission.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The Manual expressly extends written permission to use of a well-known person's image as a trade mark. It describes permission as a possible means of overcoming a section 43 ground, not as a universal requirement for marks containing a person's image.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether appliesTo is the best predicate for permission covering use of an image.\",\n      \"passage_ref\": \"TMM/Part29/6/6/1\",\n      \"neighbour\": \"GC-0030\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "dc18bd83f2900615e6d0674f86583d2b2d32cfd9525d3086e8e7fc6b70f6864f",
+ "response_id": "resp_035509c21da568de006ac62b07494087d28d1021a42fd056c1",
+ "seconds": 31.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3837,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3834
+  },
+  "output_tokens": 1166,
+  "output_tokens_details": {
+   "reasoning_tokens": 265
+  },
+  "total_tokens": 5003
+ }
+}

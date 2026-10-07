@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002414,
+ "created_utc": "2026-10-07T11:33:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0107",
+ "job": "relate",
+ "key": "5de6738b0e2b661f624f977f4f639e8af5ea6609f5bf32c59222a819cb998dc7",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"Sections 180 and 180A refer specifically to the requirements for the consent of the ACCC when it is proposed to assign a registered or unregistered certification trade mark.\",\"relation\":\"related_to\",\"alternative\":\"dependsOnExternalSource was rejected because the passage concerns ACCC consent to assignment, not a general dependency of certification trade marks on the Commission.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.95,\"reasoning\":\"The Manual expressly connects certification trade marks with the ACCC through consent requirements for assignment. No more specific listed predicate accurately captures that institutional relationship without treating the Commission itself as a required element.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the relationship should instead be modelled through a separate concept for assignment requiring ACCC consent.\",\"passage_ref\":\"TMM/Part43/7#1\",\"neighbour\":\"GC-0133\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to based on the shared exclusion from Part 9 and the parallel additional grounds for rejection or opposition.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.94,\"reasoning\":\"The passages describe parallel statutory treatment of certification trade marks and defensive trade marks, but do not state a relationship between those two categories. Their shared exclusion from Part 9 connects each category to those provisions, rather than to each other.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether shared statutory treatment is intended to count as a relationship between categories in this ontology.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0109\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "685c12c674a1fd1029c23c6a352930b01218f9cf2df5498393bbd84c5d6e8c30",
+ "response_id": "resp_0ddf7047abca4f54006ac62deb135c87d2a380ede71da4842d",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2720,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2717
+  },
+  "output_tokens": 455,
+  "output_tokens_details": {
+   "reasoning_tokens": 122
+  },
+  "total_tokens": 3175
+ }
+}

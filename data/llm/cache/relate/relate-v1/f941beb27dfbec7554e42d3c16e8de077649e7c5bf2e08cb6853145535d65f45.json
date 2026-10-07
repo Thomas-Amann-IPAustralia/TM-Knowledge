@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004839,
+ "created_utc": "2026-10-07T11:20:17Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0038",
+ "job": "relate",
+ "key": "f941beb27dfbec7554e42d3c16e8de077649e7c5bf2e08cb6853145535d65f45",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Example shown below would be inherently adapted to distinguish risk evaluation services as the size and placement of the acronym renders the trade mark, as a whole, capable of distinguishing.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"The passage merely applies the inherent adaptation test to a composite mark, rather than identifying whole-mark features as qualifying that assessment.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual expressly connects size and placement within the whole mark with the assessment of inherent adaptation to distinguish. This supports treating whole-mark features as qualifying that assessment, without generalising the example into a legislative rule.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the anchor encompasses size and placement of an acronym within a composite mark.\",\n      \"passage_ref\": \"TMM/Part22/8/8/5/1\",\n      \"neighbour\": \"GC-0059\"\n    },\n    {\n      \"quote\": \"The stylised, nondescript nature of the device element furnishes the Trade Mark with a slight degree of inherent adaptation to distinguish the services of the Applicant from other traders, but not enough to permit me to conclude that the Trade Mark as a whole is capable of distinguishing in its own right.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"capable of distinguishing appliesTo trade mark as a whole.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"The delegate's assessment, reproduced in the Manual, connects the contribution of another feature with whether the whole mark is capable of distinguishing. I infer a qualifying relationship from that assessment rather than merely recording the object to which the test applies.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether appliesTo better captures the relationship than qualifies in this passage.\",\n      \"passage_ref\": \"TMM/Part22/7/22/7/8~2\",\n      \"neighbour\": \"GC-0058\"\n    },\n    {\n      \"quote\": \"Grounds for rejection under section 43 of the Act may need to be considered if, in the context of the trade mark as a whole, the Australian National Flag connotes a quality of the goods or services, and consumers would be likely to be confused as a result.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"trade mark as a whole mayGiveRiseTo ground for rejection.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual makes whole-mark context relevant to whether a section 43 ground needs consideration. Qualifies is more precise than mayGiveRiseTo because the stated trigger also requires a quality connotation and likely consumer confusion.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this conditional examination guidance supports a direct qualifies relationship to the ground for rejection.\",\n      \"passage_ref\": \"TMM/Part31/4/4/2/2~2\",\n      \"neighbour\": \"GC-0053\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "4c433e1159ad2f5d932d39c20a9effd91c4b3c7d95c9e6650879dc1f61ef1868",
+ "response_id": "resp_012b30b2904142aa006ac62ad5184487d2a3bc4eff87d234d6",
+ "seconds": 28.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3314,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3311
+  },
+  "output_tokens": 934,
+  "output_tokens_details": {
+   "reasoning_tokens": 229
+  },
+  "total_tokens": 4248
+ }
+}

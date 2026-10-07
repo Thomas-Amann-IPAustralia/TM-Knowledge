@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008596,
+ "created_utc": "2026-10-07T12:21:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0064",
+ "job": "judge",
+ "key": "affd4af2b3a625c1c5ce5f35c114e725f85a34a06dfaf3c6d5958f9fc840e235",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part29/3/3/1~1\",\"grade\":2},{\"ref\":\"TMM/Part29/3#1~1\",\"grade\":2},{\"ref\":\"TMM/Part20/5/5/5\",\"grade\":3},{\"ref\":\"TMM/Part26/4/4/3/2\",\"grade\":0},{\"ref\":\"TMM/Part32B/2/1/2/1/5\",\"grade\":1},{\"ref\":\"TMM/Part20/5/5/5/2\",\"grade\":2},{\"ref\":\"TMM/Part52/2/2/3\",\"grade\":2},{\"ref\":\"TMM/Part48/3#1~2\",\"grade\":0},{\"ref\":\"TMM/Part1/2#1\",\"grade\":0},{\"ref\":\"TMM/Part9/3#1\",\"grade\":0},{\"ref\":\"TMM/Part4/7/7/1\",\"grade\":0},{\"ref\":\"TMM/Part32A/x-annex-5---case-law-summaries/mastronardi-produce-ltd-v-registrar-of-trade-marks-2014-fca-1021-zima\",\"grade\":1},{\"ref\":\"TMM/Part20/5/5/5/1\",\"grade\":2},{\"ref\":\"TMM/Part29/1#1\",\"grade\":3},{\"ref\":\"TMM/Part29/4#1\",\"grade\":2},{\"ref\":\"TMM/Part26/2#1\",\"grade\":1},{\"ref\":\"TMM/Part55/2#1\",\"grade\":0},{\"ref\":\"TMM/Part29/10#1\",\"grade\":2},{\"ref\":\"TMM/Part23/3/3/4~2\",\"grade\":0},{\"ref\":\"TMM/Part29/9/9/3~1\",\"grade\":1},{\"ref\":\"TMM/Part29/3/3/2\",\"grade\":2}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "0e131998286244165bc21f11a79aa4724ae879dd778b0f323c47c2dce53071f7",
+ "response_id": "resp_0a4669d8197a59b5006ac6393e749887d2b3e2e78497b5839a",
+ "seconds": 29.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4657,
+  "input_tokens_details": {
+   "cache_write_tokens": 4654,
+   "cached_tokens": 0
+  },
+  "output_tokens": 555,
+  "output_tokens_details": {
+   "reasoning_tokens": 127
+  },
+  "total_tokens": 5212
+ }
+}

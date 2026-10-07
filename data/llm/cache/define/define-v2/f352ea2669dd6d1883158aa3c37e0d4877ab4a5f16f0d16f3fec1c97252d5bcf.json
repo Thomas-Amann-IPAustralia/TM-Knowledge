@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002938,
+ "created_utc": "2026-10-07T11:16:50Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "capture",
+ "job": "define",
+ "key": "f352ea2669dd6d1883158aa3c37e0d4877ab4a5f16f0d16f3fec1c97252d5bcf",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"If the intended sense is database administration, consider a separate concept labelled “Data Capture”, expressly named in TMM/Part5/1#1.\",\n  \"definition_quote\": \"‘Capture’ is defined in the regulations as recording the image by artistic representation, or on film, videotape or electronic medium.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.9,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: Capture is the recording of an image through artistic representation or a recording medium, discussed in the Manual in connection with prohibited use of images of Commonwealth reserves.\",\n  \"expert_should_check\": \"Verify the identity and provision of the regulations defining capture and governing the reserve-image restrictions; the passage does not establish that its references to regs 12.2 and 12.38 are to the Trade Marks Regulations 1995.\",\n  \"legislative_basis\": [\n    \"TMA1995/s42(b)\"\n  ],\n  \"pref_label\": \"capture\",\n  \"definition_ref\": \"TMM/Part30/3/3/5/5~3\",\n  \"reasoning\": \"The passage expressly reports a regulatory definition of capture and connects it to the Manual's practice concerning prohibited use of reserve images. This is a distinct legally relevant activity, not a goods or services category or an existing listed concept. None of the supplied groups fits precisely: recording an image is neither a ground for refusal itself nor a procedural step advancing a trade mark application. The other passages use capture for database administration or internet archiving; those uses should not be conflated with this defined sense. Section 42(b) supplies the trade marks context, but the underlying regulatory definition is not provided directly.\",\n  \"not_labels\": [\n    \"Data Capture\",\n    \"Indexing\",\n    \"captures from the ‘Internet Archive Wayback Machine’ tool\",\n    \"use contrary to law\"\n  ],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "52d0085186bdef3fcac713530cc393501b9b01c4eb61b500f49172c9cb90838e",
+ "response_id": "resp_0782ef291e7a33f2006ac62a11618887d2b7f0e3029f423db9",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3109,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3106
+  },
+  "output_tokens": 556,
+  "output_tokens_details": {
+   "reasoning_tokens": 126
+  },
+  "total_tokens": 3665
+ }
+}

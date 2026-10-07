@@ -209,6 +209,10 @@ class Context:
     authored: authored_store.AuthoredSet = field(default_factory=authored_store.load)
     #: Concept pairs a relate call has already answered for (`judged_pairs`).
     judged: set[frozenset[str]] = field(default_factory=set)
+    #: If set, relate asks only about pairs touching these concepts (`--touching`).
+    touching: set[str] = field(default_factory=set)
+    #: Terms a completed define call has already answered for, concept or not.
+    defined: set[str] = field(default_factory=set)
 
 
 @dataclass
@@ -284,7 +288,10 @@ def _relate_items(ctx: Context) -> list[Item]:
     # An edge relate wrote is a pair it judged: it holds its place, it does not
     # make way for the next pair (`links.pairs`).
     already = links_module.existing_edges(ctx.gold, ctx.authored) - ctx.judged
-    groups = links_module.anchors(links_module.pairs(ctx.links, already, ctx.judged))
+    candidates = links_module.pairs(ctx.links, already, ctx.judged)
+    if ctx.touching:
+        candidates = [p for p in candidates if p.a in ctx.touching or p.b in ctx.touching]
+    groups = links_module.anchors(candidates, prefer=ctx.touching or None)
     items = []
     for anchor, pair_list in groups.items():
         neighbours = []
@@ -471,8 +478,8 @@ def _define_items(ctx: Context) -> list[Item]:
         term = str(row.get("term", ""))
         if (row.get("strength") or 0) < 2 or row.get("covered_by") or term.lower() in known:
             continue
-        if (row.get("usage_count") or 0) < DEFINE_MIN_USES:
-            continue
+        if (row.get("usage_count") or 0) < DEFINE_MIN_USES or term in ctx.defined:
+            continue  # rare, or already answered under an older prompt (Q-68)
         refs = [e["ref"] for e in (row.get("statutory") or []) + (row.get("manual") or []) if e.get("ref")]
         uses = [u for u in row.get("uses") or () if u not in refs][:3]
         # "X has the meaning given by subregulation 3A.3(1)": upstream already

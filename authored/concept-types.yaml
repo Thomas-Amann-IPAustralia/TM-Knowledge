@@ -6001,3 +6001,516 @@
     expert_should_check: Check whether subject_matter is the preferred grouping for statutory
       attribution concepts; the supplied section 41 extracts concern the version prior to
       Raising the Bar, not necessarily the current provision.
+- id: GT-0153
+  concept: GC-0153
+  type: instrument_or_record
+  basis:
+  - TMR1995/r17A.29/statement-of-grounds-and-particulars
+  notes: statement of grounds and particulars
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r17A.29/statement-of-grounds-and-particulars
+      span:
+      - 0
+      - 84
+      content_hash: sha256:520bede0a774c87c35d2e272e4f76b3926d0777fdd752b612bdc7196620b9706
+      quote: 'statement of grounds and particulars means a statement by an opponent that sets
+        out:'
+    confidence: 0.94
+    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly name
+      and partially define this document. TMM/Part47/1/1/1 explains that it must be filed
+      to complete the notice of opposition and cites regulation 17A.32. It is a distinct component
+      of GC-0103 notice of opposition, not a duplicate of that concept or of opposition generally.
+      The supplied definition is incomplete, so no claim is made about its required contents.
+      The Manual passage explains practice and cites legislation; it is not itself legislation.'
+    alternatives_considered: []
+    expert_should_check: The supplied legislative definitions stop at the colon, so the required
+      contents cannot be established from these passages; check the complete definitions and
+      the filing requirements in regulation 17A.32.
+- id: GT-0154
+  concept: GC-0154
+  type: legal_test
+  basis:
+  - TMA1995/s10
+  notes: deceptively similar
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s10
+      span:
+      - 0
+      - 196
+      content_hash: sha256:267b10f0b047e6ab3212296943282612992e1bf8ca8de41a26b0891eefaa166e
+      quote: For the purposes of this Act, a trade mark is taken to be deceptively similar
+        to another trade mark if it so nearly resembles that other trade mark that it is likely
+        to deceive or cause confusion.
+    confidence: 0.98
+    reasoning: 'Typed in the same judgement as the concept: Section 10 expressly defines a
+      comparison between trade marks, making this a distinct legal test rather than a generic
+      phrase. Section 6 points to that definition. It is not a duplicate of GC-0002, which
+      captures the likelihood of deception or confusion, or GC-0056, which captures near resemblance:
+      this concept combines those elements into the statutory relationship between trade marks.
+      The supplied Manual passages explain its role in infringement under section 120, but
+      are not themselves legislation.'
+    alternatives_considered:
+    - Treat as a relevant factor within particular statutory grounds, but legal_test better
+      captures the express statutory comparison between trade marks.
+    expert_should_check: Check links to section 44 and regulation 4.15A against their text,
+      which is not supplied here.
+- id: GT-0155
+  concept: GC-0155
+  type: none_of_these
+  basis:
+  - TMA1995/s11
+  notes: pending
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s11
+      span:
+      - 48
+      - 714
+      content_hash: sha256:a47035152178cad5ad11cdaa28cd3d67ff89b442e38a286bfd5b8b8c183e357b
+      quote: 'An application for the registration of a trade mark under this Act is pending
+        from the time it is filed until: (a) it lapses (see sections 37 and 54A), is withdrawn
+        (see section 214) or is rejected (see section 33); or (b) if the Registrar refuses
+        (under section 55) to register the trade mark and there is no appeal against the decision—the
+        end of the period allowed for the appeal; or (c) if the Registrar refuses (under section
+        55) to register the trade mark and: (i) there is an appeal against the decision; and
+        (ii) the decision is confirmed on appeal; —the day on which the decision is confirmed
+        on appeal; or (d) the trade mark is registered under section 68.'
+    confidence: 0.99
+    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly gives pending
+      a statutory meaning by reference to section 11, which specifies its duration and terminating
+      events. It therefore names a distinct legal status, not merely a generic adjective or
+      a duplicate of trade mark application. The Manual also identifies the parent application''s
+      pending status as a requirement for a valid divisional application. None of the supplied
+      groups describes an application status directly: pending is not itself an act or event
+      that moves an application between states.'
+    alternatives_considered:
+    - Model pending as a legally defined status of a trade mark application rather than as
+      a procedural step.
+    expert_should_check: Check whether the ontology should represent application statuses
+      as standalone concepts or properties, and whether the historical rule in section 11(2)
+      needs separate treatment.
+- id: GT-0156
+  concept: GC-0156
+  type: instrument_or_record
+  basis:
+  - TMA1995/s6/approved-form
+  notes: approved form
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/approved-form
+      span:
+      - 0
+      - 119
+      content_hash: sha256:19f151ca00db93773bfe147b26c2d33bf08db398fdcf45f46a7568551b922386
+      quote: approved form means a form approved by the Registrar for the purposes of the
+        provision in which the expression appears.
+    confidence: 0.98
+    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly defines a
+      provision-specific form approved by the Registrar, making this a distinct legal and
+      procedural concept rather than a generic phrase. No existing concept captures that approval
+      status. The Manual identifies regulation 21.1 as concerning compliance with instructions
+      on approved forms and reports that regulation 21.25 requires an extension-of-time application
+      to use an approved form. Instrument_or_record is the closest group because the concept
+      concerns a form used in the process, not the act of filing it.'
+    alternatives_considered:
+    - If instrument_or_record is restricted to documents produced by the process rather than
+      approved forms used in it, none_of_these would be the alternative grouping.
+    expert_should_check: Check the full text of the cited Regulations before adding detailed
+      requirements; the supplied Manual passages only identify relevant provisions and report
+      the requirement under regulation 21.25.
+- id: GT-0157
+  concept: GC-0157
+  type: relevant_factor
+  basis:
+  - TMA1995/s6/convention-country
+  notes: Convention country
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/convention-country
+      span:
+      - 0
+      - 93
+      content_hash: sha256:8c7841472e31ff07bb0283782600f5c522c7452efaf1706ba9d53eccc9e02bf2
+      quote: Convention country means a foreign country or region of a kind prescribed by
+        the regulations.
+    confidence: 0.96
+    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly defines a
+      legally significant category of foreign country or region. The Manual explains its relevance
+      to priority under section 29 and describes the prescriptions in regulation 21.29. It
+      is distinct from the existing convention application concept: it identifies the qualifying
+      jurisdiction, not the application. relevant_factor fits best because this status feeds
+      into priority entitlement; the country or region is not itself a treaty or an actor
+      in the described process.'
+    alternatives_considered:
+    - none_of_these if jurisdictional status is treated as a standalone category rather than
+      a relevant factor in priority entitlement.
+    expert_should_check: Check regulation 21.29 directly for the prescribed countries and
+      regions, as its content is supplied only through the Manual extract; also confirm the
+      relevant_factor grouping.
+- id: GT-0158
+  concept: GC-0158
+  type: instrument_or_record
+  basis:
+  - TMR1995/r17A.34H
+  notes: notice of intention to defend
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r17A.34H
+      span:
+      - 0
+      - 326
+      content_hash: sha256:cd996a9e1d10551fc688ca586dc6f9c79edf8efd195cd59992a287fd27a990d8
+      quote: (1) The IRDA holder must file a notice of intention to defend within 2 months
+        from the day the Registrar notifies the International Bureau under subregulation 17A.32(2).
+        (2) The holder must file an Australian or New Zealand address for service with the
+        notice. (3) The Registrar must give a copy of the notice to the opponent.
+    confidence: 0.98
+    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly define
+      this notice by reference to operative filing provisions. It is a distinct document,
+      not the opposition itself or the notice of opposition already represented in the ontology.
+      The quoted provision supplies the IRDA holder’s filing obligation, address-for-service
+      requirement and provision of a copy to the opponent. Regulation 17A.48Q separately governs
+      a notice filed by the applicant in an opposition concerning cessation of protection.
+      The Manual explains its role in contesting opposition to registration or protection,
+      but that explanation is Registrar practice rather than legislation.'
+    alternatives_considered: []
+    expert_should_check: Check the domestic registration and non-use provisions, whose operative
+      text is not supplied, before completing the concept’s scope; in regulation 17A.48Q the
+      filing party is the applicant for cessation of protection, not necessarily the trade
+      mark holder.
+- id: GT-0159
+  concept: GC-0159
+  type: process_role
+  basis:
+  - TMA1995/s6/deputy-registrar
+  notes: Deputy Registrar
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/deputy-registrar
+      span:
+      - 0
+      - 57
+      content_hash: sha256:5e778493efe4354cd7e4814a1ea1833223bf1f241c6e850d092aad737a0a58f3
+      quote: Deputy Registrar means a Deputy Registrar of Trade Marks.
+    confidence: 0.97
+    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly identifies
+      the office. The Manual distinguishes a Deputy Registrar from the Registrar and from
+      a person acting under a signed delegation, and assigns the office procedural responsibilities.
+      It therefore warrants a process-role concept distinct from the existing Registrar and
+      generic decision-maker concepts. The supplied section 6 definition identifies the office
+      but does not explain its appointment or statutory powers; the legislative-basis references
+      are provisional because their text was not supplied.'
+    alternatives_considered: []
+    expert_should_check: Check the appointment and powers provisions, particularly sections
+      203 and 205, whose text was not supplied, before adding a fuller statutory description
+      of the office.
+- id: GT-0160
+  concept: GC-0160
+  type: instrument_or_record
+  basis:
+  - TMA1995/s68(2)
+  notes: registration number
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s68(2)
+      span:
+      - 0
+      - 101
+      content_hash: sha256:0aef4e5ba939786992121dbc251a12297aa3d7eb3d02497be130318d32b35a8f
+      quote: (2) On registering the trade mark, the Registrar must give it a number by which
+        it may be identified.
+    confidence: 0.98
+    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly defines the
+      term by reference to subsection 68(2), which requires the Registrar to allocate an identifying
+      number on registration. It is a specific statutory identifier, not a generic phrase
+      or a duplicate of the registered trade mark or Register concepts. The Manual separately
+      describes its recording in the Register and its use in consent letters and defensive
+      applications. Instrument_or_record is the closest group because the number is a recorded
+      registration particular, although it is not itself a document.'
+    alternatives_considered: []
+    expert_should_check: Check whether the ontology treats an identifying number recorded
+      in the Register as an instrument_or_record or as a data attribute.
+- id: GT-0161
+  concept: GC-0161
+  type: instrument_or_record
+  basis:
+  - TMR1995/r17A.2/international-register
+  notes: International Register
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r17A.2/international-register
+      span:
+      - 0
+      - 114
+      content_hash: sha256:067a8e6f63514e57b0905c7b01fe16669fc7d222d4f5dff78dab982facacfdc5
+      quote: International Register means the register maintained by the International Bureau
+        for the purposes of the Protocol.
+    confidence: 0.99
+    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly define
+      a specific register, making this a legal record rather than a generic phrase. Regulation
+      2.1 points to regulation 17A.2, so the substantive definition is preferred. The Manual
+      describes international registrations and subsequent designations being recorded in
+      it. It is distinct from the existing concepts for the Register of Trade Marks, the International
+      Bureau, the Madrid Protocol and international registration of a trade mark.'
+    alternatives_considered: []
+    expert_should_check: Check any additional legislative links to the listed cited provisions,
+      whose text was not supplied.
+- id: GT-0162
+  concept: GC-0162
+  type: procedural_step
+  basis:
+  - TMR1995/r17A.2/change-of-ownership
+  notes: change of ownership
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r17A.2/change-of-ownership
+      span:
+      - 0
+      - 56
+      content_hash: sha256:cec3eb0efce0ea5e94b73c3faa9851af8650f1b7269deb35eb654352425c3e55
+      quote: change of ownership includes assignment or transmission.
+    confidence: 0.94
+    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly identify
+      change of ownership as including assignment or transmission. It is a useful umbrella
+      concept rather than a duplicate of GC-0086 assignment or GC-0087 transmission individually.
+      The Manual explains the passing of ownership between parties, distinguishes it from
+      a change of name by the same entity, and describes recordal under section 110. The ownership-transfer
+      event fits procedural_step; the Manual''s account of recordal is practice guidance,
+      not itself legislation.'
+    alternatives_considered:
+    - Model as an umbrella concept encompassing assignment and transmission, with recordal
+      treated separately.
+    expert_should_check: Check the scope of the regulation 17A.2 definition, which appears
+      in the international-registration context, before applying it as a statutory definition
+      across all trade marks.
+- id: GT-0163
+  concept: GC-0163
+  type: none_of_these
+  basis:
+  - TMA1995/s16
+  notes: repealed Act
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s16
+      span:
+      - 0
+      - 188
+      content_hash: sha256:eed4282edbef05603a3f810f25e22ddf7bcbdf2f4510513d54c239a39ddcc622
+      quote: '(1) The repealed Act means: (a) the Trade Marks Act 1955 as in force immediately
+        before its repeal; and (b) the regulations under that Act that were in force immediately
+        before its repeal.'
+    confidence: 0.99
+    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly refers to
+      section 16, which defines the term and specifies how references to its sections are
+      interpreted. This is a distinct statutory idea not held by the existing concepts. None
+      of the supplied groups fits: it is historical domestic legislation, not a treaty or
+      international scheme, nor a document produced by the registration process.'
+    alternatives_considered: []
+    expert_should_check: Confirm whether the ontology should represent this defined historical
+      legislative reference as a standalone concept or as a legislative instrument entity.
+- id: GT-0164
+  concept: GC-0164
+  type: none_of_these
+  basis:
+  - TMM/Part30/3/3/5/5~3
+  notes: capture
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part30/3/3/5/5~3
+      span:
+      - 0
+      - 134
+      content_hash: sha256:ed18a29ee2a865fee4099970e543b456f001b8de018dbe8c4f159d63093f9efc
+      quote: ‘Capture’ is defined in the regulations as recording the image by artistic representation,
+        or on film, videotape or electronic medium.
+    confidence: 0.9
+    reasoning: 'Typed in the same judgement as the concept: The passage expressly reports
+      a regulatory definition of capture and connects it to the Manual''s practice concerning
+      prohibited use of reserve images. This is a distinct legally relevant activity, not
+      a goods or services category or an existing listed concept. None of the supplied groups
+      fits precisely: recording an image is neither a ground for refusal itself nor a procedural
+      step advancing a trade mark application. The other passages use capture for database
+      administration or internet archiving; those uses should not be conflated with this defined
+      sense. Section 42(b) supplies the trade marks context, but the underlying regulatory
+      definition is not provided directly.'
+    alternatives_considered:
+    - If the intended sense is database administration, consider a separate concept labelled
+      “Data Capture”, expressly named in TMM/Part5/1#1.
+    expert_should_check: Verify the identity and provision of the regulations defining capture
+      and governing the reserve-image restrictions; the passage does not establish that its
+      references to regs 12.2 and 12.38 are to the Trade Marks Regulations 1995.
+- id: GT-0165
+  concept: GC-0165
+  type: instrument_or_record
+  basis:
+  - TMR1995/r17A.66
+  notes: Record of International Registrations
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r17A.66
+      span:
+      - 0
+      - 102
+      content_hash: sha256:cab953d3ea4bdae1b3d4b20a312e8b2715daa02423b32dece13ce1869a837d3d
+      quote: (1) The Registrar must maintain a Record of International Registrations for the
+        purposes of this Part.
+    confidence: 0.99
+    reasoning: 'Typed in the same judgement as the concept: Regulation 17A.2 expressly identifies
+      this as the record required by regulation 17A.66. The latter provision requires the
+      Registrar to maintain it and specifies particulars for each notified IRDA and each protected
+      international trade mark. It is therefore a distinct statutory record, not a generic
+      phrase or a duplicate of GC-0089 Register of Trade Marks. Regulation 17A.2 also distinguishes
+      it from the International Register maintained by the International Bureau.'
+    alternatives_considered: []
+    expert_should_check: Check whether the singular Manual form 'Record of International Registration'
+      should be retained as an alternative label or treated as an editorial inconsistency.
+- id: GT-0166
+  concept: GC-0166
+  type: subject_matter
+  basis:
+  - TMM/Part5/x-device-constituents/cartoon
+  notes: CARTOON
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part5/x-device-constituents/cartoon
+      span:
+      - 0
+      - 110
+      content_hash: sha256:02649c9ad19d0bac6a5d393b6efc49ab7c261d9fae2a6b48ac7b647a76be08df
+      quote: The word CARTOON means a drawing which symbolises or caricatures some subject
+        or person in an exaggerated way.
+    confidence: 0.86
+    reasoning: 'Typed in the same judgement as the concept: The Manual gives CARTOON a specific
+      definition and usage boundaries, supporting a distinct controlled concept rather than
+      merely a generic English word. It is not equivalent to the existing image of a person
+      concept: it also covers animals and objects, while images of persons include other forms
+      of representation. The other passages discuss cartoon imagery in applying sections 42
+      and 43, but do not establish a legislative definition or a separate ground for refusal
+      based on cartoon form.'
+    alternatives_considered:
+    - Exclude it if the ontology excludes Manual device-constituent terminology and includes
+      only substantive legal and procedural concepts.
+    expert_should_check: Confirm that device-constituent terminology belongs within the ontology
+      and that subject_matter is the appropriate group.
+- id: GT-0167
+  concept: GC-0167
+  type: instrument_or_record
+  basis:
+  - TMM/Part2/3/2/3/4
+  notes: certificate of verification
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part2/3/2/3/4
+      span:
+      - 227
+      - 335
+      content_hash: sha256:277cbd6d5f355cce0743dac7a292b04ef7601c219b7a845620d164dfe5516f64
+      quote: A certificate of verification for a translated certified copy is required to
+        be signed and dated (reg 4.11).
+    confidence: 0.9
+    reasoning: 'Typed in the same judgement as the concept: The passages expressly identify
+      a named statement with a specific documentary function, distinct from the existing concepts.
+      The opposition passage associates it with an English translation of an earlier Convention
+      application, and the signature passage explains its signing and dating requirements
+      by reference to reg 4.11. It therefore fits instrument_or_record. The supplied legislative
+      definition is incomplete, so the Manual passage provides the most useful available explanation;
+      it is not itself legislation.'
+    alternatives_considered:
+    - Treat as a specialised verification statement associated with a translation, rather
+      than as a general certificate.
+    expert_should_check: 'Check the complete legislative definition and its location: the
+      supplied legislative fragment is labelled r2.1, whereas the Manual identifies r2.2 as
+      the interpretation provision; the fragment does not disclose the statement’s required
+      contents or who must sign it.'

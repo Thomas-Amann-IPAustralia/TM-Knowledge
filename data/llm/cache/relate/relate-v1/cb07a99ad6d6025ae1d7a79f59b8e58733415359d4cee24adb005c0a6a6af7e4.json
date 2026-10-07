@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00164,
+ "created_utc": "2026-10-07T11:25:12Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0009",
+ "job": "relate",
+ "key": "cb07a99ad6d6025ae1d7a79f59b8e58733415359d4cee24adb005c0a6a6af7e4",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"As with any conflict between marks, citations in respect of this scenario will depend on the likelihood of the two trade marks being confused within the relevant market. The tests require that there be a real tangible danger of confusion occurring if the two trade marks are used in relation to similar or closely related goods/services.\",\"relation\":\"qualifies\",\"alternative\":\"The real and tangible danger test appliesTo the relevant market.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.85,\"reasoning\":\"The Manual situates the assessment of confusion within the relevant market and then specifies the real tangible danger threshold. This supports treating the relevant market as qualifying the assessment, rather than changing the threshold itself.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether qualifies adequately captures the market as the context for assessing the danger of confusion.\",\"passage_ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names#1~1\",\"neighbour\":\"GC-0008\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "9abd2b83f4d6abb817907a87fc4f538ab239e5eb529d2936d7a4ab2aaf0e5c9c",
+ "response_id": "resp_0db31a677032d00b006ac62c06add887d2898fd773cc927e00",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2152,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2149
+  },
+  "output_tokens": 306,
+  "output_tokens_details": {
+   "reasoning_tokens": 88
+  },
+  "total_tokens": 2458
+ }
+}

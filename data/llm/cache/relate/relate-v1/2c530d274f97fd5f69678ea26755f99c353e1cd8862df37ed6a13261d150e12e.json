@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002447,
+ "created_utc": "2026-10-07T11:49:19Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0140",
+ "job": "relate",
+ "key": "2c530d274f97fd5f69678ea26755f99c353e1cd8862df37ed6a13261d150e12e",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, treating the label examples as illustrations of the discussion of fanciful or unrealistic descriptions.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"The passage discusses fanciful or unrealistic descriptions and separately refers to what labels suggest or connote. It does not clearly connect labels as such with the fanciful-reference exception.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the label examples are sufficiently connected to the fanciful-description discussion to support related_to.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0048\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, treating the product label and A-frame board as connected because both appear in the list of activities.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The product label and A-frame board occur in separate examples of activities that do not by themselves constitute use in the course of trade. The passage states no relationship between them and does not identify the board as a process role.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether GC-0146 denotes the physical A-frame board mentioned here rather than a process-role Board.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0146\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "094d146648d28123860eef25cc56020027083b1d2966ca0eca1378164dd74300",
+ "response_id": "resp_075e1a458ffa8829006ac631a2954487d29c70094eff8f96c1",
+ "seconds": 29.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2083,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2080
+  },
+  "output_tokens": 468,
+  "output_tokens_details": {
+   "reasoning_tokens": 113
+  },
+  "total_tokens": 2551
+ }
+}

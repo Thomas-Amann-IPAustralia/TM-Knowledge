@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011374,
+ "created_utc": "2026-10-07T12:21:20Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0061",
+ "job": "answer",
+ "key": "3836de5c403a868a269aaab5b5854e12a720e90fc56eedcbf8c5b9dc89f4d691",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0121\", \"GC-0129\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring-services\",\n      \"quote\": \"Suggested Alternatives Class 35: Market demand monitoring services Class 36: Monitoring of investment portfolios Class 39: Monitoring of package shipments Class 42: Monitoring of computer system operation by remote access Class 44: Monitoring of patients Class 45: Monitoring of alarms Class 45: Monitoring intellectual property rights for legal advisory purposes\"\n    },\n    {\n      \"ref\": \"TMR1995/r4.4\",\n      \"quote\": \"(3) The goods and/or services must be grouped according to the appropriate classes described in Schedule 1. (4) The applicant must nominate the class number that is appropriate to the goods or services in each group.\"\n    }\n  ],\n  \"answer\": \"The Manual lists the following suggested alternatives to ‘monitoring services’. These are examination practice, not legislative wording requirements. [TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring-services]\\n\\n| Suggested alternative | Class |\\n|---|---|\\n| Market demand monitoring services | 35 |\\n| Monitoring of investment portfolios | 36 |\\n| Monitoring of package shipments | 39 |\\n| Monitoring of computer system operation by remote access | 42 |\\n| Monitoring of patients | 44 |\\n| Monitoring of alarms | 45 |\\n| Monitoring intellectual property rights for legal advisory purposes | 45 |\\n\\nAll entries above are supported by the Manual’s ‘monitoring-services’ passage cited above.\\n\\nSeparately, the Regulations require goods and services to be grouped according to their appropriate classes and the applicant to nominate the appropriate class number for each group. [TMR1995/r4.4]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "59299f14bc83566a6cb460797917201b1377998285ed69e801380bd56252d8ed",
+ "response_id": "resp_024e594c1c936b17006ac6392f30f087d2aed0da9c015aea02",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7376,
+  "input_tokens_details": {
+   "cache_write_tokens": 7373,
+   "cached_tokens": 0
+  },
+  "output_tokens": 431,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7807
+ }
+}

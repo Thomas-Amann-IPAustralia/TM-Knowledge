@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013212,
+ "created_utc": "2026-10-07T12:17:04Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0023",
+ "job": "answer",
+ "key": "5b914ae8a34ede95690c4710aa5cbf56231cdf808db3fecd6dfcecdc508078b0",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0029\",\"GC-0116\",\"GC-0092\",\"GC-0124\",\"GC-0053\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part27/4/4/2/5\",\"quote\":\"A general letter of consent confirming that one party is prepared to consent to any trade mark applications made by another party may be considered.\"},{\"ref\":\"TMM/Part27/4/4/2/5\",\"quote\":\"The general letter of consent must meet the same requirements as a specific letter of consent in relation to the name of the owner providing the consent and to the signatory of the letter (detailed above) and should not contain any conditions (see 3.2.1). It must also identify the applicant to whom the general consent is being given. However, the general consent document need not identify the applicant’s trade mark or the specific goods and services being claimed.\"},{\"ref\":\"TMM/Part10/8#1\",\"quote\":\"The applicant should be invited to comply with formality requirements in the most expeditious way available.\"},{\"ref\":\"TMM/Part10/8#1\",\"quote\":\"8.1 Where there are only one or two minor formalities matters that have to be resolved an attempt should be made to contact the applicant by telephone or email requesting that they provide the relevant information through the online services page. Appropriate records should be attached to the file, either a Record of Conversation or a copy of the email that was sent.\"},{\"ref\":\"TMM/Part10/8#1\",\"quote\":\"8.2 Where a request has been made by telephone or email but no information has been received through the online services page by one week after the contact was made the examiner should issue a report regarding the requested information if this is necessary. 8.3 If other matters have to be dealt with in any case then the formality requirements should be included in the report to be issued.\"},{\"ref\":\"TMM/Part10/8#1\",\"quote\":\"However any response which will result in the application being amended must be submitted through the online services page.\"},{\"ref\":\"TMM/Part10/8#1\",\"quote\":\"Where formality requirements are not met, the Registrar must reject the application as not being in accordance with this Act (section 33(3)).\"}],\"answer\":\"Yes—under **Manual practice**, a general consent for future applications must identify the applicant receiving the consent. It need not identify that applicant’s trade mark or the particular goods and services. A general letter may be considered, but must satisfy the same owner-name and signatory requirements as a specific consent letter and should contain no conditions. The supplied passage does not set out those detailed owner-name and signatory requirements. [TMM/Part27/4/4/2/5]\\n\\n**For formality issues, the Manual’s procedure is:**\\n- Invite the applicant to comply in the most expeditious way available. For only one or two minor issues, attempt contact by telephone or email, requesting the information through online services, and keep a record on the file. [TMM/Part10/8#1]\\n- If nothing has been received through online services one week after contact, issue a report if necessary. If other matters already require a report, include the formality issues in it. [TMM/Part10/8#1]\\n- Any response that will result in an amendment must be submitted through online services. [TMM/Part10/8#1]\\n\\n**Legislative distinction:** the Manual states that unmet formality requirements require rejection under section 33(3). That section’s text is not supplied, so this is reported as the Manual’s account of the Act, not as a directly verified legislative quotation. [TMM/Part10/8#1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "486119466e2c54d5d9495a42d2c61f859bd838b866cc693afe172997c530850f",
+ "response_id": "resp_05de8d209c17e89f006ac63824c77887d2834bfe6c8891f996",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7034,
+  "input_tokens_details": {
+   "cache_write_tokens": 7031,
+   "cached_tokens": 0
+  },
+  "output_tokens": 884,
+  "output_tokens_details": {
+   "reasoning_tokens": 70
+  },
+  "total_tokens": 7918
+ }
+}

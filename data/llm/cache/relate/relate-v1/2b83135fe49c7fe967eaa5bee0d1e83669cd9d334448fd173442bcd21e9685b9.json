@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006881,
+ "created_utc": "2026-10-07T11:27:01Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0086",
+ "job": "relate",
+ "key": "2b83135fe49c7fe967eaa5bee0d1e83669cd9d334448fd173442bcd21e9685b9",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to, on the basis that assignment and transmission share certificate procedures and legislative headings.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.94,\"reasoning\":\"The supplied passages list assignment and transmission together but do not state a relationship between them. Sharing certificate procedures and legislative headings does not establish a direct conceptual relationship.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the shared certificate procedure is intended to count as a relationship rather than co-mention.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0087\"},{\"quote\":\"The application is made to the Commission not the Registrar.\",\"relation\":\"allocatesTo\",\"alternative\":\"related_to, if allocating the consent application is considered too narrow to support a relationship for assignment generally.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.87,\"reasoning\":\"The Manual allocates the application for consent to assign a registered certification trade mark to the Commission rather than the Registrar. This relationship concerns the consent procedure, not assignment generally or its recordal.\",\"modality\":\"must\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the assignment concept can carry an allocation limited to applications for consent to assign registered certification trade marks.\",\"passage_ref\":\"TMM/Part35/9#1\",\"neighbour\":\"GC-0133\"},{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to, by treating devolution on a deceased person's personal representative as assignment.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.97,\"reasoning\":\"The Manual's account of the statutory definitions connects a deceased person to transmission, not assignment. It distinguishes transmission from assignment, so the deceased-person reference does not support a direct relationship with the anchor.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether any direct assignment–deceased person relationship is supported beyond the definition of transmission supplied here.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0027\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "d2644855545badc4a5b76da0f6abe899be932ab52cff5d9880fa0941e3bc5d11",
+ "response_id": "resp_0056105add5f5afb006ac62c68fde487d2a2b83497c2c59808",
+ "seconds": 29.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2801,
+  "input_tokens_details": {
+   "cache_write_tokens": 2798,
+   "cached_tokens": 0
+  },
+  "output_tokens": 676,
+  "output_tokens_details": {
+   "reasoning_tokens": 263
+  },
+  "total_tokens": 3477
+ }
+}

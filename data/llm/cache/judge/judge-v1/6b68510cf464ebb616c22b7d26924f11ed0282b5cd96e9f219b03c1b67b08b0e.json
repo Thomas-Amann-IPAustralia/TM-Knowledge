@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002994,
+ "created_utc": "2026-10-07T12:23:02Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0074",
+ "job": "judge",
+ "key": "6b68510cf464ebb616c22b7d26924f11ed0282b5cd96e9f219b03c1b67b08b0e",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part13/4#1~1\",\"grade\":1},{\"ref\":\"TMM/Part5/x-device-constituents/arrows-arrowheads-chevrons-angles\",\"grade\":0},{\"ref\":\"TMM/Part8/2#1~1\",\"grade\":1},{\"ref\":\"TMM/Part22/16/16/6\",\"grade\":1},{\"ref\":\"TMM/Part22/18#1\",\"grade\":2},{\"ref\":\"TMM/Part22/17/17/4\",\"grade\":1},{\"ref\":\"TMM/Part22/17/17/3\",\"grade\":1},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names#1~2\",\"grade\":1},{\"ref\":\"TMM/Part22/16/16/1~1\",\"grade\":2},{\"ref\":\"TMM/Part13/7/7/1\",\"grade\":2},{\"ref\":\"TMM/Part13/2#1~2\",\"grade\":3},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names#1~1\",\"grade\":2},{\"ref\":\"TMM/Part13/2#1~3\",\"grade\":2},{\"ref\":\"TMM/Part23/4/4/1~2\",\"grade\":1},{\"ref\":\"TMM/Part13/2#1~1\",\"grade\":2},{\"ref\":\"TMM/Part22/17/17/2\",\"grade\":2},{\"ref\":\"TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-the-name-of-a-person-incorporating-the-given-name\",\"grade\":1},{\"ref\":\"TMM/Part22/16/16/4\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "c07fd13d9fe3679e1b2d99d3c6722e461ced62bc62d0ca032aec42d51d6fe696",
+ "response_id": "resp_048d2dc02a6a0aa4006ac63995979887d2a183954726b04511",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4226,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4223
+  },
+  "output_tokens": 556,
+  "output_tokens_details": {
+   "reasoning_tokens": 153
+  },
+  "total_tokens": 4782
+ }
+}

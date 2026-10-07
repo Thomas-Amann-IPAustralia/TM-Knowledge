@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005372,
+ "created_utc": "2026-10-07T12:23:12Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0080",
+ "job": "judge",
+ "key": "d749f2b52d29a7d9a44fb6931a5904a98baf7094d38f88aaeb6912d0cb024473",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part5/x-word-constituents/the-breakdown-of-words\",\"grade\":2},{\"ref\":\"TMM/Part5/x-device-constituents/symbols~1\",\"grade\":2},{\"ref\":\"TMM/Part5/x-word-constituents/monograms\",\"grade\":2},{\"ref\":\"TMM/Part5/x-word-constituents/letters\",\"grade\":3},{\"ref\":\"TMM/Part22/8/8/3\",\"grade\":1},{\"ref\":\"TMM/Part22/8/8/8\",\"grade\":1},{\"ref\":\"TMM/Part5/x-word-constituents/letters-which-occur-within-a-word-or-attached-to-words\",\"grade\":2},{\"ref\":\"TMM/Part22/8/8/1\",\"grade\":1},{\"ref\":\"TMM/Part5/x-list-of-top-level-terms#1~1\",\"grade\":1},{\"ref\":\"TMM/Part22/8/8/2\",\"grade\":1},{\"ref\":\"TMM/Part22/8/8/5\",\"grade\":1},{\"ref\":\"TMM/Part22/23#1\",\"grade\":1},{\"ref\":\"TMM/Part5/x-word-constituents/letters-or-words\",\"grade\":3}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "fdc94eecb7fafced62a7195ab842f657842c9cbeb408549481925b55087e905f",
+ "response_id": "resp_0d54564912cce88d006ac6399d97dc87d2b503107a44664165",
+ "seconds": 19.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2738,
+  "input_tokens_details": {
+   "cache_write_tokens": 2735,
+   "cached_tokens": 0
+  },
+  "output_tokens": 390,
+  "output_tokens_details": {
+   "reasoning_tokens": 102
+  },
+  "total_tokens": 3128
+ }
+}

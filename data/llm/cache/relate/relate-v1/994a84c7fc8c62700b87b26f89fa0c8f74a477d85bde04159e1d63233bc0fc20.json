@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007962,
+ "created_utc": "2026-10-07T11:14:27Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0018",
+ "job": "relate",
+ "key": "994a84c7fc8c62700b87b26f89fa0c8f74a477d85bde04159e1d63233bc0fc20",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"per subsection 61(2)(d): In the case of a sign for wine or spirits which includes a geographical indication, the sign was identical with the customary name, as at 1 January 1995 in the country where the wine or spirits originated (see section 15 for the definition of \\\"originate\\\" in relation to wine), of a variety of grapes used to produce them.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none: the concepts are merely listed together among relevant legislation.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.91,\n      \"reasoning\": \"The Manual connects a sign including a geographical indication with the country where wine originated when describing the subsection 61(2)(d) defence. It does not establish that origin is a defining element of every geographical indication.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the defence-specific connection warrants a general ontology relationship between these concepts.\",\n      \"passage_ref\": \"TMM/Part46/4/4/6/3\",\n      \"neighbour\": \"GC-0145\"\n    },\n    {\n      \"quote\": \"If during examination of a new application research reveals that a trade mark is identical or similar to a listed EU GI, consideration should then be given to whether or not the use of the trade mark would potentially deceive or confuse Australian consumers and make grounds for rejection under s 43 appropriate.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"related_to: the passage only directs consideration of a possible section 43 ground.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.91,\n      \"reasoning\": \"The Manual supports a conditional connection between resemblance to a listed EU GI and a possible section 43 ground for rejection. The relationship is inferred because resemblance and potentially deceptive or confusing use, rather than GI status alone, are the relevant circumstances.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether mayGiveRiseTo adequately preserves the intervening conditions of resemblance and potentially deceptive or confusing use.\",\n      \"passage_ref\": \"TMM/Part29/11#1\",\n      \"neighbour\": \"GC-0053\"\n    },\n    {\n      \"quote\": \"If during examination of a new application research reveals that a trade mark is identical or similar to a listed EU GI, consideration should then be given to whether or not the use of the trade mark would potentially deceive or confuse Australian consumers and make grounds for rejection under s 43 appropriate.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"related_to: the passage requires assessment of confusion without asserting that it will occur.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The Manual identifies use of a trade mark identical or similar to a listed EU GI as a circumstance requiring consideration of potential consumer confusion. The causal relationship is inferred and conditional; the passage does not say that a geographical indication necessarily causes confusion.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether attributing potential confusion to the GI concept is too broad when the passage concerns use of a resembling trade mark.\",\n      \"passage_ref\": \"TMM/Part29/11#1\",\n      \"neighbour\": \"GC-0004\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "90f6fc051a2df423e85ab44c68fe92e084d3cf991bdd06ed7077cc1a149018bf",
+ "response_id": "resp_087b0c5eefd6b99d006ac62980f36887d291989270ec7f5f29",
+ "seconds": 18.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2854,
+  "input_tokens_details": {
+   "cache_write_tokens": 2851,
+   "cached_tokens": 0
+  },
+  "output_tokens": 879,
+  "output_tokens_details": {
+   "reasoning_tokens": 122
+  },
+  "total_tokens": 3733
+ }
+}

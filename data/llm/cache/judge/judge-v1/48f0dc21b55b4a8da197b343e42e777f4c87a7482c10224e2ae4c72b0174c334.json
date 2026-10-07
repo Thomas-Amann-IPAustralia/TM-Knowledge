@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00221,
+ "created_utc": "2026-10-07T12:18:09Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0026",
+ "job": "judge",
+ "key": "48f0dc21b55b4a8da197b343e42e777f4c87a7482c10224e2ae4c72b0174c334",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part14/5/5/2/15~2\",\"grade\":2},{\"ref\":\"TMM/Part14/4/4/11/1\",\"grade\":1},{\"ref\":\"TMM/Part55/4/4/1~2\",\"grade\":0},{\"ref\":\"TMM/Part14/5/5/2/1\",\"grade\":1},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/digital-imaging-services\",\"grade\":1},{\"ref\":\"TMM/Part14/5/5/2/15~1\",\"grade\":3},{\"ref\":\"TMM/Part10/3/3/3/4\",\"grade\":0},{\"ref\":\"TMM/Part22/7/22/7/9\",\"grade\":0},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/photos\",\"grade\":2},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/photographs\",\"grade\":2},{\"ref\":\"TMM/Part14/5/5/2/15~3\",\"grade\":1},{\"ref\":\"TMM/Part55/x-annex-a1---taxing-of-costs-in--multiple--oppositions-relying-on-same-evidence#1\",\"grade\":0},{\"ref\":\"TMM/Part21/10#1~1\",\"grade\":0},{\"ref\":\"TMM/Part13/6/6/1\",\"grade\":0}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "ad95ae2c369ddf57c600da4cb620650e9177bc8d01249e9bc559f89d18ec042f",
+ "response_id": "resp_058bfe8968f3560c006ac6387003d487d2aeb62d97638d8f73",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2834,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2831
+  },
+  "output_tokens": 413,
+  "output_tokens_details": {
+   "reasoning_tokens": 60
+  },
+  "total_tokens": 3247
+ }
+}

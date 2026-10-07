@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006443,
+ "created_utc": "2026-10-07T11:29:01Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0157..GC-0167",
+ "job": "aliases",
+ "key": "24e147c5940e8ab7d753a086f79d6d256ac569aba43e90d2f5b4a9335724da7c",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0157\",\n      \"related_search_terms\": [\n        \"prescribed foreign country\",\n        \"prescribed foreign region\"\n      ],\n      \"everyday_phrases\": [\n        \"eligible overseas country\",\n        \"recognised foreign country\",\n        \"qualifying overseas region\",\n        \"which countries qualify\"\n      ]\n    },\n    {\n      \"id\": \"GC-0158\",\n      \"related_search_terms\": [\n        \"IRDA defence notice\",\n        \"opposition defence notice\",\n        \"defence filing deadline\"\n      ],\n      \"everyday_phrases\": [\n        \"defend my mark\",\n        \"defending my trade mark\",\n        \"respond to opposition\",\n        \"file defence notice\",\n        \"time to defend\",\n        \"defence form\"\n      ]\n    },\n    {\n      \"id\": \"GC-0159\",\n      \"related_search_terms\": [\n        \"Registrar's deputy\",\n        \"deputy trade marks official\"\n      ],\n      \"everyday_phrases\": [\n        \"deputy registry official\",\n        \"registrar's second in command\",\n        \"trade mark deputy\"\n      ]\n    },\n    {\n      \"id\": \"GC-0160\",\n      \"related_search_terms\": [\n        \"registered trade mark identifier\",\n        \"trade mark registration identifier\"\n      ],\n      \"everyday_phrases\": [\n        \"registered mark number\",\n        \"trade mark number\",\n        \"my trademark number\",\n        \"registration ID\",\n        \"number identifying my mark\"\n      ]\n    },\n    {\n      \"id\": \"GC-0161\",\n      \"related_search_terms\": [\n        \"International Bureau register\",\n        \"Protocol register\"\n      ],\n      \"everyday_phrases\": [\n        \"international trade mark register\",\n        \"overseas trade mark register\",\n        \"international registration database\",\n        \"international trademark records\"\n      ]\n    },\n    {\n      \"id\": \"GC-0162\",\n      \"related_search_terms\": [\n        \"assignment\",\n        \"transmission\",\n        \"ownership transfer\"\n      ],\n      \"everyday_phrases\": [\n        \"transfer my trade mark\",\n        \"sell my trade mark\",\n        \"new trade mark owner\",\n        \"change the owner\",\n        \"transfer brand ownership\",\n        \"give someone my trademark\"\n      ]\n    },\n    {\n      \"id\": \"GC-0163\",\n      \"related_search_terms\": [\n        \"Trade Marks Act 1955\",\n        \"regulations under 1955 Act\",\n        \"pre-repeal legislation\"\n      ],\n      \"everyday_phrases\": [\n        \"old trade mark law\",\n        \"previous trade marks legislation\",\n        \"1955 trade mark law\",\n        \"old trade mark regulations\",\n        \"law before repeal\"\n      ]\n    },\n    {\n      \"id\": \"GC-0164\",\n      \"related_search_terms\": [\n        \"image recording\",\n        \"artistic representation\",\n        \"electronic medium\",\n        \"videotape recording\"\n      ],\n      \"everyday_phrases\": [\n        \"record an image\",\n        \"draw the image\",\n        \"film the image\",\n        \"save the image electronically\",\n        \"make an image recording\"\n      ]\n    },\n    {\n      \"id\": \"GC-0165\",\n      \"related_search_terms\": [\n        \"Registrar's international registration record\",\n        \"IRDA record\"\n      ],\n      \"everyday_phrases\": [\n        \"Australian international registration records\",\n        \"local international registration list\",\n        \"international marks record\",\n        \"Australia's international marks list\"\n      ]\n    },\n    {\n      \"id\": \"GC-0166\",\n      \"related_search_terms\": [\n        \"caricature\",\n        \"symbolic drawing\",\n        \"exaggerated depiction\"\n      ],\n      \"everyday_phrases\": [\n        \"funny drawing\",\n        \"exaggerated drawing\",\n        \"comic picture\",\n        \"drawn character\",\n        \"caricature drawing\"\n      ]\n    },\n    {\n      \"id\": \"GC-0167\",\n      \"related_search_terms\": [\n        \"translation verification\",\n        \"translated certified copy\",\n        \"regulation 4.11\"\n      ],\n      \"everyday_phrases\": [\n        \"translation confirmation certificate\",\n        \"signed translation certificate\",\n        \"proof translation is correct\",\n        \"verify a translation\",\n        \"translation sign off\",\n        \"dated translation certificate\"\n      ]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "a2c2f398d2b4716ac89440a06c5af5f8512f88def2474528ad7b3b94a6dac4e3",
+ "response_id": "resp_0bfc0fa78950958c006ac62cdf359487d2b3dc38779c53abff",
+ "seconds": 30.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 948,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1099,
+  "output_tokens_details": {
+   "reasoning_tokens": 164
+  },
+  "total_tokens": 2047
+ }
+}

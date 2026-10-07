@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00359,
+ "created_utc": "2026-10-07T11:32:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0106",
+ "job": "relate",
+ "key": "7ac25a3f1967e7e38b7286d27c1df8ca69557dba661877a10b576722e12e8049",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Madrid Protocol Article 7 Renewal of International Registration\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"Treat the authority listing as merely mentioning renewal and international registration together.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The heading expressly identifies international registration as the subject of renewal. This supports the relationship without treating the Manual’s authority listing as legislation itself.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether an authority heading alone is sufficient evidence for appliesTo.\",\n      \"passage_ref\": \"TMM/Part60/2/6/2/6/1\",\n      \"neighbour\": \"GC-0150\"\n    },\n    {\n      \"quote\": \"Renewal of an international registration is due 10 years from the date of the international registration as recorded by the IB. This is usually the date on which the international application was received by the Office of origin.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Use dependsOnExternalSource to characterise the Office of origin as the source determining renewal timing.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.8,\n      \"reasoning\": \"The passage links renewal timing indirectly to receipt of the international application by the Office of origin. A more specific dependency predicate would overstate this link, because the operative date is recorded by the IB and only usually coincides with that receipt date.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether this indirect timing connection warrants a relationship to the Office of origin itself.\",\n      \"passage_ref\": \"TMM/Part60/2/6/2/6/2\",\n      \"neighbour\": \"GC-0136\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Infer related_to because both the Contracting Party of the holder and renewal can feature in the subsequent-designation process.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The passage mentions the Contracting Party of the holder in explaining where a subsequent-designation request may be presented. Renewal appears separately as an event after which a subsequent designation may be requested to take effect; no relationship between renewal and that particular Contracting Party is stated or clearly supported.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the subsequent-designation context supplies a sufficiently direct connection between these concepts.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0149\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "51c653eb21e9782eae5646d6095e5b23580674272f6c5856d8bdc6b618bd8af9",
+ "response_id": "resp_081a7ba252750661006ac62dc3268887d2a5153a58647298df",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2251,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2248
+  },
+  "output_tokens": 695,
+  "output_tokens_details": {
+   "reasoning_tokens": 93
+  },
+  "total_tokens": 2946
+ }
+}

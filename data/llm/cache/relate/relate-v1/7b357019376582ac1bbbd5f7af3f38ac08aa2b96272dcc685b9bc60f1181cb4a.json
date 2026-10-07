@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006456,
+ "created_utc": "2026-10-07T11:27:31Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0090",
+ "job": "relate",
+ "key": "7b357019376582ac1bbbd5f7af3f38ac08aa2b96272dcc685b9bc60f1181cb4a",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Subsection 44(4) looks at the circumstance where the applicant has continuously used its trade mark for a period before the priority date of the conflicting mark up until at least its own priority date (prior use).\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"requiresElement, with prior use as the subject, would treat the priority date as a required component rather than the temporal benchmark for continuous use.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual expressly uses the conflicting mark’s and applicant’s priority dates to delimit the period of continuous prior use. Priority date therefore qualifies the prior-use exception temporally.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether qualifies adequately represents the two distinct priority-date benchmarks.\",\n      \"passage_ref\": \"TMM/Part28/1#1\",\n      \"neighbour\": \"GC-0067\"\n    },\n    {\n      \"quote\": \"To be entitled to the convention priority date of the international registration, the request to subsequently designate Australia would have to be have been made within 6 months of the first filing of the trade mark.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to would capture the connection but omit the express attribution of a convention priority date to the international registration.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.85,\n      \"reasoning\": \"The Manual expressly attributes a convention priority date to an international registration, subject here to a timing condition for subsequently designating Australia. Applying the broader priority-date concept to this convention-priority instance is inferred.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether appliesTo is appropriate for attribution of a priority date, rather than application of a rule.\",\n      \"passage_ref\": \"TMM/Part60/4/7/4/7/16/3\",\n      \"neighbour\": \"GC-0150\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "885b8b70cd2e8e4c3255da446e4d7d7b46fa945da60735e753272406c88cb206",
+ "response_id": "resp_0f0b160c8f7e4856006ac62c867a9887d29af4d2f003534d35",
+ "seconds": 30.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2493,
+  "input_tokens_details": {
+   "cache_write_tokens": 2490,
+   "cached_tokens": 0
+  },
+  "output_tokens": 668,
+  "output_tokens_details": {
+   "reasoning_tokens": 204
+  },
+  "total_tokens": 3161
+ }
+}

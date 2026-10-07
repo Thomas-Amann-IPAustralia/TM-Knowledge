@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007376,
+ "created_utc": "2026-10-07T12:22:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0072",
+ "job": "judge",
+ "key": "c522e9af27ceb629ecab01eb4c5129d588ea6c0787cfbe8aa890c3fac76a8f1c",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part32A/2/3/2/3/1\",\"grade\":1},{\"ref\":\"TMM/Part32A/2/3#1\",\"grade\":1},{\"ref\":\"TMM/Part32A/2/4/2/4/1\",\"grade\":3},{\"ref\":\"TMM/Part32A/2/1/2-1-2-a-amending-the-goods\",\"grade\":1},{\"ref\":\"TMM/Part29/1/1/2\",\"grade\":3},{\"ref\":\"TMM/Part32A/2/1/section-53-infringement-of-pbr\",\"grade\":1},{\"ref\":\"TMM/Part32A/2/3/2/3/3\",\"grade\":1},{\"ref\":\"TMM/Part32A/2/4/2-4-3-a-amending-the-goods\",\"grade\":2},{\"ref\":\"TMM/Part32A/2/3/2-3-5-b-evidence-of-use\",\"grade\":1},{\"ref\":\"TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1\",\"grade\":1},{\"ref\":\"TMM/Part32A/2/3/2-3-5-a-amending-the-goods~1\",\"grade\":1},{\"ref\":\"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\"grade\":1},{\"ref\":\"TMM/Part32A/1/1/4\",\"grade\":1},{\"ref\":\"TMM/Part32A/2/3/2-3-1-a-variety-names\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "f08fb511d4cd5458efb183ba9eadf8c1899bbe729efbefdd95d731a011938d1e",
+ "response_id": "resp_012ac855fc9ab5b2006ac63966a7fc87d2932224651de722ef",
+ "seconds": 18.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4097,
+  "input_tokens_details": {
+   "cache_write_tokens": 4094,
+   "cached_tokens": 0
+  },
+  "output_tokens": 451,
+  "output_tokens_details": {
+   "reasoning_tokens": 76
+  },
+  "total_tokens": 4548
+ }
+}

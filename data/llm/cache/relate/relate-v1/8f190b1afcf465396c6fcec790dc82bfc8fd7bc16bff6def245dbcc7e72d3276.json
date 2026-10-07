@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001039,
+ "created_utc": "2026-10-07T11:23:31Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0063",
+ "job": "relate",
+ "key": "8f190b1afcf465396c6fcec790dc82bfc8fd7bc16bff6def245dbcc7e72d3276",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"related_to, because both grounds are identified under section 42.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.97,\"reasoning\":\"The Manual passage lists scandalous matter and use contrary to law as alternative grounds under section 42. It does not state or clearly support a relationship between the grounds themselves beyond that shared provision.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether sharing section 42 is intended to count as related_to despite the instruction excluding mere co-mention.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0062\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "d51cc8afd714023636eff926e28a6b07a77ea86e7383d4224077787cdf15d723",
+ "response_id": "resp_05ec59b08709ae27006ac62ba13ef487d28884944c4ddfa9ef",
+ "seconds": 18.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1524,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1521
+  },
+  "output_tokens": 192,
+  "output_tokens_details": {
+   "reasoning_tokens": 52
+  },
+  "total_tokens": 1716
+ }
+}

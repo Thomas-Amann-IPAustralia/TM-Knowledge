@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01058,
+ "created_utc": "2026-10-07T12:21:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0060",
+ "job": "answer",
+ "key": "41e5a11f03dcfac18b89c7826e2ae6430196ba49b8ee2bcfc2b828af130da44d",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0044\",\"GC-0004\",\"GC-0011\",\"GC-0006\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part26/2#1\",\"quote\":\"A ground for rejection should only be raised if the examiner is satisfied on the balance of probabilities that a ground exists. If the examiner is not so satisfied, a ground for rejection should not be raised.\"},{\"ref\":\"TMM/Part26/2#1\",\"quote\":\"(iii) In considering whether there is a likelihood of deception or confusion all surrounding circumstances have to be taken into consideration.\"}],\"answer\":\"At examination, the examiner assesses whether a ground for rejection exists. The Manual says the examiner must be satisfied on the balance of probabilities before raising that ground (TMM/Part26/2#1).\\n\\nFor possible confusion between trade marks, the Manual says that all surrounding circumstances must be considered (TMM/Part26/2#1). These are statements of Manual practice, not legislative provisions.\\n\\nThe supplied passages do not expressly say who reviews “all the evidence” in every setting, such as opposition proceedings; the answer above is limited to examination.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "a536efed8c82af675e040e087782783fdf93f55ca3c86a67b052f213523316b3",
+ "response_id": "resp_018e4c138460224b006ac63922e04087d2a9e585b9e036c521",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7033,
+  "input_tokens_details": {
+   "cache_write_tokens": 7030,
+   "cached_tokens": 0
+  },
+  "output_tokens": 358,
+  "output_tokens_details": {
+   "reasoning_tokens": 97
+  },
+  "total_tokens": 7391
+ }
+}

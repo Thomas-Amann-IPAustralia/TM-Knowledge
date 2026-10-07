@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003492,
+ "created_utc": "2026-10-07T11:40:06Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0127",
+ "job": "relate",
+ "key": "d48c07120ca9b01ce5560bc58c07c2a7bcd294e5f88760c104fd120cb15596a5",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"A cooling-off period may be requested at any time after a statement of grounds and particulars has been filed but before the Registrar has made a decision on the opposition or dismissed the opposition (regs 5.16(1), 9.19(1), 17A.34L(1), 17A.48U(1)).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo was rejected because the passage identifies the opposition as the subject of a decision, rather than stating that a decision applies to opposition proceedings.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly identifies a Registrar's decision on an opposition. No listed specific predicate captures that adjudicative connection; the permission to request cooling-off does not make the decision–opposition relationship itself normative.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology intends appliesTo to include a decision made on an opposition.\",\n      \"passage_ref\": \"TMM/Part51/3/3/1\",\n      \"neighbour\": \"GC-0102\"\n    },\n    {\n      \"quote\": \"An appeal may be made to the Administrative Review Tribunal from a decision by the Registrar to dismiss the opposition because the statement of grounds and particulars is inadequate (section 99A(2)).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo was rejected because the passage permits an appeal to the Tribunal, rather than allocating the making of the Registrar's decision to it.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual states that a specified Registrar's dismissal decision may be appealed to the Administrative Review Tribunal, citing section 99A(2). This expressly connects the decision and Tribunal, but no listed specific predicate captures the appeal relationship.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Ensure the relationship remains limited to the specified dismissal decision rather than implying that every Registrar's decision is appealable to the Tribunal.\",\n      \"passage_ref\": \"TMM/Part49/2/2/2/3\",\n      \"neighbour\": \"GC-0134\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "c7006e646c8a7988edef077b1411a5df6da6a4cd1aa84381f05ad2bdd02dc585",
+ "response_id": "resp_05a7a8dfc743c552006ac62f78edb887d2a06a8e3517b40c3f",
+ "seconds": 29.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2375,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2372
+  },
+  "output_tokens": 674,
+  "output_tokens_details": {
+   "reasoning_tokens": 157
+  },
+  "total_tokens": 3049
+ }
+}

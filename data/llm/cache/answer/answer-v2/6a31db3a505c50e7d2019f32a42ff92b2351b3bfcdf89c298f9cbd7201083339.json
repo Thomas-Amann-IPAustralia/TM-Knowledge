@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00406,
+ "created_utc": "2026-10-07T12:20:04Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0039",
+ "job": "answer",
+ "key": "6a31db3a505c50e7d2019f32a42ff92b2351b3bfcdf89c298f9cbd7201083339",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0055\",\"GC-0053\",\"GC-0001\",\"GC-0002\",\"GC-0004\",\"GC-0007\",\"GC-0008\",\"GC-0009\",\"GC-0072\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s39(2)\",\"quote\":\"(2) An application for the registration of a trade mark may be rejected if the trade mark contains or consists of:\"},{\"ref\":\"TMA1995/s39(2)(a)\",\"quote\":\"(a) a sign that is prescribed for the purposes of this subsection; or\"},{\"ref\":\"TMM/Part31/3#1~1\",\"quote\":\"As such, and taking into account the presumption of registrability, a ground for rejection will generally only be appropriate under subsection 39(2) if a trade mark contains or consists of one or more of the signs prescribed and the presence of that sign would be likely to confuse the relevant public as to whether: the goods and services bearing the trade mark have a particular status given by legislation, or there is a connection between the applicant and the person, body, or organisation with whom the sign is associated.\"},{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"}],\"answer\":\"Yes, generally—as a matter of Manual practice, but not as an express statutory requirement under section 39(2).\\n\\n**The Act:** Section 39(2)(a) permits rejection where a trade mark contains or consists of a prescribed sign. It says “may”, and the supplied wording does not expressly require a likelihood of deception or confusion. [TMA1995/s39(2); TMA1995/s39(2)(a)]\\n\\n**Manual practice:** The Registrar will generally only raise this ground if the prescribed sign would be likely to confuse the relevant public about either the goods or services having a particular legislative status, or a connection between the applicant and the person, body or organisation associated with the sign. This practice takes account of the presumption of registrability; the sign’s presence alone is therefore generally not enough under that guidance. [TMM/Part31/3#1~1]\\n\\n**Separate statutory ground:** Section 43 requires rejection if a connotation of the mark, or a sign within it, makes use for the specified goods or services likely to deceive or cause confusion. That is a likelihood test, not a requirement to establish that consumers have already been deceived or confused. [TMA1995/s43]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "5d94e069e89272781c6f1f9d30f6f64eed6b9076d5f2cc172dbdedecde4af026",
+ "response_id": "resp_0ab4714cadc5fb00006ac638d725e087d2aaaff8c874b35e5f",
+ "seconds": 30.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7041,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7038
+  },
+  "output_tokens": 741,
+  "output_tokens_details": {
+   "reasoning_tokens": 140
+  },
+  "total_tokens": 7782
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001843,
+ "created_utc": "2026-10-07T11:14:35Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "the date of registration",
+ "job": "define",
+ "key": "79822bc9e32e620e6b490b0e81a7e6b4c8ea33e4c8a4ae0cfddaedd2d82802f9",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"The date of registration is the date the application is taken to have been filed (subsection 20(3)).\",\n  \"alt_labels\": [\n    \"the date of registration\",\n    \"date of registration of the trade mark\"\n  ],\n  \"confidence\": 0.99,\n  \"is_concept\": false,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"GC-0141\",\n  \"notes\": \"Summary: The term denotes the registration date already represented by GC-0141, which the Manual describes as the date the application is taken to have been filed.\",\n  \"expert_should_check\": \"The statutory definition in section 72 is not supplied; an expert should verify it before treating the Manual's explanation as a complete legislative definition.\",\n  \"legislative_basis\": [\n    \"TMA1995/s12\"\n  ],\n  \"pref_label\": \"date of registration\",\n  \"definition_ref\": \"TMM/Part19B/2#1\",\n  \"reasoning\": \"The definite article does not distinguish this term from the existing concept GC-0141 date of registration. The passages expressly explain the date and its relationship to priority date and filing date. Section 12 is identified as using the registration date to define priority date; the supplied passages do not establish paragraphs 122(1)(a)–(g) as grounds for defining this term.\",\n  \"not_labels\": [\n    \"priority date\",\n    \"filing date\"\n  ],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "f9bfdf3f9cde5318a0b9309a67835360dec4e1e09fac08c104012f6a1a7fa7e1",
+ "response_id": "resp_0a683010691dd040006ac62989079c87d2bad647f386b25928",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3203,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3200
+  },
+  "output_tokens": 336,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 3539
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001964,
+ "created_utc": "2026-10-07T12:22:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0071",
+ "job": "judge",
+ "key": "e083248514d4ea3cd7343a62409827810da9760678baa39be8d93f087a6a035a",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part9/2/2/1\",\"grade\":0},{\"ref\":\"TMM/Part60/4/24/4/24/4/3\",\"grade\":0},{\"ref\":\"TMM/Part32A/x-annex-5---case-law-summaries/ogen-trade-mark-1977-rpc-529\",\"grade\":1},{\"ref\":\"TMM/Part24/3#1\",\"grade\":2},{\"ref\":\"TMM/Part24/4#1\",\"grade\":2},{\"ref\":\"TMM/Part24/2#1~2\",\"grade\":2},{\"ref\":\"TMM/Part24/2#1~1\",\"grade\":3},{\"ref\":\"TMM/Part24/6#1\",\"grade\":2},{\"ref\":\"TMM/Part24/5#1\",\"grade\":2},{\"ref\":\"TMM/Part1/x-1.-introduction7/disclaimer\",\"grade\":0},{\"ref\":\"TMM/Part9/7#1~1\",\"grade\":0},{\"ref\":\"TMM/Part24/x-relevant-legislation32#1\",\"grade\":1},{\"ref\":\"TMM/Part24/1#1\",\"grade\":2},{\"ref\":\"TMM/Part44/4/4/4\",\"grade\":0}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "fba275b5268bfe45437797713e3dbbccbb788924e164144daab0d6e10bc5e0e5",
+ "response_id": "resp_0055d93feb93a806006ac639883b3087d28715f930b0151492",
+ "seconds": 20.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3422,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3419
+  },
+  "output_tokens": 358,
+  "output_tokens_details": {
+   "reasoning_tokens": 73
+  },
+  "total_tokens": 3780
+ }
+}

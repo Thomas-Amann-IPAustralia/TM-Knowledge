@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004804,
+ "created_utc": "2026-10-07T11:33:36Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0111",
+ "job": "relate",
+ "key": "83998f224d16b25016ab31dd7143f72d00836f963904e210f46a7d4c6871c5ec",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, because both application types are discussed in connection with registration dates and terms.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual discusses Convention priority and divisional applications separately when explaining registration dates and terms. It does not state or clearly support a relationship between those application types.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the reference to a parent's deemed filing date clearly links divisional applications to Convention priority, rather than merely leaving that possibility open.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0110\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, on the reading that a divisional application's parent could be an application claiming Convention priority.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual states that a divisional application takes its parent's actual or deemed filing date, but does not identify that parent as a Convention application. The inclusion of 'parent application' among the neighbour's alternative labels does not establish the missing connection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the parent's deemed filing date is intended here to encompass Convention priority in a way that clearly supports a relationship.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0043\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "344070a5b661cec3447b07218cce76f1928b5fa4615078be670ea1ac00fb51f1",
+ "response_id": "resp_0289b64d82d3ff34006ac62dfd698487d284d916efab106b38",
+ "seconds": 19.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2404,
+  "input_tokens_details": {
+   "cache_write_tokens": 2401,
+   "cached_tokens": 0
+  },
+  "output_tokens": 360,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 2764
+ }
+}

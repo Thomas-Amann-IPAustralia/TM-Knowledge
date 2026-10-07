@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014393,
+ "created_utc": "2026-10-07T12:18:04Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0031",
+ "job": "answer",
+ "key": "e2f3f8427c8d5cba359a81d80eaa95f4081da4ed7e94ca9fefe88dbf3c7e74a7",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0102\", \"GC-0131\", \"GC-0046\", \"GC-0128\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part51/1/1/2\",\n      \"quote\": \"Evidence in answer must be filed with IP Australia within 3 months from the day the Registrar gives the applicant all of the evidence in support and notifies the applicant that all evidence in support has been filed\"\n    },\n    {\n      \"ref\": \"TMM/Part51/2/2/5~1\",\n      \"quote\": \"As a general rule evidence that is not filed in time is not considered by the delegate when deciding the opposition.\"\n    },\n    {\n      \"ref\": \"TMM/Part51/2/2/5~1\",\n      \"quote\": \"The delegate will not consider out of time evidence as a matter of routine. The party filing the evidence must both pay the relevant fee and make a compelling case in favour of it being considered.\"\n    },\n    {\n      \"ref\": \"TMM/Part51/2/2/5~2\",\n      \"quote\": \"Out of time evidence must be filed on Objective Connect together with the submissions in support of its consideration.\"\n    },\n    {\n      \"ref\": \"TMM/Part51/2/2/5~2\",\n      \"quote\": \"The Registrar will advise the other party that the material has been filed and that no decision will be made until the evidence stage of the opposition has ended and one or both parties have asked to be heard.\"\n    },\n    {\n      \"ref\": \"TMM/Part51/2/2/5~2\",\n      \"quote\": \"If the delegate is satisfied there is a compelling case, the other party will be given an opportunity to make representations in the matter before the delegate decides whether or not to consider the information.\"\n    }\n  ],\n  \"answer\": \"**Earlier application papers:** The supplied passages do not answer whether the other side can obtain papers from the earlier application or examination file. I cannot establish that entitlement from these extracts. The Manual does describe the Registrar giving the applicant the opponent’s evidence in support, but that is not an answer about access to earlier application papers (TMM/Part51/1/1/2).\\n\\n**Late evidence — Manual practice:** Yes, it may be considered, but not routinely. The general rule is that evidence filed out of time is not considered. The filing party must pay the relevant fee and make a compelling case for its consideration (TMM/Part51/2/2/5~1).\\n\\nThe late evidence and supporting submissions must be filed on Objective Connect. The Registrar notifies the other party; no decision on consideration is made until the evidence stage has ended and at least one party has asked to be heard. If the delegate finds a compelling case, the other party can make representations before the delegate decides whether to consider the information (TMM/Part51/2/2/5~2).\\n\\n**Legislation:** These late-evidence statements describe Manual practice, not legislation. The supplied Act and Regulations passages do not directly answer either question.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "91ce5a03e77f40a720ec5516efb2e3b55feda4c08b043cae3e29566864c951f4",
+ "response_id": "resp_0109bf3a3cde5488006ac6385e7ee087d28219f8536fa2cde1",
+ "seconds": 30.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8243,
+  "input_tokens_details": {
+   "cache_write_tokens": 8240,
+   "cached_tokens": 0
+  },
+  "output_tokens": 818,
+  "output_tokens_details": {
+   "reasoning_tokens": 131
+  },
+  "total_tokens": 9061
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001858,
+ "created_utc": "2026-10-07T11:14:15Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "repealed Act",
+ "job": "define",
+ "key": "b77d079089234730c30d82cf8ec579672370e585eebf08e1abeaaacb40ea713b",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"(1) The repealed Act means: (a) the Trade Marks Act 1955 as in force immediately before its repeal; and (b) the regulations under that Act that were in force immediately before its repeal.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.99,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: The repealed Act denotes the Trade Marks Act 1955 and its regulations as in force immediately before repeal, with references to particular sections generally including regulations made for those sections.\",\n  \"expert_should_check\": \"Confirm whether the ontology should represent this defined historical legislative reference as a standalone concept or as a legislative instrument entity.\",\n  \"legislative_basis\": [\n    \"TMA1995/s6\",\n    \"TMA1995/s16\"\n  ],\n  \"pref_label\": \"repealed Act\",\n  \"definition_ref\": \"TMA1995/s16\",\n  \"reasoning\": \"Section 6 expressly refers to section 16, which defines the term and specifies how references to its sections are interpreted. This is a distinct statutory idea not held by the existing concepts. None of the supplied groups fits: it is historical domestic legislation, not a treaty or international scheme, nor a document produced by the registration process.\",\n  \"not_labels\": [\n    \"old register\",\n    \"Trade Marks Act 1995\",\n    \"Trade Marks Act 1955\"\n  ],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "89a0709a7c330dd974d2caac11f069558cf2442a9c250ec8f6767f13e103a337",
+ "response_id": "resp_0dbe6de78d86d52f006ac62975626487d286394507d8e9019d",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3213,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3210
+  },
+  "output_tokens": 339,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 3552
+ }
+}

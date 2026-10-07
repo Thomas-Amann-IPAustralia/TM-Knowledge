@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005553,
+ "created_utc": "2026-10-07T12:16:38Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0022",
+ "job": "answer",
+ "key": "7223efdd9d92a9846feb3af39c9705d9cfead951b82eaf9bc5cb6dbf76427a42",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0073\",\"GC-0126\",\"GC-0012\",\"GC-0063\",\"GC-0013\",\"GC-0059\",\"GC-0038\",\"GC-0001\",\"GC-0002\",\"GC-0017\"],\"decline_reason\":\"I cannot say whether your particular brand name would be registered. The supplied passages support general examination guidance, but do not specify a threshold for how much spelling variation is sufficient.\",\"declined\":true,\"citations\":[{\"ref\":\"TMM/Part32B/2/1#1\",\"quote\":\"A ground for rejection under this section may apply when a trade mark or part of a trade mark is identical to, or resembles, an entry on the Register of Protected Geographical Indications and Other Terms (‘the Wine Register’) , and the application claims grape products relevant to Class 33.\"},{\"ref\":\"TMM/Part32B/2/1#1\",\"quote\":\"The presence of such a match on the Wine Register indicates that the use of the trade mark may contravene the Wine Australia Act, unless that use is in accord with conditions specified in the relevant entry on the Wine Register.\"},{\"ref\":\"TMM/Part32B/2/1#1\",\"quote\":\"Consent to this endorsement will allow the section 42 ground for rejection to be withdrawn.\"},{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part32B/2/2#1\",\"quote\":\"The section 43 assessment should consider the relevance or connection that a geographical reference has to the goods and / or services claimed.\"},{\"ref\":\"TMM/Part32B/2/3/2/3/1\",\"quote\":\"The usual tests and considerations as discussed in Part 22 will need to be taken to determine the extent to which the trade mark as a whole is adapted to distinguish.\"}],\"answer\":\"**A slight spelling change is not an assured way around a protected wine-region name.** That is an inference from the Manual’s express coverage of marks that *resemble*, rather than merely reproduce, an entry on the Wine Register. I cannot say whether your particular brand would be registered; the supplied passages give no precise spelling-variation threshold. [TMM/Part32B/2/1#1]\\n\\nFor examination, the relevant distinctions are:\\n\\n- **Manual practice — section 42:** Where the application claims grape products relevant to Class 33, a mark or part of a mark that resembles a Wine Register entry may attract a ground for rejection. The Manual links this to possible contravention of the Wine Australia Act unless use complies with the conditions in the relevant Wine Register entry. Thus, changing a few letters does not necessarily remove this concern. [TMM/Part32B/2/1#1]\\n- **Manual practice — conditional use:** The Manual says consent to its specified endorsement, requiring compliant use under the Wine Register conditions, allows the section 42 ground to be withdrawn. This statement concerns that ground, not an assurance of registration overall. [TMM/Part32B/2/1#1]\\n- **Act — section 43:** Rejection is mandatory if a connotation of the mark or a sign within it makes use for the claimed goods or services likely to deceive or cause confusion. **Manual practice** directs examiners to assess the geographical reference’s relevance or connection to those goods or services. A spelling change therefore does not answer this separate issue by itself. [TMA1995/s43; TMM/Part32B/2/2#1]\\n- **Manual practice — distinctiveness:** The Manual also requires assessment of how far the trade mark **as a whole** is adapted to distinguish. [TMM/Part32B/2/3/2/3/1]\\n\\nThe supplied legislation directly establishes the section 43 test; the section 42 and distinctiveness guidance above is Manual practice, not quoted legislation.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "49c0f1612eb46fb67295ed1c0b67fc0b229da4c0d4ff44b64ee83dd86ddb75e1",
+ "response_id": "resp_00660b59256311b3006ac6380b05a887d287ba6df7f5b9b625",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7497,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7494
+  },
+  "output_tokens": 1035,
+  "output_tokens_details": {
+   "reasoning_tokens": 140
+  },
+  "total_tokens": 8532
+ }
+}

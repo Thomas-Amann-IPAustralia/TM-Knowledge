@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001826,
+ "created_utc": "2026-10-07T11:24:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0071",
+ "job": "relate",
+ "key": "fdb6b1d1f6153203c725c50e84f37c7f70aac44ae4cbafbfcf2c82b0e4b1d5bf",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"use in good faith of the trade mark may include use of a trade mark with \\\"additions or alterations not substantially affecting its identity\\\" and may be in relation to closely related goods and/or services.\",\"relation\":\"related_to\",\"alternative\":\"qualifies: the passage does not directly make closely related goods or services a qualification on the removal application itself.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.88,\"reasoning\":\"The Manual connects closely related goods or services with an application for removal through the use in good faith that may rebut a non-use allegation. This supports contextual relevance, not a conclusion that such use necessarily defeats removal.\",\"modality\":\"may\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the connection through rebuttal evidence warrants a more specific predicate than related_to.\",\"passage_ref\":\"TMM/Part48/6#1\",\"neighbour\":\"GC-0142\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "106c22aadd89440671e58745e3c8fa432a8b3b4929b1d1c2fc5d954082f86202",
+ "response_id": "resp_09055f5745d52cf1006ac62becae6c87d2b515e93f72616428",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2263,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2260
+  },
+  "output_tokens": 342,
+  "output_tokens_details": {
+   "reasoning_tokens": 143
+  },
+  "total_tokens": 2605
+ }
+}

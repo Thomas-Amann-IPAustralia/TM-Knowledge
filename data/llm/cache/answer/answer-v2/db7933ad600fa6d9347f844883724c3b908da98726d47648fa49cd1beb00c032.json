@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004418,
+ "created_utc": "2026-10-07T12:15:29Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0012",
+ "job": "answer",
+ "key": "db7933ad600fa6d9347f844883724c3b908da98726d47648fa49cd1beb00c032",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0013\",\"GC-0036\",\"GC-0081\",\"GC-0116\",\"GC-0084\",\"GC-0014\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part32A/2/4/2-4-3-b-examples-of-use\",\"quote\":\"The following endorsement would need to be agreed to: It is a condition of registration that, in use, Rosa varietal names will appear in close proximity to the words DELTA DAWN.\"},{\"ref\":\"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\"quote\":\"In this circumstance, the owner of the trade mark will need to agree to an endorsement to that effect.\"},{\"ref\":\"TMM/Part32A/2/3/2-3-5-b-evidence-of-use\",\"quote\":\"To achieve this, a proposed trade mark for plants or plant material should be applied to a number of different plants or, if applied to a single plant, always applied in conjunction with the accepted scientific and variety names for that plant.\"},{\"ref\":\"TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1\",\"quote\":\"However, both agree that trade marks in use need to be clearly differentiated from the variety name and not used instead of it.\"}],\"answer\":\"**Who has to follow it?** The Manual describes an endorsement that must be agreed to as part of acceptance. In the separate PBR-consent route, it expressly identifies the trade mark owner as the person who must agree [1–2]. However, the supplied passages do not establish the full legal position on who is bound after registration—for example, subsequent owners or authorised users. I cannot confirm that from these extracts; the supplied Act passages do not resolve it.\\n\\n**What changes in use? — Manual practice:** For the illustrated varietal-name condition, use of the mark must be accompanied by varietal names in close proximity: the example requires Rosa varietal names to appear close to DELTA DAWN [1]. The Manual also says that, when a plant mark is applied to a single plant, it should always be used with that plant’s accepted scientific and variety names [3]. Its discussion of naming conventions says the trade mark should be clearly differentiated from the variety name, not used instead of it [4].\\n\\nThus, the illustrated condition concerns how the mark and varietal information appear together in use [1]. These are statements of **Manual practice**, not a statutory rule establishing everyone legally bound by the condition.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "2cb4ea86cac38e3c134bfd7518519d7849139cd3d3daa87a14160e8853259bf6",
+ "response_id": "resp_02d28862dbc04025006ac637c5777887d28c225d8bbd0691ab",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8105,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 8102
+  },
+  "output_tokens": 802,
+  "output_tokens_details": {
+   "reasoning_tokens": 240
+  },
+  "total_tokens": 8907
+ }
+}

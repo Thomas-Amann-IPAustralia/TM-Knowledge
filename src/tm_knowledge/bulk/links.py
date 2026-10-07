@@ -276,15 +276,19 @@ def pairs(
     return sorted((scored[k] for k in keep - judged), key=lambda p: (-p.score, p.a, p.b))
 
 
-def anchors(pair_list: Iterable[Pair]) -> dict[str, list[Pair]]:
+def anchors(pair_list: Iterable[Pair], prefer: set[str] | None = None) -> dict[str, list[Pair]]:
     """Group pairs into model calls: one anchor concept, up to eight neighbours.
 
     Each pair goes to whichever end has fewer pairs so far, so no call is lopsided
-    and every pair is asked about exactly once.
+    and every pair is asked about exactly once — unless one end is in `prefer`,
+    which then anchors it: a pass over a few new concepts makes a few full calls,
+    not one near-empty call per old neighbour.
     """
     load: dict[str, list[Pair]] = defaultdict(list)
     for pair in pair_list:
         side = pair.a if len(load[pair.a]) <= len(load[pair.b]) else pair.b
+        if prefer and (pair.a in prefer) != (pair.b in prefer):
+            side = pair.a if pair.a in prefer else pair.b
         if len(load[side]) >= NEIGHBOURS_PER_ANCHOR:
             side = pair.b if side == pair.a else pair.a
             if len(load[side]) >= NEIGHBOURS_PER_ANCHOR:

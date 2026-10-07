@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004355,
+ "created_utc": "2026-10-07T11:36:41Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0109",
+ "job": "relate",
+ "key": "2b8db6b064fe0dc65b318df9d89fdc2cc0280bf8ad777e7195c946567df67d7f",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"While evidence of ‘reputation’ is not required under s 185, it is unlikely that the requisite connection would be taken to exist between the goods and services of the defensive application and the applicant in cases where there is no appreciable reputation arising from use of the trade mark in relation to the goods or services for which it is already registered.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"requiresElement was rejected because the Manual expressly says that evidence of reputation is not required.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual treats reputation as a factor affecting whether the connection needed for defensive registration can be established, rather than as an independently required element. This supports reputation qualifying eligibility for defensive registration.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether qualifies appropriately captures a factor affecting eligibility rather than the defensive trade mark itself.\",\n      \"passage_ref\": \"TMM/Part34/6/6/2/3\",\n      \"neighbour\": \"GC-0130\"\n    },\n    {\n      \"quote\": \"While evidence of ‘reputation’ is not required under s 185, it is unlikely that the requisite connection would be taken to exist between the goods and services of the defensive application and the applicant in cases where there is no appreciable reputation arising from use of the trade mark in relation to the goods or services for which it is already registered.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"requiresElement was rejected because reputation is discussed as relevant to establishing the connection, not as a separately required evidentiary element.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"The Manual expressly connects reputation with establishing the requisite connection for defensive registration. I am unsure whether this broader reputation record is intended to differ from GC-0130; the supplied passages do not distinguish their applicability here.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether GC-0050 denotes the reputation discussed here or a distinct concept from GC-0130.\",\n      \"passage_ref\": \"TMM/Part34/6/6/2/3\",\n      \"neighbour\": \"GC-0050\"\n    },\n    {\n      \"quote\": \"The registered owner of a defensive trade mark has the right under subsection 20(2) to obtain relief under the Act if the trade mark has been infringed.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo was rejected because the sentence attributes an entitlement to the owner; it does not allocate the defensive trade mark itself to that owner.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual explicitly connects a defensive trade mark with its registered owner through the owner's entitlement to infringement relief under the cited subsection. No listed specific predicate adequately captures that ownership-and-entitlement relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology intends allocatesTo to cover entitlements associated with ownership.\",\n      \"passage_ref\": \"TMM/Part34/8#1\",\n      \"neighbour\": \"GC-0084\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "8d925484de616a961a2ec8f8f313ef886b79f63ef18aa4dbc5509269b55da944",
+ "response_id": "resp_0d4c1adbb6e050d2006ac62eac3f8887d2b03aea8790d04e35",
+ "seconds": 29.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2837,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2834
+  },
+  "output_tokens": 842,
+  "output_tokens_details": {
+   "reasoning_tokens": 107
+  },
+  "total_tokens": 3679
+ }
+}

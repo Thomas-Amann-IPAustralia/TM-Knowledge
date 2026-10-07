@@ -1301,6 +1301,12 @@ ledger exactly as a direct call would. The KB SOP's warning applies: its first b
 found a batch transport ignoring the JSON schema, so the batch output goes through the
 same `accept()` checks, and a batch smoke run was read before any full run.
 
+**Update, same day: in practice flex beat batch.** Two `define` batches sat at
+`in_progress, 0/N` for 30 minutes and more and were cancelled. Flex, meanwhile,
+answered about one attempt in five, each failure arriving in about three seconds
+and costing nothing. So `--tier flex` is now the default, with up to 12 retries on
+a backoff from 10s to a 60s cap: a run grinds through rather than giving items up.
+
 ---
 ### Q-68 — a prompt that lists the store goes stale the moment the store grows
 
@@ -1314,3 +1320,14 @@ written) and anything else whose prompt reads the stores.
 **What to do instead:** finish a job — every item answered or deliberately abandoned —
 before writing its output, or accept that a re-run after a write is a partly new run.
 Never assume a re-run of a job that writes to the stores it reads is free.
+
+**For `relate`, fixed rather than avoided.** A pair any completed relate call
+answered for is read back from the cache (`jobs.judged_pairs`) and never sent
+again, whatever its anchor or prompt. It still holds its place in its concepts'
+best six (`links.pairs`): dropping it instead promoted the next-best pair, so
+every pass would find fresh pairs to ask about and the job would never run out.
+Two consequences to keep in mind. A relate process writes only when it finishes, so
+**killing one loses its answers** — they are cached, but counted as judged, so a
+re-run will not write them either; let it finish. And a second pass beside a
+running one must not overlap it: `--touching <ids>` restricts a pass to pairs
+touching concepts the running pass did not have.

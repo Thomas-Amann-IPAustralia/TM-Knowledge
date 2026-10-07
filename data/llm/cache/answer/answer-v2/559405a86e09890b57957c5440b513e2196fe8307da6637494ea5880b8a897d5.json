@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003958,
+ "created_utc": "2026-10-07T12:16:36Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0021",
+ "job": "answer",
+ "key": "559405a86e09890b57957c5440b513e2196fe8307da6637494ea5880b8a897d5",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0041\",\"GC-0004\",\"GC-0066\",\"GC-0044\",\"GC-0093\"],\"decline_reason\":\"I cannot say whether your particular application will be accepted or rejected. I can explain the Manual’s general guidance on evidence of actual confusion.\",\"declined\":true,\"citations\":[{\"ref\":\"TMM/Part28/3/3/3\",\"quote\":\"It is not usual for evidence of instances of confusion to be provided to the examiner. However, the applicant should provide this information if it is available.\"},{\"ref\":\"TMM/Part28/3/3/3\",\"quote\":\"In most cases, mention of this issue consists of a brief denial of knowledge of any instances contained within the applicant's declaration. Such information, when incorporated in a declaration, will be taken at face value, unless other circumstances cast doubt on its accuracy.\"},{\"ref\":\"TMM/Part28/3/3/3\",\"quote\":\"In the unlikely event that confusion is shown to have occurred, it will have a direct bearing on the consideration of honesty and will undoubtedly add force to the concern regarding the likely degree of confusion. However, the discovery of instances of actual confusion is not necessarily fatal to the application.\"},{\"ref\":\"TMM/Part28/3/3/6~2\",\"quote\":\"The applicant should address the matter of instances of confusion. A statement within the declaration specifying lack of knowledge of any instances will be taken at face value at the examination stage.\"}],\"answer\":\"In the context of evidence supporting honest concurrent use, **yes—the Manual says you should provide information about actual confusion incidents if it is available**. Although such evidence is not usually provided to the examiner, available information should be supplied. This is **Manual practice**, not a separately stated statutory requirement in the supplied legislation. [TMM/Part28/3/3/3]\\n\\nThe Manual’s guidance is:\\n- **Address instances of confusion in your evidence.** If you do not know of any incidents, the Manual says a statement to that effect in your declaration will be taken at face value at examination. It also cautions that other circumstances may cast doubt on its accuracy. [TMM/Part28/3/3/6~2; TMM/Part28/3/3/3]\\n- **Actual incidents matter, but are not automatically fatal.** Under the Manual, demonstrated confusion bears directly on the consideration of honesty and strengthens concern about the likely degree of confusion. Nevertheless, discovering actual confusion does not necessarily mean the application cannot proceed. [TMM/Part28/3/3/3]\\n\\nI cannot predict whether your particular application will be accepted or rejected; these are the Manual’s general practice statements.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "57cd113b43aa03fe4d20da9be478f7977e264aeac37b8959e3f55bb66bf29de6",
+ "response_id": "resp_049665c3149eff64006ac638068d6887d28a902f2ada05b51c",
+ "seconds": 30.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7808,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7805
+  },
+  "output_tokens": 713,
+  "output_tokens_details": {
+   "reasoning_tokens": 136
+  },
+  "total_tokens": 8521
+ }
+}

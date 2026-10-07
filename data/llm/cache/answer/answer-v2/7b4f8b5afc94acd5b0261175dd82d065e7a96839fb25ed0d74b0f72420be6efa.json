@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002404,
+ "created_utc": "2026-10-07T12:19:22Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0024",
+ "job": "answer",
+ "key": "7b4f8b5afc94acd5b0261175dd82d065e7a96839fb25ed0d74b0f72420be6efa",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0159\", \"GC-0115\", \"GC-0127\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMA1995/s205\",\n      \"quote\": \"(3) A power or function of the Registrar, when exercised by a Deputy Registrar, is taken to have been exercised by the Registrar.\"\n    },\n    {\n      \"ref\": \"TMA1995/s205\",\n      \"quote\": \"(2) Subject to any direction by the Registrar, a Deputy Registrar has all the powers and functions of the Registrar, except the powers of delegation under section 206.\"\n    },\n    {\n      \"ref\": \"TMM/Part52/1#1~1\",\n      \"quote\": \"If a decision is made and reasons are given at the time, the document containing these is headed \\\"Decision of a Delegate of the Registrar of Trade Marks, with Reasons\\\".\"\n    }\n  ],\n  \"answer\": \"Yes—where a Deputy Registrar makes a decision exercising a power or function of the Registrar, it is treated as an exercise by the Registrar.\\n\\nAct (law): Section 205(3) expressly provides that a Registrar’s power or function exercised by a Deputy Registrar is taken to have been exercised by the Registrar. Under s 205(2), the Deputy Registrar has all the Registrar’s powers and functions, subject to any direction by the Registrar, except the power of delegation under s 206. [TMA1995/s205]\\n\\nManual practice: The decision document may nevertheless be headed “Decision of a Delegate of the Registrar of Trade Marks, with Reasons” when the decision and reasons are given together. That is the Manual’s stated documentation practice, not the statutory basis for treating the exercise as the Registrar’s. [TMM/Part52/1#1~1]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "0af811e90f1c71d755dcf54250e1268e28d3b02ab715626df7eb747b8951b781",
+ "response_id": "resp_08a927c50ef6b5b3006ac638b908c487d2a83bd87c2371d22f",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7719,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7716
+  },
+  "output_tokens": 403,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 8122
+ }
+}

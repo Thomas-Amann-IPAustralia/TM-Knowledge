@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004446,
+ "created_utc": "2026-10-07T11:31:17Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0062",
+ "job": "relate",
+ "key": "e96351df94e968b67d29ac663000243708f64daa24dfc1a8502a349f36c55daf",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"The presumption of registrability must again be taken into account in applying the guidelines given in section 2 of Part 30 of this manual. However, if the Registrar or their delegate is satisfied that the ground for rejection exists, the presumption no longer applies.\",\"relation\":\"qualifies\",\"alternative\":\"The presumption overcomes the scandalous-matter ground for rejection.\",\"direction\":\"neighbour_to_anchor\",\"confidence\":0.92,\"reasoning\":\"The Manual requires the presumption to be considered when assessing scandalous matter, but says it ceases to apply once the ground is established. It therefore qualifies the assessment rather than overcoming an established ground.\",\"modality\":\"must\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether qualifies adequately captures a presumption that governs assessment but ceases once the ground is established.\",\"passage_ref\":\"TMM/Part20/5/5/4/1\",\"neighbour\":\"GC-0118\"},{\"quote\":\"Section 42 of the Act provides grounds for rejecting an application on the basis that the trade mark contains or consists of scandalous matter or that its use would be contrary to law.\",\"relation\":\"is_kind_of\",\"alternative\":\"Scandalous matter is merely related to a ground for rejection, rather than identifying a particular ground.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.96,\"reasoning\":\"The Manual expressly identifies scandalous matter as a basis for rejection under section 42. Read as the named refusal ground, the anchor is a particular kind of ground for rejection.\",\"modality\":\"none\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether the anchor denotes the refusal ground rather than the objectionable matter itself.\",\"passage_ref\":\"TMM/Part30/1#1\",\"neighbour\":\"GC-0053\"},{\"quote\":\"Under paragraph 42(a) a trade mark application must be rejected if the subject trade mark contains or consists of scandalous matter.\",\"relation\":\"appliesTo\",\"alternative\":\"The passage merely associates scandalous matter with an application without stating that the ground applies to it.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.96,\"reasoning\":\"The Manual describes the scandalous-matter ground as requiring rejection of a trade mark application when the stated condition is met. This supports application of the ground to the application.\",\"modality\":\"must\",\"basis\":\"corpus_explicit\",\"expert_should_check\":\"Whether appliesTo is the intended representation of the conditional rejection requirement.\",\"passage_ref\":\"TMM/Part20/5/5/4/1\",\"neighbour\":\"GC-0131\"},{\"quote\":\"Under paragraph 42(a) a trade mark application must be rejected if the subject trade mark contains or consists of scandalous matter.\",\"relation\":\"is_kind_of\",\"alternative\":\"No relationship is supported if this neighbour denotes only a section 43 objection.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.65,\"reasoning\":\"Reading the neighbour's primary label generically, the Manual identifies scandalous matter as a particular ground for rejection. I am unsure whether the alias 's 43 objection' instead restricts this record to section 43; the passage supports paragraph 42(a), not that narrower reading.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether GC-0006 is a generic rejection ground or specifically a section 43 objection.\",\"passage_ref\":\"TMM/Part20/5/5/4/1\",\"neighbour\":\"GC-0006\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "9b4b4a0e53a5bfce26f781a5c26658dbbaa79d3d8cc3d5fcc18b36a2ed9adc74",
+ "response_id": "resp_02b17d280490091f006ac62d68fc0887d281a88060d8f89ee5",
+ "seconds": 29.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2272,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2269
+  },
+  "output_tokens": 866,
+  "output_tokens_details": {
+   "reasoning_tokens": 143
+  },
+  "total_tokens": 3138
+ }
+}

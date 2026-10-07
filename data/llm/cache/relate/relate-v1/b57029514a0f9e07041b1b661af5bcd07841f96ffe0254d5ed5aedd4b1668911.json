@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003742,
+ "created_utc": "2026-10-07T11:24:49Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0066",
+ "job": "relate",
+ "key": "b57029514a0f9e07041b1b661af5bcd07841f96ffe0254d5ed5aedd4b1668911",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, treating their inclusion among purposes for gathering evidence during deferment as a relationship.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual lists prior use and honest concurrent use as separate purposes for gathering evidence. It does not state a relationship between those concepts.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the shared deferment context warrants a relationship despite the rule against linking concepts merely mentioned together.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0067\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, treating honest concurrent use and rectification as connected because both can provide a basis for deferment.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual describes separate deferment arrangements for establishing honest concurrent use and pursuing rectification. Neither passage connects honest concurrent use directly to rectification.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether separate grounds for deferment should remain unlinked at this concept level.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0105\"\n    },\n    {\n      \"quote\": \"This abridged process is intended to establish as fully as possible the rights of all parties, as would likely unfold more slowly during a process for revocation of a domestic registration, eg where, after revocation of registration and then acceptance, and a new citation having been raised, an owner would be entitled to file evidence of prior or honest concurrent use of their trade mark, which may allow them to be re-accepted in the face of an identical mark for identical goods.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"isOvercomeBy, reading honest concurrent use as overcoming revocation of registration itself.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The Manual connects honest concurrent use to the procedural sequence following revocation, where evidence may support re-acceptance after a new citation. It does not say that honest concurrent use overcomes revocation itself.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether this contingent post-revocation connection is sufficiently direct for a related_to edge.\",\n      \"passage_ref\": \"TMM/Part62/8#1\",\n      \"neighbour\": \"GC-0095\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "7de73e113a7d1ae112d4eb05646add89d7d6093bbf17e85fca7f0c5902183b32",
+ "response_id": "resp_0c2c50b600e371c1006ac62be4b22487d29fdda38b89de8a54",
+ "seconds": 29.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3392,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3389
+  },
+  "output_tokens": 714,
+  "output_tokens_details": {
+   "reasoning_tokens": 118
+  },
+  "total_tokens": 4106
+ }
+}

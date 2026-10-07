@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003272,
+ "created_utc": "2026-10-07T11:35:54Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0119",
+ "job": "relate",
+ "key": "0b06f33463bde8276aef325efea27a4bacd1e7996b5032b73f27c8aa53de3923",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"However a trade mark must be considered in its entirety and if a trade mark containing an acronym also contains other material of a significant nature, the combination could be prima facie capable of distinguishing.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"requiresElement: the passage does not make additional significant material an indispensable element of prima facie capability.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual requires consideration of the whole mark and connects significant additional material with possible prima facie capability. The composition of the whole mark therefore qualifies the assessment, rather than making a registrable component sufficient by itself.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether qualifies adequately captures the requirement to assess the mark in its entirety.\",\n      \"passage_ref\": \"TMM/Part22/8/8/5/1\",\n      \"neighbour\": \"GC-0038\"\n    },\n    {\n      \"quote\": \"Phonewords appearing in a composite trade mark containing additional distinctive elements will usually have sufficient inherent adaptation to distinguish and not attract a section 41 ground for rejection.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"qualifies: the additional distinctive elements qualify the assessment, but phoneword status alone is not stated to qualify prima facie capability.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.85,\n      \"reasoning\": \"The Manual applies the inherent adaptation assessment to phonewords in composite marks and then describes its example as prima facie capable of distinguishing. This supports application of the anchor test to phoneword marks, not a general conclusion that phonewords satisfy it.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the composite-phoneword discussion sufficiently supports appliesTo for the broader phoneword concept.\",\n      \"passage_ref\": \"TMM/Part22/14/14/4\",\n      \"neighbour\": \"GC-0031\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "5e6c4656c1ece5e4316bec3f218986fe0977ca1c993ae34c3e9d6b7d64697312",
+ "response_id": "resp_0f6aacb866ef78fd006ac62e7d6ddc87d280903c55a70f9bbd",
+ "seconds": 29.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2583,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2580
+  },
+  "output_tokens": 628,
+  "output_tokens_details": {
+   "reasoning_tokens": 165
+  },
+  "total_tokens": 3211
+ }
+}

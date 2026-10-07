@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004966,
+ "created_utc": "2026-10-07T12:15:56Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0018",
+ "job": "answer",
+ "key": "d03510606d25745ce97f945f275d81f9c1d51cd48e4fac171c441030b12a45af",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0044\",\"GC-0097\",\"GC-0098\",\"GC-0115\",\"GC-0116\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part15/1/1/1\",\"quote\":\"The Trade Marks Office endeavours to reply within four weeks to an applicant's response to an examiner's report. If a reply is not provided in that time the examiner will acknowledge and apologise for the delay.\"},{\"ref\":\"TMM/Part15/1/1/1\",\"quote\":\"If the delay occurs when the application is within the prescribed 15 month period the examiner will indicate to the applicant that they may make a request close to the lapsing date for an extension of time equivalent to the delay. The Registrar may give consideration to such a request but note that approval of a free extension of time will not be the automatic result of any delay.\"},{\"ref\":\"TMM/Part15/1/1/1\",\"quote\":\"A delay in responding to an applicant’s submission may not always constitute error or omission requiring extension of time. Delays occurring early in the 15 month period are unlikely to have any impact on the applicant’s ability to finalise the application within the significant period of time that remains. In these cases, the examiner will make it clear that no extension of time will be made available at the end of the 15 month period.\"},{\"ref\":\"TMM/Part16/2/4/3\",\"quote\":\"If the applicant has paid for an EOT, this should be actioned before any consideration of the submissions takes place.\"},{\"ref\":\"TMM/Part16/2/4/3\",\"quote\":\"Where the response is filed after the application lapses, the examiner will contact the applicant urgently, by phone if possible, to advise that an extension of time is required.\"},{\"ref\":\"TMR1995/r4.10\",\"quote\":\"(1) On receipt of a response under regulation 4.9, the Registrar must consider the response.\"},{\"ref\":\"TMR1995/r4.10\",\"quote\":\"(3) Unless acceptance of an application is deferred, a report under subregulation (2) in relation to that application must include notification of the date on which the application will lapse if it is not accepted earlier.\"}],\"answer\":\"**You can request an extension of time close to the lapsing date, but a free extension for examiner delay is not automatic.**\\n\\n**Manual practice:**\\n- The Office aims to reply within four weeks. If it does not, the examiner should acknowledge and apologise for the delay. This is a service aim, not a guaranteed response deadline. [TMM/Part15/1/1/1]\\n- If the delay occurs within the prescribed 15-month period, the Manual says you may request, close to the lapsing date, an extension equivalent to the delay. The Registrar may consider that request, but a free extension is not automatic. Delay does not always amount to an error or omission; the Manual says early delays that leave substantial time to finalise the application will not support an extension at the end of that period. [TMM/Part15/1/1/1]\\n- If you have already requested and paid for an extension, the examiner should action it before considering your submissions. If a response is filed after the application has lapsed, the Manual says an extension is required. [TMM/Part16/2/4/3]\\n\\n**Regulations:** Regulation 4.10 requires the Registrar to consider your response. Unless acceptance is deferred, a further adverse report must notify you of the date on which the application will lapse if not accepted earlier. [TMR1995/r4.10]\\n\\nThe supplied passages do not give the complete request procedure or establish whether you qualify for a free extension. The extension guidance above is Manual practice, not a quotation from the Act.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "d09365a0fd0a9f177163fc46420c34b2c97743b8cddf35db20f28214a728b161",
+ "response_id": "resp_0e7e3da5de894f2d006ac637e1161c87d28f0f85ab7c5bc6be",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6369,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 6366
+  },
+  "output_tokens": 929,
+  "output_tokens_details": {
+   "reasoning_tokens": 102
+  },
+  "total_tokens": 7298
+ }
+}

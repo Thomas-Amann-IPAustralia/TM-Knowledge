@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005263,
+ "created_utc": "2026-10-07T11:32:23Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0102",
+ "job": "relate",
+ "key": "2a97640a5508a520b34868e59e7ced8dcec3433793d14d3e4bb65ca0e88c78e1",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The time for filing a notice of opposition to the registration of a trade mark (paragraph 21.28(2)(a)) is extendible in the circumstances set out in reg 5.9.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement: opposition requires a notice of opposition.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual expressly connects the notice with opposition to registration through the time for filing it. This passage does not expressly establish that the notice is a required element of opposition proceedings.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the filing language sufficiently supports requiresElement rather than the broader related_to.\",\n      \"passage_ref\": \"TMM/Part15/2/2/1/2\",\n      \"neighbour\": \"GC-0103\"\n    },\n    {\n      \"quote\": \"Times for filing evidence (paragraph 21.28(1)(f)) in oppositions to registration/extension of protection and to removal/cessation of protection for non-use are extendible in the circumstances set out in regs 5.15, 9.18, 17A.34K and 17A.48T.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to: opposition and cessation of protection are connected only through evidence-filing time limits.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The Manual expressly identifies oppositions to cessation of protection for non-use, supporting cessation as a subject of opposition. The support is limited to cessation for non-use, not cessation generally.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the cessation of protection record is broad enough that the non-use limitation needs separate representation.\",\n      \"passage_ref\": \"TMM/Part15/2/2/1/1\",\n      \"neighbour\": \"GC-0135\"\n    },\n    {\n      \"quote\": \"opposition to registration/extension of protection of a trade mark - s 56 and reg 17A.34P;\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to: the passage merely connects opposition and extension of protection through appeal provisions.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"In listing appeal rights, the Manual expressly identifies extension of protection as a subject of opposition. This supports appliesTo without treating the Manual itself as legislation.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether appliesTo should target an application for extension of protection rather than the procedural-step record.\",\n      \"passage_ref\": \"TMM/Part51/8#1\",\n      \"neighbour\": \"GC-0143\"\n    },\n    {\n      \"quote\": \"An application for review of the Registrar’s decision to dismiss under these grounds may be made to the Administrative Review Tribunal.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"allocatesTo: opposition proceedings are allocated to the Administrative Review Tribunal.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual connects opposition with the Tribunal through review of a dismissal for inadequate grounds and particulars. It does not allocate opposition proceedings generally to the Tribunal, and no listed predicate precisely captures this limited review role.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the review relationship should instead be represented through a separate record for the dismissal decision.\",\n      \"passage_ref\": \"TMM/Part51/6/6/3\",\n      \"neighbour\": \"GC-0134\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "bdb537d6af84763ee409908c5149b9ee901110b1ea086b3718c43ba3cf652954",
+ "response_id": "resp_0577a8662af7b2d6006ac62daba45c87d2a28ff0cd62ddf772",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3401,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3398
+  },
+  "output_tokens": 1018,
+  "output_tokens_details": {
+   "reasoning_tokens": 162
+  },
+  "total_tokens": 4419
+ }
+}

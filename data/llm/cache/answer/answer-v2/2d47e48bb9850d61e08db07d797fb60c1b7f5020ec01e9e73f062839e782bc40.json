@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.0061,
+ "created_utc": "2026-10-07T12:20:40Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0045",
+ "job": "answer",
+ "key": "2d47e48bb9850d61e08db07d797fb60c1b7f5020ec01e9e73f062839e782bc40",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0072\", \"GC-0154\", \"GC-0002\", \"GC-0004\", \"GC-0008\", \"GC-0010\", \"GC-0038\", \"GC-0047\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMA1995/s10\",\n      \"quote\": \"For the purposes of this Act, a trade mark is taken to be deceptively similar to another trade mark if it so nearly resembles that other trade mark that it is likely to deceive or cause confusion.\"\n    },\n    {\n      \"ref\": \"TMM/Part26/6/6/12\",\n      \"quote\": \"A word and an equivalent pictorial representation may be found to be deceptively similar, based upon the fact that a person of normal intelligence and memory would retain and carry away the same overall impression. The examiner needs to consider the name and idea that would be associated with the particular device trade mark compared to the name and idea conveyed by the word trade mark.\"\n    },\n    {\n      \"ref\": \"TMM/Part26/6/6/12\",\n      \"quote\": \"the only possible conclusion in the present opposition is that the idea of the applicant’s EMU device is “EMU”, precisely the same idea and name that would be associated with the opponent’s trade mark for the word EMU.\"\n    },\n    {\n      \"ref\": \"TMM/Part26/6/6/12\",\n      \"quote\": \"In that decision, the Hearing Officer states that whilst the ‘devices are definitely depictions of sharks…there is nothing to say that they are Great White Sharks’.\"\n    },\n    {\n      \"ref\": \"TMM/Part26/6/6/8~1\",\n      \"quote\": \"The correct approach in such a case is to focus on the comparison of the marks as a whole.\"\n    },\n    {\n      \"ref\": \"TMM/Part26/6/6/4~2\",\n      \"quote\": \"As such, examiners should not deem two trade marks to be deceptively similar simply because they share element/s. Examiners must first consider the other factors referred to in this Part, including whether the shared element/s have any descriptive meaning in relation to the relevant goods/services. Further, it is important that a single word or element is not too readily characterised as an essential feature\"\n    },\n    {\n      \"ref\": \"TMM/Part26/6/6/4~1\",\n      \"quote\": \"What needs to be assessed is the effect of the similarities and differences on the impression or recollection an ordinary consumer of the goods or services would have of the trade marks and whether this creates a real and tangible danger of confusion.\"\n    }\n  ],\n  \"answer\": \"The key comparison is the **name, idea and overall impression**, not merely whether the word literally describes something shown in the device.\\n\\n**Act — legal test:** Section 10 asks whether one trade mark so nearly resembles the other that it is likely to deceive or cause confusion. [TMA1995/s10]\\n\\n**Manual — examination practice:**\\n\\n1. **Identify the device’s name and idea.** What name and concept would a person of normal intelligence and memory associate with the picture? Compare those with the name and idea conveyed by the word mark. An equivalent picture and word may leave the same overall impression despite their different visual forms. [TMM/Part26/6/6/12]\\n\\n2. **Check the specificity of that association.** The Manual’s EMU example illustrates a device conveying precisely the word’s name and idea. Its contrasting shark example cautions against assuming that a depiction of a shark necessarily conveys “Great White Shark”. [TMM/Part26/6/6/12]\\n\\n3. **Compare each mark as a whole.** Where the device mark is a composite containing words and imagery, do not isolate the wording and treat the remaining features as irrelevant. The Manual directs a whole-mark comparison. [TMM/Part26/6/6/8~1]\\n\\n4. **Assess any shared element in context.** Consider whether it is descriptive of the relevant goods or services. A shared element alone does not establish deceptive similarity, and an element should not too readily be labelled an essential feature. [TMM/Part26/6/6/4~2]\\n\\n5. **Return to the consumer’s recollection.** Assess how the similarities and differences affect the impression or recollection of an ordinary consumer of the goods or services, and whether that creates a real and tangible danger of confusion. [TMM/Part26/6/6/4~1]\\n\\nThese examination directions are Manual practice; the statutory test remains section 10.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "cb8e9a695267a81711be97dec5afac7db9a2c8e6cd9d98f2a2109625e2a40cf1",
+ "response_id": "resp_016bb06051456a2a006ac638fcef4c87d283404280176596f1",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7636,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7633
+  },
+  "output_tokens": 1143,
+  "output_tokens_details": {
+   "reasoning_tokens": 120
+  },
+  "total_tokens": 8779
+ }
+}

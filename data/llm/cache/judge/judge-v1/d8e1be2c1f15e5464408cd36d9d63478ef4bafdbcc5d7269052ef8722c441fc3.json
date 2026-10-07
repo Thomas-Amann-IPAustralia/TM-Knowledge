@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006388,
+ "created_utc": "2026-10-07T12:18:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0038",
+ "job": "judge",
+ "key": "d8e1be2c1f15e5464408cd36d9d63478ef4bafdbcc5d7269052ef8722c441fc3",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part51/2/2/2~2\",\"grade\":1},{\"ref\":\"TMM/Part49/2/2/3/1\",\"grade\":1},{\"ref\":\"TMM/Part51/2/2/4\",\"grade\":1},{\"ref\":\"TMM/Part15/5#1\",\"grade\":1},{\"ref\":\"TMM/Part47/1/1/3/6~1\",\"grade\":2},{\"ref\":\"TMM/Part47/1/1/3/4\",\"grade\":3},{\"ref\":\"TMM/Part47/3/3/3\",\"grade\":2},{\"ref\":\"TMM/Part49/2/2/3/4\",\"grade\":3},{\"ref\":\"TMM/Part55/3/3/4\",\"grade\":1},{\"ref\":\"TMM/Part49/2/2/3/2\",\"grade\":2},{\"ref\":\"TMM/Part47/1/1/3/2\",\"grade\":2},{\"ref\":\"TMM/Part11/4/4/2\",\"grade\":0},{\"ref\":\"TMM/Part16/1/1/4\",\"grade\":2},{\"ref\":\"TMM/Part15/5/5/2\",\"grade\":2},{\"ref\":\"TMM/Part15/4/4/3\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "1d0af157b4cca492cc77e05c802486be5a9490b61f7b7212d5eba2c2ff2c9fee",
+ "response_id": "resp_0e4be58546b5b9cf006ac63879160887d2b7248164525e173c",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3163,
+  "input_tokens_details": {
+   "cache_write_tokens": 3160,
+   "cached_tokens": 0
+  },
+  "output_tokens": 487,
+  "output_tokens_details": {
+   "reasoning_tokens": 189
+  },
+  "total_tokens": 3650
+ }
+}

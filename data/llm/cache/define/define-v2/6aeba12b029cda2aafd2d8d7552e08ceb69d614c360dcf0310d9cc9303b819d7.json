@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003136,
+ "created_utc": "2026-10-07T11:13:39Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "represent",
+ "job": "define",
+ "key": "6aeba12b029cda2aafd2d8d7552e08ceb69d614c360dcf0310d9cc9303b819d7",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"Model the specific legal requirements involving representation, rather than the generic verb 'represent'. The graphical-representation ground is already held in GC-0057.\",\n  \"definition_quote\": \"1. to serve to express, designate, stand for, or denote, as a word, symbol, or the like; symbolise. 2. to express or designate by some term, character, symbol or the like: to represent musical sounds by notes.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.98,\n  \"is_concept\": false,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: 'Represent' is an ordinary verb used in several contexts, not a distinct legal or procedural concept in these passages.\",\n  \"expert_should_check\": \"Whether statements or representations about goods or services under paragraph 51(1)(a) warrant a separate, more specific concept; these passages do not justify treating the generic verb as that concept.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"represent\",\n  \"definition_ref\": \"TMM/Part21/5/5/1\",\n  \"reasoning\": \"The Manual expressly supplies ordinary dictionary meanings of 'represent' when explaining graphical representation under section 40. Other passages use the verb to describe statements about goods or services, the meaning of distribution services, and depiction of a concept by a shape. These varied uses do not establish a standalone technical meaning. The section 40 ground is already covered by GC-0057, but the generic verb is not itself a duplicate of that narrower concept.\",\n  \"not_labels\": [\n    \"cannot be represented graphically\",\n    \"statements or representations as to the goods or services\"\n  ],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "79833f7ae9d0664ff46161a44b0871a609ab867a6bc69e767518eea3df9ef2ea",
+ "response_id": "resp_00f646bb73870dcc006ac62946d6cc87d294dde5f77da3bb96",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3357,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3354
+  },
+  "output_tokens": 593,
+  "output_tokens_details": {
+   "reasoning_tokens": 208
+  },
+  "total_tokens": 3950
+ }
+}

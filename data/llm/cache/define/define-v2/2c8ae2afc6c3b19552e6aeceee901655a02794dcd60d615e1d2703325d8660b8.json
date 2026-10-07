@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00581,
+ "created_utc": "2026-10-07T11:14:53Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "examine",
+ "job": "define",
+ "key": "2c8ae2afc6c3b19552e6aeceee901655a02794dcd60d615e1d2703325d8660b8",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"Treat “examine” as a verbal label for GC-0092 examination, rather than creating a separate concept.\",\n  \"definition_quote\": \"The Registrar must, in accordance with the regulations, examine and report on: (a) whether the application has been made in accordance with this Act; and (b) whether there are grounds under this Act for rejecting it.\",\n  \"alt_labels\": [\n    \"examination\"\n  ],\n  \"confidence\": 0.99,\n  \"is_concept\": false,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"GC-0092\",\n  \"notes\": \"Summary: “Examine” denotes the Registrar’s examination of an application for compliance with the Act and grounds for rejection, already represented by GC-0092 examination.\",\n  \"expert_should_check\": \"Confirm that GC-0092 covers examination under section 31 and can include “examine” as an alternative label.\",\n  \"legislative_basis\": [\n    \"TMA1995/s6/examine\",\n    \"TMA1995/s31\"\n  ],\n  \"pref_label\": \"examine\",\n  \"definition_ref\": \"TMA1995/s31\",\n  \"reasoning\": \"Section 6 expressly defines “examine” by reference to examination under section 31. The supplied section 31 states the Registrar’s examination and reporting duty. This is a legal procedural idea, but its verb form does not distinguish it from the existing concept GC-0092 examination. The other cited provisions do not establish a separate meaning in the supplied passages.\",\n  \"not_labels\": [\n    \"examiner\",\n    \"examiner research\",\n    \"expedited examination\",\n    \"acceptance\"\n  ],\n  \"group\": \"procedural_step\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "9953b51661b3c596c978a3d7fc54d2192171c2617974b367d2e0d8f95278ae98",
+ "response_id": "resp_0305eaa7aff4b1de006ac6299b8b8c87d28eeb9226fd960138",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2773,
+  "input_tokens_details": {
+   "cache_write_tokens": 2770,
+   "cached_tokens": 0
+  },
+  "output_tokens": 469,
+  "output_tokens_details": {
+   "reasoning_tokens": 90
+  },
+  "total_tokens": 3242
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00362,
+ "created_utc": "2026-10-07T11:24:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0069",
+ "job": "relate",
+ "key": "5db1de1f497e3ba48144111f5fc03821c1f35ec9c4debf47dbcfec1bda58c55a",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Subsection 44(3) specifies that the Registrar may accept the application for registration subject to any conditions or limitations that he/she thinks fit to impose.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"appliesTo: conditions or limitations apply to acceptance, rather than qualify it.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly describes acceptance under subsection 44(3) as potentially subject to conditions or limitations. This supports conditions or limitations qualifying acceptance.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether qualifying acceptance, rather than the resulting registration, is the preferred ontology representation.\",\n      \"passage_ref\": \"TMM/Part28/5#1\",\n      \"neighbour\": \"GC-0093\"\n    },\n    {\n      \"quote\": \"For example, the Registrar may consider that it is not reasonable to revoke acceptance if the applicant agrees to amend the application so that certain conditions and limitations are placed upon the trade mark.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"isOvercomeBy: revocation of acceptance is overcome by conditions or limitations.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual identifies agreement to conditions and limitations as a circumstance that may affect whether revocation is reasonable. This supports a qualifying relationship, not an automatic bar to revocation.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the relationship should attach more narrowly to the reasonableness of revocation rather than to revocation itself.\",\n      \"passage_ref\": \"TMM/Part38/1/1/1\",\n      \"neighbour\": \"GC-0094\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: conditions or limitations and removal from the Register are alternative outcomes addressed by the same order or decision.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The passages discuss removal from the Register and imposing conditions or limitations on a trade mark as alternative outcomes. They do not state a relationship between those conditions or limitations and the Register itself.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the shared decision-making context is intended to count as a relationship with the Register.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0089\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "e556ffee2dfc24b155823c59a9157e6b3c658736346b8cc86a9b272d03eb5a6f",
+ "response_id": "resp_07f0cbc676097f6e006ac62be4716087d2982d3d6f74f097e6",
+ "seconds": 31.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2848,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2845
+  },
+  "output_tokens": 695,
+  "output_tokens_details": {
+   "reasoning_tokens": 110
+  },
+  "total_tokens": 3543
+ }
+}

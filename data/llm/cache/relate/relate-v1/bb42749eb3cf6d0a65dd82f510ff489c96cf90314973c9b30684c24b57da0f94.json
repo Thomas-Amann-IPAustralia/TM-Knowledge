@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001389,
+ "created_utc": "2026-10-07T11:15:31Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0024",
+ "job": "relate",
+ "key": "bb42749eb3cf6d0a65dd82f510ff489c96cf90314973c9b30684c24b57da0f94",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"Some INN stems consist of simple two or three letter combinations and their presence in a larger word may not be meaningful and as a result would not lead to deception or confusion.\",\"relation\":\"qualifies\",\"alternative\":\"mayGiveRiseTo: meaningful inclusion may lead to confusion, but the passage expressly states the consequence of non-meaningful inclusion rather than affirming that meaningful inclusion produces confusion.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.88,\"reasoning\":\"The Manual links the absence of meaningful inclusion to the absence of deception or confusion. This supports meaningful inclusion as a qualification on the confusion assessment, not as a sufficient condition for confusion.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the negative formulation sufficiently supports a qualifies relationship for meaningful inclusion.\",\"passage_ref\":\"TMM/Part29/5/5/6~1\",\"neighbour\":\"GC-0004\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "7b236b38f1194b3956b9c9a1eb186a567751d359fc22800adb9949b1cb8b3b2b",
+ "response_id": "resp_076031d7b5a08ce0006ac629c030e087d28a27c7479df0f9a8",
+ "seconds": 19.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1930,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1927
+  },
+  "output_tokens": 258,
+  "output_tokens_details": {
+   "reasoning_tokens": 56
+  },
+  "total_tokens": 2188
+ }
+}

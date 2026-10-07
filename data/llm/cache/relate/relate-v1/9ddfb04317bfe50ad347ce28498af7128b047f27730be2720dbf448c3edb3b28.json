@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003575,
+ "created_utc": "2026-10-07T11:28:03Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0089",
+ "job": "relate",
+ "key": "9ddfb04317bfe50ad347ce28498af7128b047f27730be2720dbf448c3edb3b28",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Disclaimers on the old register, kept under the repealed Act, became particulars on the new Register at commencement, and have the same effect as voluntary disclaimers (section 238).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"same_concept: treating the old register and the new Register as interchangeable names for one record.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly connects the old register to the new Register through the transition of disclaimer particulars at commencement. No listed specific predicate captures that transition between records.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the anchor denotes the new Register specifically rather than a concept encompassing both historical registers.\",\n      \"passage_ref\": \"TMM/Part24/3#1\",\n      \"neighbour\": \"GC-0151\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: inferring responsibility for the Register from the Registrar’s registration functions.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The passages describe the Registrar’s registration functions and list relevant legislative provisions, but do not connect those functions to the Register as an instrument or record. I am unsure whether a broader ontology would treat registration itself as a sufficient connection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether registration functions alone clearly support a relationship to the Register as a record.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0046\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to: treating the shared appeal framework or relevant-legislation list as connecting opposition proceedings to the Register.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The passages list opposition decisions and decisions concerning Register particulars as separate matters, without stating a relationship between them. The legislative list likewise mentions opposition and removal from the Register without explaining a connection between the anchor and opposition.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the reference to an opposition decision to register a trade mark supplies a sufficiently clear connection to the Register itself.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0102\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "ae2140e6d84ced6004d811c9ae78d14b310bb1398b17e132011456d4c6f78830",
+ "response_id": "resp_0f938501b97c0399006ac62ca5f20c87d28fc3381c877763c6",
+ "seconds": 29.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3348,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3345
+  },
+  "output_tokens": 681,
+  "output_tokens_details": {
+   "reasoning_tokens": 117
+  },
+  "total_tokens": 4029
+ }
+}

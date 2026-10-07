@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002047,
+ "created_utc": "2026-10-07T11:55:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0097",
+ "job": "relate",
+ "key": "509a0668fce252a83d75877fb9db1c9ee0c45ea6aace2ca97cd15811fc921aca",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"It is possible to extend the period allowed for filing a notice of intention to oppose or a statement of grounds and particulars.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to, if notice of opposition is treated as distinct from the notice of intention to oppose and statement of grounds and particulars.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The Manual expressly describes extending the period for filing the opposition documents and subsequently calls this an extension of time to file Notice of Opposition. This supports appliesTo as a relationship concerning the filing period, rather than the document's contents.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour encompasses the opposition documents named in the quoted sentence.\",\n      \"passage_ref\": \"TMM/Part60/4/16/4/16/2\",\n      \"neighbour\": \"GC-0103\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, based on extension of time and lapsing provisions appearing in the same relevant-legislation lists.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The passages list provisions concerning both extension of time and lapsing, but do not state how those concepts interact. Their inclusion in the same lists does not establish a relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether any relationship can properly be inferred from these lists alone.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0098\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "af15d75d720632d84bbf9a53be3634e3d8cfd1d02cc4da27333760945b93627d",
+ "response_id": "resp_0a370048621672a5006ac633106ab887d2a68e785cb1f65035",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2073,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2070
+  },
+  "output_tokens": 388,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 2461
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016142,
+ "created_utc": "2026-10-07T12:18:42Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0034",
+ "job": "answer",
+ "key": "15f980884c2bf35b247fb7c87aeaa2491fe8a78272d123861eeab8b84962c7e2",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0121\", \"GC-0129\", \"GC-0124\", \"GC-0113\", \"GC-0131\", \"GC-0138\", \"GC-0115\", \"GC-0015\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMR1995/r4.4\",\n      \"quote\": \"(6) The goods and/or services must, as far as practicable, be specified in terms appearing in any listing of goods and services that is: (a) published by the Registrar; and (b) made available for inspection by the public at the Trade Marks Office and its suboffices (if any). (7) If any of the goods and/or services cannot be specified using terms referred to in subregulation (6), the applicant must provide sufficient information to enable the Registrar to decide the classification of the goods and/or services.\"\n    },\n    {\n      \"ref\": \"TMM/Part60/2/2/2/2/4~4\",\n      \"quote\": \"Each group of goods or services must be preceded by the class number and where more than one class exists, listed in numerical order. The goods and services claimed may be the same as, or less than, those claimed in the basic trade mark(s). The exact wording need not be used; however, the claim may not be broader than that of the original basic trade mark. The applicant must list the goods and/or services grouped in classes determined by the International Classification of Goods and Services - Nice Classification.\"\n    },\n    {\n      \"ref\": \"TMM/Part60/4/6/4/6/2\",\n      \"quote\": \"The Madrid Protocol (Article 3(2)) stipulates that the IB exercises control as to the classification of goods and services and in the event of a dispute between an Office of origin and the IB, the opinion of the latter shall prevail.\"\n    },\n    {\n      \"ref\": \"TMM/Part60/4/6/4/6/2\",\n      \"quote\": \"In the case of claims that have vague terms, are incomprehensible or linguistically incorrect, a provisional refusal may be issued, and the holder will be asked to explain or limit the claim. If there is no response from the holder, the terms will be refused (see 4.14 Acceptance and 4.18 Protection).\"\n    },\n    {\n      \"ref\": \"TMR1995/r17A.14\",\n      \"quote\": \"(2) If a term has been identified by the International Bureau as being: (a) too vague for the purposes of classification; or (b) incomprehensible; or (c) linguistically incorrect; the term must not be used in an IRDA to specify the goods or services in respect of which protection is sought, unless the Registrar is satisfied that the term is sufficiently clear in the circumstances.\"\n    },\n    {\n      \"ref\": \"TMR1995/r17A.14\",\n      \"quote\": \"(3) If the Registrar is reasonably satisfied that a term to be used in an IRDA to specify goods or services in respect of which protection is sought: (a) is too vague for the purposes of determining the scope of that protection; or (b) is incomprehensible; or (c) is linguistically incorrect; then the term must not be used in the IRDA to specify the goods or services in respect of which protection is sought.\"\n    }\n  ],\n  \"answer\": \"The practical approach is to clarify the goods or services and their classification, rather than force them into an inaccurate standard term. The relevant requirements differ between preparing an international application and responding to examination of an international registration designating Australia (IRDA).\\n\\n**Preparing the wording**\\n• **Regulations:** Regulation 4.4(6)–(7), concerning applications for registration, requires published listing terms to be used ‘as far as practicable’. Where those terms cannot describe the goods or services, provide sufficient information for the Registrar to decide their classification. This provision is not itself the IRDA-specific rule. [TMR1995/r4.4]\\n• **Manual practice for international applications:** Group the goods and services into Nice classes, put the class number before each group, and list the classes numerically. You need not copy the basic trade mark’s exact wording, but the international claim must not be broader than the basic trade mark’s claim. [TMM/Part60/2/2/2/2/4~4]\\n• **Manual account of the international process:** The International Bureau (IB) controls classification; the Manual states that its opinion prevails in a classification dispute with the Office of origin. [TMM/Part60/4/6/4/6/2]\\n\\n**If the issue arises in an IRDA**\\n• **Manual practice:** A provisional refusal may ask the holder to explain or limit vague, incomprehensible or linguistically incorrect wording. Respond by explaining or limiting the claim as requested; the Manual states that the terms will be refused if the holder does not respond. [TMM/Part60/4/6/4/6/2]\\n• **Regulations:** Under regulation 17A.14(2), wording identified by the IB as defective cannot be used unless the Registrar is satisfied it is sufficiently clear in the circumstances. Regulation 17A.14(3) separately prohibits wording where the Registrar is reasonably satisfied it is too vague to determine protection’s scope, incomprehensible or linguistically incorrect. [TMR1995/r17A.14]\\n\\nThe supplied passages do not set out the detailed procedure or deadlines for correcting an IB classification irregularity. They therefore support the approach above, but not complete procedural instructions for that stage.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "5fe5001f59e5978c12017f190e264886a59096c2320470f8c758ffbd6db939a3",
+ "response_id": "resp_0f4d68309f833aa3006ac63886f53c87d2bc7cb9f515705d72",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7670,
+  "input_tokens_details": {
+   "cache_write_tokens": 7667,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1311,
+  "output_tokens_details": {
+   "reasoning_tokens": 81
+  },
+  "total_tokens": 8981
+ }
+}

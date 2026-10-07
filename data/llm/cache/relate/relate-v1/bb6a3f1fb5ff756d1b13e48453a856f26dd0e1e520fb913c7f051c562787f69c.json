@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002668,
+ "created_utc": "2026-10-07T11:44:53Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0117",
+ "job": "relate",
+ "key": "bb6a3f1fb5ff756d1b13e48453a856f26dd0e1e520fb913c7f051c562787f69c",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"A non-use application may also be referred if it has been opposed and either the applicant or the opponent unilaterally requests referral.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement was rejected because an opponent's request is one possible route to referral, not a necessary element of an application for removal.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly connects the opponent with an opposed non-use application by describing the opponent's ability to request referral to a court. No listed specific predicate adequately captures that procedural role.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a more specific procedural-role predicate should replace related_to.\",\n      \"passage_ref\": \"TMM/Part48/2/2/4\",\n      \"neighbour\": \"GC-0142\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to would infer that the opponent relies on false evidence or representations in material particulars, but the passage does not expressly make that connection.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The passage discusses an opponent establishing subsection 62(a), whereas 'material particulars' appears in the separate discussion of subsection 62(b). Their presence in the same passage does not clearly establish a relationship between the two concepts.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the general opposition context sufficiently supports an implicit connection between the opponent and the subsection 62(b) ground.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0080\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "6c9bc9cc899cda45c5e543e4cf42f85c918efe92958ce53b5a6099259ad34ae2",
+ "response_id": "resp_0edb890af5188c85006ac630a25e4487d2b61d860e8e09ae12",
+ "seconds": 19.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1993,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1990
+  },
+  "output_tokens": 513,
+  "output_tokens_details": {
+   "reasoning_tokens": 109
+  },
+  "total_tokens": 2506
+ }
+}

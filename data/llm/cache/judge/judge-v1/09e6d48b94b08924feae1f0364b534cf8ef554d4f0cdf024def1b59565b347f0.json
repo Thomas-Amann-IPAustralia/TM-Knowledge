@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002994,
+ "created_utc": "2026-10-07T12:20:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0048",
+ "job": "judge",
+ "key": "09e6d48b94b08924feae1f0364b534cf8ef554d4f0cdf024def1b59565b347f0",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part47/1/1/3/6~2\",\"grade\":0},{\"ref\":\"TMM/Part47/2/2/2\",\"grade\":0},{\"ref\":\"TMM/Part46/4/4/3\",\"grade\":2},{\"ref\":\"TMM/Part28/4/28/4/4~1\",\"grade\":1},{\"ref\":\"TMM/Part20/4/4/1\",\"grade\":2},{\"ref\":\"TMM/Part29/2/2/4\",\"grade\":1},{\"ref\":\"TMM/Part20/5/5/4/1\",\"grade\":1},{\"ref\":\"TMM/Part28/4/28/4/4~2\",\"grade\":1},{\"ref\":\"TMM/Part11/5/5/1\",\"grade\":0},{\"ref\":\"TMM/Part28/5#1\",\"grade\":1},{\"ref\":\"TMM/Part23/4/4/7\",\"grade\":0},{\"ref\":\"TMM/Part51/2/2/5~2\",\"grade\":0},{\"ref\":\"TMM/Part42/2#1\",\"grade\":0},{\"ref\":\"TMM/Part55/2#1\",\"grade\":0},{\"ref\":\"TMM/Part18/3/3/1/2\",\"grade\":2},{\"ref\":\"TMM/Part26/2#1\",\"grade\":3},{\"ref\":\"TMM/Part20/4#1~1\",\"grade\":2},{\"ref\":\"TMM/Part20/5/5/6/2\",\"grade\":3},{\"ref\":\"TMM/Part11/2/2/4\",\"grade\":0},{\"ref\":\"TMM/Part11/4#1\",\"grade\":0},{\"ref\":\"TMM/Part52/5/5/2\",\"grade\":0},{\"ref\":\"TMM/Part60/4/7/4/7/16/2\",\"grade\":0},{\"ref\":\"TMM/Part20/4/4/2\",\"grade\":2}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "4184edff24f64b9a4c65417425c7801260fc074d9f1e4f97bc0959396c82cf55",
+ "response_id": "resp_0ee8bf8d889bde47006ac638ff0bd887d285ccbe42d381b1a2",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4913,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4910
+  },
+  "output_tokens": 549,
+  "output_tokens_details": {
+   "reasoning_tokens": 105
+  },
+  "total_tokens": 5462
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002309,
+ "created_utc": "2026-10-07T11:25:24Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0077",
+ "job": "relate",
+ "key": "8b57f5588c833f1fa818f87711b771f45bbe87eb6469a3b9621ef147e168d0df",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"sign includes the following or any combination of the following, namely, any letter, word, name, signature, numeral, device, brand, heading, label, ticket, aspect of packaging, shape, colour, sound or scent.\",\n      \"relation\": \"is_kind_of\",\n      \"alternative\": \"none, if the distinction between a sound as a sign and a sound trade mark requires separate textual support.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The statutory definition expressly includes sound within sign. Treating a sound trade mark as a kind of sign is inferred because the passage names sound, rather than sound trade marks.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether inclusion of sound in the definition supports classifying the sound trade mark concept itself as a kind of sign.\",\n      \"passage_ref\": \"TMA1995/s6/sign\",\n      \"neighbour\": \"GC-0073\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to, on the basis that sound and shape are both included in the definition of sign.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The passage lists sound and shape as forms of sign but does not state a relationship between sound trade marks and shape trade marks. Their shared inclusion does not establish a direct relationship.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether shared membership in the statutory definition is intended to count as a relationship in this ontology.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0075\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "381e6fd2fc55874162c3580042bf659186a29f0984f7eb4a76efccd0fd5d66fb",
+ "response_id": "resp_04050451cbd693ee006ac62c11a40487d29cafcadef4c1469a",
+ "seconds": 19.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1616,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1613
+  },
+  "output_tokens": 445,
+  "output_tokens_details": {
+   "reasoning_tokens": 42
+  },
+  "total_tokens": 2061
+ }
+}

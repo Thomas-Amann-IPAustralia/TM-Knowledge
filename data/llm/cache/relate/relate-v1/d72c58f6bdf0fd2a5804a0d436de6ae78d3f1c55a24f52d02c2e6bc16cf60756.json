@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004613,
+ "created_utc": "2026-10-07T11:18:33Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0040",
+ "job": "relate",
+ "key": "d72c58f6bdf0fd2a5804a0d436de6ae78d3f1c55a24f52d02c2e6bc16cf60756",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Times for filing evidence (paragraph 21.28(1)(f)) in oppositions to registration/extension of protection and to removal/cessation of protection for non-use are extendible in the circumstances set out in regs 5.15, 9.18, 17A.34K and 17A.48T.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to would capture the connection but overlook the express identification of cessation of protection as a subject of opposition.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly identifies oppositions to cessation of protection for non-use. The supported relationship is confined to that form of cessation, rather than cessation generally.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the cessation concept should be restricted to cessation of protection for non-use.\",\n      \"passage_ref\": \"TMM/Part15/2/2/1/1\",\n      \"neighbour\": \"GC-0135\"\n    },\n    {\n      \"quote\": \"It is possible to oppose extension of protection to an IRDA.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"extendsTo is less apt because the passage identifies a subject of opposition rather than expressly extending an existing rule to a new subject.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The Manual expressly states that extension of protection to an IRDA can be opposed. This supports opposition applying to extension of protection in that context.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the relationship needs an express IRDA scope restriction.\",\n      \"passage_ref\": \"TMM/Part60/4/17/4/17/2~1\",\n      \"neighbour\": \"GC-0143\"\n    },\n    {\n      \"quote\": \"A successful opponent to an application under Section 92 may be entitled to have its full costs paid by the removal applicant where the current proceedings have been determined in favour of the opponent and a certificate attesting to use during the alleged period of non-use (provided by the Registrar or a court in earlier proceedings) was notified to the removal applicant either before or on filing the notice of opposition in the current proceedings (subsection 105(2)).\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to would record the costs-related connection without identifying removal for non-use as the subject of opposition.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.91,\n      \"reasoning\": \"The Manual describes an opponent to a section 92 application, a removal applicant and a notice of opposition concerning an alleged period of non-use. Together these clearly support opposition applying to an application for removal for non-use, although the relationship is conveyed through a costs discussion.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether appliesTo adequately distinguishes opposition to a removal application from opposition to an actual removal.\",\n      \"passage_ref\": \"TMM/Part55/5#1\",\n      \"neighbour\": \"GC-0104\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "b01a0a7d4e53abead3c8a667477ec3bcb1c202190cfaae34c802714e7ed54dc9",
+ "response_id": "resp_0a30367d1a80f22e006ac62a6cb26887d2ac41364d8bce6ef1",
+ "seconds": 29.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3004,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3001
+  },
+  "output_tokens": 892,
+  "output_tokens_details": {
+   "reasoning_tokens": 166
+  },
+  "total_tokens": 3896
+ }
+}

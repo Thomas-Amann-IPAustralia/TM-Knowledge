@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00115,
+ "created_utc": "2026-10-07T11:27:47Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0140",
+ "job": "relate",
+ "key": "6274349c71e15ff7d633d8c3cd51be3f606298daeab128f2de0996a01957ffe2",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"judgements\":[{\"quote\":\"\",\"relation\":\"none\",\"alternative\":\"A general historical relationship between labels and the repealed Act could be inferred from the discussion, but the passage does not support that link.\",\"direction\":\"anchor_to_neighbour\",\"confidence\":0.99,\"reasoning\":\"The passage lists ‘label’ within the definition of ‘sign’ under the 1995 Act. Its reference to the repealed Act concerns colour, not labels.\",\"modality\":\"none\",\"basis\":\"corpus_inferred\",\"expert_should_check\":\"Whether the historical discussion supports any link to labels beyond mere co-occurrence.\",\"passage_ref\":\"\",\"neighbour\":\"GC-0163\"}]}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "c8c266b51f5755bc0563490ae5c0402c9822e4f8f58a6908d9d02451e94fd8c5",
+ "response_id": "resp_02167d2be6210062006ac62ca1daac87d2ac7b0231f3aea00f",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1838,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1835
+  },
+  "output_tokens": 211,
+  "output_tokens_details": {
+   "reasoning_tokens": 68
+  },
+  "total_tokens": 2049
+ }
+}
