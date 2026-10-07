@@ -1,0 +1,49 @@
+[
+ {
+  "collected": null,
+  "id": "batch_6ac5ff27559c81909ab8306b552afadb",
+  "job": "define",
+  "note": "Submitted by the first batch run, before the registry existed; registered from the same prompts.",
+  "requests": {
+   "31eb963d6899e310ecacc1fe88989841e8884dd6777b8bb2a3008d22e0cc87df": {
+    "effort": "medium",
+    "item": "deceptively similar",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "ebb2497ac9356c4b486c8689e387288a40b243ff055987e96fadd5896fc68786"
+   },
+   "573ade4d1b7d9653b6a7c9c07c33d9652004227456bb2b2df442227a1a06fb5c": {
+    "effort": "medium",
+    "item": "statement of grounds and particulars",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "8e4a367bf323fa3008c985b1953f2aaaad04c60146030e41586937efdb161e29"
+   },
+   "b0d1351dc39fad279b66ea41fc11c5f5279ca6eb8c77841dcfb0c282df9ab23a": {
+    "effort": "medium",
+    "item": "pending",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "c51b9b5d66b0593670642c6390e0159f63ee7ec52266929e8fb4638866714b9a"
+   },
+   "d3b3ebff35ccce053474f3f348c34ebb4e35d1358e4ee401c7a25d0ac3d0455f": {
+    "effort": "medium",
+    "item": "international registration",
+    "job": "define",
+    "max_output_tokens": 8000,
+    "model": "gpt-6.1-sol",
+    "prompt_version": "define-v2",
+    "request_sha256": "55ba638874ac790864ad0114dad2a93da012327848ad77d7d85d48e3ecb80dee"
+   }
+  },
+  "status": "in_progress",
+  "submitted": "2026-10-07T08:13:27Z",
+  "worst": 0.174084
+ }
+]

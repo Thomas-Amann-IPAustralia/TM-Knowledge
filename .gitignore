@@ -44,3 +44,6 @@ dist/
 .vscode/
 .idea/
 .DS_Store
+
+# In-flight spend reservations: transient, per process (bulk.client).
+data/llm/reservations/

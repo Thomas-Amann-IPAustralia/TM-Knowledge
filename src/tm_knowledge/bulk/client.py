@@ -19,10 +19,13 @@ does: a stub's output reaching the cache would poison it (KB SOP §10).
 
 from __future__ import annotations
 
+import fcntl
 import hashlib
 import json
+import os
 import threading
 import time
+import uuid
 import urllib.error
 import urllib.request
 from dataclasses import dataclass
@@ -38,10 +41,8 @@ CACHE_DIR = config.REPO_ROOT / "data" / "llm" / "cache"
 Transport = Callable[[str, dict[str, Any]], dict[str, Any]]
 
 
-#: Worst-case cost of calls in flight, so parallel workers cannot each pass the
-#: cap check and pass the cap together.
+#: Serialises reservations between threads; a lock file does it between processes.
 _LOCK = threading.Lock()
-_RESERVED = [0.0]
 
 #: A flex request can come back `failed` because the discounted capacity is busy.
 #: That costs nothing and is retried, after these waits in seconds.
@@ -49,20 +50,55 @@ RETRY_WAITS = (20, 45, 90, 180, 300)
 RETRYABLE = frozenset({"server_is_overloaded", "rate_limit_exceeded", "resource_unavailable"})
 
 
-def _reserve(cache: "Cache", worst: float, what: str) -> None:
-    with _LOCK:
+def _reservations_dir(cache: "Cache") -> Path:
+    return cache.root.parent / "reservations"
+
+
+def _alive(pid: int) -> bool:
+    try:
+        os.kill(pid, 0)
+    except OSError:
+        return False
+    return True
+
+
+def _in_flight(cache: "Cache") -> float:
+    """Worst case of every call in flight in any process, and of every open batch."""
+    total = 0.0
+    folder = _reservations_dir(cache)
+    if folder.exists():
+        for path in folder.glob("*.json"):
+            record = json.loads(path.read_text(encoding="utf-8"))
+            if _alive(int(record["pid"])):
+                total += float(record["worst"])
+            else:
+                path.unlink(missing_ok=True)  # a process that died holds nothing
+    for batch in _load_batches(cache):
+        if batch.get("collected") is None:
+            total += float(batch.get("worst", 0.0))
+    return total
+
+
+def _reserve(cache: "Cache", worst: float, what: str) -> Path:
+    """Count `worst` against the cap, atomically across threads and processes."""
+    folder = _reservations_dir(cache)
+    folder.mkdir(parents=True, exist_ok=True)
+    with _LOCK, open(folder / ".lock", "w") as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
         spent, cap = cache.spent_usd(), config.spend_cap_usd()
-        if spent + _RESERVED[0] + worst > cap:
+        flying = _in_flight(cache)
+        if spent + flying + worst > cap:
             raise BudgetExceeded(
-                f"{what}: recorded spend ${spent:.4f} + in flight ${_RESERVED[0]:.4f} + worst case "
+                f"{what}: recorded spend ${spent:.4f} + in flight ${flying:.4f} + worst case "
                 f"${worst:.4f} would pass the ${cap:.2f} cap (ADR-0111, ADR-0114). Nothing was sent."
             )
-        _RESERVED[0] += worst
+        token = folder / f"{os.getpid()}-{uuid.uuid4().hex}.json"
+        token.write_text(json.dumps({"pid": os.getpid(), "worst": worst, "what": what}), encoding="utf-8")
+        return token
 
 
-def _release(worst: float) -> None:
-    with _LOCK:
-        _RESERVED[0] = max(0.0, _RESERVED[0] - worst)
+def _release(token: Path) -> None:
+    token.unlink(missing_ok=True)
 
 
 class BudgetExceeded(RuntimeError):
@@ -277,12 +313,12 @@ def respond(
         raise NotConfirmed(f"{job}/{item}: a paid call needs --confirm (dry run: --dry-run)")
     for attempt, wait in enumerate((0, *RETRY_WAITS)):
         time.sleep(wait if attempt else 0)
-        _reserve(cache, estimate.worst_case_usd, f"{job}/{item}")
+        token = _reserve(cache, estimate.worst_case_usd, f"{job}/{item}")
         try:
             entry = _call_and_record(cache, body, job, prompt_version, key, item, model, effort, tier,
                                      max_output_tokens, transport)
         finally:
-            _release(estimate.worst_case_usd)
+            _release(token)
         error = entry.get("error") or {}
         if entry.get("status") == "failed" and error.get("code") in RETRYABLE and attempt < len(RETRY_WAITS):
             continue
@@ -346,11 +382,11 @@ def embed(
         return None, [], estimate
     if not confirm:
         raise NotConfirmed(f"{job}: a paid call needs --confirm")
-    _reserve(cache, estimate.worst_case_usd, job)
+    token = _reserve(cache, estimate.worst_case_usd, job)
     try:
         response = (transport or _urllib_transport)("/embeddings", body)
     finally:
-        _release(estimate.worst_case_usd)
+        _release(token)
     usage = response.get("usage") or {}
     created = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
     entry = {
@@ -373,9 +409,26 @@ def embed(
 # The Batch API — the flex price on its own capacity (Q-67)
 # ---------------------------------------------------------------------------
 
-#: Requests per batch. Each batch's worst case is reserved against the cap while
-#: it runs, so a batch is sized to fit inside what is left.
-BATCH_CHUNK = 60
+#: Requests per batch. An open batch's worst case counts against the cap until
+#: it is collected, so a batch is sized to fit inside what is left.
+BATCH_CHUNK = 25
+
+
+def _batches_path(cache: "Cache") -> Path:
+    return cache.root.parent / "batches.json"
+
+
+def _load_batches(cache: "Cache") -> list[dict[str, Any]]:
+    path = _batches_path(cache)
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+
+
+def _save_batches(cache: "Cache", batches: list[dict[str, Any]]) -> None:
+    path = _batches_path(cache)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(".tmp")
+    tmp.write_text(json.dumps(batches, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    tmp.replace(path)
 
 
 def _request_body(rq: dict[str, Any]) -> dict[str, Any]:
@@ -411,97 +464,154 @@ def _raw(method: str, path: str, data: bytes | None = None, content_type: str | 
         return response.read()
 
 
-def _batch_transport(lines: list[dict[str, Any]], poll: float, progress: Callable[[str], None]) -> dict[str, dict]:
-    """Upload, create, poll, download. Returns custom_id -> output or error line."""
-    content = "\n".join(json.dumps(line, ensure_ascii=False) for line in lines).encode("utf-8")
-    data, ctype = _multipart(content)
-    file_id = json.loads(_raw("POST", "/files", data, ctype))["id"]
-    batch = _http("POST", "/batches", {"input_file_id": file_id, "endpoint": "/v1/responses",
-                                       "completion_window": "24h"}, attempts=1)
-    progress(f"batch {batch['id']}: {len(lines)} requests submitted")
-    started = time.time()
-    while batch.get("status") in ("validating", "in_progress", "finalizing", "cancelling"):
-        time.sleep(poll)
-        batch = _http("GET", f"/batches/{batch['id']}")
-        counts = batch.get("request_counts") or {}
-        progress(f"batch {batch['id']}: {batch.get('status')} — {counts.get('completed', 0)}/"
-                 f"{counts.get('total', len(lines))} done, {counts.get('failed', 0)} failed, "
-                 f"{time.time() - started:.0f}s")
-    out: dict[str, dict] = {}
-    for file_key in ("output_file_id", "error_file_id"):
-        if batch.get(file_key):
-            for raw in _raw("GET", f"/files/{batch[file_key]}/content").decode("utf-8").splitlines():
-                if raw.strip():
-                    record = json.loads(raw)
-                    out[record["custom_id"]] = record
-    if batch.get("status") != "completed" and not out:
-        progress(f"batch {batch['id']} ended {batch.get('status')}: {batch.get('errors')}")
-    return out
+class BatchAPI:
+    """The three calls a batch needs. Replaced only in tests."""
+
+    def submit(self, lines: list[dict[str, Any]]) -> str:
+        content = "\n".join(json.dumps(line, ensure_ascii=False) for line in lines).encode("utf-8")
+        data, ctype = _multipart(content)
+        file_id = json.loads(_raw("POST", "/files", data, ctype))["id"]
+        batch = _http("POST", "/batches", {"input_file_id": file_id, "endpoint": "/v1/responses",
+                                           "completion_window": "24h"}, attempts=1)
+        return str(batch["id"])
+
+    def status(self, batch_id: str) -> dict[str, Any]:
+        return _http("GET", f"/batches/{batch_id}")
+
+    def collect(self, batch: dict[str, Any]) -> dict[str, dict]:
+        out: dict[str, dict] = {}
+        for file_key in ("output_file_id", "error_file_id"):
+            if batch.get(file_key):
+                for raw in _raw("GET", f"/files/{batch[file_key]}/content").decode("utf-8").splitlines():
+                    if raw.strip():
+                        record = json.loads(raw)
+                        out[record["custom_id"]] = record
+        return out
+
+
+FINAL = ("completed", "failed", "expired", "cancelled")
+
+
+def _record_batch(cache: "Cache", entry: dict[str, Any], outputs: dict[str, dict]) -> None:
+    """Write a ledger entry for every request in a finished batch, answered or not."""
+    for key, meta in entry["requests"].items():
+        if cache.get(meta["job"], meta["prompt_version"], key) is not None:
+            continue
+        record = outputs.get(key) or {}
+        response = (record.get("response") or {}).get("body") or {
+            "status": "failed", "usage": {}, "output": [],
+            "error": record.get("error") or {"code": "missing_from_batch", "batch": entry["id"]}}
+        model = str(response.get("model") or meta["model"])
+        cache.put({
+            "job": meta["job"], "prompt_version": meta["prompt_version"], "key": key, "item": meta["item"],
+            "request_sha256": meta["request_sha256"], "response_id": response.get("id"), "batch_id": entry["id"],
+            "model_requested": meta["model"], "model_reported": model, "effort": meta["effort"],
+            "service_tier": "batch", "max_output_tokens": meta["max_output_tokens"],
+            "status": response.get("status"), "incomplete_details": response.get("incomplete_details"),
+            "error": response.get("error"), "usage": response.get("usage") or {},
+            "cost_usd": round(cost_usd(model, "batch", response.get("usage") or {}), 6),
+            "created_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "output_text": output_text(response),
+        })
+
+
+def collect_batches(cache: "Cache | None" = None, api: BatchAPI | None = None,
+                    progress: Callable[[str], None] = print) -> list[str]:
+    """Poll every open batch once; record and close the finished ones. Returns open ids."""
+    cache = cache or Cache()
+    api = api or BatchAPI()
+    batches = _load_batches(cache)
+    still_open = []
+    for entry in batches:
+        if entry.get("collected") is not None:
+            continue
+        status = api.status(entry["id"])
+        counts = status.get("request_counts") or {}
+        entry["status"] = status.get("status")
+        if entry["status"] in FINAL:
+            _record_batch(cache, entry, api.collect(status))
+            entry["collected"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+            progress(f"batch {entry['id']} ({entry['job']}): {entry['status']}, recorded")
+        else:
+            still_open.append(entry["id"])
+            progress(f"batch {entry['id']} ({entry['job']}): {entry['status']}, "
+                     f"{counts.get('completed', 0)}/{counts.get('total', len(entry['requests']))} done")
+    _save_batches(cache, batches)
+    return still_open
 
 
 def batch_respond(
     requests: list[dict[str, Any]], *, confirm: bool = False, dry_run: bool = False,
-    cache: Cache | None = None, poll: float = 20.0, progress: Callable[[str], None] = print,
-    transport: Callable[..., dict[str, dict]] | None = None,
+    cache: Cache | None = None, poll: float = 30.0, progress: Callable[[str], None] = print,
+    api: BatchAPI | None = None, wait: bool = True,
 ) -> list[tuple[dict[str, Any] | None, Estimate]]:
     """Many structured calls through the Batch API, each cached and priced as one call.
 
-    Each request is a dict of `respond()`'s keyword arguments. Cached answers are
-    returned without being sent. A request the batch could not answer is recorded
-    as failed (cost nothing) and is retried by the next run, like any failure.
+    Restart-safe: a submitted batch is written to `data/llm/batches.json` before it
+    is waited on, its worst case counts against the cap until it is collected, and
+    a request already in an open batch is waited for, never sent twice.
     """
     cache = cache or Cache()
-    results: list[tuple[dict[str, Any] | None, Estimate] | None] = [None] * len(requests)
-    pending: list[tuple[int, dict[str, Any], dict[str, Any], str, Estimate]] = []
-    seen: set[str] = set()
-    for i, rq in enumerate(requests):
+    api = api or BatchAPI()
+    prepared = []
+    for rq in requests:
         body = _request_body(rq)
         key = cache_key(body, rq["prompt_version"])
         prices = _prices(rq["model"], "batch")
         est_in = estimate_tokens(rq["instructions"] + rq["input_text"] + _canonical(rq["schema"]))
         estimate = Estimate(est_in, rq["max_output_tokens"],
                             (est_in * prices["input"] + rq["max_output_tokens"] * prices["output"]) / 1_000_000)
-        hit = cache.get(rq["job"], rq["prompt_version"], key)
-        if hit is not None:
-            results[i] = ({**hit, "from_cache": True}, estimate)
-        elif dry_run or key in seen:
-            results[i] = (None, estimate)
-        else:
-            seen.add(key)
-            pending.append((i, rq, body, key, estimate))
-    if dry_run or not pending:
-        return [r if r is not None else (None, Estimate(0, 0, 0.0)) for r in results]
-    if not confirm:
-        raise NotConfirmed(f"{len(pending)} paid calls need --confirm")
+        prepared.append((rq, body, key, estimate))
 
-    for start in range(0, len(pending), BATCH_CHUNK):
-        chunk = pending[start:start + BATCH_CHUNK]
+    def done(rq, key):
+        return cache.get(rq["job"], rq["prompt_version"], key)
+
+    if not dry_run:
+        collect_batches(cache, api, progress)
+    queued = {key for b in _load_batches(cache) if b.get("collected") is None for key in b["requests"]}
+    todo, seen = [], set()
+    for rq, body, key, estimate in prepared:
+        if done(rq, key) is None and key not in queued and key not in seen:
+            seen.add(key)
+            todo.append((rq, body, key, estimate))
+    if dry_run:
+        return [(({**hit, "from_cache": True} if (hit := done(rq, key)) else None), est)
+                for rq, _, key, est in prepared]
+    if todo and not confirm:
+        raise NotConfirmed(f"{len(todo)} paid calls need --confirm")
+
+    for start in range(0, len(todo), BATCH_CHUNK):
+        chunk = todo[start:start + BATCH_CHUNK]
         worst = sum(est.worst_case_usd for *_, est in chunk)
-        _reserve(cache, worst, f"batch of {len(chunk)}")
+        token = _reserve(cache, worst, f"batch of {len(chunk)}")
         try:
-            outputs = (transport or _batch_transport)(
-                [{"custom_id": key, "method": "POST", "url": "/v1/responses", "body": body}
-                 for _, _, body, key, _ in chunk], poll, progress)
+            batch_id = api.submit([{"custom_id": key, "method": "POST", "url": "/v1/responses", "body": body}
+                                   for _, body, key, _ in chunk])
+            with _LOCK:
+                batches = _load_batches(cache)
+                batches.append({
+                    "id": batch_id, "job": chunk[0][0]["job"], "worst": worst, "collected": None,
+                    "submitted": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                    "requests": {key: {"job": rq["job"], "prompt_version": rq["prompt_version"],
+                                       "item": rq["item"], "model": rq["model"], "effort": rq["effort"],
+                                       "max_output_tokens": rq["max_output_tokens"],
+                                       "request_sha256": hashlib.sha256(_canonical(body).encode()).hexdigest()}
+                                 for rq, body, key, _ in chunk},
+                })
+                _save_batches(cache, batches)
         finally:
-            _release(worst)
-        for i, rq, body, key, estimate in chunk:
-            record = outputs.get(key) or {}
-            response = (record.get("response") or {}).get("body") or {
-                "status": "failed", "usage": {}, "output": [],
-                "error": record.get("error") or {"code": "missing_from_batch"}}
-            entry = {
-                "job": rq["job"], "prompt_version": rq["prompt_version"], "key": key, "item": rq["item"],
-                "request_sha256": hashlib.sha256(_canonical(body).encode()).hexdigest(),
-                "response_id": response.get("id"), "model_requested": rq["model"],
-                "model_reported": str(response.get("model") or rq["model"]), "effort": rq["effort"],
-                "service_tier": "batch", "max_output_tokens": rq["max_output_tokens"],
-                "status": response.get("status"), "incomplete_details": response.get("incomplete_details"),
-                "error": response.get("error"), "usage": response.get("usage") or {},
-                "cost_usd": round(cost_usd(str(response.get("model") or rq["model"]), "batch",
-                                           response.get("usage") or {}), 6),
-                "created_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-                "output_text": output_text(response),
-            }
-            cache.put(entry)
-            results[i] = (entry, estimate)
-    return [r if r is not None else (None, Estimate(0, 0, 0.0)) for r in results]
+            _release(token)  # the registry now carries the reservation until collection
+        progress(f"batch {batch_id}: {len(chunk)} {chunk[0][0]['job']} requests submitted")
+
+    while wait:
+        waiting = {key for b in _load_batches(cache) if b.get("collected") is None for key in b["requests"]}
+        if not any(key in waiting for _, _, key, _ in prepared):
+            break
+        time.sleep(poll)
+        collect_batches(cache, api, progress)
+
+    out = []
+    for rq, _, key, estimate in prepared:
+        hit = done(rq, key)
+        out.append((({**hit, "from_cache": True} if hit else None), estimate))
+    return out
