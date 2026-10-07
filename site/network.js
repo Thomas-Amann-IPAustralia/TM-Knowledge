@@ -559,6 +559,8 @@ export function renderNetwork(block, context = {}) {
         "stroke-width": style.width,
       });
       if (style.dash) line.setAttribute("stroke-dasharray", style.dash);
+      // A relationship a machine wrote is drawn dashed: unreviewed, at the point of use (ADR-0082).
+      if (edge.kind === "asserted" && edge.origin === "authored") line.setAttribute("stroke-dasharray", "6 3");
       edge.el = line;
       edgeLayer.appendChild(line);
     }
@@ -829,6 +831,7 @@ export function renderNetwork(block, context = {}) {
           `<span class="muted">${escape(kind ? kind.label : edge.kind)}` +
           (edge.record ? ` · ${escape(edge.record)}` : "") +
           (edge.modality ? ` · “${escape(edge.modality)}”` : "") +
+          (edge.kind === "asserted" && edge.origin === "authored" ? " · machine-written, unreviewed" : "") +
           `</span>` +
           (edge.text ? `<p class="quote">${escape(edge.text)}</p>` : "") +
           `</li>`

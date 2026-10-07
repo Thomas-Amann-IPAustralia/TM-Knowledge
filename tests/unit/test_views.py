@@ -116,13 +116,17 @@ def test_every_edge_joins_two_nodes_that_are_drawn(graph):
         assert edge["source"] in drawn and edge["target"] in drawn
 
 
-def test_every_signed_edge_names_the_record_that_asserts_it(graph, stores):
-    gold, _ = stores
-    records = {record["id"]: record for record in gold["gold_relationship"]}
-    signed = [edge for edge in graph["edges"] if edge["kind"] == "asserted"]
-    assert signed, "no signed relationship reached the map"
-    for edge in signed:
-        record = records[edge["record"]]
+def test_every_asserted_edge_names_the_record_that_asserts_it_in_its_own_store(graph, stores):
+    gold, authored = stores
+    records = {
+        "approved": {record["id"]: record for record in gold["gold_relationship"]},
+        "authored": {record["id"]: record for record in authored["gold_relationship"]},
+    }
+    asserted = [edge for edge in graph["edges"] if edge["kind"] == "asserted"]
+    assert any(edge["origin"] == "approved" for edge in asserted), "no signed relationship reached the map"
+    for edge in asserted:
+        assert ("signed" in edge) == (edge["origin"] == "approved"), "only a signed edge says who signed it"
+        record = records[edge["origin"]][edge["record"]]
         assert edge["source"] == record["subject"]
         assert edge["target"] == record["object"]
         assert edge["predicate"] == record["predicate"]
