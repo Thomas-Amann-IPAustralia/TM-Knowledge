@@ -1381,7 +1381,7 @@ def _reports(facts: Facts) -> dict[str, Any]:
 
 
 def _inbox(facts: Facts) -> dict[str, Any]:
-    """The form's data. Rendered by `site/inbox.js`, not by the block renderer."""
+    """The form's data. Rendered by `site/workbench/inbox.js`, not by the block renderer."""
     question_set = facts.questions
     answered: dict[str, list[dict[str, Any]]] = {}
     for ruling in facts.rulings:
