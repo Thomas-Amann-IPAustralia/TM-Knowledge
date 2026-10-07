@@ -443,7 +443,18 @@ def _define_items(ctx: Context) -> list[Item]:
             continue
         refs = [e["ref"] for e in (row.get("statutory") or []) + (row.get("manual") or []) if e.get("ref")]
         uses = [u for u in row.get("uses") or () if u not in refs][:3]
+        # "X has the meaning given by subregulation 3A.3(1)": upstream already
+        # resolved the reference as an edge on the unit. Follow it; never parse the
+        # sentence, and never follow an edge upstream marked ambiguous (rule 6).
+        referenced = []
+        for ref in refs[:3]:
+            unit = ctx.corpus.resolve_provision(ref) if not ref.startswith("TMM/") else None
+            for edge in getattr(unit, "provisions", ()) or ():
+                passage = passage_at(ctx.corpus, edge.id)
+                if not edge.needs_a_human and passage is not None and passage.text and edge.id not in referenced:
+                    referenced.append(edge.id)
         items.append(Item(key=term, payload={"term": term, "defining": refs[:3], "uses": uses,
+                                             "referenced": referenced[:2],
                                              "provisions": list(row.get("provisions") or ())[:8],
                                              "usage": int(row.get("usage_count") or 0)}))
     return sorted(items, key=lambda i: (-i.payload["usage"], i.key.lower()))
@@ -461,6 +472,10 @@ def _define_render(ctx: Context, item: Item) -> str:
         if passage is not None and passage.text:
             where = passage.text.lower().find(p["term"].lower())
             lines.append(passage_block(ref, passage.text, 1800, where if where >= 0 else None))
+    if p.get("referenced"):
+        lines += ["", "PROVISIONS A DEFINITION ABOVE REFERS TO:"]
+        for ref in p["referenced"]:
+            lines.append(passage_block(ref, passage_at(ctx.corpus, ref).text, 1800))
     return "\n".join(lines)
 
 
@@ -473,7 +488,9 @@ anything the EXISTING CONCEPTS already hold (then give duplicate_of).
 - pref_label: the term as the corpus uses it. alt_labels: other forms that appear \
 in the passages. not_labels: near-misses a reader might confuse it with.
 - definition_ref and definition_quote: the passage and exact words that define or \
-best explain it. legislative_basis: refs from PROVISIONS that ground it.
+best explain it — where a definition only points elsewhere ("has the meaning \
+given by"), prefer the provision it points to. legislative_basis: refs from \
+PROVISIONS that ground it.
 - group: the one GROUP that fits best; none_of_these is a real answer.
 - notes: one sentence on what the concept is, in your words, marked as a summary.
 - basis, confidence, reasoning, alternative, expert_should_check as usual."""
@@ -497,7 +514,7 @@ def _define_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict
         outcome.notes.append(f"{p['term']!r}: not a new concept{' — duplicate of ' + dup if dup else ''}")
         return outcome
     ref = str(parsed.get("definition_ref", ""))
-    if ref not in p["defining"] + p["uses"]:
+    if ref not in p["defining"] + p["uses"] + p.get("referenced", []):
         outcome.refused.append(f"{p['term']!r}: definition_ref {ref!r} was not a passage shown")
         return outcome
     found = evidence(ctx.corpus, ref, str(parsed.get("definition_quote", "")))
@@ -505,7 +522,8 @@ def _define_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict
         outcome.refused.append(f"{p['term']!r}: definition quote does not occur in {ref}")
         return outcome
     shown_text = " ".join(
-        (passage_at(ctx.corpus, r).text or "") for r in p["defining"] + p["uses"] if passage_at(ctx.corpus, r)
+        (passage_at(ctx.corpus, r).text or "") for r in p["defining"] + p["uses"] + p.get("referenced", [])
+        if passage_at(ctx.corpus, r)
     ).lower()
     alt = [a for a in parsed.get("alt_labels") or () if a and a.lower() in shown_text and a != parsed.get("pref_label")]
     basis = [r for r in parsed.get("legislative_basis") or () if r in p["provisions"] and passage_at(ctx.corpus, r)]
@@ -805,23 +823,42 @@ def ontology_map(ctx: Context) -> str:
     return "\n".join(_concept_line(ctx, cid) for cid in ctx.links.concepts)
 
 
+def _source(ref: str) -> str:
+    return {"TMM": "Manual (practice)", "TMA1995": "Trade Marks Act 1995",
+            "TMR1995": "Trade Marks Regulations 1995"}.get(ref.split("/", 1)[0], "other")
+
+
 def _answer_render(ctx: Context, item: Item) -> str:
     p = item.payload
+    labels = {cid: c.pref_label for cid, c in ctx.links.concepts.items()}
     lines = ["ONTOLOGY (one line per concept):", ontology_map(ctx), "",
-             "CONCEPTS RECOGNISED IN THE QUESTION: " + (", ".join(p.get("recognised") or []) or "none"),
-             "", f"QUESTION: {p['question']}", "", "PASSAGES:"]
+             "CONCEPTS RECOGNISED IN THE QUESTION: "
+             + (", ".join(f"{c} {labels.get(c, c)}" for c in p.get("recognised") or []) or "none")]
+    if p.get("paths"):
+        lines += ["", "GRAPH PATH (relationships the ontology holds for those concepts):"]
+        lines += [f"- {labels.get(s, s)} —{pred}→ {labels.get(o, o)} ({rid}, {origin})"
+                  for s, pred, o, rid, origin in p["paths"]]
+    lines += ["", f"QUESTION: {p['question']}", "", "MANUAL PASSAGES:"]
     for ref in p["passages"]:
         passage = passage_at(ctx.corpus, ref)
         if passage is not None and passage.text:
-            lines.append(passage_block(ref, passage.text, 1600))
+            lines.append(passage_block(ref, passage.text, 1600).replace(
+                "<passage ", f'<passage source="{_source(ref)}" ', 1))
+    if p.get("legislation"):
+        lines += ["", "LEGISLATION:"]
+        for ref in p["legislation"]:
+            lines.append(passage_block(ref, passage_at(ctx.corpus, ref).text, 1600).replace(
+                "<passage ", f'<passage source="{_source(ref)}" ', 1))
     return "\n".join(lines)
 
 
 _ANSWER_INSTRUCTIONS = PREAMBLE + """
 
-Task: answer the QUESTION from the PASSAGES, for a trade marks examiner.
+Task: answer the QUESTION from the MANUAL PASSAGES and LEGISLATION, for a trade \
+marks examiner.
 - Cite every claim: citations are the refs and exact quotes you relied on.
-- Say which statements are Manual practice and which are the Act or Regulations.
+- Say which statements are Manual practice and which are the Act or Regulations; \
+each passage's source attribute says which it is.
 - If the passages do not answer it, say so. If the question asks how a particular \
 application will be decided, decline that part (declined true) and explain what \
 the Manual says instead.
@@ -838,13 +875,19 @@ def _answer_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict
     cited = []
     for c in parsed.get("citations") or ():
         ref = str(c.get("ref", ""))
-        found = evidence(ctx.corpus, ref, str(c.get("quote", ""))) if ref in item.payload["passages"] else None
+        shown = item.payload["passages"] + item.payload.get("legislation", [])
+        found = evidence(ctx.corpus, ref, str(c.get("quote", ""))) if ref in shown else None
         if found is None:
             outcome.refused.append(f"{item.key}: citation to {ref!r} does not land")
             continue
         cited.append(found)
+    p = item.payload
     outcome.records["answers"] = [{
-        "question": item.payload["question"], "answer": str(parsed.get("answer", "")),
+        "key": item.key, "kind": p.get("kind"), "question": p["question"],
+        "answer": str(parsed.get("answer", "")),
+        "recognised": list(p.get("recognised") or ()), "paths": list(p.get("paths") or ()),
+        "passages": list(p["passages"]), "legislation": list(p.get("legislation") or ()),
+        "plain_search": list(p.get("plain") or ()),
         "citations": cited, "concepts_used": list(parsed.get("concepts_used") or ()),
         "declined": bool(parsed.get("declined")), "decline_reason": str(parsed.get("decline_reason", "")),
         "model": entry["model_reported"], "date": date.today().isoformat(), "review_status": "unreviewed",
@@ -858,8 +901,13 @@ def _write_answers(records: dict[str, list[dict[str, Any]]]) -> list[Path]:
         return []
     path = BENCH_DIR / "answers.yaml"
     existing = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("answers", []) if path.exists() else []
+    merged = {r.get("key", r["question"]): r for r in existing}
+    merged.update({r["key"]: r for r in rows})
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(yaml.safe_dump({"answers": existing + rows}, sort_keys=False, allow_unicode=True, width=88),
+    path.write_text(yaml.dump({"note": "Ask the Manual answers: machine-written, unreviewed. Citations are "
+                                       "located verbatim in the snapshot by code (ADR-0113).",
+                               "answers": [merged[k] for k in sorted(merged)]},
+                              Dumper=_PlainDumper, sort_keys=False, allow_unicode=True, width=88),
                     encoding="utf-8")
     return [path]
 
@@ -875,7 +923,7 @@ def registry(ctx: Context) -> dict[str, Job]:
         "relate": Job("relate", "relate-v1", "knowledge", _RELATE_INSTRUCTIONS, _relate_schema(predicates),
                       12000, _relate_items, _relate_render, _relate_accept, _write_relationships,
                       "Relationships between concept pairs the Manual mentions together"),
-        "define": Job("define", "define-v1", "knowledge", _DEFINE_INSTRUCTIONS, _DEFINE_SCHEMA,
+        "define": Job("define", "define-v2", "knowledge", _DEFINE_INSTRUCTIONS, _DEFINE_SCHEMA,
                       8000, _define_items, _define_render, _define_accept, _write_concepts,
                       "New concepts (with their group) for defined terms no record covers"),
         "aliases": Job("aliases", "aliases-v2", "knowledge", _ALIASES_INSTRUCTIONS, _ALIASES_SCHEMA,
@@ -887,7 +935,7 @@ def registry(ctx: Context) -> dict[str, Job]:
         "judge": Job("judge", "judge-v1", "measurement", _JUDGE_INSTRUCTIONS, _JUDGE_SCHEMA,
                      8000, lambda ctx: [], _judge_render, _judge_accept, _write_judgements,
                      "Relevance grades for a pool of ~30 passages per question"),
-        "answer": Job("answer", "answer-v1", "measurement", _ANSWER_INSTRUCTIONS, _ANSWER_SCHEMA,
+        "answer": Job("answer", "answer-v2", "measurement", _ANSWER_INSTRUCTIONS, _ANSWER_SCHEMA,
                       10000, lambda ctx: [], _answer_render, _answer_accept, _write_answers,
                       "A cited answer to one question"),
     }

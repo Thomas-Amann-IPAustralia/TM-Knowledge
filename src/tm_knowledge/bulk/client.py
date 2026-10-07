@@ -284,21 +284,27 @@ def respond(
 
 
 def embed(
-    *, job: str, texts: list[str], model: str = "text-embedding-3-small", confirm: bool = False,
-    dry_run: bool = False, cache: Cache | None = None, transport: Transport | None = None,
-) -> tuple[dict[str, Any] | None, Estimate]:
-    """Embed a batch of texts, through the same cache and cap."""
+    *, job: str, texts: list[str], model: str = "text-embedding-3-small", dimensions: int | None = None,
+    confirm: bool = False, dry_run: bool = False, cache: Cache | None = None,
+    transport: Transport | None = None,
+) -> tuple[dict[str, Any] | None, list[list[float]], Estimate]:
+    """Embed a batch of texts through the cap. Returns (ledger entry, vectors, estimate).
+
+    **The vectors are not cached here.** The store that persists them is
+    `search.vectors`, as a compact binary file; a JSON cache of the whole corpus
+    would be ~75 MB. So the ledger entry records the call and its cost, and the
+    caller decides — from its own store — whether a call is needed at all. Every
+    call made is a new entry, because every call made is spend.
+    """
     cache = cache or Cache()
-    body = {"model": model, "input": texts}
-    key = cache_key(body, "v1")
+    body: dict[str, Any] = {"model": model, "input": texts}
+    if dimensions:
+        body["dimensions"] = dimensions
     prices = _prices(model, "default")
     est_in = sum(estimate_tokens(t) for t in texts)
     estimate = Estimate(est_in, 0, est_in * prices["input"] / 1_000_000)
-    hit = cache.get(job, "v1", key)
-    if hit is not None:
-        return {**hit, "from_cache": True}, estimate
     if dry_run:
-        return None, estimate
+        return None, [], estimate
     if not confirm:
         raise NotConfirmed(f"{job}: a paid call needs --confirm")
     spent, cap = cache.spent_usd(), config.spend_cap_usd()
@@ -306,15 +312,18 @@ def embed(
         raise BudgetExceeded(f"{job}: ${spent:.4f} + ${estimate.worst_case_usd:.4f} passes the cap")
     response = (transport or _urllib_transport)("/embeddings", body)
     usage = response.get("usage") or {}
+    created = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.%fZ")
     entry = {
-        "job": job, "prompt_version": "v1", "key": key, "item": f"{len(texts)} texts",
+        "job": job, "prompt_version": "v2", "item": f"{len(texts)} texts",
+        "key": hashlib.sha256((cache_key(body, "v2") + created).encode()).hexdigest(),
+        "request_sha256": hashlib.sha256(_canonical(body).encode()).hexdigest(),
         "model_requested": model, "model_reported": str(response.get("model") or model),
-        "service_tier": "default", "usage": usage,
+        "service_tier": "default", "usage": usage, "status": "completed",
         "cost_usd": round(int(usage.get("prompt_tokens") or usage.get("total_tokens") or 0)
                           * prices["input"] / 1_000_000, 8),
-        "created_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "created_utc": created,
         "dimensions": len((response.get("data") or [{}])[0].get("embedding") or []),
-        "vectors": [d.get("embedding") for d in response.get("data") or ()],
     }
     cache.put(entry)
-    return entry, estimate
+    data = sorted(response.get("data") or (), key=lambda d: d.get("index", 0))
+    return entry, [d.get("embedding") for d in data], estimate

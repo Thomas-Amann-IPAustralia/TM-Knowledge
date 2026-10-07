@@ -37,18 +37,14 @@ def _context() -> jobs.Context:
     return jobs.Context(corpus=corpus, links=links_module.link(corpus))
 
 
-def search_engine(ctx: jobs.Context):
-    """Keyword index plus ontology expansion over both stores' relationships."""
-    from tm_knowledge.search.index import KeywordIndex, OntologySearch
+def search_systems(ctx: jobs.Context):
+    """The three systems of `search.index`, over both stores and the vector store."""
+    from tm_knowledge.search.index import KeywordIndex, Systems, relations_from
+    from tm_knowledge.search.vectors import Dense
 
-    neighbours: dict[str, set[str]] = {}
-    for records in (ctx.gold["gold_relationship"], ctx.authored["gold_relationship"]):
-        for r in records:
-            s, o = str(r["subject"]), str(r["object"])
-            if s.startswith("GC-") and o.startswith("GC-"):
-                neighbours.setdefault(s, set()).add(o)
-                neighbours.setdefault(o, set()).add(s)
-    return OntologySearch(KeywordIndex(ctx.corpus), ctx.links, jobs.load_aliases(), neighbours)
+    dense = Dense()
+    return Systems(KeywordIndex(ctx.corpus), ctx.links, dense if dense.ready else None,
+                   jobs.load_aliases(), relations_from(ctx.gold, ctx.authored))
 
 
 def _questions(ctx: jobs.Context) -> list[dict[str, Any]]:
@@ -57,28 +53,60 @@ def _questions(ctx: jobs.Context) -> list[dict[str, Any]]:
     path = jobs.BENCH_DIR / "needs.yaml"
     if path.exists():
         for need in (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("needs", []):
-            rows.append({"key": need["id"], "question": need["question"], "narrative": need["narrative"],
-                         "required": []})
+            rows.append({"key": need["id"], "kind": need["kind"], "question": need["question"],
+                         "narrative": need["narrative"], "required": []})
     for record in ctx.gold["gold_retrieval_question"]:
-        rows.append({"key": record["id"], "question": record["question"],
+        rows.append({"key": record["id"], "kind": "signed", "question": record["question"],
                      "narrative": str(record.get("qualifications_expected") or ""),
                      "required": [r for r in record.get("required_evidence") or () if r in ctx.corpus.chunks]})
     return rows
 
 
-def _measurement_items(job: str, ctx: jobs.Context) -> list[jobs.Item]:
-    engine = search_engine(ctx)
-    items = []
+POOLS_PATH = jobs.BENCH_DIR / "pools.yaml"
+
+
+def _pools(ctx: jobs.Context) -> list[dict[str, Any]]:
+    """Every question's top ten from each system, and the pool the judge grades."""
+    systems = search_systems(ctx)
+    out = []
     for q in _questions(ctx):
-        if job == "judge":
-            pooled = [h.ref for h in engine.index.search(q["question"], 15)]
-            hits, _ = engine.search(q["question"], 15)
-            pooled += [h.ref for h in hits] + q["required"]
-            pool = sorted(set(pooled), key=lambda r: hashlib.sha256((q["key"] + r).encode()).hexdigest())
-            items.append(jobs.Item(q["key"], {**q, "pool": pool}))
-        else:
-            hits, recognised = engine.search(q["question"], 8)
-            items.append(jobs.Item(q["key"], {**q, "passages": [h.ref for h in hits], "recognised": recognised}))
+        ranked = {
+            "keyword": [h.ref for h in systems.keyword(q["question"], 10)],
+            "hybrid": [h.ref for h in systems.hybrid(q["question"], 10)],
+            "ontology": [h.ref for h in systems.ontology(q["question"], 10)[0]],
+        }
+        pooled = {ref for refs in ranked.values() for ref in refs} | set(q["required"])
+        pool = sorted(pooled, key=lambda r: hashlib.sha256((q["key"] + r).encode()).hexdigest())
+        out.append({"key": q["key"], "kind": q["kind"], "question": q["question"], "systems": ranked,
+                    "pool": pool})
+    return out
+
+
+def _measurement_items(job: str, ctx: jobs.Context) -> list[jobs.Item]:
+    questions = {q["key"]: q for q in _questions(ctx)}
+    if job == "judge":
+        if not POOLS_PATH.exists():
+            raise SystemExit("no pools yet: run `tmk-bulk pools --write` after the ontology and vectors are in")
+        pools = (yaml.safe_load(POOLS_PATH.read_text(encoding="utf-8")) or {}).get("pools", [])
+        return [jobs.Item(p["key"], {**questions[p["key"]], "pool": p["pool"]})
+                for p in pools if p["key"] in questions]
+    systems = search_systems(ctx)
+    items = []
+    for q in questions.values():
+        hits, trace = systems.ontology(q["question"], 8)
+        passages = [h.ref for h in hits]
+        legislation: list[str] = []
+        cited = [e.id for ref in passages[:3] for e in ctx.corpus.chunks[ref].provisions if not e.needs_a_human]
+        for ref in trace.provisions + cited:
+            passage = jobs.passage_at(ctx.corpus, ref)
+            if ref not in legislation and passage is not None and passage.text:
+                legislation.append(ref)
+        items.append(jobs.Item(q["key"], {
+            **q, "passages": passages, "legislation": legislation[:3],
+            "recognised": trace.recognised, "neighbours": trace.neighbours,
+            "paths": [list(p) for p in trace.paths][:12],
+            "plain": [h.ref for h in systems.keyword(q["question"], 5)],
+        }))
     return items
 
 
@@ -202,6 +230,58 @@ def _links(args: argparse.Namespace) -> int:
     return 0
 
 
+def _embed(args: argparse.Namespace) -> int:
+    from tm_knowledge.search import vectors
+
+    ctx = _context()
+    n, est = vectors.embed_passages(ctx.corpus, confirm=args.confirm, dry_run=args.dry_run)
+    q, est_q = vectors.embed_queries([q["question"] for q in _questions(ctx)], confirm=args.confirm,
+                                     dry_run=args.dry_run)
+    verb = "would cost at most" if args.dry_run else "done; this run's worst case was"
+    print(f"embed: {n} passages and {q} questions; {verb} ${est + est_q:.4f}. "
+          f"Recorded spend ${client.Cache().spent_usd():.4f} of ${config.spend_cap_usd():.2f}.")
+    return 0
+
+
+def _pools_cmd(args: argparse.Namespace) -> int:
+    ctx = _context()
+    pools = _pools(ctx)
+    sizes = [len(p["pool"]) for p in pools]
+    print(f"pools: {len(pools)} questions, {sum(sizes)} passages to judge "
+          f"(mean {sum(sizes) / max(len(sizes), 1):.1f} per question)")
+    if args.write:
+        POOLS_PATH.parent.mkdir(parents=True, exist_ok=True)
+        POOLS_PATH.write_text(yaml.safe_dump(
+            {"note": "Each question's top ten from the three systems (search.index), and the pool the "
+                     "judge grades. Fixed before judging; the measurement scores exactly these rankings.",
+             "pools": pools}, sort_keys=False, allow_unicode=True, width=100), encoding="utf-8")
+        print(f"wrote {POOLS_PATH.relative_to(REPO_ROOT)}")
+    return 0
+
+
+def _measure(args: argparse.Namespace) -> int:
+    import json
+
+    from tm_knowledge.search import measure
+
+    pools = (yaml.safe_load(POOLS_PATH.read_text(encoding="utf-8")) or {}).get("pools", [])
+    path = jobs.BENCH_DIR / "judgements.yaml"
+    rows = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("judgements", []) if path.exists() else []
+    judgements = {r["need"]: {k: int(v) for k, v in r["grades"].items()} for r in rows}
+    models = sorted({r.get("model", "?") for r in rows})
+    scored = measure.score(pools, judgements)
+    summary = measure.summarise(scored["rows"])
+    text = measure.render(summary, judged=sum(len(g) for g in judgements.values()), pooled=len(judgements),
+                          judge_model=", ".join(models))
+    print(text)
+    if args.write:
+        (REPORTS_DIR / "measure.md").write_text(text, encoding="utf-8")
+        (jobs.BENCH_DIR / "results.json").write_text(json.dumps(
+            {"summary": summary, "rows": scored["rows"]}, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+        print("wrote data/derived/reports/measure.md and data/derived/bench/results.json")
+    return 0
+
+
 def _spend(args: argparse.Namespace) -> int:
     cache = client.Cache()
     by_job: Counter[str] = Counter()
@@ -246,11 +326,19 @@ def main(argv: list[str] | None = None) -> int:
     # Flex is half price on the same endpoint (ADR-0111); the Batch API is the same
     # price through a different door, and not wired up here.
     p.add_argument("--tier", choices=["flex", "default"], default="flex")
+    p = sub.add_parser("embed", help="vectors for every passage and benchmark question")
+    p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--confirm", action="store_true")
+    p = sub.add_parser("pools", help="each question's top ten per system, and the pool to judge")
+    p.add_argument("--write", action="store_true")
+    p = sub.add_parser("measure", help="score the systems from the judged pools")
+    p.add_argument("--write", action="store_true")
     sub.add_parser("spend", help="recorded spend against the cap")
     p = sub.add_parser("quote", help="price the full runs")
     p.add_argument("--write", action="store_true")
     args = parser.parse_args(argv)
-    return {"links": _links, "run": _run, "spend": _spend, "quote": _quote}[args.command](args)
+    return {"links": _links, "run": _run, "embed": _embed, "pools": _pools_cmd, "measure": _measure,
+            "spend": _spend, "quote": _quote}[args.command](args)
 
 
 if __name__ == "__main__":
