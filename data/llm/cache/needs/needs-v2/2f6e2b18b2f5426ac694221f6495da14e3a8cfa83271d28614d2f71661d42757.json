@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01031,
+ "created_utc": "2026-10-07T08:29:06Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-020",
+ "job": "needs",
+ "key": "2f6e2b18b2f5426ac694221f6495da14e3a8cfa83271d28614d2f71661d42757",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must say whether a genuine offer for sale can amount to use in trade even if nothing has been sold yet. It should also cover the limits on advertising, brochures and samples when the goods or services are not actually available.\",\"search\":\"Does advertising count as use if the goods are not yet for sale?\",\"seed_refs\":[\"TMM/Part19A/3/3/2~1\"],\"kind\":\"lookup\",\"question\":\"Does advertising count as use if the goods are not yet for sale?\"},{\"narrative\":\"A helpful answer must explain whether a plant variety name can also serve as a trade mark. It should cover the conflict between using the word as a variety name and using it to distinguish one trader's goods from another's.\",\"search\":\"Can a rose variety name also be my trade mark?\",\"seed_refs\":[\"TMM/Part32A/x-annex-5---case-law-summaries/wheatcroft-bros-ltd-s-trade-marks-1954-71-rpc-43\"],\"kind\":\"problem\",\"question\":\"Can a rose variety name also be my trade mark?\"},{\"narrative\":\"A helpful answer must explain how goods and services are split into classes and where those class headings are found. It should also cover whether one application can cover more than one class.\",\"search\":\"Can I file one trade mark application in more than one class?\",\"seed_refs\":[\"TMM/Part14/2/2/1/1\",\"TMM/Part10/5#1\"],\"kind\":\"cross_part\",\"question\":\"Can I file one trade mark application in more than one class?\"},{\"narrative\":\"A helpful answer must explain how the intended market for the goods affects the assessment of an offensive mark. It should cover the difference between adult goods and children's goods, and who the mark will be seen by.\",\"search\":\"Does the target market matter for an offensive trade mark?\",\"seed_refs\":[\"TMM/Part30/2/2/10\"],\"kind\":\"impact\",\"question\":\"Does the target market matter for an offensive trade mark?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "c2943538170f0c42fe41ca30304e6fd5bf5096dd8e40eb0f1937b03d77d7da4c",
+ "response_id": "resp_0497471f6be75a57006ac602c78c9c87d29caf4b292e01220a",
+ "seconds": 11.5,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1747,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 2000,
+  "output_tokens_details": {
+   "reasoning_tokens": 1295
+  },
+  "total_tokens": 3747
+ }
+}

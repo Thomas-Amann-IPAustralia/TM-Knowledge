@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012086,
+ "created_utc": "2026-10-07T08:28:14Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-003",
+ "job": "needs",
+ "key": "0c4ef4af5784b3bc897fe4d1276260d71f93ea67a38231c6de3cf5ea4a6c040e",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must say when an application, notice or request is treated as filed or an act is treated as done if a required fee is unpaid or underpaid. It must also cover the Registrar’s obligation not to do the act until the fee is paid, and that the unpaid amount remains owed.\",\"search\":\"underpaid fee 14 working days treated as filed\",\"seed_refs\":[\"TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid\"],\"kind\":\"lookup\",\"question\":\"What happens if a required fee is underpaid and the Registrar does not tell us within 14 working days?\"},{\"narrative\":\"A helpful answer must explain what kind of representation and description are needed for a moving trade mark, hologram or gesture. It must also cover whether a video clip or other copy of the actual trade mark is needed.\",\"search\":\"moving logo description video clip clear\",\"seed_refs\":[\"TMM/Part21/9#1\"],\"kind\":\"problem\",\"question\":\"I want to file a moving logo—what do I need to show so the motion is properly described?\"},{\"narrative\":\"A helpful answer must cover how a composite logo and plain words are compared as wholes, and why the presence or absence of a device may matter. It must also explain how that comparison connects with the separate test for use as a trade mark that is likely to deceive or cause confusion.\",\"search\":\"logo versus plain words deceptive similarity confusion\",\"seed_refs\":[\"TMM/Part26/6/6/8~3\",\"TMM/Part19B/4/4/1\"],\"kind\":\"cross_part\",\"question\":\"How does having a logo, or not having one, affect whether a sign is deceptively similar and likely to confuse people?\"},{\"narrative\":\"A helpful answer must identify who is affected when a plant trade mark is used together with genus, species or varietal name information. It must also explain what changes in use if a condition is attached to registration.\",\"search\":\"plant mark varietal name condition of registration\",\"seed_refs\":[\"TMM/Part32A/2/3/2-3-5-b-evidence-of-use\"],\"kind\":\"impact\",\"question\":\"If a plant mark is registered with a condition about varietal names, who has to follow it and what changes in how the mark is used?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "5b5ce335f49cadf01132d759b673b364919d8185e1aebb31f732e559903550a6",
+ "response_id": "resp_0ffc950f92607c56006ac60293244887d2b80105f5f933a3c6",
+ "seconds": 11.7,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2195,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 2320,
+  "output_tokens_details": {
+   "reasoning_tokens": 1427
+  },
+  "total_tokens": 4515
+ }
+}

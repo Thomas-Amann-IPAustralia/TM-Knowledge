@@ -1,7 +1,7 @@
 /* One renderer per block kind, and nothing else.
 
    These functions know about `stats`, `prose`, `callout`, `table`, `cards`,
-   `bars`, `list`, `report`, `network` and `tree` — the vocabulary in
+   `bars`, `list`, `report`, `network`, `tree` and `qa` — the vocabulary in
    `src/tm_knowledge/dashboard/blocks.py` — and nothing about section 43, the
    ontology or the review process. Changing what the dashboard *says* is a
    change to the Python. Changing how a kind *looks* is a change here. Adding an
@@ -264,7 +264,90 @@ const renderers = {
   tree(block, context) {
     return renderTree(block, context);
   },
+
+  /* "Ask the Manual": a picker, then plain search beside the ontology's working. */
+  qa(block) {
+    const data = block.data;
+    const node = el(
+      `<div class="block qa"><label class="qa-pick"><span>Question</span><select></select></label>` +
+        `<div class="qa-body"></div>${note(block.note)}</div>`
+    );
+    const select = node.querySelector("select");
+    for (const kind of data.kinds) {
+      const group = document.createElement("optgroup");
+      group.label = kind.label;
+      data.questions
+        .filter((q) => q.kind === kind.id)
+        .forEach((q) => {
+          const option = document.createElement("option");
+          option.value = q.key;
+          option.textContent = q.question;
+          group.appendChild(option);
+        });
+      select.appendChild(group);
+    }
+    const body = node.querySelector(".qa-body");
+    const show = (key) => {
+      const q = data.questions.find((item) => item.key === key) || data.questions[0];
+      body.innerHTML = qaView(q);
+    };
+    select.addEventListener("change", () => show(select.value));
+    if (data.questions.length) show(data.questions[0].key);
+    return node;
+  },
 };
+
+const source = (s) =>
+  `<span class="badge ${s.source.startsWith("Manual") ? "t-note" : "t-good"}">${escape(s.source)}</span>`;
+
+const passageList = (items, cited) =>
+  items.length
+    ? `<ol class="qa-sources">${items
+        .map(
+          (s) =>
+            `<li${cited.has(s.ref) ? ' class="cited"' : ""}>${source(s)} <strong>${escape(s.heading)}</strong> ` +
+            `<code>${escape(s.ref)}</code>${cited.has(s.ref) ? ' <span class="badge t-warn">cited</span>' : ""}` +
+            `<p>${escape(s.excerpt)}</p></li>`
+        )
+        .join("")}</ol>`
+    : `<p class="muted">None.</p>`;
+
+function qaView(q) {
+  const cited = new Set((q.citations || []).map((c) => c.ref));
+  const chipsHtml = (q.recognised || []).length
+    ? `<div class="chips">${q.recognised.map((c) => `<span class="chip">${escape(c.label)}</span>`).join("")}</div>`
+    : `<p class="muted">No concept recognised — this answer rests on keyword and vector search alone.</p>`;
+  const paths = (q.paths || []).length
+    ? `<ul class="qa-paths">${q.paths
+        .map(
+          (e) =>
+            `<li>${escape(e.subject_label)} <span class="muted">—${escape(e.predicate)}→</span> ` +
+            `${escape(e.object_label)} <span class="badge ${e.origin === "approved" ? "t-good" : "t-muted"}">` +
+            `${e.origin === "approved" ? "signed" : "machine-written, unreviewed"}</span></li>`
+        )
+        .join("")}</ul>`
+    : `<p class="muted">No relationship followed.</p>`;
+  const quotes = (q.citations || [])
+    .map((c) => `<blockquote>${escape(c.quote)}<cite><code>${escape(c.ref)}</code></cite></blockquote>`)
+    .join("");
+  return (
+    `<div class="qa-cols">` +
+    `<section class="qa-plain"><h3>Plain keyword search</h3>` +
+    `<p class="muted">What the same words find without the ontology.</p>` +
+    passageList(q.plain_search || [], new Set()) +
+    `</section>` +
+    `<section class="qa-onto"><h3>Ask the Manual</h3>` +
+    `<p><span class="badge t-warn">Machine-written · unreviewed</span> <span class="muted">${escape(q.model || "")}</span></p>` +
+    `<h4>Ideas recognised in the question</h4>${chipsHtml}` +
+    `<h4>Relationships the ontology followed</h4>${paths}` +
+    `<h4>Answer</h4><div class="qa-answer">${render(q.answer || "")}</div>` +
+    (q.declined ? `<div class="callout t-note"><strong>Declined in part.</strong> ${escape(q.decline_reason)}</div>` : "") +
+    (quotes ? `<h4>Quoted, verbatim</h4>${quotes}` : "") +
+    `<h4>Sources — Manual practice and legislation, labelled</h4>` +
+    passageList([...(q.passages || []), ...(q.legislation || [])], cited) +
+    `</section></div>`
+  );
+}
 
 export function renderBlock(block, context = {}) {
   const renderer = renderers[block.kind];

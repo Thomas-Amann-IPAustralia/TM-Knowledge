@@ -1,0 +1,18 @@
+{
+ "cost_usd": 0.00013286,
+ "created_utc": "2026-10-07T08:27:51.694285Z",
+ "dimensions": 512,
+ "item": "96 texts",
+ "job": "embed",
+ "key": "1303d5c59fced1f0693965da51ce03b127833d7fcb04fb2a8dcd10fd67f66271",
+ "model_reported": "text-embedding-3-small",
+ "model_requested": "text-embedding-3-small",
+ "prompt_version": "v2",
+ "request_sha256": "6b98f30a0704cd1cdc5ed844c1567a9f80b3a36bc156ce14ec296f00f1fd47e4",
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "prompt_tokens": 6643,
+  "total_tokens": 6643
+ }
+}

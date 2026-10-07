@@ -8885,6 +8885,49 @@
     tmk:text "The convention application must be for the same trade mark as the trade mark of the earlier application." ;
     tmk:upstreamRef "TMM/Part11/1/1/5" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4%231> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:6fa5e5093be4eea23ef1a267fb40f68ff0b2a6fbf2207c40eabb21ddb8238349" ;
+    tmk:headingPath "11.4. Convention documents",
+        "Part 11 Convention Applications" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4> ;
+    tmk:ordinal 1 ;
+    tmk:partId "Part11" ;
+    tmk:text "Federal Register of Legislation - Trade Marks Regulations 1995 Federal Register of Legislation - Trade Marks Act 1995 Generally no documentation regarding the convention claim will be required. In the course of examining an application, the Registrar may require (in writing) that the applicant file a certified copy of any earlier application together with, if appropriate, a properly verified translation of the earlier application (subreg 4.11(1)). If this is done the examiner must make sure that the applicant is the same on the earlier application as on the convention application or that title has passed from one to the other. Two situations where the Registrar may request such documentation are as follows:" ;
+    tmk:upstreamRef "TMM/Part11/4#1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7%231> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:1a46a8eab74fcf0b57edf7440b5f775038e03ce8d54102793f116067beb60d0d" ;
+    tmk:headingPath "11.7. Effect on registration of a claim for priority based on an earlier application",
+        "Part 11 Convention Applications" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7> ;
+    tmk:ordinal 1 ;
+    tmk:partId "Part11" ;
+    tmk:text "Federal Register of Legislation - Trade Marks Regulations 1995 Federal Register of Legislation - Trade Marks Act 1995 A priority claim affects the effective date of registration." ;
+    tmk:upstreamRef "TMM/Part11/7#1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7/7/2> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:f9d1bcd574f4fe8cdf62085a1c35c3fd899175349303c5fc1b35f7411393575a" ;
+    tmk:headingPath "11.7. Effect on registration of a claim for priority based on an earlier application",
+        "7.2",
+        "Part 11 Convention Applications" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7> ;
+    tmk:ordinal 3 ;
+    tmk:partId "Part11" ;
+    tmk:text "Where different priority claims are made in respect of the specification of a single convention application on the basis of earlier applications made in convention countries at different times, the effective date of registration of the Australian trade mark is the relevant date of the earlier application for each of the particular goods and/or services. For example, an application claiming multiple priority dates based on corresponding convention applications may have been filed in Australia on 30 October 2007 for “hats, belts, dresses, coats and cars”. Once registered, the effective date of registration will correspond with the priority dates for the particular goods in question. In this case, they may be 10 June 2007 in respect of “hats and belts”, 24 July 2007 in respect of “cars” and the date the application was actually filed in Australia, 30 October 2007, for “dresses and coats” because no earlier application was made in respect of these last items." ;
+    tmk:upstreamRef "TMM/Part11/7/7/2" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part13/2%231~3> a tmk:Chunk ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
     tmk:authorityKind "practice" ;
@@ -10361,6 +10404,82 @@
     tmk:text "Rule 1.61(5) of the Federal Court Rules makes provision for the exclusion of a period of time in any given year from 24 December to 14 January of the following year in respect to the calculation of time. Unless otherwise varied by way of an order from the Federal Court, a delegate of the Registrar (who issues a decision) and officers in the Hearings Support Team, (who give effect to that decision) are to have regard to the provisions of Rule 1.61(5) of the Federal Court Rules 2011 to avoid the premature finalisation of a decision that: has an appeal period which falls in part or completely within the time specified in Rule 1.61(5) of the Federal Court Rules 2011 and is appellable to the Federal Court under Parts 33 or 34 of the Federal Court Rules. Similarly the timeframe for compliance by: the appellant under Rule 34.24 of the Federal Court Rules 2011 concerning service of the Notice of Appeal on the Registrar (and respondent(s) to the appeal) and the Registrar of Trade Marks under Rule 34.31 of the Federal Court Rules 2011 concerning the filing of documents (or certified copies of documents) in the appropriate Court Registry and written advice to the parties to the appeal should also been taken into account by the Deputy Registrar in Oppositions and Hearings during this period of time." ;
     tmk:upstreamRef "TMM/Part52/5/5/6" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1%231> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:ede16147baf9c2dc1b8c54225e1da1ba5e2b628cd0eca39c71940047a4477dd8" ;
+    tmk:headingPath "Part 54 Subpoenas, Summonses and Production of Documents",
+        "Part 54.1. Subpoenas" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> ;
+    tmk:ordinal 1 ;
+    tmk:partId "Part54" ;
+    tmk:text "Trade Marks Act 1995 Trade Marks Regulations 1995" ;
+    tmk:upstreamRef "TMM/Part54/1#1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/2> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:6f4fb080df4890bf0d6fececbb4e82c11e8df7d56af34fbf7f524987f0538e47" ;
+    tmk:headingPath "1.2 Service of a subpoena on the Registrar",
+        "Part 54 Subpoenas, Summonses and Production of Documents",
+        "Part 54.1. Subpoenas" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> ;
+    tmk:ordinal 3 ;
+    tmk:partId "Part54" ;
+    tmk:text "Service of a subpoena is governed by the rules of the court from which it issues. A subpoena issued by the Federal Court is governed by Rule 24.16 of the Federal Court Rules 2011. The Federal Circuit and Family Court of Australia (Division 2) and other courts such as the various state Supreme Courts and District Courts have their own rules. A subpoena cannot be enforced by way of contempt of court proceedings unless it has been personally served on the person named in it. A subpoena may be served on the Registrar of Trade Marks by leaving it with the Registrar or with the Deputy Registrar, Oppositions and Hearings section, who is authorised to accept service on behalf of the Registrar." ;
+    tmk:upstreamRef "TMM/Part54/1/1/2" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/3> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:fda6672da178a3492dbdb3607e2741e2a12f99d6cf0bf3c085a96a5afc108bd0" ;
+    tmk:headingPath "1.3 Form of a subpoena",
+        "Part 54 Subpoenas, Summonses and Production of Documents",
+        "Part 54.1. Subpoenas" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> ;
+    tmk:ordinal 4 ;
+    tmk:partId "Part54" ;
+    tmk:text "A subpoena served on the Registrar of Trade Marks is almost always in relation to the production of documents held in the Trade Marks Office rather than requiring attendance to give evidence. The party requesting issue of the subpoena is required to file a copy with the court registry in the form specified in the court rules (in the case of the Federal Court, Rule 24.13 specifies Form 43B for a subpoena for production). Unless the court directs otherwise, the court registrar issues the subpoena under seal to the requesting party for service on the person named. The Registrar of Trade Marks is usually the person named in a subpoena but it is also acceptable if the subpoena is directed to “the proper officer” of the Trade Marks Office. The subpoena must state the date and place where the Registrar is to produce the documents. It must also specify the documents required for production." ;
+    tmk:upstreamRef "TMM/Part54/1/1/3" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/4/1> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:f4ac8bcd687b56df7ec50dc9f0c75711ba4ef4c2bf266a33ca5b935fde7141ae" ;
+    tmk:headingPath "1.4 Registrar’s response to a subpoena",
+        "1.4.1 Time for compliance",
+        "Part 54 Subpoenas, Summonses and Production of Documents",
+        "Part 54.1. Subpoenas" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> ;
+    tmk:ordinal 6 ;
+    tmk:partId "Part54" ;
+    tmk:text "The subpoena will state the date by which the documents must be produced. A person is not bound to comply with a subpoena which is served too late for compliance, but it will remain valid until set aside by the court. Therefore, prompt action should be taken if there is insufficient time for compliance and the party which requested the subpoena may be contacted to negotiate a later date. Or it may be necessary to instruct the Australian Government Solicitor to appear in court to explain the circumstances or to file a notion of motion to have the subpoena set aside." ;
+    tmk:upstreamRef "TMM/Part54/1/1/4/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/4/2> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:eacd13d34f5d852908d1f2958de75585ee5e718410c101516a06b6230dfdb2e7" ;
+    tmk:headingPath "1.4 Registrar’s response to a subpoena",
+        "1.4.2 Specification of documents",
+        "Part 54 Subpoenas, Summonses and Production of Documents",
+        "Part 54.1. Subpoenas" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> ;
+    tmk:ordinal 7 ;
+    tmk:partId "Part54" ;
+    tmk:text "The subpoena must specify the documents required for production. A person may not be bound to comply with a subpoena which is oppressively widely drawn so that compliance would be difficult or require diversion of substantial resources. An example of oppressive width would be “all documents referring to” a trade mark application or registration. This might include, for example, all publications which refer to the application or registration, or any examiner reports which cite the application or registration against other trade mark applications. Location of such material would be very time-consuming, if not impossible. In such cases the officer may contact the party which requested the subpoena to clarify precisely what documents are being sought and if appropriate negotiate a reduction in the scope of the subpoena. Or the Australian Government Solicitor may be instructed to conduct the negotiations on the Registrar’s behalf. Other issues which may need to be considered include: whether certified copies of original documents are appropriate and acceptable whether and how much conduct money is payable. PLEASE NOTE: Conduct money is money paid by the party which requested the subpoena to cover expenses incurred by the Registrar in producing the documents to the court. The officer will advise the Deputy Registrar whether there are likely to be any difficulties in complying with the subpoena and whether it is necessary to consult the Australian Government Solicitor to decide the appropriate method of proceeding. If the matter is straightforward the officer will retrieve the requested documents and send them or certified copies together with any other material identified in compliance with the subpoena to the court which issued the subpoena. It is the Registrar’s practice to ensure the documents are received at the court registry at least two days before the set return date. If any matters need to be explained to the court, the Australian Government Solicitor may be instructed to arrange delivery. Otherwise the documents may be sent directly to the court using a commercial courier such as Toll. To assist the courier with delivery the contact phone number at the court registry which was nominated in the subpoena should be clearly identified in the covering letter. PLEASE NOTE: A record of matters before the court is kept in the document “Court Matters and Suspensions”" ;
+    tmk:upstreamRef "TMM/Part54/1/1/4/2" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/2/2/2> a tmk:Chunk ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
     tmk:authorityKind "practice" ;
@@ -10798,6 +10917,249 @@
     tmk:ordinal 11 ;
     tmk:text "(c) whether the proposed rules are satisfactory, having regard to the criteria prescribed in regulation 16.6." ;
     tmk:upstreamRef "TMR1995/r16.11(2)(c)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16(1)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:06892d6747fffe90e5ad95708497bdbf8f83bc29cf07737f20bdf070602b3ce8" ;
+    tmk:ordinal 1 ;
+    tmk:text "(1) If, in the course of an examination of an IRDA, the Registrar reasonably believes that:" ;
+    tmk:upstreamRef "TMR1995/r17A.16(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16(1)(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:4a5a718c03e70d406893b5aaaad6795c561217bbadb57efbc04924f83d273d9d" ;
+    tmk:ordinal 2 ;
+    tmk:text "(a) the IRDA is not in accordance with this Division; or" ;
+    tmk:upstreamRef "TMR1995/r17A.16(1)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16(1)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:ab2f1c985434247162ba4c0e5e3882ef06317d2f06a1554b68e10944f8183541" ;
+    tmk:ordinal 3 ;
+    tmk:text "(b) there are grounds under Subdivision 2 for rejecting it in whole or in part;" ;
+    tmk:upstreamRef "TMR1995/r17A.16(1)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16(2)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:4abe6ded6235b4cb66099f964f88f92606e3f69b77b0d30af0ff83fa0a8dc8e8" ;
+    tmk:ordinal 5 ;
+    tmk:text "(2) Such a report is a provisional refusal for the purposes of the Protocol." ;
+    tmk:upstreamRef "TMR1995/r17A.16(2)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16(3)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:3f5cace18faa7f95771f32e2b4ae3d9a140fc97ae0253bf3756ba64601ccf335" ;
+    tmk:ordinal 6 ;
+    tmk:text "(3) The report must include:" ;
+    tmk:upstreamRef "TMR1995/r17A.16(3)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16(3)(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:c0be3ab7b5411a885fca75976c8a0a56d5dc108bbaa4ce89f6d7b96c0311cd3c" ;
+    tmk:ordinal 7 ;
+    tmk:text "(a) notice of the date by which the Registrar must notify his or her final decision on examination to the International Bureau; and" ;
+    tmk:upstreamRef "TMR1995/r17A.16(3)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16(3)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:2ac92ea3c6495e6e222f5e952abbef34e75b8a6aec61de9f17a2e9a21a03901a" ;
+    tmk:ordinal 8 ;
+    tmk:text "(b) notice that the Registrar is not required to consider any response by the holder to the report unless the holder has notified the Registrar, in writing, of the holder’s address for service in Australia or New Zealand." ;
+    tmk:upstreamRef "TMR1995/r17A.16(3)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16(3)(b)~1> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:49ebfc8690dfc7e55132a78afe76129f664c51c1c5f98d3569005cf8119a0d22" ;
+    tmk:ordinal 9 ;
+    tmk:text "Note: Under the Protocol, protection must be extended in Australia to a trade mark that is the subject of an IRDA at the end of 18 months after the International Bureau notifies the Trade Marks Office of the IRDA unless, before then, the International Bureau receives:" ;
+    tmk:upstreamRef "TMR1995/r17A.16(3)(b)~1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16(3)(b)~1~1> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:5f57775ceb4caed60a6839134dbf8c93a904e1d330f7c9b93485682e503e9f6f" ;
+    tmk:ordinal 10 ;
+    tmk:text "(a) notification of a provisional or final refusal from the Trade Marks Office; or" ;
+    tmk:upstreamRef "TMR1995/r17A.16(3)(b)~1~1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16(3)(b)~1~2> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:387a1b2d5f8e5cbc306da568ee9fde341bd37586bc845bbfc22f363f8877f4d0" ;
+    tmk:ordinal 11 ;
+    tmk:text "(b) notification of the possibility that oppositions may be filed after the 18month period." ;
+    tmk:upstreamRef "TMR1995/r17A.16(3)(b)~1~2" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16~1> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:d67811d615085da07d4fef90c4b70b3f8e5468d88580fa1a1826fa455deaf916" ;
+    tmk:ordinal 4 ;
+    tmk:text "the Registrar must send a report in accordance with rule 17 of the Madrid Regulations to the holder through the intermediary of the International Bureau." ;
+    tmk:upstreamRef "TMR1995/r17A.16~1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17(1)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:25276fdedb4297de72ce048349019882eddc6d57c94bb75b88e0b6cb813ffa12" ;
+    tmk:ordinal 1 ;
+    tmk:text "(1) The holder of the IRDA may respond in writing to the Registrar’s report under regulation 17A.16." ;
+    tmk:upstreamRef "TMR1995/r17A.17(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17(2)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:478bf6e1246e1b07e041fcf08e385c73da57cdbff9af17f2901015bc7132ba2d" ;
+    tmk:ordinal 2 ;
+    tmk:text "(2) The response may do any of the following:" ;
+    tmk:upstreamRef "TMR1995/r17A.17(2)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17(2)(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:d6b8832483de6892c70022d924195526f2882bced04a7c5c2b4d583f0626b69b" ;
+    tmk:ordinal 3 ;
+    tmk:text "(a) contest a belief of the Registrar that is expressed in the report;" ;
+    tmk:upstreamRef "TMR1995/r17A.17(2)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17(2)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:5b3c4a383e70ac01386f5c25f16a9d707a492bba1db172e9c48fcbf33d5515f0" ;
+    tmk:ordinal 4 ;
+    tmk:text "(b) contest another matter that is mentioned in the report;" ;
+    tmk:upstreamRef "TMR1995/r17A.17(2)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17(2)(c)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:0b8eabcd9a516a0e8cb7380d56b32a8132917f80f4ff94042bfcaa918978e3ad" ;
+    tmk:ordinal 5 ;
+    tmk:text "(c) provide further documents or evidence in support of the IRDA;" ;
+    tmk:upstreamRef "TMR1995/r17A.17(2)(c)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17(2)(d)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:909647e1944a6d474bff247b4717f562b1809c144eb073a42a7c3c50a0be6733" ;
+    tmk:ordinal 6 ;
+    tmk:text "(d) request a hearing from the Registrar." ;
+    tmk:upstreamRef "TMR1995/r17A.17(2)(d)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17(3)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:58baf69131dbeb41a893aa9130aae1f01a8ff4559398df7f46a3fa8a8939f2cb" ;
+    tmk:ordinal 7 ;
+    tmk:text "(3) The holder must notify the Registrar, in writing, of the holder’s address for service in Australia or New Zealand." ;
+    tmk:upstreamRef "TMR1995/r17A.17(3)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18(1)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:6e90550960e44868dc03dd0dc0917f816ddbc189f290e83c7d0b6ffff0cd215e" ;
+    tmk:ordinal 1 ;
+    tmk:text "(1) If the holder has complied with subregulation 17A.17(3), the Registrar must:" ;
+    tmk:upstreamRef "TMR1995/r17A.18(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18(1)(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:7d45421ed859fcda03f4d0699fa11e85cac42ff56fae595a4478c201d370c385" ;
+    tmk:ordinal 2 ;
+    tmk:text "(a) consider the holder’s response; and" ;
+    tmk:upstreamRef "TMR1995/r17A.18(1)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18(1)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:ae0ed8d92df48b8090e49eca348db37b0dc0a26af3b049166e76dccae02c875f" ;
+    tmk:ordinal 3 ;
+    tmk:text "(b) if the holder requests a hearing, give the holder an opportunity to be heard." ;
+    tmk:upstreamRef "TMR1995/r17A.18(1)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18(2)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:ae2cc9fe3ec2ae0d3ac624a958e3efafd2c7bf1cf4d90e252445027e55dd14c2" ;
+    tmk:ordinal 4 ;
+    tmk:text "(2) If, after considering the response and (if a hearing is requested) the submissions to the hearing, the Registrar continues to believe that:" ;
+    tmk:upstreamRef "TMR1995/r17A.18(2)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18(2)(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:4a5a718c03e70d406893b5aaaad6795c561217bbadb57efbc04924f83d273d9d" ;
+    tmk:ordinal 5 ;
+    tmk:text "(a) the IRDA is not in accordance with this Division; or" ;
+    tmk:upstreamRef "TMR1995/r17A.18(2)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18(2)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:ab2f1c985434247162ba4c0e5e3882ef06317d2f06a1554b68e10944f8183541" ;
+    tmk:ordinal 6 ;
+    tmk:text "(b) there are grounds under Subdivision 2 for rejecting it in whole or in part;" ;
+    tmk:upstreamRef "TMR1995/r17A.18(2)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18(3)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:68de2bc7831959b1cb9f68b829541d774b41a23b6df9e9fc81f22a489138eb2d" ;
+    tmk:ordinal 8 ;
+    tmk:text "(3) Unless the acceptance of an IRDA is deferred under regulation 17A.21, a report under subregulation (2) about the IRDA must specify the date by which the Registrar must notify his or her final decision on examination to the International Bureau." ;
+    tmk:upstreamRef "TMR1995/r17A.18(3)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18(4)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:75568a1bb0dedb81536099e73138f1146ea1de85e64806074728c3a4752c0ca6" ;
+    tmk:ordinal 9 ;
+    tmk:text "(4) Regulation 17A.17 and this regulation apply to a report under subregulation (2) as if it were a report under regulation 17A.16." ;
+    tmk:upstreamRef "TMR1995/r17A.18(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18~1> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:dfe26593e852f79ef8a24f83edb48302cee639993f2dcc0e29943f6bc49eb44a" ;
+    tmk:ordinal 7 ;
+    tmk:text "the Registrar must report that belief by notification to the holder." ;
+    tmk:upstreamRef "TMR1995/r17A.18~1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.23~1> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.23> ;
@@ -13670,6 +14032,69 @@
     tmk:text "(d) the Board." ;
     tmk:upstreamRef "TMR1995/r21.6(3)(d)" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(1)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:6d942a9021c199e60f601fb583c61a349204bb4dc1ecdeaf2617aa2f80065d93" ;
+    tmk:ordinal 1 ;
+    tmk:text "(1) On receipt of a response under regulation 4.9, the Registrar must consider the response." ;
+    tmk:upstreamRef "TMR1995/r4.10(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(2)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:8c371e24d270e59d46e9a2427319f0e8e5a525527649429ddc523629ba5da51b" ;
+    tmk:ordinal 2 ;
+    tmk:text "(2) If the Registrar continues to believe that:" ;
+    tmk:upstreamRef "TMR1995/r4.10(2)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(2)(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:38384a0aebb4a02092f0bc93bad1846641c5e3e1b9e5d6173ea06f81bfdd76c4" ;
+    tmk:ordinal 3 ;
+    tmk:text "(a) the application has not been made in accordance with the Act or these regulations; or" ;
+    tmk:upstreamRef "TMR1995/r4.10(2)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(2)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:a86954ee71fec3fb1da638ec81de3360bc8e19ae7c3d4732323fdd734fc1f14b" ;
+    tmk:ordinal 4 ;
+    tmk:text "(b) there are grounds under Division 2 of Part 4 of the Act for rejecting it;" ;
+    tmk:upstreamRef "TMR1995/r4.10(2)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(3)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:e8af4c8fe2516964efcdd525cad12b6a970ac7d54fc86a29a04702608bddf1a6" ;
+    tmk:ordinal 6 ;
+    tmk:text "(3) Unless acceptance of an application is deferred, a report under subregulation (2) in relation to that application must include notification of the date on which the application will lapse if it is not accepted earlier." ;
+    tmk:upstreamRef "TMR1995/r4.10(3)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10(4)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:a81ec38853a73f75bbd4c4f77eecde484ff68201598e740b29eb195bec078481" ;
+    tmk:ordinal 7 ;
+    tmk:text "(4) Regulation 4.9 and this regulation apply to a report under subregulation (2) as if it were a report under regulation 4.8." ;
+    tmk:upstreamRef "TMR1995/r4.10(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10~1> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:de9ff66bcc363c67243a13a1fd52b02aaa71b42bc5226bf643dc4565325e23bf" ;
+    tmk:ordinal 5 ;
+    tmk:text "the Registrar must report that belief by notification to the applicant." ;
+    tmk:upstreamRef "TMR1995/r4.10~1" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.12(1)(a)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.12> ;
     tmk:authorityKind "law" ;
@@ -14417,6 +14842,123 @@
     tmk:text "For the purposes of subsection 29(1) of the Act (which deals with claims for priority), the prescribed period in relation to a claim for a right of priority for an application is 2 working days after filing the application." ;
     tmk:upstreamRef "TMR1995/r4.5~1" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8(1)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:b49812f8edb85b34c7d9821d8d3e43d097a44bcee47a642c85dbc88a8983e22d" ;
+    tmk:ordinal 1 ;
+    tmk:text "(1) For the purposes of section 31 of the Act (which deals with examination and reporting), if in the course of an examination of an application the Registrar reasonably believes that:" ;
+    tmk:upstreamRef "TMR1995/r4.8(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8(1)(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:38384a0aebb4a02092f0bc93bad1846641c5e3e1b9e5d6173ea06f81bfdd76c4" ;
+    tmk:ordinal 2 ;
+    tmk:text "(a) the application has not been made in accordance with the Act or these regulations; or" ;
+    tmk:upstreamRef "TMR1995/r4.8(1)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8(1)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:a86954ee71fec3fb1da638ec81de3360bc8e19ae7c3d4732323fdd734fc1f14b" ;
+    tmk:ordinal 3 ;
+    tmk:text "(b) there are grounds under Division 2 of Part 4 of the Act for rejecting it;" ;
+    tmk:upstreamRef "TMR1995/r4.8(1)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8(2)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:8baecec255266933012c252d29fb9e4408d69c426bc956bc5ebed7238e63fb21" ;
+    tmk:ordinal 5 ;
+    tmk:text "(2) A report under subregulation (1) must include notification of the date on which the application will lapse if it is not accepted earlier." ;
+    tmk:upstreamRef "TMR1995/r4.8(2)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8(3)~1> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:2de5dce5d67b4d9f8d857090eea71ad84da02edb581df7986143cfc1270a4f10" ;
+    tmk:ordinal 7 ;
+    tmk:text "Note: Section 37 of the Act and regulation 4.12 deal with the lapsing of an application before acceptance." ;
+    tmk:upstreamRef "TMR1995/r4.8(3)~1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8~1> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:de9ff66bcc363c67243a13a1fd52b02aaa71b42bc5226bf643dc4565325e23bf" ;
+    tmk:ordinal 4 ;
+    tmk:text "the Registrar must report that belief by notification to the applicant." ;
+    tmk:upstreamRef "TMR1995/r4.8~1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9(1)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:12980e01e8a80040cd9e26e5d736d2ffe41c0ee535fd14bbe76252c6d232ce16" ;
+    tmk:ordinal 1 ;
+    tmk:text "(1) An applicant may respond in writing to the Registrar’s report under regulation 4.8." ;
+    tmk:upstreamRef "TMR1995/r4.9(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9(2)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:595d53b825407be60421e9c1351be4f12003418867b58b77544234bb57da9dc2" ;
+    tmk:ordinal 2 ;
+    tmk:text "(2) The response may:" ;
+    tmk:upstreamRef "TMR1995/r4.9(2)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9(2)(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:b5b899a4a6abf4d7c1994bc72fe7c7a7ed3eb038daf1d1a0184ff09e39e38829" ;
+    tmk:ordinal 3 ;
+    tmk:text "(a) contest a belief of the Registrar that is expressed in the report; and" ;
+    tmk:upstreamRef "TMR1995/r4.9(2)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9(2)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:8cab189ec328ba60bc1bca14fa4522e1e5884764f99dfa24602fe7ac50af411d" ;
+    tmk:ordinal 4 ;
+    tmk:text "(b) contest another matter that is mentioned in the report; and" ;
+    tmk:upstreamRef "TMR1995/r4.9(2)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9(2)(c)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:92f8bf5159b6690fe61f95e45e78b33a53c7c6151d1a2ebc51325071604d0106" ;
+    tmk:ordinal 5 ;
+    tmk:text "(c) provide further documents or evidence in support of the application; and" ;
+    tmk:upstreamRef "TMR1995/r4.9(2)(c)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9(2)(d)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:306df2bf5d4a58f2c108e554fd13fc0d5df52b56953ed506a14aac439eda8e0b" ;
+    tmk:ordinal 6 ;
+    tmk:text "(d) request that the application be amended in accordance with the Act." ;
+    tmk:upstreamRef "TMR1995/r4.9(2)(d)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9(2)(d)~1> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:d03b8209f6617de1598d9f49728d78f5364909b3b5359e09d491d7841ab1f437" ;
+    tmk:ordinal 7 ;
+    tmk:text "Note: Section 65 of the Act relates to the amendment of an application after particulars of the application have been published." ;
+    tmk:upstreamRef "TMR1995/r4.9(2)(d)~1" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.10(1)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.10> ;
     tmk:authorityKind "law" ;
@@ -14893,6 +15435,87 @@
     tmk:ordinal 20 ;
     tmk:text "the period mentioned in regulation 5.13 or 5.14 restarts when the opposition resumes." ;
     tmk:upstreamRef "TMR1995/r5.16~1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18(1)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:3feefd166abbd2247ecda8aa7396c81f55610f847b356342f04650966d13a117" ;
+    tmk:ordinal 1 ;
+    tmk:text "(1) In opposition proceedings relating to an application in respect of which the applicant claims a right of priority, an opponent may request the Registrar for a copy of an earlier application to be made available." ;
+    tmk:upstreamRef "TMR1995/r5.18(1)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18(2)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:13f9bd3a65152d44db50612ab3a07e4c27068c099a6e2e7a37fa29e2ce55b1cc" ;
+    tmk:ordinal 2 ;
+    tmk:text "(2) On receiving the request, the Registrar must require the applicant to file:" ;
+    tmk:upstreamRef "TMR1995/r5.18(2)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18(2)(a)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:4a714c02edc66d5c4ca26dbdf2cc845ca1e3ea1e78cefee6a0bf999a55aba596" ;
+    tmk:ordinal 3 ;
+    tmk:text "(a) a copy of the earlier application certified in the trade marks office (or its equivalent) of the Convention country in which it was filed; and" ;
+    tmk:upstreamRef "TMR1995/r5.18(2)(a)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18(2)(b)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:b74dbb6f6367a3f7cc6b54f452e611226ba776c5e4fcf14911949f5f62bd1a0c" ;
+    tmk:ordinal 4 ;
+    tmk:text "(b) if the earlier application is not in English:" ;
+    tmk:upstreamRef "TMR1995/r5.18(2)(b)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18(2)(b)(i)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:4ee9cbccaa2a5119aec45c25d2817ad7b6eb300cad5c82d3cea9978d9ed3c476" ;
+    tmk:ordinal 5 ;
+    tmk:text "(i) a translation of the earlier application into English; and" ;
+    tmk:upstreamRef "TMR1995/r5.18(2)(b)(i)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18(2)(b)(ii)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:f3376dd6c5cd49b81655406fef6b2fd308ee13ab2fab869526ce80a63ad4bd3b" ;
+    tmk:ordinal 6 ;
+    tmk:text "(ii) a certificate of verification relating to the translation." ;
+    tmk:upstreamRef "TMR1995/r5.18(2)(b)(ii)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18(3)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:77710708eba756dd421b5bb90eaaba4ef035b859dc1dad267a94c044c8bf2e8f" ;
+    tmk:ordinal 7 ;
+    tmk:text "(3) Subregulation (2) does not apply if the applicant has already filed the relevant documents." ;
+    tmk:upstreamRef "TMR1995/r5.18(3)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18(4)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:e6c3f21996cc8f161526729bb62242fbe62b8a44aa0ff7d08dc52fb02e5363b8" ;
+    tmk:ordinal 8 ;
+    tmk:text "(4) The Registrar must give a copy of the documents to the opponent." ;
+    tmk:upstreamRef "TMR1995/r5.18(4)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18(5)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18> ;
+    tmk:authorityKind "law" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:cd8dc6193f6a4d8270bdace2a917919045c19976c50bd0985bdbe6a622913066" ;
+    tmk:ordinal 9 ;
+    tmk:text "(5) If the applicant is the successor in title to the person who made the earlier application, the Registrar may require the applicant to provide documentary evidence that is sufficient to establish the passing of title to the applicant." ;
+    tmk:upstreamRef "TMR1995/r5.18(5)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/notice-of-intention-to-defend> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2> ;
@@ -16321,6 +16944,51 @@
     tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/1/1/6> ;
     tmk:extraction "href" ;
     tmk:mention "5" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part11/4/4/1/internal/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/1> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4/4/1> ;
+    tmk:extraction "href" ;
+    tmk:mention "Part 17 Deferment of Acceptance" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part11/4/4/1/internal/1> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part6/1> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4/4/1> ;
+    tmk:extraction "href" ;
+    tmk:mention "1.2 Expedition of examination by the Registrar" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part11/4/4/2/internal/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/4> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4/4/2> ;
+    tmk:extraction "href" ;
+    tmk:mention "4. Making convention documents available to opponent" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part11/4/4/2/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4/4/2> ;
+    tmk:extraction "regex" ;
+    tmk:mention "reg 5.18" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part11/7/7/1/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s72(2)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7/7/1> ;
+    tmk:extraction "regex" ;
+    tmk:mention "subsection 72(2)" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part11/7/7/3/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s72(3)> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7/7/3> ;
+    tmk:extraction "regex" ;
+    tmk:mention "subsection 72(3)" .
 
 <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part12/1%231/prov/0> a tmk:Citation ;
     tmk:certainty "default" ;
@@ -18520,6 +19188,62 @@
     tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/1%231> ;
     tmk:extraction "href" ;
     tmk:mention "s 44," .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> ;
+    tmk:extraction "href" ;
+    tmk:mention "Section 44" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/1> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> ;
+    tmk:extraction "href" ;
+    tmk:mention "Reg 17A.16" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/2> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> ;
+    tmk:extraction "href" ;
+    tmk:mention "Reg 17A.17" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/3> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> ;
+    tmk:extraction "href" ;
+    tmk:mention "Reg 17A.18" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/4> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> ;
+    tmk:extraction "href" ;
+    tmk:mention "Reg 4.10" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/5> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.15A> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> ;
+    tmk:extraction "href" ;
+    tmk:mention "Reg 4.15A" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/6> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> ;
+    tmk:extraction "href" ;
+    tmk:mention "Reg 4.8" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/7> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> ;
+    tmk:extraction "href" ;
+    tmk:mention "Reg 4.9" .
 
 <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part28/2%231/case/0> a tmk:Citation ;
     tmk:citationResolves false ;
@@ -23200,6 +23924,20 @@
     tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/2001/FCA/683> ;
     tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/5/5/4~2> .
 
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part54/1/1/1/internal/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/4> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/1> ;
+    tmk:extraction "href" ;
+    tmk:mention "section 54.1.4" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part54/1/1/1/internal/1> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/x-annex-a1---consequences-of-mishandling-a-subpoena> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/1> ;
+    tmk:extraction "href" ;
+    tmk:mention "Annex A1" .
+
 <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part54/2%231~1/case/0> a tmk:Citation ;
     tmk:citationResolves false ;
     tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/1959/RPC/167> ;
@@ -23894,6 +24632,40 @@
     tmk:text "While a preliminary check of classification is made as part of the check for compliance with minimum filing requirements, it is the examiner’s responsibility to ensure that the goods and/or services have been properly specified and classified. For a single class application, this includes checking that the goods or the services are in the class that has been nominated for the application. For a multi-class application the examiner must check that the goods or the services grouped within each of the nominated classes are properly classified. The principles and practice for classifying goods or services are dealt with in Part 14. Part 14 Classification The following problems may arise:" ;
     tmk:upstreamRef "TMM/Part10/5/5/3" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7/7/1> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s72(2)> ;
+    tmk:contentHash "sha256:5196ad87eccf21a5fc48cf20aa8b8c1ea7d7d67a600603ed753ae24dccd1a2e6" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part11/7/7/1/prov/0> ;
+    tmk:headingPath "11.7. Effect on registration of a claim for priority based on an earlier application",
+        "7.1",
+        "Part 11 Convention Applications" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7> ;
+    tmk:ordinal 2 ;
+    tmk:partId "Part11" ;
+    tmk:text "Under subsection 72(2) the registration of a trade mark will have effect, where a convention claim applies in respect of particular goods and/or services, from (and including) the day on which application in the Convention country was made in respect of those particular goods and/or services. Where an application was made in respect of the same goods and/or services in more than one Convention country, registration of the trade mark will have effect from (and including) the day on which the earliest of those applications was made." ;
+    tmk:upstreamRef "TMM/Part11/7/7/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7/7/3> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s72(3)> ;
+    tmk:contentHash "sha256:fcba72b8e9e3ba02d700f48c1f28bdfbd113f7953c86b1cbbd2a109276e3000f" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part11/7/7/3/prov/0> ;
+    tmk:headingPath "11.7. Effect on registration of a claim for priority based on an earlier application",
+        "7.3",
+        "Part 11 Convention Applications" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7> ;
+    tmk:ordinal 4 ;
+    tmk:partId "Part11" ;
+    tmk:text "For the purposes of renewal, however, the registration will expire 10 years from the date of filing in Australia (subsection 72(3)). Where an application is accepted or a trade mark registered where a claim to a right of priority was wrongly made the applicant may leave their acceptance and/or registration open to dispute. The onus now lies with the applicant to make sure the correct claim/s have been made in respect of claims to a right of priority." ;
+    tmk:upstreamRef "TMM/Part11/7/7/3" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/1> a tmk:Page ;
     rdfs:label "1. Divisional applications - general"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -23975,17 +24747,6 @@
     tmk:partId "Part16" ;
     tmk:text "The legislation states that \"an application lapses if it is not accepted within the prescribed period or within that period as extended in accordance with the regulations\" (section 37). The prescribed period is 15 months from the date of the first report, or 15 months from the date of any further report that raises new grounds for rejection of the application. This is the basic time period within which an applicant for a trade mark is expected to finalise the application to the point of acceptance. If an applicant requests an ex parte hearing on an exam matter, the Registrar will defer acceptance of that application. The applicant need not separately apply for an extension of time or deferment. This deferment will end on the earlier of: the day the applicant withdraws the request to be heard, or the day the Registrar decides the outcome of the examination. If an appeal of the Registrar's decision is filed with a court, the acceptance will remain under deferment until the end of those proceedings." ;
     tmk:upstreamRef "TMM/Part16/1/1/1" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/1> a tmk:Page ;
-    rdfs:label "1. Deferment of Acceptance - introduction"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
-    tmk:contentHash "sha256:640dd203c96d822e4ae196d81a594e693dd340b357424ad1791518ecb6092133" ;
-    tmk:lastAmended "2022-04-20" ;
-    tmk:partId "Part17" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-deferment-of-acceptance---introduction"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part17/1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/1> a tmk:Page ;
     rdfs:label "1. Definition of a trade mark"@en-AU ;
@@ -24581,6 +25342,17 @@
     tmk:partId "Part27" ;
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-introduction5"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part27/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26> a tmk:Page ;
+    rdfs:label "Relevant Legislation"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:40d66c44316a6c56e33ddb56b498a0de6b2bb67ec740155ed2418d3c8718e32d" ;
+    tmk:lastAmended "2022-04-20" ;
+    tmk:partId "Part27" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/relevant-legislation26"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part27/x-relevant-legislation26" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/2> a tmk:Page ;
     rdfs:label "2. Honest concurrent use - paragraph 44(3)(a)"@en-AU ;
@@ -27468,6 +28240,24 @@
     tmk:text "(3) An authorised use of a trade mark by a person (see section 8) is taken, for the purposes of this Act, to be a use of the trade mark by the owner of the trade mark." ;
     tmk:upstreamRef "TMA1995/s7(3)" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s72(2)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:bb666eda17e414110015af87c2dd0c3d78b74fabc581c73458998cde3af0565b" ;
+    tmk:text "(2) If:" ;
+    tmk:upstreamRef "TMA1995/s72(2)" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s72(3)> a tmk:LegislativeUnit ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:2793583dea31c16504e8e5958859642c3e2c134149d9fefb20f8e411eb368e01" ;
+    tmk:text "(3) Unless it is earlier cancelled, or the trade mark is earlier removed from the Register, the registration of the trade mark expires 10 years after the filing date in respect of the application for its registration." ;
+    tmk:upstreamRef "TMA1995/s72(3)" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s74(1)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
     tmk:authorityKind "law" ;
@@ -27730,6 +28520,44 @@
     tmk:partId "Part11" ;
     tmk:text "To gain the same priority date the specification of the convention application must claim at least one good or service covered by the earlier application or applications. The earlier priority date will only apply to goods and/or services in common with both applications. Applicants are not required to provide details of the specification of the earlier application unless there is more than one priority date being claimed. See 2.4 and 5 in regard to multiple priority dates." ;
     tmk:upstreamRef "TMM/Part11/1/1/6" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4/4/1> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:citesPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part6/1> ;
+    tmk:contentHash "sha256:51221c1a2f2527b381533dfa5181b5d050df248bb4f1debb8513452f4094590e" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part11/4/4/1/internal/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part11/4/4/1/internal/1> ;
+    tmk:headingPath "11.4. Convention documents",
+        "4.1",
+        "Part 11 Convention Applications" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4> ;
+    tmk:ordinal 2 ;
+    tmk:partId "Part11" ;
+    tmk:text "Where an application claiming overseas priority constitutes a citation against another application made in Australia specifically because of the earlier priority date claimed. In these cases, the examiner must independently verify the claim. They may be able to do so by searching the online trade marks database of the relevant overseas office, and if so will copy the information to the file of the mark under examination. It will not be necessary to request documentation in this case. Otherwise, a request will be made to the owner of the application claiming a right of priority for the Convention documentation to be filed in order that the priority claim can be verified. However, if the cited mark is an international registration designating Australia (IRDA) then it is not necessary to verify the claim, as the Office of Origin has already verified it and it has been accepted by the International Bureau of WIPO. The application which has had the citation taken against it should be examined and reported on as normal, with the report if necessary advising that verification of the claim to priority of the cited trade mark is being sought and that the applicant will be notified if the citation is withdrawn because the priority claim was not in order. The applicant should be given information on deferment options. Part 6 Expedited Examination - 1.2 Expedition of examination by the Registrar Part 17 Deferment of Acceptance" ;
+    tmk:upstreamRef "TMM/Part11/4/4/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4/4/2> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:citesPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/4> ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18> ;
+    tmk:contentHash "sha256:56f14d413ebaa10c3bf7d8a70a3cdf7b6ff62db0fd18bdabce9d07025e2a495e" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part11/4/4/2/internal/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part11/4/4/2/prov/0> ;
+    tmk:headingPath "11.4. Convention documents",
+        "4.2",
+        "Part 11 Convention Applications" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4> ;
+    tmk:ordinal 3 ;
+    tmk:partId "Part11" ;
+    tmk:text "Where an opposition proceeding relates to an application in respect of which the applicant claims a right of priority. In such cases an opponent can request that the Registrar send the opponent a copy of the earlier application. Where this has been requested the Registrar will obtain certified copies (translated if necessary) from the file if the documents are on file, or from the applicant if the documents are not already on file. A copy of the documents will then be sent to the opponent (reg 5.18). Although the Registrar has no power to enforce this request, any inconvenience or extra extension fees borne by the opponent as a result of the applicant's non co-operation at this stage may be taken into account when costs are determined at the conclusion of proceedings. Part 47 Procedures for Opposing an Registration or Protection - 4. Making convention documents available to opponent" ;
+    tmk:upstreamRef "TMM/Part11/4/4/2" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/1%231> a tmk:Chunk ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -29210,6 +30038,40 @@
     tmk:text "The consequence of the extension being refused will depend on the stage and nature of the proceedings. Opposition to registration or protection If the extension was for filing evidence in support, a date will be set for the other party to file its evidence in answer If the extension was for the filing of evidence in answer, a date will be set for the other party to file its evidence in reply unless no evidence in answer has been filed in which case the period allowed for the parties to file their evidence concludes and the parties will have the opportunity to request a hearing. If the extension was for filing evidence in reply, the period allowed for the parties to file their evidence concludes and the parties will have the opportunity to request a hearing. Opposition to removal or cessation of protection If the extension was for filing evidence in support and some evidence was filed in the statutory period, a date will be set for the other party to file its evidence in answer unless no evidence in support has been filed in which case the application for removal or cessation of protection will proceed. If the extension was for filing evidence in answer and some evidence was filed in the statutory period, a date will be set for the other party to file its evidence in reply unless no evidence in answer has been filed in which case the period allowed for the parties to file their evidence concludes and the parties will have the opportunity to request a hearing. If the extension was for filing evidence in reply, the period allowed for the parties to file their evidence concludes and the parties will have the opportunity to request a hearing." ;
     tmk:upstreamRef "TMM/Part51/2/2/4" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/1> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:citesPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/4>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/x-annex-a1---consequences-of-mishandling-a-subpoena> ;
+    tmk:contentHash "sha256:db97e03e9d221dd1edd852d03de326c360b3df9ff395003d9172376ebd6f7d40" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part54/1/1/1/internal/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part54/1/1/1/internal/1> ;
+    tmk:headingPath "1.1 What is a subpoena?",
+        "Part 54 Subpoenas, Summonses and Production of Documents",
+        "Part 54.1. Subpoenas" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> ;
+    tmk:ordinal 2 ;
+    tmk:partId "Part54" ;
+    tmk:text "A subpoena is a document issued by a court, requiring the person named to attend at the court to give oral evidence and/or produce documents or other things. A subpoena requiring the person named to attend the court for the purpose of giving evidence is known as a “subpoena to give evidence”; a subpoena requiring the person named to attend the court and produce a document or thing is known as a “subpoena for production”. Persons must comply with the requirements of a subpoena. Failure to do so will render the person liable to contempt of court. Any officer of a government department who handles a response to a subpoena must be aware that if it is incorrectly handled, they may become personally liable for contempt of court. The consequences of mishandling a subpoena were outlined in a circular from the Australian Government Solicitor issued in 1990 (see Annex A1) A person is not bound to comply with a subpoena if the requirements are oppressive or it is served too late for compliance. This might be where the requirement is for a wide selection of files, and the time is not adequate. The subpoena, however, remains valid until it is set aside on notice of motion. (See section 54.1.4)." ;
+    tmk:upstreamRef "TMM/Part54/1/1/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/4> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:ef77098aac22704541f5da3d1d63d3d9bd9aa3f805b54581ff9e0bad49e17013" ;
+    tmk:headingPath "1.4 Registrar’s response to a subpoena",
+        "Part 54 Subpoenas, Summonses and Production of Documents",
+        "Part 54.1. Subpoenas" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> ;
+    tmk:ordinal 5 ;
+    tmk:partId "Part54" ;
+    tmk:text "An officer responsible to the Deputy Registrar, Oppositions and Hearings section, will co-ordinate the response to a subpoena for production taking into account the matters set out in the subpoena including the following:" ;
+    tmk:upstreamRef "TMM/Part54/1/1/4" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/2/2/3> a tmk:Chunk ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
     tmk:authorityKind "practice" ;
@@ -29673,11 +30535,13 @@
     tmk:upstreamRef "TMR1995/r4.4(2)" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8(3)> a tmk:LegislativeUnit ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8> ;
     tmk:authorityKind "law" ;
     tmk:authorityStatus tmk:Current ;
     tmk:capturedIn tmk:snapshot-c490a9927f1a ;
     tmk:contentHash "sha256:2239ef5a2860a543b8417bf515ce16c57b0e333659612d7873805dd7e501224a" ;
+    tmk:ordinal 6 ;
     tmk:text "(3) If the Registrar reasonably suspects that the provisions of paragraph 27(1)(b) of the Act do not apply in relation to all of the goods and/or services specified in an application for registration of a trade mark, the Registrar may require the applicant to make a declaration to the Registrar that those provisions apply to all of those goods and/or services." ;
     tmk:upstreamRef "TMR1995/r4.8(3)" .
 
@@ -30035,6 +30899,17 @@
     tmk:partId "Part16" ;
     tmk:text "Subsection 224(4) provides that the date of acceptance for an application may be extended either before or after the time has expired. Subsection 224(4) will apply to all late requests for extensions of time for acceptance, whether the application in question is within its \"easy\" extension period or not. Therefore, if an application for an extension of time is made after the time has expired, even if it is within its six month \"easy\" extension period, it will still have to be made under the provisions of section 224(4) and regulation 21.25. These provide that a late application for an extension of time must be accompanied by a declaration setting out both the grounds for needing an extension of time, and also the reasons the application for the extension was not filed in time (together with the appropriate fee). This declaration will be assessed as described in paragraph 1.3. Note: Although any late application for an extension of time must be made under the provisions of section 224, any subsequent applications for extension of time within the six month “easy” extension period that are not late will not require a declaration, as the conditions for “easy” extensions may again be applied." ;
     tmk:upstreamRef "TMM/Part16/1/1/4" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part17/1> a tmk:Page ;
+    rdfs:label "1. Deferment of Acceptance - introduction"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:640dd203c96d822e4ae196d81a594e693dd340b357424ad1791518ecb6092133" ;
+    tmk:lastAmended "2022-04-20" ;
+    tmk:partId "Part17" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-deferment-of-acceptance---introduction"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part17/1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1> a tmk:Page ;
     rdfs:label "1. Use of a trade mark generally"@en-AU ;
@@ -31030,17 +31905,6 @@
     tmk:text "1 Certain costs in litigation have been found to be confined to money paid or liabilities incurred for professional legal services. Such costs generally may not be claimed if the successful party has been self-represented. This was considered in the High Court in Cachia v Hanes (1994) 179 CLR 403 where the majority decision was that the appellant’s claim for compensation for loss of time spent in preparation and conduct of his case and for associated travelling expenses was not allowable as a cost. However the court noted the so-called solicitor litigant exception which allows the successful party to claim such costs if he or she is a self-represented solicitor (See also Guss v Veenhuizen (No 2) (No 2) (1976) 136 CLR 47.) In Beling v Sixty Interna􀆟onal SA [2015] FCA 250 Mortimer J held that this exception should apply to the award of costs in proceedings before the Registrar." ;
     tmk:upstreamRef "TMM/Part55/1#1~2" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part6/1> a tmk:Page ;
-    rdfs:label "1. Expedited Examination"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
-    tmk:contentHash "sha256:f09e278f4c21837d1df501339f4205c393daa693b00a093d284aca2655a723b3" ;
-    tmk:lastAmended "2026-02-10" ;
-    tmk:partId "Part6" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-expedited-examination"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part6/1" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/1> a tmk:Page ;
     rdfs:label "Part 9. 1. Introduction"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -31427,6 +32291,17 @@
     tmk:partId "Part11" ;
     tmk:text "A convention application should be filed within six months after the day on which the application was made in the Convention country (subsection 29(1)). If applications for the trade mark have been filed in respect of particular goods and/or services in more than one Convention country, the application in Australia must be filed within six months after the day on which the earliest of the earlier applications was made (paragraph 29(2)(b)). When calculating the six months, the day the earlier application was made in the Convention country is not included in the calculation. That is, if the application was filed in a Convention country on 1 February 2007, the application in Australia must be filed by close of business on 1 August 2007. If the last day of the period is an official holiday, or a day when the Office is not open for the filing of applications the period is extended until the next working day (Paragraph C(3) of Article 4 of the Paris Convention). The claim for the right of priority must be made within two working days of the application being filed in Australia (subsection 29(1) and reg 4.5). This period and the 6 month period allowed from filing an application in a Convention country for filing in Australia, are both non-extendible periods of time (reg. 21.28 (1)(aa) and (b))." ;
     tmk:upstreamRef "TMM/Part11/1/1/4" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7> a tmk:Page ;
+    rdfs:label "Part 11.7. Effect on registration of a claim for priority based on an earlier application"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:a48b5c4c1e9407e8e5f0ad9ecf232e72850c415be047c141a2fec4935363935d" ;
+    tmk:lastAmended "2025-01-13" ;
+    tmk:partId "Part11" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/7.-effect-on-registration-of-a-claim-for-priority-based-on-an-earlier-application"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part11/7" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/2%231> a tmk:Chunk ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -32442,6 +33317,17 @@
     tmk:text "An appeal lies to the Federal Court or the Federal Circuit and Family Court of Australia (Division 2) from a decision of the Registrar to revoke the registration of a trade mark under section 84A." ;
     tmk:upstreamRef "TMA1995/s84D" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4> a tmk:Page ;
+    rdfs:label "Part 11.4. Convention documents"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:ae2967c9a81852551d4e14b3a3d42e7ccbdf2bd3752b73746e453c9ac293272a" ;
+    tmk:lastAmended "2025-01-13" ;
+    tmk:partId "Part11" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/4.-convention-documents"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part11/4" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/3> a tmk:Page ;
     rdfs:label "3. Definition of sign"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -33164,6 +34050,17 @@
     tmk:partId "Part52" ;
     tmk:text "Review of any decision of an administrative nature is available under the Administrative Decisions (Judicial Review) Act 1977, (the AD(JR) Act). Therefore, in addition to any specific rights of appeal under the Trade Marks Act 1995 to the Federal Court and the Federal Circuit and Family Court of Australia (Division 2) or to a review of the decision in the ART, a “person aggrieved” by a decision of the Registrar may seek a review of that decision in the Federal Court or the Federal Circuit and Family Court of Australia (Division 2) under the AD(JR) Act. For example, review of a decision of the Registrar to allow an extension of time for filing notice of opposition to registration of a trade mark might be sought by the applicant for registration (see Lyons (trading as Mitty’s Authorized Newsagency) v Registrar of Trade Marks [1983] FCA 236). Review of a decision to refuse such an extension might be sought by a prospective opponent (see Atomic Skifabrik Alois Rohrmoser v Registrar of Trade Marks [1987] FCA 22 and Chiron Corporation v Registrar of Trade Marks [1998] FCA 928). A review under the AD(JR) Act, though conducted in the Federal Court or the Federal Circuit and Family Court of Australia (Division 2), is not a re-examination of the matter. It is not a review of the merits of the decision but goes, briefly and in general terms, to the compliance with procedures under the legislation, provision of procedural fairness and to the availability of evidence on which to base the decision. If the court finds a decision of the Registrar is contrary to law it will not substitute its own decision but may set aside the Registrar’s decision and refer it back to the person who made the decision for reconsideration in accordance with the law (see for example, GS Technology Pty Ltd v Commissioner of Patents [1997] FCA 1460). The court has powers to make orders remedying consequences flowing from an unlawful administrative decision that it proposes to set aside, see British Sky Broadcasting Limited v Registrar of Trade Marks [2002] FCA 1556 at 47. The normal time for applying for review to the Federal Court under the AD(JR) Act is 28 days after receipt of the decision." ;
     tmk:upstreamRef "TMM/Part52/5/5/3" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part6/1> a tmk:Page ;
+    rdfs:label "1. Expedited Examination"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:f09e278f4c21837d1df501339f4205c393daa693b00a093d284aca2655a723b3" ;
+    tmk:lastAmended "2026-02-10" ;
+    tmk:partId "Part6" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-expedited-examination"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part6/1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/1%231> a tmk:Chunk ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -34229,6 +35126,17 @@
     tmk:text "Trade Marks Act 1995 Trade Marks Regulations 1995 In relation to satisfying the onus of showing why a trade mark has not been used during the three year period specified in an application for removal under section 92(4)(b), paragraph 100(3)(c) says that an application for removal is rebutted if: the opponent has established that the trade mark was not used by its registered owner in relation to those goods and/or services during that period because of circumstances (whether affecting traders generally or only the registered owner of the trade mark) that were an obstacle to the use of the trade mark during that period. This should be compared with subsection 23(4) of the Trade Marks Act 1955, where an application for removal for non-use could be defeated if the Registrar found that the failure to use the trade mark was shown to be due to \"special circumstances in the trade\" and not merely an intention not to use or to abandon the trade mark in relation to the goods or services in question. Several court decisions have discussed what were, or were not, special circumstances and whether the circumstances which prevented use should apply to the registered proprietor personally or whether they should affect the whole of the particular trade. In the case of Aktiebolaget Manus v R.J. Fulwood and Bland Ltd (1949) 66 RPC 71, Lord Evershed rejected the proposition put by Sargant J in James Crean & Sons Ltd’s Trade Mark, 38 RPC 155, that in order to get within subsection 26(3) of the 1938 UK Act (UK) (the equivalent of subsection 23(4) of the 1955 Australian Act), the non-user must be due to circumstances affecting the whole of the trade and not to special circumstances attaching to and belonging to the trader personally. The point made by Lord Evershed was carried by Kitto J in Carl Zeiss Pty Ltd's Appn (1969) 122 CLR 1." ;
     tmk:upstreamRef "TMM/Part48/10#1~1" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1> a tmk:Page ;
+    rdfs:label "1. Subpoenas"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:6385d94d53aadf1df6ad25fb04622dd71084c96908a4be9556e7f14ff2e093b4" ;
+    tmk:lastAmended "2025-04-02" ;
+    tmk:partId "Part54" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-subpoenas"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part54/1" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r10.5> a tmk:LegislativeProvision ;
     rdfs:label "Notification to persons recorded as claiming right or interest in trade marks"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
@@ -34397,6 +35305,36 @@
     tmk:partId "Part22" ;
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/25.-devices"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part22/25" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> a tmk:Chunk ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "landing" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.15A>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> ;
+    tmk:contentHash "sha256:5b3fc6fb1265522f331e81a78669b81c0b15824fbaf9034d40300d25bc1322fe" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/2>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/3>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/4>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/5>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/6>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/x-relevant-legislation26%231/prov/7> ;
+    tmk:headingPath "27. Relevant Legislation",
+        "Part 27 Overcoming Grounds for Rejection under Section 44" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26> ;
+    tmk:ordinal 1 ;
+    tmk:partId "Part27" ;
+    tmk:text "The Act Section 44 Identical etc. trade marks The Regulations Reg 4.8 Examination of application - report to the applicant Reg 4.9 Examination - applicant's response to report Reg 4.10 Examination - further report to applicant Reg 4.15A Grounds for rejection – trade mark identical etc to trade mark protected under the Madrid Protocol Reg 17A.16 Examination of IRDA – report to holder Reg 17A.17 Examination – holder’s response to report Reg 17A.18 Examination – further response to holder" ;
+    tmk:upstreamRef "TMM/Part27/x-relevant-legislation26#1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3> a tmk:Page ;
     rdfs:label "3. Deception and confusion as a result of a connotation within a trade mark"@en-AU ;
@@ -34818,6 +35756,16 @@
     tmk:text "The Trade Marks Act 1995 specifically provides for application for review by the Administrative Review Tribunal (the ART) in the following trade mark matters: Refusal by the Registrar to grant an extension of time under the terms of section 224. An unsuccessful applicant for an extension can seek a review of the refusal (section 224(7)). (See for example Gracey v Registrar of Trade (2000) AIPC 91-565) A decision by the Australian Competition and Consumer Commission in relation to a certification trade mark: not to give a certificate as to the competence of the certifying body, or the appropriateness of the rules (section 175(5)), or to approve, or not to approve, a subsequent variation of the rules governing the use of a registered certification trade mark (section 178(5)), or to refuse consent to the assignment of a registered certification trade mark (section 180(4)). A decision by the Registrar to dismiss an opposition because a statement of grounds and particulars is inadequate, or to delete material from a statement of grounds and particulars (section 99A, subregs 5.8(6), 17A.34B(6)). A review by the ART leads to a full re-decision of the matter on its merits. The tribunal stands in the shoes of the original decision maker and can exercise all of the powers open to that person. Additional evidence can be admitted. Where a right to review by the ART exists, it is not confined to the parties who were involved in the matter leading to the decision concerned any person whose interests are affected by the decision can request to be made a party. The time limits for requesting a review by the ART are set out in s 18 of the Administrative Review Tribunal Act 2024 (the ART Act). In general, the request must be filed at the ART within 28 days commencing on the date of receipt of the document setting out the decision, but the time may be extended. A delegate who, after complying with section 203, refuses an extension of time under section 224 must also comply with section 227. Section 227 requires that notice of a decision that is reviewable by the ART be given to any person affected by it and that the notice must include a statement that application may be made to the ART for review." ;
     tmk:upstreamRef "TMM/Part52/5/5/2" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17> a tmk:LegislativeProvision ;
+    rdfs:label "Examination—holder’s response to report"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:135983ce1228809a35a7e114a8bed57e0ae09c7a643998798415a51c9e8a18e2" ;
+    tmk:text "(1) The holder of the IRDA may respond in writing to the Registrar’s report under regulation 17A.16. (2) The response may do any of the following: (a) contest a belief of the Registrar that is expressed in the report; (b) contest another matter that is mentioned in the report; (c) provide further documents or evidence in support of the IRDA; (d) request a hearing from the Registrar. (3) The holder must notify the Registrar, in writing, of the holder’s address for service in Australia or New Zealand." ;
+    tmk:upstreamRef "TMR1995/r17A.17" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.26> a tmk:LegislativeProvision ;
     rdfs:label "Appeal"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
@@ -34838,6 +35786,16 @@
     tmk:text "(1) For section 221 of the Act, if a matter is mentioned in these Regulations as a matter attracting the award of costs, costs may be awarded: (a) in accordance with Schedule 8; or (b) if the Registrar has a discretionary power in relation to the award of costs—as the Registrar considers appropriate. (2) The costs must be taxed, allowed and certified by an employee appointed by the Registrar. (3) The Registrar may review the taxation of costs by the employee. (4) In this regulation: costs does not include the costs mentioned in paragraph 105(2)(b) of the Act." ;
     tmk:upstreamRef "TMR1995/r21.13" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.10> a tmk:LegislativeProvision ;
+    rdfs:label "Examination—further report to applicant"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:05f666aa262a91b497e08cb77601f102df3c687dbf5bf821c5de824455da2f51" ;
+    tmk:text "(1) On receipt of a response under regulation 4.9, the Registrar must consider the response. (2) If the Registrar continues to believe that: (a) the application has not been made in accordance with the Act or these regulations; or (b) there are grounds under Division 2 of Part 4 of the Act for rejecting it; the Registrar must report that belief by notification to the applicant. (3) Unless acceptance of an application is deferred, a report under subregulation (2) in relation to that application must include notification of the date on which the application will lapse if it is not accepted earlier. (4) Regulation 4.9 and this regulation apply to a report under subregulation (2) as if it were a report under regulation 4.8." ;
+    tmk:upstreamRef "TMR1995/r4.10" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.19> a tmk:LegislativeProvision ;
     rdfs:label "Expedited examinations"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
@@ -34847,6 +35805,26 @@
     tmk:contentHash "sha256:a183914ac58f02d2c243d8af786f5902f8390549062299e58eea3828b81eb9eb" ;
     tmk:text "(1) The Registrar must, to the extent that is practicable, examine applications for the registration of trade marks in relation to which requests under regulation 4.18 are granted: (a) in the order in which the requests are filed; and (b) before examination of an application for registration of a trade mark in relation to which: (i) a request under regulation 4.18 is not made; or (ii) a request made under that regulation is not granted. (2) In the absence of a request for expedited examination of an application for registration of a trade mark, the Registrar may expedite examination of the application if he or she reasonably believes that expedited examination is warranted. (3) The relationship of an application mentioned in subregulation (2) to another application for registration of a trade mark is a relevant circumstance for the purposes of that subregulation." ;
     tmk:upstreamRef "TMR1995/r4.19" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.8> a tmk:LegislativeProvision ;
+    rdfs:label "Examination of application—report to applicant"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:9b771cde9b349e56ace66aeaedfe1aaa6a177d522c2faebdbf73817299f4048c" ;
+    tmk:text "(1) For the purposes of section 31 of the Act (which deals with examination and reporting), if in the course of an examination of an application the Registrar reasonably believes that: (a) the application has not been made in accordance with the Act or these regulations; or (b) there are grounds under Division 2 of Part 4 of the Act for rejecting it; the Registrar must report that belief by notification to the applicant. (2) A report under subregulation (1) must include notification of the date on which the application will lapse if it is not accepted earlier. (3) If the Registrar reasonably suspects that the provisions of paragraph 27(1)(b) of the Act do not apply in relation to all of the goods and/or services specified in an application for registration of a trade mark, the Registrar may require the applicant to make a declaration to the Registrar that those provisions apply to all of those goods and/or services. Note: Section 37 of the Act and regulation 4.12 deal with the lapsing of an application before acceptance." ;
+    tmk:upstreamRef "TMR1995/r4.8" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.9> a tmk:LegislativeProvision ;
+    rdfs:label "Examination—applicant’s response to report"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:99d43a7d3e9924a2023d9155e9eca77819f7b8a9d743db2e2152a16f79b25f4e" ;
+    tmk:text "(1) An applicant may respond in writing to the Registrar’s report under regulation 4.8. (2) The response may: (a) contest a belief of the Registrar that is expressed in the report; and (b) contest another matter that is mentioned in the report; and (c) provide further documents or evidence in support of the application; and (d) request that the application be amended in accordance with the Act. Note: Section 65 of the Act relates to the amendment of an application after particulars of the application have been published." ;
+    tmk:upstreamRef "TMR1995/r4.9" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39(2)> a tmk:LegislativeUnit ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995>,
@@ -35206,6 +36184,16 @@
     tmk:text "Part Published: 1 April 2025 Trade Marks Act 1995 Section 153 Disobeying summons etc. Section 154 Refusing to give evidence etc. Section 202 Registrar's powers Section 203 Exercise of power by Registrar Trade Marks Regulations 1995 Reg 21.6 Declarations Reg 21.15 Opportunity to be heard by Registrar Reg 21.16 Written submissions and oral hearings Reg 21.17 Giving of oral evidence Reg 21.20 Statement of reasons for decision Reg 21.33 Directions not otherwise prescribed Patents Act 1990 Section 210 Commissioner's powers Federal Court Rules" ;
     tmk:upstreamRef "TMM/Part54/x-relevant-legislation20#1" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18> a tmk:LegislativeProvision ;
+    rdfs:label "Examination—further report to holder"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:ab15eeed27e32f1a5c2c16bc436a0bbc14abea13cea62ed719573f45ea2ebffd" ;
+    tmk:text "(1) If the holder has complied with subregulation 17A.17(3), the Registrar must: (a) consider the holder’s response; and (b) if the holder requests a hearing, give the holder an opportunity to be heard. (2) If, after considering the response and (if a hearing is requested) the submissions to the hearing, the Registrar continues to believe that: (a) the IRDA is not in accordance with this Division; or (b) there are grounds under Subdivision 2 for rejecting it in whole or in part; the Registrar must report that belief by notification to the holder. (3) Unless the acceptance of an IRDA is deferred under regulation 17A.21, a report under subregulation (2) about the IRDA must specify the date by which the Registrar must notify his or her final decision on examination to the International Bureau. (4) Regulation 17A.17 and this regulation apply to a report under subregulation (2) as if it were a report under regulation 17A.16." ;
+    tmk:upstreamRef "TMR1995/r17A.18" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r21.12> a tmk:LegislativeProvision ;
     rdfs:label "Applications for costs"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
@@ -35235,6 +36223,16 @@
     tmk:contentHash "sha256:3111831b868aba60c5a3757bcc172e65db2e2cbf4a78ee57901573401404a09d" ;
     tmk:text "(1) If a fee is payable in respect of the doing of an act by the Registrar or the ComptrollerGeneral of Customs, the Registrar or ComptrollerGeneral of Customs must not do the act until the fee has been paid. (2) Subject to subregulation (3), if: (a) a fee is payable in respect of the doing of an act by a person other than the Registrar or the ComptrollerGeneral of Customs; or (b) a fee is payable in respect of the filing of a document; the act is taken to have been done, or the document is taken to have been filed, despite the failure to pay the fee. Note: File has the meaning given by section 6 of the Act. (3) If the Registrar or the ComptrollerGeneral of Customs notifies under regulation 21.23 the person concerned or his or her agent, that the fee has not been paid, the act is not taken to have been done, or the document is not taken to have been filed, before the day on which the fee is paid." ;
     tmk:upstreamRef "TMR1995/r21.21A" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.18> a tmk:LegislativeProvision ;
+    rdfs:label "Copy of earlier Convention application to be available to opponent"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:ae8a37cc1ae052143ebde48d3417434eb1a7e45ef223b0d3ed98120076dcc403" ;
+    tmk:text "(1) In opposition proceedings relating to an application in respect of which the applicant claims a right of priority, an opponent may request the Registrar for a copy of an earlier application to be made available. (2) On receiving the request, the Registrar must require the applicant to file: (a) a copy of the earlier application certified in the trade marks office (or its equivalent) of the Convention country in which it was filed; and (b) if the earlier application is not in English: (i) a translation of the earlier application into English; and (ii) a certificate of verification relating to the translation. (3) Subregulation (2) does not apply if the applicant has already filed the relevant documents. (4) The Registrar must give a copy of the documents to the opponent. (5) If the applicant is the successor in title to the person who made the earlier application, the Registrar may require the applicant to provide documentary evidence that is sufficient to establish the passing of title to the applicant." ;
+    tmk:upstreamRef "TMR1995/r5.18" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s17> a tmk:LegislativeProvision ;
     rdfs:label "What is a trade mark?"@en-AU ;
@@ -35584,6 +36582,16 @@
     tmk:contentHash "sha256:e23a942bc941d72394f8d189c675ada303a203c632cf196623e9bc72cb01075b" ;
     tmk:text "(1) An application to the Commission for its consent to the assignment of a registered certification trade mark must: (a) be made by the registered owner of the certification trade mark; and (b) state the name, address, and address for service of the prospective assignee; and (c) state whether the prospective assignee proposes to continue after assignment to apply the same rules governing use of the registered certification trade mark that the registered owner of the trade mark applies; and (d) if the prospective assignee does not propose to continue to apply those rules: (i) state any variation of the rules that the prospective assignee proposes to apply after assignment; and (ii) have with it a copy of the rules incorporating the proposed variation that the prospective assignee proposes to apply after assignment. (2) If the prospective assignee does not propose after the assignment to continue to apply the same rules governing use of the registered certification trade mark as the registered owner of the trade mark applies, the Commission must have regard to the following matters in considering an application: (a) whether under the proposed rules the attributes a person must have to become an approved certifier are sufficient, in the opinion of the Commission, to enable a person to competently assess whether or not goods or services meet the certification requirements; (b) whether the proposed rules would not be to the detriment of the public; (c) whether the proposed rules are satisfactory, having regard to the criteria prescribed in regulation 16.6." ;
     tmk:upstreamRef "TMR1995/r16.11" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.16> a tmk:LegislativeProvision ;
+    rdfs:label "Examination of IRDA—report to holder"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:e13d8cbb91d399c85cb595159658691a0a758993bf5ebda6d087ab2b260c380d" ;
+    tmk:text "(1) If, in the course of an examination of an IRDA, the Registrar reasonably believes that: (a) the IRDA is not in accordance with this Division; or (b) there are grounds under Subdivision 2 for rejecting it in whole or in part; the Registrar must send a report in accordance with rule 17 of the Madrid Regulations to the holder through the intermediary of the International Bureau. (2) Such a report is a provisional refusal for the purposes of the Protocol. (3) The report must include: (a) notice of the date by which the Registrar must notify his or her final decision on examination to the International Bureau; and (b) notice that the Registrar is not required to consider any response by the holder to the report unless the holder has notified the Registrar, in writing, of the holder’s address for service in Australia or New Zealand. Note: Under the Protocol, protection must be extended in Australia to a trade mark that is the subject of an IRDA at the end of 18 months after the International Bureau notifies the Trade Marks Office of the IRDA unless, before then, the International Bureau receives: (a) notification of a provisional or final refusal from the Trade Marks Office; or (b) notification of the possibility that oppositions may be filed after the 18month period." ;
+    tmk:upstreamRef "TMR1995/r17A.16" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r4.4> a tmk:LegislativeProvision ;
     rdfs:label "Specification of goods and/or services"@en-AU ;
@@ -36605,16 +37613,6 @@
     tmk:text "(b) its use would be contrary to law." ;
     tmk:upstreamRef "TMA1995/s42(b)" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> a tmk:LegislativeProvision ;
-    rdfs:label "Identical etc. trade marks"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
-    tmk:contentHash "sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa" ;
-    tmk:text "(1) Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s trade mark) in respect of goods (applicant’s goods) must be rejected if: (a) the applicant’s trade mark is substantially identical with, or deceptively similar to: (i) a trade mark registered by another person in respect of similar goods or closely related services; or (ii) a trade mark whose registration in respect of similar goods or closely related services is being sought by another person; and (b) the priority date for the registration of the applicant’s trade mark in respect of the applicant’s goods is not earlier than the priority date for the registration of the other trade mark in respect of the similar goods or closely related services. Note 1: For deceptively similar see section 10. Note 2: For similar goods see subsection 14(1). Note 3: For priority date see section 12. Note 4: The regulations may provide that an application must also be rejected if the trade mark is substantially identical with, or deceptively similar to, a protected international trade mark or a trade mark for which there is a request to extend international registration to Australia: see Part 17A. (2) Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s trade mark) in respect of services (applicant’s services) must be rejected if: (a) it is substantially identical with, or deceptively similar to: (i) a trade mark registered by another person in respect of similar services or closely related goods; or (ii) a trade mark whose registration in respect of similar services or closely related goods is being sought by another person; and (b) the priority date for the registration of the applicant’s trade mark in respect of the applicant’s services is not earlier than the priority date for the registration of the other trade mark in respect of the similar services or closely related goods. Note 1: For deceptively similar see section 10. Note 2: For similar services see subsection 14(2). Note 3: For priority date see section 12. Note 4: The regulations may provide that an application must also be rejected if the trade mark is substantially identical with, or deceptively similar to, a protected international trade mark or a trade mark for which there is a request to extend international registration to Australia: see Part 17A. (3) If the Registrar in either case is satisfied: (a) that there has been honest concurrent use of the 2 trade marks; or (b) that, because of other circumstances, it is proper to do so; the Registrar may accept the application for the registration of the applicant’s trade mark subject to any conditions or limitations that the Registrar thinks fit to impose. If the applicant’s trade mark has been used only in a particular area, the limitations may include that the use of the trade mark is to be restricted to that particular area. Note: For limitations see section 6. (4) If the Registrar in either case is satisfied that the applicant, or the applicant and the predecessor in title of the applicant, have continuously used the applicant’s trade mark for a period: (a) beginning before the priority date for the registration of the other trade mark in respect of: (i) the similar goods or closely related services; or (ii) the similar services or closely related goods; and (b) ending on the priority date for the registration of the applicant’s trade mark; the Registrar may not reject the application because of the existence of the other trade mark. Note 1: An authorised use of the trade mark by a person is taken to be a use of the trade mark by the owner of the trade mark (see subsection 7(3)). Note 2: For predecessor in title see section 6. Note 3: For priority date see section 12." ;
-    tmk:upstreamRef "TMA1995/s44" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> a tmk:LegislativeProvision ;
     rdfs:label "Trade mark not distinguishing applicant’s goods or services"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
@@ -36624,6 +37622,16 @@
     tmk:contentHash "sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62" ;
     tmk:text "(1) An application for the registration of a trade mark must be rejected if the trade mark is not capable of distinguishing the applicant’s goods or services in respect of which the trade mark is sought to be registered (the designated goods or services) from the goods or services of other persons. Note: For goods of a person and services of a person see section 6. (2) A trade mark is taken not to be capable of distinguishing the designated goods or services from the goods or services of other persons only if either subsection (3) or (4) applies to the trade mark. (3) This subsection applies to a trade mark if: (a) the trade mark is not to any extent inherently adapted to distinguish the designated goods or services from the goods or services of other persons; and (b) the applicant has not used the trade mark before the filing date in respect of the application to such an extent that the trade mark does in fact distinguish the designated goods or services as being those of the applicant. (4) This subsection applies to a trade mark if: (a) the trade mark is, to some extent, but not sufficiently, inherently adapted to distinguish the designated goods or services from the goods or services of other persons; and (b) the trade mark does not and will not distinguish the designated goods or services as being those of the applicant having regard to the combined effect of the following: (i) the extent to which the trade mark is inherently adapted to distinguish the goods or services from the goods or services of other persons; (ii) the use, or intended use, of the trade mark by the applicant; (iii) any other circumstances. Note 1: Trade marks that are not inherently adapted to distinguish goods or services are mostly trade marks that consist wholly of a sign that is ordinarily used to indicate: (a) the kind, quality, quantity, intended purpose, value, geographical origin, or some other characteristic, of goods or services; or (b) the time of production of goods or of the rendering of services. Note 2: For goods of a person and services of a person see section 6. Note 3: Use of a trade mark by a predecessor in title of an applicant and an authorised use of a trade mark by another person are each taken to be use of the trade mark by the applicant (see subsections (5) and 7(3) and section 8). (5) For the purposes of this section, the use of a trade mark by a predecessor in title of an applicant for the registration of the trade mark is taken to be a use of the trade mark by the applicant. Note 1: For applicant and predecessor in title see section 6. Note 2: If a predecessor in title had authorised another person to use the trade mark, any authorised use of the trade mark by the other person is taken to be a use of the trade mark by the predecessor in title (see subsection 7(3) and section 8)." ;
     tmk:upstreamRef "TMA1995/s41" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> a tmk:LegislativeProvision ;
+    rdfs:label "Identical etc. trade marks"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa" ;
+    tmk:text "(1) Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s trade mark) in respect of goods (applicant’s goods) must be rejected if: (a) the applicant’s trade mark is substantially identical with, or deceptively similar to: (i) a trade mark registered by another person in respect of similar goods or closely related services; or (ii) a trade mark whose registration in respect of similar goods or closely related services is being sought by another person; and (b) the priority date for the registration of the applicant’s trade mark in respect of the applicant’s goods is not earlier than the priority date for the registration of the other trade mark in respect of the similar goods or closely related services. Note 1: For deceptively similar see section 10. Note 2: For similar goods see subsection 14(1). Note 3: For priority date see section 12. Note 4: The regulations may provide that an application must also be rejected if the trade mark is substantially identical with, or deceptively similar to, a protected international trade mark or a trade mark for which there is a request to extend international registration to Australia: see Part 17A. (2) Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s trade mark) in respect of services (applicant’s services) must be rejected if: (a) it is substantially identical with, or deceptively similar to: (i) a trade mark registered by another person in respect of similar services or closely related goods; or (ii) a trade mark whose registration in respect of similar services or closely related goods is being sought by another person; and (b) the priority date for the registration of the applicant’s trade mark in respect of the applicant’s services is not earlier than the priority date for the registration of the other trade mark in respect of the similar services or closely related goods. Note 1: For deceptively similar see section 10. Note 2: For similar services see subsection 14(2). Note 3: For priority date see section 12. Note 4: The regulations may provide that an application must also be rejected if the trade mark is substantially identical with, or deceptively similar to, a protected international trade mark or a trade mark for which there is a request to extend international registration to Australia: see Part 17A. (3) If the Registrar in either case is satisfied: (a) that there has been honest concurrent use of the 2 trade marks; or (b) that, because of other circumstances, it is proper to do so; the Registrar may accept the application for the registration of the applicant’s trade mark subject to any conditions or limitations that the Registrar thinks fit to impose. If the applicant’s trade mark has been used only in a particular area, the limitations may include that the use of the trade mark is to be restricted to that particular area. Note: For limitations see section 6. (4) If the Registrar in either case is satisfied that the applicant, or the applicant and the predecessor in title of the applicant, have continuously used the applicant’s trade mark for a period: (a) beginning before the priority date for the registration of the other trade mark in respect of: (i) the similar goods or closely related services; or (ii) the similar services or closely related goods; and (b) ending on the priority date for the registration of the applicant’s trade mark; the Registrar may not reject the application because of the existence of the other trade mark. Note 1: An authorised use of the trade mark by a person is taken to be a use of the trade mark by the owner of the trade mark (see subsection 7(3)). Note 2: For predecessor in title see section 6. Note 3: For priority date see section 12." ;
+    tmk:upstreamRef "TMA1995/s44" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> a tmk:LegislativeProvision ;
     rdfs:label "Trade mark likely to deceive or cause confusion"@en-AU ;

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005766,
+ "created_utc": "2026-10-07T08:32:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0010",
+ "job": "relate",
+ "key": "0a3af09ebc4a7052c2d3eb376e0618c8d20d41348da4ddf04ad6e94ecdd3bff5",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"A precise word description of the trade mark would be a satisfactory representation of a scent trade mark, however the results of analytical techniques would not be as they would not be readily understood by the ordinary person searching the Register.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to: the passage connects the ordinary person with scent trade marks only through their representation.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"The Manual uses intelligibility to the ordinary person to distinguish satisfactory from unsatisfactory representations of scent trade marks. The relationship concerns representation, not scent trade marks generally.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether a representation-specific qualification should attach to the scent trade mark concept itself.\",\n      \"passage_ref\": \"TMM/Part10/3/3/4/3\",\n      \"neighbour\": \"GC-0078\"\n    },\n    {\n      \"quote\": \"This concept also considers the likely expectations and level of awareness of the ordinary consumer of the goods/services.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to: consumer expectations are associated with, but do not qualify, the fanciful-description assessment.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"In context, 'This concept' refers to understanding a connotation as a fanciful or unrealistic description. The Manual expressly makes ordinary-consumer expectations and awareness relevant to that assessment.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour's inclusion of ambiguous geographic references extends beyond the fanciful or unrealistic descriptions supported here.\",\n      \"passage_ref\": \"TMM/Part29/4#1\",\n      \"neighbour\": \"GC-0048\"\n    },\n    {\n      \"quote\": \"The graphical representation must be in a form that conveys information to the ordinary person allowing them to identify the trade mark.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"requiresElement, neighbour_to_anchor: graphical representation requires identification by the ordinary person.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.89,\n      \"reasoning\": \"The Manual requires a graphical representation to communicate enough information for the ordinary person to identify the mark. This qualifies acceptable graphical representation rather than making the consumer an element of the refusal ground.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the combined record for graphical representation and inability to represent graphically obscures the distinction between the requirement and the refusal ground.\",\n      \"passage_ref\": \"TMM/Part21/7/7/1\",\n      \"neighbour\": \"GC-0057\"\n    },\n    {\n      \"quote\": \"A trade mark is likely to cause confusion if the ordinary person entertains a reasonable doubt about whether the goods and services come from the same source.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"statesThresholdFor: the ordinary-person concept itself states the threshold for confusion.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual's summary attributed to Metro assesses likely confusion by reference to the ordinary person's reasonable doubt about common source. The consumer perspective qualifies the assessment; reasonable doubt, rather than the consumer concept alone, supplies the stated threshold.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this common-source formulation should be limited to the closely related goods and services context.\",\n      \"passage_ref\": \"TMM/Part26/4/4/3~3\",\n      \"neighbour\": \"GC-0004\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "d18e17f7d723712c55cc81a4bd2a28b27b96424bc0b8786dc6f491d1a8e948cf",
+ "response_id": "resp_0efd8830e8887701006ac60382ed4487d2aed8b272a448f27c",
+ "seconds": 30.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3868,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3865
+  },
+  "output_tokens": 1114,
+  "output_tokens_details": {
+   "reasoning_tokens": 275
+  },
+  "total_tokens": 4982
+ }
+}

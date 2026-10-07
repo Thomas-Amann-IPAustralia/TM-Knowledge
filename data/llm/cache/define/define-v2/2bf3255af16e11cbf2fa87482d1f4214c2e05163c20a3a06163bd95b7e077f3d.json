@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002958,
+ "created_utc": "2026-10-07T08:34:54Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "originate",
+ "job": "define",
+ "key": "2bf3255af16e11cbf2fa87482d1f4214c2e05163c20a3a06163bd95b7e077f3d",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"If GC-0019 geographical origin already includes the wine-specific statutory test in section 15, treat this as a duplicate of GC-0019 instead.\",\n  \"definition_quote\": \"For the purposes of this Act: (a) a wine is taken to have originated in a foreign country or Australia only if the wine is made from grapes grown within the territory of that country or of Australia, as the case may be; and (b) a wine is taken to have originated in a particular region or locality of a foreign country or of Australia only if the wine is made from grapes grown in that region or locality.\",\n  \"alt_labels\": [\n    \"originate, in relation to wine\"\n  ],\n  \"confidence\": 0.88,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: In relation to wine, this statutory concept ties origin in a country, region or locality to where the grapes used to make the wine were grown.\",\n  \"expert_should_check\": \"Check whether GC-0019 geographical origin already encompasses this wine-specific statutory test; only its label has been supplied.\",\n  \"legislative_basis\": [\n    \"TMA1995/s6\",\n    \"TMA1995/s15\"\n  ],\n  \"pref_label\": \"originate\",\n  \"definition_ref\": \"TMA1995/s15\",\n  \"reasoning\": \"Section 6 expressly gives 'originate' a statutory meaning in relation to wine by referring to section 15. Section 15 supplies necessary conditions for attributing geographical origin to wine, supporting a distinct legal-test concept rather than a generic English verb. The Manual passages use 'originate' more generally for commercial source and do not define this wine-specific test. The supplied label for GC-0019 suggests possible overlap, but does not establish that it already holds this specialised test.\",\n  \"not_labels\": [\n    \"geographical indication\",\n    \"geographical origin\",\n    \"business identifier\"\n  ],\n  \"group\": \"legal_test\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "500b2d7bb9f8ac77b3cd7f33d93760ce7283a8a4ddbce6328f26011aee22f8fa",
+ "response_id": "resp_0f47ca90d24a56a1006ac60411afbc87d28c4b15ce086cc2f3",
+ "seconds": 29.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2995,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2992
+  },
+  "output_tokens": 561,
+  "output_tokens_details": {
+   "reasoning_tokens": 119
+  },
+  "total_tokens": 3556
+ }
+}

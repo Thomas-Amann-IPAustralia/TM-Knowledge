@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:35:49Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "repealed Act",
+ "job": "define",
+ "key": "09ada085f9f0ba2a38580bed2978ceb441b8c117b41eba5437a76fb5913eab1b",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "983542b795d2400713b8708e09491ebd5c6d03ea162f642eb38a31f632c2da09",
+ "response_id": "resp_09d2bc9d921ab9c2006ac6046001e087d281656fa490abe74e",
+ "seconds": 6.2,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

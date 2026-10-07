@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005996,
+ "created_utc": "2026-10-07T08:29:28Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-030",
+ "job": "needs",
+ "key": "61ef22b9b40dd0b83f8d348441aa9523291fa8c04f22ae55a1e00bffa3c1e8cb",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"The answer must list the suggested class descriptions for different kinds of powders, so the user can choose a narrower term. It should cover the range of classes shown for powders across goods, not just one example.\",\"search\":\"powders class alternatives\",\"seed_refs\":[\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\"],\"kind\":\"lookup\",\"question\":\"What class wording should I use instead of just \\\"powders\\\"?\"},{\"narrative\":\"The answer must explain whether use by someone before the current proprietor can count, and what has to be shown in each timing scenario. It should also cover the point about use by an authorised user and the need for actual control.\",\"search\":\"rely on use by previous owner or authorised user\",\"seed_refs\":[\"TMM/Part23/3/3/1\"],\"kind\":\"problem\",\"question\":\"Can I rely on use made before I bought the business, or by someone I authorised to use the mark?\"},{\"narrative\":\"The answer must connect cancellation of a registration with the loss of the rights that came from registration, and then explain whether the applicant name or business name affects ownership. It should make clear what changes when the registration ends and who is treated as the owner.\",\"search\":\"what happens if registration is cancelled and application has trading name\",\"seed_refs\":[\"TMM/Part41/1#1\",\"TMM/Part10/1/1/1/1\"],\"kind\":\"cross_part\",\"question\":\"If a registration is cancelled, does the trading name on the application still own the trade mark?\"},{\"narrative\":\"The answer must explain who is affected when the listed signs are used without written consent, and what kind of consent is required. It should cover the practical effect of the prohibition on using those signs for any purpose.\",\"search\":\"using red cross or red crescent without consent\",\"seed_refs\":[\"TMM/Part30/3/3/5~1\"],\"kind\":\"impact\",\"question\":\"Who needs written permission before using the Red Cross or Red Crescent signs?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "a7c8da5607713d9bcc9739a3a50d461f73c83a29f6d58d456328ec9afad386de",
+ "response_id": "resp_0910802bdc576865006ac602e2425c87d2a797d9cfbe42d8d6",
+ "seconds": 6.4,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1713,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1047,
+  "output_tokens_details": {
+   "reasoning_tokens": 301
+  },
+  "total_tokens": 2760
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:33:05Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "subpoena",
+ "job": "define",
+ "key": "1c28942b7ffe3eb774fa81553e3478893d6d09c7ec29d36f15e49479d7538681",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "2b637197502b193eb675ff66318e0745d4f2f6db6cf9933983e2a3538c28bd2c",
+ "response_id": "resp_06de6fe59d1406f5006ac603bec73887d2be31f86fc4c94be2",
+ "seconds": 3.5,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

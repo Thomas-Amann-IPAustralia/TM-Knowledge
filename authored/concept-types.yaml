@@ -5261,3 +5261,743 @@
       on which sense of reputation is meant.
     expert_should_check: >-
       Settle whether this is one concept or several before typing it.
+- id: GT-0131
+  concept: GC-0131
+  type: instrument_or_record
+  basis:
+  - TMR1995/r5.2/trade-mark-application
+  notes: trade mark application
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r5.2/trade-mark-application
+      span:
+      - 0
+      - 105
+      content_hash: sha256:79b9dd2e3c6767aaf130bd2d1b5520294d27bed78992cfb2d1e1173986686e92
+      quote: trade mark application means an application for registration of a trade mark
+        under section 27 of the Act.
+    confidence: 0.96
+    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly define
+      the term, and section 27 supplies the application requirements and required contents.
+      The application is best treated as an instrument or record, rather than the act of filing
+      or the trade mark sought to be registered. No existing concept covers the general application:
+      divisional and convention applications are more specific concepts, while examination,
+      acceptance and amendment concern its processing. The regulatory definition is substantive
+      rather than merely a direction to another definition, so it is retained as the definition
+      quote.'
+    alternatives_considered:
+    - The act of applying could be modelled separately as a procedural_step; this concept
+      represents the application itself.
+    expert_should_check: Check whether the definition in regulation 5.2 has a limited contextual
+      scope before adopting it throughout the ontology.
+- id: GT-0132
+  concept: GC-0132
+  type: process_role
+  basis:
+  - TMM/Part27/x-relevant-legislation26#1
+  notes: holder
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part27/x-relevant-legislation26#1
+      span:
+      - 336
+      - 490
+      content_hash: sha256:5b3fc6fb1265522f331e81a78669b81c0b15824fbaf9034d40300d25bc1322fe
+      quote: Reg 17A.16 Examination of IRDA – report to holder Reg 17A.17 Examination – holder’s
+        response to report Reg 17A.18 Examination – further response to holder
+    confidence: 0.84
+    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly introduce
+      a definition of holder, although its substance is missing from the supplied passage.
+      The Manual’s legislative-reference list identifies the holder as the recipient of reports
+      and the responding party in examination of an IRDA, supporting a distinct process role.
+      The supplied material does not establish equivalence with the existing applicant or
+      registered owner concepts. Uses concerning business names and copyright are separate
+      contexts, not evidence of the international-registration meaning. The quoted Manual
+      text identifies procedural provisions; it is not itself legislation or a complete legal
+      definition.'
+    alternatives_considered:
+    - If a complete statutory definition is required before creating the concept, defer inclusion
+      until the remainder of regulation 17A.2 is supplied.
+    expert_should_check: 'Check the complete definition in regulation 17A.2: the supplied
+      statutory passage stops at ‘holder means:’ and does not establish precisely who qualifies
+      as the holder.'
+- id: GT-0133
+  concept: GC-0133
+  type: process_role
+  basis:
+  - TMA1995/s6/commission
+  notes: Commission
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/commission
+      span:
+      - 0
+      - 124
+      content_hash: sha256:2433d7b98eab9485eaa943d2317b70f6e00f3d19a1b31d7b5a8569bd3cbfa0ac
+      quote: Commission means the Australian Competition and Consumer Commission established
+        under the Competition and Consumer Act 2010.
+    confidence: 0.99
+    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly identifies
+      a specific statutory body, distinct from the existing concepts, so the term warrants
+      a process_role concept. The Manual passages identify that body in connection with time
+      allowances and matters sent to it during deferment; these are statements of practice,
+      not legislative definitions. The generic lower-case use of ''commission'' in the ownership
+      passage does not identify this defined body. Only section 6 is supplied as legislative
+      text, so the other cited provisions cannot be verified as legislative grounds for its
+      functions here.'
+    alternatives_considered: []
+    expert_should_check: Check the precise functions under the cited Part 16 provisions and
+      regulations, whose text has not been supplied.
+- id: GT-0134
+  concept: GC-0134
+  type: process_role
+  basis:
+  - TMR1995/r2.1/art
+  notes: ART
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r2.1/art
+      span:
+      - 0
+      - 45
+      content_hash: sha256:da8dd7ee37544b8b7dcf4f35cb1b52e712d44a36a4fab20c1c28b1cc3277b196
+      quote: ART means the Administrative Review Tribunal.
+    confidence: 0.99
+    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly define
+      ART as the Administrative Review Tribunal. This names a legal body and fits process_role;
+      no existing concept names that body. The Manual passages concern lowercase art as goods
+      or classification wording, not the statutory abbreviation. None of the provisions listed
+      under PROVISIONS is reproduced, so their contribution to the Tribunal’s role cannot
+      be established from the supplied text.'
+    alternatives_considered: []
+    expert_should_check: Confirm the Tribunal’s trade marks review functions against the cited
+      provisions, whose text has not been supplied.
+- id: GT-0135
+  concept: GC-0135
+  type: procedural_step
+  basis:
+  - TMR1995/r17A.48/cessation-of-protection
+  notes: cessation of protection
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r17A.48/cessation-of-protection
+      span:
+      - 0
+      - 119
+      content_hash: sha256:296273c3f151d5da979696b9eda33e587b3201df60c0ce113cb8e063c531320a
+      quote: cessation of protection means the cessation of protection of a trade mark that
+        is a protected international trade mark.
+    confidence: 0.96
+    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly define
+      the term, and the Manual describes applications and opposition procedures concerning
+      cessation for non-use. It names an event ending protection and therefore fits procedural_step.
+      It is distinct from removal for non-use of a registered trade mark: the supplied definition
+      concerns a protected international trade mark. No existing concept expressly covers
+      this event. The listed legislative provisions cannot be assessed as grounding provisions
+      without their text.'
+    alternatives_considered: []
+    expert_should_check: Confirm the scope of the definition in regulation 17A.48 and which
+      of the listed provisions provide its legislative basis; their substantive text was not
+      supplied.
+- id: GT-0136
+  concept: GC-0136
+  type: process_role
+  basis:
+  - TMM/Part11/4/4/1
+  notes: Office of origin
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part11/4/4/1
+      span:
+      - 679
+      - 923
+      content_hash: sha256:51221c1a2f2527b381533dfa5181b5d050df248bb4f1debb8513452f4094590e
+      quote: However, if the cited mark is an international registration designating Australia
+        (IRDA) then it is not necessary to verify the claim, as the Office of Origin has already
+        verified it and it has been accepted by the International Bureau of WIPO.
+    confidence: 0.9
+    reasoning: 'Typed in the same judgement as the concept: This is a named institutional
+      role, not a generic phrase or a duplicate of the Registrar or Madrid Protocol concepts.
+      The Manual describes its priority-verification role and distinguishes it from the International
+      Bureau in classification disputes. Regulation 17A.2 expressly points to Article 2(2)
+      for its meaning; because that Article is absent, the quotation provides a supported
+      role description rather than a complete legal definition. None of the listed PROVISIONS
+      is supplied with text establishing its legislative basis.'
+    alternatives_considered: []
+    expert_should_check: 'Check Article 2(2) of the Protocol for the full definition: regulation
+      17A.2 incorporates it, but that Article is not supplied here.'
+- id: GT-0137
+  concept: GC-0137
+  type: none_of_these
+  basis:
+  - TMA1995/s9/covering
+  notes: covering
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s9/covering
+      span:
+      - 0
+      - 76
+      content_hash: sha256:0d5190d4b63fe7db5c185b9604132cfaefc682763da4282fe126a2babbe3d203
+      quote: covering includes packaging, frame, wrapper, container, stopper, lid or cap.
+    confidence: 0.95
+    reasoning: 'Typed in the same judgement as the concept: Section 9 expressly defines the
+      noun ''covering'', making it a distinct legal concept rather than merely a goods category
+      or generic expression. No existing concept duplicates it. The Manual passages instead
+      use ''covering'' in its ordinary sense of encompassing classes, goods, services or searches.
+      None of the supplied groups clearly fits the defined physical covering, so none_of_these
+      is preferred. The listed PROVISIONS do not ground this definition; section 9 is supplied
+      as a passage but is absent from that list.'
+    alternatives_considered: []
+    expert_should_check: 'Confirm its ontology placement: the supplied definition establishes
+      a statutory concept but does not explain its procedural function.'
+- id: GT-0138
+  concept: GC-0138
+  type: process_role
+  basis:
+  - TMR1995/r17A.2/international-bureau
+  notes: International Bureau
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r17A.2/international-bureau
+      span:
+      - 0
+      - 100
+      content_hash: sha256:3ea95c2297a482f46c309226f212723ad4cb3dec86f77641aa94eab8a4bedd26
+      quote: International Bureau means the International Bureau of the World Intellectual
+        Property Organisation.
+    confidence: 0.99
+    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly define
+      the term as a named body, so it fits process_role. The Manual describes its acceptance
+      of verified priority claims and states that its opinion stands in classification disputes
+      involving Madrid Protocol export applications. These are descriptions of practice, not
+      additional legislative definitions. No existing concept identifies this body; the Madrid
+      Protocol is a distinct international instrument.'
+    alternatives_considered: []
+    expert_should_check: Check the precise scope of its functions against the applicable Madrid
+      Protocol provisions; the supplied passages describe only selected roles.
+- id: GT-0139
+  concept: GC-0139
+  type: process_role
+  basis:
+  - TMA1995/s190
+  notes: prescribed court
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s190
+      span:
+      - 0
+      - 355
+      content_hash: sha256:a413cca894098ec104fee9faa457a27f67d9b084430e1b7bcd027ba6709a4156
+      quote: 'Each of the following courts is a prescribed court for the purposes of this
+        Act: (a) the Federal Court; (aa) the Federal Circuit and Family Court of Australia
+        (Division 2); (b) the Supreme Court of a State; (c) the Supreme Court of the Australian
+        Capital Territory; (d) the Supreme Court of the Northern Territory; (e) the Supreme
+        Court of Norfolk Island.'
+    confidence: 0.99
+    reasoning: 'Typed in the same judgement as the concept: The term names an expressly defined
+      statutory class of courts, not a generic phrase or an existing concept. Section 6 refers
+      to section 190, which supplies the substantive list and is therefore preferred for the
+      definition quote. The process_role group fits because these courts are bodies in which
+      proceedings under the Act may be brought. The Manual passages describe deferment practice
+      associated with court proceedings; they do not define the statutory class. Other cited
+      provisions are not supplied in full, so their precise contribution cannot be confirmed
+      from these passages.'
+    alternatives_considered: []
+    expert_should_check: Check the currency of the supplied section 190 court list before
+      using it as a statement of current law.
+- id: GT-0140
+  concept: GC-0140
+  type: subject_matter
+  basis:
+  - TMA1995/s9/label
+  notes: label
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s9/label
+      span:
+      - 0
+      - 32
+      content_hash: sha256:4d5ccddf3172e8ed7ad737361ac958c5407b7b2c896eef94f862c7d47997d053
+      quote: label includes a band or ticket.
+    confidence: 0.88
+    reasoning: 'Typed in the same judgement as the concept: The legislative passage expressly
+      gives label an inclusive definition, supporting a distinct concept rather than merely
+      generic packaging terminology. The Manual passages also discuss a label''s parts and
+      presentation in assessing use as a trade mark. Label is not synonymous with the existing
+      concepts sign or trade mark: the Manual indicates that parts of a label may perform
+      a distinguishing function. Subject_matter is the closest group, although the supplied
+      passages do not establish that every label is itself registrable. No listed legislative
+      provision can be confirmed as grounding it from the supplied text.'
+    alternatives_considered:
+    - Treat label as ordinary packaging terminology if the ontology excludes expressly defined
+      physical forms associated with trade marks.
+    expert_should_check: Verify the supplied TMA1995/s9/label reference and which listed provisions
+      ground the concept; their text is not supplied.
+- id: GT-0141
+  concept: GC-0141
+  type: none_of_these
+  basis:
+  - TMM/Part11/7/7/2
+  notes: date of registration
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part11/7/7/2
+      span:
+      - 0
+      - 355
+      content_hash: sha256:f9d1bcd574f4fe8cdf62085a1c35c3fd899175349303c5fc1b35f7411393575a
+      quote: Where different priority claims are made in respect of the specification of a
+        single convention application on the basis of earlier applications made in convention
+        countries at different times, the effective date of registration of the Australian
+        trade mark is the relevant date of the earlier application for each of the particular
+        goods and/or services.
+    confidence: 0.78
+    reasoning: 'Typed in the same judgement as the concept: The statutory fragment expressly
+      introduces a defined term, making this more than a generic date phrase, but omits its
+      defining content. The Manual supplies the best available explanation of its effective-date
+      usage. It relates registration to priority dates without establishing that the concepts
+      are identical, so it is not treated as a duplicate of priority date or filing date.
+      A temporal attribute fits none of the listed groups closely. The cited provisions are
+      not reproduced, so their grounding role cannot be verified from these passages; the
+      Manual explanation is practice, not legislation.'
+    alternatives_considered:
+    - Consider separating the statutory date of registration from the Manual's effective date
+      of registration if the complete statutory definition shows they differ.
+    expert_should_check: Check the complete section 6 definition, whether 'effective date
+      of registration' is equivalent to the statutory term, and which of the cited provisions
+      actually ground it.
+- id: GT-0142
+  concept: GC-0142
+  type: procedural_step
+  basis:
+  - TMR1995/r9.2/application-for-removal
+  notes: application for removal
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r9.2/application-for-removal
+      span:
+      - 0
+      - 91
+      content_hash: sha256:da123870ab129c8445936f7edeadde64ffb532dae9b3576cdb52df6c8f6fe5a5
+      quote: application for removal means an application for removal of a trade mark from
+        the Register.
+    confidence: 0.88
+    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly define
+      the term. The Manual describes filing the application, opposition to it and rebuttal,
+      supporting a distinct procedural concept rather than a generic phrase. It is provisionally
+      distinguished from GC-0104 removal for non-use because the application initiates the
+      process and is not itself removal. The Manual also expressly distinguishes it from an
+      application for cessation of protection concerning a protected international trade mark.'
+    alternatives_considered:
+    - If GC-0104 removal for non-use already includes the initiating application as well as
+      the removal process, this term could instead be treated as a label within that concept.
+    expert_should_check: Check whether GC-0104 already encompasses the initiating application;
+      the existing concept's label alone does not establish its scope.
+- id: GT-0143
+  concept: GC-0143
+  type: procedural_step
+  basis:
+  - TMR1995/r17A.29/extension-of-protection
+  notes: extension of protection
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r17A.29/extension-of-protection
+      span:
+      - 0
+      - 121
+      content_hash: sha256:173e4de8d116a02f7bbde02c5756f813ca0cf6cefa10dae9fa9d60083511a7d1
+      quote: extension of protection means the extension of protection in Australia to the
+        trade mark that is the subject of the IRDA.
+    confidence: 0.96
+    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly define
+      the term, making it a distinct legal concept rather than a generic phrase. The Manual
+      explains that an IRDA requests extension of protection in Australia and is not an application
+      for registration. The extension is distinct from the IRDA that requests it (GC-0113)
+      and the protected international trade mark status (GC-0114). Procedural_step is the
+      closest fit for the event extending protection to Australia.'
+    alternatives_considered:
+    - The group none_of_these could fit if extension of protection is modelled as a legal
+      effect rather than a procedural event.
+    expert_should_check: Confirm whether procedural_step best captures the extension itself,
+      rather than the request for extension or the resulting protected status.
+- id: GT-0144
+  concept: GC-0144
+  type: instrument_or_record
+  basis:
+  - TMM/Part54/1/1/1
+  notes: subpoena
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part54/1/1/1
+      span:
+      - 0
+      - 157
+      content_hash: sha256:db97e03e9d221dd1edd852d03de326c360b3df9ff395003d9172376ebd6f7d40
+      quote: A subpoena is a document issued by a court, requiring the person named to attend
+        at the court to give oral evidence and/or produce documents or other things.
+    confidence: 0.99
+    reasoning: 'Typed in the same judgement as the concept: The Manual expressly defines a
+      subpoena as a court-issued document and describes its service on, and handling by, the
+      Registrar of Trade Marks. It is a distinct procedural instrument, not a goods or services
+      category, generic phrase or existing concept. The Manual passages describe practice
+      and court requirements; they do not establish that the cited Trade Marks Act provisions
+      ground the concept.'
+    alternatives_considered: []
+    expert_should_check: 'Check the relevance of TMA1995/s154 and TMA1995/s202(b): their text
+      is not supplied, so their relationship to subpoenas cannot be verified from these passages.'
+- id: GT-0145
+  concept: GC-0145
+  type: legal_test
+  basis:
+  - TMA1995/s15
+  notes: originate
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s15
+      span:
+      - 0
+      - 405
+      content_hash: sha256:a3b5cb9e51ee7fee9849a3933ebf78292ddf80dedc8f802eea26518309784e1a
+      quote: 'For the purposes of this Act: (a) a wine is taken to have originated in a foreign
+        country or Australia only if the wine is made from grapes grown within the territory
+        of that country or of Australia, as the case may be; and (b) a wine is taken to have
+        originated in a particular region or locality of a foreign country or of Australia
+        only if the wine is made from grapes grown in that region or locality.'
+    confidence: 0.88
+    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly gives ''originate''
+      a statutory meaning in relation to wine by referring to section 15. Section 15 supplies
+      necessary conditions for attributing geographical origin to wine, supporting a distinct
+      legal-test concept rather than a generic English verb. The Manual passages use ''originate''
+      more generally for commercial source and do not define this wine-specific test. The
+      supplied label for GC-0019 suggests possible overlap, but does not establish that it
+      already holds this specialised test.'
+    alternatives_considered:
+    - If GC-0019 geographical origin already includes the wine-specific statutory test in
+      section 15, treat this as a duplicate of GC-0019 instead.
+    expert_should_check: Check whether GC-0019 geographical origin already encompasses this
+      wine-specific statutory test; only its label has been supplied.
+- id: GT-0146
+  concept: GC-0146
+  type: process_role
+  basis:
+  - TMA1995/s6/board
+  notes: Board
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMA1995/s6/board
+      span:
+      - 0
+      - 54
+      content_hash: sha256:4580da3404b27728550dab587acc03ee3f0fece76cc98428bfb9f5866e9835b8
+      quote: Board has the same meaning as in the Patents Act 1990.
+    confidence: 0.86
+    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly defines the
+      capitalised term by reference to another Act, supporting a distinct statutory concept
+      not represented in the existing concepts. Classification as process_role is inferred
+      and remains provisional because the referenced definition is not supplied. The Manual
+      occurrences concern goods or physical boards, not this statutory term. Neither supplied
+      passage establishes sections 41 or 42(b) as a legislative basis for Board.'
+    alternatives_considered: []
+    expert_should_check: Check the referenced definition in the applicable version of the
+      Patents Act 1990 to establish the Board’s identity and confirm its classification as
+      a process role.
+- id: GT-0147
+  concept: GC-0147
+  type: none_of_these
+  basis:
+  - TMA1995/s6/personal-information
+  notes: personal information
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/personal-information
+      span:
+      - 0
+      - 69
+      content_hash: sha256:07ba6beb409e6da164a1cf829a6300fe46fe5d257d1debb0d00a91e99529f87c
+      quote: personal information has the same meaning as in the Privacy Act 1988.
+    confidence: 0.94
+    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly incorporates
+      a statutory meaning, making this a legal concept rather than a generic phrase. It is
+      not duplicated by the existing concepts. The Manual describes its relevance to information-access
+      practice, but those descriptions are not the substantive definition. None of the groups
+      accurately describes a protected category of information: it is neither a document itself
+      nor the subject matter that may be registered. The incorporated Privacy Act definition
+      is unavailable, so the supplied cross-reference is retained. No supplied passage establishes
+      one of the listed PROVISIONS as the legislative basis for that definition.'
+    alternatives_considered: []
+    expert_should_check: 'Check the substantive definition in the Privacy Act 1988, which
+      is not supplied. Also check the instrument attribution of the cited provisions: the
+      Manual expressly attributes sections 11C and the third-party consultation requirements
+      to the FOI Act, not the Trade Marks Act.'
+- id: GT-0148
+  concept: GC-0148
+  type: process_role
+  basis:
+  - TMA1995/s6/lawyer
+  notes: lawyer
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/lawyer
+      span:
+      - 0
+      - 104
+      content_hash: sha256:9e3a92bd369fa55ce1e56ee90b55f09a370cd7e5748ea97497f9c6a60d5a6194
+      quote: lawyer means a barrister or solicitor of the High Court or of the Supreme Court
+        of a State or Territory.
+    confidence: 0.99
+    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly defines the
+      term, and the Manual passages give lawyers a procedural role as possible authorised
+      declarants. This is a distinct process role, not a generic phrase or an existing concept.
+      The declaration guidance is Registrar practice, whereas the definition is statutory.
+      None of the listed PROVISIONS is supplied with text establishing a legislative basis
+      for this role.'
+    alternatives_considered: []
+    expert_should_check: The supplied passages do not establish how the cited sections 41(3),
+      41(4) and 44 ground this role; check those links before recording them as legislative
+      bases.
+- id: GT-0149
+  concept: GC-0149
+  type: process_role
+  basis:
+  - TMR1995/r17A.2/contracting-party-of-the-holder
+  notes: Contracting Party of the holder
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r17A.2/contracting-party-of-the-holder
+      span:
+      - 0
+      - 99
+      content_hash: sha256:fd0b7f5b32b601067f30cb56111479f03f2c91a2b4f1045bbfd9164f103eaa78
+      quote: Contracting Party of the holder has the meaning given by Rule 1(xxvibis) of the
+        Madrid Regulations.
+    confidence: 0.88
+    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly define
+      this term by reference to the Madrid Regulations, making it a distinct legal concept
+      rather than a generic phrase or a duplicate of the Madrid Protocol. The referenced substantive
+      definition is unavailable in the supplied passages. The Manual explains the associated
+      Office''s procedural role in transmitting limitation and subsequent-designation requests;
+      this supports process_role, while not equating the Contracting Party with its Office.
+      No references were supplied under PROVISIONS, so legislative_basis is empty.'
+    alternatives_considered:
+    - none_of_these if the ontology treats the holder's associated treaty jurisdiction as
+      distinct from a procedural actor.
+    expert_should_check: Check Rule 1(xxvibis) of the Madrid Regulations for the substantive
+      definition, which is not supplied, and confirm whether process_role is the best classification
+      for the Contracting Party rather than its Office.
+- id: GT-0150
+  concept: GC-0150
+  type: instrument_or_record
+  basis:
+  - TMR1995/r17A.2/international-registration
+  notes: international registration of a trade mark
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMR1995/r17A.2/international-registration
+      span:
+      - 0
+      - 104
+      content_hash: sha256:d8c10b37b85ba40cac1ed442cd280474ebd847446a8f72eec025ce4ff22394f1
+      quote: international registration of a trade mark means registration of the mark in
+        the International Register.
+    confidence: 0.97
+    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly define
+      the term, making it a distinct legal concept best classified as a registration record.
+      It is broader than GC-0113, international registration designating Australia, because
+      its definition does not require an Australian designation. The Manual also distinguishes
+      international registration from Australian protection by describing the effect of cancellation
+      on a protected international trade mark. The defining legislative passage is regulation
+      17A.2. The only reference supplied under PROVISIONS, regulation 17A.27, is described
+      in the Manual as defining a declaration period for limitations, so it is not listed
+      as a legislative basis for this concept.'
+    alternatives_considered: []
+    expert_should_check: Confirm the relationship to GC-0113 and GC-0114 against their full
+      definitions; only their labels are supplied.
+- id: GT-0151
+  concept: GC-0151
+  type: instrument_or_record
+  basis:
+  - TMA1995/s6/old-register
+  notes: old register
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/old-register
+      span:
+      - 0
+      - 75
+      content_hash: sha256:2b6f30bd87ad84754d6d58ad6497b0d03ce2044ef2049d192a853f2a82e06291
+      quote: old register means the Register of Trade Marks kept under the repealed Act.
+    confidence: 0.97
+    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly defines the
+      term. The Manual distinguishes the old register under the 1955 Act from the Register
+      under the 1995 Act and describes the transfer of disclaimer particulars between them.
+      This supports a distinct historical record concept, rather than a duplicate of the general
+      Register of Trade Marks concept. The cited sections 207 and 238 concern that transition
+      as described by the Manual; the other supplied provision references concern disclaimers
+      or examination rather than defining the old register.'
+    alternatives_considered:
+    - Model as a historically distinct register related to GC-0089 Register of Trade Marks,
+      rather than as a synonym of that concept.
+    expert_should_check: Confirm the relationship to GC-0089 and verify sections 207 and 238
+      directly; their transitional effects are described here only through the Manual passages.
+- id: GT-0152
+  concept: GC-0152
+  type: subject_matter
+  basis:
+  - TMA1995/s6/services-of-a-person
+  notes: services of a person
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: gpt-6.1-sol
+    authored_date: '2026-10-07'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s6/services-of-a-person
+      span:
+      - 0
+      - 96
+      content_hash: sha256:7f04fb371bbe56058e621c0067593438eb0ac62755173c3024818f4fd4f40322
+      quote: services of a person means services dealt with or provided in the course of trade
+        by the person.
+    confidence: 0.94
+    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly defines the
+      expression by reference to a person''s trade activities. It is therefore a legal attribution
+      concept, not merely a services category or generic phrase, and no existing concept duplicates
+      it. The historical section 41 extracts illustrate its role in distinguishing an applicant''s
+      services from those of other persons. Subject_matter fits best because the expression
+      identifies the services to which trade mark protection relates. Sections 8 and 7(3)
+      are mentioned in nearby notes about authorised use, but the supplied passages do not
+      establish them as grounds for this definition.'
+    alternatives_considered:
+    - Treat as a statutory attribution concept rather than a category of services.
+    expert_should_check: Check whether subject_matter is the preferred grouping for statutory
+      attribution concepts; the supplied section 41 extracts concern the version prior to
+      Raising the Bar, not necessarily the current provision.

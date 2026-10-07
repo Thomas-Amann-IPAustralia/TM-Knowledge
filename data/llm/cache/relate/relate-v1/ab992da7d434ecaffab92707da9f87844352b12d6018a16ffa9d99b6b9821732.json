@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007476,
+ "created_utc": "2026-10-07T08:39:12Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0036",
+ "job": "relate",
+ "key": "ab992da7d434ecaffab92707da9f87844352b12d6018a16ffa9d99b6b9821732",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"The following terms are treated as synonymous and used interchangeably in plant industry literature: variety plant varietal name plant variety name variety denomination denomination name of a plant variety cultivar cultivated variety\",\n      \"relation\": \"same_concept\",\n      \"alternative\": \"related_to would understate the passage’s express identification of the terms as synonymous.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The Manual expressly treats plant varietal name and plant variety name as synonymous in this context.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the anchor’s broader alias 'other plant name' warrants a separate concept.\",\n      \"passage_ref\": \"TMM/Part32A/2/3/2-3-1-a-variety-names\",\n      \"neighbour\": \"GC-0125\"\n    },\n    {\n      \"quote\": \"The trade mark application may be accepted if the applicant provides a Letter of Consent from the PBR title holder, agreeing to the use and registration of the PBR variety name or synonym as part of a trade mark for the offending goods (see s 11 of the PBR Act). In this circumstance, the owner of the trade mark will need to agree to an endorsement to that effect. The goods will also need to be restricted to accord with the plant variety name or synonym.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to is a more cautious reading if qualification of acceptance is reserved for the consent and endorsement themselves.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.78,\n      \"reasoning\": \"The Manual’s conditional acceptance practice requires the goods to accord with the plant variety name or synonym. I infer that the name qualifies the scope of acceptance, rather than independently permitting acceptance.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the qualifying subject should instead be the goods restriction or Letter of Consent.\",\n      \"passage_ref\": \"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\n      \"neighbour\": \"GC-0093\"\n    },\n    {\n      \"quote\": \"In the context of plants and plant material, the average consumer has an awareness of accepted naming conventions and an expectation of what they will see on labels, packaging and related literature.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"qualifies would suggest a more direct relationship between consumer expectations and the variety name than this sentence expressly states.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"In the surrounding discussion of variety-name connotations, the Manual connects consumer awareness of naming conventions with the assessment of those connotations. The connection to the anchor is contextual rather than expressly named in this sentence.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether accepted naming conventions sufficiently identifies plant variety names for this relationship.\",\n      \"passage_ref\": \"TMM/Part32A/2/4/2/4/1\",\n      \"neighbour\": \"GC-0010\"\n    },\n    {\n      \"quote\": \"If a trade mark contains or consists of word/s which connote a particular plant variety or other plant name, and is applied to plants or plant materials of the same or a closely related genus, it is likely to deceive or cause confusion as to the true nature of those plants or plant materials and a ground for rejection under section 43 of the Act will be appropriate.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"requiresElement would incorrectly make a plant variety name necessary for every ground for rejection.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly connects plant-name connotations with a section 43 ground for rejection in the stated circumstances. This is a conditional statement of examination practice, not an unconditional consequence of including a variety name.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether 'will be appropriate' is best encoded as should rather than none.\",\n      \"passage_ref\": \"TMM/Part29/1/1/2\",\n      \"neighbour\": \"GC-0053\"\n    },\n    {\n      \"quote\": \"However, the examiner needs to consider how the variety name appears within the trade mark as a whole. For example, if the plant name is a dictionary word appearing in a phrase then connotation may not be immediate.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to would omit the stated effect of whole-mark context on the variety-name connotation.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The Manual requires consideration of whole-mark context and explains that this context can affect the immediacy of a plant-name connotation. I infer that the trade mark as a whole qualifies the significance of the variety name.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the object of qualifies should more precisely be the variety-name connotation rather than the name itself.\",\n      \"passage_ref\": \"TMM/Part32A/2/4/2/4/1\",\n      \"neighbour\": \"GC-0038\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "de883f1434c6993ffdd3648a3afbec7279fb3c8903343399914c3af0948b6829",
+ "response_id": "resp_0e49a97869c44de6006ac60504f91087d2aefdb421294c3fd4",
+ "seconds": 44.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4655,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4652
+  },
+  "output_tokens": 1448,
+  "output_tokens_details": {
+   "reasoning_tokens": 253
+  },
+  "total_tokens": 6103
+ }
+}

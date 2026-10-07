@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:36:10Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "Record of International Registrations",
+ "job": "define",
+ "key": "a57050c0e300586ea7cda655f451e76285c86004790204419fd327d363af69bf",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "efaa55547f95baadda6557416721f502695f4f613de4f264615af741edc17bc0",
+ "response_id": "resp_05cb52deb76dea64006ac604786ab487d28e920dee2259d589",
+ "seconds": 3.0,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

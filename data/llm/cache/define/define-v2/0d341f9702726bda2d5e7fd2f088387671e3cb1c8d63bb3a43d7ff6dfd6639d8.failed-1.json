@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:32:23Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "extension of protection",
+ "job": "define",
+ "key": "0d341f9702726bda2d5e7fd2f088387671e3cb1c8d63bb3a43d7ff6dfd6639d8",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "a9a38c3a5ac2dcc3f2ed4605ff4a0a24a9da64fe6652f39c9c70e6f01a979038",
+ "response_id": "resp_0968fcfe299257be006ac60395058487d2b9ffa738b7631748",
+ "seconds": 2.9,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

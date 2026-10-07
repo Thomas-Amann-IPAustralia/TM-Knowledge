@@ -33,6 +33,9 @@ dist/
 # Models, embeddings, indexes — rebuildable, often large
 *.faiss
 *.npy
+# ...and the indexes beside the search vectors, useless without them (tmk-bulk embed rebuilds both).
+data/derived/search/passages.json
+data/derived/search/queries.json
 *.pt
 .cache/
 

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008622,
+ "created_utc": "2026-10-07T08:39:25Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0037",
+ "job": "relate",
+ "key": "e3f99784554662289c79bc4829459af6a02f974239a1534991c067bdf9df1213",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"If a trade mark, or some part of the trade mark, contains a reference to Indigenous people and a connotation arises from the mark that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection under s43 should be raised.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none: the relevant market is connected only to the connotation, rather than directly to the Indigenous-origin claim.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.83,\n      \"reasoning\": \"The Manual connects an Indigenous reference with assessment of its connotation's effect on consumers within the relevant market. No listed specific predicate accurately expresses that contextual connection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the connection mediated by connotation warrants a direct relationship to the relevant market.\",\n      \"passage_ref\": \"TMM/Part29/10#1\",\n      \"neighbour\": \"GC-0009\"\n    },\n    {\n      \"quote\": \"This type of material can form a connotation within a trade mark which would lead consumers into being misled into thinking that the goods or services bearing the applicant’s mark come from a source with an Indigenous connection.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"related_to: the passage merely associates Indigenous-origin material with connotation.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The passage expressly states that the Indigenous-origin material illustrated by the preceding examples can form a connotation. This is a statement of possibility, not a normative requirement.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the anchor's scope matches the Indigenous-reference material described here.\",\n      \"passage_ref\": \"TMM/Part29/10#1\",\n      \"neighbour\": \"GC-0001\"\n    },\n    {\n      \"quote\": \"If a trade mark, or some part of the trade mark, contains a reference to Indigenous people and a connotation arises from the mark that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection under s43 should be raised.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"related_to: likelihood of deception or confusion is a conditional assessment criterion rather than an effect of the claim itself.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"Read with the explanation of misleading Indigenous-source connotations, the passage supports an Indigenous-origin claim potentially giving rise to likely deception or confusion through its connotation. It does not say that every such claim has that effect.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether an indirect relationship through connotation should instead be recorded as related_to.\",\n      \"passage_ref\": \"TMM/Part29/10#1\",\n      \"neighbour\": \"GC-0002\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"is_kind_of: ‘Product of the Ngunnawal people’ could be treated as a geographical qualifier because it uses ‘Product of’.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The example identifies a people and an Indigenous source connection, not a geographical qualification. Shared wording with ‘product of’ does not establish a relationship to geographical qualifiers.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether geographical qualifier is defined elsewhere to include claims of origin from a named people.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0021\"\n    },\n    {\n      \"quote\": \"If a trade mark, or some part of the trade mark, contains a reference to Indigenous people and a connotation arises from the mark that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection under s43 should be raised.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"related_to: confusion is mentioned only as part of the conditional section 43 assessment.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.82,\n      \"reasoning\": \"The passage supports possible confusion arising through the connotation of an Indigenous reference. This is an indirect, conditional relationship, not a statement that the reference necessarily causes confusion.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the conditional reference to likely confusion sufficiently supports a causal relationship to confusion itself.\",\n      \"passage_ref\": \"TMM/Part29/10#1\",\n      \"neighbour\": \"GC-0004\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "8085d1662556465600b75678e7f7c1b4eb292f173cb13ea0f277bc0711066362",
+ "response_id": "resp_0e6afd7b7be92bc5006ac60520a89c87d29fac1df76c9f8150",
+ "seconds": 29.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2318,
+  "input_tokens_details": {
+   "cache_write_tokens": 2315,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1145,
+  "output_tokens_details": {
+   "reasoning_tokens": 79
+  },
+  "total_tokens": 3463
+ }
+}

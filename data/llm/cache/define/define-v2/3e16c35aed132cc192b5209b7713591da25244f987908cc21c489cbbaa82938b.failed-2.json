@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:34:09Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "change of ownership",
+ "job": "define",
+ "key": "3e16c35aed132cc192b5209b7713591da25244f987908cc21c489cbbaa82938b",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "d87b358cc6bfbf9268d7c971dde978161f2c949c069ad6ec303c0b3ae9b561ec",
+ "response_id": "resp_0d8643d262b301f7006ac603e4fb3c87d2b1f7746989caf748",
+ "seconds": 29.2,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

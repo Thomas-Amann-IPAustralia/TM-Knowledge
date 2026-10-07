@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011078,
+ "created_utc": "2026-10-07T08:40:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0045",
+ "job": "relate",
+ "key": "571644c7c3829d3dfa0451e1732efb171a7082dddcf5f5bb6c6316d6387ad27e",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"There is, therefore, no discretion to accept a trade mark that is caught by the provisions of this section. However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the specified goods and / or services would be likely to deceive or cause confusion.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to, if appliesTo is reserved for provisions rather than mandatory requirements.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The Manual's explanation clearly supports applying the mandatory acceptance constraint to the decision maker, subject to the stated requirement of clear satisfaction. The role-specific application is inferred rather than expressly stated in the sentence denying discretion.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether appliesTo appropriately connects this mandatory requirement to a process role.\",\n      \"passage_ref\": \"TMM/Part29/1#1\",\n      \"neighbour\": \"GC-0051\"\n    },\n    {\n      \"quote\": \"However, if the Registrar becomes aware that an application has been or may have been filed in the name of a person who has not authorised the filing, the Registrar may decide that the application does not meet minimum filing requirements unless and until further information is provided that the person named as the applicant did in fact file the application or authorise the filing of the application on their behalf.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"none, if the neighbour denotes only a formal written decision rather than a determination generally.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.76,\n      \"reasoning\": \"The passage identifies the Registrar as an administrative decision maker and describes a determination that the Registrar may make. This supports an actor–decision relationship, but does not expressly identify a written decision instrument.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether GC-0127 includes determinations generally or only formal decision records.\",\n      \"passage_ref\": \"TMM/Part2/3/2/3/2\",\n      \"neighbour\": \"GC-0127\"\n    },\n    {\n      \"quote\": \"A decision maker may have no choice but to tolerate some risk of confusion if a trader has chosen to build a business around a descriptive term and a later trader wishes to use that descriptive term in relation to its own business.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"constrainsExaminerTo, which would require the object to identify the required conduct rather than descriptive matter.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual expressly connects the decision maker's treatment of confusion risk with traders' use of descriptive terms. No listed specific predicate accurately expresses that role–factor relationship without substituting a conduct concept for the neighbour.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the conditional constraint warrants a more specific predicate within the ontology.\",\n      \"passage_ref\": \"TMM/Part26/6/6/7~1\",\n      \"neighbour\": \"GC-0047\"\n    },\n    {\n      \"quote\": \"However for a trade mark to be caught by these provisions it is necessary for a decision maker to be clearly satisfied that use of the trade mark for the specified goods and / or services would be likely to deceive or cause confusion.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement, which would incorrectly treat likely deception as an element of the decision-maker role itself.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual expressly connects the decision maker with assessing likely deception or confusion under section 43. The clear-satisfaction requirement concerns the decision maker's assessment, not the existence of the role, so related_to is the best available predicate.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a threshold predicate is intended to cover a role's assessment rather than the legal test itself.\",\n      \"passage_ref\": \"TMM/Part29/1#1\",\n      \"neighbour\": \"GC-0003\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"related_to inferred from the geographical words in the cited case names.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"The passage discusses descriptive terms and confusion risk, not geographical origin or place of production. Geographical words in case names do not establish a relationship between the decision maker and this factor.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether any supplied wording actually concerns geographical origin rather than merely geographically worded names.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0019\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "d371b13208d46cc6c0df573c9e243f784bd268ecddf10b35575078366a887753",
+ "response_id": "resp_0e7d87b729fd44ad006ac605728a8487d280f62e017b69c4f6",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3907,
+  "input_tokens_details": {
+   "cache_write_tokens": 3904,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1239,
+  "output_tokens_details": {
+   "reasoning_tokens": 126
+  },
+  "total_tokens": 5146
+ }
+}

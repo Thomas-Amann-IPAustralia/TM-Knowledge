@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001753,
+ "created_utc": "2026-10-07T08:28:43Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "Commission",
+ "job": "define",
+ "key": "af309e459b988f35a420d647b8e5bcb7dc83ee2adcd1f31896348dbbbbf20f2d",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"Commission means the Australian Competition and Consumer Commission established under the Competition and Consumer Act 2010.\",\n  \"alt_labels\": [\n    \"Australian Competition and Consumer Commission\",\n    \"ACCC\"\n  ],\n  \"confidence\": 0.99,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: Commission is the statutory shorthand for the Australian Competition and Consumer Commission, a body with procedural functions identified in the supplied Manual passages.\",\n  \"expert_should_check\": \"Check the precise functions under the cited Part 16 provisions and regulations, whose text has not been supplied.\",\n  \"legislative_basis\": [\n    \"TMA1995/s6\"\n  ],\n  \"pref_label\": \"Commission\",\n  \"definition_ref\": \"TMA1995/s6/commission\",\n  \"reasoning\": \"Section 6 expressly identifies a specific statutory body, distinct from the existing concepts, so the term warrants a process_role concept. The Manual passages identify that body in connection with time allowances and matters sent to it during deferment; these are statements of practice, not legislative definitions. The generic lower-case use of 'commission' in the ownership passage does not identify this defined body. Only section 6 is supplied as legislative text, so the other cited provisions cannot be verified as legislative grounds for its functions here.\",\n  \"not_labels\": [\n    \"authority or commission\",\n    \"Registrar\"\n  ],\n  \"group\": \"process_role\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "663ae695f6a7e426779577fea9e642decd4ec621534fb8e7e3c5d442ba408810",
+ "response_id": "resp_0bc0db239cdb6bae006ac602aa489887d296d05163d8e0f9e1",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2211,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2208
+  },
+  "output_tokens": 328,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 2539
+ }
+}

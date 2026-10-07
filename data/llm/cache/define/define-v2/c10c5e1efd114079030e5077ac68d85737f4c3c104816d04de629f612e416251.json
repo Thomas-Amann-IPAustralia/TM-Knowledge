@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002354,
+ "created_utc": "2026-10-07T08:40:36Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "old register",
+ "job": "define",
+ "key": "c10c5e1efd114079030e5077ac68d85737f4c3c104816d04de629f612e416251",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"Model as a historically distinct register related to GC-0089 Register of Trade Marks, rather than as a synonym of that concept.\",\n  \"definition_quote\": \"old register means the Register of Trade Marks kept under the repealed Act.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.97,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: The old register is the register kept under the repealed trade marks legislation, distinguished from the Register kept under the 1995 Act.\",\n  \"expert_should_check\": \"Confirm the relationship to GC-0089 and verify sections 207 and 238 directly; their transitional effects are described here only through the Manual passages.\",\n  \"legislative_basis\": [\n    \"TMA1995/s207\",\n    \"TMA1995/s238\"\n  ],\n  \"pref_label\": \"old register\",\n  \"definition_ref\": \"TMA1995/s6/old-register\",\n  \"reasoning\": \"Section 6 expressly defines the term. The Manual distinguishes the old register under the 1955 Act from the Register under the 1995 Act and describes the transfer of disclaimer particulars between them. This supports a distinct historical record concept, rather than a duplicate of the general Register of Trade Marks concept. The cited sections 207 and 238 concern that transition as described by the Manual; the other supplied provision references concern disclaimers or examination rather than defining the old register.\",\n  \"not_labels\": [\n    \"new Register\",\n    \"Register kept under the 1995 Act\"\n  ],\n  \"group\": \"instrument_or_record\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "cebeae014eb7ecaad4b71083974df200b0f6c5812a4b21d5356fd2e49b63a3d6",
+ "response_id": "resp_083fe15cf9edf90c006ac605730bd887d2bdb3e90a77dd5f89",
+ "seconds": 18.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3025,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3022
+  },
+  "output_tokens": 440,
+  "output_tokens_details": {
+   "reasoning_tokens": 81
+  },
+  "total_tokens": 3465
+ }
+}

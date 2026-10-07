@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007748,
+ "created_utc": "2026-10-07T08:29:00Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-019",
+ "job": "needs",
+ "key": "3d23115cbc471ae455167763de6d8380965503a8127dfc6bb3d9772f1ab17343",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must say whether wording that names a plant variety or plant can mislead when used for plants or plant materials from the same or a closely related genus. It should also point to the relevant examination ground and note that further practice for class 31 plants is dealt with elsewhere.\",\"search\":\"plant variety name for plants same genus misleading section 43\",\"seed_refs\":[\"TMM/Part29/1/1/2\"],\"kind\":\"lookup\",\"question\":\"If my mark uses the name of a plant variety, can it be rejected for plants from the same or a closely related genus?\"},{\"narrative\":\"A helpful answer must explain whether decorative borders or other minor decoration need to be picked out separately when describing a complex trade mark. It should cover the difference between decorative features that are just background and those that are the main feature of the mark.\",\"search\":\"do I need to index decorative border leaves in a logo\",\"seed_refs\":[\"TMM/Part5/x-device-constituents/conventional-decorative-elements\"],\"kind\":\"problem\",\"question\":\"Do I need to list the border leaves and scrolls in this logo, or only the main picture?\"},{\"narrative\":\"A helpful answer must explain how a common surname combined with a common initial is treated when looking at shared identifying features. It should also say how that fits with comparing series marks where shared elements are important, even if one shared element is not very distinctive.\",\"search\":\"common surname and initial series marks shared element\",\"seed_refs\":[\"TMM/Part22/17/17/2\",\"TMM/Part13/2#1~2\"],\"kind\":\"cross_part\",\"question\":\"When two series marks use the same common surname and initial, is that usually the part people focus on to compare them?\"},{\"narrative\":\"A helpful answer must say what grounds can be used in opposition, who must prove them, and whether the same grounds used during examination can be relied on later. It should also note the exception for the ground about graphical representation.\",\"search\":\"grounds of opposition same as examination who proves it\",\"seed_refs\":[\"TMM/Part46/4#1\"],\"kind\":\"impact\",\"question\":\"If a mark is opposed, can the opponent rely on the same grounds used in examination, and who has to prove them?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "873a015bbedd7815d6f4567b63c230973f522702ef3e0f11f9161d9c4ea2900f",
+ "response_id": "resp_0420c474a26d5bc8006ac602c1dd9887d2ac1d6cf13b0e24c0",
+ "seconds": 10.7,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1571,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1460,
+  "output_tokens_details": {
+   "reasoning_tokens": 487
+  },
+  "total_tokens": 3031
+ }
+}

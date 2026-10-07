@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.0022,
+ "created_utc": "2026-10-07T08:28:55Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "ART",
+ "job": "define",
+ "key": "96ec56486eab49d805631f3cdf131c15367eaf4e2063e1625f355610a74c936a",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"ART means the Administrative Review Tribunal.\",\n  \"alt_labels\": [\n    \"Administrative Review Tribunal\"\n  ],\n  \"confidence\": 0.99,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: ART is the statutory abbreviation for the Administrative Review Tribunal, a body rather than a category of goods.\",\n  \"expert_should_check\": \"Confirm the Tribunal’s trade marks review functions against the cited provisions, whose text has not been supplied.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"ART\",\n  \"definition_ref\": \"TMR1995/r2.1/art\",\n  \"reasoning\": \"The Regulations expressly define ART as the Administrative Review Tribunal. This names a legal body and fits process_role; no existing concept names that body. The Manual passages concern lowercase art as goods or classification wording, not the statutory abbreviation. None of the provisions listed under PROVISIONS is reproduced, so their contribution to the Tribunal’s role cannot be established from the supplied text.\",\n  \"not_labels\": [\n    \"art\",\n    \"works of art\"\n  ],\n  \"group\": \"process_role\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "e71323be6d345b2b6887ef19daf7a709ecef315b8c3334cc111802b6ec654fe1",
+ "response_id": "resp_00bf357338fd0cf7006ac602aac0b087d2a7e428a49ef3040f",
+ "seconds": 29.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2533,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2530
+  },
+  "output_tokens": 414,
+  "output_tokens_details": {
+   "reasoning_tokens": 147
+  },
+  "total_tokens": 2947
+ }
+}

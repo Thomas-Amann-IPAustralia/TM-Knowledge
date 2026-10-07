@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:28:05Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "Commission",
+ "job": "define",
+ "key": "af309e459b988f35a420d647b8e5bcb7dc83ee2adcd1f31896348dbbbbf20f2d",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "663ae695f6a7e426779577fea9e642decd4ec621534fb8e7e3c5d442ba408810",
+ "response_id": "resp_011401304ed5d469006ac60293159c87d2b4949958441566d8",
+ "seconds": 2.9,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

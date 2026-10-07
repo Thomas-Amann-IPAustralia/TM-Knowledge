@@ -1300,3 +1300,17 @@ uploads the requests as one file, polls the batch, and records each answer in th
 ledger exactly as a direct call would. The KB SOP's warning applies: its first build
 found a batch transport ignoring the JSON schema, so the batch output goes through the
 same `accept()` checks, and a batch smoke run was read before any full run.
+
+---
+### Q-68 — a prompt that lists the store goes stale the moment the store grows
+
+The `define` prompt includes every existing concept ("do not duplicate"). Writing the
+first 22 new concepts therefore changed the text of every remaining `define` prompt,
+so their cache keys changed: the four already waiting in a batch were submitted again
+under new keys, and the three answered "not a concept" were re-asked. About two cents,
+but the same shape bites `relate` (its neighbour lists shrink as relationships are
+written) and anything else whose prompt reads the stores.
+
+**What to do instead:** finish a job — every item answered or deliberately abandoned —
+before writing its output, or accept that a re-run after a write is a partly new run.
+Never assume a re-run of a job that writes to the stores it reads is free.

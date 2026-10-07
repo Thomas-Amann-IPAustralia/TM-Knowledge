@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004031,
+ "created_utc": "2026-10-07T08:44:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0058",
+ "job": "relate",
+ "key": "ac85ae601478f05ae6c40e63a7804acbdaac8953aa112619347bee293a36fdc3",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Where the Registrar or their delegate is satisfied on the balance of probabilities that the trade mark has insufficient inherent adaptation to distinguish for it to be considered prima facie capable of distinguishing, the reasons for that decision must be clearly stated and documented.\",\n      \"relation\": \"is_kind_of\",\n      \"alternative\": \"related_to: prima facie capability might be treated as a distinct preliminary assessment rather than a subtype of capability.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.76,\n      \"reasoning\": \"The Manual describes prima facie capability as capability assessed through inherent adaptation to distinguish. Treating this as a particular form of the broader capability test is an inference, not an express classification in the passage.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether prima facie capability should be modelled as a subtype or as a separate preliminary assessment.\",\n      \"passage_ref\": \"TMM/Part20/5/5/3/1\",\n      \"neighbour\": \"GC-0119\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"qualifies: plant varietal names might affect capacity to distinguish, but the supplied passage does not establish that relationship.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The supplied statutory extract sets out the capability test but does not mention plant varietal names. It therefore supplies no basis for connecting this neighbour to the anchor.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether an omitted portion of the source supplies the missing connection to plant varietal names.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0125\"\n    },\n    {\n      \"quote\": \"This situation is most likely to occur when a trade mark which is lacking in inherent adaptation to distinguish is shown through evidence of use to be capable of distinguishing when used in particular colours.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"isOvercomeBy: evidence of use may address a distinctiveness objection, but this sentence describes demonstrating capability rather than overcoming an identified ground for rejection.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual expressly connects evidence of use with demonstrating capacity to distinguish in particular colours. No listed predicate precisely captures that evidentiary relationship, and the passage does not make evidence of use universally necessary.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology intends isOvercomeBy to include evidence demonstrating capability despite insufficient inherent adaptation.\",\n      \"passage_ref\": \"TMM/Part10/3/3/5/3~1\",\n      \"neighbour\": \"GC-0101\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "ab609b270de74d92ff44098069b9c9b0be8c06a32a63b7988ab3bb8a5ff97a7e",
+ "response_id": "resp_091af14c0b590f4f006ac606436ac087d2a798d76d199924b8",
+ "seconds": 30.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2960,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2957
+  },
+  "output_tokens": 776,
+  "output_tokens_details": {
+   "reasoning_tokens": 134
+  },
+  "total_tokens": 3736
+ }
+}

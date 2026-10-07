@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005872,
+ "created_utc": "2026-10-07T08:29:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-025",
+ "job": "needs",
+ "key": "9932b4ba8519f0c8c4ef3ae1a4ff8c9280f201e0e3a028b4837c024eae60309d",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must explain that the scent has to be separate from the goods themselves and not an expected or natural characteristic. It should also mention the kind of added smell used to identify goods by smell alone, with the examples given in the source material.\",\"search\":\"scent mark must be separate from the goods themselves\",\"seed_refs\":[\"TMM/Part21/7/7/2/1~2\"],\"kind\":\"lookup\",\"question\":\"Can a scent be accepted only if it is something added to the goods and not just their natural smell?\"},{\"narrative\":\"A helpful answer must explain when more time can be sought after a time limit for an act has passed. It should cover the ordinary extension route, the special acceptance period, and when the general extension provision has to be used instead.\",\"search\":\"need more time after acceptance period extension\",\"seed_refs\":[\"TMM/Part15/1#1~1\"],\"kind\":\"problem\",\"question\":\"If I missed the acceptance deadline and need more time, what do I do to extend it?\"},{\"narrative\":\"A helpful answer must cover both the wrong-class problem and the rule against using broad expressions like “all goods” or “all services”. It should explain what the examiner would require to be changed or removed when both issues appear in the same specification.\",\"search\":\"wrong class and all goods in specification\",\"seed_refs\":[\"TMM/Part14/4/4/11/1\",\"TMM/Part10/5/5/2/1\"],\"kind\":\"cross_part\",\"question\":\"If my specification has goods in the wrong class and also says “all goods”, what does the examiner ask me to fix?\"},{\"narrative\":\"A helpful answer must explain which documents become open to public inspection and when that happens. It should also cover the effect on a TM Headstart before the Part 2 fee has been paid, and whether documents linked only to that stage are included.\",\"search\":\"public inspection documents TM Headstart Part 2 fee\",\"seed_refs\":[\"TMM/Part61/6/6/1\"],\"kind\":\"impact\",\"question\":\"Which documents become public, and does that include a TM Headstart before the Part 2 fee is paid?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "4d9823d622c3cd42a9e7aeb087bb0e8250b5310c376a963c85e3a68937cd9fe9",
+ "response_id": "resp_0959c58598725075006ac602d31fa887d2b3dd6e34de60c760",
+ "seconds": 7.0,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1517,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1052,
+  "output_tokens_details": {
+   "reasoning_tokens": 291
+  },
+  "total_tokens": 2569
+ }
+}

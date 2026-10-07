@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001816,
+ "created_utc": "2026-10-07T08:31:06Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "International Bureau",
+ "job": "define",
+ "key": "3d9e26a6f722c6607da2e67573514c677ccfd96b614076e34cb9938bfe0c4e91",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"International Bureau means the International Bureau of the World Intellectual Property Organisation.\",\n  \"alt_labels\": [\n    \"International Bureau of the World Intellectual Property Organisation\",\n    \"International Bureau of WIPO\",\n    \"IB\"\n  ],\n  \"confidence\": 0.99,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: The International Bureau is the body within the World Intellectual Property Organisation identified by the Regulations, with roles in priority claims and classification matters described in the Manual.\",\n  \"expert_should_check\": \"Check the precise scope of its functions against the applicable Madrid Protocol provisions; the supplied passages describe only selected roles.\",\n  \"legislative_basis\": [\n    \"TMR1995/r17A.2\"\n  ],\n  \"pref_label\": \"International Bureau\",\n  \"definition_ref\": \"TMR1995/r17A.2/international-bureau\",\n  \"reasoning\": \"The Regulations expressly define the term as a named body, so it fits process_role. The Manual describes its acceptance of verified priority claims and states that its opinion stands in classification disputes involving Madrid Protocol export applications. These are descriptions of practice, not additional legislative definitions. No existing concept identifies this body; the Madrid Protocol is a distinct international instrument.\",\n  \"not_labels\": [\n    \"World Intellectual Property Organisation\",\n    \"Office of Origin\",\n    \"United International Bureau for the Protection of Intellectual Property (BIRPI)\",\n    \"Madrid Protocol\"\n  ],\n  \"group\": \"process_role\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "afb0f358d628d8011bac476c0862b9d93892c9419eaebed2b7b645e9c4f295c6",
+ "response_id": "resp_06e53f2cce9b7c48006ac60338254087d2b30950bc6c03e6be",
+ "seconds": 19.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2460,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2457
+  },
+  "output_tokens": 338,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 2798
+ }
+}

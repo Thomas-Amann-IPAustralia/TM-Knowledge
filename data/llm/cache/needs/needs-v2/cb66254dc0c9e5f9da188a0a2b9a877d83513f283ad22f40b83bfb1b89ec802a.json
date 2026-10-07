@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008141,
+ "created_utc": "2026-10-07T08:28:31Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-009",
+ "job": "needs",
+ "key": "cb66254dc0c9e5f9da188a0a2b9a877d83513f283ad22f40b83bfb1b89ec802a",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer should identify which Regulations cover the main filing steps for a trade mark application, including the form of the application, how the mark is shown, the goods and services specification, priority claims, publication, office hours, declarations and fee-related notices. It should be clear that this is a list of regulatory topics, not an explanation of how any application is decided.\",\"search\":\"regulations about filing a trade mark application and related filing rules\",\"seed_refs\":[\"TMM/Part2/1/trade-mark-regulations-1995\"],\"kind\":\"lookup\",\"question\":\"Which Trade Marks Regulations cover filing an application, the goods and services specification, priority claims, declarations and fee notices?\"},{\"narrative\":\"A helpful answer should explain what to do when the goods or services wording in an international trade mark application causes a classification or wording problem. It should cover the relevant rules about classification, indication of goods and services, and the need for the application to be in the approved form.\",\"search\":\"international trade mark application goods and services wording problem classification\",\"seed_refs\":[\"TMM/Part60/4/6/4/6/1\"],\"kind\":\"problem\",\"question\":\"What do I do if the goods and services wording in my international trade mark application does not fit the usual classification terms?\"},{\"narrative\":\"A helpful answer should explain when the Registrar may correct an error in a published specification and what conditions must be satisfied, including fairness, possible extension of rights and publication for third-party opposition. It should also cover the separate point that adequate information may be needed where the goods or services cannot be described using the preferred terms.\",\"search\":\"fix published goods description and add more detail if needed\",\"seed_refs\":[\"TMM/Part14/4/4/2/7\",\"TMM/Part10/5/5/1/3\"],\"kind\":\"cross_part\",\"question\":\"Can a published goods or services description be corrected later, and do I need to give more detail if the goods or services cannot be described clearly?\"},{\"narrative\":\"A helpful answer should explain who must take the first evidence step in an opposition, how long that party has to file evidence in support, and what the text says about a party that does not intend to rely on evidence in support. It should make clear who is affected by the deadline and the choice not to file evidence.\",\"search\":\"who files evidence first in a trade mark opposition and by when\",\"seed_refs\":[\"TMM/Part51/1/1/1\"],\"kind\":\"impact\",\"question\":\"Who has to file evidence first in a trade mark opposition, and what happens if they do not want to rely on evidence in support?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "92e075c24f2a9db5d85cf5f8310179985c4f897fcfb9955642baa33a07e84553",
+ "response_id": "resp_0d1503083a85ae7a006ac602a550e887d2822b2ba1d0da0c6f",
+ "seconds": 10.7,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1291,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1594,
+  "output_tokens_details": {
+   "reasoning_tokens": 516
+  },
+  "total_tokens": 2885
+ }
+}

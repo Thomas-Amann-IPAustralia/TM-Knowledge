@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:43:52Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "GC-0059",
+ "job": "relate",
+ "key": "2dce77b6cc24d61ba17964285643e9b1cc17c7e9a33588ae2cc1fcb808699f39",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "relate-v1",
+ "request_sha256": "d263ae27818806a00fd37c11ad27a590cfcf5926112f330c601e4e1e517261f7",
+ "response_id": "resp_08c2369d0659d4e0006ac60645a04087d293d914fcd57e08e1",
+ "seconds": 3.6,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

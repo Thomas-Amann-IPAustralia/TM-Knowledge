@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009649,
+ "created_utc": "2026-10-07T08:43:22Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0055",
+ "job": "relate",
+ "key": "eef4d448e754a302a88f5f2bbc7800777a771cac108d761be71c472cc49ce401",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Subsection 39(2) relates to trade marks that may be rejected because they contain or consist of any of the signs prescribed in regulation 4.15 for the purposes of this subsection.\",\n      \"relation\": \"is_kind_of\",\n      \"alternative\": \"related_to, treating prescription only as a regulatory connection rather than a classification of signs.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly describes prescribed signs as signs prescribed in regulation 4.15. This supports a subtype relationship, rather than treating every sign as prescribed.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the anchor denotes the prescribed sign itself rather than the associated ground for refusal, despite its group label.\",\n      \"passage_ref\": \"TMM/Part20/5/5/1/2\",\n      \"neighbour\": \"GC-0073\"\n    },\n    {\n      \"quote\": \"Subsection 39(2)states that a trade mark may be rejected if it contains or consists of a sign that is prescribed in the regulations for the purposes of subsection 39(2) (subparagraph 39(2)(a)), OR is a sign so nearly resembling the prescribed sign as to be likely to be taken for it (subparagraph 39(2)(b)(i)).\",\n      \"relation\": \"extendsTo\",\n      \"alternative\": \"related_to, because the resemblance test is a separate statutory limb rather than an extension of the class of prescribed signs.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.82,\n      \"reasoning\": \"The Manual's account of subsection 39(2) supports extending the prescribed-sign refusal ground to signs meeting the stated resemblance test. This does not mean that a resembling sign is itself prescribed.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether extendsTo should connect the refusal ground, rather than the prescribed-sign concept, to the resemblance test.\",\n      \"passage_ref\": \"TMM/Part31/2#1\",\n      \"neighbour\": \"GC-0056\"\n    },\n    {\n      \"quote\": \"Paragraph 39(2)(a) of the Trade Marks Act states that a trade mark may be rejected if it contains or consists of a sign that is prescribed in the regulations for the purposes of section 39(2), OR is a sign so nearly resembling the prescribed sign as to be likely to be taken for it (subparagraph 39(2)(b)(i)).\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"is_kind_of, treating the prescribed sign itself as a ground for rejection.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual's account of the Act expressly connects a prescribed sign in a trade mark with possible rejection. It supports a potential ground for rejection, not automatic rejection or classification of the sign itself as a ground.\",\n      \"modality\": \"may\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this neighbour's inclusion of 's 43 objection' improperly narrows an otherwise generic ground-for-rejection record.\",\n      \"passage_ref\": \"TMM/Part32A/2/2#1\",\n      \"neighbour\": \"GC-0006\"\n    },\n    {\n      \"quote\": \"Where the prescribed sign forms a reasonably large component of the trade mark and deleting it would substantially affect the identity of the trade mark then a ground for rejection exists and should be raised.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"is_kind_of, treating a prescribed sign as itself a ground for rejection rather than something that can generate one.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual expressly links a prescribed sign to a ground for rejection under the stated size and deletion conditions. The direction to raise that ground is Manual practice, not an independent legislative command.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this relationship needs an explicit restriction to the signs prescribed in regulation 4.15(a) and (b), which frame the paragraph.\",\n      \"passage_ref\": \"TMM/Part31/4/4/1\",\n      \"neighbour\": \"GC-0053\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "fc48c898536806664f59e53056580bee58be7b9e045ae0eab347c5bb4739b4dd",
+ "response_id": "resp_09179d9108b2ba43006ac6060ddb1887d2b158305c86e32ba6",
+ "seconds": 29.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3268,
+  "input_tokens_details": {
+   "cache_write_tokens": 3265,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1113,
+  "output_tokens_details": {
+   "reasoning_tokens": 130
+  },
+  "total_tokens": 4381
+ }
+}

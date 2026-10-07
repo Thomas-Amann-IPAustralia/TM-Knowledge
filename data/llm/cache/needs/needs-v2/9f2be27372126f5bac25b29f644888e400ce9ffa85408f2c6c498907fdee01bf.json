@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.026955,
+ "created_utc": "2026-10-07T08:28:20Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-002",
+ "job": "needs",
+ "key": "9f2be27372126f5bac25b29f644888e400ce9ffa85408f2c6c498907fdee01bf",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must say whether opposition proceedings can be suspended only after both cooling-off periods have been used, and whether the request needs both parties' agreement or written consent. It should also mention that there is no fee for asking for suspension.\",\"search\":\"suspend opposition evidence timetable cooling-off agreement\",\"seed_refs\":[\"TMM/Part51/4/4/1~1\"],\"kind\":\"lookup\",\"question\":\"Can we suspend the opposition evidence timetable after the cooling-off period, and do both sides have to agree?\"},{\"narrative\":\"A helpful answer must explain what an applicant or potential opponent has to lodge when asking for more time to oppose. It should cover the approved form, the fee, the declaration, and the extra reason needed if the first period has already run out.\",\"search\":\"missed opposition deadline ask for more time\",\"seed_refs\":[\"TMM/Part49/2/2/3/2\"],\"kind\":\"problem\",\"question\":\"I missed the deadline to oppose a trade mark — what do I need to lodge to ask for more time?\"},{\"narrative\":\"A helpful answer must cover the grounds the Registrar needs to be satisfied about when an extension is filed in time, and the extra sufficient-reason requirement when it is filed late. It should also note the notice and response steps that apply before the extension is granted.\",\"search\":\"late extension request what has to be shown\",\"seed_refs\":[\"TMM/Part47/1/1/3/3\",\"TMM/Part10/4#1\"],\"kind\":\"cross_part\",\"question\":\"If my extension request was filed late, what has to be shown before it can be granted?\"},{\"narrative\":\"A helpful answer must explain what happens to the remaining deferment time when the stated reason for deferment ends. It should cover the different end points for the various deferment reasons and who is affected by each trigger.\",\"search\":\"deferred acceptance date time left when reason ends\",\"seed_refs\":[\"TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1\"],\"kind\":\"impact\",\"question\":\"What happens to the time left on a deferred acceptance date when the reason for the deferment ends?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "4d60d55f9cb58bc22a53f0bcdda0f2f2506e65733ecb7df136742fe9d81c42d5",
+ "response_id": "resp_0129afa0f84c663d006ac602930dc087d2858597a09040795e",
+ "seconds": 18.3,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2040,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 5650,
+  "output_tokens_details": {
+   "reasoning_tokens": 5650
+  },
+  "total_tokens": 7690
+ }
+}

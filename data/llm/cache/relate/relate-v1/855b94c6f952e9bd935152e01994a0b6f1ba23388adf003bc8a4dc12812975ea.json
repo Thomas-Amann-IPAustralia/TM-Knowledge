@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005191,
+ "created_utc": "2026-10-07T08:33:43Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0017",
+ "job": "relate",
+ "key": "855b94c6f952e9bd935152e01994a0b6f1ba23388adf003bc8a4dc12812975ea",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"A trade mark containing a standalone geographical reference will cause confusion if each of the following criteria are met: Consumers would have reason to associate the goods/services with the geographical location; The association between the place and the goods/services would influence the purchasing decision of an average consumer of the goods/services.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"ordinary consumer qualifies geographical reference\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The Manual connects a standalone geographical reference with the average consumer's associations and purchasing decision when assessing confusion. The consumer is the relevant audience, rather than itself a qualification of the geographical reference.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether qualifies should instead represent the role of the average consumer in this assessment.\",\n      \"passage_ref\": \"TMM/Part29/9/9/3~1\",\n      \"neighbour\": \"GC-0010\"\n    },\n    {\n      \"quote\": \"A typical example is where a geographical reference connotes that the goods and/or services claimed are of a certain quality or standard, or exhibit attributes for which the geographical reference is known.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"reputation merely related_to geographical reference\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.79,\n      \"reasoning\": \"The Manual supports treating a place's reputation as qualifying what a geographical reference connotes about the goods or services. This is inferred: the qualification concerns the reference's connotation, not the reference in isolation.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether qualifies can encompass reputation shaping the connotation of a geographical reference.\",\n      \"passage_ref\": \"TMM/Part29/9#1\",\n      \"neighbour\": \"GC-0050\"\n    },\n    {\n      \"quote\": \"Geographical names with more than one meaning may have some inherent adaptation to distinguish if there is some ambiguity as to whether or not other traders would desire to use the trade mark for its geographic meaning.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"geographical reference doesNotGiveRiseTo inherent adaptation to distinguish\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The Manual links inherent adaptation to the geographical meaning and ambiguity about other traders' desire to use it. This supports a qualifying relationship, not a categorical absence of inherent adaptation for every geographical reference.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the conditional treatment of geographical names with multiple meanings supports the broader anchor-level relationship.\",\n      \"passage_ref\": \"TMM/Part22/15/15/5\",\n      \"neighbour\": \"GC-0059\"\n    },\n    {\n      \"quote\": \"A trade mark containing a standalone geographical reference will cause confusion if each of the following criteria are met: Consumers would have reason to associate the goods/services with the geographical location; The association between the place and the goods/services would influence the purchasing decision of an average consumer of the goods/services. There are no other elements in the mark, or surrounding circumstances, which would mitigate the risk of confusion.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"geographical reference isOvercomeBy surrounding circumstances\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"Under the Manual's assessment, surrounding circumstances can mitigate the risk of confusion associated with a standalone geographical reference. The relationship qualifies the reference's potentially confusing effect; it does not establish that surrounding circumstances invariably overcome a ground for rejection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether qualifies should target confusion rather than the geographical reference itself.\",\n      \"passage_ref\": \"TMM/Part29/9/9/3~1\",\n      \"neighbour\": \"GC-0011\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "2f9a3dfd8c981fbcee08eac849be6dd1e3bf6fa0b33376232873eb0f1f0308c1",
+ "response_id": "resp_012401d41c311a49006ac603cb9b5487d2a49894bf851193dd",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4255,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4252
+  },
+  "output_tokens": 995,
+  "output_tokens_details": {
+   "reasoning_tokens": 99
+  },
+  "total_tokens": 5250
+ }
+}

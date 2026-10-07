@@ -2446,6 +2446,512 @@ tmkc:GC-0130 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> ;
     tmk:typedBy tmka:GT-0130 .
 
+tmkc:GC-0131 a skos:Concept,
+        tmk:InstrumentOrRecord,
+        tmk:LegalConcept ;
+    rdfs:comment "Summary, not a definition: Summary: A trade mark application is an application seeking registration of a trade mark under section 27, including a representation of the mark and a specification of the relevant goods and/or services."@en-AU ;
+    skos:altLabel "application for registration of a trade mark"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "trade mark application"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Regulations expressly define the term, and section 27 supplies the application requirements and required contents. The application is best treated as an instrument or record, rather than the act of filing or the trade mark sought to be registered. No existing concept covers the general application: divisional and convention applications are more specific concepts, while examination, acceptance and amendment concern its processing. The regulatory definition is substantive rather than merely a direction to another definition, so it is retained as the definition quote."@en-AU ;
+    tmk:confidence 9.6e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/trade-mark-application> ;
+    tmk:expertShouldCheck "Check whether the definition in regulation 5.2 has a limited contextual scope before adopting it throughout the ontology."@en-AU ;
+    tmk:goldRecord "GC-0131" ;
+    tmk:notLabel "amendment of an application"@en-AU,
+        "convention application"@en-AU,
+        "divisional application"@en-AU,
+        "examination"@en-AU,
+        "trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/trade-mark-application> ;
+    tmk:typedBy tmka:GT-0131 .
+
+tmkc:GC-0132 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
+    rdfs:comment "Summary, not a definition: Summary: In the international-registration examination context, the holder is the party to whom examination reports are directed and who responds to those reports."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "holder"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The Regulations expressly introduce a definition of holder, although its substance is missing from the supplied passage. The Manual’s legislative-reference list identifies the holder as the recipient of reports and the responding party in examination of an IRDA, supporting a distinct process role. The supplied material does not establish equivalence with the existing applicant or registered owner concepts. Uses concerning business names and copyright are separate contexts, not evidence of the international-registration meaning. The quoted Manual text identifies procedural provisions; it is not itself legislation or a complete legal definition."@en-AU ;
+    tmk:confidence 8.4e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> ;
+    tmk:expertShouldCheck "Check the complete definition in regulation 17A.2: the supplied statutory passage stops at ‘holder means:’ and does not establish precisely who qualifies as the holder."@en-AU ;
+    tmk:goldRecord "GC-0132" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.17>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
+    tmk:notLabel "applicant"@en-AU,
+        "copyright holder"@en-AU,
+        "holder of a business name"@en-AU,
+        "registered owner"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> ;
+    tmk:typedBy tmka:GT-0132 .
+
+tmkc:GC-0133 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
+    rdfs:comment "Summary, not a definition: Summary: Commission is the statutory shorthand for the Australian Competition and Consumer Commission, a body with procedural functions identified in the supplied Manual passages."@en-AU ;
+    skos:altLabel "ACCC"@en-AU,
+        "Australian Competition and Consumer Commission"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "Commission"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 6 expressly identifies a specific statutory body, distinct from the existing concepts, so the term warrants a process_role concept. The Manual passages identify that body in connection with time allowances and matters sent to it during deferment; these are statements of practice, not legislative definitions. The generic lower-case use of 'commission' in the ownership passage does not identify this defined body. Only section 6 is supplied as legislative text, so the other cited provisions cannot be verified as legislative grounds for its functions here."@en-AU ;
+    tmk:confidence 9.9e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/commission> ;
+    tmk:expertShouldCheck "Check the precise functions under the cited Part 16 provisions and regulations, whose text has not been supplied."@en-AU ;
+    tmk:goldRecord "GC-0133" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    tmk:notLabel "Registrar"@en-AU,
+        "authority or commission"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/commission> ;
+    tmk:typedBy tmka:GT-0133 .
+
+tmkc:GC-0134 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
+    rdfs:comment "Summary, not a definition: Summary: ART is the statutory abbreviation for the Administrative Review Tribunal, a body rather than a category of goods."@en-AU ;
+    skos:altLabel "Administrative Review Tribunal"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "ART"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Regulations expressly define ART as the Administrative Review Tribunal. This names a legal body and fits process_role; no existing concept names that body. The Manual passages concern lowercase art as goods or classification wording, not the statutory abbreviation. None of the provisions listed under PROVISIONS is reproduced, so their contribution to the Tribunal’s role cannot be established from the supplied text."@en-AU ;
+    tmk:confidence 9.9e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/art> ;
+    tmk:expertShouldCheck "Confirm the Tribunal’s trade marks review functions against the cited provisions, whose text has not been supplied."@en-AU ;
+    tmk:goldRecord "GC-0134" ;
+    tmk:notLabel "art"@en-AU,
+        "works of art"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/art> ;
+    tmk:typedBy tmka:GT-0134 .
+
+tmkc:GC-0135 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
+    rdfs:comment "Summary, not a definition: Summary: Cessation of protection is the ending of protection for a protected international trade mark, with the Manual describing procedures for seeking cessation for non-use."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "cessation of protection"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Regulations expressly define the term, and the Manual describes applications and opposition procedures concerning cessation for non-use. It names an event ending protection and therefore fits procedural_step. It is distinct from removal for non-use of a registered trade mark: the supplied definition concerns a protected international trade mark. No existing concept expressly covers this event. The listed legislative provisions cannot be assessed as grounding provisions without their text."@en-AU ;
+    tmk:confidence 9.6e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.48/cessation-of-protection> ;
+    tmk:expertShouldCheck "Confirm the scope of the definition in regulation 17A.48 and which of the listed provisions provide its legislative basis; their substantive text was not supplied."@en-AU ;
+    tmk:goldRecord "GC-0135" ;
+    tmk:notLabel "extension of protection"@en-AU,
+        "removal for non-use"@en-AU,
+        "revocation of registration"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.48/cessation-of-protection> ;
+    tmk:typedBy tmka:GT-0135 .
+
+tmkc:GC-0136 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
+    rdfs:comment "Summary, not a definition: Summary: The Office of origin is an office acting within the Madrid Protocol process, which the Manual describes as having verified the priority claim for an international registration designating Australia."@en-AU ;
+    skos:altLabel "Office of Origin"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "Office of origin"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "This is a named institutional role, not a generic phrase or a duplicate of the Registrar or Madrid Protocol concepts. The Manual describes its priority-verification role and distinguishes it from the International Bureau in classification disputes. Regulation 17A.2 expressly points to Article 2(2) for its meaning; because that Article is absent, the quotation provides a supported role description rather than a complete legal definition. None of the listed PROVISIONS is supplied with text establishing its legislative basis."@en-AU ;
+    tmk:confidence 9e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4/4/1> ;
+    tmk:expertShouldCheck "Check Article 2(2) of the Protocol for the full definition: regulation 17A.2 incorporates it, but that Article is not supplied here."@en-AU ;
+    tmk:goldRecord "GC-0136" ;
+    tmk:notLabel "International Bureau"@en-AU,
+        "Registrar"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4/4/1> ;
+    tmk:typedBy tmka:GT-0136 .
+
+tmkc:GC-0137 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Summary, not a definition: Summary: Covering is an inclusively defined statutory term encompassing packaging, frames, wrappers, containers, stoppers, lids and caps."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "covering"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 9 expressly defines the noun 'covering', making it a distinct legal concept rather than merely a goods category or generic expression. No existing concept duplicates it. The Manual passages instead use 'covering' in its ordinary sense of encompassing classes, goods, services or searches. None of the supplied groups clearly fits the defined physical covering, so none_of_these is preferred. The listed PROVISIONS do not ground this definition; section 9 is supplied as a passage but is absent from that list."@en-AU ;
+    tmk:confidence 9.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s9/covering> ;
+    tmk:expertShouldCheck "Confirm its ontology placement: the supplied definition establishes a statutory concept but does not explain its procedural function."@en-AU ;
+    tmk:goldRecord "GC-0137" ;
+    tmk:notLabel "classification of goods and services"@en-AU,
+        "specification of goods and services"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s9/covering> ;
+    tmk:typedBy tmka:GT-0137 .
+
+tmkc:GC-0138 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
+    rdfs:comment "Summary, not a definition: Summary: The International Bureau is the body within the World Intellectual Property Organisation identified by the Regulations, with roles in priority claims and classification matters described in the Manual."@en-AU ;
+    skos:altLabel "IB"@en-AU,
+        "International Bureau of WIPO"@en-AU,
+        "International Bureau of the World Intellectual Property Organisation"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "International Bureau"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Regulations expressly define the term as a named body, so it fits process_role. The Manual describes its acceptance of verified priority claims and states that its opinion stands in classification disputes involving Madrid Protocol export applications. These are descriptions of practice, not additional legislative definitions. No existing concept identifies this body; the Madrid Protocol is a distinct international instrument."@en-AU ;
+    tmk:confidence 9.9e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-bureau> ;
+    tmk:expertShouldCheck "Check the precise scope of its functions against the applicable Madrid Protocol provisions; the supplied passages describe only selected roles."@en-AU ;
+    tmk:goldRecord "GC-0138" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2> ;
+    tmk:notLabel "Madrid Protocol"@en-AU,
+        "Office of Origin"@en-AU,
+        "United International Bureau for the Protection of Intellectual Property (BIRPI)"@en-AU,
+        "World Intellectual Property Organisation"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-bureau> ;
+    tmk:typedBy tmka:GT-0138 .
+
+tmkc:GC-0139 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
+    rdfs:comment "Summary, not a definition: Summary: A prescribed court is one of the courts designated by section 190 for the purposes of the Trade Marks Act 1995."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "prescribed court"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The term names an expressly defined statutory class of courts, not a generic phrase or an existing concept. Section 6 refers to section 190, which supplies the substantive list and is therefore preferred for the definition quote. The process_role group fits because these courts are bodies in which proceedings under the Act may be brought. The Manual passages describe deferment practice associated with court proceedings; they do not define the statutory class. Other cited provisions are not supplied in full, so their precise contribution cannot be confirmed from these passages."@en-AU ;
+    tmk:confidence 9.9e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s190> ;
+    tmk:expertShouldCheck "Check the currency of the supplied section 190 court list before using it as a statement of current law."@en-AU ;
+    tmk:goldRecord "GC-0139" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s190>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    tmk:notLabel "Administrative Review Tribunal (ART)"@en-AU,
+        "Registrar"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s190> ;
+    tmk:typedBy tmka:GT-0139 .
+
+tmkc:GC-0140 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
+    rdfs:comment "Summary, not a definition: Summary: A label is an expressly defined item that includes a band or ticket, whose contents and presentation may be relevant to assessing use as a trade mark."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "label"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The legislative passage expressly gives label an inclusive definition, supporting a distinct concept rather than merely generic packaging terminology. The Manual passages also discuss a label's parts and presentation in assessing use as a trade mark. Label is not synonymous with the existing concepts sign or trade mark: the Manual indicates that parts of a label may perform a distinguishing function. Subject_matter is the closest group, although the supplied passages do not establish that every label is itself registrable. No listed legislative provision can be confirmed as grounding it from the supplied text."@en-AU ;
+    tmk:confidence 8.8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s9/label> ;
+    tmk:expertShouldCheck "Verify the supplied TMA1995/s9/label reference and which listed provisions ground the concept; their text is not supplied."@en-AU ;
+    tmk:goldRecord "GC-0140" ;
+    tmk:notLabel "descriptive matter"@en-AU,
+        "sign"@en-AU,
+        "trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s9/label> ;
+    tmk:typedBy tmka:GT-0140 .
+
+tmkc:GC-0141 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Summary, not a definition: Summary: A legally significant date associated with registration, whose effective date the Manual describes as affected by priority claims and potentially differing between goods or services."@en-AU ;
+    skos:altLabel "effective date of registration"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "date of registration"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "The statutory fragment expressly introduces a defined term, making this more than a generic date phrase, but omits its defining content. The Manual supplies the best available explanation of its effective-date usage. It relates registration to priority dates without establishing that the concepts are identical, so it is not treated as a duplicate of priority date or filing date. A temporal attribute fits none of the listed groups closely. The cited provisions are not reproduced, so their grounding role cannot be verified from these passages; the Manual explanation is practice, not legislation."@en-AU ;
+    tmk:confidence 7.8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7/7/2> ;
+    tmk:expertShouldCheck "Check the complete section 6 definition, whether 'effective date of registration' is equivalent to the statutory term, and which of the cited provisions actually ground it."@en-AU ;
+    tmk:goldRecord "GC-0141" ;
+    tmk:notLabel "filing date"@en-AU,
+        "priority date"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7/7/2> ;
+    tmk:typedBy tmka:GT-0141 .
+
+tmkc:GC-0142 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
+    rdfs:comment "Summary, not a definition: Summary: An application for removal initiates a process seeking removal of a trade mark from the Register, described in the supplied Manual passages in the context of non-use."@en-AU ;
+    skos:altLabel "application for removal for non-use"@en-AU,
+        "non-use application"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "application for removal"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Regulations expressly define the term. The Manual describes filing the application, opposition to it and rebuttal, supporting a distinct procedural concept rather than a generic phrase. It is provisionally distinguished from GC-0104 removal for non-use because the application initiates the process and is not itself removal. The Manual also expressly distinguishes it from an application for cessation of protection concerning a protected international trade mark."@en-AU ;
+    tmk:confidence 8.8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r9.2/application-for-removal> ;
+    tmk:expertShouldCheck "Check whether GC-0104 already encompasses the initiating application; the existing concept's label alone does not establish its scope."@en-AU ;
+    tmk:goldRecord "GC-0142" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s100>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s100(3)(c)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s92> ;
+    tmk:notLabel "application for cessation of protection"@en-AU,
+        "notice of opposition"@en-AU,
+        "removal for non-use"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r9.2/application-for-removal> ;
+    tmk:typedBy tmka:GT-0142 .
+
+tmkc:GC-0143 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProceduralStep ;
+    rdfs:comment "Summary, not a definition: Summary: Extension of protection is the extension to Australia of protection for the trade mark that is the subject of an IRDA."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "extension of protection"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Regulations expressly define the term, making it a distinct legal concept rather than a generic phrase. The Manual explains that an IRDA requests extension of protection in Australia and is not an application for registration. The extension is distinct from the IRDA that requests it (GC-0113) and the protected international trade mark status (GC-0114). Procedural_step is the closest fit for the event extending protection to Australia."@en-AU ;
+    tmk:confidence 9.6e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29/extension-of-protection> ;
+    tmk:expertShouldCheck "Confirm whether procedural_step best captures the extension itself, rather than the request for extension or the resulting protected status."@en-AU ;
+    tmk:goldRecord "GC-0143" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29> ;
+    tmk:notLabel "application for registration"@en-AU,
+        "extension of time"@en-AU,
+        "international registration designating Australia"@en-AU,
+        "protected international trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29/extension-of-protection> ;
+    tmk:typedBy tmka:GT-0143 .
+
+tmkc:GC-0144 a skos:Concept,
+        tmk:InstrumentOrRecord,
+        tmk:LegalConcept ;
+    rdfs:comment "Summary, not a definition: Summary: A subpoena is a court-issued document requiring a named person to attend court to give oral evidence, produce documents or other things, or both."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "subpoena"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual expressly defines a subpoena as a court-issued document and describes its service on, and handling by, the Registrar of Trade Marks. It is a distinct procedural instrument, not a goods or services category, generic phrase or existing concept. The Manual passages describe practice and court requirements; they do not establish that the cited Trade Marks Act provisions ground the concept."@en-AU ;
+    tmk:confidence 9.9e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/1> ;
+    tmk:expertShouldCheck "Check the relevance of TMA1995/s154 and TMA1995/s202(b): their text is not supplied, so their relationship to subpoenas cannot be verified from these passages."@en-AU ;
+    tmk:goldRecord "GC-0144" ;
+    tmk:notLabel "service of a subpoena"@en-AU,
+        "subpoena for production"@en-AU,
+        "subpoena to give evidence"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/1> ;
+    tmk:typedBy tmka:GT-0144 .
+
+tmkc:GC-0145 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "Summary, not a definition: Summary: In relation to wine, this statutory concept ties origin in a country, region or locality to where the grapes used to make the wine were grown."@en-AU ;
+    skos:altLabel "originate, in relation to wine"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "originate"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 6 expressly gives 'originate' a statutory meaning in relation to wine by referring to section 15. Section 15 supplies necessary conditions for attributing geographical origin to wine, supporting a distinct legal-test concept rather than a generic English verb. The Manual passages use 'originate' more generally for commercial source and do not define this wine-specific test. The supplied label for GC-0019 suggests possible overlap, but does not establish that it already holds this specialised test."@en-AU ;
+    tmk:confidence 8.8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15> ;
+    tmk:expertShouldCheck "Check whether GC-0019 geographical origin already encompasses this wine-specific statutory test; only its label has been supplied."@en-AU ;
+    tmk:goldRecord "GC-0145" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    tmk:notLabel "business identifier"@en-AU,
+        "geographical indication"@en-AU,
+        "geographical origin"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15> ;
+    tmk:typedBy tmka:GT-0145 .
+
+tmkc:GC-0146 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
+    rdfs:comment "Summary, not a definition: Summary: Board is a defined statutory term whose meaning the Trade Marks Act 1995 adopts from the Patents Act 1990; the supplied passages do not identify the body or its functions."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "Board"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Section 6 expressly defines the capitalised term by reference to another Act, supporting a distinct statutory concept not represented in the existing concepts. Classification as process_role is inferred and remains provisional because the referenced definition is not supplied. The Manual occurrences concern goods or physical boards, not this statutory term. Neither supplied passage establishes sections 41 or 42(b) as a legislative basis for Board."@en-AU ;
+    tmk:confidence 8.6e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/board> ;
+    tmk:expertShouldCheck "Check the referenced definition in the applicable version of the Patents Act 1990 to establish the Board’s identity and confirm its classification as a process role."@en-AU ;
+    tmk:goldRecord "GC-0146" ;
+    tmk:notLabel "A-frame board"@en-AU,
+        "Board Games"@en-AU,
+        "body board"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/board> ;
+    tmk:typedBy tmka:GT-0146 .
+
+tmkc:GC-0147 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Summary, not a definition: Summary: Personal information is a legally defined category of information relevant to administrative access, third-party consultation and publication on the FOI disclosure log."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "personal information"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 6 expressly incorporates a statutory meaning, making this a legal concept rather than a generic phrase. It is not duplicated by the existing concepts. The Manual describes its relevance to information-access practice, but those descriptions are not the substantive definition. None of the groups accurately describes a protected category of information: it is neither a document itself nor the subject matter that may be registered. The incorporated Privacy Act definition is unavailable, so the supplied cross-reference is retained. No supplied passage establishes one of the listed PROVISIONS as the legislative basis for that definition."@en-AU ;
+    tmk:confidence 9.4e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/personal-information> ;
+    tmk:expertShouldCheck "Check the substantive definition in the Privacy Act 1988, which is not supplied. Also check the instrument attribution of the cited provisions: the Manual expressly attributes sections 11C and the third-party consultation requirements to the FOI Act, not the Trade Marks Act."@en-AU ;
+    tmk:goldRecord "GC-0147" ;
+    tmk:notLabel "business affairs information"@en-AU,
+        "business information"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/personal-information> ;
+    tmk:typedBy tmka:GT-0147 .
+
+tmkc:GC-0148 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
+    rdfs:comment "Summary, not a definition: Summary: A lawyer is a statutorily defined legal professional whom the Manual identifies as an example of someone an applicant may authorise to make an evidence declaration on their behalf."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "lawyer"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 6 expressly defines the term, and the Manual passages give lawyers a procedural role as possible authorised declarants. This is a distinct process role, not a generic phrase or an existing concept. The declaration guidance is Registrar practice, whereas the definition is statutory. None of the listed PROVISIONS is supplied with text establishing a legislative basis for this role."@en-AU ;
+    tmk:confidence 9.9e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/lawyer> ;
+    tmk:expertShouldCheck "The supplied passages do not establish how the cited sections 41(3), 41(4) and 44 ground this role; check those links before recording them as legislative bases."@en-AU ;
+    tmk:goldRecord "GC-0148" ;
+    tmk:notLabel "trade mark attorney"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/lawyer> ;
+    tmk:typedBy tmka:GT-0148 .
+
+tmkc:GC-0149 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:ProcessRole ;
+    rdfs:comment "Summary, not a definition: Summary: This is a defined Madrid-system role associated with the holder, whose Office the Manual describes as the holder's \"home\" Office for presenting certain requests to the IB."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "Contracting Party of the holder"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Regulations expressly define this term by reference to the Madrid Regulations, making it a distinct legal concept rather than a generic phrase or a duplicate of the Madrid Protocol. The referenced substantive definition is unavailable in the supplied passages. The Manual explains the associated Office's procedural role in transmitting limitation and subsequent-designation requests; this supports process_role, while not equating the Contracting Party with its Office. No references were supplied under PROVISIONS, so legislative_basis is empty."@en-AU ;
+    tmk:confidence 8.8e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/contracting-party-of-the-holder> ;
+    tmk:expertShouldCheck "Check Rule 1(xxvibis) of the Madrid Regulations for the substantive definition, which is not supplied, and confirm whether process_role is the best classification for the Contracting Party rather than its Office."@en-AU ;
+    tmk:goldRecord "GC-0149" ;
+    tmk:notLabel "Madrid Protocol"@en-AU,
+        "Office of the Contracting Party of the holder"@en-AU,
+        "designated Contracting Parties"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/contracting-party-of-the-holder> ;
+    tmk:typedBy tmka:GT-0149 .
+
+tmkc:GC-0150 a skos:Concept,
+        tmk:InstrumentOrRecord,
+        tmk:LegalConcept ;
+    rdfs:comment "Summary, not a definition: Summary: International registration of a trade mark is registration of that mark in the International Register, rather than its protection specifically in Australia."@en-AU ;
+    skos:altLabel "international registration"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "international registration of a trade mark"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Regulations expressly define the term, making it a distinct legal concept best classified as a registration record. It is broader than GC-0113, international registration designating Australia, because its definition does not require an Australian designation. The Manual also distinguishes international registration from Australian protection by describing the effect of cancellation on a protected international trade mark. The defining legislative passage is regulation 17A.2. The only reference supplied under PROVISIONS, regulation 17A.27, is described in the Manual as defining a declaration period for limitations, so it is not listed as a legislative basis for this concept."@en-AU ;
+    tmk:confidence 9.7e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-registration> ;
+    tmk:expertShouldCheck "Confirm the relationship to GC-0113 and GC-0114 against their full definitions; only their labels are supplied."@en-AU ;
+    tmk:goldRecord "GC-0150" ;
+    tmk:notLabel "International Register"@en-AU,
+        "Record of International Registrations"@en-AU,
+        "international application"@en-AU,
+        "international registration designating Australia"@en-AU,
+        "protected international trade mark"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-registration> ;
+    tmk:typedBy tmka:GT-0150 .
+
+tmkc:GC-0151 a skos:Concept,
+        tmk:InstrumentOrRecord,
+        tmk:LegalConcept ;
+    rdfs:comment "Summary, not a definition: Summary: The old register is the register kept under the repealed trade marks legislation, distinguished from the Register kept under the 1995 Act."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "old register"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 6 expressly defines the term. The Manual distinguishes the old register under the 1955 Act from the Register under the 1995 Act and describes the transfer of disclaimer particulars between them. This supports a distinct historical record concept, rather than a duplicate of the general Register of Trade Marks concept. The cited sections 207 and 238 concern that transition as described by the Manual; the other supplied provision references concern disclaimers or examination rather than defining the old register."@en-AU ;
+    tmk:confidence 9.7e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/old-register> ;
+    tmk:expertShouldCheck "Confirm the relationship to GC-0089 and verify sections 207 and 238 directly; their transitional effects are described here only through the Manual passages."@en-AU ;
+    tmk:goldRecord "GC-0151" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s207>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s238> ;
+    tmk:notLabel "Register kept under the 1995 Act"@en-AU,
+        "new Register"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/old-register> ;
+    tmk:typedBy tmka:GT-0151 .
+
+tmkc:GC-0152 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:SubjectMatter ;
+    rdfs:comment "Summary, not a definition: Summary: This statutory expression identifies services attributable to a person through that person's dealing with or providing them in the course of trade."@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "services of a person"@en-AU ;
+    tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 6 expressly defines the expression by reference to a person's trade activities. It is therefore a legal attribution concept, not merely a services category or generic phrase, and no existing concept duplicates it. The historical section 41 extracts illustrate its role in distinguishing an applicant's services from those of other persons. Subject_matter fits best because the expression identifies the services to which trade mark protection relates. Sections 8 and 7(3) are mentioned in nearby notes about authorised use, but the supplied passages do not establish them as grounds for this definition."@en-AU ;
+    tmk:confidence 9.4e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/services-of-a-person> ;
+    tmk:expertShouldCheck "Check whether subject_matter is the preferred grouping for statutory attribution concepts; the supplied section 41 extracts concern the version prior to Raising the Bar, not necessarily the current provision."@en-AU ;
+    tmk:goldRecord "GC-0152" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> ;
+    tmk:notLabel "authorised use"@en-AU,
+        "classification of goods and services"@en-AU,
+        "specification of goods and services"@en-AU ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/services-of-a-person> ;
+    tmk:typedBy tmka:GT-0152 .
+
 tmka:GT-0001 tmk:authoredBy "claude-opus-5" ;
     tmk:authoredDate "2026-09-08"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
@@ -4034,6 +4540,270 @@ tmka:GT-0130 tmk:authoredBy "claude-opus-5" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> .
+
+tmka:GT-0131 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: The Regulations expressly define the term, and section 27 supplies the application requirements and required contents. The application is best treated as an instrument or record, rather than the act of filing or the trade mark sought to be registered. No existing concept covers the general application: divisional and convention applications are more specific concepts, while examination, acceptance and amendment concern its processing. The regulatory definition is substantive rather than merely a direction to another definition, so it is retained as the definition quote."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 9.6e-01 ;
+    tmk:expertShouldCheck "Check whether the definition in regulation 5.2 has a limited contextual scope before adopting it throughout the ontology."@en-AU ;
+    tmk:goldRecord "GT-0131" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/trade-mark-application> .
+
+tmka:GT-0132 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: The Regulations expressly introduce a definition of holder, although its substance is missing from the supplied passage. The Manual’s legislative-reference list identifies the holder as the recipient of reports and the responding party in examination of an IRDA, supporting a distinct process role. The supplied material does not establish equivalence with the existing applicant or registered owner concepts. Uses concerning business names and copyright are separate contexts, not evidence of the international-registration meaning. The quoted Manual text identifies procedural provisions; it is not itself legislation or a complete legal definition."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 8.4e-01 ;
+    tmk:expertShouldCheck "Check the complete definition in regulation 17A.2: the supplied statutory passage stops at ‘holder means:’ and does not establish precisely who qualifies as the holder."@en-AU ;
+    tmk:goldRecord "GT-0132" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> .
+
+tmka:GT-0133 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: Section 6 expressly identifies a specific statutory body, distinct from the existing concepts, so the term warrants a process_role concept. The Manual passages identify that body in connection with time allowances and matters sent to it during deferment; these are statements of practice, not legislative definitions. The generic lower-case use of 'commission' in the ownership passage does not identify this defined body. Only section 6 is supplied as legislative text, so the other cited provisions cannot be verified as legislative grounds for its functions here."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 9.9e-01 ;
+    tmk:expertShouldCheck "Check the precise functions under the cited Part 16 provisions and regulations, whose text has not been supplied."@en-AU ;
+    tmk:goldRecord "GT-0133" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/commission> .
+
+tmka:GT-0134 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: The Regulations expressly define ART as the Administrative Review Tribunal. This names a legal body and fits process_role; no existing concept names that body. The Manual passages concern lowercase art as goods or classification wording, not the statutory abbreviation. None of the provisions listed under PROVISIONS is reproduced, so their contribution to the Tribunal’s role cannot be established from the supplied text."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 9.9e-01 ;
+    tmk:expertShouldCheck "Confirm the Tribunal’s trade marks review functions against the cited provisions, whose text has not been supplied."@en-AU ;
+    tmk:goldRecord "GT-0134" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r2.1/art> .
+
+tmka:GT-0135 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: The Regulations expressly define the term, and the Manual describes applications and opposition procedures concerning cessation for non-use. It names an event ending protection and therefore fits procedural_step. It is distinct from removal for non-use of a registered trade mark: the supplied definition concerns a protected international trade mark. No existing concept expressly covers this event. The listed legislative provisions cannot be assessed as grounding provisions without their text."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 9.6e-01 ;
+    tmk:expertShouldCheck "Confirm the scope of the definition in regulation 17A.48 and which of the listed provisions provide its legislative basis; their substantive text was not supplied."@en-AU ;
+    tmk:goldRecord "GT-0135" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.48/cessation-of-protection> .
+
+tmka:GT-0136 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: This is a named institutional role, not a generic phrase or a duplicate of the Registrar or Madrid Protocol concepts. The Manual describes its priority-verification role and distinguishes it from the International Bureau in classification disputes. Regulation 17A.2 expressly points to Article 2(2) for its meaning; because that Article is absent, the quotation provides a supported role description rather than a complete legal definition. None of the listed PROVISIONS is supplied with text establishing its legislative basis."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 9e-01 ;
+    tmk:expertShouldCheck "Check Article 2(2) of the Protocol for the full definition: regulation 17A.2 incorporates it, but that Article is not supplied here."@en-AU ;
+    tmk:goldRecord "GT-0136" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4/4/1> .
+
+tmka:GT-0137 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: Section 9 expressly defines the noun 'covering', making it a distinct legal concept rather than merely a goods category or generic expression. No existing concept duplicates it. The Manual passages instead use 'covering' in its ordinary sense of encompassing classes, goods, services or searches. None of the supplied groups clearly fits the defined physical covering, so none_of_these is preferred. The listed PROVISIONS do not ground this definition; section 9 is supplied as a passage but is absent from that list."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 9.5e-01 ;
+    tmk:expertShouldCheck "Confirm its ontology placement: the supplied definition establishes a statutory concept but does not explain its procedural function."@en-AU ;
+    tmk:goldRecord "GT-0137" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s9/covering> .
+
+tmka:GT-0138 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: The Regulations expressly define the term as a named body, so it fits process_role. The Manual describes its acceptance of verified priority claims and states that its opinion stands in classification disputes involving Madrid Protocol export applications. These are descriptions of practice, not additional legislative definitions. No existing concept identifies this body; the Madrid Protocol is a distinct international instrument."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 9.9e-01 ;
+    tmk:expertShouldCheck "Check the precise scope of its functions against the applicable Madrid Protocol provisions; the supplied passages describe only selected roles."@en-AU ;
+    tmk:goldRecord "GT-0138" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-bureau> .
+
+tmka:GT-0139 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: The term names an expressly defined statutory class of courts, not a generic phrase or an existing concept. Section 6 refers to section 190, which supplies the substantive list and is therefore preferred for the definition quote. The process_role group fits because these courts are bodies in which proceedings under the Act may be brought. The Manual passages describe deferment practice associated with court proceedings; they do not define the statutory class. Other cited provisions are not supplied in full, so their precise contribution cannot be confirmed from these passages."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 9.9e-01 ;
+    tmk:expertShouldCheck "Check the currency of the supplied section 190 court list before using it as a statement of current law."@en-AU ;
+    tmk:goldRecord "GT-0139" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s190> .
+
+tmka:GT-0140 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: The legislative passage expressly gives label an inclusive definition, supporting a distinct concept rather than merely generic packaging terminology. The Manual passages also discuss a label's parts and presentation in assessing use as a trade mark. Label is not synonymous with the existing concepts sign or trade mark: the Manual indicates that parts of a label may perform a distinguishing function. Subject_matter is the closest group, although the supplied passages do not establish that every label is itself registrable. No listed legislative provision can be confirmed as grounding it from the supplied text."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 8.8e-01 ;
+    tmk:expertShouldCheck "Verify the supplied TMA1995/s9/label reference and which listed provisions ground the concept; their text is not supplied."@en-AU ;
+    tmk:goldRecord "GT-0140" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s9/label> .
+
+tmka:GT-0141 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: The statutory fragment expressly introduces a defined term, making this more than a generic date phrase, but omits its defining content. The Manual supplies the best available explanation of its effective-date usage. It relates registration to priority dates without establishing that the concepts are identical, so it is not treated as a duplicate of priority date or filing date. A temporal attribute fits none of the listed groups closely. The cited provisions are not reproduced, so their grounding role cannot be verified from these passages; the Manual explanation is practice, not legislation."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 7.8e-01 ;
+    tmk:expertShouldCheck "Check the complete section 6 definition, whether 'effective date of registration' is equivalent to the statutory term, and which of the cited provisions actually ground it."@en-AU ;
+    tmk:goldRecord "GT-0141" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/7/7/2> .
+
+tmka:GT-0142 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: The Regulations expressly define the term. The Manual describes filing the application, opposition to it and rebuttal, supporting a distinct procedural concept rather than a generic phrase. It is provisionally distinguished from GC-0104 removal for non-use because the application initiates the process and is not itself removal. The Manual also expressly distinguishes it from an application for cessation of protection concerning a protected international trade mark."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 8.8e-01 ;
+    tmk:expertShouldCheck "Check whether GC-0104 already encompasses the initiating application; the existing concept's label alone does not establish its scope."@en-AU ;
+    tmk:goldRecord "GT-0142" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r9.2/application-for-removal> .
+
+tmka:GT-0143 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: The Regulations expressly define the term, making it a distinct legal concept rather than a generic phrase. The Manual explains that an IRDA requests extension of protection in Australia and is not an application for registration. The extension is distinct from the IRDA that requests it (GC-0113) and the protected international trade mark status (GC-0114). Procedural_step is the closest fit for the event extending protection to Australia."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 9.6e-01 ;
+    tmk:expertShouldCheck "Confirm whether procedural_step best captures the extension itself, rather than the request for extension or the resulting protected status."@en-AU ;
+    tmk:goldRecord "GT-0143" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29/extension-of-protection> .
+
+tmka:GT-0144 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: The Manual expressly defines a subpoena as a court-issued document and describes its service on, and handling by, the Registrar of Trade Marks. It is a distinct procedural instrument, not a goods or services category, generic phrase or existing concept. The Manual passages describe practice and court requirements; they do not establish that the cited Trade Marks Act provisions ground the concept."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 9.9e-01 ;
+    tmk:expertShouldCheck "Check the relevance of TMA1995/s154 and TMA1995/s202(b): their text is not supplied, so their relationship to subpoenas cannot be verified from these passages."@en-AU ;
+    tmk:goldRecord "GT-0144" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part54/1/1/1> .
+
+tmka:GT-0145 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: Section 6 expressly gives 'originate' a statutory meaning in relation to wine by referring to section 15. Section 15 supplies necessary conditions for attributing geographical origin to wine, supporting a distinct legal-test concept rather than a generic English verb. The Manual passages use 'originate' more generally for commercial source and do not define this wine-specific test. The supplied label for GC-0019 suggests possible overlap, but does not establish that it already holds this specialised test."@en-AU ;
+    tmk:conceptGroup "legal_test" ;
+    tmk:confidence 8.8e-01 ;
+    tmk:expertShouldCheck "Check whether GC-0019 geographical origin already encompasses this wine-specific statutory test; only its label has been supplied."@en-AU ;
+    tmk:goldRecord "GT-0145" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s15> .
+
+tmka:GT-0146 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: Section 6 expressly defines the capitalised term by reference to another Act, supporting a distinct statutory concept not represented in the existing concepts. Classification as process_role is inferred and remains provisional because the referenced definition is not supplied. The Manual occurrences concern goods or physical boards, not this statutory term. Neither supplied passage establishes sections 41 or 42(b) as a legislative basis for Board."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 8.6e-01 ;
+    tmk:expertShouldCheck "Check the referenced definition in the applicable version of the Patents Act 1990 to establish the Board’s identity and confirm its classification as a process role."@en-AU ;
+    tmk:goldRecord "GT-0146" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/board> .
+
+tmka:GT-0147 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: Section 6 expressly incorporates a statutory meaning, making this a legal concept rather than a generic phrase. It is not duplicated by the existing concepts. The Manual describes its relevance to information-access practice, but those descriptions are not the substantive definition. None of the groups accurately describes a protected category of information: it is neither a document itself nor the subject matter that may be registered. The incorporated Privacy Act definition is unavailable, so the supplied cross-reference is retained. No supplied passage establishes one of the listed PROVISIONS as the legislative basis for that definition."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 9.4e-01 ;
+    tmk:expertShouldCheck "Check the substantive definition in the Privacy Act 1988, which is not supplied. Also check the instrument attribution of the cited provisions: the Manual expressly attributes sections 11C and the third-party consultation requirements to the FOI Act, not the Trade Marks Act."@en-AU ;
+    tmk:goldRecord "GT-0147" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/personal-information> .
+
+tmka:GT-0148 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: Section 6 expressly defines the term, and the Manual passages give lawyers a procedural role as possible authorised declarants. This is a distinct process role, not a generic phrase or an existing concept. The declaration guidance is Registrar practice, whereas the definition is statutory. None of the listed PROVISIONS is supplied with text establishing a legislative basis for this role."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 9.9e-01 ;
+    tmk:expertShouldCheck "The supplied passages do not establish how the cited sections 41(3), 41(4) and 44 ground this role; check those links before recording them as legislative bases."@en-AU ;
+    tmk:goldRecord "GT-0148" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/lawyer> .
+
+tmka:GT-0149 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: The Regulations expressly define this term by reference to the Madrid Regulations, making it a distinct legal concept rather than a generic phrase or a duplicate of the Madrid Protocol. The referenced substantive definition is unavailable in the supplied passages. The Manual explains the associated Office's procedural role in transmitting limitation and subsequent-designation requests; this supports process_role, while not equating the Contracting Party with its Office. No references were supplied under PROVISIONS, so legislative_basis is empty."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 8.8e-01 ;
+    tmk:expertShouldCheck "Check Rule 1(xxvibis) of the Madrid Regulations for the substantive definition, which is not supplied, and confirm whether process_role is the best classification for the Contracting Party rather than its Office."@en-AU ;
+    tmk:goldRecord "GT-0149" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/contracting-party-of-the-holder> .
+
+tmka:GT-0150 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: The Regulations expressly define the term, making it a distinct legal concept best classified as a registration record. It is broader than GC-0113, international registration designating Australia, because its definition does not require an Australian designation. The Manual also distinguishes international registration from Australian protection by describing the effect of cancellation on a protected international trade mark. The defining legislative passage is regulation 17A.2. The only reference supplied under PROVISIONS, regulation 17A.27, is described in the Manual as defining a declaration period for limitations, so it is not listed as a legislative basis for this concept."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 9.7e-01 ;
+    tmk:expertShouldCheck "Confirm the relationship to GC-0113 and GC-0114 against their full definitions; only their labels are supplied."@en-AU ;
+    tmk:goldRecord "GT-0150" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.2/international-registration> .
+
+tmka:GT-0151 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: Section 6 expressly defines the term. The Manual distinguishes the old register under the 1955 Act from the Register under the 1995 Act and describes the transfer of disclaimer particulars between them. This supports a distinct historical record concept, rather than a duplicate of the general Register of Trade Marks concept. The cited sections 207 and 238 concern that transition as described by the Manual; the other supplied provision references concern disclaimers or examination rather than defining the old register."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 9.7e-01 ;
+    tmk:expertShouldCheck "Confirm the relationship to GC-0089 and verify sections 207 and 238 directly; their transitional effects are described here only through the Manual passages."@en-AU ;
+    tmk:goldRecord "GT-0151" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/old-register> .
+
+tmka:GT-0152 tmk:authoredBy "gpt-6.1-sol" ;
+    tmk:authoredDate "2026-10-07"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Typed in the same judgement as the concept: Section 6 expressly defines the expression by reference to a person's trade activities. It is therefore a legal attribution concept, not merely a services category or generic phrase, and no existing concept duplicates it. The historical section 41 extracts illustrate its role in distinguishing an applicant's services from those of other persons. Subject_matter fits best because the expression identifies the services to which trade mark protection relates. Sections 8 and 7(3) are mentioned in nearby notes about authorised use, but the supplied passages do not establish them as grounds for this definition."@en-AU ;
+    tmk:conceptGroup "subject_matter" ;
+    tmk:confidence 9.4e-01 ;
+    tmk:expertShouldCheck "Check whether subject_matter is the preferred grouping for statutory attribution concepts; the supplied section 41 extracts concern the version prior to Raising the Bar, not necessarily the current provision."@en-AU ;
+    tmk:goldRecord "GT-0152" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/services-of-a-person> .
 
 tmkc:GC-0009 a tmk:RelevantFactor ;
     tmk:qualifies tmkc:GC-0002 ;

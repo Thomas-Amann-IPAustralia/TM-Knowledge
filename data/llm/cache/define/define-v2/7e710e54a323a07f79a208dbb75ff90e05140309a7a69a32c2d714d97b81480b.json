@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005934,
+ "created_utc": "2026-10-07T08:32:20Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "date of registration",
+ "job": "define",
+ "key": "7e710e54a323a07f79a208dbb75ff90e05140309a7a69a32c2d714d97b81480b",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"Consider separating the statutory date of registration from the Manual's effective date of registration if the complete statutory definition shows they differ.\",\n  \"definition_quote\": \"Where different priority claims are made in respect of the specification of a single convention application on the basis of earlier applications made in convention countries at different times, the effective date of registration of the Australian trade mark is the relevant date of the earlier application for each of the particular goods and/or services.\",\n  \"alt_labels\": [\n    \"effective date of registration\"\n  ],\n  \"confidence\": 0.78,\n  \"is_concept\": true,\n  \"basis\": \"corpus_inferred\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: A legally significant date associated with registration, whose effective date the Manual describes as affected by priority claims and potentially differing between goods or services.\",\n  \"expert_should_check\": \"Check the complete section 6 definition, whether 'effective date of registration' is equivalent to the statutory term, and which of the cited provisions actually ground it.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"date of registration\",\n  \"definition_ref\": \"TMM/Part11/7/7/2\",\n  \"reasoning\": \"The statutory fragment expressly introduces a defined term, making this more than a generic date phrase, but omits its defining content. The Manual supplies the best available explanation of its effective-date usage. It relates registration to priority dates without establishing that the concepts are identical, so it is not treated as a duplicate of priority date or filing date. A temporal attribute fits none of the listed groups closely. The cited provisions are not reproduced, so their grounding role cannot be verified from these passages; the Manual explanation is practice, not legislation.\",\n  \"not_labels\": [\n    \"priority date\",\n    \"filing date\"\n  ],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "837c938f745702f969e61a251f834f1f273d8081357d387bd579e633e9cbf74f",
+ "response_id": "resp_0c39e31dc16ed719006ac60377d0c887d29f6f514955973c9a",
+ "seconds": 29.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2360,
+  "input_tokens_details": {
+   "cache_write_tokens": 2357,
+   "cached_tokens": 0
+  },
+  "output_tokens": 597,
+  "output_tokens_details": {
+   "reasoning_tokens": 196
+  },
+  "total_tokens": 2957
+ }
+}

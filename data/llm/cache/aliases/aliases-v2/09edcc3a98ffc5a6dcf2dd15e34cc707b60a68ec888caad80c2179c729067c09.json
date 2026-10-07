@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007334,
+ "created_utc": "2026-10-07T08:29:58Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0061..GC-0072",
+ "job": "aliases",
+ "key": "09edcc3a98ffc5a6dcf2dd15e34cc707b60a68ec888caad80c2179c729067c09",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0061\",\n      \"related_search_terms\": [\n        \"ordinary signification\",\n        \"descriptive trade marks\",\n        \"legitimate trader use\"\n      ],\n      \"everyday_phrases\": [\n        \"words competitors need\",\n        \"competitors using these words\",\n        \"keeping descriptive words free\",\n        \"others need this name\",\n        \"common industry wording\"\n      ]\n    },\n    {\n      \"id\": \"GC-0062\",\n      \"related_search_terms\": [\n        \"section 42(a)\",\n        \"scandalous trade marks\",\n        \"scandalous matter objection\"\n      ],\n      \"everyday_phrases\": [\n        \"offensive brand name\",\n        \"rude logo\",\n        \"swear word trademark\",\n        \"obscene wording\",\n        \"offensive trademark rejection\"\n      ]\n    },\n    {\n      \"id\": \"GC-0063\",\n      \"related_search_terms\": [\n        \"section 42(b)\",\n        \"unlawful trade mark use\",\n        \"contrary to law objection\"\n      ],\n      \"everyday_phrases\": [\n        \"illegal brand name\",\n        \"unlawful branding\",\n        \"name breaks the law\",\n        \"illegal trademark use\",\n        \"legally prohibited name\"\n      ]\n    },\n    {\n      \"id\": \"GC-0064\",\n      \"related_search_terms\": [\n        \"section 44\",\n        \"cited trade mark\",\n        \"likelihood of confusion\"\n      ],\n      \"everyday_phrases\": [\n        \"name already registered\",\n        \"clashing brand names\",\n        \"another similar trademark\",\n        \"confusingly similar brands\",\n        \"existing trademark objection\"\n      ]\n    },\n    {\n      \"id\": \"GC-0065\",\n      \"related_search_terms\": [\n        \"section 44\",\n        \"trade mark comparison\",\n        \"substantial identity\"\n      ],\n      \"everyday_phrases\": [\n        \"almost identical logos\",\n        \"essentially the same mark\",\n        \"near identical names\",\n        \"same overall mark\",\n        \"tiny differences between marks\"\n      ]\n    },\n    {\n      \"id\": \"GC-0066\",\n      \"related_search_terms\": [\n        \"paragraph 44(3)(a)\",\n        \"evidence of concurrent use\",\n        \"honesty of adoption\"\n      ],\n      \"everyday_phrases\": [\n        \"both using the name\",\n        \"using similar brands honestly\",\n        \"sharing a brand name\",\n        \"independently adopted same name\",\n        \"longstanding overlapping brand use\"\n      ]\n    },\n    {\n      \"id\": \"GC-0067\",\n      \"related_search_terms\": [\n        \"subsection 44(4)\",\n        \"priority date\",\n        \"evidence of earlier use\"\n      ],\n      \"everyday_phrases\": [\n        \"used the name first\",\n        \"using it before them\",\n        \"earlier brand use\",\n        \"never stopped using it\",\n        \"first user evidence\"\n      ]\n    },\n    {\n      \"id\": \"GC-0068\",\n      \"related_search_terms\": [\n        \"commercial realities\",\n        \"Registrar’s discretion\",\n        \"acceptance despite conflict\"\n      ],\n      \"everyday_phrases\": [\n        \"alternative reasons for acceptance\",\n        \"special reasons to accept\",\n        \"business realities\",\n        \"exception despite conflicting trademark\",\n        \"acceptance despite brand clash\"\n      ]\n    },\n    {\n      \"id\": \"GC-0069\",\n      \"related_search_terms\": [\n        \"conditional acceptance\",\n        \"registration limitations\",\n        \"Registrar-imposed conditions\"\n      ],\n      \"everyday_phrases\": [\n        \"restricted trademark registration\",\n        \"approval with restrictions\",\n        \"registration with strings attached\",\n        \"limits on registration\",\n        \"conditional trademark approval\"\n      ]\n    },\n    {\n      \"id\": \"GC-0070\",\n      \"related_search_terms\": [\n        \"goods and services comparison\",\n        \"classification\",\n        \"similarity assessment\"\n      ],\n      \"everyday_phrases\": [\n        \"similar products\",\n        \"overlapping services\",\n        \"same type of products\",\n        \"comparing product categories\",\n        \"different classes same products\"\n      ]\n    },\n    {\n      \"id\": \"GC-0071\",\n      \"related_search_terms\": [\n        \"goods–services relationship\",\n        \"section 44\",\n        \"cross-category conflict\"\n      ],\n      \"everyday_phrases\": [\n        \"products linked to services\",\n        \"related products and services\",\n        \"services connected to products\",\n        \"product versus service clash\",\n        \"connected business offerings\"\n      ]\n    },\n    {\n      \"id\": \"GC-0072\",\n      \"related_search_terms\": [\n        \"sign\",\n        \"source identifier\",\n        \"distinguishing goods or services\"\n      ],\n      \"everyday_phrases\": [\n        \"brand name\",\n        \"business logo\",\n        \"product name\",\n        \"brand symbol\",\n        \"trademark\",\n        \"branding\"\n      ]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "f66ef96f0cce5b7a1dd3a76d7855f0000d113a4c27e26764ec36f869df3d71da",
+ "response_id": "resp_0f337bb1e6a42ce2006ac602db0be887d2975ac21a922148b6",
+ "seconds": 43.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1192,
+  "input_tokens_details": {
+   "cache_write_tokens": 1189,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1169,
+  "output_tokens_details": {
+   "reasoning_tokens": 103
+  },
+  "total_tokens": 2361
+ }
+}

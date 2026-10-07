@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:32:29Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "application for removal",
+ "job": "define",
+ "key": "b7872c9dee43fe5cd7157dfec7463d77e86e1925b85bde07cc99a2e7ab5b93f9",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "4cc9750bca96a8c5d62f78554dda3b130fd8aaf6f421cebf0cfb178d797a8220",
+ "response_id": "resp_0a2dc1ca2a9e682e006ac603928f6487d29e3fbb145c2105dd",
+ "seconds": 11.1,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

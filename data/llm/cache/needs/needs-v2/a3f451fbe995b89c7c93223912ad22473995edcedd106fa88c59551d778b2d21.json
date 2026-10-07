@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009602,
+ "created_utc": "2026-10-07T08:28:56Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-017",
+ "job": "needs",
+ "key": "a3f451fbe995b89c7c93223912ad22473995edcedd106fa88c59551d778b2d21",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"The answer must state which FOI decisions can be internally reviewed, who may apply in each category, and the time limit for applying. It must also explain when a longer period applies and note that the agency may extend time after the statutory period has expired.\",\"search\":\"FOI internal review time limit and who can apply\",\"seed_refs\":[\"TMM/Part61/2/2/4\"],\"kind\":\"lookup\",\"question\":\"How long do I have to ask for internal review, and who is allowed to apply?\"},{\"narrative\":\"The answer must explain why a search for CAR brings up some close matches but not broader word beginnings like CARPET or CARRIAGE. It should also mention the available result limits and filters in the search screen.\",\"search\":\"why does CAR return some words but not others\",\"seed_refs\":[\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/search-results-screen-keyword-search\"],\"kind\":\"problem\",\"question\":\"Why does searching for CAR show CARS but not CARPET?\"},{\"narrative\":\"The answer must cover the rules for amending a divisional application when it was not valid, including the limits on section 65 amendments and the possible use of section 65A for clerical error or obvious mistake. It must also mention what happens if a proposed amendment is published for opposition and how that sits alongside the separate note about section 65(7) where the divisional application is otherwise valid.\",\"search\":\"divisional application invalid amendment clerical error opposition published\",\"seed_refs\":[\"TMM/Part12/3/3/7\",\"TMM/Part15/1#1~2\"],\"kind\":\"cross_part\",\"question\":\"If a divisional application was not valid when filed, can it still be fixed and then published for opposition?\"},{\"narrative\":\"The answer must explain how treating an invented shape like an invented word affects shape trade marks, including the role of what is common to the trade and research into the market. It should identify who is affected by that approach and what it changes for applicants trying to rely on shape marks in different kinds of goods.\",\"search\":\"invented shape treated like invented word shape trade marks\",\"seed_refs\":[\"TMM/Part21/3/3/6~1\"],\"kind\":\"impact\",\"question\":\"What does treating an invented shape like an invented word mean for people trying to register a shape as a trade mark?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "6d287403e750a74d3d811d9070a00dde4b906639026e9816e4e4aca8e24e82de",
+ "response_id": "resp_04428477f6794d46006ac602bdc2f487d2aa38d7ff6daf8108",
+ "seconds": 11.3,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1762,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1840,
+  "output_tokens_details": {
+   "reasoning_tokens": 1178
+  },
+  "total_tokens": 3602
+ }
+}

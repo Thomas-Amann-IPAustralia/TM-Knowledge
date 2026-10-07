@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007457,
+ "created_utc": "2026-10-07T08:30:50Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0006",
+ "job": "relate",
+ "key": "2cda0d08e024501c2297899c9ee8b81bd7d46d6fa595916b03431a496423dc31",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"if only some of the goods/services of the parent application have attracted a ground for rejection under sections 39, 41, 42 or 43, the applicant may decide to exclude the goods/services which have attracted the ground(s) for rejection from the parent application, so that the parent application can proceed to acceptance;\",\n      \"relation\": \"same_concept\",\n      \"alternative\": \"The anchor denotes only a section 43 objection and is therefore a narrower kind of the neighbour.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.86,\n      \"reasoning\": \"Both records name a ground for rejection, and the passage expressly includes section 43 within that general concept. This reading treats the anchor's primary label as generic rather than restricting it to its section 43 alias.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the anchor is intended to denote only section 43 grounds.\",\n      \"passage_ref\": \"TMM/Part12/2#1\",\n      \"neighbour\": \"GC-0053\"\n    },\n    {\n      \"quote\": \"In some cases a connotation giving rise to a section 43 ground for rejection may not be obvious during examination and will only emerge at opposition when the full facts of a case are available to the decision maker.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Examination itself may give rise to a ground for rejection.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.95,\n      \"reasoning\": \"The Manual expressly connects a section 43 ground with its possible non-detection during examination. It does not identify examination itself as the source of the ground.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a more specific procedural predicate is needed for detection during examination.\",\n      \"passage_ref\": \"TMM/Part29/3/3/4\",\n      \"neighbour\": \"GC-0092\"\n    },\n    {\n      \"quote\": \"The trade marks have some inherent adaptation to distinguish but they are not prima facie capable of distinguishing. In this instance a section 41 ground for rejection is appropriate.\",\n      \"relation\": \"statesThresholdFor\",\n      \"alternative\": \"Only a general related_to connection is supported because the passage concerns particular examples.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.76,\n      \"reasoning\": \"The Manual links the appropriateness of a section 41 ground to the examples' failure to be prima facie capable of distinguishing. The relationship concerns absence of that capability, not capability as a positive basis for rejection, and should not be extended to section 43.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether this example-specific negative threshold warrants statesThresholdFor.\",\n      \"passage_ref\": \"TMM/Part22/15/15/13\",\n      \"neighbour\": \"GC-0119\"\n    },\n    {\n      \"quote\": \"An applicant may overcome a section 43 ground for rejection in relation to a name by providing the well-known person’s written permission to use their name as a trade mark. Where permission is provided, this should be made clear by way of an endorsement.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"The ground for rejection is overcome by the endorsement itself.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"The Manual connects the ground with an endorsement recording permission used to overcome it. Written permission, rather than the endorsement itself, is identified as the means of overcoming the ground.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether endorsement is intended to include the underlying consent rather than merely its recording.\",\n      \"passage_ref\": \"TMM/Part29/6#1~2\",\n      \"neighbour\": \"GC-0014\"\n    },\n    {\n      \"quote\": \"If a trade mark contains or consists of word/s which connote a particular plant variety or other plant name, and is applied to plants or plant materials of the same or a closely related genus, it is likely to deceive or cause confusion as to the true nature of those plants or plant materials and a ground for rejection under section 43 of the Act will be appropriate.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"A plant variety name necessarily gives rise to a ground for rejection irrespective of the specified goods.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual identifies a plant variety name connoted by the mark as a potential source of a section 43 ground, conditional on its use for plants or plant materials of the same or a closely related genus. It does not make the name alone a sufficient basis.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the relationship should attach more narrowly to the connotation of the plant variety name.\",\n      \"passage_ref\": \"TMM/Part29/1/1/2\",\n      \"neighbour\": \"GC-0036\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "5ab4ecb9a89f700b831272efe48b3f8592b5d3362cbf08df90c34c9934f07cbe",
+ "response_id": "resp_0e4c3139d4e55df6006ac6030eec4087d2a343f7af3fba1c6f",
+ "seconds": 44.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4289,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4286
+  },
+  "output_tokens": 1448,
+  "output_tokens_details": {
+   "reasoning_tokens": 296
+  },
+  "total_tokens": 5737
+ }
+}

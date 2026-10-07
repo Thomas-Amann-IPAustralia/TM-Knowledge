@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005542,
+ "created_utc": "2026-10-07T08:32:50Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0015",
+ "job": "relate",
+ "key": "cd93bd7040a5337f8db666c77b5972faabf6d171a55f3a22e0b257ddc9a80cd1",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"If submissions are received requesting the deletion of certain goods/services from an application that also state that a divisional application is to be filed from that application, any deletion or amendment to the specification of goods/services should be delayed until the divisional application has been filed.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"related_to, if appliesTo is reserved for provisions rather than procedural changes affecting a record.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The Manual expressly identifies the specification of goods/services as the record being amended or limited. The appliesTo classification is inferred from that amendment–record relationship, rather than from the conditional timing guidance.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether appliesTo accommodates an amendment acting on a specification.\",\n      \"passage_ref\": \"TMM/Part12/2#1\",\n      \"neighbour\": \"GC-0129\"\n    },\n    {\n      \"quote\": \"If submissions are received requesting the deletion of certain goods/services from an application that also state that a divisional application is to be filed from that application, any deletion or amendment to the specification of goods/services should be delayed until the divisional application has been filed.\",\n      \"relation\": \"is_kind_of\",\n      \"alternative\": \"same_concept, which would incorrectly equate specification amendments with all amendments of an application.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The passage treats deletion or amendment of the application's specification as an amendment affecting that application. This supports an inferred subtype relationship, not equivalence with every application amendment.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the broader amendment record includes specification deletions as well as other amendments.\",\n      \"passage_ref\": \"TMM/Part12/2#1\",\n      \"neighbour\": \"GC-0124\"\n    },\n    {\n      \"quote\": \"If submissions are received requesting the deletion of certain goods/services from an application that also state that a divisional application is to be filed from that application, any deletion or amendment to the specification of goods/services should be delayed until the divisional application has been filed.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"requiresElement, which would overstate this conditional timing guidance as a general requirement for divisional applications.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly links the timing of a specification amendment to filing an intended divisional application. No listed specific predicate accurately captures that conditional sequencing relationship.\",\n      \"modality\": \"should\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a more specific procedural-sequencing predicate is needed for this relationship.\",\n      \"passage_ref\": \"TMM/Part12/2#1\",\n      \"neighbour\": \"GC-0110\"\n    },\n    {\n      \"quote\": \"If the answer to question 6 is no, and the divisional application is valid and complete, the examiner must (as soon as practicable) process the amendment to the specification of the parent application to exclude the claimed goods and/or services of the divisional application.\",\n      \"relation\": \"allocatesTo\",\n      \"alternative\": \"constrainsExaminerTo, which would treat the amendment itself as the source of the examiner's obligation rather than the task allocated by the Manual.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.84,\n      \"reasoning\": \"The Manual allocates processing of the parent specification amendment to the examiner, subject to the stated checklist conditions. I am unsure whether allocatesTo is intended to cover task-to-role allocations as well as allocations to statutory provisions.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether allocatesTo permits allocation of amendment processing to an examiner.\",\n      \"passage_ref\": \"TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1\",\n      \"neighbour\": \"GC-0044\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "ddedd83426ac9715b8db0bf48dfb89d8620e6f1ebd26ce9677509bded80f6192",
+ "response_id": "resp_058d6fa25636c3a8006ac6039690a087d2ab485c2632f63d3c",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4288,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 4285
+  },
+  "output_tokens": 1065,
+  "output_tokens_details": {
+   "reasoning_tokens": 125
+  },
+  "total_tokens": 5353
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012028,
+ "created_utc": "2026-10-07T08:42:53Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0052",
+ "job": "relate",
+ "key": "7d559a111aac806875bfbb3a4c1a438b2f1ef02e80cf10b322f70cc0bcd7a2f4",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"A ground for rejection under section 41(4) is applicable if research identifies a plant name of the relevant type that only differs from the applied for trade mark by words that are common to the trade.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"related_to: research merely informs assessment of an independently existing ground.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The Manual expressly links a specified research finding to the applicability of a ground for rejection. This supports a conditional relationship, not a claim that research alone establishes any ground.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether mayGiveRiseTo appropriately captures the distinction between identifying a ground and creating it.\",\n      \"passage_ref\": \"TMM/Part32A/2/3/2/3/2\",\n      \"neighbour\": \"GC-0053\"\n    },\n    {\n      \"quote\": \"Internet research often forms the basis for an examiner’s objection under s 41.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"related_to: research supplies evidentiary support without giving rise to an objection.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual expressly identifies Internet research as a possible basis for an examiner’s objection. The support here concerns section 41, not specifically the section 43 objection included among the neighbour’s aliases.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether GC-0006 encompasses section 41 objections despite its section 43 alias.\",\n      \"passage_ref\": \"TMM/Part23/2/2/4\",\n      \"neighbour\": \"GC-0006\"\n    },\n    {\n      \"quote\": \"If the trade mark contains a name of a well-known person and the application specifies goods/services outside the area that the person is well known for, then careful consideration of several factors in combination, informed by research, is required.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"qualifies: research qualifies the assessment of the person’s reputation.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.77,\n      \"reasoning\": \"The Manual connects research-informed consideration with the area for which a person is well known. I infer a connection to reputation, but the passage does not expressly say that research establishes or qualifies reputation itself.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the required research-informed consideration is sufficiently connected to reputation rather than only to unspecified additional factors.\",\n      \"passage_ref\": \"TMM/Part29/6#1~1\",\n      \"neighbour\": \"GC-0050\"\n    },\n    {\n      \"quote\": \"Generally, the name of a cryptocurrency will be inherently capable of distinguishing unless research demonstrates that the term: is used to describe an aspect of the cryptocurrency (e.g. altcoin - a type of cryptocurrency viewed as an alternative to BitCoin. It is likely that other traders would desire to use the term without improper motive in relation to the services), or is the name of an underlying technology used in cryptocurrencies (e.g. blockchain).\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to: research only provides information relevant to distinctiveness.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.96,\n      \"reasoning\": \"The Manual expressly makes its general statement of inherent capacity to distinguish subject to contrary research findings. The qualification concerns the specified findings, not research in the abstract.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the neighbour’s broader capacity-to-distinguish concept appropriately includes inherent capacity to distinguish.\",\n      \"passage_ref\": \"TMM/Part22/14/14/6\",\n      \"neighbour\": \"GC-0058\"\n    },\n    {\n      \"quote\": \"If the trade mark contains a name of a well-known person and the application specifies goods/services outside the area that the person is well known for, then careful consideration of several factors in combination, informed by research, is required.\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"appliesTo: examiner research applies to well-known persons.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The Manual requires research-informed consideration in the stated context involving a well-known person’s name. No more specific listed predicate accurately expresses this contextual connection.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this relationship should instead attach to marks containing a well-known person’s name rather than to the person concept.\",\n      \"passage_ref\": \"TMM/Part29/6#1~1\",\n      \"neighbour\": \"GC-0026\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "93553923ba731e231202620a784d48b00b9f48ed47239f7df29f546040cf6511",
+ "response_id": "resp_029fc086cb4de7ad006ac605e10e7887d2a3fe952cb5fc96eb",
+ "seconds": 44.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4415,
+  "input_tokens_details": {
+   "cache_write_tokens": 4412,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1302,
+  "output_tokens_details": {
+   "reasoning_tokens": 200
+  },
+  "total_tokens": 5717
+ }
+}

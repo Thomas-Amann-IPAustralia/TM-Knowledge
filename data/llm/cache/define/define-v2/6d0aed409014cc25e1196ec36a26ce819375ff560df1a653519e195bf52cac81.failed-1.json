@@ -1,0 +1,24 @@
+{
+ "cost_usd": 0.0,
+ "created_utc": "2026-10-07T08:38:28Z",
+ "effort": "medium",
+ "error": {
+  "code": "server_is_overloaded",
+  "message": "Our servers are currently overloaded. Please try again later."
+ },
+ "incomplete_details": null,
+ "item": "kiwi",
+ "job": "define",
+ "key": "6d0aed409014cc25e1196ec36a26ce819375ff560df1a653519e195bf52cac81",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "",
+ "prompt_version": "define-v2",
+ "request_sha256": "a3b0e126b576ea53f9e5491bd2de1dd2220f4ed304beda687374796013fdee9c",
+ "response_id": "resp_0d7b90a79b862890006ac604f9f19087d2bebf5b02e33ee5ce",
+ "seconds": 10.8,
+ "service_tier": "flex",
+ "status": "failed",
+ "usage": {}
+}

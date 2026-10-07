@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.0045,
+ "created_utc": "2026-10-07T08:31:44Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0085..GC-0096",
+ "job": "aliases",
+ "key": "482eed254945e01293bdb62a9ff026f57915f3ad91a8ab90d89280505d319413",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0085\",\"related_search_terms\":[\"prior proprietor\",\"previous owner's use\",\"chain of title\"],\"everyday_phrases\":[\"previous owner\",\"former brand owner\",\"previous owner's branding\",\"use by previous owner\",\"who owned it before\"]},{\"id\":\"GC-0086\",\"related_search_terms\":[\"transfer of ownership\",\"transfer of title\",\"trade mark transfer\"],\"everyday_phrases\":[\"sell my brand\",\"buy a brand\",\"transfer my trade mark\",\"give my brand away\",\"selling a trade mark\",\"agreed ownership transfer\"]},{\"id\":\"GC-0087\",\"related_search_terms\":[\"transfer of ownership\",\"transfer of title\",\"change of proprietorship\"],\"everyday_phrases\":[\"ownership passed on\",\"brand changes hands\",\"change of owner\",\"new brand owner\",\"passing on ownership\"]},{\"id\":\"GC-0088\",\"related_search_terms\":[\"registered particulars\",\"trade mark registration\",\"Register entry\"],\"everyday_phrases\":[\"registered brand\",\"registered logo\",\"officially registered name\",\"is my brand registered\",\"brand on the register\"]},{\"id\":\"GC-0089\",\"related_search_terms\":[\"section 207\",\"registered particulars\",\"registration records\"],\"everyday_phrases\":[\"trade mark database\",\"official brand list\",\"search registered brands\",\"look up trade marks\",\"registration record\",\"find registered names\"]},{\"id\":\"GC-0090\",\"related_search_terms\":[\"registration priority\",\"priority for goods\",\"priority for services\"],\"everyday_phrases\":[\"date priority starts\",\"which date counts\",\"earliest priority date\",\"priority for my goods\",\"priority for my services\"]},{\"id\":\"GC-0091\",\"related_search_terms\":[\"application filing\",\"date of filing\",\"application date\"],\"everyday_phrases\":[\"date I applied\",\"when I filed\",\"application submission date\",\"lodgement date\",\"when application was lodged\"]},{\"id\":\"GC-0092\",\"related_search_terms\":[\"examination report\",\"statutory grounds\",\"application compliance\"],\"everyday_phrases\":[\"checking my application\",\"examiner review\",\"application being checked\",\"trade mark assessment\",\"examining my application\"]},{\"id\":\"GC-0093\",\"related_search_terms\":[\"post-examination acceptance\",\"application acceptance\"],\"everyday_phrases\":[\"application approved\",\"initial approval\",\"passed examiner checks\",\"examiner approved it\",\"accepting my application\"]},{\"id\":\"GC-0094\",\"related_search_terms\":[\"post-acceptance information\",\"withdrawal of acceptance\"],\"everyday_phrases\":[\"approval taken back\",\"undo application approval\",\"acceptance withdrawn\",\"previous approval reversed\",\"accepted then reconsidered\"]},{\"id\":\"GC-0095\",\"related_search_terms\":[\"sections 84A–84D\",\"Registrar's revocation powers\",\"erroneous registration\"],\"everyday_phrases\":[\"registration cancelled\",\"undoing registration\",\"registration taken back\",\"registered by mistake\",\"wrongly registered brand\",\"cancelling a registration\"]},{\"id\":\"GC-0096\",\"related_search_terms\":[\"acceptance period\",\"subsection 37(1)\",\"regulation 4.12\",\"period in abeyance\"],\"everyday_phrases\":[\"pause acceptance clock\",\"put acceptance on hold\",\"stop the acceptance clock\",\"pause my application\",\"defer my application\",\"acceptance deadline paused\"]}]}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "5249424d1ee0a5c16406bd7734354f37906a8a6f24808014e93a019359377c3d",
+ "response_id": "resp_0089673b3e3b9a5c006ac60354bd7c87d2a2bb754f6cdc2dc5",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1046,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1043
+  },
+  "output_tokens": 889,
+  "output_tokens_details": {
+   "reasoning_tokens": 220
+  },
+  "total_tokens": 1935
+ }
+}

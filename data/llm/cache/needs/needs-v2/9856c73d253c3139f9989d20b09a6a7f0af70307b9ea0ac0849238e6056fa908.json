@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007912,
+ "created_utc": "2026-10-07T08:29:25Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-029",
+ "job": "needs",
+ "key": "9856c73d253c3139f9989d20b09a6a7f0af70307b9ea0ac0849238e6056fa908",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must say whether a geographical indication can be protected in Australia through registration as a certification trade mark. It should also note that this is presented as the principal way to protect a GI and give the TEQUILA example as an illustration.\",\"search\":\"geographical indication protected by certification trade mark\",\"seed_refs\":[\"TMM/Part35/2/2/2\"],\"kind\":\"lookup\",\"question\":\"Is a geographical indication protected in Australia by registering it as a certification trade mark?\"},{\"narrative\":\"A helpful answer must explain what has to line up between a parent series application and a divisional filed from it. It should cover that the marks must be identical at filing, what can be done if the series is invalid, and that the divisional is checked again at examination against the goods and services included.\",\"search\":\"split series application wrong mark\",\"seed_refs\":[\"TMM/Part13/8#1\"],\"kind\":\"problem\",\"question\":\"Can I split off part of a series application if one of the trade marks in the parent is wrong?\"},{\"narrative\":\"A helpful answer must explain when a mark may be rejected because it could mislead or confuse people about the goods or services. It should also cover that narrowing the goods or services can sometimes remove the problem, and that proof of a real connection may be enough where the mark suggests one.\",\"search\":\"misleading mark narrow goods origin\",\"seed_refs\":[\"TMM/Part29/3#1~1\",\"TMM/Part20/5/5/5/2\"],\"kind\":\"cross_part\",\"question\":\"Can narrowing the goods list fix a trade mark that seems to suggest a false connection or origin?\"},{\"narrative\":\"A helpful answer must explain who receives the completed notice and what they must do with it. It should also cover any extra material that may be attached, the timing for service, and the need to tell the Registrar when service happens.\",\"search\":\"who serves notice to produce and what goes with it\",\"seed_refs\":[\"TMM/Part54/3/3/3/2\"],\"kind\":\"impact\",\"question\":\"If the Registrar issues a notice to produce, who gets it and what has to happen next?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "e08c7361d0b40748c6a5c0fc682b9a1b4fe1b84c586da905d296599ae17b5780",
+ "response_id": "resp_0323e530f0346381006ac602da8f3087d2ada642ad50cfe3fa",
+ "seconds": 11.4,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1556,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1499,
+  "output_tokens_details": {
+   "reasoning_tokens": 516
+  },
+  "total_tokens": 3055
+ }
+}

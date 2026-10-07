@@ -439,3 +439,24 @@ def test_recorded_rulings_load():
     for entry in questions.load_rulings():
         assert entry.answers
         assert entry.origin, f"{entry.path.name} names no source"
+
+
+def test_the_ask_page_shows_the_working_and_says_it_is_unreviewed():
+    """D2: each answer carries what the page shows, and the page says, where the
+    answers are shown, that no person has reviewed them (ADR-0082)."""
+    from types import SimpleNamespace
+
+    from tm_knowledge.dashboard import build as build_module
+
+    answer = {
+        "key": "BN-0001", "kind": "problem", "question": "Can I oppose a mark?", "answer": "Yes — see s 52.",
+        "recognised": [{"id": "GC-0102", "label": "opposition"}], "paths": [], "citations": [{"ref": "TMA1995/s52"}],
+        "passages": [], "legislation": [], "plain_search": [], "declined": False, "decline_reason": "",
+        "model": "gpt-6.1-sol", "review_status": "unreviewed",
+    }
+    page = build_module._ask(SimpleNamespace(answers=(answer,), measurement=None))
+    kinds = [block["kind"] for block in page["blocks"]]
+    assert "qa" in kinds and "No person has reviewed" in page["lede"]
+    qa = next(block for block in page["blocks"] if block["kind"] == "qa")
+    assert qa["data"]["questions"][0]["review_status"] == "unreviewed"
+    assert qa["data"]["kinds"] == [{"id": "problem", "label": build_module.KIND_LABELS["problem"]}]

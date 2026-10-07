@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002775,
+ "created_utc": "2026-10-07T08:37:48Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "personal information",
+ "job": "define",
+ "key": "69ee3d856ce290eb7979ba06c0ad574486fb3742cf54004847644e4dc9636a42",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"personal information has the same meaning as in the Privacy Act 1988.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.94,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: Personal information is a legally defined category of information relevant to administrative access, third-party consultation and publication on the FOI disclosure log.\",\n  \"expert_should_check\": \"Check the substantive definition in the Privacy Act 1988, which is not supplied. Also check the instrument attribution of the cited provisions: the Manual expressly attributes sections 11C and the third-party consultation requirements to the FOI Act, not the Trade Marks Act.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"personal information\",\n  \"definition_ref\": \"TMA1995/s6/personal-information\",\n  \"reasoning\": \"Section 6 expressly incorporates a statutory meaning, making this a legal concept rather than a generic phrase. It is not duplicated by the existing concepts. The Manual describes its relevance to information-access practice, but those descriptions are not the substantive definition. None of the groups accurately describes a protected category of information: it is neither a document itself nor the subject matter that may be registered. The incorporated Privacy Act definition is unavailable, so the supplied cross-reference is retained. No supplied passage establishes one of the listed PROVISIONS as the legislative basis for that definition.\",\n  \"not_labels\": [\n    \"business information\",\n    \"business affairs information\"\n  ],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "2e1d193e6cd26ac436e8886220eddff863f4c136509dfed19e75b2ca72dd47a5",
+ "response_id": "resp_06f43333b7ed0405006ac604c0ae3087d2a06141ef41b5a6e4",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2445,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 2442
+  },
+  "output_tokens": 530,
+  "output_tokens_details": {
+   "reasoning_tokens": 183
+  },
+  "total_tokens": 2975
+ }
+}

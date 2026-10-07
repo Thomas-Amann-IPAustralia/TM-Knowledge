@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006338,
+ "created_utc": "2026-10-07T08:31:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0007",
+ "job": "relate",
+ "key": "3935e457fe3e1021c6ec428df4c6f76d67555c34709f824203d7b2f9daaec54f",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"At the acceptance stage under s 33 of the Act and on appeal from such a decision, there is said to be a presumption of registrability: see Woolworths at 372 [24] (French J).\",\n      \"relation\": \"same_concept\",\n      \"alternative\": \"Treat the records as distinct because they belong to different ontology groups.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.98,\n      \"reasoning\": \"Both records name the presumption of registrability described in the passage. Their different ontology groups do not establish different substantive concepts.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the records intentionally distinguish different stages or versions of the presumption.\",\n      \"passage_ref\": \"TMM/Part20/4#1~1\",\n      \"neighbour\": \"GC-0118\"\n    },\n    {\n      \"quote\": \"It is clear from both the Oregon and Sports Warehouse decisions (as well as from other decisions from the Courts) that once the Registrar is satisfied on the balance of probabilities that a ground for rejection does exist, then the presumption of registrability no longer forms a part of the Registrar’s decision making process.\",\n      \"relation\": \"isOvercomeBy\",\n      \"alternative\": \"Use qualifies to express only a limitation on the presumption.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly states that the presumption ceases to form part of decision making once the Registrar is satisfied on the balance of probabilities that a ground exists. The relationship therefore concerns an established ground, not merely an alleged ground for rejection.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether isOvercomeBy adequately preserves the requirement for satisfaction on the balance of probabilities.\",\n      \"passage_ref\": \"TMM/Part20/4#1~2\",\n      \"neighbour\": \"GC-0053\"\n    },\n    {\n      \"quote\": \"The presumption of registrability applies when the Registrar or their delegate is not satisfied that any grounds for rejecting a trade mark application exist.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"Use constrainsExaminerTo because the next sentence requires acceptance subject to compliance with the Act and Regulations.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The Manual supports application of the presumption to the Registrar’s decision making in the stated circumstances. This is an inferred relationship to the decision-making role, rather than an unconditional application to the person.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether appliesTo should target the decision-making circumstances rather than the Registrar role.\",\n      \"passage_ref\": \"TMM/Part20/4/4/1\",\n      \"neighbour\": \"GC-0046\"\n    },\n    {\n      \"quote\": \"The presumption of registrability applies when the Registrar or their delegate is not satisfied that any grounds for rejecting a trade mark application exist.\",\n      \"relation\": \"appliesTo\",\n      \"alternative\": \"Use constrainsExaminerTo because the next sentence requires acceptance subject to compliance with the Act and Regulations.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.87,\n      \"reasoning\": \"The Manual supports application of the presumption to the Registrar of Trade Marks’ decision making in the stated circumstances. This is an inferred relationship to the decision-making role, rather than an unconditional application to the person.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether appliesTo should target the decision-making circumstances rather than the Registrar role.\",\n      \"passage_ref\": \"TMM/Part20/4/4/1\",\n      \"neighbour\": \"GC-0115\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Infer that the presumption qualifies the ordinary-consumer assessment because both feature in the section 44 discussion.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The passages place the presumption and the ordinary-person confusion test within the same examination context, but do not state a relationship between the presumption and the consumer concept itself. A relationship to the confusion assessment would require a different target.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the instruction to consider the issue in the context of the presumption sufficiently supports a relationship to the consumer concept itself.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0010\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "a02f9877ce438064601b752c2826239707ce35a3779df262a0fae6fc4c6d7ae2",
+ "response_id": "resp_00722aa7cb853faf006ac60336fce887d29437fcf1ee287ad7",
+ "seconds": 29.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3711,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3708
+  },
+  "output_tokens": 1230,
+  "output_tokens_details": {
+   "reasoning_tokens": 175
+  },
+  "total_tokens": 4941
+ }
+}

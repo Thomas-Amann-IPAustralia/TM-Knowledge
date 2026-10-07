@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005671,
+ "created_utc": "2026-10-07T08:29:25Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "covering",
+ "job": "define",
+ "key": "1ac2e2bf508de37b34be22cd24309509f608c2eab92af3a630eb2cefe270e186",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"covering includes packaging, frame, wrapper, container, stopper, lid or cap.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.95,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: Covering is an inclusively defined statutory term encompassing packaging, frames, wrappers, containers, stoppers, lids and caps.\",\n  \"expert_should_check\": \"Confirm its ontology placement: the supplied definition establishes a statutory concept but does not explain its procedural function.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"covering\",\n  \"definition_ref\": \"TMA1995/s9/covering\",\n  \"reasoning\": \"Section 9 expressly defines the noun 'covering', making it a distinct legal concept rather than merely a goods category or generic expression. No existing concept duplicates it. The Manual passages instead use 'covering' in its ordinary sense of encompassing classes, goods, services or searches. None of the supplied groups clearly fits the defined physical covering, so none_of_these is preferred. The listed PROVISIONS do not ground this definition; section 9 is supplied as a passage but is absent from that list.\",\n  \"not_labels\": [\n    \"specification of goods and services\",\n    \"classification of goods and services\"\n  ],\n  \"group\": \"none_of_these\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "2681b8d38cb42879cd357fc68944ae0188cc2605a2bc59a520776df15d617452",
+ "response_id": "resp_02f687315ecd789f006ac602c86b9487d2b21122e75063e27e",
+ "seconds": 29.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2769,
+  "input_tokens_details": {
+   "cache_write_tokens": 2766,
+   "cached_tokens": 0
+  },
+  "output_tokens": 442,
+  "output_tokens_details": {
+   "reasoning_tokens": 129
+  },
+  "total_tokens": 3211
+ }
+}

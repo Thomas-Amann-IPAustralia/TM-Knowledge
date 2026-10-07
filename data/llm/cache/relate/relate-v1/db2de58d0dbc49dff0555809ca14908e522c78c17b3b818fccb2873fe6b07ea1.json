@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006935,
+ "created_utc": "2026-10-07T08:44:45Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0061",
+ "job": "relate",
+ "key": "db2de58d0dbc49dff0555809ca14908e522c78c17b3b818fccb2873fe6b07ea1",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"This determination involves a two-part process: firstly, determining the ordinary signification of the trade mark in the light of the applied for goods and/or services; and secondly, determining the likelihood that other traders might legitimately wish to use the trade mark for that ordinary signification in connection with their similar goods or services.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"related_to: the concepts are merely separate stages of the same assessment.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.92,\n      \"reasoning\": \"The Manual ties the legitimate-use inquiry to use for the trade mark’s ordinary signification. Ordinary signification therefore qualifies the use being assessed, rather than merely appearing alongside the inquiry.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether qualifies adequately captures ordinary signification as the reference point for the legitimate-use inquiry.\",\n      \"passage_ref\": \"TMM/Part22/3#1~1\",\n      \"neighbour\": \"GC-0060\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"A relationship inferred from provisions or endorsement practice not supplied here.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.99,\n      \"reasoning\": \"The supplied legislative fragment mentions neither endorsements nor other traders’ legitimate desire to use. It does not support a relationship between these concepts.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the supplied fragment is sufficient to represent the intended neighbouring concept.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0100\"\n    },\n    {\n      \"quote\": \"This determination involves a two-part process: firstly, determining the ordinary signification of the trade mark in the light of the applied for goods and/or services; and secondly, determining the likelihood that other traders might legitimately wish to use the trade mark for that ordinary signification in connection with their similar goods or services.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"requiresElement: similarity is a separate mandatory element of the legitimate-use test.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.91,\n      \"reasoning\": \"The Manual frames the legitimate-use inquiry by reference to other traders’ similar goods or services. Similarity qualifies the relevant context of use; the passage does not articulate a separate similarity test.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether this reference to similar goods or services maps to GC-0070 without importing a distinct goods-and-services comparison test.\",\n      \"passage_ref\": \"TMM/Part22/3#1~1\",\n      \"neighbour\": \"GC-0070\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "508f6fa70f8e891db8c6bab6bf9db9bd64d9561190a316cc72bde49571e248f5",
+ "response_id": "resp_0f829748df1d6d32006ac606615c0487d2affb5d9c5d0c8bd3",
+ "seconds": 28.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2297,
+  "input_tokens_details": {
+   "cache_write_tokens": 2294,
+   "cached_tokens": 0
+  },
+  "output_tokens": 813,
+  "output_tokens_details": {
+   "reasoning_tokens": 182
+  },
+  "total_tokens": 3110
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005801,
+ "created_utc": "2026-10-07T08:31:53Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0109..GC-0120",
+ "job": "aliases",
+ "key": "585988cced3554b69080a47f52da976def376de7559de64a47f3ba481b16326d",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0109\",\n      \"related_search_terms\": [\n        \"distinctive trade mark\",\n        \"existing Australian registration\"\n      ],\n      \"everyday_phrases\": [\n        \"extra brand protection\",\n        \"protect registered brand\",\n        \"defensive brand protection\",\n        \"defensively register\"\n      ]\n    },\n    {\n      \"id\": \"GC-0110\",\n      \"related_search_terms\": [\n        \"parent application\",\n        \"priority date\",\n        \"new trade mark number\"\n      ],\n      \"everyday_phrases\": [\n        \"split my application\",\n        \"splitting an application\",\n        \"divide my application\",\n        \"keep original filing date\",\n        \"new application number\"\n      ]\n    },\n    {\n      \"id\": \"GC-0111\",\n      \"related_search_terms\": [\n        \"Convention country\",\n        \"priority claim\",\n        \"section 6\"\n      ],\n      \"everyday_phrases\": [\n        \"claim overseas priority\",\n        \"foreign priority\",\n        \"earlier overseas filing\",\n        \"use foreign filing date\"\n      ]\n    },\n    {\n      \"id\": \"GC-0112\",\n      \"related_search_terms\": [\n        \"international registration\",\n        \"International Bureau\",\n        \"WIPO\"\n      ],\n      \"everyday_phrases\": [\n        \"international brand registration\",\n        \"register brand internationally\",\n        \"overseas trade mark treaty\",\n        \"Madrid system\",\n        \"WIPO registration\"\n      ]\n    },\n    {\n      \"id\": \"GC-0113\",\n      \"related_search_terms\": [\n        \"regulation 17A.2\",\n        \"Australia designation\",\n        \"international registration\"\n      ],\n      \"everyday_phrases\": [\n        \"international mark naming Australia\",\n        \"Australian designation\",\n        \"designating Australia\",\n        \"international registration for Australia\"\n      ]\n    },\n    {\n      \"id\": \"GC-0114\",\n      \"related_search_terms\": [\n        \"substantially identical\",\n        \"deceptively similar\",\n        \"protected international registration\"\n      ],\n      \"everyday_phrases\": [\n        \"protected overseas mark\",\n        \"international mark protection\",\n        \"similar protected international mark\",\n        \"conflicting international brand\"\n      ]\n    },\n    {\n      \"id\": \"GC-0115\",\n      \"related_search_terms\": [\n        \"Registrar's office\",\n        \"trade marks registration authority\"\n      ],\n      \"everyday_phrases\": [\n        \"trade marks registrar\",\n        \"registration authority\",\n        \"who is the registrar\",\n        \"contact the registrar\"\n      ]\n    },\n    {\n      \"id\": \"GC-0116\",\n      \"related_search_terms\": [\n        \"application in a person's name\",\n        \"named applicant\"\n      ],\n      \"everyday_phrases\": [\n        \"person applying\",\n        \"who is applying\",\n        \"name on application\",\n        \"application holder\",\n        \"applying for a mark\"\n      ]\n    },\n    {\n      \"id\": \"GC-0117\",\n      \"related_search_terms\": [\n        \"opposition\",\n        \"opposing party\",\n        \"person affected by registration\"\n      ],\n      \"everyday_phrases\": [\n        \"objector\",\n        \"person objecting\",\n        \"who can oppose\",\n        \"opposing a mark\",\n        \"challenge a registration\",\n        \"oppose\"\n      ]\n    },\n    {\n      \"id\": \"GC-0118\",\n      \"related_search_terms\": [\n        \"registrability presumption\",\n        \"presumed registrable\"\n      ],\n      \"everyday_phrases\": [\n        \"assumed registrable\",\n        \"presumed acceptable\",\n        \"registration starting assumption\",\n        \"assumption of eligibility\"\n      ]\n    },\n    {\n      \"id\": \"GC-0119\",\n      \"related_search_terms\": [\n        \"inherent distinctiveness\",\n        \"ordinary signification\",\n        \"inherently adapted to distinguish\"\n      ],\n      \"everyday_phrases\": [\n        \"distinctive enough\",\n        \"naturally distinctive\",\n        \"brand stands out\",\n        \"meaning unrelated to goods\",\n        \"name distinguishes my goods\"\n      ]\n    },\n    {\n      \"id\": \"GC-0120\",\n      \"related_search_terms\": [\n        \"non-distinctive sign\",\n        \"lack of inherent distinctiveness\",\n        \"pictorial representations of goods\",\n        \"pictorial representations of services\"\n      ],\n      \"everyday_phrases\": [\n        \"not distinctive\",\n        \"no distinctiveness\",\n        \"picture of the product\",\n        \"product image as logo\",\n        \"cannot distinguish my goods\"\n      ]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "7972ddb4cfd4dbe717bacb645810db65b9a3fa4efc2b3e85df32ba17b4069cbf",
+ "response_id": "resp_01cdb5d567efe481006ac6034dc05c87d29af1eb6f1aa554e1",
+ "seconds": 44.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1069,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 1066
+  },
+  "output_tokens": 1149,
+  "output_tokens_details": {
+   "reasoning_tokens": 163
+  },
+  "total_tokens": 2218
+ }
+}

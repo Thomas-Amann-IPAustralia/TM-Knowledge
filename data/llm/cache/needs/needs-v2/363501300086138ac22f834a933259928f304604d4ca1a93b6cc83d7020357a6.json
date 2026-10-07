@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012784,
+ "created_utc": "2026-10-07T08:28:48Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-014",
+ "job": "needs",
+ "key": "363501300086138ac22f834a933259928f304604d4ca1a93b6cc83d7020357a6",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must state the two conditions that must be satisfied before acceptance may be revoked, and make clear that this can happen only before the trade mark is registered. It should also note that the relevant circumstances are those that existed when the application was accepted, whether or not the Registrar knew about them then.\",\"search\":\"revoking acceptance before registration\",\"seed_refs\":[\"TMM/Part38/2#1\"],\"kind\":\"lookup\",\"question\":\"What has to be satisfied before acceptance of my trade mark application can be revoked before registration?\"},{\"narrative\":\"A helpful answer must explain that the quality system and standards are used to assess the work done on trade mark applications, and that the Manual is a guide to be read with the Act and Regulations. It should also mention the service commitments and the examples given of quality standards for search and examination work.\",\"search\":\"trade mark examination quality checks\",\"seed_refs\":[\"TMM/Part1/2#1\"],\"kind\":\"problem\",\"question\":\"How does IP Australia check that trade mark examination work is being done properly?\"},{\"narrative\":\"A helpful answer must combine the rule that a defensive trade mark can be certified as the basis for an international application with the rule that priority can be claimed only if the same trade mark was first filed in a Paris Convention country within six months. It should also explain that the international registration is treated as a standard trade mark overseas, so different use requirements may apply there.\",\"search\":\"defensive trade mark international priority claim\",\"seed_refs\":[\"TMM/Part60/2/2/2/2/4~2\",\"TMM/Part11/1/1/1\"],\"kind\":\"cross_part\",\"question\":\"Can I use a defensive trade mark for an international application and still claim priority from an earlier filing?\"},{\"narrative\":\"A helpful answer must identify the kinds of material that count as evidence of use and the difference between existing use and documented preparations to begin use. It should also explain that, for plant material, the evidence must show the mark with genus, species and variety information, and that a trade name is not the same as a trade mark.\",\"search\":\"evidence of use for plant trade marks\",\"seed_refs\":[\"TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~1\"],\"kind\":\"impact\",\"question\":\"If my trade mark is for plants or plant material, what kind of evidence do I need to give and what has it got to show?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "23a9a614d9985391c4e8627d3ca0f1eb6b99f2332ba932b99e59e77346a10309",
+ "response_id": "resp_0f23d7a856f90345006ac602b5609c87d29d3bf591b0267e40",
+ "seconds": 11.3,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1805,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 2540,
+  "output_tokens_details": {
+   "reasoning_tokens": 1516
+  },
+  "total_tokens": 4345
+ }
+}

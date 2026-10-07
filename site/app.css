@@ -758,3 +758,26 @@ html[data-theme="dark"] {
   .brand-text small { display: none; }
   .bar { grid-template-columns: 7.5rem 1fr auto; }
 }
+
+/* ---------------------------------------------------------- Ask the Manual */
+.qa-pick { display: flex; flex-direction: column; gap: .3rem; margin-bottom: 1rem; }
+.qa-pick span { font-size: .78rem; color: var(--ink-mute); text-transform: uppercase; letter-spacing: .04em; }
+.qa-pick select { font: inherit; padding: .45rem .5rem; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--paper, transparent); color: var(--ink); max-width: 100%; }
+.qa-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1.25rem; }
+@media (max-width: 860px) { .qa-cols { grid-template-columns: 1fr; } }
+.qa-cols section { border: 1px solid var(--line-soft); border-radius: 8px; padding: .9rem 1rem; min-width: 0; }
+.qa-cols h3 { margin: 0 0 .3rem; font-size: 1rem; }
+.qa-cols h4 { margin: 1rem 0 .35rem; font-size: .82rem; color: var(--ink-soft); text-transform: uppercase;
+  letter-spacing: .04em; }
+.qa-sources { padding-left: 1.1rem; margin: 0; }
+.qa-sources li { margin: .5rem 0; }
+.qa-sources li p { margin: .2rem 0 0; color: var(--ink-soft); font-size: .88rem; }
+.qa-sources li.cited { border-left: 3px solid var(--line); padding-left: .5rem; margin-left: -.6rem; }
+.qa-sources code, .qa-onto cite code { font-size: .74rem; overflow-wrap: anywhere; }
+.qa-paths { padding-left: 1.1rem; margin: 0; }
+.qa-paths li { margin: .2rem 0; }
+.qa-answer p { margin: .4rem 0; }
+.qa-onto blockquote { margin: .4rem 0; padding: .3rem .7rem; border-left: 3px solid var(--line);
+  color: var(--ink-soft); font-size: .9rem; }
+.qa-onto blockquote cite { display: block; font-style: normal; margin-top: .2rem; }

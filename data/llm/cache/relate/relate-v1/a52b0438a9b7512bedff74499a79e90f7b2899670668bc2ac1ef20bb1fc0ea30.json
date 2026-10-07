@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011759,
+ "created_utc": "2026-10-07T08:39:56Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0040",
+ "job": "relate",
+ "key": "a52b0438a9b7512bedff74499a79e90f7b2899670668bc2ac1ef20bb1fc0ea30",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"Where an opposition proceeding relates to an application in respect of which the applicant claims a right of priority.\",\n      \"relation\": \"same_concept\",\n      \"alternative\": \"Treat the records as distinct opposition procedures rather than duplicate names for the same procedure.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.94,\n      \"reasoning\": \"Both records name opposition proceedings, and the passage uses that expression for opposition concerning a trade mark application. It supplies no distinction between the two records.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether either record is intended to cover a narrower category of opposition.\",\n      \"passage_ref\": \"TMM/Part11/4/4/2\",\n      \"neighbour\": \"GC-0102\"\n    },\n    {\n      \"quote\": \"(Regs 5.2, 9.2, 17A.29 and 17A.48 define a ‘notice of opposition’ as ‘(a) a notice of intention to oppose; and (b) a statement of grounds and particulars’.)\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"Treat opposition proceedings generally as requiring a notice of opposition, rather than relating the notice to its expressly defined component.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The Manual reports a regulatory definition under which a notice of opposition includes a notice of intention to oppose, an alias of the anchor. This relationship concerns that alias specifically, not opposition proceedings as a whole.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the anchor improperly combines opposition proceedings with the distinct instrument called a notice of intention to oppose.\",\n      \"passage_ref\": \"TMM/Part15/2/2/1/2\",\n      \"neighbour\": \"GC-0103\"\n    },\n    {\n      \"quote\": \"A cooling-off period may be requested at any time after a statement of grounds and particulars has been filed but before the Registrar has made a decision on the opposition or dismissed the opposition (regs 5.16(1), 9.19(1), 17A.34L(1), 17A.48U(1)).\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Infer that opposition mayGiveRiseTo a Registrar's decision.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.93,\n      \"reasoning\": \"The passage expressly identifies a Registrar's decision on an opposition. A subject-matter relationship is supported more directly than a causal relationship between the procedure and the decision.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology should represent a decision on a proceeding with a more specific predicate.\",\n      \"passage_ref\": \"TMM/Part51/3/3/1\",\n      \"neighbour\": \"GC-0127\"\n    },\n    {\n      \"quote\": \"Part 60 The Madrid Protocol - 4.16 Extension of Time to File Notice of Opposition to Protection\",\n      \"relation\": \"related_to\",\n      \"alternative\": \"Treat opposition as depending on the Madrid Protocol as an external source.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.77,\n      \"reasoning\": \"The Manual cross-reference connects opposition to protection with its Madrid Protocol material. It does not establish that opposition generally depends on the Protocol itself.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether a Manual cross-reference is sufficient to connect the procedure to the external instrument rather than only to the Manual chapter.\",\n      \"passage_ref\": \"TMM/Part47/1/1/3/3\",\n      \"neighbour\": \"GC-0112\"\n    },\n    {\n      \"quote\": \"There is a mandatory provision (section 84B) relating to revocation of registration within one month of a component of a notice of opposition being filed, or an application for extension of time to file a notice being made, if the Registrar has inadvertently registered a trade mark in the face of a properly filed component of a notice of opposition to registration, or an application for extension of time to file.\",\n      \"relation\": \"mayGiveRiseTo\",\n      \"alternative\": \"Treat opposition as an unconditional requirement for revocation of registration.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.9,\n      \"reasoning\": \"The Manual describes section 84B as mandating revocation in the specified circumstances where registration has overlooked an opposition component or an extension application. Opposition alone is not sufficient; the relationship is conditional on the stated registration error and timing.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether mayGiveRiseTo adequately represents a mandatory consequence once the stated conditions are met.\",\n      \"passage_ref\": \"TMM/Part62/5#1\",\n      \"neighbour\": \"GC-0095\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "57772f827806d6c15aa604a432946dae477f8676346f68f09854c8f25b424261",
+ "response_id": "resp_0539c290817cc825006ac6053118cc87d28228ebada9bdb489",
+ "seconds": 43.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4088,
+  "input_tokens_details": {
+   "cache_write_tokens": 4085,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1330,
+  "output_tokens_details": {
+   "reasoning_tokens": 212
+  },
+  "total_tokens": 5418
+ }
+}

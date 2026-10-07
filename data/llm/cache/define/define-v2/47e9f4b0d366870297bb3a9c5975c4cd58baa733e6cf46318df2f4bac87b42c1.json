@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005684,
+ "created_utc": "2026-10-07T08:28:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "cessation of protection",
+ "job": "define",
+ "key": "47e9f4b0d366870297bb3a9c5975c4cd58baa733e6cf46318df2f4bac87b42c1",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"alternative\": \"\",\n  \"definition_quote\": \"cessation of protection means the cessation of protection of a trade mark that is a protected international trade mark.\",\n  \"alt_labels\": [],\n  \"confidence\": 0.96,\n  \"is_concept\": true,\n  \"basis\": \"corpus_explicit\",\n  \"duplicate_of\": \"\",\n  \"notes\": \"Summary: Cessation of protection is the ending of protection for a protected international trade mark, with the Manual describing procedures for seeking cessation for non-use.\",\n  \"expert_should_check\": \"Confirm the scope of the definition in regulation 17A.48 and which of the listed provisions provide its legislative basis; their substantive text was not supplied.\",\n  \"legislative_basis\": [],\n  \"pref_label\": \"cessation of protection\",\n  \"definition_ref\": \"TMR1995/r17A.48/cessation-of-protection\",\n  \"reasoning\": \"The Regulations expressly define the term, and the Manual describes applications and opposition procedures concerning cessation for non-use. It names an event ending protection and therefore fits procedural_step. It is distinct from removal for non-use of a registered trade mark: the supplied definition concerns a protected international trade mark. No existing concept expressly covers this event. The listed legislative provisions cannot be assessed as grounding provisions without their text.\",\n  \"not_labels\": [\n    \"removal for non-use\",\n    \"revocation of registration\",\n    \"extension of protection\"\n  ],\n  \"group\": \"procedural_step\"\n}",
+ "prompt_version": "define-v2",
+ "request_sha256": "302dcbe39bdd8a94996c88bc674e7e85dc8a847ba34854dd0ee941ca9ae3088c",
+ "response_id": "resp_056fb9c6b18c4650006ac6029384bc87d28683f0db470c3317",
+ "seconds": 29.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2608,
+  "input_tokens_details": {
+   "cache_write_tokens": 2605,
+   "cached_tokens": 0
+  },
+  "output_tokens": 485,
+  "output_tokens_details": {
+   "reasoning_tokens": 165
+  },
+  "total_tokens": 3093
+ }
+}

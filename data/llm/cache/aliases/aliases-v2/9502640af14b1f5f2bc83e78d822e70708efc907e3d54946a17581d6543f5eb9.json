@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00614,
+ "created_utc": "2026-10-07T08:32:44Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0121..GC-0130",
+ "job": "aliases",
+ "key": "9502640af14b1f5f2bc83e78d822e70708efc907e3d54946a17581d6543f5eb9",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts\": [\n    {\n      \"id\": \"GC-0121\",\n      \"related_search_terms\": [\n        \"Nice Classification\",\n        \"classification guidelines\",\n        \"goods classification\",\n        \"services classification\"\n      ],\n      \"everyday_phrases\": [\n        \"choose a class\",\n        \"which class\",\n        \"product categories\",\n        \"service categories\",\n        \"classify my products\",\n        \"classify my services\"\n      ]\n    },\n    {\n      \"id\": \"GC-0122\",\n      \"related_search_terms\": [\n        \"expedited examination\",\n        \"regulation 4.19\",\n        \"expedition request\"\n      ],\n      \"everyday_phrases\": [\n        \"speed up examination\",\n        \"fast track application\",\n        \"urgent examination\",\n        \"quicker examination\",\n        \"request faster examination\",\n        \"expedite my application\"\n      ]\n    },\n    {\n      \"id\": \"GC-0123\",\n      \"related_search_terms\": [\n        \"notice of withdrawal\",\n        \"section 214\",\n        \"written withdrawal\"\n      ],\n      \"everyday_phrases\": [\n        \"withdraw my application\",\n        \"cancel my application\",\n        \"stop my application\",\n        \"withdraw my request\",\n        \"withdraw my notice\",\n        \"withdrawing an application\"\n      ]\n    },\n    {\n      \"id\": \"GC-0124\",\n      \"related_search_terms\": [\n        \"application amendment\",\n        \"Part 6\",\n        \"amendment request\"\n      ],\n      \"everyday_phrases\": [\n        \"change my application\",\n        \"fix application details\",\n        \"correct a mistake\",\n        \"update application details\",\n        \"amend my application\",\n        \"editing an application\"\n      ]\n    },\n    {\n      \"id\": \"GC-0125\",\n      \"related_search_terms\": [\n        \"plant variety denomination\",\n        \"cultivar name\",\n        \"Plant Breeder’s Rights Act\",\n        \"Class 31\"\n      ],\n      \"everyday_phrases\": [\n        \"plant variety name\",\n        \"name of plant variety\",\n        \"plant breed name\",\n        \"naming a plant variety\",\n        \"trade marking plant names\"\n      ]\n    },\n    {\n      \"id\": \"GC-0126\",\n      \"related_search_terms\": [\n        \"geographical indication for wine\",\n        \"protected GI\",\n        \"wine geographical indication\"\n      ],\n      \"everyday_phrases\": [\n        \"protected wine names\",\n        \"wine region names\",\n        \"wine naming restrictions\",\n        \"using wine place names\",\n        \"wine name protection\"\n      ]\n    },\n    {\n      \"id\": \"GC-0127\",\n      \"related_search_terms\": [\n        \"Registrar's decision\",\n        \"written decision\",\n        \"opposition decision\"\n      ],\n      \"everyday_phrases\": [\n        \"opposition outcome\",\n        \"what was decided\",\n        \"Registrar's ruling\",\n        \"trade mark ruling\",\n        \"decision on opposition\"\n      ]\n    },\n    {\n      \"id\": \"GC-0128\",\n      \"related_search_terms\": [\n        \"opportunity to be heard\",\n        \"ex parte hearing\",\n        \"inter partes hearing\"\n      ],\n      \"everyday_phrases\": [\n        \"ask to be heard\",\n        \"request a hearing\",\n        \"attend a hearing\",\n        \"present my case\",\n        \"speak to the Registrar\",\n        \"being heard\"\n      ]\n    },\n    {\n      \"id\": \"GC-0129\",\n      \"related_search_terms\": [\n        \"goods and services specification\",\n        \"specification amendment\",\n        \"restriction of specification\"\n      ],\n      \"everyday_phrases\": [\n        \"goods and services list\",\n        \"list of products\",\n        \"list of services\",\n        \"what my mark covers\",\n        \"remove goods\",\n        \"narrow my product list\"\n      ]\n    },\n    {\n      \"id\": \"GC-0130\",\n      \"related_search_terms\": [\n        \"trade mark reputation\",\n        \"reputation in Australia\",\n        \"extent of use\"\n      ],\n      \"everyday_phrases\": [\n        \"brand recognition\",\n        \"well known brand\",\n        \"how established my brand\",\n        \"people know my brand\",\n        \"brand reputation\",\n        \"recognised brand name\"\n      ]\n    }\n  ]\n}",
+ "prompt_version": "aliases-v2",
+ "request_sha256": "1aa8210b791909a1cadff3694fddda2699513b6b717b64be48258b3eeb8e3279",
+ "response_id": "resp_04e41201cdc926d5006ac6039039b087d2a20c99322b344e98",
+ "seconds": 29.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1025,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1023,
+  "output_tokens_details": {
+   "reasoning_tokens": 111
+  },
+  "total_tokens": 2048
+ }
+}

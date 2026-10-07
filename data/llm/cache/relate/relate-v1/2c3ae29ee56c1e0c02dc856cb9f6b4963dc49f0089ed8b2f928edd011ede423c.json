@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005097,
+ "created_utc": "2026-10-07T08:33:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GC-0014",
+ "job": "relate",
+ "key": "2c3ae29ee56c1e0c02dc856cb9f6b4963dc49f0089ed8b2f928edd011ede423c",
+ "max_output_tokens": 12000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"judgements\": [\n    {\n      \"quote\": \"This description will be entered as an endorsement of the registration and will thereby serve to define the scope of the registration.\",\n      \"relation\": \"same_concept\",\n      \"alternative\": \"Treat the anchor as a distinct exception-related endorsement rather than the descriptive endorsement recorded on registration.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.7,\n      \"reasoning\": \"The passages support endorsement wording and an endorsement recorded on registration as aspects of the same concept. However, they do not establish the exception function suggested by the anchor's group label.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the anchor denotes a narrower exception-related endorsement rather than endorsement generally.\",\n      \"passage_ref\": \"TMM/Part10/3/3/2/2\",\n      \"neighbour\": \"GC-0100\"\n    },\n    {\n      \"quote\": \"\",\n      \"relation\": \"none\",\n      \"alternative\": \"Read a suitable descriptive endorsement as overcoming inability to represent the trade mark graphically.\",\n      \"direction\": \"anchor_to_neighbour\",\n      \"confidence\": 0.88,\n      \"reasoning\": \"The passages discuss entering a suitable description as an endorsement and separately require adequate graphical representation. They do not state that an endorsement overcomes inability to represent the trade mark graphically, although a description can sometimes itself be the graphical representation.\",\n      \"modality\": \"none\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether the neighbour is intended to denote graphical representation generally rather than inability to provide it.\",\n      \"passage_ref\": \"\",\n      \"neighbour\": \"GC-0057\"\n    },\n    {\n      \"quote\": \"No reference is to be made to any additional goods or services in the endorsement that are included in the specification but for which no claim to a priority date has been made as the Australian filing date is the priority date for such goods and/or services.\",\n      \"relation\": \"qualifies\",\n      \"alternative\": \"Use related_to because the passage regulates a priority endorsement rather than endorsements generally.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.8,\n      \"reasoning\": \"The Manual limits endorsement content by reference to goods and services in the specification for which priority has not been claimed. This supports a qualification of the endorsement by the specification in that particular priority context, not a general rule for every endorsement.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_inferred\",\n      \"expert_should_check\": \"Whether qualifies adequately captures this priority-specific restriction on endorsement content.\",\n      \"passage_ref\": \"TMM/Part11/6/6/4\",\n      \"neighbour\": \"GC-0129\"\n    },\n    {\n      \"quote\": \"An application for a colour or colours as a trade mark must include a clear and concise description of the trade mark as an endorsement to the application.\",\n      \"relation\": \"requiresElement\",\n      \"alternative\": \"Use appliesTo merely to associate descriptive endorsements with colour trade marks.\",\n      \"direction\": \"neighbour_to_anchor\",\n      \"confidence\": 0.97,\n      \"reasoning\": \"The Manual expressly requires a descriptive endorsement in an application for a colour trade mark. This is a statement of Manual practice concerning the application, not a claim that the endorsement forms part of the sign itself.\",\n      \"modality\": \"must\",\n      \"basis\": \"corpus_explicit\",\n      \"expert_should_check\": \"Whether the ontology permits requiresElement from the trade mark category when the requirement attaches to its application.\",\n      \"passage_ref\": \"TMM/Part21/4/4/1~1\",\n      \"neighbour\": \"GC-0076\"\n    }\n  ]\n}",
+ "prompt_version": "relate-v1",
+ "request_sha256": "21e768713ae65064815fe9d3d1bff6be040e35f9d6bb89982301d059b3f8b238",
+ "response_id": "resp_0cd1ff5aeef3bb51006ac603acc53887d2acd39823a080614a",
+ "seconds": 29.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 3186,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 3183
+  },
+  "output_tokens": 987,
+  "output_tokens_details": {
+   "reasoning_tokens": 175
+  },
+  "total_tokens": 4173
+ }
+}

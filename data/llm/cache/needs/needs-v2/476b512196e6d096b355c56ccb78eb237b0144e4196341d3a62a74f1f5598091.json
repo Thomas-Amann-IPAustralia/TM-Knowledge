@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008105,
+ "created_utc": "2026-10-07T08:28:24Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-006",
+ "job": "needs",
+ "key": "476b512196e6d096b355c56ccb78eb237b0144e4196341d3a62a74f1f5598091",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must say whether evidence of actual confusion is usually provided, what the applicant should do if such evidence is available, and how any instances of actual confusion are treated in relation to honesty and the assessment of likely confusion. It should also note that actual confusion is not necessarily fatal, without going beyond the passage.\",\"search\":\"evidence of confusion in a trade mark application\",\"seed_refs\":[\"TMM/Part28/3/3/3\"],\"kind\":\"lookup\",\"question\":\"Do I need to give evidence if there have been any actual confusion incidents, and what does that mean for my application?\"},{\"narrative\":\"A helpful answer must explain the effect of a trade mark or word that closely resembles a protected wine term, including English translations, and whether that resemblance can mislead if the use conditions are not met. It should also cover the link to the rejection ground and the examples of slight variations described in the passage.\",\"search\":\"name like a protected wine region\",\"seed_refs\":[\"TMM/Part32B/2/1/2/1/5\"],\"kind\":\"problem\",\"question\":\"Can I register a brand name that is almost the same as a protected wine region name, if it’s only a slight spelling change?\"},{\"narrative\":\"A helpful answer must cover what a general letter of consent has to identify, what it does not need to identify, and that it must not contain conditions. It must also explain the procedure for unresolved formality requirements, including the preferred contact method and the need to use the online services page for amendable responses.\",\"search\":\"general consent letter and missing formality details\",\"seed_refs\":[\"TMM/Part27/4/4/2/5\",\"TMM/Part10/8#1\"],\"kind\":\"cross_part\",\"question\":\"If I give a general consent for future applications, do I still have to name the applicant, and what if there are formality issues to fix?\"},{\"narrative\":\"A helpful answer must explain that a Deputy Registrar has all the powers and functions of the Registrar except delegation, and that anything the Deputy Registrar exercises is taken to have been exercised by the Registrar. It should also note the consequence for how the decision is headed, without adding anything beyond the passage.\",\"search\":\"deputy registrar treated as registrar decision\",\"seed_refs\":[\"TMM/Part52/1#1~2\"],\"kind\":\"impact\",\"question\":\"If a Deputy Registrar handles my matter, is that treated as a Registrar decision?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "7caface5e4ea51bf1b58f25ba025629e47bbfd8e87e691c455cd1dca601ae50b",
+ "response_id": "resp_00bdc151fdddd01a006ac6029e7acc87d28f06aa8a4d3f15cc",
+ "seconds": 10.8,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1470,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1556,
+  "output_tokens_details": {
+   "reasoning_tokens": 516
+  },
+  "total_tokens": 3026
+ }
+}

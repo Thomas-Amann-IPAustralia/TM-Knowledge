@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012379,
+ "created_utc": "2026-10-07T08:29:10Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "bundle-022",
+ "job": "needs",
+ "key": "67af9ed448fa2cf97730fc42a94087d2277f2751eda554703be836d19c17c666",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-5.4-mini-2026-03-17",
+ "model_requested": "gpt-5.4-mini",
+ "output_text": "{\"needs\":[{\"narrative\":\"A helpful answer must list the suggested alternative class terms given for mouldings and show which class each one belongs to. It should make clear that the user can compare the wording across the classes without having to infer it.\",\"search\":\"mouldings class alternatives\",\"seed_refs\":[\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/moldings\"],\"kind\":\"lookup\",\"question\":\"What are the suggested class terms for mouldings?\"},{\"narrative\":\"The answer should explain that, at examination, deception or confusion must come from something in the mark under consideration itself, not only from comparing it with another mark or name. It should also make clear that the cited cases are examples of that approach.\",\"search\":\"confusion from other name not mark\",\"seed_refs\":[\"TMM/Part29/3/3/3\"],\"kind\":\"problem\",\"question\":\"Can I object if the problem is really about a similar business name, not what’s in the mark itself?\"},{\"narrative\":\"A helpful answer must cover both points: a design registration for the same shape does not by itself block a trade mark application for that shape, and a pending trade mark citation may still need checking for a divisional application if it has lapsed or been narrowed. It should explain the practical steps an examiner needs to take before moving on.\",\"search\":\"shape mark design registration pending citation divisional\",\"seed_refs\":[\"TMM/Part21/3/3/10\",\"TMM/Part12/8#1\"],\"kind\":\"cross_part\",\"question\":\"If my shape also has a design registration, do I still need to check for a divisional trade mark citation?\"},{\"narrative\":\"The answer should identify who is affected by the provision: the registered owner of a well known trade mark and the person using a substantially identical or deceptively similar sign on unrelated goods or services. It should state the findings the owner must establish about connection and likely adverse effect on their interests.\",\"search\":\"well known mark unrelated goods connection adverse interests\",\"seed_refs\":[\"TMM/Part19B/4/4/2\"],\"kind\":\"impact\",\"question\":\"Who is affected when a well known mark is used on unrelated goods, and what must the owner show?\"}]}",
+ "prompt_version": "needs-v2",
+ "request_sha256": "4d2f1ad98df05663b356ed2262801d9806b3810d34e96c7adf2cd975b2520904",
+ "response_id": "resp_000c024143ad60bc006ac602cb978087d29515d4e04a44be4e",
+ "seconds": 11.8,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1415,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 2515,
+  "output_tokens_details": {
+   "reasoning_tokens": 1533
+  },
+  "total_tokens": 3930
+ }
+}

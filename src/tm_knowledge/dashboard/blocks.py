@@ -35,6 +35,7 @@ __all__ = [
     "chips",
     "network",
     "tree",
+    "qa",
 ]
 
 #: The tones a badge, stat or callout may carry. Tone is meaning, not colour:
@@ -144,6 +145,13 @@ def tree(payload: dict[str, Any], *, note: str | None = None) -> dict[str, Any]:
     """The decision tree. `payload` is `views.decision_tree()` — spines, rules,
     and one `records` map the nodes point into."""
     return {"kind": "tree", "data": payload, "note": note}
+
+
+def qa(payload: dict[str, Any], *, note: str | None = None) -> dict[str, Any]:
+    """"Ask the Manual": a question picker, the ontology's working, a cited answer,
+    and plain keyword search beside it. `payload` holds every answer the page
+    shows, already carrying its own excerpts — the site never reads the snapshot."""
+    return {"kind": "qa", "data": payload, "note": note}
 
 
 def chips(values: Iterable[str], *, tone: str | None = None) -> dict[str, Any]:
