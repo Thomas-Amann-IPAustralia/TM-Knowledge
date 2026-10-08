@@ -44,6 +44,7 @@ from tm_knowledge.stage0.schemas import RECORD_TYPES, SchemaError, validator_for
 
 __all__ = [
     "AUTHORED_DIR",
+    "RETIRED_IDS_FILE",
     "AUTHORED_FILES",
     "FILE_FOR",
     "ENVELOPE_KEY",
@@ -81,7 +82,17 @@ FILE_FOR: dict[str, str] = {value: key for key, value in AUTHORED_FILES.items()}
 #: **not** here: it has no schema and no id series, so the store cannot hold it
 #: yet and reports it like any other unknown name. Inventing a record type in a
 #: plumbing pass would be authoring the shape of a definition by accident.
-NOT_RECORDS = frozenset({"README.md"})
+NOT_RECORDS = frozenset({"README.md", "corrections.yaml", "retired-ids.yaml", "too-general-labels.yaml"})
+
+#: The ledger of authored ids withdrawn from service — a duplicate of a signed record
+#: retired under ADR-0080 consequence 2, or a concept withdrawn on the owner's word
+#: (ADR-0121). The same shape and purpose as `eval/gold/retired-ids.yaml`: one id
+#: sequence across both stores, and a gap left by a withdrawal is never filled
+#: (IDENTIFIERS.md §3). `eval/gold/` is frozen, so authored withdrawals are recorded
+#: here rather than there. `corrections.yaml` is read by `authored.corrections`, and
+#: `too-general-labels.yaml` — the labels recognition skips (ruling E1) — by
+#: `bulk.links`.
+RETIRED_IDS_FILE = "retired-ids.yaml"
 
 
 class MalformedAuthoredFile(Exception):
@@ -160,6 +171,8 @@ class AuthoredSet:
     files: dict[str, Path] = field(default_factory=dict)
     #: (path, reason) for every file that could not be read at all.
     unreadable: tuple[tuple[Path, str], ...] = ()
+    #: id -> ledger entry, for every authored id withdrawn from service.
+    retired_ids: dict[str, dict[str, Any]] = field(default_factory=dict)
 
     def of(self, record_type: str) -> tuple[AuthoredRecord, ...]:
         if record_type not in RECORD_TYPES:
@@ -369,6 +382,18 @@ def load(root: Path | None = None) -> AuthoredSet:
         for position, raw in enumerate(found):
             entries.append(_split(raw, record_type, path, position))
 
+    retired: dict[str, dict[str, Any]] = {}
+    ledger = root / RETIRED_IDS_FILE
+    if ledger.exists():
+        try:
+            for entry in _read_records(ledger):
+                identifier = entry.get("id")
+                if not isinstance(identifier, str):
+                    raise MalformedAuthoredFile("every retired-ids entry needs a string `id`")
+                retired[identifier] = entry
+        except MalformedAuthoredFile as error:
+            unreadable.append((ledger, str(error)))
+
     order = {name: index for index, name in enumerate(goldset.GOLD_FILES.values())}
     entries.sort(key=lambda e: (order.get(e.record_type, 99), e.position))
     return AuthoredSet(
@@ -376,6 +401,7 @@ def load(root: Path | None = None) -> AuthoredSet:
         entries=tuple(entries),
         files=files,
         unreadable=tuple(unreadable),
+        retired_ids=retired,
     )
 
 

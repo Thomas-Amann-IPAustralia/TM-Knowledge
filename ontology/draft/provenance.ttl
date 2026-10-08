@@ -258,3 +258,49 @@ tmk:supersedesRejected a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:label "supersedes rejected record"@en-AU ;
     rdfs:comment "The id of a record a named expert rejected, where this authored assertion covers the same ground. A signed rejection is a human decision and ADR-0079 does not license reversing one silently: naming it, with the difference explained in tmk:authoringReasoning, is the only way an authored record may occupy that ground (ADR-0084 consequence 2)."@en-AU .
+
+# --- corrections to signed records (ADR-0122) -------------------------------
+#
+# The owner ruled on 2026-10-08 that known defects in signed records are corrected
+# now, and that nobody signs anything until the ontology ships to a group of
+# examiners (ADR-0120, ADR-0121). eval/gold/ stays frozen as the yardstick, and a
+# change inside a signature would be laundering, so a correction is a record of its
+# own: machine-written, unreviewed, naming what it corrects and the ruling it acts on.
+
+tmk:Correction a owl:Class ;
+    rdfs:subClassOf tmk:Assertion ;
+    rdfs:label "Correction to a signed record"@en-AU ;
+    rdfs:comment "A machine-written change to a signed record, made on the owner's instruction (ADR-0122). Lives in the authored graph and carries the authoring envelope. What it withdrew is recorded on it as text (tmk:withdrawnValue) and stated nowhere that serves; what it added is stated on the corrected node in the authored graph, never the approved one."@en-AU .
+
+tmk:corrects a owl:ObjectProperty ;
+    rdfs:domain tmk:Correction ;
+    rdfs:label "corrects"@en-AU ;
+    rdfs:comment "The signed concept, relationship assertion or entity mention this correction changes."@en-AU .
+
+tmk:ruling a owl:DatatypeProperty ;
+    rdfs:domain tmk:Correction ;
+    rdfs:range xsd:string ;
+    rdfs:label "ruling"@en-AU ;
+    rdfs:comment "The owner's ruling the correction acts on — a ruling file and the item."@en-AU .
+
+tmk:withdrawnValue a owl:DatatypeProperty ;
+    rdfs:domain tmk:Correction ;
+    rdfs:range xsd:string ;
+    rdfs:label "withdrawn value"@en-AU ;
+    rdfs:comment "A value the signed record carries that no longer serves, as `field: value`. Text, so the withdrawn statement is recorded without being restated."@en-AU .
+
+tmk:addedValue a owl:DatatypeProperty ;
+    rdfs:domain tmk:Correction ;
+    rdfs:range xsd:string ;
+    rdfs:label "added value"@en-AU ;
+    rdfs:comment "A value the correction adds, as `field: value` — the audit trail of a triple the correction states on the corrected node in the authored graph."@en-AU .
+
+tmk:replacedBy a owl:ObjectProperty ;
+    rdfs:label "replaced by"@en-AU ;
+    rdfs:comment "The authored relationship assertion that carries the corrected triple in place of a signed one. On the signed assertion it is computed, like tmk:isStale; the signed assertion stays as history and its direct triple stops serving."@en-AU .
+
+tmk:isCorrected a owl:DatatypeProperty ;
+    rdfs:domain tmk:Assertion ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "is corrected"@en-AU ;
+    rdfs:comment "Computed on a signed assertion a correction replaced. True means: signed as stated, no longer served as stated."@en-AU .

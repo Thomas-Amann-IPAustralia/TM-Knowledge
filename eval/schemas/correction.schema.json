@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ipaustralia.gov.au/schemas/tmk/authored/correction/1.0.0",
+  "title": "Correction to a signed record",
+  "description": "A machine-written change to a record in eval/gold/, made on the owner's instruction (ADR-0120, ADR-0122) and never inside the signature. eval/gold/ stays byte-for-byte frozen as the measurement yardstick; what serves — the graph, recognition, search and the explorer — applies the correction. Every correction carries the authoring envelope, so it is unreviewed and says who wrote it, and names the owner's ruling it acts on. A concept or entity is patched field by field; a relationship is replaced by an authored relationship that carries the corrected triple.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "corrects", "record_type", "ruling", "approved_by", "approved_date"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^GK-[0-9]{4}$"},
+    "corrects": {
+      "type": "string",
+      "pattern": "^(GC|GR|GE)-[0-9]{4}$",
+      "description": "The signed record this corrects. It must exist in eval/gold/."
+    },
+    "record_type": {"enum": ["gold_concept", "gold_relationship", "gold_entity"]},
+    "add": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Values added to list fields of a signed concept. Each added value is machine-written and is stated in the authored graph, never the approved one.",
+      "properties": {
+        "alt_labels": {"$ref": "#/$defs/strings"},
+        "not_labels": {"$ref": "#/$defs/strings"},
+        "legislative_basis": {"$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/ref_list"},
+        "definition_sources": {"$ref": "https://ipaustralia.gov.au/schemas/tmk/stage0/common/1.0.0#/$defs/ref_list"}
+      }
+    },
+    "remove": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Values withdrawn from list fields of a signed concept. Each must be present on the signed record. The signed record keeps it; nothing that serves states it.",
+      "properties": {
+        "alt_labels": {"$ref": "#/$defs/strings"},
+        "not_labels": {"$ref": "#/$defs/strings"},
+        "legislative_basis": {"$ref": "#/$defs/strings"},
+        "related": {"$ref": "#/$defs/strings"}
+      }
+    },
+    "set": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Single fields a correction may set. Deliberately narrow: a concept's preferred label is not here, because two preferred labels would sit on one concept in the merged graph.",
+      "properties": {
+        "resolves_to": {"type": "string"}
+      }
+    },
+    "replaced_by": {
+      "type": "string",
+      "pattern": "^GR-[0-9]{4}$",
+      "description": "For a relationship: the authored relationship that carries the corrected triple. The signed record stays as history; its direct triple stops being served."
+    },
+    "ruling": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The owner's ruling this acts on: a ruling file and the item, e.g. review/rulings/2026-10-08-chat-ontology-review.yaml#D2."
+    },
+    "notes": {"type": ["string", "null"]},
+    "approved_by": {"type": "null", "description": "Never filled by an agent (CLAUDE.md §2)."},
+    "approved_date": {"type": "null"}
+  },
+  "$defs": {
+    "strings": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+  }
+}
