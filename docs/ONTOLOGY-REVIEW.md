@@ -6,6 +6,14 @@ reviewed by no one.** Every finding names the records it rests on so that a pers
 check it, and every judgement in it is the agent's and can be wrong.
 **Changed:** nothing. No record, graph, prompt or page was edited by this review.
 
+> **Ruled on and acted on, 2026-10-08.** The owner ruled on every item
+> (`review/rulings/2026-10-08-chat-ontology-review.yaml`, ADR-0121) and S026 acted on
+> the approved ones the same day — ADR-0120 to ADR-0124 say what changed and the
+> ruling file's `applied` block lists it. The text below is the review as written,
+> left unchanged: its counts describe the ontology *before* the changes. Not acted on,
+> as ruled: B1 (explained), B2, B3, B6 (postponed until B1), C9 (not approved), D7, F4,
+> F5 (deferred), and D5's paid re-judging (quoted, not spent).
+
 The owner asked for an in-depth review of the ontology as it stands — having found
 duplication and miscategorisation — with each issue and a suggested resolution in a
 table, and with particular attention to the power structure between the defined roles.

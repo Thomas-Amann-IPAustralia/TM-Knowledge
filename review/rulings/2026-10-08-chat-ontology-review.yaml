@@ -1,0 +1,435 @@
+# Decisions the repo owner made in a chat session, on the S026 ontology review.
+# Hand-transcribed by the S026 agent; no issue behind it. The artefact is
+# `review/returned/261008-owner-chat-ontology-review.md`, which carries the words
+# verbatim. `item` names the review's issue (docs/ONTOLOGY-REVIEW.md).
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-08T16:30:00Z'
+questions_updated: '2026-10-08'
+source:
+  kind: chat
+  artefact: review/returned/261008-owner-chat-ontology-review.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S026 agent
+  title: Rulings on the ontology review (docs/ONTOLOGY-REVIEW.md), and waterfall delivery to a group of
+    examiners
+applied:
+  session: S026
+  date: '2026-10-08'
+  branch: claude/practical-edison-quroky
+  what_changed: >-
+    Waterfall delivery recorded (ADR-0120) and every item's ruling (ADR-0121). Acted on:
+    A1 (eleven authored duplicates withdrawn, additions carried by corrections), A2 (the
+    section 43 ground, GC-0168, split from GC-0006), A3 (GC-0130 relabelled reputation of
+    a trade mark), A4 (owner and authorised user kept apart; wine GIs, GC-0169, and the Wine
+    Register, GC-0170), B5 (a remedy group, ADR-0124), C1–C6 (ten role concepts GC-0171 to
+    GC-0180, the authority predicates, consult and escalate edges on the Manual's text,
+    examination.ttl restructured; ADR-0123), C7 (cases typed administrative, judicial or
+    unclassified), C8 (longest label wins), D1 (a defined relation dictionary,
+    relations.ttl generated from it, relate-v2), D2 (29 corrections outside the signature,
+    ADR-0122), D3 (51 duplicate edges withdrawn), D5 (the sample's wrong edges fixed by
+    hand; the paid re-judging quoted, nothing spent), D6 (hub concepts joined by their
+    statutory definitions), E1 (too-general labels skipped), E2 (not-labels veto; aliases
+    narrowed to the source's own phrasings), E3 (six dictionary words withdrawn, three
+    relabelled, define's selection tightened), E4, F1 (tmk:ManualPassage on every chunk;
+    PU-0004 checked on every answer), F3 (three bases fixed; unanchored ones reported).
+    Not acted on, as ruled: B1 (explained), B2, B3, B6 (postponed), C9 (not approved), D7,
+    F4, F5 (deferred). A5, A6, B4, D4, F2, F6 explained in plain English in the chat.
+answers:
+- id: CHAT-0017
+  item: operating-model
+  question: How will the ontology be reviewed and signed from here?
+  kind: instruction
+  value: waterfall_group_review
+  label: No expert signs anything until the ontology ships; then a group of trade mark examiners reviews
+    it all at once — get it as close to production ready as possible first
+  quote: no experts will be signing anything off until we ship the best version of the Ontology we can
+    muster to share with them. This is full on waterfall delivery at this point. Co-design is out the
+    window. To be clear, it WILL be reviewed by an expert but it will be a group of trade mark examiners,
+    all at once, so we need to get this things as close to 'production ready' as we can before it goes
+    to them for testing/review.
+  recorded_as:
+  - ADR-0120
+- id: CHAT-0018
+  item: A1
+  question: Retire the eleven machine-written duplicates of signed concepts?
+  kind: choice
+  value: approve
+  label: Approved; no one signs the changes yet; use best judgement
+  quote: Your suggested solution is approved, No one will sign the changes yet, Use your best judgement.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0019
+  item: A2
+  question: Is the signed 'ground for rejection' the general concept, with the s 43 objection moved to
+    a narrower one?
+  kind: choice
+  value: approve
+  label: Approved — the interpretation is correct
+  quote: I know enough about trade marks to say that your interpretation is correct, Your suggested solution
+    is approved.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0020
+  item: A3
+  question: Relabel the machine-written 'reputation' as the reputation of a trade mark?
+  kind: choice
+  value: approve
+  label: Approved — reputation of a trade mark and reputation of a place are separate concepts
+  quote: Your suggested solution is approved, Reputation of a trade mark and the reputation of a place
+    are two separate concepts.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0021
+  item: A4
+  question: How should owner/authorised user and wine GIs be modelled?
+  kind: instruction
+  value: defer_to_agent
+  label: Owner and authorised user are separate entities; wine GIs have a dedicated statutory scheme,
+    other GIs are principally protected through certification trade marks; the agent decides how to model
+    it
+  quote: I don't understand your explanation, An 'authorised user' and an 'owner' would be treated differently
+    in most contexts and so should not be considered one entity, Wine GIs are different to other GIs,
+    Wine GIs have a dedicated statutory scheme while other GIs are principally protected through certification
+    trade marks (CTM), with that in mind I will defer to you as to how this is best reflected within the
+    ontology.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0022
+  item: A5
+  question: Extend the duplicate-label check?
+  kind: instruction
+  value: explain
+  label: Rewrite the issue and recommendation in plain English
+  quote: I have no idea what that means, Please re-write the issue and recommendation in plain english.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0023
+  item: A6
+  question: Reject the wrong merge candidate?
+  kind: instruction
+  value: explain
+  label: Rewrite the issue and recommendation in plain English
+  quote: I have no idea what that means, Please re-write the issue and recommendation in plain english.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0024
+  item: B1
+  question: One group per concept from two axes — two columns?
+  kind: instruction
+  value: explain_no_action
+  label: Explain; the owner proposes nodes for what a thing is and edges for what it does; no action yet
+  quote: I don't understand what you're suggesting to solve the issue, My suggestion is that the ontology
+    should describe what a thing 'is' (as a node) and what it 'does' as an edge, please let me know whether
+    this aligns with what you think, No action should yet be taken on this matter until I better understand.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0025
+  item: B2
+  question: Make siblings' groups agree?
+  kind: choice
+  value: postponed
+  label: Postponed until B1 is understood
+  quote: I am postponing my judgement until I better understand B1.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0026
+  item: B3
+  question: Re-type the presumption of registrability?
+  kind: choice
+  value: postponed
+  label: Postponed until B1 is understood
+  quote: I am postponing my judgement until I better understand B1.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0027
+  item: B4
+  question: One ground concept per statutory ground?
+  kind: instruction
+  value: explain
+  label: Explain more clearly in plain English
+  quote: Please explain more clearly with plain English.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0028
+  item: B5
+  question: Split exception from remedy?
+  kind: choice
+  value: approve
+  label: Approved
+  quote: Approved.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0029
+  item: B6
+  question: Retire dictionary-only concepts from none_of_these; home for dates?
+  kind: choice
+  value: postponed
+  label: Postponed until B1 is understood
+  quote: I am postponing my judgement until I better understand B1.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0030
+  item: C
+  question: Is the summary of roles and the power structure right?
+  kind: confirmation
+  value: correct
+  label: The top-level summary of roles and power structure is correct and accurate
+  quote: 'A note on C: The top level summary of roles and power structure is a correct and accurate interpretation.'
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0031
+  item: C1
+  question: Undo the inverted delegation chain?
+  kind: choice
+  value: approve
+  label: Approved
+  quote: Approved.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0032
+  item: C2
+  question: Author the missing role concepts?
+  kind: choice
+  value: approve
+  label: Approved
+  quote: Approved.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0033
+  item: C3
+  question: Add a vocabulary for authority?
+  kind: choice
+  value: approve
+  label: Approved
+  quote: Approved.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0034
+  item: C4
+  question: Re-type power statements recorded as related?
+  kind: choice
+  value: approve
+  label: Approved
+  quote: Approved.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0035
+  item: C5
+  question: Connect and restructure the role classes?
+  kind: choice
+  value: approve
+  label: Approved
+  quote: Approved.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0036
+  item: C6
+  question: How should doubt, consultation and escalation be recorded?
+  kind: instruction
+  value: general_escalation_from_text
+  label: 'Standard practice whenever a delegate is in doubt, not unique to s 43: consult a delegate who
+    is an SME and/or escalate up the chain (Examiner -> Senior Examiner -> Examination Team Leader); do
+    not cite the expert note; hang it on evidence in the text'
+  quote: This essentially describes what is considered good/standard practice if doubt exists, It is fair
+    to assert that when a delegate is unsure about the correct decision they consult with another delegate
+    who is a subject matter expert on that particular matter and/or they escalate the matter to a delegate
+    that is higher on the chain of command (Examiner -> Senior Examiner -> Examination Team Leader), This
+    escalation pathway is not unique to s43, If doubt exists the delegate should escalate or consult,
+    I would prefer to avoid citing the expert note in the manner suggested, Ideally this should be hung
+    on evidence within the text.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0037
+  item: C7
+  question: Separate administrative from judicial decisions?
+  kind: choice
+  value: approve
+  label: Approved; further distinction of judicial power only if it becomes relevant
+  quote: Approved, An administrative decision is different to a judicial decision, If it becomes relevant
+    further distinction of judicial power may be required.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0038
+  item: C8
+  question: Longest match wins in recognition?
+  kind: choice
+  value: approve
+  label: Approved
+  quote: Approved.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0039
+  item: C9
+  question: Record the capacity in which a person signs?
+  kind: choice
+  value: not_approved
+  label: Not approved — flat approval stays while the system is in development
+  quote: Not approved, This system is not in a production environment, Any system that enters a production
+    environment will undergo extensive consultation and hierarchal approval will be recorded at that stage,
+    While the system is still in development having a flat approval aids speedier delivery.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0040
+  item: D1
+  question: Define the predicates?
+  kind: choice
+  value: approve
+  label: Approved
+  quote: Approved.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0041
+  item: D2
+  question: Send the defective signed relationships to the expert?
+  kind: instruction
+  value: correct_now
+  label: Not approved as proposed — correct the known defects now
+  quote: Not approved, In this case correct known defects.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0042
+  item: D3
+  question: De-duplicate relationships after the merge?
+  kind: choice
+  value: approve
+  label: Approved (see A1)
+  quote: Approved, See A1.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0043
+  item: D4
+  question: Remove hierarchy edges that contradict signed records?
+  kind: instruction
+  value: explain
+  label: Clarify
+  quote: I don't understand, Please clarify.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0044
+  item: D5
+  question: Judge a sample of machine-written relationships before claiming quality?
+  kind: choice
+  value: approve_with_quote
+  label: Approved; Gemini tokens purchased; a quote must come to the owner before any spend
+  quote: Approved, Additional Gemini tokens have been purchased for use, You still must come to me first
+    with a quote for expenditure.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0045
+  item: D6
+  question: Author hub edges from definitions?
+  kind: choice
+  value: approve
+  label: Approved; authorship should always favour definitions from the source material
+  quote: Approved, Authorship should always favour definitions from the source material.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0046
+  item: D7
+  question: Down-weight 'related'?
+  kind: choice
+  value: defer
+  label: Deferred until C4 and D1 show how much it shrinks
+  quote: Defer, I would like to see how C4 and D1 shrink it before we make a decision about how to proceed.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0047
+  item: E1
+  question: Prune over-broad labels?
+  kind: instruction
+  value: linker_skip_list
+  label: 'A first-pass prune: the linker skips a list of labels marked too general'
+  quote: Conduct a first-pass prune with the linker skipping the list of labels marked as too general,
+    Each of the examples provided (like geographical qualifier) are highly domain specific terms.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0048
+  item: E2
+  question: Filter search aliases and honour not-labels?
+  kind: choice
+  value: approve
+  label: Approved; aliases very narrow and almost exclusively derived from the source material
+  quote: Approved, Search aliases must be very narrow and almost exclusively derived from the source material.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0049
+  item: E3
+  question: Withdraw or relabel dictionary-word concepts?
+  kind: choice
+  value: approve
+  label: Approved
+  quote: Approved.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0050
+  item: E4
+  question: Fix the concept that excludes its own label?
+  kind: choice
+  value: approve
+  label: Approved
+  quote: Approved.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0051
+  item: E5
+  question: Use missing not-labels as a worklist?
+  kind: confirmation
+  value: addressed
+  label: Already addressed above
+  quote: Already addressed above.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0052
+  item: F1
+  question: Give the practice-versus-law shapes real targets?
+  kind: choice
+  value: approve
+  label: Approved
+  quote: Approved.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0053
+  item: F2
+  question: Add shapes for the review's problems?
+  kind: instruction
+  value: explain
+  label: Clarify the problem and proposal
+  quote: Unclear on the problem and proposal, Please clarify.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0054
+  item: F3
+  question: Fix and verify legislative bases?
+  kind: choice
+  value: approve
+  label: Approved
+  quote: Approved.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0055
+  item: F4
+  question: Build the definition record type?
+  kind: choice
+  value: approve_deferred
+  label: Approved, deferred — lower priority
+  quote: Approved but defer for now as its a lower priority.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0056
+  item: F5
+  question: Regenerate stale documentation?
+  kind: choice
+  value: approve_deferred
+  label: Approved, deferred — lower priority
+  quote: Approved but defer for now as its a lower priority.
+  recorded_as:
+  - ADR-0121
+- id: CHAT-0057
+  item: F6
+  question: Never compare confidence across authors?
+  kind: instruction
+  value: explain
+  label: Clarify the problem and proposal
+  quote: Unclear on the problem and proposal, Please clarify.
+  recorded_as:
+  - ADR-0121
