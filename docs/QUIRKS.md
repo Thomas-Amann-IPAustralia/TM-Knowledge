@@ -1398,3 +1398,49 @@ conflation shape in `shapes/authority.ttl` have no targets outside the test fixt
 and `tmk-shacl` passing says nothing about them. The distinction on real data rests on
 the `tmk:authorityKind` string alone. Before citing those shapes as protection, give them
 something to check (`docs/ONTOLOGY-REVIEW.md` F1).
+
+**Q-71 to Q-74 were acted on in S026** (ADR-0121): `mentions.json` was regenerated
+(`tmk-bulk links --write`) after recognition changed; the relate prompt now reads
+definitions from `ontology/predicates.py` (`relate-v2`); every Manual chunk is a
+`tmk:ManualPassage`, so the disjointness shape has real targets, and PU-0004 is checked
+on every answer instead (`search.authority`). Q-72's count is still preferred labels only.
+
+### Q-75 — a record an agent session writes by hand is stamped with the session, not a model id
+
+CLAUDE.md wants `authored_by` to name "the model and version"; the remote environment
+S026 ran in forbids putting a model identifier in anything pushed to the repository. The
+records S026 wrote by hand (concepts GC-0168 to GC-0180, relationships GR-0632 to GR-0690,
+the re-judged edges, all 29 corrections, the too-general list) carry
+`claude-code-agent-S026`. The commit trailer carries the attribution. The bulk pipeline
+is unaffected: its `authored_by` is the model the API reported (ADR-0094). Do not read
+the stamp as a model name, and do not "fix" it to one in a session under the same rule.
+
+### Q-76 — editing a record file with a YAML round-trip rewrites every other record
+
+`ruamel` round-tripping `authored/*.yaml` re-wraps and re-quotes records nobody touched,
+so a one-record change becomes a thousand-line diff that hides the change. S026 edited
+record by record: split the file on lines starting `- id: `, re-dump only the changed
+block with `yaml.dump([record], sort_keys=False, allow_unicode=True, width=88)`, and
+leave every other block byte for byte. Do the same, or the review diff is unreadable.
+
+### Q-77 — corrections are read from the authored store's own root, not the repository's
+
+`corrections.load()` defaults to `authored/`. The graph build and the harness are also
+run over test fixtures (`tests/fixtures/authored/sound`), and loading the repository's
+corrections there stated real corrections on fixture graphs and broke the
+two-graphs test. Pass `authored.root` wherever an `AuthoredSet` is in hand.
+
+### Q-78 — a relationship whose sentence is the Act's own had no source node in the graph
+
+Records quoting a provision directly (`source_ref: TMA1995/s205`) were reported as
+"naming a source not held": the source graph held only provisions some Manual chunk
+cites, and `_provenance` looked the ref up among chunks alone. The build now adds every
+provision a relationship rests on to the source graph and checks its hash like a
+chunk's. A new record type that rests on a unit or provision needs the same.
+
+### Q-79 — apostrophes: the Manual writes ’, records and questions write '
+
+Recognition matched labels character for character, so "Registrar's decision" never met
+"Registrar’s decision" in the Manual. `links._regex` and `engine.js` now fold the two.
+Evidence quotes are still exact — `bulk.jobs.evidence` copies the snapshot's own
+characters — so a quote typed with a straight apostrophe will not land; copy it.

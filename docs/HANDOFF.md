@@ -7,111 +7,105 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 
 ## Where things stand
 
-**The demonstrator is built (D1–D3 met, D4 drafted), the published site is for trade
-marks examiners, and everything machine-written is unreviewed.** S025's work — the mini
-maps, the Part rows, the tour's squares, "how the ontology chose" — is on `main` (PR 26).
+**The operating model changed: waterfall** (ADR-0120). Nobody signs anything until the
+ontology ships to a group of trade marks examiners, who review it all at once. Until
+then the bar is "as close to production ready as we can".
 
-**S026 reviewed the ontology at the owner's request and changed nothing in it.** The
-owner had found duplication and miscategorisation and asked for an in-depth review, each
-issue with a suggested resolution in a table, with attention to the power structure
-between the defined roles. The result is **`docs/ONTOLOGY-REVIEW.md`**: 40 issues in six
-groups — A duplication, B the nine groups, C roles and power, D relationships, E labels
-and recognition, F the model's own gates and documentation — each with evidence by
-record id, a resolution, and who can act (agent, expert or owner). The headline:
+**S026 reviewed the ontology (`docs/ONTOLOGY-REVIEW.md`, 40 issues), the owner ruled on
+every item (ADR-0121, `review/rulings/2026-10-08-chat-ontology-review.yaml`), and S026
+acted on the approved ones.** What changed, in one place each:
 
-1. **13 ideas exist twice**, signed and machine-written: 11 the same idea, GC-0006 /
-   GC-0053 a scope split, GC-0050 / GC-0130 a homonym. 40% of relationships hang off one
-   side of a pair. The expert-pack check reports 10 (preferred labels only — Q-72).
-2. **The vocabulary inverts the delegation chain.** "The Registrar's delegate" is an
-   alternative label of the Registrar (GC-0046); the examiner excludes "delegate" and
-   "decision maker" (GC-0044) — against s 206, Part 18.2.2.2 and the expert's own held
-   corrections GE-0010 / GE-0047. Both signed records were seeded to invite that
-   correction and were marked correct. No edge joins examiner and Registrar.
-3. **Power is flattened**: 101 of 120 role edges are `related`, including sentences that
-   state a power exactly (s 205; the ART "stands in the shoes"). The 14 predicates have
-   no word for delegation, review, consent or control — and no definitions at all.
-4. **One group per concept from two axes**: duplicates got different groups, siblings
-   split, and the presumption of registrability is typed `exception`.
-5. **Labels leak**: 21 shared labels; search aliases contradict 19 not-labels; all five
-   of *Board*'s passage links are wrong.
-6. **`tmk:ManualInstruction` and `tmk:LegalProposition` have no instances**, so two of the
-   practice/law shapes guard nothing (Q-74); SHACL passes regardless (0 defects, 300 notes).
-7. **A seeded sample of 25 machine-written edges**: 13 sound, 5 too vague, 7 wrong (28%,
-   95% interval about 14–48%; judged by one model).
+- **Duplicates** — 11 authored duplicates withdrawn (A1); the section 43 ground GC-0168
+  split from the general GC-0006 (A2); GC-0130 is *reputation of a trade mark* (A3);
+  owner ≠ authorised user, wine GIs GC-0169 and the Wine Register GC-0170 (A4).
+- **Corrections to signed records** — 29 `GK-` records in `authored/corrections.yaml`,
+  outside the signature (D2, ADR-0122). `eval/gold/` is byte-for-byte unchanged. What
+  serves uses `corrections.served_gold()`; the approved graph states removals only.
+- **Withdrawals** — 105 ids in `authored/retired-ids.yaml`, never reused.
+- **Roles and power** (C1–C6, ADR-0123) — role concepts GC-0171 to GC-0180; 12 authority
+  predicates (delegation, direction, review, appeal, consent, control, consult,
+  escalate …), each `law` or `practice`; consult/escalate edges quote the Manual, never
+  the expert's note; `examination.ttl` restructured into offices, delegates, advisers,
+  parties, representatives, review bodies, co-regulators; `tmk:roleConcept` bridges.
+- **Predicates are defined** (D1) — `ontology/predicates.py`; `relations.ttl` generated
+  from it; relate prompt `relate-v2`; an authored edge on an undefined predicate fails.
+- **Groups** — a tenth, `remedy` (B5, ADR-0124), placed on the decision tree.
+- **Recognition** — longest label wins (C8); not-labels veto (E2); nine too-general
+  labels skipped (`authored/too-general-labels.yaml`, E1); aliases narrowed to the
+  source's own phrasings, 57 of 725 (E2); apostrophes fold. Python and `engine.js` match.
+- **Quality** — 51 duplicate edges withdrawn (D3); 6 dictionary-word concepts withdrawn,
+  3 relabelled, define needs two uses in the defined sense (E3); the D5 sample's wrong
+  edges fixed and two template-built edges withdrawn; relate now refuses a template quote
+  or one that does not name both concepts (D5).
+- **Practice vs law** — every chunk is a `tmk:ManualPassage`; answers are checked for
+  PU-0004 (`search.authority`, `engine.js`), flagged never removed (F1). Cases are
+  administrative, judicial or unclassified by series (C7). Wrong legislative bases fixed;
+  22 unverified ones listed by the harness (F3).
 
-No record, graph, prompt or page changed, so nothing was rebuilt and the tests were not
-re-run (no code changed). No paid call. Spend: US$3.49 of the $6.60 cap.
+Counts: concepts 52 signed + 110 authored; relationships 35 signed (15 replaced by
+corrections) + 563 authored. Harness 0 defects; SHACL 0 defects, 0 gaps; graph rebuilt.
+No paid call this session. **Spend US$3.49 of the $6.60 cap.**
 
 ## Waiting on the owner
 
-1. **Which of the review's recommendations to act on.** Its suggested order: (1) hygiene
-   an agent can do now without touching a signature; (2) on a go-ahead, the role layer
-   and the retirement of the 11 authored duplicates (needs an ADR superseding ADR-0101
-   decision 2); (3) owner decisions — two-column typing (OQ-0026), whether an expert's
-   note may be cited as evidence (C6), the capacity a signer signs in (C9), who judges
-   the edge-precision sample (D5); (4) one short list for the expert.
-2. If not already done: **add the key** as an environment secret (Settings →
-   Environments → `github-pages` → `OPENAI_API_KEY`), then run the pages workflow.
-   Advised: a dedicated, restricted, budget-limited key — it is recoverable from the page.
-3. **OQ-0029 — which results the pitch claims.** Unchanged. The review's D5 bears on it:
-   claim nothing about edge quality without a judged sample.
+1. **The D5 quote** (given in chat 2026-10-08): judge every machine-written edge with a
+   second model (Gemini 3.8 Flash recommended, ~US$1.10, ~US$0.55 in batch) and
+   re-measure search, which C8/E1/E2 changed (~US$1.50 with the same judge). Nothing
+   is spent until he approves. A Gemini client must be added to `tm_knowledge.bulk`
+   first (dry-run, `--confirm`, cache, cap, prices in `config.PRICES_PER_MTOK`).
+2. **Explained in chat, awaiting a word**: A5, A6, B1 (and so B2, B3, B6), B4, D4, F2, F6.
+3. **OQ-0029 — which results the pitch claims.** Unchanged; the measurement is stale
+   until re-run (item 1).
+4. If not done: the key as an environment secret (`github-pages` → `OPENAI_API_KEY`).
 
 ## Next actions
 
-1. **On the owner's word, step 1 of the review's order:** A3 (relabel GC-0130 *reputation
-   of a trade mark*, re-point GR-0084 / GR-0315), the authored half of A4, A5 (label check
-   over every label, folded), B6, C7 (administrative vs judicial decisions), C8
-   (longest-match recognition — `links.find_mentions` and `engine.js` together), D4, D6,
-   E2, E4, F2, F3, F5. Then `tmk-graph --write --rules`; CI fails on graph drift.
-2. **Re-open OQ-0022.** It is marked applied, but the examiner-conduct rule it promised
-   ("an agent writes the examiner-conduct rule itself") was never written (review C6).
-3. Carried over from S025: an examiner feedback route (per-answer "wrong / partly /
-   right + note"; expert notes must never reach a model, ADR-0088); a packing of a
-   question's ideas on Ask if the owner meant the home page's circle packing; a small
-   proxy for the key if abuse shows up (`TMK_LIVE_ENDPOINT`).
+1. On approval of the quote: add the Gemini client, smoke-run 3 calls, read them, run
+   the edge audit, fix or withdraw what it finds wrong (by ruling D5), re-measure.
+2. Re-run `tmk-bulk run relate` only after the audit: v2 prompt, 125 calls queued.
+3. Deferred by the owner: D7 (`related` is now 198 of 563), F4 (definitions as a record
+   type), F5 (stale docs — `ontology.md` report, `legal-concepts.ttl` and `GUIDE.md`
+   sections beyond §1 and §7).
+4. Carried over: an examiner feedback route (notes must never reach a model, ADR-0088).
 
 ## What to distrust
 
-- **The review is machine-written and unreviewed.** Its D5 figure is one model's
-  judgement on 25 edges; every other finding cites record ids and can be checked.
-- **`data/derived/links/mentions.json`** covers 130 of 167 concepts (Q-71). Build links
-  fresh from the snapshot for any count.
-- **The 12 "same concept" merge candidates**: GC-0028 = GC-0014 is wrong (review A6), and
-  two real duplicates (*reputation* is a homonym; *conditions or limitations* was linked
-  as `broader`) are not among them.
-- **The relate prompt's predicate "definitions"** are the first signed example of each,
-  and two are inverted (Q-73).
-- **The twelve connections in the prompt are an accident of identifier order** (Q-70).
-- **Concept recognition is label matching**: "register" matches *Register of Trade
-  Marks*, "mark" matches *trade mark*, "Registrar" matches inside "Deputy Registrar".
-- **The live configuration was not measured** — keyword + ontology, no vectors.
-- **The kinds view is an arrangement**; kind-to-kind arrows count relationship records.
-- The benchmark is model-written and model-graded (unchanged from S023).
+- **Everything S026 wrote is machine-written and unreviewed**, stamped
+  `claude-code-agent-S026` (Q-75) — concepts GC-0168 to GC-0180, edges GR-0632 to
+  GR-0690, 21 re-judged edges, the 29 corrections, the too-general list, the predicate
+  definitions, the role class comments.
+- **The search measurement describes the old recognition.** Do not quote it as current.
+- **238 of 562 concept-to-concept edges quote a sentence that names only one end, or
+  neither.** The new relate rule stops more; the existing ones wait for the audit.
+- **22 legislative bases are unverified** (harness note) — not wrong, not checked.
+- **The prepared answers** were written before the PU-0004 check; none is flagged now.
+- The benchmark is model-written and model-graded; the twelve connections in the
+  prompt are an accident of identifier order (Q-70).
 
 ## Things a session will trip on
 
 - **`python3 -m pytest`, not `pytest`** (Q-29); install with `pip install -e ".[test,rdf]"`.
-- **The explorer and any label analysis need the snapshot**: `tmk-fetch-upstream`, then
-  `tmk-explorer --write`, then serve `site/` (e.g. `python3 -m http.server` inside it).
-- **`engine.js` and `search/index.py` must change together** — the parity test fails
-  otherwise. So must `bulk.jobs._answer_render` and `engine.prompt`.
+  The full unit suite takes about nine minutes.
+- **Edit record files block by block**, never a YAML round-trip (Q-76).
+- **Pass `authored.root` to `corrections.load`** wherever an `AuthoredSet` is in hand (Q-77).
+- **`served_gold()` for what serves; `goldset.load()` for what measures.** Never swap them.
+- **`engine.js` and `search/index.py` change together**, as do `links.find_mentions`
+  and `Recogniser`, and `search.authority` and `authorityFlags` — parity tests fail
+  otherwise.
+- **The explorer needs the snapshot**: `tmk-fetch-upstream`, `tmk-explorer --write`.
 - **`site/data/live.json` can hold a key.** Git-ignored; keep it that way.
-- **The main map's positions are computed** (`map.js`). Do not reach for a force layout
-  there: fcose overlapped the compound kind boxes. `minimap.js` uses a seeded D3 force
-  run only for Change, where there are no boxes.
-- **A `data-ref` attribute opens the passage drawer** (app.js listens on the document).
-  The Change page's tiles use `data-page` for that reason.
-- **Updating a vendored library**: copy the dist file, then update `sha256`, `bytes`,
-  `version` in `site/vendor/manifest.json`.
-- **An agent may not edit a signed record.** Every review item marked "Expert" goes to
-  the expert pack; the agent's half of a mixed item is the authored side only.
-- Vectors are not committed (ADR-0115); flex tier overloads (Q-67); never kill a
-  relate run (Q-68).
+- **An agent may not edit a signed record** — write a correction (ADR-0122), and never
+  for a preferred label.
+- Vectors are not committed (ADR-0115); flex tier overloads (Q-67); never kill a relate
+  run (Q-68).
 
 ## Open items (agent-proposed, provisional)
 
-- Every recommendation in `docs/ONTOLOGY-REVIEW.md` is a proposal; none is a decision.
-- ADR-0101 (the review recommends superseding decision 2 for identical-label pairs).
-- S025's reading of "the Cytoscape map … elsewhere", and the treemap's replacement by
-  Part rows — layout calls, recorded in the commits.
+- ADR-0122 (the correction mechanism) — agent-proposed.
+- The agent parts of ADR-0120, ADR-0123 and ADR-0124: what "production ready" means;
+  the role families and the `roleConcept` bridge; honest concurrent use, prior use and
+  other circumstances left as exceptions rather than remedies.
+- Which labels are "too general" (E1) — a judgement; the `kept` list says why six stayed.
+- The decision-series table (`ontology/decisions.py`): IPR, RPC, FSR, AIPC left
+  unclassified rather than guessed.
 - ADR-0117; ADR-0118's and ADR-0119's agent parts; ADR-0113 and ADR-0115.

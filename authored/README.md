@@ -55,18 +55,27 @@ schemas:
 | `reasoning-expected.yaml` | reasoning expectation |
 | `prohibited-uses.yaml` | prohibited use |
 
-**What is in it today:** `concepts.yaml`, 78 records, and `concept-types.yaml`,
-130. The concepts are the vocabulary of the 53 Parts the section 43 boundary hid
-(ADR-0095); the typings are one per concept in the project, signed and authored
-alike (ADR-0092, ADR-0095). **No expert has read any of it.** Every other file in
-the table is absent, which is the honest state of a store filled for two record
-types out of nine.
+**What is in it today** (2026-10-08): `concepts.yaml` 110 records, `concept-types.yaml`
+162 — one typing per concept in the project, signed and authored alike —
+and `relationships.yaml` 564. Written by the bulk pipeline (`gpt-6.1-sol`), by earlier
+agent sessions, and by S026 (`claude-code-agent-S026`, Q-75); `authored_by` says which,
+record by record. **No expert has read any of it.** The other files in the table are
+absent.
 
-**Eight of the 78 concepts cover ground a signed record already claims** —
-GC-0007, GC-0012, GC-0016, GC-0035, GC-0042, GC-0043, GC-0046, GC-0050. Each
-names the overlap in `expert_should_check`. None of them displaces the signed
-record and no agent may retire one: ADR-0080 consequence 2 retires the
-*authored* record when a signed one covers it, and never the reverse.
+**The duplicates of signed records are gone.** Eleven authored concepts that covered
+ground a signed one claims were withdrawn on the owner's ruling A1 (ADR-0121), as
+ADR-0080 consequence 2 always intended: the authored record retires, never the signed
+one. What they added that the signed record lacked is carried by a correction.
+
+## Three files here are not records
+
+| File | What it is | Read by |
+|---|---|---|
+| `corrections.yaml` | `GK-` corrections to signed records — known defects fixed outside the signature, on the owner's instruction, each with the envelope and the ruling it acts on (ADR-0122). `eval/gold/` keeps every signed record exactly as signed. | `authored.corrections`; `served_gold()` for everything that serves |
+| `retired-ids.yaml` | The ledger of authored ids withdrawn from service: why, by whose ruling, what replaced it, and a withdrawn concept's label. An id here is never reused. | `authored.store`, `bulk.jobs.next_number`, the harness |
+| `too-general-labels.yaml` | Labels recognition skips, per concept, because the Manual uses the bare word mostly in other senses (ruling E1) — and the ones looked at and kept, with the reason. The label stays on its record. | `bulk.links`; through it search, the explorer and "Ask the Manual" |
+
+All three are machine-written and unreviewed, and say so in their headers.
 
 `definitions.yaml` was named here when this directory was created and **is not
 in the list**: a definition has no schema and no id series, so the store cannot
