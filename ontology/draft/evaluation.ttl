@@ -65,7 +65,7 @@ tmk:requiresSource a owl:ObjectProperty ; rdfs:range tmk:Passage ; rdfs:label "r
     rdfs:comment "A passage a correct answer must cite. Absence of one of these is a grounding failure."@en-AU .
 tmk:supportingSource a owl:ObjectProperty ; rdfs:range tmk:Passage ; rdfs:label "supporting source"@en-AU .
 tmk:requiresProvision a owl:ObjectProperty ; rdfs:label "requires provision"@en-AU .
-tmk:requiresCase a owl:ObjectProperty ; rdfs:range tmk:JudicialDecision ; rdfs:label "requires case"@en-AU .
+tmk:requiresCase a owl:ObjectProperty ; rdfs:range tmk:Decision ; rdfs:label "requires case"@en-AU .
 tmk:expectsConcept a owl:ObjectProperty ; rdfs:range tmk:LegalConcept ; rdfs:label "expects concept"@en-AU ;
     rdfs:comment """The concept a question expects an answer to engage, resolved from the label the
 record carries.

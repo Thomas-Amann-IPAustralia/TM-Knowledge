@@ -58,14 +58,56 @@ error PU-0004 names, and that error is a live one in this corpus: the Manual
 quotes s 43 in full inside TMM/Part29/1#1, so an answer can appear to cite the
 Act while having read only the Manual (CQ-0001's caveat)."""@en-AU .
 
-tmk:JudicialDecision a owl:Class ;
+tmk:Decision a owl:Class ;
     rdfs:subClassOf tmk:Authority ;
+    rdfs:label "Decision"@en-AU ;
+    rdfs:comment """A decided matter the Manual cites. **Citation level only.** No decision text
+exists anywhere in this programme (Q-11, HANDOFF Q6), so a decision node carries
+a citation, party names where the Manual gives them, and the Manual's own
+account of it — never the reasons. 'Which cases interpret this test' is
+answerable; 'what did the court hold' is not, and PU-0005 is the output that
+pretends otherwise.
+
+Who decided is read off the case id's series by `ontology.decisions` and put in
+one of the two subclasses below. A series that reports courts and registry
+decisions alike (IPR, RPC, FSR, AIPC) leaves the decision here, unclassified,
+rather than guessing (CLAUDE.md rule 6)."""@en-AU .
+
+tmk:JudicialDecision a owl:Class ;
+    rdfs:subClassOf tmk:Decision ;
     rdfs:label "Judicial decision"@en-AU ;
-    rdfs:comment """A decided case. **Citation level only.** No decision text exists anywhere in
-this programme (Q-11, HANDOFF Q6), so a decision node carries a citation, party
-names where the Manual gives them, and the Manual's own account of it — never
-the reasons. 'Which cases interpret this test' is answerable; 'what did the
-court hold' is not, and PU-0005 is the output that pretends otherwise."""@en-AU .
+    rdfs:comment "A court's decision — the High Court, the Federal Court, a state Supreme Court, an English court. An exercise of judicial power; where the court sits in the hierarchy is tmk:decidedAt, as far as the citation says (review C7)."@en-AU .
+
+tmk:AdministrativeDecision a owl:Class ;
+    rdfs:subClassOf tmk:Decision ;
+    rdfs:label "Administrative decision"@en-AU ;
+    rdfs:comment """A decision of the Registrar's delegate — a hearing officer's, reported as ATMO or in the Official Journal (AOJP) — or of the Commissioner of Patents' (APO).
+
+The office's own earlier view, not a court's. Until 2026-10-08 the 108 ATMO
+decisions the Manual cites were typed as judicial decisions beside the High
+Court's, so an answer citing one presented the office's view on a court's
+footing. The owner ruled them apart: "An administrative decision is different
+to a judicial decision" (review C7, ADR-0121)."""@en-AU .
+
+tmk:AdministrativeDecision owl:disjointWith tmk:JudicialDecision .
+
+tmk:decisionKind a owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:domain tmk:Decision ;
+    rdfs:range xsd:string ;
+    rdfs:label "decision kind"@en-AU ;
+    rdfs:comment "administrative, judicial or unclassified — from the case id's series, by a lookup and nothing else."@en-AU .
+
+tmk:jurisdiction a owl:DatatypeProperty ;
+    rdfs:domain tmk:Decision ;
+    rdfs:range xsd:string ;
+    rdfs:label "jurisdiction"@en-AU ;
+    rdfs:comment "AU or UK, where the series says. An English decision is persuasive at most; the graph has to be able to say which one it is."@en-AU .
+
+tmk:decidedAt a owl:DatatypeProperty ;
+    rdfs:domain tmk:Decision ;
+    rdfs:range xsd:string ;
+    rdfs:label "decided at"@en-AU ;
+    rdfs:comment "The court or office that decided it, where the series fixes it — the High Court, the Full Federal Court, the Registrar's delegate. Absent where a report series covers several courts."@en-AU .
 
 tmk:Guidance a owl:Class ;
     rdfs:subClassOf tmk:Authority ;
@@ -75,6 +117,23 @@ tmk:Guidance a owl:Class ;
 # --- the disjointness that must survive into retrieval output --------------
 
 tmk:ManualInstruction owl:disjointWith tmk:LegislativeProvision .
+
+tmk:ManualPassage a owl:Class ;
+    rdfs:subClassOf tmk:Passage ;
+    rdfs:label "Manual passage"@en-AU ;
+    rdfs:comment """A passage of the Trade Marks Manual: a statement of the Registrar's practice, never law.
+
+Asserted on every Manual chunk by the same structural rule that gives it
+`tmk:authorityKind "practice"` — it came from the Manual — so the disjointness
+below has something to guard on real data. Until 2026-10-08 the only class it
+guarded was tmk:ManualInstruction, which is applied to entity mentions and to no
+passage, so the guard fired only on test fixtures (review F1, ADR-0121).
+
+A Manual passage may *quote* the Act — Part 29.1 quotes section 43 in full — and
+is still a Manual passage: the words are the Manual's account of the law, and an
+answer resting on it has read the Manual (CQ-0001's caveat, PU-0004)."""@en-AU .
+
+tmk:ManualPassage owl:disjointWith tmk:LegislativeProvision .
 
 # --- what an authority does ------------------------------------------------
 
@@ -173,7 +232,7 @@ tmk:citesProvision a owl:ObjectProperty ;
 
 tmk:citesCase a owl:ObjectProperty ;
     rdfs:domain tmk:Passage ;
-    rdfs:range tmk:JudicialDecision ;
+    rdfs:range tmk:Decision ;
     rdfs:label "cites case"@en-AU .
 
 tmk:citesPassage a owl:ObjectProperty ;
@@ -183,6 +242,6 @@ tmk:citesPassage a owl:ObjectProperty ;
     rdfs:comment "A Manual-internal cross reference. Upstream drops targets it cannot resolve rather than recording them, so absence here is not evidence the source made no reference (Q-08)."@en-AU .
 
 tmk:caseCitation a owl:DatatypeProperty , owl:FunctionalProperty ;
-    rdfs:domain tmk:JudicialDecision ;
+    rdfs:domain tmk:Decision ;
     rdfs:range xsd:string ;
     rdfs:label "case citation"@en-AU .

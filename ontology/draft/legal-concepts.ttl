@@ -15,11 +15,13 @@
 part of the model.
 
 Every approved concept in `eval/gold/concepts.yaml` becomes a `tmk:LegalConcept`.
-Whether it is also one of the four subclasses below — GroundOfRefusal, LegalTest,
-RelevantFactor, Exception — depends on a signed record in
-`eval/gold/concept-types.yaml`, and on nothing else. Deciding that 'connotation'
-is a LegalTest rather than a RelevantFactor is a legal judgement this repo may
-not make (CLAUDE.md rule 1); what it may do is hold the answer somebody gives.
+Whether it is also one of the ten subclasses below — the five reasoning groups
+(GroundOfRefusal, LegalTest, RelevantFactor, Exception, Remedy) and the five
+process groups — depends on a concept-types record and on nothing else: one a
+named expert signed in `eval/gold/`, or one a machine wrote in `authored/`,
+unreviewed, in the authored graph (ADR-0079, ADR-0080). Deciding that
+'connotation' is a LegalTest rather than a RelevantFactor is a legal judgement;
+since ADR-0079 an agent may make it, provided the record says who did.
 
 The owner confirmed the four groups on 2026-09-08 (OQ-0001) and the container
 now exists (ADR-0071). Until a concept has a type record it stays a bare
@@ -54,9 +56,20 @@ tmk:Exception a owl:Class ;
     rdfs:label "Exception"@en-AU ;
     rdfs:comment "Filled from a concept-types.yaml record and from nothing else — never from a label or a heuristic. In the approved graph that record is one a named expert signed; in the authored graph it is one a machine wrote and nobody has read, and the two never share a graph (ADR-0080). A condition under which a general position does not hold, or is reversed."@en-AU .
 
+tmk:Remedy a owl:Class ;
+    rdfs:subClassOf tmk:LegalConcept ;
+    rdfs:label "Remedy"@en-AU ;
+    rdfs:comment """Filled from a concept-types.yaml record and from nothing else. A step, record or consent that overcomes a ground for rejection already made out — a condition of registration, an endorsement, a limitation of the specification, a person's written permission. The object of tmk:isOvercomeBy.
+
+Split from tmk:Exception on the owner's ruling B5 of 2026-10-08 (ADR-0124). The
+two differ in when they act: an exception is a case the ground does not reach,
+so nothing needs overcoming; a remedy answers a ground that does apply, and the
+applicant has to supply it. Keeping them in one class told an examiner that a
+condition of registration and a deceased person's name worked the same way."""@en-AU .
+
 # --- the process groups ----------------------------------------------------
 #
-# The four classes above sort a concept by the part it plays in *reasoning
+# The five classes above sort a concept by the part it plays in *reasoning
 # towards* a decision. The five below sort it by the part it plays in the
 # process that reasoning sits inside. They were added on 2026-09-09 because 53
 # of the vocabulary's 130 concepts fitted none of the first four, and the 53
@@ -113,10 +126,10 @@ has lost exactly the distinction the rule protects."""@en-AU .
 tmk:typedBy a owl:ObjectProperty ;
     rdfs:label "typed by"@en-AU ;
     rdfs:domain tmk:LegalConcept ;
-    rdfs:comment """The record that put this concept in one of the nine groups.
+    rdfs:comment """The record that put this concept in one of the ten groups.
 
 Present so a typed concept can be traced to whoever or whatever typed it and the
-date they did, rather than appearing to have always been a LegalTest. The nine
+date they did, rather than appearing to have always been a LegalTest. The ten
 classes are the one place in this model where a class membership is a judgement
 rather than a structural fact, so the judgement carries its provenance — and
 since ADR-0079 that provenance is load-bearing rather than merely tidy, because
@@ -131,9 +144,9 @@ tmk:conceptGroup a owl:DatatypeProperty ;
     rdfs:domain tmk:Assertion ;
     rdfs:comment """The group the typing record names, verbatim — including "none_of_these".
 
-Redundant with the concept's class for the nine groups that have one, and the
-only record of the tenth. A concept typed none_of_these asserts no class on
-purpose: none of the nine groups fit it. Without this property that decision is
+Redundant with the concept's class for the ten groups that have one, and the
+only record of the eleventh. A concept typed none_of_these asserts no class on
+purpose: none of the ten groups fit it. Without this property that decision is
 indistinguishable in the graph from a concept nobody has typed at all, and the
 two are opposites — one is an answer about the taxonomy, the other is a
 gap (ADR-0093)."""@en-AU .
@@ -211,7 +224,7 @@ expert ruling, and `tmk-ontology-report` lists the candidates."""@en-AU .
 tmk:LegalConcept rdfs:subClassOf tmk:LegalMatter .
 tmk:LegislativeProvision rdfs:subClassOf tmk:LegalMatter .
 tmk:ManualInstruction rdfs:subClassOf tmk:LegalMatter .
-tmk:JudicialDecision rdfs:subClassOf tmk:LegalMatter .
+tmk:Decision rdfs:subClassOf tmk:LegalMatter .
 tmk:Chunk rdfs:subClassOf tmk:LegalMatter .
 
 tmk:ApprovedRelation a owl:Class ;
@@ -222,9 +235,35 @@ Extraction may only propose relationships from this list. An open predicate set
 makes precision unmeasurable — with no fixed vocabulary, a wrong predicate and a
 new one are the same event, so nothing can be scored (ontology/README.md)."""@en-AU .
 
+tmk:AdmittedRelation a owl:Class ;
+    rdfs:label "Admitted relation"@en-AU ;
+    rdfs:comment """A predicate on the closed list that no signed record uses yet — admitted by the owner's ruling of 2026-10-08 on the ontology review (C3, D6, A4; ADR-0123): the authority predicates that say who holds power over whom, and the structural isPartyTo and isProtectedThrough.
+
+On the list on the same footing as tmk:ApprovedRelation for what a record may use. It differs only in that no expert has yet signed a relationship using it, so every use of it is machine-written and unreviewed."""@en-AU .
+
+tmk:reading a owl:AnnotationProperty ;
+    rdfs:label "reading"@en-AU ;
+    rdfs:comment "How a triple with this predicate is read aloud, subject first. A record whose triple does not read this way is recorded the wrong way round (review D1). Machine-written and unreviewed."@en-AU .
+
+tmk:counterExample a owl:AnnotationProperty ;
+    rdfs:label "counter-example"@en-AU ;
+    rdfs:comment "What this predicate is not for, with the predicate to use instead, and the record that made the mistake where one did. Machine-written and unreviewed."@en-AU .
+
+tmk:admittedBy a owl:AnnotationProperty ;
+    rdfs:label "admitted by"@en-AU ;
+    rdfs:comment "Why the predicate is in the dictionary: `signed` (a signed record uses it), `ADR-0113` (SKOS), or `owner-2026-10-08` (the owner's ruling on the ontology review)."@en-AU .
+
+tmk:predicateAuthority a owl:AnnotationProperty ;
+    rdfs:label "predicate authority"@en-AU ;
+    rdfs:comment "`law` where the relation exists because legislation says so — a delegation, an appeal, a consent — and `practice` where it is office practice the Manual records, such as consulting or escalating. CLAUDE.md rule 5 keeps the two apart at every point, including on an edge. Absent on structural and vocabulary predicates."@en-AU .
+
+tmk:authoredUsageCount a owl:AnnotationProperty ;
+    rdfs:label "authored usage count"@en-AU ;
+    rdfs:comment "How many machine-written relationships use this predicate. Counted apart from tmk:usageCount and never added to it (ADR-0080 consequence 3)."@en-AU .
+
 tmk:observedSubjectType a owl:AnnotationProperty ;
     rdfs:label "observed subject type"@en-AU ;
-    rdfs:comment "A type this predicate's subject has actually taken in the approved set, with no claim that it is the only one. An annotation, so it licenses no inference."@en-AU .
+    rdfs:comment "A type this predicate's subject has actually taken, in either store, with no claim that it is the only one. An annotation, so it licenses no inference."@en-AU .
 
 tmk:observedObjectType a owl:AnnotationProperty ;
     rdfs:label "observed object type"@en-AU ;
@@ -232,7 +271,7 @@ tmk:observedObjectType a owl:AnnotationProperty ;
 
 tmk:usageCount a owl:AnnotationProperty ;
     rdfs:label "usage count"@en-AU ;
-    rdfs:comment "How many approved relationships use this predicate. Six of the fourteen are used exactly once, which is worth seeing before anyone treats the dictionary as settled."@en-AU .
+    rdfs:comment "How many signed relationships use this predicate. Several are used exactly once, which is worth seeing before anyone treats the dictionary as settled; tmk:authoredUsageCount counts the machine-written ones apart."@en-AU .
 
 tmk:usedBy a owl:AnnotationProperty ;
     rdfs:label "used by"@en-AU ;

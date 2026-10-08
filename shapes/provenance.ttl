@@ -88,7 +88,11 @@ tmk:UnreifiedRelationShape
         a sh:SPARQLTarget ;
         sh:select """
             SELECT ?this
-            WHERE { ?this a <https://data.ipaustralia.gov.au/tmk/ns/ApprovedRelation> }
+            WHERE {
+                { ?this a <https://data.ipaustralia.gov.au/tmk/ns/ApprovedRelation> }
+                UNION
+                { ?this a <https://data.ipaustralia.gov.au/tmk/ns/AdmittedRelation> }
+            }
         """ ;
     ] ;
     rdfs:label "Every approved relation edge has an assertion behind it"@en-AU ;
