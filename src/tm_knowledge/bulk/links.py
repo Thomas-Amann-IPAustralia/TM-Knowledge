@@ -5,6 +5,20 @@ passage when one of its labels appears in the passage's text as a whole word.
 That is a fact about strings, not a reading of the law, so it needs no review —
 and it is what ontology-enhanced search expands through.
 
+Three rules decide which match counts, all from the owner's rulings of 2026-10-08
+(ADR-0121), and `site/js/engine.js` applies the same three:
+
+- **The longest label wins and consumes its span** (review C8). "Deputy Registrar"
+  is one mention of the Deputy Registrar, not also one of the Registrar.
+- **A not-label vetoes** (E2). A concept's match inside one of its own not-labels —
+  "holder" inside "copyright holder" — is not a mention of it. The not-label is the
+  record saying, in advance, that this string is something else.
+- **A label marked too general is skipped** (E1) — `authored/too-general-labels.yaml`.
+  The label stays on its record; recognition does not use it.
+
+Straight and curly apostrophes match each other, because the Manual writes
+"Registrar’s" and a record or a question types "Registrar's".
+
 Two rules from the KB SOP shape it:
 
 - **A label in a fifth of the corpus is a generic word, not a signal** (its
@@ -26,6 +40,9 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Iterable
 
+import yaml
+
+from tm_knowledge.authored import corrections as corrections_module
 from tm_knowledge.authored import store as authored_store
 from tm_knowledge.config import REPO_ROOT
 from tm_knowledge.stage0 import goldset
@@ -34,6 +51,8 @@ from tm_knowledge.upstream.loader import Corpus
 LINKS_DIR = REPO_ROOT / "data" / "derived" / "links"
 MENTIONS_PATH = LINKS_DIR / "mentions.json"
 PAIRS_PATH = LINKS_DIR / "pairs.json"
+#: Labels recognition skips, per concept (owner's ruling E1).
+TOO_GENERAL_PATH = authored_store.AUTHORED_DIR / "too-general-labels.yaml"
 
 #: A concept named in more than this share of passages is generic (KB SOP D-020).
 GENERIC_SHARE = 0.20
@@ -56,6 +75,9 @@ class Concept:
     legislative_basis: tuple[str, ...] = ()
     group: str | None = None
     quote: str | None = None
+    #: Forms the concept is deliberately *not* — never matched, and a veto on any
+    #: match of this concept that falls inside one (E2).
+    not_labels: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -98,10 +120,11 @@ def concepts(
 ) -> dict[str, Concept]:
     """Every concept in both stores, with its labels, group and first quote.
 
-    `not_labels` are deliberately excluded: a near-miss is a form the concept does
-    *not* mean (`stage0/concepts.py` makes the same call).
+    `not_labels` are never labels: a near-miss is a form the concept does *not*
+    mean (`stage0/concepts.py` makes the same call). They are carried apart, as the
+    veto `find_mentions` applies.
     """
-    gold = gold if gold is not None else goldset.load()
+    gold = gold if gold is not None else corrections_module.served_gold()
     authored = authored if authored is not None else authored_store.load()
     groups: dict[str, str] = {}
     quotes: dict[str, str] = {}
@@ -135,12 +158,42 @@ def concepts(
                 legislative_basis=tuple(str(r) for r in record.get("legislative_basis") or ()),
                 group=groups.get(identifier),
                 quote=quotes.get(identifier),
+                not_labels=tuple(dict.fromkeys(
+                    str(n).strip() for n in record.get("not_labels") or () if isinstance(n, str) and n.strip()
+                )),
             )
     return dict(sorted(out.items()))
 
 
-def _patterns(concept_map: dict[str, Concept]) -> list[tuple[str, re.Pattern[str], tuple[str, ...]]]:
-    """(label, whole-word pattern, concepts carrying it), longest label first."""
+Pattern = tuple[str, "re.Pattern[str]", tuple[str, ...]]
+
+
+def too_general(path: Path | None = None) -> frozenset[tuple[str, str]]:
+    """(concept id, folded label) pairs recognition skips (owner's ruling E1)."""
+    path = path or TOO_GENERAL_PATH
+    if not path.exists():
+        return frozenset()
+    data = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    return frozenset(
+        (str(row["concept"]), str(row["label"]).lower()) for row in data.get("skip") or ()
+    )
+
+
+def _regex(label: str) -> "re.Pattern[str]":
+    """Whole word, case folded, either apostrophe. `engine.js` builds the same."""
+    body = re.sub(r"['’]", "['’]", re.escape(label.lower()))
+    return re.compile(r"(?<![A-Za-z0-9])" + body + r"(?![A-Za-z0-9])", re.IGNORECASE)
+
+
+def _patterns(
+    concept_map: dict[str, Concept], skip: frozenset[tuple[str, str]] | None = None
+) -> list[Pattern]:
+    """(label, whole-word pattern, concepts carrying it), longest label first.
+
+    A label on the too-general list is left out for the concept it is listed
+    against, and only that one (E1).
+    """
+    skip = too_general() if skip is None else skip
     owners: dict[str, list[str]] = defaultdict(list)
     shown: dict[str, str] = {}
     for concept in concept_map.values():
@@ -148,30 +201,53 @@ def _patterns(concept_map: dict[str, Concept]) -> list[tuple[str, re.Pattern[str
             if len(label) < MIN_LABEL_CHARS:
                 continue
             key = label.lower()
+            if (concept.id, key) in skip:
+                continue
             shown.setdefault(key, label)
             if concept.id not in owners[key]:
                 owners[key].append(concept.id)
     ordered = sorted(owners, key=lambda key: (-len(key), key))
-    return [
-        (shown[key], re.compile(r"(?<![A-Za-z0-9])" + re.escape(key) + r"(?![A-Za-z0-9])", re.IGNORECASE),
-         tuple(sorted(owners[key])))
-        for key in ordered
-    ]
+    return [(shown[key], _regex(key), tuple(sorted(owners[key]))) for key in ordered]
+
+
+def _vetoes(concept_map: dict[str, Concept]) -> dict[str, tuple["re.Pattern[str]", ...]]:
+    """concept id -> its not-labels as patterns, for the veto in `find_mentions`."""
+    return {
+        cid: tuple(_regex(n) for n in concept.not_labels)
+        for cid, concept in concept_map.items() if concept.not_labels
+    }
+
+
+def _vetoed(text: str, start: int, end: int, nots: tuple["re.Pattern[str]", ...]) -> bool:
+    return any(m.start() <= start and end <= m.end() for rx in nots for m in rx.finditer(text))
 
 
 def find_mentions(
-    text: str, patterns: list[tuple[str, re.Pattern[str], tuple[str, ...]]]
+    text: str,
+    patterns: list[Pattern],
+    vetoes: dict[str, tuple["re.Pattern[str]", ...]] | None = None,
 ) -> dict[str, tuple[int, int, str]]:
-    """concept id -> (start, end, label) of its first whole-word mention in `text`."""
+    """concept id -> (start, end, label) of its first whole-word mention in `text`.
+
+    Labels are tried longest first, every occurrence of each. A match overlapping a
+    span a longer label already took is not a mention (C8). A match inside one of
+    its concept's own not-labels is not a mention of that concept (E2); the span
+    stays taken, because the not-label says what the string is.
+    """
+    taken: list[tuple[int, int]] = []
     found: dict[str, tuple[int, int, str]] = {}
     for label, pattern, owners in patterns:
-        match = pattern.search(text)
-        if match is None:
-            continue
-        for concept in owners:
-            current = found.get(concept)
-            if current is None or match.start() < current[0]:
-                found[concept] = (match.start(), match.end(), label)
+        for match in pattern.finditer(text):
+            start, end = match.span()
+            if any(start < e and s < end for s, e in taken):
+                continue
+            taken.append((start, end))
+            for concept in owners:
+                if vetoes and concept in vetoes and _vetoed(text, start, end, vetoes[concept]):
+                    continue
+                current = found.get(concept)
+                if current is None or start < current[0]:
+                    found[concept] = (start, end, label)
     return found
 
 
@@ -179,10 +255,11 @@ def link(corpus: Corpus, concept_map: dict[str, Concept] | None = None) -> Links
     """Match every concept's labels against every Manual passage."""
     concept_map = concept_map if concept_map is not None else concepts()
     patterns = _patterns(concept_map)
+    vetoes = _vetoes(concept_map)
     mentions: dict[str, list[tuple[str, int, int, str]]] = {cid: [] for cid in concept_map}
     ordered = sorted(corpus.chunks.values(), key=lambda c: (c.page_ref, c.ordinal))
     for chunk in ordered:
-        for concept, (start, end, label) in find_mentions(chunk.text, patterns).items():
+        for concept, (start, end, label) in find_mentions(chunk.text, patterns, vetoes).items():
             mentions[concept].append((chunk.chunk_ref, start, end, label))
     total = len(ordered)
     generic = frozenset(cid for cid, hits in mentions.items() if len(hits) > GENERIC_SHARE * total)
@@ -193,7 +270,7 @@ def existing_edges(
     gold: goldset.GoldSet | None = None, authored: authored_store.AuthoredSet | None = None
 ) -> set[frozenset[str]]:
     """Unordered concept pairs some record already joins, in either store."""
-    gold = gold if gold is not None else goldset.load()
+    gold = gold if gold is not None else corrections_module.served_gold()
     authored = authored if authored is not None else authored_store.load()
     edges: set[frozenset[str]] = set()
     for records in (gold["gold_relationship"], authored["gold_relationship"]):
@@ -304,8 +381,10 @@ def write(links: Links, pair_list: list[Pair], out_dir: Path | None = None) -> l
     mentions_doc = {
         "method": "label_match",
         "note": "Whole-word, case-insensitive matches of each concept's pref and alt "
-                "labels in Manual passages. Deterministic; no model; not reviewed "
-                "because it asserts nothing but where a string occurs.",
+                "labels in Manual passages: the longest label wins its span, a concept's "
+                "not-labels veto it, and labels on authored/too-general-labels.yaml are "
+                "skipped. Deterministic; no model; not reviewed because it asserts "
+                "nothing but where a string occurs.",
         "passages": links.passages,
         "generic": sorted(links.generic),
         "concepts": {

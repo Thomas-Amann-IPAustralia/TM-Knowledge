@@ -1,6 +1,6 @@
 /* The map — the ontology at three levels of detail, drawn with Cytoscape.js.
 
-   1. Kinds  — the nine kinds of idea as nodes inside their two families. Each
+   1. Kinds  — the ten kinds of idea as nodes inside their two families. Each
                kind is closed: its ideas are inside it, and every connection
                they make is rolled up into one weighted arrow per pair of kinds.
    2. Ideas  — open a kind (or all of them) and it becomes a box holding its
@@ -394,7 +394,7 @@ export async function render(root, { ontology, params }) {
     if (location.hash !== hash) history.replaceState(null, "", hash);
     const tb = title.querySelector("b"), ts = title.querySelector("span");
     if (lv === "kinds") {
-      tb.textContent = "Nine kinds of idea";
+      tb.textContent = "Ten kinds of idea";
       ts.textContent = "Each circle holds the ideas of one kind; arrows roll their connections up. Click a kind to open it.";
     } else if (lv === "ideas") {
       tb.textContent = state.expanded.size === ontology.kinds.length ? "Every idea and its connections" : `${state.expanded.size} kind${state.expanded.size > 1 ? "s" : ""} open, the rest in outline`;
@@ -517,8 +517,9 @@ export async function render(root, { ontology, params }) {
   function showLevelHelp() {
     const lv = level();
     side.innerHTML = (lv === "kinds" ? `<h2>Start with the shape</h2>
-        <p>Every idea in the map is sorted into one of nine kinds. Four describe <b>how a decision is reasoned towards</b> —
-        grounds of refusal, the tests that decide them, the factors that feed those tests, and the exceptions that take a case out.
+        <p>Every idea in the map is sorted into one of ten kinds. Five describe <b>how a decision is reasoned towards</b> —
+        grounds of refusal, the tests that decide them, the factors that feed those tests, the exceptions that take a case out, and the
+        remedies that overcome a ground already raised.
         Five describe <b>the process that reasoning sits inside</b> — who acts, what is acted on, the steps, the records and the external schemes.</p>
         <p>The arrows roll ${fmt(c.relations.signed + c.relations.machine)} individual connections up into the patterns they make. The thickest says
         <i>factors qualify, or give rise to, tests</i> — and that stays true however many factors are added, merged or reworded underneath.</p>
@@ -528,9 +529,9 @@ export async function render(root, { ontology, params }) {
         connects into a kind that is still closed, the connections are rolled up into one arrow with a count.</p>
         <p>Hover over an idea to see what it rests on; click it to follow its connections.</p>`) +
       `<p class="muted small">${c.concepts.signed} ideas and ${c.relations.signed} connections were signed by a trade marks expert. The rest were written by a
-       machine from the Manual's text — usable, but nobody has checked them yet. The four reasoning kinds are the project owner's; the five process kinds
+       machine from the Manual's text — usable, but nobody has checked them yet. The reasoning kinds are the project owner's; the five process kinds
        were proposed by a machine.</p>
-      <h4>The nine kinds</h4><ul class="rel-list">${ontology.kinds.map((k) => `<li><span class="dot" style="--c:${kindColour(k.id)}"></span><span><b>${esc(k.label)}</b> <span class="muted small">— ${esc(k.plain)}</span></span></li>`).join("")}</ul>`;
+      <h4>The ten kinds</h4><ul class="rel-list">${ontology.kinds.map((k) => `<li><span class="dot" style="--c:${kindColour(k.id)}"></span><span><b>${esc(k.label)}</b> <span class="muted small">— ${esc(k.plain)}</span></span></li>`).join("")}</ul>`;
   }
 
   function showKind(k) {
@@ -583,6 +584,7 @@ export async function render(root, { ontology, params }) {
       <div><b>${esc(name(r.s))}</b> <span class="muted">— ${esc(ontology.predicates[r.p]?.label || r.p)} →</span> <b>${esc(name(r.o))}</b></div>
       ${r.quote ? `<blockquote class="quote ${isLaw(r.ref) ? "law" : "manual"}">${esc(r.quote)}</blockquote>` : ""}
       ${r.ref ? refChip(r.ref) : ""}
+      ${r.replaces ? `<p class="tiny">Re-reads the signed ${esc(r.replaces)}, which recorded this sentence the wrong way; the signed record is kept unchanged.</p>` : ""}
       ${r.machine?.reasoning ? `<details><summary>Why the machine wrote this${r.machine.confidence ? ` · confidence ${r.machine.confidence}` : ""}</summary><p class="small muted">${esc(r.machine.reasoning)}</p></details>` : ""}
     </div>`;
   }
@@ -630,6 +632,7 @@ export async function render(root, { ontology, params }) {
   function provenance(x) {
     const rows = [];
     if (x.signed) rows.push(`<p class="small">Signed by <b>${esc(x.signed.by)}</b>, a trade marks expert, on ${esc(x.signed.date)}.</p>`);
+    if (x.corrected) rows.push(`<p class="small"><b>Corrected since it was signed</b> (${x.corrected.map(esc).join(", ")}) — a machine-written, unreviewed change made on the project owner's instruction. The labels and provisions shown are the corrected ones; the signed record itself is kept unchanged.</p>`);
     if (x.machine) {
       rows.push(`<p class="small">Written by <code>${esc(x.machine.by)}</code> on ${esc(x.machine.date)} · <b>${esc(x.machine.review_status)}</b>${x.machine.confidence ? ` · confidence ${esc(x.machine.confidence)}` : ""}.</p>`);
       if (x.machine.reasoning) rows.push(`<p class="small muted">${esc(x.machine.reasoning)}</p>`);

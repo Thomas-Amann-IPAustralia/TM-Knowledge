@@ -22,22 +22,54 @@ const unicodeTokens = (text) => text.toLowerCase().normalize("NFKD").replace(/[�
 
 /** Concept recognition alone — needs only search.json, not the Manual's text. */
 export class Recogniser {
+  /* The same three rules as `bulk.links.find_mentions` (ADR-0121): the longest
+     label wins and consumes its span (C8), a concept's own not-labels veto it (E2),
+     and straight and curly apostrophes match each other. The too-general labels
+     (E1) never reach here: the patterns arrive already without them. */
   constructor(search) {
     this.patterns = search.patterns.map(([label, owners, alias]) => ({
-      label, owners, alias,
-      re: new RegExp(`(?<![A-Za-z0-9])${label.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![A-Za-z0-9])`, "i"),
+      label, owners, alias, re: Recogniser.regex(label),
     }));
+    this.vetoes = new Map();
+    for (const [id, c] of Object.entries(search.concepts || {})) {
+      if (c.not && c.not.length) this.vetoes.set(id, c.not.map((n) => Recogniser.regex(n)));
+    }
+  }
+
+  static regex(label) {
+    const body = label.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/['’]/g, "['’]");
+    return new RegExp(`(?<![A-Za-z0-9])${body}(?![A-Za-z0-9])`, "gi");
+  }
+
+  #vetoed(text, start, end, id) {
+    for (const re of this.vetoes.get(id) || []) {
+      re.lastIndex = 0;
+      let m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index <= start && end <= m.index + m[0].length) return true;
+        if (m[0].length === 0) re.lastIndex++;
+      }
+    }
+    return false;
   }
 
   /** Concepts named in the question, earliest first — `Systems.recognise`. */
   recognise(question) {
+    const taken = [];
     const found = new Map();
     for (const p of this.patterns) {
-      const m = p.re.exec(question);
-      if (!m) continue;
-      for (const owner of p.owners) {
-        const current = found.get(owner);
-        if (!current || m.index < current.start) found.set(owner, { start: m.index, end: m.index + m[0].length, label: p.label, alias: p.alias });
+      p.re.lastIndex = 0;
+      let m;
+      while ((m = p.re.exec(question)) !== null) {
+        const start = m.index, end = m.index + m[0].length;
+        if (m[0].length === 0) { p.re.lastIndex++; continue; }
+        if (taken.some(([s, e]) => start < e && s < end)) continue;
+        taken.push([start, end]);
+        for (const owner of p.owners) {
+          if (this.#vetoed(question, start, end, owner)) continue;
+          const current = found.get(owner);
+          if (!current || start < current.start) found.set(owner, { start, end, label: p.label, alias: p.alias });
+        }
       }
     }
     const order = [...found.keys()].map((id, i) => [id, i]).sort((a, b) => found.get(a[0]).start - found.get(b[0]).start || a[1] - b[1]);
@@ -231,6 +263,50 @@ export class Engine {
     }
     return { kept, dropped };
   }
+}
+
+/* PU-0004 at answer time — `search.authority.conflations`, rule for rule (review F1,
+   ADR-0121). A sentence that says the legislation requires, provides or states
+   something, in an answer that cites no provision of it, is flagged — never removed.
+   A sentence naming the Manual, or a negated one, is not. */
+export const AUTHORITY_MESSAGE = "Says the legislation requires this, but the answer cites no provision for it — only " +
+  "the Manual, which states practice and does not bind the Registrar's discretion (PU-0004). Check the provision itself.";
+const VERB = "(?:requires?|provides?|states?|says|prescribes?|mandates?|obliges?|imposes?)";
+const WHOLE = new RegExp(String.raw`\bthe (?<what>Act|Regulations|legislation)\b[^.;:]{0,40}?\b${VERB}\b`, "i");
+const PART = new RegExp(String.raw`\b(?<kind>section|s|subsection|regulation|reg|r)\.?\s?(?<number>\d+[A-Z]{0,2}(?:\.\d+[A-Z]{0,2})?)` +
+  String.raw`(?:\([0-9a-z]+\))*[^.;:]{0,40}?\b${VERB}\b`, "i");
+const SENTENCE_BREAK = /(?<=[.!?])\s+(?=[A-Z"'“‘(])|\n+/;
+const MANUAL = /\bManual\b/;
+const NEGATION = /\b(?:not|no|never|neither|nor)\b|n['’]t\b/i;
+
+function supportedBy(m, cited) {
+  const g = m.groups || {};
+  if (g.number) {
+    const regulation = ["regulation", "reg", "r"].includes(g.kind.toLowerCase());
+    const prefix = regulation ? `TMR1995/r${g.number}` : `TMA1995/s${g.number}`;
+    return cited.some((ref) => ref === prefix || ref.startsWith(prefix + "(") || ref.startsWith(prefix + "/"));
+  }
+  const what = (g.what || "").toLowerCase();
+  if (what === "act") return cited.some((ref) => ref.startsWith("TMA1995/"));
+  if (what === "regulations") return cited.some((ref) => ref.startsWith("TMR1995/"));
+  return cited.some((ref) => ref.startsWith("TMA1995/") || ref.startsWith("TMR1995/"));
+}
+
+export function authorityFlags(answer, cited) {
+  const refs = (cited || []).map(String);
+  const flags = [];
+  for (let sentence of String(answer || "").split(SENTENCE_BREAK)) {
+    sentence = sentence.trim();
+    if (!sentence || MANUAL.test(sentence)) continue;
+    for (const pattern of [PART, WHOLE]) {
+      const m = pattern.exec(sentence);
+      if (m && !NEGATION.test(sentence.slice(0, m.index + m[0].length)) && !supportedBy(m, refs)) {
+        flags.push({ sentence, message: AUTHORITY_MESSAGE });
+        break;
+      }
+    }
+  }
+  return flags;
 }
 
 export function sourceName(ref) {

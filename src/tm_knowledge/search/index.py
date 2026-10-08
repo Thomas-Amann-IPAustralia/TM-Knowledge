@@ -119,6 +119,7 @@ class Systems:
                                       labels=c.labels + extra.get(cid, ()), origin=c.origin)
             for cid, c in self.links.concepts.items()
         })
+        self._vetoes = links_module._vetoes(self.links.concepts)
         self._edges: dict[str, list[tuple[str, str, str, str, str]]] = defaultdict(list)
         for edge in self.relations:
             self._edges[edge[0]].append(edge)
@@ -127,7 +128,7 @@ class Systems:
     # -- the parts -----------------------------------------------------------
 
     def recognise(self, question: str) -> list[str]:
-        found = links_module.find_mentions(question, self._patterns)
+        found = links_module.find_mentions(question, self._patterns, self._vetoes)
         return sorted(found, key=lambda cid: found[cid][0])
 
     def _dense(self, question: str) -> list[tuple[str, float]]:

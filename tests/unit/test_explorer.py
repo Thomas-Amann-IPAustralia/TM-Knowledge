@@ -118,13 +118,18 @@ def test_every_file_is_built(files):
 def test_every_record_says_who_wrote_it(files):
     """Signed and machine-written records stay distinguishable on every record,
     and a machine-written one always carries its unreviewed status (rules 4, 8)."""
-    from tm_knowledge.authored import store
-    from tm_knowledge.stage0 import goldset
+    from tm_knowledge.authored import corrections, store
 
     onto = files["ontology.json"]
-    gold, authored = goldset.load(), store.load()
-    assert onto["counts"]["concepts"]["signed"] == len(gold["gold_concept"])
-    assert onto["counts"]["relations"]["signed"] == len(gold["gold_relationship"])
+    # What serves: a signed relationship replaced by a correction stops serving,
+    # and the authored record carrying the corrected triple names it (ADR-0122).
+    served, fixes = corrections.served_gold(), corrections.load()
+    assert onto["counts"]["concepts"]["signed"] == len(served["gold_concept"])
+    assert onto["counts"]["relations"]["signed"] == len(served["gold_relationship"])
+    replaced = {r["replaces"] for r in onto["relations"] if r.get("replaces")}
+    assert replaced == set(fixes.replacements())
+    corrected = {c["id"] for c in onto["concepts"] if c.get("corrected")}
+    assert corrected == {t for t in fixes.targets() if t.startswith("GC-")}
     for record in onto["concepts"] + onto["relations"]:
         assert record["origin"] in ("signed", "machine")
         if record["origin"] == "machine":
@@ -176,7 +181,8 @@ def test_the_browser_engine_matches_python(files, tmp_path):
     corpus = load_corpus()
     links = links_module.link(corpus)
     ctx = jobs.Context(corpus=corpus, links=links)
-    systems = Systems(KeywordIndex(corpus), links, None, jobs.load_aliases(), relations_from(ctx.gold, ctx.authored))
+    systems = Systems(KeywordIndex(corpus), links, None, jobs.load_aliases(corpus, links.concepts),
+                      relations_from(ctx.gold, ctx.authored))
     for q in questions:
         js = browser[q["key"]]
         assert js["keyword"] == [h.ref for h in systems.keyword(q["question"], 10)], q["key"]
