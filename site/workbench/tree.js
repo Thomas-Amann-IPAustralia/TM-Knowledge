@@ -47,6 +47,7 @@ const KIND_TONE = {
   legal_test: "note",
   relevant_factor: "muted",
   exception: "good",
+  remedy: "good",
   procedural_step: "note",
   process_role: "muted",
   subject_matter: "muted",
@@ -392,6 +393,8 @@ export function renderTree(block, context = {}) {
       if (node.factors) parts.push(`${node.factors} factor${node.factors === 1 ? "" : "s"}`);
       if (node.exceptions)
         parts.push(`${node.exceptions} exception${node.exceptions === 1 ? "" : "s"}`);
+      if (node.remedies)
+        parts.push(`${node.remedies} remed${node.remedies === 1 ? "y" : "ies"}`);
       if (parts.length) tallies.push(parts.join(" · "));
     }
     if (tallies.length) {

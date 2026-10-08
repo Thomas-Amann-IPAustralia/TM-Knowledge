@@ -35,8 +35,8 @@ export async function render(root, { ontology }) {
     by a machine reading the Manual, and carries the model's name, the date, the passage it rests on and its reasoning. The two are never
     added together, and an unchecked record never becomes approved by being left alone.</p>
 
-    <h2>The nine kinds</h2>
-    <p>Four kinds describe how a decision is reasoned towards; the project owner set them. Five describe the process that reasoning sits inside;
+    <h2>The ten kinds</h2>
+    <p>Five kinds describe how a decision is reasoned towards; the project owner set four of them and split the fifth, remedies, from exceptions. Five describe the process that reasoning sits inside;
     a machine proposed them. Which kind each idea belongs to was judged by a machine and has not been reviewed.</p>
     <ul class="small" style="padding-left:0;list-style:none">${ontology.kinds.map((k) => `<li style="margin:.25rem 0"><span class="dot" style="--c:${kindColour(k.id)}"></span> <b>${esc(k.label)}</b> — ${esc(k.plain)}</li>`).join("")}</ul>
 

@@ -591,7 +591,9 @@ def _tree_node(view: ConceptView, *, basis: str, also: Sequence[str] = ()) -> di
 #: can be refused"*, so the section that holds one becomes the gate that asks
 #: whether it arises. An `exception` is *"something that takes a case out of the
 #: rule"*, so it is asked after the tests on the path where they were answered
-#: yes.
+#: yes. A `remedy` — *"a step, record or consent that overcomes a ground already
+#: made out"*, split from `exception` on the owner's ruling B5 (ADR-0124) — is
+#: asked last, on the path where no exception applied.
 #:
 #: The templates are **mechanical**: a label goes in, a question comes out, and
 #: nothing anywhere decides how the question is answered. That distinction is
@@ -602,6 +604,7 @@ GATE_TEMPLATES: dict[str, str] = {
     "section": "Does a ground under {provision} arise on this application?",
     "test": "Is {label} made out?",
     "exception": "Does an exception recorded at {provision} apply?",
+    "remedy": "Is a ground under {provision} overcome by a remedy the records name?",
 }
 
 
@@ -642,7 +645,7 @@ def _consideration(
 ) -> dict[str, Any]:
     """A record to read *at* a gate rather than a branch point of its own.
 
-    Grounds, factors and exceptions arrive here. They are not gates: a factor is
+    Grounds, factors, exceptions and remedies arrive here. They are not gates: a factor is
     *"something that feeds into that answer"*, and drawing 32 of them as
     branches off section 43 would say the walk turns on each one in turn, which
     is a claim about practice nobody has made.
@@ -752,27 +755,46 @@ def _grounds_spine(
         grounds = considerations(section, "ground_of_refusal")
         factors = considerations(section, "relevant_factor")
         exceptions = considerations(section, "exception")
+        remedies = considerations(section, "remedy")
         tests = at(section, "legal_test")
 
         # The yes path, built from the inside out: the last thing on it is the
-        # leaf, then the exception if there is one, then the tests in reverse.
+        # leaf, then the remedy if there is one, then the exception if there is
+        # one, then the tests in reverse. An exception is asked before a remedy
+        # because it is a case the ground never reaches; a remedy answers a ground
+        # that does (B5).
         tail = (
             _gate(
+                f"{section}::remedy",
+                question=GATE_TEMPLATES["remedy"].format(provision=_provision_label(section)),
+                kind="remedy",
+                provision=section,
+                yes=_outcome_leaf(f"{section}::remedy::yes", variant="not_stated"),
+                no=_outcome_leaf(f"{section}::remedy::no", variant="not_stated"),
+                considerations=remedies,
+                note=(
+                    "Whether the applicant has supplied one, and whether it answers the ground, "
+                    "is the decision maker's; either answer leaves the outcome where the records "
+                    "leave it."
+                ),
+            )
+            if remedies
+            else _outcome_leaf(f"{section}::outcome", variant="not_stated")
+        )
+        if exceptions:
+            tail = _gate(
                 f"{section}::exception",
                 question=GATE_TEMPLATES["exception"].format(provision=_provision_label(section)),
                 kind="exception",
                 provision=section,
                 yes=_outcome_leaf(f"{section}::exception::yes", variant="not_stated"),
-                no=_outcome_leaf(f"{section}::exception::no", variant="not_stated"),
+                no=tail if remedies else _outcome_leaf(f"{section}::exception::no", variant="not_stated"),
                 considerations=exceptions,
                 note=(
                     "Whether any of these applies is the decision maker's, and either answer "
                     "leaves the outcome where the records leave it."
                 ),
             )
-            if exceptions
-            else _outcome_leaf(f"{section}::outcome", variant="not_stated")
-        )
         for order, view in enumerate(reversed(tests)):
             tail = _gate(
                 f"{view.identifier}@{section}",
@@ -816,6 +838,7 @@ def _grounds_spine(
             tests=len(tests),
             factors=len(factors),
             exceptions=len(exceptions),
+            remedies=len(remedies),
             gap=None if grounds else (
                 "No concept in either store is typed as a ground for refusal at this section, "
                 "although a test or a factor here is. The question above is still asked, "

@@ -1,4 +1,4 @@
-/* The nine kinds of idea as one SVG picture: two family zones, a bubble per
+/* The ten kinds of idea as one SVG picture: two family zones, a bubble per
    kind, and the strongest kind-to-kind patterns as arrows. Used by the tour; the
    map draws the same level with Cytoscape. `kind_links` is computed by
    tmk-explorer from the relationship records. */
@@ -10,12 +10,13 @@ export const W = 1000, H = 660;
 export const KIND_POS = {
   relevant_factor: { x: 135, y: 215 }, legal_test: { x: 380, y: 215 },
   ground_of_refusal: { x: 380, y: 490 }, exception: { x: 135, y: 490 },
+  remedy: { x: 258, y: 596 },
   process_role: { x: 630, y: 185 }, procedural_step: { x: 868, y: 290 },
   subject_matter: { x: 640, y: 435 }, instrument_or_record: { x: 872, y: 535 },
   external_instrument: { x: 655, y: 600 }, none_of_these: { x: 500, y: 598 },
 };
 export const ZONES = [
-  { family: "reasoning", x: 30, y: 80, w: 460, h: 520, label: "Reasoning towards a decision" },
+  { family: "reasoning", x: 30, y: 80, w: 460, h: 565, label: "Reasoning towards a decision" },
   { family: "process", x: 515, y: 80, w: 460, h: 565, label: "The process it sits inside" },
 ];
 export const LOOSE = new Set(["related", "broader"]);

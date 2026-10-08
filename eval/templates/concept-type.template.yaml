@@ -15,13 +15,16 @@
 id: GT-000
 concept: GC-000                 # the concept this types
 
-# Four groups sort by the part a concept plays in reasoning towards a decision.
-# They are the owner's own, from OQ-0001:
+# Five groups sort by the part a concept plays in reasoning towards a decision.
+# The first four are the owner's own, from OQ-0001; remedy followed on his
+# ruling B5 (ADR-0124):
 #
 # ground_of_refusal    — a reason an application can be refused
 # legal_test           — a question the decision maker has to answer
 # relevant_factor      — something that feeds into that answer
 # exception            — something that takes a case out of the rule
+# remedy               — a step, record or consent that overcomes a ground already
+#                        made out (split from exception on 2026-10-08, ADR-0124)
 #
 # Five sort by the part it plays in the process that reasoning sits inside.
 # They exist because 53 of 130 concepts fitted none of the four (ADR-0098):
@@ -35,7 +38,7 @@ concept: GC-000                 # the concept this types
 # external_instrument  — a treaty or international scheme Australian practice
 #                        adopts, rather than a rule the Act itself makes
 #
-# none_of_these        — none of the nine fit this one. A real answer: it is
+# none_of_these        — none of the ten fit this one. A real answer: it is
 #                        evidence about the taxonomy, not a gap in the data.
 type:
 

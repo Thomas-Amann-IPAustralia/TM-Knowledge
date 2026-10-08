@@ -677,6 +677,7 @@ html[data-theme="dark"] {
 .dtree-node.g-section { border-left: 4px solid var(--viz-signed); }
 .dtree-node.g-test { border-left: 4px solid var(--note); }
 .dtree-node.g-exception { border-left: 4px solid var(--good); }
+.dtree-node.g-remedy { border-left: 4px dashed var(--good); }
 .dtree-node.n-root { border-left: 4px solid var(--ink-soft); background: var(--bg-soft); }
 .dtree-node.n-step { border-left: 4px solid var(--note); }
 .dtree-node.n-outcome {
