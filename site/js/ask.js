@@ -10,6 +10,7 @@
 import { esc, fmt, load, kindColour, refChip, refLabel, isLaw, stampIcon, srcBadge } from "./app.js";
 import { svg, curve, wrapText, wait } from "./graph.js";
 import { Engine, Recogniser } from "./engine.js";
+import { miniMap } from "./minimap.js";
 import { answer as callModel, cost, partialField } from "./live.js";
 import * as lib from "./lib.js";
 
@@ -48,7 +49,7 @@ export async function render(root, { ontology, params }) {
   const [examples, chat, live] = await Promise.all([load("examples"), load("chat"), load("live").catch(() => ({ enabled: false }))]);
   const byId = new Map(ontology.concepts.map((c) => [c.id, c]));
   const prepared = new Map(examples.answers.map((a) => [a.key, a]));
-  let controller = null;
+  let controller = null, mini = null, maps = 0;
 
   const featured = pickFeatured(examples);
   root.innerHTML = `
@@ -108,6 +109,10 @@ export async function render(root, { ontology, params }) {
       <div class="card hop-card">
         <div class="answer-head"><h3 style="margin:0">How the ontology worked on it</h3><span class="tiny">${esc(subtitle)} · click an idea to open it on the map, or a passage to read it</span></div>
         <div class="hop-body"><div class="hop-svg"></div><ol class="hop-steps"></ol></div>
+        <div class="hop-more">
+          <div class="hop-map"><h4>The same ideas on the map</h4><div class="mini-legend"></div><div class="mini-holder"></div></div>
+          <div class="hop-why"></div>
+        </div>
       </div>
       <div class="ask-grid">
         <div class="card answer-card">
@@ -118,8 +123,11 @@ export async function render(root, { ontology, params }) {
         <div class="compare"></div>
       </div>`;
     result.scrollIntoView({ behavior: "smooth", block: "start" });
+    mini?.destroy();
+    mini = null;
     return {
       hop: result.querySelector(".hop-svg"), steps: result.querySelector(".hop-steps"),
+      map: result.querySelector(".mini-holder"), legend: result.querySelector(".mini-legend"), why: result.querySelector(".hop-why"),
       compare: result.querySelector(".compare"), body: result.querySelector(".answer-body"), tags: result.querySelector(".answer-tags"),
     };
   }
@@ -138,11 +146,13 @@ export async function render(root, { ontology, params }) {
     const linkedCount = prep.weight ? prep.weight.size : 0;
     const graph = {
       question,
-      recognised: prep.trace.recognised.map((r) => ({ id: r.id, matched: question.slice(r.start, r.end), everyday: r.alias, generic: eng.generic.has(r.id) })),
+      recognised: prep.trace.recognised.map((r) => ({ id: r.id, matched: question.slice(r.start, r.end), name: r.label, start: r.start, end: r.end, everyday: r.alias, generic: eng.generic.has(r.id) })),
       paths: prep.paths.map(([s, p, o, record, origin]) => ({ s, p, o, record, origin })),
-      passages: prep.passages, legislation: prep.legislation, plain: prep.plain,
+      followed: prep.trace.paths.map(([s, p, o, record, origin]) => ({ s, p, o, record, origin })),
+      passages: prep.passages, legislation: prep.legislation, plain: prep.plain, mentions: eng.s.mentions,
     };
     const steps = describe(graph, { linkedCount, live: true });
+    explain(view, graph, { live: true });
     renderCompare(view.compare, prep.plain, prep.passages, prep.hits);
     const canAnswer = live.enabled && usedToday() < chat.daily_limit;
     const animation = animate(view, graph, steps);
@@ -201,10 +211,11 @@ export async function render(root, { ontology, params }) {
     if (controller) controller.abort();
     box.value = a.question;
     const view = frame(a.question, "prepared in advance");
-    let mentions = null, matched = new Map();
+    let mentions = null, matched = new Map(), relations = null;
     try {
       const search = await load("search");
       mentions = search.mentions;
+      relations = search.relations;
       recogniser = recogniser || new Recogniser(search);
       matched = new Map(recogniser.recognise(a.question).map((r) => [r.id, r]));
     } catch { /* drawn without passage links */ }
@@ -212,12 +223,18 @@ export async function render(root, { ontology, params }) {
       question: a.question,
       recognised: a.recognised.map((r) => {
         const m = matched.get(r.id);
-        return { id: r.id, generic: !!byId.get(r.id)?.generic, matched: m ? a.question.slice(m.start, m.end) : null, everyday: !!m?.alias };
+        return { id: r.id, generic: !!byId.get(r.id)?.generic, matched: m ? a.question.slice(m.start, m.end) : null, name: m?.label, start: m?.start, end: m?.end, everyday: !!m?.alias };
       }),
       paths: a.paths.map((p) => ({ s: p.subject, p: p.predicate, o: p.object, record: p.record, origin: p.origin })),
       passages: a.passages, legislation: a.legislation, plain: a.keyword10?.length ? a.keyword10 : a.plain, mentions,
     };
+    // Every connection the search followed, from the same records `Engine.trace` reads
+    // (the prepared answers' first twelve match them, question by question).
+    const specific = new Set(graph.recognised.filter((r) => !r.generic).map((r) => r.id));
+    graph.followed = relations ? [...new Map(relations.filter((e) => specific.has(e[0]) || specific.has(e[2]))
+      .map((e) => [e[3], { s: e[0], p: e[1], o: e[2], record: e[3], origin: e[4] }])).values()] : graph.paths;
     renderCompare(view.compare, graph.plain, a.passages, null, true);
+    explain(view, graph, { live: false });
     const animation = animate(view, graph, describe(graph, { live: false }));
     await animation;
     showAnswer(view, { ...a, live: false, when: a.date });
@@ -228,14 +245,17 @@ export async function render(root, { ontology, params }) {
   function describe(g, { linkedCount = 0, live }) {
     const rec = g.recognised.filter((r) => !r.generic);
     const generic = g.recognised.filter((r) => r.generic);
-    const neighbours = new Set(g.paths.map((p) => (rec.some((r) => r.id === p.s) ? p.o : p.s)));
+    const recIds = new Set(rec.map((r) => r.id));
+    const followed = g.followed || g.paths;
+    const neighbours = new Set(followed.map((p) => (recIds.has(p.s) ? p.o : p.s)).filter((id) => !recIds.has(id)));
     const plainSet = new Set((g.plain || []).slice(0, 10));
     const beyond = g.passages.filter((r) => !plainSet.has(r)).length;
     const name = (r) => `<b>${esc(byId.get(r.id)?.label || r.id)}</b>${r.matched && r.matched.toLowerCase() !== (byId.get(r.id)?.label || "").toLowerCase() ? ` <span class="muted">(“${esc(r.matched)}”${r.everyday ? ", an everyday phrasing" : ""})</span>` : ""}`;
     return [
       rec.length ? `Recognised ${rec.length} idea${rec.length > 1 ? "s" : ""} in the question: ${rec.slice(0, 5).map(name).join(", ")}${rec.length > 5 ? "…" : ""}.${generic.length ? ` <span class="muted">(<i>${generic.map((r) => esc(byId.get(r.id)?.label)).join("</i>, <i>")}</i> ${generic.length > 1 ? "are" : "is"} named so often it is not used to steer.)</span>` : ""}`
         : `Recognised no specific idea in the question, so this is plain keyword search.`,
-      g.paths.length ? `Followed ${g.paths.length} connection${g.paths.length > 1 ? "s" : ""} to ${neighbours.size} related idea${neighbours.size === 1 ? "" : "s"}.` : `No connections to follow.`,
+      followed.length ? `Followed ${followed.length > 1 ? `all ${followed.length} connections` : "the one connection"} from ${rec.length > 1 ? "them" : "it"}, one step out, to ${neighbours.size} related idea${neighbours.size === 1 ? "" : "s"}${followed.length > g.paths.length ? `; ${g.paths.length} of them go to the answer-writer` : ""}.`
+        : rec.length ? `The map records no connections for ${rec.length > 1 ? "these ideas" : "this idea"}, so there were none to follow.` : `No connections to follow.`,
       live ? `Gathered ${fmt(linkedCount)} passages linked to those ideas${g.legislation.length ? `, and ${g.legislation.length} provision${g.legislation.length > 1 ? "s" : ""} of the legislation` : ""}.`
         : `Gathered the passages linked to those ideas${g.legislation.length ? `, and ${g.legislation.length} provision${g.legislation.length > 1 ? "s" : ""} of the legislation` : ""}.`,
       `Ranked them with the question's own words${live ? "" : " and meaning"}: ${g.passages.length} passages for the answer${g.plain?.length ? ` — ${beyond} of them outside plain keyword search's top ${Math.min(10, g.plain.length)}` : ""}.`,
@@ -361,6 +381,80 @@ export async function render(root, { ontology, params }) {
     await wait(500); items[4]?.classList.add("on");
   }
 
+  // ------------------------------------------------------------ how it chose, and the map
+
+  function explain(view, g, { live }) {
+    const rec = g.recognised.filter((r) => !r.generic);
+    const generic = g.recognised.filter((r) => r.generic);
+    const followed = g.followed || g.paths;
+    const recIds = new Set(rec.map((r) => r.id));
+    const neighbours = new Set(followed.map((p) => (recIds.has(p.s) ? p.o : p.s)).filter((id) => !recIds.has(id)));
+    const signed = followed.filter((p) => p.origin === "approved" || p.origin === "signed").length;
+    const shown = g.paths.length;
+    const label = (id) => byId.get(id)?.label || id;
+    const nameKind = (r) => {
+      const c = byId.get(r.id);
+      if (!r.name) return "";
+      if (r.everyday) return "an everyday phrasing a machine added to it";
+      if (r.name.toLowerCase() === (c?.label || "").toLowerCase()) return "its main name";
+      return `another of its names${c?.origin === "signed" ? ", signed by an expert" : ""}`;
+    };
+    const row = (r) => `<li><span class="said">“${esc(r.matched || label(r.id))}”</span><span class="arrow">→</span>
+      <span><b>${esc(label(r.id))}</b>${r.name ? ` <span class="muted">· ${esc(nameKind(r))}</span>` : ""}
+      ${r.generic ? `<br><span class="muted">named in ${fmt((g.mentions?.[r.id] || []).length)} passages — more than one in five — so it is recognised but not used to steer</span>` : ""}</span></li>`;
+    // A longer name does not hide a shorter one inside it.
+    const nested = g.recognised.filter((a) => a.start != null && g.recognised.some((b) => b !== a && b.start != null && b.start <= a.start && b.end >= a.end && b.end - b.start > a.end - a.start));
+    view.why.innerHTML = `
+      <h4>How it chose</h4>
+      <div class="why-step"><span class="n">1</span><div>
+        <b>Where it starts: names in your words</b>
+        <p>Your question is compared with the name of every idea in the map — its main name, its other names, and the everyday phrasings a machine
+        added. An idea is a starting point when one of its names appears in the question as whole words (capitals ignored; names under four letters
+        skipped). It is plain matching: no model, no guessing at what you meant.</p>
+        ${g.recognised.length ? `<ul class="said-list">${[...rec, ...generic].map(row).join("")}</ul>` : `<p class="muted">No idea's name appears in this question, so nothing on the map steered the search: it ran on your words alone.</p>`}
+        ${nested.length ? `<p class="tiny">A longer name does not hide a shorter one inside it: “${esc(nested[0].matched)}” is part of a longer match, and counts as well.</p>` : ""}
+      </div></div>
+      <div class="why-step"><span class="n">2</span><div>
+        <b>Which connections: all of them, one step out</b>
+        ${followed.length ? `<p>Every connection the map records for a starting idea is followed — here <b>${fmt(followed.length)}</b>, to <b>${fmt(neighbours.size)}</b> other idea${neighbours.size === 1 ? "" : "s"}
+        (${fmt(signed)} signed by an expert, ${fmt(followed.length - signed)} machine-written). None is weighed against another, whatever it says or
+        whoever wrote it, and none is followed a second step.</p>
+        <p>Following a connection does two things: the idea at its far end adds its name to the search, and passages that name that idea gain a point
+        (step 3). So no path is taken over another; one counts for more only when the idea it reaches is named in passages that also match your question.</p>
+        ${followed.length > shown ? `<p class="small">The answer-writer is also shown ${shown} of them as context, and the diagram above draws those (up to eight of their ideas). They are simply the first ${shown}
+        when the connections are sorted by the identifiers of the ideas at each end — <b>not</b> the most relevant; the other ${fmt(followed.length - shown)} steered the search
+        just the same. The map beside this draws all ${fmt(followed.length)}.</p>`
+          : `<p class="small">All ${fmt(followed.length)} are shown to the answer-writer as context, and drawn on the map beside this.</p>`}`
+        : `<p class="muted">${rec.length ? "The map records no connections for the starting ideas, so there was nothing to follow." : "With no starting idea, there were no connections to follow."}</p>`}
+      </div></div>
+      <div class="why-step"><span class="n">3</span><div>
+        <b>Which passages: three lists, merged</b>
+        <ol class="lists">
+          <li>passages ranked by your own words (plain keyword search);</li>
+          <li>the same, with the names of the starting and connected ideas added to your words;</li>
+          <li>the map's list: a passage scores 2 for each starting idea it names, 1 for each connected idea, and 1 if it cites a provision a starting idea rests on.</li>
+        </ol>
+        <p>A passage high on several lists rises above one high on only one${live ? "" : "; the prepared answers merged a fourth list too, which matches by meaning"}.
+        The top ${chat.passages_k} go to the answer-writer, with up to ${chat.legislation_k} provisions of the Act or Regulations: those the starting ideas rest on, then those the top passages cite.
+        The design was fixed before any of it was measured.</p>
+      </div></div>`;
+
+    view.legend.innerHTML = rec.length ? `
+      <span><i class="ring"></i>a starting idea</span>
+      ${generic.length ? `<span><i class="grey"></i>too common to steer</span>` : ""}
+      <span><svg viewBox="0 0 26 12"><line x1="1" y1="6" x2="25" y2="6" stroke="var(--ink-2)" stroke-width="2.2"/></svg>connection followed${followed.length > shown ? ", shown to the answer-writer" : ""}</span>
+      ${followed.length > shown ? `<span><svg viewBox="0 0 26 12"><line x1="1" y1="6" x2="25" y2="6" stroke="var(--ink-3)" stroke-opacity=".45" stroke-width="1"/></svg>followed for the search only</span>` : ""}
+      <span><svg viewBox="0 0 26 12"><line x1="1" y1="6" x2="25" y2="6" stroke="var(--ink-3)" stroke-width="1.4" stroke-dasharray="5 3"/></svg>dashed: machine-written</span>` : "";
+    if (!g.recognised.length) { view.map.innerHTML = `<p class="small muted">No ideas were recognised, so there is nothing to draw on the map.</p>`; return; }
+    const token = ++maps;
+    miniMap(view.map, {
+      ontology, centre: rec.map((r) => r.id), muted: generic.map((r) => r.id), height: 440,
+      relations: followed.map((p) => ({ id: p.record, s: p.s, p: p.p, o: p.o, origin: p.origin })),
+      strong: followed.length > shown ? new Set(g.paths.map((p) => p.record)) : null,
+      help: "Hover over an idea to see what it rests on; click a line to read the sentence it rests on. Drag to move; buttons to zoom.",
+    }).then((m) => { if (token === maps) mini = m; else m.destroy(); });
+  }
+
   function renderCompare(target, plain, guided, hits, prepared = false) {
     const plainTop = (plain || []).slice(0, 10);
     const plainSet = new Set(plainTop);
@@ -403,6 +497,7 @@ export async function render(root, { ontology, params }) {
   }
 
   if (params[0] && prepared.has(params[0])) showPrepared(prepared.get(params[0]));
+  return () => { maps++; mini?.destroy(); controller?.abort(); };
 }
 
 function spread(i, n, top, bottom) {

@@ -1,13 +1,15 @@
 /* When the text changes — pick a page of the Manual, see what rests on it.
 
    The amendment history is the published Manual's own, captured with the
-   snapshot (an Observable Plot timeline). The Manual is drawn as a D3 treemap:
-   Parts, then pages, sized by passages. What rests on a page is computed by
-   tmk-explorer from each record's evidence refs: the records whose quoted text
-   sits on that page. */
+   snapshot (an Observable Plot timeline). Every page is a tile in its Part's row,
+   Parts in reading order with their titles in full, tiles as wide as the page is
+   long. What rests on a page is computed by tmk-explorer from each record's
+   evidence refs: the records whose quoted text sits on that page. The chosen
+   page's ideas and connections are drawn on a mini map (Cytoscape). */
 
 import { esc, fmt, load, kindColour, refChip, trustBadge } from "./app.js";
 import { wait } from "./graph.js";
+import { miniMap } from "./minimap.js";
 import * as lib from "./lib.js";
 
 export async function render(root, { ontology, params }) {
@@ -35,15 +37,18 @@ export async function render(root, { ontology, params }) {
       <p class="tiny" style="margin:.2rem 0 0">From the amendment notes on each page of the published Manual, as captured on ${esc(stability.snapshot)}. Hover a bar for the month.</p></div>
     <div class="change-shell">
       <div class="card heat">
-        <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.6rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.4rem">
           <h3 style="margin:0">Every page of the Manual</h3>
           <div class="legend">Colour by
             <button type="button" class="chip on" data-mode="amended">amendments</button>
             <button type="button" class="chip" data-mode="relations">connections resting on it</button>
           </div>
         </div>
-        <div class="treemap"></div>
-        <p class="tiny" style="margin-top:.6rem">Each block is a Part, each tile a page, sized by its passages (square root, so one long page does not swamp the rest); darker means more. ${fmt(holding.length)} of ${fmt(pages.length)} pages hold a passage at least one connection quotes. Click a page.</p>
+        <div class="heat-key"></div>
+        <div class="parts" role="list"></div>
+        <div class="page-tip" hidden></div>
+        <p class="tiny" style="margin-top:.6rem">Each row is a Part of the Manual, in reading order; each tile is one of its pages, as wide as the page is long.
+          ${fmt(holding.length)} of ${fmt(pages.length)} pages hold a passage at least one connection quotes. Click a page.</p>
       </div>
       <div class="card ripple" aria-live="polite"></div>
     </div>
@@ -67,45 +72,49 @@ export async function render(root, { ontology, params }) {
     }));
   }
 
-  // ---- the treemap (D3)
-  const holder = root.querySelector(".treemap");
-  const tree = { name: "Manual", children: [...parts.entries()].map(([part, list]) => ({ name: part, title: stability.parts[part] || part, children: list.map((p) => ({ page: p, value: 1 + Math.sqrt(p.passages) })) })) };
+  // ---- every page, Part by Part (titles in full; nothing is cut off)
+  const holder = root.querySelector(".parts");
+  const tip = root.querySelector(".page-tip");
+  const partNo = (part) => (stability.parts[part] || part).match(/^Part\s+(\S+)\s*(.*)$/) || [null, part.replace(/^Part/, ""), part];
+  const tileWidth = (p) => Math.round(Math.min(30, 7 + 2.2 * Math.sqrt(p.passages)));
+  const shade = (p) => {
+    const v = mode === "amended" ? p.amended.length / maxAmend : (p.relations.length ? 0.18 + 0.82 * p.relations.length / maxRel : 0);
+    return `color-mix(in srgb, ${mode === "amended" ? "var(--warn)" : "var(--k-relevant_factor)"} ${Math.round(v * 100)}%, var(--line-2))`;
+  };
   function drawHeat() {
-    const width = Math.max(320, holder.clientWidth), height = Math.round(Math.min(640, Math.max(420, width * 0.72)));
-    const rootNode = d3.treemap().size([width, height]).paddingOuter(2).paddingTop(15).paddingInner(1).round(true)
-      .tile(d3.treemapSquarify.ratio(1.2))(d3.hierarchy(tree).sum((d) => d.value || 0).sort((a, b) => b.value - a.value));
-    const shade = (p) => {
-      const v = mode === "amended" ? p.amended.length / maxAmend : (p.relations.length ? 0.18 + 0.82 * p.relations.length / maxRel : 0);
-      return `color-mix(in srgb, ${mode === "amended" ? "var(--warn)" : "var(--k-relevant_factor)"} ${Math.round(v * 100)}%, var(--line-2))`;
-    };
-    holder.innerHTML = "";
-    const svg = d3.select(holder).append("svg").attr("viewBox", `0 0 ${width} ${height}`).attr("role", "img")
-      .attr("aria-label", "Every page of the Manual, grouped by Part and sized by passages");
-    const partG = svg.selectAll("g.part").data(rootNode.children).join("g").attr("class", "tm-part");
-    partG.append("rect").attr("x", (d) => d.x0).attr("y", (d) => d.y0).attr("width", (d) => d.x1 - d.x0).attr("height", (d) => d.y1 - d.y0)
-      .attr("fill", "var(--panel-2)").attr("stroke", "var(--line)");
-    partG.append("text").attr("x", (d) => d.x0 + 4).attr("y", (d) => d.y0 + 11).attr("class", "tm-label")
-      .text((d) => {
-        const room = (d.x1 - d.x0 - 8) / 5.6;
-        const name = d.data.title.replace(/^Part (\S+)\s*/, "$1 · ");
-        return room < 4 ? "" : name.length > room ? name.slice(0, Math.max(2, room - 1)) + "…" : name;
-      })
-      .append("title").text((d) => d.data.title);
-    const tiles = svg.selectAll("rect.tm-page").data(rootNode.leaves()).join("rect")
-      .attr("class", (d) => `tm-page${d.data.page.ref === current ? " on" : ""}`)
-      .attr("x", (d) => d.x0).attr("y", (d) => d.y0).attr("width", (d) => Math.max(0, d.x1 - d.x0)).attr("height", (d) => Math.max(0, d.y1 - d.y0))
-      .style("fill", (d) => shade(d.data.page)).attr("tabindex", 0).attr("role", "button")
-      .attr("aria-label", (d) => `${d.data.page.title}: ${d.data.page.amended.length} amendments, ${d.data.page.relations.length} connections`)
-      .on("click", (event, d) => select(d.data.page.ref, true))
-      .on("keydown", (event, d) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); select(d.data.page.ref, true); } });
-    tiles.append("title").text((d) => `${d.data.page.title}\n${d.data.page.amended.length} amendments · ${d.data.page.relations.length} connections rest on it · ${d.data.page.passages} passages`);
+    root.querySelector(".heat-key").innerHTML = `<span>fewer</span><i style="background:linear-gradient(90deg, var(--line-2), ${mode === "amended" ? "var(--warn)" : "var(--k-relevant_factor)"})"></i>
+      <span>more ${mode === "amended" ? "amendments recorded" : "connections quote it"}</span>`;
+    holder.innerHTML = [...parts.entries()].map(([part, list]) => {
+      const [, n, name] = partNo(part);
+      return `<div class="part-row" role="listitem" data-part="${esc(part)}">
+        <span class="pn"><b>${esc(n)}</b><span>${esc(name)}</span></span>
+        <span class="tiles">${list.map((p) => `<button type="button" class="pg${p.ref === current ? " on" : ""}" data-page="${esc(p.ref)}"
+          style="width:${tileWidth(p)}px;background:${shade(p)}" aria-label="${esc(`${p.title}: ${p.amended.length} amendments, ${p.relations.length} connections`)}"></button>`).join("")}</span>
+      </div>`;
+    }).join("");
   }
+  holder.addEventListener("click", (e) => { const b = e.target.closest("[data-page]"); if (b) select(b.dataset.page, true); });
+  const showTip = (b) => {
+    const p = byRef.get(b.dataset.page);
+    tip.innerHTML = `<span class="tiny">${esc(stability.parts[p.part] || p.part)}</span><b>${esc(p.title)}</b>
+      <span>${fmt(p.passages)} passage${p.passages === 1 ? "" : "s"} · ${fmt(p.amended.length)} amendment${p.amended.length === 1 ? "" : "s"} · ${fmt(p.relations.length)} connection${p.relations.length === 1 ? "" : "s"} rest on it</span>`;
+    tip.hidden = false;
+    const r = b.getBoundingClientRect(), box = holder.closest(".heat").getBoundingClientRect();
+    const w = tip.offsetWidth;
+    tip.style.left = `${Math.max(8, Math.min(box.width - w - 8, r.left - box.left + r.width / 2 - w / 2))}px`;
+    tip.style.top = `${r.bottom - box.top + 8}px`;
+  };
+  holder.addEventListener("mouseover", (e) => { const b = e.target.closest("[data-page]"); if (b) showTip(b); });
+  holder.addEventListener("focusin", (e) => { const b = e.target.closest("[data-page]"); if (b) showTip(b); });
+  holder.addEventListener("mouseleave", () => { tip.hidden = true; });
+  holder.addEventListener("focusout", () => { tip.hidden = true; });
 
   const ripple = root.querySelector(".ripple");
+  let mini = null, drawn = 0;
   function select(ref, simulate = false) {
     current = ref;
     history.replaceState(null, "", `#/change/${ref}`);
-    holder.querySelectorAll("rect.tm-page").forEach((r) => r.classList.toggle("on", r.__data__?.data.page.ref === ref));
+    holder.querySelectorAll("[data-page]").forEach((b) => b.classList.toggle("on", b.dataset.page === ref));
     const p = byRef.get(ref);
     const kinds = ontology.kinds.length;
     const relList = p.relations.map((id) => rels.get(id)).filter(Boolean);
@@ -116,6 +125,15 @@ export async function render(root, { ontology, params }) {
       <div class="meta" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.4rem">
         <button class="btn primary small" type="button" data-sim>Simulate a rewrite of this page</button>
         ${p.url ? `<a class="btn small" href="${esc(p.url)}" target="_blank" rel="noopener">Open the published page ↗</a>` : ""}
+      </div>
+      <div class="ripple-map">
+        <h4>What rests on this page, on the map</h4>
+        ${relList.length || p.concepts.length ? `<div class="mini-legend">
+          <span><i class="ring"></i>its evidence is quoted here</span>
+          <span><svg viewBox="0 0 26 12"><line x1="1" y1="6" x2="25" y2="6" stroke="var(--ink-2)" stroke-width="2.2"/></svg>a connection quoting this page, signed</span>
+          <span><svg viewBox="0 0 26 12"><line x1="1" y1="6" x2="25" y2="6" stroke="var(--ink-3)" stroke-width="1.4" stroke-dasharray="5 3"/></svg>machine-written</span>
+        </div><div class="mini-holder"></div>`
+        : `<p class="small muted">Nothing on the map quotes this page. A rewrite would only re-match the ${fmt(p.links)} place${p.links === 1 ? "" : "s"} an idea is named on it — automatically.</p>`}
       </div>
       <div class="layer" data-layer="0">
         <span class="lnum num">${p.passages}</span>
@@ -145,16 +163,30 @@ export async function render(root, { ontology, params }) {
           records stay what they are, whatever this page says next.</span></div>
       </div>`;
     ripple.querySelector("[data-sim]").addEventListener("click", () => simulate_());
-    if (simulate) simulate_();
+    const token = ++drawn;
+    mini?.destroy();
+    mini = null;
+    const mapHolder = ripple.querySelector(".mini-holder");
+    const undrawn = relList.filter((r) => !byId.has(r.s) || !byId.has(r.o)).length;
+    const ready = mapHolder ? miniMap(mapHolder, {
+      ontology, d3, layout: "force", height: 330, centre: p.concepts, relations: relList,
+      help: `Ringed: ideas that quote this page as their evidence. Lines: connections that quote it. Hover an idea; click a line to read the sentence.${
+        undrawn ? ` ${undrawn} connection${undrawn > 1 ? "s" : ""} ending at a provision, a case or a passage rather than an idea ${undrawn > 1 ? "are" : "is"} listed below but not drawn.` : ""}`,
+    }).then((m) => { if (token === drawn) mini = m; else m.destroy(); }) : Promise.resolve();
+    if (simulate) ready.then(() => { if (token === drawn) simulate_(); });
   }
 
   async function simulate_() {
+    const p = byRef.get(current);
     const layers = [...ripple.querySelectorAll(".layer")];
     layers.forEach((l) => l.classList.remove("pulse", "hit"));
     for (const [i, l] of layers.entries()) {
       await wait(i ? 380 : 0);
       l.classList.add("pulse");
       if (i < 4 && Number(l.querySelector(".lnum").textContent.replace(/,/g, "")) > 0) l.classList.add("hit");
+      // The map shows the same ripple: the connections to re-check, then the ideas.
+      if (i === 2) mini?.flash(p.relations, 0);
+      if (i === 3) mini?.pulse(p.concepts);
     }
   }
 
@@ -166,9 +198,8 @@ export async function render(root, { ontology, params }) {
   drawTimeline();
   drawHeat();
   select(current);
-  const onResize = () => { drawTimeline(); drawHeat(); };
   let timer = null;
-  const debounced = () => { clearTimeout(timer); timer = setTimeout(onResize, 150); };
+  const debounced = () => { clearTimeout(timer); timer = setTimeout(drawTimeline, 150); };
   window.addEventListener("resize", debounced);
-  return () => window.removeEventListener("resize", debounced);
+  return () => { window.removeEventListener("resize", debounced); drawn++; mini?.destroy(); };
 }

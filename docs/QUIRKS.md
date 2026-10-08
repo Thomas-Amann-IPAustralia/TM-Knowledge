@@ -1344,3 +1344,18 @@ the benchmark measured. The explorer's browser engine (`site/js/engine.js`) copi
 the *actual* behaviour; with the heading at 0.5 its rankings matched Python on only
 24 of 131 questions, at 1.0 on all 131. If you ever mean to halve the heading, pass
 `bm25(passages, 0.0, 0.5, 1.0)`, change the browser engine to match, and re-measure.
+
+### Q-70 — the answer-writer sees the first twelve connections by identifier, not the most relevant twelve
+
+`Engine.trace` (and `search.index.Systems.trace`) follows **every** connection one step
+out from each recognised, non-generic concept; all of them steer retrieval (query
+expansion and the linked-passage weights). Only the prompt's `GRAPH PATH` block is
+cut, to `paths_k` = 12 (`bulk.cli._measurement_items`, `engine.prepare`), and the cut
+is applied to the paths **sorted by (subject id, predicate, object, record, origin)** —
+so which twelve the model reads is an accident of identifier order. 56 of the 129
+benchmark questions follow more than twelve (up to 86). Since S025 the Ask page says
+this in plain words and its mini map draws all of them, the twelve darker. It is not a
+bug to fix in place: the measured answers were written from exactly this prompt. If a
+session wants a better twelve (say, signed first, or by how many retrieved passages
+name the far idea), change `bulk.cli` and `engine.js` together — the parity test checks
+the prompt — and re-measure.
