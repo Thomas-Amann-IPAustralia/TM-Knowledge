@@ -1359,3 +1359,42 @@ bug to fix in place: the measured answers were written from exactly this prompt.
 session wants a better twelve (say, signed first, or by how many retrieved passages
 name the far idea), change `bulk.cli` and `engine.js` together — the parity test checks
 the prompt — and re-measure.
+
+### Q-71 — `data/derived/links/mentions.json` is stale: it covers 130 of the 167 concepts
+
+The committed mentions file predates the define run, so the 37 concepts it added
+(GC-0131 to GC-0167) are not in it, and anything counted from it — passage links per
+concept, the "generic" list — silently leaves them out. Build the links fresh instead:
+`tm_knowledge.bulk.links.link(load_corpus())` with the snapshot fetched. It takes a
+minute and is deterministic. Found by the S026 ontology review (`docs/ONTOLOGY-REVIEW.md`
+F5); the file needs regenerating and a test that it covers every concept.
+
+### Q-72 — the duplicate-label count is preferred labels only, compared exactly
+
+`stage0.expertpack.duplicate_labels` (printed by `tmk-expert-pack`) reports 10
+cross-store duplicates. It compares `pref_label` to `pref_label` without folding case,
+plurals or articles, so a signed concept whose *alternative* label is an authored
+concept's preferred label — GC-0046 "Registrar" against GC-0115 "Registrar of Trade
+Marks" — is not counted. A folded scan over all labels finds 21 shared labels across 15
+concept pairs. Do not quote the 10 as the number of duplicates (ADR-0101 c3 flagged the
+gap; `docs/ONTOLOGY-REVIEW.md` A5 is the fix).
+
+### Q-73 — a predicate's only definition in the relate prompt is the first signed record that uses it
+
+`bulk.jobs._predicate_examples` takes, for each of the 14 predicates, the first record
+in `eval/gold/relationships.yaml` that uses it and shows it cut to 160 characters. That
+example *is* the predicate's definition as far as the model knows. Two of the fourteen
+are inverted: GR-0007 (`mayGiveRiseTo`) and GR-0032 (`isOvercomeBy`, planted in the seed
+as a trap — its own note says so). Reordering the gold file, or signing a new record
+with a lower id, changes the prompt and every relate cache key with it. Write real
+definitions before the next relate run (`docs/ONTOLOGY-REVIEW.md` D1).
+
+### Q-74 — two of the shapes guarding practice versus law can never fire on the real graph
+
+`tmk:ManualInstruction` is applied only as an entity mention's `tmk:mentionClass`, never
+as an `rdf:type`, and `tmk:LegalProposition` (with `tmk:statedIn` / `tmk:attributedTo`)
+is never written by the build. So the disjointness shape and the PU-0004 authority-
+conflation shape in `shapes/authority.ttl` have no targets outside the test fixtures,
+and `tmk-shacl` passing says nothing about them. The distinction on real data rests on
+the `tmk:authorityKind` string alone. Before citing those shapes as protection, give them
+something to check (`docs/ONTOLOGY-REVIEW.md` F1).
