@@ -60,7 +60,7 @@ view; mini maps draw (Change, Part 29.3: 21 ideas, 22 lines); clicks reach the d
 
 ## Waiting on the owner
 
-1. **Merge this branch** to `main` to publish (no PR opened — not asked for).
+1. **Merge PR 26** (this branch) to `main` to publish.
 2. If not already done: **add the key** as an environment secret (Settings →
    Environments → `github-pages` → `OPENAI_API_KEY`), then run the pages workflow.
    Advised: a dedicated, restricted, budget-limited key — it is recoverable from the page.
