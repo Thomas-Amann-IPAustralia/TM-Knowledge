@@ -582,19 +582,18 @@
       concept for typing purposes. This record and GT-0015 assume they are not.
 - id: GT-0013
   concept: GC-0013
-  type: exception
+  type: remedy
   basis:
   - TMM/Part29/5/5/4
   - TMM/Part29/9/9/5
-  notes: >-
-    condition of registration — also called: condition, conditions or limitations — not:
-    endorsement, specification amendment
+  notes: 'condition of registration — also called: condition, conditions or limitations —
+    not: endorsement, specification amendment'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/5/5/4
@@ -602,49 +601,46 @@
       - 1000
       - 1202
       content_hash: sha256:86800dcce4d41f73e2792ad626162693402011f3c8ba4135bbf91f045f2a7b2f
-      quote: >-
-        A section 43 ground for rejection may be overcome by the applicant agreeing to
-        a condition of registration limiting use of the trade mark to goods containing
-        the substance indicated by the relevant INN.
+      quote: A section 43 ground for rejection may be overcome by the applicant agreeing to
+        a condition of registration limiting use of the trade mark to goods containing the
+        substance indicated by the relevant INN.
     - ref: TMM/Part29/9/9/5
       span:
       - 0
       - 215
       content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
-      quote: >-
-        An applicant will be able to overcome a geographical section 43 objection by agreeing
-        to a condition of registration or a specification amendment which removes the
-        likelihood of consumers being deceived or confused.
+      quote: An applicant will be able to overcome a geographical section 43 objection by
+        agreeing to a condition of registration or a specification amendment which removes
+        the likelihood of consumers being deceived or confused.
     confidence: 0.7
-    reasoning: >-
-      The corpus states it as the way a ground already made out is overcome, in both the
-      INN and the geographical branches. A mechanism that removes a case from a ground
-      it otherwise attracts is an exception on the owner's definition.
+    reasoning: A condition of registration is how a ground already made out is overcome (Part
+      29.5.5.4, 29.9.5). A remedy overcomes a ground that applies; an exception is a case
+      the ground does not reach. Retyped on the owner's ruling B5.
     alternatives_considered:
-    - >-
-      none_of_these — a condition of registration is an administrative instrument, and
-      the exception group may be meant for doctrinal carve-outs (GC-0027, GC-0048) rather
-      than for remedies. On that reading GT-0013 to GT-0015 all move out of exception
-      together and the group shrinks to five.
-    expert_should_check: >-
-      Whether 'overcoming a ground' and 'the ground not arising' are the same kind of
-      thing. Four records — GT-0013, GT-0014, GT-0015, GT-0029 — are typed exception on
-      the first, and GT-0020, GT-0027 and GT-0048 on the second.
+    - 'Typed ''exception'' by an earlier agent session on 2026-09-08. Its reasoning: The corpus states
+      it as the way a ground already made out is overcome, in both the INN and the geographical
+      branches. A mechanism that removes a case from a ground it otherwise attracts is an
+      exception on the owner''s definition.'
+    - none_of_these — a condition of registration is an administrative instrument, and the
+      exception group may be meant for doctrinal carve-outs (GC-0027, GC-0048) rather than
+      for remedies. On that reading GT-0013 to GT-0015 all move out of exception together
+      and the group shrinks to five.
+    expert_should_check: Whether the applicant's step or the record of it is the remedy; the
+      Manual uses both.
 - id: GT-0014
   concept: GC-0014
-  type: exception
+  type: remedy
   basis:
   - TMM/Part29/6#1~2
   - TMM/Part29/9/9/2
-  notes: >-
-    endorsement — also called: endorsement wording, suggested endorsement — not: condition
-    of registration, disclaimer
+  notes: 'endorsement — also called: endorsement wording, suggested endorsement — not: condition
+    of registration, disclaimer'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/9/9/2
@@ -652,9 +648,8 @@
       - 440
       - 586
       content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
-      quote: >-
-        The risk of deception can be mitigated by a suitably specific endorsement or an
-        amendment or limitation to the specification of goods or services.
+      quote: The risk of deception can be mitigated by a suitably specific endorsement or
+        an amendment or limitation to the specification of goods or services.
     - ref: TMM/Part29/6#1~2
       span:
       - 1877
@@ -662,36 +657,34 @@
       content_hash: sha256:3016fc2af55085c99f6f508c674df732dbefbd36582932ac716f701313b98e1c
       quote: Where permission is provided, this should be made clear by way of an endorsement.
     confidence: 0.5
-    reasoning: >-
-      Typed with GC-0013 because Part 29.9.2 names the endorsement itself as mitigating
-      the risk, not merely as the place where a condition is recorded. The lowest confidence
-      in the exception group.
+    reasoning: An endorsement records the step that overcomes a ground — permission, a condition
+      — on the Register. A remedy overcomes a ground that applies; an exception is a case
+      the ground does not reach. Retyped on the owner's ruling B5.
     alternatives_considered:
-    - >-
-      none_of_these — the reading to prefer if an endorsement is only the written record
-      of a condition (GC-0013) or of a permission (GC-0029). On that view it is an artefact,
-      does nothing of its own, and the two passages in the evidence are loose drafting
-      rather than a separate mechanism.
-    expert_should_check: >-
-      Whether an endorsement is a thing that does work or the writing-down of a thing
-      that does. GC-0013's own record note flags this as exactly the kind of tacit distinction
-      the exercise is meant to surface, and it is still open.
+    - 'Typed ''exception'' by an earlier agent session on 2026-09-08. Its reasoning: Typed with GC-0013
+      because Part 29.9.2 names the endorsement itself as mitigating the risk, not merely
+      as the place where a condition is recorded. The lowest confidence in the exception group.'
+    - none_of_these — the reading to prefer if an endorsement is only the written record of
+      a condition (GC-0013) or of a permission (GC-0029). On that view it is an artefact,
+      does nothing of its own, and the two passages in the evidence are loose drafting rather
+      than a separate mechanism.
+    expert_should_check: Whether the applicant's step or the record of it is the remedy; the
+      Manual uses both.
 - id: GT-0015
   concept: GC-0015
-  type: exception
+  type: remedy
   basis:
   - TMM/Part29/9/9/2
   - TMM/Part29/9/9/5
-  notes: >-
-    limitation of the specification — also called: specification amendment, amendment
+  notes: 'limitation of the specification — also called: specification amendment, amendment
     to the specification, restriction of the specification — not: divisional application,
-    deletion of goods
+    deletion of goods'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/9/9/5
@@ -699,33 +692,29 @@
       - 0
       - 215
       content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
-      quote: >-
-        An applicant will be able to overcome a geographical section 43 objection by agreeing
-        to a condition of registration or a specification amendment which removes the
-        likelihood of consumers being deceived or confused.
+      quote: An applicant will be able to overcome a geographical section 43 objection by
+        agreeing to a condition of registration or a specification amendment which removes
+        the likelihood of consumers being deceived or confused.
     - ref: TMM/Part29/9/9/2
       span:
       - 440
       - 586
       content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
-      quote: >-
-        The risk of deception can be mitigated by a suitably specific endorsement or an
-        amendment or limitation to the specification of goods or services.
+      quote: The risk of deception can be mitigated by a suitably specific endorsement or
+        an amendment or limitation to the specification of goods or services.
     confidence: 0.75
-    reasoning: >-
-      A limitation removes the likelihood of deception and so removes the ground, which
-      is the exception group's definition applied literally. Part 29.9.5 goes further
-      than the other two members of this trio by calling it the sole criterion for a limitation
-      under s 43.
+    reasoning: Limiting the specification removes the goods or services the ground attaches
+      to (Part 29.9.2, 29.9.5). A remedy overcomes a ground that applies; an exception is
+      a case the ground does not reach. Retyped on the owner's ruling B5.
     alternatives_considered:
-    - >-
-      relevant_factor — right if the limited specification is simply the specification
-      (GC-0012) at a later moment, in which case what changes is the input and not the
-      rule.
-    expert_should_check: >-
-      The same question as GT-0013: whether a remedy belongs in the exception group at
-      all. If it does not, this record is relevant_factor and merges in substance with
-      GT-0012.
+    - 'Typed ''exception'' by an earlier agent session on 2026-09-08. Its reasoning: A limitation removes
+      the likelihood of deception and so removes the ground, which is the exception group''s
+      definition applied literally. Part 29.9.5 goes further than the other two members of
+      this trio by calling it the sole criterion for a limitation under s 43.'
+    - relevant_factor — right if the limited specification is simply the specification (GC-0012)
+      at a later moment, in which case what changes is the input and not the rule.
+    expert_should_check: Whether the applicant's step or the record of it is the remedy; the
+      Manual uses both.
 - id: GT-0016
   concept: GC-0016
   type: relevant_factor
@@ -1291,19 +1280,18 @@
       here, and the quote saying so is in the record's own evidence.
 - id: GT-0029
   concept: GC-0029
-  type: exception
+  type: remedy
   basis:
   - TMM/Part29/6#1~2
   - TMM/Part29/6/6/1
-  notes: >-
-    written permission — also called: consent, permission to use the name, has consented
-    — not: letter of consent, authorised user
+  notes: 'written permission — also called: consent, permission to use the name, has consented
+    — not: letter of consent, authorised user'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/6#1~2
@@ -1311,32 +1299,30 @@
       - 1704
       - 1876
       content_hash: sha256:3016fc2af55085c99f6f508c674df732dbefbd36582932ac716f701313b98e1c
-      quote: >-
-        An applicant may overcome a section 43 ground for rejection in relation to a name
-        by providing the well-known person’s written permission to use their name as a
-        trade mark.
+      quote: An applicant may overcome a section 43 ground for rejection in relation to a
+        name by providing the well-known person’s written permission to use their name as
+        a trade mark.
     - ref: TMM/Part29/6/6/1
       span:
       - 201
       - 381
       content_hash: sha256:94219eaa9c113dcecb64f0c0d8b7d7970ee0c89b4e732ebf371d1b1b4f2abcf1
-      quote: >-
-        An applicant may overcome a section 43 ground for rejection in relation to such
-        an image by providing the well-known person’s written permission to use their
-        image as a trade mark.
+      quote: An applicant may overcome a section 43 ground for rejection in relation to such
+        an image by providing the well-known person’s written permission to use their image
+        as a trade mark.
     confidence: 0.85
-    reasoning: >-
-      Stated twice in the corpus in the same words, for names and for images: permission
-      overcomes the ground. The clearest exception in the set after GC-0027.
+    reasoning: Written permission overcomes a section 43 ground already raised for a name
+      or image (Part 29.6). A remedy overcomes a ground that applies; an exception is a case
+      the ground does not reach. Retyped on the owner's ruling B5.
     alternatives_considered:
-    - >-
-      relevant_factor — right only if permission is evidence bearing on whether consumers
-      would be misled rather than a mechanism that disposes of the objection. Part 29.6
-      treats it as the second.
-    expert_should_check: >-
-      Whether the ground is overcome by the permission or by the endorsement recording
-      it. GT-0014 types the endorsement exception on parallel reasoning, and the two records
-      may be describing one mechanism twice.
+    - 'Typed ''exception'' by an earlier agent session on 2026-09-08. Its reasoning: Stated twice in
+      the corpus in the same words, for names and for images: permission overcomes the ground.
+      The clearest exception in the set after GC-0027.'
+    - relevant_factor — right only if permission is evidence bearing on whether consumers
+      would be misled rather than a mechanism that disposes of the objection. Part 29.6 treats
+      it as the second.
+    expert_should_check: Whether the applicant's step or the record of it is the remedy; the
+      Manual uses both.
 - id: GT-0030
   concept: GC-0030
   type: relevant_factor
@@ -2424,39 +2410,6 @@
 # similar facts; `removal for non-use` is typed on the assumption that the four
 # groups are about refusing an application rather than ending a registration.
 # Each names the inconsistency in `expert_should_check` rather than hiding it.
-- id: GT-0053
-  concept: GC-0053
-  type: ground_of_refusal
-  basis:
-  - TMA1995/s33
-  notes: >-
-    ground for rejection — also called: grounds for rejection, ground of rejection, grounds for rejecting
-    — not: ground of opposition, ground for revocation, objection
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMA1995/s33
-      span:
-      - 550
-      - 591
-      content_hash: sha256:36311d92754a0ea33e97abec732d66bb149a577c8004ce2f28ee98bb3bcb54e2
-      quote: the Registrar must reject the application
-    confidence: 0.6
-    reasoning: >-
-      It is the class of which every individual ground is a member, so it is typed as the class itself
-      rather than as a test. A reviewer who thinks the four groups should not hold an abstract class
-      will type it none_of_these, and that is a disagreement about the taxonomy worth having.
-    alternatives_considered:
-    - >-
-      none_of_these — the concept is a container for grounds rather than a ground. Right if the taxonomy
-      is meant to hold only concrete grounds an examiner can raise.
-    expert_should_check: >-
-      Whether the taxonomy is supposed to hold abstract classes at all.
 - id: GT-0054
   concept: GC-0054
   type: ground_of_refusal
@@ -2945,48 +2898,6 @@
       legal_test — rejected for the same reason as honest concurrent use.
     expert_should_check: >-
       Nothing specific.
-- id: GT-0069
-  concept: GC-0069
-  type: instrument_or_record
-  basis:
-  - TMA1995/s44
-  notes: >-
-    conditions or limitations — also called: conditions and limitations, limitations —
-    not: disclaimer, endorsement, other circumstances
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMA1995/s44
-      span:
-      - 2668
-      - 2748
-      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
-      quote: >-
-        subject to any conditions or limitations that the Registrar thinks fit to impose
-    confidence: 0.65
-    reasoning: >-
-      The terms the Registrar imposes on acceptance under subsection 44(3), recorded against
-      the registration. The concept names the terms.
-    alternatives_considered:
-    - >-
-      exception — the real alternative, and the reason confidence is low. A limitation
-      takes goods or circumstances out of the exclusive right, which is close to the owner's
-      'something that takes a case out of the rule'. Rejected because an exception groups
-      a *rule*, and conditions or limitations are terms imposed on one particular registration.
-    - >-
-      none_of_these — where this record sat until 2026-09-09, and the honest answer while
-      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
-      the owner asked for groups that fit these 53 (ADR-0098).
-    expert_should_check: >-
-      This is the record in the 53 with the strongest claim on one of the owner's original
-      four. If conditions or limitations are an exception, it leaves the process axis
-      entirely — and that would be evidence that the two axes are not cleanly separable,
-      which is the open question behind the whole pass.
 - id: GT-0070
   concept: GC-0070
   type: legal_test
@@ -3720,39 +3631,6 @@
       The concept's record warns that the Register, the old register and the Record of
       International Registrations must not be merged. This group holds one of the three;
       the other two are held by nothing.
-- id: GT-0090
-  concept: GC-0090
-  type: relevant_factor
-  basis:
-  - TMA1995/s44
-  notes: >-
-    priority date — not: filing date, date of registration
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMA1995/s44
-      span:
-      - 511
-      - 698
-      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
-      quote: the priority date for the registration of the applicant’s trade mark in respect of the
-        applicant’s goods is not earlier than the priority date for the registration of the other
-        trade mark
-    confidence: 0.75
-    reasoning: >-
-      Section 44(1)(b) makes the comparison of priority dates one of two elements of the ground. Something
-      that feeds into the answer is a relevant_factor.
-    alternatives_considered:
-    - >-
-      legal_test — the date comparison is a question, but a mechanical one, and calling it a test
-      would make every date in the Act a test.
-    expert_should_check: >-
-      Nothing specific.
 - id: GT-0091
   concept: GC-0091
   type: relevant_factor
@@ -3864,43 +3742,6 @@
       presumption is the most examinable thing about section 33, no concept in this group
       carries it, and the reviewer's own note (OQ-0015) said the office's actual bar for
       it is not in the knowledge base either.
-- id: GT-0094
-  concept: GC-0094
-  type: procedural_step
-  basis:
-  - TMM/Part38/1#1
-  notes: >-
-    revocation of acceptance — also called: revoke acceptance — not: revocation of registration,
-    acceptance, rectification
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMM/Part38/1#1
-      span:
-      - 0
-      - 47
-      content_hash: sha256:9e165c735ebe5317e983d6154886aab73d86d98d277b0a79c4f92f4e6e029c43
-      quote: The acceptance of an application can be revoked
-    confidence: 0.8
-    reasoning: >-
-      Available where information received after acceptance indicates the mark should
-      not have been accepted. The application changes state.
-    alternatives_considered:
-    - exception — rejected for the same reason as GT-0042.
-    - >-
-      none_of_these — where this record sat until 2026-09-09, and the honest answer while
-      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
-      the owner asked for groups that fit these 53 (ADR-0098).
-    expert_should_check: >-
-      GC-0042 (signed) and GC-0094 (authored) are both 'revocation of acceptance'. Both
-      are typed procedural_step and neither displaces the other. The concept's record
-      separates it from revocation of registration under sections 84A to 84D, which is
-      a different step and is typed separately at GT-0095.
 - id: GT-0095
   concept: GC-0095
   type: procedural_step
@@ -4098,114 +3939,6 @@
       The Manual's own gloss is that the owner never had exclusive rights in the disclaimed
       part anyway — so a disclaimer records a position rather than changing one. That
       is the argument for this group and it is worth testing directly.
-- id: GT-0100
-  concept: GC-0100
-  type: instrument_or_record
-  basis:
-  - TMM/Part23/6#1
-  notes: >-
-    endorsement — also called: endorsements — not: disclaimer, conditions or limitations
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMM/Part23/6#1
-      span:
-      - 128
-      - 184
-      content_hash: sha256:03b5b4de76bef1acf928f0d4a7bc4230a1301e2f9485689b6e7361416192aae2
-      quote: the relevant endorsement will be entered on the Register
-    confidence: 0.8
-    reasoning: >-
-      What goes on the Register to record that an application was accepted on evidence
-      or other circumstances. A note of how a ground was overcome.
-    alternatives_considered:
-    - >-
-      relevant_factor — rejected. The evidence is the factor; the endorsement is the note
-      that it was accepted.
-    - >-
-      none_of_these — where this record sat until 2026-09-09, and the honest answer while
-      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
-      the owner asked for groups that fit these 53 (ADR-0098).
-    expert_should_check: >-
-      Whether an endorsement and a condition or limitation are the same kind of entry
-      made for different reasons. Both are typed into this group and the Manual treats
-      them in different Parts.
-- id: GT-0101
-  concept: GC-0101
-  type: relevant_factor
-  basis:
-  - TMM/Part23/3#1
-  notes: >-
-    evidence of use — also called: evidence of use of the trade mark — not: use of a trade mark, prior
-    use, honest concurrent use, evidence in support
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part23/3#1
-      span:
-      - 314
-      - 369
-      content_hash: sha256:33c56e7eda49174e63a0f03536399f589496bde63f5d82e0f1141bdc312ca4bd
-      quote: the trade mark owner may provide formal evidence of use
-    confidence: 0.7
-    reasoning: >-
-      It is the material the decision maker weighs to answer the capability question. Something that
-      feeds into an answer is a relevant_factor.
-    alternatives_considered:
-    - >-
-      exception — it is how a section 41 ground gets overcome, which is exception-shaped. Rejected:
-      the exception is the statutory route in s 41(3)(b)/(4)(b); this is the proof offered along it.
-    expert_should_check: >-
-      Whether the route and the proof should be typed differently. This pass says yes; a reviewer
-      may say the distinction is too fine to be useful.
-- id: GT-0102
-  concept: GC-0102
-  type: procedural_step
-  basis:
-  - TMM/Part46/1#1
-  notes: >-
-    opposition — also called: opposition to registration, opposition proceedings — not:
-    hearing, removal for non-use, rectification
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMM/Part46/1#1
-      span:
-      - 49
-      - 98
-      content_hash: sha256:02a2b1a95baa2a0cc7c9e71bfd36f03d235e71e78c4e90c9b8cd0eae568015a8
-      quote: Opposition is a formal objection by a third party
-    confidence: 0.75
-    reasoning: >-
-      A formal objection by a third party to registration, on the Manual's own definition.
-      The proceeding, not the party and not the document.
-    alternatives_considered:
-    - >-
-      instrument_or_record — rejected. The notice of opposition is the document and is
-      typed one at GT-0103.
-    - >-
-      none_of_these — where this record sat until 2026-09-09, and the honest answer while
-      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
-      the owner asked for groups that fit these 53 (ADR-0098).
-    expert_should_check: >-
-      GC-0040 (signed) and GC-0102 (authored) are both 'opposition'. Both are typed procedural_step
-      and neither displaces the other; the duplication is a vocabulary problem named on
-      the records rather than resolved by a typing.
 - id: GT-0103
   concept: GC-0103
   type: instrument_or_record
@@ -4483,45 +4216,6 @@
       marks are three registrations with different conditions, and GC-0088 is the ordinary
       one. Whether the vocabulary wants a 'kinds of registration' level between them and
       'trade mark' is a modelling question this typing does not answer.
-- id: GT-0110
-  concept: GC-0110
-  type: procedural_step
-  basis:
-  - TMA1995/s45
-  notes: >-
-    divisional application — also called: divisional applications, divisional — not: parent
-    application, series of trade marks, convention application
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMA1995/s45
-      span:
-      - 142
-      - 209
-      content_hash: sha256:7be83e5257d68826159cc196e4e6a67ddbf27edd1510b5312e06df0c2b6bc2fc
-      quote: the applicant may make another application (divisional application)
-    confidence: 0.6
-    reasoning: >-
-      The same mechanism as GC-0043, reached from Part 12 and sections 45 to 46. The priority-date
-      inheritance is what the concept is for, and inheritance is something the division
-      does.
-    alternatives_considered:
-    - >-
-      subject_matter — as strong here as at GT-0043 and rejected for the same reason,
-      with the same low confidence.
-    - >-
-      none_of_these — where this record sat until 2026-09-09, and the honest answer while
-      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
-      the owner asked for groups that fit these 53 (ADR-0098).
-    expert_should_check: >-
-      GC-0043 (signed) and GC-0110 (authored) are both 'divisional application'. Both
-      are typed procedural_step and neither displaces the other. The group itself is the
-      weakest in this pass — see the alternatives. Decide it together with GT-0079.
 - id: GT-0111
   concept: GC-0111
   type: relevant_factor
@@ -4679,46 +4373,6 @@
       The same boundary as GT-0113. Holding this concept apart from 'registered trade
       mark' is what lets a citation search reach both, so a merge would cost more than
       the tidiness gains.
-- id: GT-0115
-  concept: GC-0115
-  type: process_role
-  basis:
-  - TMA1995/s6/registrar
-  notes: >-
-    Registrar of Trade Marks — also called: the Registrar, Registrar — not: Deputy Registrar,
-    delegate, prescribed court
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMA1995/s6/registrar
-      span:
-      - 0
-      - 45
-      content_hash: sha256:0747d36f6b8a618b2323ad53edf975988f3b9f381ffb912f4d01a29ab6e27e53
-      quote: Registrar means the Registrar of Trade Marks.
-    confidence: 0.75
-    reasoning: >-
-      The same office as GC-0046, reached from Part 52 and the section 6 definition rather
-      than from Part 29. Section 205 makes a Deputy Registrar's exercise of a power the
-      Registrar's, which is a statement about who acts.
-    alternatives_considered:
-    - >-
-      Leaving it unsorted, on the ground that the signed GC-0046 already holds the office.
-      Rejected: a blank cell says 'not yet sorted' and this one has been sorted. The duplication
-      is a vocabulary problem, named on the record rather than hidden by an empty cell.
-    - >-
-      none_of_these — where this record sat until 2026-09-09, and the honest answer while
-      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
-      the owner asked for groups that fit these 53 (ADR-0098).
-    expert_should_check: >-
-      Whether GC-0115 and the signed GC-0046 are the same concept. If they are, the merge
-      is a vocabulary decision that retires one id, and nothing in this typing should
-      be read as endorsing the split.
 - id: GT-0116
   concept: GC-0116
   type: process_role
@@ -4792,39 +4446,6 @@
       GC-0117's record notes the term is defined in five places across the Regulations,
       one per opposition type. If those are different parties rather than one, the group
       holds and the concept does not.
-- id: GT-0118
-  concept: GC-0118
-  type: relevant_factor
-  basis:
-  - TMM/Part20/4#1~1
-  notes: >-
-    presumption of registrability — also called: presumption that a trade mark is registrable — not:
-    ground for rejection, acceptance
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMM/Part20/4#1~1
-      span:
-      - 97
-      - 182
-      content_hash: sha256:67daa8312e2898e336753ab4fecc9acaea819f1ea3af243af1c38300cb23e6d5
-      quote: the Registrar must accept a trade mark for registration unless he or she is satisfied
-    confidence: 0.6
-    reasoning: >-
-      It allocates the burden rather than supplying a ground or a test — it tells the decision maker
-      which way to go when unsure. That is closest to something feeding into the answer.
-    alternatives_considered:
-    - >-
-      none_of_these — a presumption is a rule about proof, not one of the four kinds of thing. A reviewer
-      taking that view is making a point about the taxonomy worth hearing.
-    expert_should_check: >-
-      Whether a burden-allocating rule fits any of the four groups. This is one of the clearest misfits
-      in the pass.
 - id: GT-0119
   concept: GC-0119
   type: legal_test
@@ -5045,38 +4666,6 @@
     expert_should_check: >-
       Part 6 of the Act governs amendment before registration and Division 1 of Part 8
       after it. One concept spans two regimes and the group does not show the split.
-- id: GT-0125
-  concept: GC-0125
-  type: relevant_factor
-  basis:
-  - TMM/Part32A/1/1/1
-  notes: >-
-    plant varietal name — also called: plant variety denomination, plant varietal names — not: geographical
-    indication, generic term
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMM/Part32A/1/1/1
-      span:
-      - 97
-      - 146
-      content_hash: sha256:7238aa84d5fea3ba2fb958326d534a9ba14720077aee6c2ffc0539867fbcdace
-      quote: involves consideration of additional requirements
-    confidence: 0.6
-    reasoning: >-
-      That a mark is or contains a varietal name feeds the distinctiveness and deception questions
-      rather than being a ground of its own.
-    alternatives_considered:
-    - >-
-      ground_of_refusal — if the PBR Act supplies a free-standing ground. The passage does not say
-      it does.
-    expert_should_check: >-
-      Whether a varietal name creates its own ground or only bears on ss 41 and 43.
 - id: GT-0126
   concept: GC-0126
   type: relevant_factor
@@ -5188,47 +4777,6 @@
     expert_should_check: >-
       Whether a hearing is a step inside the examination process or a process beside it.
       Section 33(4) suggests one answer and Part 51 arguably another.
-- id: GT-0129
-  concept: GC-0129
-  type: instrument_or_record
-  basis:
-  - TMM/Part27/1#1
-  notes: >-
-    specification of goods and services — also called: specification, specification of
-    goods and/or services — not: classification of goods and services, similarity of goods
-    and services
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMM/Part27/1#1
-      span:
-      - 312
-      - 335
-      content_hash: sha256:3a61229ed189ea7c63894d6d0d2da5e353f303562b87a81c8bfaee870d1ebc5f
-      quote: Amend the specification
-    confidence: 0.7
-    reasoning: >-
-      What the applicant claims, as written in the application. A part of the document,
-      and the part amendment operates on.
-    alternatives_considered:
-    - >-
-      subject_matter — the near miss. The specification describes the goods, and the goods
-      are arguably what the registration is about. Rejected because the concept names
-      the claim as written — which is why amending it is one of the Manual's named ways
-      of overcoming a section 44 ground.
-    - >-
-      none_of_these — where this record sat until 2026-09-09, and the honest answer while
-      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
-      the owner asked for groups that fit these 53 (ADR-0098).
-    expert_should_check: >-
-      Whether specification, classification and the goods themselves are three concepts
-      or one thing with three aspects. They are typed into three different groups by this
-      pass, which is a strong claim and rests on a thin argument.
 - id: GT-0130
   concept: GC-0130
   type: relevant_factor
@@ -5462,37 +5010,6 @@
     alternatives_considered: []
     expert_should_check: 'Check Article 2(2) of the Protocol for the full definition: regulation
       17A.2 incorporates it, but that Article is not supplied here.'
-- id: GT-0137
-  concept: GC-0137
-  type: none_of_these
-  basis:
-  - TMA1995/s9/covering
-  notes: covering
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMA1995/s9/covering
-      span:
-      - 0
-      - 76
-      content_hash: sha256:0d5190d4b63fe7db5c185b9604132cfaefc682763da4282fe126a2babbe3d203
-      quote: covering includes packaging, frame, wrapper, container, stopper, lid or cap.
-    confidence: 0.95
-    reasoning: 'Typed in the same judgement as the concept: Section 9 expressly defines the
-      noun ''covering'', making it a distinct legal concept rather than merely a goods category
-      or generic expression. No existing concept duplicates it. The Manual passages instead
-      use ''covering'' in its ordinary sense of encompassing classes, goods, services or searches.
-      None of the supplied groups clearly fits the defined physical covering, so none_of_these
-      is preferred. The listed PROVISIONS do not ground this definition; section 9 is supplied
-      as a passage but is absent from that list.'
-    alternatives_considered: []
-    expert_should_check: 'Confirm its ontology placement: the supplied definition establishes
-      a statutory concept but does not explain its procedural function.'
 - id: GT-0138
   concept: GC-0138
   type: process_role
@@ -5560,40 +5077,6 @@
     alternatives_considered: []
     expert_should_check: Check the currency of the supplied section 190 court list before
       using it as a statement of current law.
-- id: GT-0140
-  concept: GC-0140
-  type: subject_matter
-  basis:
-  - TMA1995/s9/label
-  notes: label
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMA1995/s9/label
-      span:
-      - 0
-      - 32
-      content_hash: sha256:4d5ccddf3172e8ed7ad737361ac958c5407b7b2c896eef94f862c7d47997d053
-      quote: label includes a band or ticket.
-    confidence: 0.88
-    reasoning: 'Typed in the same judgement as the concept: The legislative passage expressly
-      gives label an inclusive definition, supporting a distinct concept rather than merely
-      generic packaging terminology. The Manual passages also discuss a label''s parts and
-      presentation in assessing use as a trade mark. Label is not synonymous with the existing
-      concepts sign or trade mark: the Manual indicates that parts of a label may perform
-      a distinguishing function. Subject_matter is the closest group, although the supplied
-      passages do not establish that every label is itself registrable. No listed legislative
-      provision can be confirmed as grounding it from the supplied text.'
-    alternatives_considered:
-    - Treat label as ordinary packaging terminology if the ontology excludes expressly defined
-      physical forms associated with trade marks.
-    expert_should_check: Verify the supplied TMA1995/s9/label reference and which listed provisions
-      ground the concept; their text is not supplied.
 - id: GT-0141
   concept: GC-0141
   type: none_of_these
@@ -5767,71 +5250,6 @@
       section 15, treat this as a duplicate of GC-0019 instead.
     expert_should_check: Check whether GC-0019 geographical origin already encompasses this
       wine-specific statutory test; only its label has been supplied.
-- id: GT-0146
-  concept: GC-0146
-  type: process_role
-  basis:
-  - TMA1995/s6/board
-  notes: Board
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMA1995/s6/board
-      span:
-      - 0
-      - 54
-      content_hash: sha256:4580da3404b27728550dab587acc03ee3f0fece76cc98428bfb9f5866e9835b8
-      quote: Board has the same meaning as in the Patents Act 1990.
-    confidence: 0.86
-    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly defines the
-      capitalised term by reference to another Act, supporting a distinct statutory concept
-      not represented in the existing concepts. Classification as process_role is inferred
-      and remains provisional because the referenced definition is not supplied. The Manual
-      occurrences concern goods or physical boards, not this statutory term. Neither supplied
-      passage establishes sections 41 or 42(b) as a legislative basis for Board.'
-    alternatives_considered: []
-    expert_should_check: Check the referenced definition in the applicable version of the
-      Patents Act 1990 to establish the Board’s identity and confirm its classification as
-      a process role.
-- id: GT-0147
-  concept: GC-0147
-  type: none_of_these
-  basis:
-  - TMA1995/s6/personal-information
-  notes: personal information
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMA1995/s6/personal-information
-      span:
-      - 0
-      - 69
-      content_hash: sha256:07ba6beb409e6da164a1cf829a6300fe46fe5d257d1debb0d00a91e99529f87c
-      quote: personal information has the same meaning as in the Privacy Act 1988.
-    confidence: 0.94
-    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly incorporates
-      a statutory meaning, making this a legal concept rather than a generic phrase. It is
-      not duplicated by the existing concepts. The Manual describes its relevance to information-access
-      practice, but those descriptions are not the substantive definition. None of the groups
-      accurately describes a protected category of information: it is neither a document itself
-      nor the subject matter that may be registered. The incorporated Privacy Act definition
-      is unavailable, so the supplied cross-reference is retained. No supplied passage establishes
-      one of the listed PROVISIONS as the legislative basis for that definition.'
-    alternatives_considered: []
-    expert_should_check: 'Check the substantive definition in the Privacy Act 1988, which
-      is not supplied. Also check the instrument attribution of the cited provisions: the
-      Manual expressly attributes sections 11C and the third-party consultation requirements
-      to the FOI Act, not the Trade Marks Act.'
 - id: GT-0148
   concept: GC-0148
   type: process_role
@@ -6376,43 +5794,6 @@
     alternatives_considered: []
     expert_should_check: Confirm whether the ontology should represent this defined historical
       legislative reference as a standalone concept or as a legislative instrument entity.
-- id: GT-0164
-  concept: GC-0164
-  type: none_of_these
-  basis:
-  - TMM/Part30/3/3/5/5~3
-  notes: capture
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part30/3/3/5/5~3
-      span:
-      - 0
-      - 134
-      content_hash: sha256:ed18a29ee2a865fee4099970e543b456f001b8de018dbe8c4f159d63093f9efc
-      quote: ‘Capture’ is defined in the regulations as recording the image by artistic representation,
-        or on film, videotape or electronic medium.
-    confidence: 0.9
-    reasoning: 'Typed in the same judgement as the concept: The passage expressly reports
-      a regulatory definition of capture and connects it to the Manual''s practice concerning
-      prohibited use of reserve images. This is a distinct legally relevant activity, not
-      a goods or services category or an existing listed concept. None of the supplied groups
-      fits precisely: recording an image is neither a ground for refusal itself nor a procedural
-      step advancing a trade mark application. The other passages use capture for database
-      administration or internet archiving; those uses should not be conflated with this defined
-      sense. Section 42(b) supplies the trade marks context, but the underlying regulatory
-      definition is not provided directly.'
-    alternatives_considered:
-    - If the intended sense is database administration, consider a separate concept labelled
-      “Data Capture”, expressly named in TMM/Part5/1#1.
-    expert_should_check: Verify the identity and provision of the regulations defining capture
-      and governing the reserve-image restrictions; the passage does not establish that its
-      references to regs 12.2 and 12.38 are to the Trade Marks Regulations 1995.
 - id: GT-0165
   concept: GC-0165
   type: instrument_or_record
@@ -6444,40 +5825,6 @@
     alternatives_considered: []
     expert_should_check: Check whether the singular Manual form 'Record of International Registration'
       should be retained as an alternative label or treated as an editorial inconsistency.
-- id: GT-0166
-  concept: GC-0166
-  type: subject_matter
-  basis:
-  - TMM/Part5/x-device-constituents/cartoon
-  notes: CARTOON
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part5/x-device-constituents/cartoon
-      span:
-      - 0
-      - 110
-      content_hash: sha256:02649c9ad19d0bac6a5d393b6efc49ab7c261d9fae2a6b48ac7b647a76be08df
-      quote: The word CARTOON means a drawing which symbolises or caricatures some subject
-        or person in an exaggerated way.
-    confidence: 0.86
-    reasoning: 'Typed in the same judgement as the concept: The Manual gives CARTOON a specific
-      definition and usage boundaries, supporting a distinct controlled concept rather than
-      merely a generic English word. It is not equivalent to the existing image of a person
-      concept: it also covers animals and objects, while images of persons include other forms
-      of representation. The other passages discuss cartoon imagery in applying sections 42
-      and 43, but do not establish a legislative definition or a separate ground for refusal
-      based on cartoon form.'
-    alternatives_considered:
-    - Exclude it if the ontology excludes Manual device-constituent terminology and includes
-      only substantive legal and procedural concepts.
-    expert_should_check: Confirm that device-constituent terminology belongs within the ontology
-      and that subject_matter is the appropriate group.
 - id: GT-0167
   concept: GC-0167
   type: instrument_or_record
@@ -6514,3 +5861,343 @@
       supplied legislative fragment is labelled r2.1, whereas the Manual identifies r2.2 as
       the interpretation provision; the fragment does not disclose the statement’s required
       contents or who must sign it.'
+- id: GT-0168
+  concept: GC-0168
+  type: ground_of_refusal
+  basis:
+  - TMA1995/s43
+  notes: section 43 ground for rejection — the ground section 43 creates
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s43
+      span:
+      - 95
+      - 318
+      content_hash: sha256:37f2c27c42b22f4448b941d9e541f979dc443b8cf2c9aff6e711f28c2e82c73c
+      quote: must be rejected if, because of some connotation that the trade mark or a sign
+        contained in the trade mark has, the use of the trade mark in relation to those goods
+        or services would be likely to deceive or cause confusion.
+    confidence: 0.95
+    reasoning: Section 43 states a reason an application must be rejected, which is the definition
+      of a ground of refusal.
+    alternatives_considered:
+    - 'legal_test — rejected: the test is GC-0002, likely to deceive or cause confusion; this
+      is the ground the test decides.'
+    expert_should_check: null
+- id: GT-0169
+  concept: GC-0169
+  type: relevant_factor
+  basis:
+  - TMM/Part32B/1/1/3
+  notes: wine geographical indication — a wine GI feeds the s 42(b) and s 43 questions; typed
+    as GC-0018 is
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part32B/1/1/3
+      span:
+      - 250
+      - 355
+      content_hash: sha256:477b4457c36116f72b0b60c7022c87ee4c711c97faa9e34ad3b8fddff85dcf64
+      quote: Australian Geographical Indications (‘Australian GIs’) European Geographical
+        Indications (‘European GIs’)
+    confidence: 0.85
+    reasoning: a wine GI feeds the s 42(b) and s 43 questions; typed as GC-0018 is
+    alternatives_considered: []
+    expert_should_check: null
+- id: GT-0170
+  concept: GC-0170
+  type: instrument_or_record
+  basis:
+  - TMM/Part32B/1/1/3
+  notes: Register of Protected Geographical Indications and Other Terms — a register kept
+    under another Act; an instrument or record, not a treaty
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part32B/1/1/3
+      span:
+      - 0
+      - 173
+      content_hash: sha256:477b4457c36116f72b0b60c7022c87ee4c711c97faa9e34ad3b8fddff85dcf64
+      quote: The Register of Protected Geographical Indications and Other Terms (the Wine
+        Register) lists the four categories of terms that Australia and the European Union
+        will protect.
+    confidence: 0.95
+    reasoning: a register kept under another Act; an instrument or record, not a treaty
+    alternatives_considered: []
+    expert_should_check: null
+- id: GT-0171
+  concept: GC-0171
+  type: process_role
+  basis:
+  - TMA1995/s206
+  - TMM/Part18/2#1
+  notes: delegate — a person who acts under delegated power
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s206
+      span:
+      - 4
+      - 158
+      content_hash: sha256:a5acda8710abb1866aa218fa05e78334953df7ea0eb8a808c05aae80f452f168
+      quote: The Registrar may by signed instrument delegate all or any of his or her powers
+        or functions to a prescribed employee, or employees in a prescribed class.
+    confidence: 0.95
+    reasoning: a person who acts under delegated power
+    alternatives_considered: []
+    expert_should_check: null
+- id: GT-0172
+  concept: GC-0172
+  type: process_role
+  basis:
+  - TMM/Part52/2#1~1
+  - TMM/Part18/2/2/2
+  notes: Hearing Officer — a delegate who conducts hearings
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part52/2#1~1
+      span:
+      - 50
+      - 243
+      content_hash: sha256:d3060d00b473a6a3b27f8a5870ab27a75388303640c894901bd78e76517f93c8
+      quote: A hearing is an interactive presentation, in a forum conducted by the Deputy
+        Registrar or a Hearing Officer from the Oppositions and Hearings Section acting under
+        delegation from the Registrar.
+    confidence: 0.9
+    reasoning: a delegate who conducts hearings
+    alternatives_considered: []
+    expert_should_check: null
+- id: GT-0173
+  concept: GC-0173
+  type: process_role
+  basis:
+  - TMM/Part18/2/2/2
+  - TMM/Part38/1/1/3
+  notes: Examination team leader — a delegate who leads an examination team
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part18/2/2/2
+      span:
+      - 219
+      - 382
+      content_hash: sha256:edcc2c4d242318bfe2de3ddaf160f7bd45d725e10b6bfd0ed674ed348d1d5783
+      quote: The people currently delegated to accept trade mark applications include Hearing
+        Officers, EL1 Examination Team leaders, APS6 Senior Examiners and APS 5 Examiners.
+    confidence: 0.9
+    reasoning: a delegate who leads an examination team
+    alternatives_considered: []
+    expert_should_check: null
+- id: GT-0174
+  concept: GC-0174
+  type: process_role
+  basis:
+  - TMM/Part18/2/2/2
+  notes: senior examiner — a delegate between examiner and team leader
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part18/2/2/2
+      span:
+      - 219
+      - 382
+      content_hash: sha256:edcc2c4d242318bfe2de3ddaf160f7bd45d725e10b6bfd0ed674ed348d1d5783
+      quote: The people currently delegated to accept trade mark applications include Hearing
+        Officers, EL1 Examination Team leaders, APS6 Senior Examiners and APS 5 Examiners.
+    confidence: 0.85
+    reasoning: a delegate between examiner and team leader
+    alternatives_considered: []
+    expert_should_check: null
+- id: GT-0175
+  concept: GC-0175
+  type: process_role
+  basis:
+  - TMM/Part14/4/4/1/2
+  - TMM/Part30/3/3/4/1
+  - TMM/Part10/4/4/1/3
+  notes: subject matter expert — an adviser consulted by a delegate
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part14/4/4/1/2
+      span:
+      - 63
+      - 258
+      content_hash: sha256:10d425e949217bf87021770c8f0ecfffc6a2c97efae49e0e534756dbf93113f4
+      quote: If items cannot be classified using NICE, the picklist or the other classification
+        resources available, the application should be referred to the Classification Subject
+        Matter Experts for advice.
+    confidence: 0.9
+    reasoning: an adviser consulted by a delegate
+    alternatives_considered: []
+    expert_should_check: null
+- id: GT-0176
+  concept: GC-0176
+  type: process_role
+  basis:
+  - TMM/Part18/2/2/2
+  notes: acceptance officer — the delegates holding the power to accept
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part18/2/2/2
+      span:
+      - 219
+      - 382
+      content_hash: sha256:edcc2c4d242318bfe2de3ddaf160f7bd45d725e10b6bfd0ed674ed348d1d5783
+      quote: The people currently delegated to accept trade mark applications include Hearing
+        Officers, EL1 Examination Team leaders, APS6 Senior Examiners and APS 5 Examiners.
+    confidence: 0.9
+    reasoning: the delegates holding the power to accept
+    alternatives_considered: []
+    expert_should_check: null
+- id: GT-0177
+  concept: GC-0177
+  type: process_role
+  basis:
+  - TMM/Part29/5/5/1
+  notes: IP Australia — the agency that examines trade marks
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/5/5/1
+      span:
+      - 601
+      - 779
+      content_hash: sha256:f1703a4b04c30641621bd8da367c6a3e67ea3283a897a49422b4edfcbaf16b3a
+      quote: When examining trade marks, IP Australia is aware of the need to prevent use
+        of INNs (and words that may connote an INN) in a manner that is likely to deceive
+        or cause confusion.
+    confidence: 0.7
+    reasoning: the agency that examines trade marks
+    alternatives_considered: []
+    expert_should_check: null
+- id: GT-0178
+  concept: GC-0178
+  type: process_role
+  basis:
+  - TMM/Part55/4/4/1~1
+  notes: trade mark attorney — a representative of a party
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part55/4/4/1~1
+      span:
+      - 1963
+      - 2136
+      content_hash: sha256:f1b084995f3099140ed35932c8f3f5d113864c5df3f28c224c5b1d9b23ddac00
+      quote: These costs are only claimable in respect of attendance at the hearing by a registered
+        patent attorney, registered trade mark attorney, or solicitor with or without counsel.
+    confidence: 0.75
+    reasoning: a representative of a party
+    alternatives_considered: []
+    expert_should_check: null
+- id: GT-0179
+  concept: GC-0179
+  type: instrument_or_record
+  basis:
+  - TMM/Part16/2#1
+  notes: adverse report — a document the examination produces
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part16/2#1
+      span:
+      - 211
+      - 339
+      content_hash: sha256:399ea7506378b653fdf6a61c07d01284871964193718817e46ead6f7d69ddef4
+      quote: Under reg 4.10 the Registrar must consider the response and either accept the
+        application or issue an adverse report in writing.
+    confidence: 0.9
+    reasoning: a document the examination produces
+    alternatives_considered: []
+    expert_should_check: null
+- id: GT-0180
+  concept: GC-0180
+  type: none_of_these
+  basis:
+  - TMM/Part14/3#1~2
+  notes: office practice — an authority kind (practice), not a role, thing, step, record or
+    scheme
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part14/3#1~2
+      span:
+      - 241
+      - 294
+      content_hash: sha256:1ab417074dd72f5941cdb89b71feb3fc49bf33712c689f8562be4713e319a935
+      quote: it is office practice to also not allow terms such as
+    confidence: 0.7
+    reasoning: an authority kind (practice), not a role, thing, step, record or scheme
+    alternatives_considered: []
+    expert_should_check: null

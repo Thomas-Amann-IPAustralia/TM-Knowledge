@@ -1,0 +1,670 @@
+# Authored ids withdrawn from service. One id sequence runs across both stores and a
+# withdrawn id is never reused (IDENTIFIERS.md §3, ADR-0033); eval/gold/ is frozen, so
+# authored withdrawals are recorded here (ADR-0122). Each entry says why, what replaced
+# it where anything did, and the owner's ruling it acts on. The withdrawn record itself
+# is in the git history.
+- id: GC-0118
+  record_type: gold_concept
+  label: presumption of registrability
+  retired_on: '2026-10-08'
+  reason: '''presumption of registrability'' duplicated the signed GC-0007 (''presumption
+    of registrability''). The signed record wins (ADR-0080 c2); anything this record added
+    that the signed one lacked is carried by a correction in authored/corrections.yaml.'
+  replaced_by: GC-0007
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GT-0118
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0118, withdrawn with it.
+  replaced_by: GT-0007
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GC-0129
+  record_type: gold_concept
+  label: specification of goods and services
+  retired_on: '2026-10-08'
+  reason: '''specification of goods and services'' duplicated the signed GC-0012 (''specification
+    of goods and services''). The signed record wins (ADR-0080 c2); anything this record added
+    that the signed one lacked is carried by a correction in authored/corrections.yaml.'
+  replaced_by: GC-0012
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GT-0129
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0129, withdrawn with it.
+  replaced_by: GT-0012
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GC-0069
+  record_type: gold_concept
+  label: conditions or limitations
+  retired_on: '2026-10-08'
+  reason: '''conditions or limitations'' duplicated the signed GC-0013 (''condition of registration'').
+    The signed record wins (ADR-0080 c2); anything this record added that the signed one lacked
+    is carried by a correction in authored/corrections.yaml.'
+  replaced_by: GC-0013
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GT-0069
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0069, withdrawn with it.
+  replaced_by: GT-0013
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GC-0100
+  record_type: gold_concept
+  label: endorsement
+  retired_on: '2026-10-08'
+  reason: '''endorsement'' duplicated the signed GC-0014 (''endorsement''). The signed record
+    wins (ADR-0080 c2); anything this record added that the signed one lacked is carried by
+    a correction in authored/corrections.yaml.'
+  replaced_by: GC-0014
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GT-0100
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0100, withdrawn with it.
+  replaced_by: GT-0014
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GC-0090
+  record_type: gold_concept
+  label: priority date
+  retired_on: '2026-10-08'
+  reason: '''priority date'' duplicated the signed GC-0016 (''priority date''). The signed
+    record wins (ADR-0080 c2); anything this record added that the signed one lacked is carried
+    by a correction in authored/corrections.yaml.'
+  replaced_by: GC-0016
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GT-0090
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0090, withdrawn with it.
+  replaced_by: GT-0016
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GC-0125
+  record_type: gold_concept
+  label: plant varietal name
+  retired_on: '2026-10-08'
+  reason: '''plant varietal name'' duplicated the signed GC-0036 (''plant variety name'').
+    The signed record wins (ADR-0080 c2); anything this record added that the signed one lacked
+    is carried by a correction in authored/corrections.yaml.'
+  replaced_by: GC-0036
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GT-0125
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0125, withdrawn with it.
+  replaced_by: GT-0036
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GC-0102
+  record_type: gold_concept
+  label: opposition
+  retired_on: '2026-10-08'
+  reason: '''opposition'' duplicated the signed GC-0040 (''opposition''). The signed record
+    wins (ADR-0080 c2); anything this record added that the signed one lacked is carried by
+    a correction in authored/corrections.yaml.'
+  replaced_by: GC-0040
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GT-0102
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0102, withdrawn with it.
+  replaced_by: GT-0040
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GC-0101
+  record_type: gold_concept
+  label: evidence of use
+  retired_on: '2026-10-08'
+  reason: '''evidence of use'' duplicated the signed GC-0041 (''evidence of use''). The signed
+    record wins (ADR-0080 c2); anything this record added that the signed one lacked is carried
+    by a correction in authored/corrections.yaml.'
+  replaced_by: GC-0041
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GT-0101
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0101, withdrawn with it.
+  replaced_by: GT-0041
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GC-0094
+  record_type: gold_concept
+  label: revocation of acceptance
+  retired_on: '2026-10-08'
+  reason: '''revocation of acceptance'' duplicated the signed GC-0042 (''revocation of acceptance'').
+    The signed record wins (ADR-0080 c2); anything this record added that the signed one lacked
+    is carried by a correction in authored/corrections.yaml.'
+  replaced_by: GC-0042
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GT-0094
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0094, withdrawn with it.
+  replaced_by: GT-0042
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GC-0110
+  record_type: gold_concept
+  label: divisional application
+  retired_on: '2026-10-08'
+  reason: '''divisional application'' duplicated the signed GC-0043 (''divisional application'').
+    The signed record wins (ADR-0080 c2); anything this record added that the signed one lacked
+    is carried by a correction in authored/corrections.yaml.'
+  replaced_by: GC-0043
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GT-0110
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0110, withdrawn with it.
+  replaced_by: GT-0043
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GC-0115
+  record_type: gold_concept
+  label: Registrar of Trade Marks
+  retired_on: '2026-10-08'
+  reason: '''Registrar of Trade Marks'' duplicated the signed GC-0046 (''Registrar''). The
+    signed record wins (ADR-0080 c2); anything this record added that the signed one lacked
+    is carried by a correction in authored/corrections.yaml.'
+  replaced_by: GC-0046
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GT-0115
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0115, withdrawn with it.
+  replaced_by: GT-0046
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- id: GC-0053
+  record_type: gold_concept
+  label: ground for rejection
+  retired_on: '2026-10-08'
+  reason: '''ground for rejection'' duplicated the signed GC-0006 (''ground for rejection'').
+    The signed record wins (ADR-0080 c2); anything this record added that the signed one lacked
+    is carried by a correction in authored/corrections.yaml.'
+  replaced_by: GC-0006
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A2
+- id: GT-0053
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0053, withdrawn with it.
+  replaced_by: GT-0006
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A2
+- id: GR-0093
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0092.
+  replaced_by: GR-0092
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0109
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it relates GC-0013 to itself (broader).
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0143
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0142.
+  replaced_by: GR-0142
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0146
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0145.
+  replaced_by: GR-0145
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0149
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0148.
+  replaced_by: GR-0148
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0152
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0090.
+  replaced_by: GR-0090
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0202
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0201.
+  replaced_by: GR-0201
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0217
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0215.
+  replaced_by: GR-0215
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0223
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0222.
+  replaced_by: GR-0222
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0244
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0243.
+  replaced_by: GR-0243
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0256
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0122.
+  replaced_by: GR-0122
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0281
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0160.
+  replaced_by: GR-0160
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0287
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0286.
+  replaced_by: GR-0286
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0291
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0164.
+  replaced_by: GR-0164
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0292
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0177.
+  replaced_by: GR-0177
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0295
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0294.
+  replaced_by: GR-0294
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0297
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0296.
+  replaced_by: GR-0296
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0302
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0301.
+  replaced_by: GR-0301
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0308
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0307.
+  replaced_by: GR-0307
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0312
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0311.
+  replaced_by: GR-0311
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0322
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0321.
+  replaced_by: GR-0321
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0342
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0341.
+  replaced_by: GR-0341
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0346
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0343.
+  replaced_by: GR-0343
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0365
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0364. GR-0364
+    was itself withdrawn later the same day (E3).
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0378
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0377. GR-0377
+    was itself withdrawn later the same day (E3).
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0382
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0381.
+  replaced_by: GR-0381
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0395
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0091.
+  replaced_by: GR-0091
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0403
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0168.
+  replaced_by: GR-0168
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0423
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0405.
+  replaced_by: GR-0405
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0463
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0289.
+  replaced_by: GR-0289
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0464
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0175.
+  replaced_by: GR-0175
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0466
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0293.
+  replaced_by: GR-0293
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0473
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0472.
+  replaced_by: GR-0472
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0477
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0394.
+  replaced_by: GR-0394
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0480
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0440.
+  replaced_by: GR-0440
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0496
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0454.
+  replaced_by: GR-0454
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0528
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0167.
+  replaced_by: GR-0167
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0530
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0529.
+  replaced_by: GR-0529
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0531
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0161.
+  replaced_by: GR-0161
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0542
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0449.
+  replaced_by: GR-0449
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0568
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0290.
+  replaced_by: GR-0290
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0571
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0091.
+  replaced_by: GR-0091
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0572
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0092.
+  replaced_by: GR-0092
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0581
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0580.
+  replaced_by: GR-0580
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0582
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0106.
+  replaced_by: GR-0106
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0584
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0159.
+  replaced_by: GR-0159
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0586
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0107.
+  replaced_by: GR-0107
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0596
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0569.
+  replaced_by: GR-0569
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0609
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0608.
+  replaced_by: GR-0608
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0623
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0108.
+  replaced_by: GR-0108
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0628
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: After the merge it states the same triple, from the same sentence, as GR-0627.
+  replaced_by: GR-0627
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D3
+- id: GR-0444
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Made the trade mark's authorised user (s 8) a kind of GC-0035, the s 43 factor about
+    who holds a referenced phone number, domain name or call sign — the same words for different
+    roles (GC-0035's own note).
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A4
+- id: GR-0513
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Made the registered owner a kind of GC-0035 on the same confusion; owner and authorised
+    user are separate entities (owner's ruling A4).
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A4
+- id: GR-0445
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Attached a sentence about use of a trade mark by its owner, predecessor in title
+    or authorised user (s 41) to the s 43 factor GC-0035; GR-0510 states it of the authorised
+    user (GC-0083).
+  replaced_by: GR-0510
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A4
+- id: GR-0518
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Attached the right to sue for infringement to the s 43 factor GC-0035; GR-0519 states
+    it of the authorised user (GC-0083).
+  replaced_by: GR-0519
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A4
+- id: GR-0352
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Built from a form template ('<123456>'), not a statement (review D5).
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D5
+- id: GR-0278
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Built from a statement that the Madrid Protocol does not define a collective mark
+    — an absence, not a relation (review D5).
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D5
+- id: GC-0137
+  record_type: gold_concept
+  label: covering
+  retired_on: '2026-10-08'
+  reason: '''covering'': A section 9 defined term (''covering includes packaging, frames,
+    wrappers…'') the Manual uses in its ordinary sense — an application ''covering'' goods;
+    no examination role. (review E3)'
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GT-0137
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0137, withdrawn with it.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GC-0140
+  record_type: gold_concept
+  label: label
+  retired_on: '2026-10-08'
+  reason: '''label'': A section 9 defined term (''label includes a band or ticket''); the
+    Manual''s 14 uses are mostly ordinary and none reasons with the definition; no examination
+    role. (review E3)'
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GT-0140
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0140, withdrawn with it.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GC-0146
+  record_type: gold_concept
+  label: Board
+  retired_on: '2026-10-08'
+  reason: '''Board'': The section 6 ''Board'' (by reference to the Patents Act). All five
+    passages it linked to were other boards — an A-frame board, a body board, a painter''s
+    board, the Board of Trade — and its own record could not identify the body. (review E3)'
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GT-0146
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0146, withdrawn with it.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GC-0147
+  record_type: gold_concept
+  label: personal information
+  retired_on: '2026-10-08'
+  reason: '''personal information'': A freedom-of-information term (section 6, by reference
+    to the Privacy Act); it has no role in examining an application. (review E3)'
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GT-0147
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0147, withdrawn with it.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GC-0164
+  record_type: gold_concept
+  label: capture
+  retired_on: '2026-10-08'
+  reason: '''capture'': A term other regulations define for photographing Commonwealth reserves;
+    its other uses are ordinary (data capture, captures from the Wayback Machine). The examination
+    point it carried — an image of a Commonwealth reserve may attract the s 42(b) ground —
+    is a candidate for a concept of its own, not a reason to keep this one. (review E3)'
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GT-0164
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0164, withdrawn with it.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GC-0166
+  record_type: gold_concept
+  label: CARTOON
+  retired_on: '2026-10-08'
+  reason: '''CARTOON'': A Part 5 indexing descriptor for searching device marks, not an examination
+    concept; its four edges restated what the signed ''image of a person'' (GC-0030) and ''well-known
+    person'' (GC-0026) already hold. (review E3)'
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GT-0166
+  record_type: concept_type
+  retired_on: '2026-10-08'
+  reason: The typing of GC-0166, withdrawn with it.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GR-0363
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Withdrawn with GC-0164 ('capture'), a dictionary word with no examination role.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GR-0364
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Withdrawn with GC-0164 ('capture'), a dictionary word with no examination role.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GR-0366
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Withdrawn with GC-0164 ('capture'), a dictionary word with no examination role.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GR-0367
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Withdrawn with GC-0164 ('capture'), a dictionary word with no examination role.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GR-0374
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Withdrawn with GC-0166 ('CARTOON'), a dictionary word with no examination role.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GR-0375
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Withdrawn with GC-0166 ('CARTOON'), a dictionary word with no examination role.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GR-0376
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Withdrawn with GC-0166 ('CARTOON'), a dictionary word with no examination role.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GR-0377
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Withdrawn with GC-0166 ('CARTOON'), a dictionary word with no examination role.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GR-0502
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Withdrawn with GC-0140 ('label'), a dictionary word with no examination role.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GR-0577
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Withdrawn with GC-0137 ('covering'), a dictionary word with no examination role.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GR-0610
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Withdrawn with GC-0147 ('personal information'), a dictionary word with no examination
+    role.
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E3
+- id: GR-0288
+  record_type: gold_relationship
+  retired_on: '2026-10-08'
+  reason: Built from an endorsement template ('the priority date <day month year> based on
+    national registration number(s) <123456>'), not a statement — the same fault as GR-0352
+    (review D5).
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D5

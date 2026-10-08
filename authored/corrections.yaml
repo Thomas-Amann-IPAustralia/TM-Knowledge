@@ -1,0 +1,943 @@
+# Corrections to signed records — machine-written, unreviewed, on the owner's instruction.
+# eval/gold/ stays exactly as signed; what serves (graph, recognition, search, explorer)
+# applies these. See src/tm_knowledge/authored/corrections.py and ADR-0122.
+- id: GK-0001
+  corrects: GC-0006
+  record_type: gold_concept
+  remove:
+    alt_labels:
+    - s 43 objection
+    legislative_basis:
+    - TMA1995/s43
+  add:
+    alt_labels:
+    - grounds for rejection
+    - grounds for rejecting
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A2+A1
+  notes: The general concept; the section 43 ground is GC-0168.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part20/5#1
+      span:
+      - 590
+      - 684
+      content_hash: sha256:53ac65102a07932fd67393905ea28f29ad056b2b475899968a88f18e877e9557
+      quote: Sections 39 to 43 cover what are sometimes referred to as the “absolute” grounds
+        for rejection
+    - ref: TMM/Part17/3#1~1
+      span:
+      - 595
+      - 697
+      content_hash: sha256:fd01155e912cd98de675159da855007892e10ad8fe801f4e461fb5533ace644d
+      quote: there are no longer any grounds for rejecting the application under subsection
+        44(1) or (2) of the Act
+    confidence: 0.9
+    reasoning: GC-0006 is the general idea of a ground for rejection — Part 20 places grounds
+      in sections 39 to 44 — but it carried the section 43 ground's own label and basis. Those
+      move to GC-0168, the section 43 ground (ruling A2). The plural forms the Manual uses
+      throughout come from the withdrawn duplicate GC-0053 (ruling A1).
+    alternatives_considered:
+    - 'Leaving ''s 43 objection'' here as well as on GC-0168: a label on two concepts recognises
+      both, which is the duplication the owner asked to remove.'
+    expert_should_check: Whether 'objection' (an alternative label the linker now skips as
+      too general, ruling E1) belongs here at all.
+- id: GK-0002
+  corrects: GC-0007
+  record_type: gold_concept
+  add:
+    legislative_basis:
+    - TMA1995/s33(1)
+    definition_sources:
+    - TMM/Part20/4#1~1
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part20/4#1~1
+      span:
+      - 0
+      - 182
+      content_hash: sha256:67daa8312e2898e336753ab4fecc9acaea819f1ea3af243af1c38300cb23e6d5
+      quote: There is a presumption under the Act that a trade mark is registrable. Section
+        33 specifies that the Registrar must accept a trade mark for registration unless he
+        or she is satisfied
+    - ref: TMA1995/s33
+      span:
+      - 4
+      - 104
+      content_hash: sha256:36311d92754a0ea33e97abec732d66bb149a577c8004ce2f28ee98bb3bcb54e2
+      quote: The Registrar must, after the examination, accept the application unless he or
+        she is satisfied that
+    confidence: 0.9
+    reasoning: The presumption is section 33(1) — the Registrar must accept unless satisfied
+      — and Part 20.4 states it in terms. The signed record cites only section 33(3), the
+      rejection limb. Both additions come from the withdrawn duplicate GC-0118 (ruling A1).
+    alternatives_considered: []
+    expert_should_check: Whether section 33(3) should stay as a basis beside 33(1); it is
+      the consequence of the presumption being displaced.
+- id: GK-0003
+  corrects: GC-0012
+  record_type: gold_concept
+  add:
+    alt_labels:
+    - specification of goods and/or services
+    legislative_basis:
+    - TMA1995/s27(3)(b)
+    - TMR1995/r4.4
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part10/5/5/2/1
+      span:
+      - 127
+      - 213
+      content_hash: sha256:04e4519ed68a5ca0c80e1bca35e2c791b702e1b7f95fddcdaeeff12e48ed0033
+      quote: in a specification of goods and/or services in respect of which registration
+        is sought
+    - ref: TMR1995/r4.4
+      span:
+      - 4
+      - 243
+      content_hash: sha256:be469f9148fe0eefbde61c9287f8fc3ce41403de3e66af542f93712a97cdb7d7
+      quote: For the purposes of paragraph 27(3)(b) of the Act, the following subregulations
+        set out the manner of specifying, in an application for the registration of a trade
+        mark, the goods and/or services in respect of which registration is sought.
+    confidence: 0.9
+    reasoning: The Manual's own form of the label, and the regulation that governs how the
+      specification is framed, both from the withdrawn duplicate GC-0129 (ruling A1). The
+      duplicate cited paragraph 27(1)(b); regulation 4.4 says the paragraph is 27(3)(b).
+    alternatives_considered: []
+    expert_should_check: null
+- id: GK-0004
+  corrects: GC-0013
+  record_type: gold_concept
+  add:
+    alt_labels:
+    - conditions and limitations
+    legislative_basis:
+    - TMA1995/s33(2)
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part38/1/1/1
+      span:
+      - 1027
+      - 1092
+      content_hash: sha256:1e68ddbb103428e50ca34aa2aa6c219108d907440b7ae310c1c038c1da2816d8
+      quote: certain conditions and limitations are placed upon the trade mark
+    - ref: TMA1995/s33
+      span:
+      - 269
+      - 347
+      content_hash: sha256:36311d92754a0ea33e97abec732d66bb149a577c8004ce2f28ee98bb3bcb54e2
+      quote: The Registrar may accept the application subject to conditions or limitations.
+    confidence: 0.85
+    reasoning: Section 33(2) is the power to accept subject to conditions or limitations;
+      the signed record cites no provision. The label form is the Manual's. Both from the
+      withdrawn duplicate GC-0069 (ruling A1).
+    alternatives_considered: []
+    expert_should_check: Whether a condition and a limitation are one concept; section 6 defines
+      limitations separately.
+- id: GK-0005
+  corrects: GC-0014
+  record_type: gold_concept
+  add:
+    alt_labels:
+    - endorsements
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part10/3/3/1
+      span:
+      - 677
+      - 726
+      content_hash: sha256:97dae3dd3a0e40337d74e695dd5b851ae04c39a99fa4129f99fb0430d9f0a1a5
+      quote: Such descriptions will be entered as endorsements
+    confidence: 0.9
+    reasoning: The plural the Manual uses, from the withdrawn duplicate GC-0100 (ruling A1);
+      recognition matches whole words, so the singular does not find it.
+    alternatives_considered: []
+    expert_should_check: null
+- id: GK-0006
+  corrects: GC-0016
+  record_type: gold_concept
+  add:
+    legislative_basis:
+    - TMA1995/s12
+    - TMA1995/s6/priority-date
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s12
+      span:
+      - 0
+      - 101
+      content_hash: sha256:f0c714853658535f373f035e5a52c3d7256ce6f17a1cb2ae3ce3e0c29a46b406
+      quote: 'The priority date for the registration of a trade mark in respect of particular
+        goods or services is:'
+    - ref: TMA1995/s6/priority-date
+      span:
+      - 0
+      - 50
+      content_hash: sha256:58c974e5b99109d669241114abd7bc409f5fbfa875d981cb5745c6d18089793e
+      quote: priority date has the meaning given by section 12.
+    confidence: 0.95
+    reasoning: Section 12 defines the priority date and section 6 points to it; the signed
+      record cites neither. From the withdrawn duplicate GC-0090 (ruling A1).
+    alternatives_considered: []
+    expert_should_check: null
+- id: GK-0007
+  corrects: GC-0018
+  record_type: gold_concept
+  remove:
+    alt_labels:
+    - geographical indication for wine
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A4
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part32B/1/1/3
+      span:
+      - 0
+      - 173
+      content_hash: sha256:477b4457c36116f72b0b60c7022c87ee4c711c97faa9e34ad3b8fddff85dcf64
+      quote: The Register of Protected Geographical Indications and Other Terms (the Wine
+        Register) lists the four categories of terms that Australia and the European Union
+        will protect.
+    confidence: 0.9
+    reasoning: 'The owner ruled that wine geographical indications are different from other
+      GIs: they have a dedicated statutory scheme, while other GIs are principally protected
+      through certification trade marks (A4). Wine GIs are now GC-0169, which carries this
+      label; GC-0169 is a kind of GC-0018.'
+    alternatives_considered: []
+    expert_should_check: Whether 'listed EU GI' (Part 29.11) names wine GIs only; if so it
+      belongs on GC-0169 too.
+- id: GK-0008
+  corrects: GC-0035
+  record_type: gold_concept
+  remove:
+    alt_labels:
+    - authorised user
+  add:
+    not_labels:
+    - authorised user
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A4
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s8
+      span:
+      - 4
+      - 167
+      content_hash: sha256:a4ece48fa93452ed39793b89addc69db826bebe10d8ee6f4818903ab8351a823
+      quote: A person is an authorised user of a trade mark if the person uses the trade mark
+        in relation to goods or services under the control of the owner of the trade mark.
+    confidence: 0.9
+    reasoning: GC-0035 is the section 43 factor about who holds a phone number, domain name
+      or call sign the mark refers to. 'Authorised user' is the trade mark's authorised user
+      under section 8 — GC-0083 — and the owner ruled that the owner and the authorised user
+      are separate entities (A4). The label moves to a not-label so recognition stops putting
+      the two together.
+    alternatives_considered: []
+    expert_should_check: null
+- id: GK-0009
+  corrects: GC-0036
+  record_type: gold_concept
+  add:
+    alt_labels:
+    - plant varietal name
+    - variety denomination
+    - name of a plant variety
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part32A/2/3/2-3-1-a-variety-names
+      span:
+      - 524
+      - 757
+      content_hash: sha256:c8569891f2893c92e01f08ab4b66311d5f102c73f83202f193b8ec8dac26447f
+      quote: 'The following terms are treated as synonymous and used interchangeably in plant
+        industry literature: variety plant varietal name plant variety name variety denomination
+        denomination name of a plant variety cultivar cultivated variety'
+    confidence: 0.85
+    reasoning: 'Part 32A lists the forms the plant industry treats as synonyms of a variety
+      name; the withdrawn duplicate GC-0125 was labelled with one of them (ruling A1). ''cultivar''
+      and bare ''variety'' are left out: the first is a botanical term with its own sense,
+      the second too general to recognise.'
+    alternatives_considered: []
+    expert_should_check: Whether 'name of a plant variety' should be here or on the PBR-registered
+      name only.
+- id: GK-0010
+  corrects: GC-0040
+  record_type: gold_concept
+  add:
+    alt_labels:
+    - opposition to registration
+    legislative_basis:
+    - TMA1995/s52
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part2/3/2/3/1
+      span:
+      - 833
+      - 939
+      content_hash: sha256:121175c923e682282dee540ba63be6d002950c3df414d437a8407247d718841c
+      quote: The issue may be raised during opposition to registration and dealt with by the
+        Registrar in that context.
+    - ref: TMA1995/s52
+      span:
+      - 4
+      - 157
+      content_hash: sha256:08481f93412eb69ad76e8ae6327649731e3123abc141feeb17891744c612223b
+      quote: If the Registrar has accepted an application for the registration of a trade
+        mark, a person may oppose the registration by filing a notice of opposition.
+    confidence: 0.9
+    reasoning: Section 52 is the right to oppose; the signed record cites no provision. The
+      label form is the Manual's. Both from the withdrawn duplicate GC-0102 (ruling A1).
+    alternatives_considered: []
+    expert_should_check: Whether opposition to removal for non-use (Part 9) and to an extension
+      of time belong to this concept.
+- id: GK-0011
+  corrects: GC-0042
+  record_type: gold_concept
+  add:
+    legislative_basis:
+    - TMA1995/s38
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s38
+      span:
+      - 4
+      - 163
+      content_hash: sha256:2bf1242d6c62f0831bf40d6b421afebf993c74e0b40664167ee912e23eefc878
+      quote: Before a trade mark is registered, the Registrar may revoke the acceptance of
+        the application for registration of the trade mark if he or she is satisfied that
+    confidence: 0.95
+    reasoning: Section 38 is the power; the signed record cites no provision. From the withdrawn
+      duplicate GC-0094 (ruling A1).
+    alternatives_considered: []
+    expert_should_check: null
+- id: GK-0012
+  corrects: GC-0043
+  record_type: gold_concept
+  remove:
+    alt_labels:
+    - parent application
+  add:
+    alt_labels:
+    - divisional applications
+    not_labels:
+    - parent application
+    legislative_basis:
+    - TMA1995/s45
+    - TMA1995/s46
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1+D2
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s45
+      span:
+      - 4
+      - 209
+      content_hash: sha256:7be83e5257d68826159cc196e4e6a67ddbf27edd1510b5312e06df0c2b6bc2fc
+      quote: If a single application for the registration of a trade mark in respect of certain
+        goods and/or services is pending (parent application), the applicant may make another
+        application (divisional application)
+    - ref: TMM/Part12/1#1
+      span:
+      - 236
+      - 318
+      content_hash: sha256:d095cd23621ebb182a51c6b60876ee2bdb1c4322b436883dc13a306a842d4ca2
+      quote: Divisional applications claim the priority date of the original parent application
+    confidence: 0.9
+    reasoning: 'Section 45 names both and they are opposites: the parent application is the
+      one a divisional is made from. ''Parent application'' as an alternative label made every
+      mention of a parent recognise a divisional; it is a not-label now. Sections 45 and 46
+      are the divisional''s own provisions, from the withdrawn duplicate GC-0110 (ruling A1);
+      the signed record cites only the grounds a divisional is examined against.'
+    alternatives_considered: []
+    expert_should_check: Whether the grounds (ss 39 to 43) the signed record cites should
+      stay as bases.
+- id: GK-0013
+  corrects: GC-0046
+  record_type: gold_concept
+  remove:
+    alt_labels:
+    - the Registrar's delegate
+  add:
+    not_labels:
+    - Deputy Registrar
+    - delegate
+    legislative_basis:
+    - TMA1995/s201
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#C1+C2+A1
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s201
+      span:
+      - 4
+      - 46
+      content_hash: sha256:b63f6fe30e1b387a4804e1fe7895771f010f8cccaf9f319498d9bc77a813907d
+      quote: There is to be a Registrar of Trade Marks.
+    - ref: TMA1995/s206
+      span:
+      - 4
+      - 158
+      content_hash: sha256:a5acda8710abb1866aa218fa05e78334953df7ea0eb8a808c05aae80f452f168
+      quote: The Registrar may by signed instrument delegate all or any of his or her powers
+        or functions to a prescribed employee, or employees in a prescribed class.
+    - ref: TMA1995/s205
+      span:
+      - 4
+      - 64
+      content_hash: sha256:e84fc7313ffd62c472330793f669f3cfd00860eaeae6e1437fae6c5d36ae67a5
+      quote: There is to be at least one Deputy Registrar of Trade Marks.
+    confidence: 0.9
+    reasoning: 'The Registrar is the statutory office (s 201). A delegate exercises the Registrar''s
+      powers by instrument (s 206) and a Deputy Registrar by statute (s 205), but neither
+      is the Registrar: the owner approved the review''s reading that the roles are distinct
+      (C1, C2). "The Registrar''s delegate" moves to the delegate concept (GC-0171); the two
+      offices become not-labels. Section 201 is from the withdrawn duplicate GC-0115 (A1),
+      which cited section 200 (the seal) by mistake.'
+    alternatives_considered: []
+    expert_should_check: Whether passages that say 'the Registrar' but mean the delegate acting
+      should still recognise the Registrar; they will, which is how the Manual writes.
+- id: GK-0014
+  corrects: GE-0062
+  record_type: gold_entity
+  set:
+    resolves_to: GC-0044
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#C5
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/3/3/2
+      span:
+      - 579
+      - 588
+      content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
+      quote: Examiners
+    confidence: 0.95
+    reasoning: The signed mention 'Examiners', typed Role, resolved to nothing; the review
+      found it is the only mention typed Role, and the owner approved resolving it to the
+      examiner concept (C5).
+    alternatives_considered: []
+    expert_should_check: null
+- id: GK-0015
+  corrects: GR-0001
+  record_type: gold_relationship
+  replaced_by: GR-0678
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A2
+  notes: The object was the general ground for rejection, which section 43 does not create
+    (ruling A2).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/1#1
+      span:
+      - 359
+      - 434
+      content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+      quote: The application of section 43 is, by the wording of the section, mandatory.
+    confidence: 0.9
+    reasoning: The object was the general ground for rejection, which section 43 does not
+      create (ruling A2). The corrected triple is GR-0678.
+    alternatives_considered: []
+    expert_should_check: Whether 'mandatory' makes section 43 apply to the ground or to the
+      decision maker; the signed record read it as obligation (modality must).
+- id: GK-0016
+  corrects: GR-0007
+  record_type: gold_relationship
+  replaced_by: GR-0679
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D2+D1
+  notes: Recorded effect first ('connotation may give rise to the trade mark as a whole'),
+    the inversion the predicate's definition forbids (review D1).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/2/2/2
+      span:
+      - 0
+      - 84
+      content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+      quote: A connotation may result from the whole trade mark or from a part of the trade
+        mark.
+    confidence: 0.95
+    reasoning: Recorded effect first ('connotation may give rise to the trade mark as a whole'),
+      the inversion the predicate's definition forbids (review D1). The corrected triple is
+      GR-0679.
+    alternatives_considered: []
+    expert_should_check: Whether a part of the trade mark, which the same sentence names,
+      should be a second edge.
+- id: GK-0017
+  corrects: GR-0008
+  record_type: gold_relationship
+  replaced_by: GR-0680
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D2+D1
+  notes: Recorded as 'connotation requiresElement reputation'; the sentence lists sufficient
+    sources, as the signed record's own note says (review D1).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/2/2/2
+      span:
+      - 85
+      - 213
+      content_hash: sha256:1379f8631cf727764dfdb50bbaf252431c91e4e73945cafb375b69e38113fce7
+      quote: It may result from a dictionary meaning or from a connection in the minds of
+        the buying public with some person, place or thing.
+    confidence: 0.85
+    reasoning: Recorded as 'connotation requiresElement reputation'; the sentence lists sufficient
+      sources, as the signed record's own note says (review D1). The corrected triple is GR-0680.
+    alternatives_considered: []
+    expert_should_check: Whether a dictionary meaning, the other source the sentence names,
+      needs a concept of its own.
+- id: GK-0018
+  corrects: GR-0010
+  record_type: gold_relationship
+  replaced_by: GR-0681
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D2+D1
+  notes: Recorded the other way round, as the signed record's own note suspected (review D1).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/2/2/4
+      span:
+      - 57
+      - 185
+      content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+      quote: The Registrar must be satisfied that a ground for rejection exists before section
+        33(3) can be applied to reject the trade mark.
+    confidence: 0.9
+    reasoning: Recorded the other way round, as the signed record's own note suspected (review
+      D1). The corrected triple is GR-0681.
+    alternatives_considered: []
+    expert_should_check: Whether section 33(3) requires the ground for rejection in general
+      or only the one in issue; the sentence sits in the section 43 Part.
+- id: GK-0019
+  corrects: GR-0011
+  record_type: gold_relationship
+  replaced_by: GR-0682
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A2
+  notes: The sentence is about the section 43 ground — a connotation is its element (ruling
+    A2).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/2/2/4
+      span:
+      - 186
+      - 282
+      content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
+      quote: If there is doubt that a connotation exists, then the ground for rejection should
+        not be raised.
+    confidence: 0.85
+    reasoning: The sentence is about the section 43 ground — a connotation is its element
+      (ruling A2). The corrected triple is GR-0682.
+    alternatives_considered: []
+    expert_should_check: 'The signed record''s own note: a negative ''should'' may not read
+      the same as a positive one.'
+- id: GK-0020
+  corrects: GR-0016
+  record_type: gold_relationship
+  replaced_by: GR-0060
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A2
+  notes: The section 43 ground requires the connotation (ruling A2).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/3#1~2
+      span:
+      - 1086
+      - 1214
+      content_hash: sha256:e910adb71eb7f1d52d06e37ed7b46dc618fcc4f6c6df770466fce554ec158e85
+      quote: For a ground for rejection to be raised the connotation must be obvious, direct,
+        and immediate and within the trade mark itself.
+    confidence: 0.9
+    reasoning: 'The sentence is about the section 43 ground: a connotation must be obvious,
+      direct and immediate. GR-0060 already states it of GC-0168 from the same sentence.'
+    alternatives_considered: []
+    expert_should_check: null
+- id: GK-0021
+  corrects: GR-0018
+  record_type: gold_relationship
+  replaced_by: GR-0683
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D2+D1+A2
+  notes: Recorded ground first ('ground for rejection states the threshold for real and tangible
+    danger'), the inversion the predicate's definition forbids (review D1); and the ground
+    is the section 43 one (A2).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/3/3/1~1
+      span:
+      - 0
+      - 139
+      content_hash: sha256:20e9513b402bf082b2df83f8f7f0c9c9631b4ffbb949ecb0422e39cceb3341e8
+      quote: There must be a real and obvious danger of the buying public being deceived and/or
+        confused by the secondary meaning within the trade mark.
+    confidence: 0.9
+    reasoning: Recorded ground first ('ground for rejection states the threshold for real
+      and tangible danger'), the inversion the predicate's definition forbids (review D1);
+      and the ground is the section 43 one (A2). The corrected triple is GR-0683.
+    alternatives_considered: []
+    expert_should_check: Whether the threshold is for the ground or for the connotation inside
+      it; GR-0061 reads it the second way from the same sentence.
+- id: GK-0022
+  corrects: GR-0032
+  record_type: gold_relationship
+  replaced_by: GR-0684
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D2+D1+A2
+  notes: Recorded remedy first, as the signed record's own note says ('the wrong way round');
+    and the ground is the section 43 one (A2).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/5/5/4
+      span:
+      - 1000
+      - 1202
+      content_hash: sha256:86800dcce4d41f73e2792ad626162693402011f3c8ba4135bbf91f045f2a7b2f
+      quote: A section 43 ground for rejection may be overcome by the applicant agreeing to
+        a condition of registration limiting use of the trade mark to goods containing the
+        substance indicated by the relevant INN.
+    confidence: 0.95
+    reasoning: Recorded remedy first, as the signed record's own note says ('the wrong way
+      round'); and the ground is the section 43 one (A2). The corrected triple is GR-0684.
+    alternatives_considered: []
+    expert_should_check: Whether the INN-limited condition in the sentence is the only kind
+      of condition that overcomes the ground.
+- id: GK-0023
+  corrects: GR-0034
+  record_type: gold_relationship
+  replaced_by: GR-0685
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D2+D1+A2
+  notes: Recorded as 'INN stem is overcome by a condition', but what the condition overcomes
+    is the ground the stem gives rise to (review D1, A2).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/5/5/5
+      span:
+      - 350
+      - 554
+      content_hash: sha256:c4235ae85720f19a20037d7a4f5a41161ef68438cf8e1ea2d8e36b90b621b1bb
+      quote: A section 43 ground for rejection may be overcome by the applicant agreeing to
+        a condition of registration limiting use of the trade mark to goods containing substances
+        belonging to the relevant INN stem.
+    confidence: 0.9
+    reasoning: Recorded as 'INN stem is overcome by a condition', but what the condition overcomes
+      is the ground the stem gives rise to (review D1, A2). The corrected triple is GR-0685.
+    alternatives_considered: []
+    expert_should_check: The INN stem lives only in the supporting text now; whether it should
+      be a second edge (INN stem may give rise to the section 43 ground).
+- id: GK-0024
+  corrects: GR-0037
+  record_type: gold_relationship
+  replaced_by: GR-0686
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A2
+  notes: The sentence is about section 43 (ruling A2).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/6#1~1
+      span:
+      - 49
+      - 228
+      content_hash: sha256:ac69f55b0b06f0f288ea66d5dc7029193e5cb434b4c2504d45f9e0a087588318
+      quote: If a trade mark contains a name of a person (or group of people) which is well
+        known in relation to the specified goods or services, the provisions of section 43
+        may be triggered.
+    confidence: 0.9
+    reasoning: The sentence is about section 43 (ruling A2). The corrected triple is GR-0686.
+    alternatives_considered: []
+    expert_should_check: Whether the edge should be conditional on the name being well known
+      'in relation to the specified goods or services', as the sentence says.
+- id: GK-0025
+  corrects: GR-0039
+  record_type: gold_relationship
+  replaced_by: GR-0687
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A2
+  notes: The sentence names the section 43 ground (ruling A2).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/6#1~2
+      span:
+      - 1704
+      - 1876
+      content_hash: sha256:3016fc2af55085c99f6f508c674df732dbefbd36582932ac716f701313b98e1c
+      quote: An applicant may overcome a section 43 ground for rejection in relation to a
+        name by providing the well-known person’s written permission to use their name as
+        a trade mark.
+    confidence: 0.95
+    reasoning: The sentence names the section 43 ground (ruling A2). The corrected triple
+      is GR-0687.
+    alternatives_considered: []
+    expert_should_check: Whether the permission must be the well-known person's own, or may
+      come from an estate (Part 29.6.2).
+- id: GK-0026
+  corrects: GR-0042
+  record_type: gold_relationship
+  replaced_by: GR-0688
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A2
+  notes: The sentence names the section 43 ground (ruling A2).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/6/6/1
+      span:
+      - 614
+      - 728
+      content_hash: sha256:94219eaa9c113dcecb64f0c0d8b7d7970ee0c89b4e732ebf371d1b1b4f2abcf1
+      quote: A section 43 ground for rejection should not be raised merely because a trade
+        mark contains the image of a person.
+    confidence: 0.95
+    reasoning: The sentence names the section 43 ground (ruling A2). The corrected triple
+      is GR-0688.
+    alternatives_considered: []
+    expert_should_check: Whether 'merely' leaves room for an image to give rise to the ground
+      with something more — the edge says only that it does not by itself.
+- id: GK-0027
+  corrects: GR-0056
+  record_type: gold_relationship
+  replaced_by: GR-0689
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A3
+  notes: The object was the signed GC-0050, the reputation of a place or person, which excludes
+    'reputation in another trade mark'; the sentence is about a trade mark's reputation, GC-0130
+    (ruling A3).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/9/9/7
+      span:
+      - 436
+      - 649
+      content_hash: sha256:4a152ff8e285012f7bc44941664602f7d5ebbe7775f61faa73472e1827a6bc60
+      quote: When faced with this type of reference it is important to remember that the connotation
+        must be from the trade mark itself and not from any other external considerations
+        such as a reputation in another trade mark.
+    confidence: 0.9
+    reasoning: The object was the signed GC-0050, the reputation of a place or person, which
+      excludes 'reputation in another trade mark'; the sentence is about a trade mark's reputation,
+      GC-0130 (ruling A3). The corrected triple is GR-0689.
+    alternatives_considered: []
+    expert_should_check: Whether the excluded basis is reputation in another trade mark specifically
+      or any external consideration; the sentence gives the first as an example.
+- id: GK-0028
+  corrects: GR-0057
+  record_type: gold_relationship
+  replaced_by: GR-0690
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A2
+  notes: The sentence is about section 43 (ruling A2).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/10#1
+      span:
+      - 0
+      - 266
+      content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
+      quote: If a trade mark, or some part of the trade mark, contains a reference to Indigenous
+        people and a connotation arises from the mark that would be likely to deceive or confuse
+        consumers within the relevant market, then a ground for rejection under s43 should
+        be raised.
+    confidence: 0.9
+    reasoning: The sentence is about section 43 (ruling A2). The corrected triple is GR-0690.
+    alternatives_considered: []
+    expert_should_check: Whether the ground arises from the reference to Indigenous people
+      or from the connotation it carries; the sentence needs both.
+- id: GK-0029
+  corrects: GR-0058
+  record_type: gold_relationship
+  replaced_by: GR-0412
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A2+D1
+  notes: dependsOnExternalSource with a ground as its object misused the predicate (review
+    D1, A2).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/11#1
+      span:
+      - 384
+      - 696
+      content_hash: sha256:4c484f11bb81ae9e0b8453152cd0145a12d14fa09ab434e1c68288097f23886a
+      quote: If during examination of a new application research reveals that a trade mark
+        is identical or similar to a listed EU GI, consideration should then be given to whether
+        or not the use of the trade mark would potentially deceive or confuse Australian consumers
+        and make grounds for rejection under s 43 appropriate.
+    confidence: 0.85
+    reasoning: A GI does not depend on a ground for rejection as an external source; the sentence
+      says a trade mark similar to a listed EU GI may attract the section 43 ground. GR-0412
+      already states that from the same sentence.
+    alternatives_considered: []
+    expert_should_check: null
