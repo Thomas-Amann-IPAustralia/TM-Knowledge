@@ -1,22 +1,28 @@
 # HANDOFF
 
-**Last updated:** 2026-10-09 · S030 (end) · branch `claude/pensive-ptolemy-f1w7k2`
+**Last updated:** 2026-10-09 · S031 (end) · branch `claude/clever-hamilton-10r4tn`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
 
-**S030 added "As a table" (`#/table`, `site/js/table.js`)**, after the owner found the map's
-"Ideas and connections" level "eyewateringly complex" and asked for something simpler, "even
-a table". No record changed; no ADR (an engineering call). Ran beside S029 and merged after it.
-- Three tabs: **Kinds** (by family, then every kind-to-kind pair from `kind_links` with what
-  its connections say), **Ideas** (grouped by kind; open a row for its connections as
-  sentences, each with its quote), **Connections** (from, says, to, passage, who wrote it).
-  Filters by name, kind and relationship; `LOOSE` links hidden by default, as on the map.
-- **CSV** of the ideas and of the connections with the page's trust columns (`record`,
-  `review_status`, `machine_author`, `date`, the kind's judge) and which text each quote is
-  from. No reviewer initials (ADR-0130). Linked from the nav and the map's help panel.
+**S031 labelled every line on the map's text level** (owner: the edges "do not carry their
+connection label"). Connections between ideas show their predicate; idea → Part says "is named
+in"; idea → provision says "has legislative basis" (`tmk:legislativeBasis`). A connection that
+ends at a provision (e.g. connotation *requires element* / *excludes basis*) was drawn as a
+plain basis line and lost its predicate: it is now its own arrow, labelled, and opens its
+card on click. The ideas level is unchanged (too dense to label). No record changed; no ADR.
+Checked in Chromium at 1440 and 390, light and dark: no JS errors, no overflow.
+- The owner also asked (no change wanted yet) why so many pages on "When the text changes"
+  say "Nothing on the map quotes this page". Answer given in chat: that panel counts only
+  **quoted evidence** (a record's `ref`/evidence span), not mentions. 307 of 500 pages hold no
+  quote, but 282 of them name an idea (132 distinct ideas); only 25 pages, 33 passages
+  (annexes, flowcharts, reference lists), name nothing. 295 distinct passages are quoted;
+  1,649 of 2,460 are linked by mention. The wording conflates the two — a candidate fix.
+
+**S030 added "As a table"** (`#/table`, `site/js/table.js`): Kinds, Ideas, Connections tabs
+with filters and a CSV carrying the trust columns. No record changed; no ADR.
 
 **S029 restructured the ontology on the owner's instruction** (ADR-0131, CHAT-0071 to
 CHAT-0073, `review/returned/261009-owner-chat-ontology-structure.md`): *"Not having elements
