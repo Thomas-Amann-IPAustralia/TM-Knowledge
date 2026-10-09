@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01113,
+ "created_utc": "2026-10-09T04:47:44Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0016",
+ "job": "answer",
+ "key": "89435ffeb3308473d65fb5364bd9244528db98c667d8766ab3d23c8429688f06",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0107\",\"GC-0134\",\"GC-0045\",\"GC-0133\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part52/5/5/2\",\"quote\":\"Where a right to review by the ART exists, it is not confined to the parties who were involved in the matter leading to the decision concerned any person whose interests are affected by the decision can request to be made a party.\"},{\"ref\":\"TMM/Part52/5/5/2\",\"quote\":\"A review by the ART leads to a full re-decision of the matter on its merits. The tribunal stands in the shoes of the original decision maker and can exercise all of the powers open to that person. Additional evidence can be admitted.\"}],\"answer\":\"According to the Manual (practice), where an ART review right exists:\\n\\n• Participation is not confined to the original parties. Any person whose interests are affected by the decision can request to be made a party; the passage does not say that such a request is automatically granted. [TMM/Part52/5/5/2]\\n\\n• The matter is fully re-decided on its merits. The ART stands in the shoes of the original decision maker, can exercise all that decision maker’s powers and can admit additional evidence. [TMM/Part52/5/5/2]\\n\\nThese are the Manual’s statements about review, not provisions reproduced from the Act or Regulations. The supplied passages do not establish whether merely seeking review suspends the original decision or what its precise formal status is pending review.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "ec26f840aeedd8bfff4e9eed326bd12a41f59fcf24fb2aca86dd21a049ab746c",
+ "response_id": "resp_030ee80430a1f6e3006ac871de845487d281abdda01485ea8f",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7529,
+  "input_tokens_details": {
+   "cache_write_tokens": 7526,
+   "cached_tokens": 0
+  },
+  "output_tokens": 344,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7873
+ }
+}

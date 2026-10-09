@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012808,
+ "created_utc": "2026-10-09T04:50:06Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0029",
+ "job": "answer",
+ "key": "669c2b644cf1babe36b72ed39316aa0f7774906826313064b34d239cbee8868f",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0040\",\"GC-0097\",\"GC-0113\",\"GC-0138\",\"GC-0046\",\"GC-0177\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part60/4/16/4/16/2\",\"quote\":\"IP Australia must notify the IB of any opposition within: four months of the publication of acceptance, or seven months of the publication of acceptance where an extension of time for filing Notice of Opposition has been granted.\"},{\"ref\":\"TMR1995/r17A.32\",\"quote\":\"(2) The Registrar must notify the International Bureau of the filing of the notice of opposition in accordance with rule 17, as applicable, of the Madrid Regulations.\"},{\"ref\":\"TMM/Part60/4/17/4/17/2~2\",\"quote\":\"If IP Australia does not notify the IB of the refusal based on opposition within the specified time limit, the opposition cannot proceed, and the trade mark which is the subject of the IRDA will be protected in Australia.\"}],\"answer\":\"For an IRDA, the Manual states that IP Australia must notify the International Bureau (IB) of an opposition-based provisional refusal within:\\n\\n- **Four months from publication of acceptance**; or\\n- **Seven months from publication of acceptance**, where an extension of time to file the notice of opposition has been granted. [TMM/Part60/4/16/4/16/2]\\n\\n**Legislation:** regulation 17A.32(2) requires the Registrar to notify the IB of the filing of the notice of opposition in accordance with rule 17 of the Madrid Regulations. The supplied regulation does not itself specify the four- or seven-month deadlines; those deadlines are stated in the supplied Manual practice. Rule 17 is not supplied, so I cannot independently verify its timing requirements here. [TMR1995/r17A.32]\\n\\n**Manual practice:** the Manual states that if notification is not made within the specified time limit, the opposition cannot proceed and the trade mark concerned will be protected in Australia. [TMM/Part60/4/17/4/17/2~2]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "9def2eee3202dc06c9c10b5b25c94ae181df7c91e084d7a19f2f41263d598ba6",
+ "response_id": "resp_0d6522afe2b9d12b006ac8726d3e8087d2899075c9653a2211",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7927,
+  "input_tokens_details": {
+   "cache_write_tokens": 7924,
+   "cached_tokens": 0
+  },
+  "output_tokens": 580,
+  "output_tokens_details": {
+   "reasoning_tokens": 111
+  },
+  "total_tokens": 8507
+ }
+}

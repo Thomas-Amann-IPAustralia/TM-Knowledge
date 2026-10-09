@@ -1,10 +1,10 @@
-# Rules in force — what 120 decisions add up to
+# Rules in force — what 121 decisions add up to
 
 Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-09, ADR-0127.
+**As at:** 2026-10-09, ADR-0128.
 
 ## Purpose and scope
 
@@ -100,6 +100,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   its answers ignore the schema they are sent (Q-83).
 - **Spend cap: US$9.49** — the US$6.60 quote plus the owner's US$2.89 for D5, which
   spent US$3.21 of its US$6.00 (`config.SPEND_CAP_USD`, ADR-0114, ADR-0125, ADR-0127).
+  An amount the owner names binds, not the count a quote estimated: hold the run to it
+  with `TMK_SPEND_CAP_USD` (ADR-0128). Price from completed calls, never attempts (Q-85).
   Every paid call goes through `tm_knowledge.bulk`: dry-run, `--confirm`,
   `--limit`, a committed cache, the cap checked before each call. **One exception:**
   the explorer's live answers are made from readers' browsers on the owner's key,

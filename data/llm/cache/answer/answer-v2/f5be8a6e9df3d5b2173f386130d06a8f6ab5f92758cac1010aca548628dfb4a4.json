@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014118,
+ "created_utc": "2026-10-09T04:44:56Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0003",
+ "job": "answer",
+ "key": "f5be8a6e9df3d5b2173f386130d06a8f6ab5f92758cac1010aca548628dfb4a4",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0012\", \"GC-0015\", \"GC-0071\", \"GC-0004\", \"GC-0064\", \"GC-0001\", \"GC-0168\", \"GC-0022\", \"GC-0013\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part26/4/4/3~2\",\n      \"quote\": \"The more closely related the goods on the one hand and the services on the other, the greater the potential for confusion as to whether they originate from the same person.\"\n    },\n    {\n      \"ref\": \"TMM/Part26/4/4/3~2\",\n      \"quote\": \"Whether the relevant services and the relevant goods are “closely related” is to be assessed in that context and in a commercially sensible way, having regard to all legitimate uses of the Opposed Mark.\"\n    },\n    {\n      \"ref\": \"TMA1995/s43\",\n      \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/5/5/4\",\n      \"quote\": \"A section 43 ground for rejection may be overcome by the applicant agreeing to a condition of registration limiting use of the trade mark to goods containing the substance indicated by the relevant INN.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/5/5/4\",\n      \"quote\": \"However such an endorsement is unlikely to assist in overcoming grounds for rejection which have been raised for other reasons\"\n    }\n  ],\n  \"answer\": \"The supplied passages do not establish that restricting the specification will overcome a conflict involving closely related goods and services under section 44. They do not provide a general procedure or test for such a restriction, so I cannot confirm that it would stop confusion.\\n\\n**Manual practice — closely related goods and services:** The Manual explains that closer relationships increase the potential for consumers to think the goods and services originate from the same person. The relationship must be assessed commercially and with regard to all legitimate uses of the mark. A specification restriction should therefore not be assumed, on these passages alone, to eliminate that concern [TMM/Part26/4/4/3~2].\\n\\n**Act — a different ground:** Section 43 requires rejection where a connotation of the mark makes its use for the particular goods or services likely to deceive or cause confusion. That is the connotation-based ground, rather than the section 44 conflict discussed above [TMA1995/s43].\\n\\n**Manual practice — specific limitation example:** For an INN-related section 43 objection, the Manual says a condition of registration limiting use to goods containing the indicated substance may overcome the objection. This is a condition limiting use, not a general statement that restricting a specification resolves closely related goods/services conflicts. The Manual also cautions that such an endorsement is unlikely to overcome objections raised for other reasons [TMM/Part29/5/5/4].\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "4305f209f96f58b006f696c7a82842d59b78ca28cc624e7bb3c20a5a2b4275a0",
+ "response_id": "resp_061b9c8c275dd5ca006ac87136706887d2b2d0822a1c043b63",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7935,
+  "input_tokens_details": {
+   "cache_write_tokens": 7932,
+   "cached_tokens": 0
+  },
+  "output_tokens": 840,
+  "output_tokens_details": {
+   "reasoning_tokens": 128
+  },
+  "total_tokens": 8775
+ }
+}

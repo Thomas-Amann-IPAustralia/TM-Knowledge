@@ -5661,3 +5661,35 @@ models, not a review. The ontology still trails good search with no ontology on 
 benchmark as a whole and leads it on the expert's ten questions; the audit's precision
 gain did not move search, so search quality is not where its value shows. A
 re-measurement now costs only what changed.
+
+## ADR-0128 — the prepared answers re-run, held to the US$0.40 approved
+
+**Date** 2026-10-09 · **Authority** human · **Status** accepted
+
+**Context.** The 129 prepared answers were written on 2026-10-07; after S026 and the edge
+audit (ADR-0127), 85 showed links since withdrawn or re-read, 55 of them five or more. The
+agent quoted "about $0.40" to re-run them, and the owner replied *"Yes, re-run the prepared
+answers for $0.40"* (CHAT-0066, `review/returned/261009-owner-chat-answers-rerun.md`). The
+quote was wrong twice over: it divided the job's spend by every cached attempt, 211 of 341
+of them free failures (Q-85); and the completed calls of 2026-10-07 were themselves cheap
+because retried requests hit the provider's cache. A fresh answer costs about $0.0135, so
+all 129 would have cost about $1.74.
+
+**Decision (the owner's).** Re-run the prepared answers, for US$0.40.
+
+**Decision (the agent's, inside it).** The amount binds, not the quote's count. The run
+was held to it by the cap — `TMK_SPEND_CAP_USD` set to the recorded spend plus $0.40, one
+call at a time; the cap is checked at the full price, so it stops short of the line rather
+than on it — and the stalest went first: the 50 answers showing the most withdrawn or
+re-read links (six or more each). **21 re-run for US$0.28**; the cap stopped the 22nd,
+whose worst case would have passed the $0.40. Each new answer shows no stale link, cites
+100 verified passages between them, raises no PU-0004 flag, and one declines to state an
+outcome.
+
+**What it does not decide.** The other 108, 64 of which still show a stale link — the
+owner's, on a corrected quote: the 29 stalest about $0.39, the 64 about $0.87, all 108
+about $1.46.
+
+**Consequences.** The prepared answers now carry two dates, each stamped on the answer.
+`tmk-bulk spend` shows completed calls beside attempts, so the mistake behind the quote is
+harder to repeat.

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014533,
+ "created_utc": "2026-10-09T04:46:57Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0011",
+ "job": "answer",
+ "key": "9bae4f069229ea721beb257f2a5bec1aef62b1b2e2f7ce6c8cb61bf503ee90b1",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0073\",\"GC-0072\",\"GC-0154\",\"GC-0004\",\"GC-0038\",\"GC-0008\",\"GC-0010\",\"GC-0011\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s10\",\"quote\":\"For the purposes of this Act, a trade mark is taken to be deceptively similar to another trade mark if it so nearly resembles that other trade mark that it is likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part26/6/6/4~1\",\"quote\":\"In particular, in evaluating the likelihood of confusion, the marks must be judged as a whole: Cooper Engineering Co Pty Ltd v Sigmund Pumps Ltd [1952] HCA 15, at [3].\"},{\"ref\":\"TMM/Part26/6/6/4~1\",\"quote\":\"What needs to be assessed is the effect of the similarities and differences on the impression or recollection an ordinary consumer of the goods or services would have of the trade marks and whether this creates a real and tangible danger of confusion.\"},{\"ref\":\"TMM/Part26/6/6/8~3\",\"quote\":\"In the Opposed Word Trade Mark there is no accompanying device to aid potential purchasers in distinguishing between it and the Opponent’s Registered Trade Mark. Deception or confusion is therefore likely to arise out of the use of the Opposed Word Trade Mark (at [77]) I therefore find that the Opposed Word Trade Mark is deceptively similar to the Opponent’s Registered Trade Mark but that the Opposed Logo Trade Mark is not deceptively similar to the Opponent’s Registered Trade Mark (at [78])\"},{\"ref\":\"TMM/Part26/6/6/8~4\",\"quote\":\"Whilst there are differences in font, colour and the use and placement of the house device as well as the existence of additional features, those elements do not do enough…to avoid the real danger of deception or confusion created by the common essential feature (at [236]).\"},{\"ref\":\"TMM/Part26/2#1\",\"quote\":\"A mere possibility is not sufficient.\"},{\"ref\":\"TMM/Part26/2#1\",\"quote\":\"In considering whether there is a likelihood of deception or confusion all surrounding circumstances have to be taken into consideration.\"}],\"answer\":\"Having a logo can help distinguish trade marks, but it does not automatically prevent deceptive similarity; equally, having no logo does not automatically establish it. The supplied Manual examples illustrate why the overall impression matters, rather than the mere presence or absence of a device. [TMM/Part26/6/6/4~1; TMM/Part26/6/6/8~3; TMM/Part26/6/6/8~4]\\n\\n**Act — statutory test:** Section 10 asks whether one trade mark so nearly resembles another that it is likely to deceive or cause confusion. That is the test to which the logo’s effect is relevant. [TMA1995/s10]\\n\\n**Manual practice — compare the marks as wholes:** Assess how the similarities and differences, including any logo, affect an ordinary consumer’s impression or recollection of the marks for the relevant goods or services. The question is whether that creates a real and tangible danger of confusion, not merely a possibility; all surrounding circumstances must be considered. [TMM/Part26/6/6/4~1; TMM/Part26/2#1]\\n\\n**A logo may make a material difference:** In the Manual’s Combined Communications example, the quoted decision found the plain-word mark deceptively similar, noting the absence of an accompanying device to help purchasers distinguish it. The logo version was found not deceptively similar. This is an illustration, not an automatic rule for logo marks. [TMM/Part26/6/6/8~3]\\n\\n**A logo may also be insufficient:** In the Manual’s realcommercial example, differences in font, colour, the house device and additional features did not overcome the danger of confusion created by the common essential feature. Thus, the examiner should assess what the logo actually contributes to the overall impression, rather than treat it as a guaranteed distinction. [TMM/Part26/6/6/8~4; TMM/Part26/6/6/4~1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "3f82d5797e311bb788a1d544c944e603dc7e6b1b8f94584d3fb35a6af5e619f7",
+ "response_id": "resp_070dcfa946d85c6e006ac871a5893487d2be8f29a33552dea8",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7491,
+  "input_tokens_details": {
+   "cache_write_tokens": 7488,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1034,
+  "output_tokens_details": {
+   "reasoning_tokens": 116
+  },
+  "total_tokens": 8525
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013173,
+ "created_utc": "2026-10-09T04:49:38Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0023",
+ "job": "answer",
+ "key": "83809ed1e429fc4bdc867a6d231aa2c40988c0d0c087585a9f6253b757a704be",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0029\", \"GC-0116\", \"GC-0044\", \"GC-0124\", \"GC-0179\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part27/4/4/2/5\",\n      \"quote\": \"A general letter of consent confirming that one party is prepared to consent to any trade mark applications made by another party may be considered. The general letter of consent must meet the same requirements as a specific letter of consent in relation to the name of the owner providing the consent and to the signatory of the letter (detailed above) and should not contain any conditions (see 3.2.1). It must also identify the applicant to whom the general consent is being given. However, the general consent document need not identify the applicant’s trade mark or the specific goods and services being claimed.\"\n    },\n    {\n      \"ref\": \"TMM/Part27/4/4/2/3\",\n      \"quote\": \"the name of the owner supplying “consent” corresponds to the name on the data base. The letter may only be taken into account if the names are the same; the signatory to the letter is the owner of the conflicting trade mark or a person authorised to sign on behalf of that person;\"\n    },\n    {\n      \"ref\": \"TMM/Part10/8#1\",\n      \"quote\": \"8.1 Where there are only one or two minor formalities matters that have to be resolved an attempt should be made to contact the applicant by telephone or email requesting that they provide the relevant information through the online services page. Appropriate records should be attached to the file, either a Record of Conversation or a copy of the email that was sent.\"\n    },\n    {\n      \"ref\": \"TMM/Part10/8#1\",\n      \"quote\": \"8.2 Where a request has been made by telephone or email but no information has been received through the online services page by one week after the contact was made the examiner should issue a report regarding the requested information if this is necessary. 8.3 If other matters have to be dealt with in any case then the formality requirements should be included in the report to be issued.\"\n    },\n    {\n      \"ref\": \"TMM/Part10/8#1\",\n      \"quote\": \"However any response which will result in the application being amended must be submitted through the online services page.\"\n    },\n    {\n      \"ref\": \"TMM/Part10/8#1\",\n      \"quote\": \"Where formality requirements are not met, the Registrar must reject the application as not being in accordance with this Act (section 33(3)).\"\n    },\n    {\n      \"ref\": \"TMA1995/s33(3)\",\n      \"quote\": \"(3) If the Registrar is satisfied that:\"\n    }\n  ],\n  \"answer\": \"**Yes—under Manual practice, a general consent must still identify the applicant receiving it.** It need not identify that applicant’s trade mark or the particular goods and services claimed. The letter must meet the owner-name and signatory requirements for specific consent letters and should contain no conditions. [TMM/Part27/4/4/2/5] Those requirements include matching the consenting owner’s name to the database and having the letter signed by that owner or an authorised signatory. [TMM/Part27/4/4/2/3]\\n\\n**For formality issues, the Manual practice is:**\\n- For one or two minor issues, the examiner should attempt telephone or email contact, request the information through online services, and retain a record of the contact. [TMM/Part10/8#1]\\n- If the information has not arrived through online services within one week after contact, the examiner should issue a report if necessary. If other matters already require a report, include the formality requirements in it. [TMM/Part10/8#1]\\n- Any response that will result in amendment of the application must be submitted through online services. [TMM/Part10/8#1]\\n\\n**Legislation limitation:** The Manual states that unmet formality requirements require rejection under section 33(3). However, the supplied Act extract contains only the opening words of that subsection, so it does not independently establish the statutory conditions for rejection. [TMM/Part10/8#1; TMA1995/s33(3)]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "65c8a5b0cf08670dac5e61486816bdd9b146c5bd5089da40d3c017c19673775d",
+ "response_id": "resp_08bbbf2ddb5ac507006ac87245f14887d2b61557d8f71bc21a",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6331,
+  "input_tokens_details": {
+   "cache_write_tokens": 6328,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1052,
+  "output_tokens_details": {
+   "reasoning_tokens": 94
+  },
+  "total_tokens": 7383
+ }
+}

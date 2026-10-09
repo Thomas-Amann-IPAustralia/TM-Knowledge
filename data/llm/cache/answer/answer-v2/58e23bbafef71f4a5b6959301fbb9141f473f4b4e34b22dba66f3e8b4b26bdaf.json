@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010908,
+ "created_utc": "2026-10-09T04:46:00Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0008",
+ "job": "answer",
+ "key": "58e23bbafef71f4a5b6959301fbb9141f473f4b4e34b22dba66f3e8b4b26bdaf",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0093\",\"GC-0096\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part17/1#1\",\"quote\":\"After termination of deferment, the amount of time that is left of the time period for acceptance will be the amount of time that was left at the date the request for deferment of acceptance was filed.\"}],\"answer\":\"Manual practice: when deferment terminates, the acceptance clock resumes with the same amount of time remaining as when the deferment request was filed. The applicant gets the unused balance, not a fresh acceptance period (TMM/Part17/1#1).\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "d494d11bae55554647cad40612987619f532d814333b6b378f3a015b34bbd349",
+ "response_id": "resp_04bdea3dcb7b0623006ac871773e7c87d2ac8416c4a091f50e",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7639,
+  "input_tokens_details": {
+   "cache_write_tokens": 7636,
+   "cached_tokens": 0
+  },
+  "output_tokens": 272,
+  "output_tokens_details": {
+   "reasoning_tokens": 122
+  },
+  "total_tokens": 7911
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013503,
+ "created_utc": "2026-10-09T04:48:12Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0018",
+ "job": "answer",
+ "key": "e9016d31a1e4801be8133ddf34ea15de322721812c4b0438a25f7c8a0555060a",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0044\",\"GC-0097\",\"GC-0098\",\"GC-0096\",\"GC-0046\",\"GC-0179\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part16/2/4/1\",\"quote\":\"Although there is an obligation on the applicant to provide the Registrar with sufficient time to consider and report on an application before it lapses, every effort should be made by the examiner to respond to submissions as soon as practicable.\"},{\"ref\":\"TMM/Part16/2/4/3\",\"quote\":\"Note: When dealing with responses coming in very close to the final date, examiners should check the correspondence file to see whether the applicant has requested and paid for an extension of time. If the applicant has paid for an EOT, this should be actioned before any consideration of the submissions takes place.\"},{\"ref\":\"TMM/Part16/2/4/3\",\"quote\":\"If the applicant cannot be contacted via phone, the examiner will send a letter to the applicant, advising that the application must be revived before further examination can occur.\"},{\"ref\":\"TMM/Part17/1#1\",\"quote\":\"Deferment of acceptance is where the period of time that is allowed under subsection 37(1) and reg 4.12 for an application to gain acceptance is set in abeyance - deferred - because a request for deferment has been made and/or certain conditions are met (reg 4.13).\"},{\"ref\":\"TMM/Part17/1#1\",\"quote\":\"An application for deferment must be made before the application lapses. There is no fee for requesting a deferment. If you request deferment close to the acceptance due date, it may be necessary to lodge an extension of time when filing the deferment request.\"},{\"ref\":\"TMR1995/r4.10\",\"quote\":\"(1) On receipt of a response under regulation 4.9, the Registrar must consider the response.\"},{\"ref\":\"TMR1995/r4.10\",\"quote\":\"(3) Unless acceptance of an application is deferred, a report under subregulation (2) in relation to that application must include notification of the date on which the application will lapse if it is not accepted earlier.\"}],\"answer\":\"If you mean the deadline for obtaining acceptance, the practical priority is to address that deadline rather than simply wait for the examiner.\\n\\n• **Ask the examiner for an update, drawing attention to the approaching deadline.** This is a practical suggestion based on the Manual’s instruction that examiners should respond as soon as practicable; the Manual also places responsibility on applicants to allow sufficient consideration time. [TMM/Part16/2/4/1 — Manual practice]\\n\\n• **Consider requesting and paying for an extension of time.** The Manual specifically anticipates extension requests near the final date and instructs examiners to action a paid extension before considering the submissions. The supplied passages do not explain the eligibility requirements or establish that an extension will be granted. [TMM/Part16/2/4/3 — Manual practice]\\n\\n• **Deferment may be another option, but its availability here is uncertain.** The Manual describes deferment as setting the acceptance period in abeyance in circumstances involving a request and/or specified conditions. It says to request it before lapse; there is no request fee, but an extension may also be needed near the acceptance deadline. The passages do not establish that examiner delay alone qualifies for deferment. [TMM/Part17/1#1 — Manual practice]\\n\\n**Do not assume that an unanswered response protects the deadline.** The Regulations require the Registrar to consider your response and, unless acceptance is deferred, to include the lapsing date in a further adverse report. They do not expressly provide an automatic extension while you await a reply. The Manual says a lapsed application must be revived before further examination. [TMR1995/r4.10 — Regulations; TMM/Part16/2/4/3 — Manual practice]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "3d7f8f21e37850a07713b3f3156c22179e1d19226df1958bec2812ec35783ffb",
+ "response_id": "resp_001c1175209b5f0d006ac871f04c3887d2a2a2d80a0bee8a1c",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6703,
+  "input_tokens_details": {
+   "cache_write_tokens": 6700,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1025,
+  "output_tokens_details": {
+   "reasoning_tokens": 167
+  },
+  "total_tokens": 7728
+ }
+}

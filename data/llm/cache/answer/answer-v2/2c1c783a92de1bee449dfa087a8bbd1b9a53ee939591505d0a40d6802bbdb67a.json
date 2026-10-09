@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014314,
+ "created_utc": "2026-10-09T04:45:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0005",
+ "job": "answer",
+ "key": "2c1c783a92de1bee449dfa087a8bbd1b9a53ee939591505d0a40d6802bbdb67a",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0040\",\"GC-0041\",\"GC-0046\",\"GC-0180\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part51/4/4/1~1\",\"quote\":\"Suspension of the opposition proceedings is available (in certain circumstances) once the option of the (two 6 month) cooling-off provisions has been fully utilised, following the filing of a Notice of Intention to Oppose and a supporting Statement of Grounds and Particulars.\"},{\"ref\":\"TMM/Part51/4/4/1~1\",\"quote\":\"A direction may be made for the evidence stage of opposition proceedings to be temporarily suspended in order to give the parties the opportunity to conduct settlement negotiations without the need to apply and pay for successive extensions of the period within which to file evidence.\"},{\"ref\":\"TMM/Part51/4/4/1~1\",\"quote\":\"The Registrar will only suspend proceedings if the request is…\"},{\"ref\":\"TMM/Part51/3/3/1\",\"quote\":\"Both parties must sign the request for a cooling-off period.\"},{\"ref\":\"TMM/Part51/4/4/3\",\"quote\":\"The Registrar may on request or at Her discretion suspend the timetable of an opposition pending the completion of a related matter that may impact on the outcome of the substantive opposition.\"},{\"ref\":\"TMM/Part51/3/3/3\",\"quote\":\"When the cooling-off period ends, either by discontinuation or expiry, the opposition resumes and the relevant stage of the proceedings restarts on the day after the cooling-off ended (regs 5.16(7), 9.19(7), 17A.34L(7), 17A.48U(7)).\"}],\"answer\":\"Yes—in certain circumstances, under Manual practice. The Manual says suspension is available once the two six-month cooling-off provisions have been fully utilised. The Registrar may direct a temporary suspension of the evidence stage to allow settlement negotiations (TMM/Part51/4/4/1~1).\\n\\nDo both sides have to agree? The supplied passages do not establish the agreement requirement for a settlement-related suspension: the relevant passage cuts off at “The Registrar will only suspend proceedings if the request is…”. Both parties must sign a cooling-off request, but that statement concerns cooling-off, not suspension (TMM/Part51/3/3/1). Separately, the Manual permits suspension on request or at the Registrar’s discretion pending a related matter that may affect the opposition’s outcome (TMM/Part51/4/4/3). Accordingly, I cannot confirm from these excerpts that mutual agreement is required for every suspension.\\n\\nThe timetable does not remain paused simply because cooling-off has ended: the Manual says proceedings resume and the relevant stage restarts the following day (TMM/Part51/3/3/3).\\n\\nThese are statements of Manual practice, not independently verified statements of legislation. The supplied Act passages do not answer the suspension or consent questions, and the relevant Regulations have not been supplied.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "364237c557c3e1c11a855e173bb2b835e2fb9e90ce91e12db523dcfd1645db20",
+ "response_id": "resp_05b355c5f5c61fd3006ac8714855dc87d2a4a834836a7744d1",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8428,
+  "input_tokens_details": {
+   "cache_write_tokens": 8425,
+   "cached_tokens": 0
+  },
+  "output_tokens": 756,
+  "output_tokens_details": {
+   "reasoning_tokens": 103
+  },
+  "total_tokens": 9184
+ }
+}

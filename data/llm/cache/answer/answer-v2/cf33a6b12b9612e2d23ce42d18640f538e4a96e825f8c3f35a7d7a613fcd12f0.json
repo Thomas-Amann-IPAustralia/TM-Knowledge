@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012908,
+ "created_utc": "2026-10-09T04:47:26Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0012",
+ "job": "answer",
+ "key": "cf33a6b12b9612e2d23ce42d18640f538e4a96e825f8c3f35a7d7a613fcd12f0",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0013\",\"GC-0014\",\"GC-0036\",\"GC-0029\",\"GC-0084\",\"GC-0015\",\"GC-0081\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\"quote\":\"In this circumstance, the owner of the trade mark will need to agree to an endorsement to that effect.\"},{\"ref\":\"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\"quote\":\"It is a condition of registration that the applicant has the consent of the PBR titleholder to use the <plant variety name/synonym> ‘xxxx’ in a trade mark for the duration of the PBR right.\"},{\"ref\":\"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\"quote\":\"The goods will also need to be restricted to accord with the plant variety name or synonym.\"},{\"ref\":\"TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1\",\"quote\":\"However, both agree that trade marks in use need to be clearly differentiated from the variety name and not used instead of it.\"}],\"answer\":\"**Manual practice:** The supplied passages identify the trade mark owner as the person who must agree to the consent endorsement. The example condition requires the applicant to have the PBR titleholder’s consent to use the specified variety name or synonym in the trade mark for the duration of the PBR right (TMM/Part32A/2/1/2-1-2-c-letter-of-consent).\\n\\n**What changes:** In that consent-based arrangement, the goods must also be restricted to accord with the specified plant variety name or synonym. Separately, the Manual’s account of the ICNCP and UPOV principles says that, in use, the trade mark must be clearly differentiated from the variety name—not used instead of it (TMM/Part32A/2/1/2-1-2-c-letter-of-consent; TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1).\\n\\n**Limit of the answer:** These are statements of Manual practice, not statutory rules established by the supplied legislation. The passages do not explain whether or how the condition binds subsequent owners, licensees or other users, or the consequences of breach. I therefore cannot establish the full legal scope of who must comply from these extracts.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "c6d6c91b37e81eec379f8b75eb11c216af9232883f34b1d161c9c1ac5a2fc318",
+ "response_id": "resp_00bc5e670ab6f168006ac871c2078087d2ac6acf9ed59510ad",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7583,
+  "input_tokens_details": {
+   "cache_write_tokens": 7580,
+   "cached_tokens": 0
+  },
+  "output_tokens": 686,
+  "output_tokens_details": {
+   "reasoning_tokens": 123
+  },
+  "total_tokens": 8269
+ }
+}

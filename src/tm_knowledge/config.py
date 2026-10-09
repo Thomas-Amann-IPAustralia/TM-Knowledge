@@ -53,9 +53,11 @@ AUTHORING_API_KEY_VAR = "OPENAI_API_KEY"
 #: cap is the $0.18 already spent plus the $6.41 package (ADR-0114). Then the D5
 #: quote: "I'm allowing the expenditure of an additional $2.89 on top of the
 #: remaining $3.11, totalling in $6" — so $6.60 + $2.89, and D5 may spend at most
-#: the $6.00 above the $3.49 recorded before it (ADR-0125). Raising it again is the
-#: owner's decision, made on a quote — overridable for one run by
-#: `TMK_SPEND_CAP_USD`, and only on the owner's word.
+#: the $6.00 above the $3.49 recorded before it (ADR-0125). D5 spent $3.21; the
+#: owner's "re-run the prepared answers for $0.40" came out of what it left (ADR-0128).
+#: Raising it again is the owner's decision, made on a quote — overridable for one run
+#: by `TMK_SPEND_CAP_USD`, and only on the owner's word (lowering it for one run, to
+#: hold a run to an amount the owner named, needs no word).
 SPEND_CAP_USD = 9.49
 
 #: US dollars per million tokens, from OpenAI's pricing page on 2026-10-07

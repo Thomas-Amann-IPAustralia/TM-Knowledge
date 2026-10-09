@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014027,
+ "created_utc": "2026-10-09T04:46:29Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0009",
+ "job": "answer",
+ "key": "75f166cbd494ee2de9ff6362599f06997a85d4b45a9ab82a140a9e1f0c439499",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0046\",\"GC-0131\",\"GC-0092\",\"GC-0180\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid\",\"quote\":\"Where the Registrar fails to notify the person of an underpayment within 14 working days of the person making an application, notice or request, then the application, notice or request is treated as filed despite the failure to pay the relevant fee (reg 21.21A(2)).\"},{\"ref\":\"TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid\",\"quote\":\"However, reg 21.21A(2) does not have the effect of waiving the fee. The fee or amount unpaid remains a debt owed to the Commonwealth.\"},{\"ref\":\"TMR1995/r21.21A\",\"quote\":\"(2) Subject to subregulation (3), if: (a) a fee is payable in respect of the doing of an act by a person other than the Registrar or the ComptrollerGeneral of Customs; or (b) a fee is payable in respect of the filing of a document; the act is taken to have been done, or the document is taken to have been filed, despite the failure to pay the fee.\"},{\"ref\":\"TMR1995/r21.21A(1)\",\"quote\":\"(1) If a fee is payable in respect of the doing of an act by the Registrar or the ComptrollerGeneral of Customs, the Registrar or ComptrollerGeneral of Customs must not do the act until the fee has been paid.\"},{\"ref\":\"TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid\",\"quote\":\"Examination tasks on such applications should be sent to TMDG Quality, Practice, and Customers for appropriate action.\"}],\"answer\":\"**The filing is preserved, but the outstanding fee is not waived.**\\n\\n- **Manual practice:** If the Registrar fails to notify the person of an underpayment within 14 working days of making an application, notice or request, the Manual says it is treated as filed despite the underpayment. The unpaid amount remains a debt owed to the Commonwealth. [TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid]\\n- **Regulations:** Regulation 21.21A(2), subject to subregulation (3), treats an act by a person other than the Registrar or ComptrollerGeneral of Customs as done, or a document as filed, despite failure to pay the fee. However, if the fee is for an act by the Registrar, regulation 21.21A(1) prohibits the Registrar from doing that act until payment. Thus, being treated as filed does not remove that payment requirement. [TMR1995/r21.21A; TMR1995/r21.21A(1)]\\n- **Examiner practice:** The Manual directs examination tasks on such applications to TMDG Quality, Practice, and Customers for appropriate action. [TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid]\\n\\n**Source limitation:** The 14-working-day deadline is stated in the supplied Manual passage. Regulation 21.23 itself was not supplied, so I cannot independently verify that deadline against its legislative wording.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "67f37e95e70418c3eedcfa9cc6b8878958cf08b786b484aad460dc2067e8cc5c",
+ "response_id": "resp_0457d9142c533152006ac87189006c87d299ad82981fe1ecd0",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7590,
+  "input_tokens_details": {
+   "cache_write_tokens": 7587,
+   "cached_tokens": 0
+  },
+  "output_tokens": 908,
+  "output_tokens_details": {
+   "reasoning_tokens": 174
+  },
+  "total_tokens": 8498
+ }
+}
