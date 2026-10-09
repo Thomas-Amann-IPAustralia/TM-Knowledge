@@ -186,6 +186,11 @@ def test_the_direct_triple_and_the_assertion_agree(built):
         predicate = approved.value(assertion, TMK.assertionPredicate)
         if predicate is None:
             continue  # an entity mention carries no triple of its own
+        if approved.value(assertion, TMK.replacedBy) is not None:
+            # Corrected by replacement (ADR-0122): the signed assertion stays as
+            # history and says so; its direct triple stops serving.
+            assert approved.value(assertion, TMK.isCorrected) is not None
+            continue
         subject = approved.value(assertion, TMK.assertionSubject)
         obj = approved.value(assertion, TMK.assertionObject)
         assert (subject, predicate, obj) in approved

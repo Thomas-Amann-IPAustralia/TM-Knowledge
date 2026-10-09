@@ -24,61 +24,6 @@
 # `expert_should_check` and none of them displaces the signed record: an agent
 # may not retire something a person signed (ADR-0080 consequence 2 runs the other
 # way).
-- id: GC-0053
-  pref_label: ground for rejection
-  alt_labels:
-  - grounds for rejection
-  - ground of rejection
-  - grounds for rejecting
-  not_labels:
-  - ground of opposition
-  - ground for revocation
-  - objection
-  definition_sources:
-  - TMM/Part20/5#1
-  legislative_basis:
-  - TMA1995/s33
-  - TMA1995/s33(1)(b)
-  notes: >-
-    The Manual treats the grounds as a closed set fixed by the Act and Regulations. Whether a formality
-    failure under paragraph 33(1)(a) is a 'ground for rejection' in the same sense as sections 39-44
-    is a real question the passage leaves open.
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part20/5#1
-      span:
-      - 0
-      - 131
-      content_hash: sha256:53ac65102a07932fd67393905ea28f29ad056b2b475899968a88f18e877e9557
-      quote: The Act and Regulations contain all the grounds upon which an application for registration
-        of a trade mark may have to be rejected.
-    - ref: TMA1995/s33
-      span:
-      - 180
-      - 229
-      content_hash: sha256:36311d92754a0ea33e97abec732d66bb149a577c8004ce2f28ee98bb3bcb54e2
-      quote: there are grounds under this Act for rejecting it
-    confidence: 0.8
-    reasoning: >-
-      The Manual states in terms that the Act and Regulations contain all the grounds, and section
-      33(3) makes the Registrar's satisfaction that a ground exists the trigger for rejection. The
-      concept is therefore the corpus's own, not a label imposed on it.
-    alternatives_considered:
-    - >-
-      Treating each numbered ground (s 39, s 41, s 43 …) as a concept and holding no general concept
-      above them. Rejected because the Manual reasons about 'grounds for rejection' as a class — Part
-      23 and Part 27 are both titled 'Overcoming grounds for rejection' — and a vocabulary with no
-      word for the class cannot represent that.
-    expert_should_check: >-
-      Whether a failure of the formality requirements under paragraph 33(1)(a) belongs inside this
-      concept or beside it. The Manual's Part 10 treats formalities separately and section 33 lists
-      them separately, which argues for beside.
 - id: GC-0054
   pref_label: prohibited sign
   alt_labels:
@@ -829,58 +774,6 @@
       Whether 'notwithstanding a real risk of deception or confusion' should appear in the concept
       at all. It is the Manual's gloss on Bali No. 2 rather than the statutory test, and it is doing
       a lot of work in this record.
-- id: GC-0069
-  pref_label: conditions or limitations
-  alt_labels:
-  - conditions and limitations
-  - limitations
-  not_labels:
-  - disclaimer
-  - endorsement
-  - other circumstances
-  definition_sources:
-  - TMM/Part28/5#1
-  legislative_basis:
-  - TMA1995/s33(2)
-  - TMA1995/s44(3)
-  - TMA1995/s6/limitations
-  notes: >-
-    The Act defines 'limitations' in section 6 and uses 'conditions or limitations' as a pair in sections
-    33(2) and 44(3). The Manual treats them as the price of acceptance under subsection 44(3).
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMA1995/s44
-      span:
-      - 2576
-      - 2748
-      content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
-      quote: the Registrar may accept the application for the registration of the applicant’s trade
-        mark subject to any conditions or limitations that the Registrar thinks fit to impose
-    - ref: TMA1995/s6/limitations
-      span:
-      - 0
-      - 116
-      content_hash: sha256:cdf95565e87120d2c8599a8b2435e8bca54a4615914efbca8a73fc98c3ed23d1
-      quote: limitations means limitations of the exclusive right to use a trade mark given by the
-        registration of the trade mark
-    confidence: 0.75
-    reasoning: >-
-      The Act states the power and defines one half of the pair. The concept is held as the pair because
-      that is how both the Act and the Manual use it, and holding 'limitations' alone would leave
-      'conditions' unrepresented.
-    alternatives_considered:
-    - >-
-      Two concepts, one per word. Defensible — only 'limitations' is defined — and worth doing if
-      an expert says conditions and limitations are different instruments in practice.
-    expert_should_check: >-
-      Whether conditions and limitations are one concept or two. The Act defines only limitations,
-      which is evidence for two.
 - id: GC-0070
   pref_label: similarity of goods and services
   alt_labels:
@@ -1798,53 +1691,6 @@
     expert_should_check: >-
       Whether the preferred label should be 'Register' as the Act has it. This record uses the fuller
       form because 'Register' alone collides with the other two registers.
-- id: GC-0090
-  pref_label: priority date
-  alt_labels: []
-  not_labels:
-  - filing date
-  - date of registration
-  definition_sources:
-  - TMM/Part11/1#1
-  legislative_basis:
-  - TMA1995/s12
-  - TMA1995/s6/priority-date
-  notes: >-
-    Section 44 turns on a comparison of priority dates, and a convention claim can move one. Distinct
-    from the filing date, which section 6 defines separately, though for many applications the two
-    coincide. GC-0016 already holds this term from the section 43 pilot.
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMA1995/s12
-      span:
-      - 0
-      - 101
-      content_hash: sha256:f0c714853658535f373f035e5a52c3d7256ce6f17a1cb2ae3ce3e0c29a46b406
-      quote: 'The priority date for the registration of a trade mark in respect of particular goods
-        or services is:'
-    - ref: TMA1995/s6/priority-date
-      span:
-      - 0
-      - 50
-      content_hash: sha256:58c974e5b99109d669241114abd7bc409f5fbfa875d981cb5745c6d18089793e
-      quote: priority date has the meaning given by section 12.
-    confidence: 0.8
-    reasoning: >-
-      Defined by section 12 and pointed to by section 6. Written from the statute rather than from
-      Part 29, which is what GC-0016 rests on; the overlap is flagged rather than resolved.
-    alternatives_considered:
-    - >-
-      Not writing it because GC-0016 exists. Same reasoning as for authorised user: the signed record
-      stands and this one names the overlap.
-    expert_should_check: >-
-      The overlap with the signed GC-0016. One of the two should be retired by a reviewer, and an
-      agent may not choose which.
 - id: GC-0091
   pref_label: filing date
   alt_labels: []
@@ -1981,46 +1827,6 @@
       same way.
     expert_should_check: >-
       Nothing specific.
-- id: GC-0094
-  pref_label: revocation of acceptance
-  alt_labels:
-  - revoke acceptance
-  not_labels:
-  - revocation of registration
-  - acceptance
-  - rectification
-  definition_sources:
-  - TMM/Part38/1#1
-  legislative_basis:
-  - TMA1995/s38
-  notes: >-
-    Available where information received after acceptance indicates the mark should not have been
-    accepted. Distinct from revocation of registration under sections 84A to 84D, which the Manual
-    gives a separate Part. GC-0042 already holds this term.
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part38/1#1
-      span:
-      - 0
-      - 152
-      content_hash: sha256:9e165c735ebe5317e983d6154886aab73d86d98d277b0a79c4f92f4e6e029c43
-      quote: The acceptance of an application can be revoked if information is received after acceptance
-        that indicates the trade mark should not have been accepted.
-    confidence: 0.8
-    reasoning: >-
-      The Manual states it in one sentence. Written from Part 38 rather than from the section 43 material
-      GC-0042 rests on; the overlap is flagged for a reviewer.
-    alternatives_considered:
-    - >-
-      Not writing it because GC-0042 exists — same reasoning as the other two overlaps in this pass.
-    expert_should_check: >-
-      The overlap with the signed GC-0042.
 - id: GC-0095
   pref_label: revocation of registration
   alt_labels:
@@ -2124,17 +1930,16 @@
   - TMM/Part15/1#1~1
   legislative_basis:
   - TMA1995/s224
-  - TMR1995/r21.20A
-  notes: >-
-    Available across the Act wherever a time is set, and the Manual notes the procedure differs by
-    which time is being extended. That variability is why it is one concept with many procedures rather
-    than many concepts.
+  - TMR1995/r21.25
+  notes: Available across the Act wherever a time is set, and the Manual notes the procedure
+    differs by which time is being extended. That variability is why it is one concept with
+    many procedures rather than many concepts.
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part15/1#1~1
@@ -2142,18 +1947,20 @@
       - 0
       - 137
       content_hash: sha256:5df70de3525e8d16a4f12c342296533ecaaed281afc03f2e58bab4f442825ea7
-      quote: When the Act and Regulations set a time in which to perform an act or file a document,
-        that time can frequently be extended upon request.
+      quote: When the Act and Regulations set a time in which to perform an act or file a
+        document, that time can frequently be extended upon request.
     confidence: 0.8
-    reasoning: >-
-      The Manual states the general position at the head of its Part on the subject.
+    reasoning: 'Legislative basis corrected (review F3): Regulation 21.20A defines terms for
+      opposing an extension request; regulation 21.25 is the one that says how an extension
+      of time is applied for under section 224(2) and (3).'
     alternatives_considered:
-    - >-
-      Separate concepts per extension provision. Rejected for now: the Manual organises them as one
-      topic with variations.
-    expert_should_check: >-
-      Whether the legislative basis is right. `TMA1995/s224` is the general extension provision and
-      the Manual's Part 15 covers several others.
+    - 'Recorded with the legislative basis TMR1995/r21.20A by an earlier agent session on 2026-09-09.
+      Its reasoning: The Manual states the general position at the head of its Part on the
+      subject.'
+    - 'Separate concepts per extension provision. Rejected for now: the Manual organises them
+      as one topic with variations.'
+    expert_should_check: Whether the legislative basis is right. `TMA1995/s224` is the general
+      extension provision and the Manual's Part 15 covers several others.
 - id: GC-0098
   pref_label: lapsing of an application
   alt_labels:
@@ -2236,137 +2043,6 @@
     expert_should_check: >-
       Whether a disclaimer is a species of the section 6 'limitations' or a different instrument.
       The Manual's wording supports the first; the Act's structure the second.
-- id: GC-0100
-  pref_label: endorsement
-  alt_labels:
-  - endorsements
-  not_labels:
-  - disclaimer
-  - conditions or limitations
-  definition_sources:
-  - TMM/Part23/6#1
-  legislative_basis:
-  - TMA1995/s41(3)
-  - TMA1995/s44(3)
-  notes: >-
-    The Manual treats an endorsement as what goes on the Register to record that an application was
-    accepted on evidence or other circumstances. It is a record of how a ground was overcome, which
-    makes it evidence about the mark's history.
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part23/6#1
-      span:
-      - 49
-      - 185
-      content_hash: sha256:03b5b4de76bef1acf928f0d4a7bc4230a1301e2f9485689b6e7361416192aae2
-      quote: If an application is accepted on the basis of evidence or other circumstances, the relevant
-        endorsement will be entered on the Register.
-    confidence: 0.75
-    reasoning: >-
-      The Manual states what an endorsement is for and when it is entered. Held apart from disclaimer
-      because one records how a ground was overcome and the other limits a right.
-    alternatives_considered:
-    - >-
-      Folding endorsements into conditions or limitations. Rejected: the Manual's Part 23.6 and Part
-      28.8 both treat endorsements as their own thing.
-    expert_should_check: >-
-      Whether the corpus defines 'endorsement' anywhere more directly. This record rests on a passage
-      about when one is entered rather than on a definition.
-- id: GC-0101
-  pref_label: evidence of use
-  alt_labels:
-  - evidence of use of the trade mark
-  not_labels:
-  - use of a trade mark
-  - prior use
-  - honest concurrent use
-  - evidence in support
-  definition_sources:
-  - TMM/Part23/3#1
-  legislative_basis:
-  - TMA1995/s41(3)(b)
-  - TMA1995/s41(4)(b)
-  notes: >-
-    Formal evidence filed to overcome a section 41 ground, once the Registrar remains satisfied after
-    submissions that the mark is not capable of distinguishing. The Manual makes the sequence explicit
-    and it matters: evidence comes after argument, not instead of it.
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part23/3#1
-      span:
-      - 49
-      - 370
-      content_hash: sha256:33c56e7eda49174e63a0f03536399f589496bde63f5d82e0f1141bdc312ca4bd
-      quote: When grounds for rejection under s 41 have been raised and the Registrar remains satisfied
-        (after considering any submissions or proposed amendments filed by the applicant) that the
-        trade mark is not capable of distinguishing the applicant's goods and/or services, the trade
-        mark owner may provide formal evidence of use.
-    confidence: 0.85
-    reasoning: >-
-      The Manual states the trigger, the sequence and the actor in one sentence. Held apart from 'use
-      of a trade mark' because this is the proof, not the fact.
-    alternatives_considered:
-    - >-
-      Treating it as a kind of use. Rejected: it is a filing, and the Manual devotes a Part to what
-      it must contain.
-    expert_should_check: >-
-      Whether evidence of use under section 41 and evidence of use under section 44(4) are the same
-      concept. The Manual treats them in different Parts with different requirements.
-- id: GC-0102
-  pref_label: opposition
-  alt_labels:
-  - opposition to registration
-  - opposition proceedings
-  not_labels:
-  - hearing
-  - removal for non-use
-  - rectification
-  definition_sources:
-  - TMM/Part46/1#1
-  legislative_basis:
-  - TMA1995/s52
-  - TMR1995/r5.2
-  notes: >-
-    A formal objection by a third party. The Manual notes that any person may oppose but that the
-    opponent is generally somebody affected — which is a practice observation rather than a standing
-    requirement, and the record keeps it in notes for that reason.
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part46/1#1
-      span:
-      - 49
-      - 208
-      content_hash: sha256:02a2b1a95baa2a0cc7c9e71bfd36f03d235e71e78c4e90c9b8cd0eae568015a8
-      quote: Opposition is a formal objection by a third party to registration of a trade mark or
-        to protection of an International Trade Mark Designating Australia (IRDA).
-    confidence: 0.85
-    reasoning: >-
-      Defined in terms at the head of the Manual's Part on the subject.
-    alternatives_considered:
-    - >-
-      Separate concepts for opposition to registration and opposition to protection of an IRDA. The
-      passage treats them together and so does this record.
-    expert_should_check: >-
-      Whether 'any person may oppose' should be in the record rather than the notes. It is a statement
-      about standing and belongs in a relationship record if anywhere.
 - id: GC-0103
   pref_label: notice of opposition
   alt_labels: []
@@ -2684,57 +2360,6 @@
     expert_should_check: >-
       The evidence is a sentence about the 1955 Act. If Part 34 states the current requirement elsewhere,
       that passage should replace this one.
-- id: GC-0110
-  pref_label: divisional application
-  alt_labels:
-  - divisional applications
-  - divisional
-  not_labels:
-  - parent application
-  - series of trade marks
-  - convention application
-  definition_sources:
-  - TMM/Part12/1#1
-  legislative_basis:
-  - TMA1995/s45
-  - TMA1995/s6/divisional-application
-  - TMA1995/s46
-  notes: >-
-    A limited continuation of a parent application that keeps the parent's priority date but takes
-    a new number. The priority-date inheritance is what makes it matter to section 44. GC-0043 already
-    holds this term.
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part12/1#1
-      span:
-      - 236
-      - 365
-      content_hash: sha256:d095cd23621ebb182a51c6b60876ee2bdb1c4322b436883dc13a306a842d4ca2
-      quote: Divisional applications claim the priority date of the original parent application, however,
-        they receive a new trade mark number
-    - ref: TMA1995/s45
-      span:
-      - 142
-      - 373
-      content_hash: sha256:7be83e5257d68826159cc196e4e6a67ddbf27edd1510b5312e06df0c2b6bc2fc
-      quote: the applicant may make another application (divisional application) for the registration
-        of the trade mark in respect of some only of the goods and/or services in respect of which
-        registration is sought under the parent application
-    confidence: 0.85
-    reasoning: >-
-      Both the Act and the Manual state it. Written from Part 12 rather than the section 43 material
-      GC-0043 rests on; the overlap is flagged.
-    alternatives_considered:
-    - >-
-      Not writing it because GC-0043 exists — same reasoning as the other overlaps in this pass.
-    expert_should_check: >-
-      The overlap with the signed GC-0043.
 - id: GC-0111
   pref_label: convention application
   alt_labels:
@@ -2919,57 +2544,6 @@
     expert_should_check: >-
       The definition source is a Part 60 passage about the Protocol generally rather than about protection
       specifically.
-- id: GC-0115
-  pref_label: Registrar of Trade Marks
-  alt_labels:
-  - the Registrar
-  - Registrar
-  not_labels:
-  - Deputy Registrar
-  - delegate
-  - prescribed court
-  definition_sources:
-  - TMM/Part52/1#1~2
-  legislative_basis:
-  - TMA1995/s6/registrar
-  - TMA1995/s200
-  - TMA1995/s205
-  notes: >-
-    Almost every duty and discretion in the Act is the Registrar's. Section 205 makes a Deputy Registrar's
-    exercise of a power count as the Registrar's, which is why decisions issued by a Deputy are the
-    Registrar's decisions. GC-0046 already holds this term.
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMA1995/s6/registrar
-      span:
-      - 0
-      - 45
-      content_hash: sha256:0747d36f6b8a618b2323ad53edf975988f3b9f381ffb912f4d01a29ab6e27e53
-      quote: Registrar means the Registrar of Trade Marks.
-    - ref: TMM/Part52/1#1~2
-      span:
-      - 1
-      - 258
-      content_hash: sha256:723ee051e2a60bb61a0318cfc85969b781e67761c44ce860393db228c2d7dfec
-      quote: Under section 205 of the Act, a Deputy Registrar has all the powers and functions of
-        the Registrar (except the power of delegation) and when a Deputy Registrar exercises a power
-        or function under the Act, it is taken to have been exercised by the Registrar.
-    confidence: 0.8
-    reasoning: >-
-      Defined by the Act, and the Manual supplies the delegation rule that makes the role behave the
-      way examiners meet it. Overlaps the signed GC-0046 and says so.
-    alternatives_considered:
-    - >-
-      Not writing it because GC-0046 exists — same reasoning as the other overlaps.
-    expert_should_check: >-
-      The overlap with the signed GC-0046, and whether the section 205 point belongs in this concept
-      or in a separate 'Deputy Registrar' one.
 - id: GC-0116
   pref_label: applicant
   alt_labels: []
@@ -3052,55 +2626,6 @@
     expert_should_check: >-
       Whether the six statutory definitions of 'opponent' are the same concept. The candidate pass
       found them and refused to choose; this record inherits that refusal.
-- id: GC-0118
-  pref_label: presumption of registrability
-  alt_labels:
-  - presumption that a trade mark is registrable
-  not_labels:
-  - ground for rejection
-  - acceptance
-  definition_sources:
-  - TMM/Part20/4#1~1
-  - TMM/Part22/2#1
-  legislative_basis:
-  - TMA1995/s33
-  - TMA1995/s33(1)
-  notes: >-
-    The Manual is careful here and the record follows it: the expression does not appear in the Act.
-    It is a reading of section 33's structure, endorsed by Branson J in Blount, that the Registrar
-    must accept unless satisfied of a ground. GC-0007 already holds this term.
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part22/2#1
-      span:
-      - 209
-      - 266
-      content_hash: sha256:02834afac7791e3caa1c4b6642be870819de7067fd704d18e482d173536fbc63
-      quote: However the expression does not appear in the Act itself.
-    - ref: TMM/Part20/4#1~1
-      span:
-      - 0
-      - 70
-      content_hash: sha256:67daa8312e2898e336753ab4fecc9acaea819f1ea3af243af1c38300cb23e6d5
-      quote: There is a presumption under the Act that a trade mark is registrable.
-    confidence: 0.8
-    reasoning: >-
-      Two passages, and they are in mild tension — Part 20.4 asserts the presumption and Part 22.2
-      says the expression is not in the Act. Both are quoted rather than reconciled, because the tension
-      is the interesting part and resolving it would be authoring a position the corpus does not take.
-    alternatives_considered:
-    - >-
-      Quoting only Part 20.4, which reads as a clean statement of the presumption. Rejected: that
-      would hide the qualification.
-    expert_should_check: >-
-      Whether the two passages really are in tension or whether Part 22.2 is only saying the phrase
-      is not a statutory term. The record takes the second reading and quotes both.
 - id: GC-0119
   pref_label: prima facie capable of distinguishing
   alt_labels:
@@ -3368,57 +2893,10 @@
     expert_should_check: >-
       Whether amendment before and after registration are one concept. The Act's structure argues
       they are two.
-- id: GC-0125
-  pref_label: plant varietal name
-  alt_labels:
-  - plant variety denomination
-  - plant varietal names
-  not_labels:
-  - geographical indication
-  - generic term
-  definition_sources:
-  - TMM/Part32A/1/1/1
-  - TMM/Part32A/1/1/2
-  legislative_basis:
-  - TMA1995/s41
-  - TMA1995/s43
-  notes: >-
-    Examination of Class 31 plant applications takes in the Plant Breeder's Rights Act 1994 — legislation
-    outside the Trade Marks Act entirely. That is the interesting thing about this concept and the
-    reason it is held.
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part32A/1/1/1
-      span:
-      - 0
-      - 195
-      content_hash: sha256:7238aa84d5fea3ba2fb958326d534a9ba14720077aee6c2ffc0539867fbcdace
-      quote: Examination of trade mark applications filed in Class 31 in respect of plants and plant
-        material involves consideration of additional requirements arising from the Plant Breeder’s
-        Rights Act 1994
-    confidence: 0.7
-    reasoning: >-
-      The Manual states the interaction in terms. Held because it is one of two places where examination
-      reaches outside the trade marks legislation, and a vocabulary built only from the Act would
-      never find it.
-    alternatives_considered:
-    - >-
-      Not holding it, as a specialised corner. Rejected: Part 32A is 61 chunks and the boundary removal
-      is exactly what makes corners like this visible.
-    expert_should_check: >-
-      The legislative_basis. This record names s 41 and s 43 as the grounds the varietal name bears
-      on, which is an inference from Part 22.27's title rather than a citation in the quoted passage.
 - id: GC-0126
-  pref_label: protected wine expression
+  pref_label: term protected under the Wine Australia Act
   alt_labels:
-  - geographical indication for wine
-  - protected GI
+  - term on the Wine Register
   not_labels:
   - geographical indication
   - geographical name
@@ -3426,18 +2904,20 @@
   definition_sources:
   - TMM/Part32B/1/1/1
   legislative_basis:
+  - TMA1995/s42(b)
   - TMA1995/s43
   - TMA1995/s61
-  notes: >-
-    The second place examination reaches outside the trade marks legislation: the Wine Australia Act
-    2013. Distinguished from the section 6 'geographical indication' because the protection comes
-    from a different statute.
+  notes: A term entered on the Register of Protected Geographical Indications and Other Terms
+    (the Wine Register) under the Wine Australia Act 2013 — Australian and European wine geographical
+    indications, traditional expressions, quality wine terms and additional terms. Wine has
+    a dedicated statutory scheme, unlike other geographical indications, which are principally
+    protected through certification trade marks (owner's ruling A4).
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part32B/1/1/1
@@ -3445,24 +2925,49 @@
       - 0
       - 218
       content_hash: sha256:7c737edcd548f36aa4c10588c4c0c22b98dfd7ed73a747cb8053e957388477aa
-      quote: Examination of trade mark applications filed in respect of wines and grape products such
-        as brandy, grappa and fortified wines involves consideration of additional requirements arising
-        from the Wine Australia Act 2013.
-    confidence: 0.65
-    reasoning: >-
-      The Manual states the interaction. The label is this repository's — the passage names the Act
-      rather than the protected thing — and that is flagged.
+      quote: Examination of trade mark applications filed in respect of wines and grape products
+        such as brandy, grappa and fortified wines involves consideration of additional requirements
+        arising from the Wine Australia Act 2013.
+    - ref: TMM/Part32B/1/1/1
+      span:
+      - 219
+      - 297
+      content_hash: sha256:7c737edcd548f36aa4c10588c4c0c22b98dfd7ed73a747cb8053e957388477aa
+      quote: The Wine Australia Act protects certain terms used in relation to these goods.
+    - ref: TMM/Part32B/1/1/3
+      span:
+      - 0
+      - 173
+      content_hash: sha256:477b4457c36116f72b0b60c7022c87ee4c711c97faa9e34ad3b8fddff85dcf64
+      quote: The Register of Protected Geographical Indications and Other Terms (the Wine
+        Register) lists the four categories of terms that Australia and the European Union
+        will protect.
+    - ref: TMM/Part32B/2/1#1
+      span:
+      - 73
+      - 276
+      content_hash: sha256:52ccb38230f00c84625d6a40a56e148127aa74806bb393a832265c8513b21c39
+      quote: A ground for rejection under this section may apply when a trade mark or part
+        of a trade mark is identical to, or resembles, an entry on the Register of Protected
+        Geographical Indications and Other Terms
+    confidence: 0.85
+    reasoning: Part 32B says the Wine Australia Act protects certain terms and that the Wine
+      Register lists them; that list, not wine geographical indications alone, is what an
+      examiner checks under s 42(b). Wine GIs are one category of it and have a concept of
+      their own (GC-0169). Part 32B.2 examines a Wine Register entry under s 42(b), which
+      is now the first legislative basis.
     alternatives_considered:
-    - >-
-      Naming the concept 'wine geographical indication'. The Act defines 'geographical indication'
-      in section 6 and GC-0018 already holds it, so a close label would invite exactly the merge this
-      record is trying to avoid.
-    expert_should_check: >-
-      The preferred label, which no passage supplies. An expert should replace it.
+    - Labelled 'protected wine expression', with the alternative 'geographical indication
+      for wine', by an earlier agent session on 2026-09-09. That folded wine GIs into this concept and
+      shared a label with the signed GC-0018; wine GIs are now GC-0169.
+    expert_should_check: Whether the four Wine Register categories need concepts of their
+      own beyond wine GIs.
 - id: GC-0127
-  pref_label: decision
+  pref_label: Registrar's decision
   alt_labels:
-  - Registrar's decision
+  - decision of the Registrar
+  - decisions of the Registrar
+  - delegate's decision
   - written decision
   not_labels:
   - hearing
@@ -3473,15 +2978,17 @@
   legislative_basis:
   - TMA1995/s205
   - TMA1995/s35
-  notes: >-
-    The Manual's Part 52 opens by listing what gets decided — oppositions to registration, to removal
-    for non-use, to procedural matters — and section 205 makes a Deputy Registrar's decision the Registrar's.
+  notes: 'The Manual''s Part 52 opens by listing what gets decided — oppositions to registration,
+    to removal for non-use, to procedural matters — and section 205 makes a Deputy Registrar''s
+    decision the Registrar''s. Relabelled on 2026-10-08 (review E3): the bare label ''decision''
+    matched 178 passages, most of them ordinary uses; the concept is the decision the Registrar
+    or a delegate makes.'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part52/1#1~1
@@ -3489,21 +2996,23 @@
       - 50
       - 188
       content_hash: sha256:f2b22d48cf5695afb6d756fa140a8e316154f0953c2a55f07123ba2439f985d4
-      quote: Opposition to registration of a trade mark, opposition to removal of a trade mark from
-        the Register for non- use, opposition to procedural
+      quote: Opposition to registration of a trade mark, opposition to removal of a trade
+        mark from the Register for non- use, opposition to procedural
     confidence: 0.6
-    reasoning: >-
-      The evidence is a list of what is decided rather than a definition of a decision, which is the
-      weakest kind of support in this pass. The concept is held anyway because 178 Manual passages
-      use the word and a knowledge base about examination that cannot say 'decision' is missing something
-      structural.
+    reasoning: The record's own evidence (Part 52.1) is about a decision made by the Registrar
+      or the Registrar's delegate; the label now says so. Relabelled on the owner's ruling
+      E3.
     alternatives_considered:
-    - >-
-      Not holding it until a definitional passage is found. Rejected, but the reviewer should know
-      the record is thin.
-    expert_should_check: >-
-      This record's evidence does not define a decision. Either Part 52 defines it somewhere this
-      pass did not reach, or the record should be redrawn or dropped.
+    - 'Labelled ''decision'', with the alternatives "Registrar''s decision" and ''written
+      decision'', by an earlier agent session on 2026-09-09. Its reasoning: The evidence is a list of
+      what is decided rather than a definition of a decision, which is the weakest kind of
+      support in this pass. The concept is held anyway because 178 Manual passages use the
+      word and a knowledge base about examination that cannot say ''decision'' is missing
+      something structural.'
+    - Not holding it until a definitional passage is found. Rejected, but the reviewer should
+      know the record is thin.
+    expert_should_check: This record's evidence does not define a decision. Either Part 52
+      defines it somewhere this pass did not reach, or the record should be redrawn or dropped.
 - id: GC-0128
   pref_label: hearing
   alt_labels:
@@ -3548,51 +3057,8 @@
     expert_should_check: >-
       Whether ex parte and inter partes hearings are one concept. The Manual gives them different
       procedures.
-- id: GC-0129
-  pref_label: specification of goods and services
-  alt_labels:
-  - specification
-  - specification of goods and/or services
-  not_labels:
-  - classification of goods and services
-  - similarity of goods and services
-  definition_sources:
-  - TMM/Part10/5#1
-  legislative_basis:
-  - TMA1995/s27(1)(b)
-  - TMR1995/r4.4
-  notes: >-
-    What the applicant claims, as against how it is classified and whether it is similar to something
-    else. Amending it is one of the Manual's named ways of overcoming a section 44 ground. GC-0012
-    already holds this term.
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part27/1#1
-      span:
-      - 312
-      - 418
-      content_hash: sha256:3a61229ed189ea7c63894d6d0d2da5e353f303562b87a81c8bfaee870d1ebc5f
-      quote: Amend the specification in order to remove all goods/services that conflict with the
-        earlier trade mark(s)
-    confidence: 0.65
-    reasoning: >-
-      The evidence states what a specification is for in the one place it does operative work in examination.
-      That is thinner than a definition and is flagged. Overlaps the signed GC-0012.
-    alternatives_considered:
-    - >-
-      Drawing the evidence from Part 10.5, which is the Manual's section on specifications. That passage
-      should probably replace this one.
-    expert_should_check: >-
-      Both the overlap with GC-0012 and the evidence, which is drawn from Part 27 rather than from
-      the Part 10 section this record cites as its definition source.
 - id: GC-0130
-  pref_label: reputation
+  pref_label: reputation of a trade mark
   alt_labels:
   - reputation in Australia
   not_labels:
@@ -3604,16 +3070,16 @@
   legislative_basis:
   - TMA1995/s185
   - TMA1995/s60
-  notes: >-
-    Does different work in different places: it is what a defensive registration rests on, and it
-    is the basis of the section 60 opposition ground. GC-0050 already holds this term from the section
-    43 pilot.
+  notes: 'The reputation a trade mark has acquired — the basis of the section 60 opposition
+    ground and of a defensive registration (section 185). Not the reputation of a place or
+    person, which is the signed GC-0050 and which excludes ''reputation in another trade mark''
+    (owner''s ruling A3: two separate concepts).'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part34/1/1/1
@@ -3621,22 +3087,22 @@
       - 309
       - 520
       content_hash: sha256:7b44f7d0f5f4f947f0e52138b3d80f9f8b0553bebcd6d25b124069add4f2954b
-      quote: The trade mark had also to have been used to such an extent, on some or all of the goods
-        and/or services for which it was registered, that the use of the trade mark in relation to
-        other goods or services would b
-    confidence: 0.6
-    reasoning: >-
-      The evidence is the defensive-registration requirement, which is reputation described rather
-      than named. Held because reputation is one of the few concepts that genuinely spans the Manual
-      — Parts 29, 34, 46 and 47 all reason with it — and the boundary removal is what makes that visible.
-      Overlaps the signed GC-0050.
+      quote: The trade mark had also to have been used to such an extent, on some or all of
+        the goods and/or services for which it was registered, that the use of the trade mark
+        in relation to other goods or services would b
+    confidence: 0.85
+    reasoning: Relabelled on the owner's ruling A3 — reputation of a trade mark and reputation
+      of a place are two separate concepts. This record's evidence (Part 34, sections 60 and
+      185) is about a trade mark's reputation, the sense the signed GC-0050 excludes.
     alternatives_considered:
-    - >-
-      Not writing it because GC-0050 exists. The overlap is real and flagged; what this record adds
-      is the Part 34 sense, which the section 43 record cannot carry.
-    expert_should_check: >-
-      Whether reputation under section 43, section 60 and section 185 is one concept or three. This
-      is the most consequential unresolved question in the pass.
+    - 'Labelled ''reputation'' with the alternative ''reputation in Australia'' by an earlier agent session
+      on 2026-09-09 — the same preferred label as the signed GC-0050, a different idea. Original
+      reasoning: The evidence is the defensive-registration requirement, which is reputation
+      described rather than named. Held because reputation is one of the few concepts that
+      genuinely spans the Manual — Parts 29, 34, 46 and 47 all reason with it — and the boundary
+      removal is what makes that visible. Overlaps the signed GC-0050.'
+    expert_should_check: Whether reputation under section 60 and under section 185 is one
+      idea; this record still holds both.
 - id: GC-0131
   pref_label: trade mark application
   alt_labels:
@@ -3682,13 +3148,18 @@
     expert_should_check: Check whether the definition in regulation 5.2 has a limited contextual
       scope before adopting it throughout the ontology.
 - id: GC-0132
-  pref_label: holder
-  alt_labels: []
+  pref_label: holder of an international registration
+  alt_labels:
+  - holder
+  - IRDA holder
+  - holder of the international registration
   not_labels:
   - applicant
   - registered owner
   - copyright holder
   - holder of a business name
+  - title holder
+  - interest holder
   definition_sources:
   - TMM/Part27/x-relevant-legislation26#1
   legislative_basis:
@@ -3696,13 +3167,15 @@
   - TMR1995/r17A.17
   notes: 'Summary, not a definition: Summary: In the international-registration examination
     context, the holder is the party to whom examination reports are directed and who responds
-    to those reports.'
+    to those reports. Relabelled on 2026-10-08 (review E3): the Manual''s ''holder'' is almost
+    always this one (about 65 of 71 passages); the not-labels veto the rest — copyright holder,
+    title holder, interest holder.'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part27/x-relevant-legislation26#1
@@ -3713,15 +3186,20 @@
       quote: Reg 17A.16 Examination of IRDA – report to holder Reg 17A.17 Examination – holder’s
         response to report Reg 17A.18 Examination – further response to holder
     confidence: 0.84
-    reasoning: The Regulations expressly introduce a definition of holder, although its substance
-      is missing from the supplied passage. The Manual’s legislative-reference list identifies
-      the holder as the recipient of reports and the responding party in examination of an
-      IRDA, supporting a distinct process role. The supplied material does not establish equivalence
-      with the existing applicant or registered owner concepts. Uses concerning business names
-      and copyright are separate contexts, not evidence of the international-registration
-      meaning. The quoted Manual text identifies procedural provisions; it is not itself legislation
-      or a complete legal definition.
+    reasoning: Regulation 17A.2 defines the holder in relation to an international registration,
+      and the Manual uses the bare word in that sense in nearly every passage. The preferred
+      label now names the sense; 'holder' stays as an alternative because the Manual uses
+      it so, and the not-labels veto the ordinary uses (owner's rulings E2 and E3).
     alternatives_considered:
+    - 'Labelled ''holder'' by gpt-6.1-sol on 2026-10-07. Its reasoning: The Regulations expressly
+      introduce a definition of holder, although its substance is missing from the supplied
+      passage. The Manual’s legislative-reference list identifies the holder as the recipient
+      of reports and the responding party in examination of an IRDA, supporting a distinct
+      process role. The supplied material does not establish equivalence with the existing
+      applicant or registered owner concepts. Uses concerning business names and copyright
+      are separate contexts, not evidence of the international-registration meaning. The quoted
+      Manual text identifies procedural provisions; it is not itself legislation or a complete
+      legal definition.'
     - If a complete statutory definition is required before creating the concept, defer inclusion
       until the remainder of regulation 17A.2 is supplied.
     expert_should_check: 'Check the complete definition in regulation 17A.2: the supplied
@@ -3773,7 +3251,6 @@
   alt_labels:
   - Administrative Review Tribunal
   not_labels:
-  - art
   - works of art
   definition_sources:
   - TMR1995/r2.1/art
@@ -3784,8 +3261,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMR1995/r2.1/art
@@ -3795,13 +3272,17 @@
       content_hash: sha256:da8dd7ee37544b8b7dcf4f35cb1b52e712d44a36a4fab20c1c28b1cc3277b196
       quote: ART means the Administrative Review Tribunal.
     confidence: 0.99
-    reasoning: The Regulations expressly define ART as the Administrative Review Tribunal.
+    reasoning: ART is the statutory abbreviation for the Administrative Review Tribunal. The
+      not-label 'art' excluded the record's own preferred label once case is folded, as recognition
+      folds it; 'works of art' keeps the boundary (review E4).
+    alternatives_considered:
+    - 'Recorded with the not-labels ''art'' and ''works of art'' by gpt-6.1-sol on 2026-10-07.
+      Its reasoning: The Regulations expressly define ART as the Administrative Review Tribunal.
       This names a legal body and fits process_role; no existing concept names that body.
       The Manual passages concern lowercase art as goods or classification wording, not the
       statutory abbreviation. None of the provisions listed under PROVISIONS is reproduced,
       so their contribution to the Tribunal’s role cannot be established from the supplied
-      text.
-    alternatives_considered: []
+      text.'
     expert_should_check: Confirm the Tribunal’s trade marks review functions against the cited
       provisions, whose text has not been supplied.
 - id: GC-0135
@@ -3883,41 +3364,6 @@
     alternatives_considered: []
     expert_should_check: 'Check Article 2(2) of the Protocol for the full definition: regulation
       17A.2 incorporates it, but that Article is not supplied here.'
-- id: GC-0137
-  pref_label: covering
-  alt_labels: []
-  not_labels:
-  - specification of goods and services
-  - classification of goods and services
-  definition_sources:
-  - TMA1995/s9/covering
-  legislative_basis: []
-  notes: 'Summary, not a definition: Summary: Covering is an inclusively defined statutory
-    term encompassing packaging, frames, wrappers, containers, stoppers, lids and caps.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMA1995/s9/covering
-      span:
-      - 0
-      - 76
-      content_hash: sha256:0d5190d4b63fe7db5c185b9604132cfaefc682763da4282fe126a2babbe3d203
-      quote: covering includes packaging, frame, wrapper, container, stopper, lid or cap.
-    confidence: 0.95
-    reasoning: Section 9 expressly defines the noun 'covering', making it a distinct legal
-      concept rather than merely a goods category or generic expression. No existing concept
-      duplicates it. The Manual passages instead use 'covering' in its ordinary sense of encompassing
-      classes, goods, services or searches. None of the supplied groups clearly fits the defined
-      physical covering, so none_of_these is preferred. The listed PROVISIONS do not ground
-      this definition; section 9 is supplied as a passage but is absent from that list.
-    alternatives_considered: []
-    expert_should_check: 'Confirm its ontology placement: the supplied definition establishes
-      a statutory concept but does not explain its procedural function.'
 - id: GC-0138
   pref_label: International Bureau
   alt_labels:
@@ -4002,46 +3448,6 @@
     alternatives_considered: []
     expert_should_check: Check the currency of the supplied section 190 court list before
       using it as a statement of current law.
-- id: GC-0140
-  pref_label: label
-  alt_labels: []
-  not_labels:
-  - sign
-  - trade mark
-  - descriptive matter
-  definition_sources:
-  - TMA1995/s9/label
-  legislative_basis: []
-  notes: 'Summary, not a definition: Summary: A label is an expressly defined item that includes
-    a band or ticket, whose contents and presentation may be relevant to assessing use as
-    a trade mark.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMA1995/s9/label
-      span:
-      - 0
-      - 32
-      content_hash: sha256:4d5ccddf3172e8ed7ad737361ac958c5407b7b2c896eef94f862c7d47997d053
-      quote: label includes a band or ticket.
-    confidence: 0.88
-    reasoning: 'The legislative passage expressly gives label an inclusive definition, supporting
-      a distinct concept rather than merely generic packaging terminology. The Manual passages
-      also discuss a label''s parts and presentation in assessing use as a trade mark. Label
-      is not synonymous with the existing concepts sign or trade mark: the Manual indicates
-      that parts of a label may perform a distinguishing function. Subject_matter is the closest
-      group, although the supplied passages do not establish that every label is itself registrable.
-      No listed legislative provision can be confirmed as grounding it from the supplied text.'
-    alternatives_considered:
-    - Treat label as ordinary packaging terminology if the ontology excludes expressly defined
-      physical forms associated with trade marks.
-    expert_should_check: Verify the supplied TMA1995/s9/label reference and which listed provisions
-      ground the concept; their text is not supplied.
 - id: GC-0141
   pref_label: date of registration
   alt_labels:
@@ -4256,84 +3662,6 @@
       section 15, treat this as a duplicate of GC-0019 instead.
     expert_should_check: Check whether GC-0019 geographical origin already encompasses this
       wine-specific statutory test; only its label has been supplied.
-- id: GC-0146
-  pref_label: Board
-  alt_labels: []
-  not_labels:
-  - body board
-  - A-frame board
-  - Board Games
-  definition_sources:
-  - TMA1995/s6/board
-  legislative_basis: []
-  notes: 'Summary, not a definition: Summary: Board is a defined statutory term whose meaning
-    the Trade Marks Act 1995 adopts from the Patents Act 1990; the supplied passages do not
-    identify the body or its functions.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMA1995/s6/board
-      span:
-      - 0
-      - 54
-      content_hash: sha256:4580da3404b27728550dab587acc03ee3f0fece76cc98428bfb9f5866e9835b8
-      quote: Board has the same meaning as in the Patents Act 1990.
-    confidence: 0.86
-    reasoning: Section 6 expressly defines the capitalised term by reference to another Act,
-      supporting a distinct statutory concept not represented in the existing concepts. Classification
-      as process_role is inferred and remains provisional because the referenced definition
-      is not supplied. The Manual occurrences concern goods or physical boards, not this statutory
-      term. Neither supplied passage establishes sections 41 or 42(b) as a legislative basis
-      for Board.
-    alternatives_considered: []
-    expert_should_check: Check the referenced definition in the applicable version of the
-      Patents Act 1990 to establish the Board’s identity and confirm its classification as
-      a process role.
-- id: GC-0147
-  pref_label: personal information
-  alt_labels: []
-  not_labels:
-  - business information
-  - business affairs information
-  definition_sources:
-  - TMA1995/s6/personal-information
-  legislative_basis: []
-  notes: 'Summary, not a definition: Summary: Personal information is a legally defined category
-    of information relevant to administrative access, third-party consultation and publication
-    on the FOI disclosure log.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMA1995/s6/personal-information
-      span:
-      - 0
-      - 69
-      content_hash: sha256:07ba6beb409e6da164a1cf829a6300fe46fe5d257d1debb0d00a91e99529f87c
-      quote: personal information has the same meaning as in the Privacy Act 1988.
-    confidence: 0.94
-    reasoning: 'Section 6 expressly incorporates a statutory meaning, making this a legal
-      concept rather than a generic phrase. It is not duplicated by the existing concepts.
-      The Manual describes its relevance to information-access practice, but those descriptions
-      are not the substantive definition. None of the groups accurately describes a protected
-      category of information: it is neither a document itself nor the subject matter that
-      may be registered. The incorporated Privacy Act definition is unavailable, so the supplied
-      cross-reference is retained. No supplied passage establishes one of the listed PROVISIONS
-      as the legislative basis for that definition.'
-    alternatives_considered: []
-    expert_should_check: 'Check the substantive definition in the Privacy Act 1988, which
-      is not supplied. Also check the instrument attribution of the cited provisions: the
-      Manual expressly attributes sections 11C and the third-party consultation requirements
-      to the FOI Act, not the Trade Marks Act.'
 - id: GC-0148
   pref_label: lawyer
   alt_labels: []
@@ -4620,8 +3948,9 @@
     expert_should_check: Check links to section 44 and regulation 4.15A against their text,
       which is not supplied here.
 - id: GC-0155
-  pref_label: pending
-  alt_labels: []
+  pref_label: pending application
+  alt_labels:
+  - pending applications
   not_labels:
   - trade mark application
   - acceptance
@@ -4632,13 +3961,16 @@
   - TMA1995/s6
   - TMA1995/s11(1)
   notes: 'Summary, not a definition: Summary: Pending is the statutory status of a trade mark
-    application from filing until one of the terminating events specified in section 11 occurs.'
+    application from filing until one of the terminating events specified in section 11 occurs.
+    Relabelled on 2026-10-08 (review E3): the bare label ''pending'' matched ordinary uses
+    (a court action pending, an amendment pending); the concept is the section 11 status of
+    an application.'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMA1995/s11
@@ -4655,14 +3987,16 @@
         (ii) the decision is confirmed on appeal; —the day on which the decision is confirmed
         on appeal; or (d) the trade mark is registered under section 68.'
     confidence: 0.99
-    reasoning: 'Section 6 expressly gives pending a statutory meaning by reference to section
-      11, which specifies its duration and terminating events. It therefore names a distinct
-      legal status, not merely a generic adjective or a duplicate of trade mark application.
-      The Manual also identifies the parent application''s pending status as a requirement
-      for a valid divisional application. None of the supplied groups describes an application
-      status directly: pending is not itself an act or event that moves an application between
-      states.'
+    reasoning: Section 11 gives 'pending' its meaning only in relation to an application;
+      the label now carries the application with it. Relabelled on the owner's ruling E3.
     alternatives_considered:
+    - 'Labelled ''pending'' by gpt-6.1-sol on 2026-10-07. Its reasoning: Section 6 expressly
+      gives pending a statutory meaning by reference to section 11, which specifies its duration
+      and terminating events. It therefore names a distinct legal status, not merely a generic
+      adjective or a duplicate of trade mark application. The Manual also identifies the parent
+      application''s pending status as a requirement for a valid divisional application. None
+      of the supplied groups describes an application status directly: pending is not itself
+      an act or event that moves an application between states.'
     - Model pending as a legally defined status of a trade mark application rather than as
       a procedural step.
     expert_should_check: Check whether the ontology should represent application statuses
@@ -4817,7 +4151,6 @@
   definition_sources:
   - TMA1995/s6/deputy-registrar
   legislative_basis:
-  - TMA1995/s203
   - TMA1995/s205
   notes: 'Summary, not a definition: Summary: A Deputy Registrar is a distinct trade marks
     office-holder whom the Manual identifies as acting in acceptance, proposed revocation
@@ -4826,8 +4159,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMA1995/s6/deputy-registrar
@@ -4837,14 +4170,18 @@
       content_hash: sha256:5e778493efe4354cd7e4814a1ea1833223bf1f241c6e850d092aad737a0a58f3
       quote: Deputy Registrar means a Deputy Registrar of Trade Marks.
     confidence: 0.97
-    reasoning: Section 6 expressly identifies the office. The Manual distinguishes a Deputy
+    reasoning: 'Legislative basis corrected (review F3): Section 203 is the Registrar''s duty
+      to give a person a hearing before exercising a power adversely; the office of Deputy
+      Registrar is section 205, which the record already cites.'
+    alternatives_considered:
+    - 'Recorded with the legislative basis TMA1995/s203 by gpt-6.1-sol on 2026-10-07. Its
+      reasoning: Section 6 expressly identifies the office. The Manual distinguishes a Deputy
       Registrar from the Registrar and from a person acting under a signed delegation, and
       assigns the office procedural responsibilities. It therefore warrants a process-role
       concept distinct from the existing Registrar and generic decision-maker concepts. The
       supplied section 6 definition identifies the office but does not explain its appointment
       or statutory powers; the legislative-basis references are provisional because their
-      text was not supplied.
-    alternatives_considered: []
+      text was not supplied.'
     expert_should_check: Check the appointment and powers provisions, particularly sections
       203 and 205, whose text was not supplied, before adding a fuller statutory description
       of the office.
@@ -5007,51 +4344,6 @@
     alternatives_considered: []
     expert_should_check: Confirm whether the ontology should represent this defined historical
       legislative reference as a standalone concept or as a legislative instrument entity.
-- id: GC-0164
-  pref_label: capture
-  alt_labels: []
-  not_labels:
-  - Data Capture
-  - Indexing
-  - captures from the ‘Internet Archive Wayback Machine’ tool
-  - use contrary to law
-  definition_sources:
-  - TMM/Part30/3/3/5/5~3
-  legislative_basis:
-  - TMA1995/s42(b)
-  notes: 'Summary, not a definition: Summary: Capture is the recording of an image through
-    artistic representation or a recording medium, discussed in the Manual in connection with
-    prohibited use of images of Commonwealth reserves.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part30/3/3/5/5~3
-      span:
-      - 0
-      - 134
-      content_hash: sha256:ed18a29ee2a865fee4099970e543b456f001b8de018dbe8c4f159d63093f9efc
-      quote: ‘Capture’ is defined in the regulations as recording the image by artistic representation,
-        or on film, videotape or electronic medium.
-    confidence: 0.9
-    reasoning: 'The passage expressly reports a regulatory definition of capture and connects
-      it to the Manual''s practice concerning prohibited use of reserve images. This is a
-      distinct legally relevant activity, not a goods or services category or an existing
-      listed concept. None of the supplied groups fits precisely: recording an image is neither
-      a ground for refusal itself nor a procedural step advancing a trade mark application.
-      The other passages use capture for database administration or internet archiving; those
-      uses should not be conflated with this defined sense. Section 42(b) supplies the trade
-      marks context, but the underlying regulatory definition is not provided directly.'
-    alternatives_considered:
-    - If the intended sense is database administration, consider a separate concept labelled
-      “Data Capture”, expressly named in TMM/Part5/1#1.
-    expert_should_check: Verify the identity and provision of the regulations defining capture
-      and governing the reserve-image restrictions; the passage does not establish that its
-      references to regs 12.2 and 12.38 are to the Trade Marks Regulations 1995.
 - id: GC-0165
   pref_label: Record of International Registrations
   alt_labels:
@@ -5095,46 +4387,6 @@
     alternatives_considered: []
     expert_should_check: Check whether the singular Manual form 'Record of International Registration'
       should be retained as an alternative label or treated as an editorial inconsistency.
-- id: GC-0166
-  pref_label: CARTOON
-  alt_labels:
-  - cartoon
-  not_labels:
-  - CARTOON-CHARACTER
-  - image of a person
-  definition_sources:
-  - TMM/Part5/x-device-constituents/cartoon
-  legislative_basis: []
-  notes: 'Summary, not a definition: Summary: CARTOON is a defined Manual device-constituent
-    term for an exaggerated symbolic or caricature drawing, principally of animals or objects
-    with human characteristics but also of people.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part5/x-device-constituents/cartoon
-      span:
-      - 0
-      - 110
-      content_hash: sha256:02649c9ad19d0bac6a5d393b6efc49ab7c261d9fae2a6b48ac7b647a76be08df
-      quote: The word CARTOON means a drawing which symbolises or caricatures some subject
-        or person in an exaggerated way.
-    confidence: 0.86
-    reasoning: 'The Manual gives CARTOON a specific definition and usage boundaries, supporting
-      a distinct controlled concept rather than merely a generic English word. It is not equivalent
-      to the existing image of a person concept: it also covers animals and objects, while
-      images of persons include other forms of representation. The other passages discuss
-      cartoon imagery in applying sections 42 and 43, but do not establish a legislative definition
-      or a separate ground for refusal based on cartoon form.'
-    alternatives_considered:
-    - Exclude it if the ontology excludes Manual device-constituent terminology and includes
-      only substantive legal and procedural concepts.
-    expert_should_check: Confirm that device-constituent terminology belongs within the ontology
-      and that subject_matter is the appropriate group.
 - id: GC-0167
   pref_label: certificate of verification
   alt_labels: []
@@ -5145,7 +4397,6 @@
   definition_sources:
   - TMM/Part2/3/2/3/4
   legislative_basis:
-  - TMR1995/r2.2
   - TMR1995/r4.11
   notes: 'Summary, not a definition: Summary: A certificate of verification is a statement
     accompanying a translation of an earlier Convention application, which the Manual says
@@ -5154,8 +4405,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part2/3/2/3/4
@@ -5166,16 +4417,560 @@
       quote: A certificate of verification for a translated certified copy is required to
         be signed and dated (reg 4.11).
     confidence: 0.9
-    reasoning: The passages expressly identify a named statement with a specific documentary
+    reasoning: 'Legislative basis corrected (review F3): Regulation 2.2 is how a period of
+      months is counted; the certificate of verification is regulation 4.11(1)(b)(ii), which
+      the record already cites.'
+    alternatives_considered:
+    - 'Recorded with the legislative basis TMR1995/r2.2 by gpt-6.1-sol on 2026-10-07. Its
+      reasoning: The passages expressly identify a named statement with a specific documentary
       function, distinct from the existing concepts. The opposition passage associates it
       with an English translation of an earlier Convention application, and the signature
       passage explains its signing and dating requirements by reference to reg 4.11. It therefore
       fits instrument_or_record. The supplied legislative definition is incomplete, so the
-      Manual passage provides the most useful available explanation; it is not itself legislation.
-    alternatives_considered:
+      Manual passage provides the most useful available explanation; it is not itself legislation.'
     - Treat as a specialised verification statement associated with a translation, rather
       than as a general certificate.
     expert_should_check: 'Check the complete legislative definition and its location: the
       supplied legislative fragment is labelled r2.1, whereas the Manual identifies r2.2 as
       the interpretation provision; the fragment does not disclose the statement’s required
       contents or who must sign it.'
+- id: GC-0168
+  pref_label: section 43 ground for rejection
+  alt_labels:
+  - s 43 objection
+  - section 43 objection
+  - section 43 grounds for rejection
+  - ground for rejection under section 43
+  - grounds for rejection under section 43
+  - s 43 ground for rejection
+  not_labels:
+  - section 41 ground for rejection
+  - section 44 ground
+  definition_sources:
+  - TMA1995/s43
+  - TMM/Part29/1#1
+  legislative_basis:
+  - TMA1995/s43
+  notes: The ground section 43 creates, held apart from the general idea of a ground for rejection
+    (GC-0006), which until 2026-10-08 carried this ground under the general name — its alternative
+    label 's 43 objection' and its section 43 basis said so. On the owner's ruling A2 the
+    signed GC-0006 is the general concept and this one is the section 43 ground; edges whose
+    sentence is about section 43 point here.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s43
+      span:
+      - 0
+      - 318
+      content_hash: sha256:37f2c27c42b22f4448b941d9e541f979dc443b8cf2c9aff6e711f28c2e82c73c
+      quote: An application for the registration of a trade mark in respect of particular
+        goods or services must be rejected if, because of some connotation that the trade
+        mark or a sign contained in the trade mark has, the use of the trade mark in relation
+        to those goods or services would be likely to deceive or cause confusion.
+    - ref: TMM/Part29/3/3/4
+      span:
+      - 0
+      - 216
+      content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
+      quote: In some cases a connotation giving rise to a section 43 ground for rejection
+        may not be obvious during examination and will only emerge at opposition when the
+        full facts of a case are available to the decision maker.
+    confidence: 0.9
+    reasoning: Section 43 creates one ground among the closed set the Act contains, and the
+      Manual names it as 'a section 43 ground for rejection' throughout Part 29. The signed
+      GC-0006 named the same ground under the general label; the owner confirmed that reading
+      (A2), so the ground gets a concept of its own and GC-0006 keeps the general idea.
+    alternatives_considered:
+    - 'Leaving the section 43 ground inside GC-0006. Rejected on the owner''s ruling A2: the
+      general concept would then require a connotation, which only section 43 does.'
+    expert_should_check: Whether the labels 'section 43 objection' and 's 43 objection' should
+      sit here or on a separate 'objection' concept — the Manual uses objection and ground
+      for rejection interchangeably (GC-0006's own note).
+- id: GC-0169
+  pref_label: wine geographical indication
+  alt_labels:
+  - geographical indication for wine
+  - Australian Geographical Indications
+  - European Geographical Indications
+  - Australian GIs
+  - European GIs
+  not_labels:
+  - geographical origin
+  - certification trade mark
+  definition_sources:
+  - TMM/Part32B/1/1/3
+  legislative_basis: []
+  notes: 'A geographical indication for wine, entered on the Wine Register under the Wine
+    Australia Act 2013. Different from other geographical indications: wine GIs have a dedicated
+    statutory scheme, while other GIs are principally protected through certification trade
+    marks (owner''s ruling A4). The Act itself is not in the corpus; the Manual''s account
+    of it is.'
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part32B/1/1/3
+      span:
+      - 250
+      - 355
+      content_hash: sha256:477b4457c36116f72b0b60c7022c87ee4c711c97faa9e34ad3b8fddff85dcf64
+      quote: Australian Geographical Indications (‘Australian GIs’) European Geographical
+        Indications (‘European GIs’)
+    - ref: TMM/Part32B/1/1/3
+      span:
+      - 0
+      - 173
+      content_hash: sha256:477b4457c36116f72b0b60c7022c87ee4c711c97faa9e34ad3b8fddff85dcf64
+      quote: The Register of Protected Geographical Indications and Other Terms (the Wine
+        Register) lists the four categories of terms that Australia and the European Union
+        will protect.
+    confidence: 0.85
+    reasoning: Part 32B lists Australian and European geographical indications as categories
+      of term on the Wine Register. The owner ruled that wine GIs are different from other
+      GIs because they have their own statutory scheme, so they are a concept of their own,
+      narrower than GI (GC-0018).
+    alternatives_considered: []
+    expert_should_check: Whether the Australian/European split matters to examination; the
+      Manual examines both alike.
+- id: GC-0170
+  pref_label: Register of Protected Geographical Indications and Other Terms
+  alt_labels:
+  - Wine Register
+  not_labels:
+  - Register of Trade Marks
+  definition_sources:
+  - TMM/Part32B/1/1/3
+  legislative_basis: []
+  notes: The register kept under the Wine Australia Act 2013 that lists Australian and European
+    wine geographical indications, traditional expressions, quality wine terms and additional
+    terms, with the conditions of their use. Not the Register of Trade Marks.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part32B/1/1/3
+      span:
+      - 0
+      - 173
+      content_hash: sha256:477b4457c36116f72b0b60c7022c87ee4c711c97faa9e34ad3b8fddff85dcf64
+      quote: The Register of Protected Geographical Indications and Other Terms (the Wine
+        Register) lists the four categories of terms that Australia and the European Union
+        will protect.
+    confidence: 0.95
+    reasoning: The Manual names the register, its short name and what it lists in one sentence.
+    alternatives_considered: []
+    expert_should_check: Whether the register belongs with external instruments (it is kept
+      under another Act).
+- id: GC-0171
+  pref_label: delegate
+  alt_labels:
+  - delegates
+  - delegate of the Registrar
+  - Registrar's delegate
+  - the Registrar's delegate
+  - their delegate
+  not_labels:
+  - Registrar
+  - Deputy Registrar
+  definition_sources:
+  - TMA1995/s206
+  - TMM/Part18/2#1
+  legislative_basis:
+  - TMA1995/s206
+  notes: An employee to whom the Registrar has delegated powers or functions by signed instrument
+    (s 206). Examiners, senior examiners, examination team leaders and hearing officers are
+    delegates; a delegate's decision is a decision under the Registrar's powers, but the delegate
+    is not the Registrar (owner's rulings C1 and C2).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s206
+      span:
+      - 4
+      - 158
+      content_hash: sha256:a5acda8710abb1866aa218fa05e78334953df7ea0eb8a808c05aae80f452f168
+      quote: The Registrar may by signed instrument delegate all or any of his or her powers
+        or functions to a prescribed employee, or employees in a prescribed class.
+    - ref: TMM/Part18/2#1
+      span:
+      - 49
+      - 179
+      content_hash: sha256:fc4fc94128a4d151449b56277e08006c05f6dc1921815280b9084e608cd2a90c
+      quote: If an application meets the criteria for acceptance set out in section 33 a delegate
+        of the Registrar will accept the application.
+    confidence: 0.95
+    reasoning: Section 206 creates the role in terms; the Manual names the delegate as the
+      one who accepts.
+    alternatives_considered: []
+    expert_should_check: Whether 'their delegate' is too loose a label — in the Manual it
+      always follows 'the Registrar or'.
+- id: GC-0172
+  pref_label: Hearing Officer
+  alt_labels:
+  - hearing officers
+  not_labels:
+  - hearing
+  - Deputy Registrar
+  definition_sources:
+  - TMM/Part52/2#1~1
+  - TMM/Part18/2/2/2
+  legislative_basis:
+  - TMA1995/s206
+  notes: A delegate of the Registrar, in the Oppositions and Hearings Section, who conducts
+    hearings and decides oppositions and other contested matters; also delegated to accept
+    applications.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part52/2#1~1
+      span:
+      - 50
+      - 243
+      content_hash: sha256:d3060d00b473a6a3b27f8a5870ab27a75388303640c894901bd78e76517f93c8
+      quote: A hearing is an interactive presentation, in a forum conducted by the Deputy
+        Registrar or a Hearing Officer from the Oppositions and Hearings Section acting under
+        delegation from the Registrar.
+    - ref: TMM/Part18/2/2/2
+      span:
+      - 219
+      - 382
+      content_hash: sha256:edcc2c4d242318bfe2de3ddaf160f7bd45d725e10b6bfd0ed674ed348d1d5783
+      quote: The people currently delegated to accept trade mark applications include Hearing
+        Officers, EL1 Examination Team leaders, APS6 Senior Examiners and APS 5 Examiners.
+    confidence: 0.9
+    reasoning: The Manual names the role, its section and its delegated basis in one sentence.
+    alternatives_considered: []
+    expert_should_check: Whether 'hearing officer' and 'delegate' should be distinguished
+      further by the powers delegated.
+- id: GC-0173
+  pref_label: Examination team leader
+  alt_labels:
+  - team leader
+  - team leaders
+  - Examination Team leaders
+  - exam team leaders
+  not_labels:
+  - Deputy Registrar
+  - senior examiner
+  definition_sources:
+  - TMM/Part18/2/2/2
+  - TMM/Part38/1/1/3
+  legislative_basis: []
+  notes: 'An EL1 delegate who leads an examination team: delegated to accept applications,
+    the examiner''s first point of escalation, and holder of particular powers (for example,
+    notifying a proposed revocation of acceptance, Part 38; most section 65A amendments, Part
+    9).'
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part18/2/2/2
+      span:
+      - 219
+      - 382
+      content_hash: sha256:edcc2c4d242318bfe2de3ddaf160f7bd45d725e10b6bfd0ed674ed348d1d5783
+      quote: The people currently delegated to accept trade mark applications include Hearing
+        Officers, EL1 Examination Team leaders, APS6 Senior Examiners and APS 5 Examiners.
+    - ref: TMM/Part38/1/1/3
+      span:
+      - 0
+      - 187
+      content_hash: sha256:6cc3b98270dba439a22e7b6765ea12f73936349b4cf5106d94a015d334fc84f6
+      quote: The Examination team leader or Deputy Registrar must notify the applicant in
+        writing of the proposed revocation setting out any conditions under which the application
+        can remain accepted.
+    - ref: TMM/Part9/4/4/7/1
+      span:
+      - 0
+      - 63
+      content_hash: sha256:ee56930dffbd99f47d53ed61d545fb201c691374b17ef897c9550fba29b5d641
+      quote: EL1 exam team leaders will process most section 65A amendments.
+    confidence: 0.9
+    reasoning: The Manual names the role, its classification level and powers it alone or
+      with the Deputy Registrar holds.
+    alternatives_considered: []
+    expert_should_check: Whether 'team leader' alone, used in Part 51 for other sections'
+      team leaders, over-matches.
+- id: GC-0174
+  pref_label: senior examiner
+  alt_labels:
+  - senior examiners
+  - APS6 Senior Examiners
+  not_labels:
+  - Examination team leader
+  definition_sources:
+  - TMM/Part18/2/2/2
+  legislative_basis: []
+  notes: An APS6 examiner, delegated to accept applications; between an examiner (APS 5) and
+    an examination team leader (EL1) in the chain of command (owner's ruling C6).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part18/2/2/2
+      span:
+      - 219
+      - 382
+      content_hash: sha256:edcc2c4d242318bfe2de3ddaf160f7bd45d725e10b6bfd0ed674ed348d1d5783
+      quote: The people currently delegated to accept trade mark applications include Hearing
+        Officers, EL1 Examination Team leaders, APS6 Senior Examiners and APS 5 Examiners.
+    confidence: 0.85
+    reasoning: The Manual names APS6 Senior Examiners among those delegated to accept.
+    alternatives_considered: []
+    expert_should_check: The Manual says nothing else about the role; its place in the chain
+      of command is the owner's word.
+- id: GC-0175
+  pref_label: subject matter expert
+  alt_labels:
+  - subject matter experts
+  - SMEs
+  - SME group
+  - Classification Subject Matter Experts
+  not_labels: []
+  definition_sources:
+  - TMM/Part14/4/4/1/2
+  - TMM/Part30/3/3/4/1
+  - TMM/Part10/4/4/1/3
+  legislative_basis: []
+  notes: A delegate with expertise in a particular matter — classification, a language, Indigenous
+    knowledge — whom another delegate consults when unsure of the correct decision (owner's
+    ruling C6). Advises; does not decide the application.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part14/4/4/1/2
+      span:
+      - 63
+      - 258
+      content_hash: sha256:10d425e949217bf87021770c8f0ecfffc6a2c97efae49e0e534756dbf93113f4
+      quote: If items cannot be classified using NICE, the picklist or the other classification
+        resources available, the application should be referred to the Classification Subject
+        Matter Experts for advice.
+    - ref: TMM/Part30/3/3/4/1
+      span:
+      - 983
+      - 1136
+      content_hash: sha256:c831fbcd5388f4dd0385d48c76e12f3d0e825bda41e047d87ad3cbe4e2c6ea84
+      quote: Examiners should consult the IK SME group in relation to any applications which
+        contain the Aboriginal or Torres Strait Islander flags or similar images.
+    - ref: TMM/Part10/4/4/1/3
+      span:
+      - 543
+      - 603
+      content_hash: sha256:d8a18d2468c94ef5ae5ad2711912afa47f281c83fe3f8a004a53627ce1d76cca
+      quote: The relevant language SMEs can be consulted where necessary.
+    confidence: 0.9
+    reasoning: Three Parts name subject matter experts as the people an examiner refers to
+      or consults.
+    alternatives_considered: []
+    expert_should_check: Whether SMEs are always delegates; the owner said so (C6), the Manual
+      does not say.
+- id: GC-0176
+  pref_label: acceptance officer
+  alt_labels:
+  - acceptance officers
+  not_labels: []
+  definition_sources:
+  - TMM/Part18/2/2/2
+  legislative_basis: []
+  notes: 'The Manual''s collective name for the delegates currently authorised to accept applications:
+    Hearing Officers, EL1 Examination Team leaders, APS6 Senior Examiners and APS 5 Examiners.'
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part18/2/2/2
+      span:
+      - 219
+      - 382
+      content_hash: sha256:edcc2c4d242318bfe2de3ddaf160f7bd45d725e10b6bfd0ed674ed348d1d5783
+      quote: The people currently delegated to accept trade mark applications include Hearing
+        Officers, EL1 Examination Team leaders, APS6 Senior Examiners and APS 5 Examiners.
+    - ref: TMM/Part18/2/2/2
+      span:
+      - 383
+      - 441
+      content_hash: sha256:edcc2c4d242318bfe2de3ddaf160f7bd45d725e10b6bfd0ed674ed348d1d5783
+      quote: These people are referred to below as acceptance officers.
+    confidence: 0.9
+    reasoning: Part 18 defines the term in the sentence after its list.
+    alternatives_considered: []
+    expert_should_check: null
+- id: GC-0177
+  pref_label: IP Australia
+  alt_labels: []
+  not_labels:
+  - Registrar
+  definition_sources:
+  - TMM/Part29/5/5/1
+  legislative_basis: []
+  notes: The Australian Government agency in which trade marks are examined and the Register
+    is kept. Not the Registrar, which is a statutory office (s 201) — the signed GC-0046 excludes
+    the name.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/5/5/1
+      span:
+      - 601
+      - 779
+      content_hash: sha256:f1703a4b04c30641621bd8da367c6a3e67ea3283a897a49422b4edfcbaf16b3a
+      quote: When examining trade marks, IP Australia is aware of the need to prevent use
+        of INNs (and words that may connote an INN) in a manner that is likely to deceive
+        or cause confusion.
+    confidence: 0.7
+    reasoning: The Manual uses the name for the agency that examines; it never defines it.
+    alternatives_considered: []
+    expert_should_check: There is no defining passage; the description rests on how the Manual
+      uses the name.
+- id: GC-0178
+  pref_label: trade mark attorney
+  alt_labels:
+  - trade marks attorney
+  - trade mark attorneys
+  - trade marks attorneys
+  - registered trade mark attorney
+  not_labels:
+  - lawyer
+  definition_sources:
+  - TMM/Part55/4/4/1~1
+  legislative_basis: []
+  notes: A registered attorney who may act for an applicant, owner or opponent. A representative,
+    not a party and not a decision maker.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part55/4/4/1~1
+      span:
+      - 1963
+      - 2136
+      content_hash: sha256:f1b084995f3099140ed35932c8f3f5d113864c5df3f28c224c5b1d9b23ddac00
+      quote: These costs are only claimable in respect of attendance at the hearing by a registered
+        patent attorney, registered trade mark attorney, or solicitor with or without counsel.
+    confidence: 0.75
+    reasoning: The Manual names registered trade mark attorneys as people who attend for a
+      party.
+    alternatives_considered: []
+    expert_should_check: Whether the Board (regulator of attorneys) belongs here once it is
+      modelled; GC-0146 was withdrawn.
+- id: GC-0179
+  pref_label: adverse report
+  alt_labels:
+  - adverse reports
+  - further adverse report
+  not_labels:
+  - decision
+  definition_sources:
+  - TMM/Part16/2#1
+  legislative_basis:
+  - TMR1995/r4.10
+  notes: A written report the Registrar issues after considering a response to an examination
+    report, when the application still cannot be accepted. It must state the lapsing date.
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part16/2#1
+      span:
+      - 211
+      - 339
+      content_hash: sha256:399ea7506378b653fdf6a61c07d01284871964193718817e46ead6f7d69ddef4
+      quote: Under reg 4.10 the Registrar must consider the response and either accept the
+        application or issue an adverse report in writing.
+    - ref: TMM/Part16/2#1
+      span:
+      - 340
+      - 381
+      content_hash: sha256:399ea7506378b653fdf6a61c07d01284871964193718817e46ead6f7d69ddef4
+      quote: The report must include the lapsing date.
+    confidence: 0.9
+    reasoning: Part 16 states the report, its trigger and its regulation in two sentences.
+    alternatives_considered: []
+    expert_should_check: Whether a first examination report is also an adverse report in the
+      Manual's usage.
+- id: GC-0180
+  pref_label: office practice
+  alt_labels:
+  - Office practice
+  not_labels: []
+  definition_sources:
+  - TMM/Part14/3#1~2
+  legislative_basis: []
+  notes: How the Registrar's office applies the Act and the Regulations in practice, where
+    they leave room — recorded in the Manual, not law, and not binding the Registrar's discretion
+    (CLAUDE.md rule 5).
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S026
+    authored_date: '2026-10-08'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part14/3#1~2
+      span:
+      - 241
+      - 294
+      content_hash: sha256:1ab417074dd72f5941cdb89b71feb3fc49bf33712c689f8562be4713e319a935
+      quote: it is office practice to also not allow terms such as
+    confidence: 0.7
+    reasoning: The Manual uses the phrase for its own practice positions; the expert asked
+      for it to be defined.
+    alternatives_considered: []
+    expert_should_check: Whether this is better modelled as the authority kind 'practice'
+      than as a concept.

@@ -39,6 +39,7 @@ from typing import Any
 
 import yaml
 
+from tm_knowledge.authored import corrections as corrections_module
 from tm_knowledge.authored import store as authored_store
 from tm_knowledge.bulk import jobs
 from tm_knowledge.bulk import links as links_module
@@ -80,7 +81,7 @@ SOURCES = {"TMM": "Manual (practice)", "TMA1995": "Trade Marks Act 1995",
 FAMILIES = {
     "reasoning": "How a decision is reasoned towards",
     "process": "The process that reasoning sits inside",
-    "other": "Fits none of the nine",
+    "other": "Fits none of the ten",
 }
 
 #: SKOS predicates the pipeline writes, which `relations.ttl` does not list.
@@ -116,6 +117,14 @@ def predicate_labels(path: Path = RELATIONS_TTL) -> dict[str, str]:
         if match:
             labels[name] = match.group(1)
     return labels
+
+
+def approved_predicates(path: Path = RELATIONS_TTL) -> set[str]:
+    """Predicates a signed record uses — `tmk:ApprovedRelation` in the dictionary.
+    One the owner admitted and nobody has signed a use of is on the list, but is
+    not shown as approved."""
+    text = path.read_text(encoding="utf-8")
+    return set(re.findall(r"^tmk:(\w+) a owl:ObjectProperty ;\n\s+a tmk:ApprovedRelation ;", text, re.M))
 
 
 def _camel(name: str) -> str:
@@ -231,10 +240,11 @@ def _kind_links(concepts: dict[str, dict[str, Any]], relations: list[dict[str, A
 
 def _predicates(relations: list[dict[str, Any]], labels: dict[str, str],
                 concepts: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    approved = approved_predicates()
     out: dict[str, dict[str, Any]] = {}
     for rel in relations:
         row = out.setdefault(rel["p"], {"label": labels.get(rel["p"], _camel(rel["p"])),
-                                        "approved": rel["p"] in labels and rel["p"] not in SKOS_LABELS,
+                                        "approved": rel["p"] in approved,
                                         "signed": 0, "machine": 0, "example": None})
         row[rel["origin"]] += 1
         if row["example"] is None or (rel["origin"] == "signed" and row["example"]["origin"] != "signed"):
@@ -250,6 +260,17 @@ def ontology(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links
     concept_list = [_concept(v, mentions, set(links.generic)) for v in views.concept_views(gold, authored)]
     concepts = {c["id"]: c for c in concept_list}
     relations = _relations(gold, authored)
+    # A signed record that serves corrected says so, by the correction's id: the
+    # page must never show a corrected record as exactly what the expert signed
+    # (ADR-0122). A replacement relationship names the signed one it re-reads.
+    fixes = corrections_module.load(authored=authored)
+    for concept in concept_list:
+        if fixes.for_target(concept["id"]):
+            concept["corrected"] = [c.id for c in fixes.for_target(concept["id"])]
+    replaced = {new: old for old, new in fixes.replacements().items()}
+    for rel in relations:
+        if rel["id"] in replaced:
+            rel["replaces"] = replaced[rel["id"]]
     labels = predicate_labels()
     provisions = sorted({r for c in concept_list for r in c["basis"]}
                         | {x for rel in relations for x in (rel["s"], rel["o"]) if not x.startswith("GC-")})
@@ -292,11 +313,11 @@ def _provision_title(corpus: Corpus, ref: str) -> str | None:
 # -------------------------------------------------------------------- search
 
 
-def _recognition(links: links_module.Links) -> tuple[list[Any], set[str]]:
+def _recognition(corpus: Corpus, links: links_module.Links) -> tuple[list[Any], set[str]]:
     """The patterns `Systems.recognise` matches — record labels plus everyday
     phrasings — and the lower-cased keys that are only an everyday phrasing,
     which a machine wrote (`bulk aliases`) and the page marks as such."""
-    aliases = jobs.load_aliases()
+    aliases = jobs.load_aliases(corpus, links.concepts)
     extra = {cid: tuple(phrases) for cid, phrases in aliases.items()}
     patterns = links_module._patterns({
         cid: links_module.Concept(id=c.id, pref_label=c.pref_label, labels=c.labels + extra.get(cid, ()),
@@ -315,7 +336,7 @@ def search(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links) 
     the dense ranking; `tests/unit/test_explorer.py` and the parity script pin
     the two together.
     """
-    patterns, alias_only = _recognition(links)
+    patterns, alias_only = _recognition(corpus, links)
     bases = sorted({r for c in links.concepts.values() for r in c.legislative_basis})
     return {
         "stopwords": sorted(search_index.STOPWORDS),
@@ -324,7 +345,8 @@ def search(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links) 
         "min_label": links_module.MIN_LABEL_CHARS,
         # (label as written, concepts carrying it, whether it is only an everyday phrasing)
         "patterns": [[label, list(owners), label.lower() in alias_only] for label, _, owners in patterns],
-        "concepts": {cid: {"pref": c.pref_label, "labels": list(c.labels), "basis": list(c.legislative_basis)}
+        "concepts": {cid: {"pref": c.pref_label, "labels": list(c.labels), "basis": list(c.legislative_basis),
+                           "not": list(c.not_labels)}
                      for cid, c in links.concepts.items()},
         "generic": sorted(links.generic),
         "mentions": {cid: [hit[0] for hit in hits] for cid, hits in links.mentions.items()},
@@ -476,7 +498,7 @@ def _wordings(corpus: Corpus, concept: dict[str, Any], order: list[str]) -> dict
     for label in [concept["label"], *concept["alt"]]:
         if len(label) < links_module.MIN_LABEL_CHARS:
             continue
-        pattern = re.compile(r"(?<![A-Za-z0-9])" + re.escape(label) + r"(?![A-Za-z0-9])", re.IGNORECASE)
+        pattern = links_module._regex(label)
         hits = [i for i, ref in enumerate(order) if pattern.search(corpus.chunks[ref].text)]
         if hits:
             out[label] = hits
@@ -517,8 +539,8 @@ def tour(corpus: Corpus, onto: dict[str, Any], links: links_module.Links) -> dic
 
     example = _tour_example()
     if example:
-        patterns, alias_only = _recognition(links)
-        found = links_module.find_mentions(example["question"], patterns)
+        patterns, alias_only = _recognition(corpus, links)
+        found = links_module.find_mentions(example["question"], patterns, links_module._vetoes(links.concepts))
         for item in example["recognised"]:
             start, end, label = found.get(item["id"], (None, None, None))
             item["matched"] = example["question"][start:end] if start is not None else None
@@ -632,7 +654,8 @@ def build(corpus: Corpus | None = None, *, generated: str | None = None,
           key: str | None = None, endpoint: str | None = None) -> dict[str, Any]:
     """Every file, as data. `write` puts them on disk."""
     corpus = corpus or load_corpus()
-    gold = goldset.load()
+    # What serves: the signed records with the owner's corrections applied (ADR-0122).
+    gold = corrections_module.served_gold()
     authored = authored_store.load()
     links = links_module.link(corpus)
     ctx = jobs.Context(corpus=corpus, links=links, gold=gold, authored=authored)

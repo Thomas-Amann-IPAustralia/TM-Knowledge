@@ -862,11 +862,21 @@ questions:
 
   - id: OQ-0027
     theme: confirm
-    status: open
+    status: answered
     needs: owner
     urgency: high
     raised: S019
-    tracked_as: ['ADR-0079', 'ADR-0086', 'ADR-0099']
+    tracked_as: ['ADR-0079', 'ADR-0086', 'ADR-0099', 'ADR-0120']
+    answered:
+      date: '2026-10-08'
+      how: >-
+        In chat, on the ontology review: "no experts will be signing anything off until
+        we ship the best version of the Ontology we can muster to share with them …
+        it will be a group of trade mark examiners, all at once". Nobody signs before
+        then; the records stay unreviewed and served, and the examiner group reviews
+        everything at once (CHAT-0017, ADR-0120).
+      record: docs/DECISIONS.md
+      applied: true
     title: 208 records are written and nobody has read one — how do you want them signed?
     plain: >
       This is not a question about a decision. It is the piece of work that is
@@ -1251,7 +1261,11 @@ questions:
       how: >-
         Withdrawn rather than answered. Under the amended rule an agent writes the
         examiner-conduct rule itself, citing the expert's own note as its evidence,
-        and an expert corrects it rather than composing it from nothing.
+        and an expert corrects it rather than composing it from nothing. Changed on
+        2026-10-08: the owner preferred "to avoid citing the expert note in the manner
+        suggested … this should be hung on evidence within the text" (C6, ADR-0123).
+        The consult and escalate edges (GR-0658 to GR-0664) quote the Manual; the
+        expert's note is cited nowhere.
       record: docs/DECISIONS.md
       applied: true
     title: Should a rule about what an examiner must do be recorded like any other relationship?

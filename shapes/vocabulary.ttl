@@ -48,14 +48,15 @@ tmk:NotLabelShape
     rdfs:label "A not-label is not also a label"@en-AU ;
     sh:sparql [
         a sh:SPARQLConstraint ;
-        sh:message "This concept carries the same string as both a label and a not-label. The record says at once that the term means this concept and that it must never be read as this concept, and a retrieval system reading the first will route an examiner to the wrong test." ;
+        sh:message "This concept carries the same string as both a label and a not-label, ignoring case. The record says at once that the term means this concept and that it must never be read as this concept, and a retrieval system reading the first will route an examiner to the wrong test. Case is folded because recognition folds it: 'ART' and 'art' are one string to the matcher (review E4)." ;
         sh:select """
             SELECT $this ?value
             WHERE {
                 $this <https://data.ipaustralia.gov.au/tmk/ns/notLabel> ?value .
-                { $this <http://www.w3.org/2004/02/skos/core#prefLabel> ?value }
+                { $this <http://www.w3.org/2004/02/skos/core#prefLabel> ?label }
                 UNION
-                { $this <http://www.w3.org/2004/02/skos/core#altLabel> ?value }
+                { $this <http://www.w3.org/2004/02/skos/core#altLabel> ?label }
+                FILTER (LCASE(STR(?label)) = LCASE(STR(?value)))
             }
         """ ;
     ] .

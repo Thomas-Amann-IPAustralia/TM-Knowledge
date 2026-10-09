@@ -108,6 +108,15 @@ Never derive these from the preferred label. Labels get revised; identifiers mus
 not. The register file is the allocator — allocate by appending, and never fill a
 gap left by a withdrawn concept.
 
+**Record ids** follow the same rule: allocated once, sequential, never reused, and one
+sequence across `eval/gold/` and `authored/` (ADR-0080 c1) — `GC-` concept, `GT-`
+concept type, `GR-` relationship, `GE-` entity mention, `GS-`/`GA-` questions, `GX-`
+reasoning, `PU-` prohibited use (`eval/schemas/common.schema.json`). Since 2026-10-08
+there is one more: **`GK-` a correction** to a signed record (`authored/corrections.yaml`,
+ADR-0122). A withdrawn id is listed with its reason — signed ones in
+`eval/gold/retired-ids.yaml`, authored ones in `authored/retired-ids.yaml` — and
+`bulk.jobs.next_number` counts both ledgers and the corrections before allocating.
+
 **Machine-generated candidates, content-addressed** — so that re-running a
 pipeline over unchanged input produces the same identifiers and does not litter
 `review/` with duplicates:

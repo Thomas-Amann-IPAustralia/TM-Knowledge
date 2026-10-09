@@ -49,7 +49,7 @@ def search_systems(ctx: jobs.Context):
 
     dense = Dense()
     return Systems(KeywordIndex(ctx.corpus), ctx.links, dense if dense.ready else None,
-                   jobs.load_aliases(), relations_from(ctx.gold, ctx.authored))
+                   jobs.load_aliases(ctx.corpus, ctx.links.concepts), relations_from(ctx.gold, ctx.authored))
 
 
 def _questions(ctx: jobs.Context) -> list[dict[str, Any]]:

@@ -13,19 +13,18 @@
     rdfs:label "TM-Knowledge — examination module"@en-AU ;
     rdfs:comment """Who does what, and to what.
 
-Almost entirely **declared and unpopulated**, and that is the honest state: the
-approved set describes what the Manual says about section 43, not a process
-model of examination, and inventing one would be authoring practice.
+The process classes (application, examination, objection, outcome) stay declared
+and unpopulated: no application data is in scope, and an examination outcome is
+one thing the system never states (CLAUDE.md §2).
 
-The role classes below are here for a specific reason. The reviewer's covering
-note (`review/returned/260826-expert-feedback.md`, HANDOFF Q17) named nine terms
-that need high-level definitions — Registrar, Delegate, Examiner, Decision
-Maker, Office Practice, Subject Matter Expert, Oppositions, Grounds for
-Rejection, Adverse Report — because the seed vocabulary was drawn from Part 29
-alone and gives a narrow view of the roles. Declaring the classes empty is how
-that gap is made visible in the model rather than only in a document. Note also
-Q-28: a term's definition is usually not in a passage that cites anything, so
-ADR-0022's scope rule will not find these on its own."""@en-AU ;
+The role classes are populated with definitions. The reviewer's covering note
+(`review/returned/260826-expert-feedback.md`, HANDOFF Q17) named nine terms that
+needed high-level definitions — Registrar, Delegate, Examiner, Decision Maker,
+Office Practice, Subject Matter Expert, Oppositions, Grounds for Rejection,
+Adverse Report — because the seed vocabulary was drawn from Part 29 alone. On
+2026-10-08 the owner approved the ontology review's role model (C1 to C6) and
+the restructuring below (C5, ADR-0123); each of the nine now has a concept in
+the vocabulary, and each role a class here."""@en-AU ;
     owl:imports <https://data.ipaustralia.gov.au/tmk/ns/legal-concepts> ;
     owl:versionInfo "draft — not approved" .
 
@@ -49,47 +48,184 @@ Deciding an examination outcome is explicitly out of scope (CLAUDE.md §6), and
 the prohibited-use set exists to keep it there: PU-0001 and PU-0002 are the two
 outputs that state one."""@en-AU .
 
-# --- roles: declared, undefined, and the gap is the point -------------------
+# --- roles: who acts, and with what power (review C5, ADR-0123) -------------
+#
+# Until 2026-10-08 these were six flat sibling classes, each "UNDEFINED —
+# HANDOFF Q17", although Q17 was answered (ADR-0074) and authoring has been
+# allowed since ADR-0079. The owner confirmed the review's summary of the roles
+# and their power structure ("a correct and accurate interpretation") and
+# approved restructuring them (C5). Every comment below is machine-written and
+# unreviewed, and rests on the provision or passage it names.
+#
+# A tmk:Role is somebody who acts. The vocabulary's concept of that role — the
+# term "examiner" as an entry — is a tmk:ProcessRole in legal-concepts.ttl, and
+# the two are kept apart on purpose (ADR-0098 c2). tmk:roleConcept bridges them,
+# from each class to the concept that names it. Who holds power over whom is not here but on the edges between role
+# concepts — holdsDelegationFrom, exercisesPowersOf, actsUnderDirectionOf,
+# consults, escalatesTo, reviewsDecisionsOf, hearsAppealsFrom, requiresConsentOf,
+# prevailsOver, actsUnderControlOf (relations.ttl), each carrying the sentence
+# that grounds it.
 
 tmk:Role a owl:Class ;
     rdfs:label "Role"@en-AU ;
-    rdfs:comment "A person or office acting in the examination system."@en-AU .
+    rdfs:comment "A person, office or body acting in the trade marks system. The families below sort roles by where their power comes from, and are disjoint where that matters: an office is not a delegate, and neither is a party."@en-AU .
 
-tmk:Registrar a owl:Class ; rdfs:subClassOf tmk:Role ;
+tmk:roleConcept a owl:AnnotationProperty ;
+    rdfs:label "role concept"@en-AU ;
+    rdfs:comment "From a role class to the vocabulary concept (a tmk:ProcessRole) that names it — the bridge the review found missing (C5). An annotation, so it licenses no inference: the concept does not become a role, and the role does not become a term. Stated on the class, so no concept node gains a statement outside its store's graph. Machine-written, unreviewed (ADR-0123)."@en-AU .
+
+# offices: created by the Act itself
+
+tmk:Office a owl:Class ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "Office"@en-AU ;
+    rdfs:comment "A statutory office the Act creates and whose powers it confers directly."@en-AU .
+
+tmk:Registrar a owl:Class ;
+    tmk:roleConcept tmkc:GC-0046 ; rdfs:subClassOf tmk:Office ;
     rdfs:label "Registrar"@en-AU ;
-    rdfs:comment "UNDEFINED — named in HANDOFF Q17 as needing a definition. Load-bearing here: the Manual states practice and does not bind this office's discretion."@en-AU .
+    rdfs:comment """The Registrar of Trade Marks (s 201). The Act gives the Registrar the powers and functions it confers, and the Registrar may delegate them by signed instrument (s 206).
 
-tmk:Delegate a owl:Class ; rdfs:subClassOf tmk:Role ;
+Load-bearing for CLAUDE.md rule 5: the Manual states the Registrar's practice and does not bind this office's discretion. The office decides through delegates, but a delegate is not the Registrar (owner's rulings C1, C2)."""@en-AU .
+
+tmk:DeputyRegistrar a owl:Class ;
+    tmk:roleConcept tmkc:GC-0159 ; rdfs:subClassOf tmk:Office ;
+    rdfs:label "Deputy Registrar"@en-AU ;
+    rdfs:comment "A Deputy Registrar of Trade Marks (s 205): has all the Registrar's powers and functions except delegation, subject to the Registrar's directions, and an act of a Deputy Registrar is taken to be the Registrar's. The power comes by statute, not by instrument — which is what separates this office from a delegate."@en-AU .
+
+# delegates: power by instrument
+
+tmk:Delegate a owl:Class ;
+    tmk:roleConcept tmkc:GC-0171 ; rdfs:subClassOf tmk:Role ;
     rdfs:label "Delegate"@en-AU ;
-    rdfs:comment "UNDEFINED — HANDOFF Q17."@en-AU .
+    rdfs:comment "An employee holding the Registrar's powers by signed instrument (s 206(1)), who may be required to act under the Registrar's direction or supervision (s 206(2)). A delegate's decision is made under the Registrar's powers; the delegate is not the Registrar."@en-AU .
 
-tmk:Examiner a owl:Class ; rdfs:subClassOf tmk:Role ;
+tmk:Examiner a owl:Class ;
+    tmk:roleConcept tmkc:GC-0044 ; rdfs:subClassOf tmk:Delegate ;
     rdfs:label "Examiner"@en-AU ;
-    rdfs:comment "UNDEFINED — HANDOFF Q17."@en-AU .
+    rdfs:comment "An APS 5 examiner, one of the delegates currently authorised to accept applications (Part 18.2.2.2). At examination, the decision maker."@en-AU .
 
-tmk:DecisionMaker a owl:Class ; rdfs:subClassOf tmk:Role ;
-    rdfs:label "Decision maker"@en-AU ;
-    rdfs:comment """UNDEFINED — HANDOFF Q17, and the reviewer corrected two records on precisely
-this point (GE-0010, GE-0047: decision maker vs the Registrar).
+tmk:SeniorExaminer a owl:Class ;
+    tmk:roleConcept tmkc:GC-0174 ; rdfs:subClassOf tmk:Delegate ;
+    rdfs:label "Senior examiner"@en-AU ;
+    rdfs:comment "An APS6 senior examiner, delegated to accept (Part 18.2.2.2); between examiner and examination team leader in the chain of command (owner's ruling C6)."@en-AU .
 
-It matters for Q16: the office's bar for applying the presumption of
-registrability is not that the individual examiner doubts a connotation exists,
-but that the Registrar as a whole does. A model that equates the two roles
-loses that distinction silently."""@en-AU .
+tmk:TeamLeader a owl:Class ;
+    tmk:roleConcept tmkc:GC-0173 ; rdfs:subClassOf tmk:Delegate ;
+    rdfs:label "Examination team leader"@en-AU ;
+    rdfs:comment "An EL1 examination team leader, delegated to accept (Part 18.2.2.2) and holding powers examiners do not — notifying a proposed revocation of acceptance (Part 38.1.1.3), most section 65A amendments (Part 9.4.4.7.1). The first point of escalation (C6)."@en-AU .
 
-tmk:SubjectMatterExpert a owl:Class ; rdfs:subClassOf tmk:Role ;
+tmk:HearingOfficer a owl:Class ;
+    tmk:roleConcept tmkc:GC-0172 ; rdfs:subClassOf tmk:Delegate ;
+    rdfs:label "Hearing Officer"@en-AU ;
+    rdfs:comment "A delegate in the Oppositions and Hearings Section who conducts hearings and decides contested matters, acting under delegation from the Registrar (Part 52.2)."@en-AU .
+
+# advisers: consulted, never deciding
+
+tmk:AdvisoryRole a owl:Class ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "Advisory role"@en-AU ;
+    rdfs:comment "Somebody a delegate consults when unsure of the correct decision; the delegate still decides (owner's ruling C6)."@en-AU .
+
+tmk:SubjectMatterExpert a owl:Class ;
+    tmk:roleConcept tmkc:GC-0175 ; rdfs:subClassOf tmk:AdvisoryRole ;
     rdfs:label "Subject matter expert"@en-AU ;
-    rdfs:comment "UNDEFINED — HANDOFF Q17."@en-AU .
+    rdfs:comment "A delegate with expertise in a particular matter — classification, a language, Indigenous knowledge — whom another delegate consults (Parts 10.4.4.1.3, 14.4.4.1.2, 30.3.3.4.1)."@en-AU .
 
-tmk:TeamLeader a owl:Class ; rdfs:subClassOf tmk:Role ;
-    rdfs:label "Team leader"@en-AU ;
-    rdfs:comment "UNDEFINED — named in the reviewer's note as part of the consultation the office expects before a connotation is accepted on the basis of doubt (Q16)."@en-AU .
+# parties and their representatives
+
+tmk:Party a owl:Class ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "Party"@en-AU ;
+    rdfs:comment "A person whose rights an application, registration or proceeding concerns — who applies, opposes, owns or holds. Not a decision maker in it."@en-AU .
+
+tmk:Applicant a owl:Class ;
+    tmk:roleConcept tmkc:GC-0116 ; rdfs:subClassOf tmk:Party ;
+    rdfs:label "Applicant"@en-AU ;
+    rdfs:comment "The person in whose name an application is for the time being proceeding (s 6)."@en-AU .
+
+tmk:Opponent a owl:Class ;
+    tmk:roleConcept tmkc:GC-0117 ; rdfs:subClassOf tmk:Party ;
+    rdfs:label "Opponent"@en-AU ;
+    rdfs:comment "A person who opposes registration by filing a notice of opposition (s 52)."@en-AU .
+
+tmk:RegisteredOwner a owl:Class ;
+    tmk:roleConcept tmkc:GC-0084 ; rdfs:subClassOf tmk:Party ;
+    rdfs:label "Registered owner"@en-AU ;
+    rdfs:comment "The person in whose name a trade mark is registered (s 6)."@en-AU .
+
+tmk:AuthorisedUser a owl:Class ;
+    tmk:roleConcept tmkc:GC-0083 ; rdfs:subClassOf tmk:Party ;
+    rdfs:label "Authorised user"@en-AU ;
+    rdfs:comment "A person who uses a trade mark under the control of its owner (s 8(1)). Treated differently from the owner in most contexts, and never the same entity (owner's ruling A4)."@en-AU .
+
+tmk:Holder a owl:Class ;
+    tmk:roleConcept tmkc:GC-0132 ; rdfs:subClassOf tmk:Party ;
+    rdfs:label "Holder of an international registration"@en-AU ;
+    rdfs:comment "The person in whose name an international registration is recorded in the International Register (reg 17A.2)."@en-AU .
+
+tmk:Representative a owl:Class ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "Representative"@en-AU ;
+    rdfs:comment "Somebody who acts for a party — a registered trade marks attorney or a lawyer. Not a party, and not a decision maker."@en-AU .
+
+tmk:TradeMarkAttorney a owl:Class ;
+    tmk:roleConcept tmkc:GC-0178 ; rdfs:subClassOf tmk:Representative ;
+    rdfs:label "Trade marks attorney"@en-AU .
+
+# bodies outside the office
+
+tmk:ReviewBody a owl:Class ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "Review body"@en-AU ;
+    rdfs:comment "A tribunal or court that reviews, or hears appeals from, the Registrar's decisions."@en-AU .
+
+tmk:AdministrativeReviewTribunal a owl:Class ;
+    tmk:roleConcept tmkc:GC-0134 ; rdfs:subClassOf tmk:ReviewBody ;
+    rdfs:label "Administrative Review Tribunal"@en-AU ;
+    rdfs:comment "Reviews certain decisions of the Registrar on their merits, standing in the shoes of the original decision maker (Part 52.5.5.2). Its decisions are administrative, not judicial (review C7)."@en-AU .
+
+tmk:PrescribedCourt a owl:Class ;
+    tmk:roleConcept tmkc:GC-0139 ; rdfs:subClassOf tmk:ReviewBody ;
+    rdfs:label "Prescribed court"@en-AU ;
+    rdfs:comment "The Federal Court or the Federal Circuit and Family Court of Australia (Division 2), which hear appeals from the Registrar's decisions (ss 35, 56, 190)."@en-AU .
+
+tmk:CoRegulator a owl:Class ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "Co-regulator"@en-AU ;
+    rdfs:comment "A body outside the office whose consent or certificate a step needs."@en-AU .
+
+tmk:Commission a owl:Class ;
+    tmk:roleConcept tmkc:GC-0133 ; rdfs:subClassOf tmk:CoRegulator ;
+    rdfs:label "Australian Competition and Consumer Commission"@en-AU ;
+    rdfs:comment "Assesses the rules of a certification trade mark, and its consent is needed to assign a registered one (ss 175, 180)."@en-AU .
+
+tmk:InternationalBody a owl:Class ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "International body"@en-AU ;
+    rdfs:comment "A body of the Madrid system."@en-AU .
+
+tmk:InternationalBureau a owl:Class ;
+    tmk:roleConcept tmkc:GC-0138 ; rdfs:subClassOf tmk:InternationalBody ;
+    rdfs:label "International Bureau"@en-AU ;
+    rdfs:comment "Keeps the International Register; in a classification dispute on a Madrid export application its opinion stands over the Office of origin's (Part 14.2.2.2.2)."@en-AU .
+
+tmk:OfficeOfOrigin a owl:Class ;
+    tmk:roleConcept tmkc:GC-0136 ; rdfs:subClassOf tmk:InternationalBody ;
+    rdfs:label "Office of origin"@en-AU .
+
+tmk:Office owl:disjointWith tmk:Delegate , tmk:Party , tmk:Representative .
+tmk:Delegate owl:disjointWith tmk:Party , tmk:Representative .
+tmk:Party owl:disjointWith tmk:Representative .
+
+# --- decision maker: a role in a decision, not a peer of examiner -----------
+
+tmk:DecisionMaker a owl:Class ;
+    tmk:roleConcept tmkc:GC-0045 ; rdfs:subClassOf tmk:Role ;
+    rdfs:label "Decision maker"@en-AU ;
+    rdfs:comment """Whoever a decision is decided by — a role somebody plays in a decision, not a kind of person beside the examiner (review C5). At examination the examiner is the decision maker; after a hearing, the Hearing Officer or Deputy Registrar; on review, the Tribunal, standing in the shoes of the original one. The Manual calls the Registrar and the deciding delegate "an administrative decision maker" (Parts 2.3.2.3.2, 46.2).
+
+It matters for the presumption of registrability: the bar is the decision maker's satisfaction that a ground exists, and a model that equates the role with one office loses who that is (GE-0010, GE-0047)."""@en-AU .
 
 tmk:decidedBy a owl:ObjectProperty ;
-    rdfs:range tmk:Role ;
-    rdfs:label "decided by"@en-AU .
+    rdfs:range tmk:DecisionMaker ;
+    rdfs:label "decided by"@en-AU ;
+    rdfs:comment "From a decision to whoever made it. Its range is what makes someone a decision maker: being the one a decision was decided by."@en-AU .
 
-tmk:constrainsRole a owl:ObjectProperty ;
-    rdfs:range tmk:Role ;
-    rdfs:label "constrains role"@en-AU ;
-    rdfs:comment "Links a proposition to the role whose conduct it governs. The hook Q16's rule about examiner conduct would attach to — no record type currently holds such a rule, and whether one should is an expert-and-owner call."@en-AU .
+# tmk:constrainsRole was declared here with rdfs:range tmk:Role. It is now a
+# defined predicate in the relation dictionary (relations.ttl, ADR-0123), used
+# between concepts — a rule and the role concept it governs — and a range of
+# tmk:Role would have made every role concept a role, the merge ADR-0098 c2 forbids.

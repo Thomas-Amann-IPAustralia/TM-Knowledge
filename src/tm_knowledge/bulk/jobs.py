@@ -30,9 +30,12 @@ from typing import Any, Callable
 
 import yaml
 
+from tm_knowledge.authored import corrections as corrections_module
 from tm_knowledge.authored import store as authored_store
 from tm_knowledge.bulk import links as links_module
 from tm_knowledge.config import REPO_ROOT
+from tm_knowledge.ontology.predicates import PREDICATES, SKOS_PREDICATES
+from tm_knowledge.search.authority import conflations
 from tm_knowledge.stage0 import goldset
 from tm_knowledge.stage0.harness import passage_at
 from tm_knowledge.stage0.typing import GROUPS
@@ -143,7 +146,10 @@ def next_number(prefix: str) -> int:
     pattern = re.compile(rf"^{prefix}-(\d+)$")
     ids = [str(r.get("id", "")) for _, r in gold.all_records()]
     ids += [entry.record_id for entry in authored.entries]
-    ids += list(gold.retired_ids)
+    ids += list(gold.retired_ids) + list(authored.retired_ids)
+    corrections = authored_store.AUTHORED_DIR / "corrections.yaml"
+    if corrections.exists():
+        ids += re.findall(r"^- id: (GK-\d+)", corrections.read_text(encoding="utf-8"), re.M)
     # Held seed records keep the numbers they were drafted with (ADR-0043).
     for path in (REPO_ROOT / "review" / "seed").glob("*.yaml"):
         ids += re.findall(rf"\bid: ({prefix}-\d+)", path.read_text(encoding="utf-8"))
@@ -205,7 +211,10 @@ STRS = {"type": "array", "items": STR}
 class Context:
     corpus: Corpus
     links: links_module.Links
-    gold: goldset.GoldSet = field(default_factory=goldset.load)
+    #: The signed records as they serve — corrections applied (ADR-0122). Prompts and
+    #: links describe the ontology as it now stands; ids come from `next_number`, which
+    #: reads the stores raw.
+    gold: goldset.GoldSet = field(default_factory=lambda: corrections_module.served_gold())
     authored: authored_store.AuthoredSet = field(default_factory=authored_store.load)
     #: Concept pairs a relate call has already answered for (`judged_pairs`).
     judged: set[frozenset[str]] = field(default_factory=set)
@@ -213,6 +222,8 @@ class Context:
     touching: set[str] = field(default_factory=set)
     #: Terms a completed define call has already answered for, concept or not.
     defined: set[str] = field(default_factory=set)
+    #: Every label of every concept as patterns, built once (`_quote_names`).
+    label_patterns: list[Any] = field(default_factory=list, repr=False)
 
 
 @dataclass
@@ -251,18 +262,26 @@ class Job:
 # ---------------------------------------------------------------------------
 
 
-def _predicate_examples(ctx: Context) -> dict[str, str]:
-    """One signed example per approved predicate — the dictionary's only definitions."""
-    labels = {cid: c.pref_label for cid, c in ctx.links.concepts.items()}
-    examples: dict[str, str] = {}
-    for record in ctx.gold["gold_relationship"]:
-        predicate = str(record["predicate"])
-        if predicate in examples:
-            continue
-        subject = labels.get(str(record["subject"]), str(record["subject"]))
-        obj = labels.get(str(record["object"]), str(record["object"]))
-        examples[predicate] = f'{subject} —{predicate}→ {obj}: "{record["supporting_text"][:160]}"'
-    return dict(sorted(examples.items()))
+#: Predicates the relate job may propose: the dictionary's, less SKOS (which the
+#: prompt offers as is_kind_of and related_to) and less `constrainsExaminerTo`,
+#: which the dictionary keeps for its signed records while new records name the
+#: role with `constrainsRole` (review D1).
+def relate_predicates() -> list[str]:
+    return sorted(name for name in PREDICATES
+                  if name not in SKOS_PREDICATES and name != "constrainsExaminerTo")
+
+
+def _predicate_lines() -> list[str]:
+    """Each predicate as the dictionary defines it — definition, the way it reads,
+    an example and what it is not for (review D1). Until 2026-10-08 the prompt's only
+    definition was the first signed record using the predicate, cut to 160
+    characters, and two of those were the wrong way round (Q-73)."""
+    lines = []
+    for name in relate_predicates():
+        entry = PREDICATES[name]
+        lines.append(f"- {name}: {entry.definition} Reads: {entry.reading}. "
+                     f"Example: {entry.example} {entry.counter_example}")
+    return lines
 
 
 def judged_pairs(entries: list[dict[str, Any]]) -> set[frozenset[str]]:
@@ -320,9 +339,9 @@ def _concept_line(ctx: Context, cid: str) -> str:
 def _relate_render(ctx: Context, item: Item) -> str:
     anchor = item.payload["anchor"]
     mentions = ctx.links.by_passage()
-    lines = ["ANCHOR: " + _concept_line(ctx, anchor), "", "PREDICATES (with an example an expert signed):"]
-    for predicate, example in _predicate_examples(ctx).items():
-        lines.append(f"- {predicate}: {example}")
+    lines = ["ANCHOR: " + _concept_line(ctx, anchor), "",
+             "PREDICATES (subject first; each reads the way it says):"]
+    lines += _predicate_lines()
     lines += [
         "- is_kind_of: the subject is a kind, case or instance of the object.",
         "- related_to: the passage connects them, but no predicate above fits.",
@@ -350,7 +369,9 @@ support a relationship between the ANCHOR and that neighbour, and if so which.
 to is_kind_of, and either to related_to. Use none when the passages only mention \
 both. Use same_concept only for two records naming one idea.
 - direction says which concept is the subject: anchor_to_neighbour or \
-neighbour_to_anchor.
+neighbour_to_anchor. Check it against the predicate's "Reads:" line — a cause is \
+the subject of mayGiveRiseTo, a ground the subject of isOvercomeBy, a threshold the \
+subject of statesThresholdFor.
 - passage_ref must be one of the refs shown with that neighbour; quote is the \
 sentence or clause that carries the relationship, copied exactly. For none, \
 leave passage_ref and quote empty.
@@ -374,6 +395,20 @@ def _relate_schema(predicates: list[str]) -> dict[str, Any]:
         "confidence": NUM, "reasoning": STR, "alternative": STR, "expert_should_check": STR,
     })
     return _strict({"judgements": {"type": "array", "items": judgement}})
+
+
+#: An angle-bracketed slot — "<123456>", "<name of well-known person>" — marks a form
+#: template, not a statement. GR-0352 and GR-0288 were built from one (review D5).
+TEMPLATE_SLOT = re.compile(r"<[^<>\n]{0,60}>")
+
+
+def _quote_names(ctx: Context, quote: str) -> set[str]:
+    """The concepts whose labels the quote itself uses — every label, the
+    too-general ones included, because here the question is only whether the
+    sentence names the concept at all."""
+    if not getattr(ctx, "label_patterns", None):
+        ctx.label_patterns = links_module._patterns(ctx.links.concepts, skip=frozenset())
+    return set(links_module.find_mentions(quote, ctx.label_patterns))
 
 
 def _relate_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict[str, Any]) -> Outcome:
@@ -400,6 +435,14 @@ def _relate_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict
         found = evidence(ctx.corpus, ref, str(j.get("quote", "")))
         if found is None:
             outcome.refused.append(f"{anchor}–{other}: quote does not occur in {ref}")
+            continue
+        # Review D5: a template is not a statement, and the sentence carrying a
+        # relationship names both ends of it.
+        if TEMPLATE_SLOT.search(found["quote"]):
+            outcome.refused.append(f"{anchor}–{other}: the quote is a form template, not a statement")
+            continue
+        if not {anchor, other} <= _quote_names(ctx, found["quote"]):
+            outcome.refused.append(f"{anchor}–{other}: the quote does not name both concepts")
             continue
         subject, obj = (anchor, other) if j.get("direction") == "anchor_to_neighbour" else (other, anchor)
         predicate = {"is_kind_of": "broader", "related_to": "related"}.get(relation, relation)
@@ -467,12 +510,49 @@ CANDIDATES_PATH = REPO_ROOT / "review" / "candidates" / "concepts.yaml"
 #: the 104 uncovered terms are regulatory definitions almost nobody would ask
 #: about, and a call must be worth making (ADR-0088).
 DEFINE_MIN_USES = 3
+#: ...and fewer than this many passages using it *in its defined sense*. Six
+#: concepts this job wrote were dictionary words whose links were almost all
+#: ordinary uses — "Board" linked to an A-frame board and a body board — and the
+#: owner had them withdrawn (review E3). A passage counts when it uses the term
+#: and cites, by an upstream edge upstream did not mark ambiguous, a provision the
+#: defining passage points at or one whose own text uses the term.
+DEFINE_MIN_SENSE_USES = 2
+
+
+def _sense_uses(corpus: Corpus, term: str, defining: list[str]) -> int:
+    """Manual passages that use `term` while citing a provision tied to its definition."""
+    rx = re.compile(r"(?<![A-Za-z0-9])" + re.escape(term) + r"(?![A-Za-z0-9])", re.IGNORECASE)
+
+    def section(ref: str) -> str:
+        found = re.match(r"^((?:TMA|TMR)[0-9]{4}/[sr][0-9A-Z.]+)", ref)
+        return found.group(1) if found else ref
+
+    tied = {section(ref) for ref in defining if not ref.startswith("TMM/")}
+    for ref in defining:
+        chunk = corpus.chunks.get(ref)
+        if chunk is not None:  # a Manual definition: the provisions it cites
+            tied |= {section(e.id) for e in chunk.provisions or () if e.certainty != "ambiguous"}
+    count = 0
+    for chunk in corpus.chunks.values():
+        if chunk.chunk_ref in defining or not rx.search(chunk.text):
+            continue
+        for edge in chunk.provisions or ():
+            if edge.certainty == "ambiguous":
+                continue  # upstream refused to choose; so does this (CLAUDE.md rule 6)
+            held = corpus.resolve_provision(section(edge.id))
+            if section(edge.id) in tied or (held is not None and rx.search(getattr(held, "text", "") or "")):
+                count += 1
+                break
+    return count
 
 
 def _define_items(ctx: Context) -> list[Item]:
     data = yaml.safe_load(CANDIDATES_PATH.read_text(encoding="utf-8"))
     rows = data["candidates"] if isinstance(data, dict) and "candidates" in data else data
     known = {label.lower() for c in ctx.links.concepts.values() for label in c.labels}
+    # A concept the owner's ruling withdrew is not proposed again (review E3).
+    withdrawn = {str(meta.get("label", "")).lower() for meta in ctx.authored.retired_ids.values()
+                 if meta.get("record_type") == "gold_concept" and meta.get("label")}
     items = []
     for row in rows:
         term = str(row.get("term", ""))
@@ -480,7 +560,11 @@ def _define_items(ctx: Context) -> list[Item]:
             continue
         if (row.get("usage_count") or 0) < DEFINE_MIN_USES or term in ctx.defined:
             continue  # rare, or already answered under an older prompt (Q-68)
+        if term.lower() in withdrawn:
+            continue
         refs = [e["ref"] for e in (row.get("statutory") or []) + (row.get("manual") or []) if e.get("ref")]
+        if _sense_uses(ctx.corpus, term, refs) < DEFINE_MIN_SENSE_USES:
+            continue  # used, but not in the sense the definition gives it
         uses = [u for u in row.get("uses") or () if u not in refs][:3]
         # "X has the meaning given by subregulation 3A.3(1)": upstream already
         # resolved the reference as an edge on the unit. Follow it; never parse the
@@ -685,11 +769,76 @@ def _write_aliases(records: dict[str, list[dict[str, Any]]]) -> list[Path]:
     return [ALIASES_PATH]
 
 
-def load_aliases() -> dict[str, list[str]]:
+def load_aliases(
+    corpus: Corpus, concept_map: dict[str, links_module.Concept]
+) -> dict[str, list[str]]:
+    """Everyday phrasings per concept, narrowed to what the source itself says.
+
+    The owner ruled on 2026-10-08 that search aliases must be very narrow and almost
+    exclusively derived from the source material (E2, ADR-0121). The model wrote
+    these phrasings from general knowledge, so each is kept only if it
+
+    - occurs as a whole word in the Manual, the Act or the Regulations;
+    - is not one of the concept's own not-labels — the review found aliases that
+      were exactly that ("filing date" on priority date);
+    - is not another concept's label or not-label ("Registrar" on approved form);
+    - is not on the too-general list for the concept (E1);
+    - is carried by no other concept — a phrasing two concepts share ("oppose" on
+      opposition and on opponent) recognises neither reliably.
+
+    Deterministic, and the same narrowing for every surface: search, the explorer
+    and "Ask the Manual" all call this, never the file directly.
+    """
     if not ALIASES_PATH.exists():
         return {}
     data = yaml.safe_load(ALIASES_PATH.read_text(encoding="utf-8")) or {}
-    return {r["concept"]: list(r.get("everyday_phrases") or ()) for r in data.get("aliases") or ()}
+    raw = {r["concept"]: list(r.get("everyday_phrases") or ()) for r in data.get("aliases") or ()}
+    owned: dict[str, set[str]] = {}
+    for concept in concept_map.values():
+        for label in (*concept.labels, *concept.not_labels):
+            owned.setdefault(label.lower(), set()).add(concept.id)
+    skip = links_module.too_general()
+    source = _source_text(corpus)
+    out: dict[str, list[str]] = {}
+    for cid, phrases in sorted(raw.items()):
+        concept = concept_map.get(cid)
+        if concept is None:
+            continue  # the concept was withdrawn; its phrasings went with it
+        own_not = {n.lower() for n in concept.not_labels}
+        kept = []
+        for phrase in phrases:
+            key = phrase.strip().lower()
+            if (not key or key in own_not or owned.get(key, set()) - {cid} or (cid, key) in skip
+                    or not _in_source(key, source)):
+                continue
+            kept.append(phrase.strip())
+        if kept:
+            out[cid] = kept
+    carriers: dict[str, set[str]] = {}
+    for cid, phrases in out.items():
+        for phrase in phrases:
+            carriers.setdefault(phrase.lower(), set()).add(cid)
+    out = {cid: [p for p in phrases if len(carriers[p.lower()]) == 1] for cid, phrases in out.items()}
+    return {cid: phrases for cid, phrases in out.items() if phrases}
+
+
+_SOURCE_CACHE: dict[str, str] = {}
+
+
+def _source_text(corpus: Corpus) -> str:
+    """Every Manual passage and provision, folded, in one string — for `_in_source`."""
+    key = str(getattr(corpus, "pin", "")) or str(id(corpus))
+    if key not in _SOURCE_CACHE:
+        parts = [c.text for c in corpus.chunks.values()] + [p.text for p in corpus.provisions.values()]
+        _SOURCE_CACHE[key] = "\n".join(parts).lower().replace("’", "'")
+    return _SOURCE_CACHE[key]
+
+
+def _in_source(phrase: str, source: str) -> bool:
+    phrase = phrase.replace("’", "'")
+    if phrase not in source:
+        return False
+    return re.search(r"(?<![a-z0-9])" + re.escape(phrase) + r"(?![a-z0-9])", source) is not None
 
 
 # ---------------------------------------------------------------------------
@@ -959,6 +1108,8 @@ def _answer_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict
         "legislation": [_excerpt(ctx, ref) for ref in p.get("legislation") or ()],
         "plain_search": [_excerpt(ctx, ref) for ref in p.get("plain") or ()],
         "citations": cited, "concepts_used": list(parsed.get("concepts_used") or ()),
+        # PU-0004 at answer time (review F1): flagged, never removed.
+        "authority_flags": conflations(str(parsed.get("answer", "")), [c["ref"] for c in cited]),
         "declined": bool(parsed.get("declined")), "decline_reason": str(parsed.get("decline_reason", "")),
         "model": entry["model_reported"], "date": date.today().isoformat(), "review_status": "unreviewed",
     }]
@@ -988,9 +1139,11 @@ def _write_answers(records: dict[str, list[dict[str, Any]]]) -> list[Path]:
 
 
 def registry(ctx: Context) -> dict[str, Job]:
-    predicates = sorted({str(r["predicate"]) for r in ctx.gold["gold_relationship"]})
     return {
-        "relate": Job("relate", "relate-v1", "knowledge", _RELATE_INSTRUCTIONS, _relate_schema(predicates),
+        # v2: the predicates come from the defined dictionary, not the first signed
+        # example of each (review D1, ADR-0123).
+        "relate": Job("relate", "relate-v2", "knowledge", _RELATE_INSTRUCTIONS,
+                      _relate_schema(relate_predicates()),
                       12000, _relate_items, _relate_render, _relate_accept, _write_relationships,
                       "Relationships between concept pairs the Manual mentions together"),
         "define": Job("define", "define-v2", "knowledge", _DEFINE_INSTRUCTIONS, _DEFINE_SCHEMA,

@@ -12,7 +12,7 @@
 
 tmk:AuthorityKindShape
     a sh:NodeShape ;
-    sh:targetClass tmk:Passage , tmk:JudicialDecision ;
+    sh:targetClass tmk:Passage , tmk:Decision ;
     rdfs:label "Every passage says what kind of authority it is"@en-AU ;
     sh:property [
         sh:path tmk:authorityKind ;
@@ -42,12 +42,25 @@ tmk:PassageVersionShape
 
 tmk:DisjointAuthorityShape
     a sh:NodeShape ;
-    sh:targetClass tmk:ManualInstruction ;
+    sh:targetClass tmk:ManualInstruction , tmk:ManualPassage ;
     rdfs:label "Nothing is both practice and law"@en-AU ;
     sh:not [
         sh:class tmk:LegislativeProvision ;
     ] ;
-    sh:message "A node typed both tmk:ManualInstruction and tmk:LegislativeProvision. The classes are owl:disjointWith; under OWL RL that makes the graph inconsistent, and an inconsistent graph entails everything." .
+    sh:message "A node typed both practice (tmk:ManualInstruction or tmk:ManualPassage) and law (tmk:LegislativeProvision). The classes are owl:disjointWith; under OWL RL that makes the graph inconsistent, and an inconsistent graph entails everything." .
+
+# Since 2026-10-08 every Manual chunk is a tmk:ManualPassage (review F1), so the
+# shape above guards real data, not only fixtures. This one keeps the class and
+# the authority kind from disagreeing.
+tmk:ManualPassageKindShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:ManualPassage ;
+    rdfs:label "A Manual passage is practice"@en-AU ;
+    sh:property [
+        sh:path tmk:authorityKind ;
+        sh:hasValue "practice" ;
+        sh:message "A Manual passage whose authority kind is not 'practice' — the class says the Manual, the kind says otherwise, and a reader trusting either is misled about whether this is law (CLAUDE.md rule 5)." ;
+    ] .
 
 # --- PU-0004, as a constraint that blocks publication -----------------------
 

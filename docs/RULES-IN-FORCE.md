@@ -1,16 +1,20 @@
-# Rules in force — what 112 decisions add up to
+# Rules in force — what 117 decisions add up to
 
 Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-07, ADR-0119.
+**As at:** 2026-10-08, ADR-0124.
 
 ## Purpose and scope
 
 - **The project is a pitch** that demonstrates the value of an ontology for the
   Trade Marks Manual; a working system soon outranks completeness (ADR-0109).
   Current scope is the demonstrator, D1–D4, in `CLAUDE.md` §0 (ADR-0110).
+- **Waterfall delivery.** Nobody signs anything until the ontology ships to a group
+  of trade marks examiners, who review it all at once; until then, make it as close
+  to production ready as possible. No question goes to "the expert" singly
+  (ADR-0120).
 - **The whole Manual is in scope.** There is no section 43 boundary (ADR-0081).
 - **Never state an examination outcome**, and never a confidence that a ground
   applies (PU-0003). The eleven signed prohibited uses stand (ADR-0082 c4).
@@ -37,12 +41,30 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   is allowed and always flagged (ADR-0079 guard 2).
 - **A malformed authored record is refused, never skipped** (ADR-0089).
 - **`authored_by` is the model the API reported**, not the configured one
-  (ADR-0094). The store holds more than one author; counts split by author.
+  (ADR-0094). A record an agent session writes by hand carries the session's stamp
+  (`claude-code-agent-S026`), never a model identifier (Q-75). The store holds more
+  than one author; counts split by author, and confidence is never compared across
+  authors.
 - **Ids are one sequence across both stores** — one `GC-0123` in the project
-  (ADR-0080 c1). A withdrawn id goes in the ledger and is never reused (ADR-0033).
-- **A concept's type is its own record** (`GT-`), not a field (ADR-0071). Nine
-  groups: the owner's four reasoning groups, untouchable without the owner, and
-  five process groups an agent proposed (ADR-0098, `typing.GROUPS`).
+  (ADR-0080 c1). A withdrawn id is never reused: signed ones in
+  `eval/gold/retired-ids.yaml`, authored ones in `authored/retired-ids.yaml`, each
+  with its reason and ruling (ADR-0033, ADR-0122).
+- **A known defect in a signed record is corrected outside the signature** — a
+  `GK-` record in `authored/corrections.yaml`, unreviewed, naming the owner's ruling.
+  `eval/gold/` is never edited. What serves (`served_gold()`) applies corrections;
+  the harness and every measurement read the records as signed (ADR-0122).
+- **A concept's type is its own record** (`GT-`), not a field (ADR-0071). Ten
+  groups: five reasoning — the owner's four, and `remedy`, split from `exception` on
+  his ruling — and five process groups an agent proposed (ADR-0098, ADR-0124,
+  `typing.GROUPS`).
+- **Every predicate is defined** in `ontology/predicates.py` — definition, reading,
+  example, counter-example, `law` or `practice` — and `relations.ttl` is generated
+  from it. An authored edge on an undefined predicate is a defect; a triple that does
+  not read the way its predicate reads is recorded the wrong way round (ADR-0123).
+- **Roles are distinct and their power is on edges**: the Registrar (an office) is
+  not a delegate, a delegate is not the Registrar, the owner is not the authorised
+  user; who delegates to, directs, reviews or is consulted by whom is an edge on a
+  sentence of the Act or the Manual, never the expert's note (ADR-0123).
 - **Unreviewed content may be served** if its review status shows at the point of
   use (ADR-0082). A surface that cannot show it must not serve it.
 
@@ -60,7 +82,9 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 ## Models and money
 
 - **Bulk knowledge work: OpenAI `gpt-6.1-sol`, medium reasoning effort**, through
-  the session proxy (ADR-0111, Q-65). No Gemini.
+  the session proxy (ADR-0111, Q-65). The owner has bought Gemini capacity too; it
+  may be proposed, but "you still must come to me first with a quote for
+  expenditure" (ADR-0121, D5).
 - **Spend cap: US$6.60**, the approved quote (`config.SPEND_CAP_USD`, ADR-0114).
   Every paid call goes through `tm_knowledge.bulk`: dry-run, `--confirm`,
   `--limit`, a committed cache, the cap checked before each call. **One exception:**
@@ -83,6 +107,15 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **The browser's search is a copy of `search.index`** (`site/js/engine.js`, no
   vectors). A test holds the two identical, prompt included; change both or neither.
   The measured BM25 weights the heading in full, not by half (Q-69).
+- **Recognition**: the longest label wins its span; a concept's not-labels veto it;
+  labels on `authored/too-general-labels.yaml` are skipped; apostrophes fold.
+  Search aliases are narrowed to phrasings the source itself uses
+  (`jobs.load_aliases`). Python and `engine.js` apply the same rules (ADR-0121).
+- **Practice and law at answer time**: every Manual chunk is a `tmk:ManualPassage`;
+  an answer sentence that says the legislation requires something it cites no
+  provision for is flagged as PU-0004, never silently removed (`search.authority`,
+  `engine.js`). A cited case is administrative (the Registrar's delegate), judicial
+  or unclassified by its series, never guessed (`ontology.decisions`) (ADR-0121).
 - **The graph reads both stores through one mapping**, every node stamped with its
   origin; an authored relationship is a `tmk:AuthoredAssertion`, never a
   `tmk:ApprovedAssertion` (ADR-0091).
@@ -108,6 +141,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   cites the same provision (`ConceptView.joinable_sections`).
 - **Do not "fix" a ref that fails validation.** `InvalidRef` means it was
   constructed rather than read; find the construction.
+- **Do not edit `eval/gold/` to correct a signed record**, and do not correct a
+  preferred label at all — write a correction (ADR-0122).
 - **Do not relax `additionalProperties: false`** on a record schema to make an
   envelope validate; the envelope is split off before validation (Q-48).
 - **Do not measure or lay out in a renderer's first pass** (Q-63), and do not

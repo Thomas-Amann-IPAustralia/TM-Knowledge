@@ -134,7 +134,7 @@ def relations(argv: list[str] | None = None) -> int:
     """`tmk-ontology-relations` — regenerate the closed predicate list."""
     parser = argparse.ArgumentParser(
         prog="tmk-ontology-relations",
-        description="Regenerate ontology/draft/relations.ttl from eval/gold/relationships.yaml.",
+        description="Regenerate ontology/draft/relations.ttl from the relation dictionary and both stores.",
     )
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args(argv)

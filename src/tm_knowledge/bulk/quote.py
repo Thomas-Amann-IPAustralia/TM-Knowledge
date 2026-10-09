@@ -88,12 +88,13 @@ def join_forecast(share: float = 0.5) -> tuple[int, int, int, int, int]:
     import hashlib
     import json
 
+    from tm_knowledge.authored import corrections as corrections_module
     from tm_knowledge.authored import store as authored_store
     from tm_knowledge.bulk import links as links_module
     from tm_knowledge.dashboard import views
     from tm_knowledge.stage0 import goldset
 
-    net = views.network(goldset.load(), authored_store.load())
+    net = views.network(corrections_module.served_gold(), authored_store.load())
     adjacency = {n["id"]: set() for n in net["nodes"]}
     for e in net["edges"]:
         adjacency[e["source"]].add(e["target"])

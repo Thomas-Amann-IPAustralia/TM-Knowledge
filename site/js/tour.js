@@ -305,13 +305,13 @@ export async function render(root, { ontology, params }) {
     body.innerHTML = `
       <p class="step-k">4 · Zoom out</p>
       <h2>Every idea is a kind of thing</h2>
-      <p>Each idea is sorted into one of nine kinds: four for <b>how a decision is reasoned towards</b>, five for <b>the process it sits inside</b>.
+      <p>Each idea is sorted into one of ten kinds: five for <b>how a decision is reasoned towards</b>, five for <b>the process it sits inside</b>.
       Zoom out to that level and ${fmt(c.relations.signed + c.relations.machine)} connections become a handful of patterns:</p>
       <ul class="small" style="padding-left:1.1rem">${top.map(say).join("")}</ul>
       <p>That is the shape of examination practice, and it does not rest on any single idea or passage. Add a factor, merge two tests,
       reword a page — the pattern <i>factors feed tests; tests and factors give rise to grounds</i> is still there.</p>
       <p><a class="btn small" href="#/map/kinds">Explore this level on the map →</a></p>`;
-    const pic = svg("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "The nine kinds of idea and the patterns between them" });
+    const pic = svg("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "The ten kinds of idea and the patterns between them" });
     arrowDefs(pic);
     const g = svg("g", {}, pic);
     drawKinds(g, ontology, { strongOnly: true, minimal: false, onKind: () => { location.hash = "#/map/kinds"; } });

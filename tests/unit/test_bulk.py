@@ -18,6 +18,7 @@ from types import SimpleNamespace
 
 import pytest
 
+from tm_knowledge.authored import store as authored_store
 from tm_knowledge.bulk import client, jobs
 from tm_knowledge.bulk import links as links_module
 
@@ -168,6 +169,17 @@ def test_a_passage_not_shown_or_a_neighbour_not_sent_is_refused():
     assert not outcome.records and len(outcome.refused) == 2
 
 
+def test_a_quote_naming_only_one_end_or_a_template_is_refused():
+    """Review D5: the sentence carrying a relationship names both ends, and a form
+    template is not a statement."""
+    text = TEXT + " The notice is filed <day month year> by the opponent. An opposition may then follow."
+    one_end = _judgement(quote="An opposition may then follow.")
+    template = _judgement(quote="The notice is filed <day month year> by the opponent.")
+    for judgement, reason in ((one_end, "both concepts"), (template, "form template")):
+        outcome = jobs._relate_accept(_ctx(text), ITEM, {"judgements": [judgement]}, ENTRY)
+        assert not outcome.records and reason in outcome.refused[0]
+
+
 def test_same_concept_is_reported_for_a_person_not_written():
     outcome = jobs._relate_accept(_ctx(TEXT), ITEM, {"judgements": [_judgement(relation="same_concept")]}, ENTRY)
     assert not outcome.records and "same concept" in outcome.notes[0]
@@ -200,9 +212,62 @@ def test_a_pair_already_answered_is_never_asked_again_even_when_the_answer_was_n
 def test_labels_match_whole_words_only():
     concepts = {"GC-0001": links_module.Concept("GC-0001", "mark", ("mark",), "signed"),
                 "GC-0002": links_module.Concept("GC-0002", "Registrar", ("Registrar",), "signed")}
-    patterns = links_module._patterns(concepts)
+    patterns = links_module._patterns(concepts, skip=frozenset())
     found = links_module.find_mentions("The Registrar considered marketplace evidence.", patterns)
     assert set(found) == {"GC-0002"}
+
+
+def test_the_longest_label_wins_its_span():
+    """Review C8: a Deputy Registrar mention is not also a Registrar mention — but a
+    later 'Registrar' on its own still is."""
+    concepts = {"GC-0046": links_module.Concept("GC-0046", "Registrar", ("Registrar",), "signed"),
+                "GC-0159": links_module.Concept("GC-0159", "Deputy Registrar", ("Deputy Registrar",), "authored")}
+    patterns = links_module._patterns(concepts, skip=frozenset())
+    assert set(links_module.find_mentions("The Deputy Registrar decided.", patterns)) == {"GC-0159"}
+    found = links_module.find_mentions("The Deputy Registrar acts for the Registrar.", patterns)
+    assert set(found) == {"GC-0159", "GC-0046"}
+    assert found["GC-0046"][0] == len("The Deputy Registrar acts for the ")
+
+
+def test_a_not_label_vetoes_its_own_concept_only():
+    """Review E2: 'holder' inside 'copyright holder' is not the holder of an
+    international registration, which says so in its not-labels."""
+    concepts = {"GC-0132": links_module.Concept("GC-0132", "holder of an international registration",
+                                                ("holder of an international registration", "holder"),
+                                                "authored", not_labels=("copyright holder",))}
+    patterns = links_module._patterns(concepts, skip=frozenset())
+    vetoes = links_module._vetoes(concepts)
+    assert links_module.find_mentions("Consent of the copyright holder.", patterns, vetoes) == {}
+    assert set(links_module.find_mentions("The holder must respond.", patterns, vetoes)) == {"GC-0132"}
+
+
+def test_apostrophes_match_either_way():
+    concepts = {"GC-0127": links_module.Concept("GC-0127", "Registrar's decision", ("Registrar's decision",),
+                                                "authored")}
+    patterns = links_module._patterns(concepts, skip=frozenset())
+    assert set(links_module.find_mentions("Appeal from the Registrar’s decision.", patterns)) == {"GC-0127"}
+
+
+def test_a_label_on_the_too_general_list_is_skipped_for_its_concept_only():
+    """Review E1: the label stays on the record; recognition does not use it."""
+    concepts = {"GC-0021": links_module.Concept("GC-0021", "geographical qualifier",
+                                                ("geographical qualifier", "made in"), "signed"),
+                "GC-0999": links_module.Concept("GC-0999", "made in", ("made in",), "authored")}
+    patterns = links_module._patterns(concepts, skip=frozenset({("GC-0021", "made in")}))
+    assert set(links_module.find_mentions("Goods made in Australia.", patterns)) == {"GC-0999"}
+
+
+def test_the_committed_too_general_list_names_real_labels():
+    from tm_knowledge.authored import corrections
+
+    gold = corrections.served_gold()
+    held = {str(r["id"]): r for r in gold["gold_concept"]}
+    held.update({e.record_id: e.record for e in authored_store.load().of("gold_concept")})
+    for concept, label in links_module.too_general():
+        record = held[concept]
+        labels = [record["pref_label"], *(record.get("alt_labels") or ())]
+        assert label in {x.lower() for x in labels}, (concept, label)
+        assert label != str(record["pref_label"]).lower(), "a concept's own name is never too general"
 
 
 def test_a_generic_concept_is_linked_but_never_paired():

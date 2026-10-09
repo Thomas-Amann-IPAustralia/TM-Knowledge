@@ -67,19 +67,23 @@ REPORT_PATH = REPO_ROOT / "data" / "derived" / "reports" / "concept-typing.md"
 #: to hold them in their head across 130 rows.
 #:
 #: **The first four are the owner's own words** from the OQ-0001 question he
-#: ruled on, and they are not paraphrased here. The next five were added on
-#: 2026-09-09 at his instruction, because 53 of the 130 concepts fitted none of
-#: the first four and the pile was not random (ADR-0098).
+#: ruled on, and they are not paraphrased here. The five process groups were
+#: added on 2026-09-09 at his instruction, because 53 of the 130 concepts fitted
+#: none of the first four and the pile was not random (ADR-0098). `remedy` was
+#: split from `exception` on 2026-10-08 on his ruling B5 (ADR-0124): an
+#: exception is a case the rule does not reach, a remedy is what overcomes a
+#: ground that does apply — the object of `isOvercomeBy`.
 #:
 #: The order matters and is not alphabetical: the reasoning groups come first
 #: because they are the ones a person sorting an examination vocabulary reaches
-#: for, and `none_of_these` stays last because it is the residue after nine
+#: for, and `none_of_these` stays last because it is the residue after ten
 #: real answers rather than a category of its own.
 REASONING_GROUPS: tuple[tuple[str, str], ...] = (
     ("ground_of_refusal", "a reason an application can be refused"),
     ("legal_test", "a question the decision maker has to answer"),
     ("relevant_factor", "something that feeds into that answer"),
     ("exception", "something that takes a case out of the rule"),
+    ("remedy", "a step, record or consent that overcomes a ground already made out"),
 )
 
 #: The process groups. Where the four above sort a concept by the part it plays
@@ -109,7 +113,7 @@ PROCESS_GROUPS: tuple[tuple[str, str], ...] = (
 GROUPS: tuple[tuple[str, str], ...] = (
     *REASONING_GROUPS,
     *PROCESS_GROUPS,
-    ("none_of_these", "none of the nine fit — which is an answer, not a gap"),
+    ("none_of_these", "none of the ten fit — which is an answer, not a gap"),
 )
 
 
@@ -373,7 +377,7 @@ def _mark_as_scoped(book, count: int, proposed: int = 0, machine_written: int = 
     from openpyxl.styles import Alignment, Font
 
     sheet = book[book.sheetnames[0]]
-    sheet["A1"] = "Concept typing pass — sort the concepts into the nine groups"
+    sheet["A1"] = f"Concept typing pass — sort the concepts into the {len(GROUPS) - 1} groups"
     sheet["A1"].font = Font(bold=True, size=14)
     machine_note = (
         (
@@ -541,13 +545,14 @@ def render(generated: str | None = None) -> str:
         "group can be corrected in a dropdown and the concept cannot.",
         "",
         "Sort them in `data/derived/concept-typing.xlsx`. The `type` column is a dropdown "
-        "with the ten values below; this document is the evidence to sort by, so keep it "
-        "open beside the spreadsheet.",
+        f"with the {len(GROUPS)} values below; this document is the evidence to sort by, so "
+        "keep it open beside the spreadsheet.",
         "",
-        "**The ten fall on two axes, and knowing which one you are on makes the sort much "
-        "faster.** The first four ask *what part does this play in reasoning towards a "
-        "decision* — they are your own words from OQ-0001 and they are unchanged. The next "
-        "five ask *what part does this play in the process that reasoning sits inside*. "
+        "**The groups fall on two axes, and knowing which one you are on makes the sort much "
+        "faster.** The reasoning groups ask *what part does this play in reasoning towards a "
+        "decision* — the first four are your own words from OQ-0001, and `remedy` was split "
+        "from `exception` on your ruling of 2026-10-08 (ADR-0124). The process groups ask "
+        "*what part does this play in the process that reasoning sits inside*. "
         "They were added on 2026-09-09 at your instruction, because 53 of these 130 "
         "concepts fitted none of the first four and the 53 were not a random remainder "
         "(ADR-0098).",
@@ -562,7 +567,7 @@ def render(generated: str | None = None) -> str:
             f"| `{value}` | process | {meaning} |"
             for value, meaning in PROCESS_GROUPS
         ],
-        "| `none_of_these` | — | none of the nine fit — which is an answer, not a gap |",
+        f"| `none_of_these` | — | {dict(GROUPS)['none_of_these']} |",
         "",
         "**One concept carries one group, and that is a design choice worth arguing "
         "with.** A few concepts have a real claim on both axes — *acceptance* is a step in "
@@ -573,7 +578,7 @@ def render(generated: str | None = None) -> str:
         "",
         "**Leaving a row blank is fine and is not the same as `none_of_these`.** A blank "
         "says *not yet sorted* and comes back on the next pass. `none_of_these` says *none "
-        "of the nine groups fit this one*, which is evidence about the taxonomy — and if a "
+        "of the groups fit this one*, which is evidence about the taxonomy — and if a "
         "lot of rows come back that way, the taxonomy is what needs revisiting, not the "
         "rows.",
         "",

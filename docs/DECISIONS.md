@@ -4395,7 +4395,7 @@ Three things it does that the existing files do not:
 
 ## ADR-0101 — a duplicate label across the two stores is a finding for a person, not a defect
 
-**Date** 2026-09-09 · **Authority** agent-proposed · **Status** accepted
+**Date** 2026-09-09 · **Authority** agent-proposed · **Status** accepted · decisions 1 and 2 superseded by ADR-0121
 
 **Context.** Ten records in `authored/concepts.yaml` carry a `pref_label`
 identical to a signed concept's. Seven disclose the collision on their own record
@@ -5246,3 +5246,213 @@ can be."*
 **Consequences.** About 1.4 MB of vendored files — 1.1 MB of scripts (≈350 KB compressed) and 0.3 MB of fonts — most loaded only
 on the map and the change page. The dashboard's no-library rule still governs
 `site/workbench/`.
+
+## ADR-0120 — waterfall delivery: nothing is signed until the ontology ships to a group of examiners
+
+**Date** 2026-10-08 · **Authority** human · **Status** accepted
+
+**Context.** The owner replied to the ontology review (`docs/ONTOLOGY-REVIEW.md`, 40
+issues) in chat, and opened with a change of operating model (verbatim in
+`review/returned/261008-owner-chat-ontology-review.md`): *"no experts will be signing
+anything off until we ship the best version of the Ontology we can muster to share with
+them. This is full on waterfall delivery at this point. Co-design is out the window. To be
+clear, it WILL be reviewed by an expert but it will be a group of trade mark examiners, all
+at once, so we need to get this things as close to 'production ready' as we can before it
+goes to them for testing/review."*
+
+**Decision (the owner's).** No expert signs anything until the ontology ships. It then
+goes to a group of trade marks examiners, all at once, for testing and review. Until then
+the work is to make it as close to production ready as possible.
+
+**Decision (the agent's, inside it).** "Production ready" is read as: 0 harness defects;
+0 SHACL violations; every machine-written record stamped and carrying a pointer at what is
+most likely wrong; every known defect in a signed record corrected — outside the signature
+(ADR-0122); and nothing on a serving surface that shows a corrected record as exactly what
+was signed. Questions addressed to "the expert" in `review/questions/` stay open and wait
+for the examiner group; none is sent singly.
+
+**What it does not decide.** Who the examiners are, when it ships, or what they are asked.
+
+**Consequences.**
+
+1. The approval workflow stays as built — approved, authored, rejected never blur
+   (CLAUDE.md rule 4) — and nothing moves into `eval/gold/`. What changes is cadence: one
+   review event at the end, not a stream of questions.
+2. The demonstrator's scope (ADR-0110) is unchanged; this raises its quality bar.
+
+## ADR-0121 — the owner's rulings on the ontology review
+
+**Date** 2026-10-08 · **Authority** human · **Status** accepted · supersedes ADR-0101
+decisions 1 and 2
+
+**Context.** S026 audited the ontology and wrote 40 issues, each with a resolution
+(`docs/ONTOLOGY-REVIEW.md`). The owner ruled on every one in chat; the words are in
+`review/returned/261008-owner-chat-ontology-review.md` and item by item, with quotes, in
+`review/rulings/2026-10-08-chat-ontology-review.yaml` (CHAT-0017 to CHAT-0057).
+
+**Decision (the owner's), and what S026 did with it.**
+
+| Ruling | Items | Done |
+|---|---|---|
+| Approved | A1, A2, A3, A4 ("I will defer to you"), B5, C1–C8, D1, D3, D6, E1–E4, F1, F3 | Acted on — below, and ADR-0122 to ADR-0124 |
+| "Not approved, in this case correct known defects" | D2 | 29 corrections to signed records (ADR-0122) |
+| Approved, quote first ("You still must come to me first with a quote for expenditure") | D5 | The sample's wrong edges fixed by hand; the paid re-judging is quoted, nothing spent |
+| Approved, deferred as lower priority | F4, F5 | Not started |
+| Deferred until C4 and D1 show their effect | D7 | Not started; machine-written `related` edges fell from 242 to 198 |
+| Not approved ("having a flat approval aids speedier delivery") | C9 | Approval stays flat |
+| Postponed until B1 is understood | B2, B3, B6 | Not started |
+| "No action should yet be taken" | B1 | Explained, not acted on |
+| Explanation asked for | A5, A6, B4, D4, F2, F6 | Explained in plain English in the chat reply |
+| "Already addressed above" | E5 | — |
+
+What was done, by item: **A1** — eleven authored duplicates withdrawn in favour of the
+signed concept, what they added carried over by corrections; **A2** — the section 43
+ground (GC-0168) split from the general ground for rejection (GC-0006), and edges sorted
+between them by whether their sentence is about section 43; **A3** — GC-0130 relabelled
+*reputation of a trade mark*; **A4** — authorised user and owner kept apart, and wine GIs
+given their own concept and scheme (GC-0169, the Wine Register GC-0170) beside the GIs a
+certification trade mark protects; **D3** — 51 duplicate and self-referring edges
+withdrawn; **D6** — the hub concepts joined by their statutory definitions (ss 6, 17, 162,
+169, 170, 185, reg 17A.2); **E1** — `authored/too-general-labels.yaml`, nine labels
+recognition skips and six it was decided to keep; **E2** — recognition honours
+not-labels, and search aliases are narrowed to phrasings the source itself uses (57 of
+725); **E3** — six dictionary-word concepts withdrawn, three relabelled to their legal
+sense, and the define job's selection made to need two uses in the defined sense; **E4** —
+ART's self-contradicting not-label removed and the shape made to fold case; **F1** — a
+`tmk:ManualPassage` class on every chunk, so the practice/law disjointness guards real
+data, and a PU-0004 check on every answer (`search.authority`, `engine.js`); **F3** —
+three wrong legislative bases fixed and every unanchored basis reported by the harness;
+**C7** — cited cases typed administrative, judicial or unclassified from the case id's
+series (`ontology.decisions`); **C8** — the longest label wins its span. B5, C1–C6 and D1
+are ADR-0123 and ADR-0124. Every record S026 wrote or changed is stamped
+`claude-code-agent-S026`, unreviewed (Q-75).
+
+**ADR-0101 decisions 1 and 2 are superseded.** They sent "do these duplicates cover the
+same ground" to the expert and forbade an agent to answer it by editing either record.
+The owner answered it (A1, A2) and told the agent to use its judgement; the records were
+withdrawn under ADR-0080 c2, and nothing was edited inside a signature.
+
+**What it does not decide.** Which of the items explained in the chat the owner will
+approve once explained; whether B1 is adopted.
+
+**Consequences.** Recognition changed (C8, E1, E2), so the search measurement (D3 of the
+demonstrator) no longer describes the system that serves; re-measuring is in the same
+quote as D5.
+
+## ADR-0122 — corrections to signed records live outside the signature; withdrawals in a ledger
+
+**Date** 2026-10-08 · **Authority** agent-proposed · **Status** accepted
+
+**Context.** The owner ruled "correct known defects" in signed records (D2, ADR-0121).
+Three rules stood in the way of editing `eval/gold/`, and all three are kept: it is frozen
+as the only independent yardstick (ADR-0080); a change inside a signature is machine
+content under a person's name (CLAUDE.md rule 4); and an id in both stores is a harness
+defect. Separately, withdrawing authored records needed somewhere to say so: ids are never
+reused (IDENTIFIERS.md §3) and `eval/gold/retired-ids.yaml` is frozen.
+
+**Decision.**
+
+1. **A correction is its own record** — `authored/corrections.yaml`, id prefix `GK-`,
+   schema `eval/schemas/correction.schema.json`, the authoring envelope, `approved_by`
+   null by schema. It names the signed record it corrects and the owner's ruling. A
+   concept is patched by adding to or removing from its list fields; an entity mention by
+   `set`; a relationship by naming an authored relationship, from the same sentence, that
+   carries the corrected triple. A preferred label cannot be corrected: two `prefLabel`s
+   would sit on one concept.
+2. **What serves applies them; what measures does not.** `served_gold()` — recognition,
+   search, the explorer, the relate and define jobs. The harness, the expert pack and every
+   measurement read the signed records as signed.
+3. **The graph keeps the line.** The approved graph applies removals and drops a replaced
+   relationship's direct triple (its assertion stays, `tmk:isCorrected`,
+   `tmk:replacedBy`); every addition and every correction node (`tmk:Correction`) is in
+   the authored graph.
+4. **Withdrawn authored ids go in `authored/retired-ids.yaml`** — why, by whose ruling,
+   what replaced it, and a withdrawn concept's label so `define` never proposes it again.
+   `next_number` counts the ledger and the corrections.
+5. **The harness checks both**: a refused correction is a defect; a correction's evidence
+   is checked against the snapshot like any record's; a ledger entry pointing at a record
+   neither store holds is a defect; the corrected signed records are listed in one note.
+
+**What it does not decide.** Whether the examiner group may sign a correction into the
+signed set; that is theirs and the owner's when they meet it.
+
+**Consequences.** 29 corrections stand (13 concepts, 1 mention, 15 relationships), and
+104 ids are in the ledger. The explorer marks a corrected concept with its correction ids,
+and a replacement relationship with the signed record it re-reads.
+
+## ADR-0123 — the role and authority model, and a defined relation dictionary
+
+**Date** 2026-10-08 · **Authority** human · **Status** accepted
+
+**Context.** The review found the roles flat and undefined and the power between them
+unrecorded (C1–C6), and the predicates undefined — the relate prompt's only definition was
+the first signed example, two of them inverted (D1, Q-73). The owner confirmed the
+review's summary of the roles ("a correct and accurate interpretation") and approved
+C1–C5 and D1. On C6 he wrote: *"It is fair to assert that when a delegate is unsure about
+the correct decision they consult with another delegate who is a subject matter expert on
+that particular matter and/or they escalate the matter to a delegate that is higher on the
+chain of command (Examiner -> Senior Examiner -> Examination Team Leader), This escalation
+pathway is not unique to s43, If doubt exists the delegate should escalate or consult, I
+would prefer to avoid citing the expert note in the manner suggested, Ideally this should
+be hung on evidence within the text."*
+
+**Decision (the owner's).** The role model and the authority vocabulary the review
+proposed; escalation and consultation as standard practice, grounded in the Manual's text,
+never in the expert's note.
+
+**Decision (the agent's, inside it).**
+
+1. **Roles** — ten concepts (GC-0171 to GC-0180: delegate, Hearing Officer, examination
+   team leader, senior examiner, subject matter expert, acceptance officer, IP Australia,
+   trade marks attorney, adverse report, office practice). In `examination.ttl` the role
+   classes are families by where power comes from — office (Registrar, Deputy Registrar),
+   delegate, advisory role, party, representative, review body, co-regulator, international
+   body — each with a definition and its `tmk:roleConcept`. *Decision maker* is a role in a
+   decision (the range of `tmk:decidedBy`), not a peer of examiner.
+2. **Power** — twelve predicates the owner admitted: exercisesPowersOf,
+   holdsDelegationFrom, actsUnderDirectionOf, consults, escalatesTo, reviewsDecisionsOf,
+   hearsAppealsFrom, requiresConsentOf, prevailsOver, actsUnderControlOf, constrainsRole,
+   actsAs — plus isPartyTo and isProtectedThrough (D6, A4). Each carries `law` or
+   `practice`: a delegation is law, consulting is practice (rule 5).
+3. **C6 on the text.** Every consult and escalate edge quotes the Manual (Parts 9, 10, 14,
+   18, 30); where the Manual gives only the ladder, the edge is `corpus_inferred` and says
+   the direction along it is the owner's word. The expert's note is cited nowhere.
+   OQ-0022's withdrawn plan to cite it is dropped.
+4. **The dictionary** is `ontology/predicates.py`: definition, reading, example and
+   counter-example for every predicate, machine-written and unreviewed. `relations.ttl` is
+   rendered from it (`tmk:ApprovedRelation` for signed usage, `tmk:AdmittedRelation` for
+   the owner-admitted), usage counted per store; the relate prompt (`relate-v2`) reads the
+   definitions; the harness fails an authored edge on an undefined predicate.
+5. 21 machine-written edges were re-judged onto these predicates — the old reading kept in
+   `alternatives_considered` — and 46 written (GR-0632 to GR-0677).
+
+**What it does not decide.** B1 — whether what a thing *does* should be an edge rather
+than a kind; this model is compatible with either answer.
+
+**Consequences.** The examiner group can follow, on the graph, who decides, by whose
+power, under whose direction, who reviews them and who they consult — each step on a
+sentence. Re-judging the remaining edges against the definitions is in the D5 quote.
+
+## ADR-0124 — remedy becomes a group of its own, beside exception
+
+**Date** 2026-10-08 · **Authority** human · **Status** accepted · amends ADR-0098
+
+**Context.** `exception` held two kinds of thing (review B5; GT-0013's own check): a case
+the ground does not reach (a deceased person, a fanciful reference) and a step that
+overcomes a ground that does apply (a condition of registration, an endorsement, a
+limitation of the specification, written permission). The owner approved splitting them:
+"B5: Approved."
+
+**Decision (the owner's).** A tenth group, `remedy` — a step, record or consent that
+overcomes a ground already made out; the object of `isOvercomeBy`.
+
+**Decision (the agent's, inside it).** The four concepts above are retyped `remedy`; honest
+concurrent use, prior use and other circumstances stay `exception` — section 44(3) and (4)
+frame them as cases the ground does not bar. On the decision tree a remedy is asked after
+an exception: "Is a ground under {provision} overcome by a remedy the records name?"
+
+**What it does not decide.** B1: if what a thing does becomes an edge, `remedy` is the
+first group that would migrate to one (`isOvercomeBy`).
+
+**Consequences.** Ten groups plus `none_of_these` — the schema enum, `typing.GROUPS`,
+`tmk:Remedy`, the explorer's kinds and the decision tree all carry it.

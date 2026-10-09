@@ -1,0 +1,87 @@
+# Labels recognition skips because they are too general — the owner's ruling E1 of
+# 2026-10-08 (review/rulings/2026-10-08-chat-ontology-review.yaml#E1, ADR-0121).
+#
+# Each entry is one label on one concept. The label stays on its record — signed
+# labels in eval/gold/ are untouched, and an expert prunes them, not this file — but
+# the linker, search and "Ask the Manual" do not match it. A label is listed when
+# the Manual uses the bare word or phrase mostly in senses other than the concept's,
+# so matching it links the concept to passages that are not about it.
+#
+# Machine-written and unreviewed: which labels are "too general" is a judgement,
+# made by claude-code-agent-S026 on 2026-10-08 from a sample of each label's uses in
+# the pinned snapshot. `passages` is how many Manual passages the label matched as a
+# whole word, case-folded, before it was listed. `kept` records labels looked at and
+# left matching, with the reason, so the next person does not have to re-sample them.
+authored_by: claude-code-agent-S026
+authored_date: '2026-10-08'
+review_status: unreviewed
+ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#E1
+skip:
+- concept: GC-0021
+  label: made in
+  passages: 66
+  why: Mostly "made in accordance with", "made in writing", "made in respect of" — procedure, not the
+    geographical claim the concept is.
+- concept: GC-0041
+  label: evidence
+  passages: 226
+  why: Evidence of every kind — of consent, in opposition, on oath; evidence of use is one of them.
+- concept: GC-0006
+  label: objection
+  passages: 41
+  why: Also a third party's objection (opposition is "a formal objection"), "no objection from the
+    applicant", and objections to an extension; not only a ground for rejection.
+- concept: GC-0029
+  label: consent
+  passages: 54
+  why: Letters of consent under section 44, the ACCC's consent, a Minister's consent under other Acts;
+    the concept is a well-known person's written permission under section 43.
+- concept: GC-0124
+  label: amendment
+  passages: 116
+  why: Amendments of registrations, certificates, notices and legislation as well as of an application.
+- concept: GC-0124
+  label: amendments
+  passages: 56
+  why: As for "amendment".
+- concept: GC-0089
+  label: Register
+  passages: 187
+  why: Matching folds case, so the verb ("apply to register a trade mark") matches, as do the
+    International Register and the Federal Register of Legislation. "the Register" still matches.
+- concept: GC-0013
+  label: condition
+  passages: 21
+  why: Also "a further necessary condition", the conditions of a power, and the plant breeder's
+    right to "condition the material".
+- concept: GC-0040
+  label: notice of intention to oppose
+  passages: 44
+  why: Names the document an opponent files, not the proceeding (review E1).
+kept:
+- concept: GC-0012
+  label: specification
+  passages: 104
+  why: Named in the review as an example, but a sample shows the Manual uses the bare word almost
+    only for the specification of goods and services.
+- concept: GC-0052
+  label: research
+  passages: 60
+  why: Named in the review as an example; about seven uses in ten are the examiner's research. The
+    rest are class headings ("Market research"), which a not-label would remove more precisely.
+- concept: GC-0093
+  label: accepted
+  passages: 106
+  why: Mostly an application being accepted.
+- concept: GC-0079
+  label: series
+  passages: 31
+  why: Mostly a series of trade marks ("a valid series").
+- concept: GC-0064
+  label: citation
+  passages: 31
+  why: Mostly a section 44 citation.
+- concept: GC-0112
+  label: Protocol
+  passages: 88
+  why: The Madrid Protocol in every sampled use.

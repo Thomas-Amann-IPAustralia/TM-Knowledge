@@ -20,18 +20,28 @@ practice material. CQ-0001's caveat calls that "a grounding failure that will
 not show up as a missing source" — the citation is there, and it is to the right
 place, and the answer is still wrong.
 
-Four mechanisms carry the distinction, at four different levels:
+Five mechanisms carry the distinction, at different levels:
 
 | level | mechanism |
 |---|---|
-| the model | `tmk:ManualInstruction owl:disjointWith tmk:LegislativeProvision` |
-| every node | `tmk:authorityKind` — `law`, `practice` or `decision` |
-| the gate | `shapes/authority.ttl` fails a proposition stated in practice and attributed to law |
-| every answer | each competency query returns the authority alongside the passage |
+| the model | `tmk:ManualPassage owl:disjointWith tmk:LegislativeProvision` — and `tmk:ManualInstruction` likewise, for mentions |
+| every node | `tmk:authorityKind` — `law`, `practice` or `decision` — and, on every Manual chunk, the class `tmk:ManualPassage` by the same rule |
+| the gate | `shapes/authority.ttl` fails a node typed both practice and law, and a proposition stated in practice and attributed to law |
+| every query | each competency query returns the authority alongside the passage |
+| every answer | `search.authority` (and `engine.js`) flags an answer sentence that says the legislation requires something when the answer cites no provision for it (PU-0004) |
 
 The disjointness alone is not enough, because a projection can drop a type. The
-`authorityKind` string is what survives a projection, and the shape is what
-catches an output that lost it anyway.
+`authorityKind` string is what survives a projection, and the shapes catch an
+output that lost it anyway.
+
+**What changed on 2026-10-08** (review F1, ADR-0121). The ontology review found
+that two of the four mechanisms then listed guarded nothing on real data:
+`tmk:ManualInstruction` is applied to entity mentions, never to a passage, so its
+disjointness could not fire; and the PU-0004 shape targets `tmk:LegalProposition`,
+which nothing in the build produces. Both fired only on test fixtures. The fix
+put a class on every Manual chunk for the disjointness to guard, and moved the
+PU-0004 check to where the error happens — the live answer, which the graph never
+sees. The proposition shape stays for the day propositions are built.
 
 ---
 
@@ -196,7 +206,8 @@ produce. Most are marked `detectable_by: eval` or `test` — they can be reporte
 after the fact. Two are marked `shacl`, and that is a stronger claim: a shape
 blocks publication, where a test only reports.
 
-PU-0004 is the one that is implemented:
+PU-0004 is the one that is implemented — as a shape over propositions, and,
+since 2026-10-08, as a check over every answer (`search.authority`, §1):
 
 > "Section 43 of the Act requires the connotation to be obvious, direct and
 > immediate."

@@ -1359,3 +1359,88 @@ bug to fix in place: the measured answers were written from exactly this prompt.
 session wants a better twelve (say, signed first, or by how many retrieved passages
 name the far idea), change `bulk.cli` and `engine.js` together — the parity test checks
 the prompt — and re-measure.
+
+### Q-71 — `data/derived/links/mentions.json` is stale: it covers 130 of the 167 concepts
+
+The committed mentions file predates the define run, so the 37 concepts it added
+(GC-0131 to GC-0167) are not in it, and anything counted from it — passage links per
+concept, the "generic" list — silently leaves them out. Build the links fresh instead:
+`tm_knowledge.bulk.links.link(load_corpus())` with the snapshot fetched. It takes a
+minute and is deterministic. Found by the S026 ontology review (`docs/ONTOLOGY-REVIEW.md`
+F5); the file needs regenerating and a test that it covers every concept.
+
+### Q-72 — the duplicate-label count is preferred labels only, compared exactly
+
+`stage0.expertpack.duplicate_labels` (printed by `tmk-expert-pack`) reports 10
+cross-store duplicates. It compares `pref_label` to `pref_label` without folding case,
+plurals or articles, so a signed concept whose *alternative* label is an authored
+concept's preferred label — GC-0046 "Registrar" against GC-0115 "Registrar of Trade
+Marks" — is not counted. A folded scan over all labels finds 21 shared labels across 15
+concept pairs. Do not quote the 10 as the number of duplicates (ADR-0101 c3 flagged the
+gap; `docs/ONTOLOGY-REVIEW.md` A5 is the fix).
+
+### Q-73 — a predicate's only definition in the relate prompt is the first signed record that uses it
+
+`bulk.jobs._predicate_examples` takes, for each of the 14 predicates, the first record
+in `eval/gold/relationships.yaml` that uses it and shows it cut to 160 characters. That
+example *is* the predicate's definition as far as the model knows. Two of the fourteen
+are inverted: GR-0007 (`mayGiveRiseTo`) and GR-0032 (`isOvercomeBy`, planted in the seed
+as a trap — its own note says so). Reordering the gold file, or signing a new record
+with a lower id, changes the prompt and every relate cache key with it. Write real
+definitions before the next relate run (`docs/ONTOLOGY-REVIEW.md` D1).
+
+### Q-74 — two of the shapes guarding practice versus law can never fire on the real graph
+
+`tmk:ManualInstruction` is applied only as an entity mention's `tmk:mentionClass`, never
+as an `rdf:type`, and `tmk:LegalProposition` (with `tmk:statedIn` / `tmk:attributedTo`)
+is never written by the build. So the disjointness shape and the PU-0004 authority-
+conflation shape in `shapes/authority.ttl` have no targets outside the test fixtures,
+and `tmk-shacl` passing says nothing about them. The distinction on real data rests on
+the `tmk:authorityKind` string alone. Before citing those shapes as protection, give them
+something to check (`docs/ONTOLOGY-REVIEW.md` F1).
+
+**Q-71 to Q-74 were acted on in S026** (ADR-0121): `mentions.json` was regenerated
+(`tmk-bulk links --write`) after recognition changed; the relate prompt now reads
+definitions from `ontology/predicates.py` (`relate-v2`); every Manual chunk is a
+`tmk:ManualPassage`, so the disjointness shape has real targets, and PU-0004 is checked
+on every answer instead (`search.authority`). Q-72's count is still preferred labels only.
+
+### Q-75 — a record an agent session writes by hand is stamped with the session, not a model id
+
+CLAUDE.md wants `authored_by` to name "the model and version"; the remote environment
+S026 ran in forbids putting a model identifier in anything pushed to the repository. The
+records S026 wrote by hand (concepts GC-0168 to GC-0180, relationships GR-0632 to GR-0690,
+the re-judged edges, all 29 corrections, the too-general list) carry
+`claude-code-agent-S026`. The commit trailer carries the attribution. The bulk pipeline
+is unaffected: its `authored_by` is the model the API reported (ADR-0094). Do not read
+the stamp as a model name, and do not "fix" it to one in a session under the same rule.
+
+### Q-76 — editing a record file with a YAML round-trip rewrites every other record
+
+`ruamel` round-tripping `authored/*.yaml` re-wraps and re-quotes records nobody touched,
+so a one-record change becomes a thousand-line diff that hides the change. S026 edited
+record by record: split the file on lines starting `- id: `, re-dump only the changed
+block with `yaml.dump([record], sort_keys=False, allow_unicode=True, width=88)`, and
+leave every other block byte for byte. Do the same, or the review diff is unreadable.
+
+### Q-77 — corrections are read from the authored store's own root, not the repository's
+
+`corrections.load()` defaults to `authored/`. The graph build and the harness are also
+run over test fixtures (`tests/fixtures/authored/sound`), and loading the repository's
+corrections there stated real corrections on fixture graphs and broke the
+two-graphs test. Pass `authored.root` wherever an `AuthoredSet` is in hand.
+
+### Q-78 — a relationship whose sentence is the Act's own had no source node in the graph
+
+Records quoting a provision directly (`source_ref: TMA1995/s205`) were reported as
+"naming a source not held": the source graph held only provisions some Manual chunk
+cites, and `_provenance` looked the ref up among chunks alone. The build now adds every
+provision a relationship rests on to the source graph and checks its hash like a
+chunk's. A new record type that rests on a unit or provision needs the same.
+
+### Q-79 — apostrophes: the Manual writes ’, records and questions write '
+
+Recognition matched labels character for character, so "Registrar's decision" never met
+"Registrar’s decision" in the Manual. `links._regex` and `engine.js` now fold the two.
+Evidence quotes are still exact — `bulk.jobs.evidence` copies the snapshot's own
+characters — so a quote typed with a straight apostrophe will not land; copy it.

@@ -20,10 +20,12 @@ not care — but the shortcut is derived from the node and never the other way
 round, so the two cannot disagree (CLAUDE.md rule 3).
 
 **Practice and law are typed apart.** A Manual chunk carries
-`tmk:authorityKind "practice"`; a provision carries `"law"`; a decision carries
-`"decision"`. `tmk:ManualInstruction` is asserted only where an expert typed a
-mention that way in `eval/gold/entities.yaml` — the class is theirs to apply,
-not this module's (CLAUDE.md rule 5).
+`tmk:authorityKind "practice"` and is a `tmk:ManualPassage`, by the same
+structural rule (review F1); a provision carries `"law"`; a decision carries
+`"decision"` and is administrative, judicial or unclassified by its case id's
+series (review C7). `tmk:ManualInstruction` is asserted only where an expert
+typed a mention that way in `eval/gold/entities.yaml` — the class is theirs to
+apply, not this module's (CLAUDE.md rule 5).
 
 **A missing judgement stays missing.** A relationship with no modality gets no
 `tmk:modality` triple. Five approved relationships are in that state and the
@@ -45,8 +47,10 @@ from typing import Any, Container, Iterable
 from rdflib import Dataset, Graph, Literal, URIRef
 from rdflib.namespace import DCTERMS, OWL, PROV, RDF, RDFS, SKOS, XSD
 
+from tm_knowledge.authored import corrections as corrections_module
 from tm_knowledge.authored import store as authored_module
 from tm_knowledge.config import REPO_ROOT
+from tm_knowledge.ontology import decisions as decisions_module
 from tm_knowledge.ontology.namespaces import (
     APPROVED_GRAPH,
     AUTHORED_GRAPH,
@@ -105,14 +109,17 @@ class StoreReport:
     """
 
     concepts: int = 0
-    #: Concepts sorted into one of the nine groups (ADR-0071, widened by
-    #: ADR-0098). The gap between this and `concepts` is what OQ-0001 exists to
+    #: Concepts sorted into one of the ten groups (ADR-0071, widened by
+    #: ADR-0098 and ADR-0124). The gap between this and `concepts` is what OQ-0001 exists to
     #: close on the signed side.
     concept_types: int = 0
     relationships: int = 0
     mentions: int = 0
     questions: int = 0
     prohibited_uses: int = 0
+    #: Corrections to signed records stated in this store's graph (ADR-0122).
+    #: Always 0 for the approved store: a correction is machine-written.
+    corrections: int = 0
     #: Records whose recorded hash no longer matches the snapshot.
     stale: list[str] = field(default_factory=list)
     #: Records naming a source the corpus does not hold at all.
@@ -165,6 +172,8 @@ class BuildReport:
     #: rather than counted, because a refused record is one somebody has to fix
     #: and a number is not something you can act on.
     authored_refused: list[str] = field(default_factory=list)
+    #: Corrections refused at load (ADR-0122) — reported, never applied.
+    corrections_refused: list[str] = field(default_factory=list)
 
     # The signed store's counters, under the names they have always had. Read
     # only: a caller that needs to set one is building a store, and building a
@@ -322,6 +331,9 @@ class Store:
     #: record id -> the `authored:` envelope, for the authored store. Empty for
     #: the signed one, which carries its provenance on the record itself.
     envelopes: dict[str, dict[str, Any]] = field(default_factory=dict)
+    #: signed relationship id -> the authored relationship serving in its place
+    #: (ADR-0122). The signed assertion stays, as history; its direct triple does not.
+    replaced: dict[str, str] = field(default_factory=dict)
 
     @property
     def signed(self) -> bool:
@@ -344,12 +356,13 @@ class Store:
         return str(self.envelope(record_id).get("review_status") or "unreviewed")
 
 
-def approved_store(gold: goldset.GoldSet) -> Store:
+def approved_store(gold: goldset.GoldSet, replaced: dict[str, str] | None = None) -> Store:
     return Store(
         name="approved",
         records=gold,
         graph_name=APPROVED_GRAPH,
         assertion_class=TMK.ApprovedAssertion,
+        replaced=dict(replaced or {}),
     )
 
 
@@ -508,7 +521,12 @@ def source_chunks(
     return select_evidenced(corpus, refs)
 
 
-def _build_source(corpus: Corpus, chunks: tuple, report: BuildReport) -> Graph:
+def _build_source(
+    corpus: Corpus, chunks: tuple, report: BuildReport, also: Iterable[str] = ()
+) -> Graph:
+    """The pinned snapshot as RDF. `also` adds provisions a record rests on
+    directly — a relationship whose sentence is the Act's own (s 205, s 206) —
+    beside the ones the chunks cite, so its source is a node the graph holds."""
     graph = bind_all(Graph())
     version = _version_node(corpus, graph)
     known = corpus.provisions.keys() | corpus.units.keys()
@@ -526,7 +544,7 @@ def _build_source(corpus: Corpus, chunks: tuple, report: BuildReport) -> Graph:
 
     report.chunks = len(chunks)
     pages_seen: set[str] = set()
-    provisions_seen: set[str] = set()
+    provisions_seen: set[str] = {ref for ref in also if ref in known}
     cases_seen: set[str] = set()
 
     for chunk in chunks:
@@ -541,8 +559,11 @@ def _build_source(corpus: Corpus, chunks: tuple, report: BuildReport) -> Graph:
         graph.add((node, TMK.capturedIn, version))
         graph.add((node, DCTERMS.isPartOf, manual))
         # A fact about the document it came from, not a reading of the passage:
-        # the Manual states the Registrar's practice (CLAUDE.md rule 5).
+        # the Manual states the Registrar's practice (CLAUDE.md rule 5). The class
+        # says the same, by the same rule, so the practice/law disjointness has a
+        # real node to guard (review F1).
         graph.add((node, TMK.authorityKind, _lit("practice")))
+        graph.add((node, RDF.type, TMK.ManualPassage))
         for level in chunk.heading_path:
             graph.add((node, TMK.headingPath, _lit(level)))
         graph.add((node, TMK.onPage, ref_node(chunk.page_ref)))
@@ -567,7 +588,18 @@ def _build_source(corpus: Corpus, chunks: tuple, report: BuildReport) -> Graph:
             )
             graph.add((node, TMK.citesCase, ref_node(case.id)))
             case_node = ref_node(case.id)
-            graph.add((case_node, RDF.type, TMK.JudicialDecision))
+            # Who decided, read off the case id's series and nothing else (review
+            # C7): the Registrar's own delegate is not a court. A series that
+            # reports both stays a bare tmk:Decision rather than a guess.
+            decided = decisions_module.classify(case.id)
+            graph.add((case_node, RDF.type, TMK.Decision))
+            if decided.kind in _DECISION_CLASSES:
+                graph.add((case_node, RDF.type, _DECISION_CLASSES[decided.kind]))
+            graph.add((case_node, TMK.decisionKind, _lit(decided.kind)))
+            if decided.jurisdiction:
+                graph.add((case_node, TMK.jurisdiction, _lit(decided.jurisdiction)))
+            if decided.level:
+                graph.add((case_node, TMK.decidedAt, _lit(decided.level)))
             graph.add((case_node, TMK.upstreamRef, _lit(case.id)))
             graph.add((case_node, TMK.caseCitation, _lit(case.citation)))
             graph.add((case_node, TMK.authorityKind, _lit("decision")))
@@ -722,11 +754,11 @@ def _provenance(
     recorded = record.get("source_content_hash")
     if recorded:
         graph.add((node, TMK.sourceContentHash, _lit(recorded)))
-    chunk = corpus.chunks.get(source_ref)
-    if chunk is None:
+    held = corpus.chunks.get(source_ref) or corpus.provisions.get(source_ref) or corpus.units.get(source_ref)
+    if held is None:
         counts.unresolvable_sources.append(record["id"])
         return
-    stale = bool(recorded) and recorded != chunk.content_hash
+    stale = bool(recorded) and recorded != held.content_hash
     graph.add((node, TMK.isStale, _lit(stale, XSD.boolean)))
     if stale:
         counts.stale.append(record["id"])
@@ -787,9 +819,10 @@ def _build_concepts(graph: Graph, store: Store, counts: StoreReport) -> None:
 #: sorted rather than as waiting.
 #:
 #: The first four are the owner's groups (ADR-0071). The five process classes
-#: were added on 2026-09-09 (ADR-0098) and are subclasses of `tmk:LegalConcept`
-#: on the same footing, so a query that walks the concept hierarchy reaches all
-#: nine without knowing which axis a group belongs to.
+#: were added on 2026-09-09 (ADR-0098), and `remedy` was split from `exception`
+#: on 2026-10-08 (ADR-0124); all are subclasses of `tmk:LegalConcept` on the
+#: same footing, so a query that walks the concept hierarchy reaches all ten
+#: without knowing which axis a group belongs to.
 #:
 #: **`process_role` maps to `tmk:ProcessRole`, not to `tmk:Role`.** A
 #: `tmk:Role` in `examination.ttl` is a person or office that acts — an
@@ -803,6 +836,7 @@ CONCEPT_CLASSES: dict[str, str] = {
     "legal_test": "LegalTest",
     "relevant_factor": "RelevantFactor",
     "exception": "Exception",
+    "remedy": "Remedy",
     "process_role": "ProcessRole",
     "subject_matter": "SubjectMatter",
     "procedural_step": "ProceduralStep",
@@ -834,7 +868,7 @@ def _apply_concept_types(graph: Graph, store: Store, counts: StoreReport) -> Non
         node = concept_node(record["concept"])
         typing = assertion_node(record["id"])
         # `none_of_these` reaches here with no class and asserts none. What it
-        # does assert is that somebody looked and said none of the nine groups
+        # does assert is that somebody looked and said none of the ten groups
         # fit — so the typing node, its record and its origin are all written,
         # and the concept stays a bare `tmk:LegalConcept`. Skipping the record
         # outright would make "sorted into none_of_these" and "never sorted"
@@ -904,7 +938,15 @@ def _build_relationships(
         # working as designed: a query over the approved graph sees only signed
         # edges, a query over the union sees both, and neither can be written by
         # accident (ADR-0007, ADR-0080).
-        graph.add((subject, predicate, obj))
+        replacement = store.replaced.get(str(record["id"])) if store.signed else None
+        if replacement:
+            # Corrected on the owner's instruction (ADR-0122): the signed record is
+            # kept as history, flagged the way a stale one is, and its triple no
+            # longer serves. The authored replacement carries the corrected one.
+            graph.add((node, TMK.isCorrected, _lit(True, XSD.boolean)))
+            graph.add((node, TMK.replacedBy, assertion_node(replacement)))
+        else:
+            graph.add((subject, predicate, obj))
         graph.add((node, RDF.type, store.assertion_class))
         graph.add((node, TMK.assertionSubject, subject))
         graph.add((node, TMK.assertionPredicate, predicate))
@@ -1139,6 +1181,67 @@ def _build_prohibitions(graph: Graph, store: Store, counts: StoreReport) -> None
     counts.prohibited_uses = store.records.count("prohibited_use")
 
 
+#: decision kind -> the class a cited case is put in (review C7). "unclassified"
+#: has none: the case stays a bare tmk:Decision.
+_DECISION_CLASSES = {
+    "administrative": TMK.AdministrativeDecision,
+    "judicial": TMK.JudicialDecision,
+}
+
+
+#: correction field -> how an added value is stated on the corrected node.
+_ADDED = {
+    "alt_labels": lambda graph, node, value: graph.add((node, SKOS.altLabel, _en(value))),
+    "not_labels": lambda graph, node, value: graph.add((node, TMK.notLabel, _en(value))),
+    "legislative_basis": lambda graph, node, value: graph.add((node, TMK.legislativeBasis, ref_node(value))),
+    "definition_sources": lambda graph, node, value: graph.add((node, TMK.definitionSource, ref_node(value))),
+}
+
+
+def _build_corrections(graph: Graph, corrections: Any, counts: StoreReport) -> None:
+    """Corrections to signed records, stated where machine output lives (ADR-0122).
+
+    Each correction is a node carrying the authoring envelope like any authored
+    record, naming what it corrects and the owner's ruling it acts on. What it
+    withdrew is recorded on it as text, so the graph says what changed without
+    restating the withdrawn value as live. What it added is stated on the
+    corrected node *in this graph* — never in the approved one — which is the same
+    footing an authored typing of a signed concept has always had.
+    """
+    store = Store(
+        name="authored", records=None, graph_name=AUTHORED_GRAPH,
+        assertion_class=TMK.AuthoredAssertion,
+        envelopes={c.id: c.envelope for c in corrections.sound if c.envelope},
+    )
+    for correction in corrections.sound:
+        record = correction.record
+        node = assertion_node(correction.id)
+        target = str(record["corrects"])
+        target_node = concept_node(target) if target.startswith("GC-") else assertion_node(target)
+        graph.add((node, RDF.type, TMK.Correction))
+        graph.add((node, TMK.goldRecord, _lit(correction.id)))
+        graph.add((node, TMK.corrects, target_node))
+        graph.add((node, TMK.ruling, _lit(record["ruling"])))
+        graph.add((node, TMK.extractionMethod, _lit(AUTHORING)))
+        if record.get("notes"):
+            graph.add((node, RDFS.comment, _en(record["notes"])))
+        for name, values in sorted((record.get("remove") or {}).items()):
+            for value in values:
+                graph.add((node, TMK.withdrawnValue, _lit(f"{name}: {value}")))
+        for name, values in sorted((record.get("add") or {}).items()):
+            for value in values:
+                graph.add((node, TMK.addedValue, _lit(f"{name}: {value}")))
+                _ADDED[name](graph, target_node, value)
+        for name, value in sorted((record.get("set") or {}).items()):
+            graph.add((node, TMK.addedValue, _lit(f"{name}: {value}")))
+            if name == "resolves_to":
+                graph.add((target_node, TMK.resolvesTo, _term(str(value))))
+        if record.get("replaced_by"):
+            graph.add((node, TMK.replacedBy, assertion_node(str(record["replaced_by"]))))
+        _origin(graph, node, record, store)
+    counts.corrections = len(corrections.sound)
+
+
 def _build_store(
     corpus: Corpus,
     store: Store,
@@ -1200,7 +1303,11 @@ def build(
     for triple in load_tbox():
         dataset.add(triple)
 
-    signed = approved_store(gold)
+    corrections = corrections_module.load(authored.root, gold=gold, authored=authored)
+    report.corrections_refused = [entry.id for entry in corrections.refused]
+    signed = approved_store(
+        corrections_module.in_force_gold(gold, corrections), corrections.replacements()
+    )
     machine = authored_store(authored)
 
     # One label index over both stores, built before either graph, because the
@@ -1212,9 +1319,15 @@ def build(
 
     if chunks is None:
         chunks = source_chunks(corpus, gold, authored)
-    source = _build_source(corpus, chunks, report)
+    record_provisions = {
+        str(r.get("source_ref"))
+        for store in (gold, authored) for r in store["gold_relationship"]
+        if str(r.get("source_ref", "")).startswith(("TMA", "TMR"))
+    }
+    source = _build_source(corpus, chunks, report, also=record_provisions)
     approved = _build_store(corpus, signed, report.approved, labels, excluded, signed_labels)
     authored_graph = _build_store(corpus, machine, report.authored, labels, excluded, signed_labels)
+    _build_corrections(authored_graph, corrections, report.authored)
 
     in_scope = {
         str(ref) for ref in source.subjects(RDF.type, TMK.Chunk)

@@ -38,6 +38,7 @@ remaining finding is real.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
@@ -144,12 +145,13 @@ DELIVERABLES: tuple[Deliverable, ...] = (
     Deliverable("reasoning", "Reasoning expectations", "records",
                 record_type="reasoning_expectation", minimum=1),
     # Not a §7 deliverable — added S012 when the owner confirmed the four groups
-    # (OQ-0001, ADR-0071), and widened to nine on 2026-09-09 when he asked for
-    # groups that fit the 53 the first four could not hold (ADR-0098). The band
+    # (OQ-0001, ADR-0071), widened to nine on 2026-09-09 when he asked for
+    # groups that fit the 53 the first four could not hold (ADR-0098), and to ten
+    # when he split remedies from exceptions on 2026-10-08 (ADR-0124). The band
     # is one per approved concept, because the question is "which group is this
     # in" and every concept has an answer, `none_of_these` included.
     # `tmk-typing` renders the pass.
-    Deliverable("concept_types", "Concepts sorted into one of the nine groups",
+    Deliverable("concept_types", "Concepts sorted into one of the ten groups",
                 "records", record_type="concept_type", minimum=50, maximum=100),
     Deliverable("measures", "A threshold against every metric", "document",
                 path="eval/measures.md"),
@@ -768,15 +770,54 @@ def _authored_identifiers(authored: AuthoredSet, gold: GoldSet) -> Iterator[Find
                 "a signed one already holds, the signed one wins and the authored "
                 "one is retired — it does not share its id",
             )
-        if identifier in gold.retired_ids:
-            entry_meta = gold.retired_ids[identifier]
+        for ledger in (gold.retired_ids, authored.retired_ids):
+            if identifier in ledger:
+                entry_meta = ledger[identifier]
+                yield Finding(
+                    Severity.DEFECT, "authored-ids", identifier,
+                    "reuses a retired id"
+                    + (f" (withdrawn {entry_meta['retired_on']})"
+                       if entry_meta.get("retired_on") else "")
+                    + ". A gap left by a withdrawal is never filled "
+                    "(IDENTIFIERS.md §3)",
+                )
+
+
+def _authored_corrections(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
+    """Corrections to signed records (ADR-0122): each sound, each reported.
+
+    A refused correction is a defect for the same reason a refused authored record
+    is: dropping it silently would serve the signed record as though nobody had
+    found it wrong. A sound one is a note — the signed record it names now serves
+    differently from how it was signed, and a reader of this report should see that.
+    """
+    from tm_knowledge.authored import corrections as corrections_module
+
+    try:
+        corrections = corrections_module.load(authored.root, gold=gold, authored=authored)
+    except authored_store.MalformedAuthoredFile as error:
+        yield Finding(Severity.DEFECT, "corrections", "authored/corrections.yaml", str(error))
+        return
+    for entry in corrections.refused:
+        for error in entry.errors:
+            yield Finding(Severity.DEFECT, "corrections", entry.id, str(error))
+    targets = corrections.targets()
+    if targets:
+        yield Finding(
+            Severity.NOTE, "corrections", "authored/corrections.yaml",
+            f"{len(targets)} signed record(s) serve corrected, by {len(corrections.sound)} "
+            f"correction(s) made on the owner's instruction: {', '.join(sorted(targets))}. "
+            "Each correction is unreviewed; eval/gold/ keeps every one of them exactly as signed",
+        )
+    for identifier, meta in sorted(authored.retired_ids.items()):
+        replaced = meta.get("replaced_by")
+        if replaced and not (
+            any(str(r.get("id")) == replaced for _, r in gold.all_records())
+            or replaced in authored.identifiers()
+        ):
             yield Finding(
                 Severity.DEFECT, "authored-ids", identifier,
-                "reuses a retired id"
-                + (f" (withdrawn {entry_meta['retired_on']})"
-                   if entry_meta.get("retired_on") else "")
-                + ". A gap left by a withdrawal is never filled "
-                "(IDENTIFIERS.md §3)",
+                f"withdrawn in favour of {replaced}, which neither store holds",
             )
 
 
@@ -842,74 +883,181 @@ def _authored_evidence(authored: AuthoredSet, corpus: Corpus) -> Iterator[Findin
     for entry in authored.all_entries():
         if not entry.sound:
             continue
-        for index, item in enumerate(entry.evidence()):
-            where = f"authored.evidence[{index}]"
-            ref = item.get("ref")
-            if not isinstance(ref, str):
-                continue  # the envelope schema has already said so
-            passage = _passage(corpus, ref)
-            if passage is None:
-                yield Finding(
-                    Severity.DEFECT, "authored-evidence", entry.record_id,
-                    f"{where}.ref = {ref} resolves to nothing in the pinned "
-                    f"snapshot ({corpus.pin.commit[:12]}). An authored record "
-                    "cites the corpus by the corpus's own keys or it cites "
-                    "nothing",
-                )
-                continue
-            if passage.kind == "case":
-                yield Finding(
-                    Severity.NOTE, "authored-evidence", entry.record_id,
-                    f"{where}.ref = {ref} is a case citation, checked for grammar "
-                    "only — no decision text exists anywhere in the programme "
-                    "(Q-11)",
-                )
-                continue
+        yield from _evidence_findings(entry.record_id, entry.evidence(), corpus)
 
-            recorded_hash = item.get("content_hash")
-            if (
-                isinstance(recorded_hash, str)
-                and passage.content_hash
-                and recorded_hash != passage.content_hash
-            ):
-                yield Finding(
-                    Severity.DEFECT, "authored-evidence", entry.record_id,
-                    f"{where}.content_hash was taken against {recorded_hash[:19]}… "
-                    f"and {ref} now hashes to {passage.content_hash[:19]}…. The "
-                    "passage under this record has moved, so the record is stale "
-                    "and is re-authored rather than silently refreshed "
-                    "(IDENTIFIERS.md §5)",
-                )
 
-            span = item.get("span")
-            if span is None:
-                continue
-            if passage.text is None:
-                yield Finding(
-                    Severity.DEFECT, "authored-evidence", entry.record_id,
-                    f"{where}.ref {ref} is a {passage.kind}, which holds no text "
-                    "for a span to land in. Spans address a chunk, a provision or "
-                    "a unit",
-                )
-                continue
-            start, end = span
-            if end > len(passage.text) or start > end:
-                yield Finding(
-                    Severity.DEFECT, "authored-evidence", entry.record_id,
-                    f"{where}.span [{start}, {end}] falls outside {ref}, which is "
-                    f"{len(passage.text)} characters",
-                )
-                continue
-            quote = item.get("quote")
-            if isinstance(quote, str) and passage.text[start:end] != quote:
-                yield Finding(
-                    Severity.DEFECT, "authored-evidence", entry.record_id,
-                    f"{where}.quote is {quote!r} but {ref}[{start}:{end}] is "
-                    f"{passage.text[start:end]!r}. A quote is copied from the "
-                    "snapshot character for character; one that will not land "
-                    "means the passage was retyped, and a retyped passage is not "
-                    "evidence (ADR-0045)",
-                )
+def _correction_evidence(authored: AuthoredSet, gold: GoldSet, corpus: Corpus) -> Iterator[Finding]:
+    """A correction's evidence is checked like any authored record's (ADR-0122):
+    it changes what a signed record serves, so a quote that no longer lands is a
+    correction resting on nothing."""
+    from tm_knowledge.authored import corrections as corrections_module
+
+    try:
+        corrections = corrections_module.load(authored.root, gold=gold, authored=authored)
+    except authored_store.MalformedAuthoredFile:
+        return  # reported by _authored_corrections
+    for entry in corrections.sound:
+        yield from _evidence_findings(entry.id, (entry.envelope or {}).get("evidence") or [], corpus)
+
+
+def _evidence_findings(record_id: str, items: Any, corpus: Corpus) -> Iterator[Finding]:
+    """One record's evidence against the pinned snapshot: it resolves, it has not
+    moved, and its quote is at its span."""
+    for index, item in enumerate(items):
+        where = f"authored.evidence[{index}]"
+        ref = item.get("ref")
+        if not isinstance(ref, str):
+            continue  # the envelope schema has already said so
+        passage = _passage(corpus, ref)
+        if passage is None:
+            yield Finding(
+                Severity.DEFECT, "authored-evidence", record_id,
+                f"{where}.ref = {ref} resolves to nothing in the pinned "
+                f"snapshot ({corpus.pin.commit[:12]}). An authored record "
+                "cites the corpus by the corpus's own keys or it cites "
+                "nothing",
+            )
+            continue
+        if passage.kind == "case":
+            yield Finding(
+                Severity.NOTE, "authored-evidence", record_id,
+                f"{where}.ref = {ref} is a case citation, checked for grammar "
+                "only — no decision text exists anywhere in the programme "
+                "(Q-11)",
+            )
+            continue
+
+        recorded_hash = item.get("content_hash")
+        if (
+            isinstance(recorded_hash, str)
+            and passage.content_hash
+            and recorded_hash != passage.content_hash
+        ):
+            yield Finding(
+                Severity.DEFECT, "authored-evidence", record_id,
+                f"{where}.content_hash was taken against {recorded_hash[:19]}… "
+                f"and {ref} now hashes to {passage.content_hash[:19]}…. The "
+                "passage under this record has moved, so the record is stale "
+                "and is re-authored rather than silently refreshed "
+                "(IDENTIFIERS.md §5)",
+            )
+
+        span = item.get("span")
+        if span is None:
+            continue
+        if passage.text is None:
+            yield Finding(
+                Severity.DEFECT, "authored-evidence", record_id,
+                f"{where}.ref {ref} is a {passage.kind}, which holds no text "
+                "for a span to land in. Spans address a chunk, a provision or "
+                "a unit",
+            )
+            continue
+        start, end = span
+        if end > len(passage.text) or start > end:
+            yield Finding(
+                Severity.DEFECT, "authored-evidence", record_id,
+                f"{where}.span [{start}, {end}] falls outside {ref}, which is "
+                f"{len(passage.text)} characters",
+            )
+            continue
+        quote = item.get("quote")
+        if isinstance(quote, str) and passage.text[start:end] != quote:
+            yield Finding(
+                Severity.DEFECT, "authored-evidence", record_id,
+                f"{where}.quote is {quote!r} but {ref}[{start}:{end}] is "
+                f"{passage.text[start:end]!r}. A quote is copied from the "
+                "snapshot character for character; one that will not land "
+                "means the passage was retyped, and a retyped passage is not "
+                "evidence (ADR-0045)",
+            )
+
+
+def _authored_predicates(authored: AuthoredSet) -> Iterator[Finding]:
+    """Every machine-written relationship uses a predicate the dictionary defines.
+
+    Since 2026-10-08 the relation dictionary has definitions and a reading per
+    predicate (review D1, ADR-0123). An edge on a predicate it does not hold
+    cannot be read, scored or checked for direction.
+    """
+    from tm_knowledge.ontology.predicates import PREDICATES
+
+    for entry in authored.of("gold_relationship"):
+        predicate = str(entry.record.get("predicate"))
+        if entry.sound and predicate not in PREDICATES:
+            yield Finding(
+                Severity.DEFECT, "authored-predicates", entry.record_id,
+                f"predicate {predicate!r} is not in the relation dictionary "
+                "(ontology/predicates.py) — an undefined relation cannot be read "
+                "or checked for direction",
+            )
+
+
+def _legislative_bases(authored: AuthoredSet, gold: GoldSet, corpus: Corpus) -> Iterator[Finding]:
+    """A cited provision exists, and something the record rests on ties it to the concept.
+
+    The review found the legislative basis the one claim nobody verified, and
+    three wrong ones: s 200 (the seal) for the Registrar's office, s 203 for the
+    Deputy Registrar, r 2.2 (counting months) for a certificate of verification
+    (review F3). A basis counts as anchored when the record quotes the provision,
+    names it as a definition source, a label of the concept appears in its text,
+    or a Manual passage the record rests on cites it. One that is none of those is
+    not wrong — it is unverified, and the note lists them for whoever checks.
+    """
+    from tm_knowledge.authored import corrections as corrections_module
+
+    def base(ref: str) -> str:
+        found = re.match(r"^((?:TMA|TMR)[0-9]{4}/[sr][0-9A-Z.]+)", ref)
+        return found.group(1) if found else ref
+
+    try:
+        corrections = corrections_module.load(authored.root, gold=gold, authored=authored)
+    except authored_store.MalformedAuthoredFile:
+        corrections = corrections_module.Corrections()
+    served = corrections_module.served_gold(gold, corrections)
+    #: What a correction quotes anchors what it adds to a signed record.
+    quoted: dict[str, list[str]] = {}
+    for entry in corrections.sound:
+        quoted.setdefault(entry.target, []).extend(
+            str(i.get("ref")) for i in (entry.envelope or {}).get("evidence") or () if i.get("ref")
+        )
+    unanchored: list[str] = []
+    stores = (("signed", served["gold_concept"]),
+              ("authored", [e for e in authored.of("gold_concept") if e.sound]))
+    for origin, rows in stores:
+        for row in rows:
+            record = row.record if origin == "authored" else row
+            envelope = row.envelope if origin == "authored" else None
+            identifier = str(record.get("id"))
+            refs = [str(i.get("ref")) for i in (envelope or {}).get("evidence") or () if i.get("ref")]
+            refs += [str(r) for r in record.get("definition_sources") or ()]
+            refs += quoted.get(identifier, [])
+            labels = [str(x) for x in (record.get("pref_label"), *(record.get("alt_labels") or ())) if x]
+            for cited in record.get("legislative_basis") or ():
+                cited = str(cited)
+                provision = corpus.resolve_provision(base(cited))
+                if provision is None:
+                    yield Finding(
+                        Severity.DEFECT, "legislative-basis", identifier,
+                        f"legislative_basis {cited} resolves to nothing in the pinned snapshot",
+                    )
+                    continue
+                if any(base(r) == base(cited) for r in refs if not r.startswith("TMM/")):
+                    continue
+                text = getattr(provision, "text", "") or ""
+                if any(re.search(r"(?<!\w)" + re.escape(label) + r"(?!\w)", text, re.I) for label in labels):
+                    continue
+                passages = [corpus.chunks[r] for r in refs if r in corpus.chunks]
+                if any(base(edge.id) == base(cited) for chunk in passages for edge in chunk.provisions or ()):
+                    continue
+                unanchored.append(f"{identifier} {cited}")
+    if unanchored:
+        yield Finding(
+            Severity.NOTE, "legislative-basis", "concepts",
+            f"{len(unanchored)} legislative basis citation(s) rest on nothing the record "
+            "quotes, names as a source, or finds its labels in — unverified, not wrong: "
+            + ", ".join(unanchored),
+        )
 
 
 def _authored(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
@@ -919,6 +1067,8 @@ def _authored(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
     yield from _authored_schema(authored)
     yield from _authored_approval(authored)
     yield from _authored_identifiers(authored, gold)
+    yield from _authored_corrections(authored, gold)
+    yield from _authored_predicates(authored)
     yield from _authored_basis(authored)
     yield from _authored_cross_references(authored, gold)
 
@@ -1033,6 +1183,8 @@ def run(
         findings.extend(_spans(gold, corpus))
         findings.extend(_staleness(gold, corpus))
         findings.extend(_authored_evidence(authored, corpus))
+        findings.extend(_correction_evidence(authored, gold, corpus))
+        findings.extend(_legislative_bases(authored, gold, corpus))
     else:
         findings.append(
             Finding(

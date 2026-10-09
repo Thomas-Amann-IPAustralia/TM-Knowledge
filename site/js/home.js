@@ -1,14 +1,14 @@
 /* Home — what this is, in one screen, and ways in.
 
    The hero is the ontology as nested circles (D3 circle packing): the whole, its
-   two families, the nine kinds, the ideas. Click to zoom a level down; hover an
+   two families, the ten kinds, the ideas. Click to zoom a level down; hover an
    idea to see its connections reach across kinds. Sizes count passages that name
    each idea; nothing here is a judgement of the page's own. */
 
 import { esc, fmt, load, kindColour, trustBadge, kindChip, isLaw, refChip } from "./app.js";
 import * as lib from "./lib.js";
 
-const FAMILY_LABEL = { reasoning: "Reasoning towards a decision", process: "The process it sits inside", other: "None of the nine" };
+const FAMILY_LABEL = { reasoning: "Reasoning towards a decision", process: "The process it sits inside", other: "None of the ten" };
 
 export async function render(root, { ontology }) {
   const [stability, d3] = await Promise.all([load("stability"), lib.d3()]);

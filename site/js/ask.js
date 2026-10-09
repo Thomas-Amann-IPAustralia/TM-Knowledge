@@ -9,7 +9,7 @@
 
 import { esc, fmt, load, kindColour, refChip, refLabel, isLaw, stampIcon, srcBadge } from "./app.js";
 import { svg, curve, wrapText, wait } from "./graph.js";
-import { Engine, Recogniser } from "./engine.js";
+import { Engine, Recogniser, authorityFlags } from "./engine.js";
 import { miniMap } from "./minimap.js";
 import { answer as callModel, cost, partialField } from "./live.js";
 import * as lib from "./lib.js";
@@ -480,11 +480,13 @@ export async function render(root, { ontology, params }) {
 
   async function showAnswer(view, a) {
     const cites = a.citations || [];
+    const conflated = authorityFlags(a.answer, cites.map((x) => x.ref));
     const manual = cites.filter((x) => !isLaw(x.ref)).length, law = cites.length - manual;
     view.tags.innerHTML = `<span class="trust machine">Machine · unreviewed</span>`;
     view.body.innerHTML = `
       ${a.declined ? `<div class="stamp" style="margin-bottom:.8rem">${stampIcon}<span><b>Part of this question asked how an application would be decided, and the answer declines that part.</b>${a.decline_reason ? " " + esc(a.decline_reason) : ""}</span></div>` : ""}
       <div class="answer">${await renderAnswer(a.answer)}</div>
+      ${conflated.length ? `<div class="stamp" style="margin-top:.8rem">${stampIcon}<span><b>Practice or law?</b> ${esc(conflated[0].message)}<ul class="tiny" style="margin:.3rem 0 0">${conflated.map((f) => `<li>“${esc(f.sentence.slice(0, 220))}${f.sentence.length > 220 ? "…" : ""}”</li>`).join("")}</ul></span></div>` : ""}
       <div class="cites">
         <h4 style="margin:.8rem 0 .2rem;font-size:.85rem">Citations · ${cites.length} <span class="tiny">(${manual} Manual · ${law} legislation) — each quote found word for word in the passage</span></h4>
         <ul>${cites.map((x) => `<li>${srcBadge(x.ref)} ${refChip(x.ref)} <span class="muted">“${esc(String(x.quote || "").slice(0, 220))}${String(x.quote || "").length > 220 ? "…" : ""}”</span></li>`).join("")}</ul>
