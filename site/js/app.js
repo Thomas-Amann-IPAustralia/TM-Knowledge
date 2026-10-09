@@ -42,6 +42,8 @@ export function el(html) {
 }
 
 export const kindColour = (kind) => `var(--k-${kind || "none_of_these"})`;
+/** How many kinds there are, not counting the "none of the kinds" residue. */
+export const kindCount = (ontology) => ontology.kinds.filter((k) => k.family !== "other").length;
 
 export const isLaw = (ref) => /^TM[AR]1995\//.test(ref || "");
 
