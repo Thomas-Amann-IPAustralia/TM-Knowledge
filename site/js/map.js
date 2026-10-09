@@ -1,6 +1,6 @@
 /* The map — the ontology at three levels of detail, drawn with Cytoscape.js.
 
-   1. Kinds  — the ten kinds of idea as nodes inside their two families. Each
+   1. Kinds  — the ten kinds of idea as nodes inside their three families. Each
                kind is closed: its ideas are inside it, and every connection
                they make is rolled up into one weighted arrow per pair of kinds.
    2. Ideas  — open a kind (or all of them) and it becomes a box holding its
@@ -19,6 +19,12 @@ import * as lib from "./lib.js";
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 const FAMILY_OF = (kinds) => Object.fromEntries(kinds.map((k) => [k.id, k.family]));
+// What a thing is sorts it into a family; what it does is an arrow (ruling B1).
+const FAMILY_LABELS = [
+  ["reasoning", "The questions the law asks"],
+  ["examined", "What they are asked about"],
+  ["process", "The process around them"],
+];
 
 export async function render(root, { ontology, params }) {
   const [cytoscape, Fuse, search, stability] = await Promise.all([lib.cytoscape(), lib.fuse(), load("search"), load("stability")]);
@@ -172,12 +178,10 @@ export async function render(root, { ontology, params }) {
     // Family boxes only while every kind is closed: a second level of nesting
     // makes the compound layout overlap boxes once kinds open.
     const families = state.expanded.size === 0;
-    if (families) {
-      els.push({ data: { id: "fam:reasoning", label: "Reasoning towards a decision" }, classes: "family" });
-      els.push({ data: { id: "fam:process", label: "The process it sits inside" }, classes: "family" });
-    } else {
-      els.push({ data: { id: "region:reasoning", label: "Reasoning towards a decision" }, classes: "region" });
-      els.push({ data: { id: "region:process", label: "The process it sits inside" }, classes: "region" });
+    for (const [family, label] of FAMILY_LABELS) {
+      els.push(families
+        ? { data: { id: `fam:${family}`, label }, classes: "family" }
+        : { data: { id: `region:${family}`, label }, classes: "region" });
     }
     const members = (kind) => ontology.concepts.filter((x) => x.kind === kind && visibleConcept(x));
     for (const k of ontology.kinds) {
@@ -306,7 +310,7 @@ export async function render(root, { ontology, params }) {
       return { k, list, open: true, cols, w: cols * CELL_W + BOX_PAD * 2, h: Math.ceil(list.length / cols) * CELL_H + BOX_PAD + BOX_TOP };
     });
     let originX = 0;
-    for (const family of ["reasoning", "process", "other"]) {
+    for (const family of ["reasoning", "examined", "process", "other"]) {
       const group = boxes.filter((b) => (b.k.family || familyOf[b.k.id]) === family);
       if (!group.length) continue;
       const maxW = Math.max(820, ...group.map((b) => b.w));
@@ -517,20 +521,20 @@ export async function render(root, { ontology, params }) {
   function showLevelHelp() {
     const lv = level();
     side.innerHTML = (lv === "kinds" ? `<h2>Start with the shape</h2>
-        <p>Every idea in the map is sorted into one of ten kinds. Five describe <b>how a decision is reasoned towards</b> —
-        grounds of refusal, the tests that decide them, the factors that feed those tests, the exceptions that take a case out, and the
-        remedies that overcome a ground already raised.
-        Five describe <b>the process that reasoning sits inside</b> — who acts, what is acted on, the steps, the records and the external schemes.</p>
-        <p>The arrows roll ${fmt(c.relations.signed + c.relations.machine)} individual connections up into the patterns they make. The thickest says
-        <i>factors qualify, or give rise to, tests</i> — and that stays true however many factors are added, merged or reworded underneath.</p>
+        <p>Every idea in the map is sorted by <b>what it is</b> into one of ten kinds. Two are <b>the questions the law asks</b> — grounds of refusal
+        and the tests that decide them. Four are <b>what those questions are asked about</b> — the mark, what it contains or conveys, the context
+        outside it, and what people do with it in trade. Four are <b>the process around them</b> — who acts, the steps, the records and the external schemes.</p>
+        <p><b>What an idea does is an arrow, not a kind.</b> Whether something is a factor, an exception or a remedy depends on which ground or test it
+        acts on, so the map says it on the connection: a factor <i>qualifies</i> a test, an exception <i>does not give rise to</i> a ground, a ground
+        <i>is overcome by</i> its remedy. The arrows roll ${fmt(c.relations.signed + c.relations.machine)} individual connections up into the patterns they make.</p>
         <p><b>Click a kind to open it</b>; open several to compare them in detail while the rest stay in outline.</p>`
       : `<h2>The ideas themselves</h2>
         <p>Each open kind is a box of its ideas. Lines are connections between two ideas, each resting on a sentence in the Manual. Where an idea
         connects into a kind that is still closed, the connections are rolled up into one arrow with a count.</p>
         <p>Hover over an idea to see what it rests on; click it to follow its connections.</p>`) +
       `<p class="muted small">${c.concepts.signed} ideas and ${c.relations.signed} connections were signed by a trade marks expert. The rest were written by a
-       machine from the Manual's text — usable, but nobody has checked them yet. The reasoning kinds are the project owner's; the five process kinds
-       were proposed by a machine.</p>
+       machine from the Manual's text — usable, but nobody has checked them yet. Grounds and tests are the project owner's own kinds, and the rule that
+       a kind says what an idea is while an arrow says what it does is his; the other eight kinds were proposed by a machine.</p>
       <h4>The ten kinds</h4><ul class="rel-list">${ontology.kinds.map((k) => `<li><span class="dot" style="--c:${kindColour(k.id)}"></span><span><b>${esc(k.label)}</b> <span class="muted small">— ${esc(k.plain)}</span></span></li>`).join("")}</ul>`;
   }
 
@@ -577,6 +581,13 @@ export async function render(root, { ontology, params }) {
     bindSide();
   }
 
+  // Each author rates itself on its own scale — the bulk model at 0.84–0.99, an agent
+  // session at 0.5–0.9 — so a score is shown with its author and never compared,
+  // ranked or filtered across authors (review F6, ADR-0125).
+  function selfRated(m) {
+    return `<span title="The author's rating of its own record, on its own scale. Not comparable across authors.">self-rated ${esc(m.confidence)} by <code>${esc(m.by || "?")}</code></span>`;
+  }
+
   function relationCard(r) {
     const name = (id) => byId.get(id)?.label || refLabel(id);
     return `<div style="margin:.6rem 0 1rem">
@@ -585,7 +596,7 @@ export async function render(root, { ontology, params }) {
       ${r.quote ? `<blockquote class="quote ${isLaw(r.ref) ? "law" : "manual"}">${esc(r.quote)}</blockquote>` : ""}
       ${r.ref ? refChip(r.ref) : ""}
       ${r.replaces ? `<p class="tiny">Re-reads the signed ${esc(r.replaces)}, which recorded this sentence the wrong way; the signed record is kept unchanged.</p>` : ""}
-      ${r.machine?.reasoning ? `<details><summary>Why the machine wrote this${r.machine.confidence ? ` · confidence ${r.machine.confidence}` : ""}</summary><p class="small muted">${esc(r.machine.reasoning)}</p></details>` : ""}
+      ${r.machine?.reasoning ? `<details><summary>Why the machine wrote this${r.machine.confidence ? ` · ${selfRated(r.machine)}` : ""}</summary><p class="small muted">${esc(r.machine.reasoning)}</p></details>` : ""}
     </div>`;
   }
 
@@ -634,7 +645,7 @@ export async function render(root, { ontology, params }) {
     if (x.signed) rows.push(`<p class="small">Signed by <b>${esc(x.signed.by)}</b>, a trade marks expert, on ${esc(x.signed.date)}.</p>`);
     if (x.corrected) rows.push(`<p class="small"><b>Corrected since it was signed</b> (${x.corrected.map(esc).join(", ")}) — a machine-written, unreviewed change made on the project owner's instruction. The labels and provisions shown are the corrected ones; the signed record itself is kept unchanged.</p>`);
     if (x.machine) {
-      rows.push(`<p class="small">Written by <code>${esc(x.machine.by)}</code> on ${esc(x.machine.date)} · <b>${esc(x.machine.review_status)}</b>${x.machine.confidence ? ` · confidence ${esc(x.machine.confidence)}` : ""}.</p>`);
+      rows.push(`<p class="small">Written by <code>${esc(x.machine.by)}</code> on ${esc(x.machine.date)} · <b>${esc(x.machine.review_status)}</b>${x.machine.confidence ? ` · ${selfRated(x.machine)}` : ""}.</p>`);
       if (x.machine.reasoning) rows.push(`<p class="small muted">${esc(x.machine.reasoning)}</p>`);
       if (x.machine.check) rows.push(`<p class="small"><b>What an expert should check:</b> ${esc(x.machine.check)}</p>`);
     }

@@ -206,7 +206,7 @@
       or disappear.
 - id: GT-0005
   concept: GC-0005
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/2/2/1~1
   - TMM/Part29/2/2/1~2
@@ -215,8 +215,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/2/2/1~2
@@ -230,23 +230,21 @@
       - 1681
       - 1845
       content_hash: sha256:14a837dcde1a12b578590df4144304bdc6e1066b865971b068bda35119a32802
-      quote: >-
-        The operative test is the secondary meaning which arises from the reasonable expectations
-        of the consumer after considering the meaning in the context of the goods.
-    confidence: 0.55
-    reasoning: >-
-      Separating what a mark denotes from what it connotes is a step in reaching the connotation
-      finding, so denotation feeds the answer rather than being one. It is typed relevant_factor
-      on that basis and not on the basis that anybody weighs it.
+      quote: The operative test is the secondary meaning which arises from the reasonable
+        expectations of the consumer after considering the meaning in the context of the goods.
+    confidence: 0.8
+    reasoning: 'denotation is the plain, direct meaning of the words in a mark: something
+      a trade mark contains or conveys — a word, name, image or sign within it, or a meaning
+      — so `sign_content`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind
+      says what a concept is, and what it does is an edge. What it does is on its edges: GR-0212
+      qualifies ordinary signification; GR-0485 qualifies inherent adaptation to distinguish;
+      GR-0576 qualifies no inherent adaptation to distinguish.'
     alternatives_considered:
-    - >-
-      none_of_these — the stronger alternative. Denotation is a definitional foil the
-      Manual uses to say what connotation is not; a foil is not a factor, and if the four
-      groups are about what the decision maker weighs, this belongs outside them.
-    expert_should_check: >-
-      Whether denotation does any work of its own in an examination, or whether it appears
-      only in the case law the Manual quotes. If the latter, none_of_these is the better
-      answer and this record is the clearest example of the four groups not fitting.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0006
   concept: GC-0006
   type: ground_of_refusal
@@ -297,18 +295,17 @@
       in 52.
 - id: GT-0007
   concept: GC-0007
-  type: exception
+  type: none_of_these
   basis:
   - TMM/Part29/2/2/4
-  notes: >-
-    presumption of registrability — also called: presumption in favour of registrability
-    — not: onus on the applicant
+  notes: 'presumption of registrability — also called: presumption in favour of registrability
+    — not: onus on the applicant'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/2/2/4
@@ -322,29 +319,23 @@
       - 186
       - 282
       content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
-      quote: >-
-        If there is doubt that a connotation exists, then the ground for rejection should
+      quote: If there is doubt that a connotation exists, then the ground for rejection should
         not be raised.
-    confidence: 0.5
-    reasoning: >-
-      Typed on what the presumption does rather than on what it is. Its stated operation
-      in Part 29 is that doubt about a connotation stops the ground being raised — a case
-      that might otherwise attract the ground is taken out of it, which is the exception
-      group's definition.
+    confidence: 0.6
+    reasoning: 'presumption of registrability is a rule about how the grounds are decided
+      — accept unless satisfied a ground exists: none of the kinds fit — which is an answer,
+      not a gap — so `none_of_these`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126):
+      a kind says what a concept is, and what it does is an edge. What it does is on its edges:
+      GR-0091 constrains Registrar; GR-0092 constrains Registrar; GR-0398 constrains Registrar;
+      GR-0488 qualifies scandalous matter; and more.'
     alternatives_considered:
-    - >-
-      legal_test — the presumption is really a standard of satisfaction ('the Registrar
-      must be satisfied that a ground for rejection exists'), and a standard is a question,
-      not an out. This is the reading to prefer if the exception group is meant for substantive
-      carve-outs rather than for burden rules.
-    - >-
-      none_of_these — right if a burden of proof is simply a different kind of thing from
-      the four groups.
-    expert_should_check: >-
-      This record and GT-0051. GC-0007's own note says the presumption and the mandatory
-      application of s 43 pull in opposite directions; they are typed here as exception
-      and none_of_these respectively, and if that is the wrong pairing both are wrong
-      together.
+    - 'exception — its group until 2026-10-09 (claude-opus-5). That is what it does, not what
+      it is: under B1 its being an exception is said by an edge naming the ground or test,
+      not by a group.'
+    - A kind of its own for rules about how a question is decided — postponed with B3; it
+      would hold this and GC-0051.
+    expert_should_check: Whether a rule about how a question is decided wants a kind of its
+      own beside mandatory application of the section (GC-0051).
 - id: GT-0008
   concept: GC-0008
   type: legal_test
@@ -395,19 +386,18 @@
       they were independent questions.
 - id: GT-0009
   concept: GC-0009
-  type: relevant_factor
+  type: context
   basis:
   - TMM/Part29/1#1
   - TMM/Part29/3#1~1
-  notes: >-
-    relevant market — also called: buying public, relevant sector of the public, relevant
-    Australian consumers — not: trade, relevant trade
+  notes: 'relevant market — also called: buying public, relevant sector of the public, relevant
+    Australian consumers — not: trade, relevant trade'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/1#1
@@ -421,38 +411,36 @@
       - 729
       - 889
       content_hash: sha256:deb607cbc7ae6fd37a648887567b1d4002a2af161e5ab51e486bee19095a59a0
-      quote: >-
-        there must be some connotation within the trade mark that would reasonably be
+      quote: there must be some connotation within the trade mark that would reasonably be
         expected to cause deception or confusion in the mind of the relevant buying public
-    confidence: 0.75
-    reasoning: >-
-      Identifying whose reaction counts is an input to the deception question, not the
-      question itself. The Manual never asks whether there is a relevant market; it asks
-      whether that market would be deceived.
+    confidence: 0.8
+    reasoning: 'relevant market is the market in which the goods or services are traded: something
+      outside the trade mark that the assessment looks at — the goods, the market and its
+      consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner''s
+      ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does
+      is an edge. What it does is on its edges: GR-0067 qualifies likely to deceive or cause
+      confusion; GR-0082 qualifies deception; GR-0094 qualifies connotation; GR-0095 qualifies
+      confusion; and more.'
     alternatives_considered:
-    - >-
-      none_of_these — right if 'relevant market' is a party or population rather than
-      a consideration, in the way GC-0044 and GC-0046 are actors and are typed none_of_these
-      here.
-    expert_should_check: >-
-      The line this pass drew between a population that is weighed (typed relevant_factor,
-      as here and at GT-0010) and an actor who decides (typed none_of_these, GT-0044 to
-      GT-0046). If that line is wrong, four records move together.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0010
   concept: GC-0010
-  type: relevant_factor
+  type: context
   basis:
   - TMM/Part29/3/3/1~1
   - TMM/Part29/4#1
-  notes: >-
-    ordinary consumer — also called: average consumer, ordinary person, reasonable consumer
-    — not: exceptionally stupid or careless consumer, expert consumer
+  notes: 'ordinary consumer — also called: average consumer, ordinary person, reasonable consumer
+    — not: exceptionally stupid or careless consumer, expert consumer'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/3/3/1~1
@@ -466,38 +454,35 @@
       - 2171
       - 2254
       content_hash: sha256:ee8650d8222dab43788198d8fd9f43ca934317a389f76728bdf40f85c97ac032
-      quote: That exceptionally stupid or careless consumers might be confused does not
-        suffice.
-    confidence: 0.6
-    reasoning: >-
-      The ordinary consumer is the perspective the test is applied from, and a perspective
-      is an input to the answer rather than a question in its own right. Typed alongside
-      GC-0009 so the market and the consumer within it sit in the same group.
+      quote: That exceptionally stupid or careless consumers might be confused does not suffice.
+    confidence: 0.8
+    reasoning: 'ordinary consumer is the notional consumer whose understanding the assessment
+      takes: something outside the trade mark that the assessment looks at — the goods, the
+      market and its consumers, a person or place, a reputation, a date — so `context`. Retyped
+      on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and
+      what it does is an edge. What it does is on its edges: GR-0075 qualifies connotation;
+      GR-0080 qualifies likely to deceive or cause confusion; GR-0085 qualifies deception;
+      GR-0098 qualifies scent trade mark; and more.'
     alternatives_considered:
-    - >-
-      legal_test — the Manual says in terms that 'the tests lie in the perception of the
-      ordinary person', which can be read as making the ordinary consumer the test rather
-      than a factor in it. The quote sits in this record's evidence precisely because
-      it argues for the alternative.
-    expert_should_check: >-
-      Whether examiners treat 'who is the ordinary consumer of these goods' as a question
-      they decide, or as a standard they apply without deciding anything. The answer moves
-      this record and probably GT-0009 with it.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0011
   concept: GC-0011
-  type: relevant_factor
+  type: context
   basis:
   - TMM/Part29/3/3/1~1
   - TMM/Part29/9/9/3~1
-  notes: >-
-    surrounding circumstances — also called: all the surrounding circumstances, relevant
-    circumstances — not: external considerations, reputation in another trade mark
+  notes: 'surrounding circumstances — also called: all the surrounding circumstances, relevant
+    circumstances — not: external considerations, reputation in another trade mark'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/3/3/1~1
@@ -505,47 +490,44 @@
       - 1350
       - 1465
       content_hash: sha256:20e9513b402bf082b2df83f8f7f0c9c9631b4ffbb949ecb0422e39cceb3341e8
-      quote: >-
-        In considering the probability of deception, all the surrounding circumstances
+      quote: In considering the probability of deception, all the surrounding circumstances
         have to be taken into consideration.
     - ref: TMM/Part29/9/9/3~1
       span:
       - 724
       - 911
       content_hash: sha256:67e2721f9a84ad01289f7b3ee6a65ec86e7be0a016c468e3eb7c3094b6166356
-      quote: >-
-        Surrounding circumstances include the manner in which the goods/services are purchased,
-        the physical characteristics of goods and any other factor which would affect
-        consumer perceptions.
-    confidence: 0.9
-    reasoning: >-
-      The clearest relevant_factor in the set: the corpus uses the words 'taken into consideration'
-      and then lists what the category holds. Nothing is being decided and nothing is
-      being taken out of the rule.
+      quote: Surrounding circumstances include the manner in which the goods/services are
+        purchased, the physical characteristics of goods and any other factor which would
+        affect consumer perceptions.
+    confidence: 0.75
+    reasoning: 'surrounding circumstances is the circumstances in which a mark is used, outside
+      the mark: something outside the trade mark that the assessment looks at — the goods,
+      the market and its consumers, a person or place, a reputation, a date — so `context`.
+      Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept
+      is, and what it does is an edge. What it does is on its edges: GR-0068 qualifies likely
+      to deceive or cause confusion; GR-0102 qualifies real and tangible danger; GR-0103 qualifies
+      confusion; GR-0104 qualifies deception; and more.'
     alternatives_considered:
-    - >-
-      none_of_these — only if 'surrounding circumstances' is thought to be a container
-      for factors rather than a factor, which would be a modelling objection rather than
-      a legal one.
-    expert_should_check: >-
-      Whether the concept should survive as a single record at all, or be replaced by
-      the particular circumstances the Manual lists. The typing is safe either way; the
-      vocabulary question is not.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0012
   concept: GC-0012
-  type: relevant_factor
+  type: instrument_or_record
   basis:
   - TMM/Part29/4#1
   - TMM/Part29/9/9/2
-  notes: >-
-    specification of goods and services — also called: specification, goods/services claimed,
-    claimed goods and services — not: class, goods actually supplied
+  notes: 'specification of goods and services — also called: specification, goods/services
+    claimed, claimed goods and services — not: class, goods actually supplied'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/4#1
@@ -553,36 +535,33 @@
       - 861
       - 1046
       content_hash: sha256:ee8650d8222dab43788198d8fd9f43ca934317a389f76728bdf40f85c97ac032
-      quote: >-
-        If, however, there is a connotation present within the trade mark that is directly
-        contradicted by the specification, there is a high likelihood of consumers being
-        deceived or confused.
+      quote: If, however, there is a connotation present within the trade mark that is directly
+        contradicted by the specification, there is a high likelihood of consumers being deceived
+        or confused.
     - ref: TMM/Part29/9/9/2
       span:
       - 0
       - 252
       content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
-      quote: >-
-        If a trade mark contains an explicit claim about the goods which relates to a
-        geographic location and that claim is not reflected in the specification or an
-        endorsement, the trade mark is likely to deceive consumers if that claim turns
-        out to be false.
+      quote: If a trade mark contains an explicit claim about the goods which relates to a
+        geographic location and that claim is not reflected in the specification or an endorsement,
+        the trade mark is likely to deceive consumers if that claim turns out to be false.
     confidence: 0.8
-    reasoning: >-
-      The specification is one half of the comparison the whole of Part 29.4 turns on
-      — connotation against claimed goods — so it feeds the deception answer directly.
-      It is not itself decided and it does not take a case out of the rule.
+    reasoning: 'specification of goods and services is the list of goods and services an application
+      or registration covers: a document, entry or endorsement the process produces or receives,
+      or writes to the Register — so `instrument_or_record`. Retyped on the owner''s ruling
+      B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge.
+      What it does is on its edges: GR-0114 qualifies endorsement; GR-0145 qualifies top level
+      domain.'
     alternatives_considered:
-    - >-
-      exception — arguable on the PLATYPUS example, where a specification that matches
-      the connotation means no ground is required. But that is the comparison coming out
-      one way, not a carve-out from it; GC-0015 holds the carve-out and is typed exception.
-    expert_should_check: >-
-      Whether the specification as filed and the specification as amended are the same
-      concept for typing purposes. This record and GT-0015 assume they are not.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is a document or entry in itself, or the step that produces
+      it.
 - id: GT-0013
   concept: GC-0013
-  type: remedy
+  type: instrument_or_record
   basis:
   - TMM/Part29/5/5/4
   - TMM/Part29/9/9/5
@@ -592,8 +571,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S026
-    authored_date: '2026-10-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/5/5/4
@@ -612,24 +591,23 @@
       quote: An applicant will be able to overcome a geographical section 43 objection by
         agreeing to a condition of registration or a specification amendment which removes
         the likelihood of consumers being deceived or confused.
-    confidence: 0.7
-    reasoning: A condition of registration is how a ground already made out is overcome (Part
-      29.5.5.4, 29.9.5). A remedy overcomes a ground that applies; an exception is a case
-      the ground does not reach. Retyped on the owner's ruling B5.
+    confidence: 0.8
+    reasoning: 'condition of registration is a condition entered on the Register that limits
+      a registration: a document, entry or endorsement the process produces or receives, or
+      writes to the Register — so `instrument_or_record`. Retyped on the owner''s ruling B1
+      of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge.
+      What it does is on its edges: GR-0112: section 43 ground for rejection is overcome by
+      it; GR-0454 qualifies revocation of acceptance; GR-0495 qualifies acceptance; GR-0684:
+      section 43 ground for rejection is overcome by it; and more.'
     alternatives_considered:
-    - 'Typed ''exception'' by an earlier agent session on 2026-09-08. Its reasoning: The corpus states
-      it as the way a ground already made out is overcome, in both the INN and the geographical
-      branches. A mechanism that removes a case from a ground it otherwise attracts is an
-      exception on the owner''s definition.'
-    - none_of_these — a condition of registration is an administrative instrument, and the
-      exception group may be meant for doctrinal carve-outs (GC-0027, GC-0048) rather than
-      for remedies. On that reading GT-0013 to GT-0015 all move out of exception together
-      and the group shrinks to five.
-    expert_should_check: Whether the applicant's step or the record of it is the remedy; the
-      Manual uses both.
+    - 'remedy — its group until 2026-10-09 (claude-code-agent-S026). That is what it does,
+      not what it is: under B1 its being a remedy is said by an edge naming the ground or
+      test, not by a group.'
+    expert_should_check: Whether this is a document or entry in itself, or the step that produces
+      it.
 - id: GT-0014
   concept: GC-0014
-  type: remedy
+  type: instrument_or_record
   basis:
   - TMM/Part29/6#1~2
   - TMM/Part29/9/9/2
@@ -639,8 +617,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S026
-    authored_date: '2026-10-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/9/9/2
@@ -656,23 +634,22 @@
       - 1958
       content_hash: sha256:3016fc2af55085c99f6f508c674df732dbefbd36582932ac716f701313b98e1c
       quote: Where permission is provided, this should be made clear by way of an endorsement.
-    confidence: 0.5
-    reasoning: An endorsement records the step that overcomes a ground — permission, a condition
-      — on the Register. A remedy overcomes a ground that applies; an exception is a case
-      the ground does not reach. Retyped on the owner's ruling B5.
+    confidence: 0.8
+    reasoning: 'endorsement is wording entered on a registration: a document, entry or endorsement
+      the process produces or receives, or writes to the Register — so `instrument_or_record`.
+      Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept
+      is, and what it does is an edge. What it does is on its edges: GR-0115: colour trade
+      mark requires it; GR-0406 qualifies shape trade mark; GR-0698: section 43 ground for
+      rejection is overcome by it.'
     alternatives_considered:
-    - 'Typed ''exception'' by an earlier agent session on 2026-09-08. Its reasoning: Typed with GC-0013
-      because Part 29.9.2 names the endorsement itself as mitigating the risk, not merely
-      as the place where a condition is recorded. The lowest confidence in the exception group.'
-    - none_of_these — the reading to prefer if an endorsement is only the written record of
-      a condition (GC-0013) or of a permission (GC-0029). On that view it is an artefact,
-      does nothing of its own, and the two passages in the evidence are loose drafting rather
-      than a separate mechanism.
-    expert_should_check: Whether the applicant's step or the record of it is the remedy; the
-      Manual uses both.
+    - 'remedy — its group until 2026-10-09 (claude-code-agent-S026). That is what it does,
+      not what it is: under B1 its being a remedy is said by an edge naming the ground or
+      test, not by a group.'
+    expert_should_check: Whether this is a document or entry in itself, or the step that produces
+      it.
 - id: GT-0015
   concept: GC-0015
-  type: remedy
+  type: procedural_step
   basis:
   - TMM/Part29/9/9/2
   - TMM/Part29/9/9/5
@@ -683,8 +660,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S026
-    authored_date: '2026-10-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/9/9/5
@@ -703,32 +680,31 @@
       quote: The risk of deception can be mitigated by a suitably specific endorsement or
         an amendment or limitation to the specification of goods or services.
     confidence: 0.75
-    reasoning: Limiting the specification removes the goods or services the ground attaches
-      to (Part 29.9.2, 29.9.5). A remedy overcomes a ground that applies; an exception is
-      a case the ground does not reach. Retyped on the owner's ruling B5.
+    reasoning: 'limitation of the specification is amending an application to limit its goods
+      or services: an act, proceeding or event that moves an application or a registration
+      from one state to the next — so `procedural_step`. Retyped on the owner''s ruling B1
+      of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge.
+      What it does is on its edges: GR-0697: section 43 ground for rejection is overcome by
+      it.'
     alternatives_considered:
-    - 'Typed ''exception'' by an earlier agent session on 2026-09-08. Its reasoning: A limitation removes
-      the likelihood of deception and so removes the ground, which is the exception group''s
-      definition applied literally. Part 29.9.5 goes further than the other two members of
-      this trio by calling it the sole criterion for a limitation under s 43.'
-    - relevant_factor — right if the limited specification is simply the specification (GC-0012)
-      at a later moment, in which case what changes is the input and not the rule.
-    expert_should_check: Whether the applicant's step or the record of it is the remedy; the
-      Manual uses both.
+    - 'remedy — its group until 2026-10-09 (claude-code-agent-S026). That is what it does,
+      not what it is: under B1 its being a remedy is said by an edge naming the ground or
+      test, not by a group.'
+    expert_should_check: Whether this is a step that moves the application on, or an activity
+      inside one.
 - id: GT-0016
   concept: GC-0016
-  type: relevant_factor
+  type: context
   basis:
   - TMM/Part29/6#1~2
-  notes: >-
-    priority date — also called: date of the application, as at the priority date — not:
-    filing date, date of registration, last amended date
+  notes: 'priority date — also called: date of the application, as at the priority date —
+    not: filing date, date of registration, last amended date'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/6#1~2
@@ -736,38 +712,36 @@
       - 0
       - 99
       content_hash: sha256:3016fc2af55085c99f6f508c674df732dbefbd36582932ac716f701313b98e1c
-      quote: >-
-        Firstly, how well known is the person among relevant Australian consumers, as
+      quote: Firstly, how well known is the person among relevant Australian consumers, as
         at the priority date?
-    confidence: 0.65
-    reasoning: >-
-      The priority date fixes the moment at which how-well-known is measured, so it conditions
-      the answer without being one. Typed relevant_factor as the temporal input to the
-      well-known-person branch.
+    confidence: 0.75
+    reasoning: 'priority date is the date from which the application''s rights are assessed:
+      something outside the trade mark that the assessment looks at — the goods, the market
+      and its consumers, a person or place, a reputation, a date — so `context`. Retyped on
+      the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and
+      what it does is an edge. What it does is on its edges: GR-0120 qualifies conflict with
+      other signs; GR-0121 qualifies surrounding circumstances; GR-0253 qualifies conflict
+      with other signs; GR-0522 qualifies prior use.'
     alternatives_considered:
-    - >-
-      none_of_these — right if a date is an administrative attribute of an application
-      rather than something weighed. That reading is strengthened by the fact that the
-      Manual mentions the priority date once in the whole of Part 29.
-    expert_should_check: >-
-      The tension GC-0049's note records: Part 29.3.2 directs attention to the current
-      marketplace and Part 29.6 to the priority date. Both are typed relevant_factor here,
-      which quietly asserts that they are two inputs rather than a contradiction.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0017
   concept: GC-0017
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/3#1~1
   - TMM/Part29/9#1
-  notes: >-
-    geographical reference — also called: geographic reference, place name, reference
-    to a geographical location — not: geographical indication, business identifier
+  notes: 'geographical reference — also called: geographic reference, place name, reference
+    to a geographical location — not: geographical indication, business identifier'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/9#1
@@ -775,49 +749,44 @@
       - 325
       - 464
       content_hash: sha256:17c928f3bdc152f1ba5a886c36379eb9e74ab1b2afcb0cef15aa9cc5ee4cf3d6
-      quote: >-
-        Trade marks which contain a geographical reference will often connote the geographical
+      quote: Trade marks which contain a geographical reference will often connote the geographical
         origin or some other attribute of goods or services.
     - ref: TMM/Part29/3#1~1
       span:
       - 1287
       - 1540
       content_hash: sha256:deb607cbc7ae6fd37a648887567b1d4002a2af161e5ab51e486bee19095a59a0
-      quote: >-
-        the mere presence within a trade mark of a person's name, a descriptive term,
-        a geographical place name or a reference to the size of packages or intended use
-        of a product does not automatically demonstrate a connotation sufficient to trigger
-        section 43
+      quote: the mere presence within a trade mark of a person's name, a descriptive term,
+        a geographical place name or a reference to the size of packages or intended use of
+        a product does not automatically demonstrate a connotation sufficient to trigger section
+        43
     confidence: 0.8
-    reasoning: >-
-      The corpus is explicit that the mere presence of a place name demonstrates nothing
-      automatically — it is material that feeds the connotation question and does not
-      answer it. That sentence is the reason this whole family of subject-matter concepts
-      is typed relevant_factor rather than ground_of_refusal.
+    reasoning: 'geographical reference is a reference to a place that a mark contains: something
+      a trade mark contains or conveys — a word, name, image or sign within it, or a meaning
+      — so `sign_content`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind
+      says what a concept is, and what it does is an edge. What it does is on its edges: GR-0062
+      may give rise to connotation; GR-0072 qualifies deception; GR-0079 qualifies likely
+      to deceive or cause confusion; GR-0125 qualifies inherent adaptation to distinguish;
+      and more.'
     alternatives_considered:
-    - >-
-      ground_of_refusal — right if the four groups sort concepts by the rule they appear
-      in rather than by the part they play in it. Fifteen records in this pass turn on
-      the same choice.
-    expert_should_check: >-
-      The family judgement, once, rather than fifteen times: GT-0017 to GT-0023, GT-0025,
-      GT-0026, GT-0030 to GT-0034, GT-0036 and GT-0037 are all typed relevant_factor because
-      they name material rather than a reason to refuse. If that is wrong it is wrong
-      for all of them.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0018
   concept: GC-0018
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/11#1
-  notes: >-
-    geographical indication — also called: GI, geographical indication for wine, listed
-    EU GI — not: geographical reference, geographical origin, place name
+  notes: 'geographical indication — also called: GI, geographical indication for wine, listed
+    EU GI — not: geographical reference, geographical origin, place name'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/11#1
@@ -825,39 +794,38 @@
       - 384
       - 696
       content_hash: sha256:4c484f11bb81ae9e0b8453152cd0145a12d14fa09ab434e1c68288097f23886a
-      quote: >-
-        If during examination of a new application research reveals that a trade mark
-        is identical or similar to a listed EU GI, consideration should then be given
-        to whether or not the use of the trade mark would potentially deceive or confuse
-        Australian consumers and make grounds for rejection under s 43 appropriate.
-    confidence: 0.7
-    reasoning: >-
-      The corpus makes a match against a listed EU GI the trigger for a further question
-      rather than the answer to one — 'consideration should then be given to whether'.
-      That is a factor by the owner's definition.
+      quote: If during examination of a new application research reveals that a trade mark
+        is identical or similar to a listed EU GI, consideration should then be given to whether
+        or not the use of the trade mark would potentially deceive or confuse Australian consumers
+        and make grounds for rejection under s 43 appropriate.
+    confidence: 0.8
+    reasoning: 'geographical indication is a sign identifying goods as originating in a place
+      whose quality or reputation they owe to it, as a mark may contain one: something a trade
+      mark contains or conveys — a word, name, image or sign within it, or a meaning — so
+      `sign_content`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says
+      what a concept is, and what it does is an edge. What it does is on its edges: GR-0387
+      qualifies likely to deceive or cause confusion; GR-0389 may give rise to deception;
+      GR-0412 may give rise to section 43 ground for rejection; GR-0413 may give rise to confusion;
+      and more.'
     alternatives_considered:
-    - ground_of_refusal — the family alternative recorded at GT-0017.
-    - >-
-      none_of_these — right if a GI is treated as an external instrument the examiner
-      consults rather than as a feature of the mark.
-    expert_should_check: >-
-      Whether the s 43 treatment of GIs is really in this vocabulary at all. GC-0018's
-      own record note says Part 29.1.1 sends the reader to Part 32B, and the material
-      this typing rests on is one paragraph about the EU agreement.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0019
   concept: GC-0019
-  type: relevant_factor
+  type: context
   basis:
   - TMM/Part29/9#1
-  notes: >-
-    geographical origin — also called: origin of the goods, place of production — not:
-    geographical reference, geographical indication
+  notes: 'geographical origin — also called: origin of the goods, place of production — not:
+    geographical reference, geographical indication'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/9#1
@@ -865,37 +833,35 @@
       - 1116
       - 1314
       content_hash: sha256:17c928f3bdc152f1ba5a886c36379eb9e74ab1b2afcb0cef15aa9cc5ee4cf3d6
-      quote: >-
-        If a trade mark containing a geographical reference is found to connote geographical
-        origin, consideration must then be given to whether ordinary consumers would be
-        deceived or confused as a result.
+      quote: If a trade mark containing a geographical reference is found to connote geographical
+        origin, consideration must then be given to whether ordinary consumers would be deceived
+        or confused as a result.
     confidence: 0.8
-    reasoning: >-
-      Same structure as GT-0018 and stated in one sentence: origin is what the reference
-      connotes, and the deception question is asked afterwards. The finding of origin
-      is an input to that question.
+    reasoning: 'geographical origin is where the goods actually come from: something outside
+      the trade mark that the assessment looks at — the goods, the market and its consumers,
+      a person or place, a reputation, a date — so `context`. Retyped on the owner''s ruling
+      B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge.
+      What it does is on its edges: GR-0128 may give rise to no inherent adaptation to distinguish;
+      GR-0129 qualifies inherent adaptation to distinguish; GR-0130 may give rise to confusion.'
     alternatives_considered:
-    - >-
-      legal_test — 'is the mark found to connote geographical origin' is arguably a question
-      the examiner answers, which would make this the geographical branch's version of
-      GC-0001.
-    expert_should_check: >-
-      Whether the geographical branch has its own connotation test, or whether it applies
-      GC-0001's. This record assumes the second.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0020
   concept: GC-0020
-  type: exception
+  type: sign_content
   basis:
   - TMM/Part29/9/9/6
-  notes: >-
-    business identifier — also called: company name element, trading name element — not:
-    geographical reference, geographical origin
+  notes: 'business identifier — also called: company name element, trading name element —
+    not: geographical reference, geographical origin'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/9/9/6
@@ -903,40 +869,37 @@
       - 0
       - 259
       content_hash: sha256:44fd3704d94a457eeabdbb9439274b8d5f9a6922fc6fad03bca95b4a772b5184
-      quote: >-
-        Where business identifiers are included in a trade mark (e.g. A TASMANIAN COMPANY,
-        RIVERINA DAIRY CO.) this tends to indicate a characteristic of a business rather
-        than the goods or services themselves. A ground for rejection will rarely apply
-        in these cases.
-    confidence: 0.7
-    reasoning: >-
-      The only member of the geographical family the corpus carves out: a place name inside
-      a business identifier is read as saying something about the business, and the ground
-      will rarely apply. That is a case taken out of the rule.
+      quote: Where business identifiers are included in a trade mark (e.g. A TASMANIAN COMPANY,
+        RIVERINA DAIRY CO.) this tends to indicate a characteristic of a business rather than
+        the goods or services themselves. A ground for rejection will rarely apply in these
+        cases.
+    confidence: 0.8
+    reasoning: 'business identifier is a business identifier a mark contains — a place name
+      read as describing the business: something a trade mark contains or conveys — a word,
+      name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner''s
+      ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does
+      is an edge. What it does is on its edges: GR-0699 does not by itself give rise to section
+      43 ground for rejection.'
     alternatives_considered:
-    - >-
-      relevant_factor — 'rarely' is not 'never', so this may be a strong factor against
-      a connotation rather than an exception to the ground. That reading would put it
-      back with GT-0017 and leave the exception group without a geographical member other
-      than GT-0048.
-    expert_should_check: >-
-      Whether 'will rarely apply' is practice-speak for an exception or an honest statement
-      of frequency. The distinction decides this record and nothing else.
+    - 'exception — its group until 2026-10-09 (claude-opus-5). That is what it does, not what
+      it is: under B1 its being an exception is said by an edge naming the ground or test,
+      not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0021
   concept: GC-0021
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/9/9/2
   - TMM/Part29/9/9/3~1
-  notes: >-
-    geographical qualifier — also called: qualifier, qualifying information, made in,
-    product of — not: standalone geographical reference
+  notes: 'geographical qualifier — also called: qualifier, qualifying information, made in,
+    product of — not: standalone geographical reference'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/9/9/3~1
@@ -950,40 +913,36 @@
       - 0
       - 252
       content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
-      quote: >-
-        If a trade mark contains an explicit claim about the goods which relates to a
-        geographic location and that claim is not reflected in the specification or an
-        endorsement, the trade mark is likely to deceive consumers if that claim turns
-        out to be false.
-    confidence: 0.65
-    reasoning: >-
-      A qualifier strengthens a geographical claim into an explicit one, and the corpus
-      says its absence does not defeat a connotation. Something that makes a finding more
-      or less likely without settling it is a factor.
+      quote: If a trade mark contains an explicit claim about the goods which relates to a
+        geographic location and that claim is not reflected in the specification or an endorsement,
+        the trade mark is likely to deceive consumers if that claim turns out to be false.
+    confidence: 0.75
+    reasoning: 'geographical qualifier is words such as ''made in'' that a mark may add to
+      a geographical reference: something a trade mark contains or conveys — a word, name,
+      image or sign within it, or a meaning — so `sign_content`. Retyped on the owner''s ruling
+      B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge.
+      No edge yet says what it does to which ground or test — a gap the relate job and the
+      edge audit look for.'
     alternatives_considered:
-    - >-
-      none_of_these — right if 'made in' and 'product of' are examples of GC-0017 rather
-      than a concept in their own right, which GC-0021's own record note raises as a live
-      modelling question.
-    expert_should_check: >-
-      Whether this concept survives at all. If it is a list of example phrases rather
-      than an idea, the typing is beside the point and the record should be withdrawn
-      instead.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0022
   concept: GC-0022
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/5/5/1
   - TMM/Part29/5/5/4
-  notes: >-
-    International Non-Proprietary Name — also called: INN, generic name for a pharmaceutical
-    substance, notified INN — not: INN stem, trade mark, brand name
+  notes: 'International Non-Proprietary Name — also called: INN, generic name for a pharmaceutical
+    substance, notified INN — not: INN stem, trade mark, brand name'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/5/5/4
@@ -991,49 +950,45 @@
       - 0
       - 353
       content_hash: sha256:86800dcce4d41f73e2792ad626162693402011f3c8ba4135bbf91f045f2a7b2f
-      quote: >-
-        A ground for rejection under section 43 exists where a trade mark, or part of
-        a trade mark, to be used in relation to pharmaceuticals or veterinary substances
-        is the same as, or may connote, a notified INN and use of the trade mark in respect
-        of the goods covered by the specification are not restricted to the particular
-        substance indicated by the INN.
+      quote: A ground for rejection under section 43 exists where a trade mark, or part of
+        a trade mark, to be used in relation to pharmaceuticals or veterinary substances is
+        the same as, or may connote, a notified INN and use of the trade mark in respect of
+        the goods covered by the specification are not restricted to the particular substance
+        indicated by the INN.
     - ref: TMM/Part29/5/5/1
       span:
       - 629
       - 778
       content_hash: sha256:f1703a4b04c30641621bd8da367c6a3e67ea3283a897a49422b4edfcbaf16b3a
-      quote: >-
-        IP Australia is aware of the need to prevent use of INNs (and words that may connote
-        an INN) in a manner that is likely to deceive or cause confusion
-    confidence: 0.7
-    reasoning: >-
-      An INN is a name maintained by the WHO. Whether a mark is or connotes one is the
-      input; the ground arises from that plus an unrestricted specification. Typed with
-      the rest of the subject-matter family.
+      quote: IP Australia is aware of the need to prevent use of INNs (and words that may
+        connote an INN) in a manner that is likely to deceive or cause confusion
+    confidence: 0.8
+    reasoning: 'International Non-Proprietary Name is a name the World Health Organization
+      lists for a pharmaceutical substance, as a mark may contain it: something a trade mark
+      contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`.
+      Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept
+      is, and what it does is an edge. What it does is on its edges: GR-0131 may give rise
+      to likely to deceive or cause confusion; GR-0133 may give rise to deception; GR-0134
+      may give rise to confusion; GR-0194 may give rise to ground for rejection.'
     alternatives_considered:
-    - >-
-      ground_of_refusal — the family alternative at GT-0017, and unusually strong here
-      because Part 29.5.4 opens with the words 'A ground for rejection under section 43
-      exists where'. What follows those words is a compound condition, of which the INN
-      is one part.
-    expert_should_check: >-
-      Whether the vocabulary needs a concept for the compound condition — 'mark connotes
-      an INN and specification is unrestricted' — as distinct from the INN itself. Without
-      one the ground_of_refusal group stays nearly empty.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0023
   concept: GC-0023
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/5/5/2
-  notes: >-
-    INN stem — also called: stem, common stem, INN-stem — not: International Non-Proprietary
-    Name, prefix, suffix
+  notes: 'INN stem — also called: stem, common stem, INN-stem — not: International Non-Proprietary
+    Name, prefix, suffix'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/5/5/2
@@ -1047,21 +1002,23 @@
       - 386
       - 553
       content_hash: sha256:5e6f7000434bf3e3aa2a042e54334906a7c2de0fcda9f41545408353a85008a7
-      quote: >-
-        These stems (listed at Annex 1 to this Part) should not be used in trade marks
-        for pharmaceuticals or veterinary substances other than those indicated by the
-        INN stem.
-    confidence: 0.7
-    reasoning: >-
-      'May lead to' is the language of a factor, and the stem's presence is only the start
-      of the enquiry — GC-0024 holds the question that follows it. Typed relevant_factor
-      with the INN itself.
+      quote: These stems (listed at Annex 1 to this Part) should not be used in trade marks
+        for pharmaceuticals or veterinary substances other than those indicated by the INN
+        stem.
+    confidence: 0.8
+    reasoning: 'INN stem is the stem of an International Non-Proprietary Name, as a word in
+      a mark may contain it: something a trade mark contains or conveys — a word, name, image
+      or sign within it, or a meaning — so `sign_content`. Retyped on the owner''s ruling
+      B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge.
+      What it does is on its edges: GR-0078 may give rise to likely to deceive or cause confusion;
+      GR-0083 may give rise to deception; GR-0383 may give rise to connotation; GR-0417 may
+      give rise to confusion; and more.'
     alternatives_considered:
-    - ground_of_refusal — the family alternative at GT-0017.
-    expert_should_check: >-
-      Whether an INN and an INN stem should type the same way at all. They are governed
-      by different rules and named almost identically, which GC-0022's record note calls
-      the whole difficulty of Part 29.5.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0024
   concept: GC-0024
   type: legal_test
@@ -1104,18 +1061,17 @@
       a concept whose name is wrong.
 - id: GT-0025
   concept: GC-0025
-  type: relevant_factor
+  type: context
   basis:
   - TMM/Part29/5/5/3
-  notes: >-
-    pharmaceutical or veterinary substance — also called: pharmaceuticals, veterinary
-    substances, class 5 goods — not: dietary or nutritional supplement, medical services
+  notes: 'pharmaceutical or veterinary substance — also called: pharmaceuticals, veterinary
+    substances, class 5 goods — not: dietary or nutritional supplement, medical services'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/5/5/3
@@ -1123,36 +1079,35 @@
       - 338
       - 484
       content_hash: sha256:83e38b4ce2a77498c778b9feaa69c1c51f7e1ce3a0e29964705a130cb54639f1
-      quote: >-
-        Claims for specific pharmaceutical or veterinary goods in Class 5 may also trigger
+      quote: Claims for specific pharmaceutical or veterinary goods in Class 5 may also trigger
         the provisions of section 43 in relation to INNs and INN stems.
-    confidence: 0.75
-    reasoning: >-
-      The goods class is what brings the INN rules into play; it triggers the enquiry
-      rather than answering it. Typed with the rest of the subject-matter family.
+    confidence: 0.7
+    reasoning: 'pharmaceutical or veterinary substance is the goods — pharmaceutical or veterinary
+      substances — to which the INN rules attach: something outside the trade mark that the
+      assessment looks at — the goods, the market and its consumers, a person or place, a
+      reputation, a date — so `context`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126):
+      a kind says what a concept is, and what it does is an edge. What it does is on its edges:
+      GR-0420 qualifies likely to deceive or cause confusion; GR-0421 qualifies confusion.'
     alternatives_considered:
-    - >-
-      none_of_these — right if a goods category is an attribute of the application rather
-      than a legal idea, in which case it is closer to GC-0012 than to GC-0022.
-    expert_should_check: >-
-      Whether dietary and nutritional supplements are inside this concept or beside it.
-      GC-0025's record note deliberately lists them as a near-miss while the Manual names
-      them as goods that could be pharmaceutical in nature.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0026
   concept: GC-0026
-  type: relevant_factor
+  type: context
   basis:
   - TMM/Part29/6#1~1
   - TMM/Part29/6#1~2
-  notes: >-
-    well-known person — also called: well known person, person well known in relation
-    to the goods or services, celebrity — not: name of a person, signature, surname
+  notes: 'well-known person — also called: well known person, person well known in relation
+    to the goods or services, celebrity — not: name of a person, signature, surname'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/6#1~1
@@ -1160,47 +1115,45 @@
       - 49
       - 228
       content_hash: sha256:ac69f55b0b06f0f288ea66d5dc7029193e5cb434b4c2504d45f9e0a087588318
-      quote: >-
-        If a trade mark contains a name of a person (or group of people) which is well
-        known in relation to the specified goods or services, the provisions of section
-        43 may be triggered.
+      quote: If a trade mark contains a name of a person (or group of people) which is well
+        known in relation to the specified goods or services, the provisions of section 43
+        may be triggered.
     - ref: TMM/Part29/6#1~2
       span:
       - 1364
       - 1703
       content_hash: sha256:3016fc2af55085c99f6f508c674df732dbefbd36582932ac716f701313b98e1c
-      quote: >-
-        While all the above factors are relevant, the question that the examiner must
+      quote: While all the above factors are relevant, the question that the examiner must
         ultimately decide is whether the trade mark conveys a connotation that the goods/services
         have a connection with or the approval of the well-known person(s) to such a level
-        that confusion or deception is likely to occur within the relevant sector of the
-        public.
-    confidence: 0.75
-    reasoning: >-
-      'May be triggered' is the language of a factor, and Part 29.6 then names the question
-      the examiner must ultimately decide separately from it. The well-known person is
-      the material; the connotation of endorsement is what is decided.
+        that confusion or deception is likely to occur within the relevant sector of the public.
+    confidence: 0.8
+    reasoning: 'well-known person is a person, well known for something, to whom a mark may
+      refer: something outside the trade mark that the assessment looks at — the goods, the
+      market and its consumers, a person or place, a reputation, a date — so `context`. Retyped
+      on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and
+      what it does is an edge. What it does is on its edges: GR-0040 qualifies implied endorsement;
+      GR-0077 qualifies connotation; GR-0424 qualifies deception; GR-0425 qualifies confusion;
+      and more.'
     alternatives_considered:
-    - ground_of_refusal — the family alternative at GT-0017.
-    expert_should_check: >-
-      How much of the well-known-person branch this record carries. Three of the factors
-      at 29.6 — how well known, name commonness, closeness of the field — have no concept
-      of their own, so they are currently unmodelled and this record is standing in for
-      them.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0027
   concept: GC-0027
-  type: exception
+  type: context
   basis:
   - TMM/Part29/6/6/2~1
-  notes: >-
-    deceased person — also called: long deceased historical figure, deceased well-known
-    person — not: estate, authorised entity
+  notes: 'deceased person — also called: long deceased historical figure, deceased well-known
+    person — not: estate, authorised entity'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/6/6/2~1
@@ -1208,39 +1161,36 @@
       - 0
       - 195
       content_hash: sha256:8e7a69fc516a2b4b11213363298946680a0c24f0d1bcddc9f0d803c24c151e53
-      quote: >-
-        Generally, a section 43 ground for rejection will not arise in respect of long
-        deceased historical figures, even if they were well known for the same field as
-        the specified goods/services are in.
+      quote: Generally, a section 43 ground for rejection will not arise in respect of long
+        deceased historical figures, even if they were well known for the same field as the
+        specified goods/services are in.
     confidence: 0.8
-    reasoning: >-
-      The corpus states the carve-out directly: the ground will not arise for a long deceased
-      figure even where every other element of the well-known-person branch is present.
-      That is a case taken out of the rule.
+    reasoning: 'deceased person is a person, long dead, to whom a mark may refer: something
+      outside the trade mark that the assessment looks at — the goods, the market and its
+      consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner''s
+      ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does
+      is an edge. What it does is on its edges: GR-0044 may give rise to connotation; GR-0700
+      does not by itself give rise to section 43 ground for rejection.'
     alternatives_considered:
-    - >-
-      relevant_factor — the same passage re-admits the ground where an estate or authorised
-      entity has continued to control the name, and makes recency of death a matter of
-      degree. On that reading death is a strong factor and not an out at all.
-    expert_should_check: >-
-      Whether the estate proviso swallows the exception. If in practice most deceased-person
-      cases turn on whether an estate is still licensing, this is a factor wearing an
-      exception's words.
+    - 'exception — its group until 2026-10-09 (claude-opus-5). That is what it does, not what
+      it is: under B1 its being an exception is said by an edge naming the ground or test,
+      not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0028
   concept: GC-0028
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/6#1~2
   - TMM/Part29/9/9/7
-  notes: >-
-    implied endorsement — also called: endorsement or approval, implied licensing, connection
-    with or approval of — not: endorsement, written permission
+  notes: 'implied endorsement — also called: endorsement or approval, implied licensing, connection
+    with or approval of — not: endorsement, written permission'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/9/9/7
@@ -1248,39 +1198,35 @@
       - 166
       - 435
       content_hash: sha256:4a152ff8e285012f7bc44941664602f7d5ebbe7775f61faa73472e1827a6bc60
-      quote: >-
-        The inclusion of such material may result in ordinary consumers being deceived
-        and confused on the basis of incorrectly believing that the trade mark indicates
-        an endorsement or approval from the party or parties that own and have control
-        over the well- known material.
+      quote: The inclusion of such material may result in ordinary consumers being deceived
+        and confused on the basis of incorrectly believing that the trade mark indicates an
+        endorsement or approval from the party or parties that own and have control over the
+        well- known material.
     - ref: TMM/Part29/6#1~2
       span:
       - 1406
       - 1702
       content_hash: sha256:3016fc2af55085c99f6f508c674df732dbefbd36582932ac716f701313b98e1c
-      quote: >-
-        the question that the examiner must ultimately decide is whether the trade mark
+      quote: the question that the examiner must ultimately decide is whether the trade mark
         conveys a connotation that the goods/services have a connection with or the approval
         of the well-known person(s) to such a level that confusion or deception is likely
         to occur within the relevant sector of the public
-    confidence: 0.55
-    reasoning: >-
-      Typed as the content of a connotation — one of the kinds of connection Part 29.3
-      lists — rather than as the deciding of one. The question remains GC-0002's; implied
-      endorsement is what the mark has to convey for that question to be answered yes.
+    confidence: 0.8
+    reasoning: 'implied endorsement is a meaning a mark conveys — that a person endorses or
+      is connected with the goods: something a trade mark contains or conveys — a word, name,
+      image or sign within it, or a meaning — so `sign_content`. Retyped on the owner''s ruling
+      B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge.
+      What it does is on its edges: GR-0073 may give rise to deception; GR-0138 excludes as
+      a basis reputation of a trade mark.'
     alternatives_considered:
-    - >-
-      legal_test — the strongest alternative in this file, and the second evidence quote
-      argues for it: Part 29.6 calls this 'the question that the examiner must ultimately
-      decide'. It is typed relevant_factor because the concept is the connotation and
-      not the deciding of it, which is a modelling distinction an expert may reject.
-    expert_should_check: >-
-      This record before any other in the relevant_factor group. The corpus comes closer
-      to calling implied endorsement a test than it does for anything else typed relevant_factor
-      here, and the quote saying so is in the record's own evidence.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0029
   concept: GC-0029
-  type: remedy
+  type: instrument_or_record
   basis:
   - TMM/Part29/6#1~2
   - TMM/Part29/6/6/1
@@ -1290,8 +1236,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S026
-    authored_date: '2026-10-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/6#1~2
@@ -1310,34 +1256,34 @@
       quote: An applicant may overcome a section 43 ground for rejection in relation to such
         an image by providing the well-known person’s written permission to use their image
         as a trade mark.
-    confidence: 0.85
-    reasoning: Written permission overcomes a section 43 ground already raised for a name
-      or image (Part 29.6). A remedy overcomes a ground that applies; an exception is a case
-      the ground does not reach. Retyped on the owner's ruling B5.
+    confidence: 0.75
+    reasoning: 'written permission is a well-known person''s consent in writing, as the applicant
+      supplies it: a document, entry or endorsement the process produces or receives, or writes
+      to the Register — so `instrument_or_record`. Retyped on the owner''s ruling B1 of 2026-10-09
+      (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does
+      is on its edges: GR-0203 qualifies so nearly resembling; GR-0479: section 39 ground
+      for rejection is overcome by it; GR-0687: section 43 ground for rejection is overcome
+      by it.'
     alternatives_considered:
-    - 'Typed ''exception'' by an earlier agent session on 2026-09-08. Its reasoning: Stated twice in
-      the corpus in the same words, for names and for images: permission overcomes the ground.
-      The clearest exception in the set after GC-0027.'
-    - relevant_factor — right only if permission is evidence bearing on whether consumers
-      would be misled rather than a mechanism that disposes of the objection. Part 29.6 treats
-      it as the second.
-    expert_should_check: Whether the applicant's step or the record of it is the remedy; the
-      Manual uses both.
+    - 'remedy — its group until 2026-10-09 (claude-code-agent-S026). That is what it does,
+      not what it is: under B1 its being a remedy is said by an edge naming the ground or
+      test, not by a group.'
+    expert_should_check: Whether this is a document or entry in itself, or the step that produces
+      it.
 - id: GT-0030
   concept: GC-0030
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part22/25/25/7
   - TMM/Part29/6/6/1
-  notes: >-
-    image of a person — also called: representation of a person, photograph, portrait,
-    cartoon caricature — not: device, signature
+  notes: 'image of a person — also called: representation of a person, photograph, portrait,
+    cartoon caricature — not: device, signature'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/6/6/1
@@ -1345,47 +1291,42 @@
       - 614
       - 728
       content_hash: sha256:94219eaa9c113dcecb64f0c0d8b7d7970ee0c89b4e732ebf371d1b1b4f2abcf1
-      quote: >-
-        A section 43 ground for rejection should not be raised merely because a trade
+      quote: A section 43 ground for rejection should not be raised merely because a trade
         mark contains the image of a person.
     - ref: TMM/Part22/25/25/7
       span:
       - 94
       - 316
       content_hash: sha256:736ecaa92033b08f502f16d6e74622dfb3d539c528173211b676ad2336c80f69
-      quote: >-
-        If however the image represented in the trade mark is of a well-known person (or
-        group of people), and the well-known person (or group of people) is not the applicant,
+      quote: If however the image represented in the trade mark is of a well-known person
+        (or group of people), and the well-known person (or group of people) is not the applicant,
         consideration should be given to section 43 of the Act
-    confidence: 0.7
-    reasoning: >-
-      The corpus says in terms that the image alone is not enough and that its presence
-      is a reason to give consideration to s 43. Material that opens an enquiry without
-      settling it is a factor.
+    confidence: 0.8
+    reasoning: 'image of a person is an image of a person that a mark contains: something
+      a trade mark contains or conveys — a word, name, image or sign within it, or a meaning
+      — so `sign_content`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind
+      says what a concept is, and what it does is an edge. What it does is on its edges: GR-0385
+      may give rise to connotation; GR-0434 may give rise to endorsement; GR-0688 does not
+      by itself give rise to section 43 ground for rejection.'
     alternatives_considered:
-    - ground_of_refusal — the family alternative at GT-0017.
-    - >-
-      exception — the first quote is phrased negatively and could be read as a carve-out
-      for images generally. It is read here as a floor on the evidence rather than an
-      out.
-    expert_should_check: >-
-      Whether images and names should type identically. They are typed the same way here
-      (GT-0026, GT-0030) on the strength of Part 29.6.1's opening sentence that the same
-      considerations apply.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0031
   concept: GC-0031
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/7#1
-  notes: >-
-    phoneword — also called: SMS word, phone word, alphabetic phone number — not: phone
-    number, numeral
+  notes: 'phoneword — also called: SMS word, phone word, alphabetic phone number — not: phone
+    number, numeral'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/7#1
@@ -1393,8 +1334,7 @@
       - 437
       - 674
       content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
-      quote: >-
-        A section 43 ground for rejection will apply if the applicant for a trade mark
+      quote: A section 43 ground for rejection will apply if the applicant for a trade mark
         containing material likely to be viewed as a phoneword, or the numbers representing
         a phoneword, is not also the owner (or authorised user) of that phoneword.
     - ref: TMM/Part29/7#1
@@ -1402,36 +1342,33 @@
       - 1161
       - 1299
       content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
-      quote: >-
-        Other phone numbers which do not appear to represent a phoneword should not be
+      quote: Other phone numbers which do not appear to represent a phoneword should not be
         queried or researched specifically in respect of section 43
-    confidence: 0.6
-    reasoning: >-
-      The phoneword is the subject matter; the ground is the applicant not owning it.
-      Typed relevant_factor on the family reading, with the ownership half held by GC-0035.
+    confidence: 0.8
+    reasoning: 'phoneword is a phone number expressed as a word that a mark contains: something
+      a trade mark contains or conveys — a word, name, image or sign within it, or a meaning
+      — so `sign_content`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind
+      says what a concept is, and what it does is an edge. What it does is on its edges: GR-0438
+      may give rise to connotation; GR-0440 may give rise to section 43 ground for rejection.'
     alternatives_considered:
-    - >-
-      ground_of_refusal — stronger here than anywhere else in the family, because Part
-      29.7 states a complete rule in one sentence and the concept sits at the centre of
-      it. The counter is that a phoneword owned by the applicant refuses nothing.
-    expert_should_check: >-
-      The three ownership branches together — phoneword (GT-0031), domain name (GT-0032),
-      radio call sign (GT-0034) — and GC-0035 beside them. All four are typed relevant_factor,
-      and if any is a ground_of_refusal all four are.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0032
   concept: GC-0032
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/8#1
-  notes: >-
-    internet domain name — also called: domain name, internet domain name reference —
-    not: standard address code material, website
+  notes: 'internet domain name — also called: domain name, internet domain name reference
+    — not: standard address code material, website'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/8#1
@@ -1439,41 +1376,42 @@
       - 863
       - 1103
       content_hash: sha256:8513c3a938b5cb070d2b5a389e047bd27e54209b92521e8902165e57e7cc0325
-      quote: >-
-        A section 43 ground for rejection will apply if the applicant for a trade mark
-        consisting of, or containing, material likely to be viewed as an Internet domain
-        name is not also the registrant or authorised user of that Internet domain name.
+      quote: A section 43 ground for rejection will apply if the applicant for a trade mark
+        consisting of, or containing, material likely to be viewed as an Internet domain name
+        is not also the registrant or authorised user of that Internet domain name.
     - ref: TMM/Part29/8#1
       span:
       - 0
       - 102
       content_hash: sha256:8513c3a938b5cb070d2b5a389e047bd27e54209b92521e8902165e57e7cc0325
-      quote: >-
-        Internet domain names are typically a combination of standard address code material
+      quote: Internet domain names are typically a combination of standard address code material
         and an identifier.
-    confidence: 0.6
-    reasoning: >-
-      The same structure as the phoneword branch and typed the same way: the domain name
-      is the material, the ground is non-registration.
+    confidence: 0.8
+    reasoning: 'internet domain name is an internet domain name that a mark contains or connotes:
+      something a trade mark contains or conveys — a word, name, image or sign within it,
+      or a meaning — so `sign_content`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126):
+      a kind says what a concept is, and what it does is an edge. What it does is on its edges:
+      GR-0063 may give rise to connotation; GR-0141 may give rise to use of a trade mark;
+      GR-0142 may give rise to section 43 ground for rejection.'
     alternatives_considered:
-    - ground_of_refusal — as at GT-0031.
-    expert_should_check: >-
-      The same question as GT-0031, and it should be answered for the three ownership
-      branches at once.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0033
   concept: GC-0033
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/8/8/1
-  notes: >-
-    top level domain — also called: TLD, generic TLD, country-code TLD — not: second level
-    domain, subdomain
+  notes: 'top level domain — also called: TLD, generic TLD, country-code TLD — not: second
+    level domain, subdomain'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/8/8/1
@@ -1481,37 +1419,34 @@
       - 265
       - 483
       content_hash: sha256:3264c706f600642da5ed333d95290b16d856bad2a6b6f6170d7761522bf49c0f
-      quote: >-
-        In the case of a generic TLD, the trade mark application needs to be holistically
-        considered, including the relevant specification, when determining whether the
-        material (.SOMETHING) is likely to connote a generic TLD.
-    confidence: 0.65
-    reasoning: >-
-      Part 29.8.1 makes the TLD something considered holistically alongside the specification
-      when deciding whether a connotation exists. That is a factor feeding GC-0001's question.
+      quote: In the case of a generic TLD, the trade mark application needs to be holistically
+        considered, including the relevant specification, when determining whether the material
+        (.SOMETHING) is likely to connote a generic TLD.
+    confidence: 0.8
+    reasoning: 'top level domain is the top level domain of a domain name that a mark contains:
+      something a trade mark contains or conveys — a word, name, image or sign within it,
+      or a meaning — so `sign_content`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126):
+      a kind says what a concept is, and what it does is an edge. What it does is on its edges:
+      GR-0148 may give rise to section 43 ground for rejection.'
     alternatives_considered:
-    - >-
-      legal_test — 'whether the material is likely to connote a generic TLD' is phrased
-      as a question, though it reads as the connotation question of GC-0001 applied to
-      this material rather than a new one.
-    expert_should_check: >-
-      Whether generic and country-code TLDs are one concept. GC-0033's record note says
-      the Manual treats them differently, and only the generic branch has the ICANN-list
-      step this typing rests on.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0034
   concept: GC-0034
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/8/8/3
-  notes: >-
-    radio call sign — also called: call sign, radio frequency, radio call sign or frequency
-    — not: broadcasting services, licence
+  notes: 'radio call sign — also called: call sign, radio frequency, radio call sign or frequency
+    — not: broadcasting services, licence'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/8/8/3
@@ -1519,34 +1454,36 @@
       - 792
       - 1062
       content_hash: sha256:65247b2f3e686037e599b398b4f74f74a7e40836d32f3e2761a6a12ade582ed8
-      quote: >-
-        A section 43 ground for rejection will apply if the applicant for a trade mark
+      quote: A section 43 ground for rejection will apply if the applicant for a trade mark
         containing a radio call sign or frequency, in class 38 for broadcasting or related
-        services, is not also the licensed owner/operator of a radio station with that
-        radio call sign or frequency.
-    confidence: 0.6
-    reasoning: The third ownership branch, typed as the other two are.
+        services, is not also the licensed owner/operator of a radio station with that radio
+        call sign or frequency.
+    confidence: 0.8
+    reasoning: 'radio call sign is a radio call sign that a mark contains: something a trade
+      mark contains or conveys — a word, name, image or sign within it, or a meaning — so
+      `sign_content`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says
+      what a concept is, and what it does is an edge. What it does is on its edges: GR-0048
+      may give rise to TMA1995/s41; GR-0443 may give rise to confusion.'
     alternatives_considered:
-    - ground_of_refusal — as at GT-0031.
-    expert_should_check: >-
-      GC-0034's record note flags that holding the call sign and the frequency as one
-      concept is a simplification, since a broadcaster chooses one and never the other.
-      If they split, both halves inherit this typing untested.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0035
   concept: GC-0035
-  type: relevant_factor
+  type: context
   basis:
   - TMM/Part29/7#1
   - TMM/Part29/8#1
-  notes: >-
-    owner or authorised user — also called: registrant or authorised user, licensed owner
-    or operator, authorised user — not: applicant, owner of the trade mark
+  notes: 'owner or authorised user — also called: registrant or authorised user, licensed
+    owner or operator, authorised user — not: applicant, owner of the trade mark'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/8#1
@@ -1554,8 +1491,7 @@
       - 1104
       - 1327
       content_hash: sha256:8513c3a938b5cb070d2b5a389e047bd27e54209b92521e8902165e57e7cc0325
-      quote: >-
-        Consumers are likely to believe that the applicant is the registrant or authorised
+      quote: Consumers are likely to believe that the applicant is the registrant or authorised
         user of the Internet domain name connoted within the trade mark, and on this basis
         be deceived and confused if in fact this is not the case.
     - ref: TMM/Part29/7#1
@@ -1563,40 +1499,35 @@
       - 995
       - 1160
       content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
-      quote: >-
-        The section 43 ground for rejection will be reconsidered if an applicant provides
+      quote: The section 43 ground for rejection will be reconsidered if an applicant provides
         information confirming that they are the owner or authorised user of the phoneword.
-    confidence: 0.55
-    reasoning: >-
-      Whether the applicant is the owner is what makes the three ownership branches deceptive
-      at all, so it feeds the answer directly. Typed relevant_factor rather than exception
-      because the corpus states the ground negatively — it applies where the applicant
-      is not the owner — which makes ownership an element stated in the negative rather
-      than a carve-out.
+    confidence: 0.65
+    reasoning: 'owner or authorised user is the person who holds a phone number, domain name
+      or call sign a mark refers to: something outside the trade mark that the assessment
+      looks at — the goods, the market and its consumers, a person or place, a reputation,
+      a date — so `context`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a
+      kind says what a concept is, and what it does is an edge. What it does is on its edges:
+      GR-0702 qualifies section 43 ground for rejection.'
     alternatives_considered:
-    - >-
-      exception — the second evidence quote is the argument for it: the ground is 'reconsidered'
-      when the applicant shows they are the owner, which reads exactly like GC-0029's
-      written permission. If that parallel holds, this is an exception and one of the
-      lowest-confidence records here is wrong.
-    expert_should_check: >-
-      The choice between an element stated negatively and an exception. It decides this
-      record and it is the same question underneath GT-0029.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0036
   concept: GC-0036
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/1/1/2
   - TMM/Part32A/2/4/2/4/1
-  notes: >-
-    plant variety name — also called: plant variety denomination, variety name, other
-    plant name — not: genus, plant materials
+  notes: 'plant variety name — also called: plant variety denomination, variety name, other
+    plant name — not: genus, plant materials'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/1/1/2
@@ -1604,45 +1535,43 @@
       - 0
       - 368
       content_hash: sha256:8ade7c5b69b33b1eb2cb1da62aef69cf55a2b588ddcdec1e873ab03fdf792f49
-      quote: >-
-        If a trade mark contains or consists of word/s which connote a particular plant
-        variety or other plant name, and is applied to plants or plant materials of the
-        same or a closely related genus, it is likely to deceive or cause confusion as
-        to the true nature of those plants or plant materials and a ground for rejection
-        under section 43 of the Act will be appropriate.
+      quote: If a trade mark contains or consists of word/s which connote a particular plant
+        variety or other plant name, and is applied to plants or plant materials of the same
+        or a closely related genus, it is likely to deceive or cause confusion as to the true
+        nature of those plants or plant materials and a ground for rejection under section
+        43 of the Act will be appropriate.
     - ref: TMM/Part32A/2/4/2/4/1
       span:
       - 1224
       - 1326
       content_hash: sha256:94d2b8f375cd4df08c21d7e4a9625b80416dd3dfdfb83e9d0b880fd8f35e30a5
-      quote: >-
-        However, the examiner needs to consider how the variety name appears within the
+      quote: However, the examiner needs to consider how the variety name appears within the
         trade mark as a whole.
-    confidence: 0.7
-    reasoning: >-
-      The variety name is the material; whether it connotes immediately and whether the
-      goods are of a related genus are the questions asked about it. Part 32A makes that
-      explicit by sending the examiner back to consider how the name appears.
+    confidence: 0.8
+    reasoning: 'plant variety name is the name of a plant variety, as a mark may contain it:
+      something a trade mark contains or conveys — a word, name, image or sign within it,
+      or a meaning — so `sign_content`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126):
+      a kind says what a concept is, and what it does is an edge. What it does is on its edges:
+      GR-0090 may give rise to section 43 ground for rejection; GR-0150 qualifies acceptance.'
     alternatives_considered:
-    - ground_of_refusal — the family alternative at GT-0017.
-    expert_should_check: >-
-      Whether this concept is inside the vocabulary's scope or belongs to Part 32A. Half
-      its evidence comes from there, which is true of no other record in this pass except
-      GT-0018.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0037
   concept: GC-0037
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/10#1
-  notes: >-
-    claim to Indigenous origin — also called: reference to Indigenous people, Indigenous
-    connection, Aboriginal designed — not: Indigenous applicant, prescribed sign
+  notes: 'claim to Indigenous origin — also called: reference to Indigenous people, Indigenous
+    connection, Aboriginal designed — not: Indigenous applicant, prescribed sign'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/10#1
@@ -1650,46 +1579,45 @@
       - 0
       - 266
       content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
-      quote: >-
-        If a trade mark, or some part of the trade mark, contains a reference to Indigenous
-        people and a connotation arises from the mark that would be likely to deceive
-        or confuse consumers within the relevant market, then a ground for rejection under
-        s43 should be raised.
+      quote: If a trade mark, or some part of the trade mark, contains a reference to Indigenous
+        people and a connotation arises from the mark that would be likely to deceive or confuse
+        consumers within the relevant market, then a ground for rejection under s43 should
+        be raised.
     - ref: TMM/Part29/10#1
       span:
       - 389
       - 618
       content_hash: sha256:7790025faf8751ea416943459edd4d4cc890374c4fc86f400a1ff604c9dd376e
-      quote: >-
-        This type of material can form a connotation within a trade mark which would lead
-        consumers into being misled into thinking that the goods or services bearing the
-        applicant’s mark come from a source with an Indigenous connection.
-    confidence: 0.6
-    reasoning: >-
-      The corpus makes the reference material that 'can form a connotation', with the
-      deception question asked afterwards. Typed with the rest of the family on that structure
-      and on nothing about the subject matter itself.
+      quote: This type of material can form a connotation within a trade mark which would
+        lead consumers into being misled into thinking that the goods or services bearing
+        the applicant’s mark come from a source with an Indigenous connection.
+    confidence: 0.8
+    reasoning: 'claim to Indigenous origin is a meaning a mark conveys — that goods are of
+      Indigenous origin: something a trade mark contains or conveys — a word, name, image
+      or sign within it, or a meaning — so `sign_content`. Retyped on the owner''s ruling
+      B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge.
+      What it does is on its edges: GR-0086 may give rise to deception; GR-0155 may give rise
+      to connotation; GR-0156 may give rise to likely to deceive or cause confusion; GR-0157
+      may give rise to confusion; and more.'
     alternatives_considered:
-    - ground_of_refusal — the family alternative at GT-0017.
-    expert_should_check: >-
-      This record before the typing is relied on anywhere. GC-0037's own note records
-      it as low confidence and high sensitivity, and the typing was made from one paragraph
-      of the Manual rather than from how the office speaks about this material. A correction
-      here is worth more than a correction anywhere else in the file.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0038
   concept: GC-0038
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/3/3/5
-  notes: >-
-    trade mark as a whole — also called: the mark as a whole, other features of the trade
-    mark, mitigating elements — not: part of the trade mark, essential feature
+  notes: 'trade mark as a whole — also called: the mark as a whole, other features of the
+    trade mark, mitigating elements — not: part of the trade mark, essential feature'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/3/3/5
@@ -1697,38 +1625,37 @@
       - 0
       - 298
       content_hash: sha256:8418a879836021fbdc00a41d3b892ad4ee7ebf0a36e88920a023bd4aaf0986d9
-      quote: >-
-        When determining the potential connotation within a trade mark, the trade mark
+      quote: When determining the potential connotation within a trade mark, the trade mark
         as a whole should be considered. Other features incorporated as part of the trade
-        mark can diminish the impact of the offending material and cast doubt as to how
-        it will be seen and interpreted by the relevant consumer.
-    confidence: 0.8
-    reasoning: >-
-      A principle about what is looked at when the connotation question is asked, and
-      the corpus says the other features 'diminish the impact' rather than removing the
-      ground. That is weighing, which is what a factor is.
+        mark can diminish the impact of the offending material and cast doubt as to how it
+        will be seen and interpreted by the relevant consumer.
+    confidence: 0.6
+    reasoning: 'trade mark as a whole is everything a mark contains, taken together: something
+      a trade mark contains or conveys — a word, name, image or sign within it, or a meaning
+      — so `sign_content`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind
+      says what a concept is, and what it does is an edge. What it does is on its edges: GR-0017
+      qualifies likely to deceive or cause confusion; GR-0135 qualifies meaningful inclusion
+      of an INN stem; GR-0153 qualifies plant variety name; GR-0396 qualifies section 41 ground
+      for rejection; and more.'
     alternatives_considered:
-    - >-
-      exception — Bennett J's word in Bavaria is 'neutralise', which is stronger than
-      diminish and would make mitigating elements an out rather than a counterweight.
-    expert_should_check: >-
-      Whether neutralising elements dispose of the ground or reduce it. The difference
-      matters for GC-0021 and GC-0048 as well, both of which are about material that stops
-      a connotation forming.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0039
   concept: GC-0039
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/3/3/4
-  notes: >-
-    connotation developed over time — also called: developed secondary meaning, meaning
-    acquired through use in a trade — not: acquired distinctiveness, reputation
+  notes: 'connotation developed over time — also called: developed secondary meaning, meaning
+    acquired through use in a trade — not: acquired distinctiveness, reputation'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/3/3/4
@@ -1736,33 +1663,28 @@
       - 217
       - 361
       content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
-      quote: >-
-        This circumstance need not point to a fault in the examination process, but to
+      quote: This circumstance need not point to a fault in the examination process, but to
         the capacity for a trade mark to develop a connotation over time.
     - ref: TMM/Part29/3/3/4
       span:
       - 362
       - 565
       content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
-      quote: >-
-        A word with no obvious secondary meaning in respect of the particular goods/services
-        under consideration may have developed one with the passage of time, and from
-        extensive use within a particular trade.
-    confidence: 0.55
-    reasoning: >-
-      A connotation that developed through use is still a connotation, and its history
-      is what makes it findable; typed as an input to GC-0001's question rather than as
-      a separate one.
+      quote: A word with no obvious secondary meaning in respect of the particular goods/services
+        under consideration may have developed one with the passage of time, and from extensive
+        use within a particular trade.
+    confidence: 0.8
+    reasoning: 'connotation developed over time is a meaning a mark comes to convey over time:
+      something a trade mark contains or conveys — a word, name, image or sign within it,
+      or a meaning — so `sign_content`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126):
+      a kind says what a concept is, and what it does is an edge. What it does is on its edges:
+      GR-0024 may give rise to opposition.'
     alternatives_considered:
-    - >-
-      none_of_these — the passage is mostly about where such cases are dealt with (opposition,
-      on evidence) rather than about the s 43 judgement, which would make this an observation
-      about process.
-    expert_should_check: >-
-      The near-miss GC-0039's record note calls the most valuable in the file: acquired
-      distinctiveness under s 41 is described in almost identical words and must never
-      be carried into s 43. The typing does not encode that boundary, and a relevant_factor
-      label may make it easier to cross.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0040
   concept: GC-0040
   type: procedural_step
@@ -1814,19 +1736,18 @@
       the records rather than resolved by a typing.
 - id: GT-0041
   concept: GC-0041
-  type: relevant_factor
+  type: instrument_or_record
   basis:
   - TMM/Part29/3/3/4
   - TMM/Part29/9/9/7
-  notes: >-
-    evidence of use — also called: evidence, considerable evidence of use — not: research,
-    state of the Register
+  notes: 'evidence of use — also called: evidence, considerable evidence of use — not: research,
+    state of the Register'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/9/9/7
@@ -1834,33 +1755,29 @@
       - 969
       - 1213
       content_hash: sha256:4a152ff8e285012f7bc44941664602f7d5ebbe7775f61faa73472e1827a6bc60
-      quote: >-
-        This issue is one where evidence will in most cases play an important role in
-        determining the strength of the connotation and for that reason, an objection
-        on this basis is usually more appropriate for consideration during the opposition
-        stage.
+      quote: This issue is one where evidence will in most cases play an important role in
+        determining the strength of the connotation and for that reason, an objection on this
+        basis is usually more appropriate for consideration during the opposition stage.
     - ref: TMM/Part29/3/3/4
       span:
       - 566
       - 740
       content_hash: sha256:075c40b25607ef6a911a15b27e74937b83afcd489266936a56e4839208f9bb3b
-      quote: >-
-        These kinds of cases are most appropriately identified and dealt with during opposition
-        proceedings when considerable evidence of use is often supplied by the opposing
-        party.
+      quote: These kinds of cases are most appropriately identified and dealt with during
+        opposition proceedings when considerable evidence of use is often supplied by the
+        opposing party.
     confidence: 0.75
-    reasoning: >-
-      The corpus says evidence determines the strength of the connotation, which is the
-      definition of something feeding the answer. Typed relevant_factor even though both
-      its passages are about opposition, because what it does there is weigh.
+    reasoning: 'evidence of use is the evidence of use an applicant files: a document, entry
+      or endorsement the process produces or receives, or writes to the Register — so `instrument_or_record`.
+      Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept
+      is, and what it does is an edge. What it does is on its edges: GR-0300: no inherent
+      adaptation to distinguish requires it; GR-0453: defensive trade mark requires it.'
     alternatives_considered:
-    - >-
-      none_of_these — right if evidence is a procedural artefact and belongs with GT-0040
-      rather than with the things it proves.
-    expert_should_check: >-
-      The line between this record and GT-0052. Evidence a party files and research an
-      examiner does are typed the same way here, and GC-0041's own note says the distinction
-      between them is load-bearing under s 43.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is a document or entry in itself, or the step that produces
+      it.
 - id: GT-0042
   concept: GC-0042
   type: procedural_step
@@ -2101,19 +2018,18 @@
       than answering it.
 - id: GT-0047
   concept: GC-0047
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part29/2/2/1~1
   - TMM/Part29/4#1
-  notes: >-
-    descriptive matter — also called: descriptive term, description of the goods or services
-    — not: connotation, non-distinctive
+  notes: 'descriptive matter — also called: descriptive term, description of the goods or
+    services — not: connotation, non-distinctive'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/2/2/1~1
@@ -2121,46 +2037,41 @@
       - 1846
       - 1953
       content_hash: sha256:14a837dcde1a12b578590df4144304bdc6e1066b865971b068bda35119a32802
-      quote: >-
-        It does not follow that all trade marks containing descriptive matter would attract
+      quote: It does not follow that all trade marks containing descriptive matter would attract
         a section 43 objection.
     - ref: TMM/Part29/4#1
       span:
       - 0
       - 157
       content_hash: sha256:ee8650d8222dab43788198d8fd9f43ca934317a389f76728bdf40f85c97ac032
-      quote: >-
-        A term within a trade mark describing particular goods/services will not trigger
+      quote: A term within a trade mark describing particular goods/services will not trigger
         section 43 as long as those goods/services are covered by the specification.
-    confidence: 0.7
-    reasoning: >-
-      The corpus says descriptive matter does not by itself attract an objection and then
-      makes everything turn on the comparison with the specification. That is material
-      feeding a question, not the question.
+    confidence: 0.8
+    reasoning: 'descriptive matter is matter in a mark that describes the goods or services:
+      something a trade mark contains or conveys — a word, name, image or sign within it,
+      or a meaning — so `sign_content`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126):
+      a kind says what a concept is, and what it does is an edge. What it does is on its edges:
+      GR-0015 does not by itself give rise to connotation; GR-0180 qualifies confusion.'
     alternatives_considered:
-    - >-
-      exception — the second quote is phrased as a carve-out for descriptive terms matched
-      by the specification. It is read here as the comparison at GT-0012 coming out one
-      way rather than as an out.
-    expert_should_check: >-
-      Whether the s 41 sense of 'descriptive' can be kept out of this record. GC-0047's
-      note flags that descriptiveness is a distinctiveness question under s 41 and a connotation
-      question here, in the same word.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0048
   concept: GC-0048
-  type: exception
+  type: sign_content
   basis:
   - TMM/Part29/4#1
   - TMM/Part29/9#1
-  notes: >-
-    fanciful or ambiguous reference — also called: fanciful description, unrealistic description,
-    ambiguous geographic reference — not: misdescriptive, arbitrary mark
+  notes: 'fanciful or ambiguous reference — also called: fanciful description, unrealistic
+    description, ambiguous geographic reference — not: misdescriptive, arbitrary mark'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/9#1
@@ -2168,48 +2079,45 @@
       - 1565
       - 1864
       content_hash: sha256:17c928f3bdc152f1ba5a886c36379eb9e74ab1b2afcb0cef15aa9cc5ee4cf3d6
-      quote: >-
-        Deception or confusion is not likely to occur if the geographic reference is ambiguous
-        or fanciful (FORGED IN THE OUTBACK on Vehicles, ANTARCTIC BERRIES for Frozen strawberries)
-        or when a word will not be seen as a geographical reference in the eyes of an
-        average consumer (MOCHA for confectionery).
+      quote: Deception or confusion is not likely to occur if the geographic reference is
+        ambiguous or fanciful (FORGED IN THE OUTBACK on Vehicles, ANTARCTIC BERRIES for Frozen
+        strawberries) or when a word will not be seen as a geographical reference in the eyes
+        of an average consumer (MOCHA for confectionery).
     - ref: TMM/Part29/4#1
       span:
       - 1369
       - 1558
       content_hash: sha256:ee8650d8222dab43788198d8fd9f43ca934317a389f76728bdf40f85c97ac032
-      quote: >-
-        When considering trade marks that include a clear connotation, the concept that
-        this connotation would be understood as a fanciful or unrealistic description
-        can also be taken into account.
-    confidence: 0.75
-    reasoning: >-
-      The corpus states it as a case where deception is not likely to occur, with worked
-      examples, which is a case taken out of the rule. Typed exception with GC-0020 and
-      GC-0027.
+      quote: When considering trade marks that include a clear connotation, the concept that
+        this connotation would be understood as a fanciful or unrealistic description can
+        also be taken into account.
+    confidence: 0.8
+    reasoning: 'fanciful or ambiguous reference is a reference in a mark that is fanciful
+      or ambiguous: something a trade mark contains or conveys — a word, name, image or sign
+      within it, or a meaning — so `sign_content`. Retyped on the owner''s ruling B1 of 2026-10-09
+      (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does
+      is on its edges: GR-0384 qualifies connotation; GR-0467 qualifies real and tangible
+      danger; GR-0468 qualifies likely to deceive or cause confusion; GR-0701 does not by
+      itself give rise to likely to deceive or cause confusion.'
     alternatives_considered:
-    - >-
-      relevant_factor — the second quote uses 'can also be taken into account', which
-      is factor language, and the two passages may be describing a consideration in Part
-      29.4 and an exception in Part 29.9.
-    expert_should_check: >-
-      The disagreement between this record's two passages. One says deception is not likely
-      to occur; the other says it can be taken into account. If the second is the practice,
-      this is relevant_factor.
+    - 'exception — its group until 2026-10-09 (claude-opus-5). That is what it does, not what
+      it is: under B1 its being an exception is said by an edge naming the ground or test,
+      not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0049
   concept: GC-0049
-  type: relevant_factor
+  type: context
   basis:
   - TMM/Part29/3/3/2
-  notes: >-
-    current marketplace — also called: the marketplace as it now is, currency of a reference
-    — not: priority date, the marketplace as it was
+  notes: 'current marketplace — also called: the marketplace as it now is, currency of a reference
+    — not: priority date, the marketplace as it was'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/3/3/2
@@ -2217,45 +2125,42 @@
       - 91
       - 248
       content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
-      quote: >-
-        Each application must be considered as it stands in the current marketplace, not
-        in the marketplace as it was in the past and not as it may be in the future.
+      quote: Each application must be considered as it stands in the current marketplace,
+        not in the marketplace as it was in the past and not as it may be in the future.
     - ref: TMM/Part29/3/3/2
       span:
       - 459
       - 577
       content_hash: sha256:d222f7d371d8e06883804bb5b725e0a62be4d39b890ebdbb2fc9ecfcd28d0d16
-      quote: >-
-        the market may have changed and a term that was meaningless 10 years ago might
+      quote: the market may have changed and a term that was meaningless 10 years ago might
         now have currency in a particular field
-    confidence: 0.75
-    reasoning: >-
-      The temporal frame the connotation question is asked in. It conditions the answer
-      without being one, in the same way GC-0016 does at the other end of the Part.
+    confidence: 0.8
+    reasoning: 'current marketplace is the marketplace as it now stands: something outside
+      the trade mark that the assessment looks at — the goods, the market and its consumers,
+      a person or place, a reputation, a date — so `context`. Retyped on the owner''s ruling
+      B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge.
+      What it does is on its edges: GR-0022 constrains the examiner on likely to deceive or
+      cause confusion; GR-0023 qualifies connotation; GR-0461 constrains examiner; GR-0469
+      qualifies deception; and more.'
     alternatives_considered:
-    - >-
-      legal_test — right only if 'what does this term mean in today’s market' is a question
-      examiners answer separately, rather than the setting in which GC-0001's question
-      is answered.
-    expert_should_check: >-
-      The contradiction GC-0049's record note names: 29.3.2 directs attention to the current
-      marketplace and 29.6 to the priority date. Both are typed relevant_factor, which
-      asserts they are two inputs and not a conflict — and that assertion has not been
-      checked by anyone.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0050
   concept: GC-0050
-  type: relevant_factor
+  type: context
   basis:
   - TMM/Part29/9/9/7
-  notes: >-
-    reputation — also called: well known for, noted for, fame — not: reputation in another
-    trade mark, acquired distinctiveness
+  notes: 'reputation — also called: well known for, noted for, fame — not: reputation in another
+    trade mark, acquired distinctiveness'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/9/9/7
@@ -2263,32 +2168,30 @@
       - 650
       - 797
       content_hash: sha256:4a152ff8e285012f7bc44941664602f7d5ebbe7775f61faa73472e1827a6bc60
-      quote: >-
-        The particular currency (or relevance) that the reference currently has and the
+      quote: The particular currency (or relevance) that the reference currently has and the
         extent to which it is well known are also important considerations.
     - ref: TMM/Part29/9/9/7
       span:
       - 475
       - 648
       content_hash: sha256:4a152ff8e285012f7bc44941664602f7d5ebbe7775f61faa73472e1827a6bc60
-      quote: >-
-        it is important to remember that the connotation must be from the trade mark itself
-        and not from any other external considerations such as a reputation in another
+      quote: it is important to remember that the connotation must be from the trade mark
+        itself and not from any other external considerations such as a reputation in another
         trade mark
-    confidence: 0.65
-    reasoning: >-
-      The corpus calls how well known a reference is an important consideration, in those
-      words. Typed relevant_factor on that sentence.
+    confidence: 0.8
+    reasoning: 'reputation is a place''s or person''s being known for something: something
+      outside the trade mark that the assessment looks at — the goods, the market and its
+      consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner''s
+      ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does
+      is an edge. What it does is on its edges: GR-0081: likely to deceive or cause confusion
+      requires it; GR-0124 qualifies geographical reference; GR-0139 qualifies implied endorsement;
+      GR-0315 qualifies geographical reference; and more.'
     alternatives_considered:
-    - >-
-      none_of_these — right if reputation is thought of as a fact about the world rather
-      than a legal idea, though the same objection would take most of the relevant_factor
-      group with it.
-    expert_should_check: >-
-      That the typing does not blur the boundary in the second quote. Reputation in the
-      reference is a consideration; reputation in another trade mark is an external consideration
-      and expressly not a source of connotation. One label now covers a concept that is
-      admissible in one direction and prohibited in the other.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0051
   concept: GC-0051
   type: none_of_these
@@ -2344,19 +2247,18 @@
       GT-0007 is typed exception and this one is typed nothing.
 - id: GT-0052
   concept: GC-0052
-  type: relevant_factor
+  type: procedural_step
   basis:
   - TMM/Part29/6#1~1
   - TMM/Part29/9/9/4
-  notes: >-
-    examiner research — also called: research, informed by research, research indicates
-    — not: evidence of use, state of the Register
+  notes: 'examiner research — also called: research, informed by research, research indicates
+    — not: evidence of use, state of the Register'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-08'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/6#1~1
@@ -2364,118 +2266,100 @@
       - 1489
       - 1584
       content_hash: sha256:ac69f55b0b06f0f288ea66d5dc7029193e5cb434b4c2504d45f9e0a087588318
-      quote: >-
-        then careful consideration of several factors in combination, informed by research,
+      quote: then careful consideration of several factors in combination, informed by research,
         is required
     - ref: TMM/Part29/9/9/4
       span:
       - 924
       - 1109
       content_hash: sha256:b338dd460c75842d9658f27fd99008fdf4da4df0d87c90928e6f3157d4509c62
-      quote: >-
-        Research indicates that this town is known as 'The Horse Capital of Australia'
+      quote: Research indicates that this town is known as 'The Horse Capital of Australia'
         and claims to be the second-largest horse breeding area in the world, after Kentucky
         in the United States.
-    confidence: 0.7
-    reasoning: >-
-      Research is how an examiner acquires the facts the other factors are weighed on,
-      and Part 29.6 requires it in terms. Typed relevant_factor with the evidence it produces.
+    confidence: 0.6
+    reasoning: 'examiner research is the research an examiner does during examination: an
+      act, proceeding or event that moves an application or a registration from one state
+      to the next — so `procedural_step`. Retyped on the owner''s ruling B1 of 2026-10-09
+      (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does
+      is on its edges: GR-0046 constrains the examiner on phoneword; GR-0186 may give rise
+      to section 41 ground for rejection; GR-0187 may give rise to section 41 ground for rejection;
+      GR-0189 qualifies capable of distinguishing.'
     alternatives_considered:
-    - >-
-      none_of_these — right if research is an activity rather than a consideration, in
-      which case it belongs with the procedural concepts at GT-0040.
-    expert_should_check: >-
-      The same line as GT-0041: evidence a party files and research an examiner does are
-      typed identically here, and the Manual keeps them apart under s 43 by asking examiners
-      to research rather than to require evidence.
-
-# --- Added 2026-09-09 (S018) -----------------------------------------------
-#
-# The typings for the concepts authored from the whole Manual once the section 43
-# boundary was withdrawn (ADR-0081, ADR-0095). Same rules as the 52 above: every
-# `type` is this repository's own proposal for an expert to correct, `approved_by`
-# is null, and nothing here has been read by a trade marks expert.
-#
-# Two things are worth knowing before reading them.
-#
-# **The distribution moved, and that is the finding.** The first 52 came out 30
-# relevant_factor and 1 ground_of_refusal, because they were a vocabulary built
-# around one ground. These come out with far more `none_of_these` — roles,
-# documents, proceedings, outcomes and remedies, which the four groups were never
-# shaped to hold. That is evidence about the taxonomy, not about the records
-# (OQ-0024).
-#
-# **Several typings are deliberately inconsistent with each other and say so.**
-# `divisional application` and `convention application` are typed differently on
-# similar facts; `removal for non-use` is typed on the assumption that the four
-# groups are about refusing an application rather than ending a registration.
-# Each names the inconsistency in `expert_should_check` rather than hiding it.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is a step that moves the application on, or an activity
+      inside one.
 - id: GT-0054
   concept: GC-0054
-  type: ground_of_refusal
+  type: sign_content
   basis:
   - TMA1995/s39
-  notes: >-
-    prohibited sign — also called: prohibited signs, sign that is not to be used as a trade mark —
-    not: prescribed sign, scandalous matter, sign so nearly resembling
+  notes: 'prohibited sign — also called: prohibited signs, sign that is not to be used as
+    a trade mark — not: prescribed sign, scandalous matter, sign so nearly resembling'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
     evidence:
     - ref: TMA1995/s39
       span:
       - 4
       - 121
       content_hash: sha256:5c6142286d25888ad60e7b915ee08e6b4c74dfbbc868380658b3cfbba876b358
-      quote: An application for the registration of a trade mark must be rejected if the trade mark
-        contains or consists of a sign
-    confidence: 0.9
-    reasoning: >-
-      Section 39(1) says an application must be rejected if the trade mark contains such a sign. That
-      is a reason an application can be refused, which is the owner's own words for ground_of_refusal.
+      quote: An application for the registration of a trade mark must be rejected if the trade
+        mark contains or consists of a sign
+    confidence: 0.8
+    reasoning: 'prohibited sign is a sign that regulations under section 18 say is not to
+      be used as a trade mark, as a mark may contain one: something a trade mark contains
+      or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`.
+      Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept
+      is, and what it does is an edge. What it does is on its edges: GR-0481 may give rise
+      to section 39 ground for rejection.'
     alternatives_considered:
-    - >-
-      relevant_factor — right only if the concept were material feeding some other ground's question,
-      which it is not: it is its own subsection.
-    expert_should_check: >-
-      Nothing about the typing; the doubt is whether an inert ground should be typed at all.
+    - ground_of_refusal — its kind until 2026-10-09 (claude-opus-5). The Act calls it 'a sign
+      that ...', and the ground it gives rise to is now its own concept, GC-0182 section 39
+      ground for rejection (ruling B4).
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0055
   concept: GC-0055
-  type: ground_of_refusal
+  type: sign_content
   basis:
   - TMA1995/s39
-  notes: >-
-    prescribed sign — also called: prescribed signs, sign prescribed for the purposes of subsection
-    39(2) — not: prohibited sign, scandalous matter
+  notes: 'prescribed sign — also called: prescribed signs, sign prescribed for the purposes
+    of subsection 39(2) — not: prohibited sign, scandalous matter'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
     evidence:
     - ref: TMA1995/s39
       span:
       - 222
       - 331
       content_hash: sha256:5c6142286d25888ad60e7b915ee08e6b4c74dfbbc868380658b3cfbba876b358
-      quote: An application for the registration of a trade mark may be rejected if the trade mark
-        contains or consists of
-    confidence: 0.85
-    reasoning: >-
-      A reason an application can be refused, in the Act's own words. That the reason is discretionary
-      ('may') does not stop it being a ground.
+      quote: An application for the registration of a trade mark may be rejected if the trade
+        mark contains or consists of
+    confidence: 0.8
+    reasoning: 'prescribed sign is a sign prescribed for the purposes of section 39(2), as
+      a mark may contain one: something a trade mark contains or conveys — a word, name, image
+      or sign within it, or a meaning — so `sign_content`. Retyped on the owner''s ruling
+      B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge.
+      What it does is on its edges: GR-0198 may give rise to section 39 ground for rejection;
+      GR-0199 may give rise to section 39 ground for rejection.'
     alternatives_considered:
-    - >-
-      legal_test — the examiner must decide whether a sign is prescribed or so nearly resembles one.
-      Rejected: that decision is a step inside this ground, not the ground itself.
-    expert_should_check: >-
-      Whether a discretionary ground and a mandatory one belong in the same group.
+    - ground_of_refusal — its kind until 2026-10-09 (claude-opus-5). The Act calls it 'a sign
+      that ...', and the ground it gives rise to is now its own concept, GC-0182 section 39
+      ground for rejection (ruling B4).
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0056
   concept: GC-0056
   type: legal_test
@@ -2802,19 +2686,18 @@
       Nothing specific.
 - id: GT-0066
   concept: GC-0066
-  type: exception
+  type: use_in_trade
   basis:
   - TMM/Part28/2#1
-  notes: >-
-    honest concurrent use — also called: honest concurrent use of the 2 trade marks, concurrent use
-    — not: prior use, other circumstances, evidence of use
+  notes: 'honest concurrent use — also called: honest concurrent use of the 2 trade marks,
+    concurrent use — not: prior use, other circumstances, evidence of use'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part28/2#1
       span:
@@ -2822,82 +2705,87 @@
       - 126
       content_hash: sha256:c3fadcce343caacd1533e3883506a4f37665ec9ad106f6c5ade24326f39b12fc
       quote: In order to overcome grounds for rejection under ss 44(1) or 44(2) of the Act
-    confidence: 0.85
-    reasoning: >-
-      The Manual says in terms that it exists to overcome a ground that would otherwise apply. Something
-      that takes a case out of the rule is an exception on the owner's four groups.
+    confidence: 0.8
+    reasoning: 'honest concurrent use is two traders'' honest use of their marks side by side:
+      something a person does with a trade mark in the course of trade — using it, or authorising
+      its use — so `use_in_trade`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126):
+      a kind says what a concept is, and what it does is an edge. What it does is on its edges:
+      GR-0220: conflict with other signs is overcome by it.'
     alternatives_considered:
-    - >-
-      legal_test — the Registrar must be satisfied of honest concurrent use, which is a question.
-      Typed as exception because the question only arises to displace a ground.
-    expert_should_check: >-
-      Whether an exception that is discretionary ('may accept') is the same kind of thing as one that
-      is mandatory. Section 44(4) prior use is mandatory and is typed the same way in this pass.
+    - 'exception — its group until 2026-10-09 (claude-opus-5). That is what it does, not what
+      it is: under B1 its being an exception is said by an edge naming the ground or test,
+      not by a group.'
+    expert_should_check: Whether this is use itself, or a circumstance about use that belongs
+      with context.
 - id: GT-0067
   concept: GC-0067
-  type: exception
+  type: use_in_trade
   basis:
   - TMA1995/s44
-  notes: >-
-    prior use — also called: continuous prior use, prior continuous use — not: honest concurrent use,
-    other circumstances, first use
+  notes: 'prior use — also called: continuous prior use, prior continuous use — not: honest
+    concurrent use, other circumstances, first use'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
     evidence:
     - ref: TMA1995/s44
       span:
       - 3452
       - 3545
       content_hash: sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa
-      quote: the Registrar may not reject the application because of the existence of the other trade
-        mark
-    confidence: 0.85
-    reasoning: >-
-      It takes a case out of the section 44 ground — the Act says the Registrar may not reject on
-      the strength of the cited mark. That is an exception.
+      quote: the Registrar may not reject the application because of the existence of the
+        other trade mark
+    confidence: 0.8
+    reasoning: 'prior use is an applicant''s use of its mark before another''s: something
+      a person does with a trade mark in the course of trade — using it, or authorising its
+      use — so `use_in_trade`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126):
+      a kind says what a concept is, and what it does is an edge. What it does is on its edges:
+      GR-0219: conflict with other signs is overcome by it.'
     alternatives_considered:
-    - >-
-      relevant_factor — rejected: it is not material feeding the s 44 question, it displaces the answer.
-    expert_should_check: >-
-      Consistency with honest concurrent use: both are typed exception here despite one being discretionary
-      and the other mandatory.
+    - 'exception — its group until 2026-10-09 (claude-opus-5). That is what it does, not what
+      it is: under B1 its being an exception is said by an edge naming the ground or test,
+      not by a group.'
+    expert_should_check: Whether this is use itself, or a circumstance about use that belongs
+      with context.
 - id: GT-0068
   concept: GC-0068
-  type: exception
+  type: context
   basis:
   - TMM/Part28/4#1
-  notes: >-
-    other circumstances — also called: other circumstances making it proper to accept — not: honest
-    concurrent use, prior use, conditions and limitations
+  notes: 'other circumstances — also called: other circumstances making it proper to accept
+    — not: honest concurrent use, prior use, conditions and limitations'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part28/4#1
       span:
       - 19
       - 154
       content_hash: sha256:1ede2f240bc484da5f01ecadbd86c97eba07884610a1eec7afcc72785c5f4391
-      quote: allows the acceptance of a trade mark application where the application would otherwise
-        be subject to rejection under ss 44(1) or 44(2)
-    confidence: 0.85
-    reasoning: >-
-      The Manual says it allows acceptance where the application would otherwise be rejected. That
-      is taking a case out of the rule.
+      quote: allows the acceptance of a trade mark application where the application would
+        otherwise be subject to rejection under ss 44(1) or 44(2)
+    confidence: 0.7
+    reasoning: 'other circumstances is circumstances, other than concurrent or prior use,
+      that make acceptance proper: something outside the trade mark that the assessment looks
+      at — the goods, the market and its consumers, a person or place, a reputation, a date
+      — so `context`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says
+      what a concept is, and what it does is an edge. What it does is on its edges: GR-0229:
+      conflict with other signs is overcome by it; GR-0231 may give rise to acceptance.'
     alternatives_considered:
-    - >-
-      legal_test — rejected for the same reason as honest concurrent use.
-    expert_should_check: >-
-      Nothing specific.
+    - 'exception — its group until 2026-10-09 (claude-opus-5). That is what it does, not what
+      it is: under B1 its being an exception is said by an edge naming the ground or test,
+      not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0070
   concept: GC-0070
   type: legal_test
@@ -3310,19 +3198,18 @@
       Nothing specific.
 - id: GT-0081
   concept: GC-0081
-  type: relevant_factor
+  type: use_in_trade
   basis:
   - TMM/Part19A/1#1
-  notes: >-
-    use of a trade mark — also called: use, trade mark use — not: authorised use, prior use, honest
-    concurrent use, evidence of use
+  notes: 'use of a trade mark — also called: use, trade mark use — not: authorised use, prior
+    use, honest concurrent use, evidence of use'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part19A/1#1
       span:
@@ -3330,32 +3217,31 @@
       - 341
       content_hash: sha256:74a6887e041d0d46e5ea65ac7e6a1a7f9c15976b02c832b7dd5bf8c866e30329
       quote: Whether a trade mark has been used is relevant to a number of questions
-    confidence: 0.75
-    reasoning: >-
-      The Manual says use is relevant to a number of questions and lists them. Something that feeds
-      into an answer rather than being the answer is a relevant_factor.
+    confidence: 0.8
+    reasoning: 'use of a trade mark is using a trade mark in the course of trade: something
+      a person does with a trade mark in the course of trade — using it, or authorising its
+      use — so `use_in_trade`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126):
+      a kind says what a concept is, and what it does is an edge. What it does is on its edges:
+      GR-0508 qualifies evidence of use; GR-0520 qualifies defensive trade mark.'
     alternatives_considered:
-    - >-
-      legal_test — under section 41(3)(b) whether the applicant has used the mark is the second element
-      of a two-part question, so in that setting it is a test. The Manual's own framing is broader,
-      and this record follows the Manual.
-    expert_should_check: >-
-      Use plays a different role under each provision it touches. If the taxonomy is meant to type
-      a concept by its role, this concept may need several typings.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is use itself, or a circumstance about use that belongs
+      with context.
 - id: GT-0082
   concept: GC-0082
-  type: relevant_factor
+  type: use_in_trade
   basis:
   - TMA1995/s8
-  notes: >-
-    authorised use — also called: authorised use of a trade mark — not: use of a trade mark, authorised
-    user, assignment
+  notes: 'authorised use — also called: authorised use of a trade mark — not: use of a trade
+    mark, authorised user, assignment'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMA1995/s8
@@ -3364,17 +3250,19 @@
       - 166
       content_hash: sha256:a4ece48fa93452ed39793b89addc69db826bebe10d8ee6f4818903ab8351a823
       quote: under the control of the owner of the trade mark
-    confidence: 0.65
-    reasoning: >-
-      Section 7(3) makes authorised use count as the owner's use, so it feeds the questions use feeds
-      — capability to distinguish, prior use, ownership — rather than answering one of its own.
+    confidence: 0.8
+    reasoning: 'authorised use is use of a trade mark by an authorised user under the owner''s
+      control: something a person does with a trade mark in the course of trade — using it,
+      or authorising its use — so `use_in_trade`. Retyped on the owner''s ruling B1 of 2026-10-09
+      (ADR-0126): a kind says what a concept is, and what it does is an edge. No edge yet
+      says what it does to which ground or test — a gap the relate job and the edge audit
+      look for.'
     alternatives_considered:
-    - >-
-      legal_test — whether use was under the owner's control is a real question with its own case
-      law. A reviewer who types it that way is disagreeing about whether a definitional question counts
-      as a test.
-    expert_should_check: >-
-      Whether control is itself a test that should be a separate concept.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is use itself, or a circumstance about use that belongs
+      with context.
 - id: GT-0083
   concept: GC-0083
   type: process_role
@@ -3455,18 +3343,17 @@
       role typing carries none of that.
 - id: GT-0085
   concept: GC-0085
-  type: relevant_factor
+  type: process_role
   basis:
   - TMA1995/s41
-  notes: >-
-    predecessor in title — not: registered owner, authorised user, assignment
+  notes: 'predecessor in title — not: registered owner, authorised user, assignment'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
     evidence:
     - ref: TMA1995/s41
       span:
@@ -3474,16 +3361,17 @@
       - 2520
       content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
       quote: is taken to be a use of the trade mark by the applicant
-    confidence: 0.7
-    reasoning: >-
-      It extends whose use counts, so it feeds the use questions rather than answering one. That is
-      a relevant_factor.
+    confidence: 0.8
+    reasoning: 'predecessor in title is a person from whom the applicant''s title to the mark
+      derives: a person or body that acts — who does something — so `process_role`. Retyped
+      on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and
+      what it does is an edge. What it does is on its edges: GR-0493 qualifies prior use.'
     alternatives_considered:
-    - >-
-      none_of_these — it is a role, like registered owner. The difference is that the Act attaches
-      a consequence to it directly, which this record treats as making it factor-like.
-    expert_should_check: >-
-      Whether this and the other role concepts should be typed alike.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this person acts in the process, or is only someone the assessment
+      refers to.
 - id: GT-0086
   concept: GC-0086
   type: procedural_step
@@ -3633,18 +3521,17 @@
       the other two are held by nothing.
 - id: GT-0091
   concept: GC-0091
-  type: relevant_factor
+  type: context
   basis:
   - TMA1995/s41
-  notes: >-
-    filing date — not: priority date, date of registration
+  notes: 'filing date — not: priority date, date of registration'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
-    authoring_basis: corpus_explicit
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
     evidence:
     - ref: TMA1995/s41
       span:
@@ -3652,14 +3539,19 @@
       - 843
       content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
       quote: before the filing date
-    confidence: 0.7
-    reasoning: >-
-      It fixes the period over which use counts under section 41(3)(b), so it feeds that answer.
+    confidence: 0.75
+    reasoning: 'filing date is the date an application is filed: something outside the trade
+      mark that the assessment looks at — the goods, the market and its consumers, a person
+      or place, a reputation, a date — so `context`. Retyped on the owner''s ruling B1 of
+      2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What
+      it does is on its edges: GR-0269 qualifies renewal of registration; GR-0524 qualifies
+      evidence of use; GR-0525 qualifies convention application.'
     alternatives_considered:
-    - >-
-      none_of_these — a date is not obviously a factor. Defensible.
-    expert_should_check: >-
-      Whether dates should be concepts at all, or attributes of an application.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0092
   concept: GC-0092
   type: procedural_step
@@ -4218,18 +4110,17 @@
       'trade mark' is a modelling question this typing does not answer.
 - id: GT-0111
   concept: GC-0111
-  type: relevant_factor
+  type: instrument_or_record
   basis:
   - TMM/Part11/1/1/2
-  notes: >-
-    convention application — also called: convention claim, claim for priority — not: divisional application,
-    priority date, international registration
+  notes: 'convention application — also called: convention claim, claim for priority — not:
+    divisional application, priority date, international registration'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part11/1/1/2
@@ -4237,18 +4128,21 @@
       - 0
       - 91
       content_hash: sha256:1a253922355f22a634da8bad7e6c2fc1104ed3c6c8c185f4a7c7e34d27051e4b
-      quote: A Convention country is a foreign country or region of a kind prescribed by the regulations
-    confidence: 0.55
-    reasoning: >-
-      A convention claim changes the priority date, which is one of the two elements of the section
-      44 ground. So it feeds that answer.
+      quote: A Convention country is a foreign country or region of a kind prescribed by the
+        regulations
+    confidence: 0.8
+    reasoning: 'convention application is an application claiming priority from an earlier
+      one in a Convention country: a document, entry or endorsement the process produces or
+      receives, or writes to the Register — so `instrument_or_record`. Retyped on the owner''s
+      ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does
+      is an edge. What it does is on its edges: GR-0408 qualifies priority date; GR-0602 qualifies
+      date of registration.'
     alternatives_considered:
-    - >-
-      none_of_these — it is a form of application, like a divisional. The inconsistency between these
-      two records is deliberate and flagged.
-    expert_should_check: >-
-      This and 'divisional application' are typed differently on similar facts. One of the two is
-      wrong and a reviewer should say which.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is a document or entry in itself, or the step that produces
+      it.
 - id: GT-0112
   concept: GC-0112
   type: external_instrument
@@ -4668,18 +4562,17 @@
       after it. One concept spans two regimes and the group does not show the split.
 - id: GT-0126
   concept: GC-0126
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part32B/1/1/1
-  notes: >-
-    protected wine expression — also called: geographical indication for wine, protected GI — not:
-    geographical indication, geographical name, plant varietal name
+  notes: 'protected wine expression — also called: geographical indication for wine, protected
+    GI — not: geographical indication, geographical name, plant varietal name'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part32B/1/1/1
@@ -4687,19 +4580,22 @@
       - 127
       - 217
       content_hash: sha256:7c737edcd548f36aa4c10588c4c0c22b98dfd7ed73a747cb8053e957388477aa
-      quote: involves consideration of additional requirements arising from the Wine Australia Act
-        2013
-    confidence: 0.55
-    reasoning: >-
-      Typed with plant varietal name, on the same reasoning: it bears on the grounds rather than being
-      one.
+      quote: involves consideration of additional requirements arising from the Wine Australia
+        Act 2013
+    confidence: 0.8
+    reasoning: 'term protected under the Wine Australia Act is a term protected under the
+      Wine Australia Act, as a mark may contain one: something a trade mark contains or conveys
+      — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on
+      the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and
+      what it does is an edge. What it does is on its edges: GR-0635 is protected through
+      Register of Protected Geographical Indications and Other Terms; GR-0636 may give rise
+      to use contrary to law.'
     alternatives_considered:
-    - >-
-      ground_of_refusal — section 61 does supply a ground for GIs. Whether this concept is that ground
-      or the material feeding it is the question.
-    expert_should_check: >-
-      Type this and 'plant varietal name' the same way, or say why the two external-statute cases
-      differ.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0127
   concept: GC-0127
   type: instrument_or_record
@@ -4779,18 +4675,17 @@
       Section 33(4) suggests one answer and Part 51 arguably another.
 - id: GT-0130
   concept: GC-0130
-  type: relevant_factor
+  type: context
   basis:
   - TMM/Part34/1/1/1
-  notes: >-
-    reputation — also called: reputation in Australia — not: use of a trade mark, evidence of use,
-    connotation
+  notes: 'reputation — also called: reputation in Australia — not: use of a trade mark, evidence
+    of use, connotation'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part34/1/1/1
@@ -4799,16 +4694,19 @@
       - 368
       content_hash: sha256:7b44f7d0f5f4f947f0e52138b3d80f9f8b0553bebcd6d25b124069add4f2954b
       quote: used to such an extent
-    confidence: 0.6
-    reasoning: >-
-      It feeds the answers to several questions — deception under s 43, entitlement to a defensive
-      registration under s 185 — without being a question itself.
+    confidence: 0.8
+    reasoning: 'reputation of a trade mark is a trade mark''s being known in Australia: something
+      outside the trade mark that the assessment looks at — the goods, the market and its
+      consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner''s
+      ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does
+      is an edge. What it does is on its edges: GR-0084 may give rise to deception; GR-0555
+      qualifies defensive trade mark.'
     alternatives_considered:
-    - >-
-      legal_test — under section 60 the reputation question is the ground. Which typing is right depends
-      on which sense of reputation is meant.
-    expert_should_check: >-
-      Settle whether this is one concept or several before typing it.
+    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
+      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0131
   concept: GC-0131
   type: instrument_or_record
@@ -5564,7 +5462,7 @@
       the requirement under regulation 21.25.
 - id: GT-0157
   concept: GC-0157
-  type: relevant_factor
+  type: context
   basis:
   - TMA1995/s6/convention-country
   notes: Convention country
@@ -5572,9 +5470,9 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
     evidence:
     - ref: TMA1995/s6/convention-country
       span:
@@ -5583,20 +5481,19 @@
       content_hash: sha256:8c7841472e31ff07bb0283782600f5c522c7452efaf1706ba9d53eccc9e02bf2
       quote: Convention country means a foreign country or region of a kind prescribed by
         the regulations.
-    confidence: 0.96
-    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly defines a
-      legally significant category of foreign country or region. The Manual explains its relevance
-      to priority under section 29 and describes the prescriptions in regulation 21.29. It
-      is distinct from the existing convention application concept: it identifies the qualifying
-      jurisdiction, not the application. relevant_factor fits best because this status feeds
-      into priority entitlement; the country or region is not itself a treaty or an actor
-      in the described process.'
+    confidence: 0.7
+    reasoning: 'Convention country is a foreign country or region of a kind the regulations
+      prescribe: something outside the trade mark that the assessment looks at — the goods,
+      the market and its consumers, a person or place, a reputation, a date — so `context`.
+      Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept
+      is, and what it does is an edge. What it does is on its edges: GR-0340: convention application
+      requires it.'
     alternatives_considered:
-    - none_of_these if jurisdictional status is treated as a standalone category rather than
-      a relevant factor in priority entitlement.
-    expert_should_check: Check regulation 21.29 directly for the prescribed countries and
-      regions, as its content is supplied only through the Manual extract; also confirm the
-      relevant_factor grouping.
+    - 'relevant_factor — its group until 2026-10-09 (gpt-6.1-sol). That is what it does, not
+      what it is: under B1 its being a relevant factor is said by an edge naming the ground
+      or test, not by a group.'
+    expert_should_check: Whether this is something outside the mark at all, or a meaning the
+      mark itself conveys (sign content).
 - id: GT-0158
   concept: GC-0158
   type: instrument_or_record
@@ -5892,7 +5789,7 @@
     expert_should_check: null
 - id: GT-0169
   concept: GC-0169
-  type: relevant_factor
+  type: sign_content
   basis:
   - TMM/Part32B/1/1/3
   notes: wine geographical indication — a wine GI feeds the s 42(b) and s 43 questions; typed
@@ -5901,9 +5798,9 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S026
-    authored_date: '2026-10-08'
-    authoring_basis: corpus_explicit
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part32B/1/1/3
       span:
@@ -5912,10 +5809,19 @@
       content_hash: sha256:477b4457c36116f72b0b60c7022c87ee4c711c97faa9e34ad3b8fddff85dcf64
       quote: Australian Geographical Indications (‘Australian GIs’) European Geographical
         Indications (‘European GIs’)
-    confidence: 0.85
-    reasoning: a wine GI feeds the s 42(b) and s 43 questions; typed as GC-0018 is
-    alternatives_considered: []
-    expert_should_check: null
+    confidence: 0.8
+    reasoning: 'wine geographical indication is a geographical indication for wine, as a mark
+      may contain one: something a trade mark contains or conveys — a word, name, image or
+      sign within it, or a meaning — so `sign_content`. Retyped on the owner''s ruling B1
+      of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge.
+      What it does is on its edges: GR-0634 is protected through Register of Protected Geographical
+      Indications and Other Terms.'
+    alternatives_considered:
+    - 'relevant_factor — its group until 2026-10-09 (claude-code-agent-S026). That is what
+      it does, not what it is: under B1 its being a relevant factor is said by an edge naming
+      the ground or test, not by a group.'
+    expert_should_check: Whether this is better read as something about the mark's context
+      than about what the mark itself contains or conveys.
 - id: GT-0170
   concept: GC-0170
   type: instrument_or_record
@@ -6200,4 +6106,63 @@
     confidence: 0.7
     reasoning: an authority kind (practice), not a role, thing, step, record or scheme
     alternatives_considered: []
+    expert_should_check: null
+- id: GT-0181
+  concept: GC-0181
+  type: ground_of_refusal
+  basis:
+  - TMA1995/s41
+  notes: section 41 ground for rejection — the ground section 41 creates
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s41
+      span:
+      - 4
+      - 299
+      content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+      quote: An application for the registration of a trade mark must be rejected if the trade
+        mark is not capable of distinguishing the applicant’s goods or services in respect
+        of which the trade mark is sought to be registered (the designated goods or services)
+        from the goods or services of other persons.
+    confidence: 0.95
+    reasoning: Section 41 states a reason an application must be rejected, which is what a
+      ground of refusal is.
+    alternatives_considered:
+    - 'legal_test — rejected: the test is a separate concept; this is the ground the test
+      decides.'
+    expert_should_check: null
+- id: GT-0182
+  concept: GC-0182
+  type: ground_of_refusal
+  basis:
+  - TMA1995/s39
+  notes: section 39 ground for rejection — the ground section 39 creates
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s39
+      span:
+      - 4
+      - 217
+      content_hash: sha256:5c6142286d25888ad60e7b915ee08e6b4c74dfbbc868380658b3cfbba876b358
+      quote: An application for the registration of a trade mark must be rejected if the trade
+        mark contains or consists of a sign that, under regulations made for the purposes
+        of section 18, is not to be used as a trade mark.
+    confidence: 0.95
+    reasoning: Section 39 states reasons an application must or may be rejected, which is
+      what a ground of refusal is.
+    alternatives_considered:
+    - 'legal_test — rejected: the test is a separate concept; this is the ground the test
+      decides.'
     expert_should_check: null

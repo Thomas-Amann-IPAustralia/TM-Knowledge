@@ -1747,10 +1747,17 @@ tmkc:GC-0036 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32A/2/4/2/4/1> ;
     tmk:goldRecord "GC-0036" ;
+    tmk:labelKey "other plant name",
+        "plant variety denomination",
+        "plant variety name",
+        "variety name" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "genus"@en-AU,
         "plant materials"@en-AU ;
+    tmk:notLabelKey "genus",
+        "plant material" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "plant variety name" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0046 a skos:Concept,
@@ -1766,9 +1773,14 @@ tmkc:GC-0046 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> ;
     tmk:goldRecord "GC-0046" ;
+    tmk:labelKey "registrar",
+        "registrar of trade mark" ;
     tmk:notLabel "IP Australia"@en-AU,
         "examiner"@en-AU ;
+    tmk:notLabelKey "examiner",
+        "ip australia" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "registrar" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0048 a skos:Concept,
@@ -1785,9 +1797,16 @@ tmkc:GC-0048 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
     tmk:goldRecord "GC-0048" ;
+    tmk:labelKey "ambiguous geographic reference",
+        "fanciful description",
+        "fanciful or ambiguous reference",
+        "unrealistic description" ;
     tmk:notLabel "arbitrary mark"@en-AU,
         "misdescriptive"@en-AU ;
+    tmk:notLabelKey "arbitrary mark",
+        "misdescriptive" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "fanciful or ambiguous reference" ;
     tmk:reviewStatus "approved" .
 
 tmkp:CQ-0001 a tmk:CompetencyQuestion ;
@@ -2357,9 +2376,15 @@ tmkc:GC-0020 a skos:Concept,
     tmk:approvedDate "2026-08-25"^^xsd:date ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/6> ;
     tmk:goldRecord "GC-0020" ;
+    tmk:labelKey "business identifier",
+        "company name element",
+        "trading name element" ;
     tmk:notLabel "geographical origin"@en-AU,
         "geographical reference"@en-AU ;
+    tmk:notLabelKey "geographical origin",
+        "geographical reference" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "business identifier" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0021 a skos:Concept,
@@ -2378,8 +2403,15 @@ tmkc:GC-0021 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
     tmk:goldRecord "GC-0021" ;
+    tmk:labelKey "geographical qualifier",
+        "made in",
+        "product of",
+        "qualifier",
+        "qualifying information" ;
     tmk:notLabel "standalone geographical reference"@en-AU ;
+    tmk:notLabelKey "standalone geographical reference" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "geographical qualifier" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0033 a skos:Concept,
@@ -2396,9 +2428,16 @@ tmkc:GC-0033 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/2> ;
     tmk:goldRecord "GC-0033" ;
+    tmk:labelKey "country code tld",
+        "generic tld",
+        "tld",
+        "top level domain" ;
     tmk:notLabel "second level domain"@en-AU,
         "subdomain"@en-AU ;
+    tmk:notLabelKey "second level domain",
+        "subdomain" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "top level domain" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0037 a skos:Concept,
@@ -2414,10 +2453,17 @@ tmkc:GC-0037 a skos:Concept,
     tmk:approvedDate "2026-08-25"^^xsd:date ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> ;
     tmk:goldRecord "GC-0037" ;
+    tmk:labelKey "aboriginal designed",
+        "claim to indigenous origin",
+        "indigenous connection",
+        "reference to indigenous people" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "Indigenous applicant"@en-AU,
         "prescribed sign"@en-AU ;
+    tmk:notLabelKey "indigenous applicant",
+        "prescribed sign" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "claim to indigenous origin" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0039 a skos:Concept,
@@ -2433,10 +2479,16 @@ tmkc:GC-0039 a skos:Concept,
     tmk:approvedDate "2026-08-25"^^xsd:date ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
     tmk:goldRecord "GC-0039" ;
+    tmk:labelKey "connotation developed over time",
+        "developed secondary meaning",
+        "meaning acquired through use in a trade" ;
     tmk:mayGiveRiseTo tmkc:GC-0040 ;
     tmk:notLabel "acquired distinctiveness"@en-AU,
         "reputation"@en-AU ;
+    tmk:notLabelKey "acquired distinctiveness",
+        "reputation" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "connotation developed over time" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0042 a skos:Concept,
@@ -2450,9 +2502,14 @@ tmkc:GC-0042 a skos:Concept,
     tmk:approvedDate "2026-08-25"^^xsd:date ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part51/10%231~1> ;
     tmk:goldRecord "GC-0042" ;
+    tmk:labelKey "revocation of acceptance",
+        "revoke acceptance" ;
     tmk:notLabel "opposition"@en-AU,
         "revocation of registration"@en-AU ;
+    tmk:notLabelKey "opposition",
+        "revocation of registration" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "revocation of acceptance" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0043 a skos:Concept,
@@ -2466,13 +2523,18 @@ tmkc:GC-0043 a skos:Concept,
     tmk:approvedDate "2026-08-25"^^xsd:date ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part12/2%231> ;
     tmk:goldRecord "GC-0043" ;
+    tmk:labelKey "divisional",
+        "divisional application" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s42>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "amendment"@en-AU,
         "series application"@en-AU ;
+    tmk:notLabelKey "amendment",
+        "sery application" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "divisional application" ;
     tmk:reviewStatus "approved" .
 
 tmkp:GS-0003-relevant-0 a tmk:RelevanceJudgement ;
@@ -2498,8 +2560,13 @@ tmkc:GC-0005 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~2> ;
     tmk:goldRecord "GC-0005" ;
+    tmk:labelKey "denotation",
+        "essential meaning",
+        "primary meaning" ;
     tmk:notLabel "connotation"@en-AU ;
+    tmk:notLabelKey "connotation" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "denotation" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0009 a skos:Concept,
@@ -2517,9 +2584,16 @@ tmkc:GC-0009 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
     tmk:goldRecord "GC-0009" ;
+    tmk:labelKey "buying public",
+        "relevant australian consumer",
+        "relevant market",
+        "relevant sector of the public" ;
     tmk:notLabel "relevant trade"@en-AU,
         "trade"@en-AU ;
+    tmk:notLabelKey "relevant trade",
+        "trade" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "relevant market" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0010 a skos:Concept,
@@ -2537,9 +2611,16 @@ tmkc:GC-0010 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
     tmk:goldRecord "GC-0010" ;
+    tmk:labelKey "average consumer",
+        "ordinary consumer",
+        "ordinary person",
+        "reasonable consumer" ;
     tmk:notLabel "exceptionally stupid or careless consumer"@en-AU,
         "expert consumer"@en-AU ;
+    tmk:notLabelKey "exceptionally stupid or careless consumer",
+        "expert consumer" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "ordinary consumer" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0016 a skos:Concept,
@@ -2555,10 +2636,17 @@ tmkc:GC-0016 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~2> ;
     tmk:goldRecord "GC-0016" ;
+    tmk:labelKey "as at the priority date",
+        "date of the application",
+        "priority date" ;
     tmk:notLabel "date of registration"@en-AU,
         "filing date"@en-AU,
         "last amended date"@en-AU ;
+    tmk:notLabelKey "date of registration",
+        "filing date",
+        "last amended date" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "priority date" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0018 a skos:Concept,
@@ -2576,10 +2664,17 @@ tmkc:GC-0018 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/11%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/1> ;
     tmk:goldRecord "GC-0018" ;
+    tmk:labelKey "geographical indication",
+        "gi",
+        "listed eu gi" ;
     tmk:notLabel "geographical origin"@en-AU,
         "geographical reference"@en-AU,
         "place name"@en-AU ;
+    tmk:notLabelKey "geographical origin",
+        "geographical reference",
+        "place name" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "geographical indication" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0024 a skos:Concept,
@@ -2595,10 +2690,16 @@ tmkc:GC-0024 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/5>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> ;
     tmk:goldRecord "GC-0024" ;
+    tmk:labelKey "included in a meaningful way",
+        "meaningful enough to give rise to a connotation",
+        "meaningful inclusion of an inn stem" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "contains an INN stem"@en-AU,
         "obvious derivation of an INN"@en-AU ;
+    tmk:notLabelKey "contain an inn stem",
+        "obvious derivation of an inn" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "meaningful inclusion of an inn stem" ;
     tmk:qualifies tmkc:GC-0023 ;
     tmk:reviewStatus "approved" .
 
@@ -2616,9 +2717,16 @@ tmkc:GC-0025 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> ;
     tmk:dependsOnExternalSource tmkc:GC-0022 ;
     tmk:goldRecord "GC-0025" ;
+    tmk:labelKey "class 5 good",
+        "pharmaceutical",
+        "pharmaceutical or veterinary substance",
+        "veterinary substance" ;
     tmk:notLabel "dietary or nutritional supplement"@en-AU,
         "medical services"@en-AU ;
+    tmk:notLabelKey "dietary or nutritional supplement",
+        "medical service" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "pharmaceutical or veterinary substance" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0027 a skos:Concept,
@@ -2635,10 +2743,16 @@ tmkc:GC-0027 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~2> ;
     tmk:goldRecord "GC-0027" ;
+    tmk:labelKey "deceased person",
+        "deceased well known person",
+        "long deceased historical figure" ;
     tmk:mayGiveRiseTo tmkc:GC-0001 ;
     tmk:notLabel "authorised entity"@en-AU,
         "estate"@en-AU ;
+    tmk:notLabelKey "authorised entity",
+        "estate" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "deceased person" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0030 a skos:Concept,
@@ -2655,9 +2769,17 @@ tmkc:GC-0030 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/25/25/7>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
     tmk:goldRecord "GC-0030" ;
+    tmk:labelKey "cartoon caricature",
+        "image of a person",
+        "photograph",
+        "portrait",
+        "representation of a person" ;
     tmk:notLabel "device"@en-AU,
         "signature"@en-AU ;
+    tmk:notLabelKey "device",
+        "signature" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "image of a person" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0032 a skos:Concept,
@@ -2674,10 +2796,16 @@ tmkc:GC-0032 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/2> ;
     tmk:goldRecord "GC-0032" ;
+    tmk:labelKey "domain name",
+        "internet domain name",
+        "internet domain name reference" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "standard address code material"@en-AU,
         "website"@en-AU ;
+    tmk:notLabelKey "standard address code material",
+        "website" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "internet domain name" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0034 a skos:Concept,
@@ -2693,12 +2821,19 @@ tmkc:GC-0034 a skos:Concept,
     tmk:approvedDate "2026-08-25"^^xsd:date ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> ;
     tmk:goldRecord "GC-0034" ;
+    tmk:labelKey "call sign",
+        "radio call sign",
+        "radio call sign or frequency",
+        "radio frequency" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:mayGiveRiseTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
     tmk:notLabel "broadcasting services"@en-AU,
         "licence"@en-AU ;
+    tmk:notLabelKey "broadcasting service",
+        "licence" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "radio call sign" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0038 a skos:Concept,
@@ -2716,9 +2851,16 @@ tmkc:GC-0038 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/5>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
     tmk:goldRecord "GC-0038" ;
+    tmk:labelKey "mark as a whole",
+        "mitigating element",
+        "other feature of the trade mark",
+        "trade mark as a whole" ;
     tmk:notLabel "essential feature"@en-AU,
         "part of the trade mark"@en-AU ;
+    tmk:notLabelKey "essential feature",
+        "part of the trade mark" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "trade mark as a whole" ;
     tmk:qualifies tmkc:GC-0002 ;
     tmk:reviewStatus "approved" .
 
@@ -2736,9 +2878,15 @@ tmkc:GC-0041 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part23/2/2/2/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
     tmk:goldRecord "GC-0041" ;
+    tmk:labelKey "considerable evidence of use",
+        "evidence",
+        "evidence of use" ;
     tmk:notLabel "research"@en-AU,
         "state of the Register"@en-AU ;
+    tmk:notLabelKey "research",
+        "state of the register" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "evidence of use" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0047 a skos:Concept,
@@ -2756,9 +2904,15 @@ tmkc:GC-0047 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
     tmk:doesNotGiveRiseTo tmkc:GC-0001 ;
     tmk:goldRecord "GC-0047" ;
+    tmk:labelKey "description of the good or service",
+        "descriptive matter",
+        "descriptive term" ;
     tmk:notLabel "connotation"@en-AU,
         "non-distinctive"@en-AU ;
+    tmk:notLabelKey "connotation",
+        "non distinctive" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "descriptive matter" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0051 a skos:Concept,
@@ -2774,10 +2928,16 @@ tmkc:GC-0051 a skos:Concept,
     tmk:approvedDate "2026-08-25"^^xsd:date ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
     tmk:goldRecord "GC-0051" ;
+    tmk:labelKey "application of section 43 is mandatory",
+        "mandatory application of the section",
+        "no discretion to accept" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "discretion"@en-AU,
         "presumption of registrability"@en-AU ;
+    tmk:notLabelKey "discretion",
+        "presumption of registrability" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "mandatory application of the section" ;
     tmk:reviewStatus "approved" .
 
 tmkp:PU-0003 a tmk:ProhibitedUse ;
@@ -2846,10 +3006,17 @@ tmkc:GC-0003 a skos:Concept,
     tmk:approvedDate "2026-08-25"^^xsd:date ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
     tmk:goldRecord "GC-0003" ;
+    tmk:labelKey "deceive",
+        "deception",
+        "misdescriptive",
+        "misled" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "confusion"@en-AU,
         "scandalous"@en-AU ;
+    tmk:notLabelKey "confusion",
+        "scandalous" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "deception" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0008 a skos:Concept,
@@ -2866,9 +3033,16 @@ tmkc:GC-0008 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> ;
     tmk:goldRecord "GC-0008" ;
+    tmk:labelKey "finite and non trivial probability",
+        "real and obvious danger",
+        "real and tangible danger",
+        "real tangible danger" ;
     tmk:notLabel "actual probability of deception"@en-AU,
         "mere possibility of confusion"@en-AU ;
+    tmk:notLabelKey "actual probability of deception",
+        "mere possibility of confusion" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "real and tangible danger" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0011 a skos:Concept,
@@ -2884,9 +3058,15 @@ tmkc:GC-0011 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
     tmk:goldRecord "GC-0011" ;
+    tmk:labelKey "all the surrounding circumstance",
+        "relevant circumstance",
+        "surrounding circumstance" ;
     tmk:notLabel "external considerations"@en-AU,
         "reputation in another trade mark"@en-AU ;
+    tmk:notLabelKey "external consideration",
+        "reputation in another trade mark" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "surrounding circumstance" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0015 a skos:Concept,
@@ -2905,9 +3085,16 @@ tmkc:GC-0015 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
     tmk:goldRecord "GC-0015" ;
+    tmk:labelKey "amendment to the specification",
+        "limitation of the specification",
+        "restriction of the specification",
+        "specification amendment" ;
     tmk:notLabel "deletion of goods"@en-AU,
         "divisional application"@en-AU ;
+    tmk:notLabelKey "deletion of good",
+        "divisional application" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "limitation of the specification" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0035 a skos:Concept,
@@ -2926,9 +3113,15 @@ tmkc:GC-0035 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> ;
     tmk:goldRecord "GC-0035" ;
+    tmk:labelKey "licensed owner or operator",
+        "owner or authorised user",
+        "registrant or authorised user" ;
     tmk:notLabel "applicant"@en-AU,
         "owner of the trade mark"@en-AU ;
+    tmk:notLabelKey "applicant",
+        "owner of the trade mark" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "owner or authorised user" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0045 a skos:Concept,
@@ -2942,9 +3135,13 @@ tmkc:GC-0045 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
     tmk:goldRecord "GC-0045" ;
+    tmk:labelKey "decision maker" ;
     tmk:notLabel "examiner"@en-AU,
         "hearing officer"@en-AU ;
+    tmk:notLabelKey "examiner",
+        "hearing officer" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "decision maker" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0050 a skos:Concept,
@@ -2962,9 +3159,16 @@ tmkc:GC-0050 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
     tmk:goldRecord "GC-0050" ;
+    tmk:labelKey "fame",
+        "noted for",
+        "reputation",
+        "well known for" ;
     tmk:notLabel "acquired distinctiveness"@en-AU,
         "reputation in another trade mark"@en-AU ;
+    tmk:notLabelKey "acquired distinctiveness",
+        "reputation in another trade mark" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "reputation" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0052 a skos:Concept,
@@ -2984,9 +3188,16 @@ tmkc:GC-0052 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> ;
     tmk:goldRecord "GC-0052" ;
+    tmk:labelKey "examiner research",
+        "informed by research",
+        "research",
+        "research indicate" ;
     tmk:notLabel "evidence of use"@en-AU,
         "state of the Register"@en-AU ;
+    tmk:notLabelKey "evidence of use",
+        "state of the register" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "examiner research" ;
     tmk:reviewStatus "approved" .
 
 tmkp:PU-0002 a tmk:ProhibitedUse ;
@@ -3034,11 +3245,19 @@ tmkc:GC-0004 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> ;
     tmk:goldRecord "GC-0004" ;
+    tmk:labelKey "cause confusion",
+        "caused to wonder",
+        "confuse",
+        "confusion" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "conflict with other signs"@en-AU,
         "confusion between trade marks"@en-AU,
         "deceptively similar"@en-AU ;
+    tmk:notLabelKey "conflict with other sign",
+        "confusion between trade mark",
+        "deceptively similar" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "confusion" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0007 a skos:Concept,
@@ -3053,9 +3272,13 @@ tmkc:GC-0007 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5/5/5>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4> ;
     tmk:goldRecord "GC-0007" ;
+    tmk:labelKey "presumption in favour of registrability",
+        "presumption of registrability" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(3)> ;
     tmk:notLabel "onus on the applicant"@en-AU ;
+    tmk:notLabelKey "onus on the applicant" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "presumption of registrability" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0031 a skos:Concept,
@@ -3071,10 +3294,17 @@ tmkc:GC-0031 a skos:Concept,
     tmk:approvedDate "2026-08-25"^^xsd:date ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> ;
     tmk:goldRecord "GC-0031" ;
+    tmk:labelKey "alphabetic phone number",
+        "phone word",
+        "phoneword",
+        "sms word" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "numeral"@en-AU,
         "phone number"@en-AU ;
+    tmk:notLabelKey "numeral",
+        "phone number" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "phoneword" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0044 a skos:Concept,
@@ -3090,10 +3320,15 @@ tmkc:GC-0044 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> ;
     tmk:goldRecord "GC-0044" ;
+    tmk:labelKey "examiner" ;
     tmk:notLabel "Registrar"@en-AU,
         "decision maker"@en-AU,
         "delegate"@en-AU ;
+    tmk:notLabelKey "decision maker",
+        "delegate",
+        "registrar" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "examiner" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0012 a skos:Concept,
@@ -3111,9 +3346,16 @@ tmkc:GC-0012 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> ;
     tmk:goldRecord "GC-0012" ;
+    tmk:labelKey "claimed good and service",
+        "good service claimed",
+        "specification",
+        "specification of good and service" ;
     tmk:notLabel "class"@en-AU,
         "goods actually supplied"@en-AU ;
+    tmk:notLabelKey "class",
+        "good actually supplied" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "specification of good and service" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0019 a skos:Concept,
@@ -3129,9 +3371,15 @@ tmkc:GC-0019 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
     tmk:goldRecord "GC-0019" ;
+    tmk:labelKey "geographical origin",
+        "origin of the good",
+        "place of production" ;
     tmk:notLabel "geographical indication"@en-AU,
         "geographical reference"@en-AU ;
+    tmk:notLabelKey "geographical indication",
+        "geographical reference" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "geographical origin" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0029 a skos:Concept,
@@ -3149,9 +3397,16 @@ tmkc:GC-0029 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
     tmk:goldRecord "GC-0029" ;
+    tmk:labelKey "consent",
+        "has consented",
+        "permission to use the name",
+        "written permission" ;
     tmk:notLabel "authorised user"@en-AU,
         "letter of consent"@en-AU ;
+    tmk:notLabelKey "authorised user",
+        "letter of consent" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "written permission" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0049 a skos:Concept,
@@ -3169,9 +3424,15 @@ tmkc:GC-0049 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
     tmk:goldRecord "GC-0049" ;
+    tmk:labelKey "currency of a reference",
+        "current marketplace",
+        "marketplace as it now is" ;
     tmk:notLabel "priority date"@en-AU,
         "the marketplace as it was"@en-AU ;
+    tmk:notLabelKey "marketplace as it was",
+        "priority date" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "current marketplace" ;
     tmk:qualifies tmkc:GC-0001 ;
     tmk:reviewStatus "approved" .
 
@@ -3199,9 +3460,15 @@ tmkc:GC-0014 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> ;
     tmk:goldRecord "GC-0014" ;
+    tmk:labelKey "endorsement",
+        "endorsement wording",
+        "suggested endorsement" ;
     tmk:notLabel "condition of registration"@en-AU,
         "disclaimer"@en-AU ;
+    tmk:notLabelKey "condition of registration",
+        "disclaimer" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "endorsement" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0022 a skos:Concept,
@@ -3218,10 +3485,18 @@ tmkc:GC-0022 a skos:Concept,
     tmk:approvedDate "2026-08-25"^^xsd:date ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/1> ;
     tmk:goldRecord "GC-0022" ;
+    tmk:labelKey "generic name for a pharmaceutical substance",
+        "inn",
+        "international non proprietary name",
+        "notified inn" ;
     tmk:notLabel "INN stem"@en-AU,
         "brand name"@en-AU,
         "trade mark"@en-AU ;
+    tmk:notLabelKey "brand name",
+        "inn stem",
+        "trade mark" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "international non proprietary name" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0028 a skos:Concept,
@@ -3239,9 +3514,16 @@ tmkc:GC-0028 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> ;
     tmk:goldRecord "GC-0028" ;
+    tmk:labelKey "connection with or approval of",
+        "endorsement or approval",
+        "implied endorsement",
+        "implied licensing" ;
     tmk:notLabel "endorsement"@en-AU,
         "written permission"@en-AU ;
+    tmk:notLabelKey "endorsement",
+        "written permission" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "implied endorsement" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0040 a skos:Concept,
@@ -3257,10 +3539,17 @@ tmkc:GC-0040 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1/1/2/2> ;
     tmk:goldRecord "GC-0040" ;
+    tmk:labelKey "notice of intention to oppose",
+        "opposition",
+        "opposition proceeding" ;
     tmk:notLabel "examination"@en-AU,
         "hearing"@en-AU,
         "revocation of acceptance"@en-AU ;
+    tmk:notLabelKey "examination",
+        "hearing",
+        "revocation of acceptance" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "opposition" ;
     tmk:reviewStatus "approved" .
 
 tmkp:PU-0007 a tmk:ProhibitedUse ;
@@ -3289,11 +3578,18 @@ tmkc:GC-0026 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> ;
     tmk:goldRecord "GC-0026" ;
+    tmk:labelKey "celebrity",
+        "person well known in relation to the good or service",
+        "well known person" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "name of a person"@en-AU,
         "signature"@en-AU,
         "surname"@en-AU ;
+    tmk:notLabelKey "name of a person",
+        "signature",
+        "surname" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "well known person" ;
     tmk:qualifies tmkc:GC-0028 ;
     tmk:reviewStatus "approved" .
 
@@ -3324,10 +3620,17 @@ tmkc:GC-0017 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
     tmk:extendsTo tmkc:GC-0012 ;
     tmk:goldRecord "GC-0017" ;
+    tmk:labelKey "geographic reference",
+        "geographical reference",
+        "place name",
+        "reference to a geographical location" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "business identifier"@en-AU,
         "geographical indication"@en-AU ;
+    tmk:notLabelKey "business identifier",
+        "geographical indication" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "geographical reference" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0023 a skos:Concept,
@@ -3344,10 +3647,17 @@ tmkc:GC-0023 a skos:Concept,
     tmk:approvedDate "2026-08-25"^^xsd:date ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/2> ;
     tmk:goldRecord "GC-0023" ;
+    tmk:labelKey "common stem",
+        "inn stem",
+        "stem" ;
     tmk:notLabel "International Non-Proprietary Name"@en-AU,
         "prefix"@en-AU,
         "suffix"@en-AU ;
+    tmk:notLabelKey "international non proprietary name",
+        "prefix",
+        "suffix" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "inn stem" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0013 a skos:Concept,
@@ -3364,9 +3674,15 @@ tmkc:GC-0013 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
     tmk:goldRecord "GC-0013" ;
+    tmk:labelKey "condition",
+        "condition of registration",
+        "condition or limitation" ;
     tmk:notLabel "endorsement"@en-AU,
         "specification amendment"@en-AU ;
+    tmk:notLabelKey "endorsement",
+        "specification amendment" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "condition of registration" ;
     tmk:requiresElement tmkc:GC-0001 ;
     tmk:reviewStatus "approved" .
 
@@ -3386,11 +3702,19 @@ tmkc:GC-0002 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2> ;
     tmk:goldRecord "GC-0002" ;
+    tmk:labelKey "deceive or confuse",
+        "deception or confusion",
+        "likelihood of deception or confusion",
+        "likely to deceive or cause confusion" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "deceptively similar"@en-AU,
         "likelihood of confusion between trade marks"@en-AU,
         "substantially identical"@en-AU ;
+    tmk:notLabelKey "deceptively similar",
+        "likelihood of confusion between trade mark",
+        "substantially identical" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "likely to deceive or cause confusion" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0006 a skos:Concept,
@@ -3407,10 +3731,16 @@ tmkc:GC-0006 a skos:Concept,
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> ;
     tmk:goldRecord "GC-0006" ;
+    tmk:labelKey "ground for rejection",
+        "ground of rejection",
+        "objection" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> ;
     tmk:notLabel "ground for revocation"@en-AU,
         "ground of opposition"@en-AU ;
+    tmk:notLabelKey "ground for revocation",
+        "ground of opposition" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "ground for rejection" ;
     tmk:reviewStatus "approved" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/3> tmk:allocatesTo <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
@@ -3432,11 +3762,19 @@ tmkc:GC-0001 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/2> ;
     tmk:excludesBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
     tmk:goldRecord "GC-0001" ;
+    tmk:labelKey "connotation",
+        "implied meaning",
+        "secondary meaning",
+        "secondary or implied meaning" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
     tmk:notLabel "deceptively similar"@en-AU,
         "denotation"@en-AU,
         "descriptive meaning"@en-AU ;
+    tmk:notLabelKey "deceptively similar",
+        "denotation",
+        "descriptive meaning" ;
     tmk:origin "approved" ;
+    tmk:prefLabelKey "connotation" ;
     tmk:reviewStatus "approved" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> tmk:constrainsExaminerTo tmkc:GC-0051 ;

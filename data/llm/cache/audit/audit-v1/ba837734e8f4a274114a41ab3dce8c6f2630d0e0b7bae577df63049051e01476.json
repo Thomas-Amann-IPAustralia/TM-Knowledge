@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/xj0y7s72nip41x8ydig5rler11mmkjdax7kx",
+ "cost_usd": 0.038889,
+ "created_utc": "2026-10-09T03:39:49Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0075..GR-0082",
+ "job": "audit",
+ "key": "ba837734e8f4a274114a41ab3dce8c6f2630d0e0b7bae577df63049051e01476",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0075\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"Read in the passage, the sentence explains that the average consumer's awareness and expectations determine whether a connotation is immediate, meaning the ordinary consumer qualifies the test for connotation.\"\n  },\n  {\n    \"id\": \"GR-0076\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence states that wording connoting a connection can lead consumers to incorrectly believe there is an endorsement; it does not state that implied endorsement is a kind of connotation.\"\n  },\n  {\n    \"id\": \"GR-0077\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence and passage discuss whether consumers will assume an association with the well-known person, but do not mention or explicitly apply the 'connotation' test.\"\n  },\n  {\n    \"id\": \"GR-0078\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence directly states that improper use of an INN stem 'may lead to deception or confusion', supporting the mayGiveRiseTo relationship.\"\n  },\n  {\n    \"id\": \"GR-0079\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that other meanings or associations of a geographical reference 'should be considered as part of assessing whether there is a real likelihood of deception or confusion', meaning the reference qualifies the test.\"\n  },\n  {\n    \"id\": \"GR-0080\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that 'The tests lie in the perception of the ordinary person' regarding the probability of deception or confusion, supporting that the ordinary consumer qualifies the test.\"\n  },\n  {\n    \"id\": \"GR-0081\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that the 'likelihood of confusion must depend on the reputation of the opponent’s trade mark', supporting that reputation is a required element for confusion in this context.\"\n  },\n  {\n    \"id\": \"GR-0082\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence locates the expectation of deception or confusion 'in the mind of the relevant buying public' (the relevant market), indicating that the relevant market qualifies how deception is assessed.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "831ec9acfd421a7aafee51490a9b6c58aa130067994fbc5502f0993429e352f6",
+ "response_id": "z2HIapq5CJup_PUPlpjgqAo",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7791,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5183,
+  "output_tokens_details": {
+   "reasoning_tokens": 4506
+  }
+ }
+}

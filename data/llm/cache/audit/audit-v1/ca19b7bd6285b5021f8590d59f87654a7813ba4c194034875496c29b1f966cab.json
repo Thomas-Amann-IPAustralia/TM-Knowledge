@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.030317,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0371..GR-0384",
+ "job": "audit",
+ "key": "ca19b7bd6285b5021f8590d59f87654a7813ba4c194034875496c29b1f966cab",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0371\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that a request filed on an IRDA will be recorded in the Record of International Registrations, supporting a related link.\"\n  },\n  {\n    \"id\": \"GR-0372\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"Read in the context of the passage, the sentence states that the international registration number is included in the Record of International Registrations.\"\n  },\n  {\n    \"id\": \"GR-0373\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence discusses when an international registration 'ceases or is limited', but it does not mention or refer to a 'condition of registration' (GC-0013).\"\n  },\n  {\n    \"id\": \"GR-0379\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence mentions both the Convention application and the certificate of verification as being among the documents included.\"\n  },\n  {\n    \"id\": \"GR-0380\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence itself is about 'the necessary documents' generally and does not name or specifically refer to the certificate of verification to form a direct relationship.\"\n  },\n  {\n    \"id\": \"GR-0381\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence describes the Registrar providing 'the necessary documents' but does not explicitly name the certificate of verification to establish a direct relationship.\"\n  },\n  {\n    \"id\": \"GR-0383\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence directly states that the presence of an INN stem in a word may 'give rise to a connotation', supporting the mayGiveRiseTo predicate.\"\n  },\n  {\n    \"id\": \"GR-0384\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that the concept of a fanciful or unrealistic description can be taken into account when considering a connotation, showing that the former qualifies the latter.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "9e56e2815f1c62418e105eed9986507557a4354f4cddad7411fb8b1ed46514fd",
+ "response_id": "72LIavWWKaiUmtkP5YihqQs",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7655,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 3777,
+  "output_tokens_details": {
+   "reasoning_tokens": 3082
+  }
+ }
+}

@@ -78,3 +78,73 @@ tmk:NotLabelCollisionShape
             }
         """ ;
     ] .
+
+# Review F2 (ADR-0125): the rulebook passed with duplicates and contradictions present,
+# because no rule looked for them. These three look. Names are compared by the key the
+# graph build states beside every label (tmk:labelKey, tmk:prefLabelKey,
+# tmk:notLabelKey): the label folded by `ontology.hygiene.fold` — case, punctuation, a
+# leading article and plurals — the same comparison the harness makes.
+
+tmk:SharedPreferredLabelShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:LegalConcept ;
+    rdfs:label "No two concepts share a preferred label"@en-AU ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Another concept has the same preferred label once case, punctuation, a leading article and plurals are folded. Two records under one name are one idea held twice, or two ideas recognition cannot tell apart (review A1, A5)." ;
+        sh:select """
+            SELECT $this ?value
+            WHERE {
+                $this <https://data.ipaustralia.gov.au/tmk/ns/prefLabelKey> ?key .
+                ?value <https://data.ipaustralia.gov.au/tmk/ns/prefLabelKey> ?key .
+                FILTER (?value != $this)
+            }
+        """ ;
+    ] .
+
+tmk:SharedLabelShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:LegalConcept ;
+    rdfs:label "A name two concepts answer to is reported, not failed"@en-AU ;
+    sh:severity sh:Info ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "Another concept answers to one of this concept's names — preferred or alternative — once case, punctuation, a leading article and plurals are folded. Sometimes the records already separate a homonym; recognition cannot, on that name. A warning for a person to look at (review A5)." ;
+        sh:select """
+            SELECT $this ?value
+            WHERE {
+                $this <https://data.ipaustralia.gov.au/tmk/ns/labelKey> ?key .
+                ?value <https://data.ipaustralia.gov.au/tmk/ns/labelKey> ?key .
+                FILTER (?value != $this)
+            }
+        """ ;
+    ] .
+
+tmk:KindOfBesideNotLabelShape
+    a sh:NodeShape ;
+    sh:targetClass tmk:AuthoredAssertion ;
+    rdfs:label "A machine-written 'kind of' beside a 'not the same as' carries its reason"@en-AU ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:message "This machine-written assertion says one concept is a kind of another, and one of the two lists the other's name as not the same concept. That can be right — a narrower idea is never the same idea as its broader one, and the expert's own GC-0017 says so of geographical indications — but it is the shape a wrong hierarchy takes, so it publishes only with a written reason (tmk:kindOfAffirmed, from authored/kind-of-affirmed.yaml; review D4)." ;
+        sh:select """
+            SELECT $this ?value
+            WHERE {
+                $this <https://data.ipaustralia.gov.au/tmk/ns/assertionPredicate> <http://www.w3.org/2004/02/skos/core#broader> ;
+                      <https://data.ipaustralia.gov.au/tmk/ns/assertionSubject> ?narrower ;
+                      <https://data.ipaustralia.gov.au/tmk/ns/assertionObject> ?broader .
+                FILTER NOT EXISTS { $this <https://data.ipaustralia.gov.au/tmk/ns/kindOfAffirmed> ?why }
+                {
+                    ?narrower <https://data.ipaustralia.gov.au/tmk/ns/notLabelKey> ?key .
+                    ?broader <https://data.ipaustralia.gov.au/tmk/ns/labelKey> ?key .
+                    BIND (?broader AS ?value)
+                }
+                UNION
+                {
+                    ?broader <https://data.ipaustralia.gov.au/tmk/ns/notLabelKey> ?key .
+                    ?narrower <https://data.ipaustralia.gov.au/tmk/ns/labelKey> ?key .
+                    BIND (?narrower AS ?value)
+                }
+            }
+        """ ;
+    ] .

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012758,
+ "created_utc": "2026-10-09T05:50:03Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0086",
+ "job": "answer",
+ "key": "efd71074bd73a5dd0af9bdf82ea57b02322badff027be09bcebb91ab7966cb36",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0043\", \"GC-0064\", \"GC-0072\", \"GC-0075\", \"GC-0093\", \"GC-0070\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part12/8#1\",\n      \"quote\": \"Before accepting, or recommending acceptance of, an application where a citation has lapsed or has been amended to delete the conflicting goods and/or services, it is always necessary to check whether a divisional application based on a citation has been filed.\"\n    },\n    {\n      \"ref\": \"TMM/Part12/8#1\",\n      \"quote\": \"If a divisional application based on a cited mark has been filed, late grounds for rejection must be raised based on the divisional application against the application under examination if the goods and/or services are still similar to the subject trade mark.\"\n    }\n  ],\n  \"answer\": \"Yes, where the Manual’s stated circumstances apply. Under Manual practice, before accepting or recommending acceptance after a cited application has lapsed or been amended to delete conflicting goods or services, the examiner must check whether a divisional application based on that citation has been filed [TMM/Part12/8#1].\\n\\nThe Manual also directs that late grounds for rejection be raised based on that divisional application if the goods or services are still similar [TMM/Part12/8#1].\\n\\nThe supplied passages do not address whether holding a design registration changes this requirement, so I cannot establish any design-registration exception from them. This is a statement of Manual practice, not legislation; the supplied Act extracts do not include section 44. It does not determine whether your particular shape would attract a citation.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "db12f8102653ef4f31681633d35527f7835624cf164f790a349dd5af65c94d71",
+ "response_id": "resp_03a47385c7555391006ac8807a368087d2a5401293fcc8db44",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7859,
+  "input_tokens_details": {
+   "cache_write_tokens": 7856,
+   "cached_tokens": 0
+  },
+  "output_tokens": 587,
+  "output_tokens_details": {
+   "reasoning_tokens": 198
+  },
+  "total_tokens": 8446
+ }
+}

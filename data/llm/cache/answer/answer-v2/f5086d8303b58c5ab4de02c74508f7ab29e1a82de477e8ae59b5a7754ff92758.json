@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013173,
+ "created_utc": "2026-10-09T05:48:45Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0067",
+ "job": "answer",
+ "key": "f5086d8303b58c5ab4de02c74508f7ab29e1a82de477e8ae59b5a7754ff92758",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0043\",\"GC-0124\",\"GC-0040\",\"GC-0046\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part12/3/3/7\",\"quote\":\"If a valid divisional application has not been filed a section 65 amendment cannot be made to the divisional application in order to make it valid. This is because such an amendment would extend the rights the applicant would have if registration were granted.\"},{\"ref\":\"TMM/Part12/3/3/7\",\"quote\":\"In some cases an amendment to the application under section 65A may be possible because of a clerical error or obvious mistake, but this may need to be supported by a declaration.\"},{\"ref\":\"TMM/Part12/3/3/7\",\"quote\":\"If the Registrar considers that a case for clerical error or obvious mistake is made out, and that it is fair and reasonable in all the circumstances to make such an amendment, the proposed amendment will be published for the purposes of opposition.\"},{\"ref\":\"TMM/Part12/3/3/7\",\"quote\":\"Note: If the divisional application is otherwise valid (see Annex A1), an amendment can be made under section 65(7) to the divisional application, the parent application, or both, to give effect to section 46(2) and render the claims complete.\"}],\"answer\":\"Possibly, but only through the limited correction route described in the Manual—not through an ordinary section 65 amendment.\\n\\nManual practice (TMM/Part12/3/3/7):\\n• An invalid divisional application cannot be made valid by a section 65 amendment, because that would extend the applicant’s rights if registration were granted. [Citation 1]\\n• In some cases, an amendment under section 65A may be possible to correct a clerical error or obvious mistake. A supporting declaration may be needed. [Citation 2]\\n• If the Registrar considers that the error or mistake is established and amendment is fair and reasonable in all the circumstances, the proposed amendment will be published for opposition. The passage refers to publication of the proposed amendment, not publication of acceptance of the divisional application. [Citation 3]\\n\\nDistinguish an otherwise valid but incomplete divisional: the Manual permits amendment under section 65(7) of the divisional, parent or both to give effect to section 46(2) and complete the claims. [Citation 4]\\n\\nLegislative limitation: sections 65 and 65A are not supplied here, so I cannot independently confirm their statutory requirements from the provided legislation. The answer above states Manual practice, not the text of the Act.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "ec91695c8548f2c2b07a0c3ca50c744ae098d06c160943bf02b4a621d280e480",
+ "response_id": "resp_0a5dd52e46910ed5006ac88020b4a887d2b7a589743baf1185",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7831,
+  "input_tokens_details": {
+   "cache_write_tokens": 7828,
+   "cached_tokens": 0
+  },
+  "output_tokens": 677,
+  "output_tokens_details": {
+   "reasoning_tokens": 96
+  },
+  "total_tokens": 8508
+ }
+}

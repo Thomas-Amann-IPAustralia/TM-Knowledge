@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.043924,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0429..GR-0436",
+ "job": "audit",
+ "key": "e455d8b5ffb75e9a6134198de29822e50c0aa7597f3fccfc8df0583bc8f63177",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0429\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence discusses an agency's FOI 'access grant decision', not a Trade Marks Registrar's decision (GC-0127).\"\n  },\n  {\n    \"id\": \"GR-0430\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong direction, wrong predicate, a concept the sentence is not about (a word matched in another sense)\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0086\",\n    \"corrected_predicate\": \"requiresConsentOf\",\n    \"corrected_object\": \"GC-0133\",\n    \"reason\": \"It is the assignment of the certification trade mark, rather than the mark itself, that requires the consent of the Commission.\"\n  },\n  {\n    \"id\": \"GR-0431\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0086\",\n    \"corrected_predicate\": \"requiresConsentOf\",\n    \"corrected_object\": \"GC-0133\",\n    \"reason\": \"The sentence is about the consent of the Commission required for assignment; 'written permission' (GC-0029) is not mentioned and usually refers to personal consent rather than statutory ACCC consent.\"\n  },\n  {\n    \"id\": \"GR-0432\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong direction, wrong predicate, a concept the sentence is not about (a word matched in another sense)\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0086\",\n    \"corrected_predicate\": \"requiresConsentOf\",\n    \"corrected_object\": \"GC-0133\",\n    \"reason\": \"The sentence states that the assignment (or transfer of ownership) requires the consent of the Commission, not the trade mark itself.\"\n  },\n  {\n    \"id\": \"GR-0433\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0168\",\n    \"corrected_predicate\": \"isOvercomeBy\",\n    \"corrected_object\": \"GC-0029\",\n    \"reason\": \"The sentence specifically states that written permission can overcome a section 43 ground for rejection, rather than generally applying to an image of a person.\"\n  },\n  {\n    \"id\": \"GR-0434\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0030\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0168\",\n    \"reason\": \"The sentence references a heading about marks suggesting endorsement, but it does not describe creating a register endorsement (GC-0014); instead, it supports that an image of a famous person may trigger a section 43 ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0435\",\n    \"verdict\": \"vague\",\n    \"problem\": \"not wrong, but too weak to help an examiner\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0029\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0014\",\n    \"reason\": \"The sentence provides a sharper relationship: providing written permission leads to recording an endorsement to make that permission clear.\"\n  },\n  {\n    \"id\": \"GR-0436\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0050\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0168\",\n    \"reason\": \"Fame or reputation does not qualify the image itself; rather, it is a factor that determines whether the section 43 ground for rejection is triggered.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "e544cb9b72398830b61df46e8fde7a936e28fc79ff2529ea9eaf4904f4dbcd96",
+ "response_id": "72LIatWMKNLrz7IP4fvnmQM",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7750,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 6029,
+  "output_tokens_details": {
+   "reasoning_tokens": 4975
+  }
+ }
+}

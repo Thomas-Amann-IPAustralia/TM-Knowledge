@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012374,
+ "created_utc": "2026-10-09T04:48:41Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0020",
+ "job": "answer",
+ "key": "733dff8653eb345937cb9d17fc1f4499fee98a132a549449cd5c93d56a6a6488",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0012\",\"GC-0015\",\"GC-0044\",\"GC-0064\",\"GC-0070\",\"GC-0071\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part27/3/3/1\",\"quote\":\"The examiner must consider whether a proposed deletion removes all similar and/or closely related goods and services. If the examiner is satisfied that goods or services that remain still conflict with those of the cited trade mark, the examiner must provide reasons and further options.\"},{\"ref\":\"TMM/Part27/3/3/3\",\"quote\":\"An applicant may overcome grounds for rejection by limiting their specification to particular goods of interest.\"},{\"ref\":\"TMA1995/s27(3)(b)\",\"quote\":\"(b) specify, in accordance with the regulations, the goods and/or services in respect of which it is sought to register the trade mark.\"}],\"answer\":\"**Manual practice:** The remaining goods and services are still assessed for conflict. Deleting some items does not automatically clear the rest: the examiner must check whether the deletion removes all goods and services that are similar or closely related to those of the earlier trade mark. If the remaining items still conflict, the examiner must explain why and provide further options. [TMM/Part27/3/3/1]\\n\\nOne option described in the Manual is to limit the specification to particular goods of interest, rather than delete an entire broad category. Whether that removes the conflict requires assessment of the remaining claim. [TMM/Part27/3/3/3; TMM/Part27/3/3/1]\\n\\n**Act:** Section 27(3)(b) requires the application to specify the goods and/or services for which registration is sought, in accordance with the Regulations. The conflict-assessment procedure above is Manual practice, not the wording of that statutory requirement. [TMA1995/s27(3)(b); TMM/Part27/3/3/1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "0968e13aa84883160cce9087ab170b75046209d921b0289e5c35f04e2d7a8656",
+ "response_id": "resp_0e746fee16c4b15c006ac8720cd74087d29763d70de6d58949",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7180,
+  "input_tokens_details": {
+   "cache_write_tokens": 7177,
+   "cached_tokens": 0
+  },
+  "output_tokens": 680,
+  "output_tokens_details": {
+   "reasoning_tokens": 249
+  },
+  "total_tokens": 7860
+ }
+}

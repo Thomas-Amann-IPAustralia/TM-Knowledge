@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.064163,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0186..GR-0193",
+ "job": "audit",
+ "key": "29f0c0b83da70b88a25d3600bd1d370d7f3a5e362b88d09e392770b95cd98591",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[{\"id\":\"GR-0186\",\"verdict\":\"sound\",\"problem\":null,\"corrected_subject\":null,\"corrected_predicate\":null,\"corrected_object\":null,\"remove\":false,\"reason\":\"The sentence clearly states that a section 41(4) ground for rejection becomes applicable if research identifies a descriptive plant name, meaning the research may give rise to the ground.\"},{\"id\":\"GR-0187\",\"verdict\":\"sound\",\"problem\":null,\"corrected_subject\":null,\"corrected_predicate\":null,\"corrected_object\":null,\"remove\":false,\"reason\":\"The sentence explicitly states that internet research often forms the basis for an objection under section 41, meaning the research may give rise to the ground for rejection.\"},{\"id\":\"GR-0188\",\"verdict\":\"wrong\",\"problem\":\"a relationship the sentence does not state\",\"corrected_subject\":null,\"corrected_predicate\":null,\"corrected_object\":null,\"remove\":true,\"reason\":\"The sentence states that research informs the careful consideration of factors, but does not state a direct relationship between the research and the person's reputation or what they are well known for.\"},{\"id\":\"GR-0189\",\"verdict\":\"sound\",\"problem\":null,\"corrected_subject\":null,\"corrected_predicate\":null,\"corrected_object\":null,\"remove\":false,\"reason\":\"The sentence states that the assessment of whether a cryptocurrency name is inherently capable of distinguishing depends on what research demonstrates about its use, meaning research qualifies the test.\"},{\"id\":\"GR-0190\",\"verdict\":\"wrong\",\"problem\":\"a relationship the sentence does not state\",\"corrected_subject\":null,\"corrected_predicate\":null,\"corrected_object\":null,\"remove\":true,\"reason\":\"The sentence states that research informs the careful consideration of factors, but does not state a direct relationship between the research and the well-known person themselves.\"},{\"id\":\"GR-0191\",\"verdict\":\"wrong\",\"problem\":\"a relationship the sentence does not state\",\"corrected_subject\":null,\"corrected_predicate\":null,\"corrected_object\":null,\"remove\":true,\"reason\":\"The sentence merely refers to grounds for rejection as occurring 'during examination' to identify them, which does not state a meaningful ontological relationship between the two concepts.\"},{\"id\":\"GR-0192\",\"verdict\":\"wrong\",\"problem\":\"a concept the sentence is not about (uses the positive test instead of its failure)\",\"corrected_subject\":null,\"corrected_predicate\":null,\"corrected_object\":null,\"remove\":true,\"reason\":\"The sentence states that a mark that is not capable of distinguishing gives rise to a ground for rejection. The relationship reads as if being capable of distinguishing gives rise to the rejection, which reverses the meaning, and no other predicate correctly links the positive test to the ground here.\"},{\"id\":\"GR-0193\",\"verdict\":\"wrong\",\"problem\":\"a concept the sentence is not about (uses the positive test instead of its failure)\",\"corrected_subject\":\"GC-0120\",\"corrected_predicate\":\"mayGiveRiseTo\",\"corrected_object\":\"GC-0181\",\"remove\":false,\"reason\":\"The sentence explicitly states that it is the 'lack of inherent adaptation to distinguish' that requires grounds for rejection to be raised, not inherent adaptation itself.\"}]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "b69f0b3c9cd3842464c33ba597bfe7aaaa62fdb30dc3601e4fb94a3e68d3fb04",
+ "response_id": "72LIarLRKOuiqtsPgdqI8A8",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7631,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 9422,
+  "output_tokens_details": {
+   "reasoning_tokens": 8732
+  }
+ }
+}

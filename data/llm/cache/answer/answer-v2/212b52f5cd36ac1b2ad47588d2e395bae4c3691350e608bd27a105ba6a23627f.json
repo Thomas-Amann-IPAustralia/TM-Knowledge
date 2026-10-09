@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014884,
+ "created_utc": "2026-10-09T04:52:29Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0036",
+ "job": "answer",
+ "key": "212b52f5cd36ac1b2ad47588d2e395bae4c3691350e608bd27a105ba6a23627f",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0040\", \"GC-0041\", \"GC-0116\", \"GC-0117\", \"GC-0104\", \"GC-0128\", \"GC-0153\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part51/1/1/1\",\n      \"quote\": \"The onus is on the opponent to establish its case in any opposition action. Accordingly the opponent is the first party in the Regulations to be given an opportunity to prepare evidence in support of its opposition.\"\n    },\n    {\n      \"ref\": \"TMM/Part51/1/1/1\",\n      \"quote\": \"Evidence in support must be filed with IP Australia within 3 months from the day the opponent is given a copy of the notice of intention to defend (regs 5.14, 9.16, 17A.34J, 17A.48R). If the opponent does not intend to rely on evidence in support they should notify IP Australia in writing\"\n    },\n    {\n      \"ref\": \"TMM/Part51/1/1/2\",\n      \"quote\": \"If the opponent does not file any evidence in support, the applicant must file any evidence in answer to the statement of grounds and particulars within 3 months from the day the Registrar notifies the applicant that no evidence in support was filed (regs 5.14(5), 17A.34J(5)).\"\n    },\n    {\n      \"ref\": \"TMM/Part49/6#1\",\n      \"quote\": \"If no evidence is filed in support of the opposition to removal and the opponent does not ask to be heard within the time allowed for filing evidence in support, the opposition proceedings are taken to have ended (regs 9.17, 17A.48S). Provided the Registrar is satisfied the non-use application is in order, section 97 will then apply (subregs 9.17(3), 17A.48S(3)).\"\n    },\n    {\n      \"ref\": \"TMA1995/s97\",\n      \"quote\": \"(1) If: (a) there is no opposition to an application to the Registrar under subsection 92(1); or (b) an opposition to an application under that subsection has been dismissed (see section 99A); the Registrar must remove the trade mark from the Register in respect of the goods and/or services specified in the application.\"\n    }\n  ],\n  \"answer\": \"The opponent goes first—but this is the first opportunity to file evidence, not an unconditional requirement to rely on evidence.\\n\\n**Manual practice:** The opponent bears the onus of establishing its case and has the first opportunity to prepare evidence in support. Evidence in support must be filed within three months after the opponent is given a copy of the notice of intention to defend. If the opponent does not intend to rely on evidence in support, they should notify IP Australia in writing. [TMM/Part51/1/1/1]\\n\\n**Opposition to registration/protection — Manual practice:** If no evidence in support is filed, the applicant must file any evidence in answer to the statement of grounds and particulars within three months after the Registrar notifies them that no evidence in support was filed. [TMM/Part51/1/1/2]\\n\\n**Non-use removal opposition — important exception in Manual practice:** If the opponent files no evidence in support and does not ask to be heard within the evidence-in-support period, the proceedings are taken to have ended. Provided the non-use application is in order, section 97 then applies. [TMM/Part49/6#1]\\n\\n**Act:** Section 97(1) requires removal for the goods and/or services specified in the application where there is no opposition or the opposition has been dismissed. [TMA1995/s97]\\n\\nThe procedural account above comes from the Manual; the supplied Regulations extract does not independently set out the complete evidence-in-support procedure.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "3e28e4adc40f07c95b51c7ed3e7d84fc782247c0ff4b13073a3fd0b9a0ddb3c9",
+ "response_id": "resp_0df780d0e94f9eee006ac872f1027087d29afc8b57a6947634",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8088,
+  "input_tokens_details": {
+   "cache_write_tokens": 8085,
+   "cached_tokens": 0
+  },
+  "output_tokens": 955,
+  "output_tokens_details": {
+   "reasoning_tokens": 91
+  },
+  "total_tokens": 9043
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013808,
+ "created_utc": "2026-10-09T05:51:36Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0105",
+ "job": "answer",
+ "key": "34976a6d629aaa27e062e859582b6127eb707a0b19bba4d730f7f43650bf93a3",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0032\",\"GC-0059\",\"GC-0061\",\"GC-0119\",\"GC-0035\",\"GC-0168\",\"GC-0001\",\"GC-0002\"],\"decline_reason\":\"I cannot say how your particular application would be decided. I can explain the relevant Manual practice and statutory test.\",\"declined\":true,\"citations\":[{\"ref\":\"TMM/Part22/14/14/2~1\",\"quote\":\"In other words, it is the identifier which is the distinguishing element of a domain name, and this is the element which should be considered when assessing the inherent adaptation to distinguish.\"},{\"ref\":\"TMM/Part22/14/14/2~1\",\"quote\":\"Where a trade mark consists only of standard address code material and an identifier it will not be prima facie capable of distinguishing if the identifier is a word, phrase or combination of letters and/or numbers which other traders would wish to use in the normal course of their trade.\"},{\"ref\":\"TMM/Part29/8#1\",\"quote\":\"A section 43 ground for rejection will apply if the applicant for a trade mark consisting of, or containing, material likely to be viewed as an Internet domain name is not also the registrant or authorised user of that Internet domain name.\"},{\"ref\":\"TMM/Part29/8#1\",\"quote\":\"A section 43 ground for rejection will be reconsidered if it is established that the applicant is the owner or authorised user of the Internet domain name reference.\"},{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"}],\"answer\":\"I cannot predict whether your particular application would be accepted or rejected. The supplied passages identify two relevant issues:\\n\\n**1. Distinctiveness — Manual practice.** For a mark consisting only of a web address, the Manual focuses on the identifier—the distinctive part of the address—when assessing inherent adaptation to distinguish. Its test is not simply whether the word is common: it asks whether other traders would wish to use that word or phrase in the normal course of their trade. If so, adding standard address material does not make the mark prima facie capable of distinguishing. [TMM/Part22/14/14/2~1]\\n\\n**2. Domain ownership or authorisation — Manual practice.** The Manual says a section 43 objection applies where the mark consists of, or contains, material likely to be viewed as a domain name and the applicant is not its registrant or authorised user. It says the objection will be reconsidered if ownership or authorised use is established. [TMM/Part29/8#1]\\n\\n**The Act:** Section 43 requires rejection where a connotation of the mark, or a sign within it, makes use for the relevant goods or services likely to deceive or cause confusion. That is the statutory test; the domain-name guidance above is the Manual’s practice, not legislative wording. [TMA1995/s43]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "a3c4999fda264c27fed41850ef0452a14745245aa739c148c73f10a011f23235",
+ "response_id": "resp_0072f8b43d3201cc006ac880cc51dc87d29a8621ef8f091057",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7763,
+  "input_tokens_details": {
+   "cache_write_tokens": 7760,
+   "cached_tokens": 0
+  },
+  "output_tokens": 821,
+  "output_tokens_details": {
+   "reasoning_tokens": 133
+  },
+  "total_tokens": 8584
+ }
+}

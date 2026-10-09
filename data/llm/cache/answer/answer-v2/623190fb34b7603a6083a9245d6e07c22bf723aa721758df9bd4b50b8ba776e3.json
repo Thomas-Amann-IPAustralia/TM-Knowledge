@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01408,
+ "created_utc": "2026-10-09T05:47:58Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0055",
+ "job": "answer",
+ "key": "623190fb34b7603a6083a9245d6e07c22bf723aa721758df9bd4b50b8ba776e3",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0109\",\"GC-0112\",\"GC-0150\",\"GC-0111\",\"GC-0016\",\"GC-0081\",\"GC-0084\",\"GC-0116\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part60/2/2/2/2/4~2\",\"quote\":\"However, a defensive trade mark that is pending or registered in Australia can still form the basis for an international application.\"},{\"ref\":\"TMM/Part60/2/2/2/2/4~2\",\"quote\":\"The Protocol also makes no provision for defensive trade marks, and as such, an international registration cannot be indicated as being for a defensive trade mark.\"},{\"ref\":\"TMM/Part60/2/2/2/2/4~2\",\"quote\":\"However, the trade mark subject of the international application will be effectively treated as a ‘standard’ trade mark by the International Bureau and designated jurisdictions. This means the applicant may be subject to ‘intention to use’ and ongoing use requirements in designated jurisdictions that they are not subject to in Australia as the owner/applicant of a defensive trade mark.\"},{\"ref\":\"TMM/Part60/2/2/2/2/4~2\",\"quote\":\"The applicant may claim a priority date earlier than the actual filing date of the international application if they have filed the same trade mark for the first time in a country party to the Paris Convention within 6 months prior to filing the international appl…\"},{\"ref\":\"TMA1995/s186\",\"quote\":\"Subject to this Part, the provisions of this Act (other than subsection 20(1), paragraph 27(1)(b), sections 41 and 59, sections 121 and 127, Part 9—Removal of trade mark from Register for nonuse and Part 16—Certification Trade Marks) apply to defensive trade marks and so apply as if a reference to a trade mark included a reference to a defensive trade mark.\"}],\"answer\":\"Yes, in principle—but distinguish using an Australian defensive mark as the basis from obtaining international defensive protection.\\n\\n• Manual practice: a defensive trade mark pending or registered in Australia can form the basis for an international application. However, the international registration cannot be indicated as a defensive trade mark. [TMM/Part60/2/2/2/2/4~2]\\n\\n• Manual practice: the International Bureau and designated jurisdictions effectively treat it as a ‘standard’ trade mark. Consequently, intention-to-use and ongoing-use requirements may apply in designated jurisdictions. [TMM/Part60/2/2/2/2/4~2]\\n\\n• Priority—Manual practice: the supplied passage permits an earlier priority claim where the same trade mark was first filed in a Paris Convention country within the six months preceding the international application. It states this alongside the guidance permitting a defensive mark as the basis. However, the priority paragraph is truncated, so I cannot confirm the complete requirements or claim procedure from these passages. [TMM/Part60/2/2/2/2/4~2]\\n\\n• Act: section 186 generally applies the Act to defensive trade marks as though references to trade marks included them, subject to the stated exceptions. This is legislation, distinct from the Manual’s international-application guidance above. [TMA1995/s186]\\n\\nThe general answer is therefore yes, subject to the stated priority conditions; this does not confirm the validity of any particular priority claim.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "85a54f12269c789e675131ffbc805458c4861e593ce6a48e2c721fd93b23b325",
+ "response_id": "resp_03eff82df3dd4e15006ac87ff1e98887d2b213fc6e7373e4ad",
+ "seconds": 28.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7345,
+  "input_tokens_details": {
+   "cache_write_tokens": 7342,
+   "cached_tokens": 0
+  },
+  "output_tokens": 980,
+  "output_tokens_details": {
+   "reasoning_tokens": 238
+  },
+  "total_tokens": 8325
+ }
+}

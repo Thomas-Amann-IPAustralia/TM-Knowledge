@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013912,
+ "created_utc": "2026-10-09T05:51:37Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0106",
+ "job": "answer",
+ "key": "6270ecb23f0373ec40739e50ae72f789e0715ecdac5f82ffdeff03740b8fcbba",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0073\", \"GC-0072\", \"GC-0047\", \"GC-0081\", \"GC-0017\", \"GC-0060\", \"GC-0059\", \"GC-0058\", \"GC-0041\", \"GC-0015\"],\n  \"decline_reason\": \"I cannot predict whether narrowing the goods or services would overcome an objection in your particular application. The supplied passages also do not explain when a specification limitation can overcome a place-based objection.\",\n  \"declined\": true,\n  \"citations\": [\n    {\n      \"ref\": \"TMA1995/s17\",\n      \"quote\": \"A trade mark is a sign used, or intended to be used, to distinguish goods or services dealt with or provided in the course of trade by a person from goods or services so dealt with or provided by any other person.\"\n    },\n    {\n      \"ref\": \"TMM/Part19A/2#1~2\",\n      \"quote\": \"The existence of a descriptive element or purpose does not necessarily preclude the sign being used as a trade mark.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/15/15/1~1\",\n      \"quote\": \"It is well settled that a geographical name, when used as a trade mark for a particular category of goods, may be saved by the nature of the goods or by some other circumstance from carrying its prima facie geographical signification, and that for that reason it may be held to be adapted to distinguish the applicant's goods.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/15/15/1~1\",\n      \"quote\": \"Where that is so it is because to an honest competitor the idea of using that name in relation to such goods or in such circumstances would simply not occur\"\n    },\n    {\n      \"ref\": \"TMM/Part23/4/4/8~2\",\n      \"quote\": \"When determining capacity to distinguish, the effect of use on the consumer is generally more relevant than the intention of the trade mark owner in using a particular term.\"\n    }\n  ],\n  \"answer\": \"I cannot say whether narrowing would overcome the objection in your particular application. The supplied passages support the following distinctions, but do not explain when a specification limitation can overcome a place-based objection.\\n\\n**Act:** Section 17 defines a trade mark by its use, or intended use, to distinguish one person's goods or services from those of others. [TMA1995/s17]\\n\\n**Manual practice — descriptive but also a brand:** A descriptive element does not necessarily prevent use as a trade mark. However, in assessing capacity to distinguish, the consumer effect of that use is generally more relevant than the owner's intention. Calling the element your brand therefore does not, by itself, resolve that assessment. [TMM/Part19A/2#1~2; TMM/Part23/4/4/8~2]\\n\\n**Manual practice — geographical significance:** The Manual explains that the nature of particular goods or other circumstances may prevent a geographical name from carrying its usual geographical significance. Its explanation focuses on whether an honest competitor would think of using the name for those goods or in those circumstances. [TMM/Part22/15/15/1~1]\\n\\n**Limit of the supplied material:** That guidance makes the relationship between the name and the goods relevant; it does not establish that narrowing the goods or services will cure the objection. The passages do not provide the specification-amendment guidance needed to answer that part.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "148504a3ce67e3bcf32460c5ad3a07678a84164e25f7d7754aa2ea2f73ee082c",
+ "response_id": "resp_0304f373e53cbfd1006ac880cdbe1087d2b7d8089ae2956ccb",
+ "seconds": 27.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7350,
+  "input_tokens_details": {
+   "cache_write_tokens": 7347,
+   "cached_tokens": 0
+  },
+  "output_tokens": 945,
+  "output_tokens_details": {
+   "reasoning_tokens": 186
+  },
+  "total_tokens": 8295
+ }
+}

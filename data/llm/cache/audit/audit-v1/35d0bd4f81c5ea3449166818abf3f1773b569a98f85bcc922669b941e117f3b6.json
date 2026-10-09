@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.034698,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0246..GR-0253",
+ "job": "audit",
+ "key": "35d0bd4f81c5ea3449166818abf3f1773b569a98f85bcc922669b941e117f3b6",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0246\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly connects evidence of use to the period of non-use in the context of removal proceedings, establishing a valid semantic relationship.\"\n  },\n  {\n    \"id\": \"GR-0247\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence provides that authorised use is legally taken to be use of the trade mark, thereby establishing that it is a specific kind or instance of use.\"\n  },\n  {\n    \"id\": \"GR-0248\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The heading directly and explicitly associates 'evidence of use' with 'use of a trade mark'.\"\n  },\n  {\n    \"id\": \"GR-0249\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0087\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0108\",\n    \"reason\": \"The predicate appliesTo is restricted to provisions, rules, or schemes governing an object. Transmission is a procedural step, not a rule, so related is the correct predicate.\"\n  },\n  {\n    \"id\": \"GR-0250\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0087\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0107\",\n    \"reason\": \"The predicate appliesTo is reserved for provisions, rules, or schemes. Transmission is a procedural step rather than a rule, so the relationship should merely be related.\"\n  },\n  {\n    \"id\": \"GR-0251\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence discusses whether the consent of the ACCC (an alias for written permission) is required for a transmission, successfully linking the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0252\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0016\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0111\",\n    \"reason\": \"The predicate appliesTo is intended for provisions, rules, or schemes. Since a priority date is a context and not a rule, the correct relationship is related.\"\n  },\n  {\n    \"id\": \"GR-0253\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence indicates that the respective priority dates of the conflicting trade marks affect the assessment of the conflict (by making the applicant's case more compelling), which precisely fits the definition of qualifies.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "48cc4d7b739a6af6c6cbb7448d9e764daacaae24d52170e19d2a18aaf9cc4fb9",
+ "response_id": "72LIasirKNSa6dkPg8_20AM",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7632,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 4511,
+  "output_tokens_details": {
+   "reasoning_tokens": 3787
+  }
+ }
+}

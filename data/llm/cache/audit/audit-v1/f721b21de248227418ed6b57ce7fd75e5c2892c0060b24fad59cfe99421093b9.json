@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.033151,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0323..GR-0330",
+ "job": "audit",
+ "key": "f721b21de248227418ed6b57ce7fd75e5c2892c0060b24fad59cfe99421093b9",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0323\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that the statement of grounds and particulars must be filed by the potential opponent, meaning the burden of providing this instrument falls on that role.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0324\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"reason\": \"The predicate 'appliesTo' is restricted to provisions, rules, or schemes governing an object, whereas 'extension of time' is a procedural step. The sentence merely connects the two concepts contextually.\",\n    \"corrected_subject\": \"GC-0097\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0153\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0325\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a relationship the sentence does not state\",\n    \"reason\": \"The sentence mentions the ART as the body reviewing the Registrar's decision to dismiss an opposition. It does not state a direct relationship between the ART and the statement of grounds and particulars.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true\n  },\n  {\n    \"id\": \"GR-0326\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that to show a trade mark is deceptively similar, it is necessary to show a danger of deception and confusion occurring, establishing confusion as a required element.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0327\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence connects 'deceptively similar' and 'similar goods/services' contextually as separate elements in the operation of a trade mark registration's scope of protection, fitting the 'related' predicate.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0328\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"reason\": \"The target sentence does not mention 'likely to deceive or cause confusion'; rather, it explicitly states it is necessary to show a 'real tangible danger' (GC-0008).\",\n    \"corrected_subject\": \"GC-0154\",\n    \"corrected_predicate\": \"requiresElement\",\n    \"corrected_object\": \"GC-0008\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0329\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a relationship the sentence does not state\",\n    \"reason\": \"The sentence is merely a heading for a specific example case where a mark was found deceptively similar. It does not state a general relationship between the concepts.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true\n  },\n  {\n    \"id\": \"GR-0330\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that showing a trade mark is deceptively similar requires showing a danger of deception and confusion, establishing deception as a required element.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "6602e196178464349fafaef9b24327d048000de59af9ee92a58124ac3735a694",
+ "response_id": "72LIarqGKeeO6dkPqYTJmAM",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7699,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 4242,
+  "output_tokens_details": {
+   "reasoning_tokens": 3328
+  }
+ }
+}

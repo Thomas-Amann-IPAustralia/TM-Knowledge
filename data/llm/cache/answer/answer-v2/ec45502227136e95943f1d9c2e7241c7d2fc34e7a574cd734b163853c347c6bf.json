@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012933,
+ "created_utc": "2026-10-09T05:58:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0081",
+ "job": "answer",
+ "key": "ec45502227136e95943f1d9c2e7241c7d2fc34e7a574cd734b163853c347c6bf",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0088\",\"GC-0084\",\"GC-0083\",\"GC-0081\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part19B/4/4/3\",\"quote\":\"The trade mark is not infringed if the person acquired the goods in good faith and without being aware of the notice of prohibition or became the owner of the goods by virtue of a title derived from a person who had so acquired them.\"},{\"ref\":\"TMM/Part19B/4/4/3\",\"quote\":\"Under section 121 a registered trade mark is infringed if the registered owner, or an authorised user of the trade mark having power to do so, has caused to be displayed on goods in respect of which the trade mark is registered a notice of prohibition, and a person who acquires the goods does or authorises an act, in the course of trade, that is prohibited.\"},{\"ref\":\"TMA1995/s121\",\"quote\":\"(1) This section applies to a registered trade mark if the registered owner, or an authorised user of the trade mark having power to do so, has caused to be displayed on goods (registered goods) in respect of which the trade mark is registered, or on their package, or on the container in which they are offered to the public, a notice (notice of prohibition) prohibiting any act that is under subsection (2) a prohibited act in relation to the goods.\"}],\"answer\":\"Your lack of knowledge matters, but the Manual specifies two requirements: acquiring the goods **in good faith and without being aware of the prohibition notice**. It says the trade mark is not infringed in those circumstances. Lack of awareness alone is therefore not the complete exception described by the Manual. [TMM/Part19B/4/4/3 — Manual practice]\\n\\nBuying the goods is not, by itself, the infringement described in that passage: the Manual says the person acquiring them must do or authorise a prohibited act **in the course of trade**. [TMM/Part19B/4/4/3 — Manual practice]\\n\\nThe Act’s supplied text establishes that section 121 concerns registered trade marks and notices placed by the registered owner, or an authorised user having power to do so, on the goods, their package or their container. [TMA1995/s121 — Act]\\n\\nThe supplied Act extract is incomplete: it does not include the good-faith exception. The explanation of that exception above therefore rests on the Manual’s account of section 121, not on a complete statutory passage.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b19866cb29f27c4e43deecf89ae43e2ca3c4deb356f865707f9b8b4909cd10e5",
+ "response_id": "resp_068415515ff696c2006ac88259eb9c87d2a23cc695484edabb",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7519,
+  "input_tokens_details": {
+   "cache_write_tokens": 7516,
+   "cached_tokens": 0
+  },
+  "output_tokens": 707,
+  "output_tokens_details": {
+   "reasoning_tokens": 152
+  },
+  "total_tokens": 8226
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.041341,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0475..GR-0484",
+ "job": "audit",
+ "key": "64fe5804ec7ff7d1047f50c03e8a02a84e3610a6ffce5506c5481e70ad6ca2c6",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0475\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence clearly connects \\\"research\\\" and \\\"examination\\\" in the phrase \\\"research during normal examination\\\", supporting a related link.\"\n  },\n  {\n    \"id\": \"GR-0476\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"Read in the context of the passage, the sentence establishes that research is relevant to assessing whether a section 42 ground for rejection applies to an image of a person, supporting the related link.\"\n  },\n  {\n    \"id\": \"GR-0478\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that a deceptively similar trade mark would give rise to a danger of confusion, making a section 44 ground for rejection (conflict with other signs) appropriate.\"\n  },\n  {\n    \"id\": \"GR-0479\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that a ground for rejection under subsection 39(2) can be avoided (overcome) by providing consent (written permission) from the competent authority.\"\n  },\n  {\n    \"id\": \"GR-0481\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"remove\": true,\n    \"reason\": \"The sentence states that grounds for rejection under section 39 may arise in relation to specific flags, but only mentions \\\"prohibited signs\\\" as part of the title of a cross-reference, rather than establishing a rule for the concept itself.\"\n  },\n  {\n    \"id\": \"GR-0482\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that the requirement (the ground that a mark cannot be represented graphically) has an impact in regard to scent trade marks, supporting that the rule applies to them.\"\n  },\n  {\n    \"id\": \"GR-0483\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence establishes that the test of whether a mark is \\\"capable of distinguishing\\\" is qualified by the need to distinguish from the \\\"similar goods and services\\\" of other traders.\"\n  },\n  {\n    \"id\": \"GR-0484\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"the sentence does not support it\",\n    \"corrected_subject\": \"GC-0059\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0119\",\n    \"remove\": false,\n    \"reason\": \"The sentence links the two concepts by giving \\\"inherently adapted to distinguish\\\" as an example of a mark being \\\"prima facie capable of distinguishing\\\", but does not state that one sets the threshold for the other.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "f7579137730f35b15c3ae8553ddf15491cb91c2882d4648ecbe873be4bfbd5b2",
+ "response_id": "92LIau2qCf7Bz7IP---IiQ4",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7723,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5603,
+  "output_tokens_details": {
+   "reasoning_tokens": 4895
+  }
+ }
+}

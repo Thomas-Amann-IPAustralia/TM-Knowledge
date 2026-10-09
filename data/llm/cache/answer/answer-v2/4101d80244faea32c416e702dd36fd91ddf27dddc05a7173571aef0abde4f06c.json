@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014209,
+ "created_utc": "2026-10-09T05:45:50Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0015",
+ "job": "answer",
+ "key": "4101d80244faea32c416e702dd36fd91ddf27dddc05a7173571aef0abde4f06c",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0107\", \"GC-0072\", \"GC-0073\", \"GC-0084\", \"GC-0116\", \"GC-0133\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMA1995/s169\",\n      \"quote\": \"A certification trade mark is a sign used, or intended to be used, to distinguish goods or services: (a) dealt with or provided in the course of trade; and (b) certified by a person (owner of the certification trade mark), or by another person approved by that person, in relation to quality, accuracy or some other characteristic, including (in the case of goods) origin, material or mode of manufacture; from other goods or services dealt with or provided in the course of trade but not so certified.\"\n    },\n    {\n      \"ref\": \"TMA1995/s169\",\n      \"quote\": \"Note: The goods or services certified may be those of any person, including the owner of the certification trade mark or any person approved by the owner for the purpose of certifying goods or services.\"\n    },\n    {\n      \"ref\": \"TMM/Part35/1#1\",\n      \"quote\": \"1.3 The owner of the certification trade mark (or a person approved by the registered owner) can use the trade mark on goods or services in respect of which it is registered (see the Note to section 169) provided that the use is in accordance with the rules governing the use of the certification trade mark (section 171).\"\n    },\n    {\n      \"ref\": \"TMM/Part35/1#1\",\n      \"quote\": \"1.4 The rules governing use of a certification trade mark must be assessed and approved by the Australian Competition and Consumer Commission (Commission) before the trade mark can be accepted for registration.\"\n    },\n    {\n      \"ref\": \"TMM/Part35/3#1~1\",\n      \"quote\": \"3.1 The authorised user provisions in sections 8 and 26 do not apply to applications for certification trade marks. These sections are replaced by section 172 which defines the rights of persons allowed to use the certification trade mark (approved users).\"\n    }\n  ],\n  \"answer\": \"**Applying in a business name:** The supplied passages do not answer whether a business name can be named as the applicant. If you instead mean registering the business name itself as the certification mark, they do not resolve that either. The relevant statutory definition requires a sign that distinguishes certified goods or services from goods or services not so certified; a business-name-specific rule is not supplied (Act, TMA1995/s169).\\n\\n**Who can use the registered mark?** The Manual states that the owner, or a person approved by the registered owner, can use it for the goods or services covered by its registration, provided that use complies with the rules governing the mark (Manual practice, TMM/Part35/1#1). The Manual also states that those rules must be assessed and approved by the ACCC before acceptance for registration (same reference).\\n\\n**Whose goods or services can be certified?** Section 169 expressly says they may be those of any person, including the owner or an approved certifier (Act, TMA1995/s169). This concerns whose goods or services may be certified, rather than an unrestricted permission for anyone to use the mark.\\n\\nThe Manual explains that certification marks have an approved-user regime under section 172, rather than the ordinary authorised-user provisions in sections 8 and 26 (Manual practice, TMM/Part35/3#1~1). Sections 171 and 172 themselves are not supplied here, so the explanation of use rights rests on the Manual, not their legislative text.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "040322758d9e8e15c738e658dfde8abf55736bbd51309bbb0f2fa36b66b2e2e1",
+ "response_id": "resp_03274a32ede8c88a006ac87f71b8dc87d2b326f5317b622ef5",
+ "seconds": 29.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7584,
+  "input_tokens_details": {
+   "cache_write_tokens": 7581,
+   "cached_tokens": 0
+  },
+  "output_tokens": 946,
+  "output_tokens_details": {
+   "reasoning_tokens": 137
+  },
+  "total_tokens": 8530
+ }
+}

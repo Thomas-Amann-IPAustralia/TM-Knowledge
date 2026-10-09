@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012278,
+ "created_utc": "2026-10-09T05:57:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0069",
+ "job": "answer",
+ "key": "d075e4959bb97d42677481a7d81c215e96b290015fe6d3cd584bb4c80f9a4b36",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0025\",\"GC-0022\",\"GC-0023\",\"GC-0044\",\"GC-0181\",\"GC-0168\",\"GC-0058\",\"GC-0001\",\"GC-0002\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part29/5/5/3\",\"quote\":\"When examining applications for registration of trade marks in class 5 covering pharmaceuticals or veterinary substances, examiners should check the trade mark against the INN list using the Search for International Nonproprietary Names for Pharmaceutical Substances and the list of INN stems found at Annex 1 in this Part of the Manual.\"},{\"ref\":\"TMM/Part29/5/5/3\",\"quote\":\"Claims for specific pharmaceutical or veterinary goods in Class 5 may also trigger the provisions of section 43 in relation to INNs and INN stems. Examples include classes of pharmaceutical or veterinary substances (e.g. analgesics or pain relieving preparations) as well as goods which could be pharmaceutical or veterinary in nature (e.g. dietary or nutritional supplements).\"},{\"ref\":\"TMA1995/s41\",\"quote\":\"(1) An application for the registration of a trade mark must be rejected if the trade mark is not capable of distinguishing the applicant’s goods or services in respect of which the trade mark is sought to be registered (the designated goods or services) from the goods or services of other persons.\"},{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"}],\"answer\":\"Yes—as Manual examination practice. More precisely, examiners should check the trade mark, rather than the goods themselves, against both:\\n• the INN list, using the Search for International Nonproprietary Names for Pharmaceutical Substances; and\\n• the INN stems list in Annex 1 to Part 29.\\nThis instruction applies to class 5 applications covering pharmaceuticals or veterinary substances. [TMM/Part29/5/5/3]\\n\\nThe Manual also says that specific goods claims may trigger section 43 considerations, including analgesics or pain relieving preparations and goods that could be pharmaceutical or veterinary in nature, such as dietary or nutritional supplements. [TMM/Part29/5/5/3]\\n\\nLegislation: the checking instruction above is Manual practice. The supplied Act provisions state the underlying rejection tests: section 41 concerns whether the mark is capable of distinguishing the applicant’s goods or services; section 43 concerns whether a connotation makes use likely to deceive or cause confusion. [TMA1995/s41; TMA1995/s43]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "6173f446a9677f29572e82c4869d8ce3c92a0a3e6ba6f17f20967aa2f728dd5f",
+ "response_id": "resp_057e34faa0f1c8a6006ac88230eaac87d2ae94781af64d8a02",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6503,
+  "input_tokens_details": {
+   "cache_write_tokens": 6500,
+   "cached_tokens": 0
+  },
+  "output_tokens": 830,
+  "output_tokens_details": {
+   "reasoning_tokens": 221
+  },
+  "total_tokens": 7333
+ }
+}

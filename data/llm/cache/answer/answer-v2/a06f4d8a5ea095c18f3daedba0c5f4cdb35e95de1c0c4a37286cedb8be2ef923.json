@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012737,
+ "created_utc": "2026-10-09T06:01:02Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0001",
+ "job": "answer",
+ "key": "a06f4d8a5ea095c18f3daedba0c5f4cdb35e95de1c0c4a37286cedb8be2ef923",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0001\",\"GC-0002\",\"GC-0009\",\"GC-0064\",\"GC-0072\",\"GC-0073\",\"GC-0168\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part29/10#1\",\"quote\":\"If a trade mark, or some part of the trade mark, contains a reference to Indigenous people and a connotation arises from the mark that would be likely to deceive or confuse consumers within the relevant market, then a ground for rejection under s43 should be raised.\"},{\"ref\":\"TMM/Part26/2#1\",\"quote\":\"A presumption of registrability applies to section 44 of the Act.\"},{\"ref\":\"TMM/Part26/2#1\",\"quote\":\"In Registrar of Trade Marks v Woolworths Limited [1999] FCA 1020, French J referred to the tests set out in Southern Cross Refrigerating Co v Toowoomba Foundry Pty Ltd [1954] HCA 82 (Southern Cross), where Kitto J set out a number of propositions often used to assess the likelihood of deception or confusion.\"}],\"answer\":\"**The statutory test — Act:** Section 43 requires rejection where, because of a connotation of the trade mark or a sign within it, use of the mark for the particular goods or services would be likely to deceive or cause confusion. The essential link is between the connotation and the likely deception or confusion arising from that use. The source of this test is section 43 of the Trade Marks Act 1995 itself. [TMA1995/s43]\\n\\n**Manual practice:** The supplied Indigenous-reference passage illustrates its application: examiners should raise a section 43 ground where the reference gives rise to a connotation likely to deceive or confuse consumers within the relevant market. This is examination practice, not additional statutory wording. [TMM/Part29/10#1]\\n\\n**Judicial provenance — limitation of the supplied material:** If “where does it come from” asks for the case-law origin of a more detailed formulation, the passages do not establish that for section 43. The supplied Manual discussion traces deception/confusion propositions through *Woolworths* to *Southern Cross*, but does so in a section 44 context. It therefore does not, by itself, establish those propositions as the section 43 test. [TMM/Part26/2#1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "81f3bd90c5bc049eadf701352900fb1054bbaaee142dc96a660f588af235378c",
+ "response_id": "resp_041bf57b48e23275006ac8830a8d2c87d2b057793e581948c5",
+ "seconds": 20.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7070,
+  "input_tokens_details": {
+   "cache_write_tokens": 7067,
+   "cached_tokens": 0
+  },
+  "output_tokens": 780,
+  "output_tokens_details": {
+   "reasoning_tokens": 189
+  },
+  "total_tokens": 7850
+ }
+}

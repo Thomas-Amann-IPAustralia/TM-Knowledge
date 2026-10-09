@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01438,
+ "created_utc": "2026-10-09T04:51:03Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0032",
+ "job": "answer",
+ "key": "4f268c99c677d359b44f54ce4aaec9c8af8ecb91c20c5904dd11eb4d1d1ef7e8",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0093\",\"GC-0096\",\"GC-0128\",\"GC-0127\",\"GC-0046\",\"GC-0155\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part16/1/1/1\",\"quote\":\"If an applicant requests an ex parte hearing on an exam matter, the Registrar will defer acceptance of that application. The applicant need not separately apply for an extension of time or deferment.\"},{\"ref\":\"TMM/Part17/5/5/2\",\"quote\":\"5.3.1 Where the applicant has made a request to the Registrar to be heard in relation to the application, the Registrar will defer acceptance of the application until the earlier of: (i) the day the applicant withdraws the request to be heard; and (ii) the day the Registrar decides to accept or reject the application.\"},{\"ref\":\"TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1\",\"quote\":\"Applicant has requested ex parte hearing When the applicant withdraws the request, or the Registrar decides to accept or reject the application Balance of time remaining prior to deferment\"},{\"ref\":\"TMM/Part17/5/5/2\",\"quote\":\"5.2.1 Where an appeal to a court has begun or an application to the ART for review has been made, the Registrar will defer acceptance of the application up until 3 months after the determination or other disposal of the appeal or review or until the expiration of such further time as the court to which the appeal, or any further appeal is brought, or the ART, or the court to which any appeal, arising out of the decision of the ART, is brought, allows.\"},{\"ref\":\"TMM/Part17/5/5/2\",\"quote\":\"On such notification, as long as the application is still pending, the deferment will be entered on the system.\"},{\"ref\":\"TMA1995/s33\",\"quote\":\"(4) The Registrar may not reject an application without giving the applicant an opportunity of being heard.\"}],\"answer\":\"The Manual describes a deferment of acceptance—not a fresh acceptance period.\\n\\n• Requesting a hearing: Under Manual practice, requesting an ex parte hearing about an examination matter triggers deferment automatically; you do not need a separate request for an extension of time or deferment. [1] Deferment ends when you withdraw the hearing request or the Registrar decides to accept or reject the application, whichever occurs first. [2] The Manual’s table identifies the time remaining afterwards as the balance that remained before deferment. In practical terms, the acceptance clock is paused, rather than restarted. [3]\\n\\n• Appealing: The supplied guidance concerns a court appeal or ART review of the Registrar’s decision, rather than simply disagreeing with an examiner’s report. Under Manual practice, acceptance is deferred until three months after determination or other disposal of the appeal or review, or until any further time allowed by the relevant court or ART expires. [4] The Registrar enters the deferment upon notification, provided the application is still pending. [5]\\n\\n• Legislative distinction: Section 33(4) of the Trade Marks Act requires an opportunity to be heard before the Registrar rejects an application. [6] The deadline arrangements above are stated here as Manual practice. The relevant Regulations text has not been supplied, so I cannot independently confirm its precise wording from these passages.\\n\\nThese are the general procedural rules; they do not establish a particular application’s revised deadline.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "dc8c76c0e32bb21425e63e26c8d69fe5274332a518e9e5756e95419a56b22a17",
+ "response_id": "resp_07f35786fabc7305006ac8729b960087d2aab79a182632a1eb",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7949,
+  "input_tokens_details": {
+   "cache_write_tokens": 7946,
+   "cached_tokens": 0
+  },
+  "output_tokens": 889,
+  "output_tokens_details": {
+   "reasoning_tokens": 139
+  },
+  "total_tokens": 8838
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014361,
+ "created_utc": "2026-10-09T05:53:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0013",
+ "job": "answer",
+ "key": "2eb8ec660790a972b2ad9bd7f43a6e5d65aa2884fc09d5446d805d47ff3b5686",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0023\",\"GC-0024\",\"GC-0001\",\"GC-0002\",\"GC-0025\",\"GC-0038\",\"GC-0012\",\"GC-0168\",\"GC-0013\",\"GC-0181\",\"GC-0058\"],\"decline_reason\":\"I cannot determine how this particular application would be decided. The answer instead explains the examination approach supported by the supplied passages.\",\"declined\":true,\"citations\":[{\"ref\":\"TMM/Part29/5/5/6~1\",\"quote\":\"An examiner will need to consider whether the presence of an INN stem in a word is “meaningful” enough to give rise to a connotation leading to likely deception or confusion under section 43. Some INN stems consist of simple two or three letter combinations and their presence in a larger word may not be meaningful and as a result would not lead to deception or confusion.\"},{\"ref\":\"TMM/Part29/5/5/6~1\",\"quote\":\"In addition, a stem may not be included meaningfully in a trade mark where its presence is clearly overwhelmed by the meaning of the trade mark as a whole.\"},{\"ref\":\"TMM/Part29/5/5/2\",\"quote\":\"Stems can be prefixes, suffixes or infixes - this is denoted by the position and presence of hyphens in the list of INN stems.\"},{\"ref\":\"TMM/Part29/5/5/5\",\"quote\":\"A ground for rejection under section 43 exists where a trade mark to be used in relation to pharmaceuticals or veterinary substances consists of an INN stem, or contains a notified INN stem in a meaningful way, and use of the trade mark in respect of the goods covered by the specification are not restricted to substances indicated by the INN stem.\"},{\"ref\":\"TMM/Part29/5/5/5\",\"quote\":\"A section 43 ground for rejection may be overcome by the applicant agreeing to a condition of registration limiting use of the trade mark to goods containing substances belonging to the relevant INN stem.\"},{\"ref\":\"TMM/Part22/24/24/2\",\"quote\":\"A ground for rejection under section 41 is appropriate where a trade mark to be used in relation to pharmaceutical or veterinary substances, is in its entirety identical to a notified INN stem. Such a trade mark is not considered capable of distinguishing the applicant’s goods and a ground for rejection would be very difficult to overcome.\"},{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"}],\"answer\":\"A letter match alone does not establish a ground for rejection. I cannot say how this particular application would be decided, but the supplied passages support this approach:\\n\\n**Manual practice — assess meaningful inclusion.** Consider whether the letters constitute an INN stem included meaningfully enough to create a connotation leading to likely deception or confusion. Short, two- or three-letter combinations may be insignificant within a larger word; the meaning of the trade mark as a whole may also overwhelm the stem’s presence (TMM/Part29/5/5/6~1). Check the stem’s indicated position: the list’s hyphens identify prefixes, suffixes and infixes (TMM/Part29/5/5/2).\\n\\n**Manual practice — consider the goods and their restriction.** The Manual states that a section 43 ground exists for pharmaceuticals or veterinary substances where the mark consists of an INN stem, or meaningfully contains a notified INN stem, and use for the specified goods is not restricted to substances indicated by that stem (TMM/Part29/5/5/5).\\n\\n**Manual practice — possible response to that objection.** The Manual says a section 43 ground may be overcome through a condition of registration limiting use to goods containing substances belonging to the relevant stem. This is a possibility, not a prediction for this application (TMM/Part29/5/5/5).\\n\\n**Manual practice — separate section 41 consideration.** If the entire mark is identical to a notified INN stem for pharmaceutical or veterinary substances, the Manual regards a section 41 objection as appropriate because the mark is not considered capable of distinguishing. Mere inclusion of matching letters is not the situation described in that passage (TMM/Part22/24/24/2).\\n\\n**Act — statutory test.** Section 43 requires rejection where a connotation of the mark, or a sign within it, makes use for the particular goods or services likely to deceive or cause confusion. The statutory test is not simply whether letters appear on the stem list (TMA1995/s43).\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "1aa965ec638d5f8d97bbe20f3e6be9a0d7ff4c080099c639e2314d1e6e754341",
+ "response_id": "resp_06b1cabe17e4e6bf006ac8813215b487d282325f1f24ba97b2",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6757,
+  "input_tokens_details": {
+   "cache_write_tokens": 6754,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1183,
+  "output_tokens_details": {
+   "reasoning_tokens": 146
+  },
+  "total_tokens": 7940
+ }
+}

@@ -262,5 +262,701 @@
   "status": "cancelled",
   "submitted": "2026-10-07T08:44:47Z",
   "worst": 1.004414
+ },
+ {
+  "collected": "2026-10-09T03:39:49Z",
+  "id": "batches/xj0y7s72nip41x8ydig5rler11mmkjdax7kx",
+  "job": "audit",
+  "model": "gemini-3.1-pro-preview",
+  "provider": "gemini",
+  "requests": {
+   "0e452b397643dfa5fd9cb8032298a9d7a1167774038005efcf1437940de2162c": {
+    "effort": "high",
+    "item": "GR-0059..GR-0066",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "1e746975fed009c148023f1955cbdfe47977e279842f9ee5490b036bcc5a57d7"
+   },
+   "8769f2fca6a4a9a2e1e8af28dc45849bb8add5e55cd3a78d54e85d417e995624": {
+    "effort": "high",
+    "item": "GR-0067..GR-0074",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "b88f409b851f399224578830f0ac7abc02fc9d9a1da9ed55d14a2d96192a2852"
+   },
+   "ba837734e8f4a274114a41ab3dce8c6f2630d0e0b7bae577df63049051e01476": {
+    "effort": "high",
+    "item": "GR-0075..GR-0082",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "831ec9acfd421a7aafee51490a9b6c58aa130067994fbc5502f0993429e352f6"
+   }
+  },
+  "status": "BATCH_STATE_SUCCEEDED",
+  "submitted": "2026-10-09T03:37:16Z",
+  "worst": 0.242467
+ },
+ {
+  "collected": "2026-10-09T03:45:33Z",
+  "id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+  "job": "audit",
+  "model": "gemini-3.1-pro-preview",
+  "provider": "gemini",
+  "requests": {
+   "062950bd7267972830019c35d9e4222c4cea8530bab8360a3891514588e6f74f": {
+    "effort": "high",
+    "item": "GR-0203..GR-0210",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "18ea3115549d1acf07f1c440d766720624aa4b696af0e13d8b784e13ed74bd15"
+   },
+   "0689b03607517116015bf1552d62c72aa903982b49af2a6ec10157baa6725c29": {
+    "effort": "high",
+    "item": "GR-0280..GR-0290",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "86d9ca25245db5bd275a851061463948f1f7432e6db60c18871298765a389ad3"
+   },
+   "29f0c0b83da70b88a25d3600bd1d370d7f3a5e362b88d09e392770b95cd98591": {
+    "effort": "high",
+    "item": "GR-0186..GR-0193",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "b69f0b3c9cd3842464c33ba597bfe7aaaa62fdb30dc3601e4fb94a3e68d3fb04"
+   },
+   "35d0bd4f81c5ea3449166818abf3f1773b569a98f85bcc922669b941e117f3b6": {
+    "effort": "high",
+    "item": "GR-0246..GR-0253",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "48cc4d7b739a6af6c6cbb7448d9e764daacaae24d52170e19d2a18aaf9cc4fb9"
+   },
+   "3e4907091b53a3b46598b62a628226b52b92239dd4edb9a3906d39f55650cbca": {
+    "effort": "high",
+    "item": "GR-0293..GR-0303",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "411da49205be0e3a3435ecb3dba67505eb6722772f55cac138c116e147ca1a85"
+   },
+   "3f5f7197986e40bd17a11a74e32e2e6775c4a81c0155ac973c241ae2ab76dc43": {
+    "effort": "high",
+    "item": "GR-0100..GR-0107",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "893ed9ccbcae7bc6948d4dbdc658f750bc26133d813220e8319c60d687e13fca"
+   },
+   "42cad01df463b871a0ca915e9e0b0c6f890150c3886dce7b503b9e36b56fc97c": {
+    "effort": "high",
+    "item": "GR-0263..GR-0270",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "29c97824a390abfc6c759dfd48031743b41b5304c255d95da6f5288221040085"
+   },
+   "538e7dbb3cb59196efe1c0f82fdce00d4d9a396dd2706de877c6a7802d69e794": {
+    "effort": "high",
+    "item": "GR-0254..GR-0262",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "2a7c3e82e597e2e6aaf87a555ab2014c3aa5fcfd97436b19b6f47c5e44dddd21"
+   },
+   "6a291ecb5734ded77a47e57bcdf03e8c6ba63cb942fa5141fc0e0a773aa819c3": {
+    "effort": "high",
+    "item": "GR-0091..GR-0099",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "3bc77ea72450b4828eee82ec84047b844fa5cbdf26d7b94ed4fab80999d88800"
+   },
+   "6de46bda100773e2ebc764779826bac054b99d1116db4dfa52f2d7e05010a877": {
+    "effort": "high",
+    "item": "GR-0229..GR-0236",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "83905c96f5f058f0aaaae8c9e8579f208441d4d31e5a326bda0d8a530a16d514"
+   },
+   "75c1933da6e22372fc110052cee0b0647c519c0662b0e2e82d29b1dc1aaf44cb": {
+    "effort": "high",
+    "item": "GR-0142..GR-0153",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "a815c54bf899c78cb82925679f28eb38ab826a2fa951980c93b9fd3db36cd627"
+   },
+   "76399655cbf462b5915caaae8bea102e71c3caae62379470e66fc739c2626dbb": {
+    "effort": "high",
+    "item": "GR-0162..GR-0169",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "d8e6649201e948ce937fe369c9d2a4d296dc3604f319c76da687855201f24fdc"
+   },
+   "797d4ca666746e3b43235adcea0d60dfd256770053973b63a799731d247eff33": {
+    "effort": "high",
+    "item": "GR-0170..GR-0177",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "07eca190de447429f136296e517cec7e7aa7ddf36322060a82ebdc86f94ca0c4"
+   },
+   "81653df01382ce2a93ff3be339ef9b8c43253091837b67975c44b0a513fc4613": {
+    "effort": "high",
+    "item": "GR-0211..GR-0219",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "37bcf83161b93ee75519feacb5fd500f40b84fd3f66d434518ea3197fd2712db"
+   },
+   "88293a3ecb41eb4ec20e5192b4022dc517604ff7f923bc3616704a268fa6d68b": {
+    "effort": "high",
+    "item": "GR-0178..GR-0185",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "a04a68ef164d34912f780eb53311f3c09c696d5aa26f0290427c62b9dee98ce0"
+   },
+   "8af480fc07a3eb2ceb07cf7585476d6e69485a4306a2f563415669cdfcdc9501": {
+    "effort": "high",
+    "item": "GR-0134..GR-0141",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "82ca7643bc739fe42ec591fb8b35152fd81264eaeb8331d0785d3c7e4a9219ba"
+   },
+   "8f18b86c6d4fa240fe8e350270ecea69ee389ef2a4b2c4c5724299cb43381854": {
+    "effort": "high",
+    "item": "GR-0108..GR-0117",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "967a3eaf3f791d59df7025dd260df8ea5d117107bbdd141ac12359726164dd58"
+   },
+   "a3dfc94000cb0ee87a5120cf7f821c9a8f1dad45a14573523bfa285b061ecd66": {
+    "effort": "high",
+    "item": "GR-0126..GR-0133",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "0c7ff36bab6085cc387a94639d86b40e1c5af0ff3216613b760de73c80d1de14"
+   },
+   "b5b954928158397d1a48af12812e344acf41211d11a6017bc08cc87071759298": {
+    "effort": "high",
+    "item": "GR-0220..GR-0228",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "819ef014c21e5254c1e3245992442c567ef8226e497a0ab6a5921ea34ce7835c"
+   },
+   "b827294a5d10a0908f58d42c160a0c374adf9ecfa87d9389ec63bba366f8f095": {
+    "effort": "high",
+    "item": "GR-0154..GR-0161",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "e8fe8e5d8660ecf27705689a86bd76d9ceec4a6b2b6ac657ecd2f7543d6aa32a"
+   },
+   "c68e0be3160eb659cdad15781881c94747d7682f15e6114dbcb307ecd9533f85": {
+    "effort": "high",
+    "item": "GR-0118..GR-0125",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "a8335d50aeb565e62b09283586575d4f650c4cef53e6704ae312b5842def2f91"
+   },
+   "e8c476298bbd37650bb6f6537957b33dc561826147d3c35abcb4e3a4a3c0a09e": {
+    "effort": "high",
+    "item": "GR-0194..GR-0201",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "6416e9e5c2ee6432328cee62fe7125f2cdca98e7b5c0e28bfa17c834f4368125"
+   },
+   "eb815a9ab5cef1e3462c3315ea0aa87a0417ae4929d319d40cda7371e699d926": {
+    "effort": "high",
+    "item": "GR-0083..GR-0090",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "520d6b6cde589dc5a1945b9842cc083057798cf2cc3b32d71fb185c126a4ca74"
+   },
+   "ec7de65fad14f8918500d72c154d5cd44661888984e028a558d27b17084015d2": {
+    "effort": "high",
+    "item": "GR-0271..GR-0279",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "e9b58e84592f88e746dabdad4650b8105d9495e3db37d3a821881b974bacfc4a"
+   },
+   "f9cd8464fa21ab7609284a0e989ef5519f1c17b38fb0307113f5c8de0fb08058": {
+    "effort": "high",
+    "item": "GR-0237..GR-0245",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "c7529decff1f29990312b7f04c03d75ed0fc85888a9409cc2ef7e8bf0b28e252"
+   }
+  },
+  "status": "BATCH_STATE_SUCCEEDED",
+  "submitted": "2026-10-09T03:42:20Z",
+  "worst": 2.017375
+ },
+ {
+  "collected": "2026-10-09T03:45:33Z",
+  "id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+  "job": "audit",
+  "model": "gemini-3.1-pro-preview",
+  "provider": "gemini",
+  "requests": {
+   "003cc8a37890d5783d83a51f995002990ca8ce5b4aaafcc28609baca580c5d4e": {
+    "effort": "high",
+    "item": "GR-0533..GR-0540",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "3945734b93a01b400dc3f8bf939595e2c6e3d2a757dcdbb2f9d60368c50c619d"
+   },
+   "066e7f554409a5e5a6e714e85d9337f1fffee62cc6dbf1607cd4f65a3bd7f86c": {
+    "effort": "high",
+    "item": "GR-0385..GR-0392",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "bd5a29c7440ad9a0516e5d2fd89aa3d16904d87ae74b75449855b3e45a410a9a"
+   },
+   "0cbef190fcfb4b22551ec55652613b7871b2f4608fcd830ba207bdc17504ea96": {
+    "effort": "high",
+    "item": "GR-0485..GR-0492",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "11820a3ace9d99bcad63f3a3db0a267c6e191546b6c374d85822043a53c91694"
+   },
+   "0e2b832fed5866abe10e6254280ff0f73dc7d90e3a34456405a16f573dba59b6": {
+    "effort": "high",
+    "item": "GR-0504..GR-0511",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "d55538774895b1d1477b215de33b66b4ae757e74bb40ec7f20b979f374259d40"
+   },
+   "16953e18e2c6e1a7d9c1ff04872441159e4279637e12a1ae925bae489757b13d": {
+    "effort": "high",
+    "item": "GR-0512..GR-0521",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "91ca88a23aa2de04f38e5c64137b84e55d5566ab693d44b3105ffbe0d7d13f02"
+   },
+   "1b3472f8eaf2d0faa4b216c07477bc3dbc8ff6f2b678e8e0a999f2230779e747": {
+    "effort": "high",
+    "item": "GR-0393..GR-0401",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "3b523bc313dbbef30f3815b8da37b9d054d6c885caa785cc84d6e0a6e2414e79"
+   },
+   "2aa436f31580b5161df7d3808fb27c34b9cd0c61878588b0b652bb0ddfff6f5f": {
+    "effort": "high",
+    "item": "GR-0493..GR-0503",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "1c8fe866c348304bb0999747c4a5dddf0eba53bda3bbca089751ec0dce86aaf7"
+   },
+   "408b052d0537b1db6c6697616e7d9f996d7a903937c8e5280e8156b73259147c": {
+    "effort": "high",
+    "item": "GR-0402..GR-0411",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "03d4db394de87452ca6cec6a5162850c007bce8923c63a95f7e5872f0ed73f79"
+   },
+   "494f966ae2c30cfecdcb44ffe8a2fadce46a07816be4b674f1fb4ddd25c2e12e": {
+    "effort": "high",
+    "item": "GR-0447..GR-0454",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "f90733623aaa03ad7c3b23bd7212ac13c147215ac7006d74e11f20d9997583ce"
+   },
+   "5ddb9ac7284c3c1d71ff91de27ab99ce665e73a18e156c1628898f9df7c46c0b": {
+    "effort": "high",
+    "item": "GR-0412..GR-0419",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "fc968b0d94efb2c6dbe676b8eac33f4aef30da17ceccc17b710e5f610f24dacd"
+   },
+   "64fe5804ec7ff7d1047f50c03e8a02a84e3610a6ffce5506c5481e70ad6ca2c6": {
+    "effort": "high",
+    "item": "GR-0475..GR-0484",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "f7579137730f35b15c3ae8553ddf15491cb91c2882d4648ecbe873be4bfbd5b2"
+   },
+   "7464fa906f4b833206a01463c627966b6b2747eb8f4e32d8362da779f0748e3b": {
+    "effort": "high",
+    "item": "GR-0465..GR-0474",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "a96a88726aaf91570437c662890241ce4ba16456f7853668131cfc154e70fbfc"
+   },
+   "812f79acdfae71ec73f328cb02341da439f60baffecd5ed066e372f116c07d97": {
+    "effort": "high",
+    "item": "GR-0331..GR-0338",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "87920b800e62feb995ee8730bf3f91a1d4ffe3a3a00cf3683307b35e6ba7cef4"
+   },
+   "840409a0c5f33c7710683c72504d7f499dbb0a2ad7d60fd6e7102d9c3a58be71": {
+    "effort": "high",
+    "item": "GR-0358..GR-0370",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "5972f05c19b459f42f1a32e408e3f75eeb56e0a2ca8137dd33281475c2ee4a62"
+   },
+   "8bf5a499c20021fe10d550b5a9b2a16b83d39f210d787b4ef81b919efc7985e1": {
+    "effort": "high",
+    "item": "GR-0314..GR-0321",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "8bb04e6e5d657b05bf61ab3e7e6125d718274abab731f53b5995ff1858d9e469"
+   },
+   "96b7060cad6849acaf35d74022f6c189e5af7365f055303529863a3c7f506374": {
+    "effort": "high",
+    "item": "GR-0437..GR-0446",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "900675fc3cf16add6215e295d3bd62eb0d7c59af943d80c2b75569823a1c76cb"
+   },
+   "ad482675e56959e65e13b6fc83c9ccae717130716482575475b12c0d2a06ca8e": {
+    "effort": "high",
+    "item": "GR-0522..GR-0532",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "2b215c746a19d54784ee8576f3e54ba9b588313fe7048f7b45060f92b674b534"
+   },
+   "ad8f70a8dfff2fc947494d68223e662c9af1299b70d9986153186ed27ef27dc2": {
+    "effort": "high",
+    "item": "GR-0349..GR-0357",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "aaa42442be8d97a50e044394f58d8b5590a513c79d2b8c046a27ca30d2d86d27"
+   },
+   "c0b4db72ba2865e827b99bc39266f605bc18af2f05f1abda95ac914547181542": {
+    "effort": "high",
+    "item": "GR-0304..GR-0313",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "3d5f3752534bc116623168b4b45be4121ac80debade6741dc813af6ab8db2681"
+   },
+   "c85907e1d16aa1a378079bf2718894875f3c84d274395d00327ee432e74f06bf": {
+    "effort": "high",
+    "item": "GR-0420..GR-0428",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "66c048b86e150e52c531ba3b00883f5776116fc27174111ae1cff9a1e2953066"
+   },
+   "ca19b7bd6285b5021f8590d59f87654a7813ba4c194034875496c29b1f966cab": {
+    "effort": "high",
+    "item": "GR-0371..GR-0384",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "9e56e2815f1c62418e105eed9986507557a4354f4cddad7411fb8b1ed46514fd"
+   },
+   "d6280113578eef8c557ed5f9c26c2ff47b423ef10093e33711ed3a32cb939d46": {
+    "effort": "high",
+    "item": "GR-0455..GR-0462",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "72cb88b728b5aac56d543fa0fa41e9a8ddf1a09368d4295476d60e3724d82a06"
+   },
+   "e455d8b5ffb75e9a6134198de29822e50c0aa7597f3fccfc8df0583bc8f63177": {
+    "effort": "high",
+    "item": "GR-0429..GR-0436",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "e544cb9b72398830b61df46e8fde7a936e28fc79ff2529ea9eaf4904f4dbcd96"
+   },
+   "f721b21de248227418ed6b57ce7fd75e5c2892c0060b24fad59cfe99421093b9": {
+    "effort": "high",
+    "item": "GR-0323..GR-0330",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "6602e196178464349fafaef9b24327d048000de59af9ee92a58124ac3735a694"
+   },
+   "fd069c5ff7b3c3950cb48df6d8bc00b6363eb18b12cbfea10a8dadfa92d29179": {
+    "effort": "high",
+    "item": "GR-0339..GR-0348",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "8c3619cca3fbf3c70e0da4b5f8a4583e29a0a7ab2203c4840cd98fac2c6f56f7"
+   }
+  },
+  "status": "BATCH_STATE_SUCCEEDED",
+  "submitted": "2026-10-09T03:42:24Z",
+  "worst": 2.017282
+ },
+ {
+  "collected": "2026-10-09T03:45:34Z",
+  "id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+  "job": "audit",
+  "model": "gemini-3.1-pro-preview",
+  "provider": "gemini",
+  "requests": {
+   "05ee5bdfeb3dea359fab6158fc8a384ffa16dafefb7449672566083064e59623": {
+    "effort": "high",
+    "item": "GR-0591..GR-0599",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "9b323a57952d649f1a61e882ca7454d41fa0b0b00d6f03157804e8c0b3e59c02"
+   },
+   "3ae1818b398ee5c4029d2fd79d8d1bc876bf244971565fac849965950c44ed17": {
+    "effort": "high",
+    "item": "GR-0627..GR-0635",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "690183086ad4f169d1b8b87c545edf7361d7abd180a74bee2c7481de4d9ff5d7"
+   },
+   "576a356a64822b18eb09e64b16a33d0ef0852d8036d7fdbfe5bb224aef70616e": {
+    "effort": "high",
+    "item": "GR-0652..GR-0659",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "2ef095f2fe488eb2b2bad27be149592cc217529b9e2431cd1a7574e70894ee43"
+   },
+   "5d217cb6cd511412ab42a95370fcdecc333318ebb4de2b0382b135782a905d7c": {
+    "effort": "high",
+    "item": "GR-0668..GR-0675",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "d97726125c32c4c883a201ea7c9144db4e3dfa3011a6eb7b596c2f59057cde59"
+   },
+   "7cc3a68bf2addd82d43c54277e9a1c5b64e0c38378f1448eae4b53e468e6cd53": {
+    "effort": "high",
+    "item": "GR-0692..GR-0699",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "a20df27bdabb425ef765adf57636f05503c0c7c5d139b6d3e780eeb284e3bd6b"
+   },
+   "847c376b33b665a4d1d7aebdf3be17cda19575a6def1fa0b8fd54f0d0ba93d31": {
+    "effort": "high",
+    "item": "GR-0551..GR-0558",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "ff881e8a9f74df6512d8158723d2d30e582324af1b328245d8207c2d502bc13d"
+   },
+   "853fd942ca076590d2946507b60793eb8a3142d72bc1b567bc280e4f53d739fd": {
+    "effort": "high",
+    "item": "GR-0660..GR-0667",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "111929ff2f920d5fe5a5c38be6953fe909be209f541f1f9542e4c572471c8f31"
+   },
+   "a54c791ae9ace4a98a588e36dc6630945352759e3d30f918b7e54a114e5df1c8": {
+    "effort": "high",
+    "item": "GR-0559..GR-0566",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "0bfa0eeb0cd4ca4109d4d3b8d7ce6845a36ab41c2012bca3b2d9dbd211a1ada0"
+   },
+   "ad2f9b41fd1f2658ed103689c5ef6ca12578ce0aa562750adf279a679fa86119": {
+    "effort": "high",
+    "item": "GR-0636..GR-0643",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "88a21a25be87b78de2410b37aedd81a0aa6fcee87f0caa8b0b3a4ed6c45cd70f"
+   },
+   "ad7d552cc94115e21e54d0548b4ae9b13b52e35316cc436e7b46a91618d8a189": {
+    "effort": "high",
+    "item": "GR-0600..GR-0607",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "4cad31592768703576d79ddcd77c05f37565012af6cf9e96e29c90585ab80069"
+   },
+   "afbec6ee18cdd8bbcb07788ccdb43c203c2f9070412f29bb25df5832e7714892": {
+    "effort": "high",
+    "item": "GR-0618..GR-0626",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "ff1ad36d4aea4e01d01bdf60c73d429e0826e3c853f430566b38c3b7631c0731"
+   },
+   "c891c0a7da58a9825b3906af85c59107e61ac6dc25c506fdc739ae9c9cb60bf2": {
+    "effort": "high",
+    "item": "GR-0700..GR-0702",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "071438d1dc1910e1bb8d36492ef8e96cedb7e032c30859bba883d895482a3aad"
+   },
+   "ca82078f2452b6534862f6673c9fdae7c06ae3f8bd24967ce61d5e20120018da": {
+    "effort": "high",
+    "item": "GR-0644..GR-0651",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "8fbcd1029b0783b964f9cc7870f145d70b62ff118db93b4faff874c7bb94ce88"
+   },
+   "ceba418732e5fb0cf0ed6bc09787fd08c06708b8edc1e70144fe782006c368d2": {
+    "effort": "high",
+    "item": "GR-0579..GR-0590",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "e23dd99085fe7581ed50a42dfef89ed75a0f8357a14fcaa3d9dc14a4445e5cac"
+   },
+   "d46fe6e8d5351e3a9858b586ea8c42fb25e56af1bcf581aeff21fdeb6f69f240": {
+    "effort": "high",
+    "item": "GR-0608..GR-0617",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "18b6c8014b8f7ac636e44a674a3188ac115fccb24df6f4eac446c4268676e107"
+   },
+   "da221cbfc21550e791abf6f083f3816fed0642156489a5d9cc44d9ddf6236d95": {
+    "effort": "high",
+    "item": "GR-0541..GR-0550",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "8c1320926ca0c96760e2e98373397ba77d55aabe71499e2c95c402d18bdb09b6"
+   },
+   "ec955a5a1f005b09abbbe3887403d1f5ec3b2718843ee1a9a0923e43884c1e55": {
+    "effort": "high",
+    "item": "GR-0676..GR-0683",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "bde8303255be922f218452f365ed0e7356f8219f16499f1520741cffaffe57f0"
+   },
+   "f10bfae6c322204c64de5bf7592c9dcd027939a9b3eaff023db8dd3800dd5328": {
+    "effort": "high",
+    "item": "GR-0684..GR-0691",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "1eabc09b473ac584ac1638c6fa288cd13647562abef043851fb25fe918be85ce"
+   },
+   "fa307a238da0ea322295db14f6824669b1f5fdab609a0954709a522122714c02": {
+    "effort": "high",
+    "item": "GR-0567..GR-0578",
+    "job": "audit",
+    "max_output_tokens": 12000,
+    "model": "gemini-3.1-pro-preview",
+    "prompt_version": "audit-v1",
+    "request_sha256": "0af8e3d06e71efd7a050b0f4c5904336f1e368d58b34d08ffcde67b50600c406"
+   }
+  },
+  "status": "BATCH_STATE_SUCCEEDED",
+  "submitted": "2026-10-09T03:42:27Z",
+  "worst": 1.525058
  }
 ]

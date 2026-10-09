@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013023,
+ "created_utc": "2026-10-09T05:52:15Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0113",
+ "job": "answer",
+ "key": "4c02f941cdd3854655a0e7484a1e2189d5893970445c64584370a07f1d689224",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0079\",\"GC-0043\",\"GC-0012\",\"GC-0124\",\"GC-0080\",\"GC-0092\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part12/3/3/6\",\"quote\":\"Divisional applications may be filed for some only of the goods and/or services of a series application. The divisional trade mark/s must be the same as the trade mark/s appearing in the series parent at the time of filing the divisional.\"},{\"ref\":\"TMM/Part13/8#1\",\"quote\":\"A divisional of a series application must be filed in respect of all of the same trade marks in the parent application, in order to meet the requirements of section 46(1) (i.e. divisional validity). That is, the trade marks in the parent and child, when the divisional application is filed, must be identical.\"},{\"ref\":\"TMM/Part13/8#1\",\"quote\":\"If the parent or child contains an invalid series, the applicant may resolve this problem by removing trade marks from the parent and/or the child pursuant to section 65(3), in order to meet the requirements of section 51(1). An amendment to the trade marks in one application has no effect on options available in respect of the other.\"},{\"ref\":\"TMM/Part13/8#1\",\"quote\":\"The divisional should be reassessed against the requirements of section 51(1) at examination, to ensure the series remains valid for the goods/services included in the divisional.\"},{\"ref\":\"TMA1995/s51\",\"quote\":\"(1) A person may make a single application under subsection 27(1) for the registration of 2 or more trade marks in respect of goods and/or services if the trade marks resemble each other in material particulars and differ only in respect of one or more of the following matters: (a) statements or representations as to the goods or services in relation to which the trade marks are used or are intended to be used; (b) statements or representations as to number, price, quality or names of places; (c) the colour of any part of the trade mark.\"},{\"ref\":\"TMA1995/s46(1)\",\"quote\":\"(1) A divisional application must:\"}],\"answer\":\"You can divide out some goods or services, but you cannot initially split off selected trade marks from the series into a divisional.\\n\\n**Manual practice:** At the time the divisional is filed, it must contain all the same trade marks as the parent—not just the mark or marks you want to separate. The division is of goods or services. [TMM/Part12/3/3/6; TMM/Part13/8#1]\\n\\nIf by “wrong” you mean that a mark makes the series invalid, the Manual says marks may be removed from the parent and/or child under section 65(3). Amending the marks in one application does not affect the options available in the other. The divisional must also be reassessed at examination for series validity in relation to its goods or services. [TMM/Part13/8#1]\\n\\n**Act:** Section 51(1) requires the marks to resemble each other in material particulars and to differ only in the specified matters: statements or representations about goods or services; number, price, quality or place names; or colour. [TMA1995/s51]\\n\\n**Source limitation:** The supplied section 46(1) extract contains only its opening words, and section 65(3) is not supplied. The procedural explanation above therefore rests on the Manual’s account of those provisions, not independently verified legislative wording. [TMA1995/s46(1); TMM/Part13/8#1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "8dadd69f7cd48518ed4a89d3c7c74fa85e7b87084656acaa745b89de5a51b2c6",
+ "response_id": "resp_0789eac496b7be66006ac880f3606087d2a6793f027fc2fe64",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6871,
+  "input_tokens_details": {
+   "cache_write_tokens": 6868,
+   "cached_tokens": 0
+  },
+  "output_tokens": 887,
+  "output_tokens_details": {
+   "reasoning_tokens": 76
+  },
+  "total_tokens": 7758
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/xj0y7s72nip41x8ydig5rler11mmkjdax7kx",
+ "cost_usd": 0.03966,
+ "created_utc": "2026-10-09T03:39:49Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0059..GR-0066",
+ "job": "audit",
+ "key": "0e452b397643dfa5fd9cb8032298a9d7a1167774038005efcf1437940de2162c",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0059\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that a connotation can lead to likely deception or confusion, which supports the relationship that a connotation may give rise to deception.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0060\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that for the ground for rejection to be raised, the connotation must be obvious, direct, and immediate, establishing connotation as a required element.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0061\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong direction, wrong predicate, a concept the sentence is not about (a word matched in another sense), or a relationship the sentence does not state.\",\n    \"reason\": \"The passage establishes that a \\\"real and tangible danger\\\" (or \\\"real and obvious danger\\\") is the threshold test for the likelihood of deception or confusion, not the threshold for the connotation itself.\",\n    \"corrected_subject\": \"GC-0008\",\n    \"corrected_predicate\": \"statesThresholdFor\",\n    \"corrected_object\": \"GC-0002\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0062\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that a geographical reference can connote various things about origin or location, supporting the relationship that it may give rise to a connotation.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0063\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"reason\": \"The sentence explains that material within a trade mark may connote a generic top level domain; it does not state that an internet domain name gives rise to a connotation.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true\n  },\n  {\n    \"id\": \"GR-0064\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that a connotation can lead to likely deception or confusion, supporting the relationship that a connotation may give rise to a likelihood to deceive or cause confusion.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0065\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that if the use of the trade mark would potentially deceive or confuse consumers, it makes grounds for rejection under section 43 appropriate.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0066\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that if a connotation arises that would be likely to deceive or confuse consumers, then a ground for rejection under section 43 should be raised.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "1e746975fed009c148023f1955cbdfe47977e279842f9ee5490b036bcc5a57d7",
+ "response_id": "z2HIaqa-CJKm_PUP8Pr7mAo",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7662,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5333,
+  "output_tokens_details": {
+   "reasoning_tokens": 4441
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013869,
+ "created_utc": "2026-10-09T05:50:11Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0085",
+ "job": "answer",
+ "key": "a0206edf076a9a9c2c2cd64f6fa950b5cde9ace07e67da464e0a6467cd4ce759",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{ \"concepts_used\": [\"GC-0064\", \"GC-0065\", \"GC-0154\", \"GC-0038\", \"GC-0081\", \"GC-0016\", \"GC-0070\", \"GC-0071\"], \"decline_reason\": \"\", \"declined\": false, \"citations\": [ { \"ref\": \"TMM/Part19A/2/2/3\", \"quote\": \"Registration of a business name in itself creates no intellectual property rights and is not prima facie evidence that a sign has been used ‘as a trade mark’.\" }, { \"ref\": \"TMM/Part19A/2/2/3\", \"quote\": \"Trade mark rights in a business or company name arise in two ways: by registration as a trade mark under the Trade Marks Act 1995 or by developing common law rights (reputation) through use of the business or company name.\" }, { \"ref\": \"TMA1995/s44\", \"quote\": \"(1) Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s trade mark) in respect of goods (applicant’s goods) must be rejected if: (a) the applicant’s trade mark is substantially identical with, or deceptively similar to: (i) a trade mark registered by another person in respect of similar goods or closely related services; or (ii) a trade mark whose registration in respect of similar goods or closely related services is being sought by another person; and (b) the priority date for the registration of the applicant’s trade mark in respect of the applicant’s goods is not earlier than the priority date for the registration of the other trade mark in respect of the similar goods or closely related services.\" }, { \"ref\": \"TMM/Part26/6/6/4~1\", \"quote\": \"In particular, in evaluating the likelihood of confusion, the marks must be judged as a whole: Cooper Engineering Co Pty Ltd v Sigmund Pumps Ltd [1952] HCA 15, at [3].\" }, { \"ref\": \"TMM/Part26/6/6/4~1\", \"quote\": \"While a real and tangible danger of confusion can arise if one mark is contained in another, the existence of a common element is not sufficient to conclude the marks are deceptively similar.\" } ], \"answer\": \"Not merely because a similar business name exists. On the supplied passages, distinguish business-name registration from a conflict between trade marks.\\n\\n• Manual practice: business-name registration alone creates no intellectual property rights and does not establish trade mark use. The Manual recognises that a business name may separately acquire trade mark rights through trade mark registration or reputation developed through use. [TMM/Part19A/2/2/3]\\n\\n• Act: section 44(1), for applications covering goods, concerns substantial identity or deceptive similarity with another registered or pending trade mark for similar goods or closely related services. It also requires the specified priority-date relationship and is subject to subsections (3) and (4). A similar business name alone does not establish those statutory requirements. [TMA1995/s44]\\n\\n• Manual practice: assess the marks as a whole. A shared element—even where one mark is contained in another—is not sufficient by itself to establish deceptive similarity. The comparison must therefore concern the trade marks, not simply resemblance between business names. [TMM/Part26/6/6/4~1]\\n\\nThe supplied passages do not establish a separate examination ground based solely on a similar business name. They are insufficient to answer whether some other ground could apply.\" }",
+ "prompt_version": "answer-v2",
+ "request_sha256": "cab8698c542668aa2d9d83119d0f852df8d194a03bf44150539aaa924cdc4df6",
+ "response_id": "resp_0683df1320973fca006ac88076213087d2bd7ab8ea062b6c7a",
+ "seconds": 29.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7380,
+  "input_tokens_details": {
+   "cache_write_tokens": 7377,
+   "cached_tokens": 0
+  },
+  "output_tokens": 929,
+  "output_tokens_details": {
+   "reasoning_tokens": 156
+  },
+  "total_tokens": 8309
+ }
+}

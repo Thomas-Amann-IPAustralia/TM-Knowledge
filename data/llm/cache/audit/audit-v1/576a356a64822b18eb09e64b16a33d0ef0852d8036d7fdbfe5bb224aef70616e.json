@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.028633,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0652..GR-0659",
+ "job": "audit",
+ "key": "576a356a64822b18eb09e64b16a33d0ef0852d8036d7fdbfe5bb224aef70616e",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0652\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that the Registrar acts as an administrative decision maker.\"\n  },\n  {\n    \"id\": \"GR-0653\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly refers to the delegate as an administrative decision maker.\"\n  },\n  {\n    \"id\": \"GR-0654\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence describes what a delegate of the Registrar will do, but does not mention an examiner or a decision maker.\"\n  },\n  {\n    \"id\": \"GR-0655\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"corrected_subject\": \"GC-0171\",\n    \"corrected_predicate\": \"actsAs\",\n    \"corrected_object\": \"GC-0045\",\n    \"remove\": false,\n    \"reason\": \"The sentence names the delegate, not a Hearing Officer, as acting as an administrative decision maker.\"\n  },\n  {\n    \"id\": \"GR-0656\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The passage names the Federal Court and the Federal Circuit and Family Court of Australia, but mapping these to the concept of a 'prescribed court' would require outside knowledge not present in the text.\"\n  },\n  {\n    \"id\": \"GR-0657\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"corrected_subject\": \"TMA1995/s33\",\n    \"corrected_predicate\": \"constrainsRole\",\n    \"corrected_object\": \"GC-0046\",\n    \"remove\": false,\n    \"reason\": \"The passage sets out the rule in section 33 that constrains how the Registrar must act, but it does not use the phrase 'presumption of registrability', which would require outside knowledge to introduce.\"\n  },\n  {\n    \"id\": \"GR-0658\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The text directly instructs the reader (the examiner) to consult with their team leader.\"\n  },\n  {\n    \"id\": \"GR-0659\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence directs the examiner to refer the matter to their team leader, who then determines the outcome and takes the necessary steps, fitting the definition of 'escalatesTo'.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "2ef095f2fe488eb2b2bad27be149592cc217529b9e2431cd1a7574e70894ee43",
+ "response_id": "72LIaqSTKajRz7IPztGi2Q4",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7195,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 3573,
+  "output_tokens_details": {
+   "reasoning_tokens": 2721
+  }
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.051487,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0420..GR-0428",
+ "job": "audit",
+ "key": "c85907e1d16aa1a378079bf2718894875f3c84d274395d00327ee432e74f06bf",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0420\",\n    \"verdict\": \"sound\",\n    \"problem\": \"\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that using the mark in relation to pharmaceuticals or veterinary substances is a factor that makes deception or confusion likely, meaning the goods context qualifies the test.\"\n  },\n  {\n    \"id\": \"GR-0421\",\n    \"verdict\": \"sound\",\n    \"problem\": \"\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that using the mark in relation to these substances is a factor that makes deception or confusion likely, thus qualifying the test for confusion.\"\n  },\n  {\n    \"id\": \"GR-0422\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong direction and wrong predicate\",\n    \"corrected_subject\": \"GC-0025\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0168\",\n    \"remove\": false,\n    \"reason\": \"Section 43 applies to the trade mark application, not the substances themselves. The goods being pharmaceuticals or veterinary substances is instead a factor that qualifies the section 43 ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0424\",\n    \"verdict\": \"sound\",\n    \"problem\": \"\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence indicates that the image being of a well-known person is a factor in assessing whether the mark is likely to deceive or cause confusion, thus qualifying the test for deception.\"\n  },\n  {\n    \"id\": \"GR-0425\",\n    \"verdict\": \"sound\",\n    \"problem\": \"\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence indicates that the image being of a well-known person is a factor in assessing whether the mark is likely to deceive or cause confusion, thus qualifying the test for confusion.\"\n  },\n  {\n    \"id\": \"GR-0426\",\n    \"verdict\": \"sound\",\n    \"problem\": \"\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence connects the well-known person to the written permission (as it is their permission), and no more specific predicate fits this relationship.\"\n  },\n  {\n    \"id\": \"GR-0427\",\n    \"verdict\": \"sound\",\n    \"problem\": \"\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence discusses how well-known the deceased person is, indicating that their reputation is a factor that affects how their use as a mark is assessed.\"\n  },\n  {\n    \"id\": \"GR-0428\",\n    \"verdict\": \"sound\",\n    \"problem\": \"\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence defines transmission as including devolution on the personal representative of a deceased person, explicitly relating the two concepts.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "66c048b86e150e52c531ba3b00883f5776116fc27174111ae1cff9a1e2953066",
+ "response_id": "72LIaq7wKKiUmtkP5YihqQs",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7915,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 7262,
+  "output_tokens_details": {
+   "reasoning_tokens": 6417
+  }
+ }
+}

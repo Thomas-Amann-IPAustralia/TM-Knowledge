@@ -5456,3 +5456,262 @@ first group that would migrate to one (`isOvercomeBy`).
 
 **Consequences.** Ten groups plus `none_of_these` — the schema enum, `typing.GROUPS`,
 `tmk:Remedy`, the explorer's kinds and the decision tree all carry it.
+
+## ADR-0125 — the explained review items approved; a checked vocabulary; the D5 spend
+
+**Date** 2026-10-09 · **Authority** human · **Status** accepted · amends ADR-0114 (the cap)
+
+**Context.** S026 re-wrote seven review items in plain English (A5, A6, B1, B4, D4, F2,
+F6) and quoted D5 — a second-model audit of every machine-written relationship and a
+re-run of the search measurement. The owner replied (verbatim in
+`review/returned/261009-owner-chat-approvals.md`; CHAT-0058 to CHAT-0065 in
+`review/rulings/2026-10-09-chat-approvals.yaml`): *"I approve and would like you to
+action: B1, A5, A6, B4, D4, F2, F6, D5. Expenditure approved for step 1 and step 2.
+Alternative approved for step 1, the use of Gemini 3.1 Pro. Re-run the search
+measurement. If it has a measurable positive impact on the results, you are welcome to use
+a more intelligent model if it keeps overall expenditure of D5 under $6. To confirm, I'm
+allowing the expenditure of an additional $2.89 on top of the remaining $3.11, totalling
+in $6."*
+
+**Decision (the owner's).** The seven items as explained. D5's two steps, step 1 on
+Gemini 3.1 Pro. The cap rises by US$2.89 to **US$9.49** (`config.SPEND_CAP_USD`), and
+D5 may spend at most the US$6.00 above the US$3.49 recorded before it. Whether a more
+intelligent model has a "measurable positive impact" is the agent's call, justified
+either way (ADR-0127).
+
+**Decision (the agent's, inside it).**
+
+1. **A5 — shared names.** `ontology.hygiene.fold` folds case, apostrophes, hyphens, a
+   leading article and plurals; every label of every concept is compared, in the served
+   view. The harness reports each shared name as a note; the expert pack's
+   `duplicate_labels` compares every label too. Today: none in the served view.
+2. **A6 — kept apart.** `authored/merge-candidates.yaml` records the twelve
+   `same_concept` suggestions: eleven merged (A1, A2), *implied endorsement* /
+   *endorsement* kept apart. Merging a kept-apart pair is a harness defect; the relate
+   job reports a repeat as already ruled.
+3. **D4 — "kind of" beside "not the same as".** GR-0110, GR-0407 and GR-0494 withdrawn as
+   approved, and GR-0549 (cessation of protection as a kind of non-use removal). Read
+   literally, the approved check would also refuse sections 6 and 17 (a trade mark is a
+   sign; a registered trade mark is a trade mark) and the expert's own signed hierarchy —
+   GC-0017: "every geographical indication is a geographical reference", with
+   "geographical indication" among its not-labels — because a narrower idea is never the
+   same idea as its broader one. So the check refuses every such link unless
+   `authored/kind-of-affirmed.yaml` says, for that pair, why both hold; 13 do. The
+   harness fails an unaffirmed one, the relate job refuses one, and the SHACL gate fails
+   one without `tmk:kindOfAffirmed`.
+4. **F2 — shapes that look.** `tmk:SharedPreferredLabelShape` (a violation),
+   `tmk:SharedLabelShape` (a note) and `tmk:KindOfBesideNotLabelShape` (a violation),
+   each with a fixture that fires it. The build states a folded key beside every label
+   (`tmk:labelKey`, `tmk:prefLabelKey`, `tmk:notLabelKey`): folding inside SPARQL took the
+   gate past ten minutes; on keys it stays under a minute.
+5. **F6 — confidence.** Never ranked, filtered or thresholded across authors; a test
+   fails code that does. The explorer shows a score as "self-rated *n* by *author*".
+
+**What it does not decide.** B2, B3 and B6 beyond what B1 entails (ADR-0126). Which
+measured results the pitch claims (OQ-0029).
+
+**Consequences.** Harness and SHACL 0 defects. A machine-written hierarchy beside a
+near-miss now carries a reason a reviewer can disagree with, rather than passing silently
+or being refused when it is right.
+
+## ADR-0126 — a kind says what a concept is; what it does is an edge
+
+**Date** 2026-10-09 · **Authority** human · **Status** accepted · amends ADR-0098 and
+ADR-0124
+
+**Context.** The groups mixed what a concept *is* (a role, a step, a record) with what it
+*does* in reasoning (a factor, an exception, a remedy), and a concept could carry one, so
+duplicates of one idea landed in different groups and the presumption of registrability —
+the rule the grounds are exceptions to — was filed as an exception (review B1, B3). The
+owner proposed the fix himself: *"the ontology should describe what a thing 'is' (as a
+node) and what it 'does' as an edge"*. S026 agreed and explained it — *"factor, exception
+and remedy would become links, while grounds, tests, roles, steps, records and schemes stay
+as kinds. Remedy would move first"* — and the owner approved it on 2026-10-09 (CHAT-0058,
+ADR-0125). 50 concepts were filed by function (39 factors, 7 exceptions, 4 remedies); B4,
+approved the same day, adds the two signs filed as section 39's ground.
+
+**Decision (the owner's).** A concept's kind says what it is. Being a factor, an exception
+or a remedy is an edge to the ground or test it acts on.
+
+**Decision (the agent's, inside it).**
+
+1. **Ten kinds in three families** (`typing.GROUPS`, the schema enum). *The law's
+   questions*: `ground_of_refusal`, `legal_test` (the owner's words). *What they are asked
+   about*: `subject_matter`, and three new kinds for what the function groups held —
+   `sign_content` (something a mark contains or conveys, 23), `context` (something outside
+   the mark the assessment looks at, 15), `use_in_trade` (4). *The process*:
+   `process_role`, `procedural_step`, `instrument_or_record` (now "produces or receives",
+   for evidence and written permission), `external_instrument`. And `none_of_these`.
+2. **Functions are three predicates already in the dictionary** — a factor `qualifies`
+   (or `mayGiveRiseTo`, `statesThresholdFor`), an exception `doesNotGiveRiseTo`, a ground
+   `isOvercomeBy` its remedy (`typing.FUNCTIONS`). No predicate was added. In the TBox
+   `tmk:RelevantFactor`, `tmk:Exception` and `tmk:Remedy` stay, each an
+   `owl:equivalentClass` restriction on its predicate; the build never asserts one from a
+   typing.
+3. **52 typings re-judged** (S027), each saying what the concept is and naming the edges
+   that now carry what it does, the old group kept in `alternatives_considered`. Where a
+   function existed only as a group, the edge was written from the passage the old typing
+   quoted: GR-0697 to GR-0702 (two remedies, three exceptions, one factor).
+4. **The presumption of registrability is `none_of_these`**, beside GC-0051, on B3's own
+   fallback; a kind for rules about how a question is decided waits on B3.
+5. **B4 completed**: prohibited and prescribed signs are `sign_content` — the Act calls each
+   "a sign that ..." — and the ground they give rise to is GC-0182.
+6. **The decision tree** reads factors, exceptions and remedies off those edges, from both
+   stores, at the section their ground or test sits at, and names the record on each node.
+   Grounds and tests still join each other on signed edges.
+7. **The explorer** draws three families; the arrows between kinds are what they do.
+
+**What it does not decide.** B2 (siblings typed differently: divisional against convention
+application, date of registration against the priority and filing dates now in `context`),
+B3 (a kind for decision rules) and B6 (dictionary words in `none_of_these`) beyond the
+re-typing above — they stay postponed. Whether `connotation`, typed a test, is better read
+as sign content (it is a meaning) — not forced by B1, left for the examiners.
+
+**Consequences.** One concept can be a factor for one test and an exception for another,
+which a group could not say. Five of the 52 carry no edge yet saying what they do —
+geographical qualifier, evidence of use, authorised use, Convention country, wine
+geographical indication; the relate re-run looks for them. Counts by kind: process role 25, step 24, sign content 23,
+instrument or record 23, test 19, context 15, subject matter 15, ground 8, none of these 6,
+use in trade 4, external instrument 2.
+
+## ADR-0127 — D5: a second model's audit of every machine-written relationship, and the search re-measured
+
+**Date** 2026-10-09 · **Authority** agent-proposed, inside the owner's D5 approval (ADR-0125) · **Status** accepted
+
+**Context.** S026's hand sample put about 28% of 25 machine-written relationships wrong
+(14–48%, review D5). The owner approved a second model checking all of them — Gemini 3.1
+Pro — and a re-run of the search measurement, D5 to spend at most US$6.00 (cap US$9.49),
+and left "measurable positive impact" to the agent, "justified either way" (CHAT-0065).
+The choices below are the agent's.
+
+**Decision (the agent's).**
+
+1. **Gemini, batch only.** `bulk.client` sends Gemini requests through its Batch API
+   alone (the proxy cuts a long answer, Q-66; batch is half price) and counts their spend
+   against the same cap. Gemini ignored the JSON schema it was sent (Q-83); its answers are
+   read where their shape leaves no doubt and refused otherwise, never re-asked.
+2. **The audit.** 72 calls, 8 relationships each with its sentence, passage and the
+   relation dictionary: **sound 346 · vague 13 · wrong 212 of 571 — 37.1% wrong (95%
+   33.3–41.2%, Wilson)**, consistent with the hand sample. By author: `gpt-6.1-sol` 38% of
+   479, S026 32% of 80, S027 33% of 12. `appliesTo` was wrong 55 times in 61: the
+   dictionary reserves it for a provision, rule or scheme, and the bulk model used it for
+   any link. Verdicts: `data/derived/audit/edges.yaml`; report:
+   `data/derived/reports/edge-audit.md`.
+3. **Acting on it** (`tmk-bulk audit-apply`). A wrong verdict's corrected reading
+   **replaces** the record (same id and sentence, the second model's stamp, the first
+   reading kept in `alternatives_considered`, `confidence: null` because it rated
+   nothing) when it passes the relate job's own checks; otherwise the record is
+   **withdrawn** to `authored/retired-ids.yaml`. Two refinements, both from reading the
+   verdicts: a concept the first reading used may stay though the sentence names it only in
+   other words (both models read the sentence as about it — "lack of inherent adaptation",
+   "ownership … has been changed"); and a correction that only widens an end to a concept
+   it is a kind of (the s 39 ground to "ground for rejection") leaves the record standing,
+   because the record entails it. **69 re-read, 135 withdrawn** (79 with no relationship
+   the sentence supports, 29 whose correction another record already states, 27 whose
+   correction brings in a concept the sentence does not name), **8 kept**. Before
+   applying, the agent read a seeded sample: of 12 "remove" verdicts, 10 should not stand
+   as written (6 wrong, 4 too weak to help) and 2 look sound, judged on the sentence alone
+   when the passage supports them (GR-0306, GR-0651); of 8 re-reads, 6 improve the record
+   and 2 drop what the passage made specific (GR-0199, now kept by the widening rule, and
+   GR-0698, a remedy re-read as a factor, which stands re-read); all 10 sampled "sound"
+   verdicts hold. Withdrawals are recoverable from the ledger and git.
+4. **A second model never overrules an expert.** Four of the wrong ones serve in place of
+   the expert's signed s 43 relationships (GR-0001, GR-0008, GR-0011, GR-0018), corrected in
+   S026 only where the owner ruled (A2, D1). They are kept and listed in the report for a
+   person.
+5. **Step 2, incrementally.** The pools were re-taken; a passage keeps the grade it was
+   given, and only the 108 passages never graded went to the judge (`judgements.yaml`
+   records when and by which model under `later`). Two extra rankings were pooled and
+   scored on the same grades: the ontology system as measured on 2026-10-07, and today's
+   system over the relationships before the audit (`tmk-bulk pools --keep-previous
+   --variant`). The report gains a cross-check with no model judge: the expert's ten
+   questions scored on the expert's own evidence lists.
+6. **No more intelligent model** — the judge stays `gpt-6.1-sol`, medium, `judge-v1`.
+   "Measurable positive impact" was read as a measurably more accurate measurement, never
+   as a result more flattering to the ontology: choosing a judge by the answer it gives would
+   void the measurement. On the one yardstick no model touched, the current judge already
+   grades all 21 passages the expert lists as required relevant (21/21; 95% 85–100%), so no
+   judge could show a gain; the 0.96 AUC against other pooled passages is no measure of
+   judge error, since the expert's lists are not exhaustive. Keeping one judge is also what
+   makes the "what changed" rows mean anything. Re-grading all 2,344 pooled passages with
+   Gemini 3.1 Pro would cost about $5, over the $2.79 left. Read the other way — "if the
+   audit has a measurable positive impact" — the audit's effect on search was measured and
+   is nil (below), so that reading gives no case either.
+
+**Results** (nDCG@10, paired bootstrap 95%; `data/derived/reports/measure.md`):
+ontology − hybrid **−0.041 [−0.067, −0.017]** (was −0.050); ontology − keyword +0.079
+[+0.042, +0.116]; on the expert's ten questions ontology − hybrid **+0.030 [+0.008,
++0.055]**. Ontology now against 2026-10-07: +0.010 [−0.005, +0.026]. **Against the same
+system before the audit: +0.001 [−0.007, +0.009] — the audit made no measurable difference
+to search.** No model judge, the expert's ten: ontology 0.538, hybrid 0.537 (+0.001
+[−0.105, +0.101]).
+
+**Spend.** D5 US$3.21 of its US$6.00: audit $3.12, re-embedding $0.01, grading $0.08.
+Recorded spend $6.70 of $9.49.
+
+**What it does not decide.** Which of these numbers the pitch claims (OQ-0029, the owner's
+gate). Whether the 27 withdrawn relationships whose correction named an unnamed concept
+are re-written — the corrections are kept in the audit file. The four disputed signed
+readings — a person's.
+
+**Consequences.** 436 machine-written relationships serve, from 571; 158 of 164 concepts
+sit in one connected piece (96%, was 98%; six isolated, was three). Every surviving
+machine-written edge has a second model's verdict, and that verdict is a model judging
+models, not a review. The ontology still trails good search with no ontology on the
+benchmark as a whole and leads it on the expert's ten questions; the audit's precision
+gain did not move search, so search quality is not where its value shows. A
+re-measurement now costs only what changed.
+
+## ADR-0128 — the prepared answers re-run, held to the US$0.40 approved
+
+**Date** 2026-10-09 · **Authority** human · **Status** accepted
+
+**Context.** The 129 prepared answers were written on 2026-10-07; after S026 and the edge
+audit (ADR-0127), 85 showed links since withdrawn or re-read, 55 of them five or more. The
+agent quoted "about $0.40" to re-run them, and the owner replied *"Yes, re-run the prepared
+answers for $0.40"* (CHAT-0066, `review/returned/261009-owner-chat-answers-rerun.md`). The
+quote was wrong twice over: it divided the job's spend by every cached attempt, 211 of 341
+of them free failures (Q-85); and the completed calls of 2026-10-07 were themselves cheap
+because retried requests hit the provider's cache. A fresh answer costs about $0.0135, so
+all 129 would have cost about $1.74.
+
+**Decision (the owner's).** Re-run the prepared answers, for US$0.40.
+
+**Decision (the agent's, inside it).** The amount binds, not the quote's count. The run
+was held to it by the cap — `TMK_SPEND_CAP_USD` set to the recorded spend plus $0.40, one
+call at a time; the cap is checked at the full price, so it stops short of the line rather
+than on it — and the stalest went first: the 50 answers showing the most withdrawn or
+re-read links (six or more each). **21 re-run for US$0.28**; the cap stopped the 22nd,
+whose worst case would have passed the $0.40. Each new answer shows no stale link, cites
+100 verified passages between them, raises no PU-0004 flag, and one declines to state an
+outcome.
+
+**What it does not decide.** The other 108, 64 of which still show a stale link — the
+owner's, on a corrected quote: the 29 stalest about $0.39, the 64 about $0.87, all 108
+about $1.46.
+
+**Consequences.** The prepared answers now carry two dates, each stamped on the answer.
+`tmk-bulk spend` shows completed calls beside attempts, so the mistake behind the quote is
+harder to repeat.
+
+## ADR-0129 — the rest of the prepared answers re-run
+
+**Date** 2026-10-09 · **Authority** human · **Status** accepted
+
+**Context.** ADR-0128 re-ran the 21 stalest prepared answers within the US$0.40 approved
+and gave the owner a corrected quote for the other 108: about US$1.46 for all of them,
+"with a hard ceiling about $0.12 above". The owner chose that row: *"All the rest"*
+(CHAT-0067, `review/returned/261009-owner-chat-answers-rest.md`).
+
+**Decision (the owner's).** Re-run the remaining 108 prepared answers.
+
+**Decision (the agent's, inside it).** Held to the ceiling shown: `TMK_SPEND_CAP_USD` at the
+recorded spend plus US$1.58. The 64 that still showed a withdrawn or re-read link went
+first, four at a time; then the 44 that showed none, two at a time and the last two one at
+a time, as the full-price worst case of calls in flight neared the line.
+
+**Consequences.** All 108 re-run for **US$1.39** ($0.0129 an answer). All 129 prepared
+answers are now dated 2026-10-09 and none shows a stale link; 612 citations, each located
+verbatim; 16 decline to say how a particular application would be decided and explain the
+practice instead; one sentence is flagged PU-0004 (BN-0040, s 189 stated as law on the
+Manual's word), flagged and not removed. Recorded spend US$8.37 of the US$9.49 cap.

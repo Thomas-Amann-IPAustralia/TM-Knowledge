@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013458,
+ "created_utc": "2026-10-09T05:54:37Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0007",
+ "job": "answer",
+ "key": "7db8b45ce6bbea1c44302f9cfa90c279719219ce7cad37060cd204132e2dfd85",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0097\",\"GC-0041\",\"GC-0046\",\"GC-0116\",\"GC-0040\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s224\",\"quote\":\"(4) The time allowed for doing a relevant act may be extended, whether before or after that time has expired.\"},{\"ref\":\"TMA1995/s224\",\"quote\":\"(2) If, because of: (a) an error or omission by the person concerned or by his or her agent; or (b) circumstances beyond the control of the person concerned; a relevant act that is required by this Act to be done within a certain time is not, or cannot be, done within that time, the Registrar may, on application made by the person concerned in accordance with the regulations, extend the time for doing the act.\"},{\"ref\":\"TMA1995/s224\",\"quote\":\"(3) If: (a) a relevant act that a person is required by this Act to do within a certain time is not, or cannot be, done within that time; and (b) on application made by that person in accordance with the regulations, the Registrar is of the opinion that special circumstances exist that justify an extension of that time; the Registrar may extend the time for doing the act.\"},{\"ref\":\"TMM/Part15/5/5/2\",\"quote\":\"The declaration should support the grounds for the application by setting out the facts on which the grounds for requiring the extension are based. If the application is made after the period has expired, the declaration should also set out why the application is late.\"},{\"ref\":\"TMM/Part49/2/2/3/3\",\"quote\":\"If the extension application was made out of time, that is, after the period for filing the notice of intention to oppose or statement of grounds and particulars had ended, the Registrar will not necessarily grant the extension even if the extension ground has been made out (regs 9.12(2), 17A.48M(2)). The potential opponent must also satisfy the Registrar there was sufficient reason for the application not being made before the end of that period.\"},{\"ref\":\"TMM/Part49/2/2/3/4\",\"quote\":\"In the event of a late extension being applied for, the reasons provided in terms of regs 9.12(2) or 17A.48M(2) may not satisfy the Registrar that the application could not have been made before the end of the period.\"}],\"answer\":\"**You need to substantiate the grounds for the extension and explain why the extension request itself was late.** The precise test depends on the kind of extension sought.\\n\\n**Act — general extension provisions:** Section 224(4) permits an extension before or after the relevant time has expired. For an application under s 224(2), the failure or inability to do the relevant act in time must result from your or your agent’s error or omission, or circumstances beyond your control. Under s 224(3), the Registrar must consider that special circumstances exist which justify an extension. Both provisions say the Registrar *may* extend time; establishing those grounds does not itself guarantee a grant. [TMA1995/s224]\\n\\n**Manual practice — supporting evidence:** The declaration should set out the facts supporting the grounds for needing the extension. Where the request is late, it should also explain why it is late. These are distinct matters to address. [TMM/Part15/5/5/2]\\n\\n**Manual practice — late opposition extensions:** For a late request concerning a notice of intention to oppose or statement of grounds and particulars, making out an extension ground is not enough: the potential opponent must also satisfy the Registrar that there was sufficient reason for not applying before the period ended. The Manual also warns that the reasons may fail to satisfy the Registrar that the request could not have been made before that deadline. [TMM/Part49/2/2/3/3; TMM/Part49/2/2/3/4]\\n\\nI cannot identify which extension procedure applies from the question alone. The opposition-specific requirements above are reported as Manual practice; the cited Regulations themselves were not supplied.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "fe4604457b9630927806b24a1d78c048b1337e94a2e3605584d8bdcfa57c6f03",
+ "response_id": "resp_0bff9f79f7354502006ac88180294887d2b00a57060daa42b8",
+ "seconds": 29.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6879,
+  "input_tokens_details": {
+   "cache_write_tokens": 6876,
+   "cached_tokens": 0
+  },
+  "output_tokens": 972,
+  "output_tokens_details": {
+   "reasoning_tokens": 78
+  },
+  "total_tokens": 7851
+ }
+}

@@ -19,8 +19,20 @@ judgements:
     TMM/Part43/x-relevant-legislation7#1: 2
     TMM/Part33/x-relevant-legislation27#1: 3
     TMM/Part10/x-introduction#1: 2
+    TMM/Part12/8#1: 0
+    TMM/Part32A/2/1/2-1-2-c-letter-of-consent: 0
+    TMM/Part20/5/5/4/1: 0
+    TMM/Part18/3#1: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part12/8#1
+    - TMM/Part18/3#1
+    - TMM/Part20/5/5/4/1
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
 - need: BN-0002
   grades:
     TMM/Part52/4#1: 1
@@ -71,8 +83,16 @@ judgements:
     TMM/Part32A/2/4/2/4/1: 1
     TMM/Part26/2#1: 2
     TMM/Part26/4/4/3/4: 2
+    TMM/Part14/3#1~1: 1
+    TMM/Part26/x-annex-a1---citing-multiple-names#1~1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part14/3#1~1
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~1
 - need: BN-0004
   grades:
     TMM/Part60/4/24/4/24/3: 0
@@ -108,8 +128,14 @@ judgements:
     TMM/Part49/6#1: 1
     TMM/Part51/3#1: 1
     TMM/Part51/2/2/2~3: 1
+    TMM/Part60/4/17/4/17/2~1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part60/4/17/4/17/2~1
 - need: BN-0006
   grades:
     TMM/Part15/6/6/3: 1
@@ -130,8 +156,18 @@ judgements:
     TMM/Part47/1/1/1/1: 1
     TMM/Part60/4/21/4/21/2: 1
     TMM/Part17/1#1: 0
+    TMM/Part16/1/1/5: 1
+    TMM/Part15/6/6/2: 1
+    TMM/Part49/2/2/3/3: 2
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part15/6/6/2
+    - TMM/Part16/1/1/5
+    - TMM/Part49/2/2/3/3
 - need: BN-0007
   grades:
     TMM/Part48/4#1~2: 2
@@ -167,8 +203,14 @@ judgements:
     TMM/Part17/4#1: 1
     TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1: 3
     TMM/Part17/4/4/1: 1
+    TMM/Part16/1/1/1: 2
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part16/1/1/1
 - need: BN-0009
   grades:
     TMM/Part11/2#1: 0
@@ -189,8 +231,16 @@ judgements:
     TMM/Part11/6/6/2: 0
     TMM/Part4/6/6/3/3: 2
     TMM/Part18/1/1/4: 1
+    TMM/Part15/1/1/1: 0
+    TMM/Part61/3/3/1: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part15/1/1/1
+    - TMM/Part61/3/3/1
 - need: BN-0010
   grades:
     TMM/Part10/3/3/1: 2
@@ -213,8 +263,18 @@ judgements:
     TMM/Part10/3#1: 2
     TMM/Part22/x-registrability-of-various-kinds-of-signs#1: 1
     TMM/Part54/1/1/4/1: 0
+    TMM/Part10/3/3/2/8: 1
+    TMM/Part21/3/3/5: 0
+    TMM/Part21/3/3/6~2: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part10/3/3/2/8
+    - TMM/Part21/3/3/5
+    - TMM/Part21/3/3/6~2
 - need: BN-0011
   grades:
     TMM/Part26/5#1: 1
@@ -236,8 +296,16 @@ judgements:
     TMM/Part26/6/6/8~3: 3
     TMM/Part26/4/4/3~2: 1
     TMM/Part46/4/4/6/3: 0
+    TMM/Part46/4/4/5/2: 2
+    TMM/Part26/4/4/3/1~3: 2
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part26/4/4/3/1~3
+    - TMM/Part46/4/4/5/2
 - need: BN-0012
   grades:
     TMM/Part29/5/5/4: 0
@@ -301,8 +369,16 @@ judgements:
     TMM/Part21/3/3/2: 2
     TMM/Part21/8#1: 2
     TMM/Part21/10#1~1: 1
+    TMM/Part10/3/3/4/2: 0
+    TMM/Part31/2#1: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part10/3/3/4/2
+    - TMM/Part31/2#1
 - need: BN-0015
   grades:
     TMM/Part43/x-relevant-legislation7#1: 1
@@ -345,8 +421,18 @@ judgements:
     TMM/Part17/2/2/2: 2
     TMM/Part61/2/2/4/2: 0
     TMM/Part52/5/5/3: 1
+    TMM/Part43/1#1~2: 0
+    TMM/Part35/5#1~2: 1
+    TMM/Part35/8#1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part35/5#1~2
+    - TMM/Part35/8#1
+    - TMM/Part43/1#1~2
 - need: BN-0017
   grades:
     TMM/Part29/6/6/2~1: 2
@@ -388,8 +474,18 @@ judgements:
     TMM/Part10/8#1: 1
     TMM/Part47/3/3/3: 1
     TMM/Part16/2#1: 1
+    TMM/Part9/4/4/7/1: 0
+    TMM/Part18/2/2/2: 0
+    TMM/Part22/13/13/6~2: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part18/2/2/2
+    - TMM/Part22/13/13/6~2
+    - TMM/Part9/4/4/7/1
 - need: BN-0019
   grades:
     TMM/Part14/x-annex-a1---history-of-the-classification-system/further-information-on-the-various-editions: 0
@@ -429,8 +525,14 @@ judgements:
     TMM/Part11/5/5/1/1: 0
     TMM/Part23/3/3/3/2: 1
     TMM/Part14/6/6/7: 1
+    TMM/Part14/4/4/8/2~2: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part14/4/4/8/2~2
 - need: BN-0021
   grades:
     TMM/Part29/5/5/4: 1
@@ -456,8 +558,18 @@ judgements:
     TMM/Part28/3/3/1~4: 1
     TMM/Part23/3/3/2/1: 1
     TMM/Part23/5/5/4: 0
+    TMM/Part29/3#1~1: 1
+    TMM/Part29/5/5/6~1: 0
+    TMM/Part28/4/28/4/2: 2
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part28/4/28/4/2
+    - TMM/Part29/3#1~1
+    - TMM/Part29/5/5/6~1
 - need: BN-0022
   grades:
     TMM/Part46/4/4/6/3: 1
@@ -520,8 +632,18 @@ judgements:
     TMM/Part52/5/5/6: 1
     TMM/Part52/5/5/3: 1
     TMM/Part52/8#1: 1
+    TMM/Part51/8#1: 1
+    TMM/Part51/4/4/2~1: 1
+    TMM/Part54/1/1/4/2: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part51/4/4/2~1
+    - TMM/Part51/8#1
+    - TMM/Part54/1/1/4/2
 - need: BN-0025
   grades:
     TMM/Part5/x-device-constituents/borders-frames: 0
@@ -614,8 +736,16 @@ judgements:
     TMM/Part60/4/21/4/21/2: 0
     TMM/Part60/4/14/4/14/2: 2
     TMM/Part47/3#1: 2
+    TMM/Part47/1/1/3/6~2: 1
+    TMM/Part49/4#1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part49/4#1
 - need: BN-0030
   grades:
     TMM/Part21/4/4/4: 1
@@ -656,8 +786,14 @@ judgements:
     TMM/Part60/4/17/4/17/2~3: 1
     TMM/Part26/5/5/1~1: 0
     TMM/Part51/5#1~1: 1
+    TMM/Part51/4/4/2~1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part51/4/4/2~1
 - need: BN-0032
   grades:
     TMM/Part18/3/3/3/1: 1
@@ -677,8 +813,16 @@ judgements:
     TMM/Part52/2/2/2: 1
     TMM/Part49/6/6/1: 0
     TMM/Part52/2/2/3: 1
+    TMM/Part9/4/4/7/1: 0
+    TMM/Part52/2#1~1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part52/2#1~1
+    - TMM/Part9/4/4/7/1
 - need: BN-0033
   grades:
     TMM/Part10/5#1: 1
@@ -704,8 +848,16 @@ judgements:
     TMM/Part15/x-relevant-legislation13#1: 2
     TMM/Part2/1/trade-mark-regulations-1995: 3
     TMM/Part14/4/4/8/2~1: 1
+    TMM/Part29/8/8/1: 0
+    TMM/Part14/3#1~1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part14/3#1~1
+    - TMM/Part29/8/8/1
 - need: BN-0034
   grades:
     TMM/Part27/3/3/2~2: 1
@@ -728,8 +880,16 @@ judgements:
     TMM/Part14/1#1~1: 2
     TMM/Part14/6/6/4/1: 1
     TMM/Part29/8/8/1: 0
+    TMM/Part14/3#1~1: 1
+    TMM/Part14/4/4/6/2: 2
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part14/3#1~1
+    - TMM/Part14/4/4/6/2
 - need: BN-0035
   grades:
     TMM/Part21/2#1: 0
@@ -834,8 +994,14 @@ judgements:
     TMM/Part20/5/5/5: 1
     TMM/Part30/3/3/5~2: 1
     TMM/Part29/3#1~2: 1
+    TMM/Part20/5/5/5/2: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part20/5/5/5/2
 - need: BN-0040
   grades:
     TMM/Part34/8#1: 3
@@ -853,8 +1019,14 @@ judgements:
     TMM/Part48/1#1: 1
     TMM/Part34/9#1: 2
     TMM/Part46/4/4/4: 2
+    TMM/Part48/6#1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part48/6#1
 - need: BN-0041
   grades:
     TMM/Part26/x-annex-a1---citing-multiple-names#1~2: 1
@@ -876,8 +1048,16 @@ judgements:
     TMM/Part30/2/2/7: 1
     TMM/Part32A/x-annex-5---case-law-summaries/mastronardi-produce-ltd-v-registrar-of-trade-marks-2014-fca-1021-zima: 1
     TMM/Part29/3/3/2: 3
+    TMM/Part26/6/6/4~1: 1
+    TMM/Part32A/2/4/2/4/1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part26/6/6/4~1
+    - TMM/Part32A/2/4/2/4/1
 - need: BN-0042
   grades:
     TMM/Part30/x-30.-annex-a5---examples-regarding-geneva-conventions-act-1957-s-151#1~1: 1
@@ -903,8 +1083,16 @@ judgements:
     TMM/Part29/9/9/3~1: 1
     TMM/Part22/25/25/7: 2
     TMM/Part22/25/25/2: 1
+    TMM/Part29/6/6/2~2: 2
+    TMM/Part29/9/9/3~2: 2
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part29/6/6/2~2
+    - TMM/Part29/9/9/3~2
 - need: BN-0043
   grades:
     TMM/Part34/6/6/2/2: 1
@@ -924,8 +1112,14 @@ judgements:
     TMM/Part34/7#1~1: 1
     TMM/Part34/5/5/3: 1
     TMM/Part34/6/6/2/3: 1
+    TMM/Part34/7#1~2: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part34/7#1~2
 - need: BN-0044
   grades:
     TMM/Part4/5/5/7: 3
@@ -963,8 +1157,14 @@ judgements:
     TMM/Part26/6/6/2: 2
     TMM/Part26/5/5/1~2: 2
     TMM/Part26/6/6/4~2: 1
+    TMM/Part26/6#1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part26/6#1
 - need: BN-0046
   grades:
     TMM/Part23/3/3/1: 1
@@ -1001,8 +1201,16 @@ judgements:
     TMM/Part43/3/3/3: 2
     TMM/Part10/1/1/1: 1
     TMM/Part60/4/24/4/24/4/3: 2
+    TMM/Part43/3/3/2: 2
+    TMM/Part43/2#1~1: 2
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part43/2#1~1
+    - TMM/Part43/3/3/2
 - need: BN-0048
   grades:
     TMM/Part47/1/1/3/6~2: 0
@@ -1028,8 +1236,14 @@ judgements:
     TMM/Part52/5/5/2: 0
     TMM/Part60/4/7/4/7/16/2: 0
     TMM/Part20/4/4/2: 2
+    TMM/Part16/1/1/1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part16/1/1/1
 - need: BN-0049
   grades:
     TMM/Part10/4/4/1/1: 0
@@ -1132,8 +1346,16 @@ judgements:
     TMM/Part38/3/3/1: 2
     TMM/Part38/1/1/1: 3
     TMM/Part20/4/4/1: 1
+    TMM/Part17/1#1: 1
+    TMM/Part22/2#1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part17/1#1
+    - TMM/Part22/2#1
 - need: BN-0054
   grades:
     TMM/Part32B/1/1/1: 1
@@ -1157,8 +1379,16 @@ judgements:
     TMM/Part32A/2/1/2-1-1-b-composite-or-fancy-trade-marks: 0
     TMM/Part20/5/5/4/1: 1
     TMM/Part14/8#1: 1
+    TMM/Part60/4/5/4/5/2: 1
+    TMM/Part60/x-glossary#1: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part60/4/5/4/5/2
+    - TMM/Part60/x-glossary#1
 - need: BN-0055
   grades:
     TMM/Part34/2#1: 1
@@ -1224,8 +1454,14 @@ judgements:
     TMM/Part47/5/5/2: 1
     TMM/Part15/6/6/3: 1
     TMM/Part60/4/17/4/17/2~1: 1
+    TMM/Part51/5#1~1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part51/5#1~1
 - need: BN-0058
   grades:
     TMM/Part19A/8#1~1: 0
@@ -1307,8 +1543,14 @@ judgements:
     TMM/Part14/4/4/8/1: 1
     TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/tracking-services: 1
     TMM/Part14/4/4/8/2~2: 1
+    TMM/Part10/5/5/3/1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part10/5/5/3/1
 - need: BN-0062
   grades:
     TMM/Part51/2/2/2~2: 0
@@ -1373,8 +1615,14 @@ judgements:
     TMM/Part23/3/3/4~2: 0
     TMM/Part29/9/9/3~1: 1
     TMM/Part29/3/3/2: 2
+    TMM/Part46/4/4/5/2: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part46/4/4/5/2
 - need: BN-0065
   grades:
     TMM/Part17/5/5/1: 0
@@ -1434,8 +1682,16 @@ judgements:
     TMM/Part12/3/3/6: 1
     TMM/Part12/3#1: 2
     TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1: 2
+    TMM/Part60/4/17/4/17/2~3: 0
+    TMM/Part60/4/21/4/21/2: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part60/4/21/4/21/2
 - need: BN-0068
   grades:
     TMM/Part5/x-device-constituents/types-of-terms-descriptors~1: 0
@@ -1509,8 +1765,14 @@ judgements:
     TMM/Part24/x-relevant-legislation32#1: 1
     TMM/Part24/1#1: 2
     TMM/Part44/4/4/4: 0
+    TMM/Part41/3#1~1: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part41/3#1~1
 - need: BN-0072
   grades:
     TMM/Part32A/2/3/2/3/1: 1
@@ -1527,8 +1789,14 @@ judgements:
     TMM/Part32A/2/1/2-1-2-c-letter-of-consent: 1
     TMM/Part32A/1/1/4: 1
     TMM/Part32A/2/3/2-3-1-a-variety-names: 1
+    TMM/Part32A/2/3/2-3-1-b-synonyms: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part32A/2/3/2-3-1-b-synonyms
 - need: BN-0073
   grades:
     TMM/Part10/3/3/1/3: 0
@@ -1553,8 +1821,22 @@ judgements:
     TMM/Part5/x-device-constituents/borders-frames: 2
     TMM/Part26/6/6/8~4: 1
     TMM/Part60/4/27/4/27/2: 0
+    TMM/Part21/3/3/2: 0
+    TMM/Part10/3/3/4/2: 0
+    TMM/Part10/3/3/2/8: 0
+    TMM/Part32B/2/3/2/3/6~1: 0
+    TMM/Part22/15/15/1~2: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part10/3/3/2/8
+    - TMM/Part10/3/3/4/2
+    - TMM/Part21/3/3/2
+    - TMM/Part22/15/15/1~2
+    - TMM/Part32B/2/3/2/3/6~1
 - need: BN-0074
   grades:
     TMM/Part13/4#1~1: 1
@@ -1599,8 +1881,14 @@ judgements:
     TMM/Part47/1/1/2/5~4: 2
     TMM/Part46/4/4/3: 2
     TMM/Part51/1/1/1: 2
+    TMM/Part49/2/2/2/1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part49/2/2/2/1
 - need: BN-0076
   grades:
     TMM/Part26/4/4/3/1~1: 0
@@ -1638,8 +1926,14 @@ judgements:
     TMM/Part32A/2/3/2/3/1: 1
     TMM/Part32A/2/4/2/4/1: 2
     TMM/Part32A/x-annex-5---case-law-summaries/wheatcroft-bros-ltd-s-trade-marks-1954-71-rpc-43: 3
+    TMM/Part32A/x-annex-2---applicable-sections-of-the-upov-convention/chapter-vi-variety-denomination: 2
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part32A/x-annex-2---applicable-sections-of-the-upov-convention/chapter-vi-variety-denomination
 - need: BN-0078
   grades:
     TMM/Part13/1#1: 1
@@ -1667,8 +1961,18 @@ judgements:
     TMM/Part62/5#1: 0
     TMM/Part60/3/3/2: 0
     TMM/Part10/3/3/2/4: 0
+    TMM/Part16/1/1/1: 0
+    TMM/Part15/1#1~1: 0
+    TMM/Part32A/2/1/2-1-2-c-letter-of-consent: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part15/1#1~1
+    - TMM/Part16/1/1/1
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
 - need: BN-0079
   grades:
     TMM/Part34/6/6/2/2: 0
@@ -1842,8 +2146,16 @@ judgements:
     TMM/Part21/3/3/10: 3
     TMM/Part19A/2/2/4~3: 1
     TMM/Part21/3/3/7: 1
+    TMM/Part34/5/5/3: 1
+    TMM/Part20/5/5/6/2: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part20/5/5/6/2
+    - TMM/Part34/5/5/3
 - need: BN-0087
   grades:
     TMM/Part29/9/9/7: 1
@@ -1884,8 +2196,14 @@ judgements:
     TMM/Part51/2/2/3: 2
     TMM/Part47/1/1/3/3: 1
     TMM/Part15/6/6/4: 1
+    TMM/Part48/4#1~1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part48/4#1~1
 - need: BN-0089
   grades:
     TMM/Part55/4#1: 3
@@ -1997,8 +2315,14 @@ judgements:
     TMM/Part28/3#1: 2
     TMM/Part28/3/3/1~2: 1
     TMM/Part28/3/similarity-of-goods-and-services: 1
+    TMM/Part28/3/3/6~2: 2
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part28/3/3/6~2
 - need: BN-0095
   grades:
     TMM/Part49/1/1/1: 2
@@ -2038,8 +2362,20 @@ judgements:
     TMM/Part10/3/3/4/3: 1
     TMM/Part60/4/7/4/7/13: 1
     TMM/Part10/3/3/4/4: 1
+    TMM/Part20/4#1~1: 0
+    TMM/Part20/5/5/4/1: 0
+    TMM/Part22/2#1: 0
+    TMM/Part32A/2/1/2-1-2-c-letter-of-consent: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part20/4#1~1
+    - TMM/Part20/5/5/4/1
+    - TMM/Part22/2#1
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
 - need: BN-0097
   grades:
     TMM/Part17/1#1: 2
@@ -2062,8 +2398,14 @@ judgements:
     TMM/Part15/3/3/7: 2
     TMM/Part16/1/1/1: 3
     TMM/Part15/3#1: 2
+    TMM/Part48/4#1~1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part48/4#1~1
 - need: BN-0098
   grades:
     TMM/Part14/4/4/6/2: 1
@@ -2084,8 +2426,18 @@ judgements:
     TMM/Part10/5/5/3: 2
     TMM/Part29/8/8/1: 0
     TMM/Part14/6/6/7: 3
+    TMM/Part14/4/4/8/1: 2
+    TMM/Part9/8#1: 1
+    TMM/Part14/6/6/4/1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part14/4/4/8/1
+    - TMM/Part14/6/6/4/1
+    - TMM/Part9/8#1
 - need: BN-0099
   grades:
     TMM/Part4/6/6/4/1: 0
@@ -2120,8 +2472,18 @@ judgements:
     TMM/Part49/1/1/8: 1
     TMM/Part49/5#1: 1
     TMM/Part51/5#1~1: 1
+    TMM/Part48/4#1~1: 1
+    TMM/Part55/5#1: 1
+    TMM/Part62/5#1: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part48/4#1~1
+    - TMM/Part55/5#1
+    - TMM/Part62/5#1
 - need: BN-0101
   grades:
     TMM/Part60/2/4/2/4/3~2: 2
@@ -2259,8 +2621,20 @@ judgements:
     TMM/Part19A/2/examples-where-use-as-a-trade-mark-not-found~1: 2
     TMM/Part23/4/4/8~1: 2
     TMM/Part22/7/22/7/10: 1
+    TMM/Part31/4/4/2/1: 0
+    TMM/Part22/7/22/7/7: 1
+    TMM/Part31/5/5/2: 0
+    TMM/Part31/2#1: 0
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part22/7/22/7/7
+    - TMM/Part31/2#1
+    - TMM/Part31/4/4/2/1
+    - TMM/Part31/5/5/2
 - need: BN-0107
   grades:
     TMM/Part22/7/22/7/10: 1
@@ -2287,8 +2661,18 @@ judgements:
     TMM/Part22/x-registrability-of-various-kinds-of-signs#1: 1
     TMM/Part22/15#1: 1
     TMM/Part2/3/2/3/6: 1
+    TMM/Part22/7/22/7/1: 1
+    TMM/Part2/3/2/3/2/1: 1
+    TMM/Part32B/2/3/2/3/6~1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part2/3/2/3/2/1
+    - TMM/Part22/7/22/7/1
+    - TMM/Part32B/2/3/2/3/6~1
 - need: BN-0108
   grades:
     TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/internet-portals: 0
@@ -2313,8 +2697,16 @@ judgements:
     TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/search-results-screen-complete-class-lists: 1
     TMM/Part14/1#1~2: 2
     TMM/Part21/3/3/7: 0
+    TMM/Part18/2/2/2: 0
+    TMM/Part14/2/2/3/3: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part14/2/2/3/3
+    - TMM/Part18/2/2/2
 - need: BN-0109
   grades:
     TMM/Part22/13/13/1: 1
@@ -2355,8 +2747,16 @@ judgements:
     TMM/Part60/4/15/4/15/2~1: 1
     TMM/Part38/3/3/1: 2
     TMM/Part14/4/4/3/2: 0
+    TMM/Part51/10#1~1: 2
+    TMM/Part18/3/3/2: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part18/3/3/2
+    - TMM/Part51/10#1~1
 - need: BN-0111
   grades:
     TMM/Part15/2#1: 2
@@ -2380,8 +2780,16 @@ judgements:
     TMM/Part15/x-relevant-legislation13#1: 2
     TMM/Part15/2/2/2/2: 2
     TMM/Part47/1/1/3/1: 2
+    TMM/Part51/2#1~1: 2
+    TMM/Part52/5/5/2: 2
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part51/2#1~1
+    - TMM/Part52/5/5/2
 - need: BN-0112
   grades:
     TMM/Part29/9#1: 1
@@ -2420,8 +2828,14 @@ judgements:
     TMM/Part8/x-relevant-legislation39#1: 0
     TMM/Part13/3#1: 2
     TMM/Part9/4/4/2: 2
+    TMM/Part13/4#1~2: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part13/4#1~2
 - need: BN-0114
   grades:
     TMM/Part29/9/9/2: 3
@@ -2468,8 +2882,14 @@ judgements:
     TMM/Part54/3#1: 1
     TMM/Part54/3/3/1: 1
     TMM/Part54/3/3/3: 1
+    TMM/Part54/1/1/4/2: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part54/1/1/4/2
 - need: BN-0116
   grades:
     TMM/Part14/6/6/2: 1
@@ -2548,8 +2968,14 @@ judgements:
     TMM/Part26/3#1: 0
     TMM/Part5/4/4/1: 0
     TMM/Part30/x-30.-annex-a5---examples-regarding-geneva-conventions-act-1957-s-151#1~2: 1
+    TMM/Part30/3/3/5~6: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part30/3/3/5~6
 - need: GA-0001
   grades:
     TMM/Part29/x-relevant-legislation53#1: 1
@@ -2598,8 +3024,16 @@ judgements:
     TMM/Part30/2/2/12: 1
     TMM/Part29/3/3/4: 2
     TMM/Part29/2/2/4: 3
+    TMM/Part30/2/2/3: 1
+    TMM/Part29/9/9/5: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part29/9/9/5
+    - TMM/Part30/2/2/3
 - need: GA-0004
   grades:
     TMM/Part29/1/1/1: 1
@@ -2643,8 +3077,14 @@ judgements:
     TMM/Part29/x-annex-a1---table-of-inn-stems/inn-stems: 1
     TMM/Part29/5/5/3: 1
     TMM/Part29/6/6/1: 0
+    TMM/Part29/5/5/1: 1
   model: gpt-6.1-sol
   date: '2026-10-07'
+  later:
+  - date: '2026-10-09'
+    model: gpt-6.1-sol
+    refs:
+    - TMM/Part29/5/5/1
 - need: GA-0007
   grades:
     TMM/Part22/15/15/6: 2

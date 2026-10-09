@@ -1,0 +1,52 @@
+# Two concepts under one name, and a "kind of" beside a "not the same as" (review F2).
+#
+# The label keys are what the graph build states beside every label
+# (`ontology.hygiene.fold`), written out by hand here.
+#
+# Expected:
+# - tmk:SharedPreferredLabelShape fires on :endorsement and :endorsements, which share a
+#   preferred label once the plural is folded; it leaves :disclaimer alone.
+# - tmk:SharedLabelShape (a note) fires on :condition and :endorsement-wording, which
+#   share an alternative label.
+# - tmk:KindOfBesideNotLabelShape fires on :bad-kind-of (endorsement a kind of condition
+#   of registration, while each says it is not the other) and leaves :good-kind-of alone
+#   (trade mark a kind of sign, beside the same kind of not-labels, with its reason).
+
+@prefix tmk:  <https://data.ipaustralia.gov.au/tmk/ns/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix :     <https://example.org/fixture/> .
+
+:scheme a tmk:ConceptScheme .
+
+:endorsement a tmk:LegalConcept ; tmk:goldRecord "GC-9101" ; skos:inScheme :scheme ;
+    skos:prefLabel "endorsement"@en-AU ; tmk:prefLabelKey "endorsement" ; tmk:labelKey "endorsement" ;
+    tmk:notLabel "condition of registration"@en-AU ; tmk:notLabelKey "condition of registration" .
+:endorsements a tmk:LegalConcept ; tmk:goldRecord "GC-9102" ; skos:inScheme :scheme ;
+    skos:prefLabel "Endorsements"@en-AU ; tmk:prefLabelKey "endorsement" ; tmk:labelKey "endorsement" .
+:disclaimer a tmk:LegalConcept ; tmk:goldRecord "GC-9103" ; skos:inScheme :scheme ;
+    skos:prefLabel "disclaimer"@en-AU ; tmk:prefLabelKey "disclaimer" ; tmk:labelKey "disclaimer" .
+:condition a tmk:LegalConcept ; tmk:goldRecord "GC-9104" ; skos:inScheme :scheme ;
+    skos:prefLabel "condition of registration"@en-AU ; tmk:prefLabelKey "condition of registration" ;
+    tmk:labelKey "condition of registration" ;
+    skos:altLabel "the wording"@en-AU ; tmk:labelKey "wording" ;
+    tmk:notLabel "endorsement"@en-AU ; tmk:notLabelKey "endorsement" .
+:endorsement-wording a tmk:LegalConcept ; tmk:goldRecord "GC-9105" ; skos:inScheme :scheme ;
+    skos:prefLabel "endorsement wording"@en-AU ; tmk:prefLabelKey "endorsement wording" ;
+    tmk:labelKey "endorsement wording" ;
+    skos:altLabel "wording"@en-AU ; tmk:labelKey "wording" .
+:sign a tmk:LegalConcept ; tmk:goldRecord "GC-9106" ; skos:inScheme :scheme ;
+    skos:prefLabel "sign"@en-AU ; tmk:prefLabelKey "sign" ; tmk:labelKey "sign" ;
+    tmk:notLabel "trade mark"@en-AU ; tmk:notLabelKey "trade mark" .
+:trade-mark a tmk:LegalConcept ; tmk:goldRecord "GC-9107" ; skos:inScheme :scheme ;
+    skos:prefLabel "trade mark"@en-AU ; tmk:prefLabelKey "trade mark" ; tmk:labelKey "trade mark" ;
+    tmk:notLabel "sign"@en-AU ; tmk:notLabelKey "sign" .
+
+:bad-kind-of a tmk:AuthoredAssertion ;
+    tmk:assertionSubject :endorsement ;
+    tmk:assertionPredicate skos:broader ;
+    tmk:assertionObject :condition .
+:good-kind-of a tmk:AuthoredAssertion ;
+    tmk:assertionSubject :trade-mark ;
+    tmk:assertionPredicate skos:broader ;
+    tmk:assertionObject :sign ;
+    tmk:kindOfAffirmed "Section 17: a trade mark is a sign; not every sign is a trade mark."@en-AU .

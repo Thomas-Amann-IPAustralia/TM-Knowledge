@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.03961,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0254..GR-0262",
+ "job": "audit",
+ "key": "538e7dbb3cb59196efe1c0f82fdce00d4d9a396dd2706de877c6a7802d69e794",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0254\",\n    \"verdict\": \"vague\",\n    \"problem\": \"The sentence states a sharper relationship than `related`, explicitly casting the filing date in the role of the priority date for this context.\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0091\",\n    \"corrected_predicate\": \"actsAs\",\n    \"corrected_object\": \"GC-0016\",\n    \"reason\": \"The sentence specifies that the divisional application will have the parent's filing date 'as the priority date', meaning the filing date acts as the priority date in this context.\"\n  },\n  {\n    \"id\": \"GR-0255\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The predicate `appliesTo` is restricted to provisions, rules, or schemes governing an object, whereas 'priority date' is a context.\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0016\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0043\",\n    \"reason\": \"The sentence describes how the priority date of a divisional application is determined, supporting a `related` link between the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0257\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly connects requesting a deferment of acceptance with the purpose of gathering evidence to prove prior use.\"\n  },\n  {\n    \"id\": \"GR-0258\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly links requesting a deferment of acceptance with the objective of gathering evidence to prove honest concurrent use.\"\n  },\n  {\n    \"id\": \"GR-0259\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence defines deferment of acceptance as holding the period of time allowed for an application to gain acceptance in abeyance, establishing a clear relationship between the two.\"\n  },\n  {\n    \"id\": \"GR-0260\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The predicate `appliesTo` is reserved for provisions, rules, or schemes; 'opposition' is a procedural step, not a rule.\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0040\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0097\",\n    \"reason\": \"The sentence discusses procedures for 'oppositions to extensions of time', which supports a general relationship between the two procedural steps.\"\n  },\n  {\n    \"id\": \"GR-0261\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence states that the Registrar handles the task of granting an extension of time and must be satisfied with the grounds and reasons.\"\n  },\n  {\n    \"id\": \"GR-0262\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence connects the two concepts by stating that one can object to an extension application by requesting a hearing.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "2a7c3e82e597e2e6aaf87a555ab2014c3aa5fcfd97436b19b6f47c5e44dddd21",
+ "response_id": "72LIap-pKKmkqtsProyE4AE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7954,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5276,
+  "output_tokens_details": {
+   "reasoning_tokens": 4357
+  }
+ }
+}

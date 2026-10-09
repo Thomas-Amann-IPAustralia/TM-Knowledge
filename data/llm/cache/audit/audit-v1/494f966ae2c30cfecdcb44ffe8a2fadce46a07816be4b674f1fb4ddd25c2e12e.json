@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.055045,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0447..GR-0454",
+ "job": "audit",
+ "key": "494f966ae2c30cfecdcb44ffe8a2fadce46a07816be4b674f1fb4ddd25c2e12e",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[{\"id\":\"GR-0447\",\"verdict\":\"vague\",\"problem\":\"a statement true only of the one case the sentence describes\",\"remove\":false,\"corrected_subject\":\"\",\"corrected_predicate\":\"\",\"corrected_object\":\"\",\"reason\":\"The sentence is a quote from a delegate's decision in a specific case ('permit me to conclude that the Trade Mark as a whole is capable of distinguishing'), rather than a general rule stating that the trade mark as a whole qualifies the test for capacity to distinguish.\"},{\"id\":\"GR-0448\",\"verdict\":\"sound\",\"problem\":\"none\",\"remove\":false,\"corrected_subject\":\"\",\"corrected_predicate\":\"\",\"corrected_object\":\"\",\"reason\":\"The sentence explicitly states that grounds for rejection under section 43 are considered 'in the context of the trade mark as a whole', showing that the mark as a whole is a factor that qualifies the section 43 test.\"},{\"id\":\"GR-0449\",\"verdict\":\"wrong\",\"problem\":\"wrong predicate\",\"remove\":false,\"corrected_subject\":\"GC-0040\",\"corrected_predicate\":\"related\",\"corrected_object\":\"GC-0135\",\"reason\":\"An opposition is a procedural step, not a provision, rule or scheme, so it cannot 'apply to' cessation of protection. The sentence supports a 'related' link because it discusses oppositions to cessation of protection.\"},{\"id\":\"GR-0450\",\"verdict\":\"wrong\",\"problem\":\"wrong predicate\",\"remove\":false,\"corrected_subject\":\"GC-0040\",\"corrected_predicate\":\"related\",\"corrected_object\":\"GC-0143\",\"reason\":\"An opposition is a procedural step, not a provision or rule, so 'appliesTo' is incorrect. The sentence states that it is possible to oppose an extension of protection, supporting a 'related' link.\"},{\"id\":\"GR-0451\",\"verdict\":\"wrong\",\"problem\":\"wrong predicate\",\"remove\":false,\"corrected_subject\":\"GC-0040\",\"corrected_predicate\":\"related\",\"corrected_object\":\"GC-0104\",\"reason\":\"An opposition is not a provision or rule, making 'appliesTo' incorrect. The sentence links a notice of opposition to proceedings involving a removal applicant, which supports a general 'related' connection between opposition and removal for non-use.\"},{\"id\":\"GR-0452\",\"verdict\":\"sound\",\"problem\":\"none\",\"remove\":false,\"corrected_subject\":\"\",\"corrected_predicate\":\"\",\"corrected_object\":\"\",\"reason\":\"The sentence, read with its passage, notes that a declaration supplying evidence may be made by an authorised person such as a lawyer, establishing a 'related' link between evidence of use and a lawyer.\"},{\"id\":\"GR-0453\",\"verdict\":\"sound\",\"problem\":\"none\",\"remove\":false,\"corrected_subject\":\"\",\"corrected_predicate\":\"\",\"corrected_object\":\"\",\"reason\":\"The sentence directly states that an application for a defensive registration must be supported by evidence, supporting the relationship that a defensive trade mark requires evidence of use.\"},{\"id\":\"GR-0454\",\"verdict\":\"sound\",\"problem\":\"none\",\"remove\":false,\"corrected_subject\":\"\",\"corrected_predicate\":\"\",\"corrected_object\":\"\",\"reason\":\"The sentence shows that placing conditions and limitations on the trade mark is a factor the Registrar considers when deciding if it is reasonable to revoke acceptance, meaning it qualifies the assessment.\"}]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "f90733623aaa03ad7c3b23bd7212ac13c147215ac7006d74e11f20d9997583ce",
+ "response_id": "72LIarOaK5Km_PUP8Pr7mAo",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7867,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 7863,
+  "output_tokens_details": {
+   "reasoning_tokens": 7165
+  }
+ }
+}

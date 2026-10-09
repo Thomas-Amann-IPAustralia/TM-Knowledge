@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016547,
+ "created_utc": "2026-10-09T04:52:00Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0034",
+ "job": "answer",
+ "key": "53aa61189eb81525116e4f39195a2a00ff9fedf959475467091930807dba44d3",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0012\",\"GC-0015\",\"GC-0092\",\"GC-0121\",\"GC-0131\",\"GC-0113\",\"GC-0138\",\"GC-0132\",\"GC-0046\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMR1995/r4.4\",\"quote\":\"(6) The goods and/or services must, as far as practicable, be specified in terms appearing in any listing of goods and services that is: (a) published by the Registrar; and (b) made available for inspection by the public at the Trade Marks Office and its suboffices (if any). (7) If any of the goods and/or services cannot be specified using terms referred to in subregulation (6), the applicant must provide sufficient information to enable the Registrar to decide the classification of the goods and/or services.\"},{\"ref\":\"TMM/Part60/2/2/2/2/4~4\",\"quote\":\"The goods and services claimed may be the same as, or less than, those claimed in the basic trade mark(s). The exact wording need not be used; however, the claim may not be broader than that of the original basic trade mark. The applicant must list the goods and/or services grouped in classes determined by the International Classification of Goods and Services - Nice Classification.\"},{\"ref\":\"TMM/Part14/4/4/6/2\",\"quote\":\"If part or all of the specification is vague or unclear to the extent that it cannot be classified, the Examiner should request further information from the applicant. It should not be suggested to the applicant at this stage that they may be able to add a class or classes. The request should be for further information in the form of information from the applicant's website, or trade brochures or pamphlets published by the applicant, which are directly relevant to the application (reg 4.4(7)).\"},{\"ref\":\"TMM/Part60/4/6/4/6/2\",\"quote\":\"The goods and/or services must comply with the Nice Classification System and will have been checked, and amended if necessary, by the IB prior to transmission of the international registration to IP Australia. In the case of claims that have vague terms, are incomprehensible or linguistically incorrect, a provisional refusal may be issued, and the holder will be asked to explain or limit the claim. If there is no response from the holder, the terms will be refused (see 4.14 Acceptance and 4.18 Protection).\"},{\"ref\":\"TMR1995/r17A.14\",\"quote\":\"(1) The expression ‘all goods’, ‘all services’, ‘all other goods’ or ‘all other services’ must not be used in an IRDA to specify the goods or services in respect of which protection is sought.\"},{\"ref\":\"TMR1995/r17A.14\",\"quote\":\"(2) If a term has been identified by the International Bureau as being: (a) too vague for the purposes of classification; or (b) incomprehensible; or (c) linguistically incorrect; the term must not be used in an IRDA to specify the goods or services in respect of which protection is sought, unless the Registrar is satisfied that the term is sufficiently clear in the circumstances.\"},{\"ref\":\"TMR1995/r17A.14\",\"quote\":\"(3) If the Registrar is reasonably satisfied that a term to be used in an IRDA to specify goods or services in respect of which protection is sought: (a) is too vague for the purposes of determining the scope of that protection; or (b) is incomprehensible; or (c) is linguistically incorrect; then the term must not be used in the IRDA to specify the goods or services in respect of which protection is sought.\"}],\"answer\":\"The practical response is to explain clearly what the goods or services are, rather than force them into unsuitable standard wording. The applicable provisions differ between an international application and an international registration designating Australia (IRDA).\\n\\n**Regulations — general specification rule:** Regulation 4.4 requires listed terminology only “as far as practicable”. If those terms cannot describe the goods or services, the applicant must provide enough information for the Registrar to determine their classification. This is the general application provision; the specific IRDA provision is regulation 17A.14. [TMR1995/r4.4; TMR1995/r17A.14]\\n\\n**Manual practice — preparing the international application:** Group the goods and services into Nice Classification classes. You need not reproduce the basic trade mark’s wording exactly, but the international claim must not be broader than the basic mark’s claim. [TMM/Part60/2/2/2/2/4~4]\\n\\n**Manual practice — clarifying unclear wording:** The general examination guidance says the examiner should seek directly relevant information from the applicant’s website, trade brochures or pamphlets where wording cannot be classified. At that stage, the examiner should not suggest adding classes. [TMM/Part14/4/4/6/2]\\n\\n**Manual practice — an IRDA objection:** The International Bureau checks classification and amends it if necessary before transmission to IP Australia. If IP Australia issues a provisional refusal for vague, incomprehensible or linguistically incorrect terms, respond by explaining or limiting the claim. The Manual says that, without a response, those terms will be refused. [TMM/Part60/4/6/4/6/2]\\n\\n**Regulations — IRDA limits:** Do not use the blanket expressions prohibited by regulation 17A.14(1). An IB-identified problematic term may be used only if the Registrar is satisfied it is sufficiently clear in the circumstances. Separately, regulation 17A.14(3) prohibits a term where the Registrar is reasonably satisfied it is too vague to determine the scope of protection, incomprehensible or linguistically incorrect. [TMR1995/r17A.14]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "f5fb22a3b292813cbc6ff5be6ded93076ba516c0f43fdbeac206a78c8f3afe2e",
+ "response_id": "resp_0cdc210649ddd6fb006ac872d492a887d28ed26f51df8472cd",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7810,
+  "input_tokens_details": {
+   "cache_write_tokens": 7807,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1357,
+  "output_tokens_details": {
+   "reasoning_tokens": 98
+  },
+  "total_tokens": 9167
+ }
+}

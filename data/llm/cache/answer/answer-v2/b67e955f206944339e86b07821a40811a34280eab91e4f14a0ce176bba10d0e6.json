@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013233,
+ "created_utc": "2026-10-09T05:46:07Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0022",
+ "job": "answer",
+ "key": "b67e955f206944339e86b07821a40811a34280eab91e4f14a0ce176bba10d0e6",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0169\",\"GC-0170\",\"GC-0063\",\"GC-0001\",\"GC-0002\",\"GC-0168\",\"GC-0013\",\"GC-0038\"],\"decline_reason\":\"I cannot state how a particular application would be decided. I can explain the examination practice in the supplied Manual passages.\",\"declined\":true,\"citations\":[{\"ref\":\"TMM/Part32B/2/1#1\",\"quote\":\"A ground for rejection under this section may apply when a trade mark or part of a trade mark is identical to, or resembles, an entry on the Register of Protected Geographical Indications and Other Terms (‘the Wine Register’) , and the application claims grape products relevant to Class 33.\"},{\"ref\":\"TMM/Part32B/2/1#1\",\"quote\":\"The presence of such a match on the Wine Register indicates that the use of the trade mark may contravene the Wine Australia Act, unless that use is in accord with conditions specified in the relevant entry on the Wine Register.\"},{\"ref\":\"TMM/Part32B/2/1#1\",\"quote\":\"To be satisfied that use of the trade mark will comply with the provisions of the Wine Australia Act, the Registrar will require the applicant to consent to the following condition of registration: It is a condition of registration that the trade mark will only be used under the conditions entered on the Register of Protected Geographical Indications and Other Terms for use of the <Geographical Indication/ Traditional Expression/ Quality Wine Term/ Additional Term> <> and that the use will accord with the Wine Australia Act 2013. Consent to this endorsement will allow the section 42 ground for rejection to be withdrawn.\"},{\"ref\":\"TMM/Part32B/2/2#1\",\"quote\":\"Where a trade mark includes a geographic reference, regardless of whether this reference is a known geographical indication or not, a section 43 ground for rejection should be considered on the basis that the reference denotes a particular location, and when applied to the goods and / or services claimed, the connotation associated with the reference is likely to deceive or confuse the relevant consumer.\"},{\"ref\":\"TMM/Part32B/2/1/2/1/2\",\"quote\":\"It is possible for a trade mark to contain a protected term but the context in which it is presented in the trade mark does not actually refer to a term on the Wine Register. In these circumstances, the Wine Australia Act is not contravened and so a section 42(b) ground for rejection should not be raised.\"}],\"answer\":\"A slight spelling change is not an automatic way around the objection. That is an inference from the Manual’s express coverage of marks that “resemble” a protected Wine Register entry, not just identical marks, where the application claims relevant Class 33 grape products. The passages do not specify how slight a spelling change must be to constitute resemblance. [1]\\n\\nI cannot say whether your particular brand would be registered. The supplied Manual practice identifies these considerations:\\n\\n• Protected wine terms: resemblance to a Wine Register entry may indicate that use would contravene the Wine Australia Act unless it accords with the entry’s conditions. The Manual provides for consent to a condition of registration restricting use accordingly; it says this allows the section 42 objection to be withdrawn. [2–3]\\n\\n• Deception or confusion: separately, examiners should consider section 43 where a geographic reference conveys a connotation likely to deceive or confuse consumers in relation to the claimed goods or services—even if the reference is not a recognised geographical indication. [4]\\n\\n• Context: the Manual says a section 42(b) objection should not be raised where the context means the protected term does not actually refer to the Wine Register term. This is a contextual distinction, not a stated spelling-change exception. [5]\\n\\nSource status: these are statements of Manual practice, not direct quotations from legislation. No Act or Regulations passage was supplied, so I cannot independently establish the statutory rules from this material.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "68da38a7e7e0de70dc8113cb8d5ff3d5f864db6592c6577d2f47825fa0e2a740",
+ "response_id": "resp_075506f81a308d02006ac87f83ca8087d2b4add01e540fbb30",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6635,
+  "input_tokens_details": {
+   "cache_write_tokens": 6632,
+   "cached_tokens": 0
+  },
+  "output_tokens": 988,
+  "output_tokens_details": {
+   "reasoning_tokens": 140
+  },
+  "total_tokens": 7623
+ }
+}

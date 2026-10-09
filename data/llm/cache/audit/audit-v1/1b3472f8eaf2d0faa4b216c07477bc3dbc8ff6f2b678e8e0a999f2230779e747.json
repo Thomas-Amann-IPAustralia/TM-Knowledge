@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.046157,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0393..GR-0401",
+ "job": "audit",
+ "key": "1b3472f8eaf2d0faa4b216c07477bc3dbc8ff6f2b678e8e0a999f2230779e747",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0393\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence links the concepts of denotation and descriptive matter by noting that the mark's denotation is primarily as a trade mark despite any descriptive matter it contains. 'Related' is the appropriate predicate.\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\"\n  },\n  {\n    \"id\": \"GR-0394\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that a ground for rejection can impede acceptance. As there is no specific predicate for 'prevents' or 'impedes', 'related' is the correct and sound choice.\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\"\n  },\n  {\n    \"id\": \"GR-0396\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence indicates that for the purpose of the section 41(4) ground for rejection, it is the 'trade mark as a whole' that is assessed. This affects how the test is applied, supporting 'qualifies'.\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\"\n  },\n  {\n    \"id\": \"GR-0397\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"reason\": \"The predicate 'appliesTo' is restricted to a provision, rule, or scheme applying to the thing it governs. A 'ground for rejection' is not a provision or rule, so 'appliesTo' cannot be used here. The sentence loosely connects the two concepts in an example, which supports 'related'.\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0006\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0131\"\n  },\n  {\n    \"id\": \"GR-0398\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a relationship the sentence does not state\",\n    \"reason\": \"The sentence states when the presumption of registrability 'no longer applies' to the Registrar's decision-making, setting an exception rather than directly stating that it constrains the role. It supports a 'related' link.\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0007\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0046\"\n  },\n  {\n    \"id\": \"GR-0399\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that a 'real and tangible danger' of confusion is assessed based on the impression of an 'ordinary consumer', establishing that the consumer's perspective qualifies the test.\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\"\n  },\n  {\n    \"id\": \"GR-0400\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The passage links the 'real tangible danger' of confusion to the likelihood of confusion occurring 'within the relevant market', indicating that the relevant market is a factor that bears on the test. This plainly implies 'qualifies'.\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\"\n  },\n  {\n    \"id\": \"GR-0401\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence directly connects a country's reputation to its influence on consumers (the ordinary consumer), supporting the 'related' link.\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "3b523bc313dbbef30f3815b8da37b9d054d6c885caa785cc84d6e0a6e2414e79",
+ "response_id": "72LIapf9KJfUz7IPoMGjyAE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7835,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 6387,
+  "output_tokens_details": {
+   "reasoning_tokens": 5416
+  }
+ }
+}

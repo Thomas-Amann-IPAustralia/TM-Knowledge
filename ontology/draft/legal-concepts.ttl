@@ -11,23 +11,25 @@
 <https://data.ipaustralia.gov.au/tmk/ns/legal-concepts>
     a owl:Ontology ;
     rdfs:label "TM-Knowledge — legal concepts module"@en-AU ;
-    rdfs:comment """The concept layer, and the module with the largest declared-but-unpopulated
-part of the model.
+    rdfs:comment """The concept layer.
 
-Every approved concept in `eval/gold/concepts.yaml` becomes a `tmk:LegalConcept`.
-Whether it is also one of the ten subclasses below — the five reasoning groups
-(GroundOfRefusal, LegalTest, RelevantFactor, Exception, Remedy) and the five
-process groups — depends on a concept-types record and on nothing else: one a
-named expert signed in `eval/gold/`, or one a machine wrote in `authored/`,
-unreviewed, in the authored graph (ADR-0079, ADR-0080). Deciding that
-'connotation' is a LegalTest rather than a RelevantFactor is a legal judgement;
-since ADR-0079 an agent may make it, provided the record says who did.
+Every concept in `eval/gold/concepts.yaml` and `authored/concepts.yaml` becomes a
+`tmk:LegalConcept`. Which of the ten kinds below it is in — what it *is* — depends
+on a concept-types record and on nothing else: one a named expert signed in
+`eval/gold/`, or one a machine wrote in `authored/`, unreviewed, in the authored
+graph (ADR-0079, ADR-0080).
 
-The owner confirmed the four groups on 2026-09-08 (OQ-0001) and the container
-now exists (ADR-0071). Until a concept has a type record it stays a bare
-`tmk:LegalConcept`, and the count of unsorted concepts is reported by every
-build rather than defaulted away. A machine filling these would produce a
-taxonomy that reads as authoritative and was authored by nobody."""@en-AU ;
+What a concept *does* is not a kind. On the owner's ruling B1 of 2026-10-09
+(ADR-0126) — "the ontology should describe what a thing 'is' (as a node) and what
+it 'does' as an edge" — relevant factor, exception and remedy stopped being groups
+a concept is filed in and became what an edge says: a factor `qualifies` the test
+it bears on, an exception `doesNotGiveRiseTo` the ground it takes a case out of, a
+ground `isOvercomeBy` its remedy. `tmk:RelevantFactor`, `tmk:Exception` and
+`tmk:Remedy` remain, defined by those edges, so a concept is one because of what
+it does to a named thing and never because a dropdown said so.
+
+Until a concept has a type record it stays a bare `tmk:LegalConcept`, and the count
+of unsorted concepts is reported by every build rather than defaulted away."""@en-AU ;
     owl:imports <https://data.ipaustralia.gov.au/tmk/ns/authority> ;
     owl:versionInfo "draft — not approved" .
 
@@ -46,41 +48,80 @@ tmk:LegalTest a owl:Class ;
     rdfs:label "Legal test"@en-AU ;
     rdfs:comment "Filled from a concept-types.yaml record and from nothing else — never from a label or a heuristic. In the approved graph that record is one a named expert signed; in the authored graph it is one a machine wrote and nobody has read, and the two never share a graph (ADR-0080). A question the decision maker must answer, with a stated threshold."@en-AU .
 
+# --- what a concept does: defined by its edges, never asserted (B1) ----------
+
+# The three definitions are named nodes, not blank ones: the TBox is serialised into
+# the committed graph, and a blank node gets a fresh id on every build, which the
+# drift check reads as a change.
+
+tmk:QualifiesAConcept a owl:Restriction ;
+    owl:onProperty tmk:qualifies ;
+    owl:someValuesFrom tmk:LegalConcept ;
+    rdfs:comment "Whatever qualifies some concept — the definition of tmk:RelevantFactor."@en-AU .
+
+tmk:GivesRiseToNoConceptByItself a owl:Restriction ;
+    owl:onProperty tmk:doesNotGiveRiseTo ;
+    owl:someValuesFrom tmk:LegalConcept ;
+    rdfs:comment "Whatever does not by itself give rise to some concept — the definition of tmk:Exception."@en-AU .
+
+tmk:overcomes a owl:ObjectProperty ;
+    owl:inverseOf tmk:isOvercomeBy ;
+    rdfs:label "overcomes"@en-AU ;
+    rdfs:comment "The inverse of tmk:isOvercomeBy, declared only so that tmk:Remedy can be defined. No record uses it: edges are written ground → remedy, as the relation dictionary says."@en-AU .
+
+tmk:OvercomesAConcept a owl:Restriction ;
+    owl:onProperty tmk:overcomes ;
+    owl:someValuesFrom tmk:LegalConcept ;
+    rdfs:comment "Whatever some ground is overcome by — the definition of tmk:Remedy."@en-AU .
+
 tmk:RelevantFactor a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
+    owl:equivalentClass tmk:QualifiesAConcept ;
     rdfs:label "Relevant factor"@en-AU ;
-    rdfs:comment "Filled from a concept-types.yaml record and from nothing else — never from a label or a heuristic. In the approved graph that record is one a named expert signed; in the authored graph it is one a machine wrote and nobody has read, and the two never share a graph (ADR-0080). Something the decision maker weighs, which does not on its own decide the question."@en-AU .
+    rdfs:comment "Something the decision maker weighs, which does not on its own decide the question. A function, not a kind (ruling B1, ADR-0126): a concept is a relevant factor because an edge says it qualifies a named test or ground, and the build never asserts this class from a typing record."@en-AU .
 
 tmk:Exception a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
+    owl:equivalentClass tmk:GivesRiseToNoConceptByItself ;
     rdfs:label "Exception"@en-AU ;
-    rdfs:comment "Filled from a concept-types.yaml record and from nothing else — never from a label or a heuristic. In the approved graph that record is one a named expert signed; in the authored graph it is one a machine wrote and nobody has read, and the two never share a graph (ADR-0080). A condition under which a general position does not hold, or is reversed."@en-AU .
+    rdfs:comment "A case a ground or test does not reach. A function, not a kind (ruling B1, ADR-0126): a concept is an exception because an edge says it does not give rise to a named ground or test, and the build never asserts this class from a typing record."@en-AU .
 
 tmk:Remedy a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
+    owl:equivalentClass tmk:OvercomesAConcept ;
     rdfs:label "Remedy"@en-AU ;
-    rdfs:comment """Filled from a concept-types.yaml record and from nothing else. A step, record or consent that overcomes a ground for rejection already made out — a condition of registration, an endorsement, a limitation of the specification, a person's written permission. The object of tmk:isOvercomeBy.
+    rdfs:comment """A step, record or consent that overcomes a ground for rejection already made out — a condition of registration, an endorsement, a limitation of the specification, a person's written permission. A function, not a kind (ruling B1, ADR-0126): a concept is a remedy because a ground is overcome by it, on an edge naming that ground.
 
-Split from tmk:Exception on the owner's ruling B5 of 2026-10-08 (ADR-0124). The
-two differ in when they act: an exception is a case the ground does not reach,
-so nothing needs overcoming; a remedy answers a ground that does apply, and the
-applicant has to supply it. Keeping them in one class told an examiner that a
-condition of registration and a deceased person's name worked the same way."""@en-AU .
+Split from tmk:Exception on the owner's ruling B5 of 2026-10-08 (ADR-0124): an
+exception is a case the ground does not reach, so nothing needs overcoming; a remedy
+answers a ground that does apply, and the applicant has to supply it."""@en-AU .
 
-# --- the process groups ----------------------------------------------------
+# --- what the law's questions are asked about (B1) ------------------------------
+
+tmk:SignContent a owl:Class ;
+    rdfs:subClassOf tmk:LegalConcept ;
+    rdfs:label "Sign content"@en-AU ;
+    rdfs:comment "Filled from a concept-types.yaml record and from nothing else. Something a trade mark contains or conveys: a word, a name, an image, a sign within it, or a meaning — a geographical reference, an INN stem, a phoneword, a prescribed sign, an implied endorsement. Written for B1 (ADR-0126): most of what the old relevant-factor group held is this, and what it does to a ground or test is on its edges."@en-AU .
+
+tmk:Context a owl:Class ;
+    rdfs:subClassOf tmk:LegalConcept ;
+    rdfs:label "Context"@en-AU ;
+    rdfs:comment "Filled from a concept-types.yaml record and from nothing else. Something outside the trade mark that the assessment looks at: the goods, the market and its ordinary consumers, a person or place the mark refers to, a reputation, a date. Written for B1 (ADR-0126)."@en-AU .
+
+tmk:UseInTrade a owl:Class ;
+    rdfs:subClassOf tmk:LegalConcept ;
+    rdfs:label "Use in trade"@en-AU ;
+    rdfs:comment "Filled from a concept-types.yaml record and from nothing else. Something a person does with a trade mark in the course of trade: using it, authorising its use, using it before another or alongside another. Written for B1 (ADR-0126); what such use does — overcoming a section 44 ground, establishing capacity to distinguish — is on its edges."@en-AU .
+
+# --- the process ----------------------------------------------------------------
 #
-# The five classes above sort a concept by the part it plays in *reasoning
-# towards* a decision. The five below sort it by the part it plays in the
-# process that reasoning sits inside. They were added on 2026-09-09 because 53
-# of the vocabulary's 130 concepts fitted none of the first four, and the 53
-# were not a random remainder — they were the people, the things, the acts, the
-# documents and the schemes (ADR-0098).
-#
-# Same footing as the first four: subclasses of tmk:LegalConcept, filled from a
-# concept-types.yaml record and from nothing else. The axis a class belongs to
-# is not modelled, deliberately — a concept carries one group because the
-# workbook has one dropdown, and whether that is right is the open question
-# ADR-0098 records rather than settles.
+# Who acts, what is acted on in the office, what act is performed, what it produces,
+# and what external scheme it runs under. Added on 2026-09-09 because 53 of the
+# vocabulary's 130 concepts fitted none of the owner's first four groups, and the 53
+# were not a random remainder (ADR-0098). Same footing as every kind: subclasses of
+# tmk:LegalConcept, filled from a concept-types.yaml record and from nothing else.
+# tmk:SubjectMatter, declared below with them, now sits in the "examined" family in
+# the explorer beside sign content, context and use in trade (ADR-0126).
 
 tmk:ProcessRole a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
@@ -111,7 +152,7 @@ is a property of the concept and not of the group."""@en-AU .
 tmk:InstrumentOrRecord a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
     rdfs:label "Instrument or record"@en-AU ;
-    rdfs:comment "Filled from a concept-types.yaml record and from nothing else. A document, entry or endorsement the process produces, or writes to the Register. The Register itself is here, as are the things entered on it — a disclaimer, an endorsement, conditions or limitations — and the documents that start or end a proceeding."@en-AU .
+    rdfs:comment "Filled from a concept-types.yaml record and from nothing else. A document, entry or endorsement the process produces or receives, or writes to the Register. The Register itself is here, as are the things entered on it — a disclaimer, an endorsement, conditions or limitations — and the documents that start or end a proceeding."@en-AU .
 
 tmk:ExternalInstrument a owl:Class ;
     rdfs:subClassOf tmk:LegalConcept ;
@@ -126,7 +167,7 @@ has lost exactly the distinction the rule protects."""@en-AU .
 tmk:typedBy a owl:ObjectProperty ;
     rdfs:label "typed by"@en-AU ;
     rdfs:domain tmk:LegalConcept ;
-    rdfs:comment """The record that put this concept in one of the ten groups.
+    rdfs:comment """The record that put this concept in one of the ten kinds.
 
 Present so a typed concept can be traced to whoever or whatever typed it and the
 date they did, rather than appearing to have always been a LegalTest. The ten
@@ -276,3 +317,25 @@ tmk:usageCount a owl:AnnotationProperty ;
 tmk:usedBy a owl:AnnotationProperty ;
     rdfs:label "used by"@en-AU ;
     rdfs:comment "The gold record ids that use this predicate. The route from a term in the dictionary back to the sentences that put it there."@en-AU .
+
+# Comparison keys (review F2, ADR-0125). Computed by the graph build from each label
+# with `ontology.hygiene.fold` — case, punctuation, a leading article and plurals
+# folded — and shown to nobody. They let the SHACL gate join two concepts on a shared
+# name without folding every label inside SPARQL.
+
+tmk:labelKey a owl:DatatypeProperty ;
+    rdfs:domain tmk:LegalConcept ;
+    rdfs:range xsd:string ;
+    rdfs:label "label key"@en-AU ;
+    rdfs:comment "The folded form of one of the concept's names, preferred or alternative. Computed; a comparison key, not a label."@en-AU .
+
+tmk:prefLabelKey a owl:DatatypeProperty ;
+    rdfs:subPropertyOf tmk:labelKey ;
+    rdfs:label "preferred label key"@en-AU ;
+    rdfs:comment "The folded form of the concept's preferred label. Computed; a comparison key, not a label."@en-AU .
+
+tmk:notLabelKey a owl:DatatypeProperty ;
+    rdfs:domain tmk:LegalConcept ;
+    rdfs:range xsd:string ;
+    rdfs:label "not-label key"@en-AU ;
+    rdfs:comment "The folded form of one of the concept's not-labels. Computed; a comparison key, not a label."@en-AU .

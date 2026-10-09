@@ -12,6 +12,7 @@ anything is worse than no shape, because it reads as coverage.*
 | `broader-cycle.ttl` | a cycle in `skos:broader`; a not-label that is also a label |
 | `unexplained-inference.ttl` | an inference that cannot explain itself; a rule reaching an evaluative conclusion |
 | `undated-supersession.ttl` | superseded material with no status date |
+| `shared-names-and-kind-of.ttl` | two concepts under one name (folded); a "kind of" beside a "not the same as" with and without its reason |
 
 ## The conforming twin
 

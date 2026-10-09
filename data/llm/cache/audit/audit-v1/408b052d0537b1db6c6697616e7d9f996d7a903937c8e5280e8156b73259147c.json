@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.041386,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0402..GR-0411",
+ "job": "audit",
+ "key": "408b052d0537b1db6c6697616e7d9f996d7a903937c8e5280e8156b73259147c",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0402\",\n    \"verdict\": \"vague\",\n    \"problem\": \"a statement true only of the one case the sentence describes\",\n    \"remove\": false,\n    \"reason\": \"The sentence describes the surrounding circumstances in a single case involving a specific deceased person, rather than establishing a general relationship between the concepts.\"\n  },\n  {\n    \"id\": \"GR-0404\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"reason\": \"The sentence provides a standard condition of registration that limits the use of the trade mark in respect of pharmaceutical substances.\"\n  },\n  {\n    \"id\": \"GR-0405\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly relates an endorsement to a well-known person by providing a standard template for how permission from a well-known person should be recorded.\"\n  },\n  {\n    \"id\": \"GR-0406\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"reason\": \"The sentence, read in the context of its passage about shape trade marks, explains that the endorsement serves to define the scope of the registration, which affects how the shape trade mark is assessed.\"\n  },\n  {\n    \"id\": \"GR-0408\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0111\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0016\",\n    \"remove\": false,\n    \"reason\": \"The sentence sets out a requirement for a convention application to gain a priority date, but the application itself is not a factor that 'qualifies' the priority date. 'Related' accurately captures the link.\"\n  },\n  {\n    \"id\": \"GR-0409\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0043\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0016\",\n    \"remove\": false,\n    \"reason\": \"The sentence explains the rule for determining the priority date of a divisional application, but the application itself does not 'qualify' the date. 'Related' is the correct predicate.\"\n  },\n  {\n    \"id\": \"GR-0410\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"corrected_subject\": \"GC-0017\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0019\",\n    \"remove\": false,\n    \"reason\": \"The sentence discusses connoting 'geographical origin' (GC-0019), not the specific legal test of where wine 'originates' (GC-0145). Furthermore, a reference does not cause an origin, so 'related' is the appropriate predicate.\"\n  },\n  {\n    \"id\": \"GR-0411\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly connects geographical indications and the legal definition of where wine originates within the defense under subsection 61(2)(d).\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "03d4db394de87452ca6cec6a5162850c007bce8923c63a95f7e5872f0ed73f79",
+ "response_id": "72LIarimKI7Uz7IPkra-8QM",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7822,
+  "input_tokens_details": {
+   "cached_tokens": 4028
+  },
+  "output_tokens": 6131,
+  "output_tokens_details": {
+   "reasoning_tokens": 5313
+  }
+ }
+}

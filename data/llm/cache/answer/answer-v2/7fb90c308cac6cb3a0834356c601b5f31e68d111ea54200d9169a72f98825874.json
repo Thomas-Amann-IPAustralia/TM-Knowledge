@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013299,
+ "created_utc": "2026-10-09T05:52:04Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0110",
+ "job": "answer",
+ "key": "7fb90c308cac6cb3a0834356c601b5f31e68d111ea54200d9169a72f98825874",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0074\",\"GC-0044\",\"GC-0131\",\"GC-0124\",\"GC-0042\",\"GC-0171\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part10/3/3/6/3\",\"quote\":\"At the time of examination, the examiner may need to request additional information from the applicant in order to clearly define the scope of the trade mark, keeping in mind the requirements of section 65.\"},{\"ref\":\"TMM/Part10/3/3/6/3\",\"quote\":\"For each of these signs, the applicant should expect to have to provide a copy of the actual trade mark as would be perceived by consumers, in the form of a video clip for a movement mark or gesture, or an actual example of a hologram. Alternatively, the applicant could provide sufficient still representations of the movement or gesture to demonstrate the full range of the claimed movement.\"},{\"ref\":\"TMM/Part38/2/2/1\",\"quote\":\"If information is received from examination staff, third parties or others with specialised knowledge that calls into question the acceptance of the trade mark the delegate can act on this information to begin the revocation process but should not institute revocation proceedings merely because another party is requesting revocation.\"},{\"ref\":\"TMA1995/s65\",\"quote\":\"(1) If the particulars of the application have been published under section 30, the application may be amended as provided in this section. (2) An amendment may be made to the representation of the trade mark if the amendment does not substantially affect the identity of the trade mark as at the time when the particulars of the application were published.\"}],\"answer\":\"Yes, as an examination step, with a qualification about timing.\\n\\n• Manual practice: the examiner may request additional information during examination to clearly define the mark’s scope. For a movement mark, the material may include a video clip or sufficient still representations demonstrating the full range of the claimed movement. [TMM/Part10/3/3/6/3]\\n\\n• Manual practice on outside information: information questioning acceptance can prompt the delegate to begin the revocation process, but another party’s request for revocation alone should not prompt proceedings. The passage does not require immediate revocation whenever outside information raises doubts. [TMM/Part38/2/2/1]\\n\\n• Act requirement: if clarification involves amending the representation after publication under section 30, section 65(2) permits that amendment only if it does not substantially affect the mark’s identity as at publication. This is legislation, not merely Manual practice. [TMA1995/s65]\\n\\nThe timing qualification is important: the supplied Manual expressly supports requesting clarification ‘At the time of examination’, but does not expressly address a fresh clarification request after acceptance and before revocation begins. I therefore cannot confirm that specific post-acceptance sequence from these passages alone. [TMM/Part10/3/3/6/3; TMM/Part38/2/2/1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "657a7782736f727f66def12c7941cb45c7f84b39b1de29d7af4d4dcffd5c54f8",
+ "response_id": "resp_067ef485f930ea17006ac880e88b6487d2bf7524d898096576",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7572,
+  "input_tokens_details": {
+   "cache_write_tokens": 7569,
+   "cached_tokens": 0
+  },
+  "output_tokens": 767,
+  "output_tokens_details": {
+   "reasoning_tokens": 114
+  },
+  "total_tokens": 8339
+ }
+}

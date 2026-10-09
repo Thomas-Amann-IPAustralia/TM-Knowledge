@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.05351,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0118..GR-0125",
+ "job": "audit",
+ "key": "c68e0be3160eb659cdad15781881c94747d7682f15e6114dbcb307ecd9533f85",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0118\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence links the timing of an amendment or limitation of the specification to the filing of a divisional application, supporting a related relationship.\"\n  },\n  {\n    \"id\": \"GR-0119\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence clearly states that processing the amendment to the specification is a task that falls on the examiner, supporting the allocatesTo relationship.\"\n  },\n  {\n    \"id\": \"GR-0120\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong direction, wrong predicate, a concept the sentence is not about (a word matched in another sense), or a relationship the sentence does not state.\",\n    \"corrected_subject\": \"GC-0016\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0067\",\n    \"remove\": false,\n    \"reason\": \"The priority date of the conflicting trade mark is the threshold date before which prior use must be shown; it qualifies the assessment of prior use, not the conflict with other signs itself.\"\n  },\n  {\n    \"id\": \"GR-0121\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong direction, wrong predicate, a concept the sentence is not about (a word matched in another sense), or a relationship the sentence does not state.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The date of the application (priority date) sets the point in time at which the rights of the parties are determined; it does not qualify the surrounding circumstances.\"\n  },\n  {\n    \"id\": \"GR-0122\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly connects expedited examination to the need to avoid overlooking trade marks with earlier priority dates.\"\n  },\n  {\n    \"id\": \"GR-0123\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence notes that whether a geographical reference causes confusion depends on its influence on the average (ordinary) consumer, supporting a related link.\"\n  },\n  {\n    \"id\": \"GR-0124\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong direction, wrong predicate, a concept the sentence is not about (a word matched in another sense), or a relationship the sentence does not state.\",\n    \"corrected_subject\": \"GC-0050\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0001\",\n    \"remove\": false,\n    \"reason\": \"The sentence does not state that reputation qualifies the geographical reference itself; rather, it describes a causal chain where what a geographical reference is known for (its reputation) gives rise to a connotation.\"\n  },\n  {\n    \"id\": \"GR-0125\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explains how the geographic meaning of a word bears on whether it possesses inherent adaptation to distinguish, making qualifies correct.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "a8335d50aeb565e62b09283586575d4f650c4cef53e6704ae312b5842def2f91",
+ "response_id": "72LIaq_WJ5fUz7IPoMGjyAE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7796,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 7619,
+  "output_tokens_details": {
+   "reasoning_tokens": 6684
+  }
+ }
+}

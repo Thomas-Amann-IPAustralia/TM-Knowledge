@@ -50,10 +50,17 @@ AUTHORING_API_KEY_VAR = "OPENAI_API_KEY"
 #: Hard cap on total recorded spend across every paid call, in US dollars. First
 #: the owner's "a maximum of $1" for the smoke runs (ADR-0111); then the quote was
 #: approved — "Approved, go with your recommendations and run it all" — so the
-#: cap is the $0.18 already spent plus the $6.41 package (ADR-0114). Raising it
-#: again is the owner's decision, made on a quote — overridable for one run by
-#: `TMK_SPEND_CAP_USD`, and only on the owner's word.
-SPEND_CAP_USD = 6.60
+#: cap is the $0.18 already spent plus the $6.41 package (ADR-0114). Then the D5
+#: quote: "I'm allowing the expenditure of an additional $2.89 on top of the
+#: remaining $3.11, totalling in $6" — so $6.60 + $2.89, and D5 may spend at most
+#: the $6.00 above the $3.49 recorded before it (ADR-0125). D5 spent $3.21; the
+#: prepared answers' re-run came out of what it left, in two approvals: $0.28 of "re-run
+#: the prepared answers for $0.40" (ADR-0128) and $1.39 for "all the rest" (ADR-0129).
+#: What remains under the cap is approved for nothing.
+#: Raising it again is the owner's decision, made on a quote — overridable for one run
+#: by `TMK_SPEND_CAP_USD`, and only on the owner's word (lowering it for one run, to
+#: hold a run to an amount the owner named, needs no word).
+SPEND_CAP_USD = 9.49
 
 #: US dollars per million tokens, from OpenAI's pricing page on 2026-10-07
 #: (ADR-0111). `flex` and `batch` are half of `default`. Reasoning tokens bill as
@@ -72,7 +79,37 @@ PRICES_PER_MTOK: dict[str, dict[str, dict[str, float]]] = {
     },
     "text-embedding-3-small": {"default": {"input": 0.02, "cached_input": 0.02, "output": 0.0}},
     "text-embedding-3-large": {"default": {"input": 0.13, "cached_input": 0.13, "output": 0.0}},
+    # Google's pricing page on 2026-10-09, prompts up to 200k tokens (ADR-0127). Batch is
+    # half of standard; thinking tokens bill as output. 3.8 Flash's prices are
+    # introductory until 31 December 2026 and double from 1 January 2027.
+    "gemini-3.1-pro-preview": {
+        "default": {"input": 2.00, "cached_input": 0.20, "output": 12.00},
+        "batch": {"input": 1.00, "cached_input": 0.20, "output": 6.00},
+    },
+    "gemini-3.8-flash": {
+        "default": {"input": 0.75, "cached_input": 0.075, "output": 3.75},
+        "batch": {"input": 0.375, "cached_input": 0.0375, "output": 1.875},
+    },
 }
+
+#: The Gemini endpoint, pinned for the same reason as OpenAI's. The owner bought
+#: Gemini capacity and approved Gemini 3.1 Pro for the D5 edge audit: "Alternative
+#: approved for step 1, the use of Gemini 3.1 Pro" (ADR-0125). Only the Batch API is
+#: used: a thinking model's answer outlives the proxy's ~30-second cut (Q-66), and
+#: batch is half price.
+GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta"
+
+#: The Gemini credential's variable. As with OpenAI, the session proxy supplies the
+#: real key whatever this holds, and the value appears nowhere in the repository.
+GEMINI_API_KEY_VAR = "GEMINI_API_KEY"
+
+#: The second model that judges every machine-written relationship (D5).
+AUDIT_MODEL = "gemini-3.1-pro-preview"
+
+
+def gemini_api_key() -> str:
+    """The Gemini credential, or a placeholder the session proxy replaces."""
+    return os.environ.get(GEMINI_API_KEY_VAR, "").strip() or "proxy-supplied"
 
 
 def authoring_model() -> str:

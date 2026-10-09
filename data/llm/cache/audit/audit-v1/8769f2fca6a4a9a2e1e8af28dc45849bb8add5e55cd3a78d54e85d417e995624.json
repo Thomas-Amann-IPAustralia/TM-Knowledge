@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/xj0y7s72nip41x8ydig5rler11mmkjdax7kx",
+ "cost_usd": 0.042343,
+ "created_utc": "2026-10-09T03:39:49Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0067..GR-0074",
+ "job": "audit",
+ "key": "8769f2fca6a4a9a2e1e8af28dc45849bb8add5e55cd3a78d54e85d417e995624",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0067\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence states that the likelihood of deception or confusion is assessed with respect to a 'significant portion of the relevant market', indicating that the relevant market qualifies the application of the test.\"\n  },\n  {\n    \"id\": \"GR-0068\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong object\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0011\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0004\",\n    \"reason\": \"The sentence refers specifically to the 'risk of confusion', which aligns with the concept of 'confusion' (GC-0004) rather than the full legal test of 'likely to deceive or cause confusion' (GC-0002).\"\n  },\n  {\n    \"id\": \"GR-0069\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong subject\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0002\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0168\",\n    \"reason\": \"The sentence specifies that if a connotation is 'likely to deceive or confuse' (which is GC-0002, not just 'deception'), then a section 43 ground for rejection should be raised.\"\n  },\n  {\n    \"id\": \"GR-0070\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong subject\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0002\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0168\",\n    \"reason\": \"The sentence refers to whether the trade mark would 'potentially deceive or confuse' (which matches GC-0002), rather than 'deception' alone (GC-0003), making grounds for rejection appropriate.\"\n  },\n  {\n    \"id\": \"GR-0071\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong object\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0008\",\n    \"corrected_predicate\": \"statesThresholdFor\",\n    \"corrected_object\": \"GC-0002\",\n    \"reason\": \"The sentence states a threshold for the public being 'deceived and/or confused', which corresponds to GC-0002 ('likely to deceive or cause confusion'), not just 'deception' (GC-0003).\"\n  },\n  {\n    \"id\": \"GR-0072\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong object\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0017\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0002\",\n    \"reason\": \"The sentence explicitly states that a geographical reference is considered when assessing a 'real likelihood of deception or confusion', which maps to GC-0002, not merely 'deception' (GC-0003).\"\n  },\n  {\n    \"id\": \"GR-0073\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong object\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0028\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0002\",\n    \"reason\": \"The sentence states that indicating an endorsement (implied endorsement) may result in consumers being 'deceived and confused', which maps to GC-0002, rather than just 'deception' (GC-0003).\"\n  },\n  {\n    \"id\": \"GR-0074\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong object\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0001\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0002\",\n    \"reason\": \"The sentence states that a connotation leads to 'likely deception or confusion', which matches GC-0002, not just 'confusion' (GC-0004) alone.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "b88f409b851f399224578830f0ac7abc02fc9d9a1da9ed55d14a2d96192a2852",
+ "response_id": "z2HIau3MCI7Uz7IPkra-8QM",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7735,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5768,
+  "output_tokens_details": {
+   "reasoning_tokens": 4690
+  }
+ }
+}

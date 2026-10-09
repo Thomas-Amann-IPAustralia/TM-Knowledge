@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010851,
+ "created_utc": "2026-10-09T05:54:48Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0025",
+ "job": "answer",
+ "key": "ea6b70079299643cd907996005cafe6de3e1a74a887f23af34564400e013bf5f",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0012\",\"GC-0121\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases\",\"quote\":\"Suggested Alternatives Class 3: Lipstick cases Class 5: Medicine cases (portable) (filled) Class 6: Door cases of metal Class 8: Razor cases Class 9: Cases for smartphones Class 10: Cases fitted for medical tools Class 12: Roof cases for vehicles Class 13: Gun cases Class 14: Jewellery cases Class 15: Cases for musical instruments Class 16: Pencil cases Class 18: Travelling cases Class 20: Display cases Class 21: Toothbrush cases Class 24: Pillow cases Class 26: Needle cases Class 28: Cases adapted for sporting articles Class 30: Pastry cases Class 34: Cigar cases\"}],\"answer\":\"The Manual lists these more specific alternatives to **‘cases’**, by class. These are **Manual practice suggestions**, not legislative provisions. [1]\\n\\n| Class | Suggested term |\\n|---|---|\\n| 3 | Lipstick cases |\\n| 5 | Medicine cases (portable) (filled) |\\n| 6 | Door cases of metal |\\n| 8 | Razor cases |\\n| 9 | Cases for smartphones |\\n| 10 | Cases fitted for medical tools |\\n| 12 | Roof cases for vehicles |\\n| 13 | Gun cases |\\n| 14 | Jewellery cases |\\n| 15 | Cases for musical instruments |\\n| 16 | Pencil cases |\\n| 18 | Travelling cases |\\n| 20 | Display cases |\\n| 21 | Toothbrush cases |\\n| 24 | Pillow cases |\\n| 26 | Needle cases |\\n| 28 | Cases adapted for sporting articles |\\n| 30 | Pastry cases |\\n| 34 | Cigar cases |\\n\\nAll terms and class numbers above come from the Manual’s ‘cases’ entry. [1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "0244ce5cef3892efb7730a46d1741785eccc975f7ec247270e0cfad115bf95f9",
+ "response_id": "resp_0afcbcb95346d91a006ac8819d63c887d290613b0f3bc0c5d4",
+ "seconds": 11.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6509,
+  "input_tokens_details": {
+   "cache_write_tokens": 6506,
+   "cached_tokens": 0
+  },
+  "output_tokens": 543,
+  "output_tokens_details": {
+   "reasoning_tokens": 89
+  },
+  "total_tokens": 7052
+ }
+}

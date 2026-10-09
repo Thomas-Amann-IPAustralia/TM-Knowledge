@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.04599,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0091..GR-0099",
+ "job": "audit",
+ "key": "6a291ecb5734ded77a47e57bcdf03e8c6ba63cb942fa5141fc0e0a773aa819c3",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0091\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that the presumption of registrability dictates whether it forms part of the Registrar's decision-making process, which establishes that it constrains how the Registrar acts.\"\n  },\n  {\n    \"id\": \"GR-0092\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence clearly explains when the presumption of registrability applies to the actions of the Registrar, demonstrating that it governs or constrains that role.\"\n  },\n  {\n    \"id\": \"GR-0094\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence does not state that the relevant market qualifies the connotation itself; rather, it states that the relevant market is the group that is likely to be deceived or confused by the connotation.\",\n    \"corrected_subject\": \"GC-0009\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0002\",\n    \"remove\": false,\n    \"reason\": \"The relevant market affects how the test for 'likely to deceive or cause confusion' is assessed, not the connotation.\"\n  },\n  {\n    \"id\": \"GR-0095\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence indicates that confusion is assessed by considering whether it affects a significant portion of the relevant market, meaning the relevant market qualifies the test for confusion.\"\n  },\n  {\n    \"id\": \"GR-0096\",\n    \"verdict\": \"vague\",\n    \"problem\": \"The sentence describes a specific factual scenario regarding what consumers might know, rather than establishing a general or useful conceptual relationship between the relevant market and deceased persons.\",\n    \"reason\": \"While both concepts appear in the sentence, it only mentions that relevant Australian consumers would know about a deceased person's estate in this specific context, which is too weak to be useful on its own.\"\n  },\n  {\n    \"id\": \"GR-0097\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The two concepts appear in entirely separate sentences, and the text does not state any relationship between the decision maker and the relevant market.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The passage discusses the decision maker in one sentence and the relevant market in the next, without connecting them to each other.\"\n  },\n  {\n    \"id\": \"GR-0098\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that the acceptability of a scent trade mark's representation depends on whether it would be understood by the ordinary person, meaning the ordinary consumer qualifies how a scent trade mark is assessed.\"\n  },\n  {\n    \"id\": \"GR-0099\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that the concept (referring to a fanciful or unrealistic description) considers the expectations and awareness of the ordinary consumer, meaning the ordinary consumer qualifies this concept.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "3bc77ea72450b4828eee82ec84047b844fa5cbdf26d7b94ed4fab80999d88800",
+ "response_id": "72LIaozdKcux_PUP2t266Qw",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7494,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 6416,
+  "output_tokens_details": {
+   "reasoning_tokens": 5656
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008897,
+ "created_utc": "2026-10-09T05:57:07Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0066",
+ "job": "answer",
+ "key": "5df66ff87b4f9d2470104d29d216175f1831137b6f48039fcafe75ebac78f407",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0121\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/search-results-screen-keyword-search\",\"quote\":\"Searching for CAR returns CAR and CARS but not CARPET, CARRIAGE, CARBON etc\"},{\"ref\":\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/keyword-search-part-word-search\",\"quote\":\"Can conduct part word keyword search using the asterisk\"},{\"ref\":\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/keyword-search-part-word-search\",\"quote\":\"Searching for CAR* returns CAR and CARS and CARPET, CARRIAGE, CARBON etc\"},{\"ref\":\"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/keyword-search-part-word-search\",\"quote\":\"Searching for *CAR* would return CAR, CARS, CARPET, HYDROCARBON, MASCARA, CARE, PLACARD etc\"}],\"answer\":\"Manual practice: the Classification Search distinguishes an ordinary keyword search from a part-word search using an asterisk. Its stated behaviour is that CAR returns CAR and CARS, but not CARPET, CARRIAGE or CARBON [1–2].\\n\\nTo include longer words beginning with CAR, search for CAR*: the Manual lists CARPET among the results [3]. To find CAR within words as well, use *CAR*; the examples include HYDROCARBON and MASCARA [4].\\n\\nThe passages document this search behaviour but do not explain the underlying technical mechanism for including CARS in a CAR search. This is Manual guidance, not an Act or Regulations rule.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "baa9cfa0474a8e43a1fcead23046d58789bd4063e78523d672cc1a0f8ff75df5",
+ "response_id": "resp_0df7627da05fee0f006ac8822927fc87d287179de7c8b384b1",
+ "seconds": 10.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5566,
+  "input_tokens_details": {
+   "cache_write_tokens": 5563,
+   "cached_tokens": 0
+  },
+  "output_tokens": 388,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 5954
+ }
+}

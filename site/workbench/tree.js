@@ -45,9 +45,13 @@ const KIND_TONE = {
   step: "note",
   ground_of_refusal: "gap",
   legal_test: "note",
+  // What a concept does at a gate (ruling B1) — read off an edge, not a kind.
   relevant_factor: "muted",
   exception: "good",
   remedy: "good",
+  sign_content: "muted",
+  context: "muted",
+  use_in_trade: "muted",
   procedural_step: "note",
   process_role: "muted",
   subject_matter: "muted",

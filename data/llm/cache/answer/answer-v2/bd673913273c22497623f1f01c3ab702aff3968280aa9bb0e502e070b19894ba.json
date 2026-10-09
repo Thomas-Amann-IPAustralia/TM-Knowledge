@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010535,
+ "created_utc": "2026-10-09T05:54:25Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0004",
+ "job": "answer",
+ "key": "bd673913273c22497623f1f01c3ab702aff3968280aa9bb0e502e070b19894ba",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0012\",\"GC-0015\",\"GC-0081\",\"GC-0116\",\"GC-0046\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part14/6/6/6\",\"quote\":\"An applicant may not claim as part of the specification of goods and/or services a range of goods or services in a particular class which is unrealistically broad so that in commercial terms it is unlikely that the applicant would deal in or provide that range of goods or services (reg 4.8(3)).\"},{\"ref\":\"TMM/Part14/6/6/6\",\"quote\":\"In these circumstances the applicant should be asked to provide a declaration to confirm an intention to use the trade mark on all the goods or services specified, or to propose an amended specification which is limited to the actual range of goods and services in relation to which the trade mark is used or intended to be used.\"},{\"ref\":\"TMR1995/r4.8(3)\",\"quote\":\"(3) If the Registrar reasonably suspects that the provisions of paragraph 27(1)(b) of the Act do not apply in relation to all of the goods and/or services specified in an application for registration of a trade mark, the Registrar may require the applicant to make a declaration to the Registrar that those provisions apply to all of those goods and/or services.\"}],\"answer\":\"**Manual practice:** If your goods list is unrealistically broad—meaning that, commercially, you would be unlikely to deal in that range—the examiner should ask you to do one of two things:\\n- **Confirm:** provide a declaration confirming your intention to use the trade mark on every item specified; or\\n- **Narrow the list:** propose an amended specification limited to the actual goods on which the trade mark is used or intended to be used. [TMM/Part14/6/6/6]\\n\\n**Regulations:** Regulation 4.8(3) permits the Registrar to require a declaration that paragraph 27(1)(b) of the Act applies to all specified goods and/or services, where the Registrar reasonably suspects it does not. That is the statutory wording; the intention-to-use explanation above is Manual practice. [TMR1995/r4.8(3)]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "0052338499a2853000128c0e199c175a82b231c53b226253fc27b22252c33b31",
+ "response_id": "resp_073535c3f16568ad006ac88180291487d2aac8eba5705c5b72",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6141,
+  "input_tokens_details": {
+   "cache_write_tokens": 6138,
+   "cached_tokens": 0
+  },
+  "output_tokens": 572,
+  "output_tokens_details": {
+   "reasoning_tokens": 86
+  },
+  "total_tokens": 6713
+ }
+}

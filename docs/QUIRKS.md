@@ -1444,3 +1444,55 @@ Recognition matched labels character for character, so "Registrar's decision" ne
 "Registrar’s decision" in the Manual. `links._regex` and `engine.js` now fold the two.
 Evidence quotes are still exact — `bulk.jobs.evidence` copies the snapshot's own
 characters — so a quote typed with a straight apostrophe will not land; copy it.
+
+### Q-80 — a blank node in the TBox makes the committed graph drift on every build
+
+The TBox is serialised into `graph/dataset.nq`, and rdflib gives a blank node a fresh
+id each time, so `tmk-graph --check` (and CI) reports drift straight after a
+`--write`. S027 hit it with `owl:equivalentClass [ a owl:Restriction ... ]`. Name every
+node in `ontology/draft/*.ttl` — the B1 restrictions are `tmk:QualifiesAConcept` and
+friends — and write no `[ ... ]` there.
+
+### Q-81 — folding labels inside SPARQL takes the SHACL gate past ten minutes
+
+A shape that `REPLACE`s and `LCASE`s every label of every concept, pairwise, ran for over
+600 seconds in rdflib. The build now states a folded key beside each label
+(`tmk:labelKey`, `tmk:prefLabelKey`, `tmk:notLabelKey`, from `ontology.hygiene.fold`) and
+the shapes join on it; the gate stays under a minute. A new label shape should do the same.
+
+### Q-82 — a not-label is "not the same concept", which a narrower concept never is
+
+It is tempting to read a not-label as "this is not a kind of me". It is not: GC-0017's
+signed note says every geographical indication is a geographical reference and still lists
+"geographical indication" as a not-label. So a not-label naming the other end of a "kind
+of" link is not a contradiction by itself — the D4 check refuses one only until
+`authored/kind-of-affirmed.yaml` says why both hold (ADR-0125).
+
+### Q-83 — Gemini's batch answers ignore `responseJsonSchema`
+
+The audit sends a JSON schema with every request (`generationConfig.responseJsonSchema`,
+`responseMimeType: application/json`), and Gemini 3.1 Pro still answered with a bare list,
+`id` where the schema says `edge`, and the problem as a sentence rather than one of the
+enum values. OpenAI's strict schemas never did this. `jobs.parse` now hands a bare list
+back as `{"_list": [...]}`, the audit reads `id` as `edge`, and `_audit_problem` maps a
+sentence onto the enum. Do not "fix" it by changing the request: the cache key is the
+request, so any change re-pays for every answer already held.
+
+### Q-84 — rebuilt vectors move the hybrid baseline a little
+
+The passage vectors are not committed (`data/derived/search/README.md`), and rebuilding them
+(`tmk-bulk embed`, about a cent) gives vectors that rank a few near-ties differently: on
+2026-10-09 hybrid's top ten changed on 7 of 129 questions with nothing else touched (nDCG
+0.845 → 0.844). So never compare one system's score across two embeddings: re-take the
+pools and score every system on the same day, as `tmk-bulk pools` does, and grade only what
+is new (ADR-0127).
+
+### Q-85 — a job's attempts are not its calls
+
+Every cached entry is an attempt, and a failed flex attempt (overloaded, retried, Q-67) is
+an entry that cost nothing: the answer job had 341 entries for 129 answers. Dividing its
+dollars by its entries priced an answer at $0.0028, and S027 quoted the owner $0.40 for a
+job that costs about $1.74 (ADR-0128). Even completed calls mislead: a retry of a request
+that failed hits the provider's prompt cache, so 2026-10-07's answers averaged $0.0074 when
+a fresh one costs about $0.0135. `tmk-bulk spend` now shows completed calls beside
+attempts; price new work from fresh completed calls, and smoke-run before quoting.

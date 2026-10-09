@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.039077,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0280..GR-0290",
+ "job": "audit",
+ "key": "0689b03607517116015bf1552d62c72aa903982b49af2a6ec10157baa6725c29",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0280\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The Madrid Protocol and examination are mentioned together in explaining how provisional refusals are handled, supporting a related link.\"\n  },\n  {\n    \"id\": \"GR-0282\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The text connects IRDAs filed through the Madrid Protocol with the checking of classification by WIPO, supporting a related link.\"\n  },\n  {\n    \"id\": \"GR-0283\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0040\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0113\",\n    \"reason\": \"The appliesTo predicate requires the subject to be a provision, rule, or scheme. Opposition is a procedural step, so it cannot apply to an IRDA in the strict ontological sense defined here. The sentence connects them, supporting a related link.\"\n  },\n  {\n    \"id\": \"GR-0284\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0040\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0113\",\n    \"reason\": \"Opposition is a procedural step, not a provision, rule or scheme, so it does not apply to an IRDA under the predicate's definition. The text connects them, supporting a related link.\"\n  },\n  {\n    \"id\": \"GR-0285\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The Madrid Protocol is an external scheme that operates on a protected international trade mark by providing for its transformation, which fits the appliesTo predicate.\"\n  },\n  {\n    \"id\": \"GR-0286\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0040\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0114\",\n    \"reason\": \"An opposition does not give rise to a protected international trade mark; rather, successfully passing the opposition process does. The text supports a related link.\"\n  },\n  {\n    \"id\": \"GR-0289\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence links the Registrar and a Registrar's decision directly, supporting a related link.\"\n  },\n  {\n    \"id\": \"GR-0290\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The text explains the powers of the Registrar in opposition proceedings, connecting the two concepts and supporting a related link.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "86d9ca25245db5bd275a851061463948f1f7432e6db60c18871298765a389ad3",
+ "response_id": "72LIao6NKJfUz7IPoMGjyAE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7397,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5280,
+  "output_tokens_details": {
+   "reasoning_tokens": 4585
+  }
+ }
+}

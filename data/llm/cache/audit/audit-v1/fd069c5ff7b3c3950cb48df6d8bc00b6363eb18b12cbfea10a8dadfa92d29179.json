@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.044371,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0339..GR-0348",
+ "job": "audit",
+ "key": "fd069c5ff7b3c3950cb48df6d8bc00b6363eb18b12cbfea10a8dadfa92d29179",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0339\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence clearly states that a non-use application (application for removal) needs to be in an approved form, meaning the form is a required element.\"\n  },\n  {\n    \"id\": \"GR-0340\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0111\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0157\",\n    \"remove\": false,\n    \"reason\": \"The sentence is merely a section heading. While it mentions the two concepts together, implying a connection, it does not state a legal requirement or rule.\"\n  },\n  {\n    \"id\": \"GR-0341\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence mentions both concepts in the context of how a divisional application interacts with a convention priority claim based on filing in a convention country, supporting a related link.\"\n  },\n  {\n    \"id\": \"GR-0343\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that when a Deputy Registrar exercises a power or function, it is taken to have been exercised by the Registrar, perfectly matching the definition of exercisesPowersOf.\"\n  },\n  {\n    \"id\": \"GR-0344\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence relates decisions issued by the Deputy Registrar to the heading 'Decision of the Registrar', supporting a general related link.\"\n  },\n  {\n    \"id\": \"GR-0345\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence connects the Deputy Registrar to the service of a subpoena, supporting a related link.\"\n  },\n  {\n    \"id\": \"GR-0347\",\n    \"verdict\": \"vague\",\n    \"problem\": \"true only of the one case the sentence describes\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence describes the factual conclusion reached by a Deputy Registrar in a single historical case, rather than stating a general rule or practice regarding oppositions.\"\n  },\n  {\n    \"id\": \"GR-0348\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence identifies that a hearing is a forum conducted by the Deputy Registrar, meaning the task or matter is allocated to that role.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "8c3619cca3fbf3c70e0da4b5f8a4583e29a0a7ab2203c4840cd98fac2c6f56f7",
+ "response_id": "72LIarDeKMzxz7IP4a6p0Q8",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7489,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 6147,
+  "output_tokens_details": {
+   "reasoning_tokens": 5309
+  }
+ }
+}

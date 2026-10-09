@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.061177,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0385..GR-0392",
+ "job": "audit",
+ "key": "066e7f554409a5e5a6e714e85d9337f1fffee62cc6dbf1607cd4f65a3bd7f86c",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0385\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The text indicates that a trade mark containing the image of a person may give rise to a confusing or deceptive connotation.\"\n  },\n  {\n    \"id\": \"GR-0386\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence specifies that a consumer's expectation regarding whether goods originate from a location is a factor considered when assessing whether they would be deceived or confused.\"\n  },\n  {\n    \"id\": \"GR-0387\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0018\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0002\",\n    \"remove\": false,\n    \"reason\": \"The presence of a listed EU geographical indication does not merely qualify the assessment; a trade mark's resemblance to it is the cause that may give rise to a likelihood to deceive or cause confusion (GC-0002, matching the text 'deceive or confuse').\"\n  },\n  {\n    \"id\": \"GR-0388\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong object\",\n    \"remove\": true,\n    \"reason\": \"The text refers to a likelihood of 'deception or confusion' (GC-0002), not 'deception' alone (GC-0003). Furthermore, the concept of originating does not itself give rise to it; rather, the false connotation that goods originate from a specific place does.\"\n  },\n  {\n    \"id\": \"GR-0389\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong object\",\n    \"corrected_subject\": \"GC-0018\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0002\",\n    \"remove\": false,\n    \"reason\": \"The passage discusses the potential to 'deceive or confuse' Australian consumers, which corresponds to 'likely to deceive or cause confusion' (GC-0002), not merely 'deception' (GC-0003).\"\n  },\n  {\n    \"id\": \"GR-0390\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that the tests require a 'real tangible danger' (the threshold) for confusion to occur.\"\n  },\n  {\n    \"id\": \"GR-0391\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong subject\",\n    \"corrected_subject\": \"GC-0002\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0168\",\n    \"remove\": false,\n    \"reason\": \"The sentence specifies that a connotation 'likely to deceive or confuse' (GC-0002) gives rise to the ground for rejection under s43, rather than 'confusion' (GC-0004) alone.\"\n  },\n  {\n    \"id\": \"GR-0392\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"remove\": true,\n    \"reason\": \"The sentence describes a causal relationship ('confusion will result'), which excludes the 'related' predicate. However, 'originate' itself is not the cause of confusion (a misdescriptive statement of origin is), so no other predicate correctly links these concepts.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "bd5a29c7440ad9a0516e5d2fd89aa3d16904d87ae74b75449855b3e45a410a9a",
+ "response_id": "72LIapr5KL7yqtsPkNmJsAQ",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7651,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 8921,
+  "output_tokens_details": {
+   "reasoning_tokens": 8069
+  }
+ }
+}

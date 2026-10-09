@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011392,
+ "created_utc": "2026-10-09T05:55:42Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0037",
+ "job": "answer",
+ "key": "353c981054066845919b7f4f4e0c02456cbfd5fac14be4348e44c5aa54647afd",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0012\",\"GC-0015\",\"GC-0006\",\"GC-0126\"],\"decline_reason\":\"I cannot say whether a particular application's goods list would be allowed to retain the term. I can explain the Manual practice provided.\",\"declined\":true,\"citations\":[{\"ref\":\"TMM/Part32B/3#1\",\"quote\":\"In the course of examination this will not usually result in a ground for rejection when protected terms appear in specification of goods.\"},{\"ref\":\"TMM/Part32B/3#1\",\"quote\":\"If the specification of goods contains a term which is clearly inconsistent with the trade mark application this should be raised with the applicant. Appropriate action could include deleting the term from the specification of goods or replacing it with a more acceptable term.\"},{\"ref\":\"TMM/Part32B/3#1\",\"quote\":\"One such example would be replacing champagne, where it is being used to describe the style of wine, with sparkling wine.\"}],\"answer\":\"A style-only intention is not an assurance that the term can remain. I cannot determine the outcome for your particular goods list, but the Manual directly addresses this example.\\n\\nManual practice: protected terms appearing in a goods specification will not usually result in a ground for rejection. However, a term clearly inconsistent with the trade mark application should be raised with the applicant; appropriate action could include deleting or replacing it. The Manual specifically gives replacing “champagne”, when used to describe the style of wine, with “sparkling wine” as an example (TMM/Part32B/3#1).\\n\\nThus, “sparkling wine” is the Manual’s suggested replacement in that situation—not a statement that every occurrence of “champagne” must be deleted. This guidance is Registrar’s practice, not legislation. The supplied legislation does not directly answer whether a style term may remain in the goods list.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "d4502168231322e0a643327d9b5658bbdb79f6a5bc8e879b787e642914215cea",
+ "response_id": "resp_0fde5c30146141c6006ac881ccb4a887d2ab09f9031c8d55fb",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6950,
+  "input_tokens_details": {
+   "cache_write_tokens": 6947,
+   "cached_tokens": 0
+  },
+  "output_tokens": 541,
+  "output_tokens_details": {
+   "reasoning_tokens": 140
+  },
+  "total_tokens": 7491
+ }
+}

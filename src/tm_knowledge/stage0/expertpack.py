@@ -119,20 +119,29 @@ def duplicate_labels(
     gold: goldset.GoldSet | None = None,
     authored: authored_store.AuthoredSet | None = None,
 ) -> tuple[Duplicate, ...]:
-    """Terms that are a preferred label in both stores.
+    """Names a signed concept and an authored concept both answer to, one per pair.
 
-    Compared on `pref_label` alone and deliberately not on `alt_labels`: an
-    authored preferred label colliding with a signed *alternative* label is the
-    same problem one step less visible, and this pass does not claim to find it
-    (ADR-0101 consequence 3).
+    Every label on each side — preferred and alternative — compared after
+    `ontology.hygiene.fold`, which folds case, punctuation, a leading article and
+    plurals. Until 2026-10-09 this compared preferred labels letter for letter and
+    left alternative labels out on purpose (ADR-0101 consequence 3), so "Registrar"
+    never met "Registrar of Trade Marks": it found 10 of the 15 pairs the review
+    did. The owner approved the wider comparison (review A5, ADR-0125). The harness
+    reports the same comparison across every pair of concepts, either store.
     """
+    from tm_knowledge.ontology.hygiene import fold
+
     gold = gold or goldset.load()
     authored = authored if authored is not None else authored_store.load()
 
-    signed = {
-        str(record["pref_label"]).strip().lower(): record
-        for record in gold["gold_concept"]
-    }
+    def names(record: dict[str, Any]) -> list[str]:
+        return [str(x) for x in (record.get("pref_label"), *(record.get("alt_labels") or ())) if x]
+
+    signed: dict[str, dict[str, Any]] = {}
+    for record in gold["gold_concept"]:
+        for label in names(record):
+            if fold(label):
+                signed.setdefault(fold(label), record)
     # Everything written *about* a concept, not only its own record. A collision
     # disclosed on the concept's typing is disclosed: the reviewer meets both
     # records in the same pack, and a check that missed that would report a
@@ -157,14 +166,14 @@ def duplicate_labels(
     found: list[Duplicate] = []
     for entry in authored.of("gold_concept"):
         record = entry.record
-        label = str(record.get("pref_label", "")).strip().lower()
-        twin = signed.get(label)
-        if twin is None:
+        shared = next((label for label in names(record) if fold(label) in signed), None)
+        if shared is None:
             continue
+        twin = signed[fold(shared)]
         haystack = " ".join(said_about.get(str(record.get("id")), ()))
         found.append(
             Duplicate(
-                label=str(record["pref_label"]),
+                label=shared,
                 signed_id=str(twin["id"]),
                 authored_id=str(record["id"]),
                 signed_note=" ".join(str(twin.get("notes") or "").split()),

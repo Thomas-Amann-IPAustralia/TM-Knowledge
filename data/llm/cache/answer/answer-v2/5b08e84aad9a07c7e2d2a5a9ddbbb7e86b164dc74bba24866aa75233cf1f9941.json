@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013187,
+ "created_utc": "2026-10-09T05:52:33Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0119",
+ "job": "answer",
+ "key": "5b08e84aad9a07c7e2d2a5a9ddbbb7e86b164dc74bba24866aa75233cf1f9941",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0029\", \"GC-0063\", \"GC-0116\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part30/3/3/5~1\",\n      \"quote\": \"Section 15(1) of the Geneva Conventions Act 1957 (Cth) specifically prohibits the use for any purpose whatsoever, of the following signs, without the consent in writing of the Minister for Defence or a person authorised in writing by the Minister to give consent:\"\n    },\n    {\n      \"ref\": \"TMM/Part30/3/3/5~1\",\n      \"quote\": \"(a) the emblem of a red cross with vertical and horizontal arms of the same length on, and completely surrounded by, a white ground, or the designation \\\"Red Cross\\\" or \\\"Geneva Cross\\\"; (b) the emblem of a red crescent moon on, and completely surrounded by, a white ground, or the designation \\\"Red Crescent\\\".\"\n    },\n    {\n      \"ref\": \"TMM/Part30/3/3/5~5\",\n      \"quote\": \"To overcome a section 42(b) ground for rejection based on a purported contravention of section 15 of the Geneva Conventions Act 1957, the applicant may be able to: obtain written consent from the Minister of Defence or a person authorised by the Minister.\"\n    }\n  ],\n  \"answer\": \"Anyone proposing to use the specified Red Cross or Red Crescent emblems or designations, for any purpose—not just trade mark applicants—needs written consent from the Minister for Defence or a person authorised in writing by the Minister to give consent. The listed designations include “Red Cross”, “Geneva Cross” and “Red Crescent”. This is the Manual’s account of section 15(1) of the Geneva Conventions Act 1957; that Act’s text is not directly supplied here. [TMM/Part30/3/3/5~1]\\n\\nFor examination purposes, the Manual states that an applicant may be able to overcome a section 42(b) objection based on section 15 by obtaining that written consent. This is Manual practice, not a guarantee of acceptance. [TMM/Part30/3/3/5~5]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b3ed5692ffb20e1aaf703536a2a6c5e2137f7426b46bc386a3d24fd20a64bc84",
+ "response_id": "resp_08d0e4d7ed648fe2006ac88104cb7c87d2a0f2ccf29570294e",
+ "seconds": 28.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7934,
+  "input_tokens_details": {
+   "cache_write_tokens": 7931,
+   "cached_tokens": 0
+  },
+  "output_tokens": 654,
+  "output_tokens_details": {
+   "reasoning_tokens": 150
+  },
+  "total_tokens": 8588
+ }
+}

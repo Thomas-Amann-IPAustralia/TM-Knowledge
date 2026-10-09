@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014511,
+ "created_utc": "2026-10-09T04:51:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0033",
+ "job": "answer",
+ "key": "34af465178f994ab78a27f7821a5ec7cea1053d548941c0689a798059aa15d74",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0131\",\"GC-0156\",\"GC-0012\",\"GC-0121\",\"GC-0111\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part2/1/trade-mark-regulations-1995\",\"quote\":\"Regulation 4.1 Applications - approved form Regulation 4.2 Applications in approved form - requirements for filing Regulation 4.3 Representation of trade marks\"},{\"ref\":\"TMM/Part2/1/trade-mark-regulations-1995\",\"quote\":\"Regulation 21.1 Compliance with instruction on approved forms Regulation 21.2 Requirements for filing documents\"},{\"ref\":\"TMM/Part2/1/trade-mark-regulations-1995\",\"quote\":\"Regulation 21.3 Filing of documents - common requirements Regulation 21.4 Consequences for documents not meeting filing requirements Regulation 21.5 Filing of documents - date of receipt to be marked\"},{\"ref\":\"TMR1995/r4.4\",\"quote\":\"(2) The expression ‘all goods’, ‘all services’, ‘all other goods’, or ‘all other services’ must not be used in an application for registration of a trade mark to specify the goods and/or services in respect of which registration is sought. (3) The goods and/or services must be grouped according to the appropriate classes described in Schedule 1. (4) The applicant must nominate the class number that is appropriate to the goods or services in each group. (5) The groups must be listed in the order of their class numbers.\"},{\"ref\":\"TMM/Part2/1/trade-mark-regulations-1995\",\"quote\":\"Regulation 4.5 Period for claiming priority of an application Regulation 4.6 How to claim priority\"},{\"ref\":\"TMM/Part2/1/trade-mark-regulations-1995\",\"quote\":\"Regulation 21.6 Declarations Regulation 21.7 Declarations - additional material Regulation 21.23 Notice of non-payment of fee\"}],\"answer\":\"The relevant provisions are:\\n\\n| Topic | Trade Marks Regulations 1995 provisions | Source supplied |\\n|---|---|---|\\n| Filing an application | **4.1** — approved form; **4.2** — filing requirements; **4.3** — representation of trade marks. | Manual’s regulation index [1] |\\n| General document-filing requirements | **21.1** — compliance with instructions on approved forms; **21.2** — requirements for filing documents; **21.3** — common filing requirements; **21.4** — consequences of not meeting filing requirements; **21.5** — marking the date of receipt. | Manual’s regulation index [2–3] |\\n| Goods and services specification | **4.4** — specification of goods and/or services. Among its requirements: the listed ‘all goods/services’ expressions must not be used; goods and services must be grouped by Schedule 1 classes, with appropriate class numbers nominated and groups listed in class-number order. | Regulations — legislative text [4] |\\n| Priority claims | **4.5** — period for claiming priority; **4.6** — how to claim priority. | Manual’s regulation index [5] |\\n| Declarations | **21.6** — declarations; **21.7** — additional material. | Manual’s regulation index [6] |\\n| Fee notices | **21.23** — notice of non-payment of fee. | Manual’s regulation index [6] |\\n\\n**Source distinction:** Except for regulation 4.4, these provisions are identified from the Manual (practice), not from supplied legislative text. The passages therefore identify the relevant regulations but do not establish their detailed operative requirements.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "679f7c29d2d480372e7f026b3d33412a9b223e7e96b13646cb2f1bf450d9475a",
+ "response_id": "resp_0b0b4fe4ceb1c1b2006ac872b8047c87d28d34f0ff713abcea",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7633,
+  "input_tokens_details": {
+   "cache_write_tokens": 7630,
+   "cached_tokens": 0
+  },
+  "output_tokens": 994,
+  "output_tokens_details": {
+   "reasoning_tokens": 200
+  },
+  "total_tokens": 8627
+ }
+}

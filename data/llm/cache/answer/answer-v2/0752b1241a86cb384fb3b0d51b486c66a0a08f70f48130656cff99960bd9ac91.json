@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009617,
+ "created_utc": "2026-10-09T05:54:58Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0026",
+ "job": "answer",
+ "key": "0752b1241a86cb384fb3b0d51b486c66a0a08f70f48130656cff99960bd9ac91",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0012\", \"GC-0121\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part14/5/5/2/15~1\",\n      \"quote\": \"However, terms such as “virtual goods” or “downloadable goods” alone lack specificity and are not acceptable. Applications must specify the exact nature of the virtual goods (such as software, image files, music, or clothing).\"\n    },\n    {\n      \"ref\": \"TMM/Part14/5/5/2/15~1\",\n      \"quote\": \"Virtual goods are correctly classified in class 9 because the goods to which they relate consist essentially of data.\"\n    },\n    {\n      \"ref\": \"TMM/Part14/5/5/2/15~1\",\n      \"quote\": \"For example: Class 9: Downloadable virtual clothing\"\n    }\n  ],\n  \"answer\": \"Under the Manual’s practice, “virtual goods” on its own is not acceptable specification wording: you need to specify the exact nature of the digital items, such as software, image files, music or clothing. [TMM/Part14/5/5/2/15~1]\\n\\nThe Manual classifies virtual goods in class 9 and gives “Downloadable virtual clothing” as an example. [TMM/Part14/5/5/2/15~1]\\n\\nThis is Manual practice, not a statement of a legislative requirement; no Act or Regulations passage was supplied.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "d59f66eb31782b2b4ee53d7de3b66c8a167ea15f32187462cf608936f00b4ceb",
+ "response_id": "resp_0127986f42d979e2006ac881a7946087d29e079f821083380a",
+ "seconds": 10.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5950,
+  "input_tokens_details": {
+   "cache_write_tokens": 5947,
+   "cached_tokens": 0
+  },
+  "output_tokens": 436,
+  "output_tokens_details": {
+   "reasoning_tokens": 87
+  },
+  "total_tokens": 6386
+ }
+}

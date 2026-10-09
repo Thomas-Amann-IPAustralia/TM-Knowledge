@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.041099,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0100..GR-0107",
+ "job": "audit",
+ "key": "3f5f7197986e40bd17a11a74e32e2e6775c4a81c0155ac973c241ae2ab76dc43",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0100\",\n    \"verdict\": \"sound\",\n    \"problem\": null,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence clearly states that the graphical representation must convey information to the ordinary person, meaning the ordinary consumer affects how the requirement for graphical representation is assessed.\"\n  },\n  {\n    \"id\": \"GR-0101\",\n    \"verdict\": \"sound\",\n    \"problem\": null,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly uses the ordinary person's reasonable doubt as the standard for determining if a trade mark is likely to cause confusion, thereby qualifying the test for confusion.\"\n  },\n  {\n    \"id\": \"GR-0102\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"corrected_subject\": \"GC-0011\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0004\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that surrounding circumstances are taken into consideration when assessing the likelihood of deception or confusion, but it does not mention a real and tangible danger.\"\n  },\n  {\n    \"id\": \"GR-0103\",\n    \"verdict\": \"sound\",\n    \"problem\": null,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence indicates that surrounding circumstances can mitigate the risk of confusion, demonstrating that they are a factor that qualifies how confusion is assessed.\"\n  },\n  {\n    \"id\": \"GR-0104\",\n    \"verdict\": \"sound\",\n    \"problem\": null,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly directs that surrounding circumstances be given consideration in assessing the likelihood of deception.\"\n  },\n  {\n    \"id\": \"GR-0105\",\n    \"verdict\": \"sound\",\n    \"problem\": null,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence mentions the character of the probable acquirers (ordinary consumer) as one of the items included in 'These' (surrounding circumstances). Because a person is not strictly a kind of circumstance, the 'related' predicate correctly links the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0106\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0124\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0012\",\n    \"remove\": false,\n    \"reason\": \"The 'appliesTo' predicate requires the subject to be a provision, rule, or scheme. 'Amendment of an application' is a procedural step. The sentence links the concepts by discussing an amendment to the specification, which supports a 'related' relationship.\"\n  },\n  {\n    \"id\": \"GR-0107\",\n    \"verdict\": \"sound\",\n    \"problem\": null,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence discusses an action the examiner should consider regarding the specification, establishing a valid contextual relationship between the role and the record.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "893ed9ccbcae7bc6948d4dbdc658f750bc26133d813220e8319c60d687e13fca",
+ "response_id": "72LIaqe9KNSa6dkPg8_20AM",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7571,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5588,
+  "output_tokens_details": {
+   "reasoning_tokens": 4702
+  }
+ }
+}

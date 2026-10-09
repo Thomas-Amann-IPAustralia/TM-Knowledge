@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014335,
+ "created_utc": "2026-10-09T06:00:00Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0103",
+ "job": "answer",
+ "key": "c3a52c9be43d80c0ec627ae39cb6fbf964f84478da2f304b39a44cbaebfe90d8",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0128\",\"GC-0040\",\"GC-0116\",\"GC-0117\",\"GC-0046\",\"GC-0097\",\"GC-0104\",\"GC-0124\",\"GC-0113\",\"GC-0135\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part52/2/2/1\",\"quote\":\"Matters arising under the Act in which the Registrar is required to make a decision which will determine the rights of one of the parties involved relative to another party are referred to as “inter partes” matters.\"},{\"ref\":\"TMM/Part52/2/2/1\",\"quote\":\"Both of the interested parties have the opportunity to be heard before the decision is made, and the hearing is referred to as an inter partes hearing.\"},{\"ref\":\"TMM/Part52/2/2/1\",\"quote\":\"These include oppositions to registration of trade marks under section 52, oppositions under section 96 to applications for removal for non-use, and oppositions to extensions of time under section 224 which are for a period greater than three months.\"},{\"ref\":\"TMM/Part55/2#1\",\"quote\":\"The legislation provides that the following actions may be opposed: Amendment of a trade mark application (s 65A) Registration of another party’s trade mark (s 52) Protection of an International Registration Designating Australia held by another party (reg 17A.33) Removal of a registered trade mark for non-use (s 96) Cessation of protection of a Protected International Trade Mark for non-use (reg 17A.48D) Grant of an extension of time of more than three months (s 224).\"},{\"ref\":\"TMM/Part52/3#1\",\"quote\":\"In opposition matters, where the Registrar has allowed a reasonable time for all parties to indicate whether they wish to be heard, or where all parties indicate that they do not wish to be heard - per paragraph 21.15(5)(a) - the Registrar is not required to hold a hearing.\"},{\"ref\":\"TMA1995/s203\",\"quote\":\"The Registrar may not exercise a power under this Act in any way that adversely affects a person applying for the exercise of that power without first giving that person a reasonable opportunity of being heard.\"}],\"answer\":\"**Manual practice — who gets to be heard?**\\nAn *inter partes* matter is one in which the Registrar’s decision determines one party’s rights relative to another party. **Both interested parties have an opportunity to be heard before the decision is made**, not just the party seeking the Registrar’s action. [TMM/Part52/2/2/1]\\n\\n**Manual practice — what proceedings are included?**\\nThe Manual expressly identifies:\\n- oppositions to registration of trade marks (s 52);\\n- oppositions to applications for removal for non-use (s 96); and\\n- oppositions to extensions of time exceeding three months (s 224). [TMM/Part52/2/2/1]\\n\\nIts broader list of actions that may be opposed also includes amendment of a trade mark application (s 65A), protection of an International Registration Designating Australia (reg 17A.33), and cessation of protection of a protected international trade mark for non-use (reg 17A.48D). These are additional opposition proceedings identified by the Manual. [TMM/Part55/2#1]\\n\\n**An opportunity does not necessarily mean a hearing must occur.** The Manual says that, in opposition matters, a hearing is not required where the Registrar has allowed a reasonable time for all parties to indicate whether they wish to be heard, or all parties indicate that they do not wish to be heard. [TMM/Part52/3#1]\\n\\n**Act — separate general safeguard:** Section 203 prohibits the Registrar from exercising a power adversely to a person applying for its exercise without first giving that person a reasonable opportunity to be heard. [TMA1995/s203]\\n\\nThe opposition-specific statutory references above are reported from the **Manual**, not independently verified against supplied Act or Regulations extracts; those provisions themselves were not supplied.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "1d4823c5f8ea2af1e2a74eeab3aba4304b8c75f2cbcd9916f368d0ff8155a574",
+ "response_id": "resp_01a197dadcb5907c006ac882c3fe4087d29a53b7b91999694c",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7405,
+  "input_tokens_details": {
+   "cache_write_tokens": 7402,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1016,
+  "output_tokens_details": {
+   "reasoning_tokens": 126
+  },
+  "total_tokens": 8421
+ }
+}

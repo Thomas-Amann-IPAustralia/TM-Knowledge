@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011326,
+ "created_utc": "2026-10-09T05:50:39Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0092",
+ "job": "answer",
+ "key": "307b6c9234d13bc50cffca15e20cc02c7e98ec6b3f380dcf2221969ddd0d2569",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0116\",\"GC-0046\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part61/2/2/3\",\"quote\":\"2.3.3 If a document contains business information or personal information relating to a third party, under the FOI Act, third party consultation is required\"},{\"ref\":\"TMM/Part61/3/3/3\",\"quote\":\"To the extent that these documents contain sensitive business and/or personal information, the trade mark applicant or their representative may be contacted and given the opportunity to contend that all or part of the information is exempt from release.\"},{\"ref\":\"TMM/Part61/3/3/3\",\"quote\":\"Where the affected party contends information is exempt, they will have the right to request an internal review and/or a review conducted by the Office of the Australian Information Commissioner (OAIC) – before documents are released to the FOI applicant.\"},{\"ref\":\"TMM/Part61/3/3/4\",\"quote\":\"A claim from the applicant that the information in particular documents is confidential will not be accepted or acknowledged by the Registrar.\"},{\"ref\":\"TMA1995/s217A\",\"quote\":\"(1) The Registrar must make available for public inspection prescribed documents that relate to a trade mark while they are held in the Trade Marks Office at or after the time particulars of the application for registration of the trade mark are published under section 30.\"}],\"answer\":\"For an FOI request, the Manual provides for an opportunity to argue against release, but the supplied passages do not establish an unconditional guarantee for every document in your file.\\n\\n**Manual practice:** The Manual says third-party consultation is required where a document contains business or personal information relating to a third party (TMM/Part61/2/2/3). It also says the trade mark applicant or their representative **may be contacted** to argue that all or part of sensitive information is exempt from release. If the affected party contends that information is exempt, the Manual states they have the right to request internal review and/or OAIC review **before the documents are released to the FOI applicant** (TMM/Part61/3/3/3).\\n\\nSimply claiming confidentiality is not the same protection: the Manual says the Registrar will not accept or acknowledge an applicant’s claim that information in particular documents is confidential (TMM/Part61/3/3/4).\\n\\n**Act:** Section 217A(1) separately requires prescribed trade mark documents to be available for public inspection once the specified publication stage is reached. The supplied section does not itself provide a consultation opportunity before public inspection, so I cannot confirm the same opportunity for access through that route (TMA1995/s217A).\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "86c0ef822f44c4dc080ac689fadde6954780657fad2cadbe8c311d528eed61e6",
+ "response_id": "resp_03872aa243ca746c006ac88093935487d2844eef460b20da0f",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6237,
+  "input_tokens_details": {
+   "cache_write_tokens": 6234,
+   "cached_tokens": 0
+  },
+  "output_tokens": 706,
+  "output_tokens_details": {
+   "reasoning_tokens": 122
+  },
+  "total_tokens": 6943
+ }
+}

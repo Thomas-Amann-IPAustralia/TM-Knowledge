@@ -63,36 +63,57 @@ __all__ = [
 WORKBOOK_PATH = REPO_ROOT / "data" / "derived" / "concept-typing.xlsx"
 REPORT_PATH = REPO_ROOT / "data" / "derived" / "reports" / "concept-typing.md"
 
-#: What the groups mean. Repeated on the sheet and in the report so nobody has
-#: to hold them in their head across 130 rows.
+#: What the kinds mean. Repeated on the sheet and in the report so nobody has
+#: to hold them in their head across 160 rows.
 #:
-#: **The first four are the owner's own words** from the OQ-0001 question he
-#: ruled on, and they are not paraphrased here. The five process groups were
-#: added on 2026-09-09 at his instruction, because 53 of the 130 concepts fitted
-#: none of the first four and the pile was not random (ADR-0098). `remedy` was
-#: split from `exception` on 2026-10-08 on his ruling B5 (ADR-0124): an
-#: exception is a case the rule does not reach, a remedy is what overcomes a
-#: ground that does apply — the object of `isOvercomeBy`.
+#: **A kind says what a concept *is*; what it *does* is an edge** — the owner's
+#: own formulation, approved on 2026-10-09 (ruling B1, ADR-0126): "the ontology
+#: should describe what a thing 'is' (as a node) and what it 'does' as an edge".
+#: Until then three of the groups were functions — `relevant_factor`, `exception`
+#: and `remedy` — so a concept had to choose between saying what it was and what
+#: it did, and duplicates of one idea landed in different groups (review B1). They
+#: are now `FUNCTIONS`, each carried by a predicate that names the ground or test
+#: the concept acts on.
 #:
-#: The order matters and is not alphabetical: the reasoning groups come first
-#: because they are the ones a person sorting an examination vocabulary reaches
-#: for, and `none_of_these` stays last because it is the residue after ten
-#: real answers rather than a category of its own.
+#: The first two are the owner's own words from OQ-0001 and are not paraphrased.
+#: The process kinds were added on 2026-09-09 (ADR-0098). `sign_content`,
+#: `context` and `use_in_trade` were written for B1, because the concepts the
+#: three function groups held are, in themselves, things a mark contains, things
+#: outside it the assessment looks at, and things people do with marks in trade.
+#:
+#: The order matters and is not alphabetical: the law's questions, then what they
+#: are asked about, then the process they sit inside; `none_of_these` stays last
+#: because it is the residue after real answers rather than a kind of its own.
 REASONING_GROUPS: tuple[tuple[str, str], ...] = (
     ("ground_of_refusal", "a reason an application can be refused"),
     ("legal_test", "a question the decision maker has to answer"),
-    ("relevant_factor", "something that feeds into that answer"),
-    ("exception", "something that takes a case out of the rule"),
-    ("remedy", "a step, record or consent that overcomes a ground already made out"),
 )
 
-#: The process groups. Where the four above sort a concept by the part it plays
-#: in *reasoning towards* a decision, these sort it by the part it plays in the
-#: process that reasoning sits inside — who acts, what is acted on, what act is
-#: performed, what the act produces, and what external scheme it runs under.
+#: What the law's questions are asked about: the mark, what it contains or
+#: conveys, the world outside it, and what people do with it in trade (B1).
+EXAMINED_GROUPS: tuple[tuple[str, str], ...] = (
+    ("subject_matter", "the thing the process operates on — a sign, a trade mark, a kind of registration"),
+    (
+        "sign_content",
+        "something a trade mark contains or conveys — a word, name, image or sign within it, or a "
+        "meaning",
+    ),
+    (
+        "context",
+        "something outside the trade mark that the assessment looks at — the goods, the market and "
+        "its consumers, a person or place, a reputation, a date",
+    ),
+    (
+        "use_in_trade",
+        "something a person does with a trade mark in the course of trade — using it, or authorising "
+        "its use",
+    ),
+)
+
+#: The process kinds: who acts, what act is performed, what it produces, and what
+#: external scheme it runs under.
 PROCESS_GROUPS: tuple[tuple[str, str], ...] = (
     ("process_role", "a person or body that acts — who does something"),
-    ("subject_matter", "the thing the process operates on — what may be registered"),
     (
         "procedural_step",
         "an act, proceeding or event that moves an application or a registration "
@@ -100,8 +121,8 @@ PROCESS_GROUPS: tuple[tuple[str, str], ...] = (
     ),
     (
         "instrument_or_record",
-        "a document, entry or endorsement the process produces, or writes to the "
-        "Register",
+        "a document, entry or endorsement the process produces or receives, or writes "
+        "to the Register",
     ),
     (
         "external_instrument",
@@ -112,8 +133,19 @@ PROCESS_GROUPS: tuple[tuple[str, str], ...] = (
 
 GROUPS: tuple[tuple[str, str], ...] = (
     *REASONING_GROUPS,
+    *EXAMINED_GROUPS,
     *PROCESS_GROUPS,
-    ("none_of_these", "none of the ten fit — which is an answer, not a gap"),
+    ("none_of_these", "none of the kinds fit — which is an answer, not a gap"),
+)
+
+#: What a concept *does*, as an edge rather than a kind (ruling B1, ADR-0126):
+#: (the old group, the predicate that now says it, which end the concept is on,
+#: what it means). `qualifies` and `doesNotGiveRiseTo` read from the concept to the
+#: ground or test it acts on; `isOvercomeBy` reads from the ground to the remedy.
+FUNCTIONS: tuple[tuple[str, str, str, str], ...] = (
+    ("relevant_factor", "qualifies", "subject", "something that feeds into the answer to a test or ground"),
+    ("exception", "doesNotGiveRiseTo", "subject", "something that takes a case out of a ground or test"),
+    ("remedy", "isOvercomeBy", "object", "a step, record or consent that overcomes a ground already made out"),
 )
 
 
@@ -548,20 +580,22 @@ def render(generated: str | None = None) -> str:
         f"with the {len(GROUPS)} values below; this document is the evidence to sort by, so "
         "keep it open beside the spreadsheet.",
         "",
-        "**The groups fall on two axes, and knowing which one you are on makes the sort much "
-        "faster.** The reasoning groups ask *what part does this play in reasoning towards a "
-        "decision* — the first four are your own words from OQ-0001, and `remedy` was split "
-        "from `exception` on your ruling of 2026-10-08 (ADR-0124). The process groups ask "
-        "*what part does this play in the process that reasoning sits inside*. "
-        "They were added on 2026-09-09 at your instruction, because 53 of these 130 "
-        "concepts fitted none of the first four and the 53 were not a random remainder "
-        "(ADR-0098).",
+        "**A kind says what a concept is; what it does is an edge** (your ruling B1 of "
+        "2026-10-09, ADR-0126). The question kinds are the law's questions — the first two are "
+        "your own words from OQ-0001. The examined kinds are what those questions are asked "
+        "about. The process kinds are who acts, what is done and what it produces (ADR-0098). "
+        "Whether something is a relevant factor, an exception or a remedy is no longer a kind: "
+        "it is said by an edge naming the ground or test it acts on.",
         "",
-        "| group | axis | what it means |",
+        "| kind | family | what it means |",
         "|---|---|---|",
         *[
-            f"| `{value}` | reasoning | {meaning} |"
+            f"| `{value}` | question | {meaning} |"
             for value, meaning in REASONING_GROUPS
+        ],
+        *[
+            f"| `{value}` | examined | {meaning} |"
+            for value, meaning in EXAMINED_GROUPS
         ],
         *[
             f"| `{value}` | process | {meaning} |"
@@ -612,8 +646,13 @@ def render(generated: str | None = None) -> str:
             "| proposed group | axis | concepts |",
             "|---|---|---|",
             *[
-                f"| `{group}` | reasoning | {tally[group]} |"
+                f"| `{group}` | question | {tally[group]} |"
                 for group, _ in REASONING_GROUPS
+                if group in tally
+            ],
+            *[
+                f"| `{group}` | examined | {tally[group]} |"
+                for group, _ in EXAMINED_GROUPS
                 if group in tally
             ],
             *[

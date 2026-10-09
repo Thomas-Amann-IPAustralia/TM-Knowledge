@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.038901,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0533..GR-0540",
+ "job": "audit",
+ "key": "003cc8a37890d5783d83a51f995002990ca8ce5b4aaafcc28609baca580c5d4e",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0533\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence connects the two concepts by stating that an appeal to a prescribed court is a condition under which the Registrar will defer acceptance of the application.\"\n  },\n  {\n    \"id\": \"GR-0534\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence mentions both the lapsing of an application and the deferment of acceptance together in the context of examination timeframes, supporting a related link.\"\n  },\n  {\n    \"id\": \"GR-0535\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence links the two concepts by instructing that when a citation has lapsed, one must check if a divisional application has been filed.\"\n  },\n  {\n    \"id\": \"GR-0536\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly relates the concepts by discussing a \\\"disclaimer made in the old register\\\".\"\n  },\n  {\n    \"id\": \"GR-0537\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence connects a disclaimer and the Register by stating that the particulars of the disclaimer are entered in the Register.\"\n  },\n  {\n    \"id\": \"GR-0538\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0099\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0088\",\n    \"remove\": false,\n    \"reason\": \"The predicate appliesTo is restricted to subjects that are a provision, rule, or scheme. A disclaimer is an instrument or record, so related is the appropriate predicate.\"\n  },\n  {\n    \"id\": \"GR-0539\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence connects the concepts by stating that a registered owner may make a request to enter a disclaimer.\"\n  },\n  {\n    \"id\": \"GR-0540\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly relates the two concepts by referring to \\\"evidence of use of the trade mark by the applicant, predecessor in title\\\".\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "3945734b93a01b400dc3f8bf939595e2c6e3d2a757dcdbb2f9d60368c50c619d",
+ "response_id": "72LIaoXCKJXQz7IPmfP74AY",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7635,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5211,
+  "output_tokens_details": {
+   "reasoning_tokens": 4401
+  }
+ }
+}

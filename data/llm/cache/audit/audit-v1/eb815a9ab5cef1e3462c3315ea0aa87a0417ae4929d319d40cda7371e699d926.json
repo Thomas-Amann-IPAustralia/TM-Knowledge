@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.06585,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0083..GR-0090",
+ "job": "audit",
+ "key": "eb815a9ab5cef1e3462c3315ea0aa87a0417ae4929d319d40cda7371e699d926",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0083\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that the improper use of an INN stem may lead to deception, supporting the mayGiveRiseTo relationship.\"\n  },\n  {\n    \"id\": \"GR-0084\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence clearly states that deception or confusion can result from the use of a trade mark because of the reputation of another trade mark.\"\n  },\n  {\n    \"id\": \"GR-0085\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The passage establishes that the test for deception is assessed through the perception of the ordinary person (consumer), which matches the definition of the qualifies predicate.\"\n  },\n  {\n    \"id\": \"GR-0086\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence outlines that material claiming an Indigenous origin can form a connotation that misleads (deceives) consumers, supporting the mayGiveRiseTo relationship.\"\n  },\n  {\n    \"id\": \"GR-0087\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence validly links a section 43 ground for rejection to examination by noting it may not always be obvious during that stage, and no sharper predicate applies.\"\n  },\n  {\n    \"id\": \"GR-0088\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence demonstrates that failing the standard of being prima facie capable of distinguishing makes a section 41 ground appropriate, confirming it acts as the threshold for the ground.\"\n  },\n  {\n    \"id\": \"GR-0089\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence explicitly states a remedy (the ground is overcome by written permission), which means 'related' is the wrong predicate and the true object is written permission.\",\n    \"corrected_subject\": \"GC-0168\",\n    \"corrected_predicate\": \"isOvercomeBy\",\n    \"corrected_object\": \"GC-0029\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that a section 43 ground for rejection is overcome by providing written permission, whereas the endorsement merely makes that permission clear.\"\n  },\n  {\n    \"id\": \"GR-0090\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence specifies that a trade mark connoting a plant variety name will make a section 43 ground for rejection appropriate, supporting the mayGiveRiseTo relationship.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "520d6b6cde589dc5a1945b9842cc083057798cf2cc3b32d71fb185c126a4ca74",
+ "response_id": "72LIao-YKL7yqtsPkNmJsAQ",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7788,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 9677,
+  "output_tokens_details": {
+   "reasoning_tokens": 8801
+  }
+ }
+}

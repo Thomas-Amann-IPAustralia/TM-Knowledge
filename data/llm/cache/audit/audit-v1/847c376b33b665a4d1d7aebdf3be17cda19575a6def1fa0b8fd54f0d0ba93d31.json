@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.03949,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0551..GR-0558",
+ "job": "audit",
+ "key": "847c376b33b665a4d1d7aebdf3be17cda19575a6def1fa0b8fd54f0d0ba93d31",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0551\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence links rectification to a prescribed court by referring to a rectification application made to a prescribed court, making 'related' an appropriate and sound connection.\"\n  },\n  {\n    \"id\": \"GR-0552\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0106\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0150\",\n    \"reason\": \"The predicate 'appliesTo' is strictly for a provision, rule or scheme governing an object. 'Renewal of registration' is a procedural step, not a rule. The sentence (a heading) simply connects the two concepts, so 'related' is the appropriate predicate.\"\n  },\n  {\n    \"id\": \"GR-0553\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly relates the renewal of an international registration to the date it was received by the Office of origin.\"\n  },\n  {\n    \"id\": \"GR-0554\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence discusses the assignment of a certification trade mark requiring the consent of the ACCC (Commission). Because the subject here is the trade mark itself and not the step of assignment, 'related' is the most precise predicate available for this pair.\"\n  },\n  {\n    \"id\": \"GR-0555\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explains that a lack of appreciable reputation arising from the use of a trade mark affects whether the requisite connection exists for a defensive trade mark, making 'qualifies' accurate.\"\n  },\n  {\n    \"id\": \"GR-0556\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence indicates that evidence of 'reputation' affects the assessment of the requisite connection for a defensive trade mark application, which correctly supports the 'qualifies' predicate.\"\n  },\n  {\n    \"id\": \"GR-0557\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence connects the 'registered owner' with a 'defensive trade mark', and 'related' accurately captures this relationship.\"\n  },\n  {\n    \"id\": \"GR-0558\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0043\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0091\",\n    \"reason\": \"The predicate 'qualifies' is for a relevant factor that bears on a test without deciding it. A 'divisional application' is a procedural step/application type that definitively sets (decides) the filing date rule, rather than being a qualifying factor. 'Related' is the appropriate predicate.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "ff881e8a9f74df6512d8158723d2d30e582324af1b328245d8207c2d502bc13d",
+ "response_id": "72LIauvyKczxz7IP4a6p0Q8",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7498,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5332,
+  "output_tokens_details": {
+   "reasoning_tokens": 4400
+  }
+ }
+}

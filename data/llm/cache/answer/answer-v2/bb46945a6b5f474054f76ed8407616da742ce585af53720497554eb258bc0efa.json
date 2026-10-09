@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013762,
+ "created_utc": "2026-10-09T04:43:36Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0001",
+ "job": "answer",
+ "key": "bb46945a6b5f474054f76ed8407616da742ce585af53720497554eb258bc0efa",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0108\",\"GC-0131\",\"GC-0092\",\"GC-0046\",\"GC-0116\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part33/x-relevant-legislation27#1\",\"quote\":\"The Act Section 27 Application – how made Section 161 Object of Part Section 162 Definition of a collective trade mark Section 163 Application of Act Section 164 Application for registration Section 165 Limitations on rights Section 166 Assignment Section 167 Infringement Section 41 Trade mark not distinguishing applicant's goods\"},{\"ref\":\"TMM/Part33/x-relevant-legislation27#1\",\"quote\":\"Division 6 17A.49 Collective trade marks\"},{\"ref\":\"TMM/Part60/4/7/4/7/14/1\",\"quote\":\"Madrid Protocol Regulations Rule 9 Requirements Concerning the International Application Trade Marks Act 1995 Part 15 Collective trade marks Trade Marks Regulations 1995 Regulation 17A.49 Collective trade marks\"},{\"ref\":\"TMA1995/s31\",\"quote\":\"The Registrar must, in accordance with the regulations, examine and report on: (a) whether the application has been made in accordance with this Act; and (b) whether there are grounds under this Act for rejecting it.\"},{\"ref\":\"TMR1995/r4.2\",\"quote\":\"(1) To be taken to be filed, an application for registration of a trade mark that is in an approved form must: (a) state that the application is for registration of the trade mark, or contain a clear indication to that effect; and (b) include a representation of the trade mark that is sufficient to identify the trade mark; and (c) specify the goods and/or services in relation to which the application is made; and (d) include sufficient information to enable the Registrar to establish the identity of the applicant; and (e) contain sufficient information to enable the Registrar to contact the applicant.\"},{\"ref\":\"TMM/Part10/x-introduction#1\",\"quote\":\"If the Registrar reasonably believes that the application has not been made in accordance with the Act or Regulations, the Registrar must report that belief in writing to the applicant (reg 4.8). If any reported deficiencies are not corrected, the application must be rejected under sub-section 33(3).\"}],\"answer\":\"**Collective trade mark checklist — identified by the Manual (practice)**\\n\\nPart 33’s relevant-legislation list identifies these provisions of the **Trade Marks Act 1995** [TMM/Part33/x-relevant-legislation27#1]:\\n\\n- **s 27** — application: how made.\\n- **ss 161–167 (Part 15)** — object of the Part; definition of a collective trade mark; application of the Act; application for registration; limitations on rights; assignment; and infringement.\\n- **s 41** — trade mark not distinguishing the applicant’s goods.\\n\\nFor the **Trade Marks Regulations 1995**, that list identifies **reg 17A.49 — Collective trade marks**. The Manual also places this regulation in its international-application/Madrid Protocol references [TMM/Part33/x-relevant-legislation27#1; TMM/Part60/4/7/4/7/14/1].\\n\\n**General application and examination checks**\\n\\n- **Act, s 31:** requires the Registrar to examine and report on compliance with the Act and grounds for rejection [TMA1995/s31].\\n- **Regulations, reg 4.2:** sets the minimum filing requirements, including identification of the mark, goods/services and applicant, and contact information [TMR1995/r4.2].\\n- **Manual practice:** also directs attention to **reg 4.8** for reporting non-compliance and **s 33(3)** for rejection where reported deficiencies remain uncorrected [TMM/Part10/x-introduction#1].\\n\\n**Scope limitation:** the supplied legislative extracts do not contain ss 27, 41 or 161–167, or regs 4.8 and 17A.49; the s 33(3) extract is incomplete. Their inclusion above rests on the Manual’s references, not verification of their full legislative text. The passages therefore support this checklist, but not a complete account of the collective-mark provisions or their exceptions.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "4aada6d6a2c93bbe7571b0933a26c9c0253bc9ae777d56d865fc52022b3f73a5",
+ "response_id": "resp_02cff4fcc1ae7ab0006ac870dc31d087d294b2c9d7a5783680",
+ "seconds": 29.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6710,
+  "input_tokens_details": {
+   "cache_write_tokens": 6707,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1075,
+  "output_tokens_details": {
+   "reasoning_tokens": 139
+  },
+  "total_tokens": 7785
+ }
+}

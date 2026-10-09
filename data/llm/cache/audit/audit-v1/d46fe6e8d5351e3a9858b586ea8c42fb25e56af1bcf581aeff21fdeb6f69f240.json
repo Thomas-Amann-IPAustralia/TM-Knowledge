@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.037616,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0608..GR-0617",
+ "job": "audit",
+ "key": "d46fe6e8d5351e3a9858b586ea8c42fb25e56af1bcf581aeff21fdeb6f69f240",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0608\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly connects the two concepts by stating that the Registrar of Trade Marks is usually the person named in a subpoena.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0611\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence links the concepts by stating that a lawyer is an example of someone who can be authorised to make a declaration supplying evidence of use.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0612\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence establishes a linguistic and procedural connection by explicitly referring to the \\\"Contracting Party of the holder\\\".\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0613\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence relates the concepts by explaining that in the context of an IRDA, the holder may need to submit a form through the Office of the Contracting Party of the holder.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0614\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The heading plainly implies that the Madrid Protocol contains rules (Article 7) that govern the renewal of an international registration.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0615\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence directly addresses the relationship between the two concepts by clarifying that the Madrid Protocol lacks provisions for dealing directly with non-use actions against the international registration itself.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0616\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"reason\": \"The sentence discusses \\\"designated goods or services\\\" but does not mention the distinct concept of the \\\"services of a person\\\", nor does it support a relationship between it and the use of a trade mark.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true\n  },\n  {\n    \"id\": \"GR-0617\",\n    \"verdict\": \"vague\",\n    \"problem\": \"too weak to help an examiner\",\n    \"reason\": \"The sentence states that an application must be accepted if certain findings are made after examination, indicating that examination causes or leads to acceptance. The sharper predicate 'mayGiveRiseTo' should be used.\",\n    \"corrected_subject\": \"GC-0092\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0093\",\n    \"remove\": false\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "18b6c8014b8f7ac636e44a674a3188ac115fccb24df6f4eac446c4268676e107",
+ "response_id": "72LIavG-KamkqtsProyE4AE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7808,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 4968,
+  "output_tokens_details": {
+   "reasoning_tokens": 4113
+  }
+ }
+}

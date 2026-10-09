@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010814,
+ "created_utc": "2026-10-09T05:47:03Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0049",
+ "job": "answer",
+ "key": "b5d46919216fc88d6bd5a38fd5ef42234e9990f9d9d0f7c0513aa3a33a636dd4",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0099\",\"GC-0089\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part24/2#1~2\",\"quote\":\"2.7 Entry in the Register will make it clear the disclaimer is voluntary and to that end will be prefaced by the words: The following disclaimer has been requested under subsection 74(1): This will differentiate such disclaimers from the compulsory disclaimers imposed under the repealed legislation.\"},{\"ref\":\"TMA1995/s74\",\"quote\":\"(3) The Registrar must, on registering the trade mark or on receiving notice of the disclaimer (whichever is later), enter the particulars of the disclaimer in the Register.\"}],\"answer\":\"Manual practice: The Register entry will identify the disclaimer as voluntary by prefacing it with the words:\\n\\n“The following disclaimer has been requested under subsection 74(1):”\\n\\nThis distinguishes it from compulsory disclaimers imposed under the repealed legislation (TMM/Part24/2#1~2).\\n\\nAct: Subsection 74(3) requires the Registrar to enter the particulars of the disclaimer in the Register on registration or receipt of the disclaimer notice, whichever is later. The quoted introductory wording is Manual practice, not wording prescribed by the supplied Act passage (TMA1995/s74).\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "53cc985463a7734be011523219185b23af9d6d51587a568ab2242840364b0143",
+ "response_id": "resp_0273edd6c6cf7ccd006ac87fc62b3487d2b980d8a6dcece6fb",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7500,
+  "input_tokens_details": {
+   "cache_write_tokens": 7497,
+   "cached_tokens": 0
+  },
+  "output_tokens": 288,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7788
+ }
+}

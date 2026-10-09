@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01126,
+ "created_utc": "2026-10-09T04:49:48Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0024",
+ "job": "answer",
+ "key": "6bcec4dd43feddf728df782ca2b62af3ae638f67c24c4a9e03502ae20c59d115",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0159\",\"GC-0046\",\"GC-0127\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s205\",\"quote\":\"(3) A power or function of the Registrar, when exercised by a Deputy Registrar, is taken to have been exercised by the Registrar.\"},{\"ref\":\"TMA1995/s205\",\"quote\":\"(2) Subject to any direction by the Registrar, a Deputy Registrar has all the powers and functions of the Registrar, except the powers of delegation under section 206.\"},{\"ref\":\"TMM/Part52/1#1~2\",\"quote\":\"Therefore, decisions issued by the Deputy Registrar are headed \\\"Decision of the Registrar of Trade Marks, with Reasons\\\" rather than “Decision of a delegate of the Registrar of Trade marks” (emphasis added).\"}],\"answer\":\"Yes—where the Deputy Registrar exercises a power or function of the Registrar.\\n\\nAct: Section 205(3) expressly treats that exercise as an exercise by the Registrar. Under section 205(2), the Deputy Registrar has all the Registrar’s powers and functions, subject to any direction by the Registrar, except the powers of delegation under section 206 [TMA1995/s205].\\n\\nManual practice: Reflecting that statutory position, decisions issued by the Deputy Registrar are headed “Decision of the Registrar of Trade Marks, with Reasons”, rather than as a delegate’s decision [TMM/Part52/1#1~2]. This answers who the decision is attributed to, not what the outcome of your matter would be.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "1068ff280631190ad92a90faa0322311c98548200018c673f5b8f5feb6dec9bf",
+ "response_id": "resp_0d2631ac96612aad006ac8726260e487d2b7747e3738f3c2b8",
+ "seconds": 10.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7649,
+  "input_tokens_details": {
+   "cache_write_tokens": 7646,
+   "cached_tokens": 0
+  },
+  "output_tokens": 340,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7989
+ }
+}

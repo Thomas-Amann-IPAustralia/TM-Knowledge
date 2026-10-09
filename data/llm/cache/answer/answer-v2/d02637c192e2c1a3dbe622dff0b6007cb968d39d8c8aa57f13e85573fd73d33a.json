@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013668,
+ "created_utc": "2026-10-09T06:02:23Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0011",
+ "job": "answer",
+ "key": "d02637c192e2c1a3dbe622dff0b6007cb968d39d8c8aa57f13e85573fd73d33a",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0001\",\"GC-0002\",\"GC-0168\",\"GC-0064\",\"GC-0154\",\"GC-0038\",\"GC-0008\",\"GC-0010\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part29/3#1~1\",\"quote\":\"For a trade mark to trigger section 43 there must be some connotation within the trade mark that would reasonably be expected to cause deception or confusion in the mind of the relevant buying public.\"},{\"ref\":\"TMM/Part26/4/4/3~2\",\"quote\":\"Section 44(2) is plainly intended to address the mischief that may be created where two marks are the same or deceptively similar. It recognises the potential for confusion in the minds of consumers as to the origin of goods in respect of which a mark is registered or sought to be registered and the origin of services in which an identical or a deceptively similar mark is registered, or sought to be registered as the case may be.\"},{\"ref\":\"TMM/Part26/6/6/4~1\",\"quote\":\"What needs to be assessed is the effect of the similarities and differences on the impression or recollection an ordinary consumer of the goods or services would have of the trade marks and whether this creates a real and tangible danger of confusion.\"},{\"ref\":\"TMM/Part26/6/6/4~1\",\"quote\":\"In particular, in evaluating the likelihood of confusion, the marks must be judged as a whole: Cooper Engineering Co Pty Ltd v Sigmund Pumps Ltd [1952] HCA 15, at [3].\"}],\"answer\":\"Not merely because two marks are similar and consumers may confuse them.\\n\\n**Act — section 43:** The required likelihood of deception or confusion must arise because of a connotation of the mark, or a sign within it, when used for the particular goods or services. Similarity between two marks does not itself establish that requirement. [TMA1995/s43]\\n\\n**Manual practice — the distinction:** The Manual requires a connotation reasonably expected to deceive or confuse the relevant buying public for section 43. It discusses confusion between identical or deceptively similar marks about the origin of goods or services under section 44 instead. [TMM/Part29/3#1~1; TMM/Part26/4/4/3~2]\\n\\n**Manual practice — comparison:** For deceptive similarity, assess the marks as a whole and the effect of their similarities and differences on an ordinary consumer’s impression or recollection: does this create a real and tangible danger of confusion? Mere similarity is not the complete assessment. [TMM/Part26/6/6/4~1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "6c23c401900a41ed25f449afa2aeb1d57525e028602fee52fa22504ce044a44e",
+ "response_id": "resp_0c7a9fb8338457bf006ac8835df0a487d29ad6373db3082ba6",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7679,
+  "input_tokens_details": {
+   "cache_write_tokens": 7676,
+   "cached_tokens": 0
+  },
+  "output_tokens": 814,
+  "output_tokens_details": {
+   "reasoning_tokens": 155
+  },
+  "total_tokens": 8493
+ }
+}

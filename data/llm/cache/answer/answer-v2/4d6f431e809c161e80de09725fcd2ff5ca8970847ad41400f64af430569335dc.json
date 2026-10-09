@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010244,
+ "created_utc": "2026-10-09T05:56:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0059",
+ "job": "answer",
+ "key": "4d6f431e809c161e80de09725fcd2ff5ca8970847ad41400f64af430569335dc",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0078\",\"GC-0057\",\"GC-0014\",\"GC-0012\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part21/7/7/1\",\"quote\":\"The application must include a graphical representation of the scent mark. This could be by way of a verbal description of the scent such as \\\"the scent of pine\\\".\"},{\"ref\":\"TMM/Part21/7/7/1\",\"quote\":\"The applicant must include a precise and accurate description of the scent that will be entered as an endorsement of the application. The description must include both what the scent is, and how it is to be used in respect of the goods or services claimed.\"},{\"ref\":\"TMM/Part10/3/3/4/3\",\"quote\":\"In some cases the description may also be used as the representation where there is no other form of graphic representation.\"},{\"ref\":\"TMM/Part10/3/3/4/3\",\"quote\":\"A precise word description of the trade mark would be a satisfactory representation of a scent trade mark, however the results of analytical techniques would not be as they would not be readily understood by the ordinary person searching the Register.\"}],\"answer\":\"**You need a written description, but not necessarily a separate picture.** Under the supplied Manual practice:\\n\\n- A scent mark must have a **graphical representation**, but this can be a verbal description, such as “the scent of pine”, rather than a picture. [TMM/Part21/7/7/1]\\n- You must also provide a **precise and accurate description** stating what the scent is and how it will be used in relation to the claimed goods or services. This is entered as an endorsement of the application. [TMM/Part21/7/7/1]\\n- In some cases, the description can also serve as the representation where there is no other form of graphic representation. The Manual expressly says a precise word description can satisfactorily represent a scent mark. [TMM/Part10/3/3/4/3]\\n\\nThese are statements of **Manual practice**, not a direct account of the legislation: no Act or Regulations passages were supplied.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "8a549675a3565843b10f9fe371b109141ecb99a3ab1e7011bc59275d932047b9",
+ "response_id": "resp_065b9036eb2d1f89006ac8820ce5ac87d2b5e562c737e906ba",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5928,
+  "input_tokens_details": {
+   "cache_write_tokens": 5925,
+   "cached_tokens": 0
+  },
+  "output_tokens": 567,
+  "output_tokens_details": {
+   "reasoning_tokens": 89
+  },
+  "total_tokens": 6495
+ }
+}

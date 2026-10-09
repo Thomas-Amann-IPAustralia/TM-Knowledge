@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013744,
+ "created_utc": "2026-10-09T05:56:09Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0046",
+ "job": "answer",
+ "key": "d1f7374410433149ba6b303c19fdea660c90e4b4e52aff77e89c4b5ba6e48714",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0081\", \"GC-0082\", \"GC-0083\", \"GC-0084\", \"GC-0041\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMA1995/s8(1)\",\n      \"quote\": \"(1) A person is an authorised user of a trade mark if the person uses the trade mark in relation to goods or services under the control of the owner of the trade mark.\"\n    },\n    {\n      \"ref\": \"TMM/Part23/3/3/1\",\n      \"quote\": \"Authorised use requires some form of actual control by the applicant over the use by the authorised user.\"\n    },\n    {\n      \"ref\": \"TMM/Part48/7#1\",\n      \"quote\": \"Subsections 8(3) and 8(4) provide two non-exclusive examples of where such control is taken to exist. These are: where the owner of a trade mark exercises quality control over the goods or services in relation to which the trade mark is used by the authorised user (subsection 8(3)), and where the owner of the trade mark exercises financial control over the authorised user’s relevant trading activities (subsection 8(4)).\"\n    },\n    {\n      \"ref\": \"TMM/Part19A/6/6/3\",\n      \"quote\": \"In the context of a corporate group, control may be demonstrated where two entities act with a sufficient unity of purpose - Trident Seafoods Corporation v Trident Foods Pty Ltd [2019] FCAFC 100 (‘Trident’).\"\n    },\n    {\n      \"ref\": \"TMA1995/s7(3)\",\n      \"quote\": \"(3) An authorised use of a trade mark by a person (see section 8) is taken, for the purposes of this Act, to be a use of the trade mark by the owner of the trade mark.\"\n    }\n  ],\n  \"answer\": \"You need to show actual control over the use—not merely that you gave permission.\\n\\n**Act:** Section 8(1) requires the person to use the trade mark in relation to goods or services under your control as owner. [TMA1995/s8(1)]\\n\\n**Manual practice:** When relying on another person’s use, the Manual requires some form of actual control. It identifies two non-exclusive ways to demonstrate control:\\n• exercising quality control over the goods or services bearing the trade mark; or\\n• exercising financial control over the user’s relevant trading activities.\\nThese are alternatives, not a requirement to demonstrate both, and other forms of control may qualify. [TMM/Part23/3/3/1; TMM/Part48/7#1]\\n\\nFor corporate groups, the Manual also says control may be demonstrated where the entities act with sufficient unity of purpose. [TMM/Part19A/6/6/3]\\n\\n**Why it matters under the Act:** Authorised use counts as use by the owner for the purposes of the Act. [TMA1995/s7(3)]\\n\\nThe supplied passages do not specify a complete checklist of documents or evidence needed to establish actual control.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "38ef3b7ea685662543b80e1af7334ae2f4f64b5fe169c81c285415b9994d2039",
+ "response_id": "resp_05d694d8f6741d06006ac881e7df5887d28c431b6594186785",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7776,
+  "input_tokens_details": {
+   "cache_write_tokens": 7773,
+   "cached_tokens": 0
+  },
+  "output_tokens": 805,
+  "output_tokens_details": {
+   "reasoning_tokens": 107
+  },
+  "total_tokens": 8581
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.034906,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0684..GR-0691",
+ "job": "audit",
+ "key": "f10bfae6c322204c64de5bf7592c9dcd027939a9b3eaff023db8dd3800dd5328",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0684\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly states that a section 43 ground for rejection may be overcome by agreeing to a condition of registration.\"\n  },\n  {\n    \"id\": \"GR-0685\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence clearly asserts that the ground for rejection may be overcome by the applicant agreeing to a condition of registration.\"\n  },\n  {\n    \"id\": \"GR-0686\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence states that a well-known person's name may trigger the provisions of section 43, which the passage confirms means a section 43 ground for rejection may arise.\"\n  },\n  {\n    \"id\": \"GR-0687\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence plainly provides that an applicant may overcome the section 43 ground for rejection by supplying written permission.\"\n  },\n  {\n    \"id\": \"GR-0688\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence expressly states that the ground for rejection should not be raised merely because a trade mark contains the image of a person, which directly matches the definition of doesNotGiveRiseTo.\"\n  },\n  {\n    \"id\": \"GR-0689\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence specifies that connotation must not come from external considerations such as a reputation in another trade mark, thereby excluding reputation as a basis.\"\n  },\n  {\n    \"id\": \"GR-0690\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence states that a reference to Indigenous people (an alias for claim to Indigenous origin) can lead to a ground for rejection under s43 if a misleading connotation arises.\"\n  },\n  {\n    \"id\": \"GR-0691\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"remove\": false,\n    \"corrected_subject\": \"TMA1995/s41\",\n    \"corrected_predicate\": \"appliesTo\",\n    \"corrected_object\": \"GC-0131\",\n    \"reason\": \"The provision establishes the section 41 ground for rejection, rather than applying to it. The sentence states that the provision governs a trade mark application, stipulating when it must be rejected.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "1eabc09b473ac584ac1638c6fa288cd13647562abef043851fb25fe918be85ce",
+ "response_id": "72LIatKOLIjD_PUP2biy6QI",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7726,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 4530,
+  "output_tokens_details": {
+   "reasoning_tokens": 3677
+  }
+ }
+}

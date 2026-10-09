@@ -1,0 +1,29 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S027 agent;
+# no issue behind it. The artefact is `review/returned/261009-owner-chat-answers-rerun.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-09T05:00:00Z'
+questions_updated: '2026-10-09'
+source:
+  kind: chat
+  artefact: review/returned/261009-owner-chat-answers-rerun.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S027 agent
+  title: Re-run the prepared answers, for US$0.40
+applied:
+  session: S027
+  date: '2026-10-09'
+  branch: claude/ecstatic-cray-shk5k4
+  what_changed: >-
+    Held to the US$0.40 by a run cap of the recorded spend plus $0.40. The 21 stalest prepared
+    answers re-run for US$0.28 (ADR-0128); the quote behind the approval was wrong — all 129
+    would cost about $1.74 — so the other 108 wait on a corrected quote.
+answers:
+- id: CHAT-0066
+  item: prepared-answers
+  question: Re-run the prepared "Ask the Manual" answers, which point at links the audit removed?
+  kind: instruction
+  value: approve_with_amount
+  label: Approved, for US$0.40 — the amount quoted, which proved to cover about half of them
+  quote: Yes, re-run the prepared answers for $0.40
+  recorded_as:
+  - ADR-0128

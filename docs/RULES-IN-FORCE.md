@@ -1,10 +1,10 @@
-# Rules in force — what 117 decisions add up to
+# Rules in force — what 122 decisions add up to
 
 Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-08, ADR-0124.
+**As at:** 2026-10-09, ADR-0129.
 
 ## Purpose and scope
 
@@ -43,8 +43,8 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **`authored_by` is the model the API reported**, not the configured one
   (ADR-0094). A record an agent session writes by hand carries the session's stamp
   (`claude-code-agent-S026`), never a model identifier (Q-75). The store holds more
-  than one author; counts split by author, and confidence is never compared across
-  authors.
+  than one author; counts split by author, and a confidence is never ranked, filtered
+  or thresholded across authors — a test enforces it (ADR-0125, F6).
 - **Ids are one sequence across both stores** — one `GC-0123` in the project
   (ADR-0080 c1). A withdrawn id is never reused: signed ones in
   `eval/gold/retired-ids.yaml`, authored ones in `authored/retired-ids.yaml`, each
@@ -53,10 +53,18 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   `GK-` record in `authored/corrections.yaml`, unreviewed, naming the owner's ruling.
   `eval/gold/` is never edited. What serves (`served_gold()`) applies corrections;
   the harness and every measurement read the records as signed (ADR-0122).
-- **A concept's type is its own record** (`GT-`), not a field (ADR-0071). Ten
-  groups: five reasoning — the owner's four, and `remedy`, split from `exception` on
-  his ruling — and five process groups an agent proposed (ADR-0098, ADR-0124,
-  `typing.GROUPS`).
+- **A concept's type is its own record** (`GT-`), not a field (ADR-0071), and it says
+  what the concept *is*: ten kinds in three families — the law's questions (ground,
+  test), what they are asked about (subject matter, sign content, context, use in
+  trade), the process (role, step, instrument or record, external instrument) — and
+  `none_of_these` (`typing.GROUPS`). What it *does* is an edge to the ground or test it
+  acts on: a factor `qualifies` (or `mayGiveRiseTo`, `statesThresholdFor`), an exception
+  `doesNotGiveRiseTo`, a ground `isOvercomeBy` its remedy — never a kind (ADR-0126).
+- **Names are compared folded** — case, apostrophes, hyphens, a leading article,
+  plurals (`ontology.hygiene.fold`). A shared name is a note, a shared preferred label a
+  SHACL violation; merging a pair the owner kept apart (`authored/merge-candidates.yaml`)
+  is a defect; a "kind of" link beside a not-label is refused unless
+  `authored/kind-of-affirmed.yaml` says why both hold (ADR-0125).
 - **Every predicate is defined** in `ontology/predicates.py` — definition, reading,
   example, counter-example, `law` or `practice` — and `relations.ttl` is generated
   from it. An authored edge on an undefined predicate is a defect; a triple that does
@@ -67,6 +75,10 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   sentence of the Act or the Manual, never the expert's note (ADR-0123).
 - **Unreviewed content may be served** if its review status shows at the point of
   use (ADR-0082). A surface that cannot show it must not serve it.
+- **A second model's verdict re-reads or withdraws a machine-written relationship**
+  (`tmk-bulk audit-apply`, from `data/derived/audit/edges.yaml`) — never one serving
+  for a signed record: a model does not overrule an expert, so that verdict goes to a
+  person (ADR-0127).
 
 ## Source data
 
@@ -82,10 +94,15 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 ## Models and money
 
 - **Bulk knowledge work: OpenAI `gpt-6.1-sol`, medium reasoning effort**, through
-  the session proxy (ADR-0111, Q-65). The owner has bought Gemini capacity too; it
-  may be proposed, but "you still must come to me first with a quote for
-  expenditure" (ADR-0121, D5).
-- **Spend cap: US$6.60**, the approved quote (`config.SPEND_CAP_USD`, ADR-0114).
+  the session proxy (ADR-0111, Q-65). Gemini may be proposed, but "you still must come
+  to me first with a quote for expenditure" (ADR-0121, D5). Gemini 3.1 Pro was
+  approved for the D5 audit (ADR-0125); Gemini goes through its Batch API only, and
+  its answers ignore the schema they are sent (Q-83).
+- **Spend cap: US$9.49** — the US$6.60 quote plus the owner's US$2.89 for D5, which
+  spent US$3.21 of its US$6.00 (`config.SPEND_CAP_USD`, ADR-0114, ADR-0125, ADR-0127).
+  An amount the owner names binds, not the count a quote estimated: hold the run to it
+  with `TMK_SPEND_CAP_USD` (ADR-0128, ADR-0129). Price from completed calls, never
+  attempts (Q-85). Recorded US$8.37; the rest under the cap is not approved for anything.
   Every paid call goes through `tm_knowledge.bulk`: dry-run, `--confirm`,
   `--limit`, a committed cache, the cap checked before each call. **One exception:**
   the explorer's live answers are made from readers' browsers on the owner's key,
@@ -121,6 +138,11 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   `tmk:ApprovedAssertion` (ADR-0091).
 - **The harness's exit 3 is "Stage 0 incomplete"**, a reported state, not a
   failure (ADR-0018, ADR-0030).
+- **The measurement grades a passage once.** A re-measurement re-takes every system's
+  pools the same day (Q-84), sends only ungraded passages to the judge, and can score
+  other rankings on the same grades (`tmk-bulk pools --keep-previous --variant`). The
+  judge stays `gpt-6.1-sol` unless a stronger one is shown more accurate on a yardstick
+  no model touched (ADR-0127).
 
 ## Process
 

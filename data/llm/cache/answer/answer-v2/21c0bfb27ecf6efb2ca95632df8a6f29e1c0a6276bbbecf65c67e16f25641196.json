@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012812,
+ "created_utc": "2026-10-09T05:47:32Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0053",
+ "job": "answer",
+ "key": "21c0bfb27ecf6efb2ca95632df8a6f29e1c0a6276bbbecf65c67e16f25641196",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0046\",\"GC-0093\",\"GC-0042\",\"GC-0131\",\"GC-0011\",\"GC-0013\",\"GC-0124\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part38/2#1\",\"quote\":\"Before a trade mark is registered, the Registrar may revoke the acceptance of the application for registration of the trade mark if he or she is satisfied that: a. the application should not have been accepted, taking account of all the circumstances that existed when the application was accepted (whether or not the Registrar knew then of their existence); and b. it is reasonable to revoke the acceptance, taking account of all the circumstances.\"},{\"ref\":\"TMM/Part38/1/1/1\",\"quote\":\"An error of judgement or omission on the part of the examiner is not required, nor is it necessary that the Registrar knew or was in a position to know of the existence of the circumstances at the time the application was accepted for this paragraph to apply.\"},{\"ref\":\"TMM/Part38/1/1/1\",\"quote\":\"Paragraph 38(1)(b) applies only if the Registrar has decided that the trade mark should not have been accepted under 38(1)(a).\"},{\"ref\":\"TMM/Part38/1/1/1\",\"quote\":\"For example, the Registrar may consider that it is not reasonable to revoke acceptance if the applicant agrees to amend the application so that certain conditions and limitations are placed upon the trade mark. This consideration is not limited to the circumstances as they existed when the trade mark was accepted.\"}],\"answer\":\"Machine-authored, unreviewed summary.\\n\\n**Both requirements must be satisfied.** The Manual’s account of subsection 38(1) says that, before registration, the Registrar may revoke acceptance only if satisfied that:\\n\\n1. **The application should not have been accepted**, taking account of all circumstances existing when it was accepted—even circumstances the Registrar did not then know about.\\n2. **It is reasonable to revoke acceptance**, taking account of all the circumstances. The wording is “may revoke”, not an automatic requirement to revoke. [TMM/Part38/2#1]\\n\\n**Manual practice explains the distinction:**\\n- The first requirement does not require an examiner’s error or omission, or that the Registrar knew or could have known about the relevant circumstances at acceptance. [TMM/Part38/1/1/1]\\n- The second requirement is considered only once the first is satisfied. Its assessment is not confined to circumstances existing at acceptance. For example, the Manual says agreement to amend the application to impose conditions and limitations may make revocation unreasonable. [TMM/Part38/1/1/1]\\n\\n**Source limitation:** These are Manual statements describing section 38, not a quotation from the Act itself. Section 38 has not been supplied as a legislation passage, so its legislative wording cannot be independently checked here. This summary does not predict whether acceptance of your particular application would be revoked.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "2b5f46e28150fe67e99955ce76ccca39f7da265d0e0bcef18e37f6331d93538e",
+ "response_id": "resp_0320213db8d391aa006ac87fd820bc87d298240eb7e3b8bd9f",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7146,
+  "input_tokens_details": {
+   "cache_write_tokens": 7143,
+   "cached_tokens": 0
+  },
+  "output_tokens": 776,
+  "output_tokens_details": {
+   "reasoning_tokens": 128
+  },
+  "total_tokens": 7922
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013292,
+ "created_utc": "2026-10-09T04:49:09Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0021",
+ "job": "answer",
+ "key": "8bb1d180587a5748c17188f2ab849a4c8a5dc37734e8332d46ea173a325d8c98",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0004\",\"GC-0002\",\"GC-0041\",\"GC-0131\"],\"decline_reason\":\"I cannot state how your particular application would be decided. I can explain the Manual’s general practice concerning evidence of actual confusion.\",\"declined\":true,\"citations\":[{\"ref\":\"TMM/Part28/3/3/3\",\"quote\":\"It is not usual for evidence of instances of confusion to be provided to the examiner. However, the applicant should provide this information if it is available.\"},{\"ref\":\"TMM/Part28/3/3/3\",\"quote\":\"In most cases, mention of this issue consists of a brief denial of knowledge of any instances contained within the applicant's declaration. Such information, when incorporated in a declaration, will be taken at face value, unless other circumstances cast doubt on its accuracy.\"},{\"ref\":\"TMM/Part28/3/3/3\",\"quote\":\"In the unlikely event that confusion is shown to have occurred, it will have a direct bearing on the consideration of honesty and will undoubtedly add force to the concern regarding the likely degree of confusion. However, the discovery of instances of actual confusion is not necessarily fatal to the application.\"}],\"answer\":\"Yes—if information about actual confusion incidents is available, the Manual says the applicant should provide it, although such evidence is not usually provided to the examiner. This is Manual practice, not a statutory evidence requirement stated in this passage. [1]\\n\\nIf you do not know of any incidents, the Manual says applicants commonly include a brief statement to that effect in their declaration. That statement is taken at face value unless other circumstances cast doubt on its accuracy. A lack of knowledge is not the same as asserting that no confusion has ever occurred. [2]\\n\\nIf actual confusion is established, the Manual says it directly bears on the consideration of honesty and strengthens concerns about the likely degree of confusion. However, actual confusion is **not necessarily fatal to the application**. [3]\\n\\nI cannot say how your particular application would be decided; these are the Manual’s general practice statements.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "510d5cf0905d46db307026d95c5b637b65c9c23394a20a34322f5e8773a2d878",
+ "response_id": "resp_0276fd5cd0f1336b006ac8722988c887d2933f3632e4119a0c",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7754,
+  "input_tokens_details": {
+   "cache_write_tokens": 7751,
+   "cached_tokens": 0
+  },
+  "output_tokens": 720,
+  "output_tokens_details": {
+   "reasoning_tokens": 277
+  },
+  "total_tokens": 8474
+ }
+}

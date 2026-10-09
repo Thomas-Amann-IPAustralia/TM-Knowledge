@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011118,
+ "created_utc": "2026-10-09T06:00:46Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0118",
+ "job": "answer",
+ "key": "36a40b8e0894868c66308bc44f4d5158912ad7d7f60a43f87e68d1dc0e500dd4",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0020\",\"GC-0084\",\"GC-0088\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part10/1/1/1/1\",\"quote\":\"If a trading style or business name is included on the application in addition to the name of an applicant with legal personality (e.g. Joe Dover t/a Joe's Plumbing), those details will be entered on to the register, however it will have no bearing on the ownership of the trade mark right. The owner of the trade mark right ultimately is the legal entity in question, not the trading style or business name.\"},{\"ref\":\"TMM/Part41/1#1\",\"quote\":\"After cancellation, the owner no longer has the rights given by registration of the trade mark including the exclusive right to use or to authorise the use of the trade mark and the right to seek relief under this Act if the trade mark is infringed (section 20).\"}],\"answer\":\"No—not the trading name itself. The Manual states that a trading style or business name entered on the application has no bearing on ownership: the owner is the legal entity, not the trading name. This is the Manual’s guidance on ownership. [TMM/Part10/1/1/1/1]\\n\\nAs to cancellation, the Manual states that the owner loses the rights given by registration, including the exclusive rights to use or authorise use and to seek relief under the Act for infringement. This is the Manual’s account of the statutory effect; section 20 itself has not been supplied. [TMM/Part41/1#1]\\n\\nThe supplied passages therefore distinguish the legal entity’s ownership from its registration rights. They do not establish whether that entity retains any rights outside registration after cancellation, so I cannot confirm continuing ownership in that broader sense.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b5b439de1f7b2ce46e59673fd61172716cba8b955b6208c8a7afbf255b7c38bd",
+ "response_id": "resp_01b046ea3aa55d9f006ac882fcc66887d2b7985c04677e3ae9",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6883,
+  "input_tokens_details": {
+   "cache_write_tokens": 6880,
+   "cached_tokens": 0
+  },
+  "output_tokens": 503,
+  "output_tokens_details": {
+   "reasoning_tokens": 104
+  },
+  "total_tokens": 7386
+ }
+}

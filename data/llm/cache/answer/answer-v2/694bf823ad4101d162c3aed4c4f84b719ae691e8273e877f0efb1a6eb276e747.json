@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012998,
+ "created_utc": "2026-10-09T05:50:31Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0090",
+ "job": "answer",
+ "key": "694bf823ad4101d162c3aed4c4f84b719ae691e8273e877f0efb1a6eb276e747",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0177\",\"GC-0136\",\"GC-0138\",\"GC-0121\",\"GC-0046\",\"GC-0127\",\"GC-0112\",\"GC-0150\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part60/2/4/2/4/2~1\",\"quote\":\"Certification by IP Australia as the Office of origin will mean that:\"},{\"ref\":\"TMM/Part60/1/1/5\",\"quote\":\"Once certified, the Office of origin forwards the international application to the IB.\"},{\"ref\":\"TMM/Part60/1/1/5\",\"quote\":\"The IB checks the formalities, fees and classification of the goods and/or services of an international application.\"},{\"ref\":\"TMM/Part14/2/2/2/2\",\"quote\":\"This does not apply to Madrid Protocol export applications where in the event of a dispute between an Office of origin and the International Bureau (IB) the opinion of the IB stands.\"},{\"ref\":\"TMA1995/s32\",\"quote\":\"If a question arises as to the class in which goods or services are comprised: (a) that question is to be decided by the Registrar; and (b) the decision of the Registrar is not subject to appeal and may not be called into question in an appeal or other proceedings under this Act.\"}],\"answer\":\"**For a Madrid application filed through IP Australia, the International Bureau’s opinion prevails if there is a classification dispute with the Office of origin.** The Manual expressly states this rule for Madrid Protocol export applications. [TMM/Part14/2/2/2/2 — Manual practice]\\n\\n**Respective roles:** IP Australia acts as the Office of origin, certifying and forwarding the international application. The International Bureau (IB) checks its formalities, fees and classification of goods and services. [TMM/Part60/2/4/2/4/2~1; TMM/Part60/1/1/5 — Manual practice]\\n\\n**Distinction from the Act:** Section 32 of the Trade Marks Act 1995 provides that the Registrar decides questions about the class in which goods or services fall, and that the decision is not appealable or open to challenge in proceedings under that Act. However, the Manual says that this does not apply to Madrid Protocol export applications: in an Office of origin–IB dispute, the IB’s opinion stands. The Madrid qualification is supported here by the supplied Manual passage, not by the supplied text of section 32. [TMA1995/s32 — Act; TMM/Part14/2/2/2/2 — Manual practice]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "7f0dc1e3fa2b9b62b6365c69c9aded327455c69fedb53356e3049d5688fe7627",
+ "response_id": "resp_0956e49896e546d1006ac8808c0a2487d29a2daa265f3d8de8",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7647,
+  "input_tokens_details": {
+   "cache_write_tokens": 7644,
+   "cached_tokens": 0
+  },
+  "output_tokens": 688,
+  "output_tokens_details": {
+   "reasoning_tokens": 113
+  },
+  "total_tokens": 8335
+ }
+}

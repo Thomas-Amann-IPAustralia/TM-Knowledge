@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.031898,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0271..GR-0279",
+ "job": "audit",
+ "key": "ec7de65fad14f8918500d72c154d5cd44661888984e028a558d27b17084015d2",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "{\n  \"GR-0271\":  \n  [\n    \"sound\",\n    \"none\",\n    \"\",\n    \"\",\n    \"\",\n    false,\n    \"The sentence explicitly states that if a trade mark is renewed, a claimed interest may be entered in the Register, establishing a clear connection between renewal of registration and the Register of Trade Marks.\"\n  ],\n  \"GR-0272\":  \n  [\n    \"sound\",\n    \"none\",\n    \"\",\n    \"\",\n    \"\",\n    false,\n    \"The sentence explicitly connects renewal with the owner of the trade mark (the registered owner) by noting that the process is not restricted to them.\"\n  ],\n  \"GR-0273\":  \n  [\n    \"wrong\",\n    \"wrong predicate\",\n    \"GC-0086\",\n    \"related\",\n    \"GC-0107\",\n    false,\n    \"The appliesTo predicate requires a provision, rule or scheme as its subject. Since 'assignment' is a procedural step, 'related' is the correct predicate to capture their connection.\"\n  ],\n  \"GR-0274\":  \n  [\n    \"wrong\",\n    \"a relationship the sentence does not state\",\n    \"\",\n    \"\",\n    \"\",\n    true,\n    \"The sentence merely contrasts the assignability of collective trade marks and certification trade marks; it does not state a direct relationship between the two distinct types of marks.\"\n  ],\n  \"GR-0275\":  \n  [\n    \"sound\",\n    \"none\",\n    \"\",\n    \"\",\n    \"\",\n    false,\n    \"The sentence directly discusses the 'owner of the certification trade mark' (and persons approved by the registered owner), establishing a relationship between the concepts.\"\n  ],\n  \"GR-0276\":  \n  [\n    \"wrong\",\n    \"wrong predicate\",\n    \"GC-0105\",\n    \"related\",\n    \"GC-0107\",\n    false,\n    \"The appliesTo predicate requires the subject to be a provision or rule. 'Rectification of the Register' is a procedural step, so the 'related' predicate must be used instead.\"\n  ],\n  \"GR-0277\":  \n  [\n    \"sound\",\n    \"none\",\n    \"\",\n    \"\",\n    \"\",\n    false,\n    \"The sentence explicitly notes that collective trade marks are treated as ordinary trade marks except for provisions concerning assignment, linking the two concepts.\"\n  ],\n  \"GR-0279\":  \n  [\n    \"sound\",\n    \"none\",\n    \"\",\n    \"\",\n    \"\",\n    false,\n    \"The sentence places the Madrid Protocol and an IRDA (international registration designating Australia) in context together when discussing extensions of time.\"\n  ]\n}",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "e9b58e84592f88e746dabdad4650b8105d9495e3db37d3a821881b974bacfc4a",
+ "response_id": "72LIaqjqJ4Xoz7IPx4Od-A0",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7298,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 4100,
+  "output_tokens_details": {
+   "reasoning_tokens": 3465
+  }
+ }
+}

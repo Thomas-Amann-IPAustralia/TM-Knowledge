@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011756,
+ "created_utc": "2026-10-09T05:58:36Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0087",
+ "job": "answer",
+ "key": "e9ccd4837daa27b556e58de16d275d08a870a8198bb7abd62cea73b64746bc85",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0084\",\"GC-0088\",\"GC-0130\",\"GC-0081\",\"GC-0065\",\"GC-0154\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part19B/4/4/2\",\"quote\":\"Under subsection 120(3), a registered owner of a well known trade mark can take infringement action against a person who uses, as a trade mark, a substantially identical or deceptively similar sign in relation to goods or services unrelated to those in respect of which the well known trade mark is registered.\"},{\"ref\":\"TMM/Part19B/4/4/2\",\"quote\":\"The registered owner will be required to establish that, because the trade mark is well known, use of the sign would be likely to be taken as indicating a connection between the unrelated goods or services and the registered owner and for this reason the interests of the registered owner are likely to be adversely affected.\"}],\"answer\":\"The interests affected are those of the registered owner of the well-known trade mark. The owner must establish that:\\n1. Because the mark is well known, use of the sign would likely be taken as indicating a connection between the unrelated goods or services and the registered owner; and\\n2. Because of that connection, the registered owner’s interests are likely to be adversely affected. [TMM/Part19B/4/4/2]\\n\\nThe Manual describes this protection as applying where another person uses, as a trade mark, a substantially identical or deceptively similar sign on unrelated goods or services. [TMM/Part19B/4/4/2]\\n\\nSource distinction: this is the Manual’s account of subsection 120(3), not a quotation from the Act itself. The text of subsection 120(3) has not been supplied.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "10cff1840778ca65ed363047a0caf4b138096375d4bc0c6f69784254fe99ae2b",
+ "response_id": "resp_037337433c18c501006ac8827b647c87d296456a21449e0bdd",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7089,
+  "input_tokens_details": {
+   "cache_write_tokens": 7086,
+   "cached_tokens": 0
+  },
+  "output_tokens": 579,
+  "output_tokens_details": {
+   "reasoning_tokens": 180
+  },
+  "total_tokens": 7668
+ }
+}

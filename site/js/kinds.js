@@ -1,4 +1,4 @@
-/* The ten kinds of idea as one SVG picture: two family zones, a bubble per
+/* The ten kinds of idea as one SVG picture: three family zones, a bubble per
    kind, and the strongest kind-to-kind patterns as arrows. Used by the tour; the
    map draws the same level with Cytoscape. `kind_links` is computed by
    tmk-explorer from the relationship records. */
@@ -7,17 +7,19 @@ import { kindColour } from "./app.js";
 import { svg, curve, wrapText } from "./graph.js";
 
 export const W = 1000, H = 660;
+// A kind says what an idea is; what it does is an arrow (ruling B1, ADR-0126).
 export const KIND_POS = {
-  relevant_factor: { x: 135, y: 215 }, legal_test: { x: 380, y: 215 },
-  ground_of_refusal: { x: 380, y: 490 }, exception: { x: 135, y: 490 },
-  remedy: { x: 258, y: 596 },
-  process_role: { x: 630, y: 185 }, procedural_step: { x: 868, y: 290 },
-  subject_matter: { x: 640, y: 435 }, instrument_or_record: { x: 872, y: 535 },
-  external_instrument: { x: 655, y: 600 }, none_of_these: { x: 500, y: 598 },
+  legal_test: { x: 150, y: 230 }, ground_of_refusal: { x: 150, y: 470 },
+  context: { x: 395, y: 175 }, sign_content: { x: 395, y: 385 },
+  subject_matter: { x: 570, y: 265 }, use_in_trade: { x: 575, y: 545 },
+  process_role: { x: 770, y: 185 }, procedural_step: { x: 905, y: 300 },
+  instrument_or_record: { x: 790, y: 440 }, external_instrument: { x: 905, y: 575 },
+  none_of_these: { x: 150, y: 600 },
 };
 export const ZONES = [
-  { family: "reasoning", x: 30, y: 80, w: 460, h: 565, label: "Reasoning towards a decision" },
-  { family: "process", x: 515, y: 80, w: 460, h: 565, label: "The process it sits inside" },
+  { family: "reasoning", x: 20, y: 80, w: 265, h: 455, label: "The questions the law asks" },
+  { family: "examined", x: 300, y: 80, w: 355, h: 565, label: "What they are asked about" },
+  { family: "process", x: 670, y: 80, w: 310, h: 565, label: "The process around them" },
 ];
 export const LOOSE = new Set(["related", "broader"]);
 

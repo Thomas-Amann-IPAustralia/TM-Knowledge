@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013468,
+ "created_utc": "2026-10-09T05:57:04Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0065",
+ "job": "answer",
+ "key": "6dfdf6340af6fef9e5c70df1b057ee62a31814ac81f0b38023bcdda17d47c302",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0097\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part61/2/2/4\",\"quote\":\"Two categories of FOI decision can be internally reviewed under the FOI Act by the agency who made the decision: an ‘access refusal decision’ (Section 53A) in respect of which the FOI applicant may apply for internal review (Section 54) and an ‘access grant decision’ (Section 53B) in respect of which an affected third party may apply for internal review (Section 54A).\"},{\"ref\":\"TMM/Part61/2/2/4/2\",\"quote\":\"A person generally has 30 calendar days after being notified of an agency’s access refusal or access grant decision to apply for internal review (Section 54B(1)(a)). A longer period may apply for the following access refusal decisions: a decision giving access to documents in accordance with a request but not giving access to all the documents covered by the request, or a decision purporting to give access to documents in accordance with a request but not in fact doing so.\"},{\"ref\":\"TMM/Part61/2/2/4\",\"quote\":\"The time limit for applying for internal review is either 30 calendar days after notification of the decision or 15 calendar days after access to documents is given or purported to be given, whichever period is longer (Section 54B(1)(b)).\"},{\"ref\":\"TMM/Part61/2/2/4\",\"quote\":\"Under Section 54B(2), it is possible for an agency to extend the period for an applicant to apply for internal review, even if the statutory period has already expired.\"},{\"ref\":\"TMM/Part61/2/2/4\",\"quote\":\"The FOI Act does not specify any criteria that must be considered. However, agencies are encouraged by the Information Commissioner to adopt a liberal approach and grant an extension unless there is a special reason not to do so.\"}],\"answer\":\"The supplied Manual passages address **internal review of FOI decisions by the agency that made the decision**. The following is the Manual’s account of that process, not a quotation of legislation; the FOI Act itself has not been supplied. [1]\\n\\n**Who may apply?**\\n- For an **access refusal decision**: the FOI applicant.\\n- For an **access grant decision**: an affected third party. [1]\\n\\n**How long do you have?**\\n- Generally, **30 calendar days after notification** of the decision. [2]\\n- For the specified access refusal decisions involving incomplete access or purported access not actually provided, a longer period may apply. Reading the two Manual passages together, the deadline is the later of **30 calendar days after notification** and **15 calendar days after access is given or purported to be given**. [2–3]\\n\\n**If the deadline has passed:** the Manual says the agency may extend the period, even after it has expired. It also reports that the Information Commissioner encourages a liberal approach to extensions unless there is a special reason not to grant one. That encouragement is guidance, not a guarantee of an extension. [4–5]\\n\\nIf you mean internal review of a trade marks decision rather than an FOI decision, these passages do not establish its deadline or eligibility requirements.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b7f3606bc47cfcb1960a2d41097eafba92ccbfdc1d104adec6a4cf9127fa57f4",
+ "response_id": "resp_02f9b7e23e975d26006ac8821ea96087d290c960359cd66c68",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7387,
+  "input_tokens_details": {
+   "cache_write_tokens": 7384,
+   "cached_tokens": 0
+  },
+  "output_tokens": 847,
+  "output_tokens_details": {
+   "reasoning_tokens": 131
+  },
+  "total_tokens": 8234
+ }
+}

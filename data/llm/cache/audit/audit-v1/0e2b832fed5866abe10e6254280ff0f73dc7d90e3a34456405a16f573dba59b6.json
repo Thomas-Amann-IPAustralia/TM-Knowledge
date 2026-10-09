@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.041639,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0504..GR-0511",
+ "job": "audit",
+ "key": "0e2b832fed5866abe10e6254280ff0f73dc7d90e3a34456405a16f573dba59b6",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0504\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The heading structure places 'shape trade marks' as a subsection under the broader heading of 'Part 21 - Non-traditional signs', plainly implying it is a kind of non-traditional sign.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0505\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The heading structure places 'colour marks' under 'Part 21 Non-traditional signs', plainly implying that a colour trade mark is a kind of non-traditional sign.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0506\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly defines 'sign' to include 'sound', which plainly implies that a sound trade mark (a trade mark consisting of a sound) is a kind of sign.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0507\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence discusses how the legal test of whether trade marks resemble each other in 'material particulars' is applied when assessing a series of non-traditional signs.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0508\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"reason\": \"The sentence states that the context of the use diminishes the weight of the evidence, not that 'use of a trade mark' itself affects how the evidence is assessed. They are merely related concepts in the passage.\",\n    \"corrected_subject\": \"GC-0081\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0041\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0509\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"reason\": \"The allocatesTo predicate is for tasks or burdens that fall on a role. The sentence describes a statutory deeming where authorised use by another counts as use by the predecessor in title. A generic 'related' link is appropriate.\",\n    \"corrected_subject\": \"GC-0082\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0085\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0510\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence lists an authorised user and a predecessor in title together as entities by whom the trade mark may be used, supporting a 'related' link.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0511\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that an authorised user must use the trade mark 'under the control of the owner of the trade mark', perfectly matching the definition of the actsUnderControlOf predicate.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "d55538774895b1d1477b215de33b66b4ae757e74bb40ec7f20b979f374259d40",
+ "response_id": "72LIaqXVKJ6J6dkPipzPiAI",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7565,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5679,
+  "output_tokens_details": {
+   "reasoning_tokens": 4771
+  }
+ }
+}

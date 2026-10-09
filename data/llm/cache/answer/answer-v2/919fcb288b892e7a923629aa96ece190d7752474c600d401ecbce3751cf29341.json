@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012462,
+ "created_utc": "2026-10-09T05:55:51Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0038",
+ "job": "answer",
+ "key": "919fcb288b892e7a923629aa96ece190d7752474c600d401ecbce3751cf29341",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0097\",\"GC-0041\",\"GC-0046\",\"GC-0180\"],\"decline_reason\":\"I cannot determine whether your particular extension request will be granted or refused. The type of deadline is also unspecified, so I am unsure which extension provisions apply.\",\"declined\":true,\"citations\":[{\"ref\":\"TMM/Part15/5/5/2\",\"quote\":\"The declaration should support the grounds for the application by setting out the facts on which the grounds for requiring the extension are based. If the application is made after the period has expired, the declaration should also set out why the application is late.\"},{\"ref\":\"TMM/Part49/2/2/3/4\",\"quote\":\"Reasons for refusing extension requests may include the finding that the facts contained in the supporting declaration do not establish the grounds set out in the application. In the event of a late extension being applied for, the reasons provided in terms of regs 9.12(2) or 17A.48M(2) may not satisfy the Registrar that the application could not have been made before the end of the period.\"},{\"ref\":\"TMM/Part47/1/1/3/4\",\"quote\":\"Reasons for refusing extension requests may include the following: the facts contained in the declaration do not support, or make out, the grounds set out in the application.\"},{\"ref\":\"TMR1995/r9.12(2)\",\"quote\":\"(2) However, if the request is made after the period for filing the notice or statement of grounds and particulars has ended, the Registrar must not grant the extension unless the Registrar is satisfied that there is sufficient reason for the delay in making the request.\"},{\"ref\":\"TMR1995/r17A.48M(2)\",\"quote\":\"(2) However, if the request is made after the period for filing the notice or statement of grounds and particulars has ended, the Registrar must not grant the extension unless the Registrar is satisfied that there is sufficient reason for the delay in making the request.\"}],\"answer\":\"I cannot say whether your particular request will be granted or refused. Because you have not identified the deadline, I am unsure which extension provisions apply.\\n\\n**Manual practice:** Merely asserting that you could not file earlier is not a substitute for setting out supporting facts. The declaration should explain both the grounds for needing the extension and why the extension application itself is late [TMM/Part15/5/5/2]. The Manual identifies inadequate factual support for the stated grounds as a possible reason for refusal [TMM/Part47/1/1/3/4; TMM/Part49/2/2/3/4]. It also says that the reasons for a late request may fail to satisfy the Registrar that the request could not have been made before the period ended [TMM/Part49/2/2/3/4].\\n\\n**Regulations — law:** If regulation 9.12(2) or 17A.48M(2) applies, the Registrar must not grant a late extension unless satisfied that there is “sufficient reason for the delay in making the request” [TMR1995/r9.12(2); TMR1995/r17A.48M(2)]. That is the statutory wording; the Manual’s discussion of whether the request could have been made earlier is practice, not a replacement for that wording.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "00e421609c572e591bcfc5af23f4d3233d55e977ce2a8f35d2319aa8310eba71",
+ "response_id": "resp_0a727c3dc491f6af006ac881d6085887d2b0e7588d74b8edc1",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6382,
+  "input_tokens_details": {
+   "cache_write_tokens": 6379,
+   "cached_tokens": 0
+  },
+  "output_tokens": 897,
+  "output_tokens_details": {
+   "reasoning_tokens": 175
+  },
+  "total_tokens": 7279
+ }
+}

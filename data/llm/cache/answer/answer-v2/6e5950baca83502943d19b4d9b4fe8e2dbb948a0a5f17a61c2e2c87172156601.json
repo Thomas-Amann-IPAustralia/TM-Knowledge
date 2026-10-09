@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01151,
+ "created_utc": "2026-10-09T06:02:05Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0007",
+ "job": "answer",
+ "key": "6e5950baca83502943d19b4d9b4fe8e2dbb948a0a5f17a61c2e2c87172156601",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0017\",\"GC-0015\",\"GC-0060\",\"GC-0061\",\"GC-0059\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part22/15#1\",\"quote\":\"When assessing the registrability of geographical names we need to assess whether (i) the sign conveys the significance of the geographical name when applied to the goods or services claimed, and (ii) if so, is it likely other traders would desire to use it for this significance?\"},{\"ref\":\"TMM/Part22/15/15/1~1\",\"quote\":\"It is important to remember, that although a sign may in fact be the name of a place, it may not always signify that location\"},{\"ref\":\"TMM/Part22/15/15/3\",\"quote\":\"Words which function solely as geographical names, and which have some obvious or potential connection with the goods or services, have no inherent adaptation to distinguish.\"}],\"answer\":\"The supplied passages do not state that a country name in a mark always needs a limitation. However, they do not directly explain when a limitation is required, so they do not conclusively answer that part of the question.\\n\\nManual practice is to assess the geographical name in context:\\n• Does it convey geographical significance for the claimed goods or services? If so, would other traders be likely to desire to use it for that significance? [TMM/Part22/15#1]\\n• A place name does not necessarily signify that location when used as a trade mark. [TMM/Part22/15/15/1~1]\\n• Conversely, words functioning solely as geographical names, with an obvious or potential connection to the goods or services, have no inherent adaptation to distinguish. This is guidance about distinctiveness, not a stated requirement for a limitation. [TMM/Part22/15/15/3]\\n\\nThese are statements of Manual practice. No Act or Regulations passages have been supplied to establish a legislative requirement for a limitation.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "4cfc49b64fd6efced613ea4908498da8406876018385cae2598b7520b8f0ae56",
+ "response_id": "resp_02aca52b1baa81a2006ac8834be51887d2ab58fbb393c66f0b",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6841,
+  "input_tokens_details": {
+   "cache_write_tokens": 6838,
+   "cached_tokens": 0
+  },
+  "output_tokens": 592,
+  "output_tokens_details": {
+   "reasoning_tokens": 152
+  },
+  "total_tokens": 7433
+ }
+}

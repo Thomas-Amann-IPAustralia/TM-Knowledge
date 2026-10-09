@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012101,
+ "created_utc": "2026-10-09T05:57:45Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0079",
+ "job": "answer",
+ "key": "b63e9ee0867a867101c34071b8ca8f5571f865d795feda07ca3dd865db278acd",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0062\", \"GC-0009\", \"GC-0072\", \"GC-0012\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part30/2/2/11\",\n      \"quote\": \"There are some trade marks which, no matter what the market is, will always be regarded as scandalous and therefore unacceptable to the Registrar. These trade marks are often those likely to be seen as promoting racial vilification, religious intolerance and personal abuse of an individual.\"\n    },\n    {\n      \"ref\": \"TMM/Part30/2/2/13\",\n      \"quote\": \"Where material in a trade mark is of significant cultural, spiritual or religious significance to an Indigenous community, consideration should be given as to whether the commercial use of the material in the form of a trade mark would be scandalous, including: • The nature of the indigenous subject matter and its sensitivity to Indigenous people; • The context in which the mark is proposed to be used i.e. the goods and services; • Ownership and any other mitigating or aggravating factors identified through research.\"\n    },\n    {\n      \"ref\": \"TMM/Part30/2/2/13\",\n      \"quote\": \"A ground for rejection may be reconsidered where information or evidence is provided showing that the trade mark or proposed use of the trade mark would not be offensive to the relevant Indigenous community.\"\n    },\n    {\n      \"ref\": \"TMM/Part30/2/2/4\",\n      \"quote\": \"The scandalous element has to be something that is obvious and up front in the trade mark. A mere suggestion within the trade mark or a vague possibility that someone might find it offensive is not sufficient.\"\n    }\n  ],\n  \"answer\": \"The supplied passages give a qualified answer, rather than a general rule that the target market determines offensiveness.\\n\\n**Manual practice:** Some trade marks are regarded as scandalous regardless of the market, particularly those promoting racial vilification, religious intolerance or personal abuse of an individual (TMM/Part30/2/2/11).\\n\\nContext can nevertheless matter. For Indigenous material of significant cultural, spiritual or religious significance, the Manual directs consideration of the proposed goods and services, sensitivity to Indigenous people, ownership and other mitigating or aggravating factors. Evidence that the mark or its proposed use would not offend the relevant Indigenous community may support reconsideration of a ground for rejection (TMM/Part30/2/2/13). This supports considering context in that setting, but does not establish a general target-market test.\\n\\nThe Manual also requires the scandalous element to be obvious and up front: a mere suggestion or vague possibility of offence is insufficient (TMM/Part30/2/2/4).\\n\\n**Legislation:** Section 42(a) itself is not supplied. The supplied Act passages do not answer the question about scandalous marks, so the conclusions above describe Manual practice, not the statutory wording.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "d0d9499586523b66357cf9245b9d51c99b6292e5d7d1f468feabf0220ef5645c",
+ "response_id": "resp_07ca350b09571978006ac88247842487d2a1e9f1ad7eada20b",
+ "seconds": 19.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7101,
+  "input_tokens_details": {
+   "cache_write_tokens": 7098,
+   "cached_tokens": 0
+  },
+  "output_tokens": 645,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7746
+ }
+}

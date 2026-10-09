@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.042338,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0304..GR-0313",
+ "job": "audit",
+ "key": "c0b4db72ba2865e827b99bc39266f605bc18af2f05f1abda95ac914547181542",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0304\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence states that amendments can correct an error in the classification, which establishes a clear relationship between the two concepts. As no other specific predicate fits this corrective action, 'related' is sound.\"\n  },\n  {\n    \"id\": \"GR-0305\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0025\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0168\",\n    \"reason\": \"The sentence does not describe a classification governing a substance; rather, it states that claims for pharmaceutical or veterinary goods may trigger the provisions of section 43, meaning the substance may give rise to a section 43 ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0306\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence provided describes applications being 'examined ahead of time' but does not contain the concept 'expedited examination', which is introduced only in the subsequent sentence.\"\n  },\n  {\n    \"id\": \"GR-0307\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence establishes that the Registrar may expedite examination. Because the Registrar merely 'may' exercise this power, 'allocatesTo' is not appropriate, making 'related' the sound choice.\"\n  },\n  {\n    \"id\": \"GR-0309\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly states that a citation (a conflict with other signs) against an expedited application causes the cited application to be expedited, supporting 'mayGiveRiseTo'.\"\n  },\n  {\n    \"id\": \"GR-0310\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence links the decision to a hearing by noting the decision may be made after one, which safely supports a 'related' connection.\"\n  },\n  {\n    \"id\": \"GR-0311\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence mentions a 'hearing of the opposition', establishing a valid and direct relation between the two procedures.\"\n  },\n  {\n    \"id\": \"GR-0313\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0081\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0130\",\n    \"reason\": \"The sentence discusses 'use', which matches 'use of a trade mark' rather than 'evidence of use'. It states that use is an important measure of reputation, meaning it operates as a factor that qualifies how reputation is assessed.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "3d5f3752534bc116623168b4b45be4121ac80debade6741dc813af6ab8db2681",
+ "response_id": "72LIaueuKP7Bz7IP---IiQ4",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7232,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5851,
+  "output_tokens_details": {
+   "reasoning_tokens": 4931
+  }
+ }
+}

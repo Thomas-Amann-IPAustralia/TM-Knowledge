@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001098,
+ "created_utc": "2026-10-09T04:14:17Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0077",
+ "job": "judge",
+ "key": "95911a7b9b8cf0787c5382ce368dd1079b71b6d59e48726660991da8fd54a41a",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part32A/x-annex-2---applicable-sections-of-the-upov-convention/chapter-vi-variety-denomination\",\"grade\":2}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "768b57e128b0d3af55529a31427e785b7e4a426034ecf15873d656548fe0a3ef",
+ "response_id": "resp_04b6955b4dae82d4006ac86a13a31487d2938425211217ea4a",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 628,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 94,
+  "output_tokens_details": {
+   "reasoning_tokens": 43
+  },
+  "total_tokens": 722
+ }
+}

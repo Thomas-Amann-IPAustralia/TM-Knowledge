@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.050397,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0142..GR-0153",
+ "job": "audit",
+ "key": "75c1933da6e22372fc110052cee0b0647c519c0662b0e2e82d29b1dc1aaf44cb",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0142\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence clearly states that a trade mark connoting an internet domain name can give rise to a section 43 ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0144\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence connects 'connotation' with 'top level domain' by discussing whether material is likely to connote a generic TLD. Since no other predicate accurately captures 'is the object of connotation', 'related' is the appropriate and sound link.\"\n  },\n  {\n    \"id\": \"GR-0145\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate and object\",\n    \"corrected_subject\": \"GC-0012\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0001\",\n    \"remove\": false,\n    \"reason\": \"The specification of goods and services does not qualify the top level domain itself; rather, it qualifies the test for 'connotation' when determining whether the material connotes a generic TLD.\"\n  },\n  {\n    \"id\": \"GR-0147\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence simply instructs the examiner to consult a list of top level domains. It does not establish a conceptual relationship between the examiner and a top level domain that would be useful in this ontology.\"\n  },\n  {\n    \"id\": \"GR-0148\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that a generic TLD referred to in a trade mark should trigger a section 43 ground for rejection if certain conditions are met, meaning it may give rise to that ground.\"\n  },\n  {\n    \"id\": \"GR-0150\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence sets out the conditions (such as a letter of consent) under which an application containing a plant variety name may be accepted, but it does not state that the plant variety name itself qualifies the concept of acceptance.\"\n  },\n  {\n    \"id\": \"GR-0151\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The provided sentence discusses the average consumer's awareness of accepted naming conventions, but it does not explicitly mention or establish a relationship with a 'plant variety name'.\"\n  },\n  {\n    \"id\": \"GR-0153\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence instructs the examiner to consider how the plant variety name appears within the trade mark as a whole, meaning the trade mark as a whole acts as a factor that qualifies how the plant variety name is assessed.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "a815c54bf899c78cb82925679f28eb38ab826a2fa951980c93b9fd3db36cd627",
+ "response_id": "72LIasbYKcve_uMPpbSiuQ4",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7941,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 7076,
+  "output_tokens_details": {
+   "reasoning_tokens": 6152
+  }
+ }
+}

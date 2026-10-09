@@ -67,15 +67,17 @@ ground a signed one claims were withdrawn on the owner's ruling A1 (ADR-0121), a
 ADR-0080 consequence 2 always intended: the authored record retires, never the signed
 one. What they added that the signed record lacked is carried by a correction.
 
-## Three files here are not records
+## Five files here are not records
 
 | File | What it is | Read by |
 |---|---|---|
 | `corrections.yaml` | `GK-` corrections to signed records — known defects fixed outside the signature, on the owner's instruction, each with the envelope and the ruling it acts on (ADR-0122). `eval/gold/` keeps every signed record exactly as signed. | `authored.corrections`; `served_gold()` for everything that serves |
 | `retired-ids.yaml` | The ledger of authored ids withdrawn from service: why, by whose ruling, what replaced it, and a withdrawn concept's label. An id here is never reused. | `authored.store`, `bulk.jobs.next_number`, the harness |
 | `too-general-labels.yaml` | Labels recognition skips, per concept, because the Manual uses the bare word mostly in other senses (ruling E1) — and the ones looked at and kept, with the reason. The label stays on its record. | `bulk.links`; through it search, the explorer and "Ask the Manual" |
+| `merge-candidates.yaml` | Every pair the relate model judged to be one idea, and what was decided: merged (A1, A2) or kept apart (A6). A kept-apart pair merged anyway is a harness defect. | `ontology.hygiene`; the harness; the relate job |
+| `kind-of-affirmed.yaml` | "Kind of" links that stand beside a "not the same as", each with the written reason both hold (ruling D4). Without an entry such a link is refused. | `ontology.hygiene`; the harness, the relate job, the graph build and the SHACL gate |
 
-All three are machine-written and unreviewed, and say so in their headers.
+All five are machine-written and unreviewed, and say so in their headers.
 
 `definitions.yaml` was named here when this directory was created and **is not
 in the list**: a definition has no schema and no id series, so the store cannot

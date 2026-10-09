@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012084,
+ "created_utc": "2026-10-09T05:58:55Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0091",
+ "job": "answer",
+ "key": "9c3fbb8fe0c3b849be6c7ffe07b2f1cb9899a3b9540c9d54c4e16d428931e0a6",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0070\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s14(1)\",\"quote\":\"(1) For the purposes of this Act, goods are similar to other goods:\"},{\"ref\":\"TMM/Part26/4/4/1\",\"quote\":\"Sub-section 14(1) of the Act defines goods as being similar to other goods if they are the same as those other goods or if they are of the same description as those other goods.\"},{\"ref\":\"TMM/Part26/4/4/1\",\"quote\":\"In Jellinek's Application (1946) 63 RPC 59 (Jellinek), Romer J. set out the following matters for enquiry in assessing whether goods are of the same description: the nature of the goods; the respective uses of the articles; the trade channels through which the commodities are respectively bought and sold. These are the primary criteria. However, it is unlikely that any single factor is conclusive.\"},{\"ref\":\"TMM/Part26/4/4/1\",\"quote\":\"the nature and characteristics of the goods; the origin of the goods; the purpose of the goods; whether the goods are usually produced by one and the same manufacturer; whether the goods are distributed by the same wholesale houses; whether the goods are sold in the same shops, over the same counter, during the same season and to the same class or classes of customer; whether those engaged in the manufacture and distribution of the goods are regarded as belonging to the same trade.\"}],\"answer\":\"**Statutory context:** The Manual explains that subsection 14(1) treats goods as similar if they are either the same goods or goods ‘of the same description’. Thus, goods need not be identical to fall within this category of similarity [TMM/Part26/4/4/1]. The supplied Act extract contains only the introductory words of subsection 14(1), so the full statutory wording cannot be verified from that extract [TMA1995/s14(1)].\\n\\n**Manual practice:** Whether goods are ‘of the same description’ is assessed by comparing three primary matters:\\n- the nature of the goods;\\n- their respective uses; and\\n- the trade channels through which they are bought and sold.\\n\\nThe Manual states that it is unlikely that any single factor is conclusive [TMM/Part26/4/4/1].\\n\\nThe broader enquiry includes the goods’ characteristics, origin and purpose; whether they are usually made by the same manufacturer or distributed by the same wholesalers; whether they are sold in the same shops, over the same counter, in the same season and to the same customer classes; and whether their manufacturers and distributors are regarded as belonging to the same trade [TMM/Part26/4/4/1].\\n\\nThese assessment criteria are presented here as Manual practice, not as statutory wording.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "3fe9f76efa8f992ddb9fffd3aa75c58203dd8b0a2aa530fc20803b68fb0c193e",
+ "response_id": "resp_083dbc598d162f45006ac8828d78c887d2be07989fdc178fab",
+ "seconds": 18.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6912,
+  "input_tokens_details": {
+   "cache_write_tokens": 6909,
+   "cached_tokens": 0
+  },
+  "output_tokens": 689,
+  "output_tokens_details": {
+   "reasoning_tokens": 68
+  },
+  "total_tokens": 7601
+ }
+}

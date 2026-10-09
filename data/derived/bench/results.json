@@ -1,33 +1,56 @@
 {
+ "by_evidence": {
+  "n": 10,
+  "ndcg:hybrid": 0.5374078233679608,
+  "ndcg:keyword": 0.5169968537092265,
+  "ndcg:ontology": 0.5382904899695147,
+  "ndcg:ontology-hybrid": [
+   0.0008826666015538554,
+   -0.1053378393454347,
+   0.10078346270584637
+  ],
+  "ndcg:ontology-keyword": [
+   0.0212936362602881,
+   -0.10930136925193339,
+   0.1729661949394461
+  ],
+  "ndcg:ontology_previous": 0.5167927162621535,
+  "ndcg:ontology_unaudited": 0.5529106813929567,
+  "recall:hybrid": 0.5833333333333333,
+  "recall:keyword": 0.5833333333333333,
+  "recall:ontology": 0.5833333333333333,
+  "recall:ontology_previous": 0.55,
+  "recall:ontology_unaudited": 0.6666666666666667
+ },
  "cases": {
   "helped": [
    {
     "hybrid": 0.6475874573061806,
     "key": "BN-0074",
     "kind": "cross_part",
-    "ontology": 0.9083247466157296,
+    "ontology": 0.909844683950137,
     "question": "When two series marks use the same common surname and initial, is that usually the part people focus on to compare them?"
-   },
-   {
-    "hybrid": 0.6536440362379365,
-    "key": "BN-0052",
-    "kind": "impact",
-    "ontology": 0.8781146210127436,
-    "question": "Which Registrar decisions can I take to court, and what happens if there is no appeal right in the Act?"
-   },
-   {
-    "hybrid": 0.6933243695005504,
-    "key": "BN-0042",
-    "kind": "problem",
-    "ontology": 0.8692783878774748,
-    "question": "Could a name or symbol in my mark be left out if it is likely to confuse people?"
    },
    {
     "hybrid": 0.7598703458119667,
     "key": "BN-0034",
     "kind": "problem",
-    "ontology": 0.9078639626754935,
+    "ontology": 0.9335676717616233,
     "question": "What do I do if the goods and services wording in my international trade mark application does not fit the usual classification terms?"
+   },
+   {
+    "hybrid": 0.6913524040223986,
+    "key": "BN-0029",
+    "kind": "lookup",
+    "ontology": 0.8571116686820235,
+    "question": "How long do I have to notify a provisional refusal if it is based on an opposition?"
+   },
+   {
+    "hybrid": 0.8265886839137613,
+    "key": "BN-0008",
+    "kind": "impact",
+    "ontology": 0.9715734120281131,
+    "question": "What happens to the time left on a deferred acceptance date when the reason for the deferment ends?"
    }
   ],
   "hurt": [
@@ -35,28 +58,28 @@
     "hybrid": 0.8971849102972047,
     "key": "BN-0115",
     "kind": "impact",
-    "ontology": 0.1200101394090263,
+    "ontology": 0.23882077664436083,
     "question": "If the Registrar issues a notice to produce, who gets it and what has to happen next?"
-   },
-   {
-    "hybrid": 0.8572048559638626,
-    "key": "BN-0085",
-    "kind": "problem",
-    "ontology": 0.30523488393970116,
-    "question": "Can I object if the problem is really about a similar business name, not what\u2019s in the mark itself?"
    },
    {
     "hybrid": 0.8675063637446014,
     "key": "BN-0078",
     "kind": "cross_part",
-    "ontology": 0.3238531104127581,
+    "ontology": 0.28148534440926104,
     "question": "Can I file one trade mark application in more than one class?"
+   },
+   {
+    "hybrid": 0.9872314527775939,
+    "key": "BN-0009",
+    "kind": "lookup",
+    "ontology": 0.5079260547313356,
+    "question": "What happens if a required fee is underpaid and the Registrar does not tell us within 14 working days?"
    },
    {
     "hybrid": 0.8852476608563782,
     "key": "BN-0107",
     "kind": "impact",
-    "ontology": 0.3827987800865433,
+    "ontology": 0.43464941487298486,
     "question": "Who has to sign the supporting declaration for an application, and what does it need to say about other traders using the mark?"
    }
   ]
@@ -67,10 +90,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.8224602899576435,
    "ndcg:keyword": 0.6979617233087799,
-   "ndcg:ontology": 0.7249548173938801,
+   "ndcg:ontology": 0.4924993183593785,
+   "ndcg:ontology_previous": 0.7249548173938801,
+   "ndcg:ontology_unaudited": 0.4924993183593785,
    "recall:hybrid": 0.8571428571428571,
    "recall:keyword": 0.5714285714285714,
-   "recall:ontology": 0.7142857142857143,
+   "recall:ontology": 0.42857142857142855,
+   "recall:ontology_previous": 0.7142857142857143,
+   "recall:ontology_unaudited": 0.42857142857142855,
    "relevant": 7
   },
   {
@@ -78,10 +105,14 @@
    "kind": "problem",
    "ndcg:hybrid": 0.4425521415123179,
    "ndcg:keyword": 0.49332425757718157,
-   "ndcg:ontology": 0.0857995644911883,
+   "ndcg:ontology": 0.16730570109850762,
+   "ndcg:ontology_previous": 0.0857995644911883,
+   "ndcg:ontology_unaudited": 0.15388587071363413,
    "recall:hybrid": 0.5,
    "recall:keyword": 0.5,
    "recall:ontology": 0.0,
+   "recall:ontology_previous": 0.0,
+   "recall:ontology_unaudited": 0.0,
    "relevant": 6
   },
   {
@@ -89,10 +120,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.9280986516744872,
    "ndcg:keyword": 0.8919319919813765,
-   "ndcg:ontology": 0.9079408006030164,
+   "ndcg:ontology": 0.8409328020604017,
+   "ndcg:ontology_previous": 0.9079408006030164,
+   "ndcg:ontology_unaudited": 0.8357075755749763,
    "recall:hybrid": 0.5625,
    "recall:keyword": 0.5,
-   "recall:ontology": 0.5625,
+   "recall:ontology": 0.5,
+   "recall:ontology_previous": 0.5625,
+   "recall:ontology_unaudited": 0.5,
    "relevant": 16
   },
   {
@@ -101,9 +136,13 @@
    "ndcg:hybrid": 0.9467783479966939,
    "ndcg:keyword": 0.2827699073751236,
    "ndcg:ontology": 0.9467783479966939,
+   "ndcg:ontology_previous": 0.9467783479966939,
+   "ndcg:ontology_unaudited": 0.9467783479966939,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 1
   },
   {
@@ -111,22 +150,30 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.8440382539017024,
    "ndcg:keyword": 0.7097548547795044,
-   "ndcg:ontology": 0.7919713158396705,
+   "ndcg:ontology": 0.6956437000857101,
+   "ndcg:ontology_previous": 0.7919713158396705,
+   "ndcg:ontology_unaudited": 0.7867140772693502,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.75,
    "recall:ontology": 0.75,
+   "recall:ontology_previous": 0.75,
+   "recall:ontology_unaudited": 0.75,
    "relevant": 4
   },
   {
    "key": "BN-0006",
    "kind": "problem",
-   "ndcg:hybrid": 0.7680372757919185,
-   "ndcg:keyword": 0.4266563076614683,
-   "ndcg:ontology": 0.8070043184302077,
-   "recall:hybrid": 1.0,
+   "ndcg:hybrid": 0.7301741761873738,
+   "ndcg:keyword": 0.40562278392105267,
+   "ndcg:ontology": 0.7612781201284731,
+   "ndcg:ontology_previous": 0.7672202013656878,
+   "ndcg:ontology_unaudited": 0.8055093279186007,
+   "recall:hybrid": 0.75,
    "recall:keyword": 0.0,
-   "recall:ontology": 1.0,
-   "relevant": 3
+   "recall:ontology": 0.75,
+   "recall:ontology_previous": 0.75,
+   "recall:ontology_unaudited": 1.0,
+   "relevant": 4
   },
   {
    "key": "BN-0007",
@@ -134,31 +181,43 @@
    "ndcg:hybrid": 0.9339091084314125,
    "ndcg:keyword": 0.7532583011598041,
    "ndcg:ontology": 0.9339091084314125,
+   "ndcg:ontology_previous": 0.9339091084314125,
+   "ndcg:ontology_unaudited": 0.9339091084314125,
    "recall:hybrid": 0.8333333333333334,
    "recall:keyword": 0.5833333333333334,
    "recall:ontology": 0.8333333333333334,
+   "recall:ontology_previous": 0.8333333333333334,
+   "recall:ontology_unaudited": 0.8333333333333334,
    "relevant": 12
   },
   {
    "key": "BN-0008",
    "kind": "impact",
-   "ndcg:hybrid": 0.8588629907712854,
-   "ndcg:keyword": 0.9087951779956669,
-   "ndcg:ontology": 0.9799224952193613,
-   "recall:hybrid": 1.0,
-   "recall:keyword": 1.0,
+   "ndcg:hybrid": 0.8265886839137613,
+   "ndcg:keyword": 0.8746445221163974,
+   "ndcg:ontology": 0.9715734120281131,
+   "ndcg:ontology_previous": 0.9430990208734719,
+   "ndcg:ontology_unaudited": 0.9787919403760251,
+   "recall:hybrid": 0.8333333333333334,
+   "recall:keyword": 0.8333333333333334,
    "recall:ontology": 1.0,
-   "relevant": 5
+   "recall:ontology_previous": 0.8333333333333334,
+   "recall:ontology_unaudited": 1.0,
+   "relevant": 6
   },
   {
    "key": "BN-0009",
    "kind": "lookup",
    "ndcg:hybrid": 0.9872314527775939,
    "ndcg:keyword": 0.7111498379361267,
-   "ndcg:ontology": 0.6191986799427884,
+   "ndcg:ontology": 0.5079260547313356,
+   "ndcg:ontology_previous": 0.6191986799427884,
+   "ndcg:ontology_unaudited": 0.5774850462633603,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.5555555555555556,
-   "recall:ontology": 0.5555555555555556,
+   "recall:ontology": 0.4444444444444444,
+   "recall:ontology_previous": 0.5555555555555556,
+   "recall:ontology_unaudited": 0.5555555555555556,
    "relevant": 9
   },
   {
@@ -166,10 +225,14 @@
    "kind": "problem",
    "ndcg:hybrid": 0.817739979520738,
    "ndcg:keyword": 0.49533930024795986,
-   "ndcg:ontology": 0.7131416899163091,
+   "ndcg:ontology": 0.6422243226882622,
+   "ndcg:ontology_previous": 0.7131416899163091,
+   "ndcg:ontology_unaudited": 0.8287034112496399,
    "recall:hybrid": 0.75,
    "recall:keyword": 0.5,
-   "recall:ontology": 0.75,
+   "recall:ontology": 0.625,
+   "recall:ontology_previous": 0.75,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 8
   },
   {
@@ -177,21 +240,29 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.8511762444754661,
    "ndcg:keyword": 0.7563334124823566,
-   "ndcg:ontology": 0.848832827250733,
-   "recall:hybrid": 0.5,
-   "recall:keyword": 0.5,
-   "recall:ontology": 0.7,
-   "relevant": 10
+   "ndcg:ontology": 0.8636578116083162,
+   "ndcg:ontology_previous": 0.848832827250733,
+   "ndcg:ontology_unaudited": 0.7869797329167297,
+   "recall:hybrid": 0.4166666666666667,
+   "recall:keyword": 0.4166666666666667,
+   "recall:ontology": 0.6666666666666666,
+   "recall:ontology_previous": 0.5833333333333334,
+   "recall:ontology_unaudited": 0.5833333333333334,
+   "relevant": 12
   },
   {
    "key": "BN-0012",
    "kind": "impact",
    "ndcg:hybrid": 0.6231594856864598,
    "ndcg:keyword": 0.8591130715410661,
-   "ndcg:ontology": 0.7590496901417033,
+   "ndcg:ontology": 0.6231594856864598,
+   "ndcg:ontology_previous": 0.7590496901417033,
+   "ndcg:ontology_unaudited": 0.6231594856864598,
    "recall:hybrid": 0.6,
    "recall:keyword": 0.8,
-   "recall:ontology": 0.8,
+   "recall:ontology": 0.6,
+   "recall:ontology_previous": 0.8,
+   "recall:ontology_unaudited": 0.6,
    "relevant": 5
   },
   {
@@ -200,9 +271,13 @@
    "ndcg:hybrid": 0.7827068917847372,
    "ndcg:keyword": 0.694355946562825,
    "ndcg:ontology": 0.7827068917847372,
+   "ndcg:ontology_previous": 0.7827068917847372,
+   "ndcg:ontology_unaudited": 0.7827068917847372,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 1
   },
   {
@@ -210,10 +285,14 @@
    "kind": "problem",
    "ndcg:hybrid": 0.9871991354393648,
    "ndcg:keyword": 0.5648192565155434,
-   "ndcg:ontology": 0.7837767168288474,
+   "ndcg:ontology": 0.7718621468193592,
+   "ndcg:ontology_previous": 0.7837767168288474,
+   "ndcg:ontology_unaudited": 0.8192753417202521,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.375,
    "recall:ontology": 0.625,
+   "recall:ontology_previous": 0.625,
+   "recall:ontology_unaudited": 0.75,
    "relevant": 8
   },
   {
@@ -221,10 +300,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.8519293429682218,
    "ndcg:keyword": 0.6826039612664936,
-   "ndcg:ontology": 0.5696055501035626,
+   "ndcg:ontology": 0.6116464458536737,
+   "ndcg:ontology_previous": 0.5696055501035626,
+   "ndcg:ontology_unaudited": 0.7113371949805892,
    "recall:hybrid": 0.875,
    "recall:keyword": 0.625,
-   "recall:ontology": 0.375,
+   "recall:ontology": 0.5,
+   "recall:ontology_previous": 0.375,
+   "recall:ontology_unaudited": 0.5,
    "relevant": 8
   },
   {
@@ -232,10 +315,14 @@
    "kind": "impact",
    "ndcg:hybrid": 0.8496485774900746,
    "ndcg:keyword": 0.8279870801489959,
-   "ndcg:ontology": 0.9194008784906641,
+   "ndcg:ontology": 0.9544451287765245,
+   "ndcg:ontology_previous": 0.9194008784906641,
+   "ndcg:ontology_unaudited": 0.9204055388035766,
    "recall:hybrid": 0.6,
    "recall:keyword": 0.8,
    "recall:ontology": 0.8,
+   "recall:ontology_previous": 0.8,
+   "recall:ontology_unaudited": 0.8,
    "relevant": 5
   },
   {
@@ -243,10 +330,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.8746442192270774,
    "ndcg:keyword": 0.8382563938477572,
-   "ndcg:ontology": 0.8518072997977832,
+   "ndcg:ontology": 0.9480869628323618,
+   "ndcg:ontology_previous": 0.8518072997977832,
+   "ndcg:ontology_unaudited": 0.911925433654068,
    "recall:hybrid": 0.8,
    "recall:keyword": 0.8,
-   "recall:ontology": 0.8,
+   "recall:ontology": 1.0,
+   "recall:ontology_previous": 0.8,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 5
   },
   {
@@ -254,10 +345,14 @@
    "kind": "problem",
    "ndcg:hybrid": 0.860281773226428,
    "ndcg:keyword": 0.7619480479587543,
-   "ndcg:ontology": 0.770501043038983,
+   "ndcg:ontology": 0.75670377003282,
+   "ndcg:ontology_previous": 0.770501043038983,
+   "ndcg:ontology_unaudited": 0.6028103076832957,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 0.75,
    "relevant": 4
   },
   {
@@ -266,9 +361,13 @@
    "ndcg:hybrid": 0.5054362225873951,
    "ndcg:keyword": 0.4860282109914817,
    "ndcg:ontology": 0.5054362225873951,
+   "ndcg:ontology_previous": 0.5054362225873951,
+   "ndcg:ontology_unaudited": 0.5054362225873951,
    "recall:hybrid": 0.5,
    "recall:keyword": 1.0,
    "recall:ontology": 0.5,
+   "recall:ontology_previous": 0.5,
+   "recall:ontology_unaudited": 0.5,
    "relevant": 2
   },
   {
@@ -276,32 +375,44 @@
    "kind": "impact",
    "ndcg:hybrid": 0.8785611583708215,
    "ndcg:keyword": 0.7261325085361642,
-   "ndcg:ontology": 0.8313520141060007,
+   "ndcg:ontology": 0.8462534279111071,
+   "ndcg:ontology_previous": 0.8313520141060007,
+   "ndcg:ontology_unaudited": 0.8462534279111071,
    "recall:hybrid": 0.75,
    "recall:keyword": 0.5,
    "recall:ontology": 0.75,
+   "recall:ontology_previous": 0.75,
+   "recall:ontology_unaudited": 0.75,
    "relevant": 4
   },
   {
    "key": "BN-0021",
    "kind": "lookup",
-   "ndcg:hybrid": 0.7044902911291966,
-   "ndcg:keyword": 0.5040769908834082,
-   "ndcg:ontology": 0.7676954211827944,
-   "recall:hybrid": 0.5,
-   "recall:keyword": 0.5,
+   "ndcg:hybrid": 0.6585921028123485,
+   "ndcg:keyword": 0.47123591280882926,
+   "ndcg:ontology": 0.7761255985218839,
+   "ndcg:ontology_previous": 0.7176793606989063,
+   "ndcg:ontology_unaudited": 0.6494154281410535,
+   "recall:hybrid": 0.3333333333333333,
+   "recall:keyword": 0.3333333333333333,
    "recall:ontology": 1.0,
-   "relevant": 2
+   "recall:ontology_previous": 0.6666666666666666,
+   "recall:ontology_unaudited": 0.3333333333333333,
+   "relevant": 3
   },
   {
    "key": "BN-0022",
    "kind": "problem",
    "ndcg:hybrid": 0.8682272149737348,
    "ndcg:keyword": 0.8829588836448371,
-   "ndcg:ontology": 0.8178098445036313,
+   "ndcg:ontology": 0.8682272149737348,
+   "ndcg:ontology_previous": 0.8178098445036313,
+   "ndcg:ontology_unaudited": 0.8682272149737348,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 4
   },
   {
@@ -309,10 +420,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.9484040261189682,
    "ndcg:keyword": 0.8937274626486406,
-   "ndcg:ontology": 0.589770054459673,
+   "ndcg:ontology": 0.9484040261189682,
+   "ndcg:ontology_previous": 0.589770054459673,
+   "ndcg:ontology_unaudited": 0.9484040261189682,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
-   "recall:ontology": 0.6666666666666666,
+   "recall:ontology": 1.0,
+   "recall:ontology_previous": 0.6666666666666666,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 3
   },
   {
@@ -320,10 +435,14 @@
    "kind": "impact",
    "ndcg:hybrid": 0.9408803699566423,
    "ndcg:keyword": 0.7935876992662333,
-   "ndcg:ontology": 0.7863639746437394,
+   "ndcg:ontology": 0.9455636957344249,
+   "ndcg:ontology_previous": 0.7863639746437394,
+   "ndcg:ontology_unaudited": 0.7398352346478115,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 1
   },
   {
@@ -332,9 +451,13 @@
    "ndcg:hybrid": 0.8986541385239157,
    "ndcg:keyword": 0.3416802281756763,
    "ndcg:ontology": 0.8986541385239157,
+   "ndcg:ontology_previous": 0.8986541385239157,
+   "ndcg:ontology_unaudited": 0.8986541385239157,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 1
   },
   {
@@ -343,9 +466,13 @@
    "ndcg:hybrid": 0.9467730236530674,
    "ndcg:keyword": 0.6558075620350039,
    "ndcg:ontology": 0.9467730236530674,
+   "ndcg:ontology_previous": 0.9467730236530674,
+   "ndcg:ontology_unaudited": 0.9467730236530674,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.5,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 4
   },
   {
@@ -354,9 +481,13 @@
    "ndcg:hybrid": 0.9518139052127533,
    "ndcg:keyword": 0.9890281390150232,
    "ndcg:ontology": 0.9518139052127533,
+   "ndcg:ontology_previous": 0.9518139052127533,
+   "ndcg:ontology_unaudited": 0.9518139052127533,
    "recall:hybrid": 0.8571428571428571,
    "recall:keyword": 1.0,
    "recall:ontology": 0.8571428571428571,
+   "recall:ontology_previous": 0.8571428571428571,
+   "recall:ontology_unaudited": 0.8571428571428571,
    "relevant": 7
   },
   {
@@ -365,9 +496,13 @@
    "ndcg:hybrid": 0.8949472303259611,
    "ndcg:keyword": 0.44282795567867134,
    "ndcg:ontology": 0.8949472303259611,
+   "ndcg:ontology_previous": 0.8949472303259611,
+   "ndcg:ontology_unaudited": 0.8949472303259611,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.4,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 5
   },
   {
@@ -375,10 +510,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.6913524040223986,
    "ndcg:keyword": 0.7119039099941492,
-   "ndcg:ontology": 0.8238773360101015,
+   "ndcg:ontology": 0.8571116686820235,
+   "ndcg:ontology_previous": 0.8238773360101015,
+   "ndcg:ontology_unaudited": 0.8583117994152286,
    "recall:hybrid": 0.4,
    "recall:keyword": 0.5,
    "recall:ontology": 0.7,
+   "recall:ontology_previous": 0.7,
+   "recall:ontology_unaudited": 0.7,
    "relevant": 10
   },
   {
@@ -387,9 +526,13 @@
    "ndcg:hybrid": 0.9212408946300163,
    "ndcg:keyword": 0.8513483949357025,
    "ndcg:ontology": 0.9212408946300163,
+   "ndcg:ontology_previous": 0.9212408946300163,
+   "ndcg:ontology_unaudited": 0.9212408946300163,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.6,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 5
   },
   {
@@ -397,10 +540,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.9110490367914239,
    "ndcg:keyword": 0.3211534464704161,
-   "ndcg:ontology": 0.6393077925568296,
+   "ndcg:ontology": 0.5733928544145592,
+   "ndcg:ontology_previous": 0.6393077925568296,
+   "ndcg:ontology_unaudited": 0.5733928544145592,
    "recall:hybrid": 0.7142857142857143,
    "recall:keyword": 0.42857142857142855,
-   "recall:ontology": 0.5714285714285714,
+   "recall:ontology": 0.42857142857142855,
+   "recall:ontology_previous": 0.5714285714285714,
+   "recall:ontology_unaudited": 0.42857142857142855,
    "relevant": 7
   },
   {
@@ -408,10 +555,14 @@
    "kind": "impact",
    "ndcg:hybrid": 0.8632178275539621,
    "ndcg:keyword": 0.8316300590340351,
-   "ndcg:ontology": 0.9345235088301861,
+   "ndcg:ontology": 0.8365689828351752,
+   "ndcg:ontology_previous": 0.9345235088301861,
+   "ndcg:ontology_unaudited": 0.8654560160150483,
    "recall:hybrid": 0.8333333333333334,
    "recall:keyword": 0.8333333333333334,
-   "recall:ontology": 0.8333333333333334,
+   "recall:ontology": 0.6666666666666666,
+   "recall:ontology_previous": 0.8333333333333334,
+   "recall:ontology_unaudited": 0.6666666666666666,
    "relevant": 6
   },
   {
@@ -419,10 +570,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.8054150603611414,
    "ndcg:keyword": 0.8050654861361963,
-   "ndcg:ontology": 0.7708113824603846,
+   "ndcg:ontology": 0.7696692908939685,
+   "ndcg:ontology_previous": 0.7708113824603846,
+   "ndcg:ontology_unaudited": 0.7410124627552664,
    "recall:hybrid": 0.5,
    "recall:keyword": 0.5,
    "recall:ontology": 0.4,
+   "recall:ontology_previous": 0.4,
+   "recall:ontology_unaudited": 0.4,
    "relevant": 10
   },
   {
@@ -430,11 +585,15 @@
    "kind": "problem",
    "ndcg:hybrid": 0.7598703458119667,
    "ndcg:keyword": 0.5465176397291128,
-   "ndcg:ontology": 0.9078639626754935,
-   "recall:hybrid": 0.46153846153846156,
-   "recall:keyword": 0.3076923076923077,
-   "recall:ontology": 0.6153846153846154,
-   "relevant": 13
+   "ndcg:ontology": 0.9335676717616233,
+   "ndcg:ontology_previous": 0.9078639626754935,
+   "ndcg:ontology_unaudited": 0.9335676717616233,
+   "recall:hybrid": 0.42857142857142855,
+   "recall:keyword": 0.2857142857142857,
+   "recall:ontology": 0.5714285714285714,
+   "recall:ontology_previous": 0.5714285714285714,
+   "recall:ontology_unaudited": 0.5714285714285714,
+   "relevant": 14
   },
   {
    "key": "BN-0035",
@@ -442,9 +601,13 @@
    "ndcg:hybrid": 0.8983468040632535,
    "ndcg:keyword": 0.13299959672296136,
    "ndcg:ontology": 0.8983468040632535,
+   "ndcg:ontology_previous": 0.8983468040632535,
+   "ndcg:ontology_unaudited": 0.8983468040632535,
    "recall:hybrid": 0.8888888888888888,
    "recall:keyword": 0.1111111111111111,
    "recall:ontology": 0.8888888888888888,
+   "recall:ontology_previous": 0.8888888888888888,
+   "recall:ontology_unaudited": 0.8888888888888888,
    "relevant": 9
   },
   {
@@ -452,10 +615,14 @@
    "kind": "impact",
    "ndcg:hybrid": 0.8217922298677324,
    "ndcg:keyword": 0.9064432670257093,
-   "ndcg:ontology": 0.7778124578062487,
+   "ndcg:ontology": 0.8095097558530485,
+   "ndcg:ontology_previous": 0.7778124578062487,
+   "ndcg:ontology_unaudited": 0.814703600963289,
    "recall:hybrid": 0.625,
    "recall:keyword": 0.75,
-   "recall:ontology": 0.5,
+   "recall:ontology": 0.625,
+   "recall:ontology_previous": 0.5,
+   "recall:ontology_unaudited": 0.625,
    "relevant": 8
   },
   {
@@ -464,9 +631,13 @@
    "ndcg:hybrid": 1.0,
    "ndcg:keyword": 0.7835281790963998,
    "ndcg:ontology": 1.0,
+   "ndcg:ontology_previous": 1.0,
+   "ndcg:ontology_unaudited": 1.0,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 2
   },
   {
@@ -475,9 +646,13 @@
    "ndcg:hybrid": 0.8343927298577911,
    "ndcg:keyword": 0.8783854467112802,
    "ndcg:ontology": 0.8343927298577911,
+   "ndcg:ontology_previous": 0.8343927298577911,
+   "ndcg:ontology_unaudited": 0.8343927298577911,
    "recall:hybrid": 0.625,
    "recall:keyword": 0.875,
    "recall:ontology": 0.625,
+   "recall:ontology_previous": 0.625,
+   "recall:ontology_unaudited": 0.625,
    "relevant": 8
   },
   {
@@ -485,10 +660,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.7445164254491617,
    "ndcg:keyword": 0.7582082253241579,
-   "ndcg:ontology": 0.5924949875045793,
+   "ndcg:ontology": 0.6375682024770816,
+   "ndcg:ontology_previous": 0.5924949875045793,
+   "ndcg:ontology_unaudited": 0.6425210317336675,
    "recall:hybrid": 0.6666666666666666,
    "recall:keyword": 0.8333333333333334,
-   "recall:ontology": 0.16666666666666666,
+   "recall:ontology": 0.3333333333333333,
+   "recall:ontology_previous": 0.16666666666666666,
+   "recall:ontology_unaudited": 0.3333333333333333,
    "relevant": 6
   },
   {
@@ -497,9 +676,13 @@
    "ndcg:hybrid": 0.8672555507249972,
    "ndcg:keyword": 0.8031487907569138,
    "ndcg:ontology": 0.9678197446124887,
+   "ndcg:ontology_previous": 0.9678197446124887,
+   "ndcg:ontology_unaudited": 0.9678197446124887,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.6666666666666666,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 6
   },
   {
@@ -507,10 +690,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.9560296388000018,
    "ndcg:keyword": 0.9597093503628127,
-   "ndcg:ontology": 0.9120592776000036,
+   "ndcg:ontology": 0.8091752278193497,
+   "ndcg:ontology_previous": 0.9120592776000036,
+   "ndcg:ontology_unaudited": 0.7325920557067056,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 0.5,
+   "recall:ontology_previous": 0.5,
+   "recall:ontology_unaudited": 0.5,
    "relevant": 2
   },
   {
@@ -518,21 +705,29 @@
    "kind": "problem",
    "ndcg:hybrid": 0.6933243695005504,
    "ndcg:keyword": 0.7456390622217693,
-   "ndcg:ontology": 0.8692783878774748,
-   "recall:hybrid": 0.4,
-   "recall:keyword": 0.5,
-   "recall:ontology": 0.7,
-   "relevant": 10
+   "ndcg:ontology": 0.7537697013836409,
+   "ndcg:ontology_previous": 0.8692783878774748,
+   "ndcg:ontology_unaudited": 0.8313959710158559,
+   "recall:hybrid": 0.3333333333333333,
+   "recall:keyword": 0.4166666666666667,
+   "recall:ontology": 0.4166666666666667,
+   "recall:ontology_previous": 0.5833333333333334,
+   "recall:ontology_unaudited": 0.5,
+   "relevant": 12
   },
   {
    "key": "BN-0043",
    "kind": "cross_part",
    "ndcg:hybrid": 0.6543357658296565,
    "ndcg:keyword": 0.6283128411949584,
-   "ndcg:ontology": 0.6666396323118643,
+   "ndcg:ontology": 0.6728527025251819,
+   "ndcg:ontology_previous": 0.6666396323118643,
+   "ndcg:ontology_unaudited": 0.6728527025251819,
    "recall:hybrid": 0.42857142857142855,
    "recall:keyword": 0.42857142857142855,
    "recall:ontology": 0.5714285714285714,
+   "recall:ontology_previous": 0.5714285714285714,
+   "recall:ontology_unaudited": 0.5714285714285714,
    "relevant": 7
   },
   {
@@ -541,9 +736,13 @@
    "ndcg:hybrid": 0.9464004029551656,
    "ndcg:keyword": 0.8898102420327176,
    "ndcg:ontology": 0.9464004029551656,
+   "ndcg:ontology_previous": 0.9464004029551656,
+   "ndcg:ontology_unaudited": 0.9464004029551656,
    "recall:hybrid": 0.8181818181818182,
    "recall:keyword": 0.7272727272727273,
    "recall:ontology": 0.8181818181818182,
+   "recall:ontology_previous": 0.8181818181818182,
+   "recall:ontology_unaudited": 0.8181818181818182,
    "relevant": 11
   },
   {
@@ -551,10 +750,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.9194189105381032,
    "ndcg:keyword": 0.7960420112934496,
-   "ndcg:ontology": 0.7771961353951649,
+   "ndcg:ontology": 0.8207750485395531,
+   "ndcg:ontology_previous": 0.7771961353951649,
+   "ndcg:ontology_unaudited": 0.7513339641184195,
    "recall:hybrid": 0.8333333333333334,
    "recall:keyword": 0.3333333333333333,
-   "recall:ontology": 0.6666666666666666,
+   "recall:ontology": 0.8333333333333334,
+   "recall:ontology_previous": 0.6666666666666666,
+   "recall:ontology_unaudited": 0.6666666666666666,
    "relevant": 6
   },
   {
@@ -563,9 +766,13 @@
    "ndcg:hybrid": 0.9257719708135268,
    "ndcg:keyword": 0.7000292752521878,
    "ndcg:ontology": 0.9257719708135268,
+   "ndcg:ontology_previous": 0.9257719708135268,
+   "ndcg:ontology_unaudited": 0.9257719708135268,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.6666666666666666,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 3
   },
   {
@@ -574,20 +781,28 @@
    "ndcg:hybrid": 0.8669644304284739,
    "ndcg:keyword": 0.9421647879145743,
    "ndcg:ontology": 0.970285978401609,
-   "recall:hybrid": 0.7,
-   "recall:keyword": 0.8,
-   "recall:ontology": 0.9,
-   "relevant": 10
+   "ndcg:ontology_previous": 0.970285978401609,
+   "ndcg:ontology_unaudited": 0.970285978401609,
+   "recall:hybrid": 0.5833333333333334,
+   "recall:keyword": 0.6666666666666666,
+   "recall:ontology": 0.75,
+   "recall:ontology_previous": 0.75,
+   "recall:ontology_unaudited": 0.75,
+   "relevant": 12
   },
   {
    "key": "BN-0048",
    "kind": "impact",
    "ndcg:hybrid": 0.8133122314445369,
    "ndcg:keyword": 0.3324191850375721,
-   "ndcg:ontology": 0.6871911255433195,
+   "ndcg:ontology": 0.7314608624716556,
+   "ndcg:ontology_previous": 0.6871911255433195,
+   "ndcg:ontology_unaudited": 0.6453318557632931,
    "recall:hybrid": 0.7142857142857143,
    "recall:keyword": 0.42857142857142855,
    "recall:ontology": 0.7142857142857143,
+   "recall:ontology_previous": 0.7142857142857143,
+   "recall:ontology_unaudited": 0.7142857142857143,
    "relevant": 7
   },
   {
@@ -596,9 +811,13 @@
    "ndcg:hybrid": 0.8672425608848895,
    "ndcg:keyword": 0.9005944730351809,
    "ndcg:ontology": 0.9601008513235324,
+   "ndcg:ontology_previous": 0.9601008513235324,
+   "ndcg:ontology_unaudited": 0.9601008513235324,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 2
   },
   {
@@ -607,9 +826,13 @@
    "ndcg:hybrid": 0.9827123336910931,
    "ndcg:keyword": 0.8124380673943875,
    "ndcg:ontology": 0.9827123336910931,
+   "ndcg:ontology_previous": 0.9827123336910931,
+   "ndcg:ontology_unaudited": 0.9827123336910931,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.6666666666666666,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 6
   },
   {
@@ -617,10 +840,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.639765353420552,
    "ndcg:keyword": 0.6002799710870971,
-   "ndcg:ontology": 0.6778155354734703,
+   "ndcg:ontology": 0.66588015339025,
+   "ndcg:ontology_previous": 0.6778155354734703,
+   "ndcg:ontology_unaudited": 0.66588015339025,
    "recall:hybrid": 0.5,
    "recall:keyword": 0.5,
    "recall:ontology": 0.5,
+   "recall:ontology_previous": 0.5,
+   "recall:ontology_unaudited": 0.5,
    "relevant": 8
   },
   {
@@ -628,10 +855,14 @@
    "kind": "impact",
    "ndcg:hybrid": 0.6536440362379365,
    "ndcg:keyword": 0.6280411192984051,
-   "ndcg:ontology": 0.8781146210127436,
+   "ndcg:ontology": 0.7572805818018683,
+   "ndcg:ontology_previous": 0.8781146210127436,
+   "ndcg:ontology_unaudited": 0.741101767801542,
    "recall:hybrid": 0.5555555555555556,
    "recall:keyword": 0.5555555555555556,
-   "recall:ontology": 0.7777777777777778,
+   "recall:ontology": 0.6666666666666666,
+   "recall:ontology_previous": 0.7777777777777778,
+   "recall:ontology_unaudited": 0.6666666666666666,
    "relevant": 9
   },
   {
@@ -639,10 +870,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.9050480771139313,
    "ndcg:keyword": 0.8201367149491171,
-   "ndcg:ontology": 0.9001965554579634,
+   "ndcg:ontology": 0.813290003652693,
+   "ndcg:ontology_previous": 0.9001965554579634,
+   "ndcg:ontology_unaudited": 0.8748040906539785,
    "recall:hybrid": 0.7142857142857143,
    "recall:keyword": 0.7142857142857143,
-   "recall:ontology": 0.7142857142857143,
+   "recall:ontology": 0.5714285714285714,
+   "recall:ontology_previous": 0.7142857142857143,
+   "recall:ontology_unaudited": 0.7142857142857143,
    "relevant": 7
   },
   {
@@ -650,10 +885,14 @@
    "kind": "problem",
    "ndcg:hybrid": 0.8186708372816823,
    "ndcg:keyword": 0.6325961170025665,
-   "ndcg:ontology": 0.6552062481455674,
+   "ndcg:ontology": 0.7019877641813083,
+   "ndcg:ontology_previous": 0.6552062481455674,
+   "ndcg:ontology_unaudited": 0.8121692457498157,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.5,
-   "recall:ontology": 0.5,
+   "recall:ontology": 1.0,
+   "recall:ontology_previous": 0.5,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 2
   },
   {
@@ -661,10 +900,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.9087557246958551,
    "ndcg:keyword": 0.9782830277460698,
-   "ndcg:ontology": 0.8990522291177194,
+   "ndcg:ontology": 0.8960717240311272,
+   "ndcg:ontology_previous": 0.8990522291177194,
+   "ndcg:ontology_unaudited": 0.8960717240311272,
    "recall:hybrid": 0.6666666666666666,
    "recall:keyword": 1.0,
    "recall:ontology": 0.6666666666666666,
+   "recall:ontology_previous": 0.6666666666666666,
+   "recall:ontology_unaudited": 0.6666666666666666,
    "relevant": 3
   },
   {
@@ -672,10 +915,14 @@
    "kind": "impact",
    "ndcg:hybrid": 0.9157841334667697,
    "ndcg:keyword": 0.8273218908136153,
-   "ndcg:ontology": 0.8968628249445385,
+   "ndcg:ontology": 0.9157841334667697,
+   "ndcg:ontology_previous": 0.8968628249445385,
+   "ndcg:ontology_unaudited": 0.9157841334667697,
    "recall:hybrid": 0.6666666666666666,
    "recall:keyword": 0.5,
-   "recall:ontology": 1.0,
+   "recall:ontology": 0.6666666666666666,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 0.6666666666666666,
    "relevant": 6
   },
   {
@@ -683,10 +930,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.9022220688738393,
    "ndcg:keyword": 0.5876477470009699,
-   "ndcg:ontology": 0.6383052874377176,
+   "ndcg:ontology": 0.5773242055232695,
+   "ndcg:ontology_previous": 0.6383052874377176,
+   "ndcg:ontology_unaudited": 0.5693889165038314,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.25,
-   "recall:ontology": 0.5,
+   "recall:ontology": 0.25,
+   "recall:ontology_previous": 0.5,
+   "recall:ontology_unaudited": 0.25,
    "relevant": 4
   },
   {
@@ -695,9 +946,13 @@
    "ndcg:hybrid": 0.8503449055347546,
    "ndcg:keyword": 0.0,
    "ndcg:ontology": 0.8503449055347546,
+   "ndcg:ontology_previous": 0.8503449055347546,
+   "ndcg:ontology_unaudited": 0.8503449055347546,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 2
   },
   {
@@ -706,9 +961,13 @@
    "ndcg:hybrid": 0.9771186401765392,
    "ndcg:keyword": 0.9054449977505815,
    "ndcg:ontology": 0.9771186401765392,
+   "ndcg:ontology_previous": 0.9771186401765392,
+   "ndcg:ontology_unaudited": 0.9771186401765392,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 5
   },
   {
@@ -716,10 +975,14 @@
    "kind": "impact",
    "ndcg:hybrid": 0.8273608119456781,
    "ndcg:keyword": 0.8106083306620322,
-   "ndcg:ontology": 0.7714091961726945,
+   "ndcg:ontology": 0.8273608119456781,
+   "ndcg:ontology_previous": 0.7714091961726945,
+   "ndcg:ontology_unaudited": 0.8273608119456781,
    "recall:hybrid": 0.6,
    "recall:keyword": 0.6,
-   "recall:ontology": 0.5,
+   "recall:ontology": 0.6,
+   "recall:ontology_previous": 0.5,
+   "recall:ontology_unaudited": 0.6,
    "relevant": 10
   },
   {
@@ -727,10 +990,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.9173302514290901,
    "ndcg:keyword": 0.823586844669514,
-   "ndcg:ontology": 0.7915805917934893,
+   "ndcg:ontology": 0.8718838771078951,
+   "ndcg:ontology_previous": 0.7915805917934893,
+   "ndcg:ontology_unaudited": 0.8541209758975493,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 2
   },
   {
@@ -739,9 +1006,13 @@
    "ndcg:hybrid": 0.9209949770116804,
    "ndcg:keyword": 0.6975018577735268,
    "ndcg:ontology": 0.9209949770116804,
+   "ndcg:ontology_previous": 0.9209949770116804,
+   "ndcg:ontology_unaudited": 0.9209949770116804,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.6,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 5
   },
   {
@@ -749,10 +1020,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.927841200760793,
    "ndcg:keyword": 0.9272102579108255,
-   "ndcg:ontology": 0.7049444882012591,
+   "ndcg:ontology": 0.7272615505922315,
+   "ndcg:ontology_previous": 0.7049444882012591,
+   "ndcg:ontology_unaudited": 0.7074690104491089,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 0.6666666666666666,
+   "recall:ontology_previous": 0.6666666666666666,
+   "recall:ontology_unaudited": 0.6666666666666666,
    "relevant": 6
   },
   {
@@ -760,10 +1035,14 @@
    "kind": "impact",
    "ndcg:hybrid": 0.7851411036508058,
    "ndcg:keyword": 0.15644807018024612,
-   "ndcg:ontology": 0.9199956611606563,
+   "ndcg:ontology": 0.9247206809698242,
+   "ndcg:ontology_previous": 0.9199956611606563,
+   "ndcg:ontology_unaudited": 0.9264635776270718,
    "recall:hybrid": 0.6,
    "recall:keyword": 0.1,
    "recall:ontology": 0.8,
+   "recall:ontology_previous": 0.8,
+   "recall:ontology_unaudited": 0.8,
    "relevant": 10
   },
   {
@@ -772,9 +1051,13 @@
    "ndcg:hybrid": 0.8099531166420328,
    "ndcg:keyword": 1.0,
    "ndcg:ontology": 0.8099531166420328,
+   "ndcg:ontology_previous": 0.8099531166420328,
+   "ndcg:ontology_unaudited": 0.8099531166420328,
    "recall:hybrid": 0.6666666666666666,
    "recall:keyword": 1.0,
    "recall:ontology": 0.6666666666666666,
+   "recall:ontology_previous": 0.6666666666666666,
+   "recall:ontology_unaudited": 0.6666666666666666,
    "relevant": 3
   },
   {
@@ -783,9 +1066,13 @@
    "ndcg:hybrid": 0.9832843142264166,
    "ndcg:keyword": 0.8401851084845681,
    "ndcg:ontology": 0.9832843142264166,
+   "ndcg:ontology_previous": 0.9832843142264166,
+   "ndcg:ontology_unaudited": 0.9832843142264166,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 2
   },
   {
@@ -793,10 +1080,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.9860401134714399,
    "ndcg:keyword": 0.8443141618969313,
-   "ndcg:ontology": 0.7787444522566598,
+   "ndcg:ontology": 0.6078370168318786,
+   "ndcg:ontology_previous": 0.7787444522566598,
+   "ndcg:ontology_unaudited": 0.6078370168318786,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.75,
-   "recall:ontology": 0.5,
+   "recall:ontology": 0.75,
+   "recall:ontology_previous": 0.5,
+   "recall:ontology_unaudited": 0.75,
    "relevant": 4
   },
   {
@@ -804,21 +1095,29 @@
    "kind": "impact",
    "ndcg:hybrid": 0.954604587619356,
    "ndcg:keyword": 0.48791244031867337,
-   "ndcg:ontology": 0.7050319479753835,
+   "ndcg:ontology": 0.954604587619356,
+   "ndcg:ontology_previous": 0.7050319479753835,
+   "ndcg:ontology_unaudited": 0.954604587619356,
    "recall:hybrid": 0.875,
    "recall:keyword": 0.5,
-   "recall:ontology": 0.625,
+   "recall:ontology": 0.875,
+   "recall:ontology_previous": 0.625,
+   "recall:ontology_unaudited": 0.875,
    "relevant": 8
   },
   {
    "key": "BN-0069",
    "kind": "lookup",
-   "ndcg:hybrid": 0.9294792776898056,
+   "ndcg:hybrid": 0.9397390900500511,
    "ndcg:keyword": 0.9351885419275077,
-   "ndcg:ontology": 0.9294792776898056,
+   "ndcg:ontology": 0.9397390900500511,
+   "ndcg:ontology_previous": 0.9294792776898056,
+   "ndcg:ontology_unaudited": 0.9397390900500511,
    "recall:hybrid": 0.8888888888888888,
    "recall:keyword": 0.8888888888888888,
    "recall:ontology": 0.8888888888888888,
+   "recall:ontology_previous": 0.8888888888888888,
+   "recall:ontology_unaudited": 0.8888888888888888,
    "relevant": 9
   },
   {
@@ -826,10 +1125,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.867569035315706,
    "ndcg:keyword": 0.6533124175738572,
-   "ndcg:ontology": 0.8002586392634047,
+   "ndcg:ontology": 0.867569035315706,
+   "ndcg:ontology_previous": 0.8002586392634047,
+   "ndcg:ontology_unaudited": 0.867569035315706,
    "recall:hybrid": 0.8888888888888888,
    "recall:keyword": 0.5555555555555556,
-   "recall:ontology": 0.7777777777777778,
+   "recall:ontology": 0.8888888888888888,
+   "recall:ontology_previous": 0.7777777777777778,
+   "recall:ontology_unaudited": 0.8888888888888888,
    "relevant": 9
   },
   {
@@ -837,10 +1140,14 @@
    "kind": "impact",
    "ndcg:hybrid": 0.8891688763430547,
    "ndcg:keyword": 0.9215091422906759,
-   "ndcg:ontology": 0.9970311984445218,
+   "ndcg:ontology": 0.9661478556466591,
+   "ndcg:ontology_previous": 0.9970311984445218,
+   "ndcg:ontology_unaudited": 0.9661478556466591,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 7
   },
   {
@@ -848,10 +1155,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.9397983401779808,
    "ndcg:keyword": 0.9397983401779808,
-   "ndcg:ontology": 0.9746027048589819,
+   "ndcg:ontology": 0.9760433509683546,
+   "ndcg:ontology_previous": 0.9746027048589819,
+   "ndcg:ontology_unaudited": 0.9760433509683546,
    "recall:hybrid": 0.6666666666666666,
    "recall:keyword": 0.6666666666666666,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 3
   },
   {
@@ -859,10 +1170,14 @@
    "kind": "problem",
    "ndcg:hybrid": 0.8238146109813219,
    "ndcg:keyword": 0.7177026217924811,
-   "ndcg:ontology": 0.7893677542383344,
+   "ndcg:ontology": 0.6824589731828693,
+   "ndcg:ontology_previous": 0.7893677542383344,
+   "ndcg:ontology_unaudited": 0.6408001158145201,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.6666666666666666,
    "recall:ontology": 0.6666666666666666,
+   "recall:ontology_previous": 0.6666666666666666,
+   "recall:ontology_unaudited": 0.6666666666666666,
    "relevant": 3
   },
   {
@@ -870,10 +1185,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.6475874573061806,
    "ndcg:keyword": 0.6779491219475724,
-   "ndcg:ontology": 0.9083247466157296,
+   "ndcg:ontology": 0.909844683950137,
+   "ndcg:ontology_previous": 0.9083247466157296,
+   "ndcg:ontology_unaudited": 0.9083247466157296,
    "recall:hybrid": 0.5,
    "recall:keyword": 0.5,
    "recall:ontology": 0.75,
+   "recall:ontology_previous": 0.75,
+   "recall:ontology_unaudited": 0.75,
    "relevant": 8
   },
   {
@@ -881,10 +1200,14 @@
    "kind": "impact",
    "ndcg:hybrid": 0.9554796683195447,
    "ndcg:keyword": 0.8352413840492925,
-   "ndcg:ontology": 0.8145838552314862,
+   "ndcg:ontology": 0.8217509725368992,
+   "ndcg:ontology_previous": 0.8145838552314862,
+   "ndcg:ontology_unaudited": 0.8549459825433383,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.5555555555555556,
    "recall:ontology": 0.5555555555555556,
+   "recall:ontology_previous": 0.5555555555555556,
+   "recall:ontology_unaudited": 0.5555555555555556,
    "relevant": 9
   },
   {
@@ -893,9 +1216,13 @@
    "ndcg:hybrid": 0.9486118137485415,
    "ndcg:keyword": 0.7144732299003436,
    "ndcg:ontology": 0.9486118137485415,
+   "ndcg:ontology_previous": 0.9486118137485415,
+   "ndcg:ontology_unaudited": 0.9486118137485415,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.625,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 8
   },
   {
@@ -903,21 +1230,29 @@
    "kind": "problem",
    "ndcg:hybrid": 0.8536820498239106,
    "ndcg:keyword": 0.7505453598643862,
-   "ndcg:ontology": 0.8549183541835113,
-   "recall:hybrid": 0.6,
-   "recall:keyword": 0.4666666666666667,
-   "recall:ontology": 0.6,
-   "relevant": 15
+   "ndcg:ontology": 0.853571452582208,
+   "ndcg:ontology_previous": 0.8549183541835113,
+   "ndcg:ontology_unaudited": 0.853571452582208,
+   "recall:hybrid": 0.5625,
+   "recall:keyword": 0.4375,
+   "recall:ontology": 0.5625,
+   "recall:ontology_previous": 0.5625,
+   "recall:ontology_unaudited": 0.5625,
+   "relevant": 16
   },
   {
    "key": "BN-0078",
    "kind": "cross_part",
    "ndcg:hybrid": 0.8675063637446014,
    "ndcg:keyword": 0.4189835643491573,
-   "ndcg:ontology": 0.3238531104127581,
+   "ndcg:ontology": 0.28148534440926104,
+   "ndcg:ontology_previous": 0.3238531104127581,
+   "ndcg:ontology_unaudited": 0.28148534440926104,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.25,
    "recall:ontology": 0.25,
+   "recall:ontology_previous": 0.25,
+   "recall:ontology_unaudited": 0.25,
    "relevant": 4
   },
   {
@@ -926,9 +1261,13 @@
    "ndcg:hybrid": 0.3564680220007183,
    "ndcg:keyword": 0.8169714570783747,
    "ndcg:ontology": 0.3564680220007183,
+   "ndcg:ontology_previous": 0.3564680220007183,
+   "ndcg:ontology_unaudited": 0.3564680220007183,
    "recall:hybrid": 0.5,
    "recall:keyword": 0.75,
    "recall:ontology": 0.5,
+   "recall:ontology_previous": 0.5,
+   "recall:ontology_unaudited": 0.5,
    "relevant": 4
   },
   {
@@ -937,9 +1276,13 @@
    "ndcg:hybrid": 0.8344234152745562,
    "ndcg:keyword": 0.8981335190790164,
    "ndcg:ontology": 0.8344234152745562,
+   "ndcg:ontology_previous": 0.8344234152745562,
+   "ndcg:ontology_unaudited": 0.8344234152745562,
    "recall:hybrid": 0.6666666666666666,
    "recall:keyword": 1.0,
    "recall:ontology": 0.6666666666666666,
+   "recall:ontology_previous": 0.6666666666666666,
+   "recall:ontology_unaudited": 0.6666666666666666,
    "relevant": 6
   },
   {
@@ -948,9 +1291,13 @@
    "ndcg:hybrid": 0.9058464496821221,
    "ndcg:keyword": 0.8262346571285599,
    "ndcg:ontology": 0.9058464496821221,
+   "ndcg:ontology_previous": 0.9058464496821221,
+   "ndcg:ontology_unaudited": 0.9058464496821221,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 1
   },
   {
@@ -959,9 +1306,13 @@
    "ndcg:hybrid": 0.791477234462737,
    "ndcg:keyword": 0.8287112534608245,
    "ndcg:ontology": 0.791477234462737,
+   "ndcg:ontology_previous": 0.791477234462737,
+   "ndcg:ontology_unaudited": 0.791477234462737,
    "recall:hybrid": 0.8333333333333334,
    "recall:keyword": 0.5,
    "recall:ontology": 0.8333333333333334,
+   "recall:ontology_previous": 0.8333333333333334,
+   "recall:ontology_unaudited": 0.8333333333333334,
    "relevant": 6
   },
   {
@@ -970,9 +1321,13 @@
    "ndcg:hybrid": 0.9120592776000036,
    "ndcg:keyword": 0.6735844326565442,
    "ndcg:ontology": 0.6332937830193569,
+   "ndcg:ontology_previous": 0.6332937830193569,
+   "ndcg:ontology_unaudited": 0.6332937830193569,
    "recall:hybrid": 0.5,
    "recall:keyword": 0.5,
    "recall:ontology": 0.0,
+   "recall:ontology_previous": 0.0,
+   "recall:ontology_unaudited": 0.0,
    "relevant": 2
   },
   {
@@ -981,9 +1336,13 @@
    "ndcg:hybrid": 0.9608389714785489,
    "ndcg:keyword": 0.8339018941620457,
    "ndcg:ontology": 0.9608389714785489,
+   "ndcg:ontology_previous": 0.9608389714785489,
+   "ndcg:ontology_unaudited": 0.9608389714785489,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 3
   },
   {
@@ -991,10 +1350,14 @@
    "kind": "problem",
    "ndcg:hybrid": 0.8572048559638626,
    "ndcg:keyword": 0.48471198902551854,
-   "ndcg:ontology": 0.30523488393970116,
+   "ndcg:ontology": 0.8572048559638626,
+   "ndcg:ontology_previous": 0.30523488393970116,
+   "ndcg:ontology_unaudited": 0.8572048559638626,
    "recall:hybrid": null,
    "recall:keyword": null,
    "recall:ontology": null,
+   "recall:ontology_previous": null,
+   "recall:ontology_unaudited": null,
    "relevant": 0
   },
   {
@@ -1002,10 +1365,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.8476226634880878,
    "ndcg:keyword": 0.8603282033634491,
-   "ndcg:ontology": 0.9446575802244342,
+   "ndcg:ontology": 0.8655287688403759,
+   "ndcg:ontology_previous": 0.9446575802244342,
+   "ndcg:ontology_unaudited": 0.8655287688403759,
    "recall:hybrid": 0.5,
    "recall:keyword": 0.75,
-   "recall:ontology": 1.0,
+   "recall:ontology": 0.75,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 0.75,
    "relevant": 4
   },
   {
@@ -1014,9 +1381,13 @@
    "ndcg:hybrid": 0.642058502634153,
    "ndcg:keyword": 0.9892896607088507,
    "ndcg:ontology": 0.642058502634153,
+   "ndcg:ontology_previous": 0.642058502634153,
+   "ndcg:ontology_unaudited": 0.642058502634153,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 2
   },
   {
@@ -1025,9 +1396,13 @@
    "ndcg:hybrid": 0.9714643942872005,
    "ndcg:keyword": 0.8071884738577423,
    "ndcg:ontology": 0.7612933569132856,
+   "ndcg:ontology_previous": 0.7612933569132856,
+   "ndcg:ontology_unaudited": 0.7563405276566998,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.5,
    "recall:ontology": 0.5,
+   "recall:ontology_previous": 0.5,
+   "recall:ontology_unaudited": 0.5,
    "relevant": 6
   },
   {
@@ -1036,9 +1411,13 @@
    "ndcg:hybrid": 0.9331730030240227,
    "ndcg:keyword": 0.8851994699253537,
    "ndcg:ontology": 0.9331730030240227,
+   "ndcg:ontology_previous": 0.9331730030240227,
+   "ndcg:ontology_unaudited": 0.9331730030240227,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 3
   },
   {
@@ -1046,10 +1425,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.9129638529509998,
    "ndcg:keyword": 0.9133679811305536,
-   "ndcg:ontology": 0.8925041347447629,
+   "ndcg:ontology": 0.8981468827148462,
+   "ndcg:ontology_previous": 0.8925041347447629,
+   "ndcg:ontology_unaudited": 0.8981468827148462,
    "recall:hybrid": 0.9,
    "recall:keyword": 0.9,
    "recall:ontology": 0.7,
+   "recall:ontology_previous": 0.7,
+   "recall:ontology_unaudited": 0.7,
    "relevant": 10
   },
   {
@@ -1058,9 +1441,13 @@
    "ndcg:hybrid": 0.8214737995506485,
    "ndcg:keyword": 0.7148536573434858,
    "ndcg:ontology": 0.8214737995506485,
+   "ndcg:ontology_previous": 0.8214737995506485,
+   "ndcg:ontology_unaudited": 0.8214737995506485,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.5,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 2
   },
   {
@@ -1068,10 +1455,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.9540952267624854,
    "ndcg:keyword": 0.8316114133348735,
-   "ndcg:ontology": 0.79956218288434,
+   "ndcg:ontology": 0.9540952267624854,
+   "ndcg:ontology_previous": 0.79956218288434,
+   "ndcg:ontology_unaudited": 0.9540952267624854,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.75,
-   "recall:ontology": 0.75,
+   "recall:ontology": 1.0,
+   "recall:ontology_previous": 0.75,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 4
   },
   {
@@ -1080,21 +1471,29 @@
    "ndcg:hybrid": 0.957157297281177,
    "ndcg:keyword": 0.5580590047026502,
    "ndcg:ontology": 0.957157297281177,
+   "ndcg:ontology_previous": 0.957157297281177,
+   "ndcg:ontology_unaudited": 0.957157297281177,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.5,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 6
   },
   {
    "key": "BN-0094",
    "kind": "cross_part",
-   "ndcg:hybrid": 0.6984899848535218,
-   "ndcg:keyword": 0.653998191987832,
-   "ndcg:ontology": 0.8129625952732322,
-   "recall:hybrid": 0.4,
-   "recall:keyword": 0.2,
-   "recall:ontology": 0.8,
-   "relevant": 5
+   "ndcg:hybrid": 0.6667876403986818,
+   "ndcg:keyword": 0.6243151952307794,
+   "ndcg:ontology": 0.80731265020052,
+   "ndcg:ontology_previous": 0.7760646858069177,
+   "ndcg:ontology_unaudited": 0.80731265020052,
+   "recall:hybrid": 0.3333333333333333,
+   "recall:keyword": 0.16666666666666666,
+   "recall:ontology": 0.8333333333333334,
+   "recall:ontology_previous": 0.6666666666666666,
+   "recall:ontology_unaudited": 0.8333333333333334,
+   "relevant": 6
   },
   {
    "key": "BN-0095",
@@ -1102,9 +1501,13 @@
    "ndcg:hybrid": 0.8855269342365094,
    "ndcg:keyword": 0.9157816106937342,
    "ndcg:ontology": 0.8855269342365094,
+   "ndcg:ontology_previous": 0.8855269342365094,
+   "ndcg:ontology_unaudited": 0.8855269342365094,
    "recall:hybrid": 0.7,
    "recall:keyword": 0.9,
    "recall:ontology": 0.7,
+   "recall:ontology_previous": 0.7,
+   "recall:ontology_unaudited": 0.7,
    "relevant": 10
   },
   {
@@ -1112,10 +1515,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.9909670284107976,
    "ndcg:keyword": 0.8826663660122922,
-   "ndcg:ontology": 0.7026903284773638,
+   "ndcg:ontology": 0.7978475203166588,
+   "ndcg:ontology_previous": 0.7026903284773638,
+   "ndcg:ontology_unaudited": 0.7403560053537603,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 3
   },
   {
@@ -1123,10 +1530,14 @@
    "kind": "problem",
    "ndcg:hybrid": 0.7466702925156322,
    "ndcg:keyword": 0.7381769492380982,
-   "ndcg:ontology": 0.6324141867549204,
+   "ndcg:ontology": 0.7666597755869102,
+   "ndcg:ontology_previous": 0.6324141867549204,
+   "ndcg:ontology_unaudited": 0.7519471510734181,
    "recall:hybrid": 0.75,
    "recall:keyword": 0.5833333333333334,
-   "recall:ontology": 0.3333333333333333,
+   "recall:ontology": 0.5,
+   "recall:ontology_previous": 0.3333333333333333,
+   "recall:ontology_unaudited": 0.5,
    "relevant": 12
   },
   {
@@ -1134,11 +1545,15 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.8528314698034267,
    "ndcg:keyword": 0.7977565431029979,
-   "ndcg:ontology": 0.5590868183372257,
-   "recall:hybrid": 0.8181818181818182,
-   "recall:keyword": 0.7272727272727273,
-   "recall:ontology": 0.45454545454545453,
-   "relevant": 11
+   "ndcg:ontology": 0.698464377430627,
+   "ndcg:ontology_previous": 0.5590868183372257,
+   "ndcg:ontology_unaudited": 0.6755059150853345,
+   "recall:hybrid": 0.75,
+   "recall:keyword": 0.6666666666666666,
+   "recall:ontology": 0.5,
+   "recall:ontology_previous": 0.4166666666666667,
+   "recall:ontology_unaudited": 0.5,
+   "relevant": 12
   },
   {
    "key": "BN-0099",
@@ -1146,9 +1561,13 @@
    "ndcg:hybrid": 0.8401289604509518,
    "ndcg:keyword": 0.7637250577484144,
    "ndcg:ontology": 0.8401289604509518,
+   "ndcg:ontology_previous": 0.8401289604509518,
+   "ndcg:ontology_unaudited": 0.8401289604509518,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 4
   },
   {
@@ -1156,10 +1575,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.9659798846693279,
    "ndcg:keyword": 0.9585201933634447,
-   "ndcg:ontology": 0.9485579751096731,
+   "ndcg:ontology": 0.8507759062128604,
+   "ndcg:ontology_previous": 0.9485579751096731,
+   "ndcg:ontology_unaudited": 0.8719748029970289,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 2
   },
   {
@@ -1167,10 +1590,14 @@
    "kind": "problem",
    "ndcg:hybrid": 0.7424645560308867,
    "ndcg:keyword": 0.8119125292152201,
-   "ndcg:ontology": 0.7043106579435907,
+   "ndcg:ontology": 0.7850312328971601,
+   "ndcg:ontology_previous": 0.7043106579435907,
+   "ndcg:ontology_unaudited": 0.7850312328971601,
    "recall:hybrid": 0.5714285714285714,
    "recall:keyword": 0.7142857142857143,
-   "recall:ontology": 0.42857142857142855,
+   "recall:ontology": 0.5714285714285714,
+   "recall:ontology_previous": 0.42857142857142855,
+   "recall:ontology_unaudited": 0.5714285714285714,
    "relevant": 7
   },
   {
@@ -1178,10 +1605,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.8284616190242765,
    "ndcg:keyword": 0.8227468217472673,
-   "ndcg:ontology": 0.8856095504718972,
+   "ndcg:ontology": 0.8576500140833653,
+   "ndcg:ontology_previous": 0.8856095504718972,
+   "ndcg:ontology_unaudited": 0.8576500140833653,
    "recall:hybrid": 0.6666666666666666,
    "recall:keyword": 0.6666666666666666,
-   "recall:ontology": 0.7777777777777778,
+   "recall:ontology": 0.6666666666666666,
+   "recall:ontology_previous": 0.7777777777777778,
+   "recall:ontology_unaudited": 0.6666666666666666,
    "relevant": 9
   },
   {
@@ -1190,9 +1621,13 @@
    "ndcg:hybrid": 0.873637855752951,
    "ndcg:keyword": 0.8424910341768647,
    "ndcg:ontology": 0.873637855752951,
+   "ndcg:ontology_previous": 0.873637855752951,
+   "ndcg:ontology_unaudited": 0.873637855752951,
    "recall:hybrid": 0.7,
    "recall:keyword": 0.7,
    "recall:ontology": 0.7,
+   "recall:ontology_previous": 0.7,
+   "recall:ontology_unaudited": 0.7,
    "relevant": 10
   },
   {
@@ -1201,9 +1636,13 @@
    "ndcg:hybrid": 0.8696486751773665,
    "ndcg:keyword": 0.6066317881331335,
    "ndcg:ontology": 0.8696486751773665,
+   "ndcg:ontology_previous": 0.8696486751773665,
+   "ndcg:ontology_unaudited": 0.8696486751773665,
    "recall:hybrid": 0.8,
    "recall:keyword": 0.6,
    "recall:ontology": 0.8,
+   "recall:ontology_previous": 0.8,
+   "recall:ontology_unaudited": 0.8,
    "relevant": 5
   },
   {
@@ -1211,10 +1650,14 @@
    "kind": "problem",
    "ndcg:hybrid": 0.7669733307272686,
    "ndcg:keyword": 0.5462287028767652,
-   "ndcg:ontology": 0.8659037683120921,
+   "ndcg:ontology": 0.7669733307272686,
+   "ndcg:ontology_previous": 0.8659037683120921,
+   "ndcg:ontology_unaudited": 0.7669733307272686,
    "recall:hybrid": 0.5,
    "recall:keyword": 0.16666666666666666,
-   "recall:ontology": 0.8333333333333334,
+   "recall:ontology": 0.5,
+   "recall:ontology_previous": 0.8333333333333334,
+   "recall:ontology_unaudited": 0.5,
    "relevant": 6
   },
   {
@@ -1222,10 +1665,14 @@
    "kind": "cross_part",
    "ndcg:hybrid": 0.6919769174627463,
    "ndcg:keyword": 0.9286474753101561,
-   "ndcg:ontology": 0.6655591056239958,
+   "ndcg:ontology": 0.7511178819473648,
+   "ndcg:ontology_previous": 0.6655591056239958,
+   "ndcg:ontology_unaudited": 0.6501876564314656,
    "recall:hybrid": 0.3333333333333333,
    "recall:keyword": 0.5333333333333333,
    "recall:ontology": 0.3333333333333333,
+   "recall:ontology_previous": 0.3333333333333333,
+   "recall:ontology_unaudited": 0.26666666666666666,
    "relevant": 15
   },
   {
@@ -1233,10 +1680,14 @@
    "kind": "impact",
    "ndcg:hybrid": 0.8852476608563782,
    "ndcg:keyword": 0.7157214374224372,
-   "ndcg:ontology": 0.3827987800865433,
+   "ndcg:ontology": 0.43464941487298486,
+   "ndcg:ontology_previous": 0.3827987800865433,
+   "ndcg:ontology_unaudited": 0.4372557629616991,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.42857142857142855,
    "recall:ontology": 0.14285714285714285,
+   "recall:ontology_previous": 0.14285714285714285,
+   "recall:ontology_unaudited": 0.14285714285714285,
    "relevant": 7
   },
   {
@@ -1244,10 +1695,14 @@
    "kind": "lookup",
    "ndcg:hybrid": 0.9329681917613505,
    "ndcg:keyword": 0.5870104632923209,
-   "ndcg:ontology": 0.7567948714636241,
+   "ndcg:ontology": 0.7554262512141587,
+   "ndcg:ontology_previous": 0.7567948714636241,
+   "ndcg:ontology_unaudited": 0.7848895634713546,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.3333333333333333,
    "recall:ontology": 0.6666666666666666,
+   "recall:ontology_previous": 0.6666666666666666,
+   "recall:ontology_unaudited": 0.6666666666666666,
    "relevant": 3
   },
   {
@@ -1256,21 +1711,29 @@
    "ndcg:hybrid": 0.9606983581744843,
    "ndcg:keyword": 0.9661052496228156,
    "ndcg:ontology": 0.9606983581744843,
+   "ndcg:ontology_previous": 0.9606983581744843,
+   "ndcg:ontology_unaudited": 0.9606983581744843,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 4
   },
   {
    "key": "BN-0110",
    "kind": "cross_part",
-   "ndcg:hybrid": 0.9292866348454977,
-   "ndcg:keyword": 0.6381099368648039,
-   "ndcg:ontology": 0.5141328301197668,
-   "recall:hybrid": 0.8333333333333334,
-   "recall:keyword": 0.5,
-   "recall:ontology": 0.3333333333333333,
-   "relevant": 6
+   "ndcg:hybrid": 0.8977184751148101,
+   "ndcg:keyword": 0.6164331412913517,
+   "ndcg:ontology": 0.7128678022459239,
+   "ndcg:ontology_previous": 0.49666757591785987,
+   "ndcg:ontology_unaudited": 0.7128678022459239,
+   "recall:hybrid": 0.7142857142857143,
+   "recall:keyword": 0.42857142857142855,
+   "recall:ontology": 0.5714285714285714,
+   "recall:ontology_previous": 0.2857142857142857,
+   "recall:ontology_unaudited": 0.5714285714285714,
+   "relevant": 7
   },
   {
    "key": "BN-0111",
@@ -1278,20 +1741,28 @@
    "ndcg:hybrid": 0.9305687780632227,
    "ndcg:keyword": 0.9608008655106622,
    "ndcg:ontology": 1.0,
-   "recall:hybrid": 0.45,
-   "recall:keyword": 0.45,
-   "recall:ontology": 0.5,
-   "relevant": 20
+   "ndcg:ontology_previous": 1.0,
+   "ndcg:ontology_unaudited": 1.0,
+   "recall:hybrid": 0.4090909090909091,
+   "recall:keyword": 0.4090909090909091,
+   "recall:ontology": 0.45454545454545453,
+   "recall:ontology_previous": 0.45454545454545453,
+   "recall:ontology_unaudited": 0.45454545454545453,
+   "relevant": 22
   },
   {
    "key": "BN-0112",
    "kind": "lookup",
    "ndcg:hybrid": 1.0,
    "ndcg:keyword": 0.9237462009050439,
-   "ndcg:ontology": 0.6592367983634904,
+   "ndcg:ontology": 0.6629354803709437,
+   "ndcg:ontology_previous": 0.6592367983634904,
+   "ndcg:ontology_unaudited": 0.6561709361507524,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 0.5,
+   "recall:ontology_previous": 0.5,
+   "recall:ontology_unaudited": 0.5,
    "relevant": 2
   },
   {
@@ -1299,10 +1770,14 @@
    "kind": "problem",
    "ndcg:hybrid": 0.857990834750813,
    "ndcg:keyword": 0.7666898049106017,
-   "ndcg:ontology": 0.959127016419772,
+   "ndcg:ontology": 0.962423930088992,
+   "ndcg:ontology_previous": 0.959127016419772,
+   "ndcg:ontology_unaudited": 0.9296247468111954,
    "recall:hybrid": 0.6666666666666666,
    "recall:keyword": 0.5555555555555556,
    "recall:ontology": 0.8888888888888888,
+   "recall:ontology_previous": 0.8888888888888888,
+   "recall:ontology_unaudited": 0.7777777777777778,
    "relevant": 9
   },
   {
@@ -1311,9 +1786,13 @@
    "ndcg:hybrid": 0.8796781505711,
    "ndcg:keyword": 0.4473641551182231,
    "ndcg:ontology": 0.8796781505711,
+   "ndcg:ontology_previous": 0.8796781505711,
+   "ndcg:ontology_unaudited": 0.8796781505711,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.2857142857142857,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 7
   },
   {
@@ -1321,10 +1800,14 @@
    "kind": "impact",
    "ndcg:hybrid": 0.8971849102972047,
    "ndcg:keyword": 0.5723310632718406,
-   "ndcg:ontology": 0.1200101394090263,
+   "ndcg:ontology": 0.23882077664436083,
+   "ndcg:ontology_previous": 0.1200101394090263,
+   "ndcg:ontology_unaudited": 0.1950309256673287,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.5,
    "recall:ontology": 0.0,
+   "recall:ontology_previous": 0.0,
+   "recall:ontology_unaudited": 0.0,
    "relevant": 4
   },
   {
@@ -1333,9 +1816,13 @@
    "ndcg:hybrid": 0.8833300639826207,
    "ndcg:keyword": 0.6237384169953659,
    "ndcg:ontology": 0.8833300639826207,
+   "ndcg:ontology_previous": 0.8833300639826207,
+   "ndcg:ontology_unaudited": 0.8833300639826207,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.5,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 2
   },
   {
@@ -1344,9 +1831,13 @@
    "ndcg:hybrid": 0.8340189794032848,
    "ndcg:keyword": 0.6026405085315903,
    "ndcg:ontology": 0.8340189794032848,
+   "ndcg:ontology_previous": 0.8340189794032848,
+   "ndcg:ontology_unaudited": 0.8340189794032848,
    "recall:hybrid": 0.8571428571428571,
    "recall:keyword": 0.42857142857142855,
    "recall:ontology": 0.8571428571428571,
+   "recall:ontology_previous": 0.8571428571428571,
+   "recall:ontology_unaudited": 0.8571428571428571,
    "relevant": 7
   },
   {
@@ -1355,20 +1846,28 @@
    "ndcg:hybrid": 0.7310382816380091,
    "ndcg:keyword": 0.7591933607119231,
    "ndcg:ontology": 0.7310382816380091,
+   "ndcg:ontology_previous": 0.7310382816380091,
+   "ndcg:ontology_unaudited": 0.7310382816380091,
    "recall:hybrid": 0.6666666666666666,
    "recall:keyword": 0.6666666666666666,
    "recall:ontology": 0.6666666666666666,
+   "recall:ontology_previous": 0.6666666666666666,
+   "recall:ontology_unaudited": 0.6666666666666666,
    "relevant": 3
   },
   {
    "key": "BN-0119",
    "kind": "impact",
-   "ndcg:hybrid": 0.8609975405513514,
-   "ndcg:keyword": 0.7788982455206377,
-   "ndcg:ontology": 0.9822925435270468,
+   "ndcg:hybrid": 0.8266243302307313,
+   "ndcg:keyword": 0.7478026477393731,
+   "ndcg:ontology": 0.6824675866520195,
+   "ndcg:ontology_previous": 0.9430769283774257,
+   "ndcg:ontology_unaudited": 0.9219850178040626,
    "recall:hybrid": 1.0,
    "recall:keyword": 0.8,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 5
   },
   {
@@ -1377,9 +1876,13 @@
    "ndcg:hybrid": 0.20866747359151264,
    "ndcg:keyword": 0.46389300421189694,
    "ndcg:ontology": 0.20866747359151264,
+   "ndcg:ontology_previous": 0.20866747359151264,
+   "ndcg:ontology_unaudited": 0.20866747359151264,
    "recall:hybrid": 0.2,
    "recall:keyword": 0.6,
    "recall:ontology": 0.2,
+   "recall:ontology_previous": 0.2,
+   "recall:ontology_unaudited": 0.2,
    "relevant": 5
   },
   {
@@ -1387,10 +1890,14 @@
    "kind": "signed",
    "ndcg:hybrid": 0.6492780213245148,
    "ndcg:keyword": 0.8165951292044206,
-   "ndcg:ontology": 0.7125635343460665,
+   "ndcg:ontology": 0.7391104031986374,
+   "ndcg:ontology_previous": 0.7125635343460665,
+   "ndcg:ontology_unaudited": 0.789985011033654,
    "recall:hybrid": 0.3076923076923077,
    "recall:keyword": 0.5384615384615384,
    "recall:ontology": 0.46153846153846156,
+   "recall:ontology_previous": 0.46153846153846156,
+   "recall:ontology_unaudited": 0.5384615384615384,
    "relevant": 13
   },
   {
@@ -1398,10 +1905,14 @@
    "kind": "signed",
    "ndcg:hybrid": 0.8661561998928974,
    "ndcg:keyword": 0.7437494625536456,
-   "ndcg:ontology": 0.9189788236163547,
+   "ndcg:ontology": 0.9092560063495339,
+   "ndcg:ontology_previous": 0.9189788236163547,
+   "ndcg:ontology_unaudited": 0.9512500018057503,
    "recall:hybrid": 0.75,
    "recall:keyword": 0.5,
    "recall:ontology": 0.75,
+   "recall:ontology_previous": 0.75,
+   "recall:ontology_unaudited": 0.875,
    "relevant": 8
   },
   {
@@ -1409,10 +1920,14 @@
    "kind": "signed",
    "ndcg:hybrid": 0.9015940630079066,
    "ndcg:keyword": 0.8994443598279865,
-   "ndcg:ontology": 0.8736241033171072,
+   "ndcg:ontology": 0.9151737672367182,
+   "ndcg:ontology_previous": 0.8736241033171072,
+   "ndcg:ontology_unaudited": 0.878033256027809,
    "recall:hybrid": 0.75,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 4
   },
   {
@@ -1421,9 +1936,13 @@
    "ndcg:hybrid": 0.5296051131751949,
    "ndcg:keyword": 0.15608558721158045,
    "ndcg:ontology": 0.5296051131751949,
+   "ndcg:ontology_previous": 0.5296051131751949,
+   "ndcg:ontology_unaudited": 0.5296051131751949,
    "recall:hybrid": 0.5714285714285714,
    "recall:keyword": 0.2857142857142857,
    "recall:ontology": 0.5714285714285714,
+   "recall:ontology_previous": 0.5714285714285714,
+   "recall:ontology_unaudited": 0.5714285714285714,
    "relevant": 7
   },
   {
@@ -1431,10 +1950,14 @@
    "kind": "signed",
    "ndcg:hybrid": 0.8285239702004665,
    "ndcg:keyword": 0.7940116633854013,
-   "ndcg:ontology": 0.9262903256639385,
+   "ndcg:ontology": 0.9299162687954119,
+   "ndcg:ontology_previous": 0.9262903256639385,
+   "ndcg:ontology_unaudited": 0.9316972171122699,
    "recall:hybrid": 0.75,
    "recall:keyword": 0.75,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 4
   },
   {
@@ -1442,10 +1965,14 @@
    "kind": "signed",
    "ndcg:hybrid": 0.8845760830771761,
    "ndcg:keyword": 0.8538526353112385,
-   "ndcg:ontology": 0.808388139919548,
+   "ndcg:ontology": 0.8804178787085727,
+   "ndcg:ontology_previous": 0.808388139919548,
+   "ndcg:ontology_unaudited": 0.8789859966140993,
    "recall:hybrid": 0.7777777777777778,
    "recall:keyword": 0.6666666666666666,
-   "recall:ontology": 0.4444444444444444,
+   "recall:ontology": 0.6666666666666666,
+   "recall:ontology_previous": 0.4444444444444444,
+   "recall:ontology_unaudited": 0.6666666666666666,
    "relevant": 9
   },
   {
@@ -1454,9 +1981,13 @@
    "ndcg:hybrid": 0.6850107762122462,
    "ndcg:keyword": 0.46303842609705737,
    "ndcg:ontology": 0.6850107762122462,
+   "ndcg:ontology_previous": 0.6850107762122462,
+   "ndcg:ontology_unaudited": 0.6850107762122462,
    "recall:hybrid": 0.7142857142857143,
    "recall:keyword": 0.0,
    "recall:ontology": 0.7142857142857143,
+   "recall:ontology_previous": 0.7142857142857143,
+   "recall:ontology_unaudited": 0.7142857142857143,
    "relevant": 7
   },
   {
@@ -1464,10 +1995,14 @@
    "kind": "signed",
    "ndcg:hybrid": 0.8788904494023813,
    "ndcg:keyword": 0.7871239027959592,
-   "ndcg:ontology": 0.8396379047897594,
+   "ndcg:ontology": 0.8801483338780424,
+   "ndcg:ontology_previous": 0.8396379047897594,
+   "ndcg:ontology_unaudited": 0.8692123614821067,
    "recall:hybrid": 0.6,
    "recall:keyword": 0.6,
-   "recall:ontology": 0.8,
+   "recall:ontology": 0.6,
+   "recall:ontology_previous": 0.8,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 5
   },
   {
@@ -1475,216 +2010,400 @@
    "kind": "signed",
    "ndcg:hybrid": 0.9217024888052177,
    "ndcg:keyword": 0.8796328250488205,
-   "ndcg:ontology": 0.9833647614059987,
+   "ndcg:ontology": 0.9777710163011956,
+   "ndcg:ontology_previous": 0.9833647614059987,
+   "ndcg:ontology_unaudited": 0.9848358337829966,
    "recall:hybrid": 1.0,
    "recall:keyword": 1.0,
    "recall:ontology": 1.0,
+   "recall:ontology_previous": 1.0,
+   "recall:ontology_unaudited": 1.0,
    "relevant": 7
   }
  ],
  "summary": {
   "all": {
    "n": 129,
-   "ndcg:hybrid": 0.8454907202609111,
+   "n:ndcg:hybrid-keyword": 129,
+   "n:ndcg:ontology-hybrid": 129,
+   "n:ndcg:ontology-keyword": 129,
+   "n:ndcg:ontology-ontology_previous": 129,
+   "n:ndcg:ontology-ontology_unaudited": 129,
+   "n:recall:hybrid-keyword": 128,
+   "n:recall:ontology-hybrid": 128,
+   "n:recall:ontology-keyword": 128,
+   "n:recall:ontology-ontology_previous": 128,
+   "n:recall:ontology-ontology_unaudited": 128,
+   "ndcg:hybrid": 0.8439138249359126,
    "ndcg:hybrid-keyword": [
-    0.11965245960039257,
-    0.08569997984006356,
-    0.15524489919836376
+    0.11939711968474306,
+    0.08546832675458571,
+    0.15485633560105505
    ],
-   "ndcg:keyword": 0.7258382606605186,
-   "ndcg:ontology": 0.7952544217634246,
+   "ndcg:keyword": 0.7245167052511694,
+   "ndcg:ontology": 0.8032087140278815,
    "ndcg:ontology-hybrid": [
-    -0.05023629849748642,
-    -0.07866287114664383,
-    -0.024090235423524488
+    -0.040705110908031104,
+    -0.06650201061786401,
+    -0.016839834026595342
    ],
    "ndcg:ontology-keyword": [
-    0.06941616110290615,
-    0.03069542234090915,
-    0.10764961761588437
+    0.07869200877671197,
+    0.04169844096958699,
+    0.11638088057190524
    ],
+   "ndcg:ontology-ontology_previous": [
+    0.009661287851372529,
+    -0.005258233741281844,
+    0.025980336095749533
+   ],
+   "ndcg:ontology-ontology_unaudited": [
+    0.0006726069906583669,
+    -0.007420419877398132,
+    0.00866578602616575
+   ],
+   "ndcg:ontology_previous": 0.793547426176509,
+   "ndcg:ontology_unaudited": 0.8025361070372231,
    "no_relevant": 1,
-   "recall:hybrid": 0.8009226125437063,
+   "recall:hybrid": 0.7914282982642358,
    "recall:hybrid-keyword": [
-    0.15019790322524698,
-    0.10044730659965034,
-    0.20217639348498723
+    0.14766261299464425,
+    0.09857860238719614,
+    0.19872610028860027
    ],
-   "recall:keyword": 0.6507247093184593,
-   "recall:ontology": 0.7400378809558497,
+   "recall:keyword": 0.6437656852695915,
+   "recall:ontology": 0.7381412749576812,
    "recall:ontology-hybrid": [
-    -0.06088473158785659,
-    -0.10579127903346654,
-    -0.018097939387001882
+    -0.05328702330655456,
+    -0.09619450644841271,
+    -0.013524832372488627
    ],
    "recall:ontology-keyword": [
-    0.08931317163739039,
-    0.0351103106962482,
-    0.14503411085442336
-   ]
+    0.09437558968808968,
+    0.042941607004107,
+    0.14696397352647353
+   ],
+   "recall:ontology-ontology_previous": [
+    0.0096586681547619,
+    -0.010008990575396833,
+    0.029985119047619045
+   ],
+   "recall:ontology-ontology_unaudited": [
+    -0.0026935954670329674,
+    -0.017255227411477413,
+    0.013263602716727718
+   ],
+   "recall:ontology_previous": 0.7284826068029193,
+   "recall:ontology_unaudited": 0.7408348704247142
   },
   "cross_part": {
    "n": 30,
-   "ndcg:hybrid": 0.8343996887340914,
+   "n:ndcg:hybrid-keyword": 30,
+   "n:ndcg:ontology-hybrid": 30,
+   "n:ndcg:ontology-keyword": 30,
+   "n:ndcg:ontology-ontology_previous": 30,
+   "n:ndcg:ontology-ontology_unaudited": 30,
+   "n:recall:hybrid-keyword": 30,
+   "n:recall:ontology-hybrid": 30,
+   "n:recall:ontology-keyword": 30,
+   "n:recall:ontology-ontology_previous": 30,
+   "n:recall:ontology-ontology_unaudited": 30,
+   "ndcg:hybrid": 0.8322906719279072,
    "ndcg:hybrid-keyword": [
-    0.10467462805967923,
-    0.03524662247947692,
-    0.18370912162089453
+    0.10427760433117846,
+    0.035007149297065894,
+    0.18338973053147106
    ],
-   "ndcg:keyword": 0.7297250606744122,
-   "ndcg:ontology": 0.7607067262157128,
+   "ndcg:keyword": 0.7280130675967288,
+   "ndcg:ontology": 0.7778199018862202,
    "ndcg:ontology-hybrid": [
-    -0.0736929625183787,
-    -0.13862378327901456,
-    -0.014159356699139062
+    -0.05447077004168701,
+    -0.11617651163569412,
+    -0.00022054079365287546
    ],
    "ndcg:ontology-keyword": [
-    0.03098166554130052,
-    -0.04102729190477825,
-    0.11321158741053271
+    0.049806834289491446,
+    -0.015020210893955247,
+    0.1252107688265235
    ],
+   "ndcg:ontology-ontology_previous": [
+    0.018925281126114815,
+    -0.01081498048223151,
+    0.053476307149673254
+   ],
+   "ndcg:ontology-ontology_unaudited": [
+    0.004082029737741066,
+    -0.006249650681022049,
+    0.014910761834166019
+   ],
+   "ndcg:ontology_previous": 0.7588946207601054,
+   "ndcg:ontology_unaudited": 0.7737378721484791,
    "no_relevant": 0,
-   "recall:hybrid": 0.7344486531986532,
+   "recall:hybrid": 0.719318783068783,
    "recall:hybrid-keyword": [
-    0.09794432419432418,
-    -0.0033730158730158927,
-    0.20499338624338623
+    0.09554894179894179,
+    -0.004947089947089954,
+    0.20128968253968255
    ],
-   "recall:keyword": 0.636504329004329,
-   "recall:ontology": 0.6534385521885522,
+   "recall:keyword": 0.6237698412698413,
+   "recall:ontology": 0.6718783068783069,
    "recall:ontology-hybrid": [
-    -0.08101010101010102,
-    -0.1841053391053391,
-    0.01885762385762386
+    -0.0474404761904762,
+    -0.13275793650793652,
+    0.0338095238095238
    ],
    "recall:ontology-keyword": [
-    0.016934223184223173,
-    -0.09887926887926889,
-    0.13687109187109187
-   ]
+    0.0481084656084656,
+    -0.05884920634920635,
+    0.15842592592592591
+   ],
+   "recall:ontology-ontology_previous": [
+    0.03462301587301587,
+    -0.00694444444444445,
+    0.07837301587301586
+   ],
+   "recall:ontology-ontology_unaudited": [
+    0.004999999999999997,
+    0.0,
+    0.01277777777777777
+   ],
+   "recall:ontology_previous": 0.637255291005291,
+   "recall:ontology_unaudited": 0.6668783068783068
   },
   "impact": {
    "n": 30,
-   "ndcg:hybrid": 0.8397117287573858,
+   "n:ndcg:hybrid-keyword": 30,
+   "n:ndcg:ontology-hybrid": 30,
+   "n:ndcg:ontology-keyword": 30,
+   "n:ndcg:ontology-ontology_previous": 30,
+   "n:ndcg:ontology-ontology_unaudited": 30,
+   "n:recall:hybrid-keyword": 30,
+   "n:recall:ontology-hybrid": 30,
+   "n:recall:ontology-keyword": 30,
+   "n:recall:ontology-ontology_previous": 30,
+   "n:recall:ontology-ontology_unaudited": 30,
+   "ndcg:hybrid": 0.8374901448514476,
    "ndcg:hybrid-keyword": [
-    0.10583853395159716,
-    0.01797976561634971,
-    0.19590286187551426
+    0.10579182516767682,
+    0.01793507681933362,
+    0.19580376019900797
    ],
-   "ndcg:keyword": 0.7338731948057885,
-   "ndcg:ontology": 0.7984093498760488,
+   "ndcg:keyword": 0.7316983196837707,
+   "ndcg:ontology": 0.8016885245662843,
    "ndcg:ontology-hybrid": [
-    -0.04130237888133695,
-    -0.11694492770932267,
-    0.021113258530439414
+    -0.03580162028516333,
+    -0.09888460055722209,
+    0.016609069619211242
    ],
    "ndcg:ontology-keyword": [
-    0.0645361550702602,
-    -0.027063993147164876,
-    0.1624786172738373
+    0.06999020488251348,
+    -0.023184760998681844,
+    0.1711847429715274
    ],
+   "ndcg:ontology-ontology_previous": [
+    0.005813811006752499,
+    -0.025216994829034743,
+    0.03629655784703899
+   ],
+   "ndcg:ontology-ontology_unaudited": [
+    0.0022501543400937555,
+    -0.020713765971371735,
+    0.023484738460706443
+   ],
+   "ndcg:ontology_previous": 0.7958747135595317,
+   "ndcg:ontology_unaudited": 0.7994383702261906,
    "no_relevant": 0,
-   "recall:hybrid": 0.802934102934103,
+   "recall:hybrid": 0.7960149110149111,
    "recall:hybrid-keyword": [
     0.12808321308321308,
     0.04059523809523809,
     0.21726190476190474
    ],
-   "recall:keyword": 0.6748508898508898,
-   "recall:ontology": 0.7338997113997114,
+   "recall:keyword": 0.6679316979316979,
+   "recall:ontology": 0.7211808561808561,
    "recall:ontology-hybrid": [
-    -0.06903439153439153,
-    -0.17552910052910053,
-    0.02268518518518519
+    -0.07483405483405485,
+    -0.17793650793650795,
+    0.009292929292929294
    ],
    "recall:ontology-keyword": [
-    0.05904882154882155,
-    -0.03891293891293892,
-    0.16121933621933623
-   ]
+    0.05324915824915824,
+    -0.04390091390091391,
+    0.15467171717171718
+   ],
+   "recall:ontology-ontology_previous": [
+    -0.005648148148148157,
+    -0.04351851851851853,
+    0.029722222222222216
+   ],
+   "recall:ontology-ontology_unaudited": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "recall:ontology_previous": 0.7268290043290044,
+   "recall:ontology_unaudited": 0.7211808561808561
   },
   "lookup": {
    "n": 30,
-   "ndcg:hybrid": 0.8956614303129292,
+   "n:ndcg:hybrid-keyword": 30,
+   "n:ndcg:ontology-hybrid": 30,
+   "n:ndcg:ontology-keyword": 30,
+   "n:ndcg:ontology-ontology_previous": 30,
+   "n:ndcg:ontology-ontology_unaudited": 30,
+   "n:recall:hybrid-keyword": 30,
+   "n:recall:ontology-hybrid": 30,
+   "n:recall:ontology-keyword": 30,
+   "n:recall:ontology-ontology_previous": 30,
+   "n:recall:ontology-ontology_unaudited": 30,
+   "ndcg:hybrid": 0.8944734844477092,
    "ndcg:hybrid-keyword": [
-    0.12139277920716328,
-    0.07186243984879193,
-    0.17452088196761467
+    0.12129953594442916,
+    0.07199395825272185,
+    0.17416708670100017
    ],
-   "ndcg:keyword": 0.7742686511057659,
-   "ndcg:ontology": 0.8283379844669386,
+   "ndcg:keyword": 0.7731739485032799,
+   "ndcg:ontology": 0.8195311692498024,
    "ndcg:ontology-hybrid": [
-    -0.06732344584599063,
-    -0.11228711313236327,
-    -0.0257484788831616
+    -0.07494231519790673,
+    -0.1291522685657784,
+    -0.02497910906612138
    ],
    "ndcg:ontology-keyword": [
-    0.054069333361172665,
-    9.437017346932696e-05,
-    0.11259115896166204
+    0.04635722074652244,
+    -0.014984062417811469,
+    0.10994937293503296
    ],
+   "ndcg:ontology-ontology_previous": [
+    -0.007139613201006584,
+    -0.03382370557085497,
+    0.018039480446219402
+   ],
+   "ndcg:ontology-ontology_unaudited": [
+    0.005281802246984791,
+    -0.009300704162716989,
+    0.020083161692860226
+   ],
+   "ndcg:ontology_previous": 0.8266707824508089,
+   "ndcg:ontology_unaudited": 0.8142493670028176,
    "no_relevant": 0,
-   "recall:hybrid": 0.8764550264550265,
+   "recall:hybrid": 0.8708994708994708,
    "recall:hybrid-keyword": [
     0.16517195767195766,
     0.05969576719576719,
     0.27933862433862433
    ],
-   "recall:keyword": 0.7112830687830687,
-   "recall:ontology": 0.7913227513227513,
+   "recall:keyword": 0.7057275132275133,
+   "recall:ontology": 0.7855555555555556,
    "recall:ontology-hybrid": [
-    -0.08513227513227513,
-    -0.17037037037037037,
-    -7.401486830834377e-18
+    -0.08534391534391535,
+    -0.18886243386243387,
+    0.017460317460317468
    ],
    "recall:ontology-keyword": [
-    0.08003968253968254,
-    -0.02349206349206349,
-    0.19194444444444442
-   ]
+    0.07982804232804233,
+    -0.032063492063492065,
+    0.20035714285714284
+   ],
+   "recall:ontology-ontology_previous": [
+    0.005343915343915342,
+    -0.03716931216931217,
+    0.048439153439153435
+   ],
+   "recall:ontology-ontology_unaudited": [
+    0.019312169312169315,
+    -0.01587301587301588,
+    0.07222222222222223
+   ],
+   "recall:ontology_previous": 0.7802116402116401,
+   "recall:ontology_unaudited": 0.7662433862433863
   },
   "problem": {
    "n": 29,
-   "ndcg:hybrid": 0.8490038910633046,
+   "n:ndcg:hybrid-keyword": 29,
+   "n:ndcg:ontology-hybrid": 29,
+   "n:ndcg:ontology-keyword": 29,
+   "n:ndcg:ontology-ontology_previous": 29,
+   "n:ndcg:ontology-ontology_unaudited": 29,
+   "n:recall:hybrid-keyword": 28,
+   "n:recall:ontology-hybrid": 28,
+   "n:recall:ontology-keyword": 28,
+   "n:recall:ontology-ontology_previous": 28,
+   "n:recall:ontology-ontology_unaudited": 28,
+   "ndcg:hybrid": 0.84769826693901,
    "ndcg:hybrid-keyword": [
-    0.17177280720192908,
-    0.10795806963054906,
-    0.24384638770594472
+    0.17119247699971776,
+    0.10761839673658581,
+    0.24356478201124065
    ],
-   "ndcg:keyword": 0.6772310838613755,
-   "ndcg:ontology": 0.8095885391270021,
+   "ndcg:keyword": 0.6765057899392922,
+   "ndcg:ontology": 0.827160662106222,
    "ndcg:ontology-hybrid": [
-    -0.039415351936302495,
-    -0.09378827429111233,
-    0.006763133690798503
+    -0.020537604832788003,
+    -0.05455627535398428,
+    0.009680401047607272
    ],
    "ndcg:ontology-keyword": [
-    0.1323574552656266,
-    0.05217412041219999,
-    0.2136249312529019
+    0.15065487216692974,
+    0.08115467165331149,
+    0.22772668174021196
    ],
+   "ndcg:ontology-ontology_previous": [
+    0.018943989084892945,
+    -0.014303606643173875,
+    0.06679472866700889
+   ],
+   "ndcg:ontology-ontology_unaudited": [
+    -0.007222320157209835,
+    -0.026955635724473414,
+    0.011549797981358375
+   ],
+   "ndcg:ontology_previous": 0.808216673021329,
+   "ndcg:ontology_unaudited": 0.8343829822634319,
    "no_relevant": 1,
-   "recall:hybrid": 0.8457777341705913,
+   "recall:hybrid": 0.8319515306122449,
    "recall:hybrid-keyword": [
-    0.2503216030001744,
-    0.14305664573521717,
-    0.36586865515436945
+    0.24129818594104308,
+    0.13988095238095238,
+    0.34832766439909296
    ],
-   "recall:keyword": 0.595456131170417,
-   "recall:ontology": 0.8008328972614687,
+   "recall:keyword": 0.5906533446712018,
+   "recall:ontology": 0.7914186507936508,
    "recall:ontology-hybrid": [
-    -0.04494483690912262,
-    -0.12385204081632653,
-    0.026663614163614163
+    -0.0405328798185941,
+    -0.09941893424036283,
+    0.009708049886621316
    ],
    "recall:ontology-keyword": [
-    0.2053767660910518,
-    0.08112244897959184,
-    0.3351190476190476
-   ]
+    0.20076530612244897,
+    0.08762755102040816,
+    0.3149234693877551
+   ],
+   "recall:ontology-ontology_previous": [
+    0.006590136054421767,
+    -0.0386904761904762,
+    0.055697278911564625
+   ],
+   "recall:ontology-ontology_unaudited": [
+    -0.016865079365079368,
+    -0.05753968253968254,
+    0.0183531746031746
+   ],
+   "recall:ontology_previous": 0.784828514739229,
+   "recall:ontology_unaudited": 0.8082837301587301
   },
   "signed": {
    "n": 10,
+   "n:ndcg:hybrid-keyword": 10,
+   "n:ndcg:ontology-hybrid": 10,
+   "n:ndcg:ontology-keyword": 10,
+   "n:ndcg:ontology-ontology_previous": 10,
+   "n:ndcg:ontology-ontology_unaudited": 10,
+   "n:recall:hybrid-keyword": 10,
+   "n:recall:ontology-hybrid": 10,
+   "n:recall:ontology-keyword": 10,
+   "n:recall:ontology-ontology_previous": 10,
+   "n:recall:ontology-ontology_unaudited": 10,
    "ndcg:hybrid": 0.7354004638689514,
    "ndcg:hybrid-keyword": [
     0.049657764304150705,
@@ -1692,17 +2411,29 @@
     0.15363802566937337
    ],
    "ndcg:keyword": 0.6857426995648007,
-   "ndcg:ontology": 0.7486130956037726,
+   "ndcg:ontology": 0.7655077037447066,
    "ndcg:ontology-hybrid": [
-    0.01321263173482128,
-    -0.01925840223738893,
-    0.045015871240512116
+    0.030107239875755164,
+    0.008032761606065886,
+    0.05493316868892674
    ],
    "ndcg:ontology-keyword": [
-    0.06287039603897197,
-    -0.04447501360080445,
-    0.16644352321288075
+    0.07976500417990587,
+    -0.02418337078357643,
+    0.17682356207790456
    ],
+   "ndcg:ontology-ontology_previous": [
+    0.016894608140933888,
+    0.002469073768611452,
+    0.03389672754152993
+   ],
+   "ndcg:ontology-ontology_unaudited": [
+    -0.00522060033905738,
+    -0.02019968560853107,
+    0.008629002549771692
+   ],
+   "ndcg:ontology_previous": 0.7486130956037726,
+   "ndcg:ontology_unaudited": 0.7707283040837639,
    "no_relevant": 0,
    "recall:hybrid": 0.6421184371184372,
    "recall:hybrid-keyword": [
@@ -1711,17 +2442,29 @@
     0.2447802197802198
    ],
    "recall:keyword": 0.5940842490842491,
-   "recall:ontology": 0.6941697191697191,
+   "recall:ontology": 0.6963919413919414,
    "recall:ontology-hybrid": [
-    0.05205128205128205,
-    -0.05500000000000001,
-    0.14615384615384616
+    0.05427350427350427,
+    -0.011111111111111117,
+    0.12927350427350426
    ],
    "recall:ontology-keyword": [
-    0.10008547008547011,
-    -0.08181318681318679,
-    0.29000000000000004
-   ]
+    0.10230769230769232,
+    -0.06769230769230768,
+    0.2815934065934066
+   ],
+   "recall:ontology-ontology_previous": [
+    0.0022222222222222144,
+    -0.06000000000000002,
+    0.06666666666666667
+   ],
+   "recall:ontology-ontology_unaudited": [
+    -0.06019230769230769,
+    -0.14307692307692305,
+    0.0
+   ],
+   "recall:ontology_previous": 0.6941697191697191,
+   "recall:ontology_unaudited": 0.7565842490842491
   }
  }
 }

@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.06345,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0618..GR-0626",
+ "job": "audit",
+ "key": "afbec6ee18cdd8bbcb07788ccdb43c203c2f9070412f29bb25df5832e7714892",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"[GR-0618]\",\n    \"verdict\": \"wrong\",\n    \"corrected_subject\": \"GC-0007\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0092\",\n    \"remove\": false,\n    \"problem\": \"The sentence mentions the presumption applies during examination, but does not state that it governs examination as a rule or scheme.\",\n    \"reason\": \"The phrase \\\"during examination\\\" establishes a temporal or contextual link best captured by 'related', rather than 'appliesTo', which requires the subject to strictly govern the object.\"\n  },\n  {\n    \"id\": \"[GR-0619]\",\n    \"verdict\": \"wrong\",\n    \"corrected_subject\": \"GC-0092\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0131\",\n    \"remove\": false,\n    \"problem\": \"Examination is a procedural step, not a provision, rule, or scheme.\",\n    \"reason\": \"The definition of 'appliesTo' strictly requires the subject to be a provision, rule, or scheme. Since 'examination' is a process that operates on an application, the broader 'related' must be used.\"\n  },\n  {\n    \"id\": \"[GR-0620]\",\n    \"verdict\": \"wrong\",\n    \"corrected_subject\": \"GC-0007\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0093\",\n    \"remove\": false,\n    \"problem\": \"The sentence states that the presumption directly leads to acceptance, which violates the 'without deciding it' constraint of 'qualifies'.\",\n    \"reason\": \"Because the text specifies that when the presumption applies \\\"the application must be accepted\\\", it describes a direct cause-and-effect relationship, perfectly fitting 'mayGiveRiseTo'.\"\n  },\n  {\n    \"id\": \"[GR-0621]\",\n    \"verdict\": \"wrong\",\n    \"corrected_subject\": \"GC-0093\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0098\",\n    \"remove\": false,\n    \"problem\": \"Acceptance does not qualify lapsing; rather, the explicit absence of acceptance causes lapsing.\",\n    \"reason\": \"The sentence states that an application lapses if it is \\\"not accepted\\\". This negative condition connects the two concepts but does not mean acceptance affects the test for lapsing, making 'related' appropriate.\"\n  },\n  {\n    \"id\": \"[GR-0622]\",\n    \"verdict\": \"wrong\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"problem\": \"The sentence discusses a 'notice of intention to oppose', which is distinctly not a 'notice of opposition'.\",\n    \"reason\": \"The sentence does not mention or imply 'notice of opposition', so it does not support a relationship involving this concept.\"\n  },\n  {\n    \"id\": \"[GR-0624]\",\n    \"verdict\": \"sound\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly refers to \\\"trade marks on the old register\\\", providing a clear connection between the two concepts.\"\n  },\n  {\n    \"id\": \"[GR-0625]\",\n    \"verdict\": \"sound\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly connects the two concepts by stating that the old register was \\\"kept under the repealed Act\\\".\"\n  },\n  {\n    \"id\": \"[GR-0626]\",\n    \"verdict\": \"wrong\",\n    \"corrected_subject\": \"GC-0158\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0143\",\n    \"remove\": false,\n    \"problem\": \"The notice deciding the outcome (if not filed) violates the 'without deciding it' constraint of 'qualifies'.\",\n    \"reason\": \"The sentence states that failing to file the notice means the IRDA \\\"will not be protected\\\", directly deciding the outcome. 'related' safely captures this dependency.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "ff1ad36d4aea4e01d01bdf60c73d429e0826e3c853f430566b38c3b7631c0731",
+ "response_id": "72LIatDfKdOImtkP4Yac4Qk",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7728,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 9287,
+  "output_tokens_details": {
+   "reasoning_tokens": 8248
+  }
+ }
+}

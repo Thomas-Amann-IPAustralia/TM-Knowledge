@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012379,
+ "created_utc": "2026-10-09T05:49:57Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0083",
+ "job": "answer",
+ "key": "9d3ca70cf267c74a4e27236a7b79b7187bdab66078caaa91f5ae4901204af58c",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0040\",\"GC-0153\",\"GC-0117\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMR1995/r17A.34B\",\"quote\":\"(1) The Registrar must assess the adequacy of a statement of grounds and particulars.\"},{\"ref\":\"TMM/Part47/1/1/2/3~1\",\"quote\":\"A statement of grounds and particulars will be adequate if all of the grounds of opposition nominated in the statement are adequately particularised.\"}],\"answer\":\"The supplied passages do not identify who must pay extra when a statement of grounds and particulars exceeds a free limit for grounds or trade marks. They also do not specify those limits or any additional fees, so I cannot confirm who is liable.\\n\\nThe Regulations address assessment of the statement’s adequacy (TMR1995/r17A.34B). The Manual’s practice addresses whether nominated grounds are adequately particularised (TMM/Part47/1/1/2/3~1), not excess-ground or excess-trade-mark fees.\\n\\nThe relevant fee provisions would be needed to answer this question.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "473822d6da91aff36b5af28190c3cb89b9cae3d97b29182e0c05adc6cbd10491",
+ "response_id": "resp_0ee4e5cadab3b5b4006ac88073dd9487d2b7afa0f1a44908d0",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8544,
+  "input_tokens_details": {
+   "cache_write_tokens": 8541,
+   "cached_tokens": 0
+  },
+  "output_tokens": 340,
+  "output_tokens_details": {
+   "reasoning_tokens": 89
+  },
+  "total_tokens": 8884
+ }
+}

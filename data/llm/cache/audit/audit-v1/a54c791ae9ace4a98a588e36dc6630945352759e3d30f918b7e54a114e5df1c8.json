@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.025857,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0559..GR-0566",
+ "job": "audit",
+ "key": "a54c791ae9ace4a98a588e36dc6630945352759e3d30f918b7e54a114e5df1c8",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0559\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that divisional applications act as an exception that changes (qualifies) how the date of registration is determined.\"\n  },\n  {\n    \"id\": \"GR-0560\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence connects the trade mark holder with the Protocol (Madrid Protocol) country they are applying through.\"\n  },\n  {\n    \"id\": \"GR-0561\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence connects the Madrid Protocol (Regulations) and the International Bureau in the title of a rule.\"\n  },\n  {\n    \"id\": \"GR-0562\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence links the Office of origin directly to the Protocol (Madrid Protocol) country.\"\n  },\n  {\n    \"id\": \"GR-0563\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence mentions the 'IRDA holder', firmly relating the holder to the international registration designating Australia.\"\n  },\n  {\n    \"id\": \"GR-0564\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"By explicitly naming it an 'international registration designating Australia', the sentence plainly implies that an IRDA is a kind of international registration.\"\n  },\n  {\n    \"id\": \"GR-0565\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence relates an IRDA to the Office of origin by explaining that the IRDA's filing date usually comes from the filing with that Office.\"\n  },\n  {\n    \"id\": \"GR-0566\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence directly names 'the holder of a protected international trade mark', linking the two concepts.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "0bfa0eeb0cd4ca4109d4d3b8d7ce6845a36ab41c2012bca3b2d9dbd211a1ada0",
+ "response_id": "9GLIarK5FOTzz7IPgr3Q8AE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7335,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 3087,
+  "output_tokens_details": {
+   "reasoning_tokens": 2323
+  }
+ }
+}

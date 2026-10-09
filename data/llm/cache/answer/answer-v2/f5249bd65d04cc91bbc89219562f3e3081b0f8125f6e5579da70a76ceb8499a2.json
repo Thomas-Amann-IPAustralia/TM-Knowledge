@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014622,
+ "created_utc": "2026-10-09T04:50:35Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0031",
+ "job": "answer",
+ "key": "f5249bd65d04cc91bbc89219562f3e3081b0f8125f6e5579da70a76ceb8499a2",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0040\",\"GC-0041\",\"GC-0097\",\"GC-0104\",\"GC-0131\",\"GC-0046\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part51/1#1~1\",\"quote\":\"Objective Connect is an electronic data management tool which allows evidence to be securely shared between parties in an opposition proceeding. Objective Connect may only be used for evidence in opposition proceedings.\"},{\"ref\":\"TMM/Part51/2/2/4\",\"quote\":\"The consequence of the extension being refused will depend on the stage and nature of the proceedings.\"},{\"ref\":\"TMM/Part51/2/2/4\",\"quote\":\"If the extension was for filing evidence in support, a date will be set for the other party to file its evidence in answer\"},{\"ref\":\"TMA1995/s98\",\"quote\":\"(e) the Registrar subsequently extends the period under the regulations within which the person is required or permitted to do the relevant thing; and (f) the person does the relevant thing within the extended period; the Registrar must restore the trade mark to the Register. Also, the trade mark is taken not to have been removed from the Register.\"},{\"ref\":\"TMM/Part48/4#1~1\",\"quote\":\"to file evidence in support then, providing evidence in support is filed within the extended period;\"}],\"answer\":\"**Earlier application papers:** The supplied passages do not establish whether the other side can obtain papers from the earlier application or examination stage. The Manual describes sharing opposition evidence securely through Objective Connect, and limits that tool to opposition evidence. That is Manual practice, not an answer about access to the earlier application file [TMM/Part51/1#1~1].\\n\\n**Late evidence:** The passages support an extension-of-time route, but do not set out a general power or test for admitting late evidence without an extension. Under Manual practice, the consequences of refusing an extension depend on the stage and type of opposition. For an opposition to registration or protection, refusal of an extension for evidence in support leads to a date being set for the other party’s evidence in answer [TMM/Part51/2/2/4].\\n\\n**Specific non-use situation:** Section 98(2) of the Act provides for restoration after removal where its conditions are met, including a subsequent extension and performance of the relevant thing within that extended period. The Manual identifies filing evidence in support within an extended period as one such situation [TMA1995/s98; TMM/Part48/4#1~1]. This is a limited statutory restoration mechanism, not a general rule that all late evidence must be considered.\\n\\nThe supplied passages therefore leave unresolved both the access procedure for earlier application papers and the full criteria for accepting or considering late evidence.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "9dca9d7ccaaa8eefddf5e0fa562922b485cdf969b3c15959b0fd37f497a33b53",
+ "response_id": "resp_05806f4512bacbda006ac8727f001c87d29fc070d3322c5036",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8630,
+  "input_tokens_details": {
+   "cache_write_tokens": 8627,
+   "cached_tokens": 0
+  },
+  "output_tokens": 767,
+  "output_tokens_details": {
+   "reasoning_tokens": 167
+  },
+  "total_tokens": 9397
+ }
+}

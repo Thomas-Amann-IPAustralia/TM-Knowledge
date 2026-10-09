@@ -54,8 +54,13 @@ def bootstrap(differences: list[float], resamples: int = RESAMPLES, seed: int = 
 
 
 def score(pools: list[dict[str, Any]], judgements: dict[str, dict[str, int]]) -> dict[str, Any]:
-    """Per-question metrics for every question that has both a pool and grades."""
+    """Per-question metrics for every question that has both a pool and grades.
+
+    A variant — another ranking scored on the same grades, such as the ontology system as
+    last measured — is scored only on the questions it ranked; its comparison with the
+    ontology system is paired over those questions alone."""
     rows = []
+    variants: list[str] = []
     for q in pools:
         grades = judgements.get(q["key"])
         if grades is None:
@@ -65,25 +70,56 @@ def score(pools: list[dict[str, Any]], judgements: dict[str, dict[str, int]]) ->
             ranking = q["systems"][system]
             row[f"ndcg:{system}"] = ndcg(ranking, grades)
             row[f"recall:{system}"] = recall(ranking, grades)
+        for name, ranking in (q.get("variants") or {}).items():
+            if name not in variants:
+                variants.append(name)
+            row[f"ndcg:{name}"] = ndcg(ranking, grades)
+            row[f"recall:{name}"] = recall(ranking, grades)
         rows.append(row)
-    return {"rows": rows}
+    return {"rows": rows, "variants": variants}
 
 
-def summarise(rows: list[dict[str, Any]]) -> dict[str, Any]:
+def summarise(rows: list[dict[str, Any]], variants: list[str] | tuple[str, ...] = ()) -> dict[str, Any]:
     kinds = ["all"] + sorted({r["kind"] for r in rows})
     out: dict[str, Any] = {}
     for kind in kinds:
         subset = rows if kind == "all" else [r for r in rows if r["kind"] == kind]
         entry: dict[str, Any] = {"n": len(subset), "no_relevant": sum(1 for r in subset if r["relevant"] == 0)}
         for metric in ("ndcg", "recall"):
-            for system in SYSTEMS:
-                values = [r[f"{metric}:{system}"] for r in subset if r[f"{metric}:{system}"] is not None]
+            for system in (*SYSTEMS, *variants):
+                values = [r[f"{metric}:{system}"] for r in subset if r.get(f"{metric}:{system}") is not None]
                 entry[f"{metric}:{system}"] = sum(values) / len(values) if values else None
-            for a, b in COMPARISONS:
+            for a, b in (*COMPARISONS, *(("ontology", v) for v in variants)):
                 pairs = [(r[f"{metric}:{a}"], r[f"{metric}:{b}"]) for r in subset
-                         if r[f"{metric}:{a}"] is not None and r[f"{metric}:{b}"] is not None]
+                         if r.get(f"{metric}:{a}") is not None and r.get(f"{metric}:{b}") is not None]
                 entry[f"{metric}:{a}-{b}"] = bootstrap([x - y for x, y in pairs])
+                entry[f"n:{metric}:{a}-{b}"] = len(pairs)
         out[kind] = entry
+    return out
+
+
+def by_evidence(pools: list[dict[str, Any]], required: dict[str, list[str]]) -> dict[str, Any]:
+    """The systems scored on the expert's own evidence lists, with no model judge.
+
+    A signed retrieval question names the passages an answer needs; scoring each system
+    against those alone (1 if listed, else 0) is a yardstick no model touched. It is
+    coarse — a passage the list leaves out counts as irrelevant — so it cross-checks the
+    judged result rather than replacing it."""
+    rows = []
+    for q in pools:
+        listed = [ref for ref in required.get(q["key"], ()) if ref]
+        if not listed:
+            continue
+        grades = {ref: 1 for ref in listed}
+        rankings = {**q["systems"], **(q.get("variants") or {})}
+        rows.append({name: (ndcg(r, grades), recall(r, {ref: 2 for ref in listed})) for name, r in rankings.items()})
+    names = list(dict.fromkeys([*SYSTEMS, *(rows[0] if rows else ())]))
+    out: dict[str, Any] = {"n": len(rows)}
+    for name in names:
+        out[f"ndcg:{name}"] = sum(r[name][0] for r in rows) / len(rows) if rows else None
+        out[f"recall:{name}"] = sum(r[name][1] for r in rows) / len(rows) if rows else None
+    for a, b in (("ontology", "hybrid"), ("ontology", "keyword")):
+        out[f"ndcg:{a}-{b}"] = bootstrap([r[a][0] - r[b][0] for r in rows])
     return out
 
 
@@ -106,12 +142,14 @@ def examples(rows: list[dict[str, Any]], questions: dict[str, str], n: int = 4) 
 
 
 def render(summary: dict[str, Any], *, judged: int, pooled: int, judge_model: str,
-           cases: dict[str, list[dict]] | None = None) -> str:
+           cases: dict[str, list[dict]] | None = None, variants: dict[str, str] | None = None,
+           measured: str | None = None, evidence: dict[str, Any] | None = None) -> str:
     kinds = list(summary)
     lines = [
         "# The value measurement — does the ontology make search better?",
         "",
-        f"{summary['all']['n']} questions, every pooled passage graded 0–3 by `{judge_model}` "
+        (f"Rankings taken on {measured}. " if measured else "")
+        + f"{summary['all']['n']} questions, every pooled passage graded 0–3 by `{judge_model}` "
         f"({judged} grades over {pooled} pools). Three systems, fixed before any passage was judged: "
         "**keyword** (BM25), **hybrid** (keyword + vectors — good search with no ontology) and "
         "**ontology** (hybrid + concept recognition, query expansion and concept-linked passages). "
@@ -139,6 +177,33 @@ def render(summary: dict[str, Any], *, judged: int, pooled: int, judge_model: st
     lines += ["", "Recall counts only questions with at least one relevant passage in the pool. "
                   "`signed` is the expert's ten retrieval questions, run as a cross-check — they "
                   "were not written for this benchmark and are not in it."]
+    if variants:
+        lines += ["", "## What changed — the ontology system against other rankings, on the same grades", "",
+                  "Each row scores another ranking of the same questions against the same grades, so the "
+                  "difference is the change in the system, not in the judge or the pool.", "",
+                  "| Ranking | n | nDCG@10 then | now | now − then | Recall@10 now − then |", "|---|---|---|---|---|---|"]
+        for name, note in variants.items():
+            e = summary["all"]
+            lines.append(f"| `{name}` — {note} | {e.get(f'n:ndcg:ontology-{name}', 0)} | {_cell(e.get(f'ndcg:{name}'))} | "
+                         f"{_cell(e['ndcg:ontology'])} | {_diff(e[f'ndcg:ontology-{name}'])} | "
+                         f"{_diff(e[f'recall:ontology-{name}'])} |")
+        for name in variants:
+            lines += ["", f"By kind of question, `{name}`:", "", "| Questions | n | then | now | now − then |",
+                      "|---|---|---|---|---|"]
+            for kind in kinds:
+                e = summary[kind]
+                lines.append(f"| {kind} | {e.get(f'n:ndcg:ontology-{name}', 0)} | {_cell(e.get(f'ndcg:{name}'))} | "
+                             f"{_cell(e['ndcg:ontology'])} | {_diff(e[f'ndcg:ontology-{name}'])} |")
+    if evidence and evidence.get("n"):
+        lines += ["", "## Cross-check with no model judge — the expert's own evidence lists", "",
+                  f"The {evidence['n']} signed retrieval questions, each system scored against only the passages "
+                  "the expert listed as required (listed = relevant, anything else = not). No model graded "
+                  "anything here; it is coarse, and ten questions are few.", "",
+                  "| System | nDCG@10 | Recall@10 |", "|---|---|---|"]
+        for name in [k.split(":", 1)[1] for k in evidence if k.startswith("ndcg:") and "-" not in k]:
+            lines.append(f"| {name} | {_cell(evidence[f'ndcg:{name}'])} | {_cell(evidence[f'recall:{name}'])} |")
+        lines += ["", f"ontology − hybrid {_diff(evidence['ndcg:ontology-hybrid'])}; ontology − keyword "
+                      f"{_diff(evidence['ndcg:ontology-keyword'])} (nDCG@10)."]
     if cases:
         for title, key in (("Where the ontology helped most", "helped"), ("Where it hurt most", "hurt")):
             lines += ["", f"## {title}", "", "| Question | Kind | hybrid | ontology |", "|---|---|---|---|"]

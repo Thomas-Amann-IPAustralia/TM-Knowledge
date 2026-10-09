@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.049279,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0203..GR-0210",
+ "job": "audit",
+ "key": "062950bd7267972830019c35d9e4222c4cea8530bab8360a3891514588e6f74f",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0203\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence does not mention 'so nearly resembling' (GC-0056); it is about overcoming a section 42(b) ground for rejection by obtaining written permission.\"\n  },\n  {\n    \"id\": \"GR-0204\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence states that using an emblem 'so nearly resembling' a defence emblem constitutes an offence, which plainly implies it gives rise to a use contrary to law.\"\n  },\n  {\n    \"id\": \"GR-0205\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence does not contain 'capable of distinguishing' as an independent concept, nor does it state that 'prima facie capable of distinguishing' is a kind of it.\"\n  },\n  {\n    \"id\": \"GR-0206\",\n    \"verdict\": \"vague\",\n    \"problem\": \"vague\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0041\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0058\",\n    \"reason\": \"The sentence states a stronger cause-and-effect relationship than 'related': it specifies that evidence of use can lead to the conclusion that a mark is capable of distinguishing.\"\n  },\n  {\n    \"id\": \"GR-0207\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence contains the concept 'no inherent adaptation to distinguish' but not 'inherent adaptation to distinguish' as a separate concept; this is a substring match error.\"\n  },\n  {\n    \"id\": \"GR-0208\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly states that determining whether a mark is inherently adapted to distinguish requires the consideration of its ordinary signification.\"\n  },\n  {\n    \"id\": \"GR-0209\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The passage outlines a two-part process for determining inherent adaptation to distinguish, the second part of which requires determining whether other traders might legitimately wish to use the mark.\"\n  },\n  {\n    \"id\": \"GR-0210\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence demonstrates that the ordinary signification of a mark serves as a factor that determines or qualifies whether it is prima facie capable of distinguishing.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "18ea3115549d1acf07f1c440d766720624aa4b696af0e13d8b784e13ed74bd15",
+ "response_id": "72LIasuZKMzxz7IP4a6p0Q8",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7831,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 6908,
+  "output_tokens_details": {
+   "reasoning_tokens": 6048
+  }
+ }
+}
