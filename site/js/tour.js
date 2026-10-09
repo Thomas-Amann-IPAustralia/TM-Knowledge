@@ -4,7 +4,7 @@
    says what to look at. Step order is the argument: text → wordings → connections
    → kinds → change → retrieval → limits. */
 
-import { esc, fmt, load, kindColour, refChip, trustBadge, isLaw, stampIcon, openPassage } from "./app.js";
+import { esc, fmt, load, kindColour, refChip, trustBadge, quoteBlock, stampIcon, openPassage } from "./app.js";
 import { svg, curve, arrowDefs, wrapText } from "./graph.js";
 import { drawKinds, W, H, specificCount } from "./kinds.js";
 
@@ -185,7 +185,6 @@ export async function render(root, { ontology, params }) {
 
   function stepWordings() {
     const s = tour.showcase[showcase];
-    const concept = byId.get(s.id);
     const labels = Object.keys(s.wordings);
     const formal = s.wordings[s.label] || [];
     const owner = new Map();
@@ -202,7 +201,7 @@ export async function render(root, { ontology, params }) {
       <p>A search for the formal term misses <b>${fmt(s.missed)}</b> of them. The ontology records the wordings once, on the idea — so every one of
       those passages is linked to it, whatever words it uses.</p>
       <div class="wordings">${labels.map((label, li) => `<button type="button" class="chip on" data-w="${esc(label)}"><i class="dot" style="--c:${WORDING_COLOURS[li % 5]}"></i>${esc(label)} · ${s.wordings[label].length}</button>`).join("")}</div>
-      <p class="tiny">The wordings are the record's own labels${concept?.origin === "signed" ? ", signed by a trade marks expert" : ""}. Try another idea:
+      <p class="tiny">The wordings are the record's own labels. Try another idea:
       ${tour.showcase.map((x, i) => `<button type="button" class="chip${i === showcase ? " on" : ""}" data-sc="${i}">${esc(x.label)}</button>`).join(" ")}</p>`;
     const says = (i) => {
       const li = owner.get(i);
@@ -239,7 +238,7 @@ export async function render(root, { ontology, params }) {
   // ------------------------------------------------------------- 3. connections
 
   function stepConnections() {
-    // The signed idea with the most connections an expert signed.
+    // The idea with the most reviewed connections: a centre whose links are the surest.
     const signedDegree = new Map();
     for (const r of ontology.relations) if (r.origin === "signed") for (const e of [r.s, r.o]) if (byId.has(e)) signedDegree.set(e, (signedDegree.get(e) || 0) + 1);
     const centreId = [...signedDegree.entries()].sort((a, b) => b[1] - a[1])[0][0];
@@ -251,8 +250,7 @@ export async function render(root, { ontology, params }) {
       <h2>Each idea bears on others</h2>
       <p><b>${fmt(c.relations.signed + c.relations.machine)}</b> connections say how one idea bears on another: one <i>may give rise to</i> another,
       <i>qualifies</i> it, <i>is overcome by</i> it. Here is <b>${esc(centre.label)}</b> and its nearest neighbours.</p>
-      <p>Every connection is pinned to the sentence it rests on. <b>Click a line</b> to read it.</p>
-      <div class="legend" style="margin:.8rem 0">${'<span><svg viewBox="0 0 26 10"><line x1="1" y1="5" x2="25" y2="5" class="ln-signed"/></svg>signed by an expert</span><span><svg viewBox="0 0 26 10"><line x1="1" y1="5" x2="25" y2="5" class="ln-machine"/></svg>written by a machine, unreviewed</span>'}</div>
+      <p>Every connection is pinned to the sentence it rests on, in the Manual or the legislation. <b>Click a line</b> to read it.</p>
       <div class="why-box"></div>`;
     const pic = svg("svg", { viewBox: "0 0 900 600", role: "img", "aria-label": `${centre.label} and its connections` });
     arrowDefs(pic);
@@ -267,7 +265,7 @@ export async function render(root, { ontology, params }) {
     rels.forEach((r, i) => {
       const a = r.s === centreId ? mid : at.get(r.s), b = r.o === centreId ? mid : at.get(r.o);
       const cv = curve(a, b, r.s === centreId ? 34 : 14, r.o === centreId ? 38 : 18, 0.08 * (i % 2 ? 1 : -1));
-      const path = svg("path", { d: cv.d, class: `edge ${r.origin}`, "stroke-width": r.origin === "signed" ? 2.4 : 1.6, "marker-end": "url(#arrow)", style: "cursor:pointer;stroke-opacity:.7" }, lines);
+      const path = svg("path", { d: cv.d, class: "edge", "stroke-width": 1.8, "marker-end": "url(#arrow)", style: "cursor:pointer;stroke-opacity:.7" }, lines);
       const hit = svg("path", { d: cv.d, stroke: "transparent", "stroke-width": 14, fill: "none", style: "cursor:pointer" }, lines);
       svg("text", { x: cv.mx, y: cv.my, class: "edge-label", "text-anchor": "middle" }, labels).textContent = ontology.predicates[r.p]?.label || r.p;
       const show = () => {
@@ -276,13 +274,13 @@ export async function render(root, { ontology, params }) {
         body.querySelector(".why-box").innerHTML = `<div class="card" style="padding:.8rem .9rem;margin-top:.6rem">
           <div class="meta">${trustBadge(r.origin)}</div>
           <p style="margin:.3rem 0"><b>${esc(byId.get(r.s).label)}</b> — ${esc(ontology.predicates[r.p]?.label || r.p)} → <b>${esc(byId.get(r.o).label)}</b></p>
-          ${r.quote ? `<blockquote class="quote ${isLaw(r.ref) ? "law" : "manual"}">${esc(r.quote)}</blockquote>` : ""}${r.ref ? refChip(r.ref) : ""}</div>`;
+          ${r.quote ? quoteBlock(r.ref, r.quote) : ""}${r.ref ? refChip(r.ref) : ""}</div>`;
       };
       path.addEventListener("click", show); hit.addEventListener("click", show);
       if (i === 0) setTimeout(show, 50);
     });
     const node = (concept, p, big) => {
-      const g = svg("g", { class: `node ${concept.origin}`, style: `--c:${kindColour(concept.kind)}`, transform: `translate(${p.x},${p.y})` }, pic);
+      const g = svg("g", { class: "node", style: `--c:${kindColour(concept.kind)}`, transform: `translate(${p.x},${p.y})` }, pic);
       svg("circle", { r: big ? 30 : 12, class: "body" }, g);
       wrapText(concept.label, big ? 18 : 16, 2).forEach((line, i) => svg("text", { x: 0, y: (big ? 48 : 28) + i * 13, "text-anchor": "middle", style: big ? "font-size:14px;font-weight:600" : "" }, g).textContent = line);
       g.addEventListener("click", () => { location.hash = `#/map/ideas/${concept.id}`; });
@@ -384,22 +382,23 @@ export async function render(root, { ontology, params }) {
       <p class="step-k">7 · The honest part</p>
       <h2>What it will never do, and what is not checked yet</h2>
       <p><b>It never decides an application.</b> It explains what the Manual and the legislation say, and declines when asked how a case will come out.</p>
-      <p><b>Practice and law stay apart.</b> Every passage is marked as the Manual (practice) or the Act and Regulations (law), including inside answers.</p>
-      <p><b>Most of it is unchecked.</b> ${c.concepts.signed} ideas and ${c.relations.signed} connections were signed by a trade marks expert;
-      ${c.concepts.machine} ideas and ${fmt(c.relations.machine)} connections were written by a machine from the Manual's text and nobody has reviewed them.
-      Each one says which it is, and none becomes "approved" by being left alone.</p>
+      <p><b>Practice and law stay apart.</b> Every passage is marked as the Manual (practice), the Act or the Regulations (law), including inside answers.</p>
+      <p><b>Most of it is unchecked.</b> ${c.concepts.machine} of ${fmt(c.concepts.signed + c.concepts.machine)} ideas and ${fmt(c.relations.machine)} of
+      ${fmt(c.relations.signed + c.relations.machine)} connections were written by a machine from the Manual's text, and nobody has reviewed them.
+      Each one says so where it is shown, and none becomes "approved" by being left alone.</p>
       <div class="stamp">${stampIcon}<span>That is where you come in: the most useful thing an examiner can do with this map is find what it has wrong.</span></div>
       <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem"><a class="btn primary" href="#/ask">Ask the Manual</a><a class="btn" href="#/map">Explore the map</a></div>`;
+    const row = (label, machine, total) => `<tr><td style="padding:.4rem 0;border-top:1px solid var(--line-2)">${label}</td><td class="num" style="text-align:right;border-top:1px solid var(--line-2)">${fmt(machine)}</td><td class="num" style="text-align:right;border-top:1px solid var(--line-2)">${fmt(total)}</td></tr>`;
     stage.innerHTML = `
-      <h3 style="margin-top:.2rem">Who wrote what</h3>
+      <h3 style="margin-top:.2rem">Written by a machine, not yet reviewed</h3>
       <table class="small" style="width:100%;border-collapse:collapse">
-        <tr><th style="text-align:left;padding:.4rem 0"></th><th class="num" style="text-align:right">Signed by an expert</th><th class="num" style="text-align:right">Machine-written, unreviewed</th></tr>
-        <tr><td style="padding:.4rem 0;border-top:1px solid var(--line-2)">Ideas</td><td class="num" style="text-align:right;border-top:1px solid var(--line-2)">${c.concepts.signed}</td><td class="num" style="text-align:right;border-top:1px solid var(--line-2)">${c.concepts.machine}</td></tr>
-        <tr><td style="padding:.4rem 0;border-top:1px solid var(--line-2)">Connections</td><td class="num" style="text-align:right;border-top:1px solid var(--line-2)">${c.relations.signed}</td><td class="num" style="text-align:right;border-top:1px solid var(--line-2)">${fmt(c.relations.machine)}</td></tr>
-        <tr><td style="padding:.4rem 0;border-top:1px solid var(--line-2)">Which kind each idea is</td><td class="num" style="text-align:right;border-top:1px solid var(--line-2)">0</td><td class="num" style="text-align:right;border-top:1px solid var(--line-2)">${c.concepts.signed + c.concepts.machine}</td></tr>
-        <tr><td style="padding:.4rem 0;border-top:1px solid var(--line-2)">Prepared answers</td><td class="num" style="text-align:right;border-top:1px solid var(--line-2)">0</td><td class="num" style="text-align:right;border-top:1px solid var(--line-2)">129</td></tr>
+        <tr><th style="text-align:left;padding:.4rem 0"></th><th class="num" style="text-align:right">Machine-written, unreviewed</th><th class="num" style="text-align:right">Of all</th></tr>
+        ${row("Ideas", c.concepts.machine, c.concepts.signed + c.concepts.machine)}
+        ${row("Connections", c.relations.machine, c.relations.signed + c.relations.machine)}
+        ${row("Which kind each idea is", c.concepts.signed + c.concepts.machine, c.concepts.signed + c.concepts.machine)}
+        ${row("Prepared answers", 129, 129)}
       </table>
-      <p class="caption">"Signed" means a named trade marks expert read the record and put their name and a date to it. The two are never added together.</p>`;
+      <p class="caption">The rest were reviewed by a trade marks expert. Each record says which it is.</p>`;
   }
 
   root.querySelectorAll("[data-step]").forEach((b) => b.addEventListener("click", () => go(Number(b.dataset.step))));

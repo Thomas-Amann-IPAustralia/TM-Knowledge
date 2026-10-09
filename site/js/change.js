@@ -118,7 +118,6 @@ export async function render(root, { ontology, params }) {
     const p = byRef.get(ref);
     const kinds = ontology.kinds.length;
     const relList = p.relations.map((id) => rels.get(id)).filter(Boolean);
-    const signedRels = relList.filter((r) => r.origin === "signed").length;
     ripple.innerHTML = `
       <p class="tiny" style="margin:0">${esc(stability.parts[p.part] || p.part)}</p>
       <h2 style="margin:.1rem 0 .3rem">${esc(p.title)}</h2>
@@ -130,8 +129,7 @@ export async function render(root, { ontology, params }) {
         <h4>What rests on this page, on the map</h4>
         ${relList.length || p.concepts.length ? `<div class="mini-legend">
           <span><i class="ring"></i>its evidence is quoted here</span>
-          <span><svg viewBox="0 0 26 12"><line x1="1" y1="6" x2="25" y2="6" stroke="var(--ink-2)" stroke-width="2.2"/></svg>a connection quoting this page, signed</span>
-          <span><svg viewBox="0 0 26 12"><line x1="1" y1="6" x2="25" y2="6" stroke="var(--ink-3)" stroke-width="1.4" stroke-dasharray="5 3"/></svg>machine-written</span>
+          <span><svg viewBox="0 0 26 12"><line x1="1" y1="6" x2="25" y2="6" stroke="var(--ink-3)" stroke-width="1.6"/></svg>a connection quoting this page</span>
         </div><div class="mini-holder"></div>`
         : `<p class="small muted">Nothing on the map quotes this page. A rewrite would only re-match the ${fmt(p.links)} place${p.links === 1 ? "" : "s"} an idea is named on it — automatically.</p>`}
       </div>
@@ -148,14 +146,14 @@ export async function render(root, { ontology, params }) {
       <div class="layer" data-layer="2">
         <span class="lnum num">${relList.length}</span>
         <div><b>Connections to re-check</b><span class="what">Each quotes a sentence on this page and stores a fingerprint of it, so a change is caught
-          automatically and the connection goes back for checking against the new words.${signedRels ? ` ${signedRels} of them were signed by an expert.` : ""}</span>
+          automatically and the connection goes back for checking against the new words.</span>
           ${relList.length ? `<details><summary>Show them</summary><ul class="rel-list">${relList.map((r) => `<li><span class="pred">${trustBadge(r.origin)}</span><span>${esc(byId.get(r.s)?.label || r.s)} — ${esc(ontology.predicates[r.p]?.label || r.p)} → ${esc(byId.get(r.o)?.label || r.o)} ${r.ref ? refChip(r.ref) : ""}</span></li>`).join("")}</ul></details>` : ""}</div>
       </div>
       <div class="layer" data-layer="3">
         <span class="lnum num">${p.concepts.length}</span>
         <div><b>Ideas whose evidence is here</b><span class="what">${p.concepts.length ? "They keep their identity, their wordings and their kind; only the quote they rest on is re-checked." : "No idea quotes this page as its evidence."}
           ${p.typings.length ? ` The quote behind ${p.typings.length} idea${p.typings.length > 1 ? "s'" : "'s"} kind is here too.` : ""}</span>
-          ${p.concepts.length ? `<div class="meta" style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.4rem">${p.concepts.map((id) => byId.get(id)).filter(Boolean).map((c) => `<a class="chip" href="#/map/ideas/${c.id}"><i class="dot${c.origin === "machine" ? " machine" : ""}" style="--c:${kindColour(c.kind)}"></i>${esc(c.label)}</a>`).join("")}</div>` : ""}</div>
+          ${p.concepts.length ? `<div class="meta" style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.4rem">${p.concepts.map((id) => byId.get(id)).filter(Boolean).map((c) => `<a class="chip" href="#/map/ideas/${c.id}"><i class="dot" style="--c:${kindColour(c.kind)}"></i>${esc(c.label)}</a>`).join("")}</div>` : ""}</div>
       </div>
       <div class="layer safe" data-layer="4">
         <span class="lnum num">0</span>

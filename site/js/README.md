@@ -1,7 +1,7 @@
 # site/js/ — the explorer's modules
 
 Plain ES modules, loaded by `../index.html` through `app.js`. One module per view
-(`home`, `tour`, `map`, `ask`, `change`, `about`), plus `engine.js` (search and the answer
+(`home`, `tour`, `map`, `circles`, `ask`, `change`, `about`), plus `engine.js` (search and the answer
 prompt — kept identical to Python by `tests/explorer_parity.mjs`), `live.js` (the
 streamed model call), `lib.js` (loads vendored libraries per view, ADR-0119), `kinds.js`
 (the tour's kinds diagram), `minimap.js` (a small Cytoscape map embedded in Ask and

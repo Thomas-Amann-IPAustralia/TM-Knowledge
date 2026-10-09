@@ -93,7 +93,8 @@ QUESTION_KINDS = {
     "problem": "Everyday problems, in plain words",
     "cross_part": "Questions that cross Parts of the Manual",
     "impact": "What a provision changes",
-    "signed": "The expert's own questions (signed)",
+    # Plain on purpose: the site does not single out the expert's review (ADR-0130).
+    "signed": "Questions a person reviewed",
 }
 
 

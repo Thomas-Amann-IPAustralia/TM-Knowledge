@@ -10,9 +10,12 @@
                into its passages, beside the provisions it rests on.
 
    Nothing here decides which concepts or connections exist; every node and edge
-   is a record. The roll-ups count records and say so. */
+   is a record. The roll-ups count records and say so. Every idea and connection
+   is drawn the same way whoever wrote it; who wrote a record is on its card
+   (ADR-0130). The text level keeps the Manual, the Act and the Regulations
+   apart: a box, a colour and a mark for each. */
 
-import { esc, fmt, el, load, kindColour, refChip, refLabel, trustBadge, kindChip, legend, isLaw, openPassage } from "./app.js";
+import { esc, fmt, el, load, kindColour, refChip, refLabel, trustBadge, kindChip, legend, isLaw, sourceOf, quoteBlock, SOURCES, openPassage } from "./app.js";
 import { KIND_POS, LOOSE, specificCount } from "./kinds.js";
 import * as lib from "./lib.js";
 
@@ -43,7 +46,7 @@ export async function render(root, { ontology, params }) {
     concept: params[1] && byId.has(params[1]) ? params[1] : null,
     text: null,
     parts: new Set(),
-    signedOnly: false, loose: false, allKindLinks: false,
+    loose: false, allKindLinks: false,
   };
 
   if (level0 === "text") state.text = state.concept || defaultConcept();
@@ -68,11 +71,10 @@ export async function render(root, { ontology, params }) {
       </div>
       <div class="rail-box filters">
         <h4>Show</h4>
-        <label><input type="checkbox" data-f="signedOnly"> Only what an expert signed</label>
         <label><input type="checkbox" data-f="loose"> Loose "is related to" links</label>
         <label><input type="checkbox" data-f="allKindLinks"> Weak links between closed kinds</label>
       </div>
-      <div class="rail-box">${legend()}</div>
+      <div class="rail-box"><h4>Where the words come from</h4>${legend()}</div>
     </div>
     <div class="canvas-wrap">
       <div class="cy" role="img" aria-label="The ontology map"></div>
@@ -100,7 +102,7 @@ export async function render(root, { ontology, params }) {
 
   function styles() {
     const ink = css("--ink"), ink2 = css("--ink-2"), ink3 = css("--ink-3"), bg = css("--bg"), panel = css("--panel"), line = css("--line");
-    const manual = css("--manual"), manualBg = css("--manual-bg"), law = css("--law"), lawBg = css("--law-bg");
+    const manual = css("--manual"), manualBg = css("--manual-bg"), act = css("--act"), actBg = css("--act-bg"), regs = css("--regs"), regsBg = css("--regs-bg");
     const serif = css("--serif"), sans = css("--sans");
     return [
       { selector: "node", style: { "font-family": sans, color: ink, "text-outline-width": 0, "overlay-opacity": 0 } },
@@ -124,12 +126,16 @@ export async function render(root, { ontology, params }) {
         label: "data(label)", "text-valign": "bottom", "text-margin-y": 4, "font-size": 13, "text-wrap": "wrap", "text-max-width": 140,
         "text-background-color": bg, "text-background-opacity": 0.75, "text-background-padding": 1.5, "text-background-shape": "round-rectangle",
         "min-zoomed-font-size": 7 } },
-      { selector: "node.concept.machine", style: { "background-color": panel, "border-style": "dashed" } },
       { selector: "node.focus", style: { width: 52, height: 52, "font-size": 22, "font-weight": 600, "font-family": serif } },
       { selector: "node.near", style: { "font-size": 17, "min-zoomed-font-size": 5 } },
+      // One box per text: the Manual (practice), the Act and the Regulations (law).
       { selector: "node.group", style: {
-        shape: "round-rectangle", "background-opacity": 0.04, "border-width": 1, "border-style": "dashed", "border-color": line,
-        label: "data(label)", "text-valign": "top", "text-halign": "center", "font-size": 12, "font-weight": 600, color: ink3, padding: 16 } },
+        shape: "round-rectangle", "background-opacity": 0.35, "border-width": 2, "border-style": "solid", "border-color": line,
+        label: "data(label)", "text-valign": "top", "text-halign": "center", "text-margin-y": -5, "font-size": 19, "font-weight": 650,
+        color: ink3, padding: 18, "text-wrap": "wrap", "text-max-width": 600, "line-height": 1.25 } },
+      { selector: "node.group.manual", style: { "background-color": manualBg, "border-color": manual, color: manual } },
+      { selector: "node.group.act", style: { "background-color": actBg, "border-color": act, color: act } },
+      { selector: "node.group.regs", style: { "background-color": regsBg, "border-color": regs, color: regs } },
       { selector: "node.part", style: {
         shape: "round-rectangle", width: "data(size)", height: 34, "background-color": manualBg, "border-color": manual, "border-width": 1.5,
         label: "data(label)", "text-valign": "center", "font-size": 14, color: manual } },
@@ -138,21 +144,22 @@ export async function render(root, { ontology, params }) {
         shape: "rectangle", width: 12, height: 12, "background-color": manualBg, "border-color": manual, "border-width": 1.2, label: "" } },
       { selector: "node.psg.evidence", style: { "background-color": manual } },
       { selector: "node.law", style: {
-        shape: "diamond", width: 22, height: 22, "background-color": lawBg, "border-color": law, "border-width": 1.5,
-        label: "data(label)", "text-valign": "center", "text-halign": "right", "text-margin-x": 6, "font-size": 15, color: law } },
+        width: 24, height: 24, "border-width": 2, label: "data(label)", "text-valign": "center", "text-halign": "right",
+        "text-margin-x": 7, "font-size": 15, "font-weight": 600 } },
+      { selector: "node.law.act", style: { shape: "diamond", "background-color": actBg, "border-color": act, color: act } },
+      { selector: "node.law.regs", style: { shape: "hexagon", width: 26, height: 22, "background-color": regsBg, "border-color": regs, color: regs } },
       { selector: "edge", style: {
         "curve-style": "bezier", width: 1.2, "line-color": ink3, "target-arrow-color": ink3, "target-arrow-shape": "triangle",
         "arrow-scale": 0.75, opacity: 0.55, "overlay-opacity": 0 } },
-      { selector: "edge.rel", style: { opacity: 0.3 } },
-      { selector: "edge.signed", style: { width: 2, "line-color": ink2, "target-arrow-color": ink2, opacity: 0.85 } },
-      { selector: "edge.machine", style: { "line-style": "dashed", "line-dash-pattern": [5, 3] } },
+      { selector: "edge.rel", style: { opacity: 0.35 } },
       { selector: "edge.loose", style: { opacity: 0.22, "target-arrow-shape": "none" } },
       { selector: "edge.meta", style: {
         width: "data(w)", "line-style": "solid", opacity: 0.5, "curve-style": "bezier", "control-point-step-size": 60,
         label: "data(label)", "font-size": 13, color: ink2, "text-background-color": bg, "text-background-opacity": 0.85,
         "text-background-padding": 2, "text-rotation": "autorotate", "min-zoomed-font-size": 6, "arrow-scale": 0.9 } },
       { selector: "edge.cites", style: { "line-color": manual, "target-arrow-shape": "none", opacity: 0.35, width: 1 } },
-      { selector: "edge.basis", style: { "line-color": law, "target-arrow-shape": "none", opacity: 0.5, width: 1.2 } },
+      { selector: "edge.basis.act", style: { "line-color": act, "target-arrow-shape": "none", opacity: 0.55, width: 1.4 } },
+      { selector: "edge.basis.regs", style: { "line-color": regs, "target-arrow-shape": "none", opacity: 0.55, width: 1.4 } },
       { selector: ".faded", style: { opacity: 0.1, "text-opacity": 0.15 } },
       { selector: "node.faded.family, node.faded.kind:parent", style: { opacity: 0.45, "text-opacity": 0.6 } },
       { selector: "edge.hl", style: { opacity: 1, width: 2.4, "line-color": ink, "target-arrow-color": ink, "z-index": 9 } },
@@ -166,7 +173,6 @@ export async function render(root, { ontology, params }) {
 
   const conceptSize = (x) => Math.min(34, 14 + 3.4 * Math.log2(1 + x.mentions));
   const kindSize = (k) => 74 + 14 * Math.sqrt(k.signed + k.machine);
-  const visibleConcept = (x) => !state.signedOnly || x.origin === "signed";
   const rep = (id) => {
     const x = byId.get(id);
     return state.expanded.has(x.kind) ? id : `kind:${x.kind}`;
@@ -183,7 +189,7 @@ export async function render(root, { ontology, params }) {
         ? { data: { id: `fam:${family}`, label }, classes: "family" }
         : { data: { id: `region:${family}`, label }, classes: "region" });
     }
-    const members = (kind) => ontology.concepts.filter((x) => x.kind === kind && visibleConcept(x));
+    const members = (kind) => ontology.concepts.filter((x) => x.kind === kind);
     for (const k of ontology.kinds) {
       const list = members(k.id);
       if (!list.length) continue;
@@ -197,27 +203,26 @@ export async function render(root, { ontology, params }) {
       if (open) {
         for (const x of list) {
           els.push({ data: { id: x.id, parent: `kind:${k.id}`, label: x.label, col: colour(x.kind), size: conceptSize(x), kind: x.kind },
-            classes: `concept ${x.origin}` });
+            classes: "concept" });
         }
       }
     }
     const meta = new Map();
     for (const r of ontology.relations) {
       const a = byId.get(r.s), b = byId.get(r.o);
-      if (!a || !b || !visibleConcept(a) || !visibleConcept(b)) continue;
-      if (state.signedOnly && r.origin !== "signed") continue;
+      if (!a || !b) continue;
       const ra = rep(r.s), rb = rep(r.o);
       if (ra === rb) continue;
       if (!ra.startsWith("kind:") && !rb.startsWith("kind:")) {
         if (LOOSE.has(r.p) && !state.loose) continue;
         els.push({ data: { id: r.id, source: r.s, target: r.o, pred: ontology.predicates[r.p]?.label || r.p, rel: r.id },
-          classes: `rel ${r.origin}${LOOSE.has(r.p) ? " loose" : ""}` });
+          classes: `rel${LOOSE.has(r.p) ? " loose" : ""}` });
         continue;
       }
       const key = `${ra}>${rb}`;
-      if (!meta.has(key)) meta.set(key, { s: ra, o: rb, total: 0, signed: 0, predicates: {}, ids: [] });
+      if (!meta.has(key)) meta.set(key, { s: ra, o: rb, total: 0, predicates: {}, ids: [] });
       const m = meta.get(key);
-      m.total++; if (r.origin === "signed") m.signed++;
+      m.total++;
       m.predicates[r.p] = (m.predicates[r.p] || 0) + 1;
       m.ids.push(r.id);
     }
@@ -231,7 +236,7 @@ export async function render(root, { ontology, params }) {
       els.push({
         data: { id: `meta:${key}`, source: m.s, target: m.o, w: (1 + 1.6 * Math.log2(1 + m.total)).toFixed(2),
           label: kindToKind && strong < 8 ? "" : `${name} · ${top[1]}`, pred: `${m.total} connections`, meta: m },
-        classes: `meta${m.signed ? " signed" : " machine"}`,
+        classes: "meta",
       });
     }
     return els;
@@ -239,15 +244,15 @@ export async function render(root, { ontology, params }) {
 
   function textElements(id) {
     const x = byId.get(id);
-    const els = [{ data: { id: x.id, label: x.label, col: css(`--k-${x.kind}`), size: 46 }, classes: `concept focus ${x.origin}` }];
+    const els = [{ data: { id: x.id, label: x.label, col: css(`--k-${x.kind}`), size: 46 }, classes: "concept focus" }];
     const rels = (relOf.get(id) || []).filter((r) => byId.has(r.s) && byId.has(r.o) && (state.loose || !LOOSE.has(r.p)));
     for (const r of rels) {
       const other = r.s === id ? r.o : r.s;
       const o = byId.get(other);
       if (!els.some((e) => e.data.id === other)) {
-        els.push({ data: { id: other, label: o.label, col: css(`--k-${o.kind}`), size: conceptSize(o) }, classes: `concept near ${o.origin}` });
+        els.push({ data: { id: other, label: o.label, col: css(`--k-${o.kind}`), size: conceptSize(o) }, classes: "concept near" });
       }
-      els.push({ data: { id: r.id, source: r.s, target: r.o, pred: ontology.predicates[r.p]?.label || r.p, rel: r.id }, classes: `rel ${r.origin}` });
+      els.push({ data: { id: r.id, source: r.s, target: r.o, pred: ontology.predicates[r.p]?.label || r.p, rel: r.id }, classes: "rel" });
     }
     const refs = [...new Set(search.mentions[id] || [])];
     const evidence = new Set([...x.evidence.map((e) => e.ref), ...x.sources]);
@@ -259,7 +264,7 @@ export async function render(root, { ontology, params }) {
       if (!byPart.has(part)) byPart.set(part, []);
       byPart.get(part).push(ref);
     }
-    els.push({ data: { id: "grp:manual", label: `Manual — practice · ${refs.length} passages` }, classes: "group" });
+    els.push({ data: { id: "grp:manual", label: `${SOURCES.manual.name} · practice\n${refs.length} passage${refs.length === 1 ? "" : "s"}` }, classes: "group manual" });
     for (const [part, list] of [...byPart.entries()].sort((a, b) => b[1].length - a[1].length)) {
       const pid = `part:${part}`;
       const quoted = list.filter((r) => evidence.has(r)).length;
@@ -271,11 +276,13 @@ export async function render(root, { ontology, params }) {
       }
     }
     const laws = [...new Set([...x.basis, ...(relOf.get(id) || []).flatMap((r) => [r.s, r.o]).filter(isLaw)])];
-    if (laws.length) {
-      els.push({ data: { id: "grp:law", label: `Act & Regulations — law · ${laws.length}` }, classes: "group" });
-      for (const ref of laws) {
-        els.push({ data: { id: `law:${ref}`, parent: "grp:law", ref, label: refLabel(ref) }, classes: "law" });
-        els.push({ data: { id: `e:law:${ref}`, source: id, target: `law:${ref}` }, classes: "basis" });
+    for (const src of ["act", "regs"]) {
+      const list = laws.filter((ref) => sourceOf(ref) === src);
+      if (!list.length) continue;
+      els.push({ data: { id: `grp:${src}`, label: `${SOURCES[src].name} · law\n${list.length} provision${list.length === 1 ? "" : "s"}` }, classes: `group ${src}` });
+      for (const ref of list) {
+        els.push({ data: { id: `law:${ref}`, parent: `grp:${src}`, ref, label: refLabel(ref) }, classes: `law ${src}` });
+        els.push({ data: { id: `e:law:${ref}`, source: id, target: `law:${ref}` }, classes: `basis ${src}` });
       }
     }
     return els;
@@ -293,8 +300,7 @@ export async function render(root, { ontology, params }) {
   const CELL_W = 140, CELL_H = 80, BOX_PAD = 30, BOX_TOP = 50, GAP = 80;
 
   function membersOf(kind) {
-    return ontology.concepts.filter((x) => x.kind === kind && visibleConcept(x))
-      .sort((a, b) => (a.origin === b.origin ? b.mentions - a.mentions : a.origin === "signed" ? -1 : 1));
+    return ontology.concepts.filter((x) => x.kind === kind).sort((a, b) => b.mentions - a.mentions);
   }
 
   function graphPositions() {
@@ -359,7 +365,16 @@ export async function render(root, { ontology, params }) {
       const p = pos.get(part.id()); pos.set(part.id(), { x: p.x, y: p.y - manualH / 2 });
     });
     cy.nodes(".psg").forEach((n) => { const p = pos.get(n.id()); pos.set(n.id(), { x: p.x, y: p.y - manualH / 2 }); });
-    cy.nodes(".law").forEach((n, i) => pos.set(n.id(), { x: -40, y: 170 + i * 52 }));
+    // The Act and the Regulations below everything else, each in a box of its own,
+    // its provisions in rows: the Act first, the Regulations to its right.
+    const below = Math.max(120, manualH / 2, ...neighbours.map((id) => pos.get(id).y)) + 150;
+    const PER_ROW = 5, STEP = 150;
+    let lawX = -150;
+    for (const src of ["act", "regs"]) {
+      const list = cy.nodes(`.law.${src}`);
+      list.forEach((n, i) => pos.set(n.id(), { x: lawX + (i % PER_ROW) * STEP, y: below + Math.floor(i / PER_ROW) * 52 }));
+      if (list.length) lawX += Math.min(PER_ROW, list.length) * STEP + 140;
+    }
     return pos;
   }
 
@@ -402,11 +417,11 @@ export async function render(root, { ontology, params }) {
       ts.textContent = "Each circle holds the ideas of one kind; arrows roll their connections up. Click a kind to open it.";
     } else if (lv === "ideas") {
       tb.textContent = state.expanded.size === ontology.kinds.length ? "Every idea and its connections" : `${state.expanded.size} kind${state.expanded.size > 1 ? "s" : ""} open, the rest in outline`;
-      ts.textContent = "Filled: signed by an expert. Dashed: written by a machine. Zoom in to read names; click an idea; double-click a box to close its kind.";
+      ts.textContent = "Colour is the kind of idea. Zoom in to read names; click an idea; double-click a box to close its kind.";
     } else {
       const x = byId.get(state.text);
       tb.textContent = `${x.label}: what it rests on`;
-      ts.textContent = "Its connections, the Parts of the Manual that name it (click one to open its passages), and the provisions it rests on.";
+      ts.textContent = "Its connections; the Parts of the Manual that name it (click one to open its passages); and the sections of the Act and the regulations it rests on, each in a box of its own.";
     }
     root.querySelectorAll(".toggles input").forEach((box) => { box.checked = state.expanded.has(box.dataset.kind); box.disabled = lv === "text"; });
   }
@@ -435,7 +450,7 @@ export async function render(root, { ontology, params }) {
     const first = x.evidence.find((e) => e.for === "concept") || x.evidence[0];
     const quote = first ? String(first.quote) : "";
     card.innerHTML = `<b>${esc(x.label)}</b><div class="meta">${kindChip(x.kind, ontology)}${trustBadge(x.origin)}</div>
-      ${quote ? `<p>“${esc(quote.length > 170 ? quote.slice(0, 168) + "…" : quote)}”</p>` : ""}
+      ${quote ? quoteBlock(first.ref, quote.length > 170 ? quote.slice(0, 168) + "…" : quote) : ""}
       <span class="tiny">${fmt(x.mentions)} passages · ${(relOf.get(x.id) || []).length} connections</span>`;
     const p = node.renderedPosition();
     const box = container.getBoundingClientRect();
@@ -491,8 +506,7 @@ export async function render(root, { ontology, params }) {
     const x = byId.get(id);
     if (level() === "text") {
       if (id !== state.text) { state.text = id; state.parts.clear(); draw(); }
-    } else if (!state.expanded.has(x.kind) || !visibleConcept(x)) {
-      if (!visibleConcept(x)) { state.signedOnly = false; root.querySelector('[data-f="signedOnly"]').checked = false; }
+    } else if (!state.expanded.has(x.kind)) {
       state.expanded.add(x.kind);
       draw();
     } else {
@@ -532,26 +546,26 @@ export async function render(root, { ontology, params }) {
         <p>Each open kind is a box of its ideas. Lines are connections between two ideas, each resting on a sentence in the Manual. Where an idea
         connects into a kind that is still closed, the connections are rolled up into one arrow with a count.</p>
         <p>Hover over an idea to see what it rests on; click it to follow its connections.</p>`) +
-      `<p class="muted small">${c.concepts.signed} ideas and ${c.relations.signed} connections were signed by a trade marks expert. The rest were written by a
-       machine from the Manual's text — usable, but nobody has checked them yet. Grounds and tests are the project owner's own kinds, and the rule that
-       a kind says what an idea is while an arrow says what it does is his; the other eight kinds were proposed by a machine.</p>
+      `<p class="muted small">Most ideas and connections were written by a machine from the Manual's text — usable, but not yet reviewed; each says
+       so where it is shown. Grounds and tests are the project owner's own kinds, as is the rule that a kind says what an idea is while an arrow says
+       what it does; the other eight kinds were proposed by a machine.</p>
       <h4>The ten kinds</h4><ul class="rel-list">${ontology.kinds.map((k) => `<li><span class="dot" style="--c:${kindColour(k.id)}"></span><span><b>${esc(k.label)}</b> <span class="muted small">— ${esc(k.plain)}</span></span></li>`).join("")}</ul>`;
   }
 
   function showKind(k) {
-    const members = ontology.concepts.filter((x) => x.kind === k.id).sort((a, b) => (a.origin === b.origin ? b.mentions - a.mentions : a.origin === "signed" ? -1 : 1));
+    const members = ontology.concepts.filter((x) => x.kind === k.id).sort((a, b) => b.mentions - a.mentions);
     const out = ontology.kind_links.filter((r) => r.s === k.id && r.o !== k.id).sort((a, b) => specificCount(b) - specificCount(a)).slice(0, 5);
     const inn = ontology.kind_links.filter((r) => r.o === k.id && r.s !== k.id).sort((a, b) => specificCount(b) - specificCount(a)).slice(0, 5);
     const open = state.expanded.has(k.id);
     side.innerHTML = `
       <h2>${esc(k.label)}</h2>
-      <div class="meta">${kindChip(k.id, ontology)}<span class="chip">${k.signed} signed · ${k.machine} machine-written</span></div>
+      <div class="meta">${kindChip(k.id, ontology)}<span class="chip">${k.signed + k.machine} ideas</span></div>
       <p>${esc(capital(k.plain))}.</p>
       <p><button class="btn ${open ? "" : "primary "}small" type="button" data-toggle>${open ? "Close this kind" : `Open its ${k.signed + k.machine} ideas`}</button></p>
       <h4>Strongest patterns out</h4>${kindRows(out, "o")}
       <h4>Strongest patterns in</h4>${kindRows(inn, "s")}
       <h4>Its ideas</h4>
-      <ul class="rel-list">${members.map((m) => `<li><span class="dot${m.origin === "machine" ? " machine" : ""}" style="--c:${kindColour(m.kind)}"></span><button class="link" type="button" data-c="${m.id}">${esc(m.label)}</button></li>`).join("")}</ul>`;
+      <ul class="rel-list">${members.map((m) => `<li><span class="dot" style="--c:${kindColour(m.kind)}"></span><button class="link" type="button" data-c="${m.id}">${esc(m.label)}</button></li>`).join("")}</ul>`;
     side.querySelector("[data-toggle]").addEventListener("click", () => {
       if (state.expanded.has(k.id)) state.expanded.delete(k.id); else state.expanded.add(k.id);
       draw(); showKind(k);
@@ -573,7 +587,7 @@ export async function render(root, { ontology, params }) {
     const examples = m.ids.map((id) => relById.get(id)).sort((a, b) => (a.origin === "signed" ? -1 : 1) - (b.origin === "signed" ? -1 : 1)).slice(0, 6);
     side.innerHTML = `
       <h2>${esc(name(m.s))} → ${esc(name(m.o))}</h2>
-      <p class="muted">${m.total} connection${m.total > 1 ? "s" : ""} rolled up into this arrow; ${m.signed} signed by an expert. Open a kind to see them one by one.</p>
+      <p class="muted">${m.total} connection${m.total > 1 ? "s" : ""} rolled up into this arrow. Open a kind to see them one by one.</p>
       <h4>What they say</h4>
       <ul class="rel-list">${Object.entries(m.predicates).sort((a, b) => b[1] - a[1]).map(([p, n]) => `<li><span class="pred num">${n}×</span><span>${esc(ontology.predicates[p]?.label || p)}</span></li>`).join("")}</ul>
       <h4>Examples, with the sentence each rests on</h4>
@@ -593,9 +607,9 @@ export async function render(root, { ontology, params }) {
     return `<div style="margin:.6rem 0 1rem">
       <div class="meta">${trustBadge(r.origin)}${r.modality ? `<span class="chip">${esc(r.modality)}</span>` : ""}</div>
       <div><b>${esc(name(r.s))}</b> <span class="muted">— ${esc(ontology.predicates[r.p]?.label || r.p)} →</span> <b>${esc(name(r.o))}</b></div>
-      ${r.quote ? `<blockquote class="quote ${isLaw(r.ref) ? "law" : "manual"}">${esc(r.quote)}</blockquote>` : ""}
+      ${r.quote ? quoteBlock(r.ref, r.quote) : ""}
       ${r.ref ? refChip(r.ref) : ""}
-      ${r.replaces ? `<p class="tiny">Re-reads the signed ${esc(r.replaces)}, which recorded this sentence the wrong way; the signed record is kept unchanged.</p>` : ""}
+      ${r.replaces ? `<p class="tiny">A corrected reading of ${esc(r.replaces)}, which is kept unchanged.</p>` : ""}
       ${r.machine?.reasoning ? `<details><summary>Why the machine wrote this${r.machine.confidence ? ` · ${selfRated(r.machine)}` : ""}</summary><p class="small muted">${esc(r.machine.reasoning)}</p></details>` : ""}
     </div>`;
   }
@@ -618,9 +632,12 @@ export async function render(root, { ontology, params }) {
       <div class="meta">${kindChip(x.kind, ontology)}${trustBadge(x.origin)}</div>
       ${x.alt.length ? `<p class="small"><span class="muted">Also called</span> ${x.alt.map(esc).join(" · ")}</p>` : ""}
       ${x.not.length ? `<p class="small"><span class="muted">Not the same as</span> ${x.not.map(esc).join(" · ")}</p>` : ""}
-      ${first ? `<h4>What it rests on</h4><blockquote class="quote ${isLaw(first.ref) ? "law" : "manual"}">${esc(first.quote)}</blockquote>${refChip(first.ref)}
+      ${first ? `<h4>What it rests on</h4>${quoteBlock(first.ref, first.quote)}${refChip(first.ref)}
         <span class="tiny">${first.for === "kind" ? "quoted when the machine sorted it into its kind" : "quoted by the record itself"}</span>` : ""}
-      ${x.basis.length ? `<h4>In the legislation</h4><div class="meta">${x.basis.map((r) => refChip(r)).join("")}</div>` : ""}
+      ${["act", "regs"].map((src) => {
+        const list = x.basis.filter((r) => sourceOf(r) === src);
+        return list.length ? `<h4>In the ${src === "act" ? "Act" : "Regulations"}</h4><div class="meta">${list.map((r) => refChip(r)).join("")}</div>` : "";
+      }).join("")}
       ${x.notes ? `<h4>Note on the record</h4><p class="small">${esc(x.notes)}</p>` : ""}
       ${level() !== "text" ? `<p style="margin-top:1rem"><button class="btn primary small" type="button" data-text>Open into the text it rests on →</button>
         <a class="btn small" href="#/ask">Ask about it</a></p>` : ""}
@@ -628,7 +645,7 @@ export async function render(root, { ontology, params }) {
       ${ordered.length ? ordered.map((grp) => `
         <ul class="rel-list">${grp.items.map(({ r, other }) => `<li>
           <span class="pred">${grp.outgoing ? "" : "← "}${esc(ontology.predicates[r.p]?.label || r.p)}${grp.outgoing ? " →" : ""}</span>
-          <span><span class="dot${r.origin === "machine" ? " machine" : ""}" style="--c:${kindColour(byId.get(other)?.kind)}"></span>
+          <span><span class="dot" style="--c:${kindColour(byId.get(other)?.kind)}"></span>
           ${byId.has(other) ? `<button class="link" type="button" data-c="${other}">${esc(byId.get(other).label)}</button>` : refChip(other)}
           <button class="link tiny" type="button" data-r="${r.id}" title="Show the sentence this connection rests on">why?</button></span></li>`).join("")}</ul>`).join("")
         : `<p class="empty small">No connections recorded.</p>`}
@@ -642,8 +659,8 @@ export async function render(root, { ontology, params }) {
 
   function provenance(x) {
     const rows = [];
-    if (x.signed) rows.push(`<p class="small">Signed by <b>${esc(x.signed.by)}</b>, a trade marks expert, on ${esc(x.signed.date)}.</p>`);
-    if (x.corrected) rows.push(`<p class="small"><b>Corrected since it was signed</b> (${x.corrected.map(esc).join(", ")}) — a machine-written, unreviewed change made on the project owner's instruction. The labels and provisions shown are the corrected ones; the signed record itself is kept unchanged.</p>`);
+    if (x.signed) rows.push(`<p class="small">Reviewed by a trade marks expert on ${esc(x.signed.date)}.</p>`);
+    if (x.corrected) rows.push(`<p class="small"><b>Corrected since it was reviewed</b> (${x.corrected.map(esc).join(", ")}) — a machine-written, unreviewed change made on the project owner's instruction. The labels and provisions shown are the corrected ones; the reviewed record itself is kept unchanged.</p>`);
     if (x.machine) {
       rows.push(`<p class="small">Written by <code>${esc(x.machine.by)}</code> on ${esc(x.machine.date)} · <b>${esc(x.machine.review_status)}</b>${x.machine.confidence ? ` · ${selfRated(x.machine)}` : ""}.</p>`);
       if (x.machine.reasoning) rows.push(`<p class="small muted">${esc(x.machine.reasoning)}</p>`);
@@ -685,7 +702,7 @@ export async function render(root, { ontology, params }) {
     else cy.animate({ fit: { padding: 40 }, duration: 400 });
   });
 
-  const fuse = new Fuse(ontology.concepts.map((x) => ({ id: x.id, label: x.label, alt: x.alt, kind: x.kind, origin: x.origin })),
+  const fuse = new Fuse(ontology.concepts.map((x) => ({ id: x.id, label: x.label, alt: x.alt, kind: x.kind })),
     { keys: [{ name: "label", weight: 2 }, "alt"], threshold: 0.38, ignoreLocation: true });
   const find = root.querySelector(".find");
   const results = root.querySelector(".find-results");
@@ -693,7 +710,7 @@ export async function render(root, { ontology, params }) {
     const q = find.value.trim();
     if (q.length < 2) { results.innerHTML = ""; return; }
     const hits = fuse.search(q, { limit: 10 }).map((h) => h.item);
-    results.innerHTML = hits.map((h) => `<button type="button" data-c="${h.id}"><span class="dot${h.origin === "machine" ? " machine" : ""}" style="--c:${kindColour(h.kind)}"></span>${esc(h.label)}</button>`).join("") || `<span class="tiny">No idea by that name.</span>`;
+    results.innerHTML = hits.map((h) => `<button type="button" data-c="${h.id}"><span class="dot" style="--c:${kindColour(h.kind)}"></span>${esc(h.label)}</button>`).join("") || `<span class="tiny">No idea by that name.</span>`;
     results.querySelectorAll("[data-c]").forEach((b) => b.addEventListener("click", () => selectConcept(b.dataset.c)));
   });
   find.addEventListener("keydown", (e) => { if (e.key === "Enter") results.querySelector("[data-c]")?.click(); });
