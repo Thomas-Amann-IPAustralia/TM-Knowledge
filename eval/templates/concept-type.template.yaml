@@ -15,30 +15,39 @@
 id: GT-000
 concept: GC-000                 # the concept this types
 
-# Five groups sort by the part a concept plays in reasoning towards a decision.
-# The first four are the owner's own, from OQ-0001; remedy followed on his
-# ruling B5 (ADR-0124):
+# A kind says what the concept IS. What it DOES is an edge, not a kind — the
+# owner's ruling B1 of 2026-10-09 (ADR-0126): a relevant factor `qualifies` the
+# test it bears on, an exception `doesNotGiveRiseTo` the ground it takes a case
+# out of, and a ground `isOvercomeBy` its remedy.
+#
+# The law's questions — the owner's own words, from OQ-0001:
 #
 # ground_of_refusal    — a reason an application can be refused
 # legal_test           — a question the decision maker has to answer
-# relevant_factor      — something that feeds into that answer
-# exception            — something that takes a case out of the rule
-# remedy               — a step, record or consent that overcomes a ground already
-#                        made out (split from exception on 2026-10-08, ADR-0124)
 #
-# Five sort by the part it plays in the process that reasoning sits inside.
-# They exist because 53 of 130 concepts fitted none of the four (ADR-0098):
+# What those questions are asked about:
+#
+# subject_matter       — the thing the process operates on — a sign, a trade
+#                        mark, a kind of registration
+# sign_content         — something a trade mark contains or conveys — a word,
+#                        name, image or sign within it, or a meaning
+# context              — something outside the trade mark that the assessment
+#                        looks at — the goods, the market and its consumers, a
+#                        person or place, a reputation, a date
+# use_in_trade         — something a person does with a trade mark in the course
+#                        of trade — using it, or authorising its use
+#
+# The process the questions sit inside (ADR-0098):
 #
 # process_role         — a person or body that acts
-# subject_matter       — the thing the process operates on
 # procedural_step      — an act, proceeding or event that moves an application
 #                        or a registration from one state to the next
-# instrument_or_record — a document, entry or endorsement the process produces,
-#                        or writes to the Register
+# instrument_or_record — a document, entry or endorsement the process produces
+#                        or receives, or writes to the Register
 # external_instrument  — a treaty or international scheme Australian practice
 #                        adopts, rather than a rule the Act itself makes
 #
-# none_of_these        — none of the ten fit this one. A real answer: it is
+# none_of_these        — none of the kinds fit this one. A real answer: it is
 #                        evidence about the taxonomy, not a gap in the data.
 type:
 

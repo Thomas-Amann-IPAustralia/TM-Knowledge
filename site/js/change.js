@@ -79,10 +79,10 @@ export async function render(root, { ontology, params }) {
   const tileWidth = (p) => Math.round(Math.min(30, 7 + 2.2 * Math.sqrt(p.passages)));
   const shade = (p) => {
     const v = mode === "amended" ? p.amended.length / maxAmend : (p.relations.length ? 0.18 + 0.82 * p.relations.length / maxRel : 0);
-    return `color-mix(in srgb, ${mode === "amended" ? "var(--warn)" : "var(--k-relevant_factor)"} ${Math.round(v * 100)}%, var(--line-2))`;
+    return `color-mix(in srgb, ${mode === "amended" ? "var(--warn)" : "var(--k-context)"} ${Math.round(v * 100)}%, var(--line-2))`;
   };
   function drawHeat() {
-    root.querySelector(".heat-key").innerHTML = `<span>fewer</span><i style="background:linear-gradient(90deg, var(--line-2), ${mode === "amended" ? "var(--warn)" : "var(--k-relevant_factor)"})"></i>
+    root.querySelector(".heat-key").innerHTML = `<span>fewer</span><i style="background:linear-gradient(90deg, var(--line-2), ${mode === "amended" ? "var(--warn)" : "var(--k-context)"})"></i>
       <span>more ${mode === "amended" ? "amendments recorded" : "connections quote it"}</span>`;
     holder.innerHTML = [...parts.entries()].map(([part, list]) => {
       const [, n, name] = partNo(part);

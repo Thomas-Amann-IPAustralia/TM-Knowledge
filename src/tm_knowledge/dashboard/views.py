@@ -69,8 +69,25 @@ __all__ = [
 #: towards a decision. Read off `stage0.typing` rather than restated, so the
 #: tree cannot drift from the taxonomy the workbook and the ontology use.
 REASONING_GROUPS: tuple[str, ...] = tuple(value for value, _ in typing_module.REASONING_GROUPS)
+EXAMINED_GROUPS: tuple[str, ...] = tuple(value for value, _ in typing_module.EXAMINED_GROUPS)
 PROCESS_GROUPS: tuple[str, ...] = tuple(value for value, _ in typing_module.PROCESS_GROUPS)
 GROUP_MEANING: dict[str, str] = dict(typing_module.GROUPS)
+
+#: What a concept does to a ground or test, read off the edge that says so (ruling
+#: B1, ADR-0126): predicate -> (function, whether the concept is the edge's subject).
+#: Until B1 these were groups a concept was filed in, and the tree hung a factor off
+#: the section that held it "because no record says which test a factor feeds".
+#: Now the edge says, so the tree places it there.
+FUNCTION_EDGES: dict[str, tuple[str, bool]] = {
+    "qualifies": ("relevant_factor", True),
+    "mayGiveRiseTo": ("relevant_factor", True),
+    "statesThresholdFor": ("relevant_factor", True),
+    "doesNotGiveRiseTo": ("exception", True),
+    "isOvercomeBy": ("remedy", False),
+}
+
+#: What the procedure spine holds: the process kinds and the subject matter they act on.
+PROCEDURE_GROUPS: tuple[str, ...] = (*PROCESS_GROUPS, "subject_matter")
 
 #: The groups that anchor a branch of the decision tree. A ground is the
 #: obvious one; a test is here because **three of the ten branches hold tests
@@ -684,10 +701,19 @@ def _gate(
     return node
 
 
+#: How a function reads in a node's basis.
+_FUNCTION_READS = {
+    "relevant_factor": "bears on",
+    "exception": "takes a case out of",
+    "remedy": "overcomes",
+}
+
+
 def _grounds_spine(
     views: Sequence[ConceptView],
     relationships: Sequence[dict[str, Any]],
     prohibited: Sequence[dict[str, Any]],
+    signed_relationships: Sequence[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """The grounds, as a binary tree of questions.
 
@@ -703,51 +729,90 @@ def _grounds_spine(
     and the chain is a walk through the questions rather than a claim that all of
     them must be answered yes. And it does not answer a single one of them — every
     path, at every gate, ends on the same leaf.
+
+    Since the owner's ruling B1 (ADR-0126) a factor, an exception or a remedy is
+    not a group a concept is filed in but what an edge says it does to a named
+    ground or test (`FUNCTION_EDGES`), so each one is read at the gate of the
+    section that ground or test sits at. `relationships` are both stores';
+    `signed_relationships` — the signed ones alone — still join grounds and tests
+    to each other, as before.
     """
-    reasoning = [view for view in views if view.group in REASONING_GROUPS]
-    by_id = {view.identifier: view for view in reasoning}
-    anchors = [view for view in reasoning if view.group in ANCHOR_GROUPS]
+    signed_relationships = relationships if signed_relationships is None else signed_relationships
+    anchors = [view for view in views if view.group in ANCHOR_GROUPS]
+    anchor_ids = {view.identifier for view in anchors}
+    by_view = {view.identifier: view for view in views}
     sections = {section for view in anchors for section in view.joinable_sections}
 
     assigned: dict[str, set[str]] = {}
     basis: dict[str, str] = {}
-    for view in reasoning:
+    for view in anchors:
         joined = view.joinable_sections & sections
         if joined:
             assigned[view.identifier] = set(joined)
             basis[view.identifier] = "its record cites the section"
 
-    adjacency = _adjacency(reasoning, relationships)
+    # Grounds and tests join a section through their own record, then through a
+    # signed relationship or a recorded link to one that does — as before B1.
+    adjacency = _adjacency(anchors, signed_relationships)
     frontier = sorted(assigned)
     while frontier:
         nxt: list[str] = []
         for identifier in frontier:
             for neighbour, how in sorted(adjacency[identifier].items()):
-                if neighbour in assigned or neighbour not in by_id:
+                if neighbour in assigned or neighbour not in anchor_ids:
                     continue
                 assigned[neighbour] = set(assigned[identifier])
                 basis[neighbour] = f"{how}, which does"
                 nxt.append(neighbour)
         frontier = sorted(nxt)
 
+    # Everything else joins through the edge that says what it does to a ground or
+    # test, at that ground's or test's sections (ruling B1).
+    roles: dict[tuple[str, str], set[str]] = {}
+    for record in relationships:
+        function = FUNCTION_EDGES.get(str(record.get("predicate")))
+        if function is None:
+            continue
+        name, holder_is_subject = function
+        subject, obj = str(record["subject"]), str(record["object"])
+        holder, anchor = (subject, obj) if holder_is_subject else (obj, subject)
+        if holder in anchor_ids or anchor not in anchor_ids or holder not in by_view:
+            continue
+        for section in assigned.get(anchor, ()):
+            assigned.setdefault(holder, set()).add(section)
+            roles.setdefault((holder, section), set()).add(name)
+            basis.setdefault(
+                holder, f"{record['id']} says it {_FUNCTION_READS[name]} {by_view[anchor].label}"
+            )
+    members = [by_view[cid] for cid in sorted({holder for holder, _ in roles})]
+    reasoning = [*anchors, *members]
+
     ordered = sorted(sections, key=_section_sort)
 
     def at(section: str, group: str) -> list[ConceptView]:
         return [
             view
-            for view in reasoning
+            for view in anchors
             if view.group == group and section in assigned.get(view.identifier, ())
         ]
 
+    def acting(section: str, function: str) -> list[ConceptView]:
+        return [view for view in members if function in roles.get((view.identifier, section), ())]
+
     def considerations(section: str, group: str) -> list[dict[str, Any]]:
-        return [
-            _consideration(
+        found = at(section, group) if group in ANCHOR_GROUPS else acting(section, group)
+        nodes = []
+        for view in found:
+            node = _consideration(
                 view,
                 basis=basis[view.identifier],
                 also=sorted(assigned[view.identifier] - {section}, key=_section_sort),
             )
-            for view in at(section, group)
-        ]
+            if group not in ANCHOR_GROUPS:
+                # Listed under what it does here; `kind` still says what it is (B1).
+                node["group"] = group
+            nodes.append(node)
+        return nodes
 
     def section_gate(position: int) -> dict[str, Any]:
         """The gate for one section, with the rest of the spine hanging off *no*."""
@@ -860,6 +925,12 @@ def _grounds_spine(
     }
 
     stranded = [view for view in reasoning if view.identifier not in assigned]
+    # What the law's questions are asked about, with no edge yet saying what it does
+    # to a ground or test that sits at a section (B1). Shown, off the walk.
+    idle = [
+        view for view in views
+        if view.group in EXAMINED_GROUPS and view.group != "subject_matter" and view.identifier not in assigned
+    ]
 
     def walk(node: dict[str, Any]) -> Iterable[dict[str, Any]]:
         yield node
@@ -871,10 +942,12 @@ def _grounds_spine(
         "id": "grounds",
         "label": "Grounds for rejection",
         "lede": (
-            "Every concept typed as a **ground**, a **test**, a **factor** or an "
-            "**exception**, arranged as the questions they are. Each section of the Act that "
-            "holds a ground or a test becomes one branch point: answer **no** and the walk "
-            "moves to the next section, answer **yes** and it opens the questions recorded "
+            "Every concept typed as a **ground** or a **test**, arranged as the questions they "
+            "are, and every concept an edge says **bears on**, **takes a case out of** or "
+            "**overcomes** one of them — a factor, an exception or a remedy is what a concept "
+            "does, said by an edge, not a kind it is filed in (ruling B1). Each section of the "
+            "Act that holds a ground or a test becomes one branch point: answer **no** and the "
+            "walk moves to the next section, answer **yes** and it opens the questions recorded "
             "there. The shape is computed from the records on every build — it is not a "
             "procedure anybody wrote down, and no expert has read it."
         ),
@@ -883,23 +956,29 @@ def _grounds_spine(
             "id": "unattached",
             "label": "Attached to no section, so on no path",
             "kind": "residue",
-            "count": len(stranded),
+            "count": len(stranded) + len(idle),
             "children": [
-                _consideration(view, basis="nothing joins it to a section that anchors a gate")
-                for view in stranded
+                *(
+                    _consideration(view, basis="nothing joins it to a section that anchors a gate")
+                    for view in stranded
+                ),
+                *(
+                    _consideration(view, basis="no edge says what it does to a ground or test at a section")
+                    for view in idle
+                ),
             ],
             "gap": (
-                "These records cite a provision, but no ground or test concept cites the same "
-                "one, and nothing joins them to a concept that does. They are shown here, off "
-                "the walk, rather than filed somewhere plausible."
+                "Grounds and tests that cite a provision no other ground or test cites, and "
+                "concepts no edge yet says act on a ground or test. They are shown here, off the "
+                "walk, rather than filed somewhere plausible."
             ),
-        } if stranded else None,
+        } if stranded or idle else None,
         "counts": {
-            "concepts": len(reasoning),
+            "concepts": len(reasoning) + len(idle),
             "placed": len(assigned),
             "by_citation": sum(1 for value in basis.values() if value.startswith("its record")),
             "by_link": sum(1 for value in basis.values() if not value.startswith("its record")),
-            "stranded": len(stranded),
+            "stranded": len(stranded) + len(idle),
             "sections": len(sections),
             #: Branch points actually drawn, not concepts that could be one. A test
             #: cited by two sections is asked on both paths, and a reader counting
@@ -964,7 +1043,7 @@ def _procedure_spine(views: Sequence[ConceptView], relationships: Sequence[dict[
     steps run one after another and what is recorded at each hangs off it. The
     grounds spine asks; this one sequences.
     """
-    process = [view for view in views if view.group in PROCESS_GROUPS]
+    process = [view for view in views if view.group in PROCEDURE_GROUPS]
     steps = [view for view in process if view.group == "procedural_step"]
     adjacency = _adjacency(views, relationships)
 
@@ -1061,7 +1140,11 @@ def decision_tree(gold: Any, authored: Any) -> dict[str, Any]:
     views = concept_views(gold, authored)
     relationships = list(gold["gold_relationship"])
     prohibited = list(gold["prohibited_use"])
-    grounds = _grounds_spine(views, relationships, prohibited)
+    # What a concept does is on an edge (B1), and most of those edges are machine
+    # written; the tree reads both stores for them and says on each node which
+    # record placed it. Grounds and tests still join each other on signed edges.
+    both = [*relationships, *authored["gold_relationship"]]
+    grounds = _grounds_spine(views, both, prohibited, signed_relationships=relationships)
     procedure = _procedure_spine(views, relationships)
     untyped = [view for view in views if view.group is None]
     outside = [view for view in views if view.group == "none_of_these"]
@@ -1082,12 +1165,14 @@ def decision_tree(gold: Any, authored: Any) -> dict[str, Any]:
             "The tests at a section are walked in the order the records list them. **That is "
             "an order, not a claim that they are cumulative** — nothing in the records says "
             "which must be answered before which, or that all of them must be answered yes.",
-            "A concept typed as a **factor** is not a branch point: it is read *at* one. "
-            "Factors hang off the section that holds them, because no record says which test "
-            "a factor feeds.",
-            "A concept joins a section when its own record cites it; failing that, when a "
-            "**signed relationship** or a recorded `broader` / `narrower` / `related` link "
-            "joins it to a concept that does.",
+            "A **factor**, an **exception** or a **remedy** is not a branch point and not a "
+            "kind: it is what an edge says a concept does — *qualifies*, *does not give rise "
+            "to*, *is overcome by* — to a named ground or test (ruling B1). It is read at the "
+            "gate of the section that ground or test sits at, and the node names the record "
+            "that put it there.",
+            "A ground or a test joins a section when its own record cites it; failing that, "
+            "when a **signed relationship** or a recorded `broader` / `narrower` / `related` "
+            "link joins it to one that does.",
             "A concept that joins nothing is shown beneath the tree, off the walk, and a "
             "section with no ground concept is marked. Both are gaps in the vocabulary.",
             "**Every path ends on the same leaf: the outcome, which this system does not "
@@ -1095,7 +1180,14 @@ def decision_tree(gold: Any, authored: Any) -> dict[str, Any]:
         ],
         "counts": {
             "concepts": len(views),
-            "reasoning": grounds["counts"]["concepts"],
+            # A partition by kind — what each concept is (B1). The grounds spine
+            # also shows process-kind concepts an edge says act on a ground, such
+            # as a remedy that is a record; they are counted here once, by kind.
+            "reasoning": sum(
+                1 for view in views
+                if view.group in REASONING_GROUPS
+                or (view.group in EXAMINED_GROUPS and view.group not in PROCEDURE_GROUPS)
+            ),
             "process": procedure["counts"]["concepts"],
             "outside": len(outside),
             "untyped": len(untyped),

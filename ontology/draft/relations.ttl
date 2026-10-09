@@ -22,7 +22,7 @@
 35 signed relationships in `eval/gold/relationships.yaml`, of which
 6 are used exactly once, and 14 admitted by the owner on
 2026-10-08 and used by no signed record yet. Machine-written relationships use
-26 of them, 330 times — counted apart, never added in.
+26 of them, 336 times — counted apart, never added in.
 
 Every definition, reading, example and counter-example here was written by an
 agent and is unreviewed (ADR-0121, ADR-0123). A record whose triple does not read
@@ -222,12 +222,12 @@ tmk:doesNotGiveRiseTo a owl:ObjectProperty ;
     tmk:counterExample "Not for something that can never be relevant; the subject may still contribute."@en-AU ;
     tmk:admittedBy "signed" ;
     tmk:usageCount 2 ;
-    tmk:authoredUsageCount 1 ;
+    tmk:authoredUsageCount 4 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0015" ;
     tmk:usedBy "GR-0042" ;
-    rdfs:comment "Signed usage: 2 relationships (GR-0015, GR-0042). Machine-written usage: 1, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 2 relationships (GR-0015, GR-0042). Machine-written usage: 4, unreviewed."@en-AU .
 
 tmk:escalatesTo a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -361,13 +361,13 @@ tmk:isOvercomeBy a owl:ObjectProperty ;
     tmk:counterExample "Never remedy → ground. GR-0032 was recorded that way round and is corrected by GK-0022."@en-AU ;
     tmk:admittedBy "signed" ;
     tmk:usageCount 3 ;
-    tmk:authoredUsageCount 8 ;
+    tmk:authoredUsageCount 10 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0032" ;
     tmk:usedBy "GR-0034" ;
     tmk:usedBy "GR-0039" ;
-    rdfs:comment "Signed usage: 3 relationships (GR-0032, GR-0034, GR-0039). Machine-written usage: 8, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 3 relationships (GR-0032, GR-0034, GR-0039). Machine-written usage: 10, unreviewed."@en-AU .
 
 tmk:isPartyTo a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -452,14 +452,14 @@ tmk:qualifies a owl:ObjectProperty ;
     tmk:counterExample "Not because a sentence uses the word 'qualifies' (GR-0520 'qualifies for registration' was that mistake)."@en-AU ;
     tmk:admittedBy "signed" ;
     tmk:usageCount 4 ;
-    tmk:authoredUsageCount 100 ;
+    tmk:authoredUsageCount 101 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0017" ;
     tmk:usedBy "GR-0023" ;
     tmk:usedBy "GR-0035" ;
     tmk:usedBy "GR-0040" ;
-    rdfs:comment "Signed usage: 4 relationships (GR-0017, GR-0023, GR-0035, GR-0040). Machine-written usage: 100, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 4 relationships (GR-0017, GR-0023, GR-0035, GR-0040). Machine-written usage: 101, unreviewed."@en-AU .
 
 tmk:requiresConsentOf a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;

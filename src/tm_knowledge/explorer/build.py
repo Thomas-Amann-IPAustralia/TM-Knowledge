@@ -79,8 +79,9 @@ SOURCES = {"TMM": "Manual (practice)", "TMA1995": "Trade Marks Act 1995",
 
 #: What each family of kinds is, in the words `stage0.typing` uses for them.
 FAMILIES = {
-    "reasoning": "How a decision is reasoned towards",
-    "process": "The process that reasoning sits inside",
+    "reasoning": "The questions the law asks",
+    "examined": "What those questions are asked about",
+    "process": "The process around them",
     "other": "Fits none of the ten",
 }
 
@@ -133,10 +134,12 @@ def _camel(name: str) -> str:
 
 def kinds() -> list[dict[str, Any]]:
     reasoning = {k for k, _ in typing_module.REASONING_GROUPS}
+    examined = {k for k, _ in typing_module.EXAMINED_GROUPS}
     process = {k for k, _ in typing_module.PROCESS_GROUPS}
     out = []
     for key, plain in typing_module.GROUPS:
-        family = "reasoning" if key in reasoning else "process" if key in process else "other"
+        family = ("reasoning" if key in reasoning else "examined" if key in examined
+                  else "process" if key in process else "other")
         out.append({"id": key, "label": views._group_label(key), "plain": plain, "family": family})
     return out
 

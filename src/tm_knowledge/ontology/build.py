@@ -846,11 +846,12 @@ def _build_concepts(graph: Graph, store: Store, counts: StoreReport) -> None:
 #: concept typed that way stays a bare `tmk:LegalConcept` and is counted as
 #: sorted rather than as waiting.
 #:
-#: The first four are the owner's groups (ADR-0071). The five process classes
-#: were added on 2026-09-09 (ADR-0098), and `remedy` was split from `exception`
-#: on 2026-10-08 (ADR-0124); all are subclasses of `tmk:LegalConcept` on the
-#: same footing, so a query that walks the concept hierarchy reaches all ten
-#: without knowing which axis a group belongs to.
+#: A kind says what a concept is (ruling B1, ADR-0126). `tmk:RelevantFactor`,
+#: `tmk:Exception` and `tmk:Remedy` are no longer asserted from a typing: they are
+#: what a concept does, defined in the TBox by the edge that says so
+#: (`qualifies`, `doesNotGiveRiseTo`, `isOvercomeBy`). Every kind here is a
+#: subclass of `tmk:LegalConcept` on the same footing, so a query that walks the
+#: concept hierarchy reaches all ten without knowing which family a kind is in.
 #:
 #: **`process_role` maps to `tmk:ProcessRole`, not to `tmk:Role`.** A
 #: `tmk:Role` in `examination.ttl` is a person or office that acts — an
@@ -862,11 +863,11 @@ def _build_concepts(graph: Graph, store: Store, counts: StoreReport) -> None:
 CONCEPT_CLASSES: dict[str, str] = {
     "ground_of_refusal": "GroundOfRefusal",
     "legal_test": "LegalTest",
-    "relevant_factor": "RelevantFactor",
-    "exception": "Exception",
-    "remedy": "Remedy",
-    "process_role": "ProcessRole",
     "subject_matter": "SubjectMatter",
+    "sign_content": "SignContent",
+    "context": "Context",
+    "use_in_trade": "UseInTrade",
+    "process_role": "ProcessRole",
     "procedural_step": "ProceduralStep",
     "instrument_or_record": "InstrumentOrRecord",
     "external_instrument": "ExternalInstrument",

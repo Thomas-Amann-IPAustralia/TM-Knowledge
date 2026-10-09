@@ -247,7 +247,7 @@ def _typings(*records) -> authored_store.AuthoredSet:
 
 
 def test_none_of_these_is_recorded_as_an_answer_and_asserts_no_class():
-    """`none_of_these` says the four groups do not fit this concept. That is
+    """`none_of_these` says none of the kinds fits this concept. That is
     evidence about the taxonomy, and the opposite of a concept nobody has
     sorted — so the typing node, its record and its group are written, and only
     the `rdf:type` is withheld (ADR-0093, Q-50).
@@ -258,19 +258,34 @@ def test_none_of_these_is_recorded_as_an_answer_and_asserts_no_class():
     """
     dataset, report = build(
         authored=_typings(
-            {"id": "GT-9001", "concept": "GC-0020", "type": "exception"},
+            {"id": "GT-9001", "concept": "GC-0020", "type": "sign_content"},
             {"id": "GT-9002", "concept": "GC-0044", "type": "none_of_these"},
         )
     )
     authored = dataset.graph(AUTHORED_GRAPH)
     groups = {str(value) for _, value in authored.subject_objects(TMK.conceptGroup)}
-    assert groups == {"exception", "none_of_these"}
+    assert groups == {"sign_content", "none_of_these"}
 
     typed = {str(s) for s, _ in authored.subject_objects(TMK.typedBy)}
     assert len(typed) == 2, "both concepts are linked to the typing that sorted them"
-    assert (None, RDF.type, TMK.Exception) in authored
+    assert (None, RDF.type, TMK.SignContent) in authored
     # There is no tmk:NoneOfThese and there must not be one: the concept stays a
     # bare tmk:LegalConcept and the graph says so by saying nothing.
     assert not list(authored.subjects(RDF.type, TMK.NoneOfThese))
 
     assert report.authored.concept_types == 2, "both count as sorted, not one"
+
+
+def test_what_a_concept_does_is_never_asserted_from_its_kind():
+    """Ruling B1 (ADR-0126): a kind says what a concept is; being a factor, an
+    exception or a remedy is what an edge says it does to a named ground or test.
+    The build asserts none of the three classes from a typing record — the TBox
+    defines each by its edge — and the graph holds no concept typed into one."""
+    from tm_knowledge.ontology.build import CONCEPT_CLASSES
+
+    assert not {"relevant_factor", "exception", "remedy"} & set(CONCEPT_CLASSES)
+    assert not {"RelevantFactor", "Exception", "Remedy"} & set(CONCEPT_CLASSES.values())
+    dataset, _ = build()
+    for name in ("RelevantFactor", "Exception", "Remedy"):
+        for graph in (dataset.graph(AUTHORED_GRAPH),):
+            assert not list(graph.subjects(RDF.type, TMK[name])), name

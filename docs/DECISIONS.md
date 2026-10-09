@@ -5513,3 +5513,63 @@ measured results the pitch claims (OQ-0029).
 **Consequences.** Harness and SHACL 0 defects. A machine-written hierarchy beside a
 near-miss now carries a reason a reviewer can disagree with, rather than passing silently
 or being refused when it is right.
+
+## ADR-0126 — a kind says what a concept is; what it does is an edge
+
+**Date** 2026-10-09 · **Authority** human · **Status** accepted · amends ADR-0098 and
+ADR-0124
+
+**Context.** The groups mixed what a concept *is* (a role, a step, a record) with what it
+*does* in reasoning (a factor, an exception, a remedy), and a concept could carry one, so
+duplicates of one idea landed in different groups and the presumption of registrability —
+the rule the grounds are exceptions to — was filed as an exception (review B1, B3). The
+owner proposed the fix himself: *"the ontology should describe what a thing 'is' (as a
+node) and what it 'does' as an edge"*. S026 agreed and explained it — *"factor, exception
+and remedy would become links, while grounds, tests, roles, steps, records and schemes stay
+as kinds. Remedy would move first"* — and the owner approved it on 2026-10-09 (CHAT-0058,
+ADR-0125). 50 concepts were filed by function (39 factors, 7 exceptions, 4 remedies); B4,
+approved the same day, adds the two signs filed as section 39's ground.
+
+**Decision (the owner's).** A concept's kind says what it is. Being a factor, an exception
+or a remedy is an edge to the ground or test it acts on.
+
+**Decision (the agent's, inside it).**
+
+1. **Ten kinds in three families** (`typing.GROUPS`, the schema enum). *The law's
+   questions*: `ground_of_refusal`, `legal_test` (the owner's words). *What they are asked
+   about*: `subject_matter`, and three new kinds for what the function groups held —
+   `sign_content` (something a mark contains or conveys, 23), `context` (something outside
+   the mark the assessment looks at, 15), `use_in_trade` (4). *The process*:
+   `process_role`, `procedural_step`, `instrument_or_record` (now "produces or receives",
+   for evidence and written permission), `external_instrument`. And `none_of_these`.
+2. **Functions are three predicates already in the dictionary** — a factor `qualifies`
+   (or `mayGiveRiseTo`, `statesThresholdFor`), an exception `doesNotGiveRiseTo`, a ground
+   `isOvercomeBy` its remedy (`typing.FUNCTIONS`). No predicate was added. In the TBox
+   `tmk:RelevantFactor`, `tmk:Exception` and `tmk:Remedy` stay, each an
+   `owl:equivalentClass` restriction on its predicate; the build never asserts one from a
+   typing.
+3. **52 typings re-judged** (S027), each saying what the concept is and naming the edges
+   that now carry what it does, the old group kept in `alternatives_considered`. Where a
+   function existed only as a group, the edge was written from the passage the old typing
+   quoted: GR-0697 to GR-0702 (two remedies, three exceptions, one factor).
+4. **The presumption of registrability is `none_of_these`**, beside GC-0051, on B3's own
+   fallback; a kind for rules about how a question is decided waits on B3.
+5. **B4 completed**: prohibited and prescribed signs are `sign_content` — the Act calls each
+   "a sign that ..." — and the ground they give rise to is GC-0182.
+6. **The decision tree** reads factors, exceptions and remedies off those edges, from both
+   stores, at the section their ground or test sits at, and names the record on each node.
+   Grounds and tests still join each other on signed edges.
+7. **The explorer** draws three families; the arrows between kinds are what they do.
+
+**What it does not decide.** B2 (siblings typed differently: divisional against convention
+application, date of registration against the priority and filing dates now in `context`),
+B3 (a kind for decision rules) and B6 (dictionary words in `none_of_these`) beyond the
+re-typing above — they stay postponed. Whether `connotation`, typed a test, is better read
+as sign content (it is a meaning) — not forced by B1, left for the examiners.
+
+**Consequences.** One concept can be a factor for one test and an exception for another,
+which a group could not say. Five of the 52 carry no edge yet saying what they do —
+geographical qualifier, evidence of use, authorised use, Convention country, wine
+geographical indication; the relate re-run looks for them. Counts by kind: process role 25, step 24, sign content 23,
+instrument or record 23, test 19, context 15, subject matter 15, ground 8, none of these 6,
+use in trade 4, external instrument 2.

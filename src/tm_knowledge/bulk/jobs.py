@@ -333,7 +333,7 @@ def _concept_line(ctx: Context, cid: str) -> str:
     if also:
         bits.append("also: " + "; ".join(also[:4]))
     if c.group:
-        bits.append("group: " + c.group)
+        bits.append("kind: " + c.group)
     return " — ".join(bits)
 
 
@@ -606,7 +606,7 @@ def _define_items(ctx: Context) -> list[Item]:
 
 def _define_render(ctx: Context, item: Item) -> str:
     p = item.payload
-    lines = [f'TERM: "{p["term"]}"', "", "GROUPS:"]
+    lines = [f'TERM: "{p["term"]}"', "", "KINDS (what an idea is; what it does is a relationship, not a kind):"]
     lines += [f"- {value}: {meaning}" for value, meaning in GROUPS]
     lines += ["", "EXISTING CONCEPTS (do not duplicate):",
               "; ".join(f"{c.id} {c.pref_label}" for c in ctx.links.concepts.values()), "",
@@ -635,7 +635,8 @@ in the passages. not_labels: near-misses a reader might confuse it with.
 best explain it — where a definition only points elsewhere ("has the meaning \
 given by"), prefer the provision it points to. legislative_basis: refs from \
 PROVISIONS that ground it.
-- group: the one GROUP that fits best; none_of_these is a real answer.
+- group: the one KIND that says what the idea is — not what it does to a ground or \
+test, which is a relationship; none_of_these is a real answer.
 - notes: one sentence on what the concept is, in your words, marked as a summary.
 - basis, confidence, reasoning, alternative, expert_should_check as usual."""
 
@@ -1167,7 +1168,7 @@ def registry(ctx: Context) -> dict[str, Job]:
                       _relate_schema(relate_predicates()),
                       12000, _relate_items, _relate_render, _relate_accept, _write_relationships,
                       "Relationships between concept pairs the Manual mentions together"),
-        "define": Job("define", "define-v2", "knowledge", _DEFINE_INSTRUCTIONS, _DEFINE_SCHEMA,
+        "define": Job("define", "define-v3", "knowledge", _DEFINE_INSTRUCTIONS, _DEFINE_SCHEMA,
                       8000, _define_items, _define_render, _define_accept, _write_concepts,
                       "New concepts (with their group) for defined terms no record covers"),
         "aliases": Job("aliases", "aliases-v2", "knowledge", _ALIASES_INSTRUCTIONS, _ALIASES_SCHEMA,

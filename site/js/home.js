@@ -1,14 +1,15 @@
 /* Home — what this is, in one screen, and ways in.
 
    The hero is the ontology as nested circles (D3 circle packing): the whole, its
-   two families, the ten kinds, the ideas. Click to zoom a level down; hover an
+   three families, the ten kinds, the ideas. Click to zoom a level down; hover an
    idea to see its connections reach across kinds. Sizes count passages that name
    each idea; nothing here is a judgement of the page's own. */
 
 import { esc, fmt, load, kindColour, trustBadge, kindChip, isLaw, refChip } from "./app.js";
 import * as lib from "./lib.js";
 
-const FAMILY_LABEL = { reasoning: "Reasoning towards a decision", process: "The process it sits inside", other: "None of the ten" };
+// Short, because the four family labels share the top of one picture.
+const FAMILY_LABEL = { reasoning: "The law's questions", examined: "What is examined", process: "The process", other: "None of the ten" };
 
 export async function render(root, { ontology }) {
   const [stability, d3] = await Promise.all([load("stability"), lib.d3()]);
@@ -43,7 +44,7 @@ export async function render(root, { ontology }) {
     </section>
 
     <section class="levels" aria-label="The map at four levels of detail">
-      ${rung("map/kinds", ontology.kinds.length - 1, "Kinds of idea", "Grounds, tests, factors, exceptions; roles, steps, records. They rest on no single passage.", 1)}
+      ${rung("map/kinds", ontology.kinds.length - 1, "Kinds of idea", "Grounds and tests; what a mark contains and its context; roles, steps, records. What an idea does is a connection.", 1)}
       ${rung("map/ideas", concepts, "Ideas", `${c.concepts.signed} signed by an expert, ${c.concepts.machine} written by a machine; each sorted into a kind.`, 2)}
       ${rung("map/ideas", relations, "Connections", "How one idea bears on another, each pinned to the sentence it rests on.", 3)}
       ${rung("change", passages, "Passages", `The Manual's words, the Act and Regulations kept apart. ${fmt(stability.events)} amendments since ${esc(firstYear)}.`, 4)}
@@ -83,7 +84,7 @@ function drawPack(root, ontology, d3) {
     for (const [a, b] of [[r.s, r.o], [r.o, r.s]]) { if (!neighbours.has(a)) neighbours.set(a, []); neighbours.get(a).push({ id: b, r }); }
   }
 
-  const families = ["reasoning", "process", "other"].map((family) => ({
+  const families = ["reasoning", "examined", "process", "other"].map((family) => ({
     name: FAMILY_LABEL[family], type: "family", family,
     children: ontology.kinds.filter((k) => k.family === family).map((k) => ({
       name: k.label, type: "kind", kind: k.id, plain: k.plain,
@@ -121,7 +122,7 @@ function drawPack(root, ontology, d3) {
   const label = svg.append("g").attr("pointer-events", "none").attr("text-anchor", "middle").selectAll("text")
     .data(nodes.descendants().slice(1)).join("text")
     .attr("class", (d) => `pack-label pack-label-${d.data.type}`)
-    .style("display", (d) => (d.parent === nodes ? "inline" : "none"))
+    .style("display", (d) => (d.parent === nodes && d.data.family !== "other" ? "inline" : "none"))
     .style("fill-opacity", (d) => (d.parent === nodes ? 1 : 0))
     .text((d) => d.data.name);
 
@@ -176,7 +177,7 @@ function drawPack(root, ontology, d3) {
     crumbs.querySelectorAll("[data-depth]").forEach((b) => b.addEventListener("click", () => zoom(path[Number(b.dataset.depth)])));
     const type = d.data.type;
     if (type === "root") {
-      note.innerHTML = `<b>The whole ontology.</b> Two families of kinds, ${ontology.kinds.length - 1} kinds, ${fmt(ontology.concepts.length)} ideas — each circle sized by how many passages name it.
+      note.innerHTML = `<b>The whole ontology.</b> Three families of kinds, ${ontology.kinds.length - 1} kinds, ${fmt(ontology.concepts.length)} ideas — each circle sized by how many passages name it.
         <span class="muted">Click a family to go down a level; hover an idea to see its connections cross the kinds.</span>`;
     } else if (type === "family") {
       note.innerHTML = `<b>${esc(d.data.name)}.</b> ${d.children.length} kinds of idea. These rest on no single passage: a rewording of the Manual leaves them as they are.

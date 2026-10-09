@@ -1444,3 +1444,26 @@ Recognition matched labels character for character, so "Registrar's decision" ne
 "Registrar’s decision" in the Manual. `links._regex` and `engine.js` now fold the two.
 Evidence quotes are still exact — `bulk.jobs.evidence` copies the snapshot's own
 characters — so a quote typed with a straight apostrophe will not land; copy it.
+
+### Q-80 — a blank node in the TBox makes the committed graph drift on every build
+
+The TBox is serialised into `graph/dataset.nq`, and rdflib gives a blank node a fresh
+id each time, so `tmk-graph --check` (and CI) reports drift straight after a
+`--write`. S027 hit it with `owl:equivalentClass [ a owl:Restriction ... ]`. Name every
+node in `ontology/draft/*.ttl` — the B1 restrictions are `tmk:QualifiesAConcept` and
+friends — and write no `[ ... ]` there.
+
+### Q-81 — folding labels inside SPARQL takes the SHACL gate past ten minutes
+
+A shape that `REPLACE`s and `LCASE`s every label of every concept, pairwise, ran for over
+600 seconds in rdflib. The build now states a folded key beside each label
+(`tmk:labelKey`, `tmk:prefLabelKey`, `tmk:notLabelKey`, from `ontology.hygiene.fold`) and
+the shapes join on it; the gate stays under a minute. A new label shape should do the same.
+
+### Q-82 — a not-label is "not the same concept", which a narrower concept never is
+
+It is tempting to read a not-label as "this is not a kind of me". It is not: GC-0017's
+signed note says every geographical indication is a geographical reference and still lists
+"geographical indication" as a not-label. So a not-label naming the other end of a "kind
+of" link is not a contradiction by itself — the D4 check refuses one only until
+`authored/kind-of-affirmed.yaml` says why both hold (ADR-0125).

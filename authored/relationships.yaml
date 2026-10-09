@@ -22280,3 +22280,237 @@
     - 'modality must — rejected: true of subsection (1) only.'
     expert_should_check: Whether subsection 39(1), inert while no regulations are made under
       section 18, should be shown at all beside the live subsection 39(2).
+- id: GR-0697
+  subject: GC-0168
+  predicate: isOvercomeBy
+  object: GC-0015
+  source_ref: TMM/Part29/9/9/5
+  supporting_text: An applicant will be able to overcome a geographical section 43 objection
+    by agreeing to a condition of registration or a specification amendment which removes
+    the likelihood of consumers being deceived or confused.
+  span:
+  - 0
+  - 215
+  source_content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
+  tier: 3
+  modality: may
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/9/9/5
+      span:
+      - 0
+      - 215
+      content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
+      quote: An applicant will be able to overcome a geographical section 43 objection by
+        agreeing to a condition of registration or a specification amendment which removes
+        the likelihood of consumers being deceived or confused.
+    confidence: 0.9
+    reasoning: 'The Manual says a geographical section 43 objection can be overcome by a specification
+      amendment that removes the likelihood of deception. Written on the owner''s ruling B1
+      (ADR-0126): what a concept does is an edge naming the ground or test it acts on.'
+    alternatives_considered:
+    - Typed remedy as a group (GT-0015, ruling B5) — under B1 the remedy is this edge, naming
+      the ground it overcomes.
+    expert_should_check: Whether the same holds for section 43 grounds other than geographical
+      ones.
+- id: GR-0698
+  subject: GC-0168
+  predicate: isOvercomeBy
+  object: GC-0014
+  source_ref: TMM/Part29/9/9/2
+  supporting_text: The risk of deception can be mitigated by a suitably specific endorsement
+    or an amendment or limitation to the specification of goods or services.
+  span:
+  - 440
+  - 586
+  source_content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
+  tier: 3
+  modality: may
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/9/9/2
+      span:
+      - 440
+      - 586
+      content_hash: sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963
+      quote: The risk of deception can be mitigated by a suitably specific endorsement or
+        an amendment or limitation to the specification of goods or services.
+    confidence: 0.7
+    reasoning: 'In section 43''s geographical Part the Manual says the risk of deception can
+      be mitigated by a suitably specific endorsement — the endorsement answers the ground.
+      Written on the owner''s ruling B1 (ADR-0126): what a concept does is an edge naming
+      the ground or test it acts on.'
+    alternatives_considered:
+    - qualifies GC-0002 — the endorsement lowers the likelihood of deception rather than answering
+      a ground already raised.
+    expert_should_check: Whether 'mitigated' means the ground is overcome, or only that the
+      risk is reduced before any ground is raised.
+- id: GR-0699
+  subject: GC-0020
+  predicate: doesNotGiveRiseTo
+  object: GC-0168
+  source_ref: TMM/Part29/9/9/6
+  supporting_text: Where business identifiers are included in a trade mark (e.g. A TASMANIAN
+    COMPANY, RIVERINA DAIRY CO.) this tends to indicate a characteristic of a business rather
+    than the goods or services themselves. A ground for rejection will rarely apply in these
+    cases.
+  span:
+  - 0
+  - 259
+  source_content_hash: sha256:44fd3704d94a457eeabdbb9439274b8d5f9a6922fc6fad03bca95b4a772b5184
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/9/9/6
+      span:
+      - 0
+      - 259
+      content_hash: sha256:44fd3704d94a457eeabdbb9439274b8d5f9a6922fc6fad03bca95b4a772b5184
+      quote: Where business identifiers are included in a trade mark (e.g. A TASMANIAN COMPANY,
+        RIVERINA DAIRY CO.) this tends to indicate a characteristic of a business rather than
+        the goods or services themselves. A ground for rejection will rarely apply in these
+        cases.
+    confidence: 0.85
+    reasoning: 'A place name inside a business identifier is read as describing the business,
+      and in section 43''s geographical Part the Manual says a ground will rarely apply. Written
+      on the owner''s ruling B1 (ADR-0126): what a concept does is an edge naming the ground
+      or test it acts on.'
+    alternatives_considered:
+    - Typed exception as a group (GT-0020) — under B1 the exception is this edge.
+    expert_should_check: Whether 'rarely' is strong enough for 'does not by itself give rise
+      to'.
+- id: GR-0700
+  subject: GC-0027
+  predicate: doesNotGiveRiseTo
+  object: GC-0168
+  source_ref: TMM/Part29/6/6/2~1
+  supporting_text: Generally, a section 43 ground for rejection will not arise in respect
+    of long deceased historical figures, even if they were well known for the same field as
+    the specified goods/services are in.
+  span:
+  - 0
+  - 195
+  source_content_hash: sha256:8e7a69fc516a2b4b11213363298946680a0c24f0d1bcddc9f0d803c24c151e53
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/6/6/2~1
+      span:
+      - 0
+      - 195
+      content_hash: sha256:8e7a69fc516a2b4b11213363298946680a0c24f0d1bcddc9f0d803c24c151e53
+      quote: Generally, a section 43 ground for rejection will not arise in respect of long
+        deceased historical figures, even if they were well known for the same field as the
+        specified goods/services are in.
+    confidence: 0.9
+    reasoning: 'The Manual says a section 43 ground will generally not arise for a long deceased
+      historical figure, even one well known in the field. Written on the owner''s ruling
+      B1 (ADR-0126): what a concept does is an edge naming the ground or test it acts on.'
+    alternatives_considered:
+    - Typed exception as a group (GT-0027) — under B1 the exception is this edge.
+    expert_should_check: Whether 'long deceased' has a working threshold in practice.
+- id: GR-0701
+  subject: GC-0048
+  predicate: doesNotGiveRiseTo
+  object: GC-0002
+  source_ref: TMM/Part29/9#1
+  supporting_text: Deception or confusion is not likely to occur if the geographic reference
+    is ambiguous or fanciful (FORGED IN THE OUTBACK on Vehicles, ANTARCTIC BERRIES for Frozen
+    strawberries) or when a word will not be seen as a geographical reference in the eyes
+    of an average consumer (MOCHA for confectionery).
+  span:
+  - 1565
+  - 1864
+  source_content_hash: sha256:17c928f3bdc152f1ba5a886c36379eb9e74ab1b2afcb0cef15aa9cc5ee4cf3d6
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/9#1
+      span:
+      - 1565
+      - 1864
+      content_hash: sha256:17c928f3bdc152f1ba5a886c36379eb9e74ab1b2afcb0cef15aa9cc5ee4cf3d6
+      quote: Deception or confusion is not likely to occur if the geographic reference is
+        ambiguous or fanciful (FORGED IN THE OUTBACK on Vehicles, ANTARCTIC BERRIES for Frozen
+        strawberries) or when a word will not be seen as a geographical reference in the eyes
+        of an average consumer (MOCHA for confectionery).
+    confidence: 0.85
+    reasoning: 'The Manual says deception or confusion is not likely where the geographical
+      reference is ambiguous or fanciful — the test is not met. Written on the owner''s ruling
+      B1 (ADR-0126): what a concept does is an edge naming the ground or test it acts on.'
+    alternatives_considered:
+    - doesNotGiveRiseTo GC-0168 — the sentence speaks of the test (deception or confusion),
+      not the ground.
+    expert_should_check: Whether a fanciful reference never meets the test or only usually
+      does not.
+- id: GR-0702
+  subject: GC-0035
+  predicate: qualifies
+  object: GC-0168
+  source_ref: TMM/Part29/7#1
+  supporting_text: The section 43 ground for rejection will be reconsidered if an applicant
+    provides information confirming that they are the owner or authorised user of the phoneword.
+  span:
+  - 995
+  - 1160
+  source_content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part29/7#1
+      span:
+      - 995
+      - 1160
+      content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
+      quote: The section 43 ground for rejection will be reconsidered if an applicant provides
+        information confirming that they are the owner or authorised user of the phoneword.
+    confidence: 0.8
+    reasoning: 'Whether the applicant is the owner or authorised user of the phoneword decides
+      whether the section 43 ground stands; the Manual says it is reconsidered on confirmation.
+      Written on the owner''s ruling B1 (ADR-0126): what a concept does is an edge naming
+      the ground or test it acts on.'
+    alternatives_considered:
+    - 'isOvercomeBy from GC-0168 — rejected: the confirmation, not the person, answers the
+      ground, and the vocabulary has no concept for the confirmation.'
+    expert_should_check: Whether the same holds for domain names and radio call signs, which
+      the Manual treats on the same footing.

@@ -12939,13 +12939,144 @@ tmka:GR-0696 a tmk:AuthoredAssertion ;
     tmk:supportingText "An application for the registration of a trade mark must be rejected if the trade mark contains or consists of a sign that, under regulations made for the purposes of section 18, is not to be used as a trade mark." ;
     tmk:tier 3 .
 
-tmkc:GC-0020 a tmk:Exception ;
-    tmk:typedBy tmka:GT-0020 .
+tmka:GR-0697 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0015 ;
+    tmk:assertionPredicate tmk:isOvercomeBy ;
+    tmk:assertionSubject tmkc:GC-0168 ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual says a geographical section 43 objection can be overcome by a specification amendment that removes the likelihood of deception. Written on the owner's ruling B1 (ADR-0126): what a concept does is an edge naming the ground or test it acts on."@en-AU ;
+    tmk:confidence 9e-01 ;
+    tmk:expertShouldCheck "Whether the same holds for section 43 grounds other than geographical ones."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0697" ;
+    tmk:isStale false ;
+    tmk:modality "may" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> ;
+    tmk:spanEnd 215 ;
+    tmk:spanStart 0 ;
+    tmk:supportingText "An applicant will be able to overcome a geographical section 43 objection by agreeing to a condition of registration or a specification amendment which removes the likelihood of consumers being deceived or confused." ;
+    tmk:tier 3 .
 
-tmkc:GC-0021 a tmk:RelevantFactor ;
+tmka:GR-0698 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0014 ;
+    tmk:assertionPredicate tmk:isOvercomeBy ;
+    tmk:assertionSubject tmkc:GC-0168 ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "In section 43's geographical Part the Manual says the risk of deception can be mitigated by a suitably specific endorsement — the endorsement answers the ground. Written on the owner's ruling B1 (ADR-0126): what a concept does is an edge naming the ground or test it acts on."@en-AU ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether 'mitigated' means the ground is overcome, or only that the risk is reduced before any ground is raised."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0698" ;
+    tmk:isStale false ;
+    tmk:modality "may" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:42e5d40cd5c1e64f072a3e0b6067cea9bb6c66e066c978ecc7d7eeb47255c963" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> ;
+    tmk:spanEnd 586 ;
+    tmk:spanStart 440 ;
+    tmk:supportingText "The risk of deception can be mitigated by a suitably specific endorsement or an amendment or limitation to the specification of goods or services." ;
+    tmk:tier 3 .
+
+tmka:GR-0699 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0168 ;
+    tmk:assertionPredicate tmk:doesNotGiveRiseTo ;
+    tmk:assertionSubject tmkc:GC-0020 ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "A place name inside a business identifier is read as describing the business, and in section 43's geographical Part the Manual says a ground will rarely apply. Written on the owner's ruling B1 (ADR-0126): what a concept does is an edge naming the ground or test it acts on."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Whether 'rarely' is strong enough for 'does not by itself give rise to'."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0699" ;
+    tmk:isStale false ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:44fd3704d94a457eeabdbb9439274b8d5f9a6922fc6fad03bca95b4a772b5184" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/6> ;
+    tmk:spanEnd 259 ;
+    tmk:spanStart 0 ;
+    tmk:supportingText "Where business identifiers are included in a trade mark (e.g. A TASMANIAN COMPANY, RIVERINA DAIRY CO.) this tends to indicate a characteristic of a business rather than the goods or services themselves. A ground for rejection will rarely apply in these cases." ;
+    tmk:tier 3 .
+
+tmka:GR-0700 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0168 ;
+    tmk:assertionPredicate tmk:doesNotGiveRiseTo ;
+    tmk:assertionSubject tmkc:GC-0027 ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual says a section 43 ground will generally not arise for a long deceased historical figure, even one well known in the field. Written on the owner's ruling B1 (ADR-0126): what a concept does is an edge naming the ground or test it acts on."@en-AU ;
+    tmk:confidence 9e-01 ;
+    tmk:expertShouldCheck "Whether 'long deceased' has a working threshold in practice."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0700" ;
+    tmk:isStale false ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:8e7a69fc516a2b4b11213363298946680a0c24f0d1bcddc9f0d803c24c151e53" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> ;
+    tmk:spanEnd 195 ;
+    tmk:spanStart 0 ;
+    tmk:supportingText "Generally, a section 43 ground for rejection will not arise in respect of long deceased historical figures, even if they were well known for the same field as the specified goods/services are in." ;
+    tmk:tier 3 .
+
+tmka:GR-0701 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0002 ;
+    tmk:assertionPredicate tmk:doesNotGiveRiseTo ;
+    tmk:assertionSubject tmkc:GC-0048 ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual says deception or confusion is not likely where the geographical reference is ambiguous or fanciful — the test is not met. Written on the owner's ruling B1 (ADR-0126): what a concept does is an edge naming the ground or test it acts on."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Whether a fanciful reference never meets the test or only usually does not."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0701" ;
+    tmk:isStale false ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:17c928f3bdc152f1ba5a886c36379eb9e74ab1b2afcb0cef15aa9cc5ee4cf3d6" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
+    tmk:spanEnd 1864 ;
+    tmk:spanStart 1565 ;
+    tmk:supportingText "Deception or confusion is not likely to occur if the geographic reference is ambiguous or fanciful (FORGED IN THE OUTBACK on Vehicles, ANTARCTIC BERRIES for Frozen strawberries) or when a word will not be seen as a geographical reference in the eyes of an average consumer (MOCHA for confectionery)." ;
+    tmk:tier 3 .
+
+tmka:GR-0702 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0168 ;
+    tmk:assertionPredicate tmk:qualifies ;
+    tmk:assertionSubject tmkc:GC-0035 ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Whether the applicant is the owner or authorised user of the phoneword decides whether the section 43 ground stands; the Manual says it is reconsidered on confirmation. Written on the owner's ruling B1 (ADR-0126): what a concept does is an edge naming the ground or test it acts on."@en-AU ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether the same holds for domain names and radio call signs, which the Manual treats on the same footing."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0702" ;
+    tmk:isStale false ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> ;
+    tmk:spanEnd 1160 ;
+    tmk:spanStart 995 ;
+    tmk:supportingText "The section 43 ground for rejection will be reconsidered if an applicant provides information confirming that they are the owner or authorised user of the phoneword." ;
+    tmk:tier 3 .
+
+tmkc:GC-0021 a tmk:SignContent ;
     tmk:typedBy tmka:GT-0021 .
 
-tmkc:GC-0039 a tmk:RelevantFactor ;
+tmkc:GC-0039 a tmk:SignContent ;
     tmk:typedBy tmka:GT-0039 .
 
 tmkc:GC-0177 a skos:Concept,
@@ -13404,13 +13535,13 @@ tmka:GT-0004 tmk:authoredBy "claude-opus-5" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> .
 
-tmka:GT-0005 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0005 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Separating what a mark denotes from what it connotes is a step in reaching the connotation finding, so denotation feeds the answer rather than being one. It is typed relevant_factor on that basis and not on the basis that anybody weighs it."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 5.5e-01 ;
-    tmk:expertShouldCheck "Whether denotation does any work of its own in an examination, or whether it appears only in the case law the Manual quotes. If the latter, none_of_these is the better answer and this record is the clearest example of the four groups not fitting."@en-AU ;
+    tmk:authoringReasoning "denotation is the plain, direct meaning of the words in a mark: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0212 qualifies ordinary signification; GR-0485 qualifies inherent adaptation to distinguish; GR-0576 qualifies no inherent adaptation to distinguish."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0005" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -13430,13 +13561,13 @@ tmka:GT-0006 tmk:authoredBy "claude-opus-5" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
 
-tmka:GT-0007 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0007 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Typed on what the presumption does rather than on what it is. Its stated operation in Part 29 is that doubt about a connotation stops the ground being raised — a case that might otherwise attract the ground is taken out of it, which is the exception group's definition."@en-AU ;
-    tmk:conceptGroup "exception" ;
-    tmk:confidence 5e-01 ;
-    tmk:expertShouldCheck "This record and GT-0051. GC-0007's own note says the presumption and the mandatory application of s 43 pull in opposite directions; they are typed here as exception and none_of_these respectively, and if that is the wrong pairing both are wrong together."@en-AU ;
+    tmk:authoringReasoning "presumption of registrability is a rule about how the grounds are decided — accept unless satisfied a ground exists: none of the kinds fit — which is an answer, not a gap — so `none_of_these`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0091 constrains Registrar; GR-0092 constrains Registrar; GR-0398 constrains Registrar; GR-0488 qualifies scandalous matter; and more."@en-AU ;
+    tmk:conceptGroup "none_of_these" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether a rule about how a question is decided wants a kind of its own beside mandatory application of the section (GC-0051)."@en-AU ;
     tmk:goldRecord "GT-0007" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -13455,191 +13586,191 @@ tmka:GT-0008 tmk:authoredBy "claude-opus-5" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> .
 
-tmka:GT-0009 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0009 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Identifying whose reaction counts is an input to the deception question, not the question itself. The Manual never asks whether there is a relevant market; it asks whether that market would be deceived."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7.5e-01 ;
-    tmk:expertShouldCheck "The line this pass drew between a population that is weighed (typed relevant_factor, as here and at GT-0010) and an actor who decides (typed none_of_these, GT-0044 to GT-0046). If that line is wrong, four records move together."@en-AU ;
+    tmk:authoringReasoning "relevant market is the market in which the goods or services are traded: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0067 qualifies likely to deceive or cause confusion; GR-0082 qualifies deception; GR-0094 qualifies connotation; GR-0095 qualifies confusion; and more."@en-AU ;
+    tmk:conceptGroup "context" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0009" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> .
 
-tmka:GT-0010 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0010 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The ordinary consumer is the perspective the test is applied from, and a perspective is an input to the answer rather than a question in its own right. Typed alongside GC-0009 so the market and the consumer within it sit in the same group."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Whether examiners treat 'who is the ordinary consumer of these goods' as a question they decide, or as a standard they apply without deciding anything. The answer moves this record and probably GT-0009 with it."@en-AU ;
+    tmk:authoringReasoning "ordinary consumer is the notional consumer whose understanding the assessment takes: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0075 qualifies connotation; GR-0080 qualifies likely to deceive or cause confusion; GR-0085 qualifies deception; GR-0098 qualifies scent trade mark; and more."@en-AU ;
+    tmk:conceptGroup "context" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0010" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> .
 
-tmka:GT-0011 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0011 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The clearest relevant_factor in the set: the corpus uses the words 'taken into consideration' and then lists what the category holds. Nothing is being decided and nothing is being taken out of the rule."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 9e-01 ;
-    tmk:expertShouldCheck "Whether the concept should survive as a single record at all, or be replaced by the particular circumstances the Manual lists. The typing is safe either way; the vocabulary question is not."@en-AU ;
+    tmk:authoringReasoning "surrounding circumstances is the circumstances in which a mark is used, outside the mark: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0068 qualifies likely to deceive or cause confusion; GR-0102 qualifies real and tangible danger; GR-0103 qualifies confusion; GR-0104 qualifies deception; and more."@en-AU ;
+    tmk:conceptGroup "context" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0011" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> .
 
-tmka:GT-0012 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0012 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The specification is one half of the comparison the whole of Part 29.4 turns on — connotation against claimed goods — so it feeds the deception answer directly. It is not itself decided and it does not take a case out of the rule."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
+    tmk:authoringReasoning "specification of goods and services is the list of goods and services an application or registration covers: a document, entry or endorsement the process produces or receives, or writes to the Register — so `instrument_or_record`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0114 qualifies endorsement; GR-0145 qualifies top level domain."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
     tmk:confidence 8e-01 ;
-    tmk:expertShouldCheck "Whether the specification as filed and the specification as amended are the same concept for typing purposes. This record and GT-0015 assume they are not."@en-AU ;
+    tmk:expertShouldCheck "Whether this is a document or entry in itself, or the step that produces it."@en-AU ;
     tmk:goldRecord "GT-0012" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> .
 
-tmka:GT-0013 tmk:authoredBy "claude-code-agent-S026" ;
-    tmk:authoredDate "2026-10-08"^^xsd:date ;
+tmka:GT-0013 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A condition of registration is how a ground already made out is overcome (Part 29.5.5.4, 29.9.5). A remedy overcomes a ground that applies; an exception is a case the ground does not reach. Retyped on the owner's ruling B5."@en-AU ;
-    tmk:conceptGroup "remedy" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether the applicant's step or the record of it is the remedy; the Manual uses both."@en-AU ;
+    tmk:authoringReasoning "condition of registration is a condition entered on the Register that limits a registration: a document, entry or endorsement the process produces or receives, or writes to the Register — so `instrument_or_record`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0112: section 43 ground for rejection is overcome by it; GR-0454 qualifies revocation of acceptance; GR-0495 qualifies acceptance; GR-0684: section 43 ground for rejection is overcome by it; and more."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is a document or entry in itself, or the step that produces it."@en-AU ;
     tmk:goldRecord "GT-0013" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> .
 
-tmka:GT-0014 tmk:authoredBy "claude-code-agent-S026" ;
-    tmk:authoredDate "2026-10-08"^^xsd:date ;
+tmka:GT-0014 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "An endorsement records the step that overcomes a ground — permission, a condition — on the Register. A remedy overcomes a ground that applies; an exception is a case the ground does not reach. Retyped on the owner's ruling B5."@en-AU ;
-    tmk:conceptGroup "remedy" ;
-    tmk:confidence 5e-01 ;
-    tmk:expertShouldCheck "Whether the applicant's step or the record of it is the remedy; the Manual uses both."@en-AU ;
+    tmk:authoringReasoning "endorsement is wording entered on a registration: a document, entry or endorsement the process produces or receives, or writes to the Register — so `instrument_or_record`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0115: colour trade mark requires it; GR-0406 qualifies shape trade mark; GR-0698: section 43 ground for rejection is overcome by it."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is a document or entry in itself, or the step that produces it."@en-AU ;
     tmk:goldRecord "GT-0014" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2> .
 
-tmka:GT-0015 tmk:authoredBy "claude-code-agent-S026" ;
-    tmk:authoredDate "2026-10-08"^^xsd:date ;
+tmka:GT-0015 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Limiting the specification removes the goods or services the ground attaches to (Part 29.9.2, 29.9.5). A remedy overcomes a ground that applies; an exception is a case the ground does not reach. Retyped on the owner's ruling B5."@en-AU ;
-    tmk:conceptGroup "remedy" ;
+    tmk:authoringReasoning "limitation of the specification is amending an application to limit its goods or services: an act, proceeding or event that moves an application or a registration from one state to the next — so `procedural_step`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0697: section 43 ground for rejection is overcome by it."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
     tmk:confidence 7.5e-01 ;
-    tmk:expertShouldCheck "Whether the applicant's step or the record of it is the remedy; the Manual uses both."@en-AU ;
+    tmk:expertShouldCheck "Whether this is a step that moves the application on, or an activity inside one."@en-AU ;
     tmk:goldRecord "GT-0015" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/5> .
 
-tmka:GT-0016 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0016 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The priority date fixes the moment at which how-well-known is measured, so it conditions the answer without being one. Typed relevant_factor as the temporal input to the well-known-person branch."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "The tension GC-0049's note records: Part 29.3.2 directs attention to the current marketplace and Part 29.6 to the priority date. Both are typed relevant_factor here, which quietly asserts that they are two inputs rather than a contradiction."@en-AU ;
+    tmk:authoringReasoning "priority date is the date from which the application's rights are assessed: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0120 qualifies conflict with other signs; GR-0121 qualifies surrounding circumstances; GR-0253 qualifies conflict with other signs; GR-0522 qualifies prior use."@en-AU ;
+    tmk:conceptGroup "context" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0016" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> .
 
-tmka:GT-0017 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0017 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The corpus is explicit that the mere presence of a place name demonstrates nothing automatically — it is material that feeds the connotation question and does not answer it. That sentence is the reason this whole family of subject-matter concepts is typed relevant_factor rather than ground_of_refusal."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
+    tmk:authoringReasoning "geographical reference is a reference to a place that a mark contains: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0062 may give rise to connotation; GR-0072 qualifies deception; GR-0079 qualifies likely to deceive or cause confusion; GR-0125 qualifies inherent adaptation to distinguish; and more."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
     tmk:confidence 8e-01 ;
-    tmk:expertShouldCheck "The family judgement, once, rather than fifteen times: GT-0017 to GT-0023, GT-0025, GT-0026, GT-0030 to GT-0034, GT-0036 and GT-0037 are all typed relevant_factor because they name material rather than a reason to refuse. If that is wrong it is wrong for all of them."@en-AU ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0017" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> .
 
-tmka:GT-0018 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0018 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The corpus makes a match against a listed EU GI the trigger for a further question rather than the answer to one — 'consideration should then be given to whether'. That is a factor by the owner's definition."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether the s 43 treatment of GIs is really in this vocabulary at all. GC-0018's own record note says Part 29.1.1 sends the reader to Part 32B, and the material this typing rests on is one paragraph about the EU agreement."@en-AU ;
+    tmk:authoringReasoning "geographical indication is a sign identifying goods as originating in a place whose quality or reputation they owe to it, as a mark may contain one: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0387 qualifies likely to deceive or cause confusion; GR-0389 may give rise to deception; GR-0412 may give rise to section 43 ground for rejection; GR-0413 may give rise to confusion; and more."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0018" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/11%231> .
 
-tmka:GT-0019 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0019 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Same structure as GT-0018 and stated in one sentence: origin is what the reference connotes, and the deception question is asked afterwards. The finding of origin is an input to that question."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
+    tmk:authoringReasoning "geographical origin is where the goods actually come from: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0128 may give rise to no inherent adaptation to distinguish; GR-0129 qualifies inherent adaptation to distinguish; GR-0130 may give rise to confusion."@en-AU ;
+    tmk:conceptGroup "context" ;
     tmk:confidence 8e-01 ;
-    tmk:expertShouldCheck "Whether the geographical branch has its own connotation test, or whether it applies GC-0001's. This record assumes the second."@en-AU ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0019" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> .
 
-tmka:GT-0020 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0020 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The only member of the geographical family the corpus carves out: a place name inside a business identifier is read as saying something about the business, and the ground will rarely apply. That is a case taken out of the rule."@en-AU ;
-    tmk:conceptGroup "exception" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether 'will rarely apply' is practice-speak for an exception or an honest statement of frequency. The distinction decides this record and nothing else."@en-AU ;
+    tmk:authoringReasoning "business identifier is a business identifier a mark contains — a place name read as describing the business: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0699 does not by itself give rise to section 43 ground for rejection."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0020" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/6> .
 
-tmka:GT-0021 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0021 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A qualifier strengthens a geographical claim into an explicit one, and the corpus says its absence does not defeat a connotation. Something that makes a finding more or less likely without settling it is a factor."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether this concept survives at all. If it is a list of example phrases rather than an idea, the typing is beside the point and the record should be withdrawn instead."@en-AU ;
+    tmk:authoringReasoning "geographical qualifier is words such as 'made in' that a mark may add to a geographical reference: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. No edge yet says what it does to which ground or test — a gap the relate job and the edge audit look for."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0021" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> .
 
-tmka:GT-0022 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0022 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "An INN is a name maintained by the WHO. Whether a mark is or connotes one is the input; the ground arises from that plus an unrestricted specification. Typed with the rest of the subject-matter family."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether the vocabulary needs a concept for the compound condition — 'mark connotes an INN and specification is unrestricted' — as distinct from the INN itself. Without one the ground_of_refusal group stays nearly empty."@en-AU ;
+    tmk:authoringReasoning "International Non-Proprietary Name is a name the World Health Organization lists for a pharmaceutical substance, as a mark may contain it: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0131 may give rise to likely to deceive or cause confusion; GR-0133 may give rise to deception; GR-0134 may give rise to confusion; GR-0194 may give rise to ground for rejection."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0022" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> .
 
-tmka:GT-0023 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0023 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "'May lead to' is the language of a factor, and the stem's presence is only the start of the enquiry — GC-0024 holds the question that follows it. Typed relevant_factor with the INN itself."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether an INN and an INN stem should type the same way at all. They are governed by different rules and named almost identically, which GC-0022's record note calls the whole difficulty of Part 29.5."@en-AU ;
+    tmk:authoringReasoning "INN stem is the stem of an International Non-Proprietary Name, as a word in a mark may contain it: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0078 may give rise to likely to deceive or cause confusion; GR-0083 may give rise to deception; GR-0383 may give rise to connotation; GR-0417 may give rise to confusion; and more."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0023" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -13657,187 +13788,187 @@ tmka:GT-0024 tmk:authoredBy "claude-opus-5" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/6~1> .
 
-tmka:GT-0025 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0025 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The goods class is what brings the INN rules into play; it triggers the enquiry rather than answering it. Typed with the rest of the subject-matter family."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7.5e-01 ;
-    tmk:expertShouldCheck "Whether dietary and nutritional supplements are inside this concept or beside it. GC-0025's record note deliberately lists them as a near-miss while the Manual names them as goods that could be pharmaceutical in nature."@en-AU ;
+    tmk:authoringReasoning "pharmaceutical or veterinary substance is the goods — pharmaceutical or veterinary substances — to which the INN rules attach: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0420 qualifies likely to deceive or cause confusion; GR-0421 qualifies confusion."@en-AU ;
+    tmk:conceptGroup "context" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0025" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/3> .
 
-tmka:GT-0026 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0026 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "'May be triggered' is the language of a factor, and Part 29.6 then names the question the examiner must ultimately decide separately from it. The well-known person is the material; the connotation of endorsement is what is decided."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7.5e-01 ;
-    tmk:expertShouldCheck "How much of the well-known-person branch this record carries. Three of the factors at 29.6 — how well known, name commonness, closeness of the field — have no concept of their own, so they are currently unmodelled and this record is standing in for them."@en-AU ;
+    tmk:authoringReasoning "well-known person is a person, well known for something, to whom a mark may refer: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0040 qualifies implied endorsement; GR-0077 qualifies connotation; GR-0424 qualifies deception; GR-0425 qualifies confusion; and more."@en-AU ;
+    tmk:conceptGroup "context" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0026" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2> .
 
-tmka:GT-0027 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0027 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The corpus states the carve-out directly: the ground will not arise for a long deceased figure even where every other element of the well-known-person branch is present. That is a case taken out of the rule."@en-AU ;
-    tmk:conceptGroup "exception" ;
+    tmk:authoringReasoning "deceased person is a person, long dead, to whom a mark may refer: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0044 may give rise to connotation; GR-0700 does not by itself give rise to section 43 ground for rejection."@en-AU ;
+    tmk:conceptGroup "context" ;
     tmk:confidence 8e-01 ;
-    tmk:expertShouldCheck "Whether the estate proviso swallows the exception. If in practice most deceased-person cases turn on whether an estate is still licensing, this is a factor wearing an exception's words."@en-AU ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0027" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/2~1> .
 
-tmka:GT-0028 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0028 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Typed as the content of a connotation — one of the kinds of connection Part 29.3 lists — rather than as the deciding of one. The question remains GC-0002's; implied endorsement is what the mark has to convey for that question to be answered yes."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 5.5e-01 ;
-    tmk:expertShouldCheck "This record before any other in the relevant_factor group. The corpus comes closer to calling implied endorsement a test than it does for anything else typed relevant_factor here, and the quote saying so is in the record's own evidence."@en-AU ;
+    tmk:authoringReasoning "implied endorsement is a meaning a mark conveys — that a person endorses or is connected with the goods: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0073 may give rise to deception; GR-0138 excludes as a basis reputation of a trade mark."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0028" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/7> .
 
-tmka:GT-0029 tmk:authoredBy "claude-code-agent-S026" ;
-    tmk:authoredDate "2026-10-08"^^xsd:date ;
+tmka:GT-0029 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Written permission overcomes a section 43 ground already raised for a name or image (Part 29.6). A remedy overcomes a ground that applies; an exception is a case the ground does not reach. Retyped on the owner's ruling B5."@en-AU ;
-    tmk:conceptGroup "remedy" ;
-    tmk:confidence 8.5e-01 ;
-    tmk:expertShouldCheck "Whether the applicant's step or the record of it is the remedy; the Manual uses both."@en-AU ;
+    tmk:authoringReasoning "written permission is a well-known person's consent in writing, as the applicant supplies it: a document, entry or endorsement the process produces or receives, or writes to the Register — so `instrument_or_record`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0203 qualifies so nearly resembling; GR-0479: section 39 ground for rejection is overcome by it; GR-0687: section 43 ground for rejection is overcome by it."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Whether this is a document or entry in itself, or the step that produces it."@en-AU ;
     tmk:goldRecord "GT-0029" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> .
 
-tmka:GT-0030 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0030 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The corpus says in terms that the image alone is not enough and that its presence is a reason to give consideration to s 43. Material that opens an enquiry without settling it is a factor."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether images and names should type identically. They are typed the same way here (GT-0026, GT-0030) on the strength of Part 29.6.1's opening sentence that the same considerations apply."@en-AU ;
+    tmk:authoringReasoning "image of a person is an image of a person that a mark contains: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0385 may give rise to connotation; GR-0434 may give rise to endorsement; GR-0688 does not by itself give rise to section 43 ground for rejection."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0030" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/25/25/7>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6/6/1> .
 
-tmka:GT-0031 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0031 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The phoneword is the subject matter; the ground is the applicant not owning it. Typed relevant_factor on the family reading, with the ownership half held by GC-0035."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "The three ownership branches together — phoneword (GT-0031), domain name (GT-0032), radio call sign (GT-0034) — and GC-0035 beside them. All four are typed relevant_factor, and if any is a ground_of_refusal all four are."@en-AU ;
+    tmk:authoringReasoning "phoneword is a phone number expressed as a word that a mark contains: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0438 may give rise to connotation; GR-0440 may give rise to section 43 ground for rejection."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0031" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231> .
 
-tmka:GT-0032 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0032 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The same structure as the phoneword branch and typed the same way: the domain name is the material, the ground is non-registration."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "The same question as GT-0031, and it should be answered for the three ownership branches at once."@en-AU ;
+    tmk:authoringReasoning "internet domain name is an internet domain name that a mark contains or connotes: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0063 may give rise to connotation; GR-0141 may give rise to use of a trade mark; GR-0142 may give rise to section 43 ground for rejection."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0032" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231> .
 
-tmka:GT-0033 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0033 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Part 29.8.1 makes the TLD something considered holistically alongside the specification when deciding whether a connotation exists. That is a factor feeding GC-0001's question."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether generic and country-code TLDs are one concept. GC-0033's record note says the Manual treats them differently, and only the generic branch has the ICANN-list step this typing rests on."@en-AU ;
+    tmk:authoringReasoning "top level domain is the top level domain of a domain name that a mark contains: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0148 may give rise to section 43 ground for rejection."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0033" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/1> .
 
-tmka:GT-0034 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0034 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The third ownership branch, typed as the other two are."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "GC-0034's record note flags that holding the call sign and the frequency as one concept is a simplification, since a broadcaster chooses one and never the other. If they split, both halves inherit this typing untested."@en-AU ;
+    tmk:authoringReasoning "radio call sign is a radio call sign that a mark contains: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0048 may give rise to TMA1995/s41; GR-0443 may give rise to confusion."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0034" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/3> .
 
-tmka:GT-0035 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0035 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Whether the applicant is the owner is what makes the three ownership branches deceptive at all, so it feeds the answer directly. Typed relevant_factor rather than exception because the corpus states the ground negatively — it applies where the applicant is not the owner — which makes ownership an element stated in the negative rather than a carve-out."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 5.5e-01 ;
-    tmk:expertShouldCheck "The choice between an element stated negatively and an exception. It decides this record and it is the same question underneath GT-0029."@en-AU ;
+    tmk:authoringReasoning "owner or authorised user is the person who holds a phone number, domain name or call sign a mark refers to: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0702 qualifies section 43 ground for rejection."@en-AU ;
+    tmk:conceptGroup "context" ;
+    tmk:confidence 6.5e-01 ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0035" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/7%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231> .
 
-tmka:GT-0036 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0036 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The variety name is the material; whether it connotes immediately and whether the goods are of a related genus are the questions asked about it. Part 32A makes that explicit by sending the examiner back to consider how the name appears."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether this concept is inside the vocabulary's scope or belongs to Part 32A. Half its evidence comes from there, which is true of no other record in this pass except GT-0018."@en-AU ;
+    tmk:authoringReasoning "plant variety name is the name of a plant variety, as a mark may contain it: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0090 may give rise to section 43 ground for rejection; GR-0150 qualifies acceptance."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0036" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1/1/2>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32A/2/4/2/4/1> .
 
-tmka:GT-0037 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0037 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The corpus makes the reference material that 'can form a connotation', with the deception question asked afterwards. Typed with the rest of the family on that structure and on nothing about the subject matter itself."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "This record before the typing is relied on anywhere. GC-0037's own note records it as low confidence and high sensitivity, and the typing was made from one paragraph of the Manual rather than from how the office speaks about this material. A correction here is worth more than a correction anywhere else in the file."@en-AU ;
+    tmk:authoringReasoning "claim to Indigenous origin is a meaning a mark conveys — that goods are of Indigenous origin: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0086 may give rise to deception; GR-0155 may give rise to connotation; GR-0156 may give rise to likely to deceive or cause confusion; GR-0157 may give rise to confusion; and more."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0037" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/10%231> .
 
-tmka:GT-0038 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0038 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A principle about what is looked at when the connotation question is asked, and the corpus says the other features 'diminish the impact' rather than removing the ground. That is weighing, which is what a factor is."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 8e-01 ;
-    tmk:expertShouldCheck "Whether neutralising elements dispose of the ground or reduce it. The difference matters for GC-0021 and GC-0048 as well, both of which are about material that stops a connotation forming."@en-AU ;
+    tmk:authoringReasoning "trade mark as a whole is everything a mark contains, taken together: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0017 qualifies likely to deceive or cause confusion; GR-0135 qualifies meaningful inclusion of an INN stem; GR-0153 qualifies plant variety name; GR-0396 qualifies section 41 ground for rejection; and more."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0038" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/5> .
 
-tmka:GT-0039 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0039 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A connotation that developed through use is still a connotation, and its history is what makes it findable; typed as an input to GC-0001's question rather than as a separate one."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 5.5e-01 ;
-    tmk:expertShouldCheck "The near-miss GC-0039's record note calls the most valuable in the file: acquired distinctiveness under s 41 is described in almost identical words and must never be carried into s 43. The typing does not encode that boundary, and a relevant_factor label may make it easier to cross."@en-AU ;
+    tmk:authoringReasoning "connotation developed over time is a meaning a mark comes to convey over time: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0024 may give rise to opposition."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0039" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -13856,13 +13987,13 @@ tmka:GT-0040 tmk:authoredBy "claude-opus-5" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part47/1/1/2/2> .
 
-tmka:GT-0041 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0041 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The corpus says evidence determines the strength of the connotation, which is the definition of something feeding the answer. Typed relevant_factor even though both its passages are about opposition, because what it does there is weigh."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
+    tmk:authoringReasoning "evidence of use is the evidence of use an applicant files: a document, entry or endorsement the process produces or receives, or writes to the Register — so `instrument_or_record`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0300: no inherent adaptation to distinguish requires it; GR-0453: defensive trade mark requires it."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
     tmk:confidence 7.5e-01 ;
-    tmk:expertShouldCheck "The line between this record and GT-0052. Evidence a party files and research an examiner does are typed the same way here, and GC-0041's own note says the distinction between them is load-bearing under s 43."@en-AU ;
+    tmk:expertShouldCheck "Whether this is a document or entry in itself, or the step that produces it."@en-AU ;
     tmk:goldRecord "GT-0041" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -13932,51 +14063,51 @@ tmka:GT-0046 tmk:authoredBy "claude-opus-5" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/4>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/5/5/4> .
 
-tmka:GT-0047 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0047 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The corpus says descriptive matter does not by itself attract an objection and then makes everything turn on the comparison with the specification. That is material feeding a question, not the question."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether the s 41 sense of 'descriptive' can be kept out of this record. GC-0047's note flags that descriptiveness is a distinctiveness question under s 41 and a connotation question here, in the same word."@en-AU ;
+    tmk:authoringReasoning "descriptive matter is matter in a mark that describes the goods or services: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0015 does not by itself give rise to connotation; GR-0180 qualifies confusion."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0047" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/2/2/1~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231> .
 
-tmka:GT-0048 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0048 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The corpus states it as a case where deception is not likely to occur, with worked examples, which is a case taken out of the rule. Typed exception with GC-0020 and GC-0027."@en-AU ;
-    tmk:conceptGroup "exception" ;
-    tmk:confidence 7.5e-01 ;
-    tmk:expertShouldCheck "The disagreement between this record's two passages. One says deception is not likely to occur; the other says it can be taken into account. If the second is the practice, this is relevant_factor."@en-AU ;
+    tmk:authoringReasoning "fanciful or ambiguous reference is a reference in a mark that is fanciful or ambiguous: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0384 qualifies connotation; GR-0467 qualifies real and tangible danger; GR-0468 qualifies likely to deceive or cause confusion; GR-0701 does not by itself give rise to likely to deceive or cause confusion."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0048" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> .
 
-tmka:GT-0049 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0049 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The temporal frame the connotation question is asked in. It conditions the answer without being one, in the same way GC-0016 does at the other end of the Part."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7.5e-01 ;
-    tmk:expertShouldCheck "The contradiction GC-0049's record note names: 29.3.2 directs attention to the current marketplace and 29.6 to the priority date. Both are typed relevant_factor, which asserts they are two inputs and not a conflict — and that assertion has not been checked by anyone."@en-AU ;
+    tmk:authoringReasoning "current marketplace is the marketplace as it now stands: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0022 constrains the examiner on likely to deceive or cause confusion; GR-0023 qualifies connotation; GR-0461 constrains examiner; GR-0469 qualifies deception; and more."@en-AU ;
+    tmk:conceptGroup "context" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0049" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/2> .
 
-tmka:GT-0050 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0050 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "The corpus calls how well known a reference is an important consideration, in those words. Typed relevant_factor on that sentence."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "That the typing does not blur the boundary in the second quote. Reputation in the reference is a consideration; reputation in another trade mark is an external consideration and expressly not a source of connotation. One label now covers a concept that is admissible in one direction and prohibited in the other."@en-AU ;
+    tmk:authoringReasoning "reputation is a place's or person's being known for something: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0081: likely to deceive or cause confusion requires it; GR-0124 qualifies geographical reference; GR-0139 qualifies implied endorsement; GR-0315 qualifies geographical reference; and more."@en-AU ;
+    tmk:conceptGroup "context" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0050" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -13994,38 +14125,38 @@ tmka:GT-0051 tmk:authoredBy "claude-opus-5" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231> .
 
-tmka:GT-0052 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-08"^^xsd:date ;
+tmka:GT-0052 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Research is how an examiner acquires the facts the other factors are weighed on, and Part 29.6 requires it in terms. Typed relevant_factor with the evidence it produces."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "The same line as GT-0041: evidence a party files and research an examiner does are typed identically here, and the Manual keeps them apart under s 43 by asking examiners to research rather than to require evidence."@en-AU ;
+    tmk:authoringReasoning "examiner research is the research an examiner does during examination: an act, proceeding or event that moves an application or a registration from one state to the next — so `procedural_step`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0046 constrains the examiner on phoneword; GR-0186 may give rise to section 41 ground for rejection; GR-0187 may give rise to section 41 ground for rejection; GR-0189 qualifies capable of distinguishing."@en-AU ;
+    tmk:conceptGroup "procedural_step" ;
+    tmk:confidence 6e-01 ;
+    tmk:expertShouldCheck "Whether this is a step that moves the application on, or an activity inside one."@en-AU ;
     tmk:goldRecord "GT-0052" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/6%231~1>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/4> .
 
-tmka:GT-0054 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Section 39(1) says an application must be rejected if the trade mark contains such a sign. That is a reason an application can be refused, which is the owner's own words for ground_of_refusal."@en-AU ;
-    tmk:conceptGroup "ground_of_refusal" ;
-    tmk:confidence 9e-01 ;
-    tmk:expertShouldCheck "Nothing about the typing; the doubt is whether an inert ground should be typed at all."@en-AU ;
+tmka:GT-0054 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "prohibited sign is a sign that regulations under section 18 say is not to be used as a trade mark, as a mark may contain one: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0481 may give rise to section 39 ground for rejection."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0054" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> .
 
-tmka:GT-0055 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "A reason an application can be refused, in the Act's own words. That the reason is discretionary ('may') does not stop it being a ground."@en-AU ;
-    tmk:conceptGroup "ground_of_refusal" ;
-    tmk:confidence 8.5e-01 ;
-    tmk:expertShouldCheck "Whether a discretionary ground and a mandatory one belong in the same group."@en-AU ;
+tmka:GT-0055 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "prescribed sign is a sign prescribed for the purposes of section 39(2), as a mark may contain one: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0198 may give rise to section 39 ground for rejection; GR-0199 may give rise to section 39 ground for rejection."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0055" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -14151,37 +14282,37 @@ tmka:GT-0065 tmk:authoredBy "claude-opus-5" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/5%231> .
 
-tmka:GT-0066 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual says in terms that it exists to overcome a ground that would otherwise apply. Something that takes a case out of the rule is an exception on the owner's four groups."@en-AU ;
-    tmk:conceptGroup "exception" ;
-    tmk:confidence 8.5e-01 ;
-    tmk:expertShouldCheck "Whether an exception that is discretionary ('may accept') is the same kind of thing as one that is mandatory. Section 44(4) prior use is mandatory and is typed the same way in this pass."@en-AU ;
+tmka:GT-0066 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "honest concurrent use is two traders' honest use of their marks side by side: something a person does with a trade mark in the course of trade — using it, or authorising its use — so `use_in_trade`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0220: conflict with other signs is overcome by it."@en-AU ;
+    tmk:conceptGroup "use_in_trade" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is use itself, or a circumstance about use that belongs with context."@en-AU ;
     tmk:goldRecord "GT-0066" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/2%231> .
 
-tmka:GT-0067 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "It takes a case out of the section 44 ground — the Act says the Registrar may not reject on the strength of the cited mark. That is an exception."@en-AU ;
-    tmk:conceptGroup "exception" ;
-    tmk:confidence 8.5e-01 ;
-    tmk:expertShouldCheck "Consistency with honest concurrent use: both are typed exception here despite one being discretionary and the other mandatory."@en-AU ;
+tmka:GT-0067 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "prior use is an applicant's use of its mark before another's: something a person does with a trade mark in the course of trade — using it, or authorising its use — so `use_in_trade`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0219: conflict with other signs is overcome by it."@en-AU ;
+    tmk:conceptGroup "use_in_trade" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is use itself, or a circumstance about use that belongs with context."@en-AU ;
     tmk:goldRecord "GT-0067" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> .
 
-tmka:GT-0068 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual says it allows acceptance where the application would otherwise be rejected. That is taking a case out of the rule."@en-AU ;
-    tmk:conceptGroup "exception" ;
-    tmk:confidence 8.5e-01 ;
-    tmk:expertShouldCheck "Nothing specific."@en-AU ;
+tmka:GT-0068 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "other circumstances is circumstances, other than concurrent or prior use, that make acceptance proper: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0229: conflict with other signs is overcome by it; GR-0231 may give rise to acceptance."@en-AU ;
+    tmk:conceptGroup "context" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0068" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -14319,25 +14450,25 @@ tmka:GT-0080 tmk:authoredBy "claude-opus-5" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s51> .
 
-tmka:GT-0081 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "The Manual says use is relevant to a number of questions and lists them. Something that feeds into an answer rather than being the answer is a relevant_factor."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7.5e-01 ;
-    tmk:expertShouldCheck "Use plays a different role under each provision it touches. If the taxonomy is meant to type a concept by its role, this concept may need several typings."@en-AU ;
+tmka:GT-0081 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "use of a trade mark is using a trade mark in the course of trade: something a person does with a trade mark in the course of trade — using it, or authorising its use — so `use_in_trade`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0508 qualifies evidence of use; GR-0520 qualifies defensive trade mark."@en-AU ;
+    tmk:conceptGroup "use_in_trade" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is use itself, or a circumstance about use that belongs with context."@en-AU ;
     tmk:goldRecord "GT-0081" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part19A/1%231> .
 
-tmka:GT-0082 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
+tmka:GT-0082 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Section 7(3) makes authorised use count as the owner's use, so it feeds the questions use feeds — capability to distinguish, prior use, ownership — rather than answering one of its own."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 6.5e-01 ;
-    tmk:expertShouldCheck "Whether control is itself a test that should be a separate concept."@en-AU ;
+    tmk:authoringReasoning "authorised use is use of a trade mark by an authorised user under the owner's control: something a person does with a trade mark in the course of trade — using it, or authorising its use — so `use_in_trade`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. No edge yet says what it does to which ground or test — a gap the relate job and the edge audit look for."@en-AU ;
+    tmk:conceptGroup "use_in_trade" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is use itself, or a circumstance about use that belongs with context."@en-AU ;
     tmk:goldRecord "GT-0082" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -14367,13 +14498,13 @@ tmka:GT-0084 tmk:authoredBy "claude-opus-5" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/registered-owner> .
 
-tmka:GT-0085 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "It extends whose use counts, so it feeds the use questions rather than answering one. That is a relevant_factor."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether this and the other role concepts should be typed alike."@en-AU ;
+tmka:GT-0085 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "predecessor in title is a person from whom the applicant's title to the mark derives: a person or body that acts — who does something — so `process_role`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0493 qualifies prior use."@en-AU ;
+    tmk:conceptGroup "process_role" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this person acts in the process, or is only someone the assessment refers to."@en-AU ;
     tmk:goldRecord "GT-0085" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -14427,13 +14558,13 @@ tmka:GT-0089 tmk:authoredBy "claude-opus-5" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/register> .
 
-tmka:GT-0091 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "It fixes the period over which use counts under section 41(3)(b), so it feeds that answer."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 7e-01 ;
-    tmk:expertShouldCheck "Whether dates should be concepts at all, or attributes of an application."@en-AU ;
+tmka:GT-0091 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "filing date is the date an application is filed: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0269 qualifies renewal of registration; GR-0524 qualifies evidence of use; GR-0525 qualifies convention application."@en-AU ;
+    tmk:conceptGroup "context" ;
+    tmk:confidence 7.5e-01 ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0091" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -14607,13 +14738,13 @@ tmka:GT-0109 tmk:authoredBy "claude-opus-5" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part34/1/1/1> .
 
-tmka:GT-0111 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
+tmka:GT-0111 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "A convention claim changes the priority date, which is one of the two elements of the section 44 ground. So it feeds that answer."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 5.5e-01 ;
-    tmk:expertShouldCheck "This and 'divisional application' are typed differently on similar facts. One of the two is wrong and a reviewer should say which."@en-AU ;
+    tmk:authoringReasoning "convention application is an application claiming priority from an earlier one in a Convention country: a document, entry or endorsement the process produces or receives, or writes to the Register — so `instrument_or_record`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0408 qualifies priority date; GR-0602 qualifies date of registration."@en-AU ;
+    tmk:conceptGroup "instrument_or_record" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is a document or entry in itself, or the step that produces it."@en-AU ;
     tmk:goldRecord "GT-0111" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -14751,13 +14882,13 @@ tmka:GT-0124 tmk:authoredBy "claude-opus-5" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/1%231> .
 
-tmka:GT-0126 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
+tmka:GT-0126 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "Typed with plant varietal name, on the same reasoning: it bears on the grounds rather than being one."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 5.5e-01 ;
-    tmk:expertShouldCheck "Type this and 'plant varietal name' the same way, or say why the two external-statute cases differ."@en-AU ;
+    tmk:authoringReasoning "term protected under the Wine Australia Act is a term protected under the Wine Australia Act, as a mark may contain one: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0635 is protected through Register of Protected Geographical Indications and Other Terms; GR-0636 may give rise to use contrary to law."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0126" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -14787,13 +14918,13 @@ tmka:GT-0128 tmk:authoredBy "claude-opus-5" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33> .
 
-tmka:GT-0130 tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
+tmka:GT-0130 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
-    tmk:authoringReasoning "It feeds the answers to several questions — deception under s 43, entitlement to a defensive registration under s 185 — without being a question itself."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 6e-01 ;
-    tmk:expertShouldCheck "Settle whether this is one concept or several before typing it."@en-AU ;
+    tmk:authoringReasoning "reputation of a trade mark is a trade mark's being known in Australia: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0084 may give rise to deception; GR-0555 qualifies defensive trade mark."@en-AU ;
+    tmk:conceptGroup "context" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0130" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -15063,13 +15194,13 @@ tmka:GT-0156 tmk:authoredBy "gpt-6.1-sol" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6/approved-form> .
 
-tmka:GT-0157 tmk:authoredBy "gpt-6.1-sol" ;
-    tmk:authoredDate "2026-10-07"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Typed in the same judgement as the concept: Section 6 expressly defines a legally significant category of foreign country or region. The Manual explains its relevance to priority under section 29 and describes the prescriptions in regulation 21.29. It is distinct from the existing convention application concept: it identifies the qualifying jurisdiction, not the application. relevant_factor fits best because this status feeds into priority entitlement; the country or region is not itself a treaty or an actor in the described process."@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 9.6e-01 ;
-    tmk:expertShouldCheck "Check regulation 21.29 directly for the prescribed countries and regions, as its content is supplied only through the Manual extract; also confirm the relevant_factor grouping."@en-AU ;
+tmka:GT-0157 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "Convention country is a foreign country or region of a kind the regulations prescribe: something outside the trade mark that the assessment looks at — the goods, the market and its consumers, a person or place, a reputation, a date — so `context`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0340: convention application requires it."@en-AU ;
+    tmk:conceptGroup "context" ;
+    tmk:confidence 7e-01 ;
+    tmk:expertShouldCheck "Whether this is something outside the mark at all, or a meaning the mark itself conveys (sign content)."@en-AU ;
     tmk:goldRecord "GT-0157" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -15182,12 +15313,13 @@ tmka:GT-0168 tmk:authoredBy "claude-code-agent-S026" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> .
 
-tmka:GT-0169 tmk:authoredBy "claude-code-agent-S026" ;
-    tmk:authoredDate "2026-10-08"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "a wine GI feeds the s 42(b) and s 43 questions; typed as GC-0018 is"@en-AU ;
-    tmk:conceptGroup "relevant_factor" ;
-    tmk:confidence 8.5e-01 ;
+tmka:GT-0169 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_inferred" ;
+    tmk:authoringReasoning "wine geographical indication is a geographical indication for wine, as a mark may contain one: something a trade mark contains or conveys — a word, name, image or sign within it, or a meaning — so `sign_content`. Retyped on the owner's ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and what it does is an edge. What it does is on its edges: GR-0634 is protected through Register of Protected Geographical Indications and Other Terms."@en-AU ;
+    tmk:conceptGroup "sign_content" ;
+    tmk:confidence 8e-01 ;
+    tmk:expertShouldCheck "Whether this is better read as something about the mark's context than about what the mark itself contains or conveys."@en-AU ;
     tmk:goldRecord "GT-0169" ;
     tmk:origin "authored" ;
     tmk:reviewStatus "unreviewed" ;
@@ -15336,6 +15468,10 @@ tmka:GT-0182 tmk:authoredBy "claude-code-agent-S027" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> .
 
+tmkc:GC-0020 a tmk:SignContent ;
+    tmk:doesNotGiveRiseTo tmkc:GC-0168 ;
+    tmk:typedBy tmka:GT-0020 .
+
 tmkc:GC-0077 a skos:Concept,
         tmk:LegalConcept,
         tmk:SubjectMatter ;
@@ -15456,14 +15592,14 @@ tmkc:GC-0179 a skos:Concept,
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s33(3)> tmk:requiresElement tmkc:GC-0006 .
 
-tmkc:GC-0034 a tmk:RelevantFactor ;
+tmkc:GC-0034 a tmk:SignContent ;
     skos:related tmkc:GC-0084 ;
     tmk:mayGiveRiseTo tmkc:GC-0004 ;
     tmk:typedBy tmka:GT-0034 .
 
 tmkc:GC-0054 a skos:Concept,
-        tmk:GroundOfRefusal,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SignContent ;
     rdfs:comment "The Manual records that there are currently no regulations made for the purposes of section 18, so this ground is never raised in examination. The concept is real in law and inert in practice, and that gap is the most useful thing about the record."@en-AU ;
     skos:altLabel "prohibited signs"@en-AU,
         "sign that is not to be used as a trade mark"@en-AU ;
@@ -15498,7 +15634,7 @@ tmkc:GC-0054 a skos:Concept,
 
 tmkc:GC-0082 a skos:Concept,
         tmk:LegalConcept,
-        tmk:RelevantFactor ;
+        tmk:UseInTrade ;
     rdfs:comment "Control by the owner is the whole of it: section 8(2) makes use authorised only to the extent the user acts under the owner's control. Section 7(3) then treats authorised use as use by the owner, which is why it matters to section 41 and section 44(4)."@en-AU ;
     skos:altLabel "authorised use of a trade mark"@en-AU ;
     skos:broader tmkc:GC-0081 ;
@@ -15689,7 +15825,7 @@ tmkc:GC-0148 a skos:Concept,
 
 tmkc:GC-0169 a skos:Concept,
         tmk:LegalConcept,
-        tmk:RelevantFactor ;
+        tmk:SignContent ;
     rdfs:comment "A geographical indication for wine, entered on the Wine Register under the Wine Australia Act 2013. Different from other geographical indications: wine GIs have a dedicated statutory scheme, while other GIs are principally protected through certification trade marks (owner's ruling A4). The Act itself is not in the corpus; the Manual's account of it is."@en-AU ;
     skos:altLabel "Australian GIs"@en-AU,
         "Australian Geographical Indications"@en-AU,
@@ -15724,12 +15860,6 @@ tmkc:GC-0169 a skos:Concept,
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part32B/1/1/3> ;
     tmk:typedBy tmka:GT-0169 .
-
-tmkc:GC-0035 a tmk:RelevantFactor ;
-    skos:related tmkc:GC-0032 ;
-    tmk:notLabel "authorised user"@en-AU ;
-    tmk:notLabelKey "authorised user" ;
-    tmk:typedBy tmka:GT-0035 .
 
 tmkc:GC-0057 a skos:Concept,
         tmk:GroundOfRefusal,
@@ -15944,7 +16074,7 @@ tmkc:GC-0124 a skos:Concept,
 
 tmkc:GC-0126 a skos:Concept,
         tmk:LegalConcept,
-        tmk:RelevantFactor ;
+        tmk:SignContent ;
     rdfs:comment "A term entered on the Register of Protected Geographical Indications and Other Terms (the Wine Register) under the Wine Australia Act 2013 — Australian and European wine geographical indications, traditional expressions, quality wine terms and additional terms. Wine has a dedicated statutory scheme, unlike other geographical indications, which are principally protected through certification trade marks (owner's ruling A4)."@en-AU ;
     skos:altLabel "term on the Wine Register"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
@@ -16157,19 +16287,20 @@ tmkc:GC-0024 a tmk:LegalTest ;
         tmkc:GC-0004 ;
     tmk:typedBy tmka:GT-0024 .
 
-tmkc:GC-0028 a tmk:RelevantFactor ;
+tmkc:GC-0028 a tmk:SignContent ;
     skos:broader tmkc:GC-0001 ;
     tmk:excludesBasis tmkc:GC-0130 ;
     tmk:mayGiveRiseTo tmkc:GC-0003 ;
     tmk:typedBy tmka:GT-0028 .
 
-tmkc:GC-0048 a tmk:Exception ;
-    tmk:qualifies tmkc:GC-0001,
-        tmkc:GC-0002,
-        tmkc:GC-0008 ;
-    tmk:typedBy tmka:GT-0048 .
+tmkc:GC-0035 a tmk:Context ;
+    skos:related tmkc:GC-0032 ;
+    tmk:notLabel "authorised user"@en-AU ;
+    tmk:notLabelKey "authorised user" ;
+    tmk:qualifies tmkc:GC-0168 ;
+    tmk:typedBy tmka:GT-0035 .
 
-tmkc:GC-0049 a tmk:RelevantFactor ;
+tmkc:GC-0049 a tmk:Context ;
     tmk:appliesTo tmkc:GC-0073 ;
     tmk:constrainsRole tmkc:GC-0044 ;
     tmk:qualifies tmkc:GC-0003,
@@ -16459,30 +16590,21 @@ tmkc:GC-0174 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2/2/2> ;
     tmk:typedBy tmka:GT-0174 .
 
-tmkc:GC-0005 a tmk:RelevantFactor ;
+tmkc:GC-0005 a tmk:SignContent ;
     skos:related tmkc:GC-0047 ;
     tmk:qualifies tmkc:GC-0059,
         tmkc:GC-0060,
         tmkc:GC-0120 ;
     tmk:typedBy tmka:GT-0005 .
 
-tmkc:GC-0015 a tmk:Remedy ;
-    skos:broader tmkc:GC-0124 ;
-    skos:related tmkc:GC-0043,
-        tmkc:GC-0047,
-        tmkc:GC-0163 ;
-    tmk:allocatesTo tmkc:GC-0044 ;
-    tmk:appliesTo tmkc:GC-0012 ;
-    tmk:typedBy tmka:GT-0015 .
-
-tmkc:GC-0022 a tmk:RelevantFactor ;
+tmkc:GC-0022 a tmk:SignContent ;
     tmk:mayGiveRiseTo tmkc:GC-0002,
         tmkc:GC-0003,
         tmkc:GC-0004,
         tmkc:GC-0006 ;
     tmk:typedBy tmka:GT-0022 .
 
-tmkc:GC-0023 a tmk:RelevantFactor ;
+tmkc:GC-0023 a tmk:SignContent ;
     skos:related tmkc:GC-0025 ;
     tmk:mayGiveRiseTo tmkc:GC-0001,
         tmkc:GC-0002,
@@ -16491,14 +16613,14 @@ tmkc:GC-0023 a tmk:RelevantFactor ;
         tmkc:GC-0168 ;
     tmk:typedBy tmka:GT-0023 .
 
-tmkc:GC-0032 a tmk:RelevantFactor ;
+tmkc:GC-0032 a tmk:SignContent ;
     skos:broader tmkc:GC-0073 ;
     tmk:mayGiveRiseTo tmkc:GC-0001,
         tmkc:GC-0081,
         tmkc:GC-0168 ;
     tmk:typedBy tmka:GT-0032 .
 
-tmkc:GC-0037 a tmk:RelevantFactor ;
+tmkc:GC-0037 a tmk:SignContent ;
     skos:related tmkc:GC-0009 ;
     tmk:mayGiveRiseTo tmkc:GC-0001,
         tmkc:GC-0002,
@@ -16507,9 +16629,16 @@ tmkc:GC-0037 a tmk:RelevantFactor ;
         tmkc:GC-0168 ;
     tmk:typedBy tmka:GT-0037 .
 
+tmkc:GC-0048 a tmk:SignContent ;
+    tmk:doesNotGiveRiseTo tmkc:GC-0002 ;
+    tmk:qualifies tmkc:GC-0001,
+        tmkc:GC-0002,
+        tmkc:GC-0008 ;
+    tmk:typedBy tmka:GT-0048 .
+
 tmkc:GC-0055 a skos:Concept,
-        tmk:GroundOfRefusal,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:SignContent ;
     rdfs:comment "Unlike s 39(1) this ground is live: the Manual records six types of prescribed sign in the regulations. Note the modality — subsection 39(2) says an application 'may' be rejected, where s 39(1) says 'must'."@en-AU ;
     skos:altLabel "prescribed signs"@en-AU,
         "sign prescribed for the purposes of subsection 39(2)"@en-AU ;
@@ -16580,7 +16709,7 @@ tmkc:GC-0065 a skos:Concept,
     tmk:typedBy tmka:GT-0065 .
 
 tmkc:GC-0068 a skos:Concept,
-        tmk:Exception,
+        tmk:Context,
         tmk:LegalConcept ;
     rdfs:comment "The Manual grounds this in the commercial realities that make acceptance proper notwithstanding a real risk of deception or confusion. It is the most open-textured of the three ways round section 44."@en-AU ;
     skos:altLabel "other circumstances making it proper to accept"@en-AU ;
@@ -16644,8 +16773,8 @@ tmkc:GC-0078 a skos:Concept,
     tmk:typedBy tmka:GT-0078 .
 
 tmkc:GC-0157 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:RelevantFactor ;
+        tmk:Context,
+        tmk:LegalConcept ;
     rdfs:comment "Summary, not a definition: Summary: A Convention country is a prescribed foreign country or region whose status is relevant to claiming priority from an earlier trade mark application filed there."@en-AU ;
     skos:altLabel "convention country"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
@@ -16703,7 +16832,7 @@ tmkc:GC-0163 a skos:Concept,
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> tmk:appliesTo tmkc:GC-0168 .
 
-tmkc:GC-0019 a tmk:RelevantFactor ;
+tmkc:GC-0019 a tmk:Context ;
     skos:related tmkc:GC-0008 ;
     tmk:appliesTo tmkc:GC-0152 ;
     tmk:mayGiveRiseTo tmkc:GC-0004,
@@ -16711,13 +16840,13 @@ tmkc:GC-0019 a tmk:RelevantFactor ;
     tmk:qualifies tmkc:GC-0059 ;
     tmk:typedBy tmka:GT-0019 .
 
-tmkc:GC-0031 a tmk:RelevantFactor ;
+tmkc:GC-0031 a tmk:SignContent ;
     skos:related tmkc:GC-0035 ;
     tmk:mayGiveRiseTo tmkc:GC-0001,
         tmkc:GC-0168 ;
     tmk:typedBy tmka:GT-0031 .
 
-tmkc:GC-0052 a tmk:RelevantFactor ;
+tmkc:GC-0052 a tmk:ProceduralStep ;
     skos:related tmkc:GC-0026,
         tmkc:GC-0030,
         tmkc:GC-0050,
@@ -16794,8 +16923,8 @@ tmkc:GC-0063 a skos:Concept,
     tmk:typedBy tmka:GT-0063 .
 
 tmkc:GC-0066 a skos:Concept,
-        tmk:Exception,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:UseInTrade ;
     rdfs:comment "The Manual sets out five criteria and makes honesty a threshold requirement without which paragraph 44(3)(a) cannot be satisfied. Note the modality: if satisfied, the Registrar *may* accept — this is a discretion, not an entitlement."@en-AU ;
     skos:altLabel "concurrent use"@en-AU,
         "honest concurrent use of the 2 trade marks"@en-AU ;
@@ -16963,12 +17092,21 @@ tmkc:GC-0165 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.66> ;
     tmk:typedBy tmka:GT-0165 .
 
-tmkc:GC-0033 a tmk:RelevantFactor ;
+tmkc:GC-0015 a tmk:ProceduralStep ;
+    skos:broader tmkc:GC-0124 ;
+    skos:related tmkc:GC-0043,
+        tmkc:GC-0047,
+        tmkc:GC-0163 ;
+    tmk:allocatesTo tmkc:GC-0044 ;
+    tmk:appliesTo tmkc:GC-0012 ;
+    tmk:typedBy tmka:GT-0015 .
+
+tmkc:GC-0033 a tmk:SignContent ;
     skos:related tmkc:GC-0131 ;
     tmk:mayGiveRiseTo tmkc:GC-0168 ;
     tmk:typedBy tmka:GT-0033 .
 
-tmkc:GC-0036 a tmk:RelevantFactor ;
+tmkc:GC-0036 a tmk:SignContent ;
     skos:altLabel "name of a plant variety"@en-AU,
         "plant varietal name"@en-AU,
         "variety denomination"@en-AU ;
@@ -16980,7 +17118,7 @@ tmkc:GC-0036 a tmk:RelevantFactor ;
     tmk:qualifies tmkc:GC-0093 ;
     tmk:typedBy tmka:GT-0036 .
 
-tmkc:GC-0038 a tmk:RelevantFactor ;
+tmkc:GC-0038 a tmk:SignContent ;
     tmk:mayGiveRiseTo tmkc:GC-0001 ;
     tmk:qualifies tmkc:GC-0024,
         tmkc:GC-0036,
@@ -17060,8 +17198,8 @@ tmkc:GC-0061 a skos:Concept,
     tmk:typedBy tmka:GT-0061 .
 
 tmkc:GC-0067 a skos:Concept,
-        tmk:Exception,
-        tmk:LegalConcept ;
+        tmk:LegalConcept,
+        tmk:UseInTrade ;
     rdfs:comment "Distinguished from honest concurrent use by its modality as much as its content: where s 44(3) says the Registrar *may* accept, s 44(4) says the Registrar *may not reject*. The Manual sets out the elements an applicant must satisfy."@en-AU ;
     skos:altLabel "continuous prior use"@en-AU,
         "prior continuous use"@en-AU ;
@@ -17382,8 +17520,7 @@ tmkc:GC-0172 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part52/2%231~1> ;
     tmk:typedBy tmka:GT-0172 .
 
-tmkc:GC-0007 a tmk:Exception ;
-    tmk:appliesTo tmkc:GC-0092 ;
+tmkc:GC-0007 tmk:appliesTo tmkc:GC-0092 ;
     tmk:constrainsExaminerTo tmkc:GC-0168 ;
     tmk:constrainsRole tmkc:GC-0046 ;
     tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/4%231~1> ;
@@ -17392,7 +17529,7 @@ tmkc:GC-0007 a tmk:Exception ;
         tmkc:GC-0093 ;
     tmk:typedBy tmka:GT-0007 .
 
-tmkc:GC-0026 a tmk:RelevantFactor ;
+tmkc:GC-0026 a tmk:Context ;
     skos:related tmkc:GC-0029 ;
     tmk:mayGiveRiseTo tmkc:GC-0168 ;
     tmk:qualifies tmkc:GC-0001,
@@ -17400,7 +17537,7 @@ tmkc:GC-0026 a tmk:RelevantFactor ;
         tmkc:GC-0004 ;
     tmk:typedBy tmka:GT-0026 .
 
-tmkc:GC-0047 a tmk:RelevantFactor ;
+tmkc:GC-0047 a tmk:SignContent ;
     tmk:qualifies tmkc:GC-0004 ;
     tmk:typedBy tmka:GT-0047 .
 
@@ -17445,7 +17582,7 @@ tmkc:GC-0071 a skos:Concept,
 
 tmkc:GC-0085 a skos:Concept,
         tmk:LegalConcept,
-        tmk:RelevantFactor ;
+        tmk:ProcessRole ;
     rdfs:comment "Load-bearing in two places at once: section 41(5) makes a predecessor's use count as the applicant's for distinctiveness, and section 44(4) does the same for prior use. The section 6 definition itself is a stub that continues into a list."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "predecessor in title"@en-AU ;
@@ -17647,8 +17784,8 @@ tmkc:GC-0128 a skos:Concept,
     tmk:typedBy tmka:GT-0128 .
 
 tmkc:GC-0130 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:RelevantFactor ;
+        tmk:Context,
+        tmk:LegalConcept ;
     rdfs:comment "The reputation a trade mark has acquired — the basis of the section 60 opposition ground and of a defensive registration (section 185). Not the reputation of a place or person, which is the signed GC-0050 and which excludes 'reputation in another trade mark' (owner's ruling A3: two separate concepts)."@en-AU ;
     skos:altLabel "reputation in Australia"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
@@ -17771,14 +17908,14 @@ tmkc:GC-0176 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part18/2/2/2> ;
     tmk:typedBy tmka:GT-0176 .
 
-tmkc:GC-0025 a tmk:RelevantFactor ;
+tmkc:GC-0025 a tmk:Context ;
     tmk:qualifies tmkc:GC-0002,
         tmkc:GC-0004 ;
     tmk:typedBy tmka:GT-0025 .
 
 tmkc:GC-0081 a skos:Concept,
         tmk:LegalConcept,
-        tmk:RelevantFactor ;
+        tmk:UseInTrade ;
     rdfs:comment "The Manual calls use a concept fundamental to trade mark law and lists the questions it bears on: capability to distinguish, honest concurrent or prior use, ownership. Section 6 says its meaning is 'affected by' subsections 7(1), (2) and (3) — which is not the same as being defined by them."@en-AU ;
     skos:altLabel "trade mark use"@en-AU,
         "use"@en-AU ;
@@ -17818,8 +17955,8 @@ tmkc:GC-0081 a skos:Concept,
     tmk:typedBy tmka:GT-0081 .
 
 tmkc:GC-0091 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:RelevantFactor ;
+        tmk:Context,
+        tmk:LegalConcept ;
     rdfs:comment "Section 41(3)(b) makes use 'before the filing date' the thing that can rescue a mark with no inherent adaptation, so the filing date is not merely administrative."@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "filing date"@en-AU ;
@@ -18042,7 +18179,7 @@ tmkc:GC-0173 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part9/4/4/7/1> ;
     tmk:typedBy tmka:GT-0173 .
 
-tmkc:GC-0009 a tmk:RelevantFactor ;
+tmkc:GC-0009 a tmk:Context ;
     skos:related tmkc:GC-0027 ;
     tmk:qualifies tmkc:GC-0001,
         tmkc:GC-0002,
@@ -18052,7 +18189,7 @@ tmkc:GC-0009 a tmk:RelevantFactor ;
         tmkc:GC-0051 ;
     tmk:typedBy tmka:GT-0009 .
 
-tmkc:GC-0017 a tmk:RelevantFactor ;
+tmkc:GC-0017 a tmk:SignContent ;
     skos:related tmkc:GC-0010 ;
     tmk:mayGiveRiseTo tmkc:GC-0001,
         tmkc:GC-0145 ;
@@ -18061,7 +18198,7 @@ tmkc:GC-0017 a tmk:RelevantFactor ;
         tmkc:GC-0059 ;
     tmk:typedBy tmka:GT-0017 .
 
-tmkc:GC-0018 a tmk:RelevantFactor ;
+tmkc:GC-0018 a tmk:SignContent ;
     skos:related tmkc:GC-0145 ;
     tmk:isProtectedThrough tmkc:GC-0107 ;
     tmk:mayGiveRiseTo tmkc:GC-0003,
@@ -18070,13 +18207,13 @@ tmkc:GC-0018 a tmk:RelevantFactor ;
     tmk:qualifies tmkc:GC-0002 ;
     tmk:typedBy tmka:GT-0018 .
 
-tmkc:GC-0029 a tmk:Remedy ;
+tmkc:GC-0029 a tmk:InstrumentOrRecord ;
     tmk:appliesTo tmkc:GC-0030,
         tmkc:GC-0107 ;
     tmk:qualifies tmkc:GC-0056 ;
     tmk:typedBy tmka:GT-0029 .
 
-tmkc:GC-0030 a tmk:RelevantFactor ;
+tmkc:GC-0030 a tmk:SignContent ;
     tmk:doesNotGiveRiseTo tmkc:GC-0168 ;
     tmk:mayGiveRiseTo tmkc:GC-0001,
         tmkc:GC-0014 ;
@@ -18192,8 +18329,8 @@ tmkc:GC-0109 a skos:Concept,
     tmk:typedBy tmka:GT-0109 .
 
 tmkc:GC-0111 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:RelevantFactor ;
+        tmk:InstrumentOrRecord,
+        tmk:LegalConcept ;
     rdfs:comment "A claim under the Paris Convention that moves the priority date back to an earlier foreign filing. The Manual defines 'Convention country' by two routes — Paris signatory or full WTO member — which is worth carrying because they are not the same set."@en-AU ;
     skos:altLabel "claim for priority"@en-AU,
         "convention claim"@en-AU ;
@@ -18394,7 +18531,7 @@ tmkc:GC-0182 a skos:Concept,
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> tmk:appliesTo tmkc:GC-0182 .
 
-tmkc:GC-0011 a tmk:RelevantFactor ;
+tmkc:GC-0011 a tmk:Context ;
     skos:related tmkc:GC-0010,
         tmkc:GC-0027 ;
     tmk:qualifies tmkc:GC-0002,
@@ -18405,7 +18542,8 @@ tmkc:GC-0011 a tmk:RelevantFactor ;
         tmkc:GC-0042 ;
     tmk:typedBy tmka:GT-0011 .
 
-tmkc:GC-0027 a tmk:Exception ;
+tmkc:GC-0027 a tmk:Context ;
+    tmk:doesNotGiveRiseTo tmkc:GC-0168 ;
     tmk:typedBy tmka:GT-0027 .
 
 tmkc:GC-0042 a tmk:ProceduralStep ;
@@ -18418,7 +18556,7 @@ tmkc:GC-0042 a tmk:ProceduralStep ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s38> ;
     tmk:typedBy tmka:GT-0042 .
 
-tmkc:GC-0050 a tmk:RelevantFactor ;
+tmkc:GC-0050 a tmk:Context ;
     skos:related tmkc:GC-0010 ;
     tmk:mayGiveRiseTo tmkc:GC-0001 ;
     tmk:qualifies tmkc:GC-0004,
@@ -18682,7 +18820,7 @@ tmkc:GC-0143 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.29/extension-of-protection> ;
     tmk:typedBy tmka:GT-0143 .
 
-tmkc:GC-0013 a tmk:Remedy ;
+tmkc:GC-0013 a tmk:InstrumentOrRecord ;
     skos:altLabel "conditions and limitations"@en-AU ;
     skos:related tmkc:GC-0012,
         tmkc:GC-0014,
@@ -18821,7 +18959,7 @@ tmkc:GC-0008 a tmk:LegalTest ;
         tmkc:GC-0168 ;
     tmk:typedBy tmka:GT-0008 .
 
-tmkc:GC-0010 a tmk:RelevantFactor ;
+tmkc:GC-0010 a tmk:Context ;
     skos:related tmkc:GC-0036 ;
     tmk:qualifies tmkc:GC-0001,
         tmkc:GC-0002,
@@ -18833,7 +18971,7 @@ tmkc:GC-0010 a tmk:RelevantFactor ;
         tmkc:GC-0078 ;
     tmk:typedBy tmka:GT-0010 .
 
-tmkc:GC-0012 a tmk:RelevantFactor ;
+tmkc:GC-0012 a tmk:InstrumentOrRecord ;
     skos:altLabel "specification of goods and/or services"@en-AU ;
     tmk:dependsOnExternalSource tmkc:GC-0121 ;
     tmk:labelKey "specification of good and or service" ;
@@ -18945,17 +19083,7 @@ tmkc:GC-0136 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part11/4/4/1> ;
     tmk:typedBy tmka:GT-0136 .
 
-tmkc:GC-0014 a tmk:Remedy ;
-    skos:altLabel "endorsements"@en-AU ;
-    skos:related tmkc:GC-0012,
-        tmkc:GC-0026,
-        tmkc:GC-0030,
-        tmkc:GC-0119 ;
-    tmk:labelKey "endorsement" ;
-    tmk:qualifies tmkc:GC-0075 ;
-    tmk:typedBy tmka:GT-0014 .
-
-tmkc:GC-0016 a tmk:RelevantFactor ;
+tmkc:GC-0016 a tmk:Context ;
     skos:related tmkc:GC-0122 ;
     tmk:appliesTo tmkc:GC-0043,
         tmkc:GC-0111,
@@ -19095,6 +19223,16 @@ tmkc:GC-0181 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/1> ;
     tmk:typedBy tmka:GT-0181 .
+
+tmkc:GC-0014 a tmk:InstrumentOrRecord ;
+    skos:altLabel "endorsements"@en-AU ;
+    skos:related tmkc:GC-0012,
+        tmkc:GC-0026,
+        tmkc:GC-0030,
+        tmkc:GC-0119 ;
+    tmk:labelKey "endorsement" ;
+    tmk:qualifies tmkc:GC-0075 ;
+    tmk:typedBy tmka:GT-0014 .
 
 tmkc:GC-0113 a skos:Concept,
         tmk:LegalConcept,
@@ -19334,7 +19472,7 @@ tmkc:GC-0006 a tmk:GroundOfRefusal ;
         "ground for rejection" ;
     tmk:typedBy tmka:GT-0006 .
 
-tmkc:GC-0041 a tmk:RelevantFactor ;
+tmkc:GC-0041 a tmk:InstrumentOrRecord ;
     skos:related tmkc:GC-0058,
         tmkc:GC-0066,
         tmkc:GC-0068,
@@ -19376,11 +19514,6 @@ tmkc:GC-0073 a skos:Concept,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/3%231> ;
     tmk:typedBy tmka:GT-0073 .
 
-tmkc:GC-0002 a tmk:LegalTest ;
-    tmk:mayGiveRiseTo tmkc:GC-0168 ;
-    tmk:requiresElement tmkc:GC-0050 ;
-    tmk:typedBy tmka:GT-0002 .
-
 tmkc:GC-0040 a tmk:ProceduralStep ;
     skos:altLabel "opposition to registration"@en-AU ;
     skos:related tmkc:GC-0103,
@@ -19399,6 +19532,11 @@ tmkc:GC-0040 a tmk:ProceduralStep ;
         tmkc:GC-0114 ;
     tmk:requiresElement tmkc:GC-0158 ;
     tmk:typedBy tmka:GT-0040 .
+
+tmkc:GC-0002 a tmk:LegalTest ;
+    tmk:mayGiveRiseTo tmkc:GC-0168 ;
+    tmk:requiresElement tmkc:GC-0050 ;
+    tmk:typedBy tmka:GT-0002 .
 
 tmkc:GC-0001 a tmk:LegalTest ;
     skos:related tmkc:GC-0033 ;
@@ -19463,6 +19601,8 @@ tmkc:GC-0168 a skos:Concept,
     tmk:expertShouldCheck "Whether the labels 'section 43 objection' and 's 43 objection' should sit here or on a separate 'objection' concept — the Manual uses objection and ground for rejection interchangeably (GC-0006's own note)."@en-AU ;
     tmk:goldRecord "GC-0168" ;
     tmk:isOvercomeBy tmkc:GC-0013,
+        tmkc:GC-0014,
+        tmkc:GC-0015,
         tmkc:GC-0029 ;
     tmk:labelKey "ground for rejection under section 43",
         "s 43 ground for rejection",
