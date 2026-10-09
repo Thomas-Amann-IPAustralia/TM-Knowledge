@@ -5573,3 +5573,91 @@ geographical qualifier, evidence of use, authorised use, Convention country, win
 geographical indication; the relate re-run looks for them. Counts by kind: process role 25, step 24, sign content 23,
 instrument or record 23, test 19, context 15, subject matter 15, ground 8, none of these 6,
 use in trade 4, external instrument 2.
+
+## ADR-0127 — D5: a second model's audit of every machine-written relationship, and the search re-measured
+
+**Date** 2026-10-09 · **Authority** agent-proposed, inside the owner's D5 approval (ADR-0125) · **Status** accepted
+
+**Context.** S026's hand sample put about 28% of 25 machine-written relationships wrong
+(14–48%, review D5). The owner approved a second model checking all of them — Gemini 3.1
+Pro — and a re-run of the search measurement, D5 to spend at most US$6.00 (cap US$9.49),
+and left "measurable positive impact" to the agent, "justified either way" (CHAT-0065).
+The choices below are the agent's.
+
+**Decision (the agent's).**
+
+1. **Gemini, batch only.** `bulk.client` sends Gemini requests through its Batch API
+   alone (the proxy cuts a long answer, Q-66; batch is half price) and counts their spend
+   against the same cap. Gemini ignored the JSON schema it was sent (Q-83); its answers are
+   read where their shape leaves no doubt and refused otherwise, never re-asked.
+2. **The audit.** 72 calls, 8 relationships each with its sentence, passage and the
+   relation dictionary: **sound 346 · vague 13 · wrong 212 of 571 — 37.1% wrong (95%
+   33.3–41.2%, Wilson)**, consistent with the hand sample. By author: `gpt-6.1-sol` 38% of
+   479, S026 32% of 80, S027 33% of 12. `appliesTo` was wrong 55 times in 61: the
+   dictionary reserves it for a provision, rule or scheme, and the bulk model used it for
+   any link. Verdicts: `data/derived/audit/edges.yaml`; report:
+   `data/derived/reports/edge-audit.md`.
+3. **Acting on it** (`tmk-bulk audit-apply`). A wrong verdict's corrected reading
+   **replaces** the record (same id and sentence, the second model's stamp, the first
+   reading kept in `alternatives_considered`, `confidence: null` because it rated
+   nothing) when it passes the relate job's own checks; otherwise the record is
+   **withdrawn** to `authored/retired-ids.yaml`. Two refinements, both from reading the
+   verdicts: a concept the first reading used may stay though the sentence names it only in
+   other words (both models read the sentence as about it — "lack of inherent adaptation",
+   "ownership … has been changed"); and a correction that only widens an end to a concept
+   it is a kind of (the s 39 ground to "ground for rejection") leaves the record standing,
+   because the record entails it. **69 re-read, 135 withdrawn** (79 with no relationship
+   the sentence supports, 29 whose correction another record already states, 27 whose
+   correction brings in a concept the sentence does not name), **8 kept**. Before
+   applying, the agent read a seeded sample: of 12 "remove" verdicts, 10 should not stand
+   as written (6 wrong, 4 too weak to help) and 2 look sound, judged on the sentence alone
+   when the passage supports them (GR-0306, GR-0651); of 8 re-reads, 6 improve the record
+   and 2 drop what the passage made specific (GR-0199, now kept by the widening rule, and
+   GR-0698, a remedy re-read as a factor, which stands re-read); all 10 sampled "sound"
+   verdicts hold. Withdrawals are recoverable from the ledger and git.
+4. **A second model never overrules an expert.** Four of the wrong ones serve in place of
+   the expert's signed s 43 relationships (GR-0001, GR-0008, GR-0011, GR-0018), corrected in
+   S026 only where the owner ruled (A2, D1). They are kept and listed in the report for a
+   person.
+5. **Step 2, incrementally.** The pools were re-taken; a passage keeps the grade it was
+   given, and only the 108 passages never graded went to the judge (`judgements.yaml`
+   records when and by which model under `later`). Two extra rankings were pooled and
+   scored on the same grades: the ontology system as measured on 2026-10-07, and today's
+   system over the relationships before the audit (`tmk-bulk pools --keep-previous
+   --variant`). The report gains a cross-check with no model judge: the expert's ten
+   questions scored on the expert's own evidence lists.
+6. **No more intelligent model** — the judge stays `gpt-6.1-sol`, medium, `judge-v1`.
+   "Measurable positive impact" was read as a measurably more accurate measurement, never
+   as a result more flattering to the ontology: choosing a judge by the answer it gives would
+   void the measurement. On the one yardstick no model touched, the current judge already
+   grades all 21 passages the expert lists as required relevant (21/21; 95% 85–100%), so no
+   judge could show a gain; the 0.96 AUC against other pooled passages is no measure of
+   judge error, since the expert's lists are not exhaustive. Keeping one judge is also what
+   makes the "what changed" rows mean anything. Re-grading all 2,344 pooled passages with
+   Gemini 3.1 Pro would cost about $5, over the $2.79 left. Read the other way — "if the
+   audit has a measurable positive impact" — the audit's effect on search was measured and
+   is nil (below), so that reading gives no case either.
+
+**Results** (nDCG@10, paired bootstrap 95%; `data/derived/reports/measure.md`):
+ontology − hybrid **−0.041 [−0.067, −0.017]** (was −0.050); ontology − keyword +0.079
+[+0.042, +0.116]; on the expert's ten questions ontology − hybrid **+0.030 [+0.008,
++0.055]**. Ontology now against 2026-10-07: +0.010 [−0.005, +0.026]. **Against the same
+system before the audit: +0.001 [−0.007, +0.009] — the audit made no measurable difference
+to search.** No model judge, the expert's ten: ontology 0.538, hybrid 0.537 (+0.001
+[−0.105, +0.101]).
+
+**Spend.** D5 US$3.21 of its US$6.00: audit $3.12, re-embedding $0.01, grading $0.08.
+Recorded spend $6.70 of $9.49.
+
+**What it does not decide.** Which of these numbers the pitch claims (OQ-0029, the owner's
+gate). Whether the 27 withdrawn relationships whose correction named an unnamed concept
+are re-written — the corrections are kept in the audit file. The four disputed signed
+readings — a person's.
+
+**Consequences.** 436 machine-written relationships serve, from 571; 158 of 164 concepts
+sit in one connected piece (96%, was 98%; six isolated, was three). Every surviving
+machine-written edge has a second model's verdict, and that verdict is a model judging
+models, not a review. The ontology still trails good search with no ontology on the
+benchmark as a whole and leads it on the expert's ten questions; the audit's precision
+gain did not move search, so search quality is not where its value shows. A
+re-measurement now costs only what changed.

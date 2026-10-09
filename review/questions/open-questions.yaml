@@ -767,11 +767,22 @@ questions:
 
   - id: OQ-0026
     theme: confirm
-    status: open
+    status: answered
     needs: owner
     urgency: medium
     raised: S019
-    tracked_as: ['ADR-0098', 'OQ-0024']
+    answered:
+      date: '2026-10-09'
+      how: >-
+        Overtaken by B1, which you approved: a concept's kind now says what it is — ten
+        kinds in three families, the process kinds kept (roles, steps, records, schemes)
+        and "the thing the process operates on" among what the law's questions ask about —
+        and being a factor, an exception or a remedy is an edge, not a group. The
+        divisional-application pair named below is review item B2, still postponed.
+        Every kind stays unreviewed until the examiners' review.
+      record: review/returned/261009-owner-chat-approvals.md
+      applied: true
+    tracked_as: ['ADR-0098', 'OQ-0024', 'ADR-0126']
     title: The 53 that fitted nowhere now have five groups — here they are, in one pass
     plain: >
       You asked for new groups that most effectively capture the 53 ideas none of

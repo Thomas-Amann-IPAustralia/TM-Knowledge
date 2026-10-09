@@ -13,7 +13,23 @@ source:
   relayed_by: S027 agent
   title: B1, A5, A6, B4, D4, F2 and F6 approved as explained; the D5 spend approved, with Gemini 3.1
     Pro for the edge audit and a US$6 envelope
-applied: null
+applied:
+  session: S027
+  date: '2026-10-09'
+  branch: claude/ecstatic-cray-shk5k4
+  what_changed: >-
+    Approvals recorded (ADR-0125); cap raised to US$9.49. A5 (every label compared folded;
+    shared names reported), A6 (implied endorsement and endorsement kept apart in
+    authored/merge-candidates.yaml), D4 (GR-0110, GR-0407, GR-0494 and GR-0549 withdrawn; a
+    kind-of beside a not-label refused unless affirmed in authored/kind-of-affirmed.yaml), F2
+    (three SHACL shapes on folded label keys), F6 (a test forbids ranking or filtering by
+    confidence across authors), B4 (the s 41 ground, GC-0181, and the s 39 ground, GC-0182;
+    prohibited and prescribed signs are sign content), B1 (ten kinds in three families; factor,
+    exception and remedy are edges; 52 typings re-judged; ADR-0126). D5 (ADR-0127): Gemini 3.1
+    Pro judged all 571 machine-written relationships — 346 sound, 13 vague, 212 wrong; 69
+    re-read, 135 withdrawn, 8 kept (four of them serve for signed records and go to a person);
+    the search re-measured on incrementally graded pools with the same judge — no more
+    intelligent model, justified in ADR-0127. D5 spent US$3.21 of its US$6.00.
 answers:
 - id: CHAT-0058
   item: B1
