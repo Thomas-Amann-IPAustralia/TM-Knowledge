@@ -1137,8 +1137,8 @@ tmka:GR-0087 a tmk:AuthoredAssertion ;
     tmk:tier 2 .
 
 tmka:GR-0088 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-judged on 2026-10-08 by S026 under the owner's ruling D1 (review/rulings/2026-10-08-chat-ontology-review.yaml): the ground was the subject and the threshold the object, the inversion the predicate's definition forbids. The evidence is the original author's."@en-AU ;
-    tmk:assertionObject tmkc:GC-0006 ;
+    rdfs:comment "Re-judged on 2026-10-08 by S026 under the owner's ruling D1 (review/rulings/2026-10-08-chat-ontology-review.yaml): the ground was the subject and the threshold the object, the inversion the predicate's definition forbids. The evidence is the original author's. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0181 — ground-for-rejection edges whose sentence is about section 41 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
+    tmk:assertionObject tmkc:GC-0181 ;
     tmk:assertionPredicate tmk:statesThresholdFor ;
     tmk:assertionSubject tmkc:GC-0119 ;
     tmk:authoredBy "claude-code-agent-S026" ;
@@ -3197,8 +3197,8 @@ tmka:GR-0185 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0186 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's."@en-AU ;
-    tmk:assertionObject tmkc:GC-0006 ;
+    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0181 — ground-for-rejection edges whose sentence is about section 41 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
+    tmk:assertionObject tmkc:GC-0181 ;
     tmk:assertionPredicate tmk:mayGiveRiseTo ;
     tmk:assertionSubject tmkc:GC-0052 ;
     tmk:authoredBy "gpt-6.1-sol" ;
@@ -3220,7 +3220,8 @@ tmka:GR-0186 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0187 a tmk:AuthoredAssertion ;
-    tmk:assertionObject tmkc:GC-0006 ;
+    rdfs:comment "Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0181 — ground-for-rejection edges whose sentence is about section 41 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
+    tmk:assertionObject tmkc:GC-0181 ;
     tmk:assertionPredicate tmk:mayGiveRiseTo ;
     tmk:assertionSubject tmkc:GC-0052 ;
     tmk:authoredBy "gpt-6.1-sol" ;
@@ -3334,8 +3335,8 @@ tmka:GR-0191 a tmk:AuthoredAssertion ;
     tmk:tier 2 .
 
 tmka:GR-0192 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's."@en-AU ;
-    tmk:assertionObject tmkc:GC-0006 ;
+    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0181 — ground-for-rejection edges whose sentence is about section 41 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
+    tmk:assertionObject tmkc:GC-0181 ;
     tmk:assertionPredicate tmk:mayGiveRiseTo ;
     tmk:assertionSubject tmkc:GC-0058 ;
     tmk:authoredBy "gpt-6.1-sol" ;
@@ -3358,8 +3359,8 @@ tmka:GR-0192 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0193 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's."@en-AU ;
-    tmk:assertionObject tmkc:GC-0006 ;
+    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0181 — ground-for-rejection edges whose sentence is about section 41 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
+    tmk:assertionObject tmkc:GC-0181 ;
     tmk:assertionPredicate tmk:mayGiveRiseTo ;
     tmk:assertionSubject tmkc:GC-0059 ;
     tmk:authoredBy "gpt-6.1-sol" ;
@@ -3474,7 +3475,8 @@ tmka:GR-0197 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0198 a tmk:AuthoredAssertion ;
-    tmk:assertionObject tmkc:GC-0006 ;
+    rdfs:comment "Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0182 — ground-for-rejection edges whose sentence is about section 39 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
+    tmk:assertionObject tmkc:GC-0182 ;
     tmk:assertionPredicate tmk:mayGiveRiseTo ;
     tmk:assertionSubject tmkc:GC-0055 ;
     tmk:authoredBy "gpt-6.1-sol" ;
@@ -3497,8 +3499,8 @@ tmka:GR-0198 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0199 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's."@en-AU ;
-    tmk:assertionObject tmkc:GC-0006 ;
+    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0182 — ground-for-rejection edges whose sentence is about section 39 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
+    tmk:assertionObject tmkc:GC-0182 ;
     tmk:assertionPredicate tmk:mayGiveRiseTo ;
     tmk:assertionSubject tmkc:GC-0055 ;
     tmk:authoredBy "gpt-6.1-sol" ;
@@ -3543,8 +3545,8 @@ tmka:GR-0200 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0201 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's."@en-AU ;
-    tmk:assertionObject tmkc:GC-0006 ;
+    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0182 — ground-for-rejection edges whose sentence is about section 39 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
+    tmk:assertionObject tmkc:GC-0182 ;
     tmk:assertionPredicate tmk:statesThresholdFor ;
     tmk:assertionSubject tmkc:GC-0056 ;
     tmk:authoredBy "gpt-6.1-sol" ;
@@ -7229,7 +7231,8 @@ tmka:GR-0394 a tmk:AuthoredAssertion ;
     tmk:tier 2 .
 
 tmka:GR-0396 a tmk:AuthoredAssertion ;
-    tmk:assertionObject tmkc:GC-0006 ;
+    rdfs:comment "Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0181 — ground-for-rejection edges whose sentence is about section 41 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
+    tmk:assertionObject tmkc:GC-0181 ;
     tmk:assertionPredicate tmk:qualifies ;
     tmk:assertionSubject tmkc:GC-0038 ;
     tmk:authoredBy "gpt-6.1-sol" ;
@@ -8497,8 +8500,8 @@ tmka:GR-0457 a tmk:AuthoredAssertion ;
     tmk:tier 2 .
 
 tmka:GR-0458 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's."@en-AU ;
-    tmk:assertionObject tmkc:GC-0006 ;
+    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0181 — ground-for-rejection edges whose sentence is about section 41 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
+    tmk:assertionObject tmkc:GC-0181 ;
     tmk:assertionPredicate skos:related ;
     tmk:assertionSubject tmkc:GC-0044 ;
     tmk:authoredBy "gpt-6.1-sol" ;
@@ -8867,10 +8870,10 @@ tmka:GR-0478 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0479 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: subject GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's."@en-AU ;
+    rdfs:comment "Re-pointed on 2026-10-08 by S026: subject GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's. Re-pointed on 2026-10-09 by S027: subject GC-0006 -> GC-0182 — ground-for-rejection edges whose sentence is about section 39 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
     tmk:assertionObject tmkc:GC-0029 ;
     tmk:assertionPredicate tmk:isOvercomeBy ;
-    tmk:assertionSubject tmkc:GC-0006 ;
+    tmk:assertionSubject tmkc:GC-0182 ;
     tmk:authoredBy "gpt-6.1-sol" ;
     tmk:authoredDate "2026-10-07"^^xsd:date ;
     tmk:authoringBasis "corpus_inferred" ;
@@ -8891,8 +8894,8 @@ tmka:GR-0479 a tmk:AuthoredAssertion ;
     tmk:tier 3 .
 
 tmka:GR-0481 a tmk:AuthoredAssertion ;
-    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's."@en-AU ;
-    tmk:assertionObject tmkc:GC-0006 ;
+    rdfs:comment "Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by whether the sentence is about section 43 (ruling A2). The judgement and evidence are the original author's. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0182 — ground-for-rejection edges whose sentence is about section 39 point at that section's ground (ruling B4). The judgement and evidence are the original author's."@en-AU ;
+    tmk:assertionObject tmkc:GC-0182 ;
     tmk:assertionPredicate tmk:mayGiveRiseTo ;
     tmk:assertionSubject tmkc:GC-0054 ;
     tmk:authoredBy "gpt-6.1-sol" ;
@@ -12805,6 +12808,137 @@ tmka:GR-0677 a tmk:AuthoredAssertion ;
     tmk:supportingText "in relation to another international registration of a trade mark—the person or persons in whose name or names the international registration of the trade mark is recorded in the International Register." ;
     tmk:tier 3 .
 
+tmka:GR-0691 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0181 ;
+    tmk:assertionPredicate tmk:appliesTo ;
+    tmk:assertionSubject <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 41 creates the ground it states, mandatorily ('must be rejected')."@en-AU ;
+    tmk:confidence 9.5e-01 ;
+    tmk:expertShouldCheck "Whether practice reads section 41 as one ground with two routes (inherent adaptation, use) or as two grounds, subsections (3) and (4)."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0691" ;
+    tmk:isStale false ;
+    tmk:modality "must" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:spanEnd 299 ;
+    tmk:spanStart 4 ;
+    tmk:supportingText "An application for the registration of a trade mark must be rejected if the trade mark is not capable of distinguishing the applicant’s goods or services in respect of which the trade mark is sought to be registered (the designated goods or services) from the goods or services of other persons." ;
+    tmk:tier 3 .
+
+tmka:GR-0692 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0181 ;
+    tmk:assertionPredicate tmk:statesThresholdFor ;
+    tmk:assertionSubject tmkc:GC-0058 ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Capable of distinguishing is the standard a trade mark must meet; the section 41 ground is made out when it does not."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:expertShouldCheck "Whether 'states the threshold for' reads naturally to an examiner for a test the mark must fail."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0692" ;
+    tmk:isStale false ;
+    tmk:modality "must" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:spanEnd 299 ;
+    tmk:spanStart 4 ;
+    tmk:supportingText "An application for the registration of a trade mark must be rejected if the trade mark is not capable of distinguishing the applicant’s goods or services in respect of which the trade mark is sought to be registered (the designated goods or services) from the goods or services of other persons." ;
+    tmk:tier 3 .
+
+tmka:GR-0693 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0006 ;
+    tmk:assertionPredicate skos:broader ;
+    tmk:assertionSubject tmkc:GC-0181 ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual lists the section 41 ground among the 'absolute' grounds for rejection in sections 39 to 43."@en-AU ;
+    tmk:confidence 9e-01 ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0693" ;
+    tmk:isStale false ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:53ac65102a07932fd67393905ea28f29ad056b2b475899968a88f18e877e9557" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231> ;
+    tmk:spanEnd 754 ;
+    tmk:spanStart 590 ;
+    tmk:supportingText "Sections 39 to 43 cover what are sometimes referred to as the “absolute” grounds for rejection, that is grounds which relate to the nature of the trade mark itself." ;
+    tmk:tier 2 .
+
+tmka:GR-0694 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0006 ;
+    tmk:assertionPredicate skos:broader ;
+    tmk:assertionSubject tmkc:GC-0182 ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual lists the section 39 ground among the 'absolute' grounds for rejection in sections 39 to 43."@en-AU ;
+    tmk:confidence 9e-01 ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0694" ;
+    tmk:isStale false ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:53ac65102a07932fd67393905ea28f29ad056b2b475899968a88f18e877e9557" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231> ;
+    tmk:spanEnd 754 ;
+    tmk:spanStart 590 ;
+    tmk:supportingText "Sections 39 to 43 cover what are sometimes referred to as the “absolute” grounds for rejection, that is grounds which relate to the nature of the trade mark itself." ;
+    tmk:tier 2 .
+
+tmka:GR-0695 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0006 ;
+    tmk:assertionPredicate skos:broader ;
+    tmk:assertionSubject tmkc:GC-0168 ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "The Manual lists the section 43 ground among the 'absolute' grounds for rejection in sections 39 to 43. The A2 split (2026-10-08) left the two concepts unjoined."@en-AU ;
+    tmk:confidence 9e-01 ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0695" ;
+    tmk:isStale false ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:53ac65102a07932fd67393905ea28f29ad056b2b475899968a88f18e877e9557" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part20/5%231> ;
+    tmk:spanEnd 754 ;
+    tmk:spanStart 590 ;
+    tmk:supportingText "Sections 39 to 43 cover what are sometimes referred to as the “absolute” grounds for rejection, that is grounds which relate to the nature of the trade mark itself." ;
+    tmk:tier 2 .
+
+tmka:GR-0696 a tmk:AuthoredAssertion ;
+    tmk:assertionObject tmkc:GC-0182 ;
+    tmk:assertionPredicate tmk:appliesTo ;
+    tmk:assertionSubject <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 39 creates the ground it states — mandatory for a prohibited sign (s 39(1)), discretionary for a prescribed one (s 39(2)); the modality sits on each sign's edge, so none here."@en-AU ;
+    tmk:confidence 9.5e-01 ;
+    tmk:expertShouldCheck "Whether subsection 39(1), inert while no regulations are made under section 18, should be shown at all beside the live subsection 39(2)."@en-AU ;
+    tmk:extractionMethod "agent_authoring" ;
+    tmk:goldRecord "GR-0696" ;
+    tmk:isStale false ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourceContentHash "sha256:5c6142286d25888ad60e7b915ee08e6b4c74dfbbc868380658b3cfbba876b358" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> ;
+    tmk:spanEnd 217 ;
+    tmk:spanStart 4 ;
+    tmk:supportingText "An application for the registration of a trade mark must be rejected if the trade mark contains or consists of a sign that, under regulations made for the purposes of section 18, is not to be used as a trade mark." ;
+    tmk:tier 3 .
+
 tmkc:GC-0020 a tmk:Exception ;
     tmk:typedBy tmka:GT-0020 .
 
@@ -15180,6 +15314,28 @@ tmka:GT-0180 tmk:authoredBy "claude-code-agent-S026" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part14/3%231~2> .
 
+tmka:GT-0181 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 41 states a reason an application must be rejected, which is what a ground of refusal is."@en-AU ;
+    tmk:conceptGroup "ground_of_refusal" ;
+    tmk:confidence 9.5e-01 ;
+    tmk:goldRecord "GT-0181" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> .
+
+tmka:GT-0182 tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 39 states reasons an application must or may be rejected, which is what a ground of refusal is."@en-AU ;
+    tmk:conceptGroup "ground_of_refusal" ;
+    tmk:confidence 9.5e-01 ;
+    tmk:goldRecord "GT-0182" ;
+    tmk:origin "authored" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> .
+
 tmkc:GC-0077 a skos:Concept,
         tmk:LegalConcept,
         tmk:SubjectMatter ;
@@ -15326,7 +15482,7 @@ tmkc:GC-0054 a skos:Concept,
         "sign that is not to be used as a trade mark" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s18>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39(1)> ;
-    tmk:mayGiveRiseTo tmkc:GC-0006 ;
+    tmk:mayGiveRiseTo tmkc:GC-0182 ;
     tmk:notLabel "prescribed sign"@en-AU,
         "scandalous matter"@en-AU,
         "sign so nearly resembling"@en-AU ;
@@ -16373,7 +16529,7 @@ tmkc:GC-0055 a skos:Concept,
         "sign prescribed for the purpose of subsection 39 2" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39(2)>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39(2)(a)> ;
-    tmk:mayGiveRiseTo tmkc:GC-0006 ;
+    tmk:mayGiveRiseTo tmkc:GC-0182 ;
     tmk:notLabel "prohibited sign"@en-AU,
         "scandalous matter"@en-AU ;
     tmk:notLabelKey "prohibited sign",
@@ -16566,7 +16722,7 @@ tmkc:GC-0052 a tmk:RelevantFactor ;
         tmkc:GC-0030,
         tmkc:GC-0050,
         tmkc:GC-0092 ;
-    tmk:mayGiveRiseTo tmkc:GC-0006 ;
+    tmk:mayGiveRiseTo tmkc:GC-0181 ;
     tmk:qualifies tmkc:GC-0058 ;
     tmk:typedBy tmka:GT-0052 .
 
@@ -16599,7 +16755,7 @@ tmkc:GC-0056 a skos:Concept,
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/2%231> ;
-    tmk:statesThresholdFor tmkc:GC-0006 ;
+    tmk:statesThresholdFor tmkc:GC-0182 ;
     tmk:typedBy tmka:GT-0056 .
 
 tmkc:GC-0063 a skos:Concept,
@@ -16826,13 +16982,13 @@ tmkc:GC-0036 a tmk:RelevantFactor ;
 
 tmkc:GC-0038 a tmk:RelevantFactor ;
     tmk:mayGiveRiseTo tmkc:GC-0001 ;
-    tmk:qualifies tmkc:GC-0006,
-        tmkc:GC-0024,
+    tmk:qualifies tmkc:GC-0024,
         tmkc:GC-0036,
         tmkc:GC-0058,
         tmkc:GC-0059,
         tmkc:GC-0119,
-        tmkc:GC-0168 ;
+        tmkc:GC-0168,
+        tmkc:GC-0181 ;
     tmk:typedBy tmka:GT-0038 .
 
 tmkc:GC-0060 a skos:Concept,
@@ -18197,6 +18353,47 @@ tmkc:GC-0132 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/x-relevant-legislation26%231> ;
     tmk:typedBy tmka:GT-0132 .
 
+tmkc:GC-0182 a skos:Concept,
+        tmk:GroundOfRefusal,
+        tmk:LegalConcept ;
+    rdfs:comment "The ground section 39 creates: a trade mark that contains or consists of a prohibited sign (s 39(1), 'must') or a prescribed sign or one so nearly resembling it (s 39(2), 'may'). Until 2026-10-09 the two signs themselves were filed as the ground and as kinds of sign at once; on the owner's ruling B4 they are signs and this is the ground they give rise to."@en-AU ;
+    skos:altLabel "ground for rejection under section 39"@en-AU,
+        "ground for rejection under section 39(2)"@en-AU,
+        "grounds for rejection under s 39(1)"@en-AU ;
+    skos:broader tmkc:GC-0006 ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "section 39 ground for rejection"@en-AU ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 39 states reasons an application must or may be rejected, and the Manual speaks of 'a section 39 ground for rejection' (Part 31). A prohibited sign and a prescribed sign are what the ground is about — each is 'a sign that ...' in the Act's own words — not the ground."@en-AU ;
+    tmk:confidence 9e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/1%231> ;
+    tmk:expertShouldCheck "Whether practice treats subsections 39(1) and 39(2) as one ground or two."@en-AU ;
+    tmk:goldRecord "GC-0182" ;
+    tmk:isOvercomeBy tmkc:GC-0029 ;
+    tmk:labelKey "ground for rejection under s 39 1",
+        "ground for rejection under section 39",
+        "ground for rejection under section 39 2",
+        "section 39 ground for rejection" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> ;
+    tmk:notLabel "prescribed sign"@en-AU,
+        "prohibited sign"@en-AU,
+        "section 43 ground for rejection"@en-AU ;
+    tmk:notLabelKey "prescribed sign",
+        "prohibited sign",
+        "section 43 ground for rejection" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "section 39 ground for rejection" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/4/4/4/2> ;
+    tmk:typedBy tmka:GT-0182 .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s39> tmk:appliesTo tmkc:GC-0182 .
+
 tmkc:GC-0011 a tmk:RelevantFactor ;
     skos:related tmkc:GC-0010,
         tmkc:GC-0027 ;
@@ -18231,43 +18428,6 @@ tmkc:GC-0050 a tmk:RelevantFactor ;
         tmkc:GC-0030,
         tmkc:GC-0109 ;
     tmk:typedBy tmka:GT-0050 .
-
-tmkc:GC-0058 a skos:Concept,
-        tmk:LegalConcept,
-        tmk:LegalTest ;
-    rdfs:comment "The section 41 ground turns on this and nothing else; inherent adaptation and use are the two routes to it, not synonyms for it. The Manual's Part 22 is titled 'Section 41 - Capable of Distinguishing'."@en-AU ;
-    skos:altLabel "capacity to distinguish"@en-AU,
-        "not capable of distinguishing"@en-AU ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "capable of distinguishing"@en-AU ;
-    tmk:authoredBy "claude-opus-5" ;
-    tmk:authoredDate "2026-09-09"^^xsd:date ;
-    tmk:authoringBasis "corpus_explicit" ;
-    tmk:authoringReasoning "Subsection 41(1) states the ground and subsection 41(2) makes 'taken not to be capable of distinguishing' depend on 41(3) or 41(4). The concept is therefore the top of a small structure the Manual works through in order, and it is held separately from inherent adaptation for that reason."@en-AU ;
-    tmk:confidence 8.5e-01 ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/1%231>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
-    tmk:expertShouldCheck "Whether 'distinctive' belongs in not_labels. It is the pre-1995 word and the Manual still uses it when discussing the 1955 Act, which may make it a historical alt_label rather than a near-miss."@en-AU ;
-    tmk:goldRecord "GC-0058" ;
-    tmk:labelKey "capable of distinguishing",
-        "capacity to distinguish",
-        "not capable of distinguishing" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(1)>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(2)> ;
-    tmk:mayGiveRiseTo tmkc:GC-0006 ;
-    tmk:notLabel "deceptively similar"@en-AU,
-        "distinctive"@en-AU,
-        "inherently adapted to distinguish"@en-AU ;
-    tmk:notLabelKey "deceptively similar",
-        "distinctive",
-        "inherently adapted to distinguish" ;
-    tmk:origin "authored" ;
-    tmk:prefLabelKey "capable of distinguishing" ;
-    tmk:reviewStatus "unreviewed" ;
-    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
-    tmk:typedBy tmka:GT-0058 .
 
 tmkc:GC-0064 a skos:Concept,
         tmk:GroundOfRefusal,
@@ -18535,6 +18695,44 @@ tmkc:GC-0013 a tmk:Remedy ;
         tmkc:GC-0093 ;
     tmk:typedBy tmka:GT-0013 .
 
+tmkc:GC-0058 a skos:Concept,
+        tmk:LegalConcept,
+        tmk:LegalTest ;
+    rdfs:comment "The section 41 ground turns on this and nothing else; inherent adaptation and use are the two routes to it, not synonyms for it. The Manual's Part 22 is titled 'Section 41 - Capable of Distinguishing'."@en-AU ;
+    skos:altLabel "capacity to distinguish"@en-AU,
+        "not capable of distinguishing"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "capable of distinguishing"@en-AU ;
+    tmk:authoredBy "claude-opus-5" ;
+    tmk:authoredDate "2026-09-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Subsection 41(1) states the ground and subsection 41(2) makes 'taken not to be capable of distinguishing' depend on 41(3) or 41(4). The concept is therefore the top of a small structure the Manual works through in order, and it is held separately from inherent adaptation for that reason."@en-AU ;
+    tmk:confidence 8.5e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:expertShouldCheck "Whether 'distinctive' belongs in not_labels. It is the pre-1995 word and the Manual still uses it when discussing the 1955 Act, which may make it a historical alt_label rather than a near-miss."@en-AU ;
+    tmk:goldRecord "GC-0058" ;
+    tmk:labelKey "capable of distinguishing",
+        "capacity to distinguish",
+        "not capable of distinguishing" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(1)>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(2)> ;
+    tmk:mayGiveRiseTo tmkc:GC-0181 ;
+    tmk:notLabel "deceptively similar"@en-AU,
+        "distinctive"@en-AU,
+        "inherently adapted to distinguish"@en-AU ;
+    tmk:notLabelKey "deceptively similar",
+        "distinctive",
+        "inherently adapted to distinguish" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "capable of distinguishing" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/3%231~1> ;
+    tmk:statesThresholdFor tmkc:GC-0181 ;
+    tmk:typedBy tmka:GT-0058 .
+
 tmkc:GC-0059 a skos:Concept,
         tmk:LegalConcept,
         tmk:LegalTest ;
@@ -18558,7 +18756,7 @@ tmkc:GC-0059 a skos:Concept,
         "inherently adapted to distinguish" ;
     tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(3)(a)>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41(4)(a)> ;
-    tmk:mayGiveRiseTo tmkc:GC-0006 ;
+    tmk:mayGiveRiseTo tmkc:GC-0181 ;
     tmk:notLabel "acquired distinctiveness"@en-AU,
         "capable of distinguishing"@en-AU,
         "evidence of use"@en-AU ;
@@ -18677,8 +18875,10 @@ tmkc:GC-0119 a skos:Concept,
     tmk:prefLabelKey "prima facie capable of distinguishing" ;
     tmk:reviewStatus "unreviewed" ;
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/4%231> ;
-    tmk:statesThresholdFor tmkc:GC-0006 ;
+    tmk:statesThresholdFor tmkc:GC-0181 ;
     tmk:typedBy tmka:GT-0119 .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> tmk:appliesTo tmkc:GC-0181 .
 
 tmkc:GC-0045 a tmk:ProcessRole ;
     skos:related tmkc:GC-0003,
@@ -18856,6 +19056,46 @@ tmkc:GC-0131 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r5.2/trade-mark-application> ;
     tmk:typedBy tmka:GT-0131 .
 
+tmkc:GC-0181 a skos:Concept,
+        tmk:GroundOfRefusal,
+        tmk:LegalConcept ;
+    rdfs:comment "The ground section 41 creates: a trade mark that is not capable of distinguishing the applicant's goods or services. Held apart from the general idea of a ground for rejection (GC-0006) and from the test it turns on (GC-0058, capable of distinguishing), the way the section 43 ground was (GC-0168, ruling A2). Edges whose sentence is about section 41 point here (ruling B4)."@en-AU ;
+    skos:altLabel "ground for rejection under s 41"@en-AU,
+        "ground for rejection under section 41"@en-AU,
+        "grounds for rejection under section 41"@en-AU,
+        "objection under s 41"@en-AU,
+        "s 41 ground for rejection"@en-AU ;
+    skos:broader tmkc:GC-0006 ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "section 41 ground for rejection"@en-AU ;
+    tmk:authoredBy "claude-code-agent-S027" ;
+    tmk:authoredDate "2026-10-09"^^xsd:date ;
+    tmk:authoringBasis "corpus_explicit" ;
+    tmk:authoringReasoning "Section 41 creates one of the closed set of grounds, and the Manual names it 'a section 41 ground for rejection' throughout Parts 22 and 23. Until now the vocabulary held its test (capable of distinguishing) and the general ground, and no concept for the ground itself — sections 39, 40, 42 and 44 each had one (review B4)."@en-AU ;
+    tmk:confidence 9e-01 ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/1%231> ;
+    tmk:expertShouldCheck "Whether the pre-2013 wording of section 41 (subsections (5) and (6), still applied to applications filed before 15 April 2013, Part 12.9) is the same ground or wants a concept of its own."@en-AU ;
+    tmk:goldRecord "GC-0181" ;
+    tmk:labelKey "ground for rejection under s 41",
+        "ground for rejection under section 41",
+        "objection under s 41",
+        "s 41 ground for rejection",
+        "section 41 ground for rejection" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:notLabel "capable of distinguishing"@en-AU,
+        "section 43 ground for rejection"@en-AU,
+        "section 44 ground"@en-AU ;
+    tmk:notLabelKey "capable of distinguishing",
+        "section 43 ground for rejection",
+        "section 44 ground" ;
+    tmk:origin "authored" ;
+    tmk:prefLabelKey "section 41 ground for rejection" ;
+    tmk:reviewStatus "unreviewed" ;
+    tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/1> ;
+    tmk:typedBy tmka:GT-0181 .
+
 tmkc:GC-0113 a skos:Concept,
         tmk:LegalConcept,
         tmk:SubjectMatter ;
@@ -18937,7 +19177,8 @@ tmkc:GC-0044 a tmk:ProcessRole ;
         tmkc:GC-0012,
         tmkc:GC-0031,
         tmkc:GC-0033,
-        tmkc:GC-0092 ;
+        tmkc:GC-0092,
+        tmkc:GC-0181 ;
     tmk:actsAs tmkc:GC-0045,
         tmkc:GC-0176 ;
     tmk:consults tmkc:GC-0172,
@@ -19083,6 +19324,16 @@ tmkc:GC-0107 a skos:Concept,
     tmk:sourcePassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part35/1%231> ;
     tmk:typedBy tmka:GT-0107 .
 
+tmkc:GC-0006 a tmk:GroundOfRefusal ;
+    skos:altLabel "grounds for rejecting"@en-AU,
+        "grounds for rejection"@en-AU ;
+    skos:related tmkc:GC-0092,
+        tmkc:GC-0093 ;
+    tmk:appliesTo tmkc:GC-0131 ;
+    tmk:labelKey "ground for rejecting",
+        "ground for rejection" ;
+    tmk:typedBy tmka:GT-0006 .
+
 tmkc:GC-0041 a tmk:RelevantFactor ;
     skos:related tmkc:GC-0058,
         tmkc:GC-0066,
@@ -19157,17 +19408,6 @@ tmkc:GC-0001 a tmk:LegalTest ;
         tmkc:GC-0004 ;
     tmk:typedBy tmka:GT-0001 .
 
-tmkc:GC-0006 a tmk:GroundOfRefusal ;
-    skos:altLabel "grounds for rejecting"@en-AU,
-        "grounds for rejection"@en-AU ;
-    skos:related tmkc:GC-0092,
-        tmkc:GC-0093 ;
-    tmk:appliesTo tmkc:GC-0131 ;
-    tmk:isOvercomeBy tmkc:GC-0029 ;
-    tmk:labelKey "ground for rejecting",
-        "ground for rejection" ;
-    tmk:typedBy tmka:GT-0006 .
-
 tmkc:GC-0003 a tmk:LegalTest ;
     tmk:mayGiveRiseTo tmkc:GC-0168 ;
     tmk:qualifies tmkc:GC-0051 ;
@@ -19207,6 +19447,7 @@ tmkc:GC-0168 a skos:Concept,
         "s 43 objection"@en-AU,
         "section 43 grounds for rejection"@en-AU,
         "section 43 objection"@en-AU ;
+    skos:broader tmkc:GC-0006 ;
     skos:inScheme tmkc:scheme-s43 ;
     skos:prefLabel "section 43 ground for rejection"@en-AU ;
     skos:related tmkc:GC-0014,

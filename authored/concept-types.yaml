@@ -6201,3 +6201,62 @@
     reasoning: an authority kind (practice), not a role, thing, step, record or scheme
     alternatives_considered: []
     expert_should_check: null
+- id: GT-0181
+  concept: GC-0181
+  type: ground_of_refusal
+  basis:
+  - TMA1995/s41
+  notes: section 41 ground for rejection — the ground section 41 creates
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s41
+      span:
+      - 4
+      - 299
+      content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+      quote: An application for the registration of a trade mark must be rejected if the trade
+        mark is not capable of distinguishing the applicant’s goods or services in respect
+        of which the trade mark is sought to be registered (the designated goods or services)
+        from the goods or services of other persons.
+    confidence: 0.95
+    reasoning: Section 41 states a reason an application must be rejected, which is what a
+      ground of refusal is.
+    alternatives_considered:
+    - 'legal_test — rejected: the test is a separate concept; this is the ground the test
+      decides.'
+    expert_should_check: null
+- id: GT-0182
+  concept: GC-0182
+  type: ground_of_refusal
+  basis:
+  - TMA1995/s39
+  notes: section 39 ground for rejection — the ground section 39 creates
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s39
+      span:
+      - 4
+      - 217
+      content_hash: sha256:5c6142286d25888ad60e7b915ee08e6b4c74dfbbc868380658b3cfbba876b358
+      quote: An application for the registration of a trade mark must be rejected if the trade
+        mark contains or consists of a sign that, under regulations made for the purposes
+        of section 18, is not to be used as a trade mark.
+    confidence: 0.95
+    reasoning: Section 39 states reasons an application must or may be rejected, which is
+      what a ground of refusal is.
+    alternatives_considered:
+    - 'legal_test — rejected: the test is a separate concept; this is the ground the test
+      decides.'
+    expert_should_check: null

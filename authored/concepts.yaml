@@ -4974,3 +4974,124 @@
     alternatives_considered: []
     expert_should_check: Whether this is better modelled as the authority kind 'practice'
       than as a concept.
+- id: GC-0181
+  pref_label: section 41 ground for rejection
+  alt_labels:
+  - s 41 ground for rejection
+  - ground for rejection under section 41
+  - grounds for rejection under section 41
+  - ground for rejection under s 41
+  - objection under s 41
+  not_labels:
+  - section 43 ground for rejection
+  - section 44 ground
+  - capable of distinguishing
+  definition_sources:
+  - TMA1995/s41
+  - TMM/Part22/1#1
+  legislative_basis:
+  - TMA1995/s41
+  notes: 'The ground section 41 creates: a trade mark that is not capable of distinguishing
+    the applicant''s goods or services. Held apart from the general idea of a ground for rejection
+    (GC-0006) and from the test it turns on (GC-0058, capable of distinguishing), the way
+    the section 43 ground was (GC-0168, ruling A2). Edges whose sentence is about section
+    41 point here (ruling B4).'
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s41
+      span:
+      - 4
+      - 299
+      content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+      quote: An application for the registration of a trade mark must be rejected if the trade
+        mark is not capable of distinguishing the applicant’s goods or services in respect
+        of which the trade mark is sought to be registered (the designated goods or services)
+        from the goods or services of other persons.
+    - ref: TMM/Part22/13/13/1
+      span:
+      - 0
+      - 125
+      content_hash: sha256:493bbab37cf41142c1b02bec3ccf33ac0aee1010ee67aa10a644d305a9066a75
+      quote: The inclusion of Mister, Mr, Mrs, Miss, Ms in a trade mark will not generally
+        give rise to a section 41 ground for rejection.
+    confidence: 0.9
+    reasoning: Section 41 creates one of the closed set of grounds, and the Manual names it
+      'a section 41 ground for rejection' throughout Parts 22 and 23. Until now the vocabulary
+      held its test (capable of distinguishing) and the general ground, and no concept for
+      the ground itself — sections 39, 40, 42 and 44 each had one (review B4).
+    alternatives_considered:
+    - 'Leaving the section 41 ground inside GC-0006 and its test GC-0058. Rejected on the
+      owner''s ruling B4: the general concept would then carry section 41''s test, which only
+      section 41 has.'
+    expert_should_check: Whether the pre-2013 wording of section 41 (subsections (5) and (6),
+      still applied to applications filed before 15 April 2013, Part 12.9) is the same ground
+      or wants a concept of its own.
+- id: GC-0182
+  pref_label: section 39 ground for rejection
+  alt_labels:
+  - ground for rejection under section 39
+  - grounds for rejection under s 39(1)
+  - ground for rejection under section 39(2)
+  not_labels:
+  - prohibited sign
+  - prescribed sign
+  - section 43 ground for rejection
+  definition_sources:
+  - TMA1995/s39
+  - TMM/Part31/1#1
+  legislative_basis:
+  - TMA1995/s39
+  notes: 'The ground section 39 creates: a trade mark that contains or consists of a prohibited
+    sign (s 39(1), ''must'') or a prescribed sign or one so nearly resembling it (s 39(2),
+    ''may''). Until 2026-10-09 the two signs themselves were filed as the ground and as kinds
+    of sign at once; on the owner''s ruling B4 they are signs and this is the ground they
+    give rise to.'
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s39
+      span:
+      - 4
+      - 217
+      content_hash: sha256:5c6142286d25888ad60e7b915ee08e6b4c74dfbbc868380658b3cfbba876b358
+      quote: An application for the registration of a trade mark must be rejected if the trade
+        mark contains or consists of a sign that, under regulations made for the purposes
+        of section 18, is not to be used as a trade mark.
+    - ref: TMM/Part31/4/4/4/2
+      span:
+      - 626
+      - 819
+      content_hash: sha256:8e1a0d9990e5a593d05d10a3b0bdd07cb1bd9460b0c964f17522349234b5c1d6
+      quote: Where a trade mark consists of or contains a representation of the colours of
+        an international flag and is clearly represented as a flag, a section 39 ground for
+        rejection would be appropriate.
+    - ref: TMM/Part31/1#1
+      span:
+      - 215
+      - 369
+      content_hash: sha256:ddc789a4768f5dd8e12018c22ae4d7a867b62682584dd2ca1c03fcf53e212b0e
+      quote: There are currently no regulations made for the purposes of section 18, which
+        means grounds for rejection under s 39(1) are not raised during examination.
+    confidence: 0.9
+    reasoning: Section 39 states reasons an application must or may be rejected, and the Manual
+      speaks of 'a section 39 ground for rejection' (Part 31). A prohibited sign and a prescribed
+      sign are what the ground is about — each is 'a sign that ...' in the Act's own words
+      — not the ground.
+    alternatives_considered:
+    - 'Two concepts, one per subsection: s 39(1) is mandatory and inert (no regulations under
+      s 18), s 39(2) discretionary and live. Rejected for now: the Manual names one ''section
+      39 ground'', and the modality sits on each edge (must from a prohibited sign, may from
+      a prescribed one).'
+    expert_should_check: Whether practice treats subsections 39(1) and 39(2) as one ground
+      or two.

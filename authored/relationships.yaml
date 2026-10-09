@@ -1169,7 +1169,7 @@
 - id: GR-0088
   subject: GC-0119
   predicate: statesThresholdFor
-  object: GC-0006
+  object: GC-0181
   source_ref: TMM/Part22/15/15/13
   supporting_text: The trade marks have some inherent adaptation to distinguish but they are
     not prima facie capable of distinguishing. In this instance a section 41 ground for rejection
@@ -1182,7 +1182,10 @@
   modality: null
   notes: 'Re-judged on 2026-10-08 by S026 under the owner''s ruling D1 (review/rulings/2026-10-08-chat-ontology-review.yaml):
     the ground was the subject and the threshold the object, the inversion the predicate''s
-    definition forbids. The evidence is the original author''s.'
+    definition forbids. The evidence is the original author''s. Re-pointed on 2026-10-09 by
+    S027: object GC-0006 -> GC-0181 — ground-for-rejection edges whose sentence is about section
+    41 point at that section''s ground (ruling B4). The judgement and evidence are the original
+    author''s.'
   approved_by: null
   approved_date: null
   authored:
@@ -4827,7 +4830,7 @@
 - id: GR-0186
   subject: GC-0052
   predicate: mayGiveRiseTo
-  object: GC-0006
+  object: GC-0181
   source_ref: TMM/Part32A/2/3/2/3/2
   supporting_text: A ground for rejection under section 41(4) is applicable if research identifies
     a plant name of the relevant type that only differs from the applied for trade mark by
@@ -4841,7 +4844,9 @@
   notes: 'Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection
     edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by
     whether the sentence is about section 43 (ruling A2). The judgement and evidence are the
-    original author''s.'
+    original author''s. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0181 — ground-for-rejection
+    edges whose sentence is about section 41 point at that section''s ground (ruling B4).
+    The judgement and evidence are the original author''s.'
   approved_by: null
   approved_date: null
   authored:
@@ -4869,7 +4874,7 @@
 - id: GR-0187
   subject: GC-0052
   predicate: mayGiveRiseTo
-  object: GC-0006
+  object: GC-0181
   source_ref: TMM/Part23/2/2/4
   supporting_text: Internet research often forms the basis for an examiner’s objection under
     s 41.
@@ -4879,6 +4884,9 @@
   source_content_hash: sha256:69725c346bea852f1255288ba8197ecd4ac800b2fda0c836240863efe84af539
   tier: 3
   modality: null
+  notes: 'Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0181 — ground-for-rejection
+    edges whose sentence is about section 41 point at that section''s ground (ruling B4).
+    The judgement and evidence are the original author''s.'
   approved_by: null
   approved_date: null
   authored:
@@ -5068,7 +5076,7 @@
 - id: GR-0192
   subject: GC-0058
   predicate: mayGiveRiseTo
-  object: GC-0006
+  object: GC-0181
   source_ref: TMM/Part22/14/14/5
   supporting_text: 'Where the trade mark consists of a # followed by descriptive or non-distinctive
     elements it will not be prima facie capable of distinguishing. An example of when a ground
@@ -5084,7 +5092,9 @@
   notes: 'Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection
     edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by
     whether the sentence is about section 43 (ruling A2). The judgement and evidence are the
-    original author''s.'
+    original author''s. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0181 — ground-for-rejection
+    edges whose sentence is about section 41 point at that section''s ground (ruling B4).
+    The judgement and evidence are the original author''s.'
   approved_by: null
   approved_date: null
   authored:
@@ -5115,7 +5125,7 @@
 - id: GR-0193
   subject: GC-0059
   predicate: mayGiveRiseTo
-  object: GC-0006
+  object: GC-0181
   source_ref: TMM/Part21/3/3/7
   supporting_text: If the shape is a minor variation of something already common within the
     industry, the examiner will need to raise grounds for rejection based on the shape's lack
@@ -5129,7 +5139,9 @@
   notes: 'Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection
     edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by
     whether the sentence is about section 43 (ruling A2). The judgement and evidence are the
-    original author''s.'
+    original author''s. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0181 — ground-for-rejection
+    edges whose sentence is about section 41 point at that section''s ground (ruling B4).
+    The judgement and evidence are the original author''s.'
   approved_by: null
   approved_date: null
   authored:
@@ -5331,7 +5343,7 @@
 - id: GR-0198
   subject: GC-0055
   predicate: mayGiveRiseTo
-  object: GC-0006
+  object: GC-0182
   source_ref: TMM/Part32A/2/2#1
   supporting_text: Paragraph 39(2)(a) of the Trade Marks Act states that a trade mark may
     be rejected if it contains or consists of a sign that is prescribed in the regulations
@@ -5343,6 +5355,9 @@
   source_content_hash: sha256:8538d9518cb1d0ff0ab622a83ae19ffec5711a99dee4e5f7f85b8b6f3e60a000
   tier: 3
   modality: may
+  notes: 'Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0182 — ground-for-rejection
+    edges whose sentence is about section 39 point at that section''s ground (ruling B4).
+    The judgement and evidence are the original author''s.'
   approved_by: null
   approved_date: null
   authored:
@@ -5371,7 +5386,7 @@
 - id: GR-0199
   subject: GC-0055
   predicate: mayGiveRiseTo
-  object: GC-0006
+  object: GC-0182
   source_ref: TMM/Part31/4/4/1
   supporting_text: Where the prescribed sign forms a reasonably large component of the trade
     mark and deleting it would substantially affect the identity of the trade mark then a
@@ -5385,7 +5400,9 @@
   notes: 'Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection
     edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by
     whether the sentence is about section 43 (ruling A2). The judgement and evidence are the
-    original author''s.'
+    original author''s. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0182 — ground-for-rejection
+    edges whose sentence is about section 39 point at that section''s ground (ruling B4).
+    The judgement and evidence are the original author''s.'
   approved_by: null
   approved_date: null
   authored:
@@ -5452,7 +5469,7 @@
 - id: GR-0201
   subject: GC-0056
   predicate: statesThresholdFor
-  object: GC-0006
+  object: GC-0182
   source_ref: TMM/Part32A/2/2#1
   supporting_text: Paragraph 39(2)(a) of the Trade Marks Act states that a trade mark may
     be rejected if it contains or consists of a sign that is prescribed in the regulations
@@ -5467,7 +5484,9 @@
   notes: 'Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection
     edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by
     whether the sentence is about section 43 (ruling A2). The judgement and evidence are the
-    original author''s.'
+    original author''s. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0182 — ground-for-rejection
+    edges whose sentence is about section 39 point at that section''s ground (ruling B4).
+    The judgement and evidence are the original author''s.'
   approved_by: null
   approved_date: null
   authored:
@@ -11848,7 +11867,7 @@
 - id: GR-0396
   subject: GC-0038
   predicate: qualifies
-  object: GC-0006
+  object: GC-0181
   source_ref: TMM/Part32A/2/3/2/3/2
   supporting_text: A ground for rejection under section 41(4) is applicable if research identifies
     a plant name of the relevant type that only differs from the applied for trade mark by
@@ -11860,6 +11879,9 @@
   source_content_hash: sha256:d258c56d0fe9847b48e1bc12fd80823f46bebdc60c46efbede473ae98600ecc0
   tier: 3
   modality: null
+  notes: 'Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0181 — ground-for-rejection
+    edges whose sentence is about section 41 point at that section''s ground (ruling B4).
+    The judgement and evidence are the original author''s.'
   approved_by: null
   approved_date: null
   authored:
@@ -14146,7 +14168,7 @@
 - id: GR-0458
   subject: GC-0044
   predicate: related
-  object: GC-0006
+  object: GC-0181
   source_ref: TMM/Part22/21#1
   supporting_text: Examiners should raise a ground for rejection under section 41 where a
     trade mark directly describes the potential subject matter of goods in class 9 and 16,
@@ -14160,7 +14182,9 @@
   notes: 'Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection
     edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by
     whether the sentence is about section 43 (ruling A2). The judgement and evidence are the
-    original author''s.'
+    original author''s. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0181 — ground-for-rejection
+    edges whose sentence is about section 41 point at that section''s ground (ruling B4).
+    The judgement and evidence are the original author''s.'
   approved_by: null
   approved_date: null
   authored:
@@ -14809,7 +14833,7 @@
     expert_should_check: The subject was the s 43 'confusion' concept, which excludes section
       44 confusion (D5 sample).
 - id: GR-0479
-  subject: GC-0006
+  subject: GC-0182
   predicate: isOvercomeBy
   object: GC-0029
   source_ref: TMM/Part31/4/4/3
@@ -14825,7 +14849,9 @@
   notes: 'Re-pointed on 2026-10-08 by S026: subject GC-0053 -> GC-0006 — ground-for-rejection
     edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by
     whether the sentence is about section 43 (ruling A2). The judgement and evidence are the
-    original author''s.'
+    original author''s. Re-pointed on 2026-10-09 by S027: subject GC-0006 -> GC-0182 — ground-for-rejection
+    edges whose sentence is about section 39 point at that section''s ground (ruling B4).
+    The judgement and evidence are the original author''s.'
   approved_by: null
   approved_date: null
   authored:
@@ -14853,7 +14879,7 @@
 - id: GR-0481
   subject: GC-0054
   predicate: mayGiveRiseTo
-  object: GC-0006
+  object: GC-0182
   source_ref: TMM/Part30/3/3/4/1
   supporting_text: 'Note: Grounds for rejection may also arise under section 39 in relation
     to the Aboriginal and Torres Strait Islander flags – see Part 31 Prescribed and Prohibited
@@ -14867,7 +14893,9 @@
   notes: 'Re-pointed on 2026-10-08 by S026: object GC-0053 -> GC-0006 — ground-for-rejection
     edges sorted between the general concept GC-0006 and the section 43 ground GC-0168 by
     whether the sentence is about section 43 (ruling A2). The judgement and evidence are the
-    original author''s.'
+    original author''s. Re-pointed on 2026-10-09 by S027: object GC-0006 -> GC-0182 — ground-for-rejection
+    edges whose sentence is about section 39 point at that section''s ground (ruling B4).
+    The judgement and evidence are the original author''s.'
   approved_by: null
   approved_date: null
   authored:
@@ -22034,3 +22062,221 @@
       is about section 43 (ruling A2).'
     expert_should_check: Whether the ground arises from the reference to Indigenous people
       or from the connotation it carries; the sentence needs both.
+- id: GR-0691
+  subject: TMA1995/s41
+  predicate: appliesTo
+  object: GC-0181
+  source_ref: TMA1995/s41
+  supporting_text: An application for the registration of a trade mark must be rejected if
+    the trade mark is not capable of distinguishing the applicant’s goods or services in respect
+    of which the trade mark is sought to be registered (the designated goods or services)
+    from the goods or services of other persons.
+  span:
+  - 4
+  - 299
+  source_content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+  tier: 3
+  modality: must
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s41
+      span:
+      - 4
+      - 299
+      content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+      quote: An application for the registration of a trade mark must be rejected if the trade
+        mark is not capable of distinguishing the applicant’s goods or services in respect
+        of which the trade mark is sought to be registered (the designated goods or services)
+        from the goods or services of other persons.
+    confidence: 0.95
+    reasoning: Section 41 creates the ground it states, mandatorily ('must be rejected').
+    alternatives_considered:
+    - 'requiresElement — rejected: the provision does not require the ground, it creates it.'
+    expert_should_check: Whether practice reads section 41 as one ground with two routes (inherent
+      adaptation, use) or as two grounds, subsections (3) and (4).
+- id: GR-0692
+  subject: GC-0058
+  predicate: statesThresholdFor
+  object: GC-0181
+  source_ref: TMA1995/s41
+  supporting_text: An application for the registration of a trade mark must be rejected if
+    the trade mark is not capable of distinguishing the applicant’s goods or services in respect
+    of which the trade mark is sought to be registered (the designated goods or services)
+    from the goods or services of other persons.
+  span:
+  - 4
+  - 299
+  source_content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+  tier: 3
+  modality: must
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s41
+      span:
+      - 4
+      - 299
+      content_hash: sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62
+      quote: An application for the registration of a trade mark must be rejected if the trade
+        mark is not capable of distinguishing the applicant’s goods or services in respect
+        of which the trade mark is sought to be registered (the designated goods or services)
+        from the goods or services of other persons.
+    confidence: 0.85
+    reasoning: Capable of distinguishing is the standard a trade mark must meet; the section
+      41 ground is made out when it does not.
+    alternatives_considered:
+    - 'requiresElement — rejected: the ground requires the mark NOT to be capable of distinguishing,
+      and requiresElement would read the other way.'
+    expert_should_check: Whether 'states the threshold for' reads naturally to an examiner
+      for a test the mark must fail.
+- id: GR-0693
+  subject: GC-0181
+  predicate: broader
+  object: GC-0006
+  source_ref: TMM/Part20/5#1
+  supporting_text: Sections 39 to 43 cover what are sometimes referred to as the “absolute”
+    grounds for rejection, that is grounds which relate to the nature of the trade mark itself.
+  span:
+  - 590
+  - 754
+  source_content_hash: sha256:53ac65102a07932fd67393905ea28f29ad056b2b475899968a88f18e877e9557
+  tier: 2
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part20/5#1
+      span:
+      - 590
+      - 754
+      content_hash: sha256:53ac65102a07932fd67393905ea28f29ad056b2b475899968a88f18e877e9557
+      quote: Sections 39 to 43 cover what are sometimes referred to as the “absolute” grounds
+        for rejection, that is grounds which relate to the nature of the trade mark itself.
+    confidence: 0.9
+    reasoning: The Manual lists the section 41 ground among the 'absolute' grounds for rejection
+      in sections 39 to 43.
+    alternatives_considered:
+    - 'related — rejected: the passage places the section''s ground inside the class.'
+    expert_should_check: null
+- id: GR-0694
+  subject: GC-0182
+  predicate: broader
+  object: GC-0006
+  source_ref: TMM/Part20/5#1
+  supporting_text: Sections 39 to 43 cover what are sometimes referred to as the “absolute”
+    grounds for rejection, that is grounds which relate to the nature of the trade mark itself.
+  span:
+  - 590
+  - 754
+  source_content_hash: sha256:53ac65102a07932fd67393905ea28f29ad056b2b475899968a88f18e877e9557
+  tier: 2
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part20/5#1
+      span:
+      - 590
+      - 754
+      content_hash: sha256:53ac65102a07932fd67393905ea28f29ad056b2b475899968a88f18e877e9557
+      quote: Sections 39 to 43 cover what are sometimes referred to as the “absolute” grounds
+        for rejection, that is grounds which relate to the nature of the trade mark itself.
+    confidence: 0.9
+    reasoning: The Manual lists the section 39 ground among the 'absolute' grounds for rejection
+      in sections 39 to 43.
+    alternatives_considered:
+    - 'related — rejected: the passage places the section''s ground inside the class.'
+    expert_should_check: null
+- id: GR-0695
+  subject: GC-0168
+  predicate: broader
+  object: GC-0006
+  source_ref: TMM/Part20/5#1
+  supporting_text: Sections 39 to 43 cover what are sometimes referred to as the “absolute”
+    grounds for rejection, that is grounds which relate to the nature of the trade mark itself.
+  span:
+  - 590
+  - 754
+  source_content_hash: sha256:53ac65102a07932fd67393905ea28f29ad056b2b475899968a88f18e877e9557
+  tier: 2
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMM/Part20/5#1
+      span:
+      - 590
+      - 754
+      content_hash: sha256:53ac65102a07932fd67393905ea28f29ad056b2b475899968a88f18e877e9557
+      quote: Sections 39 to 43 cover what are sometimes referred to as the “absolute” grounds
+        for rejection, that is grounds which relate to the nature of the trade mark itself.
+    confidence: 0.9
+    reasoning: The Manual lists the section 43 ground among the 'absolute' grounds for rejection
+      in sections 39 to 43. The A2 split (2026-10-08) left the two concepts unjoined.
+    alternatives_considered:
+    - 'related — rejected: the passage places the section''s ground inside the class.'
+    expert_should_check: null
+- id: GR-0696
+  subject: TMA1995/s39
+  predicate: appliesTo
+  object: GC-0182
+  source_ref: TMA1995/s39
+  supporting_text: An application for the registration of a trade mark must be rejected if
+    the trade mark contains or consists of a sign that, under regulations made for the purposes
+    of section 18, is not to be used as a trade mark.
+  span:
+  - 4
+  - 217
+  source_content_hash: sha256:5c6142286d25888ad60e7b915ee08e6b4c74dfbbc868380658b3cfbba876b358
+  tier: 3
+  modality: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S027
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_explicit
+    evidence:
+    - ref: TMA1995/s39
+      span:
+      - 4
+      - 217
+      content_hash: sha256:5c6142286d25888ad60e7b915ee08e6b4c74dfbbc868380658b3cfbba876b358
+      quote: An application for the registration of a trade mark must be rejected if the trade
+        mark contains or consists of a sign that, under regulations made for the purposes
+        of section 18, is not to be used as a trade mark.
+    confidence: 0.95
+    reasoning: Section 39 creates the ground it states — mandatory for a prohibited sign (s
+      39(1)), discretionary for a prescribed one (s 39(2)); the modality sits on each sign's
+      edge, so none here.
+    alternatives_considered:
+    - 'modality must — rejected: true of subsection (1) only.'
+    expert_should_check: Whether subsection 39(1), inert while no regulations are made under
+      section 18, should be shown at all beside the live subsection 39(2).

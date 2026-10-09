@@ -22,7 +22,7 @@
 35 signed relationships in `eval/gold/relationships.yaml`, of which
 6 are used exactly once, and 14 admitted by the owner on
 2026-10-08 and used by no signed record yet. Machine-written relationships use
-26 of them, 327 times — counted apart, never added in.
+26 of them, 330 times — counted apart, never added in.
 
 Every definition, reading, example and counter-example here was written by an
 agent and is unreviewed (ADR-0121, ADR-0123). A record whose triple does not read
@@ -115,12 +115,12 @@ tmk:appliesTo a owl:ObjectProperty ;
     tmk:counterExample "Not for one concept merely being relevant to another; use qualifies or related."@en-AU ;
     tmk:admittedBy "signed" ;
     tmk:usageCount 1 ;
-    tmk:authoredUsageCount 59 ;
+    tmk:authoredUsageCount 61 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedSubjectType tmk:LegislativeProvision ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0001" ;
-    rdfs:comment "Signed usage: 1 relationship (GR-0001). Machine-written usage: 59, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 1 relationship (GR-0001). Machine-written usage: 61, unreviewed."@en-AU .
 
 tmk:citesAuthorityFor a owl:ObjectProperty ;
     a tmk:ApprovedRelation ;
@@ -530,8 +530,8 @@ tmk:statesThresholdFor a owl:ObjectProperty ;
     tmk:counterExample "Never ground → threshold. GR-0018 was recorded that way round and is corrected by GK-0021."@en-AU ;
     tmk:admittedBy "signed" ;
     tmk:usageCount 1 ;
-    tmk:authoredUsageCount 7 ;
+    tmk:authoredUsageCount 8 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0018" ;
-    rdfs:comment "Signed usage: 1 relationship (GR-0018). Machine-written usage: 7, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 1 relationship (GR-0018). Machine-written usage: 8, unreviewed."@en-AU .

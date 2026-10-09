@@ -14203,6 +14203,37 @@
     tmk:text "To be capable of distinguishing the applicant's goods, the scent needs to be something apart from the goods themselves. It should be neither a natural characteristic nor an expected characteristic of the product, but something added to identify the applicant's goods from those of others in the same market. Examples which have been accepted in various jurisdictions include the smell of beer for dart flights, and a smell reminiscent of frangipani (plumeria) flowers for embroidery yarn, as well as various fruit perfumes for synthetic motor oils. In these cases, the perfume did not consist of the natural scent of the product, nor was there an expectation that the product be perfumed. The scent was something unusual added to the goods to assist in identifying them via olfactory means from the similar products of other traders." ;
     tmk:upstreamRef "TMM/Part21/7/7/2/1~2" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13%231> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:9baee34776df3f7f65a3d1ff92d333f306cc20c1989eb9c487fb8572ee5d6018" ;
+    tmk:headingPath "22.13. Common formats for trade marks",
+        "Part 22 Section 41 - Capable of Distinguishing" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13> ;
+    tmk:ordinal 1 ;
+    tmk:partId "Part22" ;
+    tmk:text "Some words are commonly used in combination to identify the nature or extol the virtues of a particular product or service. These include:" ;
+    tmk:upstreamRef "TMM/Part22/13#1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/6~1> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:contentHash "sha256:e0799afc181a16657c652bbaa85a42c0194457afd9a7356e678cc949245cd91c" ;
+    tmk:headingPath "13.6 Trade marks that contain a unit of time",
+        "22.13. Common formats for trade marks",
+        "Part 22 Section 41 - Capable of Distinguishing" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13> ;
+    tmk:ordinal 7 ;
+    tmk:partId "Part22" ;
+    tmk:text "Trade marks containing a unit of time such as DAY, WEEK or MONTH in combination with a word or expression that defines, describes or indicates a particular field of interest or activity may lack the inherent adaptation to distinguish particular goods and or services. For example:" ;
+    tmk:upstreamRef "TMM/Part22/13/13/6~1" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/14%231> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -35544,6 +35575,91 @@
     tmk:extraction "href" ;
     tmk:mention "Section 6" .
 
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/1/internal/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/16> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/1> ;
+    tmk:extraction "href" ;
+    tmk:mention "paragraph 16" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/1/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/1> ;
+    tmk:extraction "regex" ;
+    tmk:mention "paragraph 16" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/1/prov/1> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/1> ;
+    tmk:extraction "regex" ;
+    tmk:mention "section 41" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/2/internal/0> a tmk:Citation ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/16> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/2> ;
+    tmk:extraction "href" ;
+    tmk:mention "paragraph 16" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/2/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/2> ;
+    tmk:extraction "regex" ;
+    tmk:mention "paragraph 16" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/2/prov/1> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/2> ;
+    tmk:extraction "regex" ;
+    tmk:mention "section 41" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/3/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/3> ;
+    tmk:extraction "regex" ;
+    tmk:mention "section 41" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/4/case/0> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/1968/AOJP/38/3440> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/4> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/4/case/1> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/1991/IPR/23/188> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/4> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/4/case/2> a tmk:Citation ;
+    tmk:citationResolves false ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/1994/IPR/30/624> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/4> .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/5/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/5> ;
+    tmk:extraction "regex" ;
+    tmk:mention "Section 41" .
+
+<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/6~2/prov/0> a tmk:Citation ;
+    tmk:certainty "default" ;
+    tmk:citationResolves true ;
+    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/6~2> ;
+    tmk:extraction "regex" ;
+    tmk:mention "Section 41" .
+
 <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/14/14/2~1/internal/0> a tmk:Citation ;
     tmk:citationResolves true ;
     tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/26> ;
@@ -50524,6 +50640,60 @@
     tmk:text "The application must include a graphical representation of the scent mark. This could be by way of a verbal description of the scent such as \"the scent of pine\". However one of the problems with attempting to describe a scent is that unlike shapes, colours, sounds or words, it is hard to represent a scent in a way which unambiguously clarifies its nature as it can’t be seen or heard. In terms of identity, the more that is left to the imagination, the less clarity there is when it comes to available forms of graphic representation. The graphical representation must be in a form that conveys information to the ordinary person allowing them to identify the trade mark. Highly technical data will not be acceptable as a graphical representation. For example, the results of analytical techniques such as infrared spectroscopy; vacuum, fractional and molecular distillation; nuclear magnetic resonance; vacuum fractionation; \"electronic nose\" analysis and chromatographic techniques would not be acceptable. An actual sample of the scent is not required at filing but may be needed during the course of examination. The applicant must include a precise and accurate description of the scent that will be entered as an endorsement of the application. The description must include both what the scent is, and how it is to be used in respect of the goods or services claimed. Examples of acceptable descriptions are as follows: The trade mark is a scent mark. It consists of the smell of roses applied to plastic storage boxes for domestic purposes. The application is a scent mark, consisting of the smell of apple blossoms applied to car tyres. The mark comprises the strong smell of bitter beer applied to the flights of darts. Part 10 Details of Formality Requirements - 3.4 Representation of the trade mark - scent trade marks" ;
     tmk:upstreamRef "TMM/Part21/7/7/1" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/3> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:contentHash "sha256:8af9dc343c20be90510d34eb02979f74bc7a0521b90639105949805307fdbad9" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/3/prov/0> ;
+    tmk:headingPath "13.3 My trade marks",
+        "22.13. Common formats for trade marks",
+        "Part 22 Section 41 - Capable of Distinguishing" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13> ;
+    tmk:ordinal 4 ;
+    tmk:partId "Part22" ;
+    tmk:text "When considering whether a phrase containing the word “MY” is capable of distinguishing (see table below), consideration must be given to the ordinary signification of the phrase. Whether or not the trade mark is capable of distinguishing, will depend upon if the phrase is something ‘other traders are likely, in the ordinary course of their business and without any improper motive, to desire to use the same phrase, or some phrase so nearly resembling it’. Trade marks containing the word “MY” that form an expression that is not considered capable of distinguishing will require evidence of use to achieve acceptance under the provisions of section 41 of the Act. See examples in table below: Trade mark Goods and/or services Section 41 PAY MY DEBT Class 36: Financial services Yes, indicates to the consumer that the trader’s financial services allow the consumer to pay their debt. FIX MY COMPUTER Class 37: Maintenance and repair services Yes, indicates to the consumer that the trader provides maintenance and repair services that fix the consumer’s computer. MY FLORIST, MY CHOICE Class 44: Floristry services No, the expression as a whole does not indicate the nature of the services being provided. MY DAY, MY WAY Class 44: Arranging of wedding services No, the expression does not indicate the nature of the services being provided." ;
+    tmk:upstreamRef "TMM/Part22/13/13/3" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/5> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:contentHash "sha256:b0907ece3b88a79c52fdf6d1d86529dc969a14765cad69ff855a29779697daf1" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/5/prov/0> ;
+    tmk:headingPath "13.5 World and land trade marks",
+        "22.13. Common formats for trade marks",
+        "Part 22 Section 41 - Capable of Distinguishing" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13> ;
+    tmk:ordinal 6 ;
+    tmk:partId "Part22" ;
+    tmk:text "Trade marks consisting of WORLD, WORLD OF, LAND, LAND OF in combination with the name of, a direct reference to, or an attribute of, the designated goods or services will generally be considered prima facie capable of distinguishing. However WORLD or LAND trade marks which form an expression commonly used to define a particular field of interest or activity will usually possess insufficient capacity to distinguish goods or services in that field. Such trade marks will usually need evidence of use to achieve acceptance. Trade mark Goods and/or services Section 41 CHEESEWORLD Class 29: Dairy products, including cheese Class 35: Retailing of cheeses and, dairy products No – the trade mark is the combination of WORLD and CHEESE which is a direct reference to the goods / services. LAND OF SHOES Class 25: Footwear Class 35: Retailing of footwear No – the trade mark is the combination of LAND and SHOES which is a direct reference to the goods / services. THEATRICAL WORLD Class 41: Entertainment services Yes – the expression is commonly used in relation to the field of dramatic arts and should legitimately be open for use by others. WORLD OF BIG BUSINESS Class 36: Financial services Yes – the expression is commonly used in relation to business, commerce and finance and should legitimately be open for use by others." ;
+    tmk:upstreamRef "TMM/Part22/13/13/5" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/6~2> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:contentHash "sha256:ac0180fed61966777b1ed623d0ece2603f1652084edd5e239440896360694e7d" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/6~2/prov/0> ;
+    tmk:headingPath "13.6 Trade marks that contain a unit of time",
+        "22.13. Common formats for trade marks",
+        "Part 22 Section 41 - Capable of Distinguishing" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13> ;
+    tmk:ordinal 8 ;
+    tmk:partId "Part22" ;
+    tmk:text "Trade mark Goods and/or services Section 41 Australian Art Day Class 41: Entertainment services including arrangement of exhibitions and events. Yes - ground for rejection likely to be appropriate as the phrase indicates entertainment services including events relating to/ enjoying/viewing Australian art. Sick Kids Day Class 14: Charity wrist bands; decorative pins Class 26: Decorative ribbons Class 28: Board Games Class 36: Charitable fundraising Class 41: Organisation of entertainment events for children. Yes - ground for rejection likely to be appropriate as the services are indicative of the type and target audience of charitable fundraising in class 36 and entertainment in class 41. The goods claimed in classes 14, 26 are goods that are commonly associated with such events and are therefore also likely to attract a section 41 ground for rejection. Beautiful Smiles Day Class 16: Printed matter and publications relating to dental care and health care Class 41: Education and entertainment services relating to dental care and health care. No - ground for rejection not likely to be appropriate as the goods and services in classes 16 and 41 do not provide you with or enable you to have a beautiful smile. European Fashion Week Class 41: Fashion shows; production of fashion shows (entertainment). Yes - ground for rejection likely to be appropriate as the entertainment services in class 41 relate to a week long event which features or showcases European fashion. Melancholic Depression Week Class 16: Printed matter relating to health education. Class 41: Education and training in relation to mental health. Class 44: Providing information in relation to mental health. Yes - ground for rejection likely to be appropriate as all goods/services claimed in classes 16, 41 and 44 relate to a week long event which focuses on promotion/awareness of mental illness, specifically melancholic depression. Reach Out Week Class 36: Charitable fundraising in relation to making contact with old friends/lost family. No - ground for rejection not likely to be appropriate as while it may allude to the purpose of the services, the phrase does not have a descriptive meaning in relation to the charitable services." ;
+    tmk:upstreamRef "TMM/Part22/13/13/6~2" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/14/14/3> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -54676,6 +54846,16 @@
     tmk:jurisdiction "UK" ;
     tmk:upstreamRef "CASE/1965/RPC/347" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/1968/AOJP/38/3440> a tmk:AdministrativeDecision,
+        tmk:Decision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "(1968) 38 AOJP 3440" ;
+    tmk:decidedAt "the Registrar's delegate (reported in the Official Journal)" ;
+    tmk:decisionKind "administrative" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/1968/AOJP/38/3440" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/1969/RPC/102> a tmk:Decision ;
     tmk:authorityKind "decision" ;
     tmk:authorityStatus tmk:NotHeld ;
@@ -55012,6 +55192,14 @@
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/1991/IPR/23/149" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/1991/IPR/23/188> a tmk:Decision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "(1991) 23 IPR 188" ;
+    tmk:decisionKind "unclassified" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/1991/IPR/23/188" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/1992/APO/5> a tmk:AdministrativeDecision,
         tmk:Decision ;
     tmk:authorityKind "decision" ;
@@ -55103,6 +55291,14 @@
     tmk:decisionKind "unclassified" ;
     tmk:jurisdiction "AU" ;
     tmk:upstreamRef "CASE/1994/IPR/28/374" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/CASE/1994/IPR/30/624> a tmk:Decision ;
+    tmk:authorityKind "decision" ;
+    tmk:authorityStatus tmk:NotHeld ;
+    tmk:caseCitation "(1994) 30 IPR 624" ;
+    tmk:decisionKind "unclassified" ;
+    tmk:jurisdiction "AU" ;
+    tmk:upstreamRef "CASE/1994/IPR/30/624" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/CASE/1995/ATMO/39> a tmk:AdministrativeDecision,
         tmk:Decision ;
@@ -64403,6 +64599,72 @@
     tmk:partId "Part22" ;
     tmk:text "4. The registrability of certification trade marks. Pursuant to section 41, an application for registration of a trade mark must be rejected if the trade mark is not capable of distinguishing the applicant’s goods and/or services from the goods and/or services of other persons. Section 41 does not apply to certification trade marks. Section 177 deals with certification trade marks and the capacity to distinguish. For more information in relation to certification trade marks and the capacity to distinguish see: Part 35 Certification Trade Marks – 4. The registrability of certification trade marks" ;
     tmk:upstreamRef "TMM/Part22/1#1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/1> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:citesPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/16> ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:contentHash "sha256:493bbab37cf41142c1b02bec3ccf33ac0aee1010ee67aa10a644d305a9066a75" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/1/internal/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/1/prov/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/1/prov/1> ;
+    tmk:headingPath "13.1 Mr, Mrs, Miss etc. trade marks",
+        "22.13. Common formats for trade marks",
+        "Part 22 Section 41 - Capable of Distinguishing" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13> ;
+    tmk:ordinal 2 ;
+    tmk:partId "Part22" ;
+    tmk:text "The inclusion of Mister, Mr, Mrs, Miss, Ms in a trade mark will not generally give rise to a section 41 ground for rejection. However, there are some circumstances in which a ground for rejection may be appropriate: Where the trade mark consists of the word Mr, Mister, Mrs etc. followed by a common surname e.g. MR SMITH, MRS BROWN. Such trade marks should be examined on the basis of the criteria for registration of surnames. The commonness of the surname is only one of the factors that should be considered. (see paragraph 16 of this Part which refers to examination practice in relation to common surnames). Where research clearly supports a ground for rejection. Examples may include MR AUSTRALIA for bodybuilding competitions and MISS BEAUTIFUL for beauty contests." ;
+    tmk:upstreamRef "TMM/Part22/13/13/1" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/2> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:citesPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/16> ;
+    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> ;
+    tmk:contentHash "sha256:fc2d3bf6d47e1fa5e9ddf13f9de566f9ff3251228303297a04c5c998969bc1dd" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/2/internal/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/2/prov/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/2/prov/1> ;
+    tmk:headingPath "13.2 Dr trade marks",
+        "22.13. Common formats for trade marks",
+        "Part 22 Section 41 - Capable of Distinguishing" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13> ;
+    tmk:ordinal 3 ;
+    tmk:partId "Part22" ;
+    tmk:text "The inclusion of Dr or Doctor in a trade mark will not generally give rise to a section 41 ground for rejection. However, there may be some circumstances in which a ground for rejection may be appropriate: Where the trade mark consists of the word Dr or Doctor followed by a common surname. Such trade marks should be examined on the basis of the criteria for registration of surnames. The commonness of the surname is only one of the factors that should be considered. For example, a section 41 ground for rejection is likely to apply to DR NGUYEN for education services (see paragraph 16 of this Part which refers to office practice in relation to common surnames). Where the term Dr or Doctor is combined with another word and research clearly supports a section 41 ground for rejection. For example, EYE DOCTOR for medical services." ;
+    tmk:upstreamRef "TMM/Part22/13/13/2" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13/13/4> a tmk:Chunk,
+        tmk:ManualPassage ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:chunkKind "body" ;
+    tmk:citesCase <https://data.ipaustralia.gov.au/tmk/ref/CASE/1968/AOJP/38/3440>,
+        <https://data.ipaustralia.gov.au/tmk/ref/CASE/1991/IPR/23/188>,
+        <https://data.ipaustralia.gov.au/tmk/ref/CASE/1994/IPR/30/624> ;
+    tmk:contentHash "sha256:a796b33df88a64c3ce916bf8ef7db64496dc809fdd16371ca1976d92b955c496" ;
+    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/4/case/0>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/4/case/1>,
+        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part22/13/13/4/case/2> ;
+    tmk:headingPath "13.4 Ultra trade marks",
+        "22.13. Common formats for trade marks",
+        "Part 22 Section 41 - Capable of Distinguishing" ;
+    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13> ;
+    tmk:ordinal 5 ;
+    tmk:partId "Part22" ;
+    tmk:text "\"Ultra\" is an ordinary term currently used as a superlative, denoting anything which is claimed to be ultimate in its field. The word \"ultra\" on its own or in combination with an adjective or common suffix which describes a character or quality of the goods or services has limited inherent adaptation to distinguish. Examples where a ground for rejection is warranted include ULTRA CREAMY for milk and ULTRA FAST for delivery services. The word \"ultra\" followed by the name of the goods is considered to have a small amount of inherent adaptation to distinguish and therefore would require evidence that the trade mark does or will distinguish, or of any other circumstances, in order to be accepted. Examples are ULTRA SHIRT and ULTRA PAPER (see Re Appn by John May Pty Ltd (1968) 38 AOJP 3440 (Ultracide); Re Spring Industries Inc's Appn (1991) 23 IPR 188 (Ultra suede); Re Courtauld Textiles' Appn (1994) 30 IPR 624 (Ultrabra))." ;
+    tmk:upstreamRef "TMM/Part22/13/13/4" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/14/14/4> a tmk:Chunk,
         tmk:ManualPassage ;
@@ -74457,6 +74719,17 @@
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/part-2.3-who-may-apply-for-a-trade-mark--what-are-the-filing-requirements-for-applications-notices"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part2/3" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/13> a tmk:Page ;
+    rdfs:label "13. Common formats for trade marks"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:dc351eabe51438b7f4b5e2f4bc5155b49c1b78e5c48c0d7f1ab9c795ad2d44ab" ;
+    tmk:lastAmended "2025-10-24" ;
+    tmk:partId "Part22" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/13.-common-formats-for-trade-marks"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part22/13" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part22/14> a tmk:Page ;
     rdfs:label "14. New terminology and \"fashionable\" words"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -75089,16 +75362,6 @@
     tmk:contentHash "sha256:d01646e32f685196b7d3497bb5f947d9eb39ee23e14c38450f86fd7a86056019" ;
     tmk:text "If an application made under section 107 or 109 in relation to the assignment or transmission of a trade mark complies with this Act, the Registrar must notify in accordance with the regulations any person recorded under Part 11 as claiming an interest in, or a right in respect of, the trade mark." ;
     tmk:upstreamRef "TMA1995/s111" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16> a tmk:LegislativeProvision ;
-    rdfs:label "Definition of repealed Act"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
-    tmk:contentHash "sha256:eed4282edbef05603a3f810f25e22ddf7bcbdf2f4510513d54c239a39ddcc622" ;
-    tmk:text "(1) The repealed Act means: (a) the Trade Marks Act 1955 as in force immediately before its repeal; and (b) the regulations under that Act that were in force immediately before its repeal. Note: For the repeal of the Trade Marks Act 1955 see section 232. (2) In this Act, unless the contrary intention appears, a reference to a particular section of the repealed Act includes a reference to the regulations made for the purposes of that section and that were in force immediately before that Act was repealed." ;
-    tmk:upstreamRef "TMA1995/s16" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s190> a tmk:LegislativeProvision ;
     rdfs:label "Prescribed courts"@en-AU ;
@@ -77154,6 +77417,16 @@
     tmk:contentHash "sha256:d37c09fbdb1d7066a1a3af01e1b171d9e9635c27e66a351df534520d12e0e815" ;
     tmk:text "(1) The relief that a court may grant in an action for an infringement of a registered trade mark includes: (a) an injunction, which may be granted subject to any condition that the court thinks fit; and (b) at the option of the plaintiff but subject to section 127, damages or an account of profits. (2) A court may include an additional amount in an assessment of damages for an infringement of a registered trade mark, if the court considers it appropriate to do so having regard to: (a) the flagrancy of the infringement; and (b) the need to deter similar infringements of registered trade marks; and (c) the conduct of the party that infringed the registered trade mark that occurred: (i) after the act constituting the infringement; or (ii) after that party was informed that it had allegedly infringed the registered trade mark; and (d) any benefit shown to have accrued to that party because of the infringement; and (e) all other relevant matters." ;
     tmk:upstreamRef "TMA1995/s126" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s16> a tmk:LegislativeProvision ;
+    rdfs:label "Definition of repealed Act"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:eed4282edbef05603a3f810f25e22ddf7bcbdf2f4510513d54c239a39ddcc622" ;
+    tmk:text "(1) The repealed Act means: (a) the Trade Marks Act 1955 as in force immediately before its repeal; and (b) the regulations under that Act that were in force immediately before its repeal. Note: For the repeal of the Trade Marks Act 1955 see section 232. (2) In this Act, unless the contrary intention appears, a reference to a particular section of the repealed Act includes a reference to the regulations made for the purposes of that section and that were in force immediately before that Act was repealed." ;
+    tmk:upstreamRef "TMA1995/s16" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s174> a tmk:LegislativeProvision ;
     rdfs:label "Registrar to send documents to Commission"@en-AU ;
@@ -79750,16 +80023,6 @@
     tmk:text "An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion." ;
     tmk:upstreamRef "TMA1995/s43" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> a tmk:LegislativeProvision ;
-    rdfs:label "Trade mark not distinguishing applicant’s goods or services"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
-    tmk:authorityKind "law" ;
-    tmk:authorityStatus tmk:Current ;
-    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
-    tmk:contentHash "sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62" ;
-    tmk:text "(1) An application for the registration of a trade mark must be rejected if the trade mark is not capable of distinguishing the applicant’s goods or services in respect of which the trade mark is sought to be registered (the designated goods or services) from the goods or services of other persons. Note: For goods of a person and services of a person see section 6. (2) A trade mark is taken not to be capable of distinguishing the designated goods or services from the goods or services of other persons only if either subsection (3) or (4) applies to the trade mark. (3) This subsection applies to a trade mark if: (a) the trade mark is not to any extent inherently adapted to distinguish the designated goods or services from the goods or services of other persons; and (b) the applicant has not used the trade mark before the filing date in respect of the application to such an extent that the trade mark does in fact distinguish the designated goods or services as being those of the applicant. (4) This subsection applies to a trade mark if: (a) the trade mark is, to some extent, but not sufficiently, inherently adapted to distinguish the designated goods or services from the goods or services of other persons; and (b) the trade mark does not and will not distinguish the designated goods or services as being those of the applicant having regard to the combined effect of the following: (i) the extent to which the trade mark is inherently adapted to distinguish the goods or services from the goods or services of other persons; (ii) the use, or intended use, of the trade mark by the applicant; (iii) any other circumstances. Note 1: Trade marks that are not inherently adapted to distinguish goods or services are mostly trade marks that consist wholly of a sign that is ordinarily used to indicate: (a) the kind, quality, quantity, intended purpose, value, geographical origin, or some other characteristic, of goods or services; or (b) the time of production of goods or of the rendering of services. Note 2: For goods of a person and services of a person see section 6. Note 3: Use of a trade mark by a predecessor in title of an applicant and an authorised use of a trade mark by another person are each taken to be use of the trade mark by the applicant (see subsections (5) and 7(3) and section 8). (5) For the purposes of this section, the use of a trade mark by a predecessor in title of an applicant for the registration of the trade mark is taken to be a use of the trade mark by the applicant. Note 1: For applicant and predecessor in title see section 6. Note 2: If a predecessor in title had authorised another person to use the trade mark, any authorised use of the trade mark by the other person is taken to be a use of the trade mark by the predecessor in title (see subsection 7(3) and section 8)." ;
-    tmk:upstreamRef "TMA1995/s41" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> a tmk:LegislativeProvision ;
     rdfs:label "Identical etc. trade marks"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
@@ -79769,6 +80032,16 @@
     tmk:contentHash "sha256:b73a558c218bfc662e73b9e7efa97bc24171a1e3dd76c55c6d076f28302b2cfa" ;
     tmk:text "(1) Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s trade mark) in respect of goods (applicant’s goods) must be rejected if: (a) the applicant’s trade mark is substantially identical with, or deceptively similar to: (i) a trade mark registered by another person in respect of similar goods or closely related services; or (ii) a trade mark whose registration in respect of similar goods or closely related services is being sought by another person; and (b) the priority date for the registration of the applicant’s trade mark in respect of the applicant’s goods is not earlier than the priority date for the registration of the other trade mark in respect of the similar goods or closely related services. Note 1: For deceptively similar see section 10. Note 2: For similar goods see subsection 14(1). Note 3: For priority date see section 12. Note 4: The regulations may provide that an application must also be rejected if the trade mark is substantially identical with, or deceptively similar to, a protected international trade mark or a trade mark for which there is a request to extend international registration to Australia: see Part 17A. (2) Subject to subsections (3) and (4), an application for the registration of a trade mark (applicant’s trade mark) in respect of services (applicant’s services) must be rejected if: (a) it is substantially identical with, or deceptively similar to: (i) a trade mark registered by another person in respect of similar services or closely related goods; or (ii) a trade mark whose registration in respect of similar services or closely related goods is being sought by another person; and (b) the priority date for the registration of the applicant’s trade mark in respect of the applicant’s services is not earlier than the priority date for the registration of the other trade mark in respect of the similar services or closely related goods. Note 1: For deceptively similar see section 10. Note 2: For similar services see subsection 14(2). Note 3: For priority date see section 12. Note 4: The regulations may provide that an application must also be rejected if the trade mark is substantially identical with, or deceptively similar to, a protected international trade mark or a trade mark for which there is a request to extend international registration to Australia: see Part 17A. (3) If the Registrar in either case is satisfied: (a) that there has been honest concurrent use of the 2 trade marks; or (b) that, because of other circumstances, it is proper to do so; the Registrar may accept the application for the registration of the applicant’s trade mark subject to any conditions or limitations that the Registrar thinks fit to impose. If the applicant’s trade mark has been used only in a particular area, the limitations may include that the use of the trade mark is to be restricted to that particular area. Note: For limitations see section 6. (4) If the Registrar in either case is satisfied that the applicant, or the applicant and the predecessor in title of the applicant, have continuously used the applicant’s trade mark for a period: (a) beginning before the priority date for the registration of the other trade mark in respect of: (i) the similar goods or closely related services; or (ii) the similar services or closely related goods; and (b) ending on the priority date for the registration of the applicant’s trade mark; the Registrar may not reject the application because of the existence of the other trade mark. Note 1: An authorised use of the trade mark by a person is taken to be a use of the trade mark by the owner of the trade mark (see subsection 7(3)). Note 2: For predecessor in title see section 6. Note 3: For priority date see section 12." ;
     tmk:upstreamRef "TMA1995/s44" .
+
+<https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s41> a tmk:LegislativeProvision ;
+    rdfs:label "Trade mark not distinguishing applicant’s goods or services"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMA1995> ;
+    tmk:authorityKind "law" ;
+    tmk:authorityStatus tmk:Current ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:d773c3e7dbd7a31ecaea7e73c57f760b2b86346c6ff576b9efa9fbe29b4adb62" ;
+    tmk:text "(1) An application for the registration of a trade mark must be rejected if the trade mark is not capable of distinguishing the applicant’s goods or services in respect of which the trade mark is sought to be registered (the designated goods or services) from the goods or services of other persons. Note: For goods of a person and services of a person see section 6. (2) A trade mark is taken not to be capable of distinguishing the designated goods or services from the goods or services of other persons only if either subsection (3) or (4) applies to the trade mark. (3) This subsection applies to a trade mark if: (a) the trade mark is not to any extent inherently adapted to distinguish the designated goods or services from the goods or services of other persons; and (b) the applicant has not used the trade mark before the filing date in respect of the application to such an extent that the trade mark does in fact distinguish the designated goods or services as being those of the applicant. (4) This subsection applies to a trade mark if: (a) the trade mark is, to some extent, but not sufficiently, inherently adapted to distinguish the designated goods or services from the goods or services of other persons; and (b) the trade mark does not and will not distinguish the designated goods or services as being those of the applicant having regard to the combined effect of the following: (i) the extent to which the trade mark is inherently adapted to distinguish the goods or services from the goods or services of other persons; (ii) the use, or intended use, of the trade mark by the applicant; (iii) any other circumstances. Note 1: Trade marks that are not inherently adapted to distinguish goods or services are mostly trade marks that consist wholly of a sign that is ordinarily used to indicate: (a) the kind, quality, quantity, intended purpose, value, geographical origin, or some other characteristic, of goods or services; or (b) the time of production of goods or of the rendering of services. Note 2: For goods of a person and services of a person see section 6. Note 3: Use of a trade mark by a predecessor in title of an applicant and an authorised use of a trade mark by another person are each taken to be use of the trade mark by the applicant (see subsections (5) and 7(3) and section 8). (5) For the purposes of this section, the use of a trade mark by a predecessor in title of an applicant for the registration of the trade mark is taken to be a use of the trade mark by the applicant. Note 1: For applicant and predecessor in title see section 6. Note 2: If a predecessor in title had authorised another person to use the trade mark, any authorised use of the trade mark by the other person is taken to be a use of the trade mark by the predecessor in title (see subsection 7(3) and section 8)." ;
+    tmk:upstreamRef "TMA1995/s41" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s6> a tmk:LegislativeProvision ;
     rdfs:label "Definitions"@en-AU ;
