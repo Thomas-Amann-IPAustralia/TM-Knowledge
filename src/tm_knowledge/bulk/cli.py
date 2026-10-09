@@ -7,6 +7,7 @@
     tmk-bulk spend                           recorded spend against the cap
     tmk-bulk quote --write                   price the full runs from what was measured
     tmk-bulk audit-apply [--write]           act on the edge audit: re-read or withdraw the wrong ones
+    tmk-bulk restructure [--write]           apply the structure review's ledger (ADR-0131)
 
 A run with `--confirm` and without `--write` still caches every response, so
 writing afterwards is free: read the smoke run's report first (KB SOP §6).
@@ -400,6 +401,33 @@ def _measure(args: argparse.Namespace) -> int:
     return 0
 
 
+def _restructure(args: argparse.Namespace) -> int:
+    """Check, then apply, the structure review's ledger (ADR-0131). Spends nothing."""
+    from tm_knowledge.bulk import restructure
+
+    ledger = restructure.load_ledger()
+    ctx = _context()
+    result = restructure.plan(ctx, ledger)
+    print(f"restructure: {len(result.rereads)} to re-read, {len(result.withdrawn)} to withdraw, "
+          f"{len(result.new_edges)} new, {len(result.types)} re-typed, {len(result.concepts)} relabelled, "
+          f"{len(result.corrections)} corrections; {result.done} already applied; {len(result.refused)} refused")
+    for line in result.refused:
+        print("  refused:", line)
+    if not args.write:
+        print("(dry run — nothing written. Pass --write.)")
+        return 0 if result.ok else 1
+    if not result.ok:
+        print("nothing written: fix the refused lines first", file=sys.stderr)
+        return 1
+    labels = {cid: c.pref_label for cid, c in ctx.links.concepts.items()}
+    text = restructure.render(result, labels)
+    done = restructure.apply(result)
+    restructure.REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    restructure.REPORT_PATH.write_text(text, encoding="utf-8")
+    print(f"wrote {done}; and {restructure.REPORT_PATH.relative_to(REPO_ROOT)}. Rebuild the graph next.")
+    return 0
+
+
 def _audit_apply(args: argparse.Namespace) -> int:
     """Act on the second model's verdicts (D5): re-read or withdraw every wrong one."""
     from tm_knowledge.bulk import audit
@@ -497,13 +525,15 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("collect", help="record every finished batch")
     p = sub.add_parser("audit-apply", help="re-read or withdraw what the edge audit found wrong")
     p.add_argument("--write", action="store_true")
+    p = sub.add_parser("restructure", help="apply the structure review's ledger (ADR-0131)")
+    p.add_argument("--write", action="store_true")
     sub.add_parser("spend", help="recorded spend against the cap")
     p = sub.add_parser("quote", help="price the full runs")
     p.add_argument("--write", action="store_true")
     args = parser.parse_args(argv)
     return {"links": _links, "run": _run, "embed": _embed, "pools": _pools_cmd, "measure": _measure,
             "collect": lambda a: (print("open:", client.collect_batches()) or 0),
-            "audit-apply": _audit_apply,
+            "audit-apply": _audit_apply, "restructure": _restructure,
             "spend": _spend, "quote": _quote}[args.command](args)
 
 

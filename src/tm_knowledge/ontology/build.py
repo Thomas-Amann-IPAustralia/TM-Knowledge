@@ -110,7 +110,7 @@ class StoreReport:
     """
 
     concepts: int = 0
-    #: Concepts sorted into one of the ten groups (ADR-0071, widened by
+    #: Concepts sorted into one of the kinds (ADR-0071, widened by
     #: ADR-0098 and ADR-0124). The gap between this and `concepts` is what OQ-0001 exists to
     #: close on the signed side.
     concept_types: int = 0
@@ -851,7 +851,7 @@ def _build_concepts(graph: Graph, store: Store, counts: StoreReport) -> None:
 #: what a concept does, defined in the TBox by the edge that says so
 #: (`qualifies`, `doesNotGiveRiseTo`, `isOvercomeBy`). Every kind here is a
 #: subclass of `tmk:LegalConcept` on the same footing, so a query that walks the
-#: concept hierarchy reaches all ten without knowing which family a kind is in.
+#: concept hierarchy reaches every kind without knowing which family it is in.
 #:
 #: **`process_role` maps to `tmk:ProcessRole`, not to `tmk:Role`.** A
 #: `tmk:Role` in `examination.ttl` is a person or office that acts — an
@@ -863,6 +863,7 @@ def _build_concepts(graph: Graph, store: Store, counts: StoreReport) -> None:
 CONCEPT_CLASSES: dict[str, str] = {
     "ground_of_refusal": "GroundOfRefusal",
     "legal_test": "LegalTest",
+    "principle": "Principle",
     "subject_matter": "SubjectMatter",
     "sign_content": "SignContent",
     "context": "Context",
@@ -897,7 +898,7 @@ def _apply_concept_types(graph: Graph, store: Store, counts: StoreReport) -> Non
         node = concept_node(record["concept"])
         typing = assertion_node(record["id"])
         # `none_of_these` reaches here with no class and asserts none. What it
-        # does assert is that somebody looked and said none of the ten groups
+        # does assert is that somebody looked and said none of the kinds
         # fit — so the typing node, its record and its origin are all written,
         # and the concept stays a bare `tmk:LegalConcept`. Skipping the record
         # outright would make "sorted into none_of_these" and "never sorted"

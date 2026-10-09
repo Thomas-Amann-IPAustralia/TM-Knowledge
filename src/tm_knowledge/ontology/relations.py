@@ -18,8 +18,13 @@ apart and never sums them (ADR-0080 c3):
 - `tmk:AdmittedRelation` — a predicate the owner admitted that no signed record
   uses yet. On the closed list all the same.
 
-`tmk:authoredUsageCount` is the machine-written records' count. The SKOS relations
-(`broader`, `related`) are SKOS's own terms and are not redeclared here.
+`tmk:authoredUsageCount` is the machine-written records' count. The SKOS relation
+`broader` is SKOS's own term and is not redeclared here; `related` is retired as a
+relationship (ADR-0131).
+
+Each predicate also carries the kinds it joins — `tmk:expectedSubjectKind`,
+`tmk:expectedObjectKind` — annotations that infer nothing, which the harness checks
+machine-written edges against (ADR-0131). They are the ontology's top level as links.
 
 What the generator still refuses to do: assert a narrow `rdfs:domain` or
 `rdfs:range` from observed usage. Under OWL 2 RL a domain assertion reclassifies
@@ -39,7 +44,7 @@ from pathlib import Path
 
 from tm_knowledge.authored import store as authored_store
 from tm_knowledge.config import REPO_ROOT
-from tm_knowledge.ontology.predicates import PREDICATES, SKOS_PREDICATES, Predicate
+from tm_knowledge.ontology.predicates import END_KINDS, KIND_CLASS, PREDICATES, RETIRED, SKOS_PREDICATES, Predicate
 from tm_knowledge.stage0 import goldset
 
 __all__ = ["RELATIONS_PATH", "PredicateUsage", "collect", "render", "write", "observed_type"]
@@ -67,11 +72,12 @@ _HEADER = """\
     rdfs:label "TM-Knowledge — relation dictionary"@en-AU ;
     rdfs:comment \"\"\"The closed list of predicates a relationship may use, each defined.
 
-{terms} predicates besides SKOS broader and related: {approved} used by the
+{terms} predicates besides SKOS broader: {approved} used by the
 {signed} signed relationships in `eval/gold/relationships.yaml`, of which
-{singletons} are used exactly once, and {admitted} admitted by the owner on
-2026-10-08 and used by no signed record yet. Machine-written relationships use
-{authored_terms} of them, {authored} times — counted apart, never added in.
+{singletons} are used exactly once, and {admitted} admitted by the owner (on
+2026-10-08 and 2026-10-09) and used by no signed record yet. Machine-written
+relationships use {authored_terms} of them, {authored} times — counted apart, never
+added in. skos:related is retired as a relationship (ADR-0131).
 
 Every definition, reading, example and counter-example here was written by an
 agent and is unreviewed (ADR-0121, ADR-0123). A record whose triple does not read
@@ -79,7 +85,9 @@ the way its predicate's tmk:reading says is a defect in the record.
 
 Domain and range are `tmk:LegalMatter` throughout. The narrow types each
 predicate has actually been seen with are annotations and infer nothing; see
-tmk:LegalMatter in the legal-concepts module for why.\"\"\"@en-AU ;
+tmk:LegalMatter in the legal-concepts module for why. The kinds each predicate may
+join (tmk:expectedSubjectKind, tmk:expectedObjectKind) are annotations too: what
+says how the ontology's kinds fit together, checked by the harness, not inferred.\"\"\"@en-AU ;
     owl:imports <https://data.ipaustralia.gov.au/tmk/ns/legal-concepts> ;
     owl:versionInfo "draft — generated, not approved" .
 """
@@ -148,7 +156,7 @@ def collect(
     for record in authored["gold_relationship"]:
         machine[str(record["predicate"])].append(record)
 
-    names = (set(PREDICATES) | set(signed) | set(machine)) - set(SKOS_PREDICATES)
+    names = (set(PREDICATES) | set(signed) | set(machine)) - set(SKOS_PREDICATES) - set(RETIRED)
     usages = []
     for predicate in sorted(names):
         rows = sorted(signed.get(predicate, []), key=lambda r: r["id"])
@@ -197,6 +205,10 @@ def render(usages: tuple[PredicateUsage, ...]) -> str:
             ]
             if entry.authority:
                 lines.append(f'    tmk:predicateAuthority "{entry.authority}" ;')
+            if set(entry.subjects) != set(END_KINDS):
+                lines += [f"    tmk:expectedSubjectKind {KIND_CLASS[k]} ;" for k in entry.subjects]
+            if set(entry.objects) != set(END_KINDS):
+                lines += [f"    tmk:expectedObjectKind {KIND_CLASS[k]} ;" for k in entry.objects]
         lines += [
             f"    tmk:usageCount {usage.count} ;",
             f"    tmk:authoredUsageCount {usage.authored_count} ;",

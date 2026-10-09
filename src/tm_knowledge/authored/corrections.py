@@ -57,7 +57,8 @@ CORRECTIONS_FILE = "corrections.yaml"
 SCHEMA = "correction.schema.json"
 
 #: The list fields a correction may add to or remove from on a concept.
-LIST_FIELDS = ("alt_labels", "not_labels", "legislative_basis", "definition_sources", "related")
+LIST_FIELDS = ("alt_labels", "not_labels", "legislative_basis", "definition_sources", "related",
+               "broader", "narrower")
 
 
 @dataclass(frozen=True)

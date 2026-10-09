@@ -18,11 +18,12 @@
     rdfs:label "TM-Knowledge — relation dictionary"@en-AU ;
     rdfs:comment """The closed list of predicates a relationship may use, each defined.
 
-28 predicates besides SKOS broader and related: 14 used by the
+51 predicates besides SKOS broader: 14 used by the
 35 signed relationships in `eval/gold/relationships.yaml`, of which
-6 are used exactly once, and 14 admitted by the owner on
-2026-10-08 and used by no signed record yet. Machine-written relationships use
-25 of them, 205 times — counted apart, never added in.
+6 are used exactly once, and 37 admitted by the owner (on
+2026-10-08 and 2026-10-09) and used by no signed record yet. Machine-written
+relationships use 49 of them, 323 times — counted apart, never
+added in. skos:related is retired as a relationship (ADR-0131).
 
 Every definition, reading, example and counter-example here was written by an
 agent and is unreviewed (ADR-0121, ADR-0123). A record whose triple does not read
@@ -30,7 +31,9 @@ the way its predicate's tmk:reading says is a defect in the record.
 
 Domain and range are `tmk:LegalMatter` throughout. The narrow types each
 predicate has actually been seen with are annotations and infer nothing; see
-tmk:LegalMatter in the legal-concepts module for why."""@en-AU ;
+tmk:LegalMatter in the legal-concepts module for why. The kinds each predicate may
+join (tmk:expectedSubjectKind, tmk:expectedObjectKind) are annotations too: what
+says how the ontology's kinds fit together, checked by the harness, not inferred."""@en-AU ;
     owl:imports <https://data.ipaustralia.gov.au/tmk/ns/legal-concepts> ;
     owl:versionInfo "draft — generated, not approved" .
 
@@ -45,11 +48,13 @@ tmk:actsAs a owl:ObjectProperty ;
     skos:example "At examination the examiner acts as the decision maker."@en-AU ;
     tmk:counterExample "Not for a kind of; an examiner is a kind of delegate (broader) and acts as the decision maker."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 7 ;
+    tmk:authoredUsageCount 9 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-08); no signed record uses it yet. Machine-written usage: 7, unreviewed."@en-AU .
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-08); no signed record uses it yet. Machine-written usage: 9, unreviewed."@en-AU .
 
 tmk:actsUnderControlOf a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -62,6 +67,8 @@ tmk:actsUnderControlOf a owl:ObjectProperty ;
     tmk:counterExample "Not for employment or agency in general; only where control is the legal test."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
     tmk:predicateAuthority "law" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
     tmk:usageCount 0 ;
     tmk:authoredUsageCount 1 ;
     tmk:observedSubjectType tmk:LegalConcept ;
@@ -79,6 +86,8 @@ tmk:actsUnderDirectionOf a owl:ObjectProperty ;
     tmk:counterExample "Not for consultation or escalation, where the subject asks; use consults or escalatesTo."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
     tmk:predicateAuthority "law" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
     tmk:usageCount 0 ;
     tmk:authoredUsageCount 2 ;
     tmk:observedSubjectType tmk:LegalConcept ;
@@ -95,14 +104,28 @@ tmk:allocatesTo a owl:ObjectProperty ;
     skos:example "GR-0006: comparisons between trade marks are dealt with under section 44."@en-AU ;
     tmk:counterExample "Not for a power the object merely may exercise; use a modality on the record for that."@en-AU ;
     tmk:admittedBy "signed" ;
+    tmk:expectedSubjectKind tmk:GroundOfRefusal ;
+    tmk:expectedSubjectKind tmk:LegalTest ;
+    tmk:expectedSubjectKind tmk:Principle ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:SignContent ;
+    tmk:expectedSubjectKind tmk:Context ;
+    tmk:expectedSubjectKind tmk:UseInTrade ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedSubjectKind tmk:ExternalInstrument ;
+    tmk:expectedSubjectKind tmk:LegislativeProvision ;
+    tmk:expectedSubjectKind tmk:ManualPassage ;
+    tmk:expectedSubjectKind tmk:Decision ;
+    tmk:expectedObjectKind tmk:LegislativeProvision ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
     tmk:usageCount 1 ;
-    tmk:authoredUsageCount 14 ;
+    tmk:authoredUsageCount 5 ;
     tmk:observedSubjectType tmk:Chunk ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegislativeProvision ;
     tmk:usedBy "GR-0006" ;
-    rdfs:comment "Signed usage: 1 relationship (GR-0006). Machine-written usage: 14, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 1 relationship (GR-0006). Machine-written usage: 5, unreviewed."@en-AU .
 
 tmk:appliesTo a owl:ObjectProperty ;
     a tmk:ApprovedRelation ;
@@ -114,13 +137,51 @@ tmk:appliesTo a owl:ObjectProperty ;
     skos:example "GR-0001: section 43 applies to the ground for rejection it creates."@en-AU ;
     tmk:counterExample "Not for one concept merely being relevant to another; use qualifies or related."@en-AU ;
     tmk:admittedBy "signed" ;
+    tmk:expectedSubjectKind tmk:LegislativeProvision ;
+    tmk:expectedSubjectKind tmk:ManualPassage ;
+    tmk:expectedSubjectKind tmk:ExternalInstrument ;
+    tmk:expectedSubjectKind tmk:GroundOfRefusal ;
+    tmk:expectedSubjectKind tmk:LegalTest ;
+    tmk:expectedSubjectKind tmk:Principle ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:GroundOfRefusal ;
+    tmk:expectedObjectKind tmk:LegalTest ;
+    tmk:expectedObjectKind tmk:Principle ;
+    tmk:expectedObjectKind tmk:SubjectMatter ;
+    tmk:expectedObjectKind tmk:SignContent ;
+    tmk:expectedObjectKind tmk:Context ;
+    tmk:expectedObjectKind tmk:UseInTrade ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ExternalInstrument ;
     tmk:usageCount 1 ;
-    tmk:authoredUsageCount 7 ;
+    tmk:authoredUsageCount 16 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedSubjectType tmk:LegislativeProvision ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0001" ;
-    rdfs:comment "Signed usage: 1 relationship (GR-0001). Machine-written usage: 7, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 1 relationship (GR-0001). Machine-written usage: 16, unreviewed."@en-AU .
+
+tmk:becomes a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "becomes"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "Once the process is complete, the subject is known as, and has the standing of, the object."@en-AU ;
+    tmk:reading "<thing> becomes <thing>"@en-AU ;
+    skos:example "An IRDA that has gone through examination and opposition becomes a protected international trade mark."@en-AU ;
+    tmk:counterExample "Not for a kind of; an IRDA is not a kind of protected international trade mark."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:SubjectMatter ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 2 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .
 
 tmk:citesAuthorityFor a owl:ObjectProperty ;
     a tmk:ApprovedRelation ;
@@ -132,6 +193,7 @@ tmk:citesAuthorityFor a owl:ObjectProperty ;
     skos:example "GR-0013: Pfizer Products v Karam is cited for the purpose of section 43."@en-AU ;
     tmk:counterExample "Not for a decision that interprets the words of a provision; use interprets."@en-AU ;
     tmk:admittedBy "signed" ;
+    tmk:expectedSubjectKind tmk:Decision ;
     tmk:usageCount 1 ;
     tmk:authoredUsageCount 0 ;
     tmk:observedSubjectType tmk:Decision ;
@@ -170,6 +232,15 @@ tmk:constrainsRole a owl:ObjectProperty ;
     skos:example "The presumption of registrability constrains the Registrar: accept unless satisfied a ground exists (s 33(1))."@en-AU ;
     tmk:counterExample "Not with the matter governed as its object; the matter goes in the supporting text."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
+    tmk:expectedSubjectKind tmk:LegislativeProvision ;
+    tmk:expectedSubjectKind tmk:ManualPassage ;
+    tmk:expectedSubjectKind tmk:GroundOfRefusal ;
+    tmk:expectedSubjectKind tmk:LegalTest ;
+    tmk:expectedSubjectKind tmk:Principle ;
+    tmk:expectedSubjectKind tmk:Context ;
+    tmk:expectedSubjectKind tmk:ExternalInstrument ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
     tmk:usageCount 0 ;
     tmk:authoredUsageCount 3 ;
     tmk:observedSubjectType tmk:LegalConcept ;
@@ -187,6 +258,8 @@ tmk:consults a owl:ObjectProperty ;
     tmk:counterExample "Not for handing the matter up the chain of command; use escalatesTo."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
     tmk:predicateAuthority "practice" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
     tmk:usageCount 0 ;
     tmk:authoredUsageCount 3 ;
     tmk:observedSubjectType tmk:LegalConcept ;
@@ -203,6 +276,10 @@ tmk:dependsOnExternalSource a owl:ObjectProperty ;
     skos:example "GR-0036: pharmaceutical or veterinary substances depend on the WHO's list of INNs."@en-AU ;
     tmk:counterExample "Not for a body's consent or veto; use requiresConsentOf. Not for precedence; use prevailsOver."@en-AU ;
     tmk:admittedBy "signed" ;
+    tmk:expectedObjectKind tmk:ExternalInstrument ;
+    tmk:expectedObjectKind tmk:SignContent ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
     tmk:usageCount 2 ;
     tmk:authoredUsageCount 1 ;
     tmk:observedSubjectType tmk:LegalConcept ;
@@ -221,13 +298,28 @@ tmk:doesNotGiveRiseTo a owl:ObjectProperty ;
     skos:example "GR-0042: an image of a person does not by itself give rise to a section 43 ground."@en-AU ;
     tmk:counterExample "Not for something that can never be relevant; the subject may still contribute."@en-AU ;
     tmk:admittedBy "signed" ;
+    tmk:expectedSubjectKind tmk:GroundOfRefusal ;
+    tmk:expectedSubjectKind tmk:LegalTest ;
+    tmk:expectedSubjectKind tmk:Principle ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:SignContent ;
+    tmk:expectedSubjectKind tmk:Context ;
+    tmk:expectedSubjectKind tmk:UseInTrade ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedSubjectKind tmk:ExternalInstrument ;
+    tmk:expectedObjectKind tmk:GroundOfRefusal ;
+    tmk:expectedObjectKind tmk:LegalTest ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:LegislativeProvision ;
     tmk:usageCount 2 ;
-    tmk:authoredUsageCount 3 ;
+    tmk:authoredUsageCount 5 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0015" ;
     tmk:usedBy "GR-0042" ;
-    rdfs:comment "Signed usage: 2 relationships (GR-0015, GR-0042). Machine-written usage: 3, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 2 relationships (GR-0015, GR-0042). Machine-written usage: 5, unreviewed."@en-AU .
 
 tmk:escalatesTo a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -240,11 +332,34 @@ tmk:escalatesTo a owl:ObjectProperty ;
     tmk:counterExample "Not for advice from a peer; use consults."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
     tmk:predicateAuthority "practice" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
     tmk:usageCount 0 ;
     tmk:authoredUsageCount 1 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     rdfs:comment "Admitted by the owner's ruling (owner-2026-10-08); no signed record uses it yet. Machine-written usage: 1, unreviewed."@en-AU .
+
+tmk:establishes a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "establishes"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject — evidence — is what shows the object: a use, a circumstance or a test's being met."@en-AU ;
+    tmk:reading "<evidence> establishes <what it shows>"@en-AU ;
+    skos:example "Evidence of use may show a trade mark to be capable of distinguishing."@en-AU ;
+    tmk:counterExample "Not for a step that overcomes a ground; use isOvercomeBy from the ground."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:UseInTrade ;
+    tmk:expectedObjectKind tmk:LegalTest ;
+    tmk:expectedObjectKind tmk:Context ;
+    tmk:expectedObjectKind tmk:GroundOfRefusal ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 3 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 3, unreviewed."@en-AU .
 
 tmk:excludesBasis a owl:ObjectProperty ;
     a tmk:ApprovedRelation ;
@@ -276,6 +391,8 @@ tmk:exercisesPowersOf a owl:ObjectProperty ;
     tmk:counterExample "Not for a delegate, whose powers come by instrument; use holdsDelegationFrom."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
     tmk:predicateAuthority "law" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
     tmk:usageCount 0 ;
     tmk:authoredUsageCount 2 ;
     tmk:observedSubjectType tmk:LegalConcept ;
@@ -293,11 +410,30 @@ tmk:extendsTo a owl:ObjectProperty ;
     tmk:counterExample "Not for one thing being a kind of another; use broader."@en-AU ;
     tmk:admittedBy "signed" ;
     tmk:usageCount 1 ;
-    tmk:authoredUsageCount 1 ;
+    tmk:authoredUsageCount 2 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0052" ;
-    rdfs:comment "Signed usage: 1 relationship (GR-0052). Machine-written usage: 1, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 1 relationship (GR-0052). Machine-written usage: 2, unreviewed."@en-AU .
+
+tmk:files a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "files"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject lodges the object — a notice, request, declaration or evidence — with the Registrar or the International Bureau, or applies for the object, a step."@en-AU ;
+    tmk:reading "<party> files <document or request>"@en-AU ;
+    skos:example "An opponent prepares and files a notice of opposition."@en-AU ;
+    tmk:counterExample "Not for the office that receives or decides it; use performs or issues."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 6 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 6, unreviewed."@en-AU .
 
 tmk:hearsAppealsFrom a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -310,6 +446,8 @@ tmk:hearsAppealsFrom a owl:ObjectProperty ;
     tmk:counterExample "Not for merits review by a tribunal; use reviewsDecisionsOf."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
     tmk:predicateAuthority "law" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
     tmk:usageCount 0 ;
     tmk:authoredUsageCount 1 ;
     tmk:observedSubjectType tmk:LegalConcept ;
@@ -327,11 +465,34 @@ tmk:holdsDelegationFrom a owl:ObjectProperty ;
     tmk:counterExample "Not for a Deputy Registrar, who has the Registrar's powers by statute."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
     tmk:predicateAuthority "law" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
     tmk:usageCount 0 ;
     tmk:authoredUsageCount 2 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     rdfs:comment "Admitted by the owner's ruling (owner-2026-10-08); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .
+
+tmk:indicates a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "indicates"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject — a sign or something in it — conveys the object to the people who see it."@en-AU ;
+    tmk:reading "<sign or sign content> indicates <what it conveys>"@en-AU ;
+    skos:example "A trade mark containing a geographical reference will often connote the geographical origin of the goods."@en-AU ;
+    tmk:counterExample "Not for a cause of a ground or test; use mayGiveRiseTo."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:SignContent ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedObjectKind tmk:Context ;
+    tmk:expectedObjectKind tmk:SignContent ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 2 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .
 
 tmk:interprets a owl:ObjectProperty ;
     a tmk:ApprovedRelation ;
@@ -343,12 +504,153 @@ tmk:interprets a owl:ObjectProperty ;
     skos:example "GR-0012: a 2000 Federal Court decision interprets section 43."@en-AU ;
     tmk:counterExample "Not for a decision the Manual only cites in support; use citesAuthorityFor."@en-AU ;
     tmk:admittedBy "signed" ;
+    tmk:expectedSubjectKind tmk:Decision ;
     tmk:usageCount 1 ;
     tmk:authoredUsageCount 0 ;
     tmk:observedSubjectType tmk:Decision ;
     tmk:observedObjectType tmk:LegislativeProvision ;
     tmk:usedBy "GR-0012" ;
     rdfs:comment "Signed usage: 1 relationship (GR-0012). Machine-written usage: 0, unreviewed."@en-AU .
+
+tmk:isAssessedIn a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "is assessed in"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject — a ground or test — is raised, considered or decided in the object, a step of the process."@en-AU ;
+    tmk:reading "<ground or test> is assessed in <step>"@en-AU ;
+    skos:example "A connotation giving rise to a section 43 ground may not be obvious during examination and only emerge at opposition."@en-AU ;
+    tmk:counterExample "Not for a step the ground stops; use prevents."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:GroundOfRefusal ;
+    tmk:expectedSubjectKind tmk:LegalTest ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 1 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 1, unreviewed."@en-AU .
+
+tmk:isAttributedTo a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "is attributed to"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The law treats the subject — a use or an act — as the object's own."@en-AU ;
+    tmk:reading "<use or act> is attributed to <person>"@en-AU ;
+    skos:example "Authorised use of a trade mark by another person is taken to be use by the predecessor in title (s 7(3), s 8)."@en-AU ;
+    tmk:counterExample "Not for control in general; use actsUnderControlOf."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:predicateAuthority "law" ;
+    tmk:expectedSubjectKind tmk:UseInTrade ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 1 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 1, unreviewed."@en-AU .
+
+tmk:isCommencedBy a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "is commenced by"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject — a proceeding — begins when the object, a document or request, is filed."@en-AU ;
+    tmk:reading "<proceeding> is commenced by <document or request>"@en-AU ;
+    skos:example "Removal for non-use begins with an application for removal."@en-AU ;
+    tmk:counterExample "Never document → proceeding. GR-0158 recorded a notice of opposition as requiring the opposition it starts."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:SubjectMatter ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 3 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 3, unreviewed."@en-AU .
+
+tmk:isDistinguishedFrom a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "is distinguished from"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The source sets the two apart: easily taken for one another, they are different things, and neither is a kind of the other."@en-AU ;
+    tmk:reading "<subject> is distinguished from <object>"@en-AU ;
+    skos:example "Withdrawal differs from lapsing: the application is finalised from the date of the notice of withdrawal."@en-AU ;
+    tmk:counterExample "Not for two things a passage only mentions together — record nothing."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:GroundOfRefusal ;
+    tmk:expectedSubjectKind tmk:LegalTest ;
+    tmk:expectedSubjectKind tmk:Principle ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:SignContent ;
+    tmk:expectedSubjectKind tmk:Context ;
+    tmk:expectedSubjectKind tmk:UseInTrade ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedSubjectKind tmk:ExternalInstrument ;
+    tmk:expectedObjectKind tmk:GroundOfRefusal ;
+    tmk:expectedObjectKind tmk:LegalTest ;
+    tmk:expectedObjectKind tmk:Principle ;
+    tmk:expectedObjectKind tmk:SubjectMatter ;
+    tmk:expectedObjectKind tmk:SignContent ;
+    tmk:expectedObjectKind tmk:Context ;
+    tmk:expectedObjectKind tmk:UseInTrade ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ExternalInstrument ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 4 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 4, unreviewed."@en-AU .
+
+tmk:isExcludedFrom a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "is excluded from"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "A step or scheme does not apply to the subject at all."@en-AU ;
+    tmk:reading "<thing> is excluded from <step or scheme>"@en-AU ;
+    skos:example "A collective trade mark is excluded from assignment (s 163(1))."@en-AU ;
+    tmk:counterExample "Not for a case that does not give rise to a ground; use doesNotGiveRiseTo."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedSubjectKind tmk:SignContent ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:ExternalInstrument ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 3 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 3, unreviewed."@en-AU .
+
+tmk:isFixedBy a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "is fixed by"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject — a date — is taken from the object: the event, document or other date that sets it."@en-AU ;
+    tmk:reading "<date> is fixed by <what sets it>"@en-AU ;
+    skos:example "In most cases the date of registration is the filing date (s 72(1))."@en-AU ;
+    tmk:counterExample "Not for an application that keeps an earlier date; use keepsEarlierDate."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:Context ;
+    tmk:expectedObjectKind tmk:Context ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:SubjectMatter ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 2 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .
 
 tmk:isOvercomeBy a owl:ObjectProperty ;
     a tmk:ApprovedRelation ;
@@ -360,6 +662,13 @@ tmk:isOvercomeBy a owl:ObjectProperty ;
     skos:example "GR-0039: a section 43 ground for rejection is overcome by the well-known person's written permission."@en-AU ;
     tmk:counterExample "Never remedy → ground. GR-0032 was recorded that way round and is corrected by GK-0022."@en-AU ;
     tmk:admittedBy "signed" ;
+    tmk:expectedSubjectKind tmk:GroundOfRefusal ;
+    tmk:expectedSubjectKind tmk:LegalTest ;
+    tmk:expectedSubjectKind tmk:LegislativeProvision ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:UseInTrade ;
+    tmk:expectedObjectKind tmk:Context ;
     tmk:usageCount 3 ;
     tmk:authoredUsageCount 10 ;
     tmk:observedSubjectType tmk:LegalConcept ;
@@ -369,6 +678,44 @@ tmk:isOvercomeBy a owl:ObjectProperty ;
     tmk:usedBy "GR-0039" ;
     rdfs:comment "Signed usage: 3 relationships (GR-0032, GR-0034, GR-0039). Machine-written usage: 10, unreviewed."@en-AU .
 
+tmk:isPartOf a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "is part of"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject is a component or member of the object; not a kind of it."@en-AU ;
+    tmk:reading "<part> is part of <whole>"@en-AU ;
+    skos:example "A statement of grounds and particulars is part of a notice of opposition (reg 5.2)."@en-AU ;
+    tmk:counterExample "Not for a kind of; use broader. A top level domain is part of a domain name, not a kind of one."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:GroundOfRefusal ;
+    tmk:expectedSubjectKind tmk:LegalTest ;
+    tmk:expectedSubjectKind tmk:Principle ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:SignContent ;
+    tmk:expectedSubjectKind tmk:Context ;
+    tmk:expectedSubjectKind tmk:UseInTrade ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedSubjectKind tmk:ExternalInstrument ;
+    tmk:expectedObjectKind tmk:GroundOfRefusal ;
+    tmk:expectedObjectKind tmk:LegalTest ;
+    tmk:expectedObjectKind tmk:Principle ;
+    tmk:expectedObjectKind tmk:SubjectMatter ;
+    tmk:expectedObjectKind tmk:SignContent ;
+    tmk:expectedObjectKind tmk:Context ;
+    tmk:expectedObjectKind tmk:UseInTrade ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ExternalInstrument ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 7 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 7, unreviewed."@en-AU .
+
 tmk:isPartyTo a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
     rdfs:label "is party to"@en-AU ;
@@ -377,13 +724,17 @@ tmk:isPartyTo a owl:ObjectProperty ;
     skos:definition "The subject is a party to the object — an application, proceeding or registration."@en-AU ;
     tmk:reading "<party> is a party to <application or proceeding>"@en-AU ;
     skos:example "The applicant is a party to the trade mark application (s 6, 'applicant')."@en-AU ;
-    tmk:counterExample "Not for a body that decides the proceeding; use allocatesTo or actsAs."@en-AU ;
+    tmk:counterExample "Not for a body that decides the proceeding; use performs or actsAs."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:SubjectMatter ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 2 ;
+    tmk:authoredUsageCount 3 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-08); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-08); no signed record uses it yet. Machine-written usage: 3, unreviewed."@en-AU .
 
 tmk:isProtectedThrough a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -395,9 +746,112 @@ tmk:isProtectedThrough a owl:ObjectProperty ;
     skos:example "A wine geographical indication is protected through the Wine Register under the Wine Australia Act 2013 (Part 32B.1.1.3)."@en-AU ;
     tmk:counterExample "Not for the ground that protects others against it; use mayGiveRiseTo."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
+    tmk:expectedSubjectKind tmk:SignContent ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:Context ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:SubjectMatter ;
+    tmk:expectedObjectKind tmk:ExternalInstrument ;
     tmk:usageCount 0 ;
-    tmk:authoredUsageCount 0 ;
-    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-08); no signed record uses it yet. Machine-written usage: 0, unreviewed."@en-AU .
+    tmk:authoredUsageCount 2 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-08); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .
+
+tmk:isRecordedIn a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "is recorded in"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "An entry of the subject is made in the object, a register or record."@en-AU ;
+    tmk:reading "<entry> is recorded in <register>"@en-AU ;
+    skos:example "A disclaimer's particulars are entered in the Register."@en-AU ;
+    tmk:counterExample "Not for a document filed with the office; use files."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedSubjectKind tmk:SignContent ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 13 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 13, unreviewed."@en-AU .
+
+tmk:isServedOn a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "is served on"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject — a document — is served on, given to or directed to the object."@en-AU ;
+    tmk:reading "<document> is served on <person or office>"@en-AU ;
+    skos:example "A subpoena is usually directed to the Registrar of Trade Marks."@en-AU ;
+    tmk:counterExample "Not for the person who files it; use files."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 2 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .
+
+tmk:issues a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "issues"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject — an office or body — makes and issues the object: a decision, report, certificate or number."@en-AU ;
+    tmk:reading "<role> issues <record>"@en-AU ;
+    skos:example "Decisions of the Deputy Registrar issue as decisions of the Registrar (s 205)."@en-AU ;
+    tmk:counterExample "Not for a document a party files; use files."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 2 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .
+
+tmk:keeps a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "keeps"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject — an office or body — keeps or maintains the object, a register or record."@en-AU ;
+    tmk:reading "<office> keeps <register>"@en-AU ;
+    skos:example "A Register of Trade Marks is kept at the Trade Marks Office, and the Registrar enters in it the particulars of registered trade marks (s 207)."@en-AU ;
+    tmk:counterExample "Not for an entry in the register; use isRecordedIn."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 3 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 3, unreviewed."@en-AU .
+
+tmk:keepsEarlierDate a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "keeps earlier date"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject — an application or registration — takes the object, a date, from an earlier filing rather than from its own."@en-AU ;
+    tmk:reading "<application> keeps an earlier <date>"@en-AU ;
+    skos:example "A divisional application has the filing date of its parent application (s 6)."@en-AU ;
+    tmk:counterExample "Not for what a date is taken from in general; use isFixedBy."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedObjectKind tmk:Context ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 6 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 6, unreviewed."@en-AU .
 
 tmk:mayGiveRiseTo a owl:ObjectProperty ;
     a tmk:ApprovedRelation ;
@@ -409,8 +863,23 @@ tmk:mayGiveRiseTo a owl:ObjectProperty ;
     skos:example "GR-0037: a well-known person's name may give rise to a section 43 ground."@en-AU ;
     tmk:counterExample "Never effect → cause. GR-0007 was recorded that way round and is corrected by GK-0016."@en-AU ;
     tmk:admittedBy "signed" ;
+    tmk:expectedSubjectKind tmk:GroundOfRefusal ;
+    tmk:expectedSubjectKind tmk:LegalTest ;
+    tmk:expectedSubjectKind tmk:Principle ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:SignContent ;
+    tmk:expectedSubjectKind tmk:Context ;
+    tmk:expectedSubjectKind tmk:UseInTrade ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedSubjectKind tmk:ExternalInstrument ;
+    tmk:expectedObjectKind tmk:GroundOfRefusal ;
+    tmk:expectedObjectKind tmk:LegalTest ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:LegislativeProvision ;
     tmk:usageCount 6 ;
-    tmk:authoredUsageCount 48 ;
+    tmk:authoredUsageCount 52 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegislativeProvision ;
@@ -420,7 +889,85 @@ tmk:mayGiveRiseTo a owl:ObjectProperty ;
     tmk:usedBy "GR-0044" ;
     tmk:usedBy "GR-0048" ;
     tmk:usedBy "GR-0057" ;
-    rdfs:comment "Signed usage: 6 relationships (GR-0007, GR-0024, GR-0037, GR-0044, GR-0048, GR-0057). Machine-written usage: 48, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 6 relationships (GR-0007, GR-0024, GR-0037, GR-0044, GR-0048, GR-0057). Machine-written usage: 52, unreviewed."@en-AU .
+
+tmk:operatesOn a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "operates on"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject — a step or proceeding — is taken in respect of the object, and starts, changes or ends its legal state: an application, a registration, a mark, a record or another proceeding."@en-AU ;
+    tmk:reading "<step> operates on <what it acts on>"@en-AU ;
+    skos:example "It is possible to oppose extension of protection to an IRDA."@en-AU ;
+    tmk:counterExample "Not for a rule that governs a thing; use appliesTo."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:SubjectMatter ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 19 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 19, unreviewed."@en-AU .
+
+tmk:owns a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "owns"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject owns or holds the object: a trade mark, application or registration, or the number, name or domain a mark refers to."@en-AU ;
+    tmk:reading "<person> owns <what they hold>"@en-AU ;
+    skos:example "The registered owner of a defensive trade mark may obtain relief for its infringement (s 20(2))."@en-AU ;
+    tmk:counterExample "Not for a person who only uses the mark with the owner's authority; use actsUnderControlOf."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:SubjectMatter ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:SignContent ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 8 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 8, unreviewed."@en-AU .
+
+tmk:performs a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "performs"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject — an office, person or body — carries out, conducts or decides the object, a step or proceeding."@en-AU ;
+    tmk:reading "<role> performs <step>"@en-AU ;
+    skos:example "The Registrar may expedite examination of an application (reg 4.19)."@en-AU ;
+    tmk:counterExample "Not for a party who asks for the step; use files. Not for a step's being allocated to a provision."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 15 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 15, unreviewed."@en-AU .
+
+tmk:precedes a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "precedes"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "In the process, the subject comes before the object, which cannot happen until the subject has."@en-AU ;
+    tmk:reading "<step> comes before <step>"@en-AU ;
+    skos:example "An application must be accepted if, after examination, there are no grounds for rejecting it (s 33(1))."@en-AU ;
+    tmk:counterExample "Not for a cause; use mayGiveRiseTo or resultsIn."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 4 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 4, unreviewed."@en-AU .
 
 tmk:prevailsOver a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -433,11 +980,37 @@ tmk:prevailsOver a owl:ObjectProperty ;
     tmk:counterExample "Not for general seniority; only where a source says whose view stands."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
     tmk:predicateAuthority "practice" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
     tmk:usageCount 0 ;
     tmk:authoredUsageCount 1 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     rdfs:comment "Admitted by the owner's ruling (owner-2026-10-08); no signed record uses it yet. Machine-written usage: 1, unreviewed."@en-AU .
+
+tmk:prevents a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "prevents"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "While the subject stands, the object — a step — cannot happen, or its time stops running."@en-AU ;
+    tmk:reading "<subject> prevents <step>"@en-AU ;
+    skos:example "A ground for rejection that is made out prevents acceptance (s 33)."@en-AU ;
+    tmk:counterExample "Not for something that only weighs against; use qualifies."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:GroundOfRefusal ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedSubjectKind tmk:Context ;
+    tmk:expectedSubjectKind tmk:UseInTrade ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:Principle ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 5 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 5, unreviewed."@en-AU .
 
 tmk:qualifies a owl:ObjectProperty ;
     a tmk:ApprovedRelation ;
@@ -449,15 +1022,29 @@ tmk:qualifies a owl:ObjectProperty ;
     skos:example "GR-0017: the trade mark as a whole qualifies whether it is likely to deceive or cause confusion."@en-AU ;
     tmk:counterExample "Not because a sentence uses the word 'qualifies' (GR-0520 'qualifies for registration' was that mistake)."@en-AU ;
     tmk:admittedBy "signed" ;
+    tmk:expectedSubjectKind tmk:Context ;
+    tmk:expectedSubjectKind tmk:SignContent ;
+    tmk:expectedSubjectKind tmk:UseInTrade ;
+    tmk:expectedSubjectKind tmk:LegalTest ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedSubjectKind tmk:Principle ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:LegalTest ;
+    tmk:expectedObjectKind tmk:GroundOfRefusal ;
+    tmk:expectedObjectKind tmk:SignContent ;
+    tmk:expectedObjectKind tmk:SubjectMatter ;
+    tmk:expectedObjectKind tmk:UseInTrade ;
+    tmk:expectedObjectKind tmk:LegislativeProvision ;
     tmk:usageCount 4 ;
-    tmk:authoredUsageCount 65 ;
+    tmk:authoredUsageCount 53 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     tmk:usedBy "GR-0017" ;
     tmk:usedBy "GR-0023" ;
     tmk:usedBy "GR-0035" ;
     tmk:usedBy "GR-0040" ;
-    rdfs:comment "Signed usage: 4 relationships (GR-0017, GR-0023, GR-0035, GR-0040). Machine-written usage: 65, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 4 relationships (GR-0017, GR-0023, GR-0035, GR-0040). Machine-written usage: 53, unreviewed."@en-AU .
 
 tmk:requiresConsentOf a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -470,6 +1057,10 @@ tmk:requiresConsentOf a owl:ObjectProperty ;
     tmk:counterExample "Not for a source that is only consulted; use dependsOnExternalSource."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
     tmk:predicateAuthority "law" ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
     tmk:usageCount 0 ;
     tmk:authoredUsageCount 1 ;
     tmk:observedSubjectType tmk:LegalConcept ;
@@ -486,8 +1077,21 @@ tmk:requiresElement a owl:ObjectProperty ;
     skos:example "GR-0014: section 43 requires a connotation within the trade mark."@en-AU ;
     tmk:counterExample "Not for one of several sufficient sources; that is mayGiveRiseTo in reverse (GR-0008 was that mistake and is corrected by GK-0017)."@en-AU ;
     tmk:admittedBy "signed" ;
+    tmk:expectedObjectKind tmk:GroundOfRefusal ;
+    tmk:expectedObjectKind tmk:LegalTest ;
+    tmk:expectedObjectKind tmk:Principle ;
+    tmk:expectedObjectKind tmk:SubjectMatter ;
+    tmk:expectedObjectKind tmk:SignContent ;
+    tmk:expectedObjectKind tmk:Context ;
+    tmk:expectedObjectKind tmk:UseInTrade ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:ExternalInstrument ;
+    tmk:expectedObjectKind tmk:LegislativeProvision ;
+    tmk:expectedObjectKind tmk:ManualPassage ;
+    tmk:expectedObjectKind tmk:Decision ;
     tmk:usageCount 6 ;
-    tmk:authoredUsageCount 20 ;
+    tmk:authoredUsageCount 22 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedSubjectType tmk:LegislativeProvision ;
     tmk:observedObjectType tmk:LegalConcept ;
@@ -498,7 +1102,27 @@ tmk:requiresElement a owl:ObjectProperty ;
     tmk:usedBy "GR-0014" ;
     tmk:usedBy "GR-0016" ;
     tmk:usedBy "GR-0054" ;
-    rdfs:comment "Signed usage: 6 relationships (GR-0003, GR-0008, GR-0010, GR-0014, GR-0016, GR-0054). Machine-written usage: 20, unreviewed."@en-AU .
+    rdfs:comment "Signed usage: 6 relationships (GR-0003, GR-0008, GR-0010, GR-0014, GR-0016, GR-0054). Machine-written usage: 22, unreviewed."@en-AU .
+
+tmk:resultsIn a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "results in"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "Completing the subject, a step, produces the object — a record, a status or a further step."@en-AU ;
+    tmk:reading "<step> results in <outcome>"@en-AU ;
+    skos:example "An opposition ends in a decision of the Registrar (regs 5.16, 9.19)."@en-AU ;
+    tmk:counterExample "Not for a cause that only may lead to a ground or test; use mayGiveRiseTo."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedObjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedObjectKind tmk:SubjectMatter ;
+    tmk:expectedObjectKind tmk:ProceduralStep ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 3 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 3, unreviewed."@en-AU .
 
 tmk:reviewsDecisionsOf a owl:ObjectProperty ;
     a tmk:AdmittedRelation ;
@@ -511,11 +1135,34 @@ tmk:reviewsDecisionsOf a owl:ObjectProperty ;
     tmk:counterExample "Not for a court hearing an appeal; use hearsAppealsFrom."@en-AU ;
     tmk:admittedBy "owner-2026-10-08" ;
     tmk:predicateAuthority "law" ;
+    tmk:expectedSubjectKind tmk:ProcessRole ;
+    tmk:expectedObjectKind tmk:ProcessRole ;
     tmk:usageCount 0 ;
     tmk:authoredUsageCount 2 ;
     tmk:observedSubjectType tmk:LegalConcept ;
     tmk:observedObjectType tmk:LegalConcept ;
     rdfs:comment "Admitted by the owner's ruling (owner-2026-10-08); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .
+
+tmk:runsFrom a owl:ObjectProperty ;
+    a tmk:AdmittedRelation ;
+    rdfs:label "runs from"@en-AU ;
+    rdfs:domain tmk:LegalMatter ;
+    rdfs:range tmk:LegalMatter ;
+    skos:definition "The subject — a right, a period or a step that falls due — is counted from the object, a date."@en-AU ;
+    tmk:reading "<right or period> runs from <date>"@en-AU ;
+    skos:example "All rights in a registered trade mark accrue from the date of registration."@en-AU ;
+    tmk:counterExample "Not for the date's own source; use isFixedBy."@en-AU ;
+    tmk:admittedBy "owner-2026-10-09" ;
+    tmk:expectedSubjectKind tmk:SubjectMatter ;
+    tmk:expectedSubjectKind tmk:ProceduralStep ;
+    tmk:expectedSubjectKind tmk:InstrumentOrRecord ;
+    tmk:expectedSubjectKind tmk:UseInTrade ;
+    tmk:expectedObjectKind tmk:Context ;
+    tmk:usageCount 0 ;
+    tmk:authoredUsageCount 2 ;
+    tmk:observedSubjectType tmk:LegalConcept ;
+    tmk:observedObjectType tmk:LegalConcept ;
+    rdfs:comment "Admitted by the owner's ruling (owner-2026-10-09); no signed record uses it yet. Machine-written usage: 2, unreviewed."@en-AU .
 
 tmk:statesThresholdFor a owl:ObjectProperty ;
     a tmk:ApprovedRelation ;
@@ -527,6 +1174,12 @@ tmk:statesThresholdFor a owl:ObjectProperty ;
     skos:example "GR-0061: a real and tangible danger states the threshold for a connotation to matter."@en-AU ;
     tmk:counterExample "Never ground → threshold. GR-0018 was recorded that way round and is corrected by GK-0021."@en-AU ;
     tmk:admittedBy "signed" ;
+    tmk:expectedSubjectKind tmk:LegalTest ;
+    tmk:expectedSubjectKind tmk:Context ;
+    tmk:expectedSubjectKind tmk:Principle ;
+    tmk:expectedObjectKind tmk:GroundOfRefusal ;
+    tmk:expectedObjectKind tmk:LegalTest ;
+    tmk:expectedObjectKind tmk:SignContent ;
     tmk:usageCount 1 ;
     tmk:authoredUsageCount 5 ;
     tmk:observedSubjectType tmk:LegalConcept ;

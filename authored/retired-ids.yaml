@@ -1819,3 +1819,602 @@
     to the ground itself. — and its corrected reading is refused: the sentence does not name
     both concepts.'
   ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0096
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The sentence states what the relevant market must
+    know of a deceased person''s name; the relation it bears on is the section 43 ground,
+    which other records state, not one between the market and the person.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0107
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The examiner suggests that the applicant restrict
+    the specification; the act is the applicant''s limitation, and an examiner-to-specification
+    link would say nothing of it.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0108
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A drafting instruction on what an endorsement mentions;
+    no relation between the endorsement and the specification as such.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0123
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The criteria run through the consumer''s association
+    and confusion; geographical reference qualifies the test (GR-0079) and the ordinary consumer
+    qualifies confusion (GR-0101) already.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0144
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The sentence is about how the application is considered;
+    the top level domain''s bearing on the section 43 ground is GR-0148.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0162
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Evidence and other circumstances are two alternative
+    ways past a section 41 ground; neither relates to the other.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0173
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The tolerance of some confusion where a trader built
+    a business on a descriptive term is descriptive matter qualifying confusion (GR-0180);
+    the decision maker adds nothing.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0174
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): That the decision maker must be clearly satisfied
+    is a standard every test shares; a link from the role to deception says nothing a reader
+    can use.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0224
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Substantial identity and closely related goods are
+    two separate limbs of section 44; the sentence relates each to the section, not to each
+    other.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0225
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): About a similar mark''s use as a circumstance under
+    section 41(4); no relation between the section 44 test and surrounding circumstances.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0227
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A section 102 comparison names both; the test is not
+    about registered trade marks as such.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0228
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Two separate limbs of section 44 (the marks, the goods);
+    neither relates to the other.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0230
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Deferment is granted to gather evidence of other circumstances;
+    neither causes, requires nor qualifies the other.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0236
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The question is whether use has displaced a sign''s
+    primary meaning; a sign-to-denotation link restates it without the use that does the work.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0246
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): About costs and a certificate of use in a non-use
+    opposition; use preventing removal is stated from a passage that says so (new edge below).'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0251
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The consent meant is the ACCC''s, not a well-known
+    person''s written permission, which is what GC-0029 is.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0255
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Re-read as GC-0043 keepsEarlierDate GC-0016, which
+    GR-0169 already states. The same sentence as GR-0169.'
+  replaced_by: GR-0169
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0257
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Deferment is granted to gather evidence of prior use;
+    neither causes, requires nor qualifies the other.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0258
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Deferment is granted to gather evidence of honest
+    concurrent use; neither causes, requires nor qualifies the other.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0265
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): An endorsement and a limitation are alternative remedies;
+    GR-0697 and GR-0698 state what each does.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0279
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The sentence is about extensions of time, which the
+    Protocol does not provide; that the Protocol governs IRDAs is GR-0282.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0280
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): About refusal notices during the 18-month period;
+    no relation between the Protocol and examination as such.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0290
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Re-read as GC-0046 performs GC-0040, which GR-0175
+    already states. In opposition proceedings the Registrar decides, and awards costs.'
+  replaced_by: GR-0175
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0303
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): About where an examiner looks up classification; the
+    specification''s dependence on the classification is GR-0301.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0304
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The classification corrected is the application''s
+    own, not the classification system the concept names.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0316
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A rule refusing deferment where a cited pending application
+    has the same filing date; no relation between the date and pending applications as such.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0317
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The date is that of the application made in the Convention
+    country; the country itself is incidental.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0324
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The sentence is about the form of an extension request;
+    the approved form is GR-0336.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0327
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): About the scope of a registration''s protection; the
+    two tests are separate limbs of section 44 and the sentence relates neither to the other.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0331
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Deceptive similarity and closely related goods are
+    separate limbs of section 44.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0341
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): About the priority date of a divisional application;
+    the Convention country is incidental.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0349
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The IB advising the Office of origin of a number;
+    the sentence names the IB only as "IB", which recognition does not take, and the Office
+    of origin is incidental.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0369
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The holder may seek rectification; the Record itself
+    is incidental.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0397
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A worked example of a section 42(b) ground; the application
+    is incidental.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0398
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The presumption''s displacement once the Registrar
+    is satisfied is what GR-0091 and GR-0092 state (constrains the Registrar).'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0401
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A place''s reputation influencing consumers is reputation
+    qualifying confusion (GR-0474).'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0402
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A case''s circumstances (Princess Diana''s fame);
+    an example, not a relation.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0405
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The endorsement names the well-known person who consented;
+    what the endorsement records is the written permission (GR-0435).'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0408
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Re-read as GC-0111 keepsEarlierDate GC-0016, which
+    GR-0252 already states. The same relation as GR-0252.'
+  replaced_by: GR-0252
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0411
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A cross-reference to the definition of "originate";
+    no relation stated.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0416
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): That an INN stem names a family of substances is a
+    definition, not a relation between the two concepts.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0426
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The written permission overcomes the section 43 ground
+    (GR-0687); the person-to-permission link adds nothing.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0428
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The deceased person here is a deceased owner whose
+    mark devolves; GC-0027 is a deceased person a mark refers to.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0438
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): "Secondary meaning" here is acquired distinctiveness
+    under section 41, not the section 43 connotation GC-0001 names.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0441
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): About considering the application as a whole; no relation
+    between the domain and the application.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0442
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The sentence says confusion arises if the owner does
+    not hold the call sign''s licence — a condition, not a fact that the owner holds it.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0455
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The sentence names the Office of the Contracting Party
+    of the holder, which GC-0149 then excluded; incidental to revocation in any case.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0476
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Research supporting a section 42 ground; the image
+    of a person is incidental.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0486
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The two-step test is ordinary signification and other
+    traders'' legitimate desire (GR-0213, GR-0214); similar goods are part of the second step.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0492
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A long comparison of procedures; no relation stated
+    between honest concurrent use and revocation.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0508
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Re-read as GC-0041 establishes GC-0081, which GR-0248
+    already states. The same relation as GR-0248.'
+  replaced_by: GR-0248
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0510
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A list of whose use counts; no relation between the
+    authorised user and the predecessor.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0516
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The sentence says no consent of the Commission is
+    needed for a transmission; a negative the dictionary cannot state, and assignment''s need
+    for consent is GR-0432.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0519
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Who may sue for infringement; the ontology holds no
+    infringement concept to state it with.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0523
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A condition on claiming priority for a subsequent
+    designation; too conditional to state as a relation of the two concepts.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0533
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Acceptance is deferred while an appeal is possible;
+    the court is incidental.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0535
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): About a cited application that has lapsed; the divisional
+    application is incidental.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0540
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A list of whose use the evidence may show; no relation
+    between the evidence and the predecessor as such.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0544
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Review of the Registrar''s decisions by the ART is
+    GR-0569.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0546
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): That an IRDA can be opposed is GR-0283; the notice
+    is incidental.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0550
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): About costs; that a non-use application can be opposed
+    is GR-0604.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0553
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): When renewal of an international registration falls
+    due; the Office of origin is incidental.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0554
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The Commission''s consent to assigning a certification
+    trade mark is GR-0432.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0560
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The country through which a holder applies; no relation
+    stated between the holder and the Protocol.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0561
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A heading of the Protocol''s regulations; no relation
+    stated.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0562
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): An explanation of a form field; no relation stated.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0567
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): About transformation after the basic mark ceases in
+    the Office of origin; no relation between the mark and the Office as such.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0570
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): An opponent is a party to the opposition (GR-0294);
+    referral of the non-use application is incidental.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0578
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The International Bureau''s opinion prevailing over
+    the Office of origin is GR-0601.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0583
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A word''s special meaning in plant examination; no
+    relation stated.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0585
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Review of the Registrar''s decisions by the ART is
+    GR-0569.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0591
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Re-read as GC-0132 owns GC-0150, which GR-0354 already
+    states. The holder of the international registration.'
+  replaced_by: GR-0354
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0592
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): About replacement of a national registration; no relation
+    between the holder and extension of protection as such.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0595
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The ART''s review of the Commission''s decisions is
+    GR-0594.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0599
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): About certification by the Office of origin and when
+    the IB must receive the application; too procedural to state as a relation of the two
+    concepts.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0600
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A consequence of an Office''s state leaving the Protocol;
+    no relation between the holder and the Office as such.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0604
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Re-read as GC-0040 operatesOn GC-0142, which GR-0547
+    already states. Any person may oppose a non-use application.'
+  replaced_by: GR-0547
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0606
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): That extension of protection can be opposed is GR-0450;
+    the notice is incidental.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0611
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Re-read as GC-0148 files GC-0041, which GR-0452 already
+    states. The same sentence as GR-0452.'
+  replaced_by: GR-0452
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0612
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The sentence names the Office of the Contracting Party
+    of the holder, which GC-0149 excluded; the link was not about the concept it named.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0613
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): As GR-0612.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0626
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A consequence of not filing a notice of intention
+    to defend; the opposition''s outcome, not a relation of the notice and extension of protection.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0629
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): That the notice of intention to defend follows the
+    notice of opposition is GR-0319.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0630
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): A heading (section 240); no relation stated.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0158
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Re-read as GC-0040 isCommencedBy GC-0103, which GR-0541
+    already states. Recorded as "the notice of opposition requires the opposition" — the document
+    the proceeding starts with, read backwards.'
+  replaced_by: GR-0541
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0098
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The "ordinary person searching the Register" who must
+    understand a scent mark''s representation, not the ordinary consumer of the deception
+    and confusion tests.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0168
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): "All the relevant circumstances" of a revocation,
+    not the surrounding circumstances of the deception and confusion tests.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0226
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Evidence of use may be of a substantially identical
+    mark; a rule about what evidence counts, which no predicate states between the test and
+    the evidence.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0261
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Re-read as GC-0046 performs GC-0097, which GR-0176
+    already states. The Registrar grants an extension of time, satisfied of its grounds.'
+  replaced_by: GR-0176
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0293
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The Registrar publishes a withdrawal the applicant
+    makes; "performs" would say the Registrar withdraws.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0427
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The person''s fame and how recently they died bear
+    on consumers'' expectations under the section 43 ground, not on the deceased person as
+    such.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0493
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The rule is that a person relying on a predecessor''s
+    prior use must be the assignee of its goodwill; the ontology holds no goodwill concept
+    to state it with.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0515
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Re-read as GC-0086 requiresConsentOf GC-0133, which
+    GR-0432 already states. The application to assign a certification trade mark is made to
+    the Commission.'
+  replaced_by: GR-0432
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0525
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The date at which a priority claim''s criteria must
+    hold; no relation the dictionary can state between the date and the application.'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0556
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): The reputation meant is the trade mark''s own, which
+    is GR-0555 (GC-0130); GC-0050 is the reputation of a place or person (ruling A3).'
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072
+- id: GR-0559
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'Structure review (ADR-0131): Re-read as GC-0043 keepsEarlierDate GC-0141, which
+    GR-0457 already states. As GR-0457.'
+  replaced_by: GR-0457
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0072

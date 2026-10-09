@@ -1,0 +1,917 @@
+note: >-
+  The S029 structure review, on the owner's instruction of 2026-10-09 (ADR-0131): every
+  machine-written "is related to" edge re-read as the relationship its sentence states, or
+  withdrawn; edges whose ends are not kinds their predicate joins re-read or withdrawn;
+  concepts filed under none_of_these, or under a kind they are not, re-typed; isolated
+  concepts connected from passages that state the connection; and four "is a kind of" links in
+  signed records corrected outside the signature. Machine-written by an agent session,
+  unreviewed: a judgement per line, each for an examiner to disagree with. Applied by
+  `tmk-bulk restructure --write`.
+session: S029
+authored_by: claude-code-agent-S029
+date: '2026-10-09'
+ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml
+# --- relationships: re-read (to) or withdrawn (withdraw) ----------------------------
+# A re-read keeps the record's id and sentence; its first reading is kept in
+# alternatives_considered. A re-read that lands on a triple another record already
+# states is withdrawn in that record's favour.
+edges:
+- edge: GR-0087
+  to: [GC-0168, isAssessedIn, GC-0092]
+  why: The sentence places the section 43 ground in examination, and says it may only emerge later.
+- edge: GR-0096
+  withdraw: The sentence states what the relevant market must know of a deceased person's name; the
+    relation it bears on is the section 43 ground, which other records state, not one between the
+    market and the person.
+- edge: GR-0105
+  to: [GC-0010, isPartOf, GC-0011]
+  why: The character of the probable acquirers of the goods is listed as one of the surrounding
+    circumstances.
+- edge: GR-0106
+  to: [GC-0124, operatesOn, GC-0012]
+  why: An amendment of an application deletes or changes goods in its specification.
+- edge: GR-0107
+  withdraw: The examiner suggests that the applicant restrict the specification; the act is the
+    applicant's limitation, and an examiner-to-specification link would say nothing of it.
+- edge: GR-0108
+  withdraw: A drafting instruction on what an endorsement mentions; no relation between the
+    endorsement and the specification as such.
+- edge: GR-0116
+  to: [GC-0015, operatesOn, GC-0012]
+  why: A limitation deletes goods or services from the specification.
+- edge: GR-0118
+  to: [GC-0043, precedes, GC-0015]
+  why: Where both are asked for, the deletion waits until the divisional application has been filed.
+- edge: GR-0122
+  to: [GC-0016, mayGiveRiseTo, GC-0122]
+  why: A convention claim (an earlier priority date) leads IP Australia to expedite an IRDA as routine.
+- edge: GR-0123
+  withdraw: The criteria run through the consumer's association and confusion; geographical reference
+    qualifies the test (GR-0079) and the ordinary consumer qualifies confusion (GR-0101) already.
+- edge: GR-0140
+  to: [GC-0035, owns, GC-0032]
+  why: The ground turns on whether the applicant is the registrant (owner) or authorised user of the
+    domain name the mark connotes.
+- edge: GR-0144
+  withdraw: The sentence is about how the application is considered; the top level domain's bearing on
+    the section 43 ground is GR-0148.
+- edge: GR-0159
+  to: [GC-0040, resultsIn, GC-0127]
+  why: An opposition ends in the Registrar's decision on it (or its dismissal).
+- edge: GR-0162
+  withdraw: Evidence and other circumstances are two alternative ways past a section 41 ground; neither
+    relates to the other.
+- edge: GR-0163
+  to: [GC-0041, establishes, GC-0066]
+  why: Evidence of use is what an examiner examines to find honest concurrent use.
+- edge: GR-0167
+  to: [GC-0042, precedes, GC-0092]
+  why: Revocation of acceptance is followed by re-examination; the sentence says the regulations make
+    no such provision after cessation of protection.
+- edge: GR-0169
+  to: [GC-0043, keepsEarlierDate, GC-0016]
+  why: A divisional application takes its parent's filing date as its priority date.
+- edge: GR-0173
+  withdraw: The tolerance of some confusion where a trader built a business on a descriptive term is
+    descriptive matter qualifying confusion (GR-0180); the decision maker adds nothing.
+- edge: GR-0174
+  withdraw: That the decision maker must be clearly satisfied is a standard every test shares; a link
+    from the role to deception says nothing a reader can use.
+- edge: GR-0175
+  to: [GC-0046, performs, GC-0040]
+  why: The Registrar decides the opposition, including taking it to have succeeded.
+- edge: GR-0176
+  to: [GC-0046, performs, GC-0097]
+  why: The Registrar grants or refuses an extension of time (s 224).
+- edge: GR-0177
+  to: [GC-0046, performs, GC-0128]
+  why: The Registrar decides whether a hearing is oral or on written submissions.
+- edge: GR-0206
+  to: [GC-0041, establishes, GC-0058]
+  why: A mark lacking inherent adaptation may be shown through evidence of use to be capable of
+    distinguishing.
+- edge: GR-0211
+  to: [GC-0060, appliesTo, GC-0073]
+  why: Ordinary signification is a question asked of a sign.
+- edge: GR-0218
+  to: [GC-0055, mayGiveRiseTo, GC-0063]
+  why: A ground for a prescribed sign may be taken under section 42(b), use contrary to law.
+- edge: GR-0224
+  withdraw: Substantial identity and closely related goods are two separate limbs of section 44; the
+    sentence relates each to the section, not to each other.
+- edge: GR-0225
+  withdraw: About a similar mark's use as a circumstance under section 41(4); no relation between the
+    section 44 test and surrounding circumstances.
+- edge: GR-0227
+  withdraw: A section 102 comparison names both; the test is not about registered trade marks as such.
+- edge: GR-0228
+  withdraw: Two separate limbs of section 44 (the marks, the goods); neither relates to the other.
+- edge: GR-0230
+  withdraw: Deferment is granted to gather evidence of other circumstances; neither causes, requires nor
+    qualifies the other.
+- edge: GR-0236
+  withdraw: The question is whether use has displaced a sign's primary meaning; a sign-to-denotation
+    link restates it without the use that does the work.
+- edge: GR-0240
+  to: [GC-0079, extendsTo, GC-0074]
+  why: The series rules apply to non-traditional signs as to traditional ones.
+- edge: GR-0243
+  to: [GC-0043, operatesOn, GC-0079]
+  why: A divisional application may be made in respect of a series application.
+- edge: GR-0246
+  withdraw: About costs and a certificate of use in a non-use opposition; use preventing removal is
+    stated from a passage that says so (new edge below).
+- edge: GR-0248
+  to: [GC-0041, establishes, GC-0081]
+  why: Evidence of use is supplied to show use of the trade mark (s 41(4)).
+- edge: GR-0249
+  to: [GC-0087, operatesOn, GC-0108]
+  why: The Manual's section on transmission of collective trade marks.
+- edge: GR-0250
+  to: [GC-0087, operatesOn, GC-0107]
+  why: Transmission of a certification trade mark, registered or applied for.
+- edge: GR-0251
+  withdraw: The consent meant is the ACCC's, not a well-known person's written permission, which is
+    what GC-0029 is.
+- edge: GR-0252
+  to: [GC-0111, keepsEarlierDate, GC-0016]
+  why: A convention application takes the priority date of the earlier application for the goods in
+    common.
+- edge: GR-0254
+  to: [GC-0016, isFixedBy, GC-0091]
+  why: A divisional application's priority date is its parent's filing date, unless the convention
+    claim is made again.
+- edge: GR-0255
+  to: [GC-0043, keepsEarlierDate, GC-0016]
+  why: The same sentence as GR-0169.
+- edge: GR-0257
+  withdraw: Deferment is granted to gather evidence of prior use; neither causes, requires nor
+    qualifies the other.
+- edge: GR-0258
+  withdraw: Deferment is granted to gather evidence of honest concurrent use; neither causes, requires
+    nor qualifies the other.
+- edge: GR-0259
+  to: [GC-0096, prevents, GC-0093]
+  why: While deferred, the period for gaining acceptance is set in abeyance.
+- edge: GR-0260
+  to: [GC-0040, operatesOn, GC-0097]
+  why: An extension of time of more than three months can be opposed.
+- edge: GR-0262
+  to: [GC-0097, mayGiveRiseTo, GC-0128]
+  why: An objection to an extension may be heard at a hearing.
+- edge: GR-0265
+  withdraw: An endorsement and a limitation are alternative remedies; GR-0697 and GR-0698 state what
+    each does.
+- edge: GR-0271
+  to: [GC-0106, isRecordedIn, GC-0089]
+  why: A renewal is entered in the Register, and a claimed interest only with it.
+- edge: GR-0272
+  to: [GC-0084, files, GC-0106]
+  why: The owner may request renewal (and so may any person, ss 75, 77).
+- edge: GR-0273
+  to: [GC-0086, operatesOn, GC-0107]
+  why: Assignment of a certification trade mark, with additional requirements.
+- edge: GR-0275
+  to: [GC-0084, owns, GC-0107]
+  why: The owner of the certification trade mark.
+- edge: GR-0276
+  to: [GC-0105, operatesOn, GC-0107]
+  why: The grounds for rectification apply to certification trade marks.
+- edge: GR-0277
+  to: [GC-0108, isExcludedFrom, GC-0086]
+  why: Section 163(1) treats a collective trade mark as an ordinary one except for Part 10, assignment.
+- edge: GR-0279
+  withdraw: The sentence is about extensions of time, which the Protocol does not provide; that the
+    Protocol governs IRDAs is GR-0282.
+- edge: GR-0280
+  withdraw: About refusal notices during the 18-month period; no relation between the Protocol and
+    examination as such.
+- edge: GR-0282
+  to: [GC-0112, appliesTo, GC-0113]
+  why: IRDAs are applications filed through the Madrid Protocol.
+- edge: GR-0283
+  to: [GC-0040, operatesOn, GC-0113]
+  why: Extension of protection to an IRDA can be opposed.
+- edge: GR-0286
+  to: [GC-0113, becomes, GC-0114]
+  why: An IRDA through examination and opposition is known as a protected international trade mark.
+- edge: GR-0289
+  to: [GC-0046, issues, GC-0127]
+  why: The Registrar's decision not to extend time.
+- edge: GR-0290
+  to: [GC-0046, performs, GC-0040]
+  why: In opposition proceedings the Registrar decides, and awards costs.
+- edge: GR-0303
+  withdraw: About where an examiner looks up classification; the specification's dependence on the
+    classification is GR-0301.
+- edge: GR-0304
+  withdraw: The classification corrected is the application's own, not the classification system the
+    concept names.
+- edge: GR-0307
+  to: [GC-0046, performs, GC-0122]
+  why: The Registrar may expedite examination (reg 4.19).
+- edge: GR-0310
+  to: [GC-0128, resultsIn, GC-0127]
+  why: The decision may be made after a hearing.
+- edge: GR-0311
+  to: [GC-0128, isPartOf, GC-0040]
+  why: The hearing of the opposition.
+- edge: GR-0316
+  withdraw: A rule refusing deferment where a cited pending application has the same filing date; no
+    relation between the date and pending applications as such.
+- edge: GR-0317
+  withdraw: The date is that of the application made in the Convention country; the country itself is
+    incidental.
+- edge: GR-0319
+  to: [GC-0103, precedes, GC-0158]
+  why: Once a complete notice of opposition is filed, the applicant must file a notice of intention to
+    defend.
+- edge: GR-0320
+  to: [GC-0153, isPartOf, GC-0103]
+  why: A notice of opposition means a notice of intention to oppose and a statement of grounds and
+    particulars.
+- edge: GR-0321
+  to: [GC-0040, requiresElement, GC-0153]
+  why: An opposition is dismissed if its statement of grounds and particulars is inadequate.
+- edge: GR-0324
+  withdraw: The sentence is about the form of an extension request; the approved form is GR-0336.
+- edge: GR-0327
+  withdraw: About the scope of a registration's protection; the two tests are separate limbs of section
+    44 and the sentence relates neither to the other.
+- edge: GR-0331
+  withdraw: Deceptive similarity and closely related goods are separate limbs of section 44.
+- edge: GR-0340
+  to: [GC-0111, requiresElement, GC-0157]
+  why: A convention application claims priority from an application made in a Convention country
+    (s 29).
+- edge: GR-0341
+  withdraw: About the priority date of a divisional application; the Convention country is incidental.
+- edge: GR-0344
+  to: [GC-0159, issues, GC-0127]
+  why: The Deputy Registrar's decisions issue as decisions of the Registrar.
+- edge: GR-0345
+  to: [GC-0144, isServedOn, GC-0159]
+  why: A subpoena may be served on the Registrar by leaving it with the Deputy Registrar.
+- edge: GR-0347
+  to: [GC-0159, performs, GC-0040]
+  why: A Deputy Registrar deciding an interlocutory point in an opposition.
+- edge: GR-0349
+  withdraw: The IB advising the Office of origin of a number; the sentence names the IB only as "IB",
+    which recognition does not take, and the Office of origin is incidental.
+- edge: GR-0350
+  to: [GC-0160, isPartOf, GC-0150]
+  why: The registration number is a particular of the international registration.
+- edge: GR-0351
+  to: [GC-0160, isRecordedIn, GC-0161]
+  why: The number is allocated when the registration is placed on the International Register.
+- edge: GR-0353
+  to: [GC-0150, isRecordedIn, GC-0161]
+  why: The international registration is recorded in the International Register by the IB.
+- edge: GR-0354
+  to: [GC-0132, owns, GC-0150]
+  why: The applicant becomes the holder of the international registration.
+- edge: GR-0355
+  to: [GC-0113, isRecordedIn, GC-0161]
+  why: Australia protects IRDAs as they are recorded on the International Register.
+- edge: GR-0357
+  to: [GC-0162, operatesOn, GC-0114]
+  why: A change in ownership of a protected international trade mark.
+- edge: GR-0359
+  to: [GC-0162, operatesOn, GC-0113]
+  why: A change in ownership of an IRDA.
+- edge: GR-0362
+  to: [GC-0108, isExcludedFrom, GC-0162]
+  why: The ownership of a collective trade mark cannot be changed.
+- edge: GR-0368
+  to: [GC-0114, isRecordedIn, GC-0165]
+  why: Claims on protected international trade marks are recorded in the Record of International
+    Registrations.
+- edge: GR-0369
+  withdraw: The holder may seek rectification; the Record itself is incidental.
+- edge: GR-0370
+  to: [GC-0150, isRecordedIn, GC-0165]
+  why: IP Australia amends the Record when an international registration designating Australia ceases
+    or is limited.
+- edge: GR-0371
+  to: [GC-0113, isRecordedIn, GC-0165]
+  why: Claims on IRDAs are recorded in the Record of International Registrations.
+- edge: GR-0372
+  to: [GC-0160, isRecordedIn, GC-0165]
+  why: The international registration number is included in the Record.
+- edge: GR-0379
+  to: [GC-0167, isPartOf, GC-0111]
+  why: A translation's certificate of verification is among the documents supporting a convention
+    application.
+- edge: GR-0393
+  to: [GC-0005, isDistinguishedFrom, GC-0047]
+  why: The mark's denotation is as the applicant's trade mark, despite any descriptive matter in it.
+- edge: GR-0394
+  to: [GC-0006, prevents, GC-0093]
+  why: A ground for rejection is the matter impeding acceptance.
+- edge: GR-0397
+  withdraw: A worked example of a section 42(b) ground; the application is incidental.
+- edge: GR-0398
+  withdraw: The presumption's displacement once the Registrar is satisfied is what GR-0091 and GR-0092
+    state (constrains the Registrar).
+- edge: GR-0401
+  withdraw: A place's reputation influencing consumers is reputation qualifying confusion (GR-0474).
+- edge: GR-0402
+  withdraw: A case's circumstances (Princess Diana's fame); an example, not a relation.
+- edge: GR-0405
+  withdraw: The endorsement names the well-known person who consented; what the endorsement records is
+    the written permission (GR-0435).
+- edge: GR-0408
+  to: [GC-0111, keepsEarlierDate, GC-0016]
+  why: The same relation as GR-0252.
+- edge: GR-0410
+  to: [GC-0017, indicates, GC-0019]
+  why: A geographical reference will often connote the geographical origin of the goods.
+- edge: GR-0411
+  withdraw: A cross-reference to the definition of "originate"; no relation stated.
+- edge: GR-0416
+  withdraw: That an INN stem names a family of substances is a definition, not a relation between the
+    two concepts.
+- edge: GR-0426
+  withdraw: The written permission overcomes the section 43 ground (GR-0687); the person-to-permission
+    link adds nothing.
+- edge: GR-0428
+  withdraw: The deceased person here is a deceased owner whose mark devolves; GC-0027 is a deceased
+    person a mark refers to.
+- edge: GR-0435
+  to: [GC-0029, isRecordedIn, GC-0014]
+  why: Where a well-known person's written permission is given, it is made clear by an endorsement.
+- edge: GR-0437
+  to: [GC-0035, owns, GC-0031]
+  why: The ground is reconsidered if the applicant is the owner or authorised user of the phoneword.
+- edge: GR-0438
+  withdraw: '"Secondary meaning" here is acquired distinctiveness under section 41, not the section 43
+    connotation GC-0001 names.'
+- edge: GR-0441
+  withdraw: About considering the application as a whole; no relation between the domain and the
+    application.
+- edge: GR-0442
+  withdraw: The sentence says confusion arises if the owner does not hold the call sign's licence — a
+    condition, not a fact that the owner holds it.
+- edge: GR-0449
+  to: [GC-0040, operatesOn, GC-0135]
+  why: Oppositions to cessation of protection for non-use.
+- edge: GR-0450
+  to: [GC-0040, operatesOn, GC-0143]
+  why: Extension of protection to an IRDA can be opposed.
+- edge: GR-0452
+  to: [GC-0148, files, GC-0041]
+  why: A lawyer may make the declaration of use on the applicant's behalf.
+- edge: GR-0455
+  withdraw: The sentence names the Office of the Contracting Party of the holder, which GC-0149 then
+    excluded; incidental to revocation in any case.
+- edge: GR-0456
+  to: [GC-0043, keepsEarlierDate, GC-0091]
+  why: Section 6 gives a divisional application the filing date of its parent.
+- edge: GR-0457
+  to: [GC-0043, keepsEarlierDate, GC-0141]
+  why: A registration from a divisional application takes its parent's filing date as its date of
+    registration.
+- edge: GR-0460
+  to: [GC-0044, performs, GC-0092]
+  why: The examiner, during the course of examination.
+- edge: GR-0475
+  to: [GC-0052, isPartOf, GC-0092]
+  why: Research during normal examination.
+- edge: GR-0476
+  withdraw: Research supporting a section 42 ground; the image of a person is incidental.
+- edge: GR-0484
+  to: [GC-0059, mayGiveRiseTo, GC-0119]
+  why: A mark sufficiently inherently adapted to distinguish is prima facie capable of distinguishing.
+- edge: GR-0486
+  withdraw: The two-step test is ordinary signification and other traders' legitimate desire (GR-0213,
+    GR-0214); similar goods are part of the second step.
+- edge: GR-0490
+  to: [GC-0062, appliesTo, GC-0131]
+  why: A trade mark application must be rejected if the mark contains scandalous matter (s 42(a)).
+- edge: GR-0492
+  withdraw: A long comparison of procedures; no relation stated between honest concurrent use and
+    revocation.
+- edge: GR-0497
+  to: [GC-0070, isDistinguishedFrom, GC-0071]
+  why: Section 44 asks whether goods are similar or closely related — two alternatives.
+- edge: GR-0508
+  to: [GC-0041, establishes, GC-0081]
+  why: The same relation as GR-0248.
+- edge: GR-0509
+  to: [GC-0082, isAttributedTo, GC-0085]
+  why: Authorised use is taken to be use by the predecessor in title (ss 7(3), 8).
+- edge: GR-0510
+  withdraw: A list of whose use counts; no relation between the authorised user and the predecessor.
+- edge: GR-0512
+  to: [GC-0084, owns, GC-0088]
+  why: The registered owner of the registered trade mark.
+- edge: GR-0514
+  to: [GC-0084, isPartyTo, GC-0086]
+  why: In a partial assignment the original owner keeps some goods and assigns the rest.
+- edge: GR-0516
+  withdraw: The sentence says no consent of the Commission is needed for a transmission; a negative the
+    dictionary cannot state, and assignment's need for consent is GR-0432.
+- edge: GR-0517
+  to: [GC-0088, isRecordedIn, GC-0089]
+  why: A registered trade mark, with claims to interests in it, is on the Register.
+- edge: GR-0519
+  withdraw: Who may sue for infringement; the ontology holds no infringement concept to state it with.
+- edge: GR-0520
+  to: [GC-0109, requiresElement, GC-0081]
+  why: Defensive registration turns on the extent of use of the registered mark it is based on
+    (s 185(1)).
+- edge: GR-0521
+  to: [GC-0151, becomes, GC-0089]
+  why: At commencement the old register's particulars became particulars on the new Register.
+- edge: GR-0523
+  withdraw: A condition on claiming priority for a subsequent designation; too conditional to state as
+    a relation of the two concepts.
+- edge: GR-0526
+  to: [GC-0141, isFixedBy, GC-0091]
+  why: In most cases the filing date is the date of registration (s 72).
+- edge: GR-0533
+  withdraw: Acceptance is deferred while an appeal is possible; the court is incidental.
+- edge: GR-0534
+  to: [GC-0096, prevents, GC-0098]
+  why: Deferment holds the period within which an application must be accepted, so it does not lapse.
+- edge: GR-0535
+  withdraw: About a cited application that has lapsed; the divisional application is incidental.
+- edge: GR-0536
+  to: [GC-0099, isRecordedIn, GC-0151]
+  why: A disclaimer made in the old register under the 1955 Act.
+- edge: GR-0537
+  to: [GC-0099, isRecordedIn, GC-0089]
+  why: The Registrar enters the particulars of the disclaimer in the Register.
+- edge: GR-0538
+  to: [GC-0099, appliesTo, GC-0088]
+  why: A disclaimer affects the registration it is entered on.
+- edge: GR-0539
+  to: [GC-0084, files, GC-0099]
+  why: A registered owner may request that a disclaimer be entered.
+- edge: GR-0540
+  withdraw: A list of whose use the evidence may show; no relation between the evidence and the
+    predecessor as such.
+- edge: GR-0541
+  to: [GC-0040, isCommencedBy, GC-0103]
+  why: An opposition begins with a notice of opposition.
+- edge: GR-0544
+  withdraw: Review of the Registrar's decisions by the ART is GR-0569.
+- edge: GR-0545
+  to: [GC-0117, files, GC-0103]
+  why: The opponent prepares and files the notice of opposition.
+- edge: GR-0546
+  withdraw: That an IRDA can be opposed is GR-0283; the notice is incidental.
+- edge: GR-0547
+  to: [GC-0040, operatesOn, GC-0142]
+  why: The notice of opposition to the non-use application.
+- edge: GR-0548
+  to: [GC-0104, isCommencedBy, GC-0142]
+  why: Once an application for removal has been filed, the onus is on the owner to show use.
+- edge: GR-0550
+  withdraw: About costs; that a non-use application can be opposed is GR-0604.
+- edge: GR-0551
+  to: [GC-0139, performs, GC-0105]
+  why: A rectification application may be made to a prescribed court.
+- edge: GR-0552
+  to: [GC-0106, operatesOn, GC-0150]
+  why: Renewal of an international registration (Madrid Protocol Article 7).
+- edge: GR-0553
+  withdraw: When renewal of an international registration falls due; the Office of origin is incidental.
+- edge: GR-0554
+  withdraw: The Commission's consent to assigning a certification trade mark is GR-0432.
+- edge: GR-0557
+  to: [GC-0084, owns, GC-0109]
+  why: The registered owner of a defensive trade mark may obtain relief (s 20(2)).
+- edge: GR-0560
+  withdraw: The country through which a holder applies; no relation stated between the holder and the
+    Protocol.
+- edge: GR-0561
+  withdraw: A heading of the Protocol's regulations; no relation stated.
+- edge: GR-0562
+  withdraw: An explanation of a form field; no relation stated.
+- edge: GR-0563
+  to: [GC-0132, owns, GC-0113]
+  why: The IRDA holder.
+- edge: GR-0565
+  to: [GC-0113, keepsEarlierDate, GC-0091]
+  why: The filing date of an IRDA is the date the international registration was filed with the Office
+    of origin.
+- edge: GR-0566
+  to: [GC-0132, owns, GC-0114]
+  why: The holder of a protected international trade mark.
+- edge: GR-0567
+  withdraw: About transformation after the basic mark ceases in the Office of origin; no relation
+    between the mark and the Office as such.
+- edge: GR-0570
+  withdraw: An opponent is a party to the opposition (GR-0294); referral of the non-use application is
+    incidental.
+- edge: GR-0574
+  to: [GC-0031, qualifies, GC-0059]
+  why: A phoneword in a composite mark with other distinctive elements will usually be inherently
+    adapted enough.
+- edge: GR-0575
+  to: [GC-0120, isDistinguishedFrom, GC-0119]
+  why: Every mark falls into one of three categories, these two among them.
+- edge: GR-0578
+  withdraw: The International Bureau's opinion prevailing over the Office of origin is GR-0601.
+- edge: GR-0579
+  to: [GC-0123, isDistinguishedFrom, GC-0098]
+  why: Withdrawal differs from lapsing in finalising the application from the notice.
+- edge: GR-0580
+  to: [GC-0123, operatesOn, GC-0040]
+  why: An opposition may be ended by a party's withdrawal.
+- edge: GR-0583
+  withdraw: A word's special meaning in plant examination; no relation stated.
+- edge: GR-0585
+  withdraw: Review of the Registrar's decisions by the ART is GR-0569.
+- edge: GR-0587
+  to: [GC-0093, operatesOn, GC-0131]
+  why: Acceptance of a trade mark application.
+- edge: GR-0589
+  to: [GC-0046, performs, GC-0092]
+  why: The Registrar examines the application (s 31).
+- edge: GR-0591
+  to: [GC-0132, owns, GC-0150]
+  why: The holder of the international registration.
+- edge: GR-0592
+  withdraw: About replacement of a national registration; no relation between the holder and extension
+    of protection as such.
+- edge: GR-0595
+  withdraw: The ART's review of the Commission's decisions is GR-0594.
+- edge: GR-0598
+  to: [GC-0135, operatesOn, GC-0114]
+  why: Cessation of protection of a protected international trade mark.
+- edge: GR-0599
+  withdraw: About certification by the Office of origin and when the IB must receive the application;
+    too procedural to state as a relation of the two concepts.
+- edge: GR-0600
+  withdraw: A consequence of an Office's state leaving the Protocol; no relation between the holder and
+    the Office as such.
+- edge: GR-0603
+  to: [GC-0088, runsFrom, GC-0141]
+  why: All rights in the trade mark accrue from the date of registration.
+- edge: GR-0604
+  to: [GC-0040, operatesOn, GC-0142]
+  why: Any person may oppose a non-use application.
+- edge: GR-0606
+  withdraw: That extension of protection can be opposed is GR-0450; the notice is incidental.
+- edge: GR-0607
+  to: [GC-0143, isCommencedBy, GC-0113]
+  why: An IRDA is a request for extension of protection in Australia.
+- edge: GR-0608
+  to: [GC-0144, isServedOn, GC-0046]
+  why: The Registrar is usually the person named in a subpoena.
+- edge: GR-0611
+  to: [GC-0148, files, GC-0041]
+  why: The same sentence as GR-0452.
+- edge: GR-0612
+  withdraw: The sentence names the Office of the Contracting Party of the holder, which GC-0149
+    excluded; the link was not about the concept it named.
+- edge: GR-0613
+  withdraw: As GR-0612.
+- edge: GR-0615
+  to: [GC-0150, isExcludedFrom, GC-0104]
+  why: The Madrid Protocol has no provision for non-use actions against the international registration
+    itself.
+- edge: GR-0617
+  to: [GC-0092, precedes, GC-0093]
+  why: An application must be accepted if, after examination, there are no grounds for rejecting it.
+- edge: GR-0618
+  to: [GC-0007, appliesTo, GC-0092]
+  why: The presumption of registrability during examination.
+- edge: GR-0619
+  to: [GC-0092, operatesOn, GC-0131]
+  why: Examination of an application under section 31.
+- edge: GR-0621
+  to: [GC-0093, prevents, GC-0098]
+  why: An application lapses if it is not accepted within the prescribed period (s 37).
+- edge: GR-0624
+  to: [GC-0088, isRecordedIn, GC-0151]
+  why: Trade marks on the old register, with their disclaimers as particulars.
+- edge: GR-0625
+  to: [GC-0163, appliesTo, GC-0151]
+  why: The old register was kept under the repealed Act.
+- edge: GR-0626
+  withdraw: A consequence of not filing a notice of intention to defend; the opposition's outcome, not a
+    relation of the notice and extension of protection.
+- edge: GR-0627
+  to: [GC-0116, files, GC-0158]
+  why: The trade mark applicant or IRDA holder must file a notice of intention to defend to contest an
+    opposition.
+- edge: GR-0629
+  withdraw: That the notice of intention to defend follows the notice of opposition is GR-0319.
+- edge: GR-0630
+  withdraw: A heading (section 240); no relation stated.
+- edge: GR-0637
+  to: [GC-0107, indicates, GC-0019]
+  why: A certification trade mark may indicate that goods are certified as having a particular
+    geographical origin.
+- edge: GR-0668
+  to: [GC-0178, files, GC-0041]
+  why: A trade mark attorney may prepare and supply evidence of use for an applicant.
+- edge: GR-0699
+  to: [GC-0020, doesNotGiveRiseTo, GC-0006]
+  why: A business identifier indicates a business, not the goods; a ground for rejection will rarely
+    apply.
+# --- edges whose ends were not kinds their predicate joins ---------------------
+- edge: GR-0158
+  to: [GC-0040, isCommencedBy, GC-0103]
+  why: Recorded as "the notice of opposition requires the opposition" — the document the proceeding
+    starts with, read backwards.
+- edge: GR-0098
+  withdraw: The "ordinary person searching the Register" who must understand a scent mark's
+    representation, not the ordinary consumer of the deception and confusion tests.
+- edge: GR-0119
+  to: [GC-0044, performs, GC-0015]
+  why: The examiner processes the amendment that excludes the divisional application's goods from
+    the parent's specification.
+- edge: GR-0168
+  withdraw: '"All the relevant circumstances" of a revocation, not the surrounding circumstances of the
+    deception and confusion tests.'
+- edge: GR-0226
+  withdraw: Evidence of use may be of a substantially identical mark; a rule about what evidence counts,
+    which no predicate states between the test and the evidence.
+- edge: GR-0261
+  to: [GC-0046, performs, GC-0097]
+  why: The Registrar grants an extension of time, satisfied of its grounds.
+- edge: GR-0269
+  to: [GC-0106, runsFrom, GC-0091]
+  why: A registration may be renewed at ten-year intervals dating from the filing date.
+- edge: GR-0293
+  withdraw: The Registrar publishes a withdrawal the applicant makes; "performs" would say the
+    Registrar withdraws.
+- edge: GR-0348
+  to: [GC-0159, performs, GC-0128]
+  why: A hearing is conducted by the Deputy Registrar or a Hearing Officer.
+- edge: GR-0406
+  to: [GC-0014, appliesTo, GC-0075]
+  why: The description entered as an endorsement defines the scope of the shape mark's registration.
+- edge: GR-0427
+  withdraw: The person's fame and how recently they died bear on consumers' expectations under the
+    section 43 ground, not on the deceased person as such.
+- edge: GR-0454
+  to: [GC-0013, prevents, GC-0042]
+  why: Revoking acceptance may not be reasonable if the applicant agrees to conditions and limitations.
+- edge: GR-0493
+  withdraw: The rule is that a person relying on a predecessor's prior use must be the assignee of its
+    goodwill; the ontology holds no goodwill concept to state it with.
+- edge: GR-0495
+  to: [GC-0093, resultsIn, GC-0013]
+  why: The Registrar may accept an application subject to conditions or limitations (s 44(3)).
+- edge: GR-0515
+  to: [GC-0086, requiresConsentOf, GC-0133]
+  why: The application to assign a certification trade mark is made to the Commission.
+- edge: GR-0525
+  withdraw: The date at which a priority claim's criteria must hold; no relation the dictionary can state
+    between the date and the application.
+- edge: GR-0529
+  to: [GC-0046, performs, GC-0095]
+  why: Sections 84A to 84D allow the Registrar to revoke a registration.
+- edge: GR-0556
+  withdraw: The reputation meant is the trade mark's own, which is GR-0555 (GC-0130); GC-0050 is the
+    reputation of a place or person (ruling A3).
+- edge: GR-0559
+  to: [GC-0043, keepsEarlierDate, GC-0141]
+  why: As GR-0457.
+- edge: GR-0602
+  to: [GC-0111, keepsEarlierDate, GC-0141]
+  why: A convention application's effective date of registration follows its priority claims.
+- edge: GR-0642
+  to: [GC-0172, performs, GC-0128]
+  why: A hearing is conducted by a Hearing Officer acting under delegation.
+- edge: GR-0665
+  to: [GC-0173, performs, GC-0042]
+  why: The Examination team leader notifies the applicant of a proposed revocation of acceptance.
+- edge: GR-0666
+  to: [GC-0159, performs, GC-0042]
+  why: Or the Deputy Registrar.
+- edge: GR-0702
+  to: [GC-0035, doesNotGiveRiseTo, GC-0168]
+  why: An application by the owner or authorised user of the phoneword takes the case out of the
+    section 43 ground; the ground is reconsidered once that is confirmed.
+# --- new relationships, each from a passage that states it ----------------------
+new_edges:
+- subject: GC-0021
+  predicate: qualifies
+  object: GC-0017
+  ref: TMM/Part29/9/9/3~1
+  quote: A geographical reference used without any qualifying information may not result in consumers
+    being deceived, but may be likely to cause confusion.
+  why: Qualifying information ("made in", "product of") changes what a geographical reference claims,
+    and so how it is assessed.
+- subject: GC-0169
+  predicate: isProtectedThrough
+  object: GC-0170
+  ref: TMM/Part32B/1/1/3
+  quote: 'The Register of Protected Geographical Indications and Other Terms (the Wine Register) lists the
+    four categories of terms that Australia and the European Union will protect. These are listed in the
+    following 5 searches in the Wine Australia website: Australian Geographical Indications (‘Australian
+    GIs’) European Geographical Indications (‘European GIs’)'
+  why: Wine geographical indications are protected by entry on the Wine Register (ruling A4).
+- subject: GC-0126
+  predicate: isProtectedThrough
+  object: GC-0170
+  ref: TMM/Part32B/2/1/2/1/4
+  quote: Pending applications for inclusion on the Wine Register have no level of protection under the
+    Wine Australia Act until they are on the Wine Register as a protected term.
+  why: A term is protected under the Wine Australia Act once it is on the Wine Register, and not before.
+- subject: GC-0177
+  predicate: performs
+  object: GC-0092
+  ref: TMM/Part60/4/1#1
+  quote: Once the IRDA has successfully gone through IP Australia's examination and opposition processes,
+    protection is extended in Australia and the IRDA is then known as a protected international trade
+    mark.
+  why: Examination is IP Australia's process, as the office in which the Registrar's functions are
+    exercised.
+- subject: GC-0058
+  predicate: appliesTo
+  object: GC-0152
+  ref: TMA1995/s41
+  quote: '(1) An application for the registration of a trade mark must be rejected if the trade mark is
+    not capable of distinguishing the applicant’s goods or services in respect of which the trade mark
+    is sought to be registered (the designated goods or services) from the goods or services of other
+    persons. Note: For goods of a person and services of a person see section 6.'
+  why: The test asks whether the mark distinguishes the applicant's services from the services of other
+    persons, the term section 6 defines.
+- subject: GC-0180
+  predicate: appliesTo
+  object: GC-0093
+  ref: TMM/Part39/4/4/1
+  quote: Accordingly it is office practice not to publish acceptance of an application until at least five
+    months after the priority date.
+  why: Office practice governs when acceptance is published.
+- subject: GC-0046
+  predicate: actsAs
+  object: GC-0149
+  ref: TMR1995/r17A.10(3)
+  quote: (3) If a request is made through the Trade Marks Office, the Registrar must perform the
+    functions, under the Protocol, of the Office of the Contracting Party of the holder in relation to the
+    request.
+  why: For a request made through the Trade Marks Office, the Registrar performs that Office's functions.
+- subject: GC-0033
+  predicate: isPartOf
+  object: GC-0032
+  ref: TMM/Part29/8/8/1
+  quote: Top level domain (TLD) refers to the last segment of a domain name.
+  why: A top level domain is the last segment of a domain name — a part of it, not a kind of it.
+- subject: GC-0138
+  predicate: keeps
+  object: GC-0161
+  ref: TMR1995/r17A.2
+  quote: International Register means the register maintained by the International Bureau for the
+    purposes of the Protocol.
+  why: The International Bureau maintains the International Register.
+- subject: GC-0046
+  predicate: keeps
+  object: GC-0165
+  ref: TMR1995/r17A.66(1)
+  quote: (1) The Registrar must maintain a Record of International Registrations for the purposes of this
+    Part.
+  why: The Registrar maintains the Record of International Registrations (reg 17A.66).
+- subject: GC-0046
+  predicate: keeps
+  object: GC-0089
+  ref: TMA1995/s207
+  quote: '(1) A Register of Trade Marks is to be kept at the Trade Marks Office. (2) The Registrar must
+    enter in the Register in accordance with this Act:'
+  why: The Register is kept at the Trade Marks Office, and the Registrar makes its entries (s 207).
+- subject: GC-0177
+  predicate: actsAs
+  object: GC-0136
+  ref: TMM/Part60/2/2/2/2/4~4
+  quote: Certification and Signature of the International Application by the Office of origin This is to
+    be completed by IP Australia.
+  why: For an international application filed from Australia, IP Australia is the Office of origin and
+    certifies the application.
+# --- concepts moved to the kind they are ----------------------------------------
+types:
+- concept: GC-0007
+  type: principle
+  why: The presumption of registrability is a rule about how the grounds are applied — accept unless
+    satisfied a ground exists (s 33(1)) — neither a ground nor a test; none_of_these said only that no
+    kind fitted it.
+- concept: GC-0051
+  type: principle
+  why: That section 43 applies mandatorily is a rule about the decision maker's discretion, not a
+    question to answer.
+- concept: GC-0180
+  type: principle
+  why: Office practice is how the office applies the Act where it leaves room — the Manual's own
+    standing, practice rather than law.
+- concept: GC-0141
+  type: context
+  why: A date, as the filing date and the priority date are; the context kind already holds dates.
+- concept: GC-0155
+  type: instrument_or_record
+  why: A pending application is a trade mark application in a status (s 11), and applications are
+    instruments or records.
+- concept: GC-0163
+  type: external_instrument
+  why: The repealed Act (the 1955 Act) is a statute other than the 1995 Act that practice still refers
+    to; the kind now holds statutes as well as treaties.
+- concept: GC-0035
+  type: process_role
+  why: The concept names a person — the owner, registrant or licensed operator of a phoneword, domain
+    name or call sign — not a circumstance.
+- concept: GC-0150
+  type: subject_matter
+  why: An international registration is a registration, as a registered trade mark is, and an IRDA is a
+    kind of one; its entry on the International Register is a relationship (isRecordedIn).
+- concept: GC-0145
+  type: context
+  why: Where wine originates — tied by section 15 to where its grapes were grown — is a fact about the
+    goods the assessment looks at, not a question the decision maker answers.
+# --- a machine-written concept as the corpus uses it ----------------------------
+concepts:
+- concept: GC-0149
+  set:
+    pref_label: Office of the Contracting Party of the holder
+    alt_labels: []
+    not_labels: [designated Contracting Parties, Madrid Protocol]
+    notes: The holder's "home" Office under the Madrid system — the IP office of the Contracting Party the
+      holder belongs to, through which requests may be presented to the International Bureau; where it is
+      the Trade Marks Office, the Registrar performs its functions (reg 17A.10(3)). Relabelled on
+      2026-10-09 (ADR-0131) from "Contracting Party of the holder", which excluded its own Office — the
+      only thing the Manual and the Regulations speak of.
+  evidence:
+  - ref: TMR1995/r17A.10(3)
+    quote: (3) If a request is made through the Trade Marks Office, the Registrar must perform the
+      functions, under the Protocol, of the Office of the Contracting Party of the holder in relation to the
+      request.
+  why: As first written the concept was the Contracting Party itself and listed "Office of the
+    Contracting Party of the holder" as a label it must not be confused with; every passage that uses the
+    term speaks of that Office, so recognition never found the concept and it connected to nothing.
+- concept: GC-0126
+  set:
+    alt_labels: [term on the Wine Register, protected term]
+  evidence:
+  - ref: TMM/Part32B/2/1/2/1/4
+    quote: Pending applications for inclusion on the Wine Register have no level of protection under the
+      Wine Australia Act until they are on the Wine Register as a protected term.
+  why: '"Protected term" is the Manual''s own name for a term on the Wine Register — 20 uses, all in Part
+    32B — so recognition finds the concept where the Manual discusses it.'
+  check: Whether "protected term" is used anywhere outside wine for something else.
+# --- "is a kind of" links in signed records that are not kinds of ---------------
+corrections:
+- corrects: GC-0001
+  remove:
+    narrower: [GC-0045]
+  why: The signed record says the decision maker is a kind of connotation; it is a role, connotation a
+    test. Nothing in the corpus relates them hierarchically.
+  evidence:
+  - ref: TMM/Part29/1#1
+    quote: If the trade mark, or some part of the trade mark, contains a connotation that would be likely to
+      deceive or confuse consumers within the relevant market, then a ground for rejection should be
+      raised.
+- corrects: GC-0017
+  remove:
+    narrower: [GC-0019]
+  why: Geographical origin (where the goods come from) is not a kind of geographical reference (a thing
+    in the mark), and GC-0019's own not-label is "geographical reference". A geographical reference
+    indicates a geographical origin (GR-0410).
+  evidence:
+  - ref: TMM/Part29/9#1
+    quote: Trade marks which contain a geographical reference will often connote the geographical origin or
+      some other attribute of goods or services.
+- corrects: GC-0019
+  remove:
+    broader: [GC-0017]
+  why: As the correction of GC-0017 — the other end of the same link.
+  evidence:
+  - ref: TMM/Part29/9#1
+    quote: Trade marks which contain a geographical reference will often connote the geographical origin or
+      some other attribute of goods or services.
+- corrects: GC-0032
+  remove:
+    narrower: [GC-0033]
+  why: A top level domain is a part of a domain name, not a kind of one.
+  evidence:
+  - ref: TMM/Part29/8/8/1
+    quote: Top level domain (TLD) refers to the last segment of a domain name.
+- corrects: GC-0033
+  remove:
+    broader: [GC-0032]
+  why: As the correction of GC-0032 — the other end of the same link.
+  evidence:
+  - ref: TMM/Part29/8/8/1
+    quote: Top level domain (TLD) refers to the last segment of a domain name.
+- corrects: GC-0009
+  remove:
+    narrower: [GC-0010]
+  why: The ordinary consumer is a member of the relevant market, not a kind of market. No sentence names
+    both, so no "part of" link replaces it; both qualify the same tests (GR-0067, GR-0080).
+  evidence:
+  - ref: TMM/Part29/1#1
+    quote: If the trade mark, or some part of the trade mark, contains a connotation that would be likely to
+      deceive or confuse consumers within the relevant market, then a ground for rejection should be
+      raised.
+- corrects: GC-0010
+  remove:
+    broader: [GC-0009]
+  why: As the correction of GC-0009 — the other end of the same link.
+  evidence:
+  - ref: TMM/Part29/1#1
+    quote: If the trade mark, or some part of the trade mark, contains a connotation that would be likely to
+      deceive or confuse consumers within the relevant market, then a ground for rejection should be
+      raised.
