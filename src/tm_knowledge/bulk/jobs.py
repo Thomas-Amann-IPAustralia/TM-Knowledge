@@ -34,6 +34,7 @@ from tm_knowledge.authored import corrections as corrections_module
 from tm_knowledge.authored import store as authored_store
 from tm_knowledge.bulk import links as links_module
 from tm_knowledge.config import REPO_ROOT
+from tm_knowledge.ontology import hygiene
 from tm_knowledge.ontology.predicates import PREDICATES, SKOS_PREDICATES
 from tm_knowledge.search.authority import conflations
 from tm_knowledge.stage0 import goldset
@@ -411,6 +412,11 @@ def _quote_names(ctx: Context, quote: str) -> set[str]:
     return set(links_module.find_mentions(quote, ctx.label_patterns))
 
 
+def _ledger_root(ctx: Context) -> Path | None:
+    """The authored store the ledgers are read from — the context's, else the repository's."""
+    return getattr(getattr(ctx, "authored", None), "root", None)
+
+
 def _relate_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict[str, Any]) -> Outcome:
     outcome = Outcome()
     anchor = item.payload["anchor"]
@@ -426,7 +432,12 @@ def _relate_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict
         if relation == "none":
             continue
         if relation == "same_concept":
-            outcome.notes.append(f"{anchor} and {other} judged the same concept — a finding for a person (ADR-0101)")
+            if frozenset((anchor, other)) in hygiene.kept_apart(_ledger_root(ctx)):
+                outcome.notes.append(f"{anchor} and {other} judged the same concept — already ruled two "
+                                     "ideas, kept apart (authored/merge-candidates.yaml)")
+            else:
+                outcome.notes.append(f"{anchor} and {other} judged the same concept — a finding for a "
+                                     "person (ADR-0101)")
             continue
         ref = str(j.get("passage_ref", ""))
         if ref not in shown[other]:
@@ -446,6 +457,16 @@ def _relate_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict
             continue
         subject, obj = (anchor, other) if j.get("direction") == "anchor_to_neighbour" else (other, anchor)
         predicate = {"is_kind_of": "broader", "related_to": "related"}.get(relation, relation)
+        # Review D4: "is a kind of" between two concepts that list each other as not the
+        # same is refused unless a written affirmation says why both hold (ADR-0125).
+        clash = hygiene.kind_of_clashes(
+            ctx.links.concepts, [{"id": "(new)", "subject": subject, "predicate": predicate, "object": obj}],
+            hygiene.affirmations(_ledger_root(ctx)),
+        )
+        if clash and not clash[0].affirmed:
+            outcome.refused.append(f"{subject} is a kind of {obj}? refused: {clash[0].describe()} "
+                                   "(authored/kind-of-affirmed.yaml)")
+            continue
         modality = j.get("modality")
         record = {
             "id": None,  # numbered at write time

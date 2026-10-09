@@ -51,6 +51,7 @@ from tm_knowledge.authored import corrections as corrections_module
 from tm_knowledge.authored import store as authored_module
 from tm_knowledge.config import REPO_ROOT
 from tm_knowledge.ontology import decisions as decisions_module
+from tm_knowledge.ontology import hygiene
 from tm_knowledge.ontology.namespaces import (
     APPROVED_GRAPH,
     AUTHORED_GRAPH,
@@ -334,6 +335,9 @@ class Store:
     #: signed relationship id -> the authored relationship serving in its place
     #: (ADR-0122). The signed assertion stays, as history; its direct triple does not.
     replaced: dict[str, str] = field(default_factory=dict)
+    #: (narrower, broader) -> the written reason a "kind of" link stands beside a
+    #: not-label (review D4, ADR-0125). Authored store only.
+    affirmed: dict[tuple[str, str], dict[str, Any]] = field(default_factory=dict)
 
     @property
     def signed(self) -> bool:
@@ -377,6 +381,7 @@ def authored_store(authored: authored_module.AuthoredSet) -> Store:
             for entry in authored.all_entries()
             if entry.sound and entry.envelope
         },
+        affirmed=hygiene.affirmations(authored.root),
     )
 
 
@@ -764,6 +769,29 @@ def _provenance(
         counts.stale.append(record["id"])
 
 
+#: label property -> the comparison keys stated beside it (review F2, ADR-0125).
+_KEYS = {
+    SKOS.prefLabel: (TMK.prefLabelKey, TMK.labelKey),
+    SKOS.altLabel: (TMK.labelKey,),
+    TMK.notLabel: (TMK.notLabelKey,),
+}
+
+
+def _name(graph: Graph, node: URIRef, prop: URIRef, value: str) -> None:
+    """A label, and the key it folds to (`ontology.hygiene.fold`).
+
+    The key is computed, like `tmk:isStale`, and shown to nobody. It is there so
+    the SHACL gate can find two concepts answering to one name, or a "kind of"
+    beside a "not the same as", with an equality join: folding every label inside
+    SPARQL made the gate take over ten minutes.
+    """
+    graph.add((node, prop, _en(value)))
+    key = hygiene.fold(value)
+    if key:
+        for key_prop in _KEYS[prop]:
+            graph.add((node, key_prop, _lit(key)))
+
+
 def _build_concepts(graph: Graph, store: Store, counts: StoreReport) -> None:
     # Declared by whichever store contributes a concept, and by neither when
     # neither does. A store with no concepts writes an empty graph rather than a
@@ -782,14 +810,14 @@ def _build_concepts(graph: Graph, store: Store, counts: StoreReport) -> None:
         graph.add((node, RDF.type, SKOS.Concept))
         graph.add((node, RDF.type, TMK.LegalConcept))
         graph.add((node, SKOS.inScheme, SCHEME))
-        graph.add((node, SKOS.prefLabel, _en(record["pref_label"])))
+        _name(graph, node, SKOS.prefLabel, record["pref_label"])
         graph.add((node, TMK.goldRecord, _lit(record["id"])))
         for label in _each(record, "alt_labels"):
-            graph.add((node, SKOS.altLabel, _en(label)))
+            _name(graph, node, SKOS.altLabel, label)
         # No SKOS property means "must not be confused with this", and it is the
         # most valuable field on the record. tmk:notLabel exists for it.
         for label in _each(record, "not_labels"):
-            graph.add((node, TMK.notLabel, _en(label)))
+            _name(graph, node, TMK.notLabel, label)
         for other in _each(record, "broader"):
             graph.add((node, SKOS.broader, concept_node(other)))
         for other in _each(record, "narrower"):
@@ -952,6 +980,9 @@ def _build_relationships(
         graph.add((node, TMK.assertionPredicate, predicate))
         graph.add((node, TMK.assertionObject, obj))
         graph.add((node, TMK.supportingText, _lit(record["supporting_text"])))
+        affirmed = store.affirmed.get((str(record["subject"]), str(record["object"])))
+        if affirmed and record["predicate"] == "broader":
+            graph.add((node, TMK.kindOfAffirmed, _en(" ".join(str(affirmed.get("why", "")).split()))))
         # Absent means not supplied, and stays absent. Never inferred from the
         # sentence's grammar — that is a legal reading (guide §5.4).
         if record.get("modality"):
@@ -1191,8 +1222,8 @@ _DECISION_CLASSES = {
 
 #: correction field -> how an added value is stated on the corrected node.
 _ADDED = {
-    "alt_labels": lambda graph, node, value: graph.add((node, SKOS.altLabel, _en(value))),
-    "not_labels": lambda graph, node, value: graph.add((node, TMK.notLabel, _en(value))),
+    "alt_labels": lambda graph, node, value: _name(graph, node, SKOS.altLabel, value),
+    "not_labels": lambda graph, node, value: _name(graph, node, TMK.notLabel, value),
     "legislative_basis": lambda graph, node, value: graph.add((node, TMK.legislativeBasis, ref_node(value))),
     "definition_sources": lambda graph, node, value: graph.add((node, TMK.definitionSource, ref_node(value))),
 }

@@ -1,0 +1,132 @@
+# "Kind of" links that stand beside a "not the same as" — and why each is not a
+# contradiction. The owner's ruling D4 of 2026-10-09
+# (review/rulings/2026-10-09-chat-approvals.yaml#D4, ADR-0125).
+#
+# The ruling approved a check that refuses a machine-written "is a kind of" link
+# between two concepts when either one lists the other's name among its not-labels
+# ("not the same as"). Applied literally it refused correct links, including the
+# definitions in sections 6 and 17 of the Act, and it would have refused the expert's
+# own signed hierarchy: GC-0017 records that "every geographical indication is a
+# geographical reference and the reverse is false" and still lists "geographical
+# indication" as not the same concept. A narrower idea is never the same idea as its
+# broader one, so a not-label naming the other end is consistent with a hierarchy as
+# often as it signals a contradiction. The check therefore refuses every such link
+# unless an entry here says, for that pair, why both statements hold — so each one is a
+# written judgement rather than a silent pass (ontology.hygiene, the harness, the
+# relate job and the SHACL gate all read this file).
+#
+# Machine-written by claude-code-agent-S027 on 2026-10-09, unreviewed. Each entry names
+# the link that prompted it and rests on that link's quoted sentence. Three links the
+# check flagged were withdrawn instead, and one more the review named (GR-0494);
+# authored/retired-ids.yaml says why.
+authored_by: claude-code-agent-S027
+authored_date: '2026-10-09'
+review_status: unreviewed
+ruling: review/rulings/2026-10-09-chat-approvals.yaml#D4
+affirmed:
+- narrower: GC-0119
+  broader: GC-0058
+  link: GR-0205
+  beside: GC-0119 lists "capable of distinguishing"
+  why: >-
+    A trade mark prima facie capable of distinguishing is capable of distinguishing on
+    its inherent adaptation alone — the first of the Manual's three categories under
+    section 41 — so the first is a case of the second. The not-label keeps the
+    category apart from the section 41 test it answers.
+- narrower: GC-0074
+  broader: GC-0073
+  link: GR-0234
+  beside: GC-0074 lists "sign"
+  why: >-
+    The Manual speaks of "a sign that is a colour, scent, shape, sound, aspect of
+    packaging or other kind of non-traditional sign" (Part 10.3). Every non-traditional
+    sign is a sign; the bare word "sign" does not name the narrower idea.
+- narrower: GC-0078
+  broader: GC-0073
+  link: GR-0241
+  beside: GC-0078 lists "sign"
+  why: >-
+    Section 6 includes a scent in "sign", and the Manual indexes scent trade marks as
+    "the kind of sign 'scent'" (Part 10.3.4.2). A scent trade mark is a trade mark and
+    every trade mark is a sign (s 17); the bare word "sign" does not name it.
+- narrower: GC-0077
+  broader: GC-0073
+  link: GR-0506
+  beside: GC-0077 lists "sign"
+  why: >-
+    Section 6 includes a sound in "sign". A sound trade mark is a trade mark, and every
+    trade mark is a sign (s 17); the bare word "sign" does not name it.
+- narrower: GC-0082
+  broader: GC-0081
+  link: GR-0247
+  beside: GC-0082 lists "use of a trade mark"; GC-0081 lists "authorised use"
+  why: >-
+    "Authorised use of a trade mark is taken, for the purposes of the Act, to be use of
+    the trade mark by the owner" (s 7(3), Part 19A.6.3): authorised use is a case of use.
+    The not-labels keep the authorised user's use apart from use in general, which is
+    what recognition needs and does not deny the hierarchy.
+- narrower: GC-0122
+  broader: GC-0092
+  link: GR-0306
+  beside: GC-0122 lists "examination"; GC-0092 lists "expedited examination"
+  why: >-
+    Expedited examination is examination brought forward on request (reg 4.18,
+    Part 6.1). Each not-label stops one term being read as the other; neither says the
+    expedited kind is not examination.
+- narrower: GC-0087
+  broader: GC-0162
+  link: GR-0356
+  beside: GC-0087 lists "change of ownership"
+  why: >-
+    "Under the Madrid Protocol assignment and transmission of a trade mark are known as
+    change of ownership" (Part 60.4.24.2): a transmission is one kind of change of
+    ownership, and "change of ownership" does not name it alone.
+- narrower: GC-0086
+  broader: GC-0162
+  link: GR-0358
+  beside: GC-0086 lists "change of ownership"
+  why: >-
+    As for transmission: under the Madrid Protocol an assignment is one kind of change of
+    ownership (Part 60.4.24.2).
+- narrower: GC-0113
+  broader: GC-0150
+  link: GR-0564
+  beside: GC-0113 lists "international registration"; GC-0150 lists "international
+    registration designating Australia"
+  why: >-
+    An international registration designating Australia is an international
+    registration — the one whose designation reaches Australia. The not-labels keep the
+    general term from being read as the Australian designation and the reverse.
+- narrower: GC-0044
+  broader: GC-0171
+  link: GR-0643
+  beside: GC-0044 (signed) lists "delegate"
+  why: >-
+    "The people currently delegated to accept trade mark applications include ... APS 5
+    Examiners" (Part 18.2.2.2): an examiner is a delegate. The signed record keeps
+    "delegate" apart from "examiner" because not every delegate is an examiner; the
+    owner approved stating the hierarchy on an edge (review C1, ADR-0123).
+- narrower: GC-0072
+  broader: GC-0073
+  link: GR-0669
+  beside: GC-0072 lists "sign"; GC-0073 lists "trade mark"
+  why: >-
+    "A trade mark is a sign used, or intended to be used, to distinguish goods or
+    services ..." (s 17). Not every sign is a trade mark, which is what the two
+    not-labels say.
+- narrower: GC-0088
+  broader: GC-0072
+  link: GR-0670
+  beside: GC-0088 lists "trade mark"; GC-0072 lists "registered trade mark"
+  why: >-
+    "registered trade mark means a trade mark whose particulars are entered in the
+    Register under this Act" (s 6). Not every trade mark is registered, which is what
+    the not-labels say.
+- narrower: GC-0109
+  broader: GC-0088
+  link: GR-0674
+  beside: GC-0109 lists "registered trade mark"
+  why: >-
+    A registered trade mark "may, on the application of the registered owner, be
+    registered as a defensive trade mark" (s 185): a defensive trade mark is a registered
+    one. Not every registered trade mark is defensive.

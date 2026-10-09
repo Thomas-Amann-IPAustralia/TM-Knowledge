@@ -5456,3 +5456,60 @@ first group that would migrate to one (`isOvercomeBy`).
 
 **Consequences.** Ten groups plus `none_of_these` — the schema enum, `typing.GROUPS`,
 `tmk:Remedy`, the explorer's kinds and the decision tree all carry it.
+
+## ADR-0125 — the explained review items approved; a checked vocabulary; the D5 spend
+
+**Date** 2026-10-09 · **Authority** human · **Status** accepted · amends ADR-0114 (the cap)
+
+**Context.** S026 re-wrote seven review items in plain English (A5, A6, B1, B4, D4, F2,
+F6) and quoted D5 — a second-model audit of every machine-written relationship and a
+re-run of the search measurement. The owner replied (verbatim in
+`review/returned/261009-owner-chat-approvals.md`; CHAT-0058 to CHAT-0065 in
+`review/rulings/2026-10-09-chat-approvals.yaml`): *"I approve and would like you to
+action: B1, A5, A6, B4, D4, F2, F6, D5. Expenditure approved for step 1 and step 2.
+Alternative approved for step 1, the use of Gemini 3.1 Pro. Re-run the search
+measurement. If it has a measurable positive impact on the results, you are welcome to use
+a more intelligent model if it keeps overall expenditure of D5 under $6. To confirm, I'm
+allowing the expenditure of an additional $2.89 on top of the remaining $3.11, totalling
+in $6."*
+
+**Decision (the owner's).** The seven items as explained. D5's two steps, step 1 on
+Gemini 3.1 Pro. The cap rises by US$2.89 to **US$9.49** (`config.SPEND_CAP_USD`), and
+D5 may spend at most the US$6.00 above the US$3.49 recorded before it. Whether a more
+intelligent model has a "measurable positive impact" is the agent's call, justified
+either way (ADR-0127).
+
+**Decision (the agent's, inside it).**
+
+1. **A5 — shared names.** `ontology.hygiene.fold` folds case, apostrophes, hyphens, a
+   leading article and plurals; every label of every concept is compared, in the served
+   view. The harness reports each shared name as a note; the expert pack's
+   `duplicate_labels` compares every label too. Today: none in the served view.
+2. **A6 — kept apart.** `authored/merge-candidates.yaml` records the twelve
+   `same_concept` suggestions: eleven merged (A1, A2), *implied endorsement* /
+   *endorsement* kept apart. Merging a kept-apart pair is a harness defect; the relate
+   job reports a repeat as already ruled.
+3. **D4 — "kind of" beside "not the same as".** GR-0110, GR-0407 and GR-0494 withdrawn as
+   approved, and GR-0549 (cessation of protection as a kind of non-use removal). Read
+   literally, the approved check would also refuse sections 6 and 17 (a trade mark is a
+   sign; a registered trade mark is a trade mark) and the expert's own signed hierarchy —
+   GC-0017: "every geographical indication is a geographical reference", with
+   "geographical indication" among its not-labels — because a narrower idea is never the
+   same idea as its broader one. So the check refuses every such link unless
+   `authored/kind-of-affirmed.yaml` says, for that pair, why both hold; 13 do. The
+   harness fails an unaffirmed one, the relate job refuses one, and the SHACL gate fails
+   one without `tmk:kindOfAffirmed`.
+4. **F2 — shapes that look.** `tmk:SharedPreferredLabelShape` (a violation),
+   `tmk:SharedLabelShape` (a note) and `tmk:KindOfBesideNotLabelShape` (a violation),
+   each with a fixture that fires it. The build states a folded key beside every label
+   (`tmk:labelKey`, `tmk:prefLabelKey`, `tmk:notLabelKey`): folding inside SPARQL took the
+   gate past ten minutes; on keys it stays under a minute.
+5. **F6 — confidence.** Never ranked, filtered or thresholded across authors; a test
+   fails code that does. The explorer shows a score as "self-rated *n* by *author*".
+
+**What it does not decide.** B2, B3 and B6 beyond what B1 entails (ADR-0126). Which
+measured results the pitch claims (OQ-0029).
+
+**Consequences.** Harness and SHACL 0 defects. A machine-written hierarchy beside a
+near-miss now carries a reason a reviewer can disagree with, rather than passing silently
+or being refused when it is right.

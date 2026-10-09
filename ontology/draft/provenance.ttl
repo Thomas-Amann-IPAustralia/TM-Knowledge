@@ -304,3 +304,9 @@ tmk:isCorrected a owl:DatatypeProperty ;
     rdfs:range xsd:boolean ;
     rdfs:label "is corrected"@en-AU ;
     rdfs:comment "Computed on a signed assertion a correction replaced. True means: signed as stated, no longer served as stated."@en-AU .
+
+tmk:kindOfAffirmed a owl:DatatypeProperty ;
+    rdfs:domain tmk:AuthoredAssertion ;
+    rdfs:range rdf:langString ;
+    rdfs:label "kind of, affirmed beside a near-miss"@en-AU ;
+    rdfs:comment "On a machine-written 'is a kind of' assertion whose two concepts list each other's names as not the same concept: the written reason both statements hold, from authored/kind-of-affirmed.yaml (review D4, ADR-0125). A narrower idea is never the same idea as its broader one, so a not-label can stand beside a hierarchy; without this reason the SHACL gate fails the assertion. Machine-written and unreviewed."@en-AU .

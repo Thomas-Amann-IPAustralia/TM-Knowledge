@@ -1986,46 +1986,6 @@
     - Use qualifies on the reading that the endorsement qualifies the specification's scope.
     expert_should_check: Whether the priority-endorsement relationship warrants a more specific
       predicate than related_to.
-- id: GR-0110
-  subject: GC-0014
-  predicate: broader
-  object: GC-0013
-  source_ref: TMM/Part30/3/3/5~5
-  supporting_text: agree to an appropriate endorsement as a condition of registration, and
-    would therefore not require consent from the Minister of Defence.
-  span:
-  - 1570
-  - 1707
-  source_content_hash: sha256:44f96f2f2fe033cc2a28bd90f294785fdb9b8ae593e7858596a5217d89500c93
-  tier: 2
-  modality: null
-  notes: 'Re-pointed on 2026-10-08 by S026: subject GC-0100 -> GC-0014 — an authored duplicate
-    withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and
-    evidence are the original author''s.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part30/3/3/5~5
-      span:
-      - 1570
-      - 1707
-      content_hash: sha256:44f96f2f2fe033cc2a28bd90f294785fdb9b8ae593e7858596a5217d89500c93
-      quote: agree to an appropriate endorsement as a condition of registration, and would
-        therefore not require consent from the Minister of Defence.
-    confidence: 0.86
-    reasoning: The Manual expressly describes an appropriate endorsement as a condition of
-      registration in this context. The classification is supported for the endorsement described,
-      not necessarily for every endorsement.
-    alternatives_considered:
-    - 'same_concept: the passage treats an appropriate endorsement as a condition in this
-      context, but does not equate all endorsements with conditions of registration.'
-    expert_should_check: Whether the contextual classification can safely be attached to the
-      general endorsement concept.
 - id: GR-0111
   subject: GC-0013
   predicate: related
@@ -12278,53 +12238,6 @@
       scope-defining function.
     expert_should_check: Whether qualifies can link the endorsement to the shape trade mark
       itself, rather than requiring a separate registration-scope concept.
-- id: GR-0407
-  subject: GC-0015
-  predicate: broader
-  object: GC-0013
-  source_ref: TMM/Part29/9/9/5
-  supporting_text: An applicant will be able to overcome a geographical section 43 objection
-    by agreeing to a condition of registration or a specification amendment which removes
-    the likelihood of consumers being deceived or confused. This is the sole criterion for
-    conditions or limitations applied in order to overcome grounds for rejection raised under
-    section 43.
-  span:
-  - 0
-  - 348
-  source_content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
-  tier: 2
-  modality: null
-  notes: 'Re-pointed on 2026-10-08 by S026: object GC-0069 -> GC-0013 — an authored duplicate
-    withdrawn in favour of the signed concept (ruling A1, ADR-0080 c2). The judgement and
-    evidence are the original author''s.'
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMM/Part29/9/9/5
-      span:
-      - 0
-      - 348
-      content_hash: sha256:f62b4939d149235abeefb52354519f2d89394eeed2e2bc8257b6ca5d9d6532c9
-      quote: An applicant will be able to overcome a geographical section 43 objection by
-        agreeing to a condition of registration or a specification amendment which removes
-        the likelihood of consumers being deceived or confused. This is the sole criterion
-        for conditions or limitations applied in order to overcome grounds for rejection raised
-        under section 43.
-    confidence: 0.8
-    reasoning: The Manual appears to treat a specification amendment as a form of limitation
-      within the broader category of conditions or limitations used to overcome section 43
-      objections. That classification is inferred from the consecutive sentences, rather than
-      expressly defined.
-    alternatives_considered:
-    - 'related_to: the passage connects specification amendments with conditions or limitations
-      without expressly classifying amendments as limitations.'
-    expert_should_check: Whether ‘conditions or limitations’ encompasses specification amendments
-      here, rather than referring only to restrictions on registration or use.
 - id: GR-0408
   subject: GC-0111
   predicate: qualifies
@@ -15475,44 +15388,6 @@
     expert_should_check: Whether qualifies adequately captures the condition on relying on
       a predecessor's use, rather than the predecessor merely being a permitted source of
       use.
-- id: GR-0494
-  subject: GC-0029
-  predicate: broader
-  object: GC-0068
-  source_ref: TMM/Part27/1#1
-  supporting_text: Provide a letter of consent from the proprietor of the conflicting trade
-    mark(s) (other circumstances)
-  span:
-  - 495
-  - 597
-  source_content_hash: sha256:3a61229ed189ea7c63894d6d0d2da5e353f303562b87a81c8bfaee870d1ebc5f
-  tier: 2
-  modality: null
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_explicit
-    evidence:
-    - ref: TMM/Part27/1#1
-      span:
-      - 495
-      - 597
-      content_hash: sha256:3a61229ed189ea7c63894d6d0d2da5e353f303562b87a81c8bfaee870d1ebc5f
-      quote: Provide a letter of consent from the proprietor of the conflicting trade mark(s)
-        (other circumstances)
-    confidence: 0.92
-    reasoning: The Manual expressly identifies a letter of consent from the conflicting trade
-      mark proprietor as other circumstances. This supports the classification for that form
-      of consent, not necessarily for every form of written permission encompassed by the
-      neighbour.
-    alternatives_considered:
-    - related_to, if the neighbour's broader written-permission concept cannot be treated
-      as this specific form of consent.
-    expert_should_check: Whether GC-0029 includes proprietor consent under section 44, rather
-      than only permission to use a name.
 - id: GR-0495
   subject: GC-0013
   predicate: qualifies
@@ -17322,43 +17197,6 @@
       this passage describes the owner''s response rather than expressly stating that outcome.'
     expert_should_check: Whether a more specific causal relationship is sufficiently supported
       by the filing-and-response sequence.
-- id: GR-0549
-  subject: GC-0135
-  predicate: broader
-  object: GC-0104
-  source_ref: TMM/Part60/4/20/4/20/2
-  supporting_text: Under the Protocol a full removal is known as cessation of protection,
-    and a partial removal is a limitation of protection.
-  span:
-  - 324
-  - 447
-  source_content_hash: sha256:9de3706bbcdb5d46cd3dc4ba92f905cdcfddfadcaa521d214fe3a1ee704ea499
-  tier: 2
-  modality: null
-  approved_by: null
-  approved_date: null
-  authored:
-    review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
-    authoring_basis: corpus_inferred
-    evidence:
-    - ref: TMM/Part60/4/20/4/20/2
-      span:
-      - 324
-      - 447
-      content_hash: sha256:9de3706bbcdb5d46cd3dc4ba92f905cdcfddfadcaa521d214fe3a1ee704ea499
-      quote: Under the Protocol a full removal is known as cessation of protection, and a
-        partial removal is a limitation of protection.
-    confidence: 0.9
-    reasoning: In this non-use context, the Manual identifies cessation of protection as full
-      removal under the Protocol. This supports treating it as a particular form of removal
-      for non-use rather than equating it with the broader anchor.
-    alternatives_considered:
-    - 'same_concept: the terms are equivalent for full removal in this Protocol context, but
-      cessation of protection does not encompass the anchor''s partial-removal scope.'
-    expert_should_check: Whether cessation of protection should be modelled as a form of removal
-      or as its Protocol-specific equivalent outcome.
 - id: GR-0550
   subject: GC-0040
   predicate: related

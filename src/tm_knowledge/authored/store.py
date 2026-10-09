@@ -82,7 +82,10 @@ FILE_FOR: dict[str, str] = {value: key for key, value in AUTHORED_FILES.items()}
 #: **not** here: it has no schema and no id series, so the store cannot hold it
 #: yet and reports it like any other unknown name. Inventing a record type in a
 #: plumbing pass would be authoring the shape of a definition by accident.
-NOT_RECORDS = frozenset({"README.md", "corrections.yaml", "retired-ids.yaml", "too-general-labels.yaml"})
+NOT_RECORDS = frozenset({
+    "README.md", "corrections.yaml", "retired-ids.yaml", "too-general-labels.yaml",
+    "merge-candidates.yaml", "kind-of-affirmed.yaml",
+})
 
 #: The ledger of authored ids withdrawn from service — a duplicate of a signed record
 #: retired under ADR-0080 consequence 2, or a concept withdrawn on the owner's word
@@ -91,7 +94,8 @@ NOT_RECORDS = frozenset({"README.md", "corrections.yaml", "retired-ids.yaml", "t
 #: (IDENTIFIERS.md §3). `eval/gold/` is frozen, so authored withdrawals are recorded
 #: here rather than there. `corrections.yaml` is read by `authored.corrections`, and
 #: `too-general-labels.yaml` — the labels recognition skips (ruling E1) — by
-#: `bulk.links`.
+#: `bulk.links`. `merge-candidates.yaml` (ruling A6) and `kind-of-affirmed.yaml`
+#: (ruling D4) are read by `ontology.hygiene`.
 RETIRED_IDS_FILE = "retired-ids.yaml"
 
 

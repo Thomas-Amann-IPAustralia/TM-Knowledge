@@ -668,3 +668,35 @@
     national registration number(s) <123456>'), not a statement — the same fault as GR-0352
     (review D5).
   ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#D5
+- id: GR-0110
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: Made an endorsement (GC-0014) a kind of condition of registration (GC-0013). The
+    sentence describes one endorsement agreed "as a condition of registration" in one context
+    (Part 30); the signed records keep the two apart, each listing the other as not the same
+    concept (review D4).
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D4
+- id: GR-0407
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: Made a limitation of the specification (GC-0015) a kind of condition of registration
+    (GC-0013), from a sentence offering the two as alternatives ("a condition of registration
+    or a specification amendment"). The signed GC-0013 lists "specification amendment" as not
+    the same concept (review D4).
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D4
+- id: GR-0494
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: Made written permission (GC-0029, a well-known person's consent under section 43) a
+    kind of other circumstances (GC-0068) from a sentence about a section 44 letter of consent,
+    which the signed GC-0029 lists as not the same concept (review D4).
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D4
+- id: GR-0549
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: Made cessation of protection (GC-0135) a kind of removal for non-use (GC-0104).
+    Cessation is the ending of a protected international trade mark's protection for any
+    cause (r 17A.48); the sentence says only that under the Protocol a full non-use removal
+    is called a cessation. GC-0135 lists "removal for non-use" as not the same concept, and
+    no written affirmation could be given, so the D4 check refuses it.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D4

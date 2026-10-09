@@ -37510,27 +37510,6 @@
     tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/CASE/2009/ATMO/68> ;
     tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-the-name-of-a-person-incorporating-the-given-name> .
 
-<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/1%231/internal/0> a tmk:Citation ;
-    tmk:citationResolves true ;
-    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/1> ;
-    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/1%231> ;
-    tmk:extraction "href" ;
-    tmk:mention "Part 28" .
-
-<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/1%231/internal/1> a tmk:Citation ;
-    tmk:citationResolves true ;
-    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1> ;
-    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/1%231> ;
-    tmk:extraction "href" ;
-    tmk:mention "Part 60" .
-
-<https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/1%231/prov/0> a tmk:Citation ;
-    tmk:citationResolves true ;
-    tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
-    tmk:citingPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/1%231> ;
-    tmk:extraction "href" ;
-    tmk:mention "s 44," .
-
 <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/3%231/prov/0> a tmk:Citation ;
     tmk:citationResolves true ;
     tmk:citedAuthority <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s65> ;
@@ -51458,17 +51437,6 @@
     tmk:text "Whilst it is common to identify a person or a person’s business by their surname it is not as common to use a person’s given name in the same way. Therefore a given name does not operate as a personal identifier in the same way as a surname. When comparing one trade mark consisting of a given name and the other a person’s full name incorporating that given name a real and tangible danger of confusion is less likely to occur between the trade marks. In Tiffany and Company v Tiffany C Koury [2009] ATMO 68 the Hearing Officer considered a number of registered trade marks owned by Tiffany and Company all of which included the word 'Tiffany' as a common element and compared them with the applicant’s trade mark ‘Tiffany Koury’. The Hearing Officer found that although the word ‘Tiffany’ is a common element in all of the trade marks, when viewed as wholes the trade marks created very different impressions. The impression created by the ‘Tiffany’ marks was that of a surname or a female first name. Although ‘Tiffany’ is an identifiable word in the ‘Tiffany Koury’ mark it was not highlighted or presented in such a way that it would be seen as a dominant or memorable element of the mark. It thus does not retain a trade mark identity within the mark but rather it presents as a female first name. The word Koury being an uncommon surname in Australia is likely to be the more memorable element. The combination ‘Tiffany Koury’ was found to be sufficiently different from the Tiffany and Company trade marks. Notwithstanding the above, in very rare circumstances confusion may be considered likely when the first name is extremely unusual, has no other known meaning, such as an invented first name, and/or the surname has an additional meaning which is not memorable in relation to the goods/services. For example Zenon vs Zenon Butcher for Class 35 Retail of prepared meat products." ;
     tmk:upstreamRef "TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-the-name-of-a-person-incorporating-the-given-name" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/1> a tmk:Page ;
-    rdfs:label "1. Introduction"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
-    tmk:contentHash "sha256:f2e024e4c9c28d0c9bcb15d0b35d392c5e27ef3f39f1d5585fb206c668b07130" ;
-    tmk:lastAmended "2023-10-10" ;
-    tmk:partId "Part27" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-introduction5"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part27/1" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/3/3/1> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -64958,27 +64926,6 @@
     tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/8.-assignment-of-applications-and-registrations"^^xsd:anyURI ;
     tmk:upstreamRef "TMM/Part26/8" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/1%231> a tmk:Chunk,
-        tmk:ManualPassage ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
-    tmk:chunkKind "body" ;
-    tmk:citesPassage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/1>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1> ;
-    tmk:citesProvision <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s44> ;
-    tmk:contentHash "sha256:3a61229ed189ea7c63894d6d0d2da5e353f303562b87a81c8bfaee870d1ebc5f" ;
-    tmk:hasCitation <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/1%231/internal/0>,
-        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/1%231/internal/1>,
-        <https://data.ipaustralia.gov.au/tmk/ns/cite/TMM/Part27/1%231/prov/0> ;
-    tmk:headingPath "27.1. Introduction",
-        "Part 27 Overcoming Grounds for Rejection under Section 44" ;
-    tmk:onPage <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/1> ;
-    tmk:ordinal 1 ;
-    tmk:partId "Part27" ;
-    tmk:text "Once an applicant has received a report from the Registrar raising grounds for rejection under s 44, the application cannot proceed to registration until the grounds for rejection are overcome. In an attempt to overcome these, the applicant may: Respond in writing to the report submitting arguments in rebuttal Amend the specification in order to remove all goods/services that conflict with the earlier trade mark(s) Provide documents and information as additional support for the application Provide a letter of consent from the proprietor of the conflicting trade mark(s) (other circumstances) Enter into negotiation with the proprietor of the conflicting trade mark(s) with a view to mutual amendment of specifications Instigate a non-use action against the other party, in an effort to have the conflicting trade mark limited in scope or removed entirely from the Register Provide evidence to support a claim for honest concurrent use, prior use or other circumstances (See Part 28 of this Manual). These options are set out in the following paragraphs. Also included, for completeness, are options which are available to the applicant, but which will not generally be suggested in examination reports. Note that options for overcoming grounds for rejection in relation to an International Registration Designating Australia (IRDA), including amendments to IRDAs, are covered in Part 60 of this Manual. Part 60 The Madrid Protocol" ;
-    tmk:upstreamRef "TMM/Part27/1#1" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part27/3/3/3> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -70305,6 +70252,17 @@
     tmk:text "It may be possible for the applicant to overcome a citation by filing evidence of use or other circumstances which would allow the application to proceed under s 44(3) or 44(4) of the Act. This is dealt with in Part 28 of this Manual. Part 28 Honest Concurrent Use, Prior Use or Other Circumstances The Tobacco Plain Packaging Act 2011 (TPP Act) came into effect on 1 December 2012 and may affect how an applicant is able to demonstrate use of a trade mark in relation to tobacco products. Further information about evidence of use in relation to tobacco products can be found in Part 23 of this Manual. Part 23 Overcoming Grounds for Rejection Under Section 41 – 4.9 Evidence of Use in Relation to Tobacco Products" ;
     tmk:upstreamRef "TMM/Part27/5#1" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/1> a tmk:Page ;
+    rdfs:label "1. Introduction"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:be6f8b6da182270cc06e6aebf016cb990c696e4df9a75aa3ca6ff53a367775ab" ;
+    tmk:lastAmended "2023-10-10" ;
+    tmk:partId "Part28" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-introduction4"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part28/1" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/4/28/4/3~1> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -73523,17 +73481,6 @@
     tmk:text "In determining the resemblance between two trade marks, the possibility of slurred pronunciation, distortion of sound in telephone or other conversations and the syllabic structure of words must be taken into account. On the question of the “sound” of a trade mark, reference can be made to the words of Sargant LJ in the “ Tripcastroid” case, London Lubricants (1920) Limited's Application (1924) 42 RPC 264 at 279: The only similarity in the word “ Tripcastroid” to “ Castrol” is in the letters composing the centre of the new word. The termination of the new word is different. Though I agree that, if it were the only difference, having regard to the termination of words, that might not alone be sufficient distinction. But the tendency of persons using the English language to slur the termination of words also has the effect necessarily that the beginning of words is accentuated in comparison, and, in my judgement, the first syllable of a word is, as a rule, far the most important for the purpose of distinction. This highlights the importance of the beginnings of the words being compared. In this regard see also: Aristoc Limited v Rysta Limited(1943) 60 RPC 87 (Rysta), where the words RYSTA and ARISTOC were held not to be deceptively similar; Enoch’s Application (1947) 64 RPC 119 (‘Cyllin’)where it was held VIVICILLIN and CYLLIN were not deceptively similar; Bayer’s Application (1947) 64 RPC 125 where DIASIL and ALASIL were held to be not deceptively similar; Magdalena Securities (1931) 48 RPC 477 (Ucolite)where it was held UCOLITE and COALITE were deceptively similar. Clipsal Australia Pty Ltd v Clipso Electrical Pty Ltd (No 3) [2017] FCA 60 where it was held that CLIPSAL and CLIPSO were deceptively similar; Combe International Ltd v Dr August Wolff GmbH & Co. KG Arzneimittel [2021] FCAFC 8 (‘Vagisil’) where it was held that VAGISAN and VAGISIL were deceptively similar; However, the findings of the above cases should be considered in the light of contemporary marketing methods. The Hearing Officer in Giorgio Armani S.p.A v Tiawan Yamani (1989); 17 IPR 92 decided that:" ;
     tmk:upstreamRef "TMM/Part26/6/6/1~1" .
 
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/1> a tmk:Page ;
-    rdfs:label "1. Introduction"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
-    tmk:contentHash "sha256:be6f8b6da182270cc06e6aebf016cb990c696e4df9a75aa3ca6ff53a367775ab" ;
-    tmk:lastAmended "2023-10-10" ;
-    tmk:partId "Part28" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-introduction4"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part28/1" .
-
 <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part28/3/3/4~1> a tmk:Chunk,
         tmk:ManualPassage ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
@@ -76534,6 +76481,17 @@
     tmk:text "Part Published: 1 April 2025 Trade Marks Act 1995 Section 153 Disobeying summons etc. Section 154 Refusing to give evidence etc. Section 202 Registrar's powers Section 203 Exercise of power by Registrar Trade Marks Regulations 1995 Reg 21.6 Declarations Reg 21.15 Opportunity to be heard by Registrar Reg 21.16 Written submissions and oral hearings Reg 21.17 Giving of oral evidence Reg 21.20 Statement of reasons for decision Reg 21.33 Directions not otherwise prescribed Patents Act 1990 Section 210 Commissioner's powers Federal Court Rules" ;
     tmk:upstreamRef "TMM/Part54/x-relevant-legislation20#1" .
 
+<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1> a tmk:Page ;
+    rdfs:label "1. Introduction"@en-AU ;
+    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
+    tmk:authorityKind "practice" ;
+    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
+    tmk:contentHash "sha256:1ec2e26ef3d5f64c4061e89f8810510399ee28cbc667620a2402a01498107734" ;
+    tmk:lastAmended "2026-04-17" ;
+    tmk:partId "Part60" ;
+    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-introduction"^^xsd:anyURI ;
+    tmk:upstreamRef "TMM/Part60/1" .
+
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.18> a tmk:LegislativeProvision ;
     rdfs:label "Examination—further report to holder"@en-AU ;
     dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMR1995> ;
@@ -77401,17 +77359,6 @@
     tmk:partId "Part48" ;
     tmk:text "Trade Marks Act 1995 Trade Mark Regulations 1995 Inherent in the definition of a trade mark is the requirement, per section 17, that the owner intends, and does, use the trade mark to distinguish its goods or services from goods or services dealt with or provided by others. Section 92 provides for a person to apply for a trade mark to be removed from the Register if the trade mark has not been used. The non-use application can be opposed. The opponent (usually the owner) then bears the onus of either demonstrating the necessary use or satisfying the Registrar that circumstances had prevented use and these thereby justified allowing registration of the trade mark to continue (section 100). A non-use application may also be made if the trade mark is a protected international trade mark (reg 17A.48C), however it is termed an application for cessation of protection rather than an application for removal. The grounds for such an application are the same as those for removal, namely the grounds contained in subsection 92(4) (See reg 17A.48D). Part 60 The Madrid Protocol - 4.20 Cession of Protection because of Non-Use 4.21 Opposition to Cessation of Protection because of Non-Use If there is no opposition to a properly filed non-use application, the trade mark will be removed from the Register (section 96). It should be noted that, due to their specialised functions under the legislation, certification trade marks and defensive trade marks are excluded from the provisions of Part 9 (see sections 170 and 186). Part 34 Defensive Trade Marks Part 35 Certification Trade Marks" ;
     tmk:upstreamRef "TMM/Part48/1#1" .
-
-<https://data.ipaustralia.gov.au/tmk/ref/TMM/Part60/1> a tmk:Page ;
-    rdfs:label "1. Introduction"@en-AU ;
-    dcterms:isPartOf <https://data.ipaustralia.gov.au/tmk/ns/doc/TMM> ;
-    tmk:authorityKind "practice" ;
-    tmk:capturedIn tmk:snapshot-c490a9927f1a ;
-    tmk:contentHash "sha256:1ec2e26ef3d5f64c4061e89f8810510399ee28cbc667620a2402a01498107734" ;
-    tmk:lastAmended "2026-04-17" ;
-    tmk:partId "Part60" ;
-    tmk:sourceUrl "https://manuals.ipaustralia.gov.au/trademark/1.-introduction"^^xsd:anyURI ;
-    tmk:upstreamRef "TMM/Part60/1" .
 
 <https://data.ipaustralia.gov.au/tmk/ref/TMR1995/r17A.14> a tmk:LegislativeProvision ;
     rdfs:label "Specification of goods and services"@en-AU ;

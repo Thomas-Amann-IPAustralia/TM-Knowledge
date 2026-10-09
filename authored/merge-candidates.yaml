@@ -1,0 +1,99 @@
+# Pairs of concepts the relate model judged to be one idea, and what was decided about
+# each. The model reports `same_concept` and never writes it (ADR-0101, ADR-0113): a
+# merge is a withdrawal, and only a ruling withdraws. This is the record of those
+# rulings, so a later run that suggests the same pair again meets the answer already
+# given instead of re-opening it.
+#
+# `merged` — one record was withdrawn in favour of the other (authored/retired-ids.yaml
+# says which). `kept_apart` — the suggestion was rejected: the two are different ideas
+# and must never be merged. The harness fails a kept-apart pair if either id is ever
+# withdrawn in favour of the other, and the relate job reports a repeat of the
+# suggestion as already ruled on.
+#
+# The suggestions are the model's (gpt-6.1-sol, relate-v1, 2026-10-07); `confidence` is
+# its own score and is comparable with nothing outside that run (ADR-0125, F6). The
+# decisions are the owner's rulings; the `why` lines are machine-written by the S027
+# agent from the records, unreviewed.
+authored_by: claude-code-agent-S027
+authored_date: '2026-10-09'
+review_status: unreviewed
+candidates:
+- pair: [GC-0006, GC-0053]
+  suggested_by: gpt-6.1-sol
+  confidence: 0.86
+  decision: merged
+  kept: GC-0006
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A2
+- pair: [GC-0007, GC-0118]
+  suggested_by: gpt-6.1-sol
+  confidence: 0.98
+  decision: merged
+  kept: GC-0007
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- pair: [GC-0012, GC-0129]
+  suggested_by: gpt-6.1-sol
+  confidence: 0.94
+  decision: merged
+  kept: GC-0012
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- pair: [GC-0014, GC-0100]
+  suggested_by: gpt-6.1-sol
+  confidence: 0.7
+  decision: merged
+  kept: GC-0014
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- pair: [GC-0016, GC-0090]
+  suggested_by: gpt-6.1-sol
+  confidence: 0.94
+  decision: merged
+  kept: GC-0016
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- pair: [GC-0028, GC-0014]
+  suggested_by: gpt-6.1-sol
+  confidence: 0.76
+  decision: kept_apart
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#A6
+  why: >-
+    Implied endorsement (GC-0028) is an inference consumers draw — that a well-known
+    person approves of, or is connected with, the goods — which a sign may convey under
+    section 43. An endorsement (GC-0014) is wording entered on a registration. The
+    signed GC-0028 lists "endorsement" as not the same concept, and its own note says
+    why: "an 'endorsement' on a registration and an 'endorsement' by a celebrity are
+    unrelated ideas sharing a word, two screens apart". The model matched the two on
+    the shared word.
+- pair: [GC-0036, GC-0125]
+  suggested_by: gpt-6.1-sol
+  confidence: 0.99
+  decision: merged
+  kept: GC-0036
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- pair: [GC-0040, GC-0102]
+  suggested_by: gpt-6.1-sol
+  confidence: 0.94
+  decision: merged
+  kept: GC-0040
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- pair: [GC-0041, GC-0101]
+  suggested_by: gpt-6.1-sol
+  confidence: 0.97
+  decision: merged
+  kept: GC-0041
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- pair: [GC-0042, GC-0094]
+  suggested_by: gpt-6.1-sol
+  confidence: 0.99
+  decision: merged
+  kept: GC-0042
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- pair: [GC-0043, GC-0110]
+  suggested_by: gpt-6.1-sol
+  confidence: 0.98
+  decision: merged
+  kept: GC-0043
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1
+- pair: [GC-0046, GC-0115]
+  suggested_by: gpt-6.1-sol
+  confidence: 0.85
+  decision: merged
+  kept: GC-0046
+  ruling: review/rulings/2026-10-08-chat-ontology-review.yaml#A1

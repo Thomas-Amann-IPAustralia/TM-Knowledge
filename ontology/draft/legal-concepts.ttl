@@ -276,3 +276,25 @@ tmk:usageCount a owl:AnnotationProperty ;
 tmk:usedBy a owl:AnnotationProperty ;
     rdfs:label "used by"@en-AU ;
     rdfs:comment "The gold record ids that use this predicate. The route from a term in the dictionary back to the sentences that put it there."@en-AU .
+
+# Comparison keys (review F2, ADR-0125). Computed by the graph build from each label
+# with `ontology.hygiene.fold` — case, punctuation, a leading article and plurals
+# folded — and shown to nobody. They let the SHACL gate join two concepts on a shared
+# name without folding every label inside SPARQL.
+
+tmk:labelKey a owl:DatatypeProperty ;
+    rdfs:domain tmk:LegalConcept ;
+    rdfs:range xsd:string ;
+    rdfs:label "label key"@en-AU ;
+    rdfs:comment "The folded form of one of the concept's names, preferred or alternative. Computed; a comparison key, not a label."@en-AU .
+
+tmk:prefLabelKey a owl:DatatypeProperty ;
+    rdfs:subPropertyOf tmk:labelKey ;
+    rdfs:label "preferred label key"@en-AU ;
+    rdfs:comment "The folded form of the concept's preferred label. Computed; a comparison key, not a label."@en-AU .
+
+tmk:notLabelKey a owl:DatatypeProperty ;
+    rdfs:domain tmk:LegalConcept ;
+    rdfs:range xsd:string ;
+    rdfs:label "not-label key"@en-AU ;
+    rdfs:comment "The folded form of one of the concept's not-labels. Computed; a comparison key, not a label."@en-AU .

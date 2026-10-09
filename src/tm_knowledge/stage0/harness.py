@@ -1060,6 +1060,78 @@ def _legislative_bases(authored: AuthoredSet, gold: GoldSet, corpus: Corpus) -> 
         )
 
 
+def _vocabulary(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
+    """The vocabulary against itself: shared names, pairs kept apart, "kind of"
+    beside "not the same as" (review A5, A6, D4; ADR-0125).
+
+    Read in the served view — the signed records as corrected — because that is
+    what recognition, search and the explorer use. A shared name is a note, one per
+    name: sometimes the records already separate a homonym, and a person should
+    look. A kept-apart pair merged, or a machine-written "kind of" link between two
+    concepts that list each other as not the same and no written affirmation of
+    the hierarchy, is a defect.
+    """
+    from tm_knowledge.authored import corrections as corrections_module
+    from tm_knowledge.bulk import links as links_module
+    from tm_knowledge.ontology import hygiene
+
+    try:
+        corrections = corrections_module.load(authored.root, gold=gold, authored=authored)
+        kept = hygiene.kept_apart(authored.root)
+        affirmed = hygiene.affirmations(authored.root)
+    except (authored_store.MalformedAuthoredFile, KeyError, TypeError) as error:
+        yield Finding(Severity.DEFECT, "vocabulary", "authored/", f"a ledger will not read: {error}")
+        return
+    concept_map = links_module.concepts(corrections_module.served_gold(gold, corrections), authored)
+
+    for clash in hygiene.label_clashes(concept_map):
+        yield Finding(
+            Severity.NOTE, "label-clash", " / ".join(clash.concepts),
+            f"{len(clash.concepts)} concepts answer to the name {clash.folded!r} once case, "
+            f"punctuation and plurals are folded: {clash.describe()}. Recognition cannot "
+            "tell them apart on that name (review A5)",
+        )
+
+    for pair in sorted(kept, key=sorted):
+        a, b = sorted(pair)
+        for gone, survivor in ((a, b), (b, a)):
+            meta = authored.retired_ids.get(gone) or gold.retired_ids.get(gone) or {}
+            if meta.get("replaced_by") == survivor:
+                yield Finding(
+                    Severity.DEFECT, "kept-apart", f"{a} / {b}",
+                    f"{gone} was withdrawn in favour of {survivor}, but a ruling keeps the two "
+                    "apart as different ideas (authored/merge-candidates.yaml)",
+                )
+
+    for row in affirmed.values():
+        for end in (row.get("narrower"), row.get("broader")):
+            if str(end) not in concept_map:
+                yield Finding(
+                    Severity.DEFECT, "kind-of", f"{row.get('narrower')} / {row.get('broader')}",
+                    f"authored/kind-of-affirmed.yaml affirms a hierarchy for {end}, which "
+                    "neither store holds",
+                )
+
+    sound = [entry.record for entry in authored.of("gold_relationship") if entry.sound]
+    clashes = hygiene.kind_of_clashes(concept_map, sound, affirmed)
+    for clash in clashes:
+        if not clash.affirmed:
+            yield Finding(
+                Severity.DEFECT, "kind-of", clash.record_id,
+                f"says {clash.narrower} is a kind of {clash.broader}, but {clash.describe()}. "
+                "A machine-written \"kind of\" link beside a \"not the same as\" is refused "
+                "unless authored/kind-of-affirmed.yaml says why both hold (review D4, ADR-0125)",
+            )
+    held = [clash.record_id for clash in clashes if clash.affirmed]
+    if held:
+        yield Finding(
+            Severity.NOTE, "kind-of", "authored/kind-of-affirmed.yaml",
+            f"{len(held)} \"kind of\" link(s) stand beside a not-label on a written, unreviewed "
+            "affirmation that a narrower idea is never the same idea as its broader one: "
+            + ", ".join(held),
+        )
+
+
 def _authored(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
     """Every authored check that needs no snapshot."""
     yield from _authored_files(authored)
@@ -1071,6 +1143,7 @@ def _authored(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
     yield from _authored_predicates(authored)
     yield from _authored_basis(authored)
     yield from _authored_cross_references(authored, gold)
+    yield from _vocabulary(authored, gold)
 
 
 # ---------------------------------------------------------------------------

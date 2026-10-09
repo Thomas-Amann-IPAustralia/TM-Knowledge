@@ -136,3 +136,28 @@ def test_the_real_graph_has_no_defects():
     )
     assert report.by_severity("gap") == []
     assert report.exit_code == 0
+
+
+def test_two_concepts_under_one_preferred_name_fail():
+    """Review F2 and A5: the rulebook had no rule for a shared name. Folded, so a
+    plural does not hide one; a different name is left alone."""
+    report = check("shared-names-and-kind-of.ttl")
+    findings = fired(report, "share a preferred label")
+    assert nodes(findings) == {"endorsement", "endorsements"}
+    assert {f.severity for f in findings} == {"defect"}
+
+
+def test_a_shared_alternative_name_is_a_note():
+    report = check("shared-names-and-kind-of.ttl")
+    findings = fired(report, "two concepts answer to")
+    assert nodes(findings) >= {"condition", "endorsement-wording"}
+    assert {f.severity for f in findings} == {"note"}
+
+
+def test_a_kind_of_beside_a_not_label_needs_its_reason():
+    """Review F2 and D4: the shape a wrong hierarchy takes publishes only with a
+    written reason. The affirmed twin — s 17's trade mark and sign — passes."""
+    report = check("shared-names-and-kind-of.ttl")
+    findings = fired(report, "carries its reason")
+    assert nodes(findings) == {"bad-kind-of"}
+    assert findings[0].severity == "defect"

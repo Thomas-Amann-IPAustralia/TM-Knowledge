@@ -577,6 +577,13 @@ export async function render(root, { ontology, params }) {
     bindSide();
   }
 
+  // Each author rates itself on its own scale — the bulk model at 0.84–0.99, an agent
+  // session at 0.5–0.9 — so a score is shown with its author and never compared,
+  // ranked or filtered across authors (review F6, ADR-0125).
+  function selfRated(m) {
+    return `<span title="The author's rating of its own record, on its own scale. Not comparable across authors.">self-rated ${esc(m.confidence)} by <code>${esc(m.by || "?")}</code></span>`;
+  }
+
   function relationCard(r) {
     const name = (id) => byId.get(id)?.label || refLabel(id);
     return `<div style="margin:.6rem 0 1rem">
@@ -585,7 +592,7 @@ export async function render(root, { ontology, params }) {
       ${r.quote ? `<blockquote class="quote ${isLaw(r.ref) ? "law" : "manual"}">${esc(r.quote)}</blockquote>` : ""}
       ${r.ref ? refChip(r.ref) : ""}
       ${r.replaces ? `<p class="tiny">Re-reads the signed ${esc(r.replaces)}, which recorded this sentence the wrong way; the signed record is kept unchanged.</p>` : ""}
-      ${r.machine?.reasoning ? `<details><summary>Why the machine wrote this${r.machine.confidence ? ` · confidence ${r.machine.confidence}` : ""}</summary><p class="small muted">${esc(r.machine.reasoning)}</p></details>` : ""}
+      ${r.machine?.reasoning ? `<details><summary>Why the machine wrote this${r.machine.confidence ? ` · ${selfRated(r.machine)}` : ""}</summary><p class="small muted">${esc(r.machine.reasoning)}</p></details>` : ""}
     </div>`;
   }
 
@@ -634,7 +641,7 @@ export async function render(root, { ontology, params }) {
     if (x.signed) rows.push(`<p class="small">Signed by <b>${esc(x.signed.by)}</b>, a trade marks expert, on ${esc(x.signed.date)}.</p>`);
     if (x.corrected) rows.push(`<p class="small"><b>Corrected since it was signed</b> (${x.corrected.map(esc).join(", ")}) — a machine-written, unreviewed change made on the project owner's instruction. The labels and provisions shown are the corrected ones; the signed record itself is kept unchanged.</p>`);
     if (x.machine) {
-      rows.push(`<p class="small">Written by <code>${esc(x.machine.by)}</code> on ${esc(x.machine.date)} · <b>${esc(x.machine.review_status)}</b>${x.machine.confidence ? ` · confidence ${esc(x.machine.confidence)}` : ""}.</p>`);
+      rows.push(`<p class="small">Written by <code>${esc(x.machine.by)}</code> on ${esc(x.machine.date)} · <b>${esc(x.machine.review_status)}</b>${x.machine.confidence ? ` · ${selfRated(x.machine)}` : ""}.</p>`);
       if (x.machine.reasoning) rows.push(`<p class="small muted">${esc(x.machine.reasoning)}</p>`);
       if (x.machine.check) rows.push(`<p class="small"><b>What an expert should check:</b> ${esc(x.machine.check)}</p>`);
     }
