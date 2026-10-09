@@ -151,7 +151,7 @@ DELIVERABLES: tuple[Deliverable, ...] = (
     # is one per approved concept, because the question is "which group is this
     # in" and every concept has an answer, `none_of_these` included.
     # `tmk-typing` renders the pass.
-    Deliverable("concept_types", "Concepts sorted into one of the ten groups",
+    Deliverable("concept_types", "Concepts sorted into one of the kinds",
                 "records", record_type="concept_type", minimum=50, maximum=100),
     Deliverable("measures", "A threshold against every metric", "document",
                 path="eval/measures.md"),
@@ -1000,6 +1000,31 @@ def _authored_predicates(authored: AuthoredSet) -> Iterator[Finding]:
             )
 
 
+def _authored_kinds(authored: AuthoredSet) -> Iterator[Finding]:
+    """Every machine-written relationship joins kinds its predicate joins (ADR-0131).
+
+    The relation dictionary names, per predicate, the kinds its subject and object may
+    be — a role performs a step, a step results in a record — and those links are the
+    ontology's top level. An edge outside them is recorded the wrong way round, on the
+    wrong predicate, or between ideas filed under the wrong kind; whichever it is, the
+    record cannot stand as it reads. An untyped end is the typing gate's to report."""
+    from tm_knowledge.ontology.predicates import off_schema
+
+    kinds = {str(e.record.get("concept")): str(e.record.get("type"))
+             for e in authored.of("concept_type") if e.sound}
+    for entry in authored.of("gold_relationship"):
+        if not entry.sound:
+            continue
+        record = entry.record
+        why = off_schema(str(record.get("subject")), str(record.get("predicate")), str(record.get("object")), kinds)
+        if why:
+            yield Finding(
+                Severity.DEFECT, "authored-kinds", entry.record_id,
+                f"{why} — the relation dictionary says which kinds each predicate joins "
+                "(ontology/predicates.py, ADR-0131)",
+            )
+
+
 def _legislative_bases(authored: AuthoredSet, gold: GoldSet, corpus: Corpus) -> Iterator[Finding]:
     """A cited provision exists, and something the record rests on ties it to the concept.
 
@@ -1148,6 +1173,7 @@ def _authored(authored: AuthoredSet, gold: GoldSet) -> Iterator[Finding]:
     yield from _authored_identifiers(authored, gold)
     yield from _authored_corrections(authored, gold)
     yield from _authored_predicates(authored)
+    yield from _authored_kinds(authored)
     yield from _authored_basis(authored)
     yield from _authored_cross_references(authored, gold)
     yield from _vocabulary(authored, gold)

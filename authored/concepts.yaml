@@ -2897,6 +2897,7 @@
   pref_label: term protected under the Wine Australia Act
   alt_labels:
   - term on the Wine Register
+  - protected term
   not_labels:
   - geographical indication
   - geographical name
@@ -2916,8 +2917,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S026
-    authored_date: '2026-10-08'
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part32B/1/1/1
@@ -2950,18 +2951,26 @@
       quote: A ground for rejection under this section may apply when a trade mark or part
         of a trade mark is identical to, or resembles, an entry on the Register of Protected
         Geographical Indications and Other Terms
-    confidence: 0.85
-    reasoning: Part 32B says the Wine Australia Act protects certain terms and that the Wine
-      Register lists them; that list, not wine geographical indications alone, is what an
-      examiner checks under s 42(b). Wine GIs are one category of it and have a concept of
-      their own (GC-0169). Part 32B.2 examines a Wine Register entry under s 42(b), which
-      is now the first legislative basis.
+    - ref: TMM/Part32B/2/1/2/1/4
+      span:
+      - 0
+      - 169
+      content_hash: sha256:a9ea83c28afd5d81511a51a362e71dd1d9df4da9acc7afa9b2ab2c5500b54ec6
+      quote: Pending applications for inclusion on the Wine Register have no level of protection
+        under the Wine Australia Act until they are on the Wine Register as a protected term.
+    confidence: 0.8
+    reasoning: '"Protected term" is the Manual''s own name for a term on the Wine Register
+      — 20 uses, all in Part 32B — so recognition finds the concept where the Manual discusses
+      it.'
     alternatives_considered:
-    - Labelled 'protected wine expression', with the alternative 'geographical indication
-      for wine', by an earlier agent session on 2026-09-09. That folded wine GIs into this concept and
-      shared a label with the signed GC-0018; wine GIs are now GC-0169.
-    expert_should_check: Whether the four Wine Register categories need concepts of their
-      own beyond wine GIs.
+    - 'As first written by claude-code-agent-S026 on 2026-10-08: {''alt_labels'': [''term
+      on the Wine Register'']} — Part 32B says the Wine Australia Act protects certain terms
+      and that the Wine Register lists them; that list, not wine geographical indications
+      alone, is what an examiner checks under s 42(b). Wine GIs are one category of it and
+      have a concept of their own (GC-0169). Part 32B.2 examines a Wine Register entry under
+      s 42(b), which is now the first legislative basis.'
+    expert_should_check: Whether "protected term" is used anywhere outside wine for something
+      else.
 - id: GC-0127
   pref_label: Registrar's decision
   alt_labels:
@@ -3699,24 +3708,25 @@
       41(4) and 44 ground this role; check those links before recording them as legislative
       bases.
 - id: GC-0149
-  pref_label: Contracting Party of the holder
+  pref_label: Office of the Contracting Party of the holder
   alt_labels: []
   not_labels:
-  - Office of the Contracting Party of the holder
   - designated Contracting Parties
   - Madrid Protocol
   definition_sources:
   - TMR1995/r17A.2/contracting-party-of-the-holder
   legislative_basis: []
-  notes: 'Summary, not a definition: Summary: This is a defined Madrid-system role associated
-    with the holder, whose Office the Manual describes as the holder''s "home" Office for
-    presenting certain requests to the IB.'
+  notes: The holder's "home" Office under the Madrid system — the IP office of the Contracting
+    Party the holder belongs to, through which requests may be presented to the International
+    Bureau; where it is the Trade Marks Office, the Registrar performs its functions (reg
+    17A.10(3)). Relabelled on 2026-10-09 (ADR-0131) from "Contracting Party of the holder",
+    which excluded its own Office — the only thing the Manual and the Regulations speak of.
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMR1995/r17A.2/contracting-party-of-the-holder
@@ -3726,20 +3736,33 @@
       content_hash: sha256:fd0b7f5b32b601067f30cb56111479f03f2c91a2b4f1045bbfd9164f103eaa78
       quote: Contracting Party of the holder has the meaning given by Rule 1(xxvibis) of the
         Madrid Regulations.
-    confidence: 0.88
-    reasoning: The Regulations expressly define this term by reference to the Madrid Regulations,
-      making it a distinct legal concept rather than a generic phrase or a duplicate of the
-      Madrid Protocol. The referenced substantive definition is unavailable in the supplied
-      passages. The Manual explains the associated Office's procedural role in transmitting
-      limitation and subsequent-designation requests; this supports process_role, while not
-      equating the Contracting Party with its Office. No references were supplied under PROVISIONS,
-      so legislative_basis is empty.
+    - ref: TMR1995/r17A.10(3)
+      span:
+      - 0
+      - 199
+      content_hash: sha256:554496af4acbd8fa2ef2dcf96497533eade0e417106b1b3824041fbbbbc3c77a
+      quote: (3) If a request is made through the Trade Marks Office, the Registrar must perform
+        the functions, under the Protocol, of the Office of the Contracting Party of the holder
+        in relation to the request.
+    confidence: 0.8
+    reasoning: As first written the concept was the Contracting Party itself and listed "Office
+      of the Contracting Party of the holder" as a label it must not be confused with; every
+      passage that uses the term speaks of that Office, so recognition never found the concept
+      and it connected to nothing.
     alternatives_considered:
-    - none_of_these if the ontology treats the holder's associated treaty jurisdiction as
-      distinct from a procedural actor.
-    expert_should_check: Check Rule 1(xxvibis) of the Madrid Regulations for the substantive
-      definition, which is not supplied, and confirm whether process_role is the best classification
-      for the Contracting Party rather than its Office.
+    - 'As first written by gpt-6.1-sol on 2026-10-07: {''pref_label'': ''Contracting Party
+      of the holder'', ''alt_labels'': [], ''not_labels'': [''Office of the Contracting Party
+      of the holder'', ''designated Contracting Parties'', ''Madrid Protocol''], ''notes'':
+      ''Summary, not a definition: Summary: This is a defined Madrid-system role associated
+      with the holder, whose Office the Manual describes as the holder\''s "home" Office for
+      presenting certain requests to the IB.''} — The Regulations expressly define this term
+      by reference to the Madrid Regulations, making it a distinct legal concept rather than
+      a generic phrase or a duplicate of the Madrid Protocol. The referenced substantive definition
+      is unavailable in the supplied passages. The Manual explains the associated Office''s
+      procedural role in transmitting limitation and subsequent-designation requests; this
+      supports process_role, while not equating the Contracting Party with its Office. No
+      references were supplied under PROVISIONS, so legislative_basis is empty.'
+    expert_should_check: Whether the concept as now labelled is what the corpus uses.
 - id: GC-0150
   pref_label: international registration of a trade mark
   alt_labels:

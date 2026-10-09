@@ -1,6 +1,6 @@
 /* The map — the ontology at three levels of detail, drawn with Cytoscape.js.
 
-   1. Kinds  — the ten kinds of idea as nodes inside their three families. Each
+   1. Kinds  — the kinds of idea as nodes inside their three families. Each
                kind is closed: its ideas are inside it, and every connection
                they make is rolled up into one weighted arrow per pair of kinds.
    2. Ideas  — open a kind (or all of them) and it becomes a box holding its
@@ -15,7 +15,7 @@
    (ADR-0130). The text level keeps the Manual, the Act and the Regulations
    apart: a box, a colour and a mark for each. */
 
-import { esc, fmt, el, load, kindColour, refChip, refLabel, trustBadge, kindChip, legend, isLaw, sourceOf, quoteBlock, SOURCES, openPassage } from "./app.js";
+import { esc, fmt, el, load, kindColour, kindCount, refChip, refLabel, trustBadge, kindChip, legend, isLaw, sourceOf, quoteBlock, SOURCES, openPassage } from "./app.js";
 import { KIND_POS, LOOSE, specificCount } from "./kinds.js";
 import * as lib from "./lib.js";
 
@@ -28,6 +28,7 @@ const FAMILY_LABELS = [
   ["examined", "What they are asked about"],
   ["process", "The process around them"],
 ];
+const FAMILY_NAME = { reasoning: "The law's questions", examined: "What is examined", process: "The process" };
 
 export async function render(root, { ontology, params }) {
   const [cytoscape, Fuse, search, stability] = await Promise.all([lib.cytoscape(), lib.fuse(), load("search"), load("stability")]);
@@ -56,7 +57,7 @@ export async function render(root, { ontology, params }) {
   <div class="map-shell">
     <div class="map-rail">
       <div class="rail-ladder" role="tablist" aria-label="Level of detail">
-        ${lvl("kinds", 1, "Kinds of idea", `${ontology.kinds.length - 1} kinds, and how their members connect`, "Rests on no single passage")}
+        ${lvl("kinds", 1, "Kinds of idea", `${kindCount(ontology)} kinds, and how their members connect`, "Rests on no single passage")}
         ${lvl("ideas", 2, "Ideas and connections", `${fmt(c.concepts.signed + c.concepts.machine)} ideas · ${fmt(c.relations.signed + c.relations.machine)} connections`, "Each pinned to a quoted passage")}
         ${lvl("text", 3, "The text", `${fmt(totalPassages)} Manual passages · the Act and Regulations`, `${fmt(stability.events)} amendments since ${Object.keys(stability.by_year)[0]}`)}
       </div>
@@ -71,8 +72,13 @@ export async function render(root, { ontology, params }) {
       </div>
       <div class="rail-box filters">
         <h4>Show</h4>
-        <label><input type="checkbox" data-f="loose"> Loose "is related to" links</label>
+        <label><input type="checkbox" data-f="loose"> "Is a kind of" links</label>
         <label><input type="checkbox" data-f="allKindLinks"> Weak links between closed kinds</label>
+      </div>
+      <div class="rail-box family-box">
+        <h4>How the families connect</h4>
+        <ul class="small family-links">${(ontology.family_links || []).filter((r) => r.s !== r.o).map((r) => `<li><b>${esc(FAMILY_NAME[r.s])}</b> → <b>${esc(FAMILY_NAME[r.o].toLowerCase())}</b>:
+          ${Object.entries(r.predicates).slice(0, 2).map(([p, n]) => `${esc(ontology.predicates[p]?.label || p)} ${n}`).join(", ")} <span class="muted">(${r.total})</span></li>`).join("")}</ul>
       </div>
       <div class="rail-box"><h4>Where the words come from</h4>${legend()}</div>
     </div>
@@ -226,10 +232,18 @@ export async function render(root, { ontology, params }) {
       m.predicates[r.p] = (m.predicates[r.p] || 0) + 1;
       m.ids.push(r.id);
     }
+    // Every closed kind keeps at least its strongest link, so none floats free (ADR-0131).
+    const best = new Map();
+    for (const m of meta.values()) {
+      if (!(m.s.startsWith("kind:") && m.o.startsWith("kind:"))) continue;
+      const strong = m.total - (m.predicates.broader || 0);
+      for (const end of [m.s, m.o]) best.set(end, Math.max(best.get(end) || 0, strong));
+    }
     for (const [key, m] of meta) {
-      const strong = m.total - (m.predicates.related || 0) - (m.predicates.broader || 0);
+      const strong = m.total - (m.predicates.broader || 0);
       const kindToKind = m.s.startsWith("kind:") && m.o.startsWith("kind:");
-      if (kindToKind && !state.allKindLinks && strong < 5) continue;
+      const strongest = strong > 0 && (strong === best.get(m.s) || strong === best.get(m.o));
+      if (kindToKind && !state.allKindLinks && strong < 5 && !strongest) continue;
       if (!kindToKind && strong < 1 && !state.loose) continue;
       const top = Object.entries(m.predicates).sort((a, b) => b[1] - a[1]).find(([p]) => !LOOSE.has(p)) || Object.entries(m.predicates)[0];
       const name = ontology.predicates[top[0]]?.label || top[0];
@@ -413,7 +427,7 @@ export async function render(root, { ontology, params }) {
     if (location.hash !== hash) history.replaceState(null, "", hash);
     const tb = title.querySelector("b"), ts = title.querySelector("span");
     if (lv === "kinds") {
-      tb.textContent = "Ten kinds of idea";
+      tb.textContent = `${kindCount(ontology)} kinds of idea, and what connects them`;
       ts.textContent = "Each circle holds the ideas of one kind; arrows roll their connections up. Click a kind to open it.";
     } else if (lv === "ideas") {
       tb.textContent = state.expanded.size === ontology.kinds.length ? "Every idea and its connections" : `${state.expanded.size} kind${state.expanded.size > 1 ? "s" : ""} open, the rest in outline`;
@@ -535,12 +549,15 @@ export async function render(root, { ontology, params }) {
   function showLevelHelp() {
     const lv = level();
     side.innerHTML = (lv === "kinds" ? `<h2>Start with the shape</h2>
-        <p>Every idea in the map is sorted by <b>what it is</b> into one of ten kinds. Two are <b>the questions the law asks</b> — grounds of refusal
-        and the tests that decide them. Four are <b>what those questions are asked about</b> — the mark, what it contains or conveys, the context
-        outside it, and what people do with it in trade. Four are <b>the process around them</b> — who acts, the steps, the records and the external schemes.</p>
-        <p><b>What an idea does is an arrow, not a kind.</b> Whether something is a factor, an exception or a remedy depends on which ground or test it
-        acts on, so the map says it on the connection: a factor <i>qualifies</i> a test, an exception <i>does not give rise to</i> a ground, a ground
-        <i>is overcome by</i> its remedy. The arrows roll ${fmt(c.relations.signed + c.relations.machine)} individual connections up into the patterns they make.</p>
+        <p>Every idea in the map is sorted by <b>what it is</b> into one of ${kindCount(ontology)} kinds. Three are <b>the questions the law asks</b> — grounds of
+        refusal, the tests that decide them, and the principles that govern how they are answered. Four are <b>what those questions are asked about</b> —
+        the mark, what it contains or conveys, the context outside it, and what people do with it in trade. Four are <b>the process around them</b> — who
+        acts, the steps, the records, and the bodies of rules outside the Act.</p>
+        <p><b>What an idea does is an arrow, not a kind</b>, and every arrow says what it means. Sign content <i>may give rise to</i> a ground and context
+        <i>qualifies</i> a test; a ground <i>is overcome by</i> its remedy and <i>is assessed in</i> a step; a role <i>performs</i> a step, a step
+        <i>operates on</i> an application and <i>results in</i> a record, which <i>is recorded in</i> a register. Each relation names the kinds it may join,
+        so the kinds connect in known ways. The arrows roll ${fmt(c.relations.signed + c.relations.machine)} individual connections up into the patterns they make;
+        every kind keeps at least its strongest.</p>
         <p><b>Click a kind to open it</b>; open several to compare them in detail while the rest stay in outline.</p>`
       : `<h2>The ideas themselves</h2>
         <p>Each open kind is a box of its ideas. Lines are connections between two ideas, each resting on a sentence in the Manual. Where an idea
@@ -548,8 +565,8 @@ export async function render(root, { ontology, params }) {
         <p>Hover over an idea to see what it rests on; click it to follow its connections.</p>`) +
       `<p class="muted small">Most ideas and connections were written by a machine from the Manual's text — usable, but not yet reviewed; each says
        so where it is shown. Grounds and tests are the project owner's own kinds, as is the rule that a kind says what an idea is while an arrow says
-       what it does; the other eight kinds were proposed by a machine.</p>
-      <h4>The ten kinds</h4><ul class="rel-list">${ontology.kinds.map((k) => `<li><span class="dot" style="--c:${kindColour(k.id)}"></span><span><b>${esc(k.label)}</b> <span class="muted small">— ${esc(k.plain)}</span></span></li>`).join("")}</ul>`;
+       what it does; the other nine kinds were proposed by a machine.</p>
+      <h4>The kinds</h4><ul class="rel-list">${ontology.kinds.map((k) => `<li><span class="dot" style="--c:${kindColour(k.id)}"></span><span><b>${esc(k.label)}</b> <span class="muted small">— ${esc(k.plain)}</span></span></li>`).join("")}</ul>`;
   }
 
   function showKind(k) {

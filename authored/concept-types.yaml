@@ -295,7 +295,7 @@
       in 52.
 - id: GT-0007
   concept: GC-0007
-  type: none_of_these
+  type: principle
   basis:
   - TMM/Part29/2/2/4
   notes: 'presumption of registrability — also called: presumption in favour of registrability
@@ -304,7 +304,7 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S027
+    authored_by: claude-code-agent-S029
     authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
@@ -321,21 +321,19 @@
       content_hash: sha256:5a52a4dd52ef95b0e001380666cfbc14b907dda998e67a97a99859e9c179e298
       quote: If there is doubt that a connotation exists, then the ground for rejection should
         not be raised.
-    confidence: 0.6
-    reasoning: 'presumption of registrability is a rule about how the grounds are decided
-      — accept unless satisfied a ground exists: none of the kinds fit — which is an answer,
-      not a gap — so `none_of_these`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126):
-      a kind says what a concept is, and what it does is an edge. What it does is on its edges:
-      GR-0091 constrains Registrar; GR-0092 constrains Registrar; GR-0398 constrains Registrar;
-      GR-0488 qualifies scandalous matter; and more.'
+    confidence: 0.8
+    reasoning: The presumption of registrability is a rule about how the grounds are applied
+      — accept unless satisfied a ground exists (s 33(1)) — neither a ground nor a test; none_of_these
+      said only that no kind fitted it.
     alternatives_considered:
-    - 'exception — its group until 2026-10-09 (claude-opus-5). That is what it does, not what
-      it is: under B1 its being an exception is said by an edge naming the ground or test,
-      not by a group.'
-    - A kind of its own for rules about how a question is decided — postponed with B3; it
-      would hold this and GC-0051.
-    expert_should_check: Whether a rule about how a question is decided wants a kind of its
-      own beside mandatory application of the section (GC-0051).
+    - 'As first written by claude-code-agent-S027 on 2026-10-09: none_of_these — presumption
+      of registrability is a rule about how the grounds are decided — accept unless satisfied
+      a ground exists: none of the kinds fit — which is an answer, not a gap — so `none_of_these`.
+      Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept
+      is, and what it does is an edge. What it does is on its edges: GR-0091 constrains Registrar;
+      GR-0092 constrains Registrar; GR-0398 constrains Registrar; GR-0488 qualifies scandalous
+      matter; and more.'
+    expert_should_check: Whether GC-0007 is a principle.
 - id: GT-0008
   concept: GC-0008
   type: legal_test
@@ -1472,7 +1470,7 @@
       than about what the mark itself contains or conveys.
 - id: GT-0035
   concept: GC-0035
-  type: context
+  type: process_role
   basis:
   - TMM/Part29/7#1
   - TMM/Part29/8#1
@@ -1482,7 +1480,7 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S027
+    authored_by: claude-code-agent-S029
     authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
@@ -1501,19 +1499,18 @@
       content_hash: sha256:61ba688909678ff820013ed093969ede20b94f2231822735f4c59fc06b0d38cb
       quote: The section 43 ground for rejection will be reconsidered if an applicant provides
         information confirming that they are the owner or authorised user of the phoneword.
-    confidence: 0.65
-    reasoning: 'owner or authorised user is the person who holds a phone number, domain name
-      or call sign a mark refers to: something outside the trade mark that the assessment
-      looks at — the goods, the market and its consumers, a person or place, a reputation,
-      a date — so `context`. Retyped on the owner''s ruling B1 of 2026-10-09 (ADR-0126): a
-      kind says what a concept is, and what it does is an edge. What it does is on its edges:
-      GR-0702 qualifies section 43 ground for rejection.'
+    confidence: 0.8
+    reasoning: The concept names a person — the owner, registrant or licensed operator of
+      a phoneword, domain name or call sign — not a circumstance.
     alternatives_considered:
-    - 'relevant_factor — its group until 2026-10-09 (claude-opus-5). That is what it does,
-      not what it is: under B1 its being a relevant factor is said by an edge naming the ground
-      or test, not by a group.'
-    expert_should_check: Whether this is something outside the mark at all, or a meaning the
-      mark itself conveys (sign content).
+    - 'As first written by claude-code-agent-S027 on 2026-10-09: context — owner or authorised
+      user is the person who holds a phone number, domain name or call sign a mark refers
+      to: something outside the trade mark that the assessment looks at — the goods, the market
+      and its consumers, a person or place, a reputation, a date — so `context`. Retyped on
+      the owner''s ruling B1 of 2026-10-09 (ADR-0126): a kind says what a concept is, and
+      what it does is an edge. What it does is on its edges: GR-0702 qualifies section 43
+      ground for rejection.'
+    expert_should_check: Whether GC-0035 is a process role.
 - id: GT-0036
   concept: GC-0036
   type: sign_content
@@ -2194,18 +2191,17 @@
       mark itself conveys (sign content).
 - id: GT-0051
   concept: GC-0051
-  type: none_of_these
+  type: principle
   basis:
   - TMM/Part29/1#1
-  notes: >-
-    mandatory application of the section — also called: no discretion to accept, the application
-    of section 43 is mandatory — not: presumption of registrability, discretion
+  notes: 'mandatory application of the section — also called: no discretion to accept, the
+    application of section 43 is mandatory — not: presumption of registrability, discretion'
   approved_by: null
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-opus-5
-    authored_date: '2026-09-09'
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part29/1#1
@@ -2213,38 +2209,20 @@
       - 359
       - 542
       content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
-      quote: >-
-        The application of section 43 is, by the wording of the section, mandatory. There
+      quote: The application of section 43 is, by the wording of the section, mandatory. There
         is, therefore, no discretion to accept a trade mark that is caught by the provisions
         of this section.
-    confidence: 0.6
-    reasoning: >-
-      Kept in none_of_these deliberately, and the only one of the 53 that stays. The concept
-      is a statement about how a provision operates — that section 43 applies mandatorily
-      and there is no discretion to accept a mark caught by it. That is not a ground,
-      a test, a factor or an exception; and it is not a role, a thing, a step, a record
-      or an external scheme. It is a rule *about* a ground, and nine groups have no place
-      for one.
+    confidence: 0.8
+    reasoning: That section 43 applies mandatorily is a rule about the decision maker's discretion,
+      not a question to answer.
     alternatives_considered:
-    - >-
-      Inventing a tenth group — operative_rule — to hold it. Rejected: a category built
-      to hold one record is over-fitting, and the residual bucket exists so that a genuine
-      outlier can be shown as one rather than filed somewhere it half fits.
-    - >-
-      ground_of_refusal — rejected. Section 43 is the ground; this concept is the modality
-      attached to it.
-    - >-
-      legal_test — rejected. Nothing here is a question the decision maker answers.
-    - >-
-      none_of_these — where this record sat until 2026-09-09, and the honest answer while
-      the taxonomy had only the reasoning axis on it. Superseded rather than refuted:
-      the owner asked for groups that fit these 53 (ADR-0098).
-    expert_should_check: >-
-      Whether the vocabulary should carry modality statements as concepts at all, or whether
-      'the application of section 43 is mandatory' is a property of the section 43 ground
-      rather than a concept standing beside it. GC-0051's own record says this concept
-      and GC-0007 pull in opposite directions, and that tension is still unresolved —
-      GT-0007 is typed exception and this one is typed nothing.
+    - 'As first written by claude-opus-5 on 2026-09-09: none_of_these — Kept in none_of_these
+      deliberately, and the only one of the 53 that stays. The concept is a statement about
+      how a provision operates — that section 43 applies mandatorily and there is no discretion
+      to accept a mark caught by it. That is not a ground, a test, a factor or an exception;
+      and it is not a role, a thing, a step, a record or an external scheme. It is a rule
+      *about* a ground, and nine groups have no place for one.'
+    expert_should_check: Whether GC-0051 is a principle.
 - id: GT-0052
   concept: GC-0052
   type: procedural_step
@@ -4977,7 +4955,7 @@
       using it as a statement of current law.
 - id: GT-0141
   concept: GC-0141
-  type: none_of_these
+  type: context
   basis:
   - TMM/Part11/7/7/2
   notes: date of registration
@@ -4985,8 +4963,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
     authoring_basis: corpus_inferred
     evidence:
     - ref: TMM/Part11/7/7/2
@@ -4999,21 +4977,20 @@
         countries at different times, the effective date of registration of the Australian
         trade mark is the relevant date of the earlier application for each of the particular
         goods and/or services.
-    confidence: 0.78
-    reasoning: 'Typed in the same judgement as the concept: The statutory fragment expressly
-      introduces a defined term, making this more than a generic date phrase, but omits its
-      defining content. The Manual supplies the best available explanation of its effective-date
-      usage. It relates registration to priority dates without establishing that the concepts
-      are identical, so it is not treated as a duplicate of priority date or filing date.
-      A temporal attribute fits none of the listed groups closely. The cited provisions are
-      not reproduced, so their grounding role cannot be verified from these passages; the
-      Manual explanation is practice, not legislation.'
+    confidence: 0.8
+    reasoning: A date, as the filing date and the priority date are; the context kind already
+      holds dates.
     alternatives_considered:
-    - Consider separating the statutory date of registration from the Manual's effective date
-      of registration if the complete statutory definition shows they differ.
-    expert_should_check: Check the complete section 6 definition, whether 'effective date
-      of registration' is equivalent to the statutory term, and which of the cited provisions
-      actually ground it.
+    - 'As first written by gpt-6.1-sol on 2026-10-07: none_of_these — Typed in the same judgement
+      as the concept: The statutory fragment expressly introduces a defined term, making this
+      more than a generic date phrase, but omits its defining content. The Manual supplies
+      the best available explanation of its effective-date usage. It relates registration
+      to priority dates without establishing that the concepts are identical, so it is not
+      treated as a duplicate of priority date or filing date. A temporal attribute fits none
+      of the listed groups closely. The cited provisions are not reproduced, so their grounding
+      role cannot be verified from these passages; the Manual explanation is practice, not
+      legislation.'
+    expert_should_check: Whether GC-0141 is a context.
 - id: GT-0142
   concept: GC-0142
   type: procedural_step
@@ -5113,7 +5090,7 @@
       is not supplied, so their relationship to subpoenas cannot be verified from these passages.'
 - id: GT-0145
   concept: GC-0145
-  type: legal_test
+  type: context
   basis:
   - TMA1995/s15
   notes: originate
@@ -5121,8 +5098,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMA1995/s15
@@ -5135,19 +5112,19 @@
         of that country or of Australia, as the case may be; and (b) a wine is taken to have
         originated in a particular region or locality of a foreign country or of Australia
         only if the wine is made from grapes grown in that region or locality.'
-    confidence: 0.88
-    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly gives ''originate''
-      a statutory meaning in relation to wine by referring to section 15. Section 15 supplies
-      necessary conditions for attributing geographical origin to wine, supporting a distinct
-      legal-test concept rather than a generic English verb. The Manual passages use ''originate''
-      more generally for commercial source and do not define this wine-specific test. The
-      supplied label for GC-0019 suggests possible overlap, but does not establish that it
-      already holds this specialised test.'
+    confidence: 0.8
+    reasoning: Where wine originates — tied by section 15 to where its grapes were grown —
+      is a fact about the goods the assessment looks at, not a question the decision maker
+      answers.
     alternatives_considered:
-    - If GC-0019 geographical origin already includes the wine-specific statutory test in
-      section 15, treat this as a duplicate of GC-0019 instead.
-    expert_should_check: Check whether GC-0019 geographical origin already encompasses this
-      wine-specific statutory test; only its label has been supplied.
+    - 'As first written by gpt-6.1-sol on 2026-10-07: legal_test — Typed in the same judgement
+      as the concept: Section 6 expressly gives ''originate'' a statutory meaning in relation
+      to wine by referring to section 15. Section 15 supplies necessary conditions for attributing
+      geographical origin to wine, supporting a distinct legal-test concept rather than a
+      generic English verb. The Manual passages use ''originate'' more generally for commercial
+      source and do not define this wine-specific test. The supplied label for GC-0019 suggests
+      possible overlap, but does not establish that it already holds this specialised test.'
+    expert_should_check: Whether GC-0145 is a context.
 - id: GT-0148
   concept: GC-0148
   type: process_role
@@ -5217,7 +5194,7 @@
       for the Contracting Party rather than its Office.
 - id: GT-0150
   concept: GC-0150
-  type: instrument_or_record
+  type: subject_matter
   basis:
   - TMR1995/r17A.2/international-registration
   notes: international registration of a trade mark
@@ -5225,8 +5202,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMR1995/r17A.2/international-registration
@@ -5236,19 +5213,22 @@
       content_hash: sha256:d8c10b37b85ba40cac1ed442cd280474ebd847446a8f72eec025ce4ff22394f1
       quote: international registration of a trade mark means registration of the mark in
         the International Register.
-    confidence: 0.97
-    reasoning: 'Typed in the same judgement as the concept: The Regulations expressly define
-      the term, making it a distinct legal concept best classified as a registration record.
-      It is broader than GC-0113, international registration designating Australia, because
-      its definition does not require an Australian designation. The Manual also distinguishes
-      international registration from Australian protection by describing the effect of cancellation
-      on a protected international trade mark. The defining legislative passage is regulation
-      17A.2. The only reference supplied under PROVISIONS, regulation 17A.27, is described
-      in the Manual as defining a declaration period for limitations, so it is not listed
-      as a legislative basis for this concept.'
-    alternatives_considered: []
-    expert_should_check: Confirm the relationship to GC-0113 and GC-0114 against their full
-      definitions; only their labels are supplied.
+    confidence: 0.8
+    reasoning: An international registration is a registration, as a registered trade mark
+      is, and an IRDA is a kind of one; its entry on the International Register is a relationship
+      (isRecordedIn).
+    alternatives_considered:
+    - 'As first written by gpt-6.1-sol on 2026-10-07: instrument_or_record — Typed in the
+      same judgement as the concept: The Regulations expressly define the term, making it
+      a distinct legal concept best classified as a registration record. It is broader than
+      GC-0113, international registration designating Australia, because its definition does
+      not require an Australian designation. The Manual also distinguishes international registration
+      from Australian protection by describing the effect of cancellation on a protected international
+      trade mark. The defining legislative passage is regulation 17A.2. The only reference
+      supplied under PROVISIONS, regulation 17A.27, is described in the Manual as defining
+      a declaration period for limitations, so it is not listed as a legislative basis for
+      this concept.'
+    expert_should_check: Whether GC-0150 is a subject matter.
 - id: GT-0151
   concept: GC-0151
   type: instrument_or_record
@@ -5386,7 +5366,7 @@
       which is not supplied here.
 - id: GT-0155
   concept: GC-0155
-  type: none_of_these
+  type: instrument_or_record
   basis:
   - TMA1995/s11
   notes: pending
@@ -5394,8 +5374,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMA1995/s11
@@ -5411,20 +5391,19 @@
         55) to register the trade mark and: (i) there is an appeal against the decision; and
         (ii) the decision is confirmed on appeal; —the day on which the decision is confirmed
         on appeal; or (d) the trade mark is registered under section 68.'
-    confidence: 0.99
-    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly gives pending
-      a statutory meaning by reference to section 11, which specifies its duration and terminating
-      events. It therefore names a distinct legal status, not merely a generic adjective or
-      a duplicate of trade mark application. The Manual also identifies the parent application''s
-      pending status as a requirement for a valid divisional application. None of the supplied
-      groups describes an application status directly: pending is not itself an act or event
-      that moves an application between states.'
+    confidence: 0.8
+    reasoning: A pending application is a trade mark application in a status (s 11), and applications
+      are instruments or records.
     alternatives_considered:
-    - Model pending as a legally defined status of a trade mark application rather than as
-      a procedural step.
-    expert_should_check: Check whether the ontology should represent application statuses
-      as standalone concepts or properties, and whether the historical rule in section 11(2)
-      needs separate treatment.
+    - 'As first written by gpt-6.1-sol on 2026-10-07: none_of_these — Typed in the same judgement
+      as the concept: Section 6 expressly gives pending a statutory meaning by reference to
+      section 11, which specifies its duration and terminating events. It therefore names
+      a distinct legal status, not merely a generic adjective or a duplicate of trade mark
+      application. The Manual also identifies the parent application''s pending status as
+      a requirement for a valid divisional application. None of the supplied groups describes
+      an application status directly: pending is not itself an act or event that moves an
+      application between states.'
+    expert_should_check: Whether GC-0155 is a instrument or record.
 - id: GT-0156
   concept: GC-0156
   type: instrument_or_record
@@ -5662,7 +5641,7 @@
       across all trade marks.
 - id: GT-0163
   concept: GC-0163
-  type: none_of_these
+  type: external_instrument
   basis:
   - TMA1995/s16
   notes: repealed Act
@@ -5670,8 +5649,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: gpt-6.1-sol
-    authored_date: '2026-10-07'
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMA1995/s16
@@ -5682,15 +5661,17 @@
       quote: '(1) The repealed Act means: (a) the Trade Marks Act 1955 as in force immediately
         before its repeal; and (b) the regulations under that Act that were in force immediately
         before its repeal.'
-    confidence: 0.99
-    reasoning: 'Typed in the same judgement as the concept: Section 6 expressly refers to
-      section 16, which defines the term and specifies how references to its sections are
-      interpreted. This is a distinct statutory idea not held by the existing concepts. None
-      of the supplied groups fits: it is historical domestic legislation, not a treaty or
-      international scheme, nor a document produced by the registration process.'
-    alternatives_considered: []
-    expert_should_check: Confirm whether the ontology should represent this defined historical
-      legislative reference as a standalone concept or as a legislative instrument entity.
+    confidence: 0.8
+    reasoning: The repealed Act (the 1955 Act) is a statute other than the 1995 Act that practice
+      still refers to; the kind now holds statutes as well as treaties.
+    alternatives_considered:
+    - 'As first written by gpt-6.1-sol on 2026-10-07: none_of_these — Typed in the same judgement
+      as the concept: Section 6 expressly refers to section 16, which defines the term and
+      specifies how references to its sections are interpreted. This is a distinct statutory
+      idea not held by the existing concepts. None of the supplied groups fits: it is historical
+      domestic legislation, not a treaty or international scheme, nor a document produced
+      by the registration process.'
+    expert_should_check: Whether GC-0163 is a external instrument.
 - id: GT-0165
   concept: GC-0165
   type: instrument_or_record
@@ -6084,7 +6065,7 @@
     expert_should_check: null
 - id: GT-0180
   concept: GC-0180
-  type: none_of_these
+  type: principle
   basis:
   - TMM/Part14/3#1~2
   notes: office practice — an authority kind (practice), not a role, thing, step, record or
@@ -6093,8 +6074,8 @@
   approved_date: null
   authored:
     review_status: unreviewed
-    authored_by: claude-code-agent-S026
-    authored_date: '2026-10-08'
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
     authoring_basis: corpus_explicit
     evidence:
     - ref: TMM/Part14/3#1~2
@@ -6103,10 +6084,13 @@
       - 294
       content_hash: sha256:1ab417074dd72f5941cdb89b71feb3fc49bf33712c689f8562be4713e319a935
       quote: it is office practice to also not allow terms such as
-    confidence: 0.7
-    reasoning: an authority kind (practice), not a role, thing, step, record or scheme
-    alternatives_considered: []
-    expert_should_check: null
+    confidence: 0.8
+    reasoning: Office practice is how the office applies the Act where it leaves room — the
+      Manual's own standing, practice rather than law.
+    alternatives_considered:
+    - 'As first written by claude-code-agent-S026 on 2026-10-08: none_of_these — an authority
+      kind (practice), not a role, thing, step, record or scheme'
+    expert_should_check: Whether GC-0180 is a principle.
 - id: GT-0181
   concept: GC-0181
   type: ground_of_refusal

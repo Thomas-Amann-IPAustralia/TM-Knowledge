@@ -57,6 +57,7 @@ const KIND_TONE = {
   subject_matter: "muted",
   instrument_or_record: "muted",
   external_instrument: "muted",
+  principle: "muted",
   none_of_these: "warn",
   residue: "warn",
   outcome: "warn",

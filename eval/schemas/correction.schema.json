@@ -28,12 +28,14 @@
     "remove": {
       "type": "object",
       "additionalProperties": false,
-      "description": "Values withdrawn from list fields of a signed concept. Each must be present on the signed record. The signed record keeps it; nothing that serves states it.",
+      "description": "Values withdrawn from list fields of a signed concept. Each must be present on the signed record. The signed record keeps it; nothing that serves states it. A \"kind of\" link (broader, narrower) that is not a kind-of at all may be withdrawn, the relation it should have been stated by an authored relationship (ADR-0131).",
       "properties": {
         "alt_labels": {"$ref": "#/$defs/strings"},
         "not_labels": {"$ref": "#/$defs/strings"},
         "legislative_basis": {"$ref": "#/$defs/strings"},
-        "related": {"$ref": "#/$defs/strings"}
+        "related": {"$ref": "#/$defs/strings"},
+        "broader": {"$ref": "#/$defs/strings"},
+        "narrower": {"$ref": "#/$defs/strings"}
       }
     },
     "set": {

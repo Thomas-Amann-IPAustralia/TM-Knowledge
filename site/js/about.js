@@ -34,11 +34,14 @@ export async function render(root, { ontology }) {
     <p class="small muted">A machine-written record carries the model's name, the date, the passage it rests on and its reasoning, and says it is
     unreviewed wherever it is shown. The rest were reviewed by a trade marks expert. An unchecked record never becomes approved by being left alone.</p>
 
-    <h2>The ten kinds</h2>
-    <p>A kind says what an idea is; what it does is a connection (the project owner's rule). Two kinds are the questions the law asks — grounds of refusal
-    and tests, the owner's own. Four are what those questions are asked about, and four the process around them; a machine proposed those eight.
-    Being a factor, an exception or a remedy is not a kind: it is a connection to the ground or test the idea acts on. Which kind each idea belongs to
-    was judged by a machine and has not been reviewed.</p>
+    <h2>The kinds, and how they connect</h2>
+    <p>A kind says what an idea is; what it does is a connection (the project owner's rule). Three kinds are the questions the law asks — grounds of
+    refusal and tests, the owner's own, and the principles that govern how they are answered. Four are what those questions are asked about, and four
+    the process around them; a machine proposed those nine. Being a factor, an exception or a remedy is not a kind: it is a connection to the ground
+    or test the idea acts on. Which kind each idea belongs to was judged by a machine and has not been reviewed.</p>
+    <p>Every connection says what it means — a role <i>performs</i> a step, a step <i>results in</i> a record, sign content <i>may give rise to</i> a
+    ground — and each relation names the kinds it may join, so the kinds connect in known ways and a connection that does not fit is caught.
+    There is no "is related to": a passage that only mentions two ideas is not a connection between them.</p>
     <ul class="small" style="padding-left:0;list-style:none">${ontology.kinds.map((k) => `<li style="margin:.25rem 0"><span class="dot" style="--c:${kindColour(k.id)}"></span> <b>${esc(k.label)}</b> — ${esc(k.plain)}</li>`).join("")}</ul>
 
     <h2>How Ask the Manual works</h2>

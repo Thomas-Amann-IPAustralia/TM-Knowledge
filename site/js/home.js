@@ -1,7 +1,7 @@
 /* Home — what this is, in one screen, and ways in. Kept plain on purpose: the
    nested circles that once sat here have their own view (circles.js). */
 
-import { esc, fmt, load } from "./app.js";
+import { esc, fmt, kindCount, load } from "./app.js";
 
 export async function render(root, { ontology }) {
   const stability = await load("stability");
@@ -31,7 +31,7 @@ export async function render(root, { ontology }) {
     </section>
 
     <section class="levels" aria-label="The map at four levels of detail">
-      ${rung("circles", ontology.kinds.length - 1, "Kinds of idea", "Grounds and tests; what a mark contains and its context; roles, steps, records. What an idea does is a connection.", 1)}
+      ${rung("circles", kindCount(ontology), "Kinds of idea", "Grounds, tests and principles; what a mark contains and its context; roles, steps, records — and how each kind acts on the others.", 1)}
       ${rung("map/ideas", concepts, "Ideas", "Each sorted into a kind. Most were written by a machine and have not yet been reviewed.", 2)}
       ${rung("map/ideas", relations, "Connections", "How one idea bears on another, each pinned to the sentence it rests on.", 3)}
       ${rung("change", passages, "Passages", `The Manual's words, the Act and Regulations kept apart. ${fmt(stability.events)} amendments since ${esc(firstYear)}.`, 4)}

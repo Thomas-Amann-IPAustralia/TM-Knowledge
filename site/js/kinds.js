@@ -1,5 +1,6 @@
-/* The ten kinds of idea as one SVG picture: three family zones, a bubble per
-   kind, and the strongest kind-to-kind patterns as arrows. Used by the tour; the
+/* The kinds of idea as one SVG picture: three family zones, a bubble per
+   kind, and the strongest kind-to-kind patterns as arrows, each labelled with
+   what the relationships between the two kinds say (ADR-0131). Used by the tour; the
    map draws the same level with Cytoscape. `kind_links` is computed by
    tmk-explorer from the relationship records. */
 
@@ -9,7 +10,7 @@ import { svg, curve, wrapText } from "./graph.js";
 export const W = 1000, H = 660;
 // A kind says what an idea is; what it does is an arrow (ruling B1, ADR-0126).
 export const KIND_POS = {
-  legal_test: { x: 150, y: 230 }, ground_of_refusal: { x: 150, y: 470 },
+  legal_test: { x: 150, y: 215 }, principle: { x: 82, y: 345 }, ground_of_refusal: { x: 150, y: 470 },
   context: { x: 395, y: 175 }, sign_content: { x: 395, y: 385 },
   subject_matter: { x: 570, y: 265 }, use_in_trade: { x: 575, y: 545 },
   process_role: { x: 770, y: 185 }, procedural_step: { x: 905, y: 300 },
@@ -21,10 +22,11 @@ export const ZONES = [
   { family: "examined", x: 300, y: 80, w: 355, h: 565, label: "What they are asked about" },
   { family: "process", x: 670, y: 80, w: 310, h: 565, label: "The process around them" },
 ];
-export const LOOSE = new Set(["related", "broader"]);
+// "Is a kind of" is hierarchy, not one kind acting on another; "is related to" is retired.
+export const LOOSE = new Set(["broader"]);
 
 export const kindRadius = (k) => 24 + 7 * Math.sqrt(k.signed + k.machine);
-export const specificCount = (row) => row.total - (row.predicates.related || 0) - (row.predicates.broader || 0);
+export const specificCount = (row) => row.total - (row.predicates.broader || 0);
 
 /** Draw the kinds level into `g`. Used by the map and by the tour. */
 export function drawKinds(g, ontology, { strongOnly = true, onKind = null, onLink = null, minimal = false } = {}) {
@@ -38,10 +40,17 @@ export function drawKinds(g, ontology, { strongOnly = true, onKind = null, onLin
   const links = svg("g", {}, g);
   const labels = svg("g", {}, g);
   const within = new Map();
+  // Every kind keeps at least its strongest link, so none floats free (ADR-0131).
+  const best = new Map();
+  for (const row of ontology.kind_links) {
+    if (row.s === row.o) continue;
+    for (const end of [row.s, row.o]) best.set(end, Math.max(best.get(end) || 0, specificCount(row)));
+  }
   for (const row of ontology.kind_links) {
     if (row.s === row.o) { within.set(row.s, row); continue; }
     const strong = specificCount(row);
-    if (strongOnly && strong < 5) continue;
+    const strongest = strong > 0 && (strong === best.get(row.s) || strong === best.get(row.o));
+    if (strongOnly && strong < 5 && !strongest) continue;
     const a = KIND_POS[row.s], b = KIND_POS[row.o];
     const ka = kinds.get(row.s), kb = kinds.get(row.o);
     const c = curve(a, b, kindRadius(ka) + 4, kindRadius(kb) + 8, 0.12);

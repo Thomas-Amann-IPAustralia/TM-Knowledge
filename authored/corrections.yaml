@@ -941,3 +941,198 @@
       already states that from the same sentence.
     alternatives_considered: []
     expert_should_check: null
+- id: GK-0030
+  corrects: GC-0001
+  record_type: gold_concept
+  remove:
+    narrower:
+    - GC-0045
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part29/1#1
+      span:
+      - 778
+      - 978
+      content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+      quote: If the trade mark, or some part of the trade mark, contains a connotation that
+        would be likely to deceive or confuse consumers within the relevant market, then a
+        ground for rejection should be raised.
+    confidence: 0.85
+    reasoning: The signed record says the decision maker is a kind of connotation; it is a
+      role, connotation a test. Nothing in the corpus relates them hierarchically.
+    alternatives_considered: []
+    expert_should_check: Whether the signed link was meant as a kind-of.
+- id: GK-0031
+  corrects: GC-0017
+  record_type: gold_concept
+  remove:
+    narrower:
+    - GC-0019
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part29/9#1
+      span:
+      - 325
+      - 464
+      content_hash: sha256:17c928f3bdc152f1ba5a886c36379eb9e74ab1b2afcb0cef15aa9cc5ee4cf3d6
+      quote: Trade marks which contain a geographical reference will often connote the geographical
+        origin or some other attribute of goods or services.
+    confidence: 0.85
+    reasoning: Geographical origin (where the goods come from) is not a kind of geographical
+      reference (a thing in the mark), and GC-0019's own not-label is "geographical reference".
+      A geographical reference indicates a geographical origin (GR-0410).
+    alternatives_considered: []
+    expert_should_check: Whether the signed link was meant as a kind-of.
+- id: GK-0032
+  corrects: GC-0019
+  record_type: gold_concept
+  remove:
+    broader:
+    - GC-0017
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part29/9#1
+      span:
+      - 325
+      - 464
+      content_hash: sha256:17c928f3bdc152f1ba5a886c36379eb9e74ab1b2afcb0cef15aa9cc5ee4cf3d6
+      quote: Trade marks which contain a geographical reference will often connote the geographical
+        origin or some other attribute of goods or services.
+    confidence: 0.85
+    reasoning: As the correction of GC-0017 — the other end of the same link.
+    alternatives_considered: []
+    expert_should_check: Whether the signed link was meant as a kind-of.
+- id: GK-0033
+  corrects: GC-0032
+  record_type: gold_concept
+  remove:
+    narrower:
+    - GC-0033
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part29/8/8/1
+      span:
+      - 0
+      - 67
+      content_hash: sha256:3264c706f600642da5ed333d95290b16d856bad2a6b6f6170d7761522bf49c0f
+      quote: Top level domain (TLD) refers to the last segment of a domain name.
+    confidence: 0.85
+    reasoning: A top level domain is a part of a domain name, not a kind of one.
+    alternatives_considered: []
+    expert_should_check: Whether the signed link was meant as a kind-of.
+- id: GK-0034
+  corrects: GC-0033
+  record_type: gold_concept
+  remove:
+    broader:
+    - GC-0032
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part29/8/8/1
+      span:
+      - 0
+      - 67
+      content_hash: sha256:3264c706f600642da5ed333d95290b16d856bad2a6b6f6170d7761522bf49c0f
+      quote: Top level domain (TLD) refers to the last segment of a domain name.
+    confidence: 0.85
+    reasoning: As the correction of GC-0032 — the other end of the same link.
+    alternatives_considered: []
+    expert_should_check: Whether the signed link was meant as a kind-of.
+- id: GK-0035
+  corrects: GC-0009
+  record_type: gold_concept
+  remove:
+    narrower:
+    - GC-0010
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part29/1#1
+      span:
+      - 778
+      - 978
+      content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+      quote: If the trade mark, or some part of the trade mark, contains a connotation that
+        would be likely to deceive or confuse consumers within the relevant market, then a
+        ground for rejection should be raised.
+    confidence: 0.85
+    reasoning: The ordinary consumer is a member of the relevant market, not a kind of market.
+      No sentence names both, so no "part of" link replaces it; both qualify the same tests
+      (GR-0067, GR-0080).
+    alternatives_considered: []
+    expert_should_check: Whether the signed link was meant as a kind-of.
+- id: GK-0036
+  corrects: GC-0010
+  record_type: gold_concept
+  remove:
+    broader:
+    - GC-0009
+  ruling: review/rulings/2026-10-09-chat-ontology-structure.yaml#CHAT-0073
+  notes: null
+  approved_by: null
+  approved_date: null
+  authored:
+    review_status: unreviewed
+    authored_by: claude-code-agent-S029
+    authored_date: '2026-10-09'
+    authoring_basis: corpus_inferred
+    evidence:
+    - ref: TMM/Part29/1#1
+      span:
+      - 778
+      - 978
+      content_hash: sha256:b6690f96b0ebc5181ac9b42c2669b0de831371538a8cc414e94d5e54796ceeff
+      quote: If the trade mark, or some part of the trade mark, contains a connotation that
+        would be likely to deceive or confuse consumers within the relevant market, then a
+        ground for rejection should be raised.
+    confidence: 0.85
+    reasoning: As the correction of GC-0009 — the other end of the same link.
+    alternatives_considered: []
+    expert_should_check: Whether the signed link was meant as a kind-of.
