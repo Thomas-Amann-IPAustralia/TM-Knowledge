@@ -1,0 +1,59 @@
+# An instruction the repo owner gave in a chat session, about the ontology's structure:
+# its top level, the elements left unconnected, and the "is related to" relation.
+# Hand-transcribed by the S029 agent; no issue behind it. The artefact is
+# `review/returned/261009-owner-chat-ontology-structure.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-09T09:00:00Z'
+questions_updated: '2026-10-09'
+source:
+  kind: chat
+  artefact: review/returned/261009-owner-chat-ontology-structure.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S029 agent
+  title: Connect the ontology's top level, retire "is related to", and review the structure
+    with common sense
+applied:
+  session: S029
+  date: '2026-10-09'
+  branch: claude/ecstatic-wright-5gz3fs
+  what_changed: >-
+    The families became TBox classes and every predicate names the kinds it joins; a
+    machine-written edge outside them is a harness defect. Twenty-three process, time and
+    evidence predicates admitted; `related` retired as a relationship and from the relate
+    prompt. All 202 "is related to" edges and 24 off-kind edges judged by hand
+    (data/derived/audit/restructure.yaml): 130 re-read, 96 withdrawn. A `principle` kind added;
+    none_of_these emptied; nine concepts re-typed, two relabelled; four signed "is a kind of"
+    links withdrawn by corrections GK-0030 to GK-0036; twelve new edges. 164 of 164 concepts in
+    one connected piece. The explorer draws the connections at the top level (ADR-0131).
+answers:
+- id: CHAT-0071
+  item: top-level
+  question: Is the ontology's top level — three families of kinds, drawn as separate boxes and
+    circles — the right abstraction?
+  kind: instruction
+  value: connect
+  label: Not convinced; elements that do not connect are a cop out — the top level must say how
+    its parts relate
+  quote: I'm not convinced by the highest level abstraction in the ontology. Not having elements
+    connect seems like a bit of a cop out.
+  recorded_as:
+  - ADR-0131
+- id: CHAT-0072
+  item: D7
+  question: What happens to "is related to" (skos:related) as a relationship?
+  kind: instruction
+  value: replace
+  label: '"Is related to" says nothing; every relationship must say what it means'
+  quote: Similarly 'is related to' is about as non-descript as you can get.
+  recorded_as:
+  - ADR-0131
+- id: CHAT-0073
+  item: structure-review
+  question: How far should the review of the ontology's structure go?
+  kind: instruction
+  value: common_sense_review
+  label: Review the whole structure; apply common sense; make the information correct and accurate
+  quote: Please review the structure of the ontology. Apply common sense to the structures and
+    ensure that the information is represented correctly and accurately
+  recorded_as:
+  - ADR-0131

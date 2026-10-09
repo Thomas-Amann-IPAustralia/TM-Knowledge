@@ -62,9 +62,10 @@ practice as legislation or legislation as practice.
 6. Australian English."""
 
 #: What a relation is called in the answer schema -> how it is written as a record.
-#: `is_kind_of` becomes SKOS broader (subject narrower, object broader); `related_to`
-#: becomes SKOS related; `same_concept` is reported for a person, never written.
-GENERIC_RELATIONS = ("is_kind_of", "related_to", "same_concept", "none")
+#: `is_kind_of` becomes SKOS broader (subject narrower, object broader);
+#: `same_concept` is reported for a person, never written. `related_to` (SKOS related)
+#: was retired on the owner's instruction of 2026-10-09 (ADR-0131).
+GENERIC_RELATIONS = ("is_kind_of", "same_concept", "none")
 
 
 # ---------------------------------------------------------------------------
@@ -301,7 +302,7 @@ class Job:
 
 
 #: Predicates the relate job may propose: the dictionary's, less SKOS (which the
-#: prompt offers as is_kind_of and related_to) and less `constrainsExaminerTo`,
+#: prompt offers as is_kind_of; `related` is retired, ADR-0131) and less `constrainsExaminerTo`,
 #: which the dictionary keeps for its signed records while new records name the
 #: role with `constrainsRole` (review D1).
 def relate_predicates() -> list[str]:
@@ -382,7 +383,6 @@ def _relate_render(ctx: Context, item: Item) -> str:
     lines += _predicate_lines()
     lines += [
         "- is_kind_of: the subject is a kind, case or instance of the object.",
-        "- related_to: the passage connects them, but no predicate above fits.",
         "- same_concept: the two are the same idea under two records.",
         "- none: the passages do not support a relationship.",
         "", "NEIGHBOURS:",
@@ -404,8 +404,10 @@ _RELATE_INSTRUCTIONS = PREAMBLE + """
 Task: for each NEIGHBOUR, decide whether the passages shown with it state or clearly \
 support a relationship between the ANCHOR and that neighbour, and if so which.
 - Use the most specific predicate the passage supports; prefer a listed predicate \
-to is_kind_of, and either to related_to. Use none when the passages only mention \
-both. Use same_concept only for two records naming one idea.
+to is_kind_of. Use none when the passages only mention both, or connect them in \
+a way no predicate above states — a passage that names two ideas is not thereby a \
+relationship between them, and the mention index already records it. Use \
+same_concept only for two records naming one idea.
 - direction says which concept is the subject: anchor_to_neighbour or \
 neighbour_to_anchor. Check it against the predicate's "Reads:" line — a cause is \
 the subject of mayGiveRiseTo, a ground the subject of isOvercomeBy, a threshold the \
@@ -493,7 +495,7 @@ def _relate_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict
             outcome.refused.append(f"{anchor}–{other}: the quote does not name both concepts")
             continue
         subject, obj = (anchor, other) if j.get("direction") == "anchor_to_neighbour" else (other, anchor)
-        predicate = {"is_kind_of": "broader", "related_to": "related"}.get(relation, relation)
+        predicate = {"is_kind_of": "broader"}.get(relation, relation)
         # Review D4: "is a kind of" between two concepts that list each other as not the
         # same is refused unless a written affirmation says why both hold (ADR-0125).
         clash = hygiene.kind_of_clashes(
@@ -510,7 +512,7 @@ def _relate_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict
             "subject": subject, "predicate": predicate, "object": obj,
             "source_ref": ref, "supporting_text": found["quote"], "span": found["span"],
             "source_content_hash": found["content_hash"],
-            "tier": 2 if predicate in ("broader", "related") else 3,
+            "tier": 2 if predicate == "broader" else 3,
             "modality": modality if modality in ("must", "may", "should") else None,
             "approved_by": None, "approved_date": None,
             "authored": envelope(
@@ -1428,8 +1430,9 @@ def _write_audit(records: dict[str, list[dict[str, Any]]]) -> list[Path]:
 def registry(ctx: Context) -> dict[str, Job]:
     return {
         # v2: the predicates come from the defined dictionary, not the first signed
-        # example of each (review D1, ADR-0123).
-        "relate": Job("relate", "relate-v2", "knowledge", _RELATE_INSTRUCTIONS,
+        # example of each (review D1, ADR-0123). v3: no related_to, and the process,
+        # time and evidence predicates (ADR-0131).
+        "relate": Job("relate", "relate-v3", "knowledge", _RELATE_INSTRUCTIONS,
                       _relate_schema(relate_predicates()),
                       12000, _relate_items, _relate_render, _relate_accept, _write_relationships,
                       "Relationships between concept pairs the Manual mentions together"),

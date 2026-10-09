@@ -1496,3 +1496,22 @@ job that costs about $1.74 (ADR-0128). Even completed calls mislead: a retry of 
 that failed hits the provider's prompt cache, so 2026-10-07's answers averaged $0.0074 when
 a fresh one costs about $0.0135. `tmk-bulk spend` now shows completed calls beside
 attempts; price new work from fresh completed calls, and smoke-run before quoting.
+
+### Q-86 — an edge that does not fit its kinds may have the wrong kind, not the wrong edge
+
+`predicates.off_schema` judges an edge by the kinds of its two ends, and the kinds come
+from `authored/concept-types.yaml`. When S029 first ran it, "owner or authorised user owns
+a phoneword" failed because the concept was typed *context* though it names a person; the
+fix was the type, not the edge. Before re-reading an off-kind edge, ask whether either end is
+filed under the kind it is. And judge served records, not signed ones: `goldset.load()` still
+holds five signed relationships that are off-kind — exactly the five a correction replaces as
+recorded the wrong way round (GR-0007, GR-0018, GR-0032, GR-0034, GR-0058). Use
+`corrections.served_gold()` for anything that asks what the ontology says.
+
+### Q-87 — a relabelled concept is not recognised under its new label until the ledger is written
+
+`tmk-bulk restructure` checks that a sentence names both ends of an edge with the labels
+recognition holds *now*. A concept the same ledger relabels (S029: GC-0149, GC-0126) is
+matched by its new labels only through `restructure._relabelled`, a plain substring test —
+so a new edge for a relabelled concept passes on a looser check than any other. Read such
+lines yourself; after `--write`, `tmk-bulk links --write` brings the mention index up to date.

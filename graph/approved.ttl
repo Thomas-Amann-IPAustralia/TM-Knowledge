@@ -1735,6 +1735,31 @@ tmka:GX-0013 a tmk:ReasoningExpectation ;
     tmk:reviewStatus "approved" ;
     tmk:tier 3 .
 
+tmkc:GC-0033 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Generic and country-code TLDs are treated differently by the Manual, so holding them as alt labels of one concept may be wrong."@en-AU ;
+    skos:altLabel "TLD"@en-AU,
+        "country-code TLD"@en-AU,
+        "generic TLD"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "top level domain"@en-AU ;
+    tmk:approvedBy "TC" ;
+    tmk:approvedDate "2026-08-25"^^xsd:date ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/2> ;
+    tmk:goldRecord "GC-0033" ;
+    tmk:labelKey "country code tld",
+        "generic tld",
+        "tld",
+        "top level domain" ;
+    tmk:notLabel "second level domain"@en-AU,
+        "subdomain"@en-AU ;
+    tmk:notLabelKey "second level domain",
+        "subdomain" ;
+    tmk:origin "approved" ;
+    tmk:prefLabelKey "top level domain" ;
+    tmk:reviewStatus "approved" .
+
 tmkc:GC-0036 a skos:Concept,
         tmk:LegalConcept ;
     skos:altLabel "other plant name"@en-AU,
@@ -2364,6 +2389,58 @@ tmkp:GS-0003 a tmk:SearchQuestion ;
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1> ;
     tmk:usesManualTerminology false .
 
+tmkc:GC-0009 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "Low confidence. These may be four distinct ideas that an examiner chooses between deliberately."@en-AU ;
+    skos:altLabel "buying public"@en-AU,
+        "relevant Australian consumers"@en-AU,
+        "relevant sector of the public"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "relevant market"@en-AU ;
+    skos:related tmkc:GC-0049 ;
+    tmk:approvedBy "TC" ;
+    tmk:approvedDate "2026-08-25"^^xsd:date ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
+    tmk:goldRecord "GC-0009" ;
+    tmk:labelKey "buying public",
+        "relevant australian consumer",
+        "relevant market",
+        "relevant sector of the public" ;
+    tmk:notLabel "relevant trade"@en-AU,
+        "trade"@en-AU ;
+    tmk:notLabelKey "relevant trade",
+        "trade" ;
+    tmk:origin "approved" ;
+    tmk:prefLabelKey "relevant market" ;
+    tmk:reviewStatus "approved" .
+
+tmkc:GC-0010 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The first not_label is the Manual's own words, quoted from a decision. It is the clearest negative boundary marker in the pilot area."@en-AU ;
+    skos:altLabel "average consumer"@en-AU,
+        "ordinary person"@en-AU,
+        "reasonable consumer"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "ordinary consumer"@en-AU ;
+    tmk:approvedBy "TC" ;
+    tmk:approvedDate "2026-08-25"^^xsd:date ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:goldRecord "GC-0010" ;
+    tmk:labelKey "average consumer",
+        "ordinary consumer",
+        "ordinary person",
+        "reasonable consumer" ;
+    tmk:notLabel "exceptionally stupid or careless consumer"@en-AU,
+        "expert consumer"@en-AU ;
+    tmk:notLabelKey "exceptionally stupid or careless consumer",
+        "expert consumer" ;
+    tmk:origin "approved" ;
+    tmk:prefLabelKey "ordinary consumer" ;
+    tmk:reviewStatus "approved" .
+
 tmkc:GC-0020 a skos:Concept,
         tmk:LegalConcept ;
     rdfs:comment "The Manual's examples both contain place names, which is what makes this a genuine trap rather than a distinction on paper."@en-AU ;
@@ -2414,30 +2491,29 @@ tmkc:GC-0021 a skos:Concept,
     tmk:prefLabelKey "geographical qualifier" ;
     tmk:reviewStatus "approved" .
 
-tmkc:GC-0033 a skos:Concept,
+tmkc:GC-0032 a skos:Concept,
         tmk:LegalConcept ;
-    rdfs:comment "Generic and country-code TLDs are treated differently by the Manual, so holding them as alt labels of one concept may be wrong."@en-AU ;
-    skos:altLabel "TLD"@en-AU,
-        "country-code TLD"@en-AU,
-        "generic TLD"@en-AU ;
-    skos:broader tmkc:GC-0032 ;
+    rdfs:comment "\"Standard address code material\" is the Manual's own term for the common parts, which it distinguishes from the identifier. Treating them as the same thing would make every mark containing \"com\" a candidate."@en-AU ;
+    skos:altLabel "domain name"@en-AU,
+        "internet domain name reference"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "top level domain"@en-AU ;
+    skos:prefLabel "internet domain name"@en-AU ;
+    skos:related tmkc:GC-0035 ;
     tmk:approvedBy "TC" ;
     tmk:approvedDate "2026-08-25"^^xsd:date ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/1>,
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231>,
         <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/2> ;
-    tmk:goldRecord "GC-0033" ;
-    tmk:labelKey "country code tld",
-        "generic tld",
-        "tld",
-        "top level domain" ;
-    tmk:notLabel "second level domain"@en-AU,
-        "subdomain"@en-AU ;
-    tmk:notLabelKey "second level domain",
-        "subdomain" ;
+    tmk:goldRecord "GC-0032" ;
+    tmk:labelKey "domain name",
+        "internet domain name",
+        "internet domain name reference" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
+    tmk:notLabel "standard address code material"@en-AU,
+        "website"@en-AU ;
+    tmk:notLabelKey "standard address code material",
+        "website" ;
     tmk:origin "approved" ;
-    tmk:prefLabelKey "top level domain" ;
+    tmk:prefLabelKey "internet domain name" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0037 a skos:Concept,
@@ -2567,60 +2643,6 @@ tmkc:GC-0005 a skos:Concept,
     tmk:notLabelKey "connotation" ;
     tmk:origin "approved" ;
     tmk:prefLabelKey "denotation" ;
-    tmk:reviewStatus "approved" .
-
-tmkc:GC-0009 a skos:Concept,
-        tmk:LegalConcept ;
-    rdfs:comment "Low confidence. These may be four distinct ideas that an examiner chooses between deliberately."@en-AU ;
-    skos:altLabel "buying public"@en-AU,
-        "relevant Australian consumers"@en-AU,
-        "relevant sector of the public"@en-AU ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:narrower tmkc:GC-0010 ;
-    skos:prefLabel "relevant market"@en-AU ;
-    skos:related tmkc:GC-0049 ;
-    tmk:approvedBy "TC" ;
-    tmk:approvedDate "2026-08-25"^^xsd:date ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1> ;
-    tmk:goldRecord "GC-0009" ;
-    tmk:labelKey "buying public",
-        "relevant australian consumer",
-        "relevant market",
-        "relevant sector of the public" ;
-    tmk:notLabel "relevant trade"@en-AU,
-        "trade"@en-AU ;
-    tmk:notLabelKey "relevant trade",
-        "trade" ;
-    tmk:origin "approved" ;
-    tmk:prefLabelKey "relevant market" ;
-    tmk:reviewStatus "approved" .
-
-tmkc:GC-0010 a skos:Concept,
-        tmk:LegalConcept ;
-    rdfs:comment "The first not_label is the Manual's own words, quoted from a decision. It is the clearest negative boundary marker in the pilot area."@en-AU ;
-    skos:altLabel "average consumer"@en-AU,
-        "ordinary person"@en-AU,
-        "reasonable consumer"@en-AU ;
-    skos:broader tmkc:GC-0009 ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "ordinary consumer"@en-AU ;
-    tmk:approvedBy "TC" ;
-    tmk:approvedDate "2026-08-25"^^xsd:date ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/1~1>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/4%231>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
-    tmk:goldRecord "GC-0010" ;
-    tmk:labelKey "average consumer",
-        "ordinary consumer",
-        "ordinary person",
-        "reasonable consumer" ;
-    tmk:notLabel "exceptionally stupid or careless consumer"@en-AU,
-        "expert consumer"@en-AU ;
-    tmk:notLabelKey "exceptionally stupid or careless consumer",
-        "expert consumer" ;
-    tmk:origin "approved" ;
-    tmk:prefLabelKey "ordinary consumer" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0016 a skos:Concept,
@@ -2782,32 +2804,6 @@ tmkc:GC-0030 a skos:Concept,
     tmk:prefLabelKey "image of a person" ;
     tmk:reviewStatus "approved" .
 
-tmkc:GC-0032 a skos:Concept,
-        tmk:LegalConcept ;
-    rdfs:comment "\"Standard address code material\" is the Manual's own term for the common parts, which it distinguishes from the identifier. Treating them as the same thing would make every mark containing \"com\" a candidate."@en-AU ;
-    skos:altLabel "domain name"@en-AU,
-        "internet domain name reference"@en-AU ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:narrower tmkc:GC-0033 ;
-    skos:prefLabel "internet domain name"@en-AU ;
-    skos:related tmkc:GC-0035 ;
-    tmk:approvedBy "TC" ;
-    tmk:approvedDate "2026-08-25"^^xsd:date ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8%231>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/8/8/2> ;
-    tmk:goldRecord "GC-0032" ;
-    tmk:labelKey "domain name",
-        "internet domain name",
-        "internet domain name reference" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
-    tmk:notLabel "standard address code material"@en-AU,
-        "website"@en-AU ;
-    tmk:notLabelKey "standard address code material",
-        "website" ;
-    tmk:origin "approved" ;
-    tmk:prefLabelKey "internet domain name" ;
-    tmk:reviewStatus "approved" .
-
 tmkc:GC-0034 a skos:Concept,
         tmk:LegalConcept ;
     rdfs:comment "Holding call sign and frequency as one concept is a simplification. The Manual treats them together but they are administered differently — the broadcaster may choose one and never chooses the other."@en-AU ;
@@ -2887,6 +2883,26 @@ tmkc:GC-0041 a skos:Concept,
         "state of the register" ;
     tmk:origin "approved" ;
     tmk:prefLabelKey "evidence of use" ;
+    tmk:reviewStatus "approved" .
+
+tmkc:GC-0045 a skos:Concept,
+        tmk:LegalConcept ;
+    skos:altLabel "the decision maker"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "decision maker"@en-AU ;
+    skos:related tmkc:GC-0044 ;
+    tmk:approvedBy "TC" ;
+    tmk:approvedDate "2026-08-25"^^xsd:date ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
+    tmk:goldRecord "GC-0045" ;
+    tmk:labelKey "decision maker" ;
+    tmk:notLabel "examiner"@en-AU,
+        "hearing officer"@en-AU ;
+    tmk:notLabelKey "examiner",
+        "hearing officer" ;
+    tmk:origin "approved" ;
+    tmk:prefLabelKey "decision maker" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0047 a skos:Concept,
@@ -3124,26 +3140,6 @@ tmkc:GC-0035 a skos:Concept,
     tmk:prefLabelKey "owner or authorised user" ;
     tmk:reviewStatus "approved" .
 
-tmkc:GC-0045 a skos:Concept,
-        tmk:LegalConcept ;
-    skos:altLabel "the decision maker"@en-AU ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "decision maker"@en-AU ;
-    skos:related tmkc:GC-0044 ;
-    tmk:approvedBy "TC" ;
-    tmk:approvedDate "2026-08-25"^^xsd:date ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/1%231>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3/3/4> ;
-    tmk:goldRecord "GC-0045" ;
-    tmk:labelKey "decision maker" ;
-    tmk:notLabel "examiner"@en-AU,
-        "hearing officer"@en-AU ;
-    tmk:notLabelKey "examiner",
-        "hearing officer" ;
-    tmk:origin "approved" ;
-    tmk:prefLabelKey "decision maker" ;
-    tmk:reviewStatus "approved" .
-
 tmkc:GC-0050 a skos:Concept,
         tmk:LegalConcept ;
     rdfs:comment "The first not_label is quoted practice: reputation in another mark is an external consideration and expressly not the source of a connotation."@en-AU ;
@@ -3281,6 +3277,29 @@ tmkc:GC-0007 a skos:Concept,
     tmk:prefLabelKey "presumption of registrability" ;
     tmk:reviewStatus "approved" .
 
+tmkc:GC-0019 a skos:Concept,
+        tmk:LegalConcept ;
+    skos:altLabel "origin of the goods"@en-AU,
+        "place of production"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "geographical origin"@en-AU ;
+    skos:related tmkc:GC-0021 ;
+    tmk:approvedBy "TC" ;
+    tmk:approvedDate "2026-08-25"^^xsd:date ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
+    tmk:goldRecord "GC-0019" ;
+    tmk:labelKey "geographical origin",
+        "origin of the good",
+        "place of production" ;
+    tmk:notLabel "geographical indication"@en-AU,
+        "geographical reference"@en-AU ;
+    tmk:notLabelKey "geographical indication",
+        "geographical reference" ;
+    tmk:origin "approved" ;
+    tmk:prefLabelKey "geographical origin" ;
+    tmk:reviewStatus "approved" .
+
 tmkc:GC-0031 a skos:Concept,
         tmk:LegalConcept ;
     rdfs:comment "The not_label is well evidenced: the Manual says other phone numbers that do not appear to represent a phoneword should not be queried."@en-AU ;
@@ -3356,30 +3375,6 @@ tmkc:GC-0012 a skos:Concept,
         "good actually supplied" ;
     tmk:origin "approved" ;
     tmk:prefLabelKey "specification of good and service" ;
-    tmk:reviewStatus "approved" .
-
-tmkc:GC-0019 a skos:Concept,
-        tmk:LegalConcept ;
-    skos:altLabel "origin of the goods"@en-AU,
-        "place of production"@en-AU ;
-    skos:broader tmkc:GC-0017 ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:prefLabel "geographical origin"@en-AU ;
-    skos:related tmkc:GC-0021 ;
-    tmk:approvedBy "TC" ;
-    tmk:approvedDate "2026-08-25"^^xsd:date ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/3%231~1>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231> ;
-    tmk:goldRecord "GC-0019" ;
-    tmk:labelKey "geographical origin",
-        "origin of the good",
-        "place of production" ;
-    tmk:notLabel "geographical indication"@en-AU,
-        "geographical reference"@en-AU ;
-    tmk:notLabelKey "geographical indication",
-        "geographical reference" ;
-    tmk:origin "approved" ;
-    tmk:prefLabelKey "geographical origin" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0029 a skos:Concept,
@@ -3562,6 +3557,35 @@ tmkp:PU-0007 a tmk:ProhibitedUse ;
     tmk:prohibitionReason "The Manual sets criteria and gives examples on both sides — SHETLAND attracting a ground, BALI not. A general rule extracted from them discards the criteria that decided each one."@en-AU ;
     tmk:reviewStatus "approved" .
 
+tmkc:GC-0017 a skos:Concept,
+        tmk:LegalConcept ;
+    rdfs:comment "The first not_label is the important one: every geographical indication is a geographical reference and the reverse is false, and the two terms are used within a few paragraphs of each other."@en-AU ;
+    skos:altLabel "geographic reference"@en-AU,
+        "place name"@en-AU,
+        "reference to a geographical location"@en-AU ;
+    skos:inScheme tmkc:scheme-s43 ;
+    skos:prefLabel "geographical reference"@en-AU ;
+    skos:related tmkc:GC-0018,
+        tmkc:GC-0020 ;
+    tmk:approvedBy "TC" ;
+    tmk:approvedDate "2026-08-25"^^xsd:date ;
+    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231>,
+        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
+    tmk:extendsTo tmkc:GC-0012 ;
+    tmk:goldRecord "GC-0017" ;
+    tmk:labelKey "geographic reference",
+        "geographical reference",
+        "place name",
+        "reference to a geographical location" ;
+    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
+    tmk:notLabel "business identifier"@en-AU,
+        "geographical indication"@en-AU ;
+    tmk:notLabelKey "business identifier",
+        "geographical indication" ;
+    tmk:origin "approved" ;
+    tmk:prefLabelKey "geographical reference" ;
+    tmk:reviewStatus "approved" .
+
 tmkc:GC-0026 a skos:Concept,
         tmk:LegalConcept ;
     rdfs:comment "\"Celebrity\" is an alt label on the strength of ordinary usage, not of the corpus — the Manual never uses the word. The not_labels point at Part 22 material, where a name is a distinctiveness question under section 41 rather than a connotation question."@en-AU ;
@@ -3601,36 +3625,6 @@ tmkp:PU-0001 a tmk:ProhibitedUse ;
     tmk:prohibitedOutput "This trade mark should be rejected under section 43 because the connotation is likely to deceive or cause confusion." ;
     tmk:prohibitionKind "evaluative_conclusion" ;
     tmk:prohibitionReason "Whether a connotation exists and whether it is likely to deceive is the decision maker's evaluative judgement on the material before them. The Manual requires the decision maker to be clearly satisfied; a system that states the conclusion has substituted itself for that person."@en-AU ;
-    tmk:reviewStatus "approved" .
-
-tmkc:GC-0017 a skos:Concept,
-        tmk:LegalConcept ;
-    rdfs:comment "The first not_label is the important one: every geographical indication is a geographical reference and the reverse is false, and the two terms are used within a few paragraphs of each other."@en-AU ;
-    skos:altLabel "geographic reference"@en-AU,
-        "place name"@en-AU,
-        "reference to a geographical location"@en-AU ;
-    skos:inScheme tmkc:scheme-s43 ;
-    skos:narrower tmkc:GC-0019 ;
-    skos:prefLabel "geographical reference"@en-AU ;
-    skos:related tmkc:GC-0018,
-        tmkc:GC-0020 ;
-    tmk:approvedBy "TC" ;
-    tmk:approvedDate "2026-08-25"^^xsd:date ;
-    tmk:definitionSource <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9%231>,
-        <https://data.ipaustralia.gov.au/tmk/ref/TMM/Part29/9/9/3~1> ;
-    tmk:extendsTo tmkc:GC-0012 ;
-    tmk:goldRecord "GC-0017" ;
-    tmk:labelKey "geographic reference",
-        "geographical reference",
-        "place name",
-        "reference to a geographical location" ;
-    tmk:legislativeBasis <https://data.ipaustralia.gov.au/tmk/ref/TMA1995/s43> ;
-    tmk:notLabel "business identifier"@en-AU,
-        "geographical indication"@en-AU ;
-    tmk:notLabelKey "business identifier",
-        "geographical indication" ;
-    tmk:origin "approved" ;
-    tmk:prefLabelKey "geographical reference" ;
     tmk:reviewStatus "approved" .
 
 tmkc:GC-0023 a skos:Concept,
@@ -3752,7 +3746,6 @@ tmkc:GC-0001 a skos:Concept,
         "secondary meaning"@en-AU,
         "secondary or implied meaning"@en-AU ;
     skos:inScheme tmkc:scheme-s43 ;
-    skos:narrower tmkc:GC-0045 ;
     skos:prefLabel "connotation"@en-AU ;
     skos:related tmkc:GC-0005,
         tmkc:GC-0044 ;

@@ -1,24 +1,26 @@
 /* At a glance — the ontology as nested circles (D3 circle packing): the whole,
-   its three families, the ten kinds, the ideas. Click to zoom a level down;
-   hover an idea to see its connections reach across kinds. Sizes count passages
-   that name each idea; nothing here is a judgement of the page's own.
+   its three families, the kinds, the ideas. Click to zoom a level down. At every
+   level the circles are joined by what joins them: the families by the
+   relationships that cross between them, a family's kinds by theirs, an idea (on
+   hover) by its own — each line labelled with what it says (ADR-0131). Sizes count
+   passages that name each idea; nothing here is a judgement of the page's own.
 
    Every idea is drawn the same way, whoever wrote it: who wrote a record is on
    its card, not on the picture (ADR-0130). */
 
-import { esc, fmt, kindColour, trustBadge, kindChip, quoteBlock, refChip } from "./app.js";
+import { esc, fmt, kindColour, kindCount, trustBadge, kindChip, quoteBlock, refChip } from "./app.js";
 import * as lib from "./lib.js";
 
 // Short, because the four family labels share the top of one picture.
-const FAMILY_LABEL = { reasoning: "The law's questions", examined: "What is examined", process: "The process", other: "None of the ten" };
+const FAMILY_LABEL = { reasoning: "The law's questions", examined: "What is examined", process: "The process", other: "None of the kinds" };
 
 export async function render(root, { ontology }) {
   const d3 = await lib.d3();
   root.innerHTML = `
   <div class="wrap wide circles-page">
     <h1>Every idea, by what it is</h1>
-    <p class="lede">Three families of kinds, ${ontology.kinds.length - 1} kinds, ${fmt(ontology.concepts.length)} ideas, each circle sized by how many
-    passages of the Manual name it. Click a circle to go down a level.</p>
+    <p class="lede">Three families of kinds, ${kindCount(ontology)} kinds, ${fmt(ontology.concepts.length)} ideas, each circle sized by how many
+    passages of the Manual name it, and each joined to the others by what the connections between them say. Click a circle to go down a level.</p>
     <div class="circles">
       <div class="pack-card card">
         <div class="pack-crumbs" aria-live="polite"></div>
@@ -26,7 +28,7 @@ export async function render(root, { ontology }) {
       </div>
       <aside class="card circles-side">
         <div class="pack-note" aria-live="polite"></div>
-        <h4>The ten kinds</h4>
+        <h4>The kinds</h4>
         <ul class="kind-key">${ontology.kinds.map((k) => `<li><span class="dot" style="--c:${kindColour(k.id)}"></span><span><b>${esc(k.label)}</b> <span class="muted small">— ${esc(k.plain)}</span></span></li>`).join("")}</ul>
       </aside>
     </div>
@@ -41,7 +43,7 @@ function drawPack(root, ontology, d3) {
   const byId = new Map(ontology.concepts.map((x) => [x.id, x]));
   const neighbours = new Map();
   for (const r of ontology.relations) {
-    if (!byId.has(r.s) || !byId.has(r.o) || r.p === "related") continue;
+    if (!byId.has(r.s) || !byId.has(r.o)) continue;
     for (const [a, b] of [[r.s, r.o], [r.o, r.s]]) { if (!neighbours.has(a)) neighbours.set(a, []); neighbours.get(a).push({ id: b, r }); }
   }
 
@@ -56,7 +58,8 @@ function drawPack(root, ontology, d3) {
 
   const size = 600;
   const hierarchy = d3.hierarchy(data).sum((d) => d.value || 0).sort((a, b) => b.value - a.value);
-  const nodes = d3.pack().size([size, size]).padding((d) => (d.depth === 0 ? 14 : d.depth === 1 ? 10 : 3))(hierarchy);
+  // Room between the families and between a family's kinds, for the lines that join them.
+  const nodes = d3.pack().size([size, size]).padding((d) => (d.depth === 0 ? 56 : d.depth === 1 ? 22 : 3))(hierarchy);
 
   const svg = d3.create("svg").attr("viewBox", `-${size / 2} -${size / 2} ${size} ${size}`).attr("role", "img")
     .attr("aria-label", "The ontology as nested circles: families, kinds and ideas. Click to zoom.");
@@ -79,6 +82,8 @@ function drawPack(root, ontology, d3) {
     .on("mouseenter", (event, d) => { if (d.data.type === "idea") showLinks(d); })
     .on("mouseleave", () => links.selectAll("*").remove());
   circle.append("title").text((d) => d.data.name);
+  // Above the circles, below their names: the lines run in the gaps between circles.
+  const structure = svg.append("g").attr("class", "pack-structure").attr("pointer-events", "none");
 
   const label = svg.append("g").attr("pointer-events", "none").attr("text-anchor", "middle").selectAll("text")
     .data(nodes.descendants().slice(1)).join("text")
@@ -92,9 +97,66 @@ function drawPack(root, ontology, d3) {
   let view, home;
   const leafAt = new Map(nodes.leaves().map((d) => [d.data.id, d]));
 
+  // What joins the circles at the level in view: undirected pairs, with the
+  // predicates the relationships between them use, most used first.
+  const predLabel = (p) => ontology.predicates[p]?.label || p;
+  const pairs = (rows, keep) => {
+    const out = new Map();
+    for (const r of rows) {
+      if (r.s === r.o || !keep(r)) continue;
+      const key = [r.s, r.o].sort().join("|");
+      if (!out.has(key)) out.set(key, { a: [r.s, r.o].sort()[0], b: [r.s, r.o].sort()[1], total: 0, predicates: {} });
+      const m = out.get(key);
+      m.total += r.total;
+      for (const [p, n] of Object.entries(r.predicates)) m.predicates[p] = (m.predicates[p] || 0) + n;
+    }
+    return [...out.values()];
+  };
+  const topPredicates = (m, n) => Object.entries(m.predicates).sort((x, y) => y[1] - x[1]).slice(0, n).map(([p]) => predLabel(p));
+  const familyPairs = pairs(ontology.family_links || [], () => true);
+  const kindPairs = pairs(ontology.kind_links || [], () => true);
+  const familyNode = new Map(nodes.children.map((n) => [n.data.family, n]));
+  const kindNode = new Map(nodes.descendants().filter((n) => n.data.type === "kind").map((n) => [n.data.kind, n]));
+
+  function drawStructure(k) {
+    structure.selectAll("*").remove();
+    if (!focus || !["root", "family"].includes(focus.data.type)) return;
+    const at = (n) => [(n.x - view[0]) * k, (n.y - view[1]) * k];
+    let rows;
+    if (focus.data.type === "root") {
+      rows = familyPairs.map((m) => ({ m, a: familyNode.get(m.a), b: familyNode.get(m.b), label: `${topPredicates(m, 1).join("")} · ${m.total}` }));
+    } else {
+      const inside = new Set(focus.children.map((n) => n.data.kind));
+      rows = kindPairs.filter((m) => inside.has(m.a) && inside.has(m.b))
+        .map((m) => ({ m, a: kindNode.get(m.a), b: kindNode.get(m.b), label: String(m.total) }));
+    }
+    const max = Math.max(1, ...rows.map((r) => r.m.total));
+    for (const { m, a, b, label } of rows) {
+      if (!a || !b) continue;
+      // From edge to edge, across the gap between the two circles.
+      const [ax, ay] = at(a), [bx, by] = at(b);
+      const len = Math.hypot(bx - ax, by - ay) || 1, ux = (bx - ax) / len, uy = (by - ay) / len;
+      const x1 = ax + ux * (a.r * k + 3), y1 = ay + uy * (a.r * k + 3);
+      const x2 = bx - ux * (b.r * k + 3), y2 = by - uy * (b.r * k + 3);
+      structure.append("line").attr("x1", x1).attr("y1", y1).attr("x2", x2).attr("y2", y2)
+        .attr("stroke", "var(--ink)").attr("stroke-opacity", 0.5)
+        .attr("stroke-width", (1.5 + 6 * Math.sqrt(m.total / max)).toFixed(1)).attr("stroke-linecap", "round")
+        .append("title").text(`${a.data.name} — ${b.data.name}: ${m.total} connections (${topPredicates(m, 4).join(", ")})`);
+      // Beside the line, on the side away from the picture's centre, clear of the
+      // circles' names on their top edges.
+      const mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+      let nx = -uy, ny = ux;
+      if (nx * mx + ny * my < 0) { nx = -nx; ny = -ny; }
+      const off = focus.data.type === "root" ? 18 : 10;
+      structure.append("text").attr("class", "pack-link-label").attr("x", mx + nx * off).attr("y", my + ny * off + 4)
+        .attr("text-anchor", nx > 0.35 ? "start" : nx < -0.35 ? "end" : "middle").text(label);
+    }
+  }
+
   function zoomTo(v) {
     const k = size / v[2];
     view = v;
+    drawStructure(k);
     // A family's or kind's label sits on its top edge, so the circles inside stay visible.
     label.attr("transform", (d) => `translate(${(d.x - v[0]) * k},${(d.y - v[1]) * k + (d.children ? -d.r * k + 22 : 4)})`);
     circle.attr("transform", (d) => `translate(${(d.x - v[0]) * k},${(d.y - v[1]) * k})`).attr("r", (d) => d.r * k);
@@ -136,12 +198,21 @@ function drawPack(root, ontology, d3) {
     crumbs.innerHTML = path.map((n, i) => i === path.length - 1 ? `<b>${esc(n.data.name)}</b>` : `<button type="button" data-depth="${i}">${esc(n.data.name)}</button>`).join(" › ");
     crumbs.querySelectorAll("[data-depth]").forEach((b) => b.addEventListener("click", () => zoom(path[Number(b.dataset.depth)])));
     const type = d.data.type;
+    const familyLine = (r) => `<li><b>${esc(FAMILY_LABEL[r.s])}</b> → <b>${esc(FAMILY_LABEL[r.o].toLowerCase())}</b>:
+      ${Object.entries(r.predicates).slice(0, 3).map(([p, n]) => `${esc(predLabel(p))} ${n}`).join(", ")} <span class="muted">(${r.total})</span></li>`;
     if (type === "root") {
-      note.innerHTML = `<b>The whole ontology.</b> Three families of kinds, ${ontology.kinds.length - 1} kinds, ${fmt(ontology.concepts.length)} ideas.
-        <span class="muted">Click a family to go down a level; hover an idea to see its connections cross the kinds.</span>`;
+      const across = (ontology.family_links || []).filter((r) => r.s !== r.o);
+      note.innerHTML = `<b>The whole ontology.</b> Three families of kinds, ${kindCount(ontology)} kinds, ${fmt(ontology.concepts.length)} ideas.
+        <h4 style="margin:.6rem 0 .2rem">How the families connect</h4>
+        <ul class="small family-links">${across.map(familyLine).join("")}</ul>
+        <span class="muted">Each line counts the relationships whose two ideas sit in those families, by what they say. Click a family to go down a level.</span>`;
     } else if (type === "family") {
-      note.innerHTML = `<b>${esc(d.data.name)}.</b> ${d.children.length} kinds of idea. These rest on no single passage: a rewording of the Manual leaves them as they are.
-        <span class="muted">Click a kind.</span>`;
+      const own = (ontology.family_links || []).find((r) => r.s === d.data.family && r.o === d.data.family);
+      const out = (ontology.family_links || []).filter((r) => r.s !== r.o && (r.s === d.data.family || r.o === d.data.family));
+      note.innerHTML = `<b>${esc(d.data.name)}.</b> ${d.children.length} kinds of idea, joined inside the family by
+        ${own ? `${own.total} relationships (${Object.entries(own.predicates).slice(0, 3).map(([p, n]) => `${esc(predLabel(p))} ${n}`).join(", ")})` : "none"}, and to the others by:
+        <ul class="small family-links">${out.map(familyLine).join("")}</ul>
+        <span class="muted">These rest on no single passage: a rewording of the Manual leaves them as they are. Click a kind.</span>`;
     } else if (type === "kind") {
       note.innerHTML = `<b>${esc(d.data.name)}</b> — ${esc(d.data.plain)}. ${d.leaves().length} ideas. <span class="muted">Click one to read it.</span>
         <a href="#/map/ideas">Open it on the map →</a>`;

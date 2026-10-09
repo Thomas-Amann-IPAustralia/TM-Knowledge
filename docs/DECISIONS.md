@@ -5770,3 +5770,78 @@ filled-versus-dashed pictures or the signed-only filter without the owner; the h
 rules are met by the machine badge on every machine-written record and the banner on every
 page. A new view that draws passages uses `srcClass`, `quoteBlock` and `legend` from
 `app.js`, so the three marks stay one system.
+
+## ADR-0131 — the ontology's top level connects, every relationship says what it means, and "is related to" is retired
+
+**Date** 2026-10-09 · **Authority** human (the instruction), agent-proposed (how) · **Status**
+accepted · amends ADR-0126 (a kind added), decides D7 of ADR-0121 · ruling
+`review/rulings/2026-10-09-chat-ontology-structure.yaml`
+
+**Context.** The owner (CHAT-0071 to CHAT-0073,
+`review/returned/261009-owner-chat-ontology-structure.md`): *"I'm not convinced by the
+highest level abstraction in the ontology. Not having elements connect seems like a bit of a
+cop out. Similarly 'is related to' is about as non-descript as you can get. Please review the
+structure of the ontology. Apply common sense to the structures and ensure that the
+information is represented correctly and accurately"*. What S029 found: the ten kinds were
+filed side by side under `tmk:LegalConcept`, the three families existed only as boxes in the
+explorer, and every predicate's domain and range was `tmk:LegalMatter` — nothing said how a
+role, a step, a record and a ground relate. The dictionary held the law's reasoning and its
+authority but no process relations, so 202 of 456 machine-written relationships (44%) read
+"is related to". Six concepts were isolated, six filed `none_of_these`, and four signed "is a
+kind of" links were not kinds-of (the decision maker a kind of connotation; geographical
+origin a kind of geographical reference, against its own not-label; a top level domain a kind
+of domain name; the ordinary consumer a kind of relevant market).
+
+**Decision (the owner's).** The top level must say how its parts connect; "is related to" says
+nothing; review the structure with common sense and make it correct.
+
+**Decision (the agent's, inside it).**
+1. *The families are classes* (`tmk:LegalQuestion`, `tmk:ExaminedMatter`,
+   `tmk:ProcessElement`), each kind a subclass of one, each family's comment naming the
+   relations that join it to the others.
+2. *Every predicate names the kinds it joins* (`Predicate.subjects`, `.objects` in
+   `ontology/predicates.py`; `tmk:expectedSubjectKind`, `tmk:expectedObjectKind` in
+   `relations.ttl`, annotations that infer nothing). A machine-written edge whose ends are not
+   kinds its predicate joins is a harness defect (`authored-kinds`). Signed edges were checked
+   and all fit.
+3. *Twenty-three predicates added*, admitted `owner-2026-10-09`: the process (`performs`,
+   `files`, `issues`, `keeps`, `isServedOn`, `operatesOn`, `resultsIn`, `becomes`,
+   `isCommencedBy`, `precedes`, `prevents`, `isExcludedFrom`, `isRecordedIn`, `isAssessedIn`,
+   `owns`, `isPartOf`), time (`isFixedBy`, `keepsEarlierDate`, `runsFrom`), meaning and
+   evidence (`indicates`, `establishes`, `isAttributedTo`, `isDistinguishedFrom`). Each has a
+   definition, a reading, an example and a counter-example, machine-written and unreviewed.
+4. *`related` is retired* as a relationship (`predicates.RETIRED`); the relate prompt no longer
+   offers it. All 202 edges and 24 more found off-kind were judged by hand in
+   `data/derived/audit/restructure.yaml` and applied by `tmk-bulk restructure`: 130 re-read
+   (same id and sentence, first reading kept), 96 withdrawn — a sentence that mentions two ideas
+   is not a relationship, and the mention index already records it. A signed concept's own
+   `related` list (the expert's thesaurus cross-reference) is unchanged.
+5. *An eleventh kind, `principle`*, in the law's-questions family: the presumption of
+   registrability, the mandatory application of section 43, office practice. `none_of_these`
+   is now empty and the explorer shows it only when something is in it. Six other concepts
+   re-typed: date of registration (context, as the other dates), pending application
+   (instrument or record), repealed Act (external instrument, whose definition now admits
+   statutes other than the 1995 Act), owner or authorised user (process role — it names a
+   person), international registration (subject matter, as a registered trade mark is),
+   "originate" (context, not a test).
+6. *The four signed kind-of links withdrawn* by corrections GK-0030 to GK-0036, outside the
+   signature (ADR-0122); where the corpus states the real relation it is an authored edge
+   (geographical reference *indicates* geographical origin; top level domain *is part of*
+   domain name). No sentence names both the ordinary consumer and the relevant market, so
+   nothing replaces that one.
+7. *Every concept connected*: twelve new edges, each from a passage naming both ends; "Contracting
+   Party of the holder" relabelled "Office of the Contracting Party of the holder", the only
+   thing the corpus speaks of (it had excluded its own Office); "protected term" added as a
+   label of a term on the Wine Register (20 uses, all Part 32B).
+8. *The explorer draws the connections at the top*: the map's kinds level keeps each kind's
+   strongest link so none floats, and lists how the families connect; the circles view joins
+   the families, and a family's kinds, with labelled lines.
+
+**What it does not decide.** Whether any re-read is right — each is an agent's reading of one
+sentence, unreviewed. The signed concepts' `related` lists. Whether the edge audit's
+withdrawn relationships (ADR-0127) should be revisited with the new predicates.
+
+**Consequences.** 164 of 164 concepts in one connected piece (was 158); 372 relationships (20
+signed serving, 352 machine-written), none "is related to"; harness 0 defects with the new
+check; SHACL 0 defects. A future relate run must pick a predicate that fits both kinds or
+answer none. Adding a predicate means naming the kinds it joins.

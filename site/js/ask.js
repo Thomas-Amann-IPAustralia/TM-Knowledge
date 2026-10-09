@@ -254,7 +254,7 @@ export async function render(root, { ontology, params }) {
     return [
       rec.length ? `Recognised ${rec.length} idea${rec.length > 1 ? "s" : ""} in the question: ${rec.slice(0, 5).map(name).join(", ")}${rec.length > 5 ? "…" : ""}.${generic.length ? ` <span class="muted">(<i>${generic.map((r) => esc(byId.get(r.id)?.label)).join("</i>, <i>")}</i> ${generic.length > 1 ? "are" : "is"} named so often it is not used to steer.)</span>` : ""}`
         : `Recognised no specific idea in the question, so this is plain keyword search.`,
-      followed.length ? `Followed ${followed.length > 1 ? `all ${followed.length} connections` : "the one connection"} from ${rec.length > 1 ? "them" : "it"}, one step out, to ${neighbours.size} related idea${neighbours.size === 1 ? "" : "s"}${followed.length > g.paths.length ? `; ${g.paths.length} of them go to the answer-writer` : ""}.`
+      followed.length ? `Followed ${followed.length > 1 ? `all ${followed.length} connections` : "the one connection"} from ${rec.length > 1 ? "them" : "it"}, one step out, to ${neighbours.size} related idea${neighbours.size === 1 ? "" : "s"}${followed.length > g.paths.length ? `; ${g.paths.length} of them go to the answer-writer` : ""}.${(() => { const old = g.paths.filter((p) => ontology.retired_predicates?.[p.p]).length; return old ? ` <span class="muted">Prepared before the ontology was restructured on 9 October 2026: ${old} of the connections drawn below said only "is related to" and have since been re-read or withdrawn.</span>` : ""; })()}`
         : rec.length ? `The map records no connections for ${rec.length > 1 ? "these ideas" : "this idea"}, so there were none to follow.` : `No connections to follow.`,
       live ? `Gathered ${fmt(linkedCount)} passages linked to those ideas${g.legislation.length ? `, and ${g.legislation.length} provision${g.legislation.length > 1 ? "s" : ""} of the legislation` : ""}.`
         : `Gathered the passages linked to those ideas${g.legislation.length ? `, and ${g.legislation.length} provision${g.legislation.length > 1 ? "s" : ""} of the legislation` : ""}.`,
@@ -327,7 +327,7 @@ export async function render(root, { ontology, params }) {
       const cv = curve(a, b, 11, 13, recAt.has(p.s) && recAt.has(p.o) ? 0.4 : 0.06);
       const path = svg("path", { d: cv.d, class: "edge", opacity: 0, "marker-end": "url(#harrow)", "stroke-width": 1.4 }, lines);
       const label = svg("text", { x: cv.mx, y: cv.my - 3, class: "edge-label", "text-anchor": "middle", opacity: 0 }, lines);
-      label.textContent = ontology.predicates[p.p]?.label || p.p;
+      label.textContent = ontology.predicates[p.p]?.label || ontology.retired_predicates?.[p.p] || p.p;
       pathEls.push(path, label);
     }
     const nbEls = nbShown.map((id) => ideaNode(id, nbAt.get(id)));

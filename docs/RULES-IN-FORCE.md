@@ -1,10 +1,10 @@
-# Rules in force — what 122 decisions add up to
+# Rules in force — what 123 decisions add up to
 
 Read this instead of `DECISIONS.md` (ADR-0110). It is a summary, so when a line
 matters to your task, `grep -n` the ADR it cites and read that one. If this page
 and an ADR disagree, the ADR wins and this page is the bug — fix it.
 
-**As at:** 2026-10-09, ADR-0130.
+**As at:** 2026-10-09, ADR-0131.
 
 ## Purpose and scope
 
@@ -58,12 +58,20 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   `eval/gold/` is never edited. What serves (`served_gold()`) applies corrections;
   the harness and every measurement read the records as signed (ADR-0122).
 - **A concept's type is its own record** (`GT-`), not a field (ADR-0071), and it says
-  what the concept *is*: ten kinds in three families — the law's questions (ground,
-  test), what they are asked about (subject matter, sign content, context, use in
+  what the concept *is*: eleven kinds in three families — the law's questions (ground,
+  test, principle), what they are asked about (subject matter, sign content, context, use in
   trade), the process (role, step, instrument or record, external instrument) — and
   `none_of_these` (`typing.GROUPS`). What it *does* is an edge to the ground or test it
   acts on: a factor `qualifies` (or `mayGiveRiseTo`, `statesThresholdFor`), an exception
   `doesNotGiveRiseTo`, a ground `isOvercomeBy` its remedy — never a kind (ADR-0126).
+  An eleventh kind, `principle` (the presumption of registrability, mandatory application,
+  office practice), sits with the law's questions; `none_of_these` is empty (ADR-0131).
+- **The top level connects** (ADR-0131). The families are classes; every predicate names
+  the kinds it joins (`Predicate.subjects`/`.objects`), and a machine-written edge whose ends
+  are not those kinds is a harness defect. Adding a predicate means naming its kinds.
+- **No "is related to".** `related` is retired as a relationship; a passage that only
+  mentions two ideas is not a relationship (the mention index records it). The relate
+  prompt offers a predicate that fits or `none`. A signed concept's own `related` list stays.
 - **Names are compared folded** — case, apostrophes, hyphens, a leading article,
   plurals (`ontology.hygiene.fold`). A shared name is a note, a shared preferred label a
   SHACL violation; merging a pair the owner kept apart (`authored/merge-candidates.yaml`)

@@ -44,6 +44,7 @@
   /* The nine kinds of idea (stage0.typing.GROUPS) and "none of these". */
   --k-ground_of_refusal: #b4363f;
   --k-legal_test: #b26b00;
+  --k-principle: #c2552a;
   --k-context: #1b7a74;
   --k-sign_content: #4d7f2a;
   --k-use_in_trade: #869a12;
@@ -69,7 +70,7 @@
     --focus: #8cc4ea; --glow: #f0b45a; --ok: #6cc08a; --warn: #e39a5c;
     --manual: #8db8de; --manual-bg: #1f2b38; --law: #e1bd6a; --law-bg: #33291a;
     --act: #e1bd6a; --act-bg: #33291a; --regs: #d79bcb; --regs-bg: #33202f;
-    --k-ground_of_refusal: #e8707a; --k-legal_test: #e6a33c; --k-context: #4fbdb5;
+    --k-ground_of_refusal: #e8707a; --k-legal_test: #e6a33c; --k-principle: #ef8a5c; --k-context: #4fbdb5;
     --k-sign_content: #8ec46a; --k-use_in_trade: #cbd65c; --k-process_role: #8f9ce8; --k-procedural_step: #63aee6;
     --k-subject_matter: #c18ee0; --k-instrument_or_record: #c9a777; --k-external_instrument: #e584bd;
     --k-none_of_these: #9aa0a8;
@@ -83,7 +84,7 @@
   --focus: #8cc4ea; --glow: #f0b45a; --ok: #6cc08a; --warn: #e39a5c;
   --manual: #8db8de; --manual-bg: #1f2b38; --law: #e1bd6a; --law-bg: #33291a;
   --act: #e1bd6a; --act-bg: #33291a; --regs: #d79bcb; --regs-bg: #33202f;
-  --k-ground_of_refusal: #e8707a; --k-legal_test: #e6a33c; --k-context: #4fbdb5;
+  --k-ground_of_refusal: #e8707a; --k-legal_test: #e6a33c; --k-principle: #ef8a5c; --k-context: #4fbdb5;
   --k-sign_content: #8ec46a; --k-use_in_trade: #cbd65c; --k-process_role: #8f9ce8; --k-procedural_step: #63aee6;
   --k-subject_matter: #c18ee0; --k-instrument_or_record: #c9a777; --k-external_instrument: #e584bd;
   --k-none_of_these: #9aa0a8;
@@ -543,6 +544,9 @@ svg.hop .family-label { font-size: 12px; }
 .pack-label-family { font-family: var(--serif); font-size: 19px; font-weight: 600; }
 .pack-label-kind { font-family: var(--serif); font-size: 15px; font-weight: 600; }
 .pack-label-idea { font-size: 10.5px; }
+.pack-link-label { font-family: var(--sans); font-size: 11.5px; font-weight: 600; fill: var(--ink-2); paint-order: stroke; stroke: var(--panel); stroke-width: 4px; stroke-linejoin: round; }
+.family-links { margin: .2rem 0 .4rem; padding-left: 1rem; }
+.family-links li { margin: .15rem 0; }
 .pack-idea .quote { font-size: .92rem; }
 circle.pack-idea:hover, circle.pack-kind:hover { stroke-width: 2.6; }
 .levels { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .6rem; margin-top: 2.2rem; }
@@ -626,6 +630,7 @@ circle.sel { stroke: var(--ink) !important; stroke-width: 3 !important; stroke-d
 .sent-list .why { margin-top: .3rem; }
 .legend-row { margin-top: 1rem; }
 @media (max-width: 860px) { .tbl thead th { position: static; } }
+@media (min-width: 761px) { .tbl.kinds-tbl td:first-child { white-space: nowrap; } }
 @media (max-width: 900px) { .idea-detail { grid-template-columns: 1fr; gap: 0; } }
 @media (max-width: 760px) {
   .tbl .opt { display: none; }

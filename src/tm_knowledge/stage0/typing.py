@@ -87,6 +87,12 @@ REPORT_PATH = REPO_ROOT / "data" / "derived" / "reports" / "concept-typing.md"
 REASONING_GROUPS: tuple[tuple[str, str], ...] = (
     ("ground_of_refusal", "a reason an application can be refused"),
     ("legal_test", "a question the decision maker has to answer"),
+    (
+        "principle",
+        "a principle or settled practice about how the law's questions are answered — where the "
+        "onus lies, what standard applies, whether there is a discretion, how the office applies "
+        "the Act where it leaves room",
+    ),
 )
 
 #: What the law's questions are asked about: the mark, what it contains or
@@ -113,7 +119,11 @@ EXAMINED_GROUPS: tuple[tuple[str, str], ...] = (
 #: The process kinds: who acts, what act is performed, what it produces, and what
 #: external scheme it runs under.
 PROCESS_GROUPS: tuple[tuple[str, str], ...] = (
-    ("process_role", "a person or body that acts — who does something"),
+    (
+        "process_role",
+        "a person, office or body that acts in the process, or whose rights or consent it must "
+        "respect — who does something",
+    ),
     (
         "procedural_step",
         "an act, proceeding or event that moves an application or a registration "
@@ -126,8 +136,8 @@ PROCESS_GROUPS: tuple[tuple[str, str], ...] = (
     ),
     (
         "external_instrument",
-        "a treaty or international scheme Australian practice adopts, rather than a "
-        "rule the Act itself makes",
+        "a treaty, an international scheme or a statute other than the Trade Marks Act 1995 "
+        "that practice applies or refers to, rather than a rule the Act itself makes",
     ),
 )
 

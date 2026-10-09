@@ -4,7 +4,7 @@
    says what to look at. Step order is the argument: text → wordings → connections
    → kinds → change → retrieval → limits. */
 
-import { esc, fmt, load, kindColour, refChip, trustBadge, quoteBlock, stampIcon, openPassage } from "./app.js";
+import { esc, fmt, load, kindColour, kindCount, refChip, trustBadge, quoteBlock, stampIcon, openPassage } from "./app.js";
 import { svg, curve, arrowDefs, wrapText } from "./graph.js";
 import { drawKinds, W, H, specificCount } from "./kinds.js";
 
@@ -297,20 +297,20 @@ export async function render(root, { ontology, params }) {
     const kinds = new Map(ontology.kinds.map((k) => [k.id, k]));
     const top = ontology.kind_links.filter((r) => r.s !== r.o).sort((a, b) => specificCount(b) - specificCount(a)).slice(0, 4);
     const say = (r) => {
-      const [p, n] = Object.entries(r.predicates).find(([x]) => x !== "related" && x !== "broader");
+      const [p, n] = Object.entries(r.predicates).find(([x]) => x !== "broader");
       return `<li><b>${esc(kinds.get(r.s).label)}</b> ${esc(ontology.predicates[p]?.label || p)} <b>${esc(kinds.get(r.o).label.toLowerCase())}</b> <span class="muted small">(${n} of ${r.total})</span></li>`;
     };
     body.innerHTML = `
       <p class="step-k">4 · Zoom out</p>
       <h2>Every idea is a kind of thing</h2>
-      <p>Each idea is sorted by what it is into one of ten kinds: <b>the questions the law asks</b>, <b>what they are asked about</b>, and
-      <b>the process around them</b>. What an idea <i>does</i> — qualify a test, give rise to a ground, overcome one — is a connection.
+      <p>Each idea is sorted by what it is into one of ${kindCount(ontology)} kinds: <b>the questions the law asks</b>, <b>what they are asked about</b>, and
+      <b>the process around them</b>. What an idea <i>does</i> — qualify a test, give rise to a ground, overcome one, perform a step, record an entry — is a connection, and every connection says which.
       Zoom out to that level and ${fmt(c.relations.signed + c.relations.machine)} connections become a handful of patterns:</p>
       <ul class="small" style="padding-left:1.1rem">${top.map(say).join("")}</ul>
       <p>That is the shape of examination practice, and it does not rest on any single idea or passage. Add an idea, merge two tests,
       reword a page — the pattern <i>what a mark contains and the context it is used in bear on the tests, and the tests decide the grounds</i> is still there.</p>
       <p><a class="btn small" href="#/map/kinds">Explore this level on the map →</a></p>`;
-    const pic = svg("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "The ten kinds of idea and the patterns between them" });
+    const pic = svg("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "The kinds of idea and the patterns between them" });
     arrowDefs(pic);
     const g = svg("g", {}, pic);
     drawKinds(g, ontology, { strongOnly: true, minimal: false, onKind: () => { location.hash = "#/map/kinds"; } });

@@ -46,6 +46,7 @@ from tm_knowledge.bulk import links as links_module
 from tm_knowledge import config
 from tm_knowledge.config import PIN_PATH, REPO_ROOT
 from tm_knowledge.dashboard import views
+from tm_knowledge.ontology.predicates import RETIRED
 from tm_knowledge.search import index as search_index
 from tm_knowledge.stage0 import goldset
 from tm_knowledge.stage0 import typing as typing_module
@@ -82,11 +83,11 @@ FAMILIES = {
     "reasoning": "The questions the law asks",
     "examined": "What those questions are asked about",
     "process": "The process around them",
-    "other": "Fits none of the ten",
+    "other": "Fits none of the kinds",
 }
 
 #: SKOS predicates the pipeline writes, which `relations.ttl` does not list.
-SKOS_LABELS = {"broader": "is a kind of", "related": "is related to"}
+SKOS_LABELS = {"broader": "is a kind of"}
 
 QUESTION_KINDS = {
     "lookup": "Looking something up",
@@ -242,6 +243,29 @@ def _kind_links(concepts: dict[str, dict[str, Any]], relations: list[dict[str, A
     return out
 
 
+def _family_links(concepts: dict[str, dict[str, Any]], relations: list[dict[str, Any]],
+                  family_of: dict[str, str]) -> list[dict[str, Any]]:
+    """Concept-to-concept relationships rolled up to the families at either end — how
+    the law's questions, what they are asked about and the process connect (ADR-0131).
+    An arrangement, not a record: it counts what the relationship records say."""
+    rolled: dict[tuple[str, str], dict[str, Any]] = {}
+    for rel in relations:
+        a, b = concepts.get(rel["s"]), concepts.get(rel["o"])
+        if a is None or b is None:
+            continue
+        fa, fb = family_of.get(a["kind"]), family_of.get(b["kind"])
+        if fa is None or fb is None:
+            continue
+        row = rolled.setdefault((fa, fb), {"s": fa, "o": fb, "total": 0, "predicates": Counter()})
+        row["total"] += 1
+        row["predicates"][rel["p"]] += 1
+    out = []
+    for row in sorted(rolled.values(), key=lambda r: (-r["total"], r["s"], r["o"])):
+        row["predicates"] = dict(row["predicates"].most_common())
+        out.append(row)
+    return out
+
+
 def _predicates(relations: list[dict[str, Any]], labels: dict[str, str],
                 concepts: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
     approved = approved_predicates()
@@ -283,9 +307,16 @@ def ontology(corpus: Corpus, gold: Any, authored: Any, links: links_module.Links
         members = [c for c in concept_list if c["kind"] == kind["id"]]
         kind["signed"] = sum(1 for c in members if c["origin"] == "signed")
         kind["machine"] = len(members) - kind["signed"]
+    # "None of the kinds" is a residue, shown only while something is in it (ADR-0131).
+    kind_list = [k for k in kind_list if k["family"] != "other" or k["signed"] + k["machine"]]
+    family_of = {k["id"]: k["family"] for k in kind_list if k["family"] != "other"}
     return {
         "kinds": kind_list,
         "families": FAMILIES,
+        "family_links": _family_links(concepts, relations, family_of),
+        # A prepared answer records the connections it followed when it was written; one
+        # may since have been retired (ADR-0131). It is shown as that, never relabelled.
+        "retired_predicates": {name: "is related to (a link since retired)" for name in RETIRED},
         "concepts": concept_list,
         "relations": relations,
         "kind_links": _kind_links(concepts, relations),

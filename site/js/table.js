@@ -2,7 +2,7 @@
    connections" level draws every idea and hundreds of lines at once; this view
    lists the same records in three plain tables, one per level:
 
-   1. Kinds        — the ten kinds in their families, then how the kinds connect
+   1. Kinds        — the kinds in their families, then how the kinds connect
                      (`kind_links`, counted by tmk-explorer).
    2. Ideas        — one row per idea, grouped by kind. Open a row to read its
                      connections as sentences, each with the passage it rests on.
@@ -14,7 +14,7 @@
    rest (ADR-0130). Each table downloads as a CSV with the same columns, who
    wrote each record, and which text each quote is from (rules 5, 8). */
 
-import { esc, fmt, el, kindColour, refChip, refLabel, trustBadge, quoteBlock, sourceOf, SOURCES, legend } from "./app.js";
+import { esc, fmt, el, kindColour, kindCount, refChip, refLabel, trustBadge, quoteBlock, sourceOf, SOURCES, legend } from "./app.js";
 import { LOOSE, specificCount } from "./kinds.js";
 
 const TABS = [["kinds", "Kinds"], ["ideas", "Ideas"], ["connections", "Connections"]];
@@ -29,7 +29,7 @@ export async function render(root, { ontology, params }) {
     for (const end of new Set([r.s, r.o])) { if (!relOf.has(end)) relOf.set(end, []); relOf.get(end).push(r); }
   }
   const ctx = { ontology, byId, kinds, relOf };
-  const counts = { kinds: ontology.kinds.length - 1, ideas: ontology.concepts.length, connections: ontology.relations.length };
+  const counts = { kinds: kindCount(ontology), ideas: ontology.concepts.length, connections: ontology.relations.length };
 
   root.innerHTML = `
   <div class="wrap wide table-page">
@@ -49,6 +49,10 @@ export async function render(root, { ontology, params }) {
 // ------------------------------------------------------------------ shared
 
 const predLabel = (ontology, p) => ontology.predicates[p]?.label || p;
+
+/** The links the map hides by default (`LOOSE`: hierarchy, since "is related to" was
+    retired, ADR-0131), named from the predicate list rather than written here. */
+const looseNames = (ontology) => [...LOOSE].map((p) => `"${predLabel(ontology, p)}" links`).join(" and ");
 
 /** One end of a connection: an idea, a passage or provision, or a case. A case is
     neither the Manual nor legislation, so it is never given their marks. */
@@ -129,9 +133,9 @@ function kindsTab(body, ctx) {
   body.innerHTML = `
     <section class="tbl-section">
       <h2>The kinds of idea</h2>
-      <p class="muted small">Every idea is sorted by <b>what it is</b> into one of ten kinds, in three families. What an idea <b>does</b> —
+      <p class="muted small">Every idea is sorted by <b>what it is</b> into one of ${kindCount(ontology)} kinds, in three families. What an idea <b>does</b> —
       a factor, an exception, a remedy — is a connection, not a kind. Click a kind to list its ideas.</p>
-      <table class="tbl">
+      <table class="tbl kinds-tbl">
         <thead><tr><th>Kind</th><th>What it is</th><th class="num">Ideas</th><th class="num opt">Connections</th></tr></thead>
         <tbody>${FAMILIES.map((family) => {
           const members = ontology.kinds.filter((k) => k.family === family && ideasOf(k.id));
@@ -152,7 +156,7 @@ function kindsTab(body, ctx) {
       <h2>How the kinds connect</h2>
       <p class="muted small">Each row counts the connections from ideas of one kind to ideas of another — the patterns the map draws as arrows
       between closed kinds. Click a count to list those connections one by one.</p>
-      ${controls(`<label class="check"><input type="checkbox" data-loose> Include pairs joined only by loose links ("is related to", "is a kind of")</label>`)}
+      ${controls(`<label class="check"><input type="checkbox" data-loose> Include pairs joined only by ${looseNames(ontology)}</label>`)}
       <table class="tbl">
         <thead><tr><th>From ideas of this kind</th><th>to ideas of this kind</th><th class="num">Connections</th><th class="opt">What they say</th></tr></thead>
         <tbody>${pairs.map((row) => `
@@ -282,8 +286,8 @@ function ideaDetail(ctx, x) {
     </div>
     <div class="idea-conns">
       <h4>Connections · ${rels.length}</h4>
-      ${strong.length ? `<ul class="sent-list">${sortRels(strong).map(sentence).join("")}</ul>` : `<p class="empty small">None beyond loose links.</p>`}
-      ${loose.length ? `<h4>Loosely connected · ${loose.length}</h4><p class="tiny">"Is related to" and "is a kind of" — the vaguest links.</p>
+      ${strong.length ? `<ul class="sent-list">${sortRels(strong).map(sentence).join("")}</ul>` : `<p class="empty small">None beyond hierarchy.</p>`}
+      ${loose.length ? `<h4>Hierarchy · ${loose.length}</h4>
         <ul class="sent-list">${sortRels(loose).map(sentence).join("")}</ul>` : ""}
     </div>
   </div>`;
@@ -337,12 +341,12 @@ function connectionsTab(body, ctx, fromKind, toKind) {
     ${controls(`
       <input class="find" type="search" placeholder="Filter, e.g. consent or qualifies" aria-label="Filter connections" autocomplete="off">
       <select class="pick" aria-label="What the connection says"><option value="">Every kind of connection</option>${preds.map(([p, n]) => `<option value="${esc(p)}">${esc(predLabel(ontology, p))} · ${n}</option>`).join("")}</select>
-      <label class="check"><input type="checkbox" data-loose${fromKind ? " checked" : ""}> Include loose links</label>
+      <label class="check"><input type="checkbox" data-loose${fromKind ? " checked" : ""}> Include ${looseNames(ontology)}</label>
       ${fromKind ? `<span class="chip on-filter">${esc(pairLabel)} <a href="#/table/connections" aria-label="Clear this filter">×</a></span>` : ""}
       <span class="tiny shown" aria-live="polite"></span>
       <button class="btn small push" type="button" data-csv>Download all ${fmt(ontology.relations.length)} connections (CSV)</button>`)}
-    <p class="tiny">Loose links are "is related to" and "is a kind of" — the vaguest, ${fmt(ontology.relations.filter((r) => LOOSE.has(r.p)).length)} of ${fmt(ontology.relations.length)}; hidden unless you include them or pick one above.
-    Open a row to read the sentence it rests on.</p>
+    <p class="tiny">The ${looseNames(ontology)} (${fmt(ontology.relations.filter((r) => LOOSE.has(r.p)).length)} of ${fmt(ontology.relations.length)}) say how ideas nest, not how one acts on another;
+    hidden unless you include them or pick one above, as on the map. Open a row to read the sentence it rests on.</p>
     <table class="tbl conns">
       <thead><tr><th>From</th><th>Says</th><th>To</th><th class="opt">Rests on</th><th>Written by</th></tr></thead>
       <tbody>${list.map((r) => `

@@ -231,7 +231,7 @@ def test_a_wrong_edge_is_re_read_when_its_correction_passes_and_withdrawn_when_n
         # names a concept the sentence does not: refused, so withdrawn
         {"edge": "GR-0002", "judged": {"subject": "GC-0014", "predicate": "related", "object": "GC-0013"},
          "verdict": "wrong", "problem": "object", "reason": "«no»", "remove": False, "confidence": 0.7,
-         "corrected": {"subject": "GC-0014", "predicate": "related", "object": "GC-0168"},
+         "corrected": {"subject": "GC-0014", "predicate": "appliesTo", "object": "GC-0168"},
          "model": "gemini-3.1-pro-preview"},
         {"edge": "GR-0003", "verdict": "wrong", "remove": True, "model": "m"},  # no longer held
     ]
@@ -280,9 +280,9 @@ def test_a_correction_may_keep_a_concept_both_models_read_the_sentence_as_about(
         {"id": "GR-0002", "subject": "GC-0014", "predicate": "appliesTo", "object": "GC-0013", "supporting_text": text},
     ])
     actions = {a.edge: a for a in audit.plan(ctx, [
-        _wrong("GR-0001", ("GC-0014", "qualifies", "GC-0013"), ("GC-0014", "related", "GC-0013")),
+        _wrong("GR-0001", ("GC-0014", "qualifies", "GC-0013"), ("GC-0014", "isPartOf", "GC-0013")),
         # brings in a concept the sentence does not name: still refused
-        _wrong("GR-0002", ("GC-0014", "appliesTo", "GC-0013"), ("GC-0168", "related", "GC-0013")),
+        _wrong("GR-0002", ("GC-0014", "appliesTo", "GC-0013"), ("GC-0168", "isOvercomeBy", "GC-0013")),
     ])}
     assert actions["GR-0001"].kind == "reread"
     assert actions["GR-0002"].kind == "withdraw" and "does not name both" in actions["GR-0002"].why

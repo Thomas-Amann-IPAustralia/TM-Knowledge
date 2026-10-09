@@ -466,12 +466,12 @@ def test_the_audit_keeps_a_verdict_and_checks_the_corrected_reading():
     item = jobs.Item("GR-0110..GR-0111", {"edges": ["GR-0110", "GR-0111"]})
     parsed = {"verdicts": [
         {"edge": "GR-0110", "verdict": "wrong", "problem": "predicate", "reason": "«r»",
-         "corrected_subject": "GC-0014", "corrected_predicate": "related", "corrected_object": "GC-0013",
+         "corrected_subject": "GC-0014", "corrected_predicate": "appliesTo", "corrected_object": "GC-0013",
          "remove": False, "confidence": 0.8},
     ]}
     outcome = jobs._audit_accept(ctx, item, parsed, {"model_reported": "gemini-3.1-pro-preview"})
     (row,) = outcome.records["audit"]
-    assert row["corrected"] == {"subject": "GC-0014", "predicate": "related", "object": "GC-0013"}
+    assert row["corrected"] == {"subject": "GC-0014", "predicate": "appliesTo", "object": "GC-0013"}
     assert row["model"] == "gemini-3.1-pro-preview" and row["remove"] is False
     assert outcome.refused == ["GR-0111: no verdict returned"]
 
