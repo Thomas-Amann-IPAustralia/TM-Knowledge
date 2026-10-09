@@ -1,0 +1,103 @@
+# Decisions the repo owner made in a chat session, on the items S026 explained in plain
+# English, and on the D5 quote. Hand-transcribed by the S027 agent; no issue behind it.
+# The artefact is `review/returned/261009-owner-chat-approvals.md`, which carries the
+# words verbatim and the explanation they approve. `item` names the review's issue
+# (docs/ONTOLOGY-REVIEW.md).
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-09T00:00:00Z'
+questions_updated: '2026-10-09'
+source:
+  kind: chat
+  artefact: review/returned/261009-owner-chat-approvals.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S027 agent
+  title: B1, A5, A6, B4, D4, F2 and F6 approved as explained; the D5 spend approved, with Gemini 3.1
+    Pro for the edge audit and a US$6 envelope
+applied: null
+answers:
+- id: CHAT-0058
+  item: B1
+  question: Should the ontology say what a thing is on the node, and what it does on an edge?
+  kind: choice
+  value: approve
+  label: Approved as explained — factor, exception and remedy become links; grounds, tests, roles,
+    steps, records and schemes stay kinds; remedy first
+  quote: With this context in mind, I approve and would like you to action, B1
+  recorded_as:
+  - ADR-0125
+  - ADR-0126
+- id: CHAT-0059
+  item: A5
+  question: Make the duplicate check compare every name, ignoring capitals and plurals, and show
+    each clash as a warning?
+  kind: choice
+  value: approve
+  label: Approved as explained
+  quote: With this context in mind, I approve and would like you to action, A5
+  recorded_as:
+  - ADR-0125
+- id: CHAT-0060
+  item: A6
+  question: Mark the "implied endorsement = endorsement" suggestion rejected so nobody merges them?
+  kind: choice
+  value: approve
+  label: Approved as explained
+  quote: With this context in mind, I approve and would like you to action, A6
+  recorded_as:
+  - ADR-0125
+- id: CHAT-0061
+  item: B4
+  question: Create the section 41 ground the way the section 43 ground was created, and tidy
+    "prohibited sign"?
+  kind: choice
+  value: approve
+  label: Approved as explained
+  quote: With this context in mind, I approve and would like you to action, B4
+  recorded_as:
+  - ADR-0125
+- id: CHAT-0062
+  item: D4
+  question: Remove the three "kind of" links that contradict signed records, and refuse such a link
+    from now on?
+  kind: choice
+  value: approve
+  label: Approved as explained
+  quote: With this context in mind, I approve and would like you to action, D4
+  recorded_as:
+  - ADR-0125
+- id: CHAT-0063
+  item: F2
+  question: Add rulebook (SHACL) rules for shared names and for "kind of" against "not this"?
+  kind: choice
+  value: approve
+  label: Approved as explained
+  quote: With this context in mind, I approve and would like you to action, F2
+  recorded_as:
+  - ADR-0125
+- id: CHAT-0064
+  item: F6
+  question: Adopt a standing rule never to rank or filter by confidence across authors?
+  kind: choice
+  value: approve
+  label: Approved as explained
+  quote: With this context in mind, I approve and would like you to action, F6
+  recorded_as:
+  - ADR-0125
+- id: CHAT-0065
+  item: D5
+  question: Is the D5 quote approved — the edge audit and the re-run of the search measurement?
+  kind: instruction
+  value: approve_with_envelope
+  label: 'Both steps approved; Gemini 3.1 Pro for step 1; a more intelligent model for the
+    measurement if it has a measurable positive impact, at the agent''s justified discretion; D5 to
+    stay under US$6 (an additional US$2.89 on top of the US$3.11 remaining)'
+  quote: >-
+    D5. Expenditure approved for step 1 and step 2. Alternative approved for step 1, the use of
+    Gemini 3.1 Pro. Re-run the search measurement. If it has a measurable positive impact on the
+    results, you are welcome to use a more intelligent model if it keeps overall expenditure of D5
+    under $6. To confirm, I'm allowing the expenditure of an additional $2.89 on top of the
+    remaining $3.11, totalling in $6. I leave the decision of 'measurable positive impact' to your
+    discretion but I expect the decision to be justified either way.
+  recorded_as:
+  - ADR-0125
+  - ADR-0127

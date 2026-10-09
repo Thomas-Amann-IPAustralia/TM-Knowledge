@@ -50,10 +50,13 @@ AUTHORING_API_KEY_VAR = "OPENAI_API_KEY"
 #: Hard cap on total recorded spend across every paid call, in US dollars. First
 #: the owner's "a maximum of $1" for the smoke runs (ADR-0111); then the quote was
 #: approved — "Approved, go with your recommendations and run it all" — so the
-#: cap is the $0.18 already spent plus the $6.41 package (ADR-0114). Raising it
-#: again is the owner's decision, made on a quote — overridable for one run by
+#: cap is the $0.18 already spent plus the $6.41 package (ADR-0114). Then the D5
+#: quote: "I'm allowing the expenditure of an additional $2.89 on top of the
+#: remaining $3.11, totalling in $6" — so $6.60 + $2.89, and D5 may spend at most
+#: the $6.00 above the $3.49 recorded before it (ADR-0125). Raising it again is the
+#: owner's decision, made on a quote — overridable for one run by
 #: `TMK_SPEND_CAP_USD`, and only on the owner's word.
-SPEND_CAP_USD = 6.60
+SPEND_CAP_USD = 9.49
 
 #: US dollars per million tokens, from OpenAI's pricing page on 2026-10-07
 #: (ADR-0111). `flex` and `batch` are half of `default`. Reasoning tokens bill as
