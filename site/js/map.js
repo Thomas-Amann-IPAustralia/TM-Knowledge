@@ -563,6 +563,7 @@ export async function render(root, { ontology, params }) {
         <p>Each open kind is a box of its ideas. Lines are connections between two ideas, each resting on a sentence in the Manual. Where an idea
         connects into a kind that is still closed, the connections are rolled up into one arrow with a count.</p>
         <p>Hover over an idea to see what it rests on; click it to follow its connections.</p>`) +
+      `<p><a class="btn small" href="#/table/${lv === "kinds" ? "kinds" : "ideas"}">See it as a table instead →</a></p>` +
       `<p class="muted small">Most ideas and connections were written by a machine from the Manual's text — usable, but not yet reviewed; each says
        so where it is shown. Grounds and tests are the project owner's own kinds, as is the rule that a kind says what an idea is while an arrow says
        what it does; the other nine kinds were proposed by a machine.</p>

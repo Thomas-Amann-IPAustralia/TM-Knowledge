@@ -1,11 +1,22 @@
 # HANDOFF
 
-**Last updated:** 2026-10-09 · S029 (end) · branch `claude/ecstatic-wright-5gz3fs`
+**Last updated:** 2026-10-09 · S030 (end) · branch `claude/pensive-ptolemy-f1w7k2`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
+
+**S030 added "As a table" (`#/table`, `site/js/table.js`)**, after the owner found the map's
+"Ideas and connections" level "eyewateringly complex" and asked for something simpler, "even
+a table". No record changed; no ADR (an engineering call). Ran beside S029 and merged after it.
+- Three tabs: **Kinds** (by family, then every kind-to-kind pair from `kind_links` with what
+  its connections say), **Ideas** (grouped by kind; open a row for its connections as
+  sentences, each with its quote), **Connections** (from, says, to, passage, who wrote it).
+  Filters by name, kind and relationship; `LOOSE` links hidden by default, as on the map.
+- **CSV** of the ideas and of the connections with the page's trust columns (`record`,
+  `review_status`, `machine_author`, `date`, the kind's judge) and which text each quote is
+  from. No reviewer initials (ADR-0130). Linked from the nav and the map's help panel.
 
 **S029 restructured the ontology on the owner's instruction** (ADR-0131, CHAT-0071 to
 CHAT-0073, `review/returned/261009-owner-chat-ontology-structure.md`): *"Not having elements
@@ -70,9 +81,12 @@ Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352
 5. The signed concepts' own `related` lists (77 links, the expert's thesaurus see-also) still
    serve as `skos:related` in the approved graph. Not shown in the explorer. If the owner wants
    them typed too, each needs a sentence; `restructure.yaml` can carry the lines.
-6. `data/derived/reports/concept-typing.md` and its workbook were last generated 2026-09-09
+6. **The map's idea card shows a case as a Manual chip**: `refChip` gives anything not
+   `TMA1995/`/`TMR1995/` the blue square, and some relationships end at a `CASE/…` ref.
+   `table.js` draws a case as a grey chip; `map.js`'s `showConcept` still uses `refChip`.
+7. `data/derived/reports/concept-typing.md` and its workbook were last generated 2026-09-09
    (parked apparatus); `tmk-typing --write` refreshes them — a large diff, so its own commit.
-7. B2, B3, B6 stay postponed (B3 — the presumption — is now `principle`; say so if asked);
+8. B2, B3, B6 stay postponed (B3 — the presumption — is now `principle`; say so if asked);
    D7 is decided (ADR-0131); F4, F5 deferred.
 
 ## What to distrust
@@ -112,6 +126,9 @@ Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352
   `app.js`, never `kinds.length - 1`.
 
 ## Open items (agent-proposed, provisional)
+
+- S030's table view: its name ("As a table"), Kinds as the first tab, hierarchy hidden by
+  default, the CSV's columns. Each a one-line change.
 
 - ADR-0131's agent parts: the family classes, the 23 predicates and their kinds, `principle`,
   the nine re-typings, the two relabels, the four hierarchy corrections, the explorer's

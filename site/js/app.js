@@ -11,11 +11,12 @@ import * as home from "./home.js";
 import * as tour from "./tour.js";
 import * as map from "./map.js";
 import * as circles from "./circles.js";
+import * as table from "./table.js";
 import * as ask from "./ask.js";
 import * as change from "./change.js";
 import * as about from "./about.js";
 
-const VIEWS = { "": home, tour, map, circles, ask, change, about };
+const VIEWS = { "": home, tour, map, circles, table, ask, change, about };
 const cache = new Map();
 
 export function load(name) {
