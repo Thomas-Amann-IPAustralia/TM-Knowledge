@@ -1066,7 +1066,17 @@ def _write_judgements(records: dict[str, list[dict[str, Any]]]) -> list[Path]:
     path = BENCH_DIR / "judgements.yaml"
     existing = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("judgements", []) if path.exists() else []
     merged = {r["need"]: r for r in existing}
-    merged.update({r["need"]: r for r in rows})
+    for row in rows:
+        old = merged.get(row["need"])
+        if old is None:
+            merged[row["need"]] = row
+            continue
+        # A re-pooled question: its new passages join the row, and a grade once given
+        # stands, so every system is scored on one set of grades (ADR-0127).
+        added = {ref: grade for ref, grade in row["grades"].items() if ref not in old["grades"]}
+        if added:
+            old["grades"] = {**old["grades"], **added}
+            old.setdefault("later", []).append({"date": row["date"], "model": row["model"], "refs": sorted(added)})
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(yaml.safe_dump({"judgements": [merged[k] for k in sorted(merged)]},
                                    sort_keys=False, allow_unicode=True, width=88), encoding="utf-8")

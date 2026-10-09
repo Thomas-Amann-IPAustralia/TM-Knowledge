@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001792,
+ "created_utc": "2026-10-09T04:14:44Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0078",
+ "job": "judge",
+ "key": "b574de18b38d8773431bb57e10bea9a3c72df5d8ed8a66765bf879c771d9b272",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part16/1/1/1\",\"grade\":0},{\"ref\":\"TMM/Part15/1#1~1\",\"grade\":0},{\"ref\":\"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\"grade\":0}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "0bf2ab66695f9e861f7cef5117bd59a6edb4d0edbeee9e6ef523708edd2560fc",
+ "response_id": "resp_0eb7a86d2936afcf006ac86a18d8ac87d28125dbdaa1a3f65d",
+ "seconds": 28.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1130,
+  "input_tokens_details": {
+   "cache_write_tokens": 1127,
+   "cached_tokens": 0
+  },
+  "output_tokens": 76,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 1206
+ }
+}

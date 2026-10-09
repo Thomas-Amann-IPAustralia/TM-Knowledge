@@ -20,6 +20,7 @@ import sys
 import threading
 from concurrent.futures import ThreadPoolExecutor
 from collections import Counter
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -81,8 +82,12 @@ def _require_vectors(systems: Any, questions: list[dict[str, Any]]) -> None:
                          "run `tmk-bulk embed --confirm` first (ADR-0115)")
 
 
-def _pools(ctx: jobs.Context) -> list[dict[str, Any]]:
-    """Every question's top ten from each system, and the pool the judge grades."""
+def _pools(ctx: jobs.Context, variants: dict[str, dict[str, list[str]]] | None = None) -> list[dict[str, Any]]:
+    """Every question's top ten from each system, and the pool the judge grades.
+
+    `variants` are other rankings to score on the same grades — the ontology system as
+    last measured, or run on another state of the records — so a change is measured,
+    not guessed at. They join the pool, because a passage nobody graded scores 0."""
     systems = search_systems(ctx)
     questions = _questions(ctx)
     _require_vectors(systems, questions)
@@ -93,11 +98,22 @@ def _pools(ctx: jobs.Context) -> list[dict[str, Any]]:
             "hybrid": [h.ref for h in systems.hybrid(q["question"], 10)],
             "ontology": [h.ref for h in systems.ontology(q["question"], 10)[0]],
         }
-        pooled = {ref for refs in ranked.values() for ref in refs} | set(q["required"])
+        extra = {name: list(rankings[q["key"]])[:10] for name, rankings in (variants or {}).items()
+                 if q["key"] in rankings}
+        pooled = {ref for refs in [*ranked.values(), *extra.values()] for ref in refs} | set(q["required"])
         pool = sorted(pooled, key=lambda r: hashlib.sha256((q["key"] + r).encode()).hexdigest())
-        out.append({"key": q["key"], "kind": q["kind"], "question": q["question"], "systems": ranked,
-                    "pool": pool})
+        row = {"key": q["key"], "kind": q["kind"], "question": q["question"], "systems": ranked}
+        if extra:
+            row["variants"] = extra
+        out.append({**row, "pool": pool})
     return out
+
+
+def _graded() -> dict[str, dict[str, int]]:
+    """Every grade already given, by question: a passage is graded once and keeps it."""
+    path = jobs.BENCH_DIR / "judgements.yaml"
+    rows = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("judgements", []) if path.exists() else []
+    return {r["need"]: {k: int(v) for k, v in r["grades"].items()} for r in rows}
 
 
 def _measurement_items(job: str, ctx: jobs.Context) -> list[jobs.Item]:
@@ -106,8 +122,17 @@ def _measurement_items(job: str, ctx: jobs.Context) -> list[jobs.Item]:
         if not POOLS_PATH.exists():
             raise SystemExit("no pools yet: run `tmk-bulk pools --write` after the ontology and vectors are in")
         pools = (yaml.safe_load(POOLS_PATH.read_text(encoding="utf-8")) or {}).get("pools", [])
-        return [jobs.Item(p["key"], {**questions[p["key"]], "pool": p["pool"]})
-                for p in pools if p["key"] in questions]
+        # Only what nobody has graded: a re-pooled question sends its new passages, and a
+        # grade once given stands, so a re-measurement costs only what changed (ADR-0127).
+        graded = _graded()
+        items = []
+        for p in pools:
+            if p["key"] not in questions:
+                continue
+            todo = [ref for ref in p["pool"] if ref not in graded.get(p["key"], {})]
+            if todo:
+                items.append(jobs.Item(p["key"], {**questions[p["key"]], "pool": todo}))
+        return items
     systems = search_systems(ctx)
     _require_vectors(systems, list(questions.values()))
     items = []
@@ -311,16 +336,33 @@ def _embed(args: argparse.Namespace) -> int:
 
 def _pools_cmd(args: argparse.Namespace) -> int:
     ctx = _context()
-    pools = _pools(ctx)
+    variants: dict[str, dict[str, list[str]]] = {}
+    notes: dict[str, str] = {}
+    previous = (yaml.safe_load(POOLS_PATH.read_text(encoding="utf-8")) or {}) if POOLS_PATH.exists() else {}
+    if args.keep_previous:
+        variants["ontology_previous"] = {p["key"]: p["systems"]["ontology"] for p in previous.get("pools", [])}
+        notes["ontology_previous"] = (f"the ontology system's top ten as last measured"
+                                      f"{' (' + previous['measured'] + ')' if previous.get('measured') else ''}")
+    for spec in args.variant or ():
+        name, _, path = spec.partition("=")
+        document = yaml.safe_load(Path(path).read_text(encoding="utf-8")) or {}
+        variants[name] = document["rankings"]
+        notes[name] = str(document.get("note") or name)
+    pools = _pools(ctx, variants)
+    graded = _graded()
     sizes = [len(p["pool"]) for p in pools]
-    print(f"pools: {len(pools)} questions, {sum(sizes)} passages to judge "
-          f"(mean {sum(sizes) / max(len(sizes), 1):.1f} per question)")
+    todo = sum(1 for p in pools for ref in p["pool"] if ref not in graded.get(p["key"], {}))
+    print(f"pools: {len(pools)} questions, {sum(sizes)} passages pooled "
+          f"(mean {sum(sizes) / max(len(sizes), 1):.1f} per question), {todo} not yet graded")
     if args.write:
         POOLS_PATH.parent.mkdir(parents=True, exist_ok=True)
-        POOLS_PATH.write_text(yaml.safe_dump(
-            {"note": "Each question's top ten from the three systems (search.index), and the pool the "
-                     "judge grades. Fixed before judging; the measurement scores exactly these rankings.",
-             "pools": pools}, sort_keys=False, allow_unicode=True, width=100), encoding="utf-8")
+        document = {"note": "Each question's top ten from the three systems (search.index), and the pool the "
+                            "judge grades. Fixed before judging; the measurement scores exactly these rankings.",
+                    "measured": date.today().isoformat()}
+        if notes:
+            document["variants"] = notes
+        POOLS_PATH.write_text(yaml.safe_dump({**document, "pools": pools}, sort_keys=False, allow_unicode=True,
+                                             width=100), encoding="utf-8")
         print(f"wrote {POOLS_PATH.relative_to(REPO_ROOT)}")
     return 0
 
@@ -334,17 +376,25 @@ def _measure(args: argparse.Namespace) -> int:
     path = jobs.BENCH_DIR / "judgements.yaml"
     rows = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("judgements", []) if path.exists() else []
     judgements = {r["need"]: {k: int(v) for k, v in r["grades"].items()} for r in rows}
-    models = sorted({r.get("model", "?") for r in rows})
+    models = sorted({r.get("model", "?") for r in rows} | {x.get("model", "?") for r in rows for x in r.get("later") or ()})
+    document = (yaml.safe_load(POOLS_PATH.read_text(encoding="utf-8")) or {})
     scored = measure.score(pools, judgements)
-    summary = measure.summarise(scored["rows"])
+    summary = measure.summarise(scored["rows"], scored["variants"])
     cases = measure.examples(scored["rows"], {p["key"]: p["question"] for p in pools})
+    from tm_knowledge.authored.corrections import served_gold
+
+    required = {str(r["id"]): list(r.get("required_evidence") or ())
+                for r in served_gold()["gold_retrieval_question"]}
+    evidence = measure.by_evidence(pools, required)
     text = measure.render(summary, judged=sum(len(g) for g in judgements.values()), pooled=len(judgements),
-                          judge_model=", ".join(models), cases=cases)
+                          judge_model=", ".join(models), cases=cases, variants=document.get("variants") or {},
+                          measured=document.get("measured"), evidence=evidence)
     print(text)
     if args.write:
         (REPORTS_DIR / "measure.md").write_text(text, encoding="utf-8")
         (jobs.BENCH_DIR / "results.json").write_text(json.dumps(
-            {"summary": summary, "rows": scored["rows"], "cases": cases}, indent=1, sort_keys=True) + "\n",
+            {"summary": summary, "rows": scored["rows"], "cases": cases, "by_evidence": evidence}, indent=1,
+            sort_keys=True) + "\n",
             encoding="utf-8")
         print("wrote data/derived/reports/measure.md and data/derived/bench/results.json")
     return 0
@@ -433,6 +483,10 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--confirm", action="store_true")
     p = sub.add_parser("pools", help="each question's top ten per system, and the pool to judge")
     p.add_argument("--write", action="store_true")
+    p.add_argument("--keep-previous", action="store_true",
+                   help="also score the ontology system's rankings from the pools being replaced")
+    p.add_argument("--variant", action="append", metavar="NAME=FILE",
+                   help="also score these rankings (YAML: note, rankings: {question key: [refs]})")
     p = sub.add_parser("measure", help="score the systems from the judged pools")
     p.add_argument("--write", action="store_true")
     sub.add_parser("collect", help="record every finished batch")

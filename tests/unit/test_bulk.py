@@ -17,6 +17,7 @@ from __future__ import annotations
 from types import SimpleNamespace
 
 import pytest
+import yaml
 
 from tm_knowledge.authored import store as authored_store
 from tm_knowledge.bulk import client, jobs
@@ -499,3 +500,26 @@ def test_the_audit_reads_every_shape_gemini_answered_in():
     assert keyed == [{"edge": "GR-0005", "verdict": "wrong", "problem": "wrong predicate",
                       "corrected_subject": "GC-0001", "corrected_predicate": "related",
                       "corrected_object": "GC-0002", "remove": False, "reason": "«why»"}]
+
+
+def test_a_re_pooled_question_sends_only_its_ungraded_passages(tmp_path, monkeypatch):
+    from tm_knowledge.bulk import cli, jobs
+
+    monkeypatch.setattr(jobs, "BENCH_DIR", tmp_path)
+    monkeypatch.setattr(cli, "POOLS_PATH", tmp_path / "pools.yaml")
+    monkeypatch.setattr(cli, "_questions", lambda ctx: [
+        {"key": key, "kind": "lookup", "question": key, "narrative": "«n»", "required": []} for key in ("Q1", "Q2")])
+    (tmp_path / "pools.yaml").write_text(yaml.safe_dump(
+        {"pools": [{"key": "Q1", "pool": ["a", "b", "c"]}, {"key": "Q2", "pool": ["d"]}]}), encoding="utf-8")
+    (tmp_path / "judgements.yaml").write_text(yaml.safe_dump({"judgements": [
+        {"need": "Q1", "grades": {"a": 2, "b": 0}, "model": "m", "date": "2026-10-07"},
+        {"need": "Q2", "grades": {"d": 1}, "model": "m", "date": "2026-10-07"}]}), encoding="utf-8")
+
+    items = cli._measurement_items("judge", SimpleNamespace())
+    assert [(i.key, i.payload["pool"]) for i in items] == [("Q1", ["c"])]
+
+    jobs._write_judgements({"judgements": [
+        {"need": "Q1", "grades": {"c": 3, "a": 0}, "model": "m2", "date": "2026-10-09"}]})
+    row = yaml.safe_load((tmp_path / "judgements.yaml").read_text(encoding="utf-8"))["judgements"][0]
+    assert row["grades"] == {"a": 2, "b": 0, "c": 3}  # a grade once given stands
+    assert row["later"] == [{"date": "2026-10-09", "model": "m2", "refs": ["c"]}]

@@ -84,3 +84,27 @@ def test_vectors_round_trip_through_the_float16_store(tmp_path):
     assert again.keys == list("abcde")
     query = matrix[2]
     assert int(np.argmax(again.matrix @ query)) == 2
+
+
+def test_a_variant_is_scored_on_the_same_grades_against_the_ontology_system():
+    pools = [
+        {"key": "Q1", "kind": "lookup", "systems": {"keyword": ["b"], "hybrid": ["b"], "ontology": ["a"]},
+         "variants": {"before": ["b"]}},
+        {"key": "Q2", "kind": "lookup", "systems": {"keyword": ["d"], "hybrid": ["d"], "ontology": ["c"]}},
+    ]
+    scored = measure.score(pools, {"Q1": {"a": 3, "b": 0}, "Q2": {"c": 3, "d": 0}})
+    assert scored["variants"] == ["before"]
+    summary = measure.summarise(scored["rows"], scored["variants"])
+    assert summary["all"]["n:ndcg:ontology-before"] == 1  # paired only where the variant ranked
+    assert summary["all"]["ndcg:ontology-before"][0] == pytest.approx(1.0)
+    text = measure.render(summary, judged=4, pooled=2, judge_model="m", variants={"before": "«then»"})
+    assert "`before` — «then»" in text
+
+
+def test_the_evidence_cross_check_uses_only_the_expert_lists():
+    pools = [{"key": "GA-1", "systems": {"keyword": ["x"], "hybrid": ["x"], "ontology": ["r", "x"]}},
+             {"key": "BN-1", "systems": {"keyword": ["y"], "hybrid": ["y"], "ontology": ["y"]}}]
+    out = measure.by_evidence(pools, {"GA-1": ["r"]})
+    assert out["n"] == 1
+    assert out["ndcg:ontology"] == pytest.approx(1.0) and out["ndcg:hybrid"] == 0.0
+    assert out["recall:ontology"] == 1.0

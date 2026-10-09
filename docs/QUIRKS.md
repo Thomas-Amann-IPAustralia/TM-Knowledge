@@ -1477,3 +1477,12 @@ enum values. OpenAI's strict schemas never did this. `jobs.parse` now hands a ba
 back as `{"_list": [...]}`, the audit reads `id` as `edge`, and `_audit_problem` maps a
 sentence onto the enum. Do not "fix" it by changing the request: the cache key is the
 request, so any change re-pays for every answer already held.
+
+### Q-84 — rebuilt vectors move the hybrid baseline a little
+
+The passage vectors are not committed (`data/derived/search/README.md`), and rebuilding them
+(`tmk-bulk embed`, about a cent) gives vectors that rank a few near-ties differently: on
+2026-10-09 hybrid's top ten changed on 7 of 129 questions with nothing else touched (nDCG
+0.845 → 0.844). So never compare one system's score across two embeddings: re-take the
+pools and score every system on the same day, as `tmk-bulk pools` does, and grade only what
+is new (ADR-0127).

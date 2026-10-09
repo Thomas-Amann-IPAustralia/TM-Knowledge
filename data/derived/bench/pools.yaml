@@ -1,5 +1,10 @@
 note: Each question's top ten from the three systems (search.index), and the pool the judge grades. Fixed
   before judging; the measurement scores exactly these rankings.
+measured: '2026-10-09'
+variants:
+  ontology_previous: the ontology system's top ten as last measured (2026-10-07, commit 3c30aca)
+  ontology_unaudited: the same ontology system over the relationships as they stood before the edge audit
+    was applied (commit e99df13)
 pools:
 - key: BN-0001
   kind: lookup
@@ -28,6 +33,18 @@ pools:
     - TMM/Part10/x-introduction#1
     - TMM/Part33/6#1
     ontology:
+    - TMM/Part10/x-introduction#1
+    - TMM/Part35/3#1~1
+    - TMM/Part33/1/1/3
+    - TMM/Part60/4/7/4/7/14/1
+    - TMM/Part33/x-relevant-legislation27#1
+    - TMM/Part18/3#1
+    - TMM/Part12/8#1
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
+    - TMM/Part34/5/5/1
+    - TMM/Part20/5/5/4/1
+  variants:
+    ontology_previous:
     - TMM/Part43/x-relevant-legislation7#1
     - TMM/Part60/4/7/4/7/14/1
     - TMM/Part33/1/1/3
@@ -38,17 +55,32 @@ pools:
     - TMM/Part43/1#1~2
     - TMM/Part33/x-relevant-legislation27#1
     - TMM/Part27/4/4/4
+    ontology_unaudited:
+    - TMM/Part10/x-introduction#1
+    - TMM/Part35/3#1~1
+    - TMM/Part33/1/1/3
+    - TMM/Part60/4/7/4/7/14/1
+    - TMM/Part33/x-relevant-legislation27#1
+    - TMM/Part18/3#1
+    - TMM/Part12/8#1
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
+    - TMM/Part34/5/5/1
+    - TMM/Part20/5/5/4/1
   pool:
+  - TMM/Part12/8#1
   - TMM/Part43/1#1~2
   - TMM/Part33/2/2/1
   - TMM/Part33/3/3/1
   - TMM/Part33/2#1
+  - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
   - TMM/Part33/5#1
   - TMM/Part33/4#1
   - TMM/Part27/4/4/4
   - TMM/Part33/1#1
   - TMM/Part34/5/5/1
   - TMM/Part35/3#1~1
+  - TMM/Part20/5/5/4/1
+  - TMM/Part18/3#1
   - TMM/Part33/1/1/1
   - TMM/Part60/4/7/4/7/14/1
   - TMM/Part33/1/1/3
@@ -87,6 +119,18 @@ pools:
     ontology:
     - TMM/Part55/2#1
     - TMM/Part47/1/1/3/6~2
+    - TMM/Part28/4/28/4/3~2
+    - TMM/Part46/2#1
+    - TMM/Part55/3/3/3
+    - TMM/Part51/4/4/2~1
+    - TMM/Part52/8#1
+    - TMM/Part61/3/3/1
+    - TMM/Part54/1/1/3
+    - TMM/Part52/4#1
+  variants:
+    ontology_previous:
+    - TMM/Part55/2#1
+    - TMM/Part47/1/1/3/6~2
     - TMM/Part46/2#1
     - TMM/Part55/3/3/3
     - TMM/Part28/4/28/4/3~2
@@ -95,6 +139,17 @@ pools:
     - TMM/Part51/4/4/2~1
     - TMM/Part55/2/2/5
     - TMM/Part15/7/7/2
+    ontology_unaudited:
+    - TMM/Part55/2#1
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part52/4#1
+    - TMM/Part28/4/28/4/3~2
+    - TMM/Part46/2#1
+    - TMM/Part51/4/4/2~1
+    - TMM/Part61/3/3/1
+    - TMM/Part54/1/1/3
+    - TMM/Part55/3/3/3
+    - TMM/Part55/2/2/5
   pool:
   - TMM/Part52/4#1
   - TMM/Part54/1/1/3
@@ -149,6 +204,18 @@ pools:
     - TMM/Part26/4/4/3/2
     ontology:
     - TMM/Part26/4/4/3~2
+    - TMM/Part26/2#1
+    - TMM/Part29/5/5/5
+    - TMM/Part29/5/5/4
+    - TMM/Part29/4#1
+    - TMM/Part26/4/4/3/4
+    - TMM/Part26/4/4/3~1
+    - TMM/Part14/3#1~1
+    - TMM/Part26/4/4/3/1~3
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~1
+  variants:
+    ontology_previous:
+    - TMM/Part26/4/4/3~2
     - TMM/Part29/5/5/5
     - TMM/Part29/5/5/4
     - TMM/Part26/2#1
@@ -158,11 +225,24 @@ pools:
     - TMM/Part32A/2/4/2/4/1
     - TMM/Part26/4/4/3/1~3
     - TMM/Part26/4/4/3~3
+    ontology_unaudited:
+    - TMM/Part26/4/4/3~2
+    - TMM/Part29/5/5/4
+    - TMM/Part29/5/5/5
+    - TMM/Part26/2#1
+    - TMM/Part29/4#1
+    - TMM/Part32A/2/4/2/4/1
+    - TMM/Part26/4/4/3/1~3
+    - TMM/Part26/4/4/3~3
+    - TMM/Part14/3#1~1
+    - TMM/Part29/9/9/5
   pool:
   - TMM/Part26/4/4/3~3
   - TMM/Part60/4/7/4/7/7
+  - TMM/Part14/3#1~1
   - TMM/Part27/3/3/2~1
   - TMM/Part10/5/5/2
+  - TMM/Part26/x-annex-a1---citing-multiple-names#1~1
   - TMM/Part26/4/4/3/3
   - TMM/Part26/4/4/3/1~3
   - TMM/Part29/9/9/5
@@ -205,6 +285,29 @@ pools:
     - TMM/Part60/4/24/4/24/4
     - TMM/Part10/5/5/3
     ontology:
+    - TMM/Part14/6/6/6
+    - TMM/Part27/3/3/2~1
+    - TMM/Part60/4/24/4/24/3
+    - TMM/Part10/5/5/3/1
+    - TMM/Part60/4/24/4/24/5
+    - TMM/Part27/3/3/2/4
+    - TMM/Part60/4/24/4/24/1
+    - TMM/Part14/4/4/4
+    - TMM/Part60/4/24/4/24/4
+    - TMM/Part10/5/5/3
+  variants:
+    ontology_previous:
+    - TMM/Part14/6/6/6
+    - TMM/Part27/3/3/2~1
+    - TMM/Part60/4/24/4/24/3
+    - TMM/Part10/5/5/3/1
+    - TMM/Part60/4/24/4/24/5
+    - TMM/Part27/3/3/2/4
+    - TMM/Part60/4/24/4/24/1
+    - TMM/Part14/4/4/4
+    - TMM/Part60/4/24/4/24/4
+    - TMM/Part10/5/5/3
+    ontology_unaudited:
     - TMM/Part14/6/6/6
     - TMM/Part27/3/3/2~1
     - TMM/Part60/4/24/4/24/3
@@ -259,6 +362,18 @@ pools:
     - TMM/Part51/2/2/2~3
     - TMM/Part51/2/2/5~2
     ontology:
+    - TMM/Part51/5#1~1
+    - TMM/Part51/4/4/1~1
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part51/4/4/3
+    - TMM/Part48/4#1~1
+    - TMM/Part49/6#1
+    - TMM/Part51/3/3/1
+    - TMM/Part51/3/3/3
+    - TMM/Part60/4/17/4/17/2~1
+    - TMM/Part51/3/3/2
+  variants:
+    ontology_previous:
     - TMM/Part51/4/4/1~1
     - TMM/Part51/5#1~1
     - TMM/Part60/4/17/4/17/2~3
@@ -269,10 +384,22 @@ pools:
     - TMM/Part51/3/3/3
     - TMM/Part51/3/3/2
     - TMM/Part51/2/2/2~3
+    ontology_unaudited:
+    - TMM/Part51/4/4/1~1
+    - TMM/Part51/5#1~1
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part51/4/4/3
+    - TMM/Part48/4#1~1
+    - TMM/Part49/6#1
+    - TMM/Part51/3/3/1
+    - TMM/Part60/4/17/4/17/2~1
+    - TMM/Part51/3/3/3
+    - TMM/Part51/3/3/2
   pool:
   - TMM/Part15/1#1~2
   - TMM/Part51/5#1~1
   - TMM/Part48/4#1~1
+  - TMM/Part60/4/17/4/17/2~1
   - TMM/Part51/2/2/5~2
   - TMM/Part51/4/4/1~1
   - TMM/Part51/3/3/3
@@ -312,6 +439,18 @@ pools:
     - TMM/Part15/6/6/3
     ontology:
     - TMM/Part48/4#1~1
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part49/2/2/3/2
+    - TMM/Part48/4#1~2
+    - TMM/Part47/1/1/3/2
+    - TMM/Part15/6/6/2
+    - TMM/Part47/1/1/3/3
+    - TMM/Part47/1/1/3/6~1
+    - TMM/Part16/1/1/5
+    - TMM/Part60/4/16/4/16/2
+  variants:
+    ontology_previous:
+    - TMM/Part48/4#1~1
     - TMM/Part47/1/1/3/3
     - TMM/Part47/1/1/3/6~2
     - TMM/Part49/2/2/3/2
@@ -321,12 +460,24 @@ pools:
     - TMM/Part15/2/2/1/2
     - TMM/Part60/4/21/4/21/2
     - TMM/Part47/1/1/3/6~1
+    ontology_unaudited:
+    - TMM/Part48/4#1~1
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part49/2/2/3/2
+    - TMM/Part47/1/1/3/3
+    - TMM/Part47/1/1/3/2
+    - TMM/Part15/6/6/2
+    - TMM/Part48/4#1~2
+    - TMM/Part47/1/1/3/6~1
+    - TMM/Part60/4/16/4/16/2
+    - TMM/Part49/2/2/3/3
   pool:
   - TMM/Part15/6/6/3
   - TMM/Part48/4#1~1
   - TMM/Part47/1/1/3/2
   - TMM/Part47/1/1/3/6~1
   - TMM/Part15/1#1~1
+  - TMM/Part16/1/1/5
   - TMM/Part15/2/2/1/2
   - TMM/Part47/1/1/3/6~2
   - TMM/Part47/3/3/3
@@ -334,7 +485,9 @@ pools:
   - TMM/Part60/4/17/4/17/2~1
   - TMM/Part49/2/2/3/6
   - TMM/Part15/3/3/4
+  - TMM/Part15/6/6/2
   - TMM/Part48/4#1~2
+  - TMM/Part49/2/2/3/3
   - TMM/Part49/2/2/3/2
   - TMM/Part60/4/16/4/16/2
   - TMM/Part47/1/1/1/1
@@ -367,6 +520,29 @@ pools:
     - TMM/Part47/1/1/3/4
     - TMM/Part51/2/2/1
     ontology:
+    - TMM/Part51/2/2/3
+    - TMM/Part15/6/6/3
+    - TMM/Part55/3/3/4
+    - TMM/Part16/1/1/4
+    - TMM/Part49/2/2/3/4
+    - TMM/Part47/1/1/3/6~1
+    - TMM/Part49/2/2/3/3
+    - TMM/Part15/5/5/2
+    - TMM/Part47/1/1/3/4
+    - TMM/Part51/2/2/1
+  variants:
+    ontology_previous:
+    - TMM/Part51/2/2/3
+    - TMM/Part15/6/6/3
+    - TMM/Part55/3/3/4
+    - TMM/Part16/1/1/4
+    - TMM/Part49/2/2/3/4
+    - TMM/Part47/1/1/3/6~1
+    - TMM/Part49/2/2/3/3
+    - TMM/Part15/5/5/2
+    - TMM/Part47/1/1/3/4
+    - TMM/Part51/2/2/1
+    ontology_unaudited:
     - TMM/Part51/2/2/3
     - TMM/Part15/6/6/3
     - TMM/Part55/3/3/4
@@ -422,6 +598,18 @@ pools:
     - TMM/Part17/x-relevant-legislation38#1
     ontology:
     - TMM/Part17/1#1
+    - TMM/Part17/3#1~1
+    - TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1
+    - TMM/Part17/3#1~2
+    - TMM/Part17/4#1
+    - TMM/Part17/4/4/1
+    - TMM/Part17/2/2/2
+    - TMM/Part16/1/1/1
+    - TMM/Part17/2/2/1
+    - TMM/Part17/3#1~3
+  variants:
+    ontology_previous:
+    - TMM/Part17/1#1
     - TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1
     - TMM/Part17/3#1~1
     - TMM/Part17/2/2/2
@@ -430,6 +618,17 @@ pools:
     - TMM/Part17/3#1~2
     - TMM/Part17/2/2/1
     - TMM/Part17/3#1~3
+    - TMM/Part17/4/4/2
+    ontology_unaudited:
+    - TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1
+    - TMM/Part17/1#1
+    - TMM/Part17/3#1~1
+    - TMM/Part17/4#1
+    - TMM/Part17/2/2/2
+    - TMM/Part17/3#1~2
+    - TMM/Part17/4/4/1
+    - TMM/Part17/3#1~3
+    - TMM/Part16/1/1/1
     - TMM/Part17/4/4/2
   pool:
   - TMM/Part17/4/4/3
@@ -441,6 +640,7 @@ pools:
   - TMM/Part17/4/4/2
   - TMM/Part17/2/2/1
   - TMM/Part17/3#1~3
+  - TMM/Part16/1/1/1
   - TMM/Part60/4/11/4/11/1
   - TMM/Part17/3#1~1
   - TMM/Part17/4#1
@@ -476,6 +676,18 @@ pools:
     ontology:
     - TMM/Part52/5/5/5
     - TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid
+    - TMM/Part18/1/1/4
+    - TMM/Part4/1/1/3/1
+    - TMM/Part15/1/1/1
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part52/5/5/2
+    - TMM/Part4/6/6/3/3
+    - TMM/Part39/4/4/2
+    - TMM/Part4/6/6/3/2
+  variants:
+    ontology_previous:
+    - TMM/Part52/5/5/5
+    - TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid
     - TMM/Part4/1/1/3/1
     - TMM/Part18/1/1/4
     - TMM/Part47/1/1/3/6~2
@@ -484,9 +696,22 @@ pools:
     - TMM/Part4/6/6/3/2
     - TMM/Part4/4/4/1/5
     - TMM/Part52/5/5/2
+    ontology_unaudited:
+    - TMM/Part52/5/5/5
+    - TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid
+    - TMM/Part18/1/1/4
+    - TMM/Part4/1/1/3/1
+    - TMM/Part52/5/5/2
+    - TMM/Part4/6/6/3/3
+    - TMM/Part4/6/6/3/2
+    - TMM/Part4/4/4/1/5
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part61/3/3/1
   pool:
   - TMM/Part11/2#1
   - TMM/Part39/4/4/2
+  - TMM/Part15/1/1/1
+  - TMM/Part61/3/3/1
   - TMM/Part52/5/5/5
   - TMM/Part4/6/6/4/1
   - TMM/Part4/6/6/3/5
@@ -531,6 +756,18 @@ pools:
     - TMM/Part21/3/3/1
     ontology:
     - TMM/Part21/2#1
+    - TMM/Part10/3/3/6/1
+    - TMM/Part10/3#1
+    - TMM/Part21/5/5/1
+    - TMM/Part21/10#1~1
+    - TMM/Part21/3/3/2
+    - TMM/Part10/3/3/6/2
+    - TMM/Part10/3/3/2/8
+    - TMM/Part21/3/3/6~2
+    - TMM/Part21/3/3/5
+  variants:
+    ontology_previous:
+    - TMM/Part21/2#1
     - TMM/Part10/3/3/1
     - TMM/Part10/3/3/6/1
     - TMM/Part21/10#1~1
@@ -540,10 +777,23 @@ pools:
     - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
     - TMM/Part10/3/3/6/3
     - TMM/Part21/1#1
+    ontology_unaudited:
+    - TMM/Part21/2#1
+    - TMM/Part10/3/3/6/1
+    - TMM/Part10/3#1
+    - TMM/Part21/3/3/2
+    - TMM/Part21/5/5/1
+    - TMM/Part21/10#1~1
+    - TMM/Part10/3/3/6/2
+    - TMM/Part10/3/3/6/3
+    - TMM/Part10/3/3/1
+    - TMM/Part21/9#1
   pool:
   - TMM/Part10/3/3/1
+  - TMM/Part10/3/3/2/8
   - TMM/Part10/3/3/6/3
   - TMM/Part26/6/6/8~3
+  - TMM/Part21/3/3/5
   - TMM/Part5/x-device-constituents/borders-frames
   - TMM/Part21/5/5/1
   - TMM/Part10/3/3/6/2
@@ -558,6 +808,7 @@ pools:
   - TMM/Part21/3/3/1
   - TMM/Part21/4/4/3/1~2
   - TMM/Part21/1#1
+  - TMM/Part21/3/3/6~2
   - TMM/Part10/3#1
   - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
   - TMM/Part54/1/1/4/1
@@ -589,6 +840,18 @@ pools:
     - TMM/Part26/6#1
     - TMM/Part26/6/6/1~1
     ontology:
+    - TMM/Part26/6/6/4~1
+    - TMM/Part26/6/6/8~3
+    - TMM/Part26/2#1
+    - TMM/Part26/4/4/3~2
+    - TMM/Part21/3/3/6~2
+    - TMM/Part26/6/6/8~4
+    - TMM/Part29/3/3/1~1
+    - TMM/Part26/4/4/3/1~3
+    - TMM/Part46/4/4/5/2
+    - TMM/Part29/3#1~1
+  variants:
+    ontology_previous:
     - TMM/Part26/2#1
     - TMM/Part26/6/6/8~3
     - TMM/Part26/6/6/8~4
@@ -599,6 +862,17 @@ pools:
     - TMM/Part29/3/3/1~1
     - TMM/Part29/3#1~1
     - TMM/Part26/6/6/4~1
+    ontology_unaudited:
+    - TMM/Part26/4/4/3~2
+    - TMM/Part26/6/6/8~3
+    - TMM/Part26/2#1
+    - TMM/Part26/6/6/4~1
+    - TMM/Part29/1#1
+    - TMM/Part29/3/3/1~1
+    - TMM/Part26/6/6/8~4
+    - TMM/Part29/10#1
+    - TMM/Part29/3/3/2
+    - TMM/Part29/3#1~1
   pool:
   - TMM/Part26/5#1
   - TMM/Part26/2#1
@@ -613,10 +887,12 @@ pools:
   - TMM/Part26/6#1
   - TMM/Part21/3/3/6~2
   - TMM/Part29/3/3/1~1
+  - TMM/Part46/4/4/5/2
   - TMM/Part29/3#1~1
   - TMM/Part29/10#1
   - TMM/Part19B/4/4/2
   - TMM/Part26/6/6/8~3
+  - TMM/Part26/4/4/3/1~3
   - TMM/Part26/4/4/3~2
   - TMM/Part46/4/4/6/3
 - key: BN-0012
@@ -647,6 +923,18 @@ pools:
     - TMM/Part32A/2/3/2/3/1
     - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
     ontology:
+    - TMM/Part32A/2/3/2-3-1-a-variety-names
+    - TMM/Part32A/2/3#1
+    - TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1
+    - TMM/Part29/1/1/2
+    - TMM/Part22/27#1
+    - TMM/Part32A/1/1/3
+    - TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/article-13-trade-designations
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
+    - TMM/Part32A/2/3/2/3/1
+    - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
+  variants:
+    ontology_previous:
     - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
     - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
     - TMM/Part32A/2/4/2-4-3-b-examples-of-use
@@ -657,6 +945,17 @@ pools:
     - TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1
     - TMM/Part32B/2/1/2/1/1
     - TMM/Part22/27#1
+    ontology_unaudited:
+    - TMM/Part32A/2/3/2-3-1-a-variety-names
+    - TMM/Part32A/2/3#1
+    - TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1
+    - TMM/Part29/1/1/2
+    - TMM/Part22/27#1
+    - TMM/Part32A/1/1/3
+    - TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/article-13-trade-designations
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
+    - TMM/Part32A/2/3/2/3/1
+    - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
   pool:
   - TMM/Part29/5/5/4
   - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
@@ -713,6 +1012,29 @@ pools:
     - TMM/Part29/5/5/6~2
     - TMM/Part29/x-annex-a1---table-of-inn-stems/k
     - TMM/Part29/x-annex-a1---table-of-inn-stems/g
+  variants:
+    ontology_previous:
+    - TMM/Part29/5/5/2
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/inn-stems
+    - TMM/Part29/5/5/6~1
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/y
+    - TMM/Part29/5/5/3
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/u
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/i
+    - TMM/Part29/5/5/6~2
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/k
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/g
+    ontology_unaudited:
+    - TMM/Part29/5/5/2
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/inn-stems
+    - TMM/Part29/5/5/6~1
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/y
+    - TMM/Part29/5/5/3
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/u
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/i
+    - TMM/Part29/5/5/6~2
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/k
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/g
   pool:
   - TMM/Part29/x-annex-a1---table-of-inn-stems/k
   - TMM/Part22/24#1
@@ -751,11 +1073,23 @@ pools:
     - TMM/Part21/3/3/7
     - TMM/Part22/25/25/3
     - TMM/Part21/3/3/2
-    - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
     - TMM/Part22/7/22/7/9
     - TMM/Part21/8#1
+    - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
     - TMM/Part22/23#1
     ontology:
+    - TMM/Part21/3/3/2
+    - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
+    - TMM/Part22/25#1
+    - TMM/Part21/4/4/3/1~1
+    - TMM/Part19A/8#1~2
+    - TMM/Part21/3/3/7
+    - TMM/Part21/10#1~1
+    - TMM/Part22/25/25/1
+    - TMM/Part22/7/22/7/9
+    - TMM/Part10/3/3/4/2
+  variants:
+    ontology_previous:
     - TMM/Part21/3/3/2
     - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
     - TMM/Part22/25#1
@@ -766,6 +1100,17 @@ pools:
     - TMM/Part21/10#1~1
     - TMM/Part21/3/3/7
     - TMM/Part22/25/25/3
+    ontology_unaudited:
+    - TMM/Part21/3/3/2
+    - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
+    - TMM/Part22/25/25/3
+    - TMM/Part22/25#1
+    - TMM/Part22/25/25/1
+    - TMM/Part21/4/4/3/1~1
+    - TMM/Part19A/8#1~2
+    - TMM/Part21/3/3/7
+    - TMM/Part31/2#1
+    - TMM/Part22/7/22/7/9
   pool:
   - TMM/Part21/3/3/7
   - TMM/Part22/7/22/7/9
@@ -778,12 +1123,14 @@ pools:
   - TMM/Part21/4/4/3/1~1
   - TMM/Part19A/8#1~2
   - TMM/Part10/3/3/1
+  - TMM/Part10/3/3/4/2
   - TMM/Part30/3/3/2
   - TMM/Part22/25/25/1
   - TMM/Part22/25#1
   - TMM/Part22/25/25/3
   - TMM/Part22/26#1~2
   - TMM/Part22/23#1
+  - TMM/Part31/2#1
   - TMM/Part30/3/3/5/5~4
   - TMM/Part21/3/3/2
   - TMM/Part21/8#1
@@ -818,6 +1165,18 @@ pools:
     ontology:
     - TMM/Part35/x-relevant-legislation#1
     - TMM/Part35/1#1
+    - TMM/Part35/3#1~1
+    - TMM/Part35/3#1~2
+    - TMM/Part35/1/1/5
+    - TMM/Part35/10#1
+    - TMM/Part19B/4/4/4~2
+    - TMM/Part35/12#1
+    - TMM/Part35/9#1
+    - TMM/Part43/1#1~2
+  variants:
+    ontology_previous:
+    - TMM/Part35/x-relevant-legislation#1
+    - TMM/Part35/1#1
     - TMM/Part35/10#1
     - TMM/Part35/12#1
     - TMM/Part35/9#1
@@ -826,6 +1185,17 @@ pools:
     - TMM/Part35/1/1/5
     - TMM/Part43/x-relevant-legislation7#1
     - TMM/Part35/3#1~1
+    ontology_unaudited:
+    - TMM/Part35/1#1
+    - TMM/Part35/x-relevant-legislation#1
+    - TMM/Part35/3#1~1
+    - TMM/Part35/3#1~2
+    - TMM/Part35/1/1/5
+    - TMM/Part35/10#1
+    - TMM/Part35/9#1
+    - TMM/Part35/12#1
+    - TMM/Part43/1#1~2
+    - TMM/Part35/8#1
   pool:
   - TMM/Part43/x-relevant-legislation7#1
   - TMM/Part35/8#1
@@ -875,6 +1245,18 @@ pools:
     - TMM/Part60/4/7/4/7/15/3
     ontology:
     - TMM/Part52/5/5/2
+    - TMM/Part35/6#1~2
+    - TMM/Part60/4/11/4/11/4
+    - TMM/Part17/2/2/2
+    - TMM/Part35/9#1
+    - TMM/Part35/5#1~2
+    - TMM/Part52/7#1
+    - TMM/Part15/7#1
+    - TMM/Part35/x-relevant-legislation#1
+    - TMM/Part35/8#1
+  variants:
+    ontology_previous:
+    - TMM/Part52/5/5/2
     - TMM/Part52/7#1
     - TMM/Part35/6#1~2
     - TMM/Part60/4/11/4/11/4
@@ -884,10 +1266,23 @@ pools:
     - TMM/Part51/4/4/2~1
     - TMM/Part35/9#1
     - TMM/Part35/x-relevant-legislation#1
+    ontology_unaudited:
+    - TMM/Part52/5/5/2
+    - TMM/Part35/6#1~2
+    - TMM/Part60/4/11/4/11/4
+    - TMM/Part17/2/2/2
+    - TMM/Part35/9#1
+    - TMM/Part35/5#1~2
+    - TMM/Part52/7#1
+    - TMM/Part15/7#1
+    - TMM/Part35/x-relevant-legislation#1
+    - TMM/Part43/1#1~2
   pool:
   - TMM/Part17/5/5/1
+  - TMM/Part43/1#1~2
   - TMM/Part60/4/11/4/11/4
   - TMM/Part61/2/2/4
+  - TMM/Part35/5#1~2
   - TMM/Part35/6#1~2
   - TMM/Part35/9#1
   - TMM/Part15/7#1
@@ -900,6 +1295,7 @@ pools:
   - TMM/Part51/4/4/2~1
   - TMM/Part52/5/5/2
   - TMM/Part17/2/2/2
+  - TMM/Part35/8#1
   - TMM/Part61/2/2/4/2
   - TMM/Part52/5/5/3
 - key: BN-0017
@@ -931,6 +1327,18 @@ pools:
     - TMM/Part22/27#1
     ontology:
     - TMM/Part29/6#1~2
+    - TMM/Part29/6#1~1
+    - TMM/Part29/6/6/1
+    - TMM/Part29/9/9/7
+    - TMM/Part29/6/6/2~1
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
+    - TMM/Part30/2/2/12
+    - TMM/Part29/6/6/2~2
+    - TMM/Part22/25/25/7
+    - TMM/Part29/5/5/4
+  variants:
+    ontology_previous:
+    - TMM/Part29/6#1~2
     - TMM/Part29/6/6/1
     - TMM/Part29/6#1~1
     - TMM/Part29/9/9/7
@@ -940,6 +1348,17 @@ pools:
     - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
     - TMM/Part29/9/9/3~1
     - TMM/Part29/5/5/4
+    ontology_unaudited:
+    - TMM/Part29/6#1~2
+    - TMM/Part29/6#1~1
+    - TMM/Part29/6/6/1
+    - TMM/Part29/6/6/2~1
+    - TMM/Part29/9/9/7
+    - TMM/Part30/2/2/12
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
+    - TMM/Part29/5/5/4
+    - TMM/Part29/6/6/2~2
+    - TMM/Part29/9/9/3~1
   pool:
   - TMM/Part29/6/6/2~1
   - TMM/Part22/27#1
@@ -989,6 +1408,18 @@ pools:
     ontology:
     - TMM/Part16/2/4/3
     - TMM/Part16/2#1
+    - TMM/Part16/2/4/2
+    - TMM/Part16/2/4/1
+    - TMM/Part9/4/4/7/1
+    - TMM/Part17/1#1
+    - TMM/Part22/13/13/6~2
+    - TMM/Part18/3/3/3/3
+    - TMM/Part15/3/3/5
+    - TMM/Part15/1/1/1
+  variants:
+    ontology_previous:
+    - TMM/Part16/2/4/3
+    - TMM/Part16/2#1
     - TMM/Part16/2/4/1
     - TMM/Part16/2/4/2
     - TMM/Part15/1/1/1
@@ -997,12 +1428,26 @@ pools:
     - TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
     - TMM/Part29/3/3/2
     - TMM/Part29/8/8/1
+    ontology_unaudited:
+    - TMM/Part16/2/4/3
+    - TMM/Part16/2#1
+    - TMM/Part16/2/4/2
+    - TMM/Part16/2/4/1
+    - TMM/Part9/4/4/7/1
+    - TMM/Part29/3/3/2
+    - TMM/Part18/2/2/2
+    - TMM/Part18/3/3/3/3
+    - TMM/Part22/13/13/6~2
+    - TMM/Part15/3/3/5
   pool:
   - TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
+  - TMM/Part9/4/4/7/1
   - TMM/Part15/3/3/5
   - TMM/Part54/x-annex-a1---consequences-of-mishandling-a-subpoena#1~1
+  - TMM/Part18/2/2/2
   - TMM/Part18/3/3/3/3
   - TMM/Part15/1/1/1
+  - TMM/Part22/13/13/6~2
   - TMM/Part4/7/7/4
   - TMM/Part16/2/4/3
   - TMM/Part54/1/1/4/1
@@ -1042,6 +1487,29 @@ pools:
     - TMM/Part10/x-introduction#1
     - TMM/Part5/4#1
     ontology:
+    - TMM/Part35/8#1
+    - TMM/Part1/x-1.-introduction7#1
+    - TMM/Part35/x-relevant-legislation#1
+    - TMM/Part9/1#1
+    - TMM/Part35/6#1~1
+    - TMM/Part35/5#1~2
+    - TMM/Part22/7#1
+    - TMM/Part26/3#1
+    - TMM/Part10/x-introduction#1
+    - TMM/Part5/4#1
+  variants:
+    ontology_previous:
+    - TMM/Part35/8#1
+    - TMM/Part1/x-1.-introduction7#1
+    - TMM/Part35/x-relevant-legislation#1
+    - TMM/Part9/1#1
+    - TMM/Part35/6#1~1
+    - TMM/Part35/5#1~2
+    - TMM/Part22/7#1
+    - TMM/Part26/3#1
+    - TMM/Part10/x-introduction#1
+    - TMM/Part5/4#1
+    ontology_unaudited:
     - TMM/Part35/8#1
     - TMM/Part1/x-1.-introduction7#1
     - TMM/Part35/x-relevant-legislation#1
@@ -1100,6 +1568,18 @@ pools:
     - TMM/Part14/4/4/9/2
     ontology:
     - TMM/Part27/3/3/2~1
+    - TMM/Part10/5/5/2/1
+    - TMM/Part27/3/3/1
+    - TMM/Part14/6/6/3/2
+    - TMM/Part14/4/4/3/1
+    - TMM/Part14/6/6/7
+    - TMM/Part14/4/4/9/2
+    - TMM/Part27/3/3/3
+    - TMM/Part12/3/3/3~2
+    - TMM/Part14/4/4/8/2~2
+  variants:
+    ontology_previous:
+    - TMM/Part27/3/3/2~1
     - TMM/Part14/6/6/3/2
     - TMM/Part10/5/5/2/1
     - TMM/Part27/3/3/1
@@ -1109,6 +1589,17 @@ pools:
     - TMM/Part12/3/3/3~2
     - TMM/Part14/4/4/5/1
     - TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
+    ontology_unaudited:
+    - TMM/Part27/3/3/2~1
+    - TMM/Part10/5/5/2/1
+    - TMM/Part27/3/3/1
+    - TMM/Part14/6/6/3/2
+    - TMM/Part14/4/4/3/1
+    - TMM/Part14/4/4/9/2
+    - TMM/Part14/6/6/7
+    - TMM/Part27/3/3/3
+    - TMM/Part14/4/4/5/1
+    - TMM/Part12/3/3/3~2
   pool:
   - TMM/Part14/4/4/3/1
   - TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
@@ -1125,6 +1616,7 @@ pools:
   - TMM/Part11/5/5/1/1
   - TMM/Part23/3/3/3/2
   - TMM/Part14/6/6/7
+  - TMM/Part14/4/4/8/2~2
 - key: BN-0021
   kind: lookup
   question: Do I need to give evidence if there have been any actual confusion incidents, and what does
@@ -1153,6 +1645,18 @@ pools:
     - TMM/Part28/3/3/1~4
     - TMM/Part23/3/3/2/1
     ontology:
+    - TMM/Part29/3/3/1~1
+    - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
+    - TMM/Part26/2#1
+    - TMM/Part28/4/28/4/2
+    - TMM/Part28/3/3/1~4
+    - TMM/Part28/3/3/1~1
+    - TMM/Part28/3/3/3
+    - TMM/Part28/3/3/6~2
+    - TMM/Part29/3#1~1
+    - TMM/Part29/9/9/3~1
+  variants:
+    ontology_previous:
     - TMM/Part28/3/3/1~1
     - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
     - TMM/Part29/3/3/1~1
@@ -1163,6 +1667,17 @@ pools:
     - TMM/Part28/3/3/3
     - TMM/Part29/9/9/3~1
     - TMM/Part29/5/5/4
+    ontology_unaudited:
+    - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
+    - TMM/Part29/3/3/1~1
+    - TMM/Part26/2#1
+    - TMM/Part28/3/3/1~4
+    - TMM/Part28/3/3/3
+    - TMM/Part29/9/9/3~1
+    - TMM/Part29/5/5/6~1
+    - TMM/Part29/3#1~1
+    - TMM/Part29/5/5/4
+    - TMM/Part29/5/5/6~2
   pool:
   - TMM/Part29/5/5/4
   - TMM/Part51/4/4/1~2
@@ -1171,8 +1686,10 @@ pools:
   - TMM/Part23/4/4/3
   - TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
   - TMM/Part29/3/3/1~1
+  - TMM/Part29/3#1~1
   - TMM/Part28/3/3/1~1
   - TMM/Part23/x-annex-a7---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-413---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
+  - TMM/Part29/5/5/6~1
   - TMM/Part28/3/3/3
   - TMM/Part23/4/4/3/1
   - TMM/Part26/2#1
@@ -1184,6 +1701,7 @@ pools:
   - TMM/Part23/5/5/4/2
   - TMM/Part28/3/3/1~4
   - TMM/Part23/3/3/2/1
+  - TMM/Part28/4/28/4/2
   - TMM/Part23/5/5/4
 - key: BN-0022
   kind: problem
@@ -1213,6 +1731,18 @@ pools:
     - TMM/Part32B/2/1/2/1/1
     - TMM/Part13/7/7/3
     ontology:
+    - TMM/Part32B/3#1
+    - TMM/Part32B/2/1#1
+    - TMM/Part32B/2/2#1
+    - TMM/Part32B/2/1/2/1/2
+    - TMM/Part32B/2/1/2/1/3
+    - TMM/Part32B/2/1/2/1/4
+    - TMM/Part32B/2/3/2/3/7
+    - TMM/Part32B/2/2/overcoming-a-section-43-ground-for-rejection-that-has-been-raised
+    - TMM/Part32B/2/1/2/1/1
+    - TMM/Part13/7/7/3
+  variants:
+    ontology_previous:
     - TMM/Part32B/2/3/2/3/1
     - TMM/Part32B/2/1/2/1/2
     - TMM/Part32B/2/1#1
@@ -1223,6 +1753,17 @@ pools:
     - TMM/Part32B/3#1
     - TMM/Part32B/1/1/3
     - TMM/Part24/3#1
+    ontology_unaudited:
+    - TMM/Part32B/3#1
+    - TMM/Part32B/2/1#1
+    - TMM/Part32B/2/2#1
+    - TMM/Part32B/2/1/2/1/2
+    - TMM/Part32B/2/1/2/1/3
+    - TMM/Part32B/2/1/2/1/4
+    - TMM/Part32B/2/3/2/3/7
+    - TMM/Part32B/2/2/overcoming-a-section-43-ground-for-rejection-that-has-been-raised
+    - TMM/Part32B/2/1/2/1/1
+    - TMM/Part13/7/7/3
   pool:
   - TMM/Part46/4/4/6/3
   - TMM/Part32B/1/1/3
@@ -1267,6 +1808,18 @@ pools:
     - TMM/Part10/1/1/1/3
     - TMM/Part10/1/1/1/6
     ontology:
+    - TMM/Part10/8#1
+    - TMM/Part10/1/1/1
+    - TMM/Part27/4/4/2/5
+    - TMM/Part10/1/1/2
+    - TMM/Part10/1/1/1/1
+    - TMM/Part9/3/3/6
+    - TMM/Part27/4/4/2/3
+    - TMM/Part10/1/1/1/9
+    - TMM/Part10/1/1/1/3
+    - TMM/Part10/1/1/1/6
+  variants:
+    ontology_previous:
     - TMM/Part10/1/1/1
     - TMM/Part43/6/6/1
     - TMM/Part27/4/4/2/5
@@ -1277,6 +1830,17 @@ pools:
     - TMM/Part10/8#1
     - TMM/Part27/4/4/2
     - TMM/Part35/9#1
+    ontology_unaudited:
+    - TMM/Part10/8#1
+    - TMM/Part10/1/1/1
+    - TMM/Part27/4/4/2/5
+    - TMM/Part10/1/1/2
+    - TMM/Part10/1/1/1/1
+    - TMM/Part9/3/3/6
+    - TMM/Part27/4/4/2/3
+    - TMM/Part10/1/1/1/9
+    - TMM/Part10/1/1/1/3
+    - TMM/Part10/1/1/1/6
   pool:
   - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
   - TMM/Part10/1/1/1/9
@@ -1324,6 +1888,18 @@ pools:
     - TMM/Part52/5/5/1~1
     - TMM/Part18/2/2/2
     ontology:
+    - TMM/Part52/1#1~2
+    - TMM/Part52/2/2/2
+    - TMM/Part52/5/5/4~1
+    - TMM/Part52/1#1~1
+    - TMM/Part52/2#1~1
+    - TMM/Part54/1/1/4/2
+    - TMM/Part18/2/2/2
+    - TMM/Part52/5/5/5
+    - TMM/Part52/7#1
+    - TMM/Part52/5/5/2
+  variants:
+    ontology_previous:
     - TMM/Part52/5/5/3
     - TMM/Part52/2/2/2
     - TMM/Part52/2#1~1
@@ -1334,6 +1910,17 @@ pools:
     - TMM/Part52/5/5/5
     - TMM/Part52/1#1~2
     - TMM/Part52/5/5/4~1
+    ontology_unaudited:
+    - TMM/Part52/2/2/2
+    - TMM/Part52/5/5/4~1
+    - TMM/Part52/5/5/3
+    - TMM/Part52/5/5/5
+    - TMM/Part52/1#1~1
+    - TMM/Part52/2#1~1
+    - TMM/Part54/1/1/4/2
+    - TMM/Part52/1#1~2
+    - TMM/Part51/4/4/2~1
+    - TMM/Part51/8#1
   pool:
   - TMM/Part54/1/1/4
   - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/handles
@@ -1342,8 +1929,11 @@ pools:
   - TMM/Part15/7/7/1
   - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/window-handles
   - TMM/Part52/5/5/2
+  - TMM/Part51/8#1
+  - TMM/Part51/4/4/2~1
   - TMM/Part52/5/5/4~1
   - TMM/Part18/2/2/2
+  - TMM/Part54/1/1/4/2
   - TMM/Part52/2#1~1
   - TMM/Part38/1/1/3
   - TMM/Part52/1#1~2
@@ -1380,6 +1970,29 @@ pools:
     - TMM/Part22/25/25/6
     - TMM/Part5/x-device-constituents/types-of-terms-descriptors~1
     ontology:
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/portfolios
+    - TMM/Part5/x-device-constituents/conventions-used-in-device-phrases
+    - TMM/Part14/4/4/3/1
+    - TMM/Part5/x-device-constituents/types-of-terms-descriptors~2
+    - TMM/Part14/6/6/2/4
+    - TMM/Part14/4/4/3/2
+    - TMM/Part14/4/4/8/1
+    - TMM/Part22/25/25/6
+    - TMM/Part5/x-device-constituents/types-of-terms-descriptors~1
+  variants:
+    ontology_previous:
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/portfolios
+    - TMM/Part5/x-device-constituents/conventions-used-in-device-phrases
+    - TMM/Part14/4/4/3/1
+    - TMM/Part5/x-device-constituents/types-of-terms-descriptors~2
+    - TMM/Part14/6/6/2/4
+    - TMM/Part14/4/4/3/2
+    - TMM/Part14/4/4/8/1
+    - TMM/Part22/25/25/6
+    - TMM/Part5/x-device-constituents/types-of-terms-descriptors~1
+    ontology_unaudited:
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/cases
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/portfolios
     - TMM/Part5/x-device-constituents/conventions-used-in-device-phrases
@@ -1444,6 +2057,29 @@ pools:
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/photos
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/photographs
     - TMM/Part13/6/6/1
+  variants:
+    ontology_previous:
+    - TMM/Part14/5/5/2/15~1
+    - TMM/Part14/5/5/2/15~2
+    - TMM/Part14/5/5/2/15~3
+    - TMM/Part14/5/5/2/1
+    - TMM/Part10/3/3/3/4
+    - TMM/Part14/4/4/11/1
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/digital-imaging-services
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/photos
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/photographs
+    - TMM/Part13/6/6/1
+    ontology_unaudited:
+    - TMM/Part14/5/5/2/15~1
+    - TMM/Part14/5/5/2/15~2
+    - TMM/Part14/5/5/2/15~3
+    - TMM/Part14/5/5/2/1
+    - TMM/Part10/3/3/3/4
+    - TMM/Part14/4/4/11/1
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/digital-imaging-services
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/photos
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/photographs
+    - TMM/Part13/6/6/1
   pool:
   - TMM/Part14/5/5/2/15~2
   - TMM/Part14/4/4/11/1
@@ -1487,6 +2123,29 @@ pools:
     - TMM/Part21/4/4/5/2
     - TMM/Part21/4/4/7
     ontology:
+    - TMM/Part22/25/25/8
+    - TMM/Part21/4/4/1~2
+    - TMM/Part21/4/4/1~1
+    - TMM/Part10/3/3/5/3~1
+    - TMM/Part21/4/4/3/1~2
+    - TMM/Part21/4/4/2
+    - TMM/Part10/3/3/5/3~2
+    - TMM/Part21/8#1
+    - TMM/Part21/4/4/5/2
+    - TMM/Part21/4/4/7
+  variants:
+    ontology_previous:
+    - TMM/Part22/25/25/8
+    - TMM/Part21/4/4/1~2
+    - TMM/Part21/4/4/1~1
+    - TMM/Part10/3/3/5/3~1
+    - TMM/Part21/4/4/3/1~2
+    - TMM/Part21/4/4/2
+    - TMM/Part10/3/3/5/3~2
+    - TMM/Part21/8#1
+    - TMM/Part21/4/4/5/2
+    - TMM/Part21/4/4/7
+    ontology_unaudited:
     - TMM/Part22/25/25/8
     - TMM/Part21/4/4/1~2
     - TMM/Part21/4/4/1~1
@@ -1548,6 +2207,29 @@ pools:
     - TMM/Part9/4/4/1
     - TMM/Part29/9#1
     - TMM/Part22/25/25/6
+  variants:
+    ontology_previous:
+    - TMM/Part29/9/9/3~2
+    - TMM/Part29/4#1
+    - TMM/Part32B/2/3/2/3/7
+    - TMM/Part30/2/2/3
+    - TMM/Part29/2/2/2
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
+    - TMM/Part29/9/9/3~1
+    - TMM/Part9/4/4/1
+    - TMM/Part29/9#1
+    - TMM/Part22/25/25/6
+    ontology_unaudited:
+    - TMM/Part29/9/9/3~2
+    - TMM/Part29/4#1
+    - TMM/Part32B/2/3/2/3/7
+    - TMM/Part30/2/2/3
+    - TMM/Part29/2/2/2
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
+    - TMM/Part29/9/9/3~1
+    - TMM/Part9/4/4/1
+    - TMM/Part29/9#1
+    - TMM/Part22/25/25/6
   pool:
   - TMM/Part32B/2/3/2/3/7
   - TMM/Part9/4/4/1
@@ -1592,8 +2274,31 @@ pools:
     - TMM/Part60/4/15/4/15/2~1
     - TMM/Part60/4/9/4/9/2
     ontology:
+    - TMM/Part60/4/17/4/17/2~2
+    - TMM/Part60/4/17/4/17/2~1
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part47/3/3/1
+    - TMM/Part47/3#1
+    - TMM/Part60/4/16/4/16/2
+    - TMM/Part60/4/21/4/21/2
+    - TMM/Part60/4/13/4/13/2
+    - TMM/Part49/4#1
+    - TMM/Part47/1/1/3/6~2
+  variants:
+    ontology_previous:
     - TMM/Part60/4/17/4/17/2~1
     - TMM/Part60/4/17/4/17/2~2
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part60/4/13/4/13/2
+    - TMM/Part47/3/3/1
+    - TMM/Part47/3#1
+    - TMM/Part60/4/16/4/16/2
+    - TMM/Part60/4/21/4/21/2
+    - TMM/Part60/4/16/4/16/1
+    - TMM/Part60/4/13/4/13/1
+    ontology_unaudited:
+    - TMM/Part60/4/17/4/17/2~2
+    - TMM/Part60/4/17/4/17/2~1
     - TMM/Part60/4/17/4/17/2~3
     - TMM/Part60/4/13/4/13/2
     - TMM/Part47/3/3/1
@@ -1609,12 +2314,14 @@ pools:
   - TMM/Part60/4/9/4/9/1
   - TMM/Part60/4/16/4/16/2
   - TMM/Part60/4/17/4/17/1
+  - TMM/Part47/1/1/3/6~2
   - TMM/Part60/4/13/4/13/2/1
   - TMM/Part60/4/9/4/9/2
   - TMM/Part60/4/18/4/18/2
   - TMM/Part60/4/13/4/13/2
   - TMM/Part47/3/3/1
   - TMM/Part60/4/15/4/15/2~1
+  - TMM/Part49/4#1
   - TMM/Part60/4/17/4/17/2~2
   - TMM/Part60/4/17/4/17/2~1
   - TMM/Part60/4/21/4/21/2
@@ -1648,6 +2355,29 @@ pools:
     - TMM/Part21/2/2/2
     - TMM/Part10/3/3/5/1
     ontology:
+    - TMM/Part21/2/2/3
+    - TMM/Part21/4/4/1~1
+    - TMM/Part10/3/3/5/3~2
+    - TMM/Part21/3/3/1
+    - TMM/Part10/3/3/5/3~1
+    - TMM/Part10/3/3/2/2
+    - TMM/Part21/8#1
+    - TMM/Part21/4/4/1~2
+    - TMM/Part21/2/2/2
+    - TMM/Part10/3/3/5/1
+  variants:
+    ontology_previous:
+    - TMM/Part21/2/2/3
+    - TMM/Part21/4/4/1~1
+    - TMM/Part10/3/3/5/3~2
+    - TMM/Part21/3/3/1
+    - TMM/Part10/3/3/5/3~1
+    - TMM/Part10/3/3/2/2
+    - TMM/Part21/8#1
+    - TMM/Part21/4/4/1~2
+    - TMM/Part21/2/2/2
+    - TMM/Part10/3/3/5/1
+    ontology_unaudited:
     - TMM/Part21/2/2/3
     - TMM/Part21/4/4/1~1
     - TMM/Part10/3/3/5/3~2
@@ -1697,9 +2427,21 @@ pools:
     - TMM/Part51/1/1/4
     - TMM/Part47/5/5/2
     - TMM/Part51/2/2/4
-    - TMM/Part51/1/1/2
     - TMM/Part51/5#1~2
+    - TMM/Part51/1/1/2
     ontology:
+    - TMM/Part48/4#1~1
+    - TMM/Part51/4/4/1~1
+    - TMM/Part49/6#1
+    - TMM/Part51/1/1/2
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part51/5#1~1
+    - TMM/Part51/1#1~1
+    - TMM/Part51/2/2/4
+    - TMM/Part51/2/2/2~3
+    - TMM/Part51/4/4/2~1
+  variants:
+    ontology_previous:
     - TMM/Part51/4/4/1~1
     - TMM/Part48/4#1~1
     - TMM/Part49/6#1
@@ -1710,8 +2452,20 @@ pools:
     - TMM/Part51/2/2/5~1
     - TMM/Part51/1#1~1
     - TMM/Part51/2/2/2~3
+    ontology_unaudited:
+    - TMM/Part48/4#1~1
+    - TMM/Part51/4/4/1~1
+    - TMM/Part49/6#1
+    - TMM/Part51/1/1/2
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part51/5#1~1
+    - TMM/Part51/1#1~1
+    - TMM/Part51/2/2/4
+    - TMM/Part51/2/2/2~3
+    - TMM/Part51/4/4/2~1
   pool:
   - TMM/Part51/5#1~2
+  - TMM/Part51/4/4/2~1
   - TMM/Part51/2/2/5~1
   - TMM/Part47/5/5/2
   - TMM/Part51/2/2/4
@@ -1761,6 +2515,18 @@ pools:
     - TMM/Part18/3/3/3/1
     ontology:
     - TMM/Part17/5/5/2
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part16/1/1/1
+    - TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1
+    - TMM/Part52/5/5/5
+    - TMM/Part52/2/2/3
+    - TMM/Part9/4/4/7/1
+    - TMM/Part52/2/2/2
+    - TMM/Part52/2#1~1
+    - TMM/Part18/3/3/3/3
+  variants:
+    ontology_previous:
+    - TMM/Part17/5/5/2
     - TMM/Part16/1/1/1
     - TMM/Part47/1/1/3/6~2
     - TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1
@@ -1770,11 +2536,23 @@ pools:
     - TMM/Part52/7#1
     - TMM/Part52/2/2/2
     - TMM/Part17/5/5/1
+    ontology_unaudited:
+    - TMM/Part17/5/5/2
+    - TMM/Part16/1/1/1
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1
+    - TMM/Part52/2/2/3
+    - TMM/Part52/5/5/5
+    - TMM/Part9/4/4/7/1
+    - TMM/Part52/2/2/2
+    - TMM/Part18/3/3/3/3
+    - TMM/Part52/2#1~1
   pool:
   - TMM/Part18/3/3/3/1
   - TMM/Part12/3/3/1~2
   - TMM/Part16/1/1/1
   - TMM/Part18/3/3/3/3
+  - TMM/Part9/4/4/7/1
   - TMM/Part52/7#1
   - TMM/Part17/2/2/2
   - TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1
@@ -1784,6 +2562,7 @@ pools:
   - TMM/Part47/1/1/3/6~2
   - TMM/Part38/3/3/2
   - TMM/Part61/2/2/3
+  - TMM/Part52/2#1~1
   - TMM/Part52/5/5/5
   - TMM/Part52/2/2/2
   - TMM/Part49/6/6/1
@@ -1819,6 +2598,18 @@ pools:
     - TMM/Part2/1/trade-mark-regulations-1995
     - TMM/Part9/2#1~1
     - TMM/Part2/3/2/3/2/1
+    - TMM/Part14/4/4/9/2
+    - TMM/Part14/x-relevant-legislation10#1
+    - TMM/Part14/6/6/3/2
+    - TMM/Part10/5/5/2/1
+    - TMM/Part14/4/4/8/2~1
+    - TMM/Part14/3#1~1
+    - TMM/Part14/4/4/8/4
+  variants:
+    ontology_previous:
+    - TMM/Part2/1/trade-mark-regulations-1995
+    - TMM/Part9/2#1~1
+    - TMM/Part2/3/2/3/2/1
     - TMM/Part14/x-relevant-legislation10#1
     - TMM/Part14/6/6/3/2
     - TMM/Part11/5/5/2/3
@@ -1826,12 +2617,25 @@ pools:
     - TMM/Part11/6/6/4
     - TMM/Part10/5/5/2/1
     - TMM/Part14/4/4/8/2~1
+    ontology_unaudited:
+    - TMM/Part2/1/trade-mark-regulations-1995
+    - TMM/Part9/2#1~1
+    - TMM/Part2/3/2/3/2/1
+    - TMM/Part14/4/4/9/2
+    - TMM/Part14/x-relevant-legislation10#1
+    - TMM/Part14/6/6/3/2
+    - TMM/Part10/5/5/2/1
+    - TMM/Part14/3#1~1
+    - TMM/Part14/4/4/8/2~1
+    - TMM/Part29/8/8/1
   pool:
   - TMM/Part10/5#1
   - TMM/Part2/1/trade-marks-act-1995
   - TMM/Part10/5/5/2/1
+  - TMM/Part29/8/8/1
   - TMM/Part11/1#1
   - TMM/Part47/x-relevant-legislation18#1
+  - TMM/Part14/3#1~1
   - TMM/Part44/x-relevant-legislation35#1
   - TMM/Part14/x-relevant-legislation10#1
   - TMM/Part2/3/2/3/2/1
@@ -1882,12 +2686,35 @@ pools:
     - TMM/Part60/2/2/2/2/4~4
     - TMM/Part60/1/1/5
     - TMM/Part60/4/6/4/6/1
+    - TMM/Part27/3/3/2~2
+    - TMM/Part14/4/4/6/2
+    - TMM/Part14/4/4/7/2
+    - TMM/Part14/4/4/8/1
+    - TMM/Part14/7/7/1
+    - TMM/Part14/3#1~1
+  variants:
+    ontology_previous:
+    - TMM/Part60/4/6/4/6/2
+    - TMM/Part60/2/2/2/2/4~4
+    - TMM/Part60/1/1/5
+    - TMM/Part60/4/6/4/6/1
     - TMM/Part14/4/4/8/1
     - TMM/Part14/1#1~1
     - TMM/Part27/3/3/2~2
     - TMM/Part29/8/8/1
     - TMM/Part14/3#1~2
     - TMM/Part60/2/4/2/4/2~2
+    ontology_unaudited:
+    - TMM/Part60/4/6/4/6/2
+    - TMM/Part60/2/2/2/2/4~4
+    - TMM/Part60/1/1/5
+    - TMM/Part60/4/6/4/6/1
+    - TMM/Part27/3/3/2~2
+    - TMM/Part14/4/4/7/2
+    - TMM/Part14/4/4/6/2
+    - TMM/Part14/4/4/8/1
+    - TMM/Part14/7/7/1
+    - TMM/Part14/3#1~1
   pool:
   - TMM/Part27/3/3/2~2
   - TMM/Part60/2/2/2/2/4~3
@@ -1902,7 +2729,9 @@ pools:
   - TMM/Part60/1/1/5
   - TMM/Part60/4/6/4/6/2
   - TMM/Part60/2/2/2/2/3
+  - TMM/Part14/3#1~1
   - TMM/Part60/2/2/2/2/4~4
+  - TMM/Part14/4/4/6/2
   - TMM/Part60/4/7/4/7/3
   - TMM/Part14/4/4/7/2
   - TMM/Part14/6/6/4/4
@@ -1937,6 +2766,29 @@ pools:
     - TMM/Part14/6/6/2/5
     - TMM/Part14/4/4/2/4
     ontology:
+    - TMM/Part14/3#1~2
+    - TMM/Part10/5/5/1/3
+    - TMM/Part14/4/4/6/2
+    - TMM/Part21/2/2/3
+    - TMM/Part9/4/4/7
+    - TMM/Part14/3#1~1
+    - TMM/Part9/4/4/4
+    - TMM/Part14/4/4/2/6
+    - TMM/Part14/6/6/2/5
+    - TMM/Part14/4/4/2/4
+  variants:
+    ontology_previous:
+    - TMM/Part14/3#1~2
+    - TMM/Part10/5/5/1/3
+    - TMM/Part14/4/4/6/2
+    - TMM/Part21/2/2/3
+    - TMM/Part9/4/4/7
+    - TMM/Part14/3#1~1
+    - TMM/Part9/4/4/4
+    - TMM/Part14/4/4/2/6
+    - TMM/Part14/6/6/2/5
+    - TMM/Part14/4/4/2/4
+    ontology_unaudited:
     - TMM/Part14/3#1~2
     - TMM/Part10/5/5/1/3
     - TMM/Part14/4/4/6/2
@@ -2000,12 +2852,35 @@ pools:
     - TMM/Part49/6#1
     - TMM/Part51/5#1~1
     - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part48/4#1~1
+    - TMM/Part51/1/1/1
+    - TMM/Part55/2#1
+    - TMM/Part51/1#1~1
+    - TMM/Part51/2/2/4
+    - TMM/Part47/1/1/3/3
+  variants:
+    ontology_previous:
+    - TMM/Part51/1/1/2
+    - TMM/Part49/6#1
+    - TMM/Part51/5#1~1
+    - TMM/Part60/4/17/4/17/2~3
     - TMM/Part55/2#1
     - TMM/Part51/1/1/1
     - TMM/Part48/4#1~1
     - TMM/Part51/1#1~1
     - TMM/Part47/1/1/3/3
     - TMM/Part55/x-annex-a1---taxing-of-costs-in--multiple--oppositions-relying-on-same-evidence#1
+    ontology_unaudited:
+    - TMM/Part51/1/1/2
+    - TMM/Part49/6#1
+    - TMM/Part51/5#1~1
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part51/1/1/1
+    - TMM/Part48/4#1~1
+    - TMM/Part55/2#1
+    - TMM/Part51/1#1~1
+    - TMM/Part47/1/1/3/3
+    - TMM/Part51/2/2/4
   pool:
   - TMM/Part51/1/1/2
   - TMM/Part48/4#1~1
@@ -2054,6 +2929,29 @@ pools:
     - TMM/Part32B/2/4/2/4/1~1
     - TMM/Part32B/2/3/2/3/1
     ontology:
+    - TMM/Part32B/3#1
+    - TMM/Part32B/1/1/3
+    - TMM/Part32B/2/3/2/3/5
+    - TMM/Part32B/2/1/2/1/2
+    - TMM/Part32B/2/1/2/1/1
+    - TMM/Part32B/2/1#1
+    - TMM/Part32B/2/1/2/1/5
+    - TMM/Part32B/2/1/2/1/4
+    - TMM/Part32B/2/4/2/4/1~1
+    - TMM/Part32B/2/3/2/3/1
+  variants:
+    ontology_previous:
+    - TMM/Part32B/3#1
+    - TMM/Part32B/1/1/3
+    - TMM/Part32B/2/3/2/3/5
+    - TMM/Part32B/2/1/2/1/2
+    - TMM/Part32B/2/1/2/1/1
+    - TMM/Part32B/2/1#1
+    - TMM/Part32B/2/1/2/1/5
+    - TMM/Part32B/2/1/2/1/4
+    - TMM/Part32B/2/4/2/4/1~1
+    - TMM/Part32B/2/3/2/3/1
+    ontology_unaudited:
     - TMM/Part32B/3#1
     - TMM/Part32B/1/1/3
     - TMM/Part32B/2/3/2/3/5
@@ -2117,6 +3015,29 @@ pools:
     - TMM/Part49/2/2/3/1
     - TMM/Part15/4/4/3
     - TMM/Part47/3/3/3
+  variants:
+    ontology_previous:
+    - TMM/Part15/5/5/2
+    - TMM/Part49/2/2/3/4
+    - TMM/Part47/1/1/3/4
+    - TMM/Part55/3/3/4
+    - TMM/Part51/2/2/2~2
+    - TMM/Part16/1/1/4
+    - TMM/Part15/5#1
+    - TMM/Part49/2/2/3/1
+    - TMM/Part15/4/4/3
+    - TMM/Part47/3/3/3
+    ontology_unaudited:
+    - TMM/Part15/5/5/2
+    - TMM/Part49/2/2/3/4
+    - TMM/Part47/1/1/3/4
+    - TMM/Part55/3/3/4
+    - TMM/Part51/2/2/2~2
+    - TMM/Part16/1/1/4
+    - TMM/Part15/5#1
+    - TMM/Part49/2/2/3/1
+    - TMM/Part15/4/4/3
+    - TMM/Part47/3/3/3
   pool:
   - TMM/Part51/2/2/2~2
   - TMM/Part49/2/2/3/1
@@ -2165,12 +3086,35 @@ pools:
     - TMM/Part29/3/3/2
     - TMM/Part31/3#1~1
     - TMM/Part29/3#1~2
+    - TMM/Part31/2#1
+    - TMM/Part20/5/5/5
+    - TMM/Part29/3/3/1~2
+    - TMM/Part20/5/5/5/2
+    - TMM/Part29/3#1~1
+    - TMM/Part46/4/4/6/3
+  variants:
+    ontology_previous:
+    - TMM/Part29/1#1
+    - TMM/Part29/3/3/2
+    - TMM/Part31/3#1~1
+    - TMM/Part29/3#1~2
     - TMM/Part20/5/5/5
     - TMM/Part29/3#1~1
     - TMM/Part29/10#1
     - TMM/Part26/2#1
     - TMM/Part46/4/4/6/3
     - TMM/Part29/3/3/1~1
+    ontology_unaudited:
+    - TMM/Part29/1#1
+    - TMM/Part29/3/3/2
+    - TMM/Part31/3#1~1
+    - TMM/Part31/2#1
+    - TMM/Part20/5/5/5
+    - TMM/Part29/3/3/1~2
+    - TMM/Part29/3#1~1
+    - TMM/Part29/10#1
+    - TMM/Part20/5/5/5/2
+    - TMM/Part46/4/4/6/3
   pool:
   - TMM/Part32A/2/2#1
   - TMM/Part31/4/4/4/4
@@ -2179,6 +3123,7 @@ pools:
   - TMM/Part29/10#1
   - TMM/Part29/1#1
   - TMM/Part31/4/4/4/3
+  - TMM/Part20/5/5/5/2
   - TMM/Part31/2#1
   - TMM/Part29/3/3/1~1
   - TMM/Part29/3/3/1~2
@@ -2218,6 +3163,18 @@ pools:
     - TMM/Part49/4#1
     - TMM/Part48/3#1~2
     ontology:
+    - TMM/Part34/8#1
+    - TMM/Part34/10#1
+    - TMM/Part34/1/1/1
+    - TMM/Part34/2#1
+    - TMM/Part34/3#1
+    - TMM/Part48/1#1
+    - TMM/Part34/9#1
+    - TMM/Part48/6#1
+    - TMM/Part46/4/4/4
+    - TMM/Part34/5/5/3
+  variants:
+    ontology_previous:
     - TMM/Part34/10#1
     - TMM/Part34/8#1
     - TMM/Part48/1#1
@@ -2228,6 +3185,17 @@ pools:
     - TMM/Part34/5/5/3
     - TMM/Part46/4/4/4
     - TMM/Part48/12#1
+    ontology_unaudited:
+    - TMM/Part34/8#1
+    - TMM/Part34/10#1
+    - TMM/Part34/1/1/1
+    - TMM/Part34/2#1
+    - TMM/Part34/3#1
+    - TMM/Part48/1#1
+    - TMM/Part34/9#1
+    - TMM/Part48/6#1
+    - TMM/Part46/4/4/4
+    - TMM/Part34/5/5/3
   pool:
   - TMM/Part34/8#1
   - TMM/Part34/3#1
@@ -2236,6 +3204,7 @@ pools:
   - TMM/Part49/4#1
   - TMM/Part48/3#1~1
   - TMM/Part34/1/1/1
+  - TMM/Part48/6#1
   - TMM/Part34/2#1
   - TMM/Part48/4#1~1
   - TMM/Part48/3#1~2
@@ -2271,6 +3240,18 @@ pools:
     - TMM/Part26/2#1
     - TMM/Part26/6/6/6~1
     ontology:
+    - TMM/Part29/3/3/1~1
+    - TMM/Part29/3/3/2
+    - TMM/Part46/4/4/5/2
+    - TMM/Part26/2#1
+    - TMM/Part29/3#1~2
+    - TMM/Part29/3#1~1
+    - TMM/Part26/6/6/7~1
+    - TMM/Part26/6/6/4~1
+    - TMM/Part20/5/5/5
+    - TMM/Part32A/2/4/2/4/1
+  variants:
+    ontology_previous:
     - TMM/Part29/3/3/2
     - TMM/Part29/3/3/1~1
     - TMM/Part26/2#1
@@ -2281,11 +3262,24 @@ pools:
     - TMM/Part26/6/6/7~1
     - TMM/Part20/5/5/5
     - TMM/Part29/5/5/4
+    ontology_unaudited:
+    - TMM/Part29/3/3/1~1
+    - TMM/Part46/4/4/5/2
+    - TMM/Part26/2#1
+    - TMM/Part29/3#1~1
+    - TMM/Part29/3#1~2
+    - TMM/Part29/3/3/2
+    - TMM/Part26/6/6/7~1
+    - TMM/Part20/5/5/5
+    - TMM/Part26/6/6/4~1
+    - TMM/Part32A/2/4/2/4/1
   pool:
   - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
   - TMM/Part20/5/5/5
+  - TMM/Part26/6/6/4~1
   - TMM/Part29/3#1~1
   - TMM/Part29/3#1~2
+  - TMM/Part32A/2/4/2/4/1
   - TMM/Part22/14#1
   - TMM/Part29/3/3/1~1
   - TMM/Part26/6/6/6~1
@@ -2328,6 +3322,18 @@ pools:
     - TMM/Part29/6#1~1
     - TMM/Part26/6/6/9
     ontology:
+    - TMM/Part29/6#1~2
+    - TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-consist-of-multiple-given-names
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~1
+    - TMM/Part29/9/9/3~1
+    - TMM/Part26/2#1
+    - TMM/Part29/6#1~1
+    - TMM/Part29/3#1~1
+    - TMM/Part29/3/3/1~1
+    - TMM/Part29/6/6/2~2
+    - TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-the-name-of-a-person-incorporating-the-given-name
+  variants:
+    ontology_previous:
     - TMM/Part29/10#1
     - TMM/Part29/6#1~2
     - TMM/Part29/9/9/3~1
@@ -2338,9 +3344,21 @@ pools:
     - TMM/Part29/3/3/1~1
     - TMM/Part32B/2/2#1
     - TMM/Part29/3/3/2
+    ontology_unaudited:
+    - TMM/Part29/6#1~2
+    - TMM/Part29/10#1
+    - TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-consist-of-multiple-given-names
+    - TMM/Part29/6#1~1
+    - TMM/Part29/9/9/3~1
+    - TMM/Part26/2#1
+    - TMM/Part29/3#1~1
+    - TMM/Part29/3/3/1~1
+    - TMM/Part29/9/9/3~2
+    - TMM/Part32B/2/2#1
   pool:
   - TMM/Part30/x-30.-annex-a5---examples-regarding-geneva-conventions-act-1957-s-151#1~1
   - TMM/Part29/1#1
+  - TMM/Part29/6/6/2~2
   - TMM/Part29/6#1~1
   - TMM/Part26/2#1
   - TMM/Part29/6#1~2
@@ -2350,6 +3368,7 @@ pools:
   - TMM/Part26/x-annex-a1---citing-multiple-names#1~1
   - TMM/Part26/6/6/6~2
   - TMM/Part32B/2/2#1
+  - TMM/Part29/9/9/3~2
   - TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-consist-of-multiple-given-names
   - TMM/Part29/3/3/1~1
   - TMM/Part29/3#1~1
@@ -2391,6 +3410,18 @@ pools:
     - TMM/Part34/6/6/2/3
     - TMM/Part34/6#1
     - TMM/Part34/6/6/2/5
+    - TMM/Part34/6/6/2/2
+    - TMM/Part34/2#1
+    - TMM/Part34/7#1~3
+    - TMM/Part34/1/1/1
+    - TMM/Part34/9#1
+    - TMM/Part34/10#1
+    - TMM/Part34/7#1~2
+  variants:
+    ontology_previous:
+    - TMM/Part34/6/6/2/3
+    - TMM/Part34/6#1
+    - TMM/Part34/6/6/2/5
     - TMM/Part34/7#1~3
     - TMM/Part34/6/6/2/2
     - TMM/Part34/2#1
@@ -2398,10 +3429,22 @@ pools:
     - TMM/Part34/7#1~1
     - TMM/Part34/9#1
     - TMM/Part34/10#1
+    ontology_unaudited:
+    - TMM/Part34/6/6/2/3
+    - TMM/Part34/6#1
+    - TMM/Part34/6/6/2/5
+    - TMM/Part34/6/6/2/2
+    - TMM/Part34/2#1
+    - TMM/Part34/7#1~3
+    - TMM/Part34/1/1/1
+    - TMM/Part34/9#1
+    - TMM/Part34/10#1
+    - TMM/Part34/7#1~2
   pool:
   - TMM/Part34/6/6/2/2
   - TMM/Part34/5/5/1
   - TMM/Part34/2#1
+  - TMM/Part34/7#1~2
   - TMM/Part34/6/6/2/5
   - TMM/Part34/7#1~3
   - TMM/Part17/4/4/2
@@ -2443,6 +3486,29 @@ pools:
     - TMM/Part4/5/5/3/1
     - TMM/Part4/2/2/2
     ontology:
+    - TMM/Part4/2/2/5
+    - TMM/Part4/2/2/1
+    - TMM/Part4/1/1/3
+    - TMM/Part4/5/5/7
+    - TMM/Part4/1/1/3/1
+    - TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid
+    - TMM/Part4/5#1
+    - TMM/Part4/6/6/3/2
+    - TMM/Part4/5/5/3/1
+    - TMM/Part4/2/2/2
+  variants:
+    ontology_previous:
+    - TMM/Part4/2/2/5
+    - TMM/Part4/2/2/1
+    - TMM/Part4/1/1/3
+    - TMM/Part4/5/5/7
+    - TMM/Part4/1/1/3/1
+    - TMM/Part2/4/part-2-4-3-fee-not-paid-or-underpaid
+    - TMM/Part4/5#1
+    - TMM/Part4/6/6/3/2
+    - TMM/Part4/5/5/3/1
+    - TMM/Part4/2/2/2
+    ontology_unaudited:
     - TMM/Part4/2/2/5
     - TMM/Part4/2/2/1
     - TMM/Part4/1/1/3
@@ -2496,6 +3562,18 @@ pools:
     - TMM/Part26/6/6/2
     ontology:
     - TMM/Part26/6/6/8~3
+    - TMM/Part26/6/6/4~1
+    - TMM/Part26/6/6/12
+    - TMM/Part26/6/6/8~1
+    - TMM/Part26/4/4/3~2
+    - TMM/Part26/6/6/8~2
+    - TMM/Part26/6/6/1~1
+    - TMM/Part26/6/6/4~2
+    - TMM/Part26/5/5/1~2
+    - TMM/Part26/6/6/8~4
+  variants:
+    ontology_previous:
+    - TMM/Part26/6/6/8~3
     - TMM/Part26/6/6/8~1
     - TMM/Part26/6/6/12
     - TMM/Part26/4/4/3~2
@@ -2505,6 +3583,17 @@ pools:
     - TMM/Part26/6/6/4~1
     - TMM/Part26/4/4/3~1
     - TMM/Part26/1#1
+    ontology_unaudited:
+    - TMM/Part26/6/6/8~3
+    - TMM/Part26/4/4/3~2
+    - TMM/Part26/6/6/8~1
+    - TMM/Part26/6/6/12
+    - TMM/Part26/6/6/8~2
+    - TMM/Part26/6/6/4~1
+    - TMM/Part26/6/6/4~3
+    - TMM/Part26/6/6/8~4
+    - TMM/Part26/6#1
+    - TMM/Part26/6/6/1~1
   pool:
   - TMM/Part26/4/4/3~1
   - TMM/Part26/6/6/8~2
@@ -2523,6 +3612,7 @@ pools:
   - TMM/Part26/6/6/8~1
   - TMM/Part26/6/6/2
   - TMM/Part26/5/5/1~2
+  - TMM/Part26/6#1
   - TMM/Part26/6/6/4~2
 - key: BN-0046
   kind: problem
@@ -2546,8 +3636,8 @@ pools:
     - TMM/Part19B/3#1
     - TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
     - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
-    - TMM/Part23/3/3/1
     - TMM/Part23/x-annex-a7---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-413---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
+    - TMM/Part23/3/3/1
     - TMM/Part19B/4/4/4~2
     - TMM/Part22/7/22/7/10
     - TMM/Part44/4/4/1
@@ -2557,8 +3647,31 @@ pools:
     - TMM/Part19B/3#1
     - TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
     - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
+    - TMM/Part23/x-annex-a7---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-413---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
+    - TMM/Part23/3/3/1
+    - TMM/Part19B/4/4/4~2
+    - TMM/Part22/7/22/7/10
+    - TMM/Part44/4/4/1
+  variants:
+    ontology_previous:
+    - TMM/Part19A/6/6/3
+    - TMM/Part48/7#1
+    - TMM/Part19B/3#1
+    - TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
+    - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
     - TMM/Part23/3/3/1
     - TMM/Part23/x-annex-a7---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-413---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
+    - TMM/Part19B/4/4/4~2
+    - TMM/Part22/7/22/7/10
+    - TMM/Part44/4/4/1
+    ontology_unaudited:
+    - TMM/Part19A/6/6/3
+    - TMM/Part48/7#1
+    - TMM/Part19B/3#1
+    - TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
+    - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
+    - TMM/Part23/x-annex-a7---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-413---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
+    - TMM/Part23/3/3/1
     - TMM/Part19B/4/4/4~2
     - TMM/Part22/7/22/7/10
     - TMM/Part44/4/4/1
@@ -2606,6 +3719,18 @@ pools:
     - TMM/Part60/4/24/4/24/1
     ontology:
     - TMM/Part29/6/6/2~1
+    - TMM/Part29/6/6/2~2
+    - TMM/Part43/1#1~1
+    - TMM/Part29/6#1~2
+    - TMM/Part43/3/3/3
+    - TMM/Part60/4/24/4/24/2
+    - TMM/Part60/4/24/4/24/1
+    - TMM/Part29/6#1~1
+    - TMM/Part43/2#1~1
+    - TMM/Part43/3/3/2
+  variants:
+    ontology_previous:
+    - TMM/Part29/6/6/2~1
     - TMM/Part43/1#1~1
     - TMM/Part29/6/6/2~2
     - TMM/Part29/6#1~2
@@ -2615,14 +3740,27 @@ pools:
     - TMM/Part60/4/24/4/24/4/3
     - TMM/Part60/4/24/4/24/3
     - TMM/Part60/4/24/4/24/4
+    ontology_unaudited:
+    - TMM/Part29/6/6/2~1
+    - TMM/Part43/1#1~1
+    - TMM/Part29/6/6/2~2
+    - TMM/Part60/4/24/4/24/2
+    - TMM/Part29/6#1~2
+    - TMM/Part43/3/3/3
+    - TMM/Part60/4/24/4/24/1
+    - TMM/Part60/4/24/4/24/3
+    - TMM/Part29/6#1~1
+    - TMM/Part43/2#1~1
   pool:
   - TMM/Part29/6#1~2
+  - TMM/Part43/3/3/2
   - TMM/Part60/4/24/4/24/1
   - TMM/Part60/4/24/4/24/4
   - TMM/Part60/4/24/4/24/3
   - TMM/Part60/4/24/4/24/2
   - TMM/Part29/6/6/2~1
   - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
+  - TMM/Part43/2#1~1
   - TMM/Part29/6#1~1
   - TMM/Part44/5/5/2
   - TMM/Part43/1#1~1
@@ -2658,6 +3796,18 @@ pools:
     - TMM/Part23/4/4/7
     ontology:
     - TMM/Part20/5/5/6/2
+    - TMM/Part20/5/5/4/1
+    - TMM/Part20/4/4/2
+    - TMM/Part18/3/3/1/2
+    - TMM/Part20/4/4/1
+    - TMM/Part55/2#1
+    - TMM/Part16/1/1/1
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part52/5/5/2
+    - TMM/Part46/4/4/3
+  variants:
+    ontology_previous:
+    - TMM/Part20/5/5/6/2
     - TMM/Part20/4/4/2
     - TMM/Part55/2#1
     - TMM/Part46/4/4/3
@@ -2667,6 +3817,17 @@ pools:
     - TMM/Part20/4/4/1
     - TMM/Part20/4#1~1
     - TMM/Part51/2/2/5~2
+    ontology_unaudited:
+    - TMM/Part20/5/5/4/1
+    - TMM/Part18/3/3/1/2
+    - TMM/Part20/5/5/6/2
+    - TMM/Part20/4/4/2
+    - TMM/Part20/4/4/1
+    - TMM/Part55/2#1
+    - TMM/Part16/1/1/1
+    - TMM/Part52/5/5/2
+    - TMM/Part46/4/4/3
+    - TMM/Part47/1/1/3/6~2
   pool:
   - TMM/Part47/1/1/3/6~2
   - TMM/Part47/2/2/2
@@ -2676,6 +3837,7 @@ pools:
   - TMM/Part29/2/2/4
   - TMM/Part20/5/5/4/1
   - TMM/Part28/4/28/4/4~2
+  - TMM/Part16/1/1/1
   - TMM/Part11/5/5/1
   - TMM/Part28/5#1
   - TMM/Part23/4/4/7
@@ -2721,8 +3883,31 @@ pools:
     - TMM/Part24/2#1~2
     - TMM/Part24/6#1
     - TMM/Part24/2#1~1
+    - TMM/Part24/4#1
+    - TMM/Part24/3#1
+    - TMM/Part24/1#1
+    - TMM/Part24/5#1
+    - TMM/Part24/x-relevant-legislation32#1
+    - TMM/Part32A/x-annex-5---case-law-summaries/ogen-trade-mark-1977-rpc-529
+    - TMM/Part44/3#1
+  variants:
+    ontology_previous:
+    - TMM/Part24/2#1~2
+    - TMM/Part24/6#1
+    - TMM/Part24/2#1~1
     - TMM/Part24/3#1
     - TMM/Part24/4#1
+    - TMM/Part24/1#1
+    - TMM/Part24/5#1
+    - TMM/Part32A/x-annex-5---case-law-summaries/ogen-trade-mark-1977-rpc-529
+    - TMM/Part24/x-relevant-legislation32#1
+    - TMM/Part44/3#1
+    ontology_unaudited:
+    - TMM/Part24/2#1~2
+    - TMM/Part24/6#1
+    - TMM/Part24/2#1~1
+    - TMM/Part24/4#1
+    - TMM/Part24/3#1
     - TMM/Part24/1#1
     - TMM/Part24/5#1
     - TMM/Part32A/x-annex-5---case-law-summaries/ogen-trade-mark-1977-rpc-529
@@ -2771,6 +3956,29 @@ pools:
     - TMM/Part46/4/4/5/1
     - TMM/Part23/4/4/5
     ontology:
+    - TMM/Part23/4/4/1/1
+    - TMM/Part23/4/4/1~1
+    - TMM/Part23/3/3/4~2
+    - TMM/Part23/4/4/1~2
+    - TMM/Part23/3/3/4~1
+    - TMM/Part23/4/4/1/2
+    - TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
+    - TMM/Part23/x-annex-a7---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-413---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
+    - TMM/Part46/4/4/5/1
+    - TMM/Part23/4/4/5
+  variants:
+    ontology_previous:
+    - TMM/Part23/4/4/1/1
+    - TMM/Part23/4/4/1~1
+    - TMM/Part23/3/3/4~2
+    - TMM/Part23/4/4/1~2
+    - TMM/Part23/3/3/4~1
+    - TMM/Part23/4/4/1/2
+    - TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
+    - TMM/Part23/x-annex-a7---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-413---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
+    - TMM/Part46/4/4/5/1
+    - TMM/Part23/4/4/5
+    ontology_unaudited:
     - TMM/Part23/4/4/1/1
     - TMM/Part23/4/4/1~1
     - TMM/Part23/3/3/4~2
@@ -2830,12 +4038,35 @@ pools:
     - TMM/Part12/5#1
     - TMM/Part12/3/3/3~2
     - TMM/Part12/1#1
+    - TMM/Part11/5/5/2/3
+    - TMM/Part26/7#1~1
+    - TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
+    - TMM/Part12/2#1
+    - TMM/Part12/3/3/1~1
+    - TMM/Part5/2/2/2~1
+  variants:
+    ontology_previous:
+    - TMM/Part12/7#1
+    - TMM/Part12/5#1
+    - TMM/Part12/3/3/3~2
+    - TMM/Part12/1#1
     - TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
     - TMM/Part12/2#1
     - TMM/Part11/5/5/2/3
     - TMM/Part12/3/3/1~1
     - TMM/Part26/7#1~1
     - TMM/Part12/3/3/1~2
+    ontology_unaudited:
+    - TMM/Part12/7#1
+    - TMM/Part12/5#1
+    - TMM/Part12/3/3/3~2
+    - TMM/Part12/1#1
+    - TMM/Part11/5/5/2/3
+    - TMM/Part26/7#1~1
+    - TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
+    - TMM/Part12/2#1
+    - TMM/Part12/3/3/1~1
+    - TMM/Part5/2/2/2~1
   pool:
   - TMM/Part26/4/4/3/1~3
   - TMM/Part11/2/2/2
@@ -2883,6 +4114,18 @@ pools:
     - TMM/Part62/6#1
     - TMM/Part62/10#1
     ontology:
+    - TMM/Part52/5/5/5
+    - TMM/Part51/8#1
+    - TMM/Part52/5/5/4~1
+    - TMM/Part52/5/5/3
+    - TMM/Part52/5/5/1~2
+    - TMM/Part52/5/5/2
+    - TMM/Part62/x-relevant-legislation19#1
+    - TMM/Part52/5/5/1~1
+    - TMM/Part52/7#1
+    - TMM/Part49/6/6/1
+  variants:
+    ontology_previous:
     - TMM/Part52/5/5/3
     - TMM/Part52/5/5/5
     - TMM/Part51/8#1
@@ -2892,6 +4135,17 @@ pools:
     - TMM/Part52/5/5/2
     - TMM/Part52/7#1
     - TMM/Part62/x-relevant-legislation19#1
+    - TMM/Part15/7/7/2
+    ontology_unaudited:
+    - TMM/Part52/5/5/5
+    - TMM/Part51/8#1
+    - TMM/Part52/5/5/3
+    - TMM/Part52/5/5/4~1
+    - TMM/Part52/6#1
+    - TMM/Part52/5/5/2
+    - TMM/Part49/6/6/1
+    - TMM/Part62/x-relevant-legislation19#1
+    - TMM/Part52/7#1
     - TMM/Part15/7/7/2
   pool:
   - TMM/Part52/5/5/5
@@ -2938,6 +4192,18 @@ pools:
     - TMM/Part28/1#1
     ontology:
     - TMM/Part51/10#1~1
+    - TMM/Part16/1/1/1
+    - TMM/Part20/4/4/1
+    - TMM/Part38/1/1/1
+    - TMM/Part28/1#1
+    - TMM/Part20/5/5/4/1
+    - TMM/Part38/2#1
+    - TMM/Part20/4#1~1
+    - TMM/Part22/2#1
+    - TMM/Part17/1#1
+  variants:
+    ontology_previous:
+    - TMM/Part51/10#1~1
     - TMM/Part38/1/1/1
     - TMM/Part62/1#1
     - TMM/Part38/2#1
@@ -2947,6 +4213,17 @@ pools:
     - TMM/Part20/4#1~1
     - TMM/Part38/1#1
     - TMM/Part29/2/2/4
+    ontology_unaudited:
+    - TMM/Part51/10#1~1
+    - TMM/Part62/1#1
+    - TMM/Part38/1/1/1
+    - TMM/Part38/2#1
+    - TMM/Part16/1/1/1
+    - TMM/Part20/4/4/1
+    - TMM/Part20/5/5/4/1
+    - TMM/Part20/4#1~1
+    - TMM/Part38/1#1
+    - TMM/Part18/1/1/1
   pool:
   - TMM/Part62/4#1
   - TMM/Part20/5/5/4/1
@@ -2963,10 +4240,12 @@ pools:
   - TMM/Part20/4#1~1
   - TMM/Part38/1#1
   - TMM/Part38/2#1
+  - TMM/Part17/1#1
   - TMM/Part28/1#1
   - TMM/Part38/3/3/1
   - TMM/Part38/1/1/1
   - TMM/Part20/4/4/1
+  - TMM/Part22/2#1
 - key: BN-0054
   kind: problem
   question: How does IP Australia check that trade mark examination work is being done properly?
@@ -2995,6 +4274,18 @@ pools:
     - TMM/Part60/2/4/2/4/2~1
     ontology:
     - TMM/Part60/4/1#1
+    - TMM/Part1/2#1
+    - TMM/Part60/4/15/4/15/2~1
+    - TMM/Part60/4/14/4/14/2
+    - TMM/Part60/4/7/4/7/14/3
+    - TMM/Part60/4/18/4/18/2
+    - TMM/Part1/x-1.-introduction7#1
+    - TMM/Part60/x-glossary#1
+    - TMM/Part60/4/7/4/7/9
+    - TMM/Part60/2/4/2/4/3~1
+  variants:
+    ontology_previous:
+    - TMM/Part60/4/1#1
     - TMM/Part60/4/15/4/15/2~1
     - TMM/Part32B/1/1/1
     - TMM/Part60/4/7/4/7/9
@@ -3004,12 +4295,24 @@ pools:
     - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
     - TMM/Part32A/2/1/2-1-1-b-composite-or-fancy-trade-marks
     - TMM/Part20/5/5/4/1
+    ontology_unaudited:
+    - TMM/Part1/2#1
+    - TMM/Part60/4/1#1
+    - TMM/Part60/4/15/4/15/2~1
+    - TMM/Part60/4/7/4/7/14/3
+    - TMM/Part60/4/18/4/18/2
+    - TMM/Part60/4/14/4/14/2
+    - TMM/Part32B/1/1/1
+    - TMM/Part1/x-1.-introduction7#1
+    - TMM/Part60/4/5/4/5/2
+    - TMM/Part60/x-glossary#1
   pool:
   - TMM/Part32B/1/1/1
   - TMM/Part1/2#1
   - TMM/Part60/4/7/4/7/15/2
   - TMM/Part60/2/1#1
   - TMM/Part60/2/4/2/4/3~1
+  - TMM/Part60/4/5/4/5/2
   - TMM/Part32A/x-annex-3---applicable-sections-of-the-icncp/principle-6
   - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
   - TMM/Part60/4/3/4/3/2
@@ -3022,6 +4325,7 @@ pools:
   - TMM/Part60/4/7/4/7/14/3
   - TMM/Part60/4/14/4/14/2
   - TMM/Part60/2/4/2/4/2~1
+  - TMM/Part60/x-glossary#1
   - TMM/Part60/4/7/4/7/9
   - TMM/Part32A/2/1/2-1-1-b-composite-or-fancy-trade-marks
   - TMM/Part20/5/5/4/1
@@ -3057,12 +4361,35 @@ pools:
     - TMM/Part60/2/2/2/2/4~2
     - TMM/Part34/2#1
     - TMM/Part34/6/6/2/2
+    - TMM/Part34/5/5/3
+    - TMM/Part11/7/7/3
+    - TMM/Part34/6/6/2/3
+    - TMM/Part11/1#1
+    - TMM/Part34/6#1
+    - TMM/Part34/6/6/2/5
+    - TMM/Part60/4/26/4/26/3~1
+  variants:
+    ontology_previous:
+    - TMM/Part60/2/2/2/2/4~2
+    - TMM/Part34/2#1
+    - TMM/Part34/6/6/2/2
     - TMM/Part34/6/6/2/3
     - TMM/Part11/7/7/3
     - TMM/Part11/1#1
     - TMM/Part34/6/6/2/5
     - TMM/Part34/5/5/3
     - TMM/Part34/6#1
+    - TMM/Part60/4/26/4/26/3~1
+    ontology_unaudited:
+    - TMM/Part60/2/2/2/2/4~2
+    - TMM/Part34/2#1
+    - TMM/Part34/6/6/2/2
+    - TMM/Part34/5/5/3
+    - TMM/Part11/7/7/3
+    - TMM/Part34/6/6/2/3
+    - TMM/Part11/1#1
+    - TMM/Part34/6#1
+    - TMM/Part34/6/6/2/5
     - TMM/Part60/4/26/4/26/3~1
   pool:
   - TMM/Part34/2#1
@@ -3113,6 +4440,18 @@ pools:
     - TMM/Part32A/2/1/2-1-2-a-amending-the-goods
     - TMM/Part32A/2/4/2/4/1
     ontology:
+    - TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~1
+    - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
+    - TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~3
+    - TMM/Part32A/2/3#1
+    - TMM/Part32A/2/5#1
+    - TMM/Part32A/1/1/1
+    - TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~2
+    - TMM/Part32A/2/3/2-3-5-a-amending-the-goods~1
+    - TMM/Part32A/2/1/2-1-2-a-amending-the-goods
+    - TMM/Part32A/2/4/2/4/1
+  variants:
+    ontology_previous:
     - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
     - TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~1
     - TMM/Part21/3/3/9~1
@@ -3123,6 +4462,17 @@ pools:
     - TMM/Part23/5/5/2
     - TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~2
     - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~1
+    ontology_unaudited:
+    - TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~1
+    - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
+    - TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~3
+    - TMM/Part32A/2/3#1
+    - TMM/Part32A/2/5#1
+    - TMM/Part32A/1/1/1
+    - TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~2
+    - TMM/Part32A/2/3/2-3-5-a-amending-the-goods~1
+    - TMM/Part32A/2/1/2-1-2-a-amending-the-goods
+    - TMM/Part32A/2/4/2/4/1
   pool:
   - TMM/Part32A/1/1/2
   - TMM/Part32A/2/1/2-1-2-a-amending-the-goods
@@ -3168,6 +4518,18 @@ pools:
     - TMM/Part48/4#1~1
     - TMM/Part51/1#1~1
     ontology:
+    - TMM/Part48/4#1~1
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part51/1/1/2
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part51/4/4/1~1
+    - TMM/Part51/1#1~1
+    - TMM/Part60/4/16/4/16/2
+    - TMM/Part51/5#1~1
+    - TMM/Part60/4/17/4/17/2~1
+    - TMM/Part51/2/2/4
+  variants:
+    ontology_previous:
     - TMM/Part60/4/17/4/17/2~3
     - TMM/Part48/4#1~1
     - TMM/Part51/4/4/1~1
@@ -3178,6 +4540,17 @@ pools:
     - TMM/Part60/4/17/4/17/2~1
     - TMM/Part51/2#1~1
     - TMM/Part15/6/6/4
+    ontology_unaudited:
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part48/4#1~1
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part51/1/1/2
+    - TMM/Part51/4/4/1~1
+    - TMM/Part60/4/16/4/16/2
+    - TMM/Part60/4/17/4/17/2~1
+    - TMM/Part51/5#1~1
+    - TMM/Part51/1#1~1
+    - TMM/Part51/2/2/4
   pool:
   - TMM/Part51/2/2/2~2
   - TMM/Part60/4/17/4/17/2~3
@@ -3190,6 +4563,7 @@ pools:
   - TMM/Part51/2/2/1
   - TMM/Part15/6/6/4
   - TMM/Part51/2/2/4
+  - TMM/Part51/5#1~1
   - TMM/Part62/5#1
   - TMM/Part48/4#1~1
   - TMM/Part51/4/4/1~1
@@ -3224,6 +4598,29 @@ pools:
     - TMM/Part22/27#1
     - TMM/Part26/x-annex-a1---citing-multiple-names#1~1
     ontology:
+    - TMM/Part13/6/6/4
+    - TMM/Part9/2/2/1
+    - TMM/Part19A/8#1~1
+    - TMM/Part34/2#1
+    - TMM/Part13/7/7/1
+    - TMM/Part31/2/2/4
+    - TMM/Part12/4#1
+    - TMM/Part19A/8#1~2
+    - TMM/Part22/27#1
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~1
+  variants:
+    ontology_previous:
+    - TMM/Part13/6/6/4
+    - TMM/Part9/2/2/1
+    - TMM/Part19A/8#1~1
+    - TMM/Part34/2#1
+    - TMM/Part13/7/7/1
+    - TMM/Part31/2/2/4
+    - TMM/Part12/4#1
+    - TMM/Part19A/8#1~2
+    - TMM/Part22/27#1
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~1
+    ontology_unaudited:
     - TMM/Part13/6/6/4
     - TMM/Part9/2/2/1
     - TMM/Part19A/8#1~1
@@ -3287,6 +4684,29 @@ pools:
     - TMM/Part10/3/3/4/1
     - TMM/Part21/7#1
     - TMM/Part10/3/3/6/3
+  variants:
+    ontology_previous:
+    - TMM/Part10/3/3/4/3
+    - TMM/Part21/7/7/1
+    - TMM/Part10/3/3/4/4
+    - TMM/Part10/3/3/7/2
+    - TMM/Part21/7/7/2
+    - TMM/Part10/3/3/4/2
+    - TMM/Part21/2#1
+    - TMM/Part10/3/3/4/1
+    - TMM/Part21/7#1
+    - TMM/Part10/3/3/6/3
+    ontology_unaudited:
+    - TMM/Part10/3/3/4/3
+    - TMM/Part21/7/7/1
+    - TMM/Part10/3/3/4/4
+    - TMM/Part10/3/3/7/2
+    - TMM/Part21/7/7/2
+    - TMM/Part10/3/3/4/2
+    - TMM/Part21/2#1
+    - TMM/Part10/3/3/4/1
+    - TMM/Part21/7#1
+    - TMM/Part10/3/3/6/3
   pool:
   - TMM/Part21/7/7/1
   - TMM/Part10/3/3/4/4
@@ -3329,6 +4749,18 @@ pools:
     - TMM/Part28/3/3/4~1
     - TMM/Part26/6/6/7~1
     ontology:
+    - TMM/Part28/3/similarity-of-trade-marks
+    - TMM/Part28/3/3/2/1
+    - TMM/Part28/3/geographical-location-of-activities
+    - TMM/Part28/3/similarity-of-goods-and-services
+    - TMM/Part28/3/the-distinctiveness-of-the-trade-mark
+    - TMM/Part28/3/3/3
+    - TMM/Part23/4/4/8~2
+    - TMM/Part20/5/5/5/2
+    - TMM/Part28/3/3/4~1
+    - TMM/Part26/6/6/7~1
+  variants:
+    ontology_previous:
     - TMM/Part46/4/4/5/2
     - TMM/Part29/3/3/1~1
     - TMM/Part26/6/6/7~1
@@ -3339,6 +4771,17 @@ pools:
     - TMM/Part28/3/geographical-location-of-activities
     - TMM/Part20/5/5/5/2
     - TMM/Part32B/2/4/2/4/2~1
+    ontology_unaudited:
+    - TMM/Part28/3/similarity-of-trade-marks
+    - TMM/Part28/3/3/2/1
+    - TMM/Part28/3/geographical-location-of-activities
+    - TMM/Part28/3/similarity-of-goods-and-services
+    - TMM/Part28/3/the-distinctiveness-of-the-trade-mark
+    - TMM/Part28/3/3/3
+    - TMM/Part23/4/4/8~2
+    - TMM/Part20/5/5/5/2
+    - TMM/Part28/3/3/4~1
+    - TMM/Part26/6/6/7~1
   pool:
   - TMM/Part28/3/3/6~3
   - TMM/Part26/6/6/7~1
@@ -3387,6 +4830,18 @@ pools:
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/tracking-services
     - TMM/Part15/2#1
     ontology:
+    - TMM/Part14/4/4/3/2
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring-services
+    - TMM/Part14/4/4/8/1
+    - TMM/Part14/4/4/8/2~1
+    - TMM/Part14/4/4/8/2~2
+    - TMM/Part14/4/4/9/2
+    - TMM/Part14/4/4/6/2
+    - TMM/Part14/4/4/4
+    - TMM/Part10/5/5/3/1
+  variants:
+    ontology_previous:
     - TMM/Part14/4/4/8/2~1
     - TMM/Part14/4/4/8/1
     - TMM/Part14/4/4/3/2
@@ -3397,6 +4852,17 @@ pools:
     - TMM/Part14/4/4/4
     - TMM/Part14/4/4/6/2
     - TMM/Part14/1#1~1
+    ontology_unaudited:
+    - TMM/Part14/4/4/3/2
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring
+    - TMM/Part14/4/4/8/2~1
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring-services
+    - TMM/Part14/4/4/8/1
+    - TMM/Part14/4/4/8/2~2
+    - TMM/Part14/4/4/9/2
+    - TMM/Part14/4/4/6/2
+    - TMM/Part14/4/4/4
+    - TMM/Part10/5/5/3/1
   pool:
   - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/computer-services
   - TMM/Part5/3#1
@@ -3414,6 +4880,7 @@ pools:
   - TMM/Part14/4/4/8/2~1
   - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/monitoring
   - TMM/Part14/4/4/8/1
+  - TMM/Part10/5/5/3/1
   - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/tracking-services
   - TMM/Part14/4/4/8/2~2
 - key: BN-0062
@@ -3444,6 +4911,29 @@ pools:
     - TMM/Part28/3/3/1~5
     - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~1
     ontology:
+    - TMM/Part28/3/3/1~4
+    - TMM/Part28/3/3/6~2
+    - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
+    - TMM/Part28/3/3/1~3
+    - TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
+    - TMM/Part28/3/3/1~1
+    - TMM/Part28/4/28/4/4~1
+    - TMM/Part28/4/28/4/4~2
+    - TMM/Part28/3/3/1~5
+    - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~1
+  variants:
+    ontology_previous:
+    - TMM/Part28/3/3/1~4
+    - TMM/Part28/3/3/6~2
+    - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
+    - TMM/Part28/3/3/1~3
+    - TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
+    - TMM/Part28/3/3/1~1
+    - TMM/Part28/4/28/4/4~1
+    - TMM/Part28/4/28/4/4~2
+    - TMM/Part28/3/3/1~5
+    - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~1
+    ontology_unaudited:
     - TMM/Part28/3/3/1~4
     - TMM/Part28/3/3/6~2
     - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
@@ -3500,6 +4990,18 @@ pools:
     ontology:
     - TMM/Part10/5/5/3/1
     - TMM/Part14/4/4/4
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/carbonated-drinks
+    - TMM/Part32B/2/4/2/4/3~2
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/drinks
+    - TMM/Part14/4/4/8/2~1
+    - TMM/Part14/4/4/9/2
+    - TMM/Part14/4/4/8/1
+    - TMM/Part32B/2/4/2/4/3~1
+    - TMM/Part14/4/4/3/2
+  variants:
+    ontology_previous:
+    - TMM/Part10/5/5/3/1
+    - TMM/Part14/4/4/4
     - TMM/Part14/4/4/8/2~1
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/carbonated-drinks
     - TMM/Part32B/2/4/2/4/3~2
@@ -3508,6 +5010,17 @@ pools:
     - TMM/Part14/4/4/9/2
     - TMM/Part14/4/4/3/2
     - TMM/Part32B/2/4/2/4/3~1
+    ontology_unaudited:
+    - TMM/Part10/5/5/3/1
+    - TMM/Part14/4/4/4
+    - TMM/Part14/4/4/8/2~1
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/carbonated-drinks
+    - TMM/Part32B/2/4/2/4/3~2
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/drinks
+    - TMM/Part14/4/4/9/2
+    - TMM/Part14/4/4/8/1
+    - TMM/Part32B/2/4/2/4/3~1
+    - TMM/Part14/4/4/3/2
   pool:
   - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/glasses
   - TMM/Part32B/2/4/2/4/3~2
@@ -3555,6 +5068,18 @@ pools:
     ontology:
     - TMM/Part29/1#1
     - TMM/Part29/4#1
+    - TMM/Part20/5/5/5
+    - TMM/Part20/5/5/5/2
+    - TMM/Part29/9/9/3~1
+    - TMM/Part29/3/3/2
+    - TMM/Part29/3#1~1
+    - TMM/Part29/10#1
+    - TMM/Part29/3/3/1~1
+    - TMM/Part46/4/4/5/2
+  variants:
+    ontology_previous:
+    - TMM/Part29/1#1
+    - TMM/Part29/4#1
     - TMM/Part20/5/5/5/2
     - TMM/Part20/5/5/5
     - TMM/Part29/10#1
@@ -3563,7 +5088,19 @@ pools:
     - TMM/Part29/3#1~1
     - TMM/Part26/2#1
     - TMM/Part29/3/3/1~1
+    ontology_unaudited:
+    - TMM/Part29/1#1
+    - TMM/Part29/4#1
+    - TMM/Part20/5/5/5
+    - TMM/Part20/5/5/5/2
+    - TMM/Part29/3#1~1
+    - TMM/Part29/9/9/3~1
+    - TMM/Part29/10#1
+    - TMM/Part29/3/3/2
+    - TMM/Part26/2#1
+    - TMM/Part29/3/3/1~1
   pool:
+  - TMM/Part46/4/4/5/2
   - TMM/Part29/3/3/1~1
   - TMM/Part29/3#1~1
   - TMM/Part20/5/5/5
@@ -3612,6 +5149,29 @@ pools:
     - TMM/Part15/7#1
     - TMM/Part15/7/7/2
     ontology:
+    - TMM/Part61/2/2/4
+    - TMM/Part61/2/2/4/2
+    - TMM/Part15/7/7/1
+    - TMM/Part17/5/5/1
+    - TMM/Part52/5/5/2
+    - TMM/Part52/5/5/3
+    - TMM/Part17/5/5/2
+    - TMM/Part60/4/11/4/11/4
+    - TMM/Part15/7#1
+    - TMM/Part15/7/7/2
+  variants:
+    ontology_previous:
+    - TMM/Part61/2/2/4
+    - TMM/Part61/2/2/4/2
+    - TMM/Part15/7/7/1
+    - TMM/Part17/5/5/1
+    - TMM/Part52/5/5/2
+    - TMM/Part52/5/5/3
+    - TMM/Part17/5/5/2
+    - TMM/Part60/4/11/4/11/4
+    - TMM/Part15/7#1
+    - TMM/Part15/7/7/2
+    ontology_unaudited:
     - TMM/Part61/2/2/4
     - TMM/Part61/2/2/4/2
     - TMM/Part15/7/7/1
@@ -3675,6 +5235,29 @@ pools:
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mastic
     - TMM/Part22/16/16/1~2
     - TMM/Part5/x-device-constituents/geometric-shapes-in-marks
+  variants:
+    ontology_previous:
+    - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/keyword-search-part-word-search
+    - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/search-results-screen-keyword-search
+    - TMM/Part14/x-annex-a4---searching-the-nice-classification#1
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/tiles
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/coverings
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/covers
+    - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mastic
+    - TMM/Part22/16/16/1~2
+    - TMM/Part5/x-device-constituents/geometric-shapes-in-marks
+    ontology_unaudited:
+    - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/keyword-search-part-word-search
+    - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/search-results-screen-keyword-search
+    - TMM/Part14/x-annex-a4---searching-the-nice-classification#1
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/tiles
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/coverings
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/covers
+    - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mastic
+    - TMM/Part22/16/16/1~2
+    - TMM/Part5/x-device-constituents/geometric-shapes-in-marks
   pool:
   - TMM/Part5/x-device-constituents/geometric-shapes-in-marks
   - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services
@@ -3721,6 +5304,18 @@ pools:
     - TMM/Part12/3/3/6
     - TMM/Part12/3/3/1~2
     ontology:
+    - TMM/Part12/3/3/5
+    - TMM/Part12/2#1
+    - TMM/Part12/3/3/7
+    - TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
+    - TMM/Part60/4/17/4/17/2~1
+    - TMM/Part51/x-relevant-legislation3#1
+    - TMM/Part60/4/21/4/21/2
+    - TMM/Part51/9#1~1
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part12/3#1
+  variants:
+    ontology_previous:
     - TMM/Part12/3/3/7
     - TMM/Part12/2#1
     - TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
@@ -3731,7 +5326,19 @@ pools:
     - TMM/Part51/x-relevant-legislation3#1
     - TMM/Part51/9#1~1
     - TMM/Part12/5#1
+    ontology_unaudited:
+    - TMM/Part12/3/3/5
+    - TMM/Part12/2#1
+    - TMM/Part12/3/3/7
+    - TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
+    - TMM/Part60/4/17/4/17/2~1
+    - TMM/Part51/x-relevant-legislation3#1
+    - TMM/Part60/4/21/4/21/2
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part51/9#1~1
+    - TMM/Part12/3#1
   pool:
+  - TMM/Part60/4/17/4/17/2~3
   - TMM/Part12/3/3/1~2
   - TMM/Part16/1/1/5
   - TMM/Part12/7#1
@@ -3748,6 +5355,7 @@ pools:
   - TMM/Part12/3/3/1~1
   - TMM/Part12/3/3/6
   - TMM/Part12/3#1
+  - TMM/Part60/4/21/4/21/2
   - TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
 - key: BN-0068
   kind: impact
@@ -3777,6 +5385,18 @@ pools:
     - TMM/Part22/11#1~1
     - TMM/Part21/3/3/4~2
     ontology:
+    - TMM/Part21/3/3/6~1
+    - TMM/Part21/3/3/6~2
+    - TMM/Part21/3/3/5
+    - TMM/Part19A/2/2/4~1
+    - TMM/Part21/3/3/10
+    - TMM/Part21/3/3/4~1
+    - TMM/Part26/6/6/6~1
+    - TMM/Part21/3/3/2
+    - TMM/Part22/11#1~1
+    - TMM/Part21/3/3/4~2
+  variants:
+    ontology_previous:
     - TMM/Part21/5/5/1
     - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
     - TMM/Part21/3/3/2
@@ -3787,6 +5407,17 @@ pools:
     - TMM/Part21/3/3/6~1
     - TMM/Part21/3/3/5
     - TMM/Part21/3/3/10
+    ontology_unaudited:
+    - TMM/Part21/3/3/6~1
+    - TMM/Part21/3/3/6~2
+    - TMM/Part21/3/3/5
+    - TMM/Part19A/2/2/4~1
+    - TMM/Part21/3/3/10
+    - TMM/Part21/3/3/4~1
+    - TMM/Part26/6/6/6~1
+    - TMM/Part21/3/3/2
+    - TMM/Part22/11#1~1
+    - TMM/Part21/3/3/4~2
   pool:
   - TMM/Part5/x-device-constituents/types-of-terms-descriptors~1
   - TMM/Part21/3/3/2
@@ -3824,16 +5455,28 @@ pools:
     - TMM/Part29/5#1
     hybrid:
     - TMM/Part29/5/5/3
-    - TMM/Part29/5/5/2
     - TMM/Part22/24#1
+    - TMM/Part29/5/5/2
     - TMM/Part29/5/5/1
     - TMM/Part22/24/24/2
     - TMM/Part29/5/5/5
     - TMM/Part22/24/24/1
     - TMM/Part29/5/5/6~2
-    - TMM/Part29/5/5/4
     - TMM/Part29/5#1
+    - TMM/Part29/5/5/6~1
     ontology:
+    - TMM/Part29/5/5/3
+    - TMM/Part22/24#1
+    - TMM/Part29/5/5/2
+    - TMM/Part29/5/5/1
+    - TMM/Part22/24/24/2
+    - TMM/Part29/5/5/5
+    - TMM/Part22/24/24/1
+    - TMM/Part29/5/5/6~2
+    - TMM/Part29/5#1
+    - TMM/Part29/5/5/6~1
+  variants:
+    ontology_previous:
     - TMM/Part29/5/5/3
     - TMM/Part29/5/5/2
     - TMM/Part22/24#1
@@ -3844,6 +5487,17 @@ pools:
     - TMM/Part29/5/5/6~2
     - TMM/Part29/5/5/4
     - TMM/Part29/5#1
+    ontology_unaudited:
+    - TMM/Part29/5/5/3
+    - TMM/Part22/24#1
+    - TMM/Part29/5/5/2
+    - TMM/Part29/5/5/1
+    - TMM/Part22/24/24/2
+    - TMM/Part29/5/5/5
+    - TMM/Part22/24/24/1
+    - TMM/Part29/5/5/6~2
+    - TMM/Part29/5#1
+    - TMM/Part29/5/5/6~1
   pool:
   - TMM/Part22/24/24/1
   - TMM/Part29/5#1
@@ -3885,6 +5539,18 @@ pools:
     - TMM/Part12/3/3/3~1
     ontology:
     - TMM/Part12/2#1
+    - TMM/Part55/3/3/4
+    - TMM/Part12/3/3/1~1
+    - TMM/Part26/8/8/1
+    - TMM/Part12/3/3/3~2
+    - TMM/Part12/6#1
+    - TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
+    - TMM/Part12/3#1
+    - TMM/Part12/3/3/1~2
+    - TMM/Part12/3/3/3~1
+  variants:
+    ontology_previous:
+    - TMM/Part12/2#1
     - TMM/Part12/3/3/3~2
     - TMM/Part12/5#1
     - TMM/Part12/6#1
@@ -3894,6 +5560,17 @@ pools:
     - TMM/Part12/3/3/6
     - TMM/Part12/3/3/1~2
     - TMM/Part2/3/2/3/2/1
+    ontology_unaudited:
+    - TMM/Part12/2#1
+    - TMM/Part55/3/3/4
+    - TMM/Part12/3/3/1~1
+    - TMM/Part26/8/8/1
+    - TMM/Part12/3/3/3~2
+    - TMM/Part12/6#1
+    - TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1
+    - TMM/Part12/3#1
+    - TMM/Part12/3/3/1~2
+    - TMM/Part12/3/3/3~1
   pool:
   - TMM/Part15/1#1~2
   - TMM/Part12/3#1
@@ -3942,12 +5619,35 @@ pools:
     - TMM/Part24/2#1~2
     - TMM/Part24/6#1
     - TMM/Part24/4#1
+    - TMM/Part24/1#1
+    - TMM/Part24/3#1
+    - TMM/Part24/5#1
+    - TMM/Part24/x-relevant-legislation32#1
+    - TMM/Part9/7#1~1
+    - TMM/Part41/3#1~1
+  variants:
+    ontology_previous:
+    - TMM/Part24/2#1~1
+    - TMM/Part24/2#1~2
+    - TMM/Part24/6#1
+    - TMM/Part24/4#1
     - TMM/Part24/3#1
     - TMM/Part24/1#1
     - TMM/Part24/5#1
     - TMM/Part9/7#1~1
     - TMM/Part24/x-relevant-legislation32#1
     - TMM/Part32A/x-annex-5---case-law-summaries/ogen-trade-mark-1977-rpc-529
+    ontology_unaudited:
+    - TMM/Part24/2#1~1
+    - TMM/Part24/2#1~2
+    - TMM/Part24/6#1
+    - TMM/Part24/4#1
+    - TMM/Part24/1#1
+    - TMM/Part24/3#1
+    - TMM/Part24/5#1
+    - TMM/Part24/x-relevant-legislation32#1
+    - TMM/Part9/7#1~1
+    - TMM/Part41/3#1~1
   pool:
   - TMM/Part9/2/2/1
   - TMM/Part60/4/24/4/24/4/3
@@ -3961,6 +5661,7 @@ pools:
   - TMM/Part1/x-1.-introduction7/disclaimer
   - TMM/Part9/7#1~1
   - TMM/Part24/x-relevant-legislation32#1
+  - TMM/Part41/3#1~1
   - TMM/Part24/1#1
   - TMM/Part44/4/4/4
 - key: BN-0072
@@ -3991,6 +5692,18 @@ pools:
     - TMM/Part32A/2/3/2/3/1
     - TMM/Part32A/2/3#1
     ontology:
+    - TMM/Part29/1/1/2
+    - TMM/Part32A/2/4/2/4/1
+    - TMM/Part32A/2/3/2-3-1-a-variety-names
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
+    - TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1
+    - TMM/Part32A/2/1/section-53-infringement-of-pbr
+    - TMM/Part32A/2/3/2/3/1
+    - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
+    - TMM/Part32A/2/4/2-4-3-a-amending-the-goods
+    - TMM/Part32A/2/3/2-3-1-b-synonyms
+  variants:
+    ontology_previous:
     - TMM/Part32A/2/4/2/4/1
     - TMM/Part29/1/1/2
     - TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1
@@ -4001,10 +5714,22 @@ pools:
     - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
     - TMM/Part32A/2/1/2-1-2-a-amending-the-goods
     - TMM/Part32A/2/4/2-4-3-a-amending-the-goods
+    ontology_unaudited:
+    - TMM/Part32A/2/4/2/4/1
+    - TMM/Part29/1/1/2
+    - TMM/Part32A/2/3/2-3-1-a-variety-names
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
+    - TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1
+    - TMM/Part32A/2/1/section-53-infringement-of-pbr
+    - TMM/Part32A/2/3/2/3/1
+    - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
+    - TMM/Part32A/2/4/2-4-3-a-amending-the-goods
+    - TMM/Part32A/2/3/2-3-1-b-synonyms
   pool:
   - TMM/Part32A/2/3/2/3/1
   - TMM/Part32A/2/3#1
   - TMM/Part32A/2/4/2/4/1
+  - TMM/Part32A/2/3/2-3-1-b-synonyms
   - TMM/Part32A/2/1/2-1-2-a-amending-the-goods
   - TMM/Part29/1/1/2
   - TMM/Part32A/2/1/section-53-infringement-of-pbr
@@ -4044,6 +5769,18 @@ pools:
     - TMM/Part5/x-device-constituents/mantling-and-drapes
     ontology:
     - TMM/Part5/x-device-constituents/conventional-decorative-elements
+    - TMM/Part5/4#1
+    - TMM/Part10/3#1
+    - TMM/Part21/2#1
+    - TMM/Part21/2/2/3
+    - TMM/Part32B/2/3/2/3/6~1
+    - TMM/Part10/3/3/2/8
+    - TMM/Part5/x-device-constituents/borders-frames
+    - TMM/Part10/3/3/4/2
+    - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
+  variants:
+    ontology_previous:
+    - TMM/Part5/x-device-constituents/conventional-decorative-elements
     - TMM/Part10/3/3/1
     - TMM/Part5/4#1
     - TMM/Part10/3#1
@@ -4053,23 +5790,39 @@ pools:
     - TMM/Part5/x-device-constituents/borders-frames
     - TMM/Part31/2#1
     - TMM/Part21/2#1
+    ontology_unaudited:
+    - TMM/Part5/x-device-constituents/conventional-decorative-elements
+    - TMM/Part5/4#1
+    - TMM/Part10/3#1
+    - TMM/Part21/2#1
+    - TMM/Part32B/2/3/2/3/6~1
+    - TMM/Part21/2/2/3
+    - TMM/Part31/2#1
+    - TMM/Part5/x-device-constituents/borders-frames
+    - TMM/Part22/15/15/1~2
+    - TMM/Part21/3/3/2
   pool:
   - TMM/Part10/3/3/1/3
   - TMM/Part21/2/2/3
   - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
+  - TMM/Part21/3/3/2
   - TMM/Part28/3#1
+  - TMM/Part10/3/3/4/2
   - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/frames
   - TMM/Part5/x-device-constituents/geometric-borders
   - TMM/Part5/x-device-constituents/conventional-decorative-elements
   - TMM/Part5/x-device-constituents/trefoils-quatrefoils-cinquefoils
   - TMM/Part5/4#1
   - TMM/Part10/3/3/1
+  - TMM/Part10/3/3/2/8
   - TMM/Part30/3/3/5/5~4
   - TMM/Part10/3#1
   - TMM/Part21/2#1
   - TMM/Part5/x-device-constituents/mantling-and-drapes
   - TMM/Part30/3/3/2
+  - TMM/Part32B/2/3/2/3/6~1
   - TMM/Part10/3/3/1/4
+  - TMM/Part22/15/15/1~2
   - TMM/Part22/25/25/1
   - TMM/Part31/2#1
   - TMM/Part21/1#1
@@ -4104,6 +5857,29 @@ pools:
     - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
     - TMM/Part22/16/16/1~1
     ontology:
+    - TMM/Part13/2#1~2
+    - TMM/Part13/2#1~1
+    - TMM/Part13/4#1~1
+    - TMM/Part13/2#1~3
+    - TMM/Part13/7/7/1
+    - TMM/Part22/17/17/4
+    - TMM/Part22/18#1
+    - TMM/Part22/17/17/2
+    - TMM/Part22/17/17/3
+    - TMM/Part22/16/16/4
+  variants:
+    ontology_previous:
+    - TMM/Part13/2#1~2
+    - TMM/Part13/2#1~1
+    - TMM/Part13/4#1~1
+    - TMM/Part13/2#1~3
+    - TMM/Part13/7/7/1
+    - TMM/Part22/17/17/4
+    - TMM/Part22/18#1
+    - TMM/Part22/17/17/3
+    - TMM/Part22/17/17/2
+    - TMM/Part8/2#1~1
+    ontology_unaudited:
     - TMM/Part13/2#1~2
     - TMM/Part13/2#1~1
     - TMM/Part13/4#1~1
@@ -4161,6 +5937,18 @@ pools:
     - TMM/Part46/4/4/7
     - TMM/Part51/1/1/1
     ontology:
+    - TMM/Part47/1/1/2/5~2
+    - TMM/Part46/4#1
+    - TMM/Part47/1/1/2/5~3
+    - TMM/Part46/4/4/7
+    - TMM/Part47/1/1/2/3~1
+    - TMM/Part49/2/2/2/4
+    - TMM/Part47/1/1/2/4
+    - TMM/Part46/4/4/5
+    - TMM/Part48/1#1
+    - TMM/Part49/2/2/2/1
+  variants:
+    ontology_previous:
     - TMM/Part46/4/4/7
     - TMM/Part46/4#1
     - TMM/Part47/1/1/2/5~2
@@ -4171,6 +5959,17 @@ pools:
     - TMM/Part22/7#1
     - TMM/Part49/6#1
     - TMM/Part46/4/4/5
+    ontology_unaudited:
+    - TMM/Part46/4#1
+    - TMM/Part46/4/4/7
+    - TMM/Part47/1/1/2/5~2
+    - TMM/Part47/1/1/2/3~1
+    - TMM/Part47/1/1/2/5~3
+    - TMM/Part49/2/2/2/4
+    - TMM/Part51/1/1/2
+    - TMM/Part46/4/4/5
+    - TMM/Part48/1#1
+    - TMM/Part47/5#1
   pool:
   - TMM/Part49/6#1
   - TMM/Part48/11#1
@@ -4189,6 +5988,7 @@ pools:
   - TMM/Part46/4/4/5
   - TMM/Part47/5#1
   - TMM/Part47/1/1/2/5~4
+  - TMM/Part49/2/2/2/1
   - TMM/Part46/4/4/3
   - TMM/Part51/1/1/1
 - key: BN-0076
@@ -4218,6 +6018,29 @@ pools:
     - TMM/Part19A/5#1
     - TMM/Part26/4/4/3/1~1
     ontology:
+    - TMM/Part19A/3/3/2~1
+    - TMM/Part19A/3/3/1
+    - TMM/Part19A/3/3/5
+    - TMM/Part19A/4/4/1
+    - TMM/Part19A/3/3/3~1
+    - TMM/Part19A/4/4/3
+    - TMM/Part19A/3/3/3~2
+    - TMM/Part19A/3#1
+    - TMM/Part19A/5#1
+    - TMM/Part26/4/4/3/1~1
+  variants:
+    ontology_previous:
+    - TMM/Part19A/3/3/2~1
+    - TMM/Part19A/3/3/1
+    - TMM/Part19A/3/3/5
+    - TMM/Part19A/4/4/1
+    - TMM/Part19A/3/3/3~1
+    - TMM/Part19A/4/4/3
+    - TMM/Part19A/3/3/3~2
+    - TMM/Part19A/3#1
+    - TMM/Part19A/5#1
+    - TMM/Part26/4/4/3/1~1
+    ontology_unaudited:
     - TMM/Part19A/3/3/2~1
     - TMM/Part19A/3/3/1
     - TMM/Part19A/3/3/5
@@ -4270,6 +6093,18 @@ pools:
     - TMM/Part32A/x-annex-5---case-law-summaries/wheatcroft-bros-ltd-s-trade-marks-1954-71-rpc-43
     ontology:
     - TMM/Part32A/2/4/2/4/1
+    - TMM/Part32A/2/3/2-3-1-a-variety-names
+    - TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
+    - TMM/Part29/1/1/2
+    - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
+    - TMM/Part32A/2/4/2-4-3-b-examples-of-use
+    - TMM/Part32A/2/1/2-1-1-a-plain-word-trade-marks
+    - TMM/Part32A/2/3/2/3/1
+    - TMM/Part32A/2/4/2-4-3-a-amending-the-goods
+  variants:
+    ontology_previous:
+    - TMM/Part32A/2/4/2/4/1
     - TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1
     - TMM/Part32A/2/3/2-3-1-a-variety-names
     - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
@@ -4279,8 +6114,20 @@ pools:
     - TMM/Part32A/2/3/2/3/1
     - TMM/Part32A/2/1/2-1-1-a-plain-word-trade-marks
     - TMM/Part32A/2/4/2-4-3-a-amending-the-goods
+    ontology_unaudited:
+    - TMM/Part32A/2/4/2/4/1
+    - TMM/Part32A/2/3/2-3-1-a-variety-names
+    - TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
+    - TMM/Part29/1/1/2
+    - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
+    - TMM/Part32A/2/4/2-4-3-b-examples-of-use
+    - TMM/Part32A/2/1/2-1-1-a-plain-word-trade-marks
+    - TMM/Part32A/2/3/2/3/1
+    - TMM/Part32A/x-annex-2---applicable-sections-of-the-upov-convention/chapter-vi-variety-denomination
   pool:
   - TMM/Part32A/2/1/2-1-1-a-plain-word-trade-marks
+  - TMM/Part32A/x-annex-2---applicable-sections-of-the-upov-convention/chapter-vi-variety-denomination
   - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
   - TMM/Part32A/2/4/2-4-3-a-amending-the-goods
   - TMM/Part32A/2/3#1
@@ -4326,6 +6173,18 @@ pools:
     - TMM/Part14/4/4/8/3
     ontology:
     - TMM/Part14/4/4/5/2
+    - TMM/Part15/1#1~1
+    - TMM/Part17/2/2/2
+    - TMM/Part20/5/5/4/1
+    - TMM/Part20/4#1~1
+    - TMM/Part52/2/2/3
+    - TMM/Part30/2/2/3
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
+    - TMM/Part29/8/8/1
+    - TMM/Part16/1/1/1
+  variants:
+    ontology_previous:
+    - TMM/Part14/4/4/5/2
     - TMM/Part17/2/2/2
     - TMM/Part20/5/5/4/1
     - TMM/Part30/2/2/3
@@ -4335,6 +6194,17 @@ pools:
     - TMM/Part52/2/2/3
     - TMM/Part60/1/1/7
     - TMM/Part60/3/3/2
+    ontology_unaudited:
+    - TMM/Part14/4/4/5/2
+    - TMM/Part15/1#1~1
+    - TMM/Part17/2/2/2
+    - TMM/Part20/5/5/4/1
+    - TMM/Part20/4#1~1
+    - TMM/Part30/2/2/3
+    - TMM/Part52/2/2/3
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
+    - TMM/Part29/8/8/1
+    - TMM/Part16/1/1/1
   pool:
   - TMM/Part13/1#1
   - TMM/Part30/2/2/3
@@ -4346,11 +6216,14 @@ pools:
   - TMM/Part52/2/2/3
   - TMM/Part8/x-relevant-legislation39#1
   - TMM/Part34/4/4/1
+  - TMM/Part16/1/1/1
   - TMM/Part14/4/4/5/2
+  - TMM/Part15/1#1~1
   - TMM/Part14/4/4/9/1
   - TMM/Part7/2#1
   - TMM/Part9/4/4/4
   - TMM/Part20/4#1~1
+  - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
   - TMM/Part14/4/4/8/3
   - TMM/Part7/3#1~2
   - TMM/Part29/8/8/1
@@ -4388,6 +6261,29 @@ pools:
     - TMM/Part34/6/6/2/1
     - TMM/Part19A/8#1~2
     ontology:
+    - TMM/Part26/6/6/11~2
+    - TMM/Part46/4/4/5/2
+    - TMM/Part26/6/6/7~1
+    - TMM/Part30/2/2/11
+    - TMM/Part22/21#1
+    - TMM/Part30/2/2/13
+    - TMM/Part34/6/6/2/2
+    - TMM/Part30/2/2/4
+    - TMM/Part34/6/6/2/1
+    - TMM/Part19A/8#1~2
+  variants:
+    ontology_previous:
+    - TMM/Part26/6/6/11~2
+    - TMM/Part46/4/4/5/2
+    - TMM/Part26/6/6/7~1
+    - TMM/Part30/2/2/11
+    - TMM/Part22/21#1
+    - TMM/Part30/2/2/13
+    - TMM/Part34/6/6/2/2
+    - TMM/Part30/2/2/4
+    - TMM/Part34/6/6/2/1
+    - TMM/Part19A/8#1~2
+    ontology_unaudited:
     - TMM/Part26/6/6/11~2
     - TMM/Part46/4/4/5/2
     - TMM/Part26/6/6/7~1
@@ -4453,6 +6349,29 @@ pools:
     - TMM/Part22/8/8/8
     - TMM/Part5/x-word-constituents/letters-or-words
     - TMM/Part22/23#1
+  variants:
+    ontology_previous:
+    - TMM/Part5/x-word-constituents/letters
+    - TMM/Part22/8/8/3
+    - TMM/Part22/8/8/1
+    - TMM/Part5/x-word-constituents/letters-which-occur-within-a-word-or-attached-to-words
+    - TMM/Part22/8/8/2
+    - TMM/Part22/8/8/5
+    - TMM/Part5/x-device-constituents/symbols~1
+    - TMM/Part22/8/8/8
+    - TMM/Part5/x-word-constituents/letters-or-words
+    - TMM/Part22/23#1
+    ontology_unaudited:
+    - TMM/Part5/x-word-constituents/letters
+    - TMM/Part22/8/8/3
+    - TMM/Part22/8/8/1
+    - TMM/Part5/x-word-constituents/letters-which-occur-within-a-word-or-attached-to-words
+    - TMM/Part22/8/8/2
+    - TMM/Part22/8/8/5
+    - TMM/Part5/x-device-constituents/symbols~1
+    - TMM/Part22/8/8/8
+    - TMM/Part5/x-word-constituents/letters-or-words
+    - TMM/Part22/23#1
   pool:
   - TMM/Part5/x-word-constituents/the-breakdown-of-words
   - TMM/Part5/x-device-constituents/symbols~1
@@ -4495,6 +6414,29 @@ pools:
     - TMM/Part54/3/3/3/2
     - TMM/Part60/4/27/4/27/2
     ontology:
+    - TMM/Part19B/4/4/3
+    - TMM/Part31/4/4/4/3
+    - TMM/Part19A/2/examples-where-use-as-a-trade-mark-found~1
+    - TMM/Part30/3/3/5~2
+    - TMM/Part12/3/3/3~2
+    - TMM/Part29/4#1
+    - TMM/Part22/25/25/6
+    - TMM/Part55/3/3/2
+    - TMM/Part54/3/3/3/2
+    - TMM/Part60/4/27/4/27/2
+  variants:
+    ontology_previous:
+    - TMM/Part19B/4/4/3
+    - TMM/Part31/4/4/4/3
+    - TMM/Part19A/2/examples-where-use-as-a-trade-mark-found~1
+    - TMM/Part30/3/3/5~2
+    - TMM/Part12/3/3/3~2
+    - TMM/Part29/4#1
+    - TMM/Part22/25/25/6
+    - TMM/Part55/3/3/2
+    - TMM/Part54/3/3/3/2
+    - TMM/Part60/4/27/4/27/2
+    ontology_unaudited:
     - TMM/Part19B/4/4/3
     - TMM/Part31/4/4/4/3
     - TMM/Part19A/2/examples-where-use-as-a-trade-mark-found~1
@@ -4560,6 +6502,29 @@ pools:
     - TMM/Part28/3/3/1~5
     - TMM/Part19B/3#1
     - TMM/Part19B/4/4/4~1
+  variants:
+    ontology_previous:
+    - TMM/Part19B/4/4/3
+    - TMM/Part31/4/4/4/3
+    - TMM/Part19A/2#1~2
+    - TMM/Part30/3/3/5~2
+    - TMM/Part19B/4/4/1
+    - TMM/Part19B/4/4/4~2
+    - TMM/Part34/1/1/2
+    - TMM/Part28/3/3/1~5
+    - TMM/Part19B/3#1
+    - TMM/Part19B/4/4/4~1
+    ontology_unaudited:
+    - TMM/Part19B/4/4/3
+    - TMM/Part31/4/4/4/3
+    - TMM/Part19A/2#1~2
+    - TMM/Part30/3/3/5~2
+    - TMM/Part19B/4/4/1
+    - TMM/Part19B/4/4/4~2
+    - TMM/Part34/1/1/2
+    - TMM/Part28/3/3/1~5
+    - TMM/Part19B/3#1
+    - TMM/Part19B/4/4/4~1
   pool:
   - TMM/Part19B/4/4/4~1
   - TMM/Part19B/4/4/3
@@ -4600,10 +6565,22 @@ pools:
     - TMM/Part47/1/1/2/4
     - TMM/Part49/2/2/2/1
     - TMM/Part15/6/6/2
-    - TMM/Part47/1/1/3/3
     - TMM/Part47/1/1/3/6~2
+    - TMM/Part47/1/1/3/3
     - TMM/Part49/2/2/2/4
     ontology:
+    - TMM/Part47/1/1/2/3~1
+    - TMM/Part60/4/21/4/21/2
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part60/4/17/4/17/2~1
+    - TMM/Part55/2#1
+    - TMM/Part47/1/1/3/3
+    - TMM/Part60/4/17/4/17/2~2
+    - TMM/Part15/2/2/1/2
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part51/1#1~1
+  variants:
+    ontology_previous:
     - TMM/Part47/1/1/2/3~1
     - TMM/Part60/4/21/4/21/2
     - TMM/Part47/1/1/3/3
@@ -4613,6 +6590,17 @@ pools:
     - TMM/Part60/4/17/4/17/2~3
     - TMM/Part15/2/2/1/2
     - TMM/Part60/4/17/4/17/2~2
+    - TMM/Part51/1#1~1
+    ontology_unaudited:
+    - TMM/Part47/1/1/2/3~1
+    - TMM/Part60/4/21/4/21/2
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part60/4/17/4/17/2~1
+    - TMM/Part47/1/1/3/3
+    - TMM/Part55/2#1
+    - TMM/Part60/4/17/4/17/2~2
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part15/2/2/1/2
     - TMM/Part51/1#1~1
   pool:
   - TMM/Part47/1/1/1
@@ -4673,6 +6661,29 @@ pools:
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/molds
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mousse
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mousses
+  variants:
+    ontology_previous:
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/moldings
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/laminate
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification#1
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/trim
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/ginger
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/moulds
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/molds
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mousse
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mousses
+    ontology_unaudited:
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/moldings
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/laminate
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification#1
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/trim
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/ginger
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/moulds
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/molds
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mousse
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mousses
   pool:
   - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mousse
   - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mousses
@@ -4716,6 +6727,18 @@ pools:
     - TMM/Part26/6/6/8~2
     - TMM/Part10/1/1/1/1
     ontology:
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~1
+    - TMM/Part26/6/6/4~3
+    - TMM/Part26/6/6/12
+    - TMM/Part26/6/6/4~1
+    - TMM/Part26/4/4/3/1~2
+    - TMM/Part19A/2/2/3
+    - TMM/Part46/4/4/1/2
+    - TMM/Part14/x-annex-a2---principles-of-classification/classification-of-services
+    - TMM/Part26/6/6/8~2
+    - TMM/Part10/1/1/1/1
+  variants:
+    ontology_previous:
     - TMM/Part19A/3/3/4
     - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
     - TMM/Part21/1#1
@@ -4726,6 +6749,17 @@ pools:
     - TMM/Part22/15/15/1~2
     - TMM/Part5/4#1
     - TMM/Part22/15/15/1~1
+    ontology_unaudited:
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~1
+    - TMM/Part26/6/6/4~3
+    - TMM/Part26/6/6/12
+    - TMM/Part26/6/6/4~1
+    - TMM/Part26/4/4/3/1~2
+    - TMM/Part19A/2/2/3
+    - TMM/Part46/4/4/1/2
+    - TMM/Part14/x-annex-a2---principles-of-classification/classification-of-services
+    - TMM/Part26/6/6/8~2
+    - TMM/Part10/1/1/1/1
   pool:
   - TMM/Part32A/2/4/2-4-3-a-amending-the-goods
   - TMM/Part21/1#1
@@ -4782,6 +6816,18 @@ pools:
     ontology:
     - TMM/Part12/8#1
     - TMM/Part26/7#1~1
+    - TMM/Part17/2/2/1
+    - TMM/Part6/1/1/2
+    - TMM/Part12/2#1
+    - TMM/Part20/5/5/6/2
+    - TMM/Part17/4/4/2
+    - TMM/Part34/5/5/3
+    - TMM/Part12/5#1
+    - TMM/Part26/8/8/2
+  variants:
+    ontology_previous:
+    - TMM/Part12/8#1
+    - TMM/Part26/7#1~1
     - TMM/Part12/2#1
     - TMM/Part17/2/2/1
     - TMM/Part6/1/1/2
@@ -4790,12 +6836,24 @@ pools:
     - TMM/Part11/3#1
     - TMM/Part26/8/8/2
     - TMM/Part21/3/3/10
+    ontology_unaudited:
+    - TMM/Part12/8#1
+    - TMM/Part26/7#1~1
+    - TMM/Part17/2/2/1
+    - TMM/Part6/1/1/2
+    - TMM/Part12/2#1
+    - TMM/Part20/5/5/6/2
+    - TMM/Part17/4/4/2
+    - TMM/Part34/5/5/3
+    - TMM/Part12/5#1
+    - TMM/Part26/8/8/2
   pool:
   - TMM/Part17/2/2/1
   - TMM/Part12/3/3/3~2
   - TMM/Part26/7#1~1
   - TMM/Part10/3/3/2/8
   - TMM/Part12/5#1
+  - TMM/Part34/5/5/3
   - TMM/Part11/3#1
   - TMM/Part21/3/3/4~1
   - TMM/Part21/3/3/9~1
@@ -4810,6 +6868,7 @@ pools:
   - TMM/Part21/3/3/4~2
   - TMM/Part21/2/2/3
   - TMM/Part12/8#1
+  - TMM/Part20/5/5/6/2
   - TMM/Part21/3/3/10
   - TMM/Part19A/2/2/4~3
   - TMM/Part21/3/3/7
@@ -4841,6 +6900,29 @@ pools:
     - TMM/Part34/1/1/2
     - TMM/Part28/3/the-distinctiveness-of-the-trade-mark
     ontology:
+    - TMM/Part29/6#1~2
+    - TMM/Part29/9/9/7
+    - TMM/Part29/6#1~1
+    - TMM/Part19B/4/4/2
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
+    - TMM/Part19A/8#1~2
+    - TMM/Part29/9/9/3~1
+    - TMM/Part19A/6/6/1
+    - TMM/Part34/1/1/2
+    - TMM/Part28/3/the-distinctiveness-of-the-trade-mark
+  variants:
+    ontology_previous:
+    - TMM/Part29/6#1~2
+    - TMM/Part29/9/9/7
+    - TMM/Part29/6#1~1
+    - TMM/Part19B/4/4/2
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
+    - TMM/Part19A/8#1~2
+    - TMM/Part29/9/9/3~1
+    - TMM/Part19A/6/6/1
+    - TMM/Part34/1/1/2
+    - TMM/Part28/3/the-distinctiveness-of-the-trade-mark
+    ontology_unaudited:
     - TMM/Part29/6#1~2
     - TMM/Part29/9/9/7
     - TMM/Part29/6#1~1
@@ -4898,12 +6980,35 @@ pools:
     - TMM/Part51/2/2/4
     - TMM/Part51/1/1/2
     - TMM/Part51/5#1~1
+    - TMM/Part60/4/17/4/17/2~1
+    - TMM/Part60/4/16/4/16/2
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part55/2#1
+    - TMM/Part51/4/4/1~1
+    - TMM/Part48/4#1~1
+  variants:
+    ontology_previous:
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part51/2/2/4
+    - TMM/Part51/1/1/2
+    - TMM/Part51/5#1~1
     - TMM/Part51/4/4/1~1
     - TMM/Part55/x-annex-a1---taxing-of-costs-in--multiple--oppositions-relying-on-same-evidence#1
     - TMM/Part60/4/17/4/17/2~1
     - TMM/Part55/2#1
     - TMM/Part60/4/16/4/16/2
     - TMM/Part47/1/1/3/6~2
+    ontology_unaudited:
+    - TMM/Part60/4/17/4/17/2~3
+    - TMM/Part51/2/2/4
+    - TMM/Part51/1/1/2
+    - TMM/Part60/4/17/4/17/2~1
+    - TMM/Part51/5#1~1
+    - TMM/Part60/4/16/4/16/2
+    - TMM/Part51/4/4/1~1
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part55/2#1
+    - TMM/Part48/4#1~1
   pool:
   - TMM/Part55/x-annex-a1---taxing-of-costs-in--multiple--oppositions-relying-on-same-evidence#1
   - TMM/Part60/4/17/4/17/2~1
@@ -4916,6 +7021,7 @@ pools:
   - TMM/Part51/2/2/1
   - TMM/Part55/2#1
   - TMM/Part49/2/2/3/6
+  - TMM/Part48/4#1~1
   - TMM/Part15/1/1/1
   - TMM/Part51/4/4/1~1
   - TMM/Part47/1/1/3/6~2
@@ -4952,6 +7058,29 @@ pools:
     - TMM/Part55/1#1~1
     - TMM/Part55/2#1
     ontology:
+    - TMM/Part55/3/3/3
+    - TMM/Part55/4#1
+    - TMM/Part55/4/4/2
+    - TMM/Part55/6#1
+    - TMM/Part55/3/3/4
+    - TMM/Part55/4/4/1~1
+    - TMM/Part55/7/7/1~1
+    - TMM/Part55/1#1~2
+    - TMM/Part55/1#1~1
+    - TMM/Part55/2#1
+  variants:
+    ontology_previous:
+    - TMM/Part55/3/3/3
+    - TMM/Part55/4#1
+    - TMM/Part55/4/4/2
+    - TMM/Part55/6#1
+    - TMM/Part55/3/3/4
+    - TMM/Part55/4/4/1~1
+    - TMM/Part55/7/7/1~1
+    - TMM/Part55/1#1~2
+    - TMM/Part55/1#1~1
+    - TMM/Part55/2#1
+    ontology_unaudited:
     - TMM/Part55/3/3/3
     - TMM/Part55/4#1
     - TMM/Part55/4/4/2
@@ -5007,12 +7136,35 @@ pools:
     - TMM/Part60/1/1/5
     - TMM/Part60/4/6/4/6/2
     - TMM/Part60/2/2/2/2/2
+    - TMM/Part60/2/2/2/2/4~1
+    - TMM/Part60/4/3/4/3/2
+    - TMM/Part60/2/4/2/4/2~1
+    - TMM/Part60/4/1#1
+    - TMM/Part60/2/2/2/2/4~4
+    - TMM/Part60/2/4/2/4/3~2
+  variants:
+    ontology_previous:
+    - TMM/Part14/2/2/2/2
+    - TMM/Part60/1/1/5
+    - TMM/Part60/4/6/4/6/2
+    - TMM/Part60/2/2/2/2/2
     - TMM/Part60/4/3/4/3/2
     - TMM/Part60/2/2/2/2/4~1
     - TMM/Part60/4/1#1
     - TMM/Part60/2/2/2/2/4~4
     - TMM/Part60/4/9/4/9/2
     - TMM/Part60/2/4/2/4/2~1
+    ontology_unaudited:
+    - TMM/Part14/2/2/2/2
+    - TMM/Part60/1/1/5
+    - TMM/Part60/4/6/4/6/2
+    - TMM/Part60/2/2/2/2/2
+    - TMM/Part60/2/2/2/2/4~1
+    - TMM/Part60/4/3/4/3/2
+    - TMM/Part60/2/4/2/4/2~1
+    - TMM/Part60/4/1#1
+    - TMM/Part60/2/2/2/2/4~4
+    - TMM/Part60/2/4/2/4/3~2
   pool:
   - TMM/Part60/2/4/2/4/3~2
   - TMM/Part60/2/2/2/2/2
@@ -5056,6 +7208,29 @@ pools:
     - TMM/Part26/4/4/4
     - TMM/Part26/4/4/3/1~1
     ontology:
+    - TMM/Part26/4/4/1
+    - TMM/Part10/5/5/2
+    - TMM/Part26/4/4/2
+    - TMM/Part21/2/2/2
+    - TMM/Part26/4/4/3/1~2
+    - TMM/Part14/3#1~2
+    - TMM/Part5/x-device-constituents/types-of-terms-descriptors~2
+    - TMM/Part21/3/3/10
+    - TMM/Part26/4/4/4
+    - TMM/Part26/4/4/3/1~1
+  variants:
+    ontology_previous:
+    - TMM/Part26/4/4/1
+    - TMM/Part10/5/5/2
+    - TMM/Part26/4/4/2
+    - TMM/Part21/2/2/2
+    - TMM/Part26/4/4/3/1~2
+    - TMM/Part14/3#1~2
+    - TMM/Part5/x-device-constituents/types-of-terms-descriptors~2
+    - TMM/Part21/3/3/10
+    - TMM/Part26/4/4/4
+    - TMM/Part26/4/4/3/1~1
+    ontology_unaudited:
     - TMM/Part26/4/4/1
     - TMM/Part10/5/5/2
     - TMM/Part26/4/4/2
@@ -5113,12 +7288,35 @@ pools:
     - TMM/Part61/1/1/3
     - TMM/Part61/2/2/3
     - TMM/Part61/2#1
+    - TMM/Part51/1/1/4
+    - TMM/Part61/3/3/4
+    - TMM/Part61/2/2/4/2
+    - TMM/Part61/2/2/1
+    - TMM/Part61/2/2/4/1
+    - TMM/Part61/3/3/2
+  variants:
+    ontology_previous:
+    - TMM/Part61/3/3/3
+    - TMM/Part61/1/1/3
+    - TMM/Part61/2/2/3
+    - TMM/Part61/2#1
     - TMM/Part61/2/2/4/2
     - TMM/Part61/2/2/4/1
     - TMM/Part51/2/2/5~2
     - TMM/Part51/2/2/5~1
     - TMM/Part51/2/2/3
     - TMM/Part61/2/2/1
+    ontology_unaudited:
+    - TMM/Part61/3/3/3
+    - TMM/Part61/1/1/3
+    - TMM/Part61/2/2/3
+    - TMM/Part61/2#1
+    - TMM/Part51/1/1/4
+    - TMM/Part61/3/3/4
+    - TMM/Part61/2/2/4/2
+    - TMM/Part61/2/2/1
+    - TMM/Part61/2/2/4/1
+    - TMM/Part61/3/3/2
   pool:
   - TMM/Part61/2/2/3
   - TMM/Part61/3/3/2
@@ -5163,6 +7361,29 @@ pools:
     - TMM/Part14/4/4/6/2
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/horns
     ontology:
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/lead
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/materials
+    - TMM/Part14/3#1~2
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders
+    - TMM/Part5/x-device-constituents/borders-frames
+    - TMM/Part14/6/6/2/3
+    - TMM/Part22/7/22/7/10
+    - TMM/Part14/4/4/6/2
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/horns
+  variants:
+    ontology_previous:
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/lead
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/materials
+    - TMM/Part14/3#1~2
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders
+    - TMM/Part5/x-device-constituents/borders-frames
+    - TMM/Part14/6/6/2/3
+    - TMM/Part22/7/22/7/10
+    - TMM/Part14/4/4/6/2
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/horns
+    ontology_unaudited:
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/lead
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/materials
@@ -5218,6 +7439,18 @@ pools:
     - TMM/Part28/3/3/1~2
     - TMM/Part28/3/3/1~1
     - TMM/Part28/1#1
+    - TMM/Part28/3/3/1~4
+    - TMM/Part28/3#1
+    - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~1
+    - TMM/Part28/3/3/6~3
+    - TMM/Part28/2#1
+    - TMM/Part28/4#1
+    - TMM/Part28/3/3/6~2
+  variants:
+    ontology_previous:
+    - TMM/Part28/3/3/1~2
+    - TMM/Part28/3/3/1~1
+    - TMM/Part28/1#1
     - TMM/Part28/3#1
     - TMM/Part28/3/3/1~4
     - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~1
@@ -5225,6 +7458,17 @@ pools:
     - TMM/Part28/2#1
     - TMM/Part28/4#1
     - TMM/Part28/3/3/1~3
+    ontology_unaudited:
+    - TMM/Part28/3/3/1~2
+    - TMM/Part28/3/3/1~1
+    - TMM/Part28/1#1
+    - TMM/Part28/3/3/1~4
+    - TMM/Part28/3#1
+    - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~1
+    - TMM/Part28/3/3/6~3
+    - TMM/Part28/2#1
+    - TMM/Part28/4#1
+    - TMM/Part28/3/3/6~2
   pool:
   - TMM/Part28/3/3/2/1
   - TMM/Part28/3/3/6~3
@@ -5238,6 +7482,7 @@ pools:
   - TMM/Part28/3/the-distinctiveness-of-the-trade-mark
   - TMM/Part28/3/3/1~1
   - TMM/Part28/3/3/1~4
+  - TMM/Part28/3/3/6~2
   - TMM/Part28/3/geographical-location-of-activities
   - TMM/Part28/1#1
   - TMM/Part28/2#1
@@ -5272,6 +7517,29 @@ pools:
     - TMM/Part49/1/1/1
     - TMM/Part23/x-annex-a1-information-for-applicants-on-the-preparation-and-presentation-of-a-declaration-including-model-layout#1
     ontology:
+    - TMM/Part2/3/2/3/5
+    - TMM/Part10/6#1
+    - TMM/Part10/x-annex-a2---identity-of-the-applicant#1
+    - TMM/Part47/3/3/2
+    - TMM/Part44/4/4/1
+    - TMM/Part60/4/9/4/9/2
+    - TMM/Part39/8#1
+    - TMM/Part9/7#1~1
+    - TMM/Part49/1/1/1
+    - TMM/Part23/x-annex-a1-information-for-applicants-on-the-preparation-and-presentation-of-a-declaration-including-model-layout#1
+  variants:
+    ontology_previous:
+    - TMM/Part2/3/2/3/5
+    - TMM/Part10/6#1
+    - TMM/Part10/x-annex-a2---identity-of-the-applicant#1
+    - TMM/Part47/3/3/2
+    - TMM/Part44/4/4/1
+    - TMM/Part60/4/9/4/9/2
+    - TMM/Part39/8#1
+    - TMM/Part9/7#1~1
+    - TMM/Part49/1/1/1
+    - TMM/Part23/x-annex-a1-information-for-applicants-on-the-preparation-and-presentation-of-a-declaration-including-model-layout#1
+    ontology_unaudited:
     - TMM/Part2/3/2/3/5
     - TMM/Part10/6#1
     - TMM/Part10/x-annex-a2---identity-of-the-applicant#1
@@ -5327,6 +7595,18 @@ pools:
     - TMM/Part21/7/7/2/1~2
     - TMM/Part21/7/7/2/1~1
     - TMM/Part21/7/7/1
+    - TMM/Part20/4#1~1
+    - TMM/Part22/2#1
+    - TMM/Part21/7#1
+    - TMM/Part10/3/3/4/2
+    - TMM/Part60/4/7/4/7/13
+    - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
+    - TMM/Part20/5/5/4/1
+  variants:
+    ontology_previous:
+    - TMM/Part21/7/7/2/1~2
+    - TMM/Part21/7/7/2/1~1
+    - TMM/Part21/7/7/1
     - TMM/Part38/1/1/1
     - TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1
     - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
@@ -5334,8 +7614,20 @@ pools:
     - TMM/Part21/7#1
     - TMM/Part51/10#1~1
     - TMM/Part32B/2/1/2/1/3
+    ontology_unaudited:
+    - TMM/Part21/7/7/2/1~2
+    - TMM/Part21/7/7/2/1~1
+    - TMM/Part21/7/7/1
+    - TMM/Part38/1/1/1
+    - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
+    - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
+    - TMM/Part51/10#1~1
+    - TMM/Part21/7#1
+    - TMM/Part20/4#1~1
+    - TMM/Part10/3/3/4/2
   pool:
   - TMM/Part21/7/7/2/1~1
+  - TMM/Part20/4#1~1
   - TMM/Part38/2/2/3
   - TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1
   - TMM/Part10/3/3/4/1
@@ -5350,9 +7642,12 @@ pools:
   - TMM/Part20/3#1
   - TMM/Part21/4/4/5/2
   - TMM/Part21/7#1
+  - TMM/Part20/5/5/4/1
+  - TMM/Part22/2#1
   - TMM/Part21/7/7/2/1~2
   - TMM/Part10/3/3/4/3
   - TMM/Part60/4/7/4/7/13
+  - TMM/Part32A/2/1/2-1-2-c-letter-of-consent
   - TMM/Part10/3/3/4/4
 - key: BN-0097
   kind: problem
@@ -5383,6 +7678,18 @@ pools:
     ontology:
     - TMM/Part17/1#1
     - TMM/Part60/4/16/4/16/2
+    - TMM/Part16/1/1/2
+    - TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1
+    - TMM/Part16/1/1/1
+    - TMM/Part47/3/3/3
+    - TMM/Part16/1/1/3
+    - TMM/Part15/6/6/3
+    - TMM/Part15/3/3/7
+    - TMM/Part17/3#1~3
+  variants:
+    ontology_previous:
+    - TMM/Part17/1#1
+    - TMM/Part60/4/16/4/16/2
     - TMM/Part47/3/3/3
     - TMM/Part16/1/1/1
     - TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1
@@ -5391,6 +7698,17 @@ pools:
     - TMM/Part17/3#1~3
     - TMM/Part49/2/2/3/3
     - TMM/Part17/4/4/3
+    ontology_unaudited:
+    - TMM/Part17/1#1
+    - TMM/Part60/4/16/4/16/2
+    - TMM/Part47/3/3/3
+    - TMM/Part16/1/1/1
+    - TMM/Part16/1/1/2
+    - TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1
+    - TMM/Part16/1/1/3
+    - TMM/Part48/4#1~1
+    - TMM/Part15/6/6/3
+    - TMM/Part15/3/3/7
   pool:
   - TMM/Part17/1#1
   - TMM/Part60/4/16/4/16/2
@@ -5407,6 +7725,7 @@ pools:
   - TMM/Part16/1/1/2
   - TMM/Part17/4/4/3
   - TMM/Part47/3/3/3
+  - TMM/Part48/4#1~1
   - TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1
   - TMM/Part49/2/2/3/3
   - TMM/Part15/3/3/7
@@ -5443,6 +7762,18 @@ pools:
     - TMM/Part14/4/4/8/2~1
     - TMM/Part14/3#1~2
     - TMM/Part14/4/4/6/2
+    - TMM/Part14/6/6/4/1
+    - TMM/Part23/2/2/2/2
+    - TMM/Part14/4/4/8/2~2
+    - TMM/Part14/4/4/5/1
+    - TMM/Part10/5/5/2/1
+    - TMM/Part23/2/2/2/1
+    - TMM/Part14/4/4/3/1
+  variants:
+    ontology_previous:
+    - TMM/Part14/4/4/8/2~1
+    - TMM/Part14/3#1~2
+    - TMM/Part14/4/4/6/2
     - TMM/Part23/2/2/2/1
     - TMM/Part29/4#1
     - TMM/Part23/2/2/2/2
@@ -5450,17 +7781,30 @@ pools:
     - TMM/Part29/8/8/1
     - TMM/Part14/4/4/10/1
     - TMM/Part14/4/4/8/2~2
+    ontology_unaudited:
+    - TMM/Part14/3#1~2
+    - TMM/Part14/4/4/6/2
+    - TMM/Part23/2/2/2/2
+    - TMM/Part14/4/4/5/1
+    - TMM/Part14/4/4/8/2~2
+    - TMM/Part14/4/4/8/2~1
+    - TMM/Part14/4/4/3/1
+    - TMM/Part14/4/4/8/1
+    - TMM/Part9/8#1
+    - TMM/Part23/2/2/2/1
   pool:
   - TMM/Part14/4/4/6/2
   - TMM/Part14/4/4/3/1
   - TMM/Part27/3/3/1
   - TMM/Part11/5/5/2/2
+  - TMM/Part14/4/4/8/1
   - TMM/Part14/3#1~2
   - TMM/Part10/5/5/3/1
   - TMM/Part27/3/3/2/3
   - TMM/Part14/4/4/8/2~1
   - TMM/Part14/4/4/10/1
   - TMM/Part10/5/5/2/1
+  - TMM/Part9/8#1
   - TMM/Part29/4#1
   - TMM/Part23/2/2/2/2
   - TMM/Part23/2/2/2/1
@@ -5468,6 +7812,7 @@ pools:
   - TMM/Part14/4/4/5/1
   - TMM/Part10/5/5/3
   - TMM/Part29/8/8/1
+  - TMM/Part14/6/6/4/1
   - TMM/Part14/6/6/7
 - key: BN-0099
   kind: impact
@@ -5497,6 +7842,29 @@ pools:
     - TMM/Part45/1#1
     - TMM/Part2/3/2/3/2/1
     ontology:
+    - TMM/Part61/6/6/1
+    - TMM/Part4/6/6/1/2
+    - TMM/Part61/1/1/1
+    - TMM/Part4/6/6/4/1
+    - TMM/Part61/5/5/1
+    - TMM/Part4/6/6/1/1
+    - TMM/Part61/1/1/2
+    - TMM/Part4/6#1
+    - TMM/Part45/1#1
+    - TMM/Part2/3/2/3/2/1
+  variants:
+    ontology_previous:
+    - TMM/Part61/6/6/1
+    - TMM/Part4/6/6/1/2
+    - TMM/Part61/1/1/1
+    - TMM/Part4/6/6/4/1
+    - TMM/Part61/5/5/1
+    - TMM/Part4/6/6/1/1
+    - TMM/Part61/1/1/2
+    - TMM/Part4/6#1
+    - TMM/Part45/1#1
+    - TMM/Part2/3/2/3/2/1
+    ontology_unaudited:
     - TMM/Part61/6/6/1
     - TMM/Part4/6/6/1/2
     - TMM/Part61/1/1/1
@@ -5549,6 +7917,18 @@ pools:
     - TMM/Part49/6/6/1
     ontology:
     - TMM/Part49/6#1
+    - TMM/Part49/6/6/1
+    - TMM/Part48/4#1~2
+    - TMM/Part48/2/2/1
+    - TMM/Part49/5#1
+    - TMM/Part51/x-relevant-legislation3#1
+    - TMM/Part47/4#1
+    - TMM/Part48/4#1~1
+    - TMM/Part62/5#1
+    - TMM/Part51/6/6/2
+  variants:
+    ontology_previous:
+    - TMM/Part49/6#1
     - TMM/Part48/2/2/1
     - TMM/Part49/6/6/1
     - TMM/Part51/6/6/2
@@ -5558,18 +7938,32 @@ pools:
     - TMM/Part47/4#1
     - TMM/Part51/5#1~1
     - TMM/Part51/x-relevant-legislation3#1
+    ontology_unaudited:
+    - TMM/Part49/6#1
+    - TMM/Part48/2/2/4
+    - TMM/Part48/4#1~1
+    - TMM/Part49/6/6/1
+    - TMM/Part51/6/6/2
+    - TMM/Part48/2/2/1
+    - TMM/Part48/4#1~2
+    - TMM/Part49/5#1
+    - TMM/Part47/4#1
+    - TMM/Part55/5#1
   pool:
   - TMM/Part48/2/2/1
   - TMM/Part48/2/2/2
   - TMM/Part51/6/6/2
   - TMM/Part48/3#1~1
   - TMM/Part49/6/6/1
+  - TMM/Part48/4#1~1
   - TMM/Part47/4#1
   - TMM/Part48/2/2/3
   - TMM/Part49/1/1/7
   - TMM/Part48/4#1~2
   - TMM/Part49/1/1/3
+  - TMM/Part55/5#1
   - TMM/Part48/2/2/4
+  - TMM/Part62/5#1
   - TMM/Part51/x-relevant-legislation3#1
   - TMM/Part49/6#1
   - TMM/Part49/1/1/8
@@ -5603,6 +7997,18 @@ pools:
     - TMM/Part60/2/4/2/4/2~2
     - TMM/Part28/4/28/4/4~2
     ontology:
+    - TMM/Part60/1/1/5
+    - TMM/Part60/3/3/2
+    - TMM/Part60/1/1/7
+    - TMM/Part60/4/26/4/26/3~1
+    - TMM/Part62/8#1
+    - TMM/Part60/4/26/4/26/2
+    - TMM/Part28/4/28/4/4~2
+    - TMM/Part27/4/4/2
+    - TMM/Part27/4/4/2/3
+    - TMM/Part60/1/1/1
+  variants:
+    ontology_previous:
     - TMM/Part60/3/3/2
     - TMM/Part60/1/1/7
     - TMM/Part60/1/1/5
@@ -5613,6 +8019,17 @@ pools:
     - TMM/Part27/4/4/2
     - TMM/Part28/4/28/4/4~2
     - TMM/Part27/4/4/2/3
+    ontology_unaudited:
+    - TMM/Part60/1/1/5
+    - TMM/Part60/3/3/2
+    - TMM/Part60/1/1/7
+    - TMM/Part60/4/26/4/26/3~1
+    - TMM/Part62/8#1
+    - TMM/Part60/4/26/4/26/2
+    - TMM/Part28/4/28/4/4~2
+    - TMM/Part27/4/4/2
+    - TMM/Part27/4/4/2/3
+    - TMM/Part60/1/1/1
   pool:
   - TMM/Part60/2/4/2/4/3~2
   - TMM/Part60/1/1/7
@@ -5661,6 +8078,18 @@ pools:
     - TMM/Part60/2/2/2/2/4~1
     ontology:
     - TMM/Part10/3/3/1
+    - TMM/Part60/2/4/2/4/3~1
+    - TMM/Part10/3/3/3/4
+    - TMM/Part10/3#1
+    - TMM/Part5/2/2/2~1
+    - TMM/Part10/3/3/3/3
+    - TMM/Part21/6/6/2
+    - TMM/Part49/2/2/3/2
+    - TMM/Part21/6/6/1
+    - TMM/Part60/2/2/2/2/4~1
+  variants:
+    ontology_previous:
+    - TMM/Part10/3/3/1
     - TMM/Part10/3/3/3/4
     - TMM/Part10/3#1
     - TMM/Part21/3/3/6~1
@@ -5670,6 +8099,17 @@ pools:
     - TMM/Part2/3/2/3/2/1
     - TMM/Part21/6/6/1
     - TMM/Part21/2#1
+    ontology_unaudited:
+    - TMM/Part10/3/3/1
+    - TMM/Part60/2/4/2/4/3~1
+    - TMM/Part10/3/3/3/4
+    - TMM/Part10/3#1
+    - TMM/Part5/2/2/2~1
+    - TMM/Part10/3/3/3/3
+    - TMM/Part21/6/6/2
+    - TMM/Part49/2/2/3/2
+    - TMM/Part21/6/6/1
+    - TMM/Part60/2/2/2/2/4~1
   pool:
   - TMM/Part21/3/3/6~1
   - TMM/Part5/2/2/2~1
@@ -5716,6 +8156,29 @@ pools:
     - TMM/Part49/6#1
     - TMM/Part51/1#1~1
     ontology:
+    - TMM/Part52/2/2/2
+    - TMM/Part52/2/2/1
+    - TMM/Part52/2#1~1
+    - TMM/Part52/3#1
+    - TMM/Part55/2#1
+    - TMM/Part51/5#1~1
+    - TMM/Part46/2#1
+    - TMM/Part51/4/4/2~1
+    - TMM/Part49/6#1
+    - TMM/Part51/1#1~1
+  variants:
+    ontology_previous:
+    - TMM/Part52/2/2/2
+    - TMM/Part52/2/2/1
+    - TMM/Part52/2#1~1
+    - TMM/Part52/3#1
+    - TMM/Part55/2#1
+    - TMM/Part51/5#1~1
+    - TMM/Part46/2#1
+    - TMM/Part51/4/4/2~1
+    - TMM/Part49/6#1
+    - TMM/Part51/1#1~1
+    ontology_unaudited:
     - TMM/Part52/2/2/2
     - TMM/Part52/2/2/1
     - TMM/Part52/2#1~1
@@ -5781,6 +8244,29 @@ pools:
     - TMM/Part22/4#1
     - TMM/Part22/15/15/13
     - TMM/Part21/7/7/2/1~1
+  variants:
+    ontology_previous:
+    - TMM/Part22/25/25/1
+    - TMM/Part22/9/9/1
+    - TMM/Part21/7/7/2/1~2
+    - TMM/Part21/4/4/3/2
+    - TMM/Part22/25#1
+    - TMM/Part21/3/3/3
+    - TMM/Part22/25/25/5
+    - TMM/Part22/4#1
+    - TMM/Part22/15/15/13
+    - TMM/Part21/7/7/2/1~1
+    ontology_unaudited:
+    - TMM/Part22/25/25/1
+    - TMM/Part22/9/9/1
+    - TMM/Part21/7/7/2/1~2
+    - TMM/Part21/4/4/3/2
+    - TMM/Part22/25#1
+    - TMM/Part21/3/3/3
+    - TMM/Part22/25/25/5
+    - TMM/Part22/4#1
+    - TMM/Part22/15/15/13
+    - TMM/Part21/7/7/2/1~1
   pool:
   - TMM/Part22/4#1
   - TMM/Part22/5#1
@@ -5828,12 +8314,35 @@ pools:
     - TMM/Part22/14/14/2~1
     - TMM/Part19A/2/2/2~1
     - TMM/Part29/8#1
+    - TMM/Part22/13/13/3
+    - TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-consist-of-multiple-given-names
+    - TMM/Part26/6/6/8~1
+    - TMM/Part22/11#1~2
+    - TMM/Part29/8/8/1
+    - TMM/Part34/4/4/1
+    - TMM/Part23/3/3/5
+  variants:
+    ontology_previous:
+    - TMM/Part22/14/14/2~1
+    - TMM/Part19A/2/2/2~1
+    - TMM/Part29/8#1
     - TMM/Part29/8/8/1
     - TMM/Part29/9/9/3~2
     - TMM/Part22/14/14/5
     - TMM/Part22/14/14/2~2
     - TMM/Part29/8/8/2
     - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
+    - TMM/Part23/3/3/5
+    ontology_unaudited:
+    - TMM/Part22/14/14/2~1
+    - TMM/Part19A/2/2/2~1
+    - TMM/Part29/8#1
+    - TMM/Part22/13/13/3
+    - TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-consist-of-multiple-given-names
+    - TMM/Part26/6/6/8~1
+    - TMM/Part22/11#1~2
+    - TMM/Part29/8/8/1
+    - TMM/Part34/4/4/1
     - TMM/Part23/3/3/5
   pool:
   - TMM/Part32A/2/3/2-3-5-b-evidence-of-use
@@ -5885,6 +8394,18 @@ pools:
     - TMM/Part26/4/4/3/2
     - TMM/Part19A/2/2/6
     ontology:
+    - TMM/Part22/15/15/1~1
+    - TMM/Part19A/2#1~2
+    - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
+    - TMM/Part21/1#1
+    - TMM/Part21/3/3/5
+    - TMM/Part22/7/22/7/10
+    - TMM/Part31/5/5/2
+    - TMM/Part23/4/4/8~2
+    - TMM/Part22/7/22/7/7
+    - TMM/Part20/1#1
+  variants:
+    ontology_previous:
     - TMM/Part29/4#1
     - TMM/Part29/3#1~1
     - TMM/Part29/3/3/2
@@ -5895,6 +8416,17 @@ pools:
     - TMM/Part30/2/2/12
     - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
     - TMM/Part32A/2/4/2/4/1
+    ontology_unaudited:
+    - TMM/Part22/15/15/1~1
+    - TMM/Part19A/2#1~2
+    - TMM/Part22/7/22/7/10
+    - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
+    - TMM/Part21/1#1
+    - TMM/Part31/5/5/2
+    - TMM/Part31/4/4/2/1
+    - TMM/Part21/3/3/5
+    - TMM/Part20/1#1
+    - TMM/Part31/2#1
   pool:
   - TMM/Part22/15/15/1~1
   - TMM/Part9/4/4/6
@@ -5903,6 +8435,7 @@ pools:
   - TMM/Part29/3/3/2
   - TMM/Part20/1#1
   - TMM/Part19A/2/2/6
+  - TMM/Part31/4/4/2/1
   - TMM/Part29/6/6/1
   - TMM/Part19A/2#1~1
   - TMM/Part30/2/2/12
@@ -5912,6 +8445,7 @@ pools:
   - TMM/Part19A/8#1~1
   - TMM/Part29/5/5/6~1
   - TMM/Part46/4/4/6/3
+  - TMM/Part22/7/22/7/7
   - TMM/Part29/5/5/4
   - TMM/Part26/4/4/3/2
   - TMM/Part26/6/6/8~2
@@ -5921,6 +8455,8 @@ pools:
   - TMM/Part29/3#1~1
   - TMM/Part19A/2/examples-where-use-as-a-trade-mark-not-found~1
   - TMM/Part23/4/4/8~1
+  - TMM/Part31/5/5/2
+  - TMM/Part31/2#1
   - TMM/Part22/7/22/7/10
 - key: BN-0107
   kind: impact
@@ -5950,6 +8486,18 @@ pools:
     - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
     - TMM/Part10/7#1
     ontology:
+    - TMM/Part47/1/1/2/5~1
+    - TMM/Part10/3#1
+    - TMM/Part22/15/15/1~2
+    - TMM/Part21/3/3/2
+    - TMM/Part2/3/2/3/2/1
+    - TMM/Part32B/2/3/2/3/6~1
+    - TMM/Part22/7/22/7/6
+    - TMM/Part2/3/2/3/6
+    - TMM/Part22/7/22/7/1
+    - TMM/Part23/x-annex-a3---model-layout-for-supporting-statutory-declaration#1
+  variants:
+    ontology_previous:
     - TMM/Part10/3#1
     - TMM/Part22/15/15/1~2
     - TMM/Part21/3/3/2
@@ -5960,6 +8508,17 @@ pools:
     - TMM/Part2/3/2/3/6
     - TMM/Part23/x-annex-a3---model-layout-for-supporting-statutory-declaration#1
     - TMM/Part22/7/22/7/6
+    ontology_unaudited:
+    - TMM/Part47/1/1/2/5~1
+    - TMM/Part10/3#1
+    - TMM/Part22/15/15/1~2
+    - TMM/Part21/3/3/2
+    - TMM/Part2/3/2/3/2/1
+    - TMM/Part32B/2/3/2/3/6~1
+    - TMM/Part2/3/2/3/6
+    - TMM/Part22/7/22/7/6
+    - TMM/Part23/x-annex-a3---model-layout-for-supporting-statutory-declaration#1
+    - TMM/Part22/x-registrability-of-various-kinds-of-signs#1
   pool:
   - TMM/Part22/7/22/7/10
   - TMM/Part23/x-annex-a3---model-layout-for-supporting-statutory-declaration#1
@@ -5967,15 +8526,18 @@ pools:
   - TMM/Part22/15/15/1~2
   - TMM/Part23/x-annex-a6---how-to-supply-evidence-of-use-of-a-trade-mark-under-subsection-414---for-trade-marks-with-a-filing-date-on-or-after-15-april-2013#1~2
   - TMM/Part34/7#1~1
+  - TMM/Part22/7/22/7/1
   - TMM/Part23/3/3/2~1
   - TMM/Part47/1/1/2/5~1
   - TMM/Part22/7/22/7/6
   - TMM/Part23/5/5/6/1
   - TMM/Part21/3/3/2
+  - TMM/Part2/3/2/3/2/1
   - TMM/Part21/4#1
   - TMM/Part23/x-annex-a1-information-for-applicants-on-the-preparation-and-presentation-of-a-declaration-including-model-layout#1
   - TMM/Part10/7#1
   - TMM/Part19A/2/2/2~3
+  - TMM/Part32B/2/3/2/3/6~1
   - TMM/Part19A/2#1~2
   - TMM/Part22/5#1
   - TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2
@@ -6012,6 +8574,18 @@ pools:
     - TMM/Part14/5/5/1/1
     ontology:
     - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services
+    - TMM/Part14/2/2/1/2
+    - TMM/Part14/5/5/1/1
+    - TMM/Part14/4/4/8/1
+    - TMM/Part14/3#1~1
+    - TMM/Part18/2/2/2
+    - TMM/Part14/5/5/1/2
+    - TMM/Part14/1#1~1
+    - TMM/Part14/4/4/9/2
+    - TMM/Part14/4/4/5/1
+  variants:
+    ontology_previous:
+    - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services
     - TMM/Part14/1#1~1
     - TMM/Part14/4/4/8/1
     - TMM/Part14/3#1~1
@@ -6021,14 +8595,27 @@ pools:
     - TMM/Part26/3#1
     - TMM/Part14/5/5/1/2
     - TMM/Part14/4/4/5/1
+    ontology_unaudited:
+    - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services
+    - TMM/Part14/2/2/1/2
+    - TMM/Part26/3#1
+    - TMM/Part18/2/2/2
+    - TMM/Part14/4/4/8/1
+    - TMM/Part14/5/5/1/1
+    - TMM/Part14/4/4/9/2
+    - TMM/Part14/2/2/3/3
+    - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/introductory-search-screen
+    - TMM/Part14/3#1~1
   pool:
   - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/internet-portals
   - TMM/Part14/4/4/9/2
   - TMM/Part14/4/4/5/1
+  - TMM/Part18/2/2/2
   - TMM/Part26/3#1
   - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/keyword-search-combination-of-terms
   - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/introductory-search-screen
   - TMM/Part29/8/8/2
+  - TMM/Part14/2/2/3/3
   - TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/search-results-screen-semantic-search
   - TMM/Part14/3#1~1
   - TMM/Part14/2/2/1/4
@@ -6071,6 +8658,29 @@ pools:
     - TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-the-name-of-a-person-incorporating-the-given-name
     - TMM/Part22/16/16/4
     ontology:
+    - TMM/Part22/16/16/3
+    - TMM/Part22/17/17/2
+    - TMM/Part22/16#1
+    - TMM/Part22/17/17/4
+    - TMM/Part22/18#1
+    - TMM/Part22/16/16/1~1
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
+    - TMM/Part22/17/17/3
+    - TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-the-name-of-a-person-incorporating-the-given-name
+    - TMM/Part22/16/16/4
+  variants:
+    ontology_previous:
+    - TMM/Part22/16/16/3
+    - TMM/Part22/17/17/2
+    - TMM/Part22/16#1
+    - TMM/Part22/17/17/4
+    - TMM/Part22/18#1
+    - TMM/Part22/16/16/1~1
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
+    - TMM/Part22/17/17/3
+    - TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-the-name-of-a-person-incorporating-the-given-name
+    - TMM/Part22/16/16/4
+    ontology_unaudited:
     - TMM/Part22/16/16/3
     - TMM/Part22/17/17/2
     - TMM/Part22/16#1
@@ -6125,6 +8735,18 @@ pools:
     - TMM/Part22/7#1
     - TMM/Part18/3/3/1
     - TMM/Part10/3/3/6/3
+    - TMM/Part38/2/2/1
+    - TMM/Part23/2/2/2/2
+    - TMM/Part18/3/3/2
+    - TMM/Part38/3/3/2
+    - TMM/Part23/2/2/1
+    - TMM/Part38/2/2/3
+    - TMM/Part51/10#1~1
+  variants:
+    ontology_previous:
+    - TMM/Part22/7#1
+    - TMM/Part18/3/3/1
+    - TMM/Part10/3/3/6/3
     - TMM/Part23/2/2/1
     - TMM/Part14/4/4/8/2~1
     - TMM/Part23/2/2/2/2
@@ -6132,12 +8754,25 @@ pools:
     - TMM/Part14/4/4/3/2
     - TMM/Part29/7#1
     - TMM/Part23/1#1
+    ontology_unaudited:
+    - TMM/Part22/7#1
+    - TMM/Part18/3/3/1
+    - TMM/Part10/3/3/6/3
+    - TMM/Part38/2/2/1
+    - TMM/Part18/3/3/2
+    - TMM/Part23/2/2/2/2
+    - TMM/Part38/3/3/2
+    - TMM/Part23/2/2/1
+    - TMM/Part51/10#1~1
+    - TMM/Part21/9#1
   pool:
   - TMM/Part23/2/2/1
   - TMM/Part14/5/5/2/12~1
   - TMM/Part38/3/3/2
   - TMM/Part23/2/2/2/2
+  - TMM/Part51/10#1~1
   - TMM/Part18/3/3/1
+  - TMM/Part18/3/3/2
   - TMM/Part23/1#1
   - TMM/Part10/3/3/6/3
   - TMM/Part38/2/2/3
@@ -6175,12 +8810,24 @@ pools:
     - TMM/Part15/2/2/2/8
     - TMM/Part15/2/2/2/9
     - TMM/Part15/6/6/2
-    - TMM/Part55/4/4/1~2
     - TMM/Part15/6/6/4
+    - TMM/Part55/4/4/1~2
     - TMM/Part15/2/2/2/1
     - TMM/Part15/1/1/1
     - TMM/Part15/2/2/1/1
     ontology:
+    - TMM/Part15/6/6/2
+    - TMM/Part55/3/3/4
+    - TMM/Part15/1/1/1
+    - TMM/Part15/6/6/4
+    - TMM/Part15/x-relevant-legislation13#1
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part51/2#1~1
+    - TMM/Part49/2/2/3/2
+    - TMM/Part52/5/5/2
+    - TMM/Part47/1/1/3/2
+  variants:
+    ontology_previous:
     - TMM/Part15/6/6/2
     - TMM/Part15/x-relevant-legislation13#1
     - TMM/Part15/1/1/1
@@ -6191,12 +8838,25 @@ pools:
     - TMM/Part15/6#1
     - TMM/Part47/1/1/3/2
     - TMM/Part47/1/1/3/1
+    ontology_unaudited:
+    - TMM/Part15/6/6/2
+    - TMM/Part15/x-relevant-legislation13#1
+    - TMM/Part55/3/3/4
+    - TMM/Part15/1/1/1
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part15/2/2/2/8
+    - TMM/Part49/2/2/3/2
+    - TMM/Part47/1/1/3/2
+    - TMM/Part52/5/5/2
+    - TMM/Part15/6/6/4
   pool:
   - TMM/Part15/2#1
+  - TMM/Part51/2#1~1
   - TMM/Part15/6#1
   - TMM/Part15/6/6/4
   - TMM/Part55/4/4/1~2
   - TMM/Part15/2/2/2/1
+  - TMM/Part52/5/5/2
   - TMM/Part47/1/1/3/6~2
   - TMM/Part47/1/1/3/2
   - TMM/Part52/5/5/6
@@ -6242,6 +8902,18 @@ pools:
     - TMM/Part32B/2/2#1
     ontology:
     - TMM/Part29/11#1
+    - TMM/Part46/4/4/6/3
+    - TMM/Part32B/x-relevant-legislation25#1
+    - TMM/Part46/4/4/6
+    - TMM/Part32B/2/2#1
+    - TMM/Part29/9#1
+    - TMM/Part32B/2/1/2/1/1
+    - TMM/Part35/2/2/2
+    - TMM/Part46/4/4/6/1
+    - TMM/Part32B/2/1/2/1/2
+  variants:
+    ontology_previous:
+    - TMM/Part29/11#1
     - TMM/Part32B/2/1/2/1/1
     - TMM/Part32B/2/1#1
     - TMM/Part32B/2/2#1
@@ -6251,6 +8923,17 @@ pools:
     - TMM/Part29/9#1
     - TMM/Part35/2/2/2
     - TMM/Part32B/2/1/2/1/2
+    ontology_unaudited:
+    - TMM/Part29/11#1
+    - TMM/Part32B/2/1/2/1/1
+    - TMM/Part46/4/4/6/3
+    - TMM/Part32B/x-relevant-legislation25#1
+    - TMM/Part32B/2/2#1
+    - TMM/Part32B/2/1#1
+    - TMM/Part46/4/4/6
+    - TMM/Part29/9#1
+    - TMM/Part32B/2/1/2/1/2
+    - TMM/Part35/2/2/2
   pool:
   - TMM/Part29/9#1
   - TMM/Part46/4/4/6/1
@@ -6300,10 +8983,33 @@ pools:
     - TMM/Part13/1#1
     - TMM/Part13/3#1
     - TMM/Part27/7#1
+    - TMM/Part9/4/4/2
+    - TMM/Part13/2#1~1
+    - TMM/Part13/4#1~2
+    - TMM/Part12/3/3/1~1
+  variants:
+    ontology_previous:
+    - TMM/Part13/8#1
+    - TMM/Part12/3/3/6
+    - TMM/Part13/4#1~1
+    - TMM/Part13/1#1
+    - TMM/Part13/3#1
+    - TMM/Part27/7#1
     - TMM/Part8/2#1~1
     - TMM/Part13/2#1~1
     - TMM/Part9/4/4/2
     - TMM/Part12/3/3/1~1
+    ontology_unaudited:
+    - TMM/Part13/8#1
+    - TMM/Part12/3/3/6
+    - TMM/Part13/4#1~1
+    - TMM/Part13/1#1
+    - TMM/Part13/3#1
+    - TMM/Part8/2#1~1
+    - TMM/Part27/7#1
+    - TMM/Part9/4/4/2
+    - TMM/Part13/2#1~1
+    - TMM/Part13/4#1~2
   pool:
   - TMM/Part12/3/3/1~1
   - TMM/Part27/7#1
@@ -6321,6 +9027,7 @@ pools:
   - TMM/Part2/3/2/3/2/1
   - TMM/Part8/x-relevant-legislation39#1
   - TMM/Part13/3#1
+  - TMM/Part13/4#1~2
   - TMM/Part9/4/4/2
 - key: BN-0114
   kind: cross_part
@@ -6350,6 +9057,29 @@ pools:
     - TMM/Part29/4#1
     - TMM/Part46/4/4/7
     ontology:
+    - TMM/Part29/10#1
+    - TMM/Part29/3#1~1
+    - TMM/Part29/9/9/2
+    - TMM/Part22/9/9/1
+    - TMM/Part20/5/5/5/2
+    - TMM/Part46/4/4/6
+    - TMM/Part26/4/4/3/1~3
+    - TMM/Part31/3#1~1
+    - TMM/Part29/4#1
+    - TMM/Part46/4/4/7
+  variants:
+    ontology_previous:
+    - TMM/Part29/10#1
+    - TMM/Part29/3#1~1
+    - TMM/Part29/9/9/2
+    - TMM/Part22/9/9/1
+    - TMM/Part20/5/5/5/2
+    - TMM/Part46/4/4/6
+    - TMM/Part26/4/4/3/1~3
+    - TMM/Part31/3#1~1
+    - TMM/Part29/4#1
+    - TMM/Part46/4/4/7
+    ontology_unaudited:
     - TMM/Part29/10#1
     - TMM/Part29/3#1~1
     - TMM/Part29/9/9/2
@@ -6406,6 +9136,18 @@ pools:
     - TMM/Part54/3/3/4/3
     ontology:
     - TMM/Part52/5/5/5
+    - TMM/Part62/x-relevant-legislation19#1
+    - TMM/Part54/1/1/2
+    - TMM/Part54/1/1/3
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part54/1/1/4/2
+    - TMM/Part54/3/3/1
+    - TMM/Part61/3/3/1
+    - TMM/Part55/3/3/3
+    - TMM/Part51/4/4/2~1
+  variants:
+    ontology_previous:
+    - TMM/Part52/5/5/5
     - TMM/Part51/6/6/2
     - TMM/Part47/1/1/3/6~2
     - TMM/Part62/x-relevant-legislation19#1
@@ -6415,6 +9157,17 @@ pools:
     - TMM/Part61/3/3/1
     - TMM/Part54/1/1/2
     - TMM/Part55/3/3/3
+    ontology_unaudited:
+    - TMM/Part52/5/5/5
+    - TMM/Part54/1/1/3
+    - TMM/Part51/4/4/2~1
+    - TMM/Part51/6/6/2
+    - TMM/Part62/x-relevant-legislation19#1
+    - TMM/Part47/1/1/3/6~2
+    - TMM/Part54/1/1/4/2
+    - TMM/Part61/3/3/1
+    - TMM/Part54/1/1/2
+    - TMM/Part60/4/17/4/17/2~3
   pool:
   - TMM/Part54/3/3/4/2
   - TMM/Part54/3/3/3/2
@@ -6423,6 +9176,7 @@ pools:
   - TMM/Part51/6/6/2
   - TMM/Part51/4/4/2~1
   - TMM/Part54/1/1/2
+  - TMM/Part54/1/1/4/2
   - TMM/Part60/4/17/4/17/2~3
   - TMM/Part55/3/3/3
   - TMM/Part47/1/1/2/3~2
@@ -6466,6 +9220,29 @@ pools:
     - TMM/Part14/6/6/4/4
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/thickeners
     ontology:
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders
+    - TMM/Part14/6/6/2/3
+    - TMM/Part14/3#1~2
+    - TMM/Part14/4/4/8/2~2
+    - TMM/Part14/4/4/6/2
+    - TMM/Part14/6/6/2
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder
+    - TMM/Part22/7/22/7/10
+    - TMM/Part14/6/6/4/4
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/thickeners
+  variants:
+    ontology_previous:
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders
+    - TMM/Part14/6/6/2/3
+    - TMM/Part14/3#1~2
+    - TMM/Part14/4/4/8/2~2
+    - TMM/Part14/4/4/6/2
+    - TMM/Part14/6/6/2
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder
+    - TMM/Part22/7/22/7/10
+    - TMM/Part14/6/6/4/4
+    - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/thickeners
+    ontology_unaudited:
     - TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders
     - TMM/Part14/6/6/2/3
     - TMM/Part14/3#1~2
@@ -6532,6 +9309,29 @@ pools:
     - TMM/Part19B/4/4/4~2
     - TMM/Part28/3/3/1~3
     - TMM/Part27/5/5/1
+  variants:
+    ontology_previous:
+    - TMM/Part23/3/3/1
+    - TMM/Part19A/6/6/2
+    - TMM/Part28/3/3/1~4
+    - TMM/Part48/7#1
+    - TMM/Part19A/6/6/1
+    - TMM/Part19A/6#1
+    - TMM/Part19A/6/6/3
+    - TMM/Part19B/4/4/4~2
+    - TMM/Part28/3/3/1~3
+    - TMM/Part27/5/5/1
+    ontology_unaudited:
+    - TMM/Part23/3/3/1
+    - TMM/Part19A/6/6/2
+    - TMM/Part28/3/3/1~4
+    - TMM/Part48/7#1
+    - TMM/Part19A/6/6/1
+    - TMM/Part19A/6#1
+    - TMM/Part19A/6/6/3
+    - TMM/Part19B/4/4/4~2
+    - TMM/Part28/3/3/1~3
+    - TMM/Part27/5/5/1
   pool:
   - TMM/Part27/5/5/1
   - TMM/Part62/3#1
@@ -6586,6 +9386,29 @@ pools:
     - TMM/Part44/5/5/2
     - TMM/Part60/3/3/5/2
     - TMM/Part62/5#1
+  variants:
+    ontology_previous:
+    - TMM/Part41/3#1~2
+    - TMM/Part41/2#1
+    - TMM/Part41/3#1~1
+    - TMM/Part41/1#1
+    - TMM/Part60/4/26/4/26/3~1
+    - TMM/Part60/3/3/3
+    - TMM/Part10/1/1/1/1
+    - TMM/Part44/5/5/2
+    - TMM/Part60/3/3/5/2
+    - TMM/Part62/5#1
+    ontology_unaudited:
+    - TMM/Part41/3#1~2
+    - TMM/Part41/2#1
+    - TMM/Part41/3#1~1
+    - TMM/Part41/1#1
+    - TMM/Part60/4/26/4/26/3~1
+    - TMM/Part60/3/3/3
+    - TMM/Part10/1/1/1/1
+    - TMM/Part44/5/5/2
+    - TMM/Part60/3/3/5/2
+    - TMM/Part62/5#1
   pool:
   - TMM/Part60/4/25/4/25/1
   - TMM/Part10/1#1
@@ -6630,6 +9453,18 @@ pools:
     - TMM/Part5/4/4/1
     - TMM/Part31/3#1~2
     ontology:
+    - TMM/Part29/6/6/1
+    - TMM/Part30/3/3/5~6
+    - TMM/Part30/3/3/5~4
+    - TMM/Part30/x-30.-annex-a5---examples-regarding-geneva-conventions-act-1957-s-151#1~1
+    - TMM/Part30/x-30.-annex-a5---examples-regarding-geneva-conventions-act-1957-s-151#1~2
+    - TMM/Part30/3/3/5~1
+    - TMM/Part30/3/3/5~3
+    - TMM/Part30/3/3/5~5
+    - TMM/Part29/6#1~2
+    - TMM/Part30/3/3/5~2
+  variants:
+    ontology_previous:
     - TMM/Part30/3/3/5~1
     - TMM/Part30/3/3/5~4
     - TMM/Part30/3/3/5~5
@@ -6640,8 +9475,20 @@ pools:
     - TMM/Part30/x-30.-annex-a5---examples-regarding-geneva-conventions-act-1957-s-151#1~1
     - TMM/Part30/x-30.-annex-a5---examples-regarding-geneva-conventions-act-1957-s-151#1~2
     - TMM/Part29/6#1~2
+    ontology_unaudited:
+    - TMM/Part30/3/3/5~4
+    - TMM/Part30/3/3/5~3
+    - TMM/Part30/3/3/5~1
+    - TMM/Part30/3/3/5~5
+    - TMM/Part29/6/6/1
+    - TMM/Part30/3/3/5~2
+    - TMM/Part30/x-30.-annex-a5---examples-regarding-geneva-conventions-act-1957-s-151#1~1
+    - TMM/Part30/x-30.-annex-a5---examples-regarding-geneva-conventions-act-1957-s-151#1~2
+    - TMM/Part30/3/3/5~6
+    - TMM/Part31/4/4/2/2~1
   pool:
   - TMM/Part31/4/4/2/2~1
+  - TMM/Part30/3/3/5~6
   - TMM/Part30/3/3/5~4
   - TMM/Part30/3/3/5~2
   - TMM/Part29/6#1~2
@@ -6682,6 +9529,29 @@ pools:
     - TMM/Part22/15/15/7
     - TMM/Part23/2/2/3
     ontology:
+    - TMM/Part9/4/4/7/1
+    - TMM/Part29/x-relevant-legislation53#1
+    - TMM/Part26/2#1
+    - TMM/Part54/2#1~2
+    - TMM/Part27/x-relevant-legislation26#1
+    - TMM/Part29/10#1
+    - TMM/Part27/4/4/4
+    - TMM/Part43/x-relevant-legislation7#1
+    - TMM/Part22/15/15/7
+    - TMM/Part23/2/2/3
+  variants:
+    ontology_previous:
+    - TMM/Part9/4/4/7/1
+    - TMM/Part29/x-relevant-legislation53#1
+    - TMM/Part26/2#1
+    - TMM/Part54/2#1~2
+    - TMM/Part27/x-relevant-legislation26#1
+    - TMM/Part29/10#1
+    - TMM/Part27/4/4/4
+    - TMM/Part43/x-relevant-legislation7#1
+    - TMM/Part22/15/15/7
+    - TMM/Part23/2/2/3
+    ontology_unaudited:
     - TMM/Part9/4/4/7/1
     - TMM/Part29/x-relevant-legislation53#1
     - TMM/Part26/2#1
@@ -6740,6 +9610,18 @@ pools:
     - TMM/Part20/5/5/5/2
     ontology:
     - TMM/Part29/4#1
+    - TMM/Part20/5/5/5
+    - TMM/Part29/3/3/2
+    - TMM/Part29/9/9/5
+    - TMM/Part29/2/2/1~1
+    - TMM/Part29/5/5/6~1
+    - TMM/Part20/5/5/5/2
+    - TMM/Part30/2/2/3
+    - TMM/Part29/2/2/4
+    - TMM/Part29/5/5/4
+  variants:
+    ontology_previous:
+    - TMM/Part29/4#1
     - TMM/Part29/3/3/2
     - TMM/Part20/5/5/5/2
     - TMM/Part20/5/5/5
@@ -6749,6 +9631,17 @@ pools:
     - TMM/Part22/24/24/2
     - TMM/Part29/2/2/1~1
     - TMM/Part29/6/6/1
+    ontology_unaudited:
+    - TMM/Part29/4#1
+    - TMM/Part29/2/2/1~1
+    - TMM/Part29/3/3/2
+    - TMM/Part20/5/5/5
+    - TMM/Part29/5/5/6~1
+    - TMM/Part29/1#1
+    - TMM/Part20/5/5/5/2
+    - TMM/Part29/5/5/4
+    - TMM/Part29/9/9/5
+    - TMM/Part29/2/2/4
   pool:
   - TMM/Part29/10#1
   - TMM/Part29/3#1~2
@@ -6769,6 +9662,8 @@ pools:
   - TMM/Part29/2/2/1~1
   - TMM/Part23/2/2/2/2
   - TMM/Part30/2/2/8
+  - TMM/Part30/2/2/3
+  - TMM/Part29/9/9/5
   - TMM/Part23/2/2/2/1
   - TMM/Part30/2/2/12
   - TMM/Part29/3/3/4
@@ -6803,6 +9698,18 @@ pools:
     - TMM/Part29/9/9/3~1
     - TMM/Part29/3#1~1
     - TMM/Part32B/2/2#1
+    - TMM/Part29/4#1
+    - TMM/Part26/x-annex-a1---citing-multiple-names/citations-when-one-mark-consists-of-a-given-name-and-the-other-consist-of-multiple-given-names
+    - TMM/Part29/9#1
+    - TMM/Part29/5/5/6~2
+    - TMM/Part29/3/3/1~1
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
+    - TMM/Part29/3#1~2
+  variants:
+    ontology_previous:
+    - TMM/Part29/9/9/3~1
+    - TMM/Part29/3#1~1
+    - TMM/Part32B/2/2#1
     - TMM/Part29/3#1~2
     - TMM/Part29/4#1
     - TMM/Part29/5/5/6~2
@@ -6810,6 +9717,17 @@ pools:
     - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
     - TMM/Part29/5/5/4
     - TMM/Part29/3/3/1~1
+    ontology_unaudited:
+    - TMM/Part29/9/9/3~1
+    - TMM/Part29/3#1~1
+    - TMM/Part32B/2/2#1
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
+    - TMM/Part29/3#1~2
+    - TMM/Part29/9/9/3~2
+    - TMM/Part29/4#1
+    - TMM/Part29/9#1
+    - TMM/Part29/3/3/1~1
+    - TMM/Part29/5/5/4
   pool:
   - TMM/Part29/1/1/1
   - TMM/Part32A/x-annex-5---case-law-summaries/mastronardi-produce-ltd-v-registrar-of-trade-marks-2014-fca-1021-zima
@@ -6856,9 +9774,21 @@ pools:
     - TMM/Part29/x-annex-a1---table-of-inn-stems/inn-stems
     - TMM/Part29/5/5/4
     - TMM/Part29/5/5/3
-    - TMM/Part22/24/24/1
     - TMM/Part29/x-annex-a1---table-of-inn-stems/y
+    - TMM/Part29/5/5/1
     ontology:
+    - TMM/Part29/5/5/5
+    - TMM/Part29/5/5/6~1
+    - TMM/Part29/5/5/4
+    - TMM/Part29/5/5/2
+    - TMM/Part29/5/5/6~2
+    - TMM/Part22/24/24/2
+    - TMM/Part22/24#1
+    - TMM/Part29/6/6/1
+    - TMM/Part29/5/5/3
+    - TMM/Part29/5/5/1
+  variants:
+    ontology_previous:
     - TMM/Part29/5/5/5
     - TMM/Part29/5/5/6~1
     - TMM/Part29/5/5/4
@@ -6869,9 +9799,21 @@ pools:
     - TMM/Part22/24/24/2
     - TMM/Part29/6/6/1
     - TMM/Part22/24/24/1
+    ontology_unaudited:
+    - TMM/Part29/5/5/5
+    - TMM/Part29/5/5/6~1
+    - TMM/Part29/5/5/4
+    - TMM/Part29/5/5/2
+    - TMM/Part29/5/5/6~2
+    - TMM/Part22/24#1
+    - TMM/Part22/24/24/2
+    - TMM/Part22/17/17/5
+    - TMM/Part29/6/6/1
+    - TMM/Part29/5/5/3
   pool:
   - TMM/Part29/5/5/5
   - TMM/Part22/24#1
+  - TMM/Part29/5/5/1
   - TMM/Part22/17/17/5
   - TMM/Part29/5/5/6~1
   - TMM/Part29/9/9/2
@@ -6912,6 +9854,29 @@ pools:
     - TMM/Part60/4/10/4/10/2
     - TMM/Part10/3/3/5/3~1
     ontology:
+    - TMM/Part22/15/15/1~1
+    - TMM/Part10/1/1/1/5
+    - TMM/Part22/15#1
+    - TMM/Part22/15/15/6
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
+    - TMM/Part22/25/25/3
+    - TMM/Part22/15/15/3
+    - TMM/Part30/2/2/11
+    - TMM/Part60/4/10/4/10/2
+    - TMM/Part10/3/3/5/3~1
+  variants:
+    ontology_previous:
+    - TMM/Part22/15/15/1~1
+    - TMM/Part10/1/1/1/5
+    - TMM/Part22/15#1
+    - TMM/Part22/15/15/6
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~2
+    - TMM/Part22/25/25/3
+    - TMM/Part22/15/15/3
+    - TMM/Part30/2/2/11
+    - TMM/Part60/4/10/4/10/2
+    - TMM/Part10/3/3/5/3~1
+    ontology_unaudited:
     - TMM/Part22/15/15/1~1
     - TMM/Part10/1/1/1/5
     - TMM/Part22/15#1
@@ -6970,6 +9935,18 @@ pools:
     ontology:
     - TMM/Part29/2/2/1~1
     - TMM/Part29/2/2/1~2
+    - TMM/Part29/3/3/5
+    - TMM/Part29/3/3/1~2
+    - TMM/Part29/3/3/2
+    - TMM/Part29/3#1~2
+    - TMM/Part29/3/3/4
+    - TMM/Part29/9/9/3~1
+    - TMM/Part29/3#1~1
+    - TMM/Part20/5/5/5
+  variants:
+    ontology_previous:
+    - TMM/Part29/2/2/1~1
+    - TMM/Part29/2/2/1~2
     - TMM/Part29/3/3/2
     - TMM/Part29/3#1~2
     - TMM/Part29/3#1~1
@@ -6978,6 +9955,17 @@ pools:
     - TMM/Part29/3/3/1~2
     - TMM/Part29/4#1
     - TMM/Part32B/2/2#1
+    ontology_unaudited:
+    - TMM/Part29/2/2/1~1
+    - TMM/Part29/2/2/1~2
+    - TMM/Part29/3/3/5
+    - TMM/Part29/3/3/1~2
+    - TMM/Part29/3/3/2
+    - TMM/Part29/3#1~2
+    - TMM/Part29/3/3/4
+    - TMM/Part29/3#1~1
+    - TMM/Part29/9/9/3~1
+    - TMM/Part29/4#1
   pool:
   - TMM/Part29/3/3/1~2
   - TMM/Part26/4/4/3/3
@@ -7029,6 +10017,18 @@ pools:
     - TMM/Part29/2/2/1~1
     - TMM/Part29/3#1~1
     - TMM/Part29/3/3/2
+    - TMM/Part29/3/3/5
+    - TMM/Part29/4#1
+    - TMM/Part29/3/3/1~2
+    - TMM/Part29/3/3/4
+    - TMM/Part29/2/2/4
+    - TMM/Part29/2/2/1~2
+    - TMM/Part29/9/9/5
+  variants:
+    ontology_previous:
+    - TMM/Part29/2/2/1~1
+    - TMM/Part29/3#1~1
+    - TMM/Part29/3/3/2
     - TMM/Part29/4#1
     - TMM/Part29/1#1
     - TMM/Part29/3/3/1~2
@@ -7036,6 +10036,17 @@ pools:
     - TMM/Part29/3/3/4
     - TMM/Part29/9/9/5
     - TMM/Part29/3/3/1~1
+    ontology_unaudited:
+    - TMM/Part29/2/2/1~1
+    - TMM/Part29/3#1~1
+    - TMM/Part29/4#1
+    - TMM/Part29/3/3/2
+    - TMM/Part29/1#1
+    - TMM/Part29/3/3/1~2
+    - TMM/Part29/3/3/5
+    - TMM/Part29/2/2/2
+    - TMM/Part29/2/2/4
+    - TMM/Part29/3/3/4
   pool:
   - TMM/Part29/2/2/1~2
   - TMM/Part29/3/3/4
@@ -7080,6 +10091,29 @@ pools:
     - TMM/Part26/1#1
     - TMM/Part26/6/6/4~2
     ontology:
+    - TMM/Part29/4#1
+    - TMM/Part26/4/4/3~2
+    - TMM/Part26/6/6/4~1
+    - TMM/Part29/3#1~1
+    - TMM/Part26/6/6/7~1
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~1
+    - TMM/Part26/6/6/2
+    - TMM/Part29/1#1
+    - TMM/Part26/1#1
+    - TMM/Part26/6/6/4~2
+  variants:
+    ontology_previous:
+    - TMM/Part29/4#1
+    - TMM/Part26/4/4/3~2
+    - TMM/Part26/6/6/4~1
+    - TMM/Part29/3#1~1
+    - TMM/Part26/6/6/7~1
+    - TMM/Part26/x-annex-a1---citing-multiple-names#1~1
+    - TMM/Part26/6/6/2
+    - TMM/Part29/1#1
+    - TMM/Part26/1#1
+    - TMM/Part26/6/6/4~2
+    ontology_unaudited:
     - TMM/Part29/4#1
     - TMM/Part26/4/4/3~2
     - TMM/Part26/6/6/4~1
@@ -7138,6 +10172,18 @@ pools:
     - TMM/Part29/4#1
     - TMM/Part29/9/9/3~1
     ontology:
+    - TMM/Part29/3/3/5
+    - TMM/Part29/2/2/1~1
+    - TMM/Part29/9/9/3~1
+    - TMM/Part29/3#1~1
+    - TMM/Part29/4#1
+    - TMM/Part29/3/3/4
+    - TMM/Part29/3/3/2
+    - TMM/Part29/3/3/1~2
+    - TMM/Part29/2/2/1~2
+    - TMM/Part29/2/2/4
+  variants:
+    ontology_previous:
     - TMM/Part29/9/9/3~1
     - TMM/Part29/3#1~1
     - TMM/Part29/2/2/1~1
@@ -7147,6 +10193,17 @@ pools:
     - TMM/Part29/3/3/5
     - TMM/Part29/3/3/4
     - TMM/Part29/9/9/7
+    - TMM/Part29/9/9/3~2
+    ontology_unaudited:
+    - TMM/Part29/2/2/1~1
+    - TMM/Part29/3/3/5
+    - TMM/Part29/9/9/3~1
+    - TMM/Part29/3#1~1
+    - TMM/Part29/4#1
+    - TMM/Part29/2/2/2
+    - TMM/Part29/3/3/2
+    - TMM/Part29/3/3/1~2
+    - TMM/Part29/3/3/4
     - TMM/Part29/9/9/3~2
   pool:
   - TMM/Part29/4#1
@@ -7194,6 +10251,18 @@ pools:
     ontology:
     - TMM/Part29/5/5/6~1
     - TMM/Part29/5/5/2
+    - TMM/Part29/5/5/6~2
+    - TMM/Part29/5/5/5
+    - TMM/Part22/24/24/2
+    - TMM/Part22/24#1
+    - TMM/Part29/5/5/4
+    - TMM/Part29/5/5/3
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/inn-stems
+    - TMM/Part29/5/5/1
+  variants:
+    ontology_previous:
+    - TMM/Part29/5/5/6~1
+    - TMM/Part29/5/5/2
     - TMM/Part29/5/5/5
     - TMM/Part29/5/5/6~2
     - TMM/Part22/24#1
@@ -7202,6 +10271,17 @@ pools:
     - TMM/Part29/5/5/1
     - TMM/Part29/5/5/3
     - TMM/Part29/x-annex-a1---table-of-inn-stems/inn-stems
+    ontology_unaudited:
+    - TMM/Part29/5/5/6~1
+    - TMM/Part29/5/5/2
+    - TMM/Part29/5/5/5
+    - TMM/Part29/5/5/6~2
+    - TMM/Part22/24/24/2
+    - TMM/Part22/24#1
+    - TMM/Part29/5/5/4
+    - TMM/Part29/5/5/3
+    - TMM/Part29/x-annex-a1---table-of-inn-stems/inn-stems
+    - TMM/Part29/5/5/1
   pool:
   - TMM/Part29/5/5/6~2
   - TMM/Part22/24#1
