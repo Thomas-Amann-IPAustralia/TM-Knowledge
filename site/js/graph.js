@@ -1,5 +1,5 @@
 /* Small SVG helpers for the hand-drawn pictures (the tour, the kinds diagram, the
-   hop diagram). The map uses Cytoscape and the home page D3, both vendored (ADR-0119). */
+   hop diagram). The map uses Cytoscape and the circles view D3, both vendored (ADR-0119). */
 
 export const SVG = "http://www.w3.org/2000/svg";
 

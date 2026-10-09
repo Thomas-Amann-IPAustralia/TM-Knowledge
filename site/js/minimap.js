@@ -2,14 +2,14 @@
    not the map: Ask the Manual (the ideas a question started from and every
    connection it followed) and When the text changes (what rests on a page).
 
-   Same marks as the map: colour is the kind of idea, filled = signed by an
-   expert, dashed = written by a machine; a solid line is a signed connection, a
-   dashed one machine-written. Positions are computed — a ring round the ideas
+   Same marks as the map: colour is the kind of idea, and every idea and line is
+   drawn the same way whoever wrote it — who wrote a record is on its card
+   (ADR-0130). Positions are computed — a ring round the ideas
    in the middle, or a seeded D3 force run — never left to chance, so the same
    input always draws the same picture. Every node and line is a record; the
    caller chooses which, and this module only draws them. */
 
-import { esc, fmt, kindChip, trustBadge, isLaw, refChip, refLabel } from "./app.js";
+import { esc, fmt, kindChip, trustBadge, quoteBlock, refChip, refLabel } from "./app.js";
 import * as lib from "./lib.js";
 
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -50,7 +50,7 @@ export async function miniMap(holder, { ontology, centre = [], muted = [], relat
   const elements = [];
   for (const id of ids) {
     const x = byId.get(id);
-    const cls = ["concept", x.origin, centreSet.has(id) ? "centre" : "", mutedSet.has(id) ? "muted" : ""].filter(Boolean).join(" ");
+    const cls = ["concept", centreSet.has(id) ? "centre" : "", mutedSet.has(id) ? "muted" : ""].filter(Boolean).join(" ");
     elements.push({ data: { id, label: x.label, col: css(`--k-${x.kind}`), size: centreSet.has(id) ? 30 : Math.min(24, 12 + 2.6 * Math.log2(1 + x.mentions)) }, classes: cls });
   }
   const seen = new Set();
@@ -59,7 +59,7 @@ export async function miniMap(holder, { ontology, centre = [], muted = [], relat
     seen.add(r.id);
     const faint = strong && !strong.has(r.id);
     elements.push({ data: { id: `r:${r.id}`, source: r.s, target: r.o, rel: r.id, pred: ontology.predicates[r.p]?.label || r.p },
-      classes: `rel ${r.origin === "signed" || r.origin === "approved" ? "signed" : "machine"}${faint ? " faint" : ""}` });
+      classes: `rel${faint ? " faint" : ""}` });
   }
 
   const positions = layout === "force" && d3 ? forcePositions(d3, ids, edges, centreSet) : ringPositions(ids, edges, centre, muted, byId);
@@ -90,7 +90,6 @@ export async function miniMap(holder, { ontology, centre = [], muted = [], relat
       { selector: "node.lab-right", style: { "text-valign": "center", "text-halign": "right", "text-margin-x": 6, "text-margin-y": 0 } },
       { selector: "node.lab-left", style: { "text-valign": "center", "text-halign": "left", "text-margin-x": -6, "text-margin-y": 0 } },
       { selector: "node.lab-top", style: { "text-valign": "top", "text-margin-y": -3 } },
-      { selector: "node.concept.machine", style: { "background-color": panel, "border-style": "dashed" } },
       { selector: "node.centre", style: { "border-width": 4, "font-size": 14.5, "font-weight": 650, "font-family": css("--serif"),
         "underlay-color": "data(col)", "underlay-opacity": 0.18, "underlay-padding": 7, "underlay-shape": "ellipse" } },
       { selector: "node.muted", style: { "background-color": panel, "border-color": ink3, "border-style": "dotted", color: ink3, "underlay-opacity": 0 } },
@@ -98,10 +97,8 @@ export async function miniMap(holder, { ontology, centre = [], muted = [], relat
         "transition-property": "underlay-opacity, underlay-padding", "transition-duration": "0.35s" } },
       { selector: "edge", style: {
         "curve-style": "bezier", width: 1.4, "line-color": ink3, "target-arrow-color": ink3, "target-arrow-shape": "triangle",
-        "arrow-scale": 0.8, opacity: 0.6, "overlay-opacity": 0,
+        "arrow-scale": 0.8, opacity: 0.7, "overlay-opacity": 0,
         "transition-property": "line-color, target-arrow-color, width, opacity", "transition-duration": "0.4s" } },
-      { selector: "edge.signed", style: { width: 2.2, "line-color": ink2, "target-arrow-color": ink2, opacity: 0.85 } },
-      { selector: "edge.machine", style: { "line-style": "dashed", "line-dash-pattern": [5, 3] } },
       { selector: "edge.faint", style: { opacity: 0.2, width: 1 } },
       { selector: "edge.flash", style: { "line-color": warn, "target-arrow-color": warn, width: 3.4, opacity: 1 } },
       { selector: ".faded", style: { opacity: 0.12, "text-opacity": 0.2 } },
@@ -119,7 +116,7 @@ export async function miniMap(holder, { ontology, centre = [], muted = [], relat
     const first = x.evidence.find((e) => e.for === "concept") || x.evidence[0];
     const quote = first ? String(first.quote) : "";
     card.innerHTML = `<b>${esc(x.label)}</b><div class="meta">${kindChip(x.kind, ontology)}${trustBadge(x.origin)}</div>
-      ${quote ? `<p>“${esc(quote.length > 160 ? quote.slice(0, 158) + "…" : quote)}”</p>` : ""}
+      ${quote ? quoteBlock(first.ref, quote.length > 160 ? quote.slice(0, 158) + "…" : quote) : ""}
       <span class="tiny">${fmt(x.mentions)} passages name it · click for more</span>`;
     const p = node.renderedPosition();
     const box = container.getBoundingClientRect();
@@ -149,7 +146,7 @@ export async function miniMap(holder, { ontology, centre = [], muted = [], relat
     const first = x.evidence.find((v) => v.for === "concept") || x.evidence[0];
     info.innerHTML = `<div class="mini-row"><b>${esc(x.label)}</b>${kindChip(x.kind, ontology)}${trustBadge(x.origin)}
       <a class="tiny" href="#/map/ideas/${esc(x.id)}">open it on the full map →</a></div>
-      ${first ? `<blockquote class="quote ${isLaw(first.ref) ? "law" : "manual"}">${esc(first.quote)}</blockquote>${refChip(first.ref)}` : ""}`;
+      ${first ? `${quoteBlock(first.ref, first.quote)}${refChip(first.ref)}` : ""}`;
   });
   cy.on("tap", "edge", (e) => {
     const r = relById.get(e.target.data("rel"));
@@ -158,7 +155,7 @@ export async function miniMap(holder, { ontology, centre = [], muted = [], relat
     if (!r) return;
     const name = (id) => byId.get(id)?.label || refLabel(id);
     info.innerHTML = `<div class="mini-row">${trustBadge(r.origin)}<span><b>${esc(name(r.s))}</b> <span class="muted">— ${esc(ontology.predicates[r.p]?.label || r.p)} →</span> <b>${esc(name(r.o))}</b></span></div>
-      ${r.quote ? `<blockquote class="quote ${isLaw(r.ref) ? "law" : "manual"}">${esc(r.quote)}</blockquote>` : ""}${r.ref ? refChip(r.ref) : ""}`;
+      ${r.quote ? quoteBlock(r.ref, r.quote) : ""}${r.ref ? refChip(r.ref) : ""}`;
   });
   cy.on("tap", (e) => { if (e.target === cy) clear(); });
 

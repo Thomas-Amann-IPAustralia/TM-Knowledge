@@ -26,14 +26,13 @@ export async function render(root, { ontology }) {
     relate — with each statement tied to the text it comes from. Here the field is Australian trade marks examination, and the text is the
     Manual, the <i>Trade Marks Act 1995</i> and the <i>Trade Marks Regulations 1995</i>, captured at one point in time.</p>
     <table>
-      <tr><th></th><th class="num">Signed by an expert</th><th class="num">Machine-written, unreviewed</th></tr>
-      <tr><td>Ideas (concepts)</td><td class="num">${c.concepts.signed}</td><td class="num">${c.concepts.machine}</td></tr>
-      <tr><td>Connections between ideas</td><td class="num">${c.relations.signed}</td><td class="num">${fmt(c.relations.machine)}</td></tr>
+      <tr><th></th><th class="num">In all</th><th class="num">Machine-written, unreviewed</th></tr>
+      <tr><td>Ideas (concepts)</td><td class="num">${fmt(c.concepts.signed + c.concepts.machine)}</td><td class="num">${c.concepts.machine}</td></tr>
+      <tr><td>Connections between ideas</td><td class="num">${fmt(c.relations.signed + c.relations.machine)}</td><td class="num">${fmt(c.relations.machine)}</td></tr>
       <tr><td>Places an idea is named in the Manual</td><td class="num" colspan="2">${fmt(c.links)} links across ${fmt(c.passages_linked)} passages — found by matching wordings, not judged</td></tr>
     </table>
-    <p class="small muted">"Signed" means a named trade marks expert read the record and put their name and a date to it. Everything else was written
-    by a machine reading the Manual, and carries the model's name, the date, the passage it rests on and its reasoning. The two are never
-    added together, and an unchecked record never becomes approved by being left alone.</p>
+    <p class="small muted">A machine-written record carries the model's name, the date, the passage it rests on and its reasoning, and says it is
+    unreviewed wherever it is shown. The rest were reviewed by a trade marks expert. An unchecked record never becomes approved by being left alone.</p>
 
     <h2>The ten kinds</h2>
     <p>A kind says what an idea is; what it does is a connection (the project owner's rule). Two kinds are the questions the law asks — grounds of refusal
@@ -67,8 +66,8 @@ export async function render(root, { ontology }) {
     <p>Read both ways. Against keyword search, the ontology-assisted search ranked better passages, most clearly for questions in everyday
     words. Against modern search that also matches meaning, it ranked worse, by a small margin that is clearly real. Diagnosed afterwards:
     very common ideas (such as <i>Registrar</i>, named in hundreds of passages) pull loosely related passages into the top ten.</p>
-    <p class="small muted">The ${examples.answers.length - (s.signed?.n || 0)} test questions were written by a model, and the passages graded by another model; the only human yardstick is the
-    expert's own ${s.signed?.n || 10} questions, too few to establish a difference either way.</p>
+    <p class="small muted">The ${examples.answers.length - (s.signed?.n || 0)} test questions were written by a model, and the passages graded by another model; the only human yardstick is
+    ${s.signed?.n || 10} questions a person reviewed, with the passages each must find — too few to establish a difference either way.</p>
 
     <h2>Limits</h2>
     <ul class="small">

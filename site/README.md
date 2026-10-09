@@ -33,8 +33,11 @@ Generated: everything under `data/`, written by `tmk-explorer --write` from
 ## What does not belong here
 
 A legal proposition of the page's own. Every concept, relationship, quote and answer
-shown is a record that already exists, with who wrote it on its face: *expert-signed*,
-or *machine · unreviewed* (CLAUDE.md rules 4 and 8). Every arrangement — which kind an
+shown is a record that already exists, with who wrote it on its card: *Machine ·
+unreviewed*, loud, on every machine-written record (CLAUDE.md rule 8), or a plain grey
+*Reviewed*, with no name, on one an expert reviewed (rule 4). The pictures draw every
+record alike: the site is shared with many experts and marks one expert's review
+without featuring it (ADR-0130). Every arrangement — which kind an
 idea sits in, the kind-to-kind patterns, what rests on a page — is computed in Python by
 `tmk-explorer`, never decided in the JavaScript. The page's own prose explains what to
 look at; it does not state the law.
@@ -43,12 +46,19 @@ look at; it does not state the law.
 
 | Route | Module | What it shows |
 |---|---|---|
-| `#/` | `home.js` | a zoomable circle packing of the ontology (D3): families → kinds → ideas |
+| `#/` | `home.js` | what this is, the four levels and the ways in — kept plain |
+| `#/circles` | `circles.js` | "At a glance": a zoomable circle packing of the ontology (D3): families → kinds → ideas |
 | `#/tour/N` | `tour.js` | seven steps: text, wordings, connections, kinds, change, retrieval, limits; in steps 1–2 each square says which passage it is |
-| `#/map/{kinds,ideas,text}/GC-…` | `map.js` | Cytoscape: kinds open and close as boxes; an idea opens into Parts, then passages |
+| `#/map/{kinds,ideas,text}/GC-…` | `map.js` | Cytoscape: kinds open and close as boxes; an idea opens into Parts, then passages, with the Act and the Regulations in boxes of their own |
 | `#/ask/BN-…` | `ask.js` | a question's ideas, connections and passages drawn hop by hop; the same ideas on a mini map (Cytoscape) beside a plain account of how the starting ideas were found and why no connection is preferred; then a streamed, cited answer |
 | `#/change/TMM/…` | `change.js` | an amendment timeline (Plot) and every page as a tile in its Part's row, titles in full; pick one to see the ripple, and what rests on it on a mini map |
 | `#/about` | `about.js` | what it is, how it works, the measurement as intervals (Plot), the limits |
+
+**The Manual, the Act and the Regulations each have a colour and a mark** — a blue
+square, an amber diamond, a plum hexagon — wherever a passage appears: map nodes and
+boxes, chips (`refChip`), quotes headed by their source (`quoteBlock`), Ask's diagram.
+Use `srcClass`, `quoteBlock` and `legend` from `app.js` in a new view, so the three stay
+one system (ADR-0130).
 
 The map's positions are **computed, not simulated** (`graphPositions`, `textPositions`):
 closed kinds sit where the tour draws them, open kinds pack into their family's region,

@@ -1,41 +1,44 @@
 # HANDOFF
 
-**Last updated:** 2026-10-09 · S027 (end) · branch `claude/ecstatic-cray-shk5k4`
+**Last updated:** 2026-10-09 · S028 (end) · branch `claude/happy-noether-i4uufc`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
 
-**The owner approved and S027 actioned B1, A5, A6, B4, D4, F2, F6 and D5**
-(`review/returned/261009-owner-chat-approvals.md`, ruling file
-`review/rulings/2026-10-09-chat-approvals.yaml`, ADR-0125 to ADR-0127). Waterfall delivery
-still holds: nobody signs anything until the ontology ships to the examiners (ADR-0120).
+**S028 changed only the explorer (`site/`), on the owner's instruction** before it is
+shared with a large cohort of experts (ADR-0130, CHAT-0068 to CHAT-0070,
+`review/returned/261009-owner-chat-explorer-presentation.md`). No record changed.
+- **The expert's review is marked, not featured.** "Expert-signed" (green) became a grey
+  "Reviewed" with no name; every picture draws every idea and line alike; the
+  signed-only filter and the "signed by an expert" counts are gone. "Machine ·
+  unreviewed" stays on every machine-written record.
+- **Manual, Act, Regulations**: a blue square, an amber diamond, a plum hexagon —
+  everywhere (`srcClass`, `quoteBlock`, `legend` in `app.js`). The map's text level
+  draws each in its own labelled box, the legislation in rows beneath.
+- **The circles have a tab**: `#/circles`, "At a glance" (`circles.js`); the home page is
+  text and links only.
+- Checked in Chromium at 1440 and 390 wide, light and dark, every view: no JS errors, no
+  "signed" wording left on any page. `test_explorer.py` passes (12).
 
-- **B1 — what a thing is, what it does** (ADR-0126). A concept's kind says what it *is*:
-  ten kinds in three families (the law's questions; what they ask about — subject
-  matter, sign content, context, use in trade; the process) and `none_of_these`. Factor,
-  exception and remedy are edges — `qualifies`/`mayGiveRiseTo`/`statesThresholdFor`,
-  `doesNotGiveRiseTo`, `isOvercomeBy` — never kinds. 52 typings re-judged; the decision
-  tree, workbench and explorer read functions off edges.
-- **B4** — the s 41 ground (GC-0181) and s 39 ground (GC-0182); prohibited and
-  prescribed signs are sign content.
-- **A5, A6, D4, F2, F6** (ADR-0125) — names compared folded (`ontology.hygiene`);
-  implied endorsement and endorsement kept apart (`authored/merge-candidates.yaml`);
-  four contradicting "kind of" links withdrawn, and a kind-of beside a not-label refused
-  unless `authored/kind-of-affirmed.yaml` says why both hold (11 do); three SHACL shapes
-  on folded label keys; a test forbids ranking by confidence across authors.
-- **D5 step 1 — the edge audit** (ADR-0127). Gemini 3.1 Pro (batch-only client in
-  `bulk.client`) judged all 571 machine-written relationships: **346 sound, 13 vague, 212
-  wrong (37%, 95% 33–41%)**; `appliesTo` wrong 55 times in 61. `tmk-bulk audit-apply`:
-  69 re-read, 135 withdrawn, 8 kept — four of them serve for the expert's signed s 43
-  edges and go to a person, never overruled by a model.
-- **D5 step 2 — search re-measured** (ADR-0127, `data/derived/reports/measure.md`), same
-  judge, only new passages graded. nDCG@10: ontology − hybrid **−0.041 [−0.067,
-  −0.017]**; on the expert's ten questions **+0.030 [+0.008, +0.055]**; ontology −
-  keyword +0.079. Since 2026-10-07: +0.010 (not established). **The audit's effect on
-  search: +0.001 [−0.007, +0.009] — none.** No model judge, expert's own evidence lists:
-  ontology and hybrid tie (ten questions, wide interval).
+**S027's state is unchanged.** The owner approved B1, A5, A6, B4, D4, F2, F6 and D5
+(ADR-0125 to ADR-0127). Waterfall delivery holds: nobody signs anything until the ontology
+ships to the examiners (ADR-0120).
+
+- **B1** (ADR-0126): ten kinds in three families and `none_of_these`; factor, exception
+  and remedy are edges (`qualifies`/`mayGiveRiseTo`/`statesThresholdFor`,
+  `doesNotGiveRiseTo`, `isOvercomeBy`), never kinds. **B4**: GC-0181 (s 41), GC-0182
+  (s 39). **A5, A6, D4, F2, F6** (ADR-0125): folded names, merge candidates, kind-of
+  beside a not-label refused unless affirmed, three SHACL shapes, no ranking by
+  confidence across authors.
+- **D5 step 1 — the edge audit** (ADR-0127). Gemini 3.1 Pro judged all 571
+  machine-written relationships: **346 sound, 13 vague, 212 wrong (37%, 95% 33–41%)**;
+  69 re-read, 135 withdrawn, 8 kept — four serve for signed s 43 edges and go to a person.
+- **D5 step 2 — search re-measured** (`data/derived/reports/measure.md`). nDCG@10:
+  ontology − hybrid **−0.041 [−0.067, −0.017]**; on the ten reviewed questions **+0.030
+  [+0.008, +0.055]**; ontology − keyword +0.079. The audit's effect on search: +0.001
+  [−0.007, +0.009] — none.
 - **No more intelligent model was used**, and why: the current judge already grades all
   21 passages the expert requires as relevant, so no judge could show a measurable gain;
   one judge keeps the before/after comparable; a Gemini re-grade (~$5) would pass the
@@ -80,6 +83,9 @@ cap is not approved for anything** — a new spend needs a quote.
 
 ## What to distrust
 
+- **The published `site/data/ontology.json` still carries the reviewer's initials**
+  (`signed.by`), as a record field a test requires; only the page stopped showing them.
+  Anyone reading the JSON sees them. Ask the owner before removing them from the data.
 - **Everything machine-written is unreviewed**: S026's and S027's records
   (`claude-code-agent-S026`, `-S027`), `gpt-6.1-sol`'s, and now 69 re-reads stamped
   `gemini-3.1-pro-preview` with `confidence: null`. The audit is a model judging
@@ -127,6 +133,10 @@ cap is not approved for anything** — a new spend needs a quote.
 
 ## Open items (agent-proposed, provisional)
 
+- ADR-0130's agent parts: "Reviewed" in grey rather than no mark at all; the reviewer's
+  initials hidden on the page but kept in `ontology.json`; the plum hexagon for the
+  Regulations; the tab's name, "At a glance". Each is a one-line change if the owner
+  wants it otherwise.
 - ADR-0127 entire: the apply rules (paraphrase allowance, widening kept, signed
   stand-ins kept), incremental grading, the judge decision. ADR-0128's and ADR-0129's
   agent parts: the amount binds, the stalest first.

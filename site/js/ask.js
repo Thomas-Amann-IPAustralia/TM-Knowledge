@@ -7,7 +7,7 @@
    answer is stamped unreviewed, keeps the Manual and the legislation apart, and
    declines to say how an application would be decided. */
 
-import { esc, fmt, load, kindColour, refChip, refLabel, isLaw, stampIcon, srcBadge } from "./app.js";
+import { esc, fmt, load, kindColour, refChip, refLabel, isLaw, sourceOf, srcClass, SOURCES, legend, stampIcon, srcBadge } from "./app.js";
 import { svg, curve, wrapText, wait } from "./graph.js";
 import { Engine, Recogniser, authorityFlags } from "./engine.js";
 import { miniMap } from "./minimap.js";
@@ -108,7 +108,7 @@ export async function render(root, { ontology, params }) {
     result.innerHTML = `
       <div class="card hop-card">
         <div class="answer-head"><h3 style="margin:0">How the ontology worked on it</h3><span class="tiny">${esc(subtitle)} · click an idea to open it on the map, or a passage to read it</span></div>
-        <div class="hop-body"><div class="hop-svg"></div><ol class="hop-steps"></ol></div>
+        <div class="hop-body"><div class="hop-svg"></div><div><ol class="hop-steps"></ol><div class="hop-legend">${legend()}</div></div></div>
         <div class="hop-more">
           <div class="hop-map"><h4>The same ideas on the map</h4><div class="mini-legend"></div><div class="mini-holder"></div></div>
           <div class="hop-why"></div>
@@ -274,7 +274,7 @@ export async function render(root, { ontology, params }) {
     svg("path", { d: "M0,0 L10,5 L0,10 z", class: "arrowhead" }, m);
     const lines = svg("g", {}, pic), nodes = svg("g", {}, pic);
     const cols = { q: 95, rec: 330, nb: 590, psg: 830 };
-    ["Your question", "Ideas recognised", "Connected ideas", "Passages found"].forEach((t, i) =>
+    ["Your question", "Ideas recognised", "Connected ideas", "Passages and provisions"].forEach((t, i) =>
       svg("text", { x: [cols.q, cols.rec, cols.nb, cols.psg][i], y: 18, "text-anchor": "middle", class: "family-label" }, pic).textContent = t);
     pic.classList.add("hop");
 
@@ -304,7 +304,7 @@ export async function render(root, { ontology, params }) {
 
     const ideaNode = (id, at, extra) => {
       const concept = byId.get(id);
-      const gg = svg("g", { class: `node ${concept?.origin || "machine"}`, style: `--c:${kindColour(concept?.kind)}`, transform: `translate(${at.x},${at.y})`, opacity: 0 }, nodes);
+      const gg = svg("g", { class: "node", style: `--c:${kindColour(concept?.kind)}`, transform: `translate(${at.x},${at.y})`, opacity: 0 }, nodes);
       svg("circle", { r: 9, class: "body" }, gg);
       svg("text", { x: 14, y: 4, style: extra?.generic ? "fill:var(--ink-3)" : "" }, gg).textContent = (concept?.label || id).slice(0, 30);
       if (extra?.matched && extra.matched.toLowerCase() !== (concept?.label || "").toLowerCase()) svg("text", { x: 14, y: 17, style: "font-size:11.5px;fill:var(--ink-3)" }, gg).textContent = `“${extra.matched}”`;
@@ -325,7 +325,7 @@ export async function render(root, { ontology, params }) {
       const a = recAt.get(p.s) || nbAt.get(p.s), b = recAt.get(p.o) || nbAt.get(p.o);
       if (!a || !b || (recAt.has(p.s) && recAt.has(p.o) && false)) continue;
       const cv = curve(a, b, 11, 13, recAt.has(p.s) && recAt.has(p.o) ? 0.4 : 0.06);
-      const path = svg("path", { d: cv.d, class: `edge ${p.origin === "approved" || p.origin === "signed" ? "signed" : "machine"}`, opacity: 0, "marker-end": "url(#harrow)", "stroke-width": 1.4 }, lines);
+      const path = svg("path", { d: cv.d, class: "edge", opacity: 0, "marker-end": "url(#harrow)", "stroke-width": 1.4 }, lines);
       const label = svg("text", { x: cv.mx, y: cv.my - 3, class: "edge-label", "text-anchor": "middle", opacity: 0 }, lines);
       label.textContent = ontology.predicates[p.p]?.label || p.p;
       pathEls.push(path, label);
@@ -340,13 +340,15 @@ export async function render(root, { ontology, params }) {
     const linkEls = [];
     all.forEach((ref, i) => {
       const at = psAt.get(ref);
-      const law = isLaw(ref);
+      const law = isLaw(ref), src = sourceOf(ref);
       const viaWords = plainSet.has(ref);
-      const gg = svg("g", { class: `psg ${law ? "law" : "manual"}${!law && !viaWords ? " found" : ""}`, transform: `translate(${at.x},${at.y})`, opacity: 0, "data-ref": ref }, nodes);
-      if (law) svg("path", { d: "M0,-8 L8,0 L0,8 L-8,0 Z", "stroke-width": 1.2 }, gg);
+      const gg = svg("g", { class: `psg ${srcClass(ref)}${!law && !viaWords ? " found" : ""}`, transform: `translate(${at.x},${at.y})`, opacity: 0, "data-ref": ref }, nodes);
+      // The same marks as the map: a square for the Manual, a diamond for the Act, a hexagon for the Regulations.
+      if (src === "act") svg("path", { d: "M0,-8.5 L8.5,0 L0,8.5 L-8.5,0 Z", "stroke-width": 1.6 }, gg);
+      else if (src === "regs") svg("path", { d: "M-4.5,-7.5 L4.5,-7.5 L9,0 L4.5,7.5 L-4.5,7.5 L-9,0 Z", "stroke-width": 1.6 }, gg);
       else svg("rect", { x: -7, y: -7, width: 14, height: 14, rx: 2, "stroke-width": 1.2 }, gg);
-      svg("text", { x: 14, y: 4, style: "font-size:12.5px;fill:var(--ink)" }, gg).textContent = `${law ? "" : `${i + 1}. `}${refLabel(ref)}`.slice(0, 26);
-      svg("title", {}, gg).textContent = `${refLabel(ref)} — ${law ? "legislation" : viaWords ? "also in plain keyword search's top ten" : "not in plain keyword search's top ten"}. Click to read.`;
+      svg("text", { x: 14, y: 4, style: `font-size:12.5px;fill:${law ? "var(--src)" : "var(--ink)"}${law ? ";font-weight:600" : ""}` }, gg).textContent = `${law ? "" : `${i + 1}. `}${refLabel(ref)}`.slice(0, 26);
+      svg("title", {}, gg).textContent = `${refLabel(ref)} — ${law ? `the ${SOURCES[src].name}, law` : `the Manual, practice; ${viaWords ? "also in plain keyword search's top ten" : "not in plain keyword search's top ten"}`}. Click to read.`;
       psEls.push(gg);
       // Link a passage to at most two of the ideas it names, recognised ideas first,
       // so the picture shows which hop brought it in without becoming a hairball.
@@ -358,12 +360,12 @@ export async function render(root, { ontology, params }) {
         linkEls.push(svg("path", { d: curve(from, at, 10, 10, 0.03).d, class: "edge", opacity: 0, "stroke-opacity": 0.32 }, lines));
         linked = true;
       }
-      if (!linked && !law) linkEls.push(svg("path", { d: curve(qAnchor, at, 0, 10, -0.12).d, class: "edge machine", opacity: 0, "stroke-opacity": 0.22 }, lines));
+      if (!linked && !law) linkEls.push(svg("path", { d: curve(qAnchor, at, 0, 10, -0.12).d, class: "edge", opacity: 0, "stroke-opacity": 0.22, "stroke-dasharray": "4 3" }, lines));
     });
 
-    // Solid lines draw themselves in; dashed ones (machine-written) fade in.
+    // Solid lines draw themselves in; dashed ones fade in.
     const show = (els) => els.forEach((e) => {
-      if (e.tagName === "path" && !e.getAttribute("stroke-dasharray") && !e.classList.contains("machine") && e.getTotalLength && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (e.tagName === "path" && !e.getAttribute("stroke-dasharray") && e.getTotalLength && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
         const length = e.getTotalLength();
         e.style.strokeDasharray = `${length}`;
         e.style.strokeDashoffset = `${length}`;
@@ -389,7 +391,7 @@ export async function render(root, { ontology, params }) {
     const followed = g.followed || g.paths;
     const recIds = new Set(rec.map((r) => r.id));
     const neighbours = new Set(followed.map((p) => (recIds.has(p.s) ? p.o : p.s)).filter((id) => !recIds.has(id)));
-    const signed = followed.filter((p) => p.origin === "approved" || p.origin === "signed").length;
+    const machine = followed.filter((p) => p.origin !== "approved" && p.origin !== "signed").length;
     const shown = g.paths.length;
     const label = (id) => byId.get(id)?.label || id;
     const nameKind = (r) => {
@@ -397,7 +399,7 @@ export async function render(root, { ontology, params }) {
       if (!r.name) return "";
       if (r.everyday) return "an everyday phrasing a machine added to it";
       if (r.name.toLowerCase() === (c?.label || "").toLowerCase()) return "its main name";
-      return `another of its names${c?.origin === "signed" ? ", signed by an expert" : ""}`;
+      return "another of its names";
     };
     const row = (r) => `<li><span class="said">“${esc(r.matched || label(r.id))}”</span><span class="arrow">→</span>
       <span><b>${esc(label(r.id))}</b>${r.name ? ` <span class="muted">· ${esc(nameKind(r))}</span>` : ""}
@@ -417,7 +419,7 @@ export async function render(root, { ontology, params }) {
       <div class="why-step"><span class="n">2</span><div>
         <b>Which connections: all of them, one step out</b>
         ${followed.length ? `<p>Every connection the map records for a starting idea is followed — here <b>${fmt(followed.length)}</b>, to <b>${fmt(neighbours.size)}</b> other idea${neighbours.size === 1 ? "" : "s"}
-        (${fmt(signed)} signed by an expert, ${fmt(followed.length - signed)} machine-written). None is weighed against another, whatever it says or
+        (${fmt(machine)} of them written by a machine, unreviewed). None is weighed against another, whatever it says or
         whoever wrote it, and none is followed a second step.</p>
         <p>Following a connection does two things: the idea at its far end adds its name to the search, and passages that name that idea gain a point
         (step 3). So no path is taken over another; one counts for more only when the idea it reaches is named in passages that also match your question.</p>
@@ -443,8 +445,7 @@ export async function render(root, { ontology, params }) {
       <span><i class="ring"></i>a starting idea</span>
       ${generic.length ? `<span><i class="grey"></i>too common to steer</span>` : ""}
       <span><svg viewBox="0 0 26 12"><line x1="1" y1="6" x2="25" y2="6" stroke="var(--ink-2)" stroke-width="2.2"/></svg>connection followed${followed.length > shown ? ", shown to the answer-writer" : ""}</span>
-      ${followed.length > shown ? `<span><svg viewBox="0 0 26 12"><line x1="1" y1="6" x2="25" y2="6" stroke="var(--ink-3)" stroke-opacity=".45" stroke-width="1"/></svg>followed for the search only</span>` : ""}
-      <span><svg viewBox="0 0 26 12"><line x1="1" y1="6" x2="25" y2="6" stroke="var(--ink-3)" stroke-width="1.4" stroke-dasharray="5 3"/></svg>dashed: machine-written</span>` : "";
+      ${followed.length > shown ? `<span><svg viewBox="0 0 26 12"><line x1="1" y1="6" x2="25" y2="6" stroke="var(--ink-3)" stroke-opacity=".45" stroke-width="1"/></svg>followed for the search only</span>` : ""}` : "";
     if (!g.recognised.length) { view.map.innerHTML = `<p class="small muted">No ideas were recognised, so there is nothing to draw on the map.</p>`; return; }
     const token = ++maps;
     miniMap(view.map, {
@@ -481,14 +482,14 @@ export async function render(root, { ontology, params }) {
   async function showAnswer(view, a) {
     const cites = a.citations || [];
     const conflated = authorityFlags(a.answer, cites.map((x) => x.ref));
-    const manual = cites.filter((x) => !isLaw(x.ref)).length, law = cites.length - manual;
+    const bySource = (src) => cites.filter((x) => sourceOf(x.ref) === src).length;
     view.tags.innerHTML = `<span class="trust machine">Machine · unreviewed</span>`;
     view.body.innerHTML = `
       ${a.declined ? `<div class="stamp" style="margin-bottom:.8rem">${stampIcon}<span><b>Part of this question asked how an application would be decided, and the answer declines that part.</b>${a.decline_reason ? " " + esc(a.decline_reason) : ""}</span></div>` : ""}
       <div class="answer">${await renderAnswer(a.answer)}</div>
       ${conflated.length ? `<div class="stamp" style="margin-top:.8rem">${stampIcon}<span><b>Practice or law?</b> ${esc(conflated[0].message)}<ul class="tiny" style="margin:.3rem 0 0">${conflated.map((f) => `<li>“${esc(f.sentence.slice(0, 220))}${f.sentence.length > 220 ? "…" : ""}”</li>`).join("")}</ul></span></div>` : ""}
       <div class="cites">
-        <h4 style="margin:.8rem 0 .2rem;font-size:.85rem">Citations · ${cites.length} <span class="tiny">(${manual} Manual · ${law} legislation) — each quote found word for word in the passage</span></h4>
+        <h4 style="margin:.8rem 0 .2rem;font-size:.85rem">Citations · ${cites.length} <span class="tiny">(${bySource("manual")} Manual · ${bySource("act")} Act · ${bySource("regs")} Regulations) — each quote found word for word in the passage</span></h4>
         <ul>${cites.map((x) => `<li>${srcBadge(x.ref)} ${refChip(x.ref)} <span class="muted">“${esc(String(x.quote || "").slice(0, 220))}${String(x.quote || "").length > 220 ? "…" : ""}”</span></li>`).join("")}</ul>
         ${a.dropped?.length ? `<p class="tiny" style="margin-top:.4rem">${a.dropped.length} citation${a.dropped.length > 1 ? "s" : ""} the model gave could not be found word for word in the passage, and ${a.dropped.length > 1 ? "were" : "was"} removed.</p>` : ""}
       </div>

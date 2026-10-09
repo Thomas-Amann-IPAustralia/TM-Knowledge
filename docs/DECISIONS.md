@@ -5715,3 +5715,58 @@ answers are now dated 2026-10-09 and none shows a stale link; 612 citations, eac
 verbatim; 16 decline to say how a particular application would be decided and explain the
 practice instead; one sentence is flagged PU-0004 (BN-0040, s 189 stated as law on the
 Manual's word), flagged and not removed. Recorded spend US$8.37 of the US$9.49 cap.
+
+## ADR-0130 — the explorer marks an expert's review quietly, shows the Manual, the Act and the Regulations apart, and gives the circles a tab
+
+**Date** 2026-10-09 · **Authority** human · **Status** accepted
+
+**Context.** The explorer is being shared with a large cohort of experts. Until now it
+featured the one expert's review everywhere: a green "Expert-signed" badge on 52 ideas and
+20 connections; reviewed ideas drawn filled and machine-written ones dashed on every
+picture (the home page's circles, the map, both mini maps, the tour, Ask's diagram); an
+"Only what an expert signed" filter; the reviewer's initials on each card; "signed by an
+expert" counts on the home page, the tour, Ask, Change and About; and a corrected record
+said the signed one "recorded this sentence the wrong way". The Act and the Regulations
+shared one colour and one mark. The owner (CHAT-0068 to CHAT-0070,
+`review/returned/261009-owner-chat-explorer-presentation.md`): *"Please reduce the emphasis
+on the 'expert signed' elements. Especially in the visual components. This is being shared
+with a large cohort of experts, so overtly drawing their attention to the individual expert
+review is likely to cause more harm than good."* — *"I would like the map to more clearly
+indicate when something is from the Manual, the Act or the Regulations."* — *"I would like
+the map of nested circles to be moved to its own tab and removed from the front page."*
+
+**Decision (the owner's).** Reduce the emphasis on expert review, above all in the
+pictures; make the Manual, the Act and the Regulations distinct on the map; give the
+circles their own tab and take them off the home page.
+
+**Decision (the agent's, inside it).**
+1. *Machine-written stays loud; reviewed goes quiet.* Every machine-written record keeps
+   its "Machine · unreviewed" badge wherever it is shown (rule 8 unchanged). A reviewed
+   record says "Reviewed", plain grey text, no badge colour. The two still never look the
+   same (rule 4).
+2. *Pictures draw every record alike.* No filled-versus-dashed ideas, no heavier reviewed
+   lines, no filter. Who wrote a record is on its card. Counts are given as the
+   machine-written share ("112 of 164 ideas"), not as what an expert signed.
+3. *No name on the page.* The card says "Reviewed by a trade marks expert on <date>"; the
+   initials stay in `site/data/ontology.json` as the record's own field (a test requires
+   it), and are no longer displayed. A corrected record reads "a corrected reading of
+   GR-nnnn, which is kept unchanged".
+4. *The benchmark's ten signed questions* are labelled "Questions a person reviewed".
+5. *Three texts, three marks*: the Manual a blue square, the Act an amber diamond, the
+   Regulations a plum hexagon (`--act`, `--regs` beside `--manual`). The map's text level
+   draws each in its own labelled box, the legislation in rows below the picture; chips,
+   quotes (headed "Manual · practice", "Act · law", "Regulations · law"), the idea card's
+   "In the Act" and "In the Regulations", Ask's diagram and its citation count all follow.
+   The map's rail carries the key.
+6. *The circles* moved to `#/circles` (`site/js/circles.js`), the tab "At a glance"; the
+   home page's "Kinds of idea" step links there.
+
+**What it does not decide.** Whether the published data should carry the reviewer's
+initials at all. Anything about a record's state: nothing was approved, withdrawn or
+re-stamped. The owner's workbench (`site/workbench/`, linked from nothing) is unchanged.
+
+**Consequences.** A session must not restore the "Expert-signed" badge, the
+filled-versus-dashed pictures or the signed-only filter without the owner; the honesty
+rules are met by the machine badge on every machine-written record and the banner on every
+page. A new view that draws passages uses `srcClass`, `quoteBlock` and `legend` from
+`app.js`, so the three marks stay one system.

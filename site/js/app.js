@@ -4,16 +4,18 @@
    `tmk-explorer --write` from the repository's records and the pinned snapshot.
    The views arrange those records; they never write a legal proposition of
    their own. Where a record was written by a machine and never checked by an
-   expert, the page says so at the point it is shown. */
+   expert, the page says so at the point it is shown. A record an expert
+   reviewed is marked quietly, never featured (ADR-0130). */
 
 import * as home from "./home.js";
 import * as tour from "./tour.js";
 import * as map from "./map.js";
+import * as circles from "./circles.js";
 import * as ask from "./ask.js";
 import * as change from "./change.js";
 import * as about from "./about.js";
 
-const VIEWS = { "": home, tour, map, ask, change, about };
+const VIEWS = { "": home, tour, map, circles, ask, change, about };
 const cache = new Map();
 
 export function load(name) {
@@ -43,17 +45,34 @@ export const kindColour = (kind) => `var(--k-${kind || "none_of_these"})`;
 
 export const isLaw = (ref) => /^TM[AR]1995\//.test(ref || "");
 
-export function source(ref) {
-  if ((ref || "").startsWith("TMA1995/")) return "Trade Marks Act 1995";
-  if ((ref || "").startsWith("TMR1995/")) return "Trade Marks Regulations 1995";
-  return "Manual (practice)";
+/** Which text a ref is from: the Manual, the Act or the Regulations. Each has its
+    own colour and mark everywhere on the site — square, diamond, hexagon. */
+export function sourceOf(ref) {
+  if ((ref || "").startsWith("TMA1995/")) return "act";
+  if ((ref || "").startsWith("TMR1995/")) return "regs";
+  return "manual";
 }
 
-export function srcBadge(ref) {
-  if ((ref || "").startsWith("TMA1995/")) return `<span class="src law">Act · law</span>`;
-  if ((ref || "").startsWith("TMR1995/")) return `<span class="src law">Regulations · law</span>`;
-  return `<span class="src manual">Manual · practice</span>`;
+/** CSS classes for anything drawn from a ref: `manual`, or `law act` / `law regs`. */
+export const srcClass = (ref) => (isLaw(ref) ? `law ${sourceOf(ref)}` : "manual");
+
+export const SOURCES = {
+  manual: { name: "Trade Marks Manual", short: "Manual", role: "practice" },
+  act: { name: "Trade Marks Act 1995", short: "Act", role: "law" },
+  regs: { name: "Trade Marks Regulations 1995", short: "Regulations", role: "law" },
+};
+
+export function source(ref) {
+  const s = SOURCES[sourceOf(ref)];
+  return `${s.name} (${s.role})`;
 }
+
+const srcLabel = (ref) => { const s = SOURCES[sourceOf(ref)]; return `${s.short} · ${s.role}`; };
+
+export const srcBadge = (ref) => `<span class="src ${srcClass(ref)}">${srcLabel(ref)}</span>`;
+
+/** A quote, headed by the text it comes from (the label is drawn by the stylesheet). */
+export const quoteBlock = (ref, text) => `<blockquote class="quote ${srcClass(ref)}" data-src="${esc(srcLabel(ref))}">${esc(text)}</blockquote>`;
 
 /** A short, readable name for a ref, from the ref itself (no lookup needed). */
 export function refLabel(ref) {
@@ -76,13 +95,14 @@ export function refLabel(ref) {
 }
 
 export function refChip(ref, extra = "") {
-  const cls = isLaw(ref) ? "law" : "manual";
-  return `<button type="button" class="ref ${cls}" data-ref="${esc(ref)}" title="${esc(source(ref))} — ${esc(ref)}"${extra}>${esc(refLabel(ref))}</button>`;
+  return `<button type="button" class="ref ${srcClass(ref)}" data-ref="${esc(ref)}" title="${esc(source(ref))} — ${esc(ref)}"${extra}><i class="mark" aria-hidden="true"></i>${esc(refLabel(ref))}</button>`;
 }
 
+/** Who wrote a record. A machine-written one always says so (rule 8); one an
+    expert reviewed says so quietly, and is never singled out (ADR-0130). */
 export function trustBadge(origin) {
   return origin === "signed"
-    ? `<span class="trust signed" title="A named trade marks expert read and signed this record">Expert-signed</span>`
+    ? `<span class="trust reviewed" title="A trade marks expert has reviewed this record">Reviewed</span>`
     : `<span class="trust machine" title="Written by a machine; no expert has reviewed it">Machine · unreviewed</span>`;
 }
 
@@ -91,12 +111,10 @@ export function kindChip(kind, ontology) {
   return `<span class="chip kind-chip" style="--c:${kindColour(kind)}"><i class="dot"></i>${esc(k ? k.label : kind)}</span>`;
 }
 
+/** The three texts and their marks — the same on the map, in chips and on quotes. */
 export const legend = () => `
-  <div class="legend">
-    <span><i class="dot" style="--c:var(--ink-2)"></i>Expert-signed</span>
-    <span><i class="dot machine" style="--c:var(--ink-2)"></i>Machine-written, unreviewed</span>
-    <span><svg viewBox="0 0 26 10"><line x1="1" y1="5" x2="25" y2="5" class="ln-signed"/></svg>signed connection</span>
-    <span><svg viewBox="0 0 26 10"><line x1="1" y1="5" x2="25" y2="5" class="ln-machine"/></svg>machine connection</span>
+  <div class="legend sources">
+    ${Object.entries(SOURCES).map(([key, s]) => `<span class="${key === "manual" ? "manual" : `law ${key}`}"><i class="mark" aria-hidden="true"></i><b>${s.short}</b> ${s.role}</span>`).join("")}
   </div>`;
 
 export const stampIcon = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm1 15h-2v-2h2v2zm0-4h-2V9h2v4z"/></svg>`;
