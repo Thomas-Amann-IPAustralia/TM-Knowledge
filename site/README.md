@@ -48,6 +48,7 @@ look at; it does not state the law.
 |---|---|---|
 | `#/` | `home.js` | what this is, the four levels and the ways in — kept plain |
 | `#/circles` | `circles.js` | "At a glance": a zoomable circle packing of the ontology (D3): families → kinds → ideas |
+| `#/table/{kinds,ideas,connections}` | `table.js` | "As a table": the same records listed, not drawn — the kinds and how they connect, every idea (open a row for its connections as sentences), every connection; filters, and a CSV of each table with who wrote every row |
 | `#/tour/N` | `tour.js` | seven steps: text, wordings, connections, kinds, change, retrieval, limits; in steps 1–2 each square says which passage it is |
 | `#/map/{kinds,ideas,text}/GC-…` | `map.js` | Cytoscape: kinds open and close as boxes; an idea opens into Parts, then passages, with the Act and the Regulations in boxes of their own |
 | `#/ask/BN-…` | `ask.js` | a question's ideas, connections and passages drawn hop by hop; the same ideas on a mini map (Cytoscape) beside a plain account of how the starting ideas were found and why no connection is preferred; then a streamed, cited answer |
@@ -63,6 +64,11 @@ one system (ADR-0130).
 The map's positions are **computed, not simulated** (`graphPositions`, `textPositions`):
 closed kinds sit where the tour draws them, open kinds pack into their family's region,
 ideas grid inside each box. A force layout overlapped the boxes (ADR-0119).
+
+`table.js` is for anyone the map overwhelms: plain HTML tables, no library. Every row is
+a record or a `kind_links` count; a CSV carries the same trust columns as the page —
+machine-written and unreviewed, or reviewed, never the reviewer's name (ADR-0130) — and
+says whether each quote is from the Manual, the Act or the Regulations.
 
 `minimap.js` embeds a small Cytoscape map in other views — the same marks as the map,
 the caller choosing which records to draw. Its positions are computed too: a ring round

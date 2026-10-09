@@ -1,48 +1,44 @@
 # HANDOFF
 
-**Last updated:** 2026-10-09 · S028 (end) · branch `claude/happy-noether-i4uufc`
+**Last updated:** 2026-10-09 · S029 (end) · branch `claude/pensive-ptolemy-f1w7k2`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
 
-**S028 changed only the explorer (`site/`), on the owner's instruction** before it is
-shared with a large cohort of experts (ADR-0130, CHAT-0068 to CHAT-0070,
-`review/returned/261009-owner-chat-explorer-presentation.md`). No record changed.
-- **The expert's review is marked, not featured.** "Expert-signed" (green) became a grey
-  "Reviewed" with no name; every picture draws every idea and line alike; the
-  signed-only filter and the "signed by an expert" counts are gone. "Machine ·
-  unreviewed" stays on every machine-written record.
-- **Manual, Act, Regulations**: a blue square, an amber diamond, a plum hexagon —
-  everywhere (`srcClass`, `quoteBlock`, `legend` in `app.js`). The map's text level
-  draws each in its own labelled box, the legislation in rows beneath.
-- **The circles have a tab**: `#/circles`, "At a glance" (`circles.js`); the home page is
-  text and links only.
-- Checked in Chromium at 1440 and 390 wide, light and dark, every view: no JS errors, no
-  "signed" wording left on any page. `test_explorer.py` passes (12).
+**S029 added one explorer view, "As a table" (`#/table`, `site/js/table.js`)**, because
+the owner found the map's "Ideas and connections" level "eyewateringly complex" and asked
+for something simpler, "even a table". No record changed; no ADR (an engineering call).
+- Three tabs: **Kinds** (the ten kinds by family, then every kind-to-kind pair from
+  `kind_links` with what its connections say), **Ideas** (164 rows grouped by kind; open
+  a row for its connections as sentences, each with its quote), **Connections** (456
+  rows: from, says, to, the passage, who wrote it). Filters by name, kind and
+  relationship; loose links ("is related to", "is a kind of") hidden by default, as on
+  the map. A pair's count links to its connections; an idea links to its row.
+- **CSV download** of the ideas and of the connections, with the page's trust columns
+  (`record`, `review_status`, `machine_author`, `date`, the kind's judge) and which text
+  each quote is from. The reviewer's initials are not in it (ADR-0130).
+- Linked from the nav and from the map's help panel ("See it as a table instead").
+- Checked in Chromium at 1440 and 390, light and dark: no JS errors, no horizontal
+  scroll (connections stack as sentences on a phone). `test_explorer.py` passes (12).
+
+**S028 (ADR-0130) is unchanged**: the expert's review is marked "Reviewed" in grey, not
+featured; the Manual, the Act and the Regulations are a blue square, an amber diamond and
+a plum hexagon everywhere; the circles are on `#/circles`.
 
 **S027's state is unchanged.** The owner approved B1, A5, A6, B4, D4, F2, F6 and D5
 (ADR-0125 to ADR-0127). Waterfall delivery holds: nobody signs anything until the ontology
 ships to the examiners (ADR-0120).
 
-- **B1** (ADR-0126): ten kinds in three families and `none_of_these`; factor, exception
-  and remedy are edges (`qualifies`/`mayGiveRiseTo`/`statesThresholdFor`,
-  `doesNotGiveRiseTo`, `isOvercomeBy`), never kinds. **B4**: GC-0181 (s 41), GC-0182
-  (s 39). **A5, A6, D4, F2, F6** (ADR-0125): folded names, merge candidates, kind-of
-  beside a not-label refused unless affirmed, three SHACL shapes, no ranking by
-  confidence across authors.
-- **D5 step 1 — the edge audit** (ADR-0127). Gemini 3.1 Pro judged all 571
-  machine-written relationships: **346 sound, 13 vague, 212 wrong (37%, 95% 33–41%)**;
-  69 re-read, 135 withdrawn, 8 kept — four serve for signed s 43 edges and go to a person.
-- **D5 step 2 — search re-measured** (`data/derived/reports/measure.md`). nDCG@10:
-  ontology − hybrid **−0.041 [−0.067, −0.017]**; on the ten reviewed questions **+0.030
-  [+0.008, +0.055]**; ontology − keyword +0.079. The audit's effect on search: +0.001
-  [−0.007, +0.009] — none.
-- **No more intelligent model was used**, and why: the current judge already grades all
-  21 passages the expert requires as relevant, so no judge could show a measurable gain;
-  one judge keeps the before/after comparable; a Gemini re-grade (~$5) would pass the
-  envelope; and the audit itself moved search by nothing (ADR-0127, decision 6).
+- **B1, B4, A5, A6, D4, F2, F6** (ADR-0125, ADR-0126): ten kinds in three families and
+  `none_of_these`; factor, exception and remedy are edges, never kinds.
+- **D5** (ADR-0127): Gemini 3.1 Pro judged all 571 machine-written relationships — 346
+  sound, 13 vague, 212 wrong (37%, 95% 33–41%); 69 re-read, 135 withdrawn, 8 kept. Search
+  re-measured (`data/derived/reports/measure.md`), nDCG@10: ontology − hybrid **−0.041
+  [−0.067, −0.017]**; on the ten reviewed questions **+0.030 [+0.008, +0.055]**; ontology
+  − keyword +0.079; the audit's own effect +0.001 — none. No stronger judge was used
+  (ADR-0127, decision 6).
 
 Counts: concepts 52 signed + 112 authored; relationships 20 signed serving (15 replaced
 by corrections) + 436 authored. 158 of 164 concepts in one piece (96%; six isolated:
@@ -58,8 +54,7 @@ cap is not approved for anything** — a new spend needs a quote.
    expert's questions and against keyword search, trails hybrid on the benchmark.
 2. **The four disputed signed readings** (`edge-audit.md`, "Disputes of a reading an
    expert signed") — a person's call; nothing changed.
-3. Nothing else waits on a spend: all 129 prepared answers were re-run on 2026-10-09
-   (ADR-0128, ADR-0129), and none shows a stale link.
+3. Nothing waits on a spend: all 129 prepared answers were re-run (ADR-0128, ADR-0129).
 4. If not done: the key as an environment secret (`github-pages` → `OPENAI_API_KEY`).
 
 ## Next actions
@@ -80,6 +75,10 @@ cap is not approved for anything** — a new spend needs a quote.
 5. B2, B3, B6 stay postponed; D7, F4, F5 deferred (F5: `ontology.md` report,
    `legal-concepts.ttl` sections beyond B1, `GUIDE.md`).
 6. Carried over: an examiner feedback route (notes never reach a model, ADR-0088).
+7. **The map's idea card shows a case as a Manual chip.** `refChip` gives anything that is
+   not `TMA1995/`/`TMR1995/` the Manual's blue square, and two relationships end at a
+   `CASE/…` ref (GR ends in `ontology.provisions` with `source: other`). `table.js` draws
+   a case as a plain grey chip; `map.js`'s `showConcept` still uses `refChip(other)`.
 
 ## What to distrust
 
@@ -132,6 +131,9 @@ cap is not approved for anything** — a new spend needs a quote.
   SPARQL (Q-81); a not-label is "not the same concept" (Q-82).
 
 ## Open items (agent-proposed, provisional)
+
+- S029's table view: its name ("As a table"), Kinds as the first tab, loose links hidden
+  by default, the CSV's columns. Each is a one-line change.
 
 - ADR-0130's agent parts: "Reviewed" in grey rather than no mark at all; the reviewer's
   initials hidden on the page but kept in `ontology.json`; the plum hexagon for the
