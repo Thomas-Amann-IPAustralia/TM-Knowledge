@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01079,
+ "created_utc": "2026-10-09T05:57:50Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0080",
+ "job": "answer",
+ "key": "4737461ebfdc1d853a54074e440ae0afc66122c1c1fac5b113df336b4017b21a",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0072\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part5/x-word-constituents/letters\",\n      \"quote\": \"To indicate a letter or letters the constituent LTR is used.\"\n    },\n    {\n      \"ref\": \"TMM/Part5/x-word-constituents/letters\",\n      \"quote\": \"Where there is a single letter in the trade mark, # is added to the constituents as well as LTR.\"\n    },\n    {\n      \"ref\": \"TMM/Part5/x-word-constituents/letters\",\n      \"quote\": \"A constituent with an equals sign prefix is added to the constituent for groups of letters. It is useful in enabling searchers to distinguish between a group of letters and the same letters used as a word.\"\n    },\n    {\n      \"ref\": \"TMM/Part5/x-word-constituents/letters\",\n      \"quote\": \"In addition, when a group of letters is clearly an acronym, although it spells a word, it is indexed as letters.\"\n    }\n  ],\n  \"answer\": \"Under the Manual’s search-indexing practice (not legislation):\\n\\n- **Letters generally:** use the constituent `LTR` to indicate a letter or letters. [TMM/Part5/x-word-constituents/letters]\\n- **Single letters:** add `#` to the constituents as well as `LTR`. [TMM/Part5/x-word-constituents/letters]\\n- **Letter groups:** add an additional constituent prefixed with `=`. This distinguishes a group of letters from the same letters used as a word. [TMM/Part5/x-word-constituents/letters]\\n- **Acronyms:** where a group is clearly an acronym, index it as letters even if it spells a word. [TMM/Part5/x-word-constituents/letters]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "a1d6c2c3ac8670f00c841be3ac064049897e70a0e88822079bc2f0a8f08a5614",
+ "response_id": "resp_07b69f84a300fa3b006ac8824d26cc87d2a25ed0685acc25a6",
+ "seconds": 17.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6353,
+  "input_tokens_details": {
+   "cache_write_tokens": 6350,
+   "cached_tokens": 0
+  },
+  "output_tokens": 570,
+  "output_tokens_details": {
+   "reasoning_tokens": 138
+  },
+  "total_tokens": 6923
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011699,
+ "created_utc": "2026-10-09T05:55:24Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0030",
+ "job": "answer",
+ "key": "aa1c6a8fa4daf40fa77c2b010a239fa58602638a0c8010fff496d210a08f1a3b",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0075\",\"GC-0076\",\"GC-0038\",\"GC-0014\",\"GC-0124\"],\"decline_reason\":\"I cannot determine whether the amendment to your particular application would be allowed. I can explain the supplied Manual practice instead.\",\"declined\":true,\"citations\":[{\"ref\":\"TMM/Part21/2/2/3\",\"quote\":\"In these cases, it may be appropriate for the applicant to amend the description to clearly refer to all the individual elements in a way which leaves no doubt that it is the combination being claimed that is registrable - not its independent parts.\"},{\"ref\":\"TMM/Part21/2/2/3\",\"quote\":\"If the description is broad, vague or absent, a change of this nature does not necessarily extend the applicant's rights but will still need to be considered carefully.\"},{\"ref\":\"TMM/Part21/2/2/3\",\"quote\":\"If, however, there is a description which already clearly specifies the scope of the trade mark, it is not possible to extend the claim to include items not in the existing description.\"}],\"answer\":\"Potentially—but I cannot determine whether your particular amendment would be allowed.\\n\\nThe supplied Manual practice distinguishes two situations (TMM/Part21/2/2/3):\\n\\n• If the existing description is broad, vague or absent, an amendment expressly including the words already shown may be appropriate. The description should make clear that the combination of shape or colour and the additional elements is being claimed, not the elements independently. Such a change does not necessarily extend your rights, but requires careful consideration.\\n\\n• If the existing description already clearly defines the scope of the trade mark, the Manual says the claim cannot be extended to include items outside that description. Words appearing in the representation therefore do not, by themselves, establish that they can be added to the claim.\\n\\nThese are statements of Manual practice, not legislation. No Act or Regulations passages were supplied.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "8ac70391a1bf8886893a748ea5563fe52e769199f164aed71076b05d1031f55c",
+ "response_id": "resp_07e28c160b03a332006ac881ba714487d2976a90959dacd4f2",
+ "seconds": 18.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6944,
+  "input_tokens_details": {
+   "cache_write_tokens": 6941,
+   "cached_tokens": 0
+  },
+  "output_tokens": 604,
+  "output_tokens_details": {
+   "reasoning_tokens": 176
+  },
+  "total_tokens": 7548
+ }
+}

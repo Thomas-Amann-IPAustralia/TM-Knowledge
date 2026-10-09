@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015055,
+ "created_utc": "2026-10-09T05:45:49Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0014",
+ "job": "answer",
+ "key": "80cfa44193ef696b574671455bb502f820c925854ad92456abf029989de4b67f",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\n    \"GC-0073\",\n    \"GC-0072\",\n    \"GC-0058\",\n    \"GC-0059\",\n    \"GC-0060\",\n    \"GC-0061\",\n    \"GC-0119\",\n    \"GC-0154\",\n    \"GC-0041\",\n    \"GC-0081\"\n  ],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMA1995/s17\",\n      \"quote\": \"A trade mark is a sign used, or intended to be used, to distinguish goods or services dealt with or provided in the course of trade by a person from goods or services so dealt with or provided by any other person.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/25#1\",\n      \"quote\": \"A device trade mark is a drawing, picture or other image that appears without text, letters or numerals.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/25#1\",\n      \"quote\": \"The first step of the enquiry is to determine the “ordinary signification” of the device. This is to be determined by reference to the “target audience” of the goods and services. Once that signification has been determined, the second step is to enquire as to the likelihood of other traders wanting to use that device or some deceptively similar variant for the sake of that signification.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/25/25/1\",\n      \"quote\": \"A device which is an ordinary depiction of the goods upon which, or in connection with which, it will be used is generally not prima facie capable of distinguishing.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/25/25/1\",\n      \"quote\": \"A trade mark which consists solely of a device which is common to the trade will be considered to have insufficient inherent adaptation to distinguish unless it is depicted in a special or fanciful manner.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/x-registrability-of-various-kinds-of-signs#1\",\n      \"quote\": \"Each application must be taken on face value, and be considered under section 41 in the usual fashion.\"\n    },\n    {\n      \"ref\": \"TMM/Part19A/8#1~2\",\n      \"quote\": \"Where an application for registration relies on use, the question is whether the particular sign for which registration is sought has itself been used as a trade mark so as to become capable of distinguishing the relevant goods or services.\"\n    }\n  ],\n  \"answer\": \"The assessment concerns what the picture means to the relevant audience and whether other traders would want to use it—not simply whether it looks familiar.\\n\\n**Act:** Section 17 defines a trade mark by its use, or intended use, to distinguish one person’s goods or services from those of others. [TMA1995/s17]\\n\\n**Manual practice:** If your logo is a picture without text, letters or numerals, the Manual treats it as a device trade mark. [TMM/Part22/25#1] Its assessment follows two steps:\\n1. Determine its **ordinary signification**—the meaning it conveys to the target audience for the goods or services.\\n2. Assess the likelihood that other traders would want to use that picture, or a deceptively similar variant, for that meaning. [TMM/Part22/25#1]\\n\\nAn ordinary depiction of the goods is generally not prima facie capable of distinguishing. A mark consisting solely of a picture common to the trade is treated as having insufficient inherent adaptation to distinguish **unless depicted in a special or fanciful manner**. [TMM/Part22/25/25/1]\\n\\nThe Manual directs examination under section 41. If registration relies on use, the question becomes whether the particular sign itself has been used as a trade mark so as to become capable of distinguishing the relevant goods or services. [TMM/Part22/x-registrability-of-various-kinds-of-signs#1; TMM/Part19A/8#1~2]\\n\\nThese are general assessment principles, not a prediction for your logo. Section 41 itself is not included in the supplied legislation, so the section 41 discussion above reports Manual practice rather than a complete account of the statutory test.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "78f0e9a1b1352db249ae8297caad5f33a61b51d484af32d0a66862667ba00eea",
+ "response_id": "resp_0816a3077252ae49006ac87f71934487d2a685fdf185ff20f9",
+ "seconds": 29.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7761,
+  "input_tokens_details": {
+   "cache_write_tokens": 7758,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1071,
+  "output_tokens_details": {
+   "reasoning_tokens": 127
+  },
+  "total_tokens": 8832
+ }
+}

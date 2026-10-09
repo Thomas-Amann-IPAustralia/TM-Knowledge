@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01313,
+ "created_utc": "2026-10-09T05:47:48Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0054",
+ "job": "answer",
+ "key": "d8a7bf2f959b2c270de5693b81f5410b031e27026efa94e457d8ddf68c2b160a",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0177\", \"GC-0092\", \"GC-0072\", \"GC-0131\", \"GC-0180\", \"GC-0046\", \"GC-0006\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part1/2#1\",\n      \"quote\": \"IP Australia’s quality management system, whilst monitoring, managing and reviewing the ongoing suitability and efficiency of our processes and procedures, also includes a strong focus on consistently delivering quality IP products and services.\"\n    },\n    {\n      \"ref\": \"TMM/Part1/2#1\",\n      \"quote\": \"As part of meeting the above objectives, a set of Quality Standards is applicable to all aspects of an examination of a trade mark application. They provide us IP Australia with benchmarks against which to assess (or review) the quality of the work we produced.\"\n    },\n    {\n      \"ref\": \"TMM/Part1/2#1\",\n      \"quote\": \"Our Trade Marks Service Level Commitments set out the level of service that customers can expect. These commitments are relevant to applications for registration, examination requests and hearing decisions.\"\n    },\n    {\n      \"ref\": \"TMM/Part1/2#1\",\n      \"quote\": \"The Manual is fundamental to implementing the quality standards, but must always be considered as a guide and interpreted in the context of the Act, Regulations and the relevant decisions of courts and tribunals.\"\n    },\n    {\n      \"ref\": \"TMM/Part1/x-1.-introduction7#1\",\n      \"quote\": \"The Manual made available on the IP Australia website is the official controlled record of examination practice and procedures.\"\n    },\n    {\n      \"ref\": \"TMA1995/s31\",\n      \"quote\": \"The Registrar must, in accordance with the regulations, examine and report on: (a) whether the application has been made in accordance with this Act; and (b) whether there are grounds under this Act for rejecting it.\"\n    }\n  ],\n  \"answer\": \"The passages describe a quality-assurance framework, but not the detailed mechanics of checking individual examiners’ work.\\n\\n**Manual practice**\\n• IP Australia uses a quality management system to monitor, manage and review the suitability and efficiency of its processes and procedures, with a focus on consistently delivering quality products and services. [TMM/Part1/2#1]\\n• Quality Standards apply to all aspects of trade mark examination and provide benchmarks for assessing or reviewing the quality of completed work. This is the most direct answer to how examination quality is checked. [TMM/Part1/2#1]\\n• Service Level Commitments set customer expectations for applications, examination requests and hearing decisions. [TMM/Part1/2#1]\\n• The online Manual is the official controlled record of examination practice and procedures. It supports implementation of the quality standards, but remains a guide to be interpreted in the context of the Act, Regulations and relevant court and tribunal decisions—not legislation itself. [TMM/Part1/x-1.-introduction7#1; TMM/Part1/2#1]\\n\\n**Act requirement**\\nSection 31 requires the Registrar, in accordance with the Regulations, to examine and report on whether an application complies with the Act and whether there are statutory grounds for rejection. This is the legal examination duty, distinct from the Manual’s quality-management framework. [TMA1995/s31]\\n\\n**Limit of the supplied material:** The quality passage identifies review benchmarks, but does not specify who checks examination work, how frequently it is checked, sampling arrangements or corrective procedures. I cannot establish those details from the passages provided. [TMM/Part1/2#1]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "6bad9bd85f488fd5eb472f085c4442ab28293290109635374af00aeba74dd7e1",
+ "response_id": "resp_080d702f49fa3118006ac87fe8baec87d2bf55cd7111bb89d0",
+ "seconds": 27.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6849,
+  "input_tokens_details": {
+   "cache_write_tokens": 6846,
+   "cached_tokens": 0
+  },
+  "output_tokens": 914,
+  "output_tokens_details": {
+   "reasoning_tokens": 105
+  },
+  "total_tokens": 7763
+ }
+}

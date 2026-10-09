@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00931,
+ "created_utc": "2026-10-09T05:58:31Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0084",
+ "job": "answer",
+ "key": "97bdbba6323dd24407bf86f3a87468405131023ad5ae163b8e598808527aa04c",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0121\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings\",\"quote\":\"Suggested Alternatives Class 5: Moulding wax for dentists Class 6: Mouldings made of metal for building Class 16: Moulding preparations for modelling (artists' materials) Class 17: Mouldings of plastics for packing Class 19: Mouldings, not of metal, for building Class 20: Non-metallic mouldings for furniture Class 21: Moulds (kitchen utensils) Class 37: Moulding of concrete for construction purposes Class 40: Moulding of metals\"},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification#1\",\"quote\":\"Please note that the suggested alternatives are not intended to be exhaustive. Examiners should use this list in conjunction with other resources, including the class headings and IP Australia Classification Search, to determine appropriate alternatives.\"}],\"answer\":\"The Manual suggests these alternatives for ‘mouldings’ (Manual practice, not legislation):\\n\\n| Class | Suggested term |\\n|---|---|\\n| 5 | Moulding wax for dentists |\\n| 6 | Mouldings made of metal for building |\\n| 16 | Moulding preparations for modelling (artists' materials) |\\n| 17 | Mouldings of plastics for packing |\\n| 19 | Mouldings, not of metal, for building |\\n| 20 | Non-metallic mouldings for furniture |\\n| 21 | Moulds (kitchen utensils) |\\n| 37 | Moulding of concrete for construction purposes |\\n| 40 | Moulding of metals |\\n\\nSource: TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/mouldings.\\n\\nThese alternatives are non-exhaustive. The Manual directs examiners to use the list alongside other resources, including class headings and IP Australia Classification Search (TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification#1).\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "698c9a0644385ca2f8c92911974193bbff0a59600c6af10541e3319f13b8281f",
+ "response_id": "resp_057aa6d5b5732766006ac88276155487d2965b728b8cb1cad7",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5477,
+  "input_tokens_details": {
+   "cache_write_tokens": 5474,
+   "cached_tokens": 0
+  },
+  "output_tokens": 493,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 5970
+ }
+}

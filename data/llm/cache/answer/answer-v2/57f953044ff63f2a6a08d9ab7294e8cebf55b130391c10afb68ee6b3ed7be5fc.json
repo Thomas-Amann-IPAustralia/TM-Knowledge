@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01122,
+ "created_utc": "2026-10-09T05:58:50Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0089",
+ "job": "answer",
+ "key": "57f953044ff63f2a6a08d9ab7294e8cebf55b130391c10afb68ee6b3ed7be5fc",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0046\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part55/4#1\",\"quote\":\"A copy of the bill of costs is sent to the party against whom costs have been awarded and 21 days allowed for their comments.\"},{\"ref\":\"TMR1995/r21.12(3)\",\"quote\":\"(3) Before awarding costs in respect of the proceedings, the Registrar must give each party to the proceedings a reasonable opportunity to be heard in relation to the award of costs.\"},{\"ref\":\"TMR1995/r21.13\",\"quote\":\"(2) The costs must be taxed, allowed and certified by an employee appointed by the Registrar. (3) The Registrar may review the taxation of costs by the employee.\"}],\"answer\":\"Yes—as a matter of Manual practice, the party against whom costs have been awarded is sent a copy of the bill of costs and allowed 21 days to comment. This is the stated opportunity to comment on the bill in the taxation process [TMM/Part55/4#1]. The passage does not expressly specify when taxation occurs relative to that comment period.\\n\\nThat is separate from the decision whether to award costs. Under the Regulations, before awarding costs the Registrar must give each party a reasonable opportunity to be heard about the award [TMR1995/r21.12(3)].\\n\\nThe supplied Regulations require taxation, allowance and certification by an appointed employee and permit the Registrar to review the taxation; they do not themselves specify the Manual’s 21-day comment period [TMR1995/r21.13].\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "fd68919fd9bf95ecba7b99842a86c589cc5c7f62c83ed41ca937a2e98909de68",
+ "response_id": "resp_0cf750ddf1bd0340006ac88288467c87d287dd72dfeb6f4648",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7137,
+  "input_tokens_details": {
+   "cache_write_tokens": 7134,
+   "cached_tokens": 0
+  },
+  "output_tokens": 460,
+  "output_tokens_details": {
+   "reasoning_tokens": 112
+  },
+  "total_tokens": 7597
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.015014,
+ "created_utc": "2026-10-09T05:56:56Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0062",
+ "job": "answer",
+ "key": "a8aa9b3379db6523bd5cc86ef59c84947032ab620fc7fb785d93af7b5a1c61f6",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0066\", \"GC-0072\", \"GC-0081\", \"GC-0116\", \"GC-0041\", \"GC-0004\", \"GC-0091\", \"GC-0011\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part28/3/3/6~2\",\n      \"quote\": \"The applicant should explain why they adopted the trade mark and whether they were aware of the earlier trade mark at any point from their first use up to the filing date of the application.\"\n    },\n    {\n      \"ref\": \"TMM/Part28/3/3/1~4\",\n      \"quote\": \"Examiners should not accept bare statements that a trade mark was used honestly or that an applicant was not aware of the earlier trade mark without any explanation as to what enquiries were made prior to commencing use, or the reasons that no enquiries were made.\"\n    },\n    {\n      \"ref\": \"TMM/Part28/3/3/1~4\",\n      \"quote\": \"Mere knowledge of the prior trade mark(s) does not (without more) preclude a finding that an applicant has acted honestly (Zip Co, [62], citing McCormick & Company Inc v McCormick [2000] FCA 1335, [33]), but it will ordinarily weigh strongly against a finding of honesty (Zip Co at [70]). Where the applicant was aware of the prior trade mark(s), it will be necessary for the applicant to establish why their use of the trade mark was nevertheless honest. For example, this could be because the applicant considered that consumers would not experience confusion and had no intention to trade off the goodwill of the prior registered mark. The applicant’s case will generally be more persuasive if they provide cogent reasons for forming this belief, and/or supporting evidence.\"\n    },\n    {\n      \"ref\": \"TMM/Part28/3/3/1~1\",\n      \"quote\": \"Whether the use was honest is based on the applicant’s subjective state of mind assessed against the standards of ordinary, decent people (Zip Co, [72]). The applicant’s state of mind should be addressed directly by the applicant, informed by the surrounding facts and circumstances. The applicant, seeking to establish honest concurrent use, bears the onus of proof and must establish that their use was honest.\"\n    }\n  ],\n  \"answer\": \"For an honest concurrent use case, the supplied Manual gives the following guidance. These are statements of Manual practice, not legislative requirements.\\n\\n• Explain why you adopted your trade mark and when you knew about the earlier mark, addressing awareness from first use through to the application’s filing date. [TMM/Part28/3/3/6~2]\\n\\n• Describe the enquiries you made before starting use. If you made none, explain why. A bare assertion that your use was honest is not enough. [TMM/Part28/3/3/1~4]\\n\\n• Explain why you nevertheless considered your use honest despite knowing about the earlier mark. For example, address whether you believed consumers would not be confused and whether you had no intention of trading off the earlier mark’s goodwill. Give cogent reasons for that belief and supporting evidence where available—not merely the conclusion. [TMM/Part28/3/3/1~4]\\n\\n• Address your own state of mind directly, with the surrounding facts and circumstances. The Manual places the burden of establishing honest use on the applicant. [TMM/Part28/3/3/1~1]\\n\\nKnowing about the earlier mark does not, by itself, rule out honesty, but the Manual says it will ordinarily weigh strongly against a finding of honesty. Your explanation therefore needs to establish why your use was nevertheless honest. [TMM/Part28/3/3/1~4]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "fd2729f6dbc5a2d0cfee7bcc391e1f43890096f0792847d03e935a6474285246",
+ "response_id": "resp_041c6789046f6c5c006ac8820cfb0087d2bf500bb4f528f830",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7784,
+  "input_tokens_details": {
+   "cache_write_tokens": 7781,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1057,
+  "output_tokens_details": {
+   "reasoning_tokens": 224
+  },
+  "total_tokens": 8841
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012917,
+ "created_utc": "2026-10-09T05:49:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0072",
+ "job": "answer",
+ "key": "1505e0e25faf23f1d9910623d1876e853e4cbdae23ad6563fd70f404979c8b9a",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0036\",\"GC-0001\",\"GC-0002\",\"GC-0038\",\"GC-0168\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part29/1/1/2\",\"quote\":\"If a trade mark contains or consists of word/s which connote a particular plant variety or other plant name, and is applied to plants or plant materials of the same or a closely related genus, it is likely to deceive or cause confusion as to the true nature of those plants or plant materials and a ground for rejection under section 43 of the Act will be appropriate.\"},{\"ref\":\"TMM/Part32A/2/4/2/4/1\",\"quote\":\"Therefore, if the trade mark contains or consists of a known variety name, the connotation may be immediate, and deception or confusion is likely if the trade mark is used on a different variety of the same or a closely related genus.\"},{\"ref\":\"TMM/Part32A/2/4/2/4/1\",\"quote\":\"However, the examiner needs to consider how the variety name appears within the trade mark as a whole. For example, if the plant name is a dictionary word appearing in a phrase then connotation may not be immediate.\"}],\"answer\":\"Yes, in principle—but using a plant variety name does not by itself establish that a particular application must be rejected.\\n\\n**Act:** Section 43 requires rejection where a connotation of the mark, or a sign within it, makes use on the claimed goods or services likely to deceive or cause confusion. [TMA1995/s43]\\n\\n**Manual practice:** A name connoting a particular plant variety can support a section 43 objection for plants or plant materials of the same or a closely related genus. The more detailed guidance identifies the concern as use on a **different variety** of that genus: a known variety name may immediately connote that variety, making use on another variety likely to deceive or confuse. [TMM/Part29/1/1/2; TMM/Part32A/2/4/2/4/1]\\n\\n**Important qualification—Manual practice:** The examiner must consider the mark as a whole. For example, a variety name that is also a dictionary word appearing within a phrase may not give rise to an immediate connotation. The assessment is therefore not simply whether the mark includes a variety name. This explains the general examination approach, not the outcome of your particular application. [TMM/Part32A/2/4/2/4/1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b810d5f3be9b44e3c52afd0d37ad2035f30827fe0abc4813deef69f4d3a30996",
+ "response_id": "resp_058f9dc48032c126006ac8803d6a6c87d2b8975964de965153",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7366,
+  "input_tokens_details": {
+   "cache_write_tokens": 7363,
+   "cached_tokens": 0
+  },
+  "output_tokens": 742,
+  "output_tokens_details": {
+   "reasoning_tokens": 117
+  },
+  "total_tokens": 8108
+ }
+}

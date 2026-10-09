@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011504,
+ "created_utc": "2026-10-09T05:52:45Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0005",
+ "job": "answer",
+ "key": "0630bf289ae62a23d5d66adc44a8993c8ee57d73f88feab07107f057514781b8",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0014\",\"GC-0023\",\"GC-0024\",\"GC-0013\",\"GC-0025\",\"GC-0168\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part29/5/5/5\",\"quote\":\"The endorsement suggested by the Registrar in these circumstances is: It is a condition of registration that any use in respect of pharmaceuticals will be limited to such goods containing substances belonging to the pharmacological group designated by the International Non- Proprietary Name stem <stem>.\"},{\"ref\":\"TMM/Part29/5/5/5\",\"quote\":\"A ground for rejection under section 43 exists where a trade mark to be used in relation to pharmaceuticals or veterinary substances consists of an INN stem, or contains a notified INN stem in a meaningful way, and use of the trade mark in respect of the goods covered by the specification are not restricted to substances indicated by the INN stem. A section 43 ground for rejection may be overcome by the applicant agreeing to a condition of registration limiting use of the trade mark to goods containing substances belonging to the relevant INN stem.\"}],\"answer\":\"Manual practice — the Registrar’s suggested endorsement is:\\n\\n“It is a condition of registration that any use in respect of pharmaceuticals will be limited to such goods containing substances belonging to the pharmacological group designated by the International Non- Proprietary Name stem <stem>.” [TMM/Part29/5/5/5]\\n\\nThis is suggested where a mark for pharmaceuticals or veterinary substances consists of an INN stem, or contains a notified INN stem meaningfully, and the specification is not restricted to substances indicated by that stem. The Manual says agreement to this condition may overcome the section 43 ground for rejection; it does not say that merely containing a stem always requires an endorsement. [TMM/Part29/5/5/5]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "17e6f5a61284418179aa7442fa5da6521491be10f6a7648392a7bc3b702eace8",
+ "response_id": "resp_016803d061f6e0a5006ac8811c076c87d29e23b1e345743252",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7584,
+  "input_tokens_details": {
+   "cache_write_tokens": 7581,
+   "cached_tokens": 0
+  },
+  "output_tokens": 405,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7989
+ }
+}

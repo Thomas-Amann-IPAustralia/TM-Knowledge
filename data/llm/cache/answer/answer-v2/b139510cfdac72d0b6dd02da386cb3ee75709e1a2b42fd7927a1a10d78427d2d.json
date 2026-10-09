@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01563,
+ "created_utc": "2026-10-09T05:47:02Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0047",
+ "job": "answer",
+ "key": "b139510cfdac72d0b6dd02da386cb3ee75709e1a2b42fd7927a1a10d78427d2d",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0086\",\"GC-0087\",\"GC-0162\",\"GC-0027\",\"GC-0026\",\"GC-0001\",\"GC-0002\",\"GC-0168\",\"GC-0091\",\"GC-0009\",\"GC-0050\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part43/1#1~1\",\"quote\":\"The Act requires that the Registrar be advised of this change of ownership as soon as it occurs.\"},{\"ref\":\"TMM/Part43/1#1~1\",\"quote\":\"If the application to record complies with the formal requirements and is supported by a document that establishes title to the trade mark, the Registrar must record the change of ownership.\"},{\"ref\":\"TMM/Part43/1#1~1\",\"quote\":\"1.2 It defines transmission as transmission by operation of law, or devolution on the personal representative of a deceased person, or any other kind of transfer except assignment (section 6).\"},{\"ref\":\"TMA1995/s108\",\"quote\":\"(1) If the application complies with this Act, the Registrar must: (a) at, or within, the time provided for in the regulations, record in the manner that the Registrar thinks fit (but not in the Register) the particulars of the assignment or transmission; and (b) publish the particulars of the assignment or transmission in accordance with the regulations.\"},{\"ref\":\"TMM/Part29/6/6/2~1\",\"quote\":\"Generally, a section 43 ground for rejection will not arise in respect of long deceased historical figures, even if they were well known for the same field as the specified goods/services are in.\"},{\"ref\":\"TMM/Part29/6/6/2~1\",\"quote\":\"However, a relevant connotation may arise if the deceased person’s estate (or other authorised entity) has continued to control the use of the person’s name/image after their death, e.g. by commercialising directly or licensing to third parties. The more well-known the person is, and the more recently they died (especially from the mid-twentieth century onwards), the more likely consumers will be to know about or expect this kind of control.\"},{\"ref\":\"TMM/Part29/6#1~2\",\"quote\":\"Firstly, how well known is the person among relevant Australian consumers, as at the priority date?\"},{\"ref\":\"TMM/Part29/6#1~1\",\"quote\":\"If the trade mark application is submitted by the well-known person, or it is clear from other available information that the application was made with permission from the well-known person or their representative, a section 43 ground for rejection does not arise. However, if the examiner is not satisfied that the relevant relationship exists between the applicant and the well-known person referred to, a ground for rejection may be appropriate.\"},{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"}],\"answer\":\"Yes—recordal of ownership and the significance of the estate’s control are separate issues.\\n\\n**Ownership recordal — Manual practice:** The Manual says the Registrar must be advised of a change of ownership as soon as it occurs, and must record it where the formal requirements are met and a document establishes title. It describes devolution on a deceased person’s personal representative as transmission, rather than assignment by the parties. The precise characterisation therefore depends on how the transfer occurs. [TMM/Part43/1#1~1]\\n\\n**Act:** For a trade mark whose registration is being sought, section 108 requires the Registrar, where the application complies with the Act, to record the assignment or transmission particulars outside the Register and publish them. The supplied legislation does not include the corresponding registered-mark recordal provision, so the general recordal guidance above rests on the Manual passage. [TMA1995/s108; TMM/Part43/1#1~1]\\n\\n**Ongoing control — Manual practice:** Yes, this remains relevant to the section 43 enquiry. Although the Manual generally treats long-deceased historical figures as not giving rise to that ground, it expressly recognises that continued commercialisation or licensing of the deceased person’s name/image by their estate can produce a relevant connotation. Fame and recency of death affect consumers’ expectations of that control; recognition among relevant Australian consumers is assessed at the priority date. [TMM/Part29/6/6/2~1; TMM/Part29/6#1~2]\\n\\nThe Manual also makes the applicant’s relationship with, or permission from, the person or their representative relevant. Accordingly, ownership recordal should not replace consideration of that relationship and the connotation conveyed to consumers. [TMM/Part29/6#1~1]\\n\\n**Act:** The governing section 43 test is whether use for the specified goods or services would be likely to deceive or cause confusion because of a connotation of the mark or a sign within it. These passages provide the framework, not an outcome for any particular application. [TMA1995/s43]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "fcee453656e2ce4079cca227f3081d98eabf295204cd3d39032b89071cf06642",
+ "response_id": "resp_071dd35452acd81e006ac87fab00b887d291c11feb67e78655",
+ "seconds": 43.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7521,
+  "input_tokens_details": {
+   "cache_write_tokens": 7518,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1246,
+  "output_tokens_details": {
+   "reasoning_tokens": 120
+  },
+  "total_tokens": 8767
+ }
+}

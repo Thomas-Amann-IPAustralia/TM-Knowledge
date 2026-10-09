@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01186,
+ "created_utc": "2026-10-09T05:49:41Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0075",
+ "job": "answer",
+ "key": "a70073094dc582eede2227a156be47976c824d6592ae845732ee8263de50551e",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0117\",\"GC-0092\",\"GC-0040\",\"GC-0006\",\"GC-0057\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part46/4#1\",\"quote\":\"Registration may be opposed on the same grounds for rejecting an application during examination, with the exception of the ground under section 40 that the trade mark cannot be represented graphically (section 57).\"},{\"ref\":\"TMM/Part46/4#1\",\"quote\":\"The onus is upon the opponent to establish a ground of opposition and the standard of proof is on the balance of probabilities (Pfizer Products Inc v Karam (2006) FCA 1663 per Gyles J at [6] to [26]).\"},{\"ref\":\"TMM/Part46/4#1\",\"quote\":\"The only grounds on which registration may be opposed are those contained in the Act and Regulations.\"}],\"answer\":\"Yes, with one exception.\\n\\n• Available grounds — Manual practice: registration may be opposed on the same grounds used to reject an application during examination, except the section 40 ground that the trade mark cannot be represented graphically. The Manual refers to section 57 for this rule. [1]\\n\\n• Burden and standard of proof — Manual practice: the opponent must establish a ground of opposition on the balance of probabilities. [2]\\n\\n• Limits — Manual practice: only grounds contained in the Act and Regulations are available. [3]\\n\\nThese statements report the Manual’s account of the opposition framework; they are not quotations from the Act or Regulations.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "7ccdc13f5d6d7affeec3a55f715001d6024ee472e63eaa9b22370ecee6858faf",
+ "response_id": "resp_018bb6175f021e8b006ac88059973c87d2a5e0f84295c2bf0d",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7313,
+  "input_tokens_details": {
+   "cache_write_tokens": 7310,
+   "cached_tokens": 0
+  },
+  "output_tokens": 544,
+  "output_tokens_details": {
+   "reasoning_tokens": 191
+  },
+  "total_tokens": 7857
+ }
+}

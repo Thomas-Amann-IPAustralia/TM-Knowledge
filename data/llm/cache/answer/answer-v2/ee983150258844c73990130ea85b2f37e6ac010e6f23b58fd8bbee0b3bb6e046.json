@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012861,
+ "created_utc": "2026-10-09T05:45:49Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0010",
+ "job": "answer",
+ "key": "ee983150258844c73990130ea85b2f37e6ac010e6f23b58fd8bbee0b3bb6e046",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0073\",\"GC-0074\",\"GC-0057\",\"GC-0131\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part10/3/3/6/1\",\"quote\":\"The applicant should state on their application whether the sign they are claiming as a trade mark is a moving image, hologram or gesture.\"},{\"ref\":\"TMM/Part10/3/3/6/2\",\"quote\":\"The applicant must include a clear description of the sign which is the subject of the application. This description must be precise and clearly identify exactly what the trade mark consists of.\"},{\"ref\":\"TMM/Part21/2#1\",\"quote\":\"The representations must clearly demonstrate the nature of the mark, and show each feature clearly enough to permit proper examination (subregulation 4.3(8)).\"},{\"ref\":\"TMM/Part21/5/5/1\",\"quote\":\"Taken together these definitions make it fairly clear that to be expressed or represented graphically a trade mark can be represented by symbols in the form of diagrams and/or writing. However, as with shape and colour trade marks these representations must make it clear to the general public exposed to the trade mark application/registration, what the scope of the trade mark is.\"},{\"ref\":\"TMA1995/s40\",\"quote\":\"An application for the registration of a trade mark must be rejected if the trade mark cannot be represented graphically.\"},{\"ref\":\"TMR1995/r4.3(7)\",\"quote\":\"(7) If a trade mark for which registration is sought contains or consists of a sign that is a colour, scent, shape, sound or an aspect of packaging, or any combination of those features, the application for registration of the trade mark must include a concise and accurate description of the trade mark.\"}],\"answer\":\"For a moving logo, the supplied passages support this checklist:\\n\\n1. **Identify it as a moving image.** The Manual says you should state on the application whether the claimed sign is a moving image, hologram or gesture. [TMM/Part10/3/3/6/1]\\n\\n2. **Precisely describe what you are claiming.** Manual practice requires a clear description identifying exactly what the trade mark consists of. For your question, that means making the claimed motion clear—not merely describing the stationary logo. This is an interpretation of the general description requirement, rather than a prescribed motion-description formula. [TMM/Part10/3/3/6/2]\\n\\n3. **Provide representations that make the features and scope clear.** The Manual says representations must clearly demonstrate the mark’s nature and each feature sufficiently for examination. Its interpretation of graphical representation permits diagrams and/or writing, provided the scope is clear to the public. [TMM/Part21/2#1; TMM/Part21/5/5/1]\\n\\n**Legislation, distinct from Manual practice:** Section 40 of the Act requires rejection if the mark cannot be represented graphically. Regulation 4.3(7) requires a concise and accurate description where the mark contains or consists of colour, scent, shape, sound, an aspect of packaging, or a combination of those features; it does not expressly name motion. [TMA1995/s40; TMR1995/r4.3(7)]\\n\\n**Limit of these passages:** They do not specify a moving-image frame count, timing notation or file format. I cannot establish those requirements from the supplied material.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "4f7be2c5c9f2ef13db13fb4d507192588b4869571bf415dd5ba6c31999aa1278",
+ "response_id": "resp_0916c81a89268236006ac87f7181bc87d2ae32bdc2692e5191",
+ "seconds": 29.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6865,
+  "input_tokens_details": {
+   "cache_write_tokens": 6862,
+   "cached_tokens": 0
+  },
+  "output_tokens": 856,
+  "output_tokens_details": {
+   "reasoning_tokens": 109
+  },
+  "total_tokens": 7721
+ }
+}

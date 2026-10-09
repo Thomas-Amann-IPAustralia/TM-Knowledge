@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011746,
+ "created_utc": "2026-10-09T05:50:44Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0096",
+ "job": "answer",
+ "key": "67c27bb8119846ac4b96b7fcf5ddc10d5b7586a312c170e0619b8e9f804be5c4",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0078\",\"GC-0058\",\"GC-0059\",\"GC-0120\",\"GC-0093\",\"GC-0006\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part21/7/7/2/1~2\",\"quote\":\"To be capable of distinguishing the applicant's goods, the scent needs to be something apart from the goods themselves. It should be neither a natural characteristic nor an expected characteristic of the product, but something added to identify the applicant's goods from those of others in the same market.\"},{\"ref\":\"TMM/Part21/7/7/2/1~1\",\"quote\":\"The natural scent of a product will have no inherent adaptation to distinguish the goods.\"},{\"ref\":\"TMM/Part21/7/7/2/1~1\",\"quote\":\"A masking scent has a functional purpose, and is not capable of distinguishing for that reason.\"},{\"ref\":\"TMA1995/s33\",\"quote\":\"(1) The Registrar must, after the examination, accept the application unless he or she is satisfied that: (a) the application has not been made in accordance with this Act; or (b) there are grounds under this Act for rejecting it.\"}],\"answer\":\"Yes, as a statement of Manual practice about capacity to distinguish—but not as a complete statutory test for acceptance.\\n\\n**Manual practice:** The scent should be separate from the goods themselves, neither natural nor expected, and added to identify the applicant’s goods from others in the same market [TMM/Part21/7/7/2/1~2]. The Manual states that a product’s natural scent has no inherent adaptation to distinguish [TMM/Part21/7/7/2/1~1].\\n\\nMerely adding a scent is therefore not enough: it must perform the identifying function described above. In particular, an added masking scent has a functional purpose and the Manual treats it as not capable of distinguishing for that reason [TMM/Part21/7/7/2/1~2; TMM/Part21/7/7/2/1~1].\\n\\n**Act:** Section 33 requires acceptance after examination unless the Registrar is satisfied that the application does not comply with the Act or that there are grounds under the Act for rejection [TMA1995/s33]. The supplied legislation does not state a scent-specific ‘only if added’ rule; that wording comes from the Manual’s practice guidance, not the supplied statutory acceptance provision.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "9b531525eadf8c4ff6e2e85ac2ef10844d4a2bb37470e5680665c3fbdbad52d4",
+ "response_id": "resp_0140d8b7fd23096f006ac880982ec087d284ce6553bbba8050",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6833,
+  "input_tokens_details": {
+   "cache_write_tokens": 6830,
+   "cached_tokens": 0
+  },
+  "output_tokens": 641,
+  "output_tokens_details": {
+   "reasoning_tokens": 101
+  },
+  "total_tokens": 7474
+ }
+}

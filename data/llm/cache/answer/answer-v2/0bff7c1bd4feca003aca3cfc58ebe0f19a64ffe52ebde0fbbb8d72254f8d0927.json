@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013439,
+ "created_utc": "2026-10-09T05:53:12Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0010",
+ "job": "answer",
+ "key": "0bff7c1bd4feca003aca3cfc58ebe0f19a64ffe52ebde0fbbb8d72254f8d0927",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0001\",\"GC-0002\",\"GC-0005\",\"GC-0007\",\"GC-0009\",\"GC-0038\",\"GC-0049\",\"GC-0168\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part29/2/2/1~1\",\"quote\":\"Connotation is not defined in the Trade Marks Act 1995 (the Act).\"},{\"ref\":\"TMM/Part29/2/2/1~1\",\"quote\":\"It is clear from these definitions that the word connotation refers to something implied in a trade mark, in addition to its essential or primary meaning. This has been supported and expanded upon by various Hearings decisions and the courts. In respect of section 43, connotation has a wide meaning beyond the above definitions and includes direct statements.\"},{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part29/3#1~1\",\"quote\":\"For a trade mark to trigger section 43 there must be some connotation within the trade mark that would reasonably be expected to cause deception or confusion in the mind of the relevant buying public.\"},{\"ref\":\"TMM/Part29/3/3/5\",\"quote\":\"When determining the potential connotation within a trade mark, the trade mark as a whole should be considered. Other features incorporated as part of the trade mark can diminish the impact of the offending material and cast doubt as to how it will be seen and interpreted by the relevant consumer.\"},{\"ref\":\"TMM/Part29/3/3/2\",\"quote\":\"Each application must be considered as it stands in the current marketplace, not in the marketplace as it was in the past and not as it may be in the future.\"},{\"ref\":\"TMM/Part29/2/2/4\",\"quote\":\"The presumption of registrability applies to section 43. The Registrar must be satisfied that a ground for rejection exists before section 33(3) can be applied to reject the trade mark. If there is doubt that a connotation exists, then the ground for rejection should not be raised.\"}],\"answer\":\"**Meaning — Manual practice:** The Manual states that connotation is not defined in the Act. For practical purposes, it means something implied by a trade mark in addition to its essential or primary meaning (denotation). However, for section 43 it has a broader meaning that **also includes direct statements**, not merely secondary or implied meanings. [TMM/Part29/2/2/1~1]\\n\\n**Legal requirement — Act:** Section 43 requires rejection where, because of a connotation of the trade mark or a sign contained in it, use of the mark for the particular goods or services would be likely to deceive or cause confusion. The statutory requirement is therefore not merely that a connotation exists: that connotation must cause the specified likelihood of deception or confusion. [TMA1995/s43]\\n\\n**Examiner’s assessment — Manual practice:** The connotation must reasonably be expected to cause deception or confusion in the mind of the relevant buying public. Assess the mark as a whole, because other features may diminish the impact of potentially misleading material, and consider the current marketplace rather than a past or hypothetical future marketplace. [TMM/Part29/3#1~1; TMM/Part29/3/3/5; TMM/Part29/3/3/2]\\n\\nThe Manual also says that the presumption of registrability applies: if there is doubt that a connotation exists, a section 43 ground for rejection should not be raised. This is the Manual’s examination guidance, distinct from the statutory wording above. [TMM/Part29/2/2/4]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "a3299ef1851e69aa23784420adb07f3f8d4ccdded96f89aba5509dc9fba22409",
+ "response_id": "resp_024530217182e593006ac8812c395487d2867beabf18e03e0a",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6836,
+  "input_tokens_details": {
+   "cache_write_tokens": 6833,
+   "cached_tokens": 0
+  },
+  "output_tokens": 979,
+  "output_tokens_details": {
+   "reasoning_tokens": 124
+  },
+  "total_tokens": 7815
+ }
+}

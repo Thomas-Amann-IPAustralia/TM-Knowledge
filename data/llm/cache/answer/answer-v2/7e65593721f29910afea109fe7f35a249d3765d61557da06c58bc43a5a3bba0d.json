@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012823,
+ "created_utc": "2026-10-09T06:00:12Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0109",
+ "job": "answer",
+ "key": "7e65593721f29910afea109fe7f35a249d3765d61557da06c58bc43a5a3bba0d",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0072\", \"GC-0047\", \"GC-0058\", \"GC-0059\", \"GC-0119\", \"GC-0038\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part22/16/16/3\",\n      \"quote\": \"If a trade mark consists of a surname combined with words that are considered to be descriptive in relation to the particular goods and / or services it is unlikely that it will be sufficiently inherently adapted to distinguish.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/16/16/3\",\n      \"quote\": \"The mark as-a-whole would not be prima facie capable of distinguishing the applicant’s services from those of other traders.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/16/16/3\",\n      \"quote\": \"When assessing the registrability of a sign which consists of a common surname, consideration must also be given to the way in which the surname is represented. An unusual representation may serve to render it capable of distinguishing where plain type would not.\"\n    },\n    {\n      \"ref\": \"TMM/Part22/16/16/1~1\",\n      \"quote\": \"The nature of the goods and/or services must be taken into account, that is whether they are specialised, commonplace or somewhere between these extremes.\"\n    },\n    {\n      \"ref\": \"TMA1995/s41\",\n      \"quote\": \"(1) An application for the registration of a trade mark must be rejected if the trade mark is not capable of distinguishing the applicant’s goods or services in respect of which the trade mark is sought to be registered (the designated goods or services) from the goods or services of other persons.\"\n    },\n    {\n      \"ref\": \"TMA1995/s41\",\n      \"quote\": \"(2) A trade mark is taken not to be capable of distinguishing the designated goods or services from the goods or services of other persons only if either subsection (3) or (4) applies to the trade mark.\"\n    }\n  ],\n  \"answer\": \"Generally, yes—if by ‘hard to distinguish’ you mean lacking sufficient inherent capacity to distinguish one trader’s services from another’s.\\n\\nManual practice: A surname combined with words descriptive of the relevant services is unlikely to be sufficiently inherently adapted to distinguish. The Manual illustrates this with JONES CAR REPAIRS for motor vehicle repair and maintenance, treating the mark as a whole as not prima facie capable of distinguishing. However, the surname’s presentation matters: an unusual representation may provide distinguishing capacity that plain type would not. The nature of the services, including whether they are specialised or commonplace, must also be considered. [TMM/Part22/16/16/3; TMM/Part22/16/16/1~1]\\n\\nAct: Section 41(1) requires rejection where the mark is not capable of distinguishing the designated services. Section 41(2) limits that conclusion to cases satisfying subsection (3) or (4). Accordingly, the Manual’s assessment of insufficient inherent adaptation is not, by itself, a complete statutory rejection test. The supplied section 41 excerpt cuts off during subsection (4), so it does not provide that test in full. [TMA1995/s41]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "24658b82cb0182d991bd7add5b1d95311365419fd0a0a3b78743077cef9698e2",
+ "response_id": "resp_0f1ed43d9babdd71006ac882db474c87d281c7d6bc52cc1964",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6711,
+  "input_tokens_details": {
+   "cache_write_tokens": 6708,
+   "cached_tokens": 0
+  },
+  "output_tokens": 887,
+  "output_tokens_details": {
+   "reasoning_tokens": 170
+  },
+  "total_tokens": 7598
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011952,
+ "created_utc": "2026-10-09T05:56:28Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0058",
+ "job": "answer",
+ "key": "c36f10cb63fe093c5c06c03743c7be3986daed807beb8e59eaeff647ad7c1351",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0079\",\"GC-0080\",\"GC-0017\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part13/6/6/4\",\"quote\":\"Example 1 IDAK SYDNEY STANDARD 1 IDAK MELBOURNE DELUXE 2 Class 43: Hotel accommodation. This example is a valid series because the trade marks differ by statements as to place name, quality and number.\"},{\"ref\":\"TMM/Part13/6/6/4\",\"quote\":\"Example 2 IDAK IDAK SYDNEY IDAK SYDNEY 1 IDAK $500 This example is a valid series because the trade marks differ by the presence or absence of statements as to place name and number.\"},{\"ref\":\"TMM/Part13/7/7/1\",\"quote\":\"The below are examples of invalid series, because the trade marks do not resemble each other in material particulars. The differences are such that they affect the identity of the trade marks when each member of the series is compared to each of the others.\"},{\"ref\":\"TMM/Part13/7/7/1\",\"quote\":\"The large difference in the relative size of the words in each trade mark significantly changes the prominence of the shared IDAK, as well as the overall visual impression.\"},{\"ref\":\"TMM/Part13/7/7/1\",\"quote\":\"Example 3 SYDNEY CLOTHING; MELBOURNE CLOTHING Class 25: Clothing. The trade marks differ only by a statement as to “names of places” (s 51(1)(b)). However, the shared word CLOTHING is purely descriptive of the claimed goods, and is at the end of two purely descriptive phrases. CLOTHING is not likely to be taken by consumers as an identifying feature of these trade marks. Therefore, they do not resemble each other in material particulars.\"}],\"answer\":\"Yes, in principle—as a **series of trade marks**, rather than simply a ‘set’.\\n\\n**Manual practice:** The Manual gives valid series examples consisting of a shared mark, IDAK, with different city names and numbers. It also permits, in its example, the presence or absence of place-name and number statements (TMM/Part13/6/6/4).\\n\\nHowever, those differences do not automatically make a valid series. The marks must resemble each other in material particulars. The Manual identifies invalid examples where changes in relative word size alter the prominence of the shared mark and overall visual impression. It also treats SYDNEY CLOTHING and MELBOURNE CLOTHING as an invalid series for clothing because the shared word is purely descriptive and is not likely to be an identifying feature (TMM/Part13/7/7/1).\\n\\n**Legislation:** The supplied legislative passage does not address series applications, so this answer states the supplied Manual practice, not the full statutory requirements.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b819ada1a1aec496912493cde161eee49f46abe4fe59e4e4db6a25ed3501415c",
+ "response_id": "resp_052b0f8ab1093d84006ac881fb068887d28d23d01767f38d8d",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6742,
+  "input_tokens_details": {
+   "cache_write_tokens": 6739,
+   "cached_tokens": 0
+  },
+  "output_tokens": 705,
+  "output_tokens_details": {
+   "reasoning_tokens": 82
+  },
+  "total_tokens": 7447
+ }
+}

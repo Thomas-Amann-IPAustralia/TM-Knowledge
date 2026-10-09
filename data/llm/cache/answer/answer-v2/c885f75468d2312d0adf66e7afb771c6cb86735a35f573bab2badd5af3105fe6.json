@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012168,
+ "created_utc": "2026-10-09T05:51:07Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0100",
+ "job": "answer",
+ "key": "c885f75468d2312d0adf66e7afb771c6cb86735a35f573bab2badd5af3105fe6",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0104\",\"GC-0142\",\"GC-0116\",\"GC-0046\",\"GC-0139\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part48/2/2/1\",\"quote\":\"Subsection 92(5) provides that, under certain circumstances, a non-use application may proceed in the name of a person other than the person who filed the application. This may happen provided that the right or interest, upon which the person who filed the application for removal relied, has passed to the other person, and the Registrar or the court has been notified in writing of this fact.\"},{\"ref\":\"TMM/Part49/6#1\",\"quote\":\"If during proceedings the right or interest which caused the applicant to apply for removal becomes vested in another person, the other person may be substituted as the applicant (s 92(5) and reg 17A.48D).\"},{\"ref\":\"TMM/Part49/6#1\",\"quote\":\"In both cases the relevant party must inform the Registrar in writing.\"}],\"answer\":\"Yes—as a general procedural matter, according to the Manual practice supplied. A non-use removal application may proceed in another person’s name if the right or interest relied on by the original filer has passed to that person, and the Registrar or the court has been notified of that fact in writing [TMM/Part48/2/2/1].\\n\\nFor proceedings before the Registrar, the Manual expressly says that the other person may be substituted as applicant and that the relevant party must inform the Registrar in writing [TMM/Part49/6#1].\\n\\nThese are statements of Manual practice, not quotations of legislation. The Manual attributes the procedure to subsection 92(5), but that subsection is not reproduced in the supplied Act extract, so its precise statutory wording cannot be verified here.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "217fa9d9ae107248041e09c94e258f376280499747e09de8f5b37aa6de4cdba1",
+ "response_id": "resp_0c0bf7c5537e82d0006ac880afd93c87d2a71840a53bb35b9d",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7307,
+  "input_tokens_details": {
+   "cache_write_tokens": 7304,
+   "cached_tokens": 0
+  },
+  "output_tokens": 607,
+  "output_tokens_details": {
+   "reasoning_tokens": 202
+  },
+  "total_tokens": 7914
+ }
+}

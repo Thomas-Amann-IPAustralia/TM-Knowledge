@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013296,
+ "created_utc": "2026-10-09T05:49:39Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0074",
+ "job": "answer",
+ "key": "db30138e9036bd130f80b0f80eb77b6ba18a0a65b43fc395bcae00d6e2a06cc8",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0079\",\"GC-0080\",\"GC-0038\",\"GC-0059\",\"GC-0181\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part13/2#1~2\",\"quote\":\"As a result, it is usually appropriate to focus on the shared elements when assessing the resemblance of material particulars. This approach may apply even where the identifying element is of low distinctiveness.\"},{\"ref\":\"TMM/Part13/2#1~2\",\"quote\":\"However, the effect of any differences between trade marks must be considered in the context of the trade marks as a whole.\"},{\"ref\":\"TMM/Part13/2#1~1\",\"quote\":\"a feature which is important, essential and non-trivial and which is also that portion of the trade mark likely to be recalled as being a trade mark\"},{\"ref\":\"TMM/Part22/17/17/2\",\"quote\":\"There is a high likelihood that someone with a common surname will need to use that name in conjunction with a common initial. These combinations are not sufficiently adapted to distinguish an applicant's designated goods or services and will attract a ground for rejection under section 41. See paragraph 18 of this Part for examples.\"},{\"ref\":\"TMM/Part13/2#1~2\",\"quote\":\"For clarity, this assessment is separate to, and does not affect the application of, section 41.\"},{\"ref\":\"TMA1995/s51(1)\",\"quote\":\"(1) A person may make a single application under subsection 27(1) for the registration of 2 or more trade marks in respect of goods and/or services if the trade marks resemble each other in material particulars and differ only in respect of one or more of the following matters:\"}],\"answer\":\"Usually, yes—if the shared surname and initial function as the identifying feature of both marks. But the passages do not establish a surname-and-initial-specific rule.\\n\\nManual practice: It is usually appropriate to focus on shared identifying elements when comparing material particulars, even where that element has low distinctiveness [citation 1]. The Manual describes a material particular as an important, essential, non-trivial feature likely to be recalled as a trade mark [citation 3]. Accordingly, the common surname and initial may be the focus, but sharing them does not automatically settle the comparison: differences must be assessed in the context of each mark as a whole [citation 2].\\n\\nSeparate distinctiveness issue: For a common surname combined with a common initial, the Manual states that the combination attracts a section 41 ground for rejection [citation 4]. That is Manual practice concerning distinctiveness, not a reason by itself to disregard the shared element in the series comparison; the Manual expressly separates that comparison from section 41 [citations 1 and 5].\\n\\nAct: Section 51(1) requires both resemblance in material particulars and differences confined to the permitted matters. Shared identifying features alone are therefore not enough to establish a valid series [citation 6].\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "c82d8e0f83e45a58b3d69ae99a75cdc4c6380e43a1009cf74c85ac5f5375f1d6",
+ "response_id": "resp_0ea7be0268a79dcb006ac880575fdc87d2bbc41654c37c4128",
+ "seconds": 28.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7529,
+  "input_tokens_details": {
+   "cache_write_tokens": 7526,
+   "cached_tokens": 0
+  },
+  "output_tokens": 777,
+  "output_tokens_details": {
+   "reasoning_tokens": 132
+  },
+  "total_tokens": 8306
+ }
+}

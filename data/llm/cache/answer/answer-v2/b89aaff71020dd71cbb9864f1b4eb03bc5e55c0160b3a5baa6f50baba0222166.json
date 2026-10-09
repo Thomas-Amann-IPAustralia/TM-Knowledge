@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010418,
+ "created_utc": "2026-10-09T05:51:47Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0108",
+ "job": "answer",
+ "key": "b89aaff71020dd71cbb9864f1b4eb03bc5e55c0160b3a5baa6f50baba0222166",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0121\", \"GC-0044\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services\",\n      \"quote\": \"The Trade Marks Classification Search is available to examiners via RIO Dashboard > Register Search, under the heading ‘Classification search’ accessible from the drop-down menu in the top right corner of the screen.\"\n    },\n    {\n      \"ref\": \"TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services\",\n      \"quote\": \"For external users, the Trade Marks Classification Search is also available from the Advanced Search screen of the Australian Trade Mark Search.\"\n    }\n  ],\n  \"answer\": \"The Manual gives these access routes (Manual practice, not legislative requirements):\\n\\n- **Examiners:** Go to **RIO Dashboard > Register Search**, open the drop-down menu in the top right corner, and select **‘Classification search’**. [TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services]\\n- **External users:** Access the Trade Marks Classification Search from the **Advanced Search** screen of **Australian Trade Mark Search**. [TMM/Part14/x-annex-a5---using-the-trade-marks-classification-search/searching-for-goods-and-services]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "44b9a3ca9156241c74ee3a43b07354bfd8a799cdaa199ff8d912f851a079040a",
+ "response_id": "resp_036d486f8a9135fa006ac880e0de7487d28dbac049774aa683",
+ "seconds": 18.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6979,
+  "input_tokens_details": {
+   "cache_write_tokens": 6976,
+   "cached_tokens": 0
+  },
+  "output_tokens": 339,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7318
+ }
+}

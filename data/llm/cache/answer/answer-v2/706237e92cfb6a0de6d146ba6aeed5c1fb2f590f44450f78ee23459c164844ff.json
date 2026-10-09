@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010919,
+ "created_utc": "2026-10-09T05:49:27Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0073",
+ "job": "answer",
+ "key": "706237e92cfb6a0de6d146ba6aeed5c1fb2f590f44450f78ee23459c164844ff",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0073\",\"GC-0072\",\"GC-0038\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part5/x-device-constituents/conventional-decorative-elements\",\"quote\":\"Where decorative elements form a frame or border around significant figures or scenes they are generally not indexed, for example, leaves, arabesques, medals, scrolls.\"},{\"ref\":\"TMM/Part5/x-device-constituents/conventional-decorative-elements\",\"quote\":\"Generally it is the main 'idea' of the mark that is significant and that needs to be captured with the appropriate device constituent terms.\"},{\"ref\":\"TMM/Part5/x-device-constituents/conventional-decorative-elements\",\"quote\":\"In the case of trade marks where the decorative elements are the main or only constituents, these elements will be captured.\"},{\"ref\":\"TMA1995/s27(3)(a)\",\"quote\":\"(a) include a representation of the trade mark; and\"}],\"answer\":\"If you mean listing **device constituents for indexing**, the Manual practice is generally to capture the main picture or ‘idea’, not decorative border leaves and scrolls. Such elements are generally not indexed when they frame significant figures or scenes (TMM/Part5/x-device-constituents/conventional-decorative-elements).\\n\\nThe exception is where the decorative elements are the **main or only constituents**: the Manual says those elements will be captured (same reference). I cannot tell from the question alone which category your logo falls into.\\n\\nThis is indexing practice, not permission to remove elements from the representation filed with the application. Separately, the **Act** requires the application to include a representation of the trade mark (TMA1995/s27(3)(a)).\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "c71fa3a25377f8e6cacbe2ae19a58c228c6e085c893af137011fb72e7a5f1dbf",
+ "response_id": "resp_06e7cf1eb06d3fa3006ac8804bb8d087d2bd21bd0a0cbf5d51",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6732,
+  "input_tokens_details": {
+   "cache_write_tokens": 6729,
+   "cached_tokens": 0
+  },
+  "output_tokens": 501,
+  "output_tokens_details": {
+   "reasoning_tokens": 115
+  },
+  "total_tokens": 7233
+ }
+}

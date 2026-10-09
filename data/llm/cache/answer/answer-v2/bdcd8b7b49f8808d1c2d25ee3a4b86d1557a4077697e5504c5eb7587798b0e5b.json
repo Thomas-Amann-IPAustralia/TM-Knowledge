@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013071,
+ "created_utc": "2026-10-09T05:46:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0041",
+ "job": "answer",
+ "key": "bdcd8b7b49f8808d1c2d25ee3a4b86d1557a4077697e5504c5eb7587798b0e5b",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0001\",\"GC-0002\",\"GC-0003\",\"GC-0004\",\"GC-0016\",\"GC-0049\",\"GC-0130\",\"GC-0168\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part29/3/3/2\",\"quote\":\"Each application must be considered as it stands in the current marketplace, not in the marketplace as it was in the past and not as it may be in the future.\"},{\"ref\":\"TMM/Part29/3/3/2\",\"quote\":\"Examiners must ensure that they are considering the current marketplace when deciding whether a sign is likely to offend under section 43, remembering there will be signs in that marketplace which have kept their connotations over long periods of time.\"},{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMA1995/s60\",\"quote\":\"(a) another trade mark had, before the priority date for the registration of the firstmentioned trade mark in respect of those goods or services, acquired a reputation in Australia; and (b) because of the reputation of that other trade mark, the use of the firstmentioned trade mark would be likely to deceive or cause confusion.\"}],\"answer\":\"Yes—for section 43 examination, that is expressly the Manual’s practice. The examiner must consider the current marketplace, not the marketplace of the past or a hypothetical future marketplace. However, an old connotation is not necessarily irrelevant: the Manual recognises that some signs retain their connotations over long periods. [TMM/Part29/3/3/2]\\n\\nAct, rather than practice: section 43 requires rejection where a connotation of the mark or a sign within it makes use for the relevant goods or services likely to deceive or cause confusion. Its supplied wording does not expressly state the Manual’s current-marketplace instruction. [TMA1995/s43]\\n\\nDo not generalise this into a rule that historical circumstances never matter. Under section 60 of the Act, the other trade mark must have acquired a reputation in Australia before the applicant’s priority date, and the alleged likelihood of deception or confusion must arise because of that reputation. The supplied passages therefore do not establish a universal current-market-only rule for every deception or confusion assessment. [TMA1995/s60]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "2f608615c5dfe309d00351342599836dbbef09f8e91ba50d8e2a926019e91db7",
+ "response_id": "resp_03bf2ad40ea8656f006ac87f8ea61c87d29104fad683afc55c",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7637,
+  "input_tokens_details": {
+   "cache_write_tokens": 7634,
+   "cached_tokens": 0
+  },
+  "output_tokens": 705,
+  "output_tokens_details": {
+   "reasoning_tokens": 146
+  },
+  "total_tokens": 8342
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.009229,
+ "created_utc": "2026-10-09T05:48:06Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0060",
+ "job": "answer",
+ "key": "76c4cbc21dd54ae0226aa77e0b55c341a737a692501d1a60d6c4fbb06457fb20",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0044\",\"GC-0046\",\"GC-0041\",\"GC-0004\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part28/3/3/3\",\"quote\":\"It is not usual for evidence of instances of confusion to be provided to the examiner. However, the applicant should provide this information if it is available.\"},{\"ref\":\"TMM/Part28/3/similarity-of-trade-marks\",\"quote\":\"However, a close similarity between trade marks obviously must be considered when weighing up all relevant criteria (particularly, the honesty of use of the trade mark and the relative inconvenience to the trade mark applicant and the owner of the earlier trade mark).\"},{\"ref\":\"TMA1995/s44(3)\",\"quote\":\"(3) If the Registrar in either case is satisfied:\"}],\"answer\":\"The passages point to the examiner during examination, and the Registrar for the statutory satisfaction required under s 44(3).\\n\\nManual practice: evidence of actual confusion is provided to the examiner if available. The Manual also requires close similarity between marks to be considered when weighing all relevant criteria. [TMM/Part28/3/3/3; TMM/Part28/3/similarity-of-trade-marks]\\n\\nAct: the supplied s 44(3) fragment identifies the Registrar as the person who must be satisfied. However, it is incomplete, and the supplied passages do not expressly identify who reviews ‘all the evidence’. [TMA1995/s44(3)]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "7ed39e92751cbe36b44c9d0879d1579af63a2ee48ec872c4304939fb8dac6350",
+ "response_id": "resp_081805154a3692e6006ac88004c00487d2954a481e06354772",
+ "seconds": 18.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5624,
+  "input_tokens_details": {
+   "cache_write_tokens": 5621,
+   "cached_tokens": 0
+  },
+  "output_tokens": 440,
+  "output_tokens_details": {
+   "reasoning_tokens": 104
+  },
+  "total_tokens": 6064
+ }
+}

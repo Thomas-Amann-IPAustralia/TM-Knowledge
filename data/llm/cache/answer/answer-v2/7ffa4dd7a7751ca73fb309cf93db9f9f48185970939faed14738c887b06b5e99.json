@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013317,
+ "created_utc": "2026-10-09T05:59:36Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0095",
+ "job": "answer",
+ "key": "7ffa4dd7a7751ca73fb309cf93db9f9f48185970939faed14738c887b06b5e99",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0116\",\"GC-0084\",\"GC-0132\",\"GC-0113\",\"GC-0158\",\"GC-0180\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s215(5)\",\"quote\":\"(5) An address for service must be an address in Australia or New Zealand.\"},{\"ref\":\"TMM/Part10/6#1\",\"quote\":\"Every application, notice or request filed (with the exception of International Registrations Designating Australia (IRDAs)) must contain details of an address for service in Australia or New Zealand (subsection 215(5)). Usually the address for service is that of the applicant itself or that of an intellectual property attorney or solicitor who is acting as the applicant's agent.\"},{\"ref\":\"TMM/Part2/3/2/3/5\",\"quote\":\"Section 215 provides that a person making an application, notice or request or the owner of a trade mark, or a person whose claim to an interest or right in a trade mark is recorded in the Register must supply an address for service in Australia or New Zealand. If an address in Australia or New Zealand has not been provided, the submitting party filing the application, notice or request will be required to provide the Registrar with an address for service in Australia or New Zealand.\"},{\"ref\":\"TMA1995/s215\",\"quote\":\"(3) The registered owner of a registered trade mark, or any person whose claim to an interest in, or to a right in respect of, a trade mark is recorded in the Register, must notify the Registrar in writing of any change in his or her address for service and the Registrar must amend the Register accordingly.\"},{\"ref\":\"TMM/Part47/3/3/2\",\"quote\":\"However, as explained above, it is very important that an IRDA holder also provides notification of their address for service in Australia or New Zealand when they file a notice of intention to defend.\"},{\"ref\":\"TMM/Part60/4/9/4/9/2\",\"quote\":\"The provisional refusal will be sent to the International Bureau and will contain advice that the holder must provide an address for service in Australia or New Zealand if they wish to respond to the provisional refusal.\"}],\"answer\":\"**The person filing the application, notice or request must supply the address for service**, subject to the Manual’s exception for International Registrations Designating Australia (IRDAs). The address may ordinarily be the applicant’s own address or that of an intellectual property attorney or solicitor acting as their agent. These are statements of **Manual practice**. [TMM/Part10/6#1; TMM/Part2/3/2/3/5]\\n\\n**The Act’s requirement:** section 215(5) expressly requires an address for service to be in Australia or New Zealand. [TMA1995/s215(5)]\\n\\nThe Manual also identifies trade mark owners and people whose claims to an interest or right in a trade mark are recorded in the Register as people who must supply such an address. Separately, **the Act** requires registered owners and recorded interest/right claimants to notify the Registrar in writing of any change to their address for service. [TMM/Part2/3/2/3/5; TMA1995/s215]\\n\\n**IRDA qualification — Manual practice:** although IRDAs are excepted from the general filing statement, an IRDA holder should provide notification of an Australian or New Zealand address for service when filing a notice of intention to defend, and must provide one if wishing to respond to a provisional refusal. [TMM/Part10/6#1; TMM/Part47/3/3/2; TMM/Part60/4/9/4/9/2]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "582c342255217b34937fbc5f787413699529ebd4620e25c1a3d5bf0b638977ab",
+ "response_id": "resp_012cc599399a816e006ac882ace82c87d28beadaf942c38e91",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6994,
+  "input_tokens_details": {
+   "cache_write_tokens": 6991,
+   "cached_tokens": 0
+  },
+  "output_tokens": 915,
+  "output_tokens_details": {
+   "reasoning_tokens": 111
+  },
+  "total_tokens": 7909
+ }
+}

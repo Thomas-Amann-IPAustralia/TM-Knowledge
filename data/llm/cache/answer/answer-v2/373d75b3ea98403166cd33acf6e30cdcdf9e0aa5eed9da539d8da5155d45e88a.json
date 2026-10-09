@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013724,
+ "created_utc": "2026-10-09T05:51:00Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0098",
+ "job": "answer",
+ "key": "373d75b3ea98403166cd33acf6e30cdcdf9e0aa5eed9da539d8da5155d45e88a",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0012\",\"GC-0044\",\"GC-0121\",\"GC-0124\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMR1995/r4.4\",\"quote\":\"(2) The expression ‘all goods’, ‘all services’, ‘all other goods’, or ‘all other services’ must not be used in an application for registration of a trade mark to specify the goods and/or services in respect of which registration is sought. (3) The goods and/or services must be grouped according to the appropriate classes described in Schedule 1. (4) The applicant must nominate the class number that is appropriate to the goods or services in each group. (5) The groups must be listed in the order of their class numbers.\"},{\"ref\":\"TMM/Part14/4/4/5/1\",\"quote\":\"Where the specified goods and/or services are not in line with the class number or numbers in which they are filed, it is possible to transfer them to the correct class number if this class also appears on the application. If misclassified goods or services cannot be transferred in this way, the applicant must either delete them from the application or add an extra class or classes to the application, subject to payment of the appropriate fee for each additional class (fee item 4 of Schedule 9).\"},{\"ref\":\"TMM/Part10/5/5/2/1\",\"quote\":\"If, at the time of examination, the expression has not been deleted, the examiner will again require the expression to be deleted. Additional items within the class claimed may be entered in place of the prohibited terms.\"},{\"ref\":\"TMM/Part14/4/4/6/2\",\"quote\":\"If part or all of the specification is vague or unclear to the extent that it cannot be classified, the Examiner should request further information from the applicant. It should not be suggested to the applicant at this stage that they may be able to add a class or classes.\"}],\"answer\":\"As general examination guidance—not a decision on your application—the passages identify two separate fixes.\\n\\n1. Correct the classification. Under Manual practice, misclassified goods can be transferred to their correct class if that class already appears in the application. Otherwise, the applicant must either delete those goods or add the appropriate class or classes, paying the fee for each additional class. [TMM/Part14/4/4/5/1]\\n\\n2. Delete “all goods”. Under Manual practice, if that expression remains at examination, the examiner requires its deletion. Additional items within the class claimed may be entered in its place. [TMM/Part10/5/5/2/1]\\n\\nThe legislation underpinning these requirements is regulation 4.4: it prohibits “all goods”, requires goods and services to be grouped into their appropriate classes, requires the appropriate class number for each group, and requires the groups to be listed in class-number order. These are Regulations requirements, not merely Manual practice. [TMR1995/r4.4]\\n\\nIf the description is too vague to classify, Manual practice is to request further information first—not suggest adding classes at that stage. [TMM/Part14/4/4/6/2]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "f69371218edbee004784ea427cc0f826a513e30f23647e642651b79704586114",
+ "response_id": "resp_048f039b5cbf86c0006ac880a841f487d292f6b535764ce78c",
+ "seconds": 28.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7476,
+  "input_tokens_details": {
+   "cache_write_tokens": 7473,
+   "cached_tokens": 0
+  },
+  "output_tokens": 876,
+  "output_tokens_details": {
+   "reasoning_tokens": 191
+  },
+  "total_tokens": 8352
+ }
+}

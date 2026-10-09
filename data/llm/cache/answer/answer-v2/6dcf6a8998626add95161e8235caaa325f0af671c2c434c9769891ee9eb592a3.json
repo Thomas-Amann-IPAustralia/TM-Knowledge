@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014433,
+ "created_utc": "2026-10-09T05:48:59Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0068",
+ "job": "answer",
+ "key": "6dcf6a8998626add95161e8235caaa325f0af671c2c434c9769891ee9eb592a3",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0075\",\"GC-0093\",\"GC-0119\",\"GC-0059\",\"GC-0060\",\"GC-0061\",\"GC-0052\",\"GC-0081\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part21/3/3/6~1\",\"quote\":\"An invented shape should be treated in a similar manner to an invented word, and is equally entitled to prima facie acceptance.\"},{\"ref\":\"TMM/Part21/3/3/6~1\",\"quote\":\"Kenman Kandy gives some guidance on what may be regarded as invention in the confectionery trade, but does not offer clear guidance on what amounts to invention in other trades.\"},{\"ref\":\"TMM/Part21/3/3/6~1\",\"quote\":\"A starting point for all trade marks including “shape” trade marks is the question “what is common to the trade”? This can be assessed through research into the shape applied for in the relevant trade. If research shows a number of parties using a shape in a non-trade mark sense, this will tend to support a view that the marketplace does not regard it as a trade mark and a ground for rejection is in order.\"},{\"ref\":\"TMM/Part21/3/3/5\",\"quote\":\"The test for a shape mark remains the same test applied for any other mark - whether the shape is one which other traders are likely to want to use, in the ordinary course of their business, without any improper motive.\"},{\"ref\":\"TMM/Part21/3/3/4~1\",\"quote\":\"If a shape has significant functional features there is a strong likelihood that other traders will need to use that shape for their similar goods.\"},{\"ref\":\"TMM/Part21/3/3/5\",\"quote\":\"There is no reason to object to a shape merely because it is attractive or aesthetically pleasing, and therefore other traders might want to use it.\"},{\"ref\":\"TMM/Part21/3/3/6~1\",\"quote\":\"In a similar vein, the shapes of decorative items such as ornaments or jewellery will be unlikely to be acceptable prima facie because it is normal within these trades to provide unusual and imaginative creations.\"}],\"answer\":\"Under the Manual’s practice, an invented shape has the same starting entitlement to prima facie acceptance as an invented word. That is not an assurance of registration: the Manual still requires assessment in the relevant trade. [TMM/Part21/3/3/6~1]\\n\\nFor people seeking registration, the practical implications are:\\n\\n• The shape must be assessed against what is common in that trade. Examiner research showing several traders using the shape in a non-trade mark sense tends to support an objection, rather than treating it as an invented badge of origin. [TMM/Part21/3/3/6~1]\\n\\n• The usual distinctiveness inquiry still applies: are other traders likely to want to use the shape in their ordinary business, without improper motive? Significant functional features are particularly relevant because other traders are likely to need them. [TMM/Part21/3/3/5; TMM/Part21/3/3/4~1]\\n\\n• Attractiveness alone is not a reason to object. But an unusual or imaginative shape is not necessarily enough in trades such as ornaments or jewellery, where those qualities are normal. [TMM/Part21/3/3/5; TMM/Part21/3/3/6~1]\\n\\nThere is an important uncertainty: the Manual says Kenman Kandy provides guidance about invention in confectionery, but not clear guidance for other trades. It therefore does not supply a universal definition of an ‘invented shape’. [TMM/Part21/3/3/6~1]\\n\\nThese are statements of Manual practice, not legislation. The supplied Act passages do not address this issue.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "77d0e12581ff1f1c4433cd831a3dff655a0867412e03d560e3b603b8017d340c",
+ "response_id": "resp_056bf214c61e6847006ac8802f84b087d29fd40c0d29b8907c",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7723,
+  "input_tokens_details": {
+   "cache_write_tokens": 7720,
+   "cached_tokens": 0
+  },
+  "output_tokens": 956,
+  "output_tokens_details": {
+   "reasoning_tokens": 117
+  },
+  "total_tokens": 8679
+ }
+}

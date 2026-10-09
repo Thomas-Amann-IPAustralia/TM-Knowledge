@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012149,
+ "created_utc": "2026-10-09T05:46:17Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0039",
+ "job": "answer",
+ "key": "95746575181468ebcc4b30d1459b8732efcce7263f9cb9218a02b660364f2b3e",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0055\",\"GC-0182\",\"GC-0002\",\"GC-0009\",\"GC-0001\",\"GC-0168\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part31/3#1~1\",\"quote\":\"As such, and taking into account the presumption of registrability, a ground for rejection will generally only be appropriate under subsection 39(2) if a trade mark contains or consists of one or more of the signs prescribed and the presence of that sign would be likely to confuse the relevant public as to whether: the goods and services bearing the trade mark have a particular status given by legislation, or there is a connection between the applicant and the person, body, or organisation with whom the sign is associated.\"},{\"ref\":\"TMA1995/s39(2)\",\"quote\":\"(2) An application for the registration of a trade mark may be rejected if the trade mark contains or consists of:\"},{\"ref\":\"TMA1995/s39(2)(a)\",\"quote\":\"(a) a sign that is prescribed for the purposes of this subsection; or\"},{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"}],\"answer\":\"**Generally, yes under the Manual’s practice—but that is not an express statutory requirement of subsection 39(2).**\\n\\n• **Manual practice:** A prescribed sign does not, by itself, generally justify a subsection 39(2) objection. The Manual says an objection will generally only be appropriate where the sign’s presence would be likely to confuse the relevant public about a legislative status of the goods or services, or a connection between the applicant and the person, body or organisation associated with the sign. This is an assessment of likely confusion, not a requirement to prove that someone has actually been confused. [1]\\n\\n• **Act:** The supplied wording of subsection 39(2) says an application **may** be rejected if the mark contains or consists of a prescribed sign. That wording does not expressly make likely deception or confusion an additional condition. The Manual’s approach guides the exercise of that discretion; it is not legislation. [2–3]\\n\\n• **Separate section 43 ground:** If rejection is considered under section 43, the Act expressly requires likely deception or confusion arising from a connotation of the mark or a sign within it, in relation to the particular goods or services. Where that statutory test is met, rejection is mandatory. [4]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b121540687517fda81cdabcdc956ae59d9a4076d71993192a98a5e90b46ff7bf",
+ "response_id": "resp_0487507e1ab03a14006ac87f8de33487d29b42a89d4708a905",
+ "seconds": 28.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6800,
+  "input_tokens_details": {
+   "cache_write_tokens": 6797,
+   "cached_tokens": 0
+  },
+  "output_tokens": 730,
+  "output_tokens_details": {
+   "reasoning_tokens": 137
+  },
+  "total_tokens": 7530
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014147,
+ "created_utc": "2026-10-09T05:46:36Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0042",
+ "job": "answer",
+ "key": "b4a0921624369404b680370fec6f0c9de9ff32757440e7f1975d4aad857fb1b5",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0001\", \"GC-0002\", \"GC-0008\", \"GC-0072\", \"GC-0073\", \"GC-0124\", \"GC-0168\"],\n  \"decline_reason\": \"I cannot say whether an element could be omitted from your particular application or how that application would be decided. The supplied passages do not explain the rules for deleting an element by amendment.\",\n  \"declined\": true,\n  \"citations\": [\n    {\n      \"ref\": \"TMA1995/s43\",\n      \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/3#1~1\",\n      \"quote\": \"However, the mere presence within a trade mark of a person's name, a descriptive term, a geographical place name or a reference to the size of packages or intended use of a product does not automatically demonstrate a connotation sufficient to trigger section 43.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/3/3/1~1\",\n      \"quote\": \"There must be a real and obvious danger of the buying public being deceived and/or confused by the secondary meaning within the trade mark. A possibility of confusion or a suggestion that deception might occur is not sufficient.\"\n    }\n  ],\n  \"answer\": \"It depends on what you mean by “left out”.\\n\\n**Deleting it from the mark:** the supplied passages do not explain whether removing a name or symbol by amendment is permitted. I cannot say what would be allowed or decided for your particular application.\\n\\n**Ignoring it when assessing confusion:** section 43 of the Act expressly covers a connotation arising from either the trade mark or a sign contained in it. If that connotation makes use of the mark likely to deceive or cause confusion for the relevant goods or services, the statutory consequence is rejection of the application—not simply disregarding the sign [TMA1995/s43].\\n\\n**Manual practice:** a name’s mere presence does not automatically establish a section 43 objection [TMM/Part29/3#1~1]. The Manual requires a real and obvious danger of deception or confusion arising from the mark’s secondary meaning; a mere possibility is insufficient [TMM/Part29/3/3/1~1]. These are statements of examination practice, distinct from the Act’s requirement.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "5b24cd702a4b078ea02b532a3fc255852420f9e61ad48615f1c6b676ff85e611",
+ "response_id": "resp_0631ce7a8f211e37006ac87fa03ed087d2b8cd6115263775c9",
+ "seconds": 28.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8102,
+  "input_tokens_details": {
+   "cache_write_tokens": 8099,
+   "cached_tokens": 0
+  },
+  "output_tokens": 804,
+  "output_tokens_details": {
+   "reasoning_tokens": 236
+  },
+  "total_tokens": 8906
+ }
+}

@@ -5693,3 +5693,25 @@ about $1.46.
 **Consequences.** The prepared answers now carry two dates, each stamped on the answer.
 `tmk-bulk spend` shows completed calls beside attempts, so the mistake behind the quote is
 harder to repeat.
+
+## ADR-0129 — the rest of the prepared answers re-run
+
+**Date** 2026-10-09 · **Authority** human · **Status** accepted
+
+**Context.** ADR-0128 re-ran the 21 stalest prepared answers within the US$0.40 approved
+and gave the owner a corrected quote for the other 108: about US$1.46 for all of them,
+"with a hard ceiling about $0.12 above". The owner chose that row: *"All the rest"*
+(CHAT-0067, `review/returned/261009-owner-chat-answers-rest.md`).
+
+**Decision (the owner's).** Re-run the remaining 108 prepared answers.
+
+**Decision (the agent's, inside it).** Held to the ceiling shown: `TMK_SPEND_CAP_USD` at the
+recorded spend plus US$1.58. The 64 that still showed a withdrawn or re-read link went
+first, four at a time; then the 44 that showed none, two at a time and the last two one at
+a time, as the full-price worst case of calls in flight neared the line.
+
+**Consequences.** All 108 re-run for **US$1.39** ($0.0129 an answer). All 129 prepared
+answers are now dated 2026-10-09 and none shows a stale link; 612 citations, each located
+verbatim; 16 decline to say how a particular application would be decided and explain the
+practice instead; one sentence is flagged PU-0004 (BN-0040, s 189 stated as law on the
+Manual's word), flagged and not removed. Recorded spend US$8.37 of the US$9.49 cap.

@@ -45,8 +45,9 @@ Counts: concepts 52 signed + 112 authored; relationships 20 signed serving (15 r
 by corrections) + 436 authored. 158 of 164 concepts in one piece (96%; six isolated:
 geographical qualifier, services of a person, wine GI, the GI Register, IP Australia,
 office practice). Harness 0 defects; SHACL 0 defects, 0 gaps; graph matches a rebuild.
-**Spend US$6.98 of the US$9.49 cap; D5 spent US$3.21 of its US$6.00; the answers re-run
-US$0.28 of the US$0.40 approved (ADR-0128).**
+**Spend US$8.37 of the US$9.49 cap**: D5 US$3.21 of its US$6.00; the prepared answers
+re-run in two approvals, US$0.28 (ADR-0128) and US$1.39 (ADR-0129). **What is left under the
+cap is not approved for anything** — a new spend needs a quote.
 
 ## Waiting on the owner
 
@@ -54,12 +55,8 @@ US$0.28 of the US$0.40 approved (ADR-0128).**
    expert's questions and against keyword search, trails hybrid on the benchmark.
 2. **The four disputed signed readings** (`edge-audit.md`, "Disputes of a reading an
    expert signed") — a person's call; nothing changed.
-3. **108 prepared answers are still from 2026-10-07.** The owner approved $0.40 on a
-   wrong quote; held to it, the 21 stalest were re-run for $0.28 (ADR-0128). 64 of the
-   rest still show a withdrawn or re-read link. Corrected quote, about $0.0135 an
-   answer: the 29 stalest ~$0.39, the 64 ~$0.87, all 108 ~$1.46. Run with
-   `TMK_SPEND_CAP_USD` = recorded + the amount approved, `--workers 1`, the stalest
-   first (ranking in ADR-0128's run: links withdrawn or re-read since).
+3. Nothing else waits on a spend: all 129 prepared answers were re-run on 2026-10-09
+   (ADR-0128, ADR-0129), and none shows a stale link.
 4. If not done: the key as an environment secret (`github-pages` → `OPENAI_API_KEY`).
 
 ## Next actions
@@ -95,8 +92,6 @@ US$0.28 of the US$0.40 approved (ADR-0128).**
   than what it names); untouched — it is signed.
 - **GR-0684 and GR-0685 state the same triple**, as corrections of two different
   signed records. Left as is.
-- **The prepared answers carry two dates** (21 of 2026-10-09, 108 of 2026-10-07); an
-  old one can show a link that no longer exists.
 - **Hybrid moved on 7 questions when the vectors were rebuilt** (Q-84): compare
   systems only within one run.
 - **22 legislative bases are unverified** (harness note) — not wrong, not checked.
@@ -113,8 +108,11 @@ US$0.28 of the US$0.40 approved (ADR-0128).**
 - **Vectors are not committed**: `tmk-bulk embed --confirm` costs about a cent each
   time (no vector cache).
 - **Price a job from completed calls, never attempts** (Q-85); `tmk-bulk spend` shows
-  both. A fresh answer costs ~$0.0135 — old ones look cheaper because retries hit the
+  both. A fresh answer costs ~$0.013 — old ones look cheaper because retries hit the
   provider's cache.
+- **Hold a paid run to an amount the owner names** with `TMK_SPEND_CAP_USD` = recorded
+  spend + that amount. The guard reserves each in-flight call's full-price worst case
+  (~$0.12 an answer), so drop to `--workers 1` near the line (ADR-0128, ADR-0129).
 - **`tmk-bulk pools --keep-previous`** carries the *current* pools forward as "previous";
   run it once per measurement, or the comparison is with itself.
 - **`tmk-graph --check` needs `--rules`** when the graph was written with them.
@@ -130,8 +128,8 @@ US$0.28 of the US$0.40 approved (ADR-0128).**
 ## Open items (agent-proposed, provisional)
 
 - ADR-0127 entire: the apply rules (paraphrase allowance, widening kept, signed
-  stand-ins kept), incremental grading, the judge decision. ADR-0128's agent part:
-  the amount binds, the stalest first.
+  stand-ins kept), incremental grading, the judge decision. ADR-0128's and ADR-0129's
+  agent parts: the amount binds, the stalest first.
 - ADR-0125's and ADR-0126's agent parts: the affirmation ledger, folded keys, the three
   new kinds' names, the presumption of registrability as `none_of_these`.
 - ADR-0122 (corrections); the agent parts of ADR-0120, ADR-0123, ADR-0124.

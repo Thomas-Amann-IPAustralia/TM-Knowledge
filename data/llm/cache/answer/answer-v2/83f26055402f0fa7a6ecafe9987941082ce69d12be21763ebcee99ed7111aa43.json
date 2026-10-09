@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010418,
+ "created_utc": "2026-10-09T05:59:08Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0093",
+ "job": "answer",
+ "key": "83f26055402f0fa7a6ecafe9987941082ce69d12be21763ebcee99ed7111aa43",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0012\",\"GC-0121\",\"GC-0180\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part14/3#1~2\",\"quote\":\"In order to accord with regulation 4.4(7) and regulation 4.2(1)(c) it is office practice to also not allow terms such as “all products in the class” or vague, non-specific descriptions. While it is ultimately the responsibility of owners and/or their agents to file specifications which meet these requirements, Examiners must check that goods and services are adequately described and that they are, on the basis of the description supplied, correctly classified.\"},{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powder\",\"quote\":\"Suggested Alternatives Class 1: Plastics in the form of powder Class 2: Paint in powder form Class 3: Cosmetic face powder Class 4: Wax powder for industrial purposes Class 5: Medicated baby powder Class 6: Common metals in powder form Class 13: Explosive powder Class 29: Powder for making milk shakes Class 30: Curry powder Class 32: Powder for effervescing beverages\"}],\"answer\":\"**Manual practice:** Replace “powder” with wording that identifies what the goods actually are, including their purpose where relevant. The Manual does not allow vague, non-specific descriptions; examiners check classification on the basis of the description supplied. [1]\\n\\nThe Manual gives these suggested alternatives for “powder”. Choose wording only if it accurately describes your goods: [2]\\n\\n| Class | Suggested wording |\\n|---|---|\\n| 1 | Plastics in the form of powder |\\n| 2 | Paint in powder form |\\n| 3 | Cosmetic face powder |\\n| 4 | Wax powder for industrial purposes |\\n| 5 | Medicated baby powder |\\n| 6 | Common metals in powder form |\\n| 13 | Explosive powder |\\n| 29 | Powder for making milk shakes |\\n| 30 | Curry powder |\\n| 32 | Powder for effervescing beverages |\\n\\nI cannot identify the appropriate class from “powder” alone: the Manual’s alternatives span several classes. What is your powder made of, and what is it used for? [2]\\n\\nThese are Manual practice suggestions, not quotations from the Act or Regulations.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "ce572b41ac09c1f6c930374cfc11afb71ad5d462c96444b9eebdd6fec6346c1a",
+ "response_id": "resp_0079353cfce152d1006ac8829a821887d28f51d4cfe47ee04a",
+ "seconds": 18.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 5811,
+  "input_tokens_details": {
+   "cache_write_tokens": 5808,
+   "cached_tokens": 0
+  },
+  "output_tokens": 631,
+  "output_tokens_details": {
+   "reasoning_tokens": 101
+  },
+  "total_tokens": 6442
+ }
+}

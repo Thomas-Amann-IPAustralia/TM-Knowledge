@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013616,
+ "created_utc": "2026-10-09T05:45:39Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0017",
+ "job": "answer",
+ "key": "5f4614b0321c2ef4dff428a68f40fb130cb25707dc5e0b144089985d4a450872",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0001\",\"GC-0002\",\"GC-0009\",\"GC-0016\",\"GC-0026\",\"GC-0028\",\"GC-0029\",\"GC-0072\",\"GC-0168\"],\"decline_reason\":\"I cannot say whether your particular application would be rejected; the supplied passages support explaining the general test and examination practice instead.\",\"declined\":true,\"citations\":[{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part29/6#1~1\",\"quote\":\"For example, a section 43 ground for rejection may arise if a trade mark is the name of a well-known person, and the goods/services are in the field for which they are well known, such that consumers are clearly likely to assume that the person is connected with or has endorsed those goods/services, or are involved in their production or supply.\"},{\"ref\":\"TMM/Part29/6#1~2\",\"quote\":\"Firstly, how well known is the person among relevant Australian consumers, as at the priority date? Secondly, are consumers likely to see the name as referring specifically to the well-known person, rather than someone else with the same name?\"},{\"ref\":\"TMM/Part29/6#1~2\",\"quote\":\"The closer the link between the goods/services and the particular field in which the name is well-known, the more likely that consumers will assume that use of the trade mark is associated with the well-known person. Of course, this should be weighed together with the other factors.\"},{\"ref\":\"TMM/Part29/6#1~1\",\"quote\":\"If the trade mark application is submitted by the well-known person, or it is clear from other available information that the application was made with permission from the well-known person or their representative, a section 43 ground for rejection does not arise. However, if the examiner is not satisfied that the relevant relationship exists between the applicant and the well-known person referred to, a ground for rejection may be appropriate.\"}],\"answer\":\"Potentially, but not automatically merely because your goods are in that person's field. I cannot determine the outcome of your particular application.\\n\\n**Act — legal test:** Section 43 requires rejection where a connotation of the trade mark, or a sign within it, makes its use for the specified goods or services likely to deceive or cause confusion. [TMA1995/s43]\\n\\n**Manual — examination practice:** A section 43 ground may arise where the name and the goods' connection with the person's field make consumers clearly likely to assume that the person is connected with, has endorsed, or participates in producing or supplying the goods. [TMM/Part29/6#1~1]\\n\\nThe examiner considers how well known the person was among relevant Australian consumers at the priority date, whether consumers would identify the name with that particular person rather than a namesake, and how closely the goods relate to their field. A closer link increases the likelihood of an assumed association, but must be weighed with the other factors. [TMM/Part29/6#1~2]\\n\\n**Permission matters:** The Manual says this ground does not arise where the person applies themselves, or available information clearly shows permission from the person or their representative. If the examiner is not satisfied that the relevant relationship exists, a ground for rejection may be appropriate. This is Manual practice, not a separate statutory rule. [TMM/Part29/6#1~1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "b5058a7f899bc4f474ddaa552a42c9b880a083bac659676ce5089eb19028daf9",
+ "response_id": "resp_0ec676c37800bd39006ac87f71a02c87d284c16c863836602b",
+ "seconds": 18.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7417,
+  "input_tokens_details": {
+   "cache_write_tokens": 7414,
+   "cached_tokens": 0
+  },
+  "output_tokens": 869,
+  "output_tokens_details": {
+   "reasoning_tokens": 77
+  },
+  "total_tokens": 8286
+ }
+}

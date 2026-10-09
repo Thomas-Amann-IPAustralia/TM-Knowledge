@@ -54,7 +54,9 @@ AUTHORING_API_KEY_VAR = "OPENAI_API_KEY"
 #: quote: "I'm allowing the expenditure of an additional $2.89 on top of the
 #: remaining $3.11, totalling in $6" — so $6.60 + $2.89, and D5 may spend at most
 #: the $6.00 above the $3.49 recorded before it (ADR-0125). D5 spent $3.21; the
-#: owner's "re-run the prepared answers for $0.40" came out of what it left (ADR-0128).
+#: prepared answers' re-run came out of what it left, in two approvals: $0.28 of "re-run
+#: the prepared answers for $0.40" (ADR-0128) and $1.39 for "all the rest" (ADR-0129).
+#: What remains under the cap is approved for nothing.
 #: Raising it again is the owner's decision, made on a quote — overridable for one run
 #: by `TMK_SPEND_CAP_USD`, and only on the owner's word (lowering it for one run, to
 #: hold a run to an amount the owner named, needs no word).

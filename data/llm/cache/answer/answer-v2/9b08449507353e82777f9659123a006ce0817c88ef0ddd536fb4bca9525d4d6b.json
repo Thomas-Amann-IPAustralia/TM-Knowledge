@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013672,
+ "created_utc": "2026-10-09T05:47:29Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0051",
+ "job": "answer",
+ "key": "9b08449507353e82777f9659123a006ce0817c88ef0ddd536fb4bca9525d4d6b",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0043\",\"GC-0015\",\"GC-0016\",\"GC-0111\",\"GC-0071\",\"GC-0012\",\"GC-0091\"],\"decline_reason\":\"I cannot determine whether your particular priority claim must be amended or whether your goods are closely related to retail services. The supplied passages support general divisional and priority practice, but do not address the relationship between goods and retail services.\",\"declined\":true,\"citations\":[{\"ref\":\"TMM/Part11/5/5/2/3\",\"quote\":\"Examiners are required to request deletion of, or amendments to, convention claims arising from a narrowing of the specification only in the rare circumstances where there are no goods or services remaining in the specification for which the earliest priority date is claimed.\"},{\"ref\":\"TMM/Part11/5/5/2/3\",\"quote\":\"The above two requirements do not apply if the application is a divisional application, or the deletion is made due to or after it becoming the parent of a divisional application.\"},{\"ref\":\"TMM/Part12/5#1\",\"quote\":\"A divisional application will have the filing date of its parent application as the priority date, unless the convention priority claim of the parent is also made when filing the divisional application or within the period provided for in regulation 4.5, that is, within two working days after filing the application.\"}],\"answer\":\"I cannot determine the requirements or outcome for your particular application. The supplied Manual gives the following general guidance.\\n\\n**Priority claim — Manual practice, not legislation**\\n• Narrowing the specification does not, by itself, require amendment of a convention priority claim. The Manual says examiners request deletion or amendment arising from narrowing only where no goods or services remain for which the earliest priority date is claimed. [TMM/Part11/5/5/2/3]\\n• That passage also excludes divisional applications, and deletions made because of or after an application becomes a divisional’s parent, from ‘the above two requirements’. Those two requirements are not reproduced in the supplied extract, so I cannot fully explain their scope. [TMM/Part11/5/5/2/3]\\n• Separately, retaining convention priority in the **new divisional** requires the parent’s convention priority claim to be made again when filing the divisional or within two working days afterwards. Otherwise, the Manual says the divisional’s priority date is the parent’s filing date. This is distinct from amending an existing claim because the specification was narrowed. [TMM/Part12/5#1]\\n\\n**Goods and retail services — not answered by these passages**\\nThe supplied passages do not address whether sale through wholesalers or shops makes goods closely related to retail services. They therefore provide no basis for treating that relationship as automatic, or for determining the relationship for your goods.\\n\\nThe priority guidance above is reported as Manual practice. The relevant Act and Regulations provisions referred to by the Manual have not been supplied for direct legislative analysis.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "51d4344ed55b5940862b505d4735a48a64d5fc54a83c7bd69c3c408c862ad268",
+ "response_id": "resp_0c5ce56728d77961006ac87fd5bcfc87d28d1626cf1481bccd",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7462,
+  "input_tokens_details": {
+   "cache_write_tokens": 7459,
+   "cached_tokens": 0
+  },
+  "output_tokens": 869,
+  "output_tokens_details": {
+   "reasoning_tokens": 225
+  },
+  "total_tokens": 8331
+ }
+}

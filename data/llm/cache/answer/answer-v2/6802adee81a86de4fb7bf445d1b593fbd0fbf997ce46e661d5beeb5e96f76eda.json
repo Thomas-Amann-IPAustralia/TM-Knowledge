@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011819,
+ "created_utc": "2026-10-09T05:46:45Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0043",
+ "job": "answer",
+ "key": "6802adee81a86de4fb7bf445d1b593fbd0fbf997ce46e661d5beeb5e96f76eda",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0109\",\"GC-0088\",\"GC-0084\",\"GC-0116\",\"GC-0091\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part34/2#1\",\"quote\":\"the trade mark must, at the time the application for a defensive registration is filed, already be registered in the name of the applicant;\"},{\"ref\":\"TMA1995/s185(1)\",\"quote\":\"the trade mark may, on the application of the registered owner, be registered as a defensive trade mark in respect of any or all of those other goods or services.\"}],\"answer\":\"Check the existing registration and who owns it, but the supplied passages do not establish a separate requirement to check the company’s legal status.\\n\\n• Manual practice: the underlying trade mark must already be registered in the applicant’s name when the defensive application is filed. The check is therefore not merely whether an old registration exists, but whether it is registered in the applicant’s name [TMM/Part34/2#1].\\n\\n• Act: section 185(1) provides for defensive registration on the application of the registered owner [TMA1995/s185(1)].\\n\\nNeither cited passage addresses a separate corporate legal-status check. I therefore cannot confirm from the supplied material whether that additional check is required.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "6c0e0907d5d40e1c2b98e108c9b70995a4e9a170cb82187501d350765c20734c",
+ "response_id": "resp_088d6fb44f95a850006ac87fa9fd0887d2aedcdebb4f89afa2",
+ "seconds": 28.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7540,
+  "input_tokens_details": {
+   "cache_write_tokens": 7537,
+   "cached_tokens": 0
+  },
+  "output_tokens": 479,
+  "output_tokens_details": {
+   "reasoning_tokens": 184
+  },
+  "total_tokens": 8019
+ }
+}

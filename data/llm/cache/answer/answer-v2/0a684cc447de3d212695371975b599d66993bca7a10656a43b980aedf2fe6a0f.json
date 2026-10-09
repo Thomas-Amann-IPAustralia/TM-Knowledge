@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011799,
+ "created_utc": "2026-10-09T05:57:25Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0076",
+ "job": "answer",
+ "key": "0a684cc447de3d212695371975b599d66993bca7a10656a43b980aedf2fe6a0f",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0081\",\"GC-0072\",\"GC-0011\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part19A/3/3/2~1\",\"quote\":\"Use of a trade mark in advertising must be concurrent with the placing of the goods or services on the market. Advertisement where the goods/services are not immediately available for sale does not constitute use within the meaning of the Act\"},{\"ref\":\"TMM/Part19A/3/3/2~1\",\"quote\":\"It is not necessary for goods or services to have actually been sold for use ‘in the course of trade’ to have occurred. The offering for sale of goods or services, if genuine, will suffice.\"},{\"ref\":\"TMM/Part19A/3/3/2~1\",\"quote\":\"However, it is important to note that while advertising by itself will not constitute an offer for sale, it will be relevant in determining an objective commitment to use (see 3.3 below).\"},{\"ref\":\"TMM/Part19A/3#1\",\"quote\":\"use through an intention to offer the goods and/or services which is manifested through preparatory steps showing an objective commitment to using the trade mark\"},{\"ref\":\"TMM/Part19A/3/3/3~2\",\"quote\":\"Whether an objective commitment has been demonstrated will depend on all the relevant circumstances.\"}],\"answer\":\"**Generally, no—not by advertising alone.** Under the supplied **Manual practice**, advertising must coincide with placing the goods or services on the market. Advertising goods that are not immediately available for sale does not itself constitute use within the meaning of the Act (TMM/Part19A/3/3/2~1).\\n\\nThere is an important distinction between goods **not yet sold** and goods **not yet available for sale**: the Manual says an actual sale is unnecessary, and a genuine offer for sale will suffice (TMM/Part19A/3/3/2~1).\\n\\n**However, advertising can contribute to showing an objective commitment to use.** The Manual recognises use through an intention to offer goods or services manifested by preparatory steps showing that commitment. Advertising is relevant to that assessment, even though it is not itself an offer for sale; whether the commitment is demonstrated depends on all relevant circumstances (TMM/Part19A/3/3/2~1; TMM/Part19A/3#1; TMM/Part19A/3/3/3~2).\\n\\nThese are statements of Manual practice. No Act or Regulations passages were supplied, so this answer does not independently state the legislative position.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "c8eed65c23476c3cd7e498a7f2f5d75852572208e4f9236872c679586ed08dd8",
+ "response_id": "resp_0aa13053e0d434e3006ac882343e3087d2b0f2d037c6ec516c",
+ "seconds": 17.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6824,
+  "input_tokens_details": {
+   "cache_write_tokens": 6821,
+   "cached_tokens": 0
+  },
+  "output_tokens": 654,
+  "output_tokens_details": {
+   "reasoning_tokens": 86
+  },
+  "total_tokens": 7478
+ }
+}

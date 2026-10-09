@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.010968,
+ "created_utc": "2026-10-09T05:51:59Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0112",
+ "job": "answer",
+ "key": "80d4c2cc3f16db8efe7531b032d6bb43d40224762b229e3a8414c4e696bd1f5e",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0018\",\"GC-0107\",\"GC-0019\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part35/2/2/2\",\"quote\":\"The certification trade mark provisions are the principal way to protect a GI in Australia.\"},{\"ref\":\"TMM/Part35/2/2/2\",\"quote\":\"As with other certification trade marks, GIs must meet the requirements of the Act relating to certification trade marks.\"},{\"ref\":\"TMM/Part35/2/2/2\",\"quote\":\"TEQUILA (1377413) is an example of a GI protected in Australia by registration as a certification trade mark.\"},{\"ref\":\"TMA1995/s169\",\"quote\":\"A certification trade mark is a sign used, or intended to be used, to distinguish goods or services: (a) dealt with or provided in the course of trade; and (b) certified by a person (owner of the certification trade mark), or by another person approved by that person, in relation to quality, accuracy or some other characteristic, including (in the case of goods) origin, material or mode of manufacture; from other goods or services dealt with or provided in the course of trade but not so certified.\"}],\"answer\":\"Yes—a geographical indication (GI) can be protected in Australia by registration as a certification trade mark, subject to the applicable requirements.\\n\\n**Manual practice:** The Manual expressly identifies the certification trade mark provisions as the principal way to protect a GI in Australia, requires GIs to meet the Act’s certification trade mark requirements, and gives TEQUILA (1377413) as an example of a GI protected by such registration [TMM/Part35/2/2/2].\\n\\n**Act:** Section 169 defines a certification trade mark by reference to distinguishing certified goods or services from those not so certified. For goods, the characteristics that may be certified expressly include origin [TMA1995/s169].\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "1b456fedfb033c4c0638d3012323511d416a5f6f01f09910122e2136790da700",
+ "response_id": "resp_04a2ce2915897bb1006ac880ed41b887d2b92857b35b850b79",
+ "seconds": 18.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7087,
+  "input_tokens_details": {
+   "cache_write_tokens": 7084,
+   "cached_tokens": 0
+  },
+  "output_tokens": 422,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7509
+ }
+}

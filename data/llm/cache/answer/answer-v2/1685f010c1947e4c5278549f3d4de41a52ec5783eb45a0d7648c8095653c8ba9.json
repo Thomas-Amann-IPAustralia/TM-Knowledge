@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01245,
+ "created_utc": "2026-10-09T05:59:13Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0094",
+ "job": "answer",
+ "key": "1685f010c1947e4c5278549f3d4de41a52ec5783eb45a0d7648c8095653c8ba9",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0066\", \"GC-0064\", \"GC-0041\", \"GC-0001\", \"GC-0002\"],\n  \"decline_reason\": \"I cannot determine whether your particular application would be accepted or whether your evidence would establish honest concurrent use. The supplied passages also do not answer whether honest concurrent use can overcome an objection based on the trade mark’s own misleading meaning.\",\n  \"declined\": true,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part28/2#1\",\n      \"quote\": \"In order to overcome grounds for rejection under ss 44(1) or 44(2) of the Act, an applicant may, under para 44(3)(a), file evidence to establish honest concurrent use of their trade mark in Australia.\"\n    },\n    {\n      \"ref\": \"TMA1995/s44(3)(a)\",\n      \"quote\": \"(a) that there has been honest concurrent use of the 2 trade marks; or\"\n    },\n    {\n      \"ref\": \"TMM/Part28/3#1\",\n      \"quote\": \"The honesty of the use is a threshold requirement, without which s 44(3)(a) cannot be satisfied (‘Zip Co’, [42]).\"\n    },\n    {\n      \"ref\": \"TMM/Part28/2#1\",\n      \"quote\": \"the degree of confusion likely between the trade marks in question whether instances of confusion have in fact occurred\"\n    }\n  ],\n  \"answer\": \"The supplied passages support honest concurrent use as a way of addressing conflicting trade marks—not as an established answer to a trade mark’s own misleading meaning.\\n\\n**Act:** Section 44(3)(a) refers to honest concurrent use “of the 2 trade marks”. [TMA1995/s44(3)(a)]\\n\\n**Manual practice:** An applicant may file evidence of honest concurrent use in Australia to overcome grounds under ss 44(1) or 44(2). Honesty is a threshold requirement, and the criteria include likely confusion between the marks and whether confusion has actually occurred. [TMM/Part28/2#1; TMM/Part28/3#1]\\n\\n**Limit of the supplied material:** These passages concern conflict between marks. They do not provide the test for misleading meaning within the mark itself, or establish that honest concurrent use can overcome that separate issue. I therefore cannot confirm that you can rely on it for that purpose, or predict the outcome of your application.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "83f8eaf7f199a79bd2b5d4dd81b175c6c937ccf76ace6ef79aa3aec9292754ac",
+ "response_id": "resp_0c3c314e6f7ee057006ac882a01a2487d29db53fe354e2d1f0",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7061,
+  "input_tokens_details": {
+   "cache_write_tokens": 7058,
+   "cached_tokens": 0
+  },
+  "output_tokens": 725,
+  "output_tokens_details": {
+   "reasoning_tokens": 180
+  },
+  "total_tokens": 7786
+ }
+}

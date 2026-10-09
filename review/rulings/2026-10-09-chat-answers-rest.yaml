@@ -1,0 +1,29 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S027 agent;
+# no issue behind it. The artefact is `review/returned/261009-owner-chat-answers-rest.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-09T05:30:00Z'
+questions_updated: '2026-10-09'
+source:
+  kind: chat
+  artefact: review/returned/261009-owner-chat-answers-rest.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S027 agent
+  title: Re-run all the rest of the prepared answers — 108, about US$1.46, ceiling about US$1.58
+applied:
+  session: S027
+  date: '2026-10-09'
+  branch: claude/ecstatic-cray-shk5k4
+  what_changed: >-
+    All 108 re-run for US$1.39, held to the ceiling shown by a run cap of the recorded spend
+    plus $1.58 (ADR-0129). All 129 prepared answers are now dated 2026-10-09; none shows a
+    stale link.
+answers:
+- id: CHAT-0067
+  item: prepared-answers
+  question: Which of the 108 prepared answers still dated 2026-10-07 should be re-run?
+  kind: choice
+  value: all_the_rest
+  label: All the rest — 108 answers, about US$1.46, with a hard ceiling about US$0.12 above
+  quote: All the rest
+  recorded_as:
+  - ADR-0129

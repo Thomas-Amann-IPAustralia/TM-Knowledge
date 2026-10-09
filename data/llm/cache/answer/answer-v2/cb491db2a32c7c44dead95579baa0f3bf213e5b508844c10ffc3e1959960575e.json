@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01054,
+ "created_utc": "2026-10-09T06:00:23Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0116",
+ "job": "answer",
+ "key": "cb491db2a32c7c44dead95579baa0f3bf213e5b508844c10ffc3e1959960575e",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0012\",\"GC-0121\",\"GC-0180\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part14/x-14.-annex-a13-list-of-terms-too-broad-for-classification/powders\",\"quote\":\"Suggested Alternatives Class 1: Plastics in the form of powders Class 2: Paint powders Class 3: Cosmetic face powders Class 4: Wax powders for industrial purposes Class 5: Medicated baby powders Class 6: Common metal powders Class 13: Explosive powders Class 29: Powders for making milk shakes Class 30: Curry powders Class 32: Powders for effervescing beverages\"},{\"ref\":\"TMM/Part14/3#1~2\",\"quote\":\"Examiners must check that goods and services are adequately described and that they are, on the basis of the description supplied, correctly classified.\"},{\"ref\":\"TMR1995/r4.2(1)(c)\",\"quote\":\"(c) specify the goods and/or services in relation to which the application is made; and\"}],\"answer\":\"Manual practice: replace “powders” with wording identifying the actual goods. The Manual lists these suggested alternatives [1]:\\n\\n| Class | Suggested wording |\\n|---|---|\\n| 1 | Plastics in the form of powders |\\n| 2 | Paint powders |\\n| 3 | Cosmetic face powders |\\n| 4 | Wax powders for industrial purposes |\\n| 5 | Medicated baby powders |\\n| 6 | Common metal powders |\\n| 13 | Explosive powders |\\n| 29 | Powders for making milk shakes |\\n| 30 | Curry powders |\\n| 32 | Powders for effervescing beverages |\\n\\nI cannot identify which alternative fits without knowing what the powders are. Under Manual practice, the description must adequately identify the goods and support their correct classification [2]. What kind of powders do you mean?\\n\\nRegulations: regulation 4.2(1)(c) requires the application to specify its goods and/or services [3]. The suggested wording above is Manual practice, not legislative wording.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "5c5266fb9c760e6aa396051f88857540b0765726b6555945199e7cea4dc86429",
+ "response_id": "resp_0383d18e90fa69d7006ac882ed2d7887d28506b1b22a6d3131",
+ "seconds": 10.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6565,
+  "input_tokens_details": {
+   "cache_write_tokens": 6562,
+   "cached_tokens": 0
+  },
+  "output_tokens": 467,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7032
+ }
+}

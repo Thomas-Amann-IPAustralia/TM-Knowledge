@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016252,
+ "created_utc": "2026-10-09T05:49:18Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0070",
+ "job": "answer",
+ "key": "619d901da554c02e9afe7eee431b8213127d6676fb0344019b5f42bdd5fecd2d",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0043\", \"GC-0131\", \"GC-0116\", \"GC-0155\", \"GC-0012\", \"GC-0015\", \"GC-0097\", \"GC-0156\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part12/3#1\",\n      \"quote\": \"These are: the trade marks must be the same; and the trade mark applicants must be the same; and the parent must be a single application; and the parent application must be pending when the divisional application is filed; and the divisional application must specify the goods or services to which it relates; and the divisional application must be for some only of the goods or services of the parent application; and the divisional application must specify the goods or services that are to remain in the parent application.\"\n    },\n    {\n      \"ref\": \"TMM/Part12/2#1\",\n      \"quote\": \"The parent application must be pending at the time the divisional application is filed and the goods/services of the divisional application must still be present in the parent application at the time of filing. If submissions are received requesting the deletion of certain goods/services from an application that also state that a divisional application is to be filed from that application, any deletion or amendment to the specification of goods/services should be delayed until the divisional application has been filed.\"\n    },\n    {\n      \"ref\": \"TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1\",\n      \"quote\": \"Pending includes status “accepted” and status “opposed”.\"\n    },\n    {\n      \"ref\": \"TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1\",\n      \"quote\": \"If the answer to question 6 is yes, the applicant must generally either: a. if possible, agree to the goods or services of the parent and/or child being restricted so as to eliminate any duplication (i.e. goods/services that are in substance the same) between the goods and/or services of the parent and child; OR b. delete reference to the divisional priority date. If the answer to question 6 is no, and the divisional application is valid and complete, the examiner must (as soon as practicable) process the amendment to the specification of the parent application to exclude the claimed goods and/or services of the divisional application.\"\n    },\n    {\n      \"ref\": \"TMM/Part55/3/3/4\",\n      \"quote\": \"A late application for an award of costs, or a bill of costs that has been filed outside the time limit under reg 21.12, can only be considered if the person concerned is granted an extension of time under s 224. Such an application for extension must be in an approved form and must be filed together with the appropriate fee and a supporting declaration (reg 21.25). If the extension of time sought is for a period greater than 3 months, the application must be published for the purposes of opposition (subsections 224(5) and (6)).\"\n    }\n  ],\n  \"answer\": \"The supplied Manual gives two separate procedures. The requirements below are Manual practice; the relevant provisions of the Act and Regulations are referred to by the Manual but are not themselves supplied.\\n\\n1. Splitting off goods — divisional application\\n• Lodge a divisional application identifying the goods to be divided out and specifying the goods/services to remain in the parent. It must cover ‘some only’ of the parent’s goods/services, use the same trade mark and applicant, and be divided from a single parent application. [TMM/Part12/3#1]\\n• File while the parent is still pending and while the goods being divided out are still in its specification. Do not delete those goods first. If deletion submissions also state that a divisional will be filed, the Manual says to delay deletion until that filing. ‘Pending’ includes accepted and opposed applications. [TMM/Part12/2#1; TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1]\\n• Avoid duplication between the divisional goods and those specified to remain in the parent. The Manual generally requires restrictions to remove duplication, if possible, or deletion of the reference to the divisional priority date. Once the divisional is valid and complete without duplication, the examiner processes the parent’s amendment as soon as practicable. [TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1]\\n\\n2. Late costs filing — extension of time\\n• For a late application for an award of costs or a bill of costs filed outside the reg 21.12 time limit, lodge an extension-of-time application in the approved form, together with the appropriate fee and a supporting declaration. The Manual says the late costs filing can only be considered if an extension under s 224 is granted; lodging the extension request alone is not enough. [TMM/Part55/3/3/4]\\n• If the extension sought exceeds three months, the extension application must be published for opposition purposes. [TMM/Part55/3/3/4]\\n\\nTiming limitation: the supplied costs passage does not state the ordinary reg 21.12 deadline or a specific deadline for lodging the extension request. I therefore cannot give an exact costs lodgement date from these passages. Nor are ss 45–46, s 224 or regs 21.12 and 21.25 supplied for direct legislative verification.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "107c0766163d286afd79c263739f9de3e257d0f3e023e4c69b46213d5253f1d2",
+ "response_id": "resp_0ef4c45498f4c383006ac88033463487d2b25be8759191f579",
+ "seconds": 43.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7410,
+  "input_tokens_details": {
+   "cache_write_tokens": 7407,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1398,
+  "output_tokens_details": {
+   "reasoning_tokens": 154
+  },
+  "total_tokens": 8808
+ }
+}

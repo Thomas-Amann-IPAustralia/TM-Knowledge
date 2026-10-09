@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006786,
+ "created_utc": "2026-10-09T05:50:15Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0077",
+ "job": "answer",
+ "key": "bac71fac2be6acce87e2563cc7b9204375146473314f279f5e86830e909602ca",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0036\",\"GC-0072\",\"GC-0058\",\"GC-0181\",\"GC-0001\",\"GC-0002\",\"GC-0168\",\"GC-0038\",\"GC-0041\",\"GC-0013\",\"GC-0029\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part32A/2/3/2-3-1-a-variety-names\",\"quote\":\"The name given to a plant variety is the name of the product. It is the apt name when referring to that particular plant.\"},{\"ref\":\"TMM/Part32A/2/3/2-3-1-a-variety-names\",\"quote\":\"However, a plant variety name in combination with other matter can be distinctive depending on the additional material in the mark.\"},{\"ref\":\"TMA1995/s41\",\"quote\":\"(1) An application for the registration of a trade mark must be rejected if the trade mark is not capable of distinguishing the applicant’s goods or services in respect of which the trade mark is sought to be registered (the designated goods or services) from the goods or services of other persons.\"},{\"ref\":\"TMA1995/s43\",\"quote\":\"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part32A/2/4/2/4/1\",\"quote\":\"Therefore, if the trade mark contains or consists of a known variety name, the connotation may be immediate, and deception or confusion is likely if the trade mark is used on a different variety of the same or a closely related genus. However, the examiner needs to consider how the variety name appears within the trade mark as a whole.\"},{\"ref\":\"TMM/Part32A/2/3/2-3-1-c-trade-names-and-alternate-names~1\",\"quote\":\"Both the ICNCP and the UPOV Convention recognise that some trade names may be, or contain, a trade mark. However, both agree that trade marks in use need to be clearly differentiated from the variety name and not used instead of it.\"},{\"ref\":\"TMM/Part32A/2/3/2-3-5-b-evidence-of-use\",\"quote\":\"While it is unlikely that evidence could overcome the problem in the conventional sense of examination, particularly in relation to s41(3), it may be possible to accept the trade mark with a condition of registration if the evidence demonstrates use of a trade mark in conjunction with genus, species and variety name information.\"},{\"ref\":\"TMM/Part32A/2/4/2-4-3-b-examples-of-use\",\"quote\":\"The Applicant could provide examples of use to overcome a ground for rejection under section 43. If the examples show that the trade mark is being used in close conjunction with named varieties of the problem plant type, it may be possible to accept the trade mark with a condition of registration.\"},{\"ref\":\"TMM/Part32A/2/1/2-1-2-c-letter-of-consent\",\"quote\":\"Note: In instances where an application has received a ground for rejection under more than one section of trade mark legislation, a Letter of Consent will not overcome a ground for rejection under sections 41 or 43.\"}],\"answer\":\"Potentially, but a rose variety name is not automatically registrable as a trade mark. The Manual treats a variety name as the name of the product, while recognising that a variety name combined with other matter can be distinctive. This is Manual practice, not a guarantee of registration. [1–2]\\n\\nTwo separate issues need examination:\\n\\n• Distinctiveness — Act: section 41 requires rejection if the mark is not capable of distinguishing the applicant’s goods or services from those of others. Manual practice identifies the difficulty with a variety name: it names the plant itself rather than necessarily distinguishing one trader’s goods. [1, 3]\\n\\n• Deception or confusion — Act: section 43 requires rejection where a connotation makes use on the claimed goods or services likely to deceive or cause confusion. Manual practice says a known variety name may immediately connote that variety, creating a problem if used for a different variety of the same or a closely related genus. The examiner must assess the mark as a whole. [4–5]\\n\\nHow a trade mark can coexist with the variety name — Manual practice: the Manual reports that trade marks should be clearly differentiated from the variety name, not used instead of it. It also describes possible evidence-based routes involving conditions of registration: evidence showing use alongside genus, species and variety information for a section 41 objection, or examples showing use closely alongside named varieties for a section 43 objection. These are possibilities, not assured outcomes; the Manual expressly cautions that overcoming the section 41 problem through evidence is unlikely in the conventional sense, particularly under section 41(3). [6–8]\\n\\nConsent is not a complete answer — Manual practice: a letter of consent from a Plant Breeder’s Rights titleholder does not overcome section 41 or section 43 objections. [9]\\n\\nIn short, the supplied passages support possible registration in appropriate circumstances, particularly with additional distinctive matter or the evidence and conditions described above. They do not establish that any particular rose variety name would qualify. [2–5, 7–8]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "8977f04e6ca7f969248f968f5a824b581e5571d875a51600bd788424c2064cbc",
+ "response_id": "resp_04446681f45f8a61006ac8806c0c4c87d2bd37c277c5185c2e",
+ "seconds": 43.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7772,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 7769
+  },
+  "output_tokens": 1279,
+  "output_tokens_details": {
+   "reasoning_tokens": 105
+  },
+  "total_tokens": 9051
+ }
+}

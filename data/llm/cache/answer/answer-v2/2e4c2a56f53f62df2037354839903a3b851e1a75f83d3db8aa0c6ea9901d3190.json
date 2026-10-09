@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013724,
+ "created_utc": "2026-10-09T05:58:19Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0082",
+ "job": "answer",
+ "key": "2e4c2a56f53f62df2037354839903a3b851e1a75f83d3db8aa0c6ea9901d3190",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0081\",\"GC-0088\",\"GC-0083\",\"GC-0084\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part19B/4/4/1\",\"quote\":\"Subsection 120(1) provides that a registered trade mark is infringed if a person uses, as a trade mark, a sign that is substantially identical with, or deceptively similar to, the trade mark in relation to the goods or services in respect of which the trade mark is registered.\"},{\"ref\":\"TMM/Part19A/2#1~2\",\"quote\":\"Where there are several purposes for the use of the sign, if one purpose is to distinguish the goods provided in the course of trade that will be sufficient to establish use as a trade mark.\"},{\"ref\":\"TMA1995/s121\",\"quote\":\"(1) This section applies to a registered trade mark if the registered owner, or an authorised user of the trade mark having power to do so, has caused to be displayed on goods (registered goods) in respect of which the trade mark is registered, or on their package, or on the container in which they are offered to the public, a notice (notice of prohibition) prohibiting any act that is under subsection (2) a prohibited act in relation to the goods.\"},{\"ref\":\"TMM/Part19B/4/4/3\",\"quote\":\"Under section 121 a registered trade mark is infringed if the registered owner, or an authorised user of the trade mark having power to do so, has caused to be displayed on goods in respect of which the trade mark is registered a notice of prohibition, and a person who acquires the goods does or authorises an act, in the course of trade, that is prohibited.\"},{\"ref\":\"TMM/Part19B/4/4/3\",\"quote\":\"The trade mark is not infringed if the person acquired the goods in good faith and without being aware of the notice of prohibition or became the owner of the goods by virtue of a title derived from a person who had so acquired them.\"}],\"answer\":\"Not automatically. The supplied passages distinguish use ‘as a trade mark’ under section 120 from the prohibition-notice mechanism under section 121; they do not establish that displaying a prohibition notice is itself use as a trade mark.\\n\\n• Manual practice: The Manual’s account of section 120(1) requires use of the sign ‘as a trade mark’. Its guidance on that issue says a distinguishing purpose can be sufficient where a sign serves several purposes. Whether a particular notice also performs that function is not answered by these passages. [TMM/Part19B/4/4/1; TMM/Part19A/2#1~2]\\n\\n• Act: Section 121(1) applies where the registered owner, or an authorised user with power to do so, causes a notice prohibiting an act specified in subsection (2) to be displayed on the registered goods, their package or the container in which they are offered to the public. This is a condition for the prohibition-notice mechanism, not an express statement that displaying the notice constitutes trade mark use. [TMA1995/s121]\\n\\n• Manual practice: The Manual explains that infringement under section 121 involves an acquirer doing or authorising a prohibited act in the course of trade—not merely the display of the notice. It also states the exception for acquisition in good faith without awareness of the notice, including ownership derived from such an acquirer. The supplied Act extract is incomplete, so this explanation of infringement and the exception rests on the Manual passage. [TMM/Part19B/4/4/3]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "522c2da48f59e7b618d8a9d6cb5bb432ec36ce87c36e8beb0a21e0c65e83330a",
+ "response_id": "resp_018b6bfbc8eb1320006ac8825ef28887d285944e8055f891b0",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7308,
+  "input_tokens_details": {
+   "cache_write_tokens": 7305,
+   "cached_tokens": 0
+  },
+  "output_tokens": 918,
+  "output_tokens_details": {
+   "reasoning_tokens": 132
+  },
+  "total_tokens": 8226
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.016508,
+ "created_utc": "2026-10-09T05:47:01Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0045",
+ "job": "answer",
+ "key": "e3ce4711708eb3cfffad11176eb841a223485bd367ac2d73122ad8ba65c5f160",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0072\",\"GC-0154\",\"GC-0002\",\"GC-0004\",\"GC-0008\",\"GC-0010\",\"GC-0038\",\"GC-0047\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMA1995/s10\",\"quote\":\"For the purposes of this Act, a trade mark is taken to be deceptively similar to another trade mark if it so nearly resembles that other trade mark that it is likely to deceive or cause confusion.\"},{\"ref\":\"TMM/Part26/6/6/4~1\",\"quote\":\"What needs to be assessed is the effect of the similarities and differences on the impression or recollection an ordinary consumer of the goods or services would have of the trade marks and whether this creates a real and tangible danger of confusion.\"},{\"ref\":\"TMM/Part26/6/6/12\",\"quote\":\"A word and an equivalent pictorial representation may be found to be deceptively similar, based upon the fact that a person of normal intelligence and memory would retain and carry away the same overall impression. The examiner needs to consider the name and idea that would be associated with the particular device trade mark compared to the name and idea conveyed by the word trade mark.\"},{\"ref\":\"TMM/Part26/6/6/12\",\"quote\":\"the only possible conclusion in the present opposition is that the idea of the applicant’s EMU device is “EMU”, precisely the same idea and name that would be associated with the opponent’s trade mark for the word EMU.\"},{\"ref\":\"TMM/Part26/6/6/12\",\"quote\":\"In that decision, the Hearing Officer states that whilst the ‘devices are definitely depictions of sharks…there is nothing to say that they are Great White Sharks’.\"},{\"ref\":\"TMM/Part26/6/6/8~1\",\"quote\":\"The correct approach in such a case is to focus on the comparison of the marks as a whole.\"},{\"ref\":\"TMM/Part26/6/6/4~2\",\"quote\":\"Examiners must first consider the other factors referred to in this Part, including whether the shared element/s have any descriptive meaning in relation to the relevant goods/services. Further, it is important that a single word or element is not too readily characterised as an essential feature\"},{\"ref\":\"TMM/Part26/6/6/1~1\",\"quote\":\"In determining the resemblance between two trade marks, the possibility of slurred pronunciation, distortion of sound in telephone or other conversations and the syllabic structure of words must be taken into account.\"}],\"answer\":\"**Statutory test — Act:** Section 10 asks whether the mark so nearly resembles the other mark that it is likely to deceive or cause confusion. It does not require visual identity. [TMA1995/s10]\\n\\n**What to examine — Manual practice, not legislation:**\\n\\n1. **The name and idea conveyed.** Ask what name and idea an ordinary person would associate with the device, then compare those with the word mark. A picture and its equivalent word may leave the same overall impression despite their different visual forms. [TMM/Part26/6/6/12]\\n\\n2. **The specificity of that idea.** Do not assume that a device conveys every qualification contained in the word mark. The Manual illustrates this with an EMU device conveying the same name and idea as EMU, contrasted with shark devices that did not necessarily depict *Great White* sharks. These are illustrations, not predictions for another application. [TMM/Part26/6/6/12]\\n\\n3. **The overall impression and recollection.** Assess how the similarities and differences affect what an ordinary consumer of the relevant goods or services would remember, and whether that creates a real and tangible danger of confusion. The comparison is therefore not confined to matching individual graphic details. [TMM/Part26/6/6/4~1]\\n\\n4. **All features of a composite device mark.** If the device includes words, compare the marks as wholes. Consider whether shared wording is descriptive of the relevant goods or services, and do not too readily treat one word or element as the essential feature. [TMM/Part26/6/6/8~1; TMM/Part26/6/6/4~2]\\n\\n5. **Sound, where words are being compared.** Consider pronunciation, including slurring, distortion in conversation and syllabic structure. [TMM/Part26/6/6/1~1]\\n\\n**Practical focus:** identify the device’s likely name and idea, then test the overall remembered impression—not merely whether the picture looks different from printed words. [TMM/Part26/6/6/12; TMM/Part26/6/6/4~1]\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "4c98eadf557dbb9e90a599c297d74e2576305226f82d38b3c16744debe4497ab",
+ "response_id": "resp_0523023325d1e72a006ac87faa698487d2bf194415fe8db9ca",
+ "seconds": 43.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8051,
+  "input_tokens_details": {
+   "cache_write_tokens": 8048,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1289,
+  "output_tokens_details": {
+   "reasoning_tokens": 264
+  },
+  "total_tokens": 9340
+ }
+}

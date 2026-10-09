@@ -1,64 +1,55 @@
 # `tmk-bulk run answer` — A cited answer to one question
 
-Prompt `answer-v2` · model `gpt-6.1-sol` · effort `medium` · tier `flex` · 50 of 129 items · written: yes
+Prompt `answer-v2` · model `gpt-6.1-sol` · effort `medium` · tier `flex` · 44 of 129 items · written: yes
 
-**21 calls, 21 judgements proposed, 21 accepted, 29 refused.** This run spent $0.2576; recorded spend across every job $6.9833 of the $7.10 cap.
+**44 calls, 44 judgements proposed, 44 accepted, 0 refused.** This run spent $0.0252; recorded spend across every job $8.3735 of the $8.56 cap.
 
 Everything accepted is machine-written and unreviewed; nothing here was read by an expert.
 
 | Item | Input tokens | Reasoning tokens | Output tokens | Cost | Proposed | Accepted |
 |---|---|---|---|---|---|---|
-| `BN-0001` | 6710 | 139 | 1075 | $0.0138 (cached) | 1 | 1 |
-| `BN-0002` | 7750 | 158 | 646 | $0.0129 (cached) | 1 | 1 |
-| `BN-0003` | 7935 | 128 | 840 | $0.0141 | 1 | 1 |
-| `BN-0005` | 8428 | 103 | 756 | $0.0143 | 1 | 1 |
-| `BN-0006` | 7897 | 214 | 888 | $0.0143 | 1 | 1 |
-| `BN-0008` | 7639 | 122 | 272 | $0.0109 | 1 | 1 |
-| `BN-0009` | 7590 | 174 | 908 | $0.0140 | 1 | 1 |
-| `BN-0011` | 7491 | 116 | 1034 | $0.0145 | 1 | 1 |
-| `BN-0012` | 7583 | 123 | 686 | $0.0129 | 1 | 1 |
-| `BN-0016` | 7529 | 0 | 344 | $0.0111 | 1 | 1 |
-| `BN-0018` | 6703 | 167 | 1025 | $0.0135 | 1 | 1 |
-| `BN-0020` | 7180 | 249 | 680 | $0.0124 | 1 | 1 |
-| `BN-0021` | 7754 | 277 | 720 | $0.0133 | 1 | 1 |
-| `BN-0023` | 6331 | 94 | 1052 | $0.0132 | 1 | 1 |
-| `BN-0024` | 7649 | 0 | 340 | $0.0113 | 1 | 1 |
-| `BN-0029` | 7927 | 111 | 580 | $0.0128 | 1 | 1 |
-| `BN-0031` | 8630 | 167 | 767 | $0.0146 | 1 | 1 |
-| `BN-0032` | 7949 | 139 | 889 | $0.0144 | 1 | 1 |
-| `BN-0033` | 7633 | 200 | 994 | $0.0145 | 1 | 1 |
-| `BN-0034` | 7810 | 98 | 1357 | $0.0165 | 1 | 1 |
-| `BN-0036` | 8088 | 91 | 955 | $0.0149 | 1 | 1 |
-
-## Refused — and why
-
-- BN-0039: stopped: answer/BN-0039: recorded spend $6.9833 + in flight $0.0000 + worst case $0.1165 would pass the $7.10 cap (ADR-0111, ADR-0114). Nothing was sent.
-- BN-0041: not sent: an earlier call stopped the run
-- BN-0042: not sent: an earlier call stopped the run
-- BN-0048: not sent: an earlier call stopped the run
-- BN-0051: not sent: an earlier call stopped the run
-- BN-0052: not sent: an earlier call stopped the run
-- BN-0053: not sent: an earlier call stopped the run
-- BN-0054: not sent: an earlier call stopped the run
-- BN-0057: not sent: an earlier call stopped the run
-- BN-0060: not sent: an earlier call stopped the run
-- BN-0067: not sent: an earlier call stopped the run
-- BN-0075: not sent: an earlier call stopped the run
-- BN-0078: not sent: an earlier call stopped the run
-- BN-0083: not sent: an earlier call stopped the run
-- BN-0088: not sent: an earlier call stopped the run
-- BN-0096: not sent: an earlier call stopped the run
-- BN-0097: not sent: an earlier call stopped the run
-- BN-0098: not sent: an earlier call stopped the run
-- BN-0100: not sent: an earlier call stopped the run
-- BN-0101: not sent: an earlier call stopped the run
-- BN-0102: not sent: an earlier call stopped the run
-- BN-0106: not sent: an earlier call stopped the run
-- BN-0108: not sent: an earlier call stopped the run
-- BN-0110: not sent: an earlier call stopped the run
-- BN-0112: not sent: an earlier call stopped the run
-- BN-0115: not sent: an earlier call stopped the run
-- BN-0119: not sent: an earlier call stopped the run
-- GA-0003: not sent: an earlier call stopped the run
-- GA-0004: not sent: an earlier call stopped the run
+| `BN-0004` | 6141 | 86 | 572 | $0.0105 (cached) | 1 | 1 |
+| `BN-0007` | 6879 | 78 | 972 | $0.0135 (cached) | 1 | 1 |
+| `BN-0013` | 6021 | 0 | 166 | $0.0084 (cached) | 1 | 1 |
+| `BN-0019` | 7333 | 0 | 375 | $0.0110 (cached) | 1 | 1 |
+| `BN-0025` | 6509 | 89 | 543 | $0.0109 (cached) | 1 | 1 |
+| `BN-0026` | 5950 | 87 | 436 | $0.0096 (cached) | 1 | 1 |
+| `BN-0027` | 6802 | 65 | 752 | $0.0123 (cached) | 1 | 1 |
+| `BN-0028` | 7237 | 63 | 844 | $0.0133 (cached) | 1 | 1 |
+| `BN-0030` | 6944 | 176 | 604 | $0.0117 (cached) | 1 | 1 |
+| `BN-0035` | 6713 | 85 | 959 | $0.0132 (cached) | 1 | 1 |
+| `BN-0037` | 6950 | 140 | 541 | $0.0114 (cached) | 1 | 1 |
+| `BN-0038` | 6382 | 175 | 897 | $0.0125 (cached) | 1 | 1 |
+| `BN-0044` | 5810 | 94 | 1430 | $0.0144 (cached) | 1 | 1 |
+| `BN-0046` | 7776 | 107 | 805 | $0.0137 (cached) | 1 | 1 |
+| `BN-0050` | 6781 | 88 | 940 | $0.0132 (cached) | 1 | 1 |
+| `BN-0058` | 6742 | 82 | 705 | $0.0120 (cached) | 1 | 1 |
+| `BN-0059` | 5928 | 89 | 567 | $0.0102 (cached) | 1 | 1 |
+| `BN-0062` | 7784 | 224 | 1057 | $0.0150 (cached) | 1 | 1 |
+| `BN-0065` | 7387 | 131 | 847 | $0.0135 (cached) | 1 | 1 |
+| `BN-0066` | 5566 | 0 | 388 | $0.0089 (cached) | 1 | 1 |
+| `BN-0069` | 6503 | 221 | 830 | $0.0123 (cached) | 1 | 1 |
+| `BN-0076` | 6824 | 86 | 654 | $0.0118 (cached) | 1 | 1 |
+| `BN-0079` | 7101 | 0 | 645 | $0.0121 (cached) | 1 | 1 |
+| `BN-0080` | 6353 | 138 | 570 | $0.0108 (cached) | 1 | 1 |
+| `BN-0081` | 7519 | 152 | 707 | $0.0129 (cached) | 1 | 1 |
+| `BN-0082` | 7308 | 132 | 918 | $0.0137 (cached) | 1 | 1 |
+| `BN-0084` | 5477 | 0 | 493 | $0.0093 (cached) | 1 | 1 |
+| `BN-0087` | 7089 | 180 | 579 | $0.0118 (cached) | 1 | 1 |
+| `BN-0089` | 7137 | 112 | 460 | $0.0112 (cached) | 1 | 1 |
+| `BN-0091` | 6912 | 68 | 689 | $0.0121 (cached) | 1 | 1 |
+| `BN-0093` | 5811 | 101 | 631 | $0.0104 (cached) | 1 | 1 |
+| `BN-0094` | 7061 | 180 | 725 | $0.0124 (cached) | 1 | 1 |
+| `BN-0095` | 6994 | 111 | 915 | $0.0133 (cached) | 1 | 1 |
+| `BN-0099` | 5450 | 133 | 824 | $0.0109 (cached) | 1 | 1 |
+| `BN-0103` | 7405 | 126 | 1016 | $0.0143 (cached) | 1 | 1 |
+| `BN-0104` | 6603 | 151 | 747 | $0.0120 (cached) | 1 | 1 |
+| `BN-0109` | 6711 | 170 | 887 | $0.0128 (cached) | 1 | 1 |
+| `BN-0114` | 6638 | 149 | 905 | $0.0128 (cached) | 1 | 1 |
+| `BN-0116` | 6565 | 0 | 467 | $0.0105 (cached) | 1 | 1 |
+| `BN-0117` | 7593 | 94 | 1014 | $0.0146 (cached) | 1 | 1 |
+| `BN-0118` | 6883 | 104 | 503 | $0.0111 (cached) | 1 | 1 |
+| `GA-0001` | 7070 | 189 | 780 | $0.0127 (cached) | 1 | 1 |
+| `GA-0007` | 6841 | 152 | 592 | $0.0115 | 1 | 1 |
+| `GA-0011` | 7679 | 155 | 814 | $0.0137 | 1 | 1 |
 

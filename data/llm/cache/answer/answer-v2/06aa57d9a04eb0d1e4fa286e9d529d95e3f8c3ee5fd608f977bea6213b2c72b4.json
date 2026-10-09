@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012712,
+ "created_utc": "2026-10-09T05:51:40Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0107",
+ "job": "answer",
+ "key": "06aa57d9a04eb0d1e4fa286e9d529d95e3f8c3ee5fd608f977bea6213b2c72b4",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0131\", \"GC-0072\", \"GC-0061\", \"GC-0181\", \"GC-0153\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part2/3/2/3/6\",\n      \"quote\": \"If a declaration is required to be filed with an application, notice or request, it should conform with the provisions of regs 21.6 and 21.7.\"\n    },\n    {\n      \"ref\": \"TMM/Part2/3/2/3/6\",\n      \"quote\": \"Under the provisions of reg 21.4, any application, notice or request that is required to be accompanied by a supporting declaration under the Act or Regulations, and is not so accompanied, may be taken as not having been filed until the declaration is provided.\"\n    },\n    {\n      \"ref\": \"TMM/Part47/1/1/2/5~1\",\n      \"quote\": \"That is, the particulars need to provide brief reasons why other traders, acting without improper motive, are likely to want to use the sign/trade mark.\"\n    },\n    {\n      \"ref\": \"TMM/Part47/1/1/2/5~1\",\n      \"quote\": \"The particulars assert that other traders would, without improper motive, desire to use the trade mark without any explanation as to why. This is merely restating the grounds\"\n    }\n  ],\n  \"answer\": \"**The supplied passages do not establish who must sign the supporting declaration or what that declaration must say about other traders.**\\n\\n**Manual practice — supporting declarations:** The Manual directs that, where a declaration is required, it should conform with regulations 21.6 and 21.7. Those Regulations are not supplied, so I cannot identify the required signatory or declaration contents from this material. The Manual also reports that, under regulation 21.4, a document requiring a supporting declaration may be treated as not filed until that declaration is provided. These are statements from the Manual, not supplied legislative text. [TMM/Part2/3/2/3/6]\\n\\n**Manual practice — other traders:** The supplied section 41 guidance concerns opposition particulars, not a supporting declaration for an application. It requires brief reasons why other traders, acting without improper motive, are likely to want to use the mark; merely asserting that desire without explaining why is inadequate. It does not establish that an applicant’s supporting declaration must contain that statement. [TMM/Part47/1/1/2/5~1]\\n\\n**Legislation:** None of the supplied Act passages answers these declaration questions. The relevant Regulations would be needed to confirm the requirements.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "af5b1a9271a7b764958eefaef9469ee4999d46d34083cc1d6d0bc66b66eae911",
+ "response_id": "resp_0383f31575adf943006ac880d0f5a087d2b092178bbaadbeca",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7306,
+  "input_tokens_details": {
+   "cache_write_tokens": 7303,
+   "cached_tokens": 0
+  },
+  "output_tokens": 716,
+  "output_tokens_details": {
+   "reasoning_tokens": 119
+  },
+  "total_tokens": 8022
+ }
+}

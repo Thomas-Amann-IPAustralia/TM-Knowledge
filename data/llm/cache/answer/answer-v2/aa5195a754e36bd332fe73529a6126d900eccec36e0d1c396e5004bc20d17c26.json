@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012822,
+ "created_utc": "2026-10-09T06:00:28Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0114",
+ "job": "answer",
+ "key": "aa5195a754e36bd332fe73529a6126d900eccec36e0d1c396e5004bc20d17c26",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0001\", \"GC-0002\", \"GC-0012\", \"GC-0014\", \"GC-0015\", \"GC-0019\", \"GC-0041\", \"GC-0072\", \"GC-0168\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMA1995/s43\",\n      \"quote\": \"An application for the registration of a trade mark in respect of particular goods or services must be rejected if, because of some connotation that the trade mark or a sign contained in the trade mark has, the use of the trade mark in relation to those goods or services would be likely to deceive or cause confusion.\"\n    },\n    {\n      \"ref\": \"TMM/Part20/5/5/5/2\",\n      \"quote\": \"In many instances a ground for rejecting an application under section 43 can be overcome by restricting the specification of goods and services so that the application only covers goods for which the connotation in the trade mark is not deceptive or confusing.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/9/9/2\",\n      \"quote\": \"If a trade mark contains an explicit claim about the goods which relates to a geographic location and that claim is not reflected in the specification or an endorsement, the trade mark is likely to deceive consumers if that claim turns out to be false.\"\n    },\n    {\n      \"ref\": \"TMM/Part29/9/9/2\",\n      \"quote\": \"The risk of deception can be mitigated by a suitably specific endorsement or an amendment or limitation to the specification of goods or services.\"\n    },\n    {\n      \"ref\": \"TMM/Part20/5/5/5/2\",\n      \"quote\": \"Where the trade mark contains or consists of a name or representation which is likely to lead the purchaser to the conclusion that there is a connection between a particular person or organisation and the goods or services bearing the trade mark, evidence that there is such a connection would usually be sufficient to overcome the ground for rejection.\"\n    }\n  ],\n  \"answer\": \"Yes, in many instances—but not simply by making the goods list shorter.\\n\\n**Act:** Section 43 requires rejection where a connotation of the mark or a sign within it makes use for the particular goods or services likely to deceive or cause confusion. The statutory test therefore relates to the goods or services claimed. [TMA1995/s43]\\n\\n**Manual practice — narrowing the list:** A section 43 objection can often be overcome by restricting the specification so it covers only goods for which the connotation is not deceptive or confusing. The important point is what remains in the specification, not merely that some goods have been deleted. [TMM/Part20/5/5/5/2]\\n\\n**Manual practice — geographical origin:** For an explicit geographic claim, the Manual identifies a risk of deception if the claim proves false and is not reflected in the specification or an endorsement. A suitably specific endorsement, amendment or limitation can mitigate that risk. [TMM/Part29/9/9/2]\\n\\n**Manual practice — connection with a person or organisation:** Where a name or representation suggests such a connection, evidence that the connection actually exists would usually be sufficient to overcome the objection. Narrowing is therefore not the only possible response. These passages do not establish that narrowing will cure every false-connection concern. [TMM/Part20/5/5/5/2]\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "10e51e7395491f720024bf9c366c2634300bb25ea9ac49570865d44ce213e9e6",
+ "response_id": "resp_04e8bfe66b794c51006ac882e078e487d2b475a9c1243183ba",
+ "seconds": 28.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6638,
+  "input_tokens_details": {
+   "cache_write_tokens": 6635,
+   "cached_tokens": 0
+  },
+  "output_tokens": 905,
+  "output_tokens_details": {
+   "reasoning_tokens": 149
+  },
+  "total_tokens": 7543
+ }
+}

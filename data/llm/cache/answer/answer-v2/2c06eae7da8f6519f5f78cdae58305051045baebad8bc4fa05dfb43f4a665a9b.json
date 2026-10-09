@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.008356,
+ "created_utc": "2026-10-09T05:54:36Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0013",
+ "job": "answer",
+ "key": "2c06eae7da8f6519f5f78cdae58305051045baebad8bc4fa05dfb43f4a665a9b",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0023\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part29/x-annex-a1---table-of-inn-stems/inn-stems\",\"quote\":\"A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z\"}],\"answer\":\"The supplied Manual passages do not include the G entries, so I cannot identify which INN stems are listed there. The Manual annex’s alphabetical index includes G, but does not supply its stems in the provided extract. This is Manual material (practice), not legislation.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "cbb5b6ba38f6361cc248ea1ce0095c9e0c46cc662d89edd36cb7604e4079b744",
+ "response_id": "resp_0127bf614e01dcbc006ac88191ebd487d29e4094b3818a23d9",
+ "seconds": 10.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6021,
+  "input_tokens_details": {
+   "cache_write_tokens": 6018,
+   "cached_tokens": 0
+  },
+  "output_tokens": 166,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 6187
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013454,
+ "created_utc": "2026-10-09T05:50:26Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0088",
+ "job": "answer",
+ "key": "172750e62ec7d57cd8ad65ec5b93b82148eae2ca7ceca6b971db92ffef55db6a",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0040\",\"GC-0097\",\"GC-0128\",\"GC-0046\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part51/2/2/4\",\"quote\":\"Opposition to registration or protection\"},{\"ref\":\"TMM/Part51/2/2/4\",\"quote\":\"If the extension was for filing evidence in reply, the period allowed for the parties to file their evidence concludes and the parties will have the opportunity to request a hearing.\"},{\"ref\":\"TMM/Part51/5#1~1\",\"quote\":\"Once the period for the parties to serve their evidence has ended the Registrar must decide the opposition\"}],\"answer\":\"For an opposition to registration or protection, the Manual’s practice is that, if an extension to file evidence in reply is refused:\\n\\n- The period allowed for the parties to file evidence ends.\\n- The parties then have the opportunity to request a hearing. A hearing is not described as automatic. [TMM/Part51/2/2/4]\\n\\nThe Manual also states that, once the evidence period has ended, the Registrar must decide the opposition. This describes the next procedural stage, not who will succeed. [TMM/Part51/5#1~1]\\n\\nThese are statements of Manual practice, not quotations from legislation. The supplied Act and Regulations passages do not specify the consequences of this refusal, a deadline for requesting a hearing, or any review rights. If your opposition concerns removal or cessation of protection instead, the relevant evidence-in-reply passage is cut off, so I cannot confirm that procedure from the supplied text.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "d62c3a8fa1d46aba12ef786599cbfd88714573f3c8e0e1b27d1da2298b11f0cc",
+ "response_id": "resp_023e5361c86d0006006ac880860d7087d29f10c7399ed0f2a2",
+ "seconds": 28.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8388,
+  "input_tokens_details": {
+   "cache_write_tokens": 8385,
+   "cached_tokens": 0
+  },
+  "output_tokens": 594,
+  "output_tokens_details": {
+   "reasoning_tokens": 239
+  },
+  "total_tokens": 8982
+ }
+}

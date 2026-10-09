@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014108,
+ "created_utc": "2026-10-09T05:51:28Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0102",
+ "job": "answer",
+ "key": "a161d0f1952c03182b454249d894b3bed4508d1b15f26ac5ce6daf7f4509513d",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0131\",\"GC-0177\",\"GC-0150\",\"GC-0074\",\"GC-0075\",\"GC-0077\",\"GC-0057\",\"GC-0116\",\"GC-0014\",\"GC-0138\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part60/2/4/2/4/3~1\",\"quote\":\"An international application is filed with IP Australia through WIPO eFiling, accessed via the online services page. Physical MM2 forms are only accepted where there is maintenance being performed with IP Australia’s or WIPO's systems. The international fees are paid directly to WIPO.\"},{\"ref\":\"TMA1995/s40\",\"quote\":\"An application for the registration of a trade mark must be rejected if the trade mark cannot be represented graphically.\"},{\"ref\":\"TMM/Part10/3/3/1\",\"quote\":\"The Registrar will, as a matter of practice, require that the representation of the trade mark that is included in the application be a graphical representation.\"},{\"ref\":\"TMM/Part10/3/3/1\",\"quote\":\"An actual sample of the trade mark may be required for three dimensional shape trade marks. Each trade mark consisting of, or containing, a colour, scent, shape, sound, aspect of packaging or other non-traditional sign must also be accompanied by a concise and accurate description of the trade mark. Such descriptions will be entered as endorsements and, taken together with the graphical representation, will help to define the scope of the registration.\"},{\"ref\":\"TMM/Part10/3/3/3/4\",\"quote\":\"In most cases the applicant will need to file a copy of the actual sound being claimed as the trade mark. This copy should be provided on a medium which allows for easy copying, storage and replaying of the sound. CDs, DVDs and digital sound files are all suitable media. If it is not possible to provide the actual sound at the time of filing, for example, when the applicant experiences difficulties in attaching a sound file to an electronically filed application, the medium incorporating the sound should be sent to the Office as soon as possible after the application is filed.\"},{\"ref\":\"TMM/Part10/3/3/3/3\",\"quote\":\"The representation of the trade mark may consist of a written description of sounds if the sign is not a musical-type sound.\"},{\"ref\":\"TMM/Part10/3/3/3/3\",\"quote\":\"A sign consisting of a musical sound might be most appropriately represented in the form of musical notation, however, this will depend on the trade mark.\"}],\"answer\":\"## Fees to other bodies\\nThe supplied passages do not establish whether an ordinary Australian trade mark application requires payments to bodies other than IP Australia, so I cannot give a general yes or no. They do identify an international-filing situation: under the Manual’s practice, an international application is filed with IP Australia through WIPO eFiling, but the international fees are paid directly to WIPO. [TMM/Part60/2/4/2/4/3~1]\\n\\n## Representation, descriptions and extra material\\n- **Act requirement:** section 40 requires rejection if the trade mark cannot be represented graphically. **Manual practice:** the Registrar requires a graphical representation in the application. These are distinct: the Act states the rejection ground; the Manual states the filing practice. [TMA1995/s40; TMM/Part10/3/3/1]\\n- **All non-traditional marks — Manual practice:** a mark consisting of or containing a colour, scent, shape, sound, aspect of packaging or other non-traditional sign must also have a concise and accurate description. The description is entered as an endorsement and, together with the graphical representation, helps define the registration’s scope. [TMM/Part10/3/3/1]\\n- **Sound marks — Manual practice:** in most cases, provide a copy of the actual sound on a medium allowing easy copying, storage and replay, such as a CD, DVD or digital sound file. If you cannot supply it when filing, send it as soon as possible afterwards. A non-musical sound may be represented graphically by a written description; musical notation may be appropriate for a musical sound, depending on the mark. [TMM/Part10/3/3/3/4; TMM/Part10/3/3/3/3]\\n- **Three-dimensional shape marks — Manual practice:** an actual sample may also be required; the passage does not make this universal. [TMM/Part10/3/3/1]\\n\\nThe supplied passages do not specify additional file formats or samples for other non-traditional marks beyond the general representation and description requirements.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "718c1d654c932fbe52ed4f34f24ddc0bcd1aa6101567456dc23504bd0be8b9ec",
+ "response_id": "resp_01a38cc99ad5a06b006ac880c4c77887d2b9b5dd0f1dec522b",
+ "seconds": 28.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6839,
+  "input_tokens_details": {
+   "cache_write_tokens": 6836,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1112,
+  "output_tokens_details": {
+   "reasoning_tokens": 104
+  },
+  "total_tokens": 7951
+ }
+}

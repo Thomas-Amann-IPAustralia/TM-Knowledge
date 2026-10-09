@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.011988,
+ "created_utc": "2026-10-09T05:59:54Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0104",
+ "job": "answer",
+ "key": "93d288f181cd5cb2506ca4bdbe42f82e08eb32ce0fbf268ebb545c945b80076f",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0058\",\"GC-0059\",\"GC-0060\",\"GC-0061\",\"GC-0119\"],\"decline_reason\":\"I cannot state how your particular application would be decided. I can explain the general examination practice in the supplied Manual passages.\",\"declined\":true,\"citations\":[{\"ref\":\"TMM/Part22/25/25/1\",\"quote\":\"A device which is an ordinary depiction of the goods upon which, or in connection with which, it will be used is generally not prima facie capable of distinguishing.\"},{\"ref\":\"TMM/Part22/25#1\",\"quote\":\"The first step of the enquiry is to determine the “ordinary signification” of the device. This is to be determined by reference to the “target audience” of the goods and services. Once that signification has been determined, the second step is to enquire as to the likelihood of other traders wanting to use that device or some deceptively similar variant for the sake of that signification.\"},{\"ref\":\"TMM/Part22/25/25/1\",\"quote\":\"A trade mark which consists solely of a device which is common to the trade will be considered to have insufficient inherent adaptation to distinguish unless it is depicted in a special or fanciful manner.\"},{\"ref\":\"TMA1995/s41(3)\",\"quote\":\"(3) This subsection applies to a trade mark if:\"},{\"ref\":\"TMA1995/s41(4)\",\"quote\":\"(4) This subsection applies to a trade mark if:\"}],\"answer\":\"Generally, not on its face. Under **Manual practice**, an ordinary picture of the goods themselves is generally not prima facie capable of distinguishing one trader’s goods from another’s [TMM/Part22/25/25/1]. I cannot say how your particular application would be decided.\\n\\nThe examiner’s approach under the **Manual** is to identify what the picture ordinarily signifies to the target audience, then ask whether other traders would want to use that picture, or a deceptively similar variant, for that meaning [TMM/Part22/25#1].\\n\\nThe Manual distinguishes an ordinary depiction from a special or fanciful one: a mark consisting solely of a device common to the trade is treated as having insufficient inherent adaptation to distinguish unless depicted in a special or fanciful manner. That exception is not a prediction about your picture [TMM/Part22/25/25/1].\\n\\n**Legislation:** the supplied Act extracts contain only the introductory words of subsections 41(3) and 41(4), not their substantive conditions. They therefore do not establish the statutory test here; the explanation above is Manual practice, not a statement of the full legislative requirements [TMA1995/s41(3); TMA1995/s41(4)].\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "daac3cab53ddb2a7ec294a56bfbcb01bcd9d95a44c20f7828ec80805b260feb9",
+ "response_id": "resp_0a07e2fa4b321d7e006ac882c9493487d2814b573c8629fc28",
+ "seconds": 17.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6603,
+  "input_tokens_details": {
+   "cache_write_tokens": 6600,
+   "cached_tokens": 0
+  },
+  "output_tokens": 747,
+  "output_tokens_details": {
+   "reasoning_tokens": 151
+  },
+  "total_tokens": 7350
+ }
+}

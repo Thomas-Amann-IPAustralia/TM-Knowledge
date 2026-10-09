@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.013175,
+ "created_utc": "2026-10-09T05:56:28Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0050",
+ "job": "answer",
+ "key": "59d089786c6411d92465a83bfd38ae8dca43a71a23b6051de0411e0922b3f7d8",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0041\", \"GC-0058\", \"GC-0059\", \"GC-0009\", \"GC-0081\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part23/4/4/1/1\",\n      \"quote\": \"It is not always appropriate to insist on provision of turnover and/or marketing figures. Examiners must always consider the commercial realities relevant to the claimed goods and/or services when assessing evidence and maintaining grounds for rejection. Sometimes, the capacity to distinguish of a trade mark might be more accurately demonstrated by metrics other than revenue or promotional expenditure figures.\"\n    },\n    {\n      \"ref\": \"TMM/Part23/4/4/1/1\",\n      \"quote\": \"Other metrics that are relevant may include website and social media analytic figures, funds managed, raised, or distributed by an entity (e.g. in the case of a investment company or a charity), or viewership figures for videos, podcasts etc.\"\n    },\n    {\n      \"ref\": \"TMM/Part23/3/3/4~2\",\n      \"quote\": \"references to Internet website/s where trade mark is used, together with analytic figures which assist in determining the number of visitors to the website from Australia since the date of first use (if possible, broken down periodically) download figures for any relevant app used by the applicant that features the trade mark being used for the relevant goods and services third party social media and/or SEO reports\"\n    },\n    {\n      \"ref\": \"TMM/Part23/4/4/1~1\",\n      \"quote\": \"Massive turnover may compensate for short use, likewise, long use may compensate for small turnover, especially in relation to trade marks with some inherent adaptation to distinguish. However, total turnover must be considered in the context of the relevant market and balanced against unit cost before a decision can be made on this issue. Applicants should be encouraged to supply information on unit costs and perhaps market share to help support their case.\"\n    },\n    {\n      \"ref\": \"TMM/Part23/4/4/1~2\",\n      \"quote\": \"As a general comment, it is necessary to balance the level of inherent adaptation of the trade mark with the strength of the evidence provided.\"\n    }\n  ],\n  \"answer\": \"Yes—potentially. Under the Manual’s practice, sales figures are not always essential: other metrics may more accurately demonstrate a trade mark’s capacity to distinguish. Examiners must consider the commercial realities of the claimed goods or services. Low turnover does not, by itself, establish that alternative figures will be sufficient. [TMM/Part23/4/4/1/1; TMM/Part23/4/4/1~2]\\n\\nUseful alternatives identified in the Manual include:\\n• Website and social media analytics, funds managed, raised or distributed, and video or podcast viewership figures. [TMM/Part23/4/4/1/1]\\n• Website references showing where the trade mark is used, with Australian visitor figures since first use, preferably broken down by period; relevant app download figures; and third-party social media or SEO reports. [TMM/Part23/3/3/4~2]\\n\\nFor a business with small turnover, the Manual also recognises that long use may compensate, especially where the trade mark has some inherent adaptation to distinguish. Turnover should be assessed against the relevant market and unit cost; unit-cost and market-share information may help support the evidence. [TMM/Part23/4/4/1~1]\\n\\nThe qualification is that the strength of the evidence must be balanced against the trade mark’s inherent adaptation to distinguish. I cannot tell from these passages alone whether your proposed figures would be sufficient. [TMM/Part23/4/4/1~2]\\n\\nThese statements describe Manual practice, not legislation. No Act or Regulations passages were supplied.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "4b8e8cba1f6bf6ccac3343d97b39003656cde8f0a3ebd7cd1834a922302b7bdc",
+ "response_id": "resp_06b641aa2a7072d0006ac881f9b09887d29f2e57be5b890a5a",
+ "seconds": 19.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6781,
+  "input_tokens_details": {
+   "cache_write_tokens": 6778,
+   "cached_tokens": 0
+  },
+  "output_tokens": 940,
+  "output_tokens_details": {
+   "reasoning_tokens": 88
+  },
+  "total_tokens": 7721
+ }
+}

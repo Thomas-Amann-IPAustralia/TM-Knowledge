@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.014561,
+ "created_utc": "2026-10-09T06:00:42Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0117",
+ "job": "answer",
+ "key": "f8e43c054eda2efddff2b4e9a91c52a848b545820abc6cd2f21fed808ca7a25f",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts_used\":[\"GC-0041\",\"GC-0081\",\"GC-0082\",\"GC-0083\",\"GC-0085\",\"GC-0086\",\"GC-0155\"],\"decline_reason\":\"\",\"declined\":false,\"citations\":[{\"ref\":\"TMM/Part23/3/3/1\",\"quote\":\"Evidence of use is not always restricted to use by the current proprietor of a trade mark.\"},{\"ref\":\"TMM/Part23/3/3/1\",\"quote\":\"Where the trade mark was the subject of a pending application (or another registration) at the time the claimed use of the trade mark occurred, then the applicant needs to show that rights in the trade mark subject of the application were simply assigned to them.\"},{\"ref\":\"TMM/Part23/3/3/1\",\"quote\":\"If the applicant seeks to rely on use of the trade mark by a predecessor before an application for registration is filed, they must also demonstrate they are the successor in title to the associated goodwill of the business that used the trade mark.\"},{\"ref\":\"TMA1995/s106\",\"quote\":\"(1) A registered trade mark, or a trade mark whose registration is being sought, may be assigned or transmitted in accordance with this section.\"},{\"ref\":\"TMA1995/s106\",\"quote\":\"(3) The assignment or transmission may be with or without the goodwill of the business concerned in the relevant goods and/or services.\"},{\"ref\":\"TMM/Part23/3/3/1\",\"quote\":\"An applicant can rely on their evidence of use or use by an authorised user. Authorised use requires some form of actual control by the applicant over the use by the authorised user.\"},{\"ref\":\"TMM/Part19A/6/6/3\",\"quote\":\"Authorised use of a trade mark is taken, for the purposes of the Act, to be use of the trade mark by the owner of the trade mark (s 7(3)).\"},{\"ref\":\"TMM/Part19A/6/6/3\",\"quote\":\"The two types of control expressly set out in the Act are: where an owner of a trade mark exercises quality control over goods or services (s 8(3)); and where the owner of the trade mark exercises financial control over the other person's trading activities in relation to the subject goods or services.\"},{\"ref\":\"TMM/Part19A/6/6/3\",\"quote\":\"Two types of control have been set out in ss 8(3) and 8(4) but these in no way limit the meaning of the expression ‘under the control of’ (s 8(5)).\"}],\"answer\":\"Yes, in principle. Manual practice allows reliance on use beyond that of the current proprietor, subject to the following requirements [TMM/Part23/3/3/1].\\n\\n**Use before you bought the business — Manual practice**\\n• If the mark was subject to a pending application or another registration when the use occurred, you need to show that the relevant trade mark rights were assigned to you [TMM/Part23/3/3/1].\\n• To rely on a predecessor’s use before an application was filed, you must also demonstrate succession to the associated goodwill of the business that used the mark. The business purchase alone should not be treated as establishing that requirement without this demonstration [TMM/Part23/3/3/1].\\n\\n**Act — assignment**\\nSection 106 permits assignment or transmission of a registered mark, or a mark whose registration is being sought, with or without the relevant business goodwill [TMA1995/s106].\\n\\n**Use by someone you authorised — Manual practice explaining the Act**\\nYou can rely on an authorised user’s use, but permission alone is not enough: the Manual requires actual control over that use [TMM/Part23/3/3/1]. It explains that authorised use counts as the owner’s use under s 7(3), and identifies quality control over goods or services and financial control over relevant trading activities as non-exclusive forms of control under s 8 [TMM/Part19A/6/6/3].\\n\\nThe supplied material supports these general requirements, not a conclusion that your particular evidence satisfies them. Sections 7 and 8 are described in the Manual passages but are not supplied as direct legislative extracts.\"}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "1c714ec14e11bfd74d2cb94a5825a7d519cc5d5904c5aa569b46f9320df2c10b",
+ "response_id": "resp_033c9907c3e60a9e006ac882f80fb087d2947cc76df20573cf",
+ "seconds": 18.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7593,
+  "input_tokens_details": {
+   "cache_write_tokens": 7590,
+   "cached_tokens": 0
+  },
+  "output_tokens": 1014,
+  "output_tokens_details": {
+   "reasoning_tokens": 94
+  },
+  "total_tokens": 8607
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.01104,
+ "created_utc": "2026-10-09T05:54:47Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0019",
+ "job": "answer",
+ "key": "2dca1aa7f2939dca40e8784f88aa1de1b175f928e827a25320d96acc198fb06a",
+ "max_output_tokens": 10000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\n  \"concepts_used\": [\"GC-0116\", \"GC-0180\", \"GC-0177\"],\n  \"decline_reason\": \"\",\n  \"declined\": false,\n  \"citations\": [\n    {\n      \"ref\": \"TMM/Part1/x-1.-introduction7#1\",\n      \"quote\": \"The Manual made available on the IP Australia website is the official controlled record of examination practice and procedures.\"\n    },\n    {\n      \"ref\": \"TMM/Part1/x-1.-introduction7#1\",\n      \"quote\": \"The home page outlines when updates to the manual have occurred, which parts have been updated, and provides a brief summary of the changes.\"\n    },\n    {\n      \"ref\": \"TMM/Part1/x-1.-introduction7#1\",\n      \"quote\": \"This information may be useful to those who hold a paper copy of the Manual and wish to know whether they have the most recent version of a particular part of the Manual.\"\n    }\n  ],\n  \"answer\": \"For current Manual practice, consult the Manual on IP Australia’s website: it is the official controlled record of examination practice and procedures. Check the Manual’s home page for update dates, the parts updated and summaries of changes, particularly if you are using a paper copy (TMM/Part1/x-1.-introduction7#1).\\n\\nThe supplied passages do not identify the Manual section containing the rules for identifying an applicant, or provide those rules. I therefore cannot confirm their location or content from this material. Nor can I verify the latest live version from these extracts alone.\\n\\nThe website and version-checking guidance above is Manual practice, not legislation. The supplied Act extracts do not answer the applicant-identification question.\"\n}",
+ "prompt_version": "answer-v2",
+ "request_sha256": "89fb6c2426c17c412ffc4348fb1102d5d456915c5910c5e9c9f18d930babac86",
+ "response_id": "resp_0f4ba907f958e7ce006ac8819cbd1487d28551b03dbb2a6bab",
+ "seconds": 10.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7333,
+  "input_tokens_details": {
+   "cache_write_tokens": 7330,
+   "cached_tokens": 0
+  },
+  "output_tokens": 375,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 7708
+ }
+}
