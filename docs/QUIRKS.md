@@ -1486,3 +1486,13 @@ The passage vectors are not committed (`data/derived/search/README.md`), and reb
 0.845 → 0.844). So never compare one system's score across two embeddings: re-take the
 pools and score every system on the same day, as `tmk-bulk pools` does, and grade only what
 is new (ADR-0127).
+
+### Q-85 — a job's attempts are not its calls
+
+Every cached entry is an attempt, and a failed flex attempt (overloaded, retried, Q-67) is
+an entry that cost nothing: the answer job had 341 entries for 129 answers. Dividing its
+dollars by its entries priced an answer at $0.0028, and S027 quoted the owner $0.40 for a
+job that costs about $1.74 (ADR-0128). Even completed calls mislead: a retry of a request
+that failed hits the provider's prompt cache, so 2026-10-07's answers averaged $0.0074 when
+a fresh one costs about $0.0135. `tmk-bulk spend` now shows completed calls beside
+attempts; price new work from fresh completed calls, and smoke-run before quoting.

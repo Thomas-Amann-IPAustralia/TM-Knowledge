@@ -433,12 +433,17 @@ def _spend(args: argparse.Namespace) -> int:
     cache = client.Cache()
     by_job: Counter[str] = Counter()
     calls: Counter[str] = Counter()
+    done: Counter[str] = Counter()
     for entry in cache.entries():
         by_job[entry["job"]] += float(entry.get("cost_usd") or 0)
         calls[entry["job"]] += 1
+        done[entry["job"]] += entry.get("status") == "completed"
+    # Attempts include every failed flex call, which costs nothing (Q-67): divide
+    # dollars by *completed* calls to price a job, never by attempts (Q-85).
     for job_name in sorted(by_job):
-        print(f"{job_name:10} {calls[job_name]:4} calls  ${by_job[job_name]:.4f}")
-    print(f"{'total':10} {sum(calls.values()):4} calls  ${cache.spent_usd():.4f} of ${config.spend_cap_usd():.2f}")
+        print(f"{job_name:12} {done[job_name]:4} completed of {calls[job_name]:4} attempts  ${by_job[job_name]:.4f}")
+    print(f"{'total':12} {sum(done.values()):4} completed of {sum(calls.values()):4} attempts  "
+          f"${cache.spent_usd():.4f} of ${config.spend_cap_usd():.2f}")
     return 0
 
 
