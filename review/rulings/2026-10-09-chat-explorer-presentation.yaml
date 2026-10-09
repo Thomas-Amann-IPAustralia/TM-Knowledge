@@ -1,0 +1,60 @@
+# An instruction the repo owner gave in a chat session, about how the examiner explorer
+# presents itself before it is shared with a large cohort of experts. Hand-transcribed by
+# the S028 agent; no issue behind it. The artefact is
+# `review/returned/261009-owner-chat-explorer-presentation.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-09T07:00:00Z'
+questions_updated: '2026-10-09'
+source:
+  kind: chat
+  artefact: review/returned/261009-owner-chat-explorer-presentation.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S028 agent
+  title: Play down the expert-signed marks; show Manual, Act and Regulations apart on the map;
+    move the nested circles to their own tab
+applied:
+  session: S028
+  date: '2026-10-09'
+  branch: claude/happy-noether-i4uufc
+  what_changed: >-
+    The explorer (site/) only; no record changed. A reviewed record now carries a plain grey
+    "Reviewed" in place of the green "Expert-signed" badge, and no name; every map draws
+    every idea and connection alike (no filled-versus-dashed); the "Only what an expert
+    signed" filter and the "signed by an expert" counts are gone; machine-written records
+    keep their "Machine · unreviewed" badge everywhere. The Manual (blue square), the Act
+    (amber diamond) and the Regulations (plum hexagon) each have their own colour and mark,
+    on the map's text level as three labelled boxes, in chips, quotes, the Ask diagram and
+    citation counts. The circles moved to `#/circles` ("At a glance"); the home page no
+    longer draws them (ADR-0130).
+answers:
+- id: CHAT-0068
+  item: explorer-review-emphasis
+  question: How prominently should the explorer show which records an expert reviewed?
+  kind: instruction
+  value: reduce
+  label: Reduce the emphasis on the expert-signed elements, especially in the visual components
+  quote: Please reduce the emphasis on the 'expert signed' elements. Especially in the visual
+    components.
+  recorded_as:
+  - ADR-0130
+- id: CHAT-0069
+  item: explorer-sources
+  question: Should the map show the Manual, the Act and the Regulations more distinctly?
+  kind: instruction
+  value: 'yes'
+  label: The map should more clearly indicate when something is from the Manual, the Act or the
+    Regulations
+  quote: I would like the map to more clearly indicate when something is from the Manual, the
+    Act or the Regulations.
+  recorded_as:
+  - ADR-0130
+- id: CHAT-0070
+  item: explorer-circles
+  question: Where should the nested-circles picture live?
+  kind: instruction
+  value: own_tab
+  label: Its own tab, and off the front page
+  quote: I would like the map of nested circles to be moved to its own tab and removed from the
+    front page.
+  recorded_as:
+  - ADR-0130
