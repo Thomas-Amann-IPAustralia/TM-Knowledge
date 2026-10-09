@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.030583,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0660..GR-0667",
+ "job": "audit",
+ "key": "853fd942ca076590d2946507b60793eb8a3142d72bc1b567bc280e4f53d739fd",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0660\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence lists roles that hold delegations to accept applications; it does not mention escalation from examiners to senior examiners.\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence lists roles that hold a delegation to accept applications, but it does not state or imply that an examiner escalates matters to a senior examiner.\"\n  },\n  {\n    \"id\": \"GR-0661\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence lists roles that hold delegations to accept applications; it does not mention escalation from senior examiners to team leaders.\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence only lists roles with the delegation to accept applications; it says nothing about senior examiners escalating to team leaders.\"\n  },\n  {\n    \"id\": \"GR-0662\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly states that examiners should consult the IK SME group (subject matter experts).\"\n  },\n  {\n    \"id\": \"GR-0663\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence implies the examiner, who is classifying the application, rather than the more general 'delegate'.\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0044\",\n    \"corrected_predicate\": \"consults\",\n    \"corrected_object\": \"GC-0175\",\n    \"reason\": \"The passage directs that applications with items difficult to classify be referred for advice. As this is an instruction for classification, it is the examiner, not the delegate generally, who consults the subject matter experts.\"\n  },\n  {\n    \"id\": \"GR-0664\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly states that it is encouraged that the hearing officer is consulted by examiners when an impasse is reached.\"\n  },\n  {\n    \"id\": \"GR-0665\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence states that the Examination team leader must notify the applicant of the proposed revocation, meaning the task of revocation of acceptance is allocated to them.\"\n  },\n  {\n    \"id\": \"GR-0666\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence places the burden of notifying the applicant of a proposed revocation of acceptance on the Deputy Registrar, supporting the allocatesTo relationship.\"\n  },\n  {\n    \"id\": \"GR-0667\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence provides that the Registrar must either accept the application or issue an adverse report, demonstrating that the burden of issuing the adverse report falls on the Registrar.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "111929ff2f920d5fe5a5c38be6953fe909be209f541f1f9542e4c572471c8f31",
+ "response_id": "72LIasnvKczxz7IP4a6p0Q8",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6883,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 3950,
+  "output_tokens_details": {
+   "reasoning_tokens": 3067
+  }
+ }
+}

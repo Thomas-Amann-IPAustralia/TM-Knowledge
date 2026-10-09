@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.037161,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0314..GR-0321",
+ "job": "audit",
+ "key": "8bf5a499c20021fe10d550b5a9b2a16b83d39f210d787b4ef81b919efc7985e1",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0314\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that establishing the reputation of the trade mark is a burden that falls on the opponent, matching the definition of allocatesTo.\"\n  },\n  {\n    \"id\": \"GR-0315\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate and object\",\n    \"corrected_subject\": \"GC-0050\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0059\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that the reputation of the place as a restaurant district affects its 'inherent capacity to distinguish' (inherent adaptation to distinguish), not the geographical reference itself.\"\n  },\n  {\n    \"id\": \"GR-0316\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence mentions both filing date and pending application together as part of the conditions for deferment, supporting a related link.\"\n  },\n  {\n    \"id\": \"GR-0317\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence links the date of registration to the date the application was made in a Convention country, supporting a related link.\"\n  },\n  {\n    \"id\": \"GR-0318\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explains that a complete notice of opposition includes an adequate statement of grounds and particulars, making the statement a required element of the notice.\"\n  },\n  {\n    \"id\": \"GR-0319\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence directly connects the filing of a statement of grounds and particulars to the subsequent requirement to file a notice of intention to defend.\"\n  },\n  {\n    \"id\": \"GR-0320\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that an extension of protection can be opposed by filing a notice of opposition, which includes a statement of grounds and particulars.\"\n  },\n  {\n    \"id\": \"GR-0321\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0153\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0040\",\n    \"remove\": false,\n    \"reason\": \"An opposition is a procedural step, not a test or concept that can be qualified by a factor. The statement of grounds and particulars is related to the opposition, as its inadequacy can lead to the opposition's dismissal.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "8bb04e6e5d657b05bf61ab3e7e6125d718274abab731f53b5995ff1858d9e469",
+ "response_id": "92LIaqOkIYXoz7IPx4Od-A0",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7623,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 4923,
+  "output_tokens_details": {
+   "reasoning_tokens": 4064
+  }
+ }
+}

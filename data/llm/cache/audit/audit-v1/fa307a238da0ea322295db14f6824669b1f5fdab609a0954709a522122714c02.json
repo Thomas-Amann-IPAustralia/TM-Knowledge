@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.04117,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0567..GR-0578",
+ "job": "audit",
+ "key": "fa307a238da0ea322295db14f6824669b1f5fdab609a0954709a522122714c02",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0567\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence describes circumstances for transforming a protected international trade mark, one of which involves the scope of the basic mark being limited in the Office of origin. This supports a relationship between the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0569\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that review of a Registrar's decision may be sought from the Administrative Review Tribunal (ART), supporting the reviewsDecisionsOf predicate.\"\n  },\n  {\n    \"id\": \"GR-0570\",\n    \"verdict\": \"vague\",\n    \"problem\": \"too weak\",\n    \"corrected_subject\": \"GC-0117\",\n    \"corrected_predicate\": \"isPartyTo\",\n    \"corrected_object\": \"GC-0142\",\n    \"remove\": false,\n    \"reason\": \"The sentence refers to the opponent and the applicant in the context of an opposed non-use application, implying they are parties to the proceeding, making 'isPartyTo' a sharper and more accurate relationship than 'related'.\"\n  },\n  {\n    \"id\": \"GR-0573\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that considering the trade mark in its entirety (as a whole) affects whether the combination is prima facie capable of distinguishing, supporting the 'qualifies' predicate.\"\n  },\n  {\n    \"id\": \"GR-0574\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0031\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0119\",\n    \"remove\": false,\n    \"reason\": \"The predicate 'appliesTo' is strictly for provisions, rules, or schemes that govern an object. 'Prima facie capable of distinguishing' is a legal test. The sentence connects phonewords to this test by noting they usually meet it, which supports a general 'related' link.\"\n  },\n  {\n    \"id\": \"GR-0575\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"Both concepts are explicitly mentioned together in the passage as distinct categories into which trade marks may fall, satisfying the criteria for the 'related' predicate.\"\n  },\n  {\n    \"id\": \"GR-0576\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The passage lists questions to guide the assessment of a trade mark that has 'no inherent adaptation to distinguish', one of which involves primary meaning (denotation). This confirms that denotation qualifies the legal test.\"\n  },\n  {\n    \"id\": \"GR-0578\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explains that the Registrar's power to decide classification questions does not apply in Madrid Protocol export applications if there is a dispute between an Office of origin and the International Bureau, linking classification directly to the Office of origin.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "0af8e3d06e71efd7a050b0f4c5904336f1e368d58b34d08ffcde67b50600c406",
+ "response_id": "72LIarTMKpfUz7IPoMGjyAE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7468,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5617,
+  "output_tokens_details": {
+   "reasoning_tokens": 4671
+  }
+ }
+}

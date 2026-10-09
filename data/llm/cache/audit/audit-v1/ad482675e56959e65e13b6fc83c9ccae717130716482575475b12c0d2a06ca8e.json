@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.078328,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0522..GR-0532",
+ "job": "audit",
+ "key": "ad482675e56959e65e13b6fc83c9ccae717130716482575475b12c0d2a06ca8e",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0522\",\n    \"verdict\": \"sound\",\n    \"problem\": null,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly uses the 'priority date' as the boundary for assessing the period of 'prior use', meaning the priority date qualifies how prior use is assessed.\"\n  },\n  {\n    \"id\": \"GR-0523\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The predicate 'appliesTo' is for provisions, rules, or schemes, whereas 'priority date' is a context concept.\",\n    \"corrected_subject\": \"GC-0016\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0150\",\n    \"remove\": false,\n    \"reason\": \"The predicate 'appliesTo' is incorrect because 'priority date' is not a provision or rule. However, the sentence connects the priority date to the international registration, making 'related' the appropriate predicate.\"\n  },\n  {\n    \"id\": \"GR-0524\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence does not mention 'evidence of use', but rather 'use' (use of a trade mark).\",\n    \"corrected_subject\": \"GC-0091\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0081\",\n    \"remove\": false,\n    \"reason\": \"The sentence discusses 'use' (use of a trade mark), not 'evidence of use'. It states that this use must be before the filing date, meaning the filing date qualifies how the use of a trade mark is assessed.\"\n  },\n  {\n    \"id\": \"GR-0525\",\n    \"verdict\": \"sound\",\n    \"problem\": null,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that the criteria for a claim for priority (a synonym for convention application) must apply at the filing date, meaning the filing date qualifies the assessment of the convention application.\"\n  },\n  {\n    \"id\": \"GR-0526\",\n    \"verdict\": \"sound\",\n    \"problem\": null,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence equates the filing date with the date of registration in most cases. Since no other predicate captures this equivalence, 'related' is the correct and sound predicate.\"\n  },\n  {\n    \"id\": \"GR-0527\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The predicate 'appliesTo' is incorrect for a procedural step, and the sentence states no relationship between the distinct concepts.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence simply uses the term 'revoke acceptance' and does not state a relationship between the distinct concepts of revocation of acceptance and acceptance. The predicate 'appliesTo' is also incorrect for a procedural step.\"\n  },\n  {\n    \"id\": \"GR-0529\",\n    \"verdict\": \"sound\",\n    \"problem\": null,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that sections 84A to 84D allow the Registrar to revoke the registration. This means the task of revocation of registration is allocated to the Registrar, which is correctly captured by 'allocatesTo' combined with the 'may' modality on the record.\"\n  },\n  {\n    \"id\": \"GR-0532\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The predicate 'related' is incorrect because the sentence states a causal requirement, but no valid predicate directly connects deferment of acceptance and the Commission.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The rules for 'related' forbid its use when a sentence states a requirement or cause (sending rules to the Commission causes mandatory deferment). However, since the Commission itself does not directly cause the deferment, no available predicate validly connects these two concepts.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "2b215c746a19d54784ee8576f3e54ba9b588313fe7048f7b45060f92b674b534",
+ "response_id": "72LIap3AKsux_PUP2t266Qw",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7534,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 11799,
+  "output_tokens_details": {
+   "reasoning_tokens": 10747
+  }
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.049347,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0194..GR-0201",
+ "job": "audit",
+ "key": "e8c476298bbd37650bb6f6537957b33dc561826147d3c35abcb4e3a4a3c0a09e",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0194\",\n    \"verdict\": \"wrong\",\n    \"corrected_subject\": \"GC-0023\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0006\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly refers to an 'INN stem', which is a distinct concept (GC-0023) from an International Non-Proprietary Name (GC-0022), so the subject is incorrect.\"\n  },\n  {\n    \"id\": \"GR-0195\",\n    \"verdict\": \"sound\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence clearly states that a trade mark being substantially identical to another trade mark provides grounds for rejecting an application, supporting that it gives rise to a ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0196\",\n    \"verdict\": \"sound\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence refers to 'signs prescribed in regulation 4.15', which directly implies that a prescribed sign is a specific kind of sign.\"\n  },\n  {\n    \"id\": \"GR-0197\",\n    \"verdict\": \"wrong\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The predicate 'extendsTo' is meant for subjects whose treatment applies equally to the object. 'So nearly resembling' is a legal test, not an equivalent entity to a prescribed sign.\"\n  },\n  {\n    \"id\": \"GR-0198\",\n    \"verdict\": \"sound\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence and its surrounding passage establish that containing a prescribed sign makes a ground for rejection under section 39 applicable.\"\n  },\n  {\n    \"id\": \"GR-0199\",\n    \"verdict\": \"wrong\",\n    \"corrected_subject\": \"GC-0055\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0006\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that 'a ground for rejection exists' without explicitly limiting it to a 'section 39 ground for rejection' in the text itself, so it only supports the general concept.\"\n  },\n  {\n    \"id\": \"GR-0200\",\n    \"verdict\": \"wrong\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The predicate 'appliesTo' is for a provision or rule governing an object. 'So nearly resembling' is a legal test, and the sentence merely uses the word 'sign' without establishing a rule relationship between the two.\"\n  },\n  {\n    \"id\": \"GR-0201\",\n    \"verdict\": \"sound\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence indicates that being a sign 'so nearly resembling' the prescribed sign is a standard that, if met, triggers a rejection, thereby stating a threshold for a section 39 ground for rejection.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "6416e9e5c2ee6432328cee62fe7125f2cdca98e7b5c0e28bfa17c834f4368125",
+ "response_id": "72LIatjBKcmi_PUP_5DM4QI",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7413,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 6989,
+  "output_tokens_details": {
+   "reasoning_tokens": 6132
+  }
+ }
+}

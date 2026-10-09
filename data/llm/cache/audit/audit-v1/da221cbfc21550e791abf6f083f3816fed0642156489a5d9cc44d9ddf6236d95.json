@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.026962,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0541..GR-0550",
+ "job": "audit",
+ "key": "da221cbfc21550e791abf6f083f3816fed0642156489a5d9cc44d9ddf6236d95",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0541\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence links the time for filing a 'notice of opposition' with the opposition to registration, indicating a relationship between the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0543\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The predicate appliesTo is restricted to provisions, rules, or schemes as the subject. 'Opposition' is a procedural step.\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0040\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0143\",\n    \"reason\": \"The predicate 'appliesTo' applies only when the subject is a provision, rule, or scheme. Since 'opposition' is a procedural step, the correct predicate for connecting these concepts is 'related'.\"\n  },\n  {\n    \"id\": \"GR-0544\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence plainly connects the Administrative Review Tribunal with the process of reviewing decisions relating to the dismissal of an opposition.\"\n  },\n  {\n    \"id\": \"GR-0545\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly pairs the opponent role with the step of preparing and filing a notice of opposition.\"\n  },\n  {\n    \"id\": \"GR-0546\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The predicate appliesTo is restricted to provisions, rules, or schemes as the subject. 'Notice of opposition' is an instrument.\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0103\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0113\",\n    \"reason\": \"The predicate 'appliesTo' applies only when the subject is a provision, rule, or scheme. Since 'notice of opposition' is an instrument, 'related' is the appropriate predicate.\"\n  },\n  {\n    \"id\": \"GR-0547\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The predicate appliesTo is restricted to provisions, rules, or schemes as the subject. 'Notice of opposition' is an instrument.\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0103\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0142\",\n    \"reason\": \"The predicate 'appliesTo' applies only when the subject is a provision, rule, or scheme. 'Notice of opposition' is an instrument or record, so 'related' should be used.\"\n  },\n  {\n    \"id\": \"GR-0548\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence naturally links 'application for removal' directly to the concept of removing a registered trade mark for non-use.\"\n  },\n  {\n    \"id\": \"GR-0550\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly brings together the elements of an opposition (opponent, notice of opposition) with those of a non-use removal proceeding (removal applicant, period of non-use), supporting the relationship.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "8c1320926ca0c96760e2e98373397ba77d55aabe71499e2c95c402d18bdb09b6",
+ "response_id": "72LIao3-KOTzz7IPgr3Q8AE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7414,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 3258,
+  "output_tokens_details": {
+   "reasoning_tokens": 2300
+  }
+ }
+}

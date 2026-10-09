@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.047018,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0485..GR-0492",
+ "job": "audit",
+ "key": "0cbef190fcfb4b22551ec55652613b7871b2f4608fcd830ba207bdc17504ea96",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0485\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that if there is a primary meaning (denotation), the sign may be inherently adapted to distinguish, establishing that denotation affects or qualifies this assessment.\"\n  },\n  {\n    \"id\": \"GR-0486\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence mentions both 'ordinary signification' and 'similar goods or services' as components evaluated together within the two-part test, which supports a related link.\"\n  },\n  {\n    \"id\": \"GR-0487\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The concept 'prima facie capable of distinguishing' does not appear in this sentence; it is discussed in the subsequent sentence in the passage.\"\n  },\n  {\n    \"id\": \"GR-0488\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"corrected_subject\": \"GC-0007\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0006\",\n    \"remove\": false,\n    \"reason\": \"The term 'scandalous matter' does not appear in the sentence. Instead, the sentence supports that the presumption of registrability is taken into account when assessing a 'ground for rejection'.\"\n  },\n  {\n    \"id\": \"GR-0489\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly lists scandalous matter as a basis for 'grounds for rejecting an application', making it a narrower kind of ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0490\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0062\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0131\",\n    \"remove\": false,\n    \"reason\": \"The predicate `appliesTo` is reserved for provisions, rules, or schemes. Scandalous matter is a ground of refusal/sign content, so it cannot 'apply to' an application in that sense; however, the presence of scandalous matter is related to the rejection of the trade mark application.\"\n  },\n  {\n    \"id\": \"GR-0491\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The specific concept 'ground for rejection' does not appear in this sentence, which only states the consequence that the application 'must be rejected'.\"\n  },\n  {\n    \"id\": \"GR-0492\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence connects the two concepts by stating that during a process for revocation of registration, an owner might be entitled to file evidence of honest concurrent use.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "11820a3ace9d99bcad63f3a3db0a267c6e191546b6c374d85822043a53c91694",
+ "response_id": "72LIavLmKOTzz7IPgr3Q8AE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7568,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 6575,
+  "output_tokens_details": {
+   "reasoning_tokens": 5763
+  }
+ }
+}

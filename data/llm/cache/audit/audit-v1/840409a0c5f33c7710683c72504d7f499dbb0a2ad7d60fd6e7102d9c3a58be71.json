@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.042228,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0358..GR-0370",
+ "job": "audit",
+ "key": "840409a0c5f33c7710683c72504d7f499dbb0a2ad7d60fd6e7102d9c3a58be71",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0358\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that assignment (along with transmission) is known as a change of ownership, establishing that it is a specific kind of change of ownership.\"\n  },\n  {\n    \"id\": \"GR-0359\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0162\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0113\",\n    \"remove\": false,\n    \"reason\": \"The appliesTo predicate is reserved for provisions, rules, or schemes governing an object. A 'change of ownership' is a procedural step, not a rule. The sentence merely mentions them together, which supports a 'related' link.\"\n  },\n  {\n    \"id\": \"GR-0360\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"corrected_subject\": \"GC-0087\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0027\",\n    \"remove\": false,\n    \"reason\": \"The sentence defines 'transmission', not 'change of ownership'. It states that transmission includes devolution on the personal representative of a deceased person.\"\n  },\n  {\n    \"id\": \"GR-0361\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a relationship the sentence does not state\",\n    \"corrected_subject\": \"GC-0162\",\n    \"corrected_predicate\": \"requiresConsentOf\",\n    \"corrected_object\": \"GC-0133\",\n    \"remove\": false,\n    \"reason\": \"The sentence does not state that the certification trade mark requires the consent of the ACCC; rather, it states that the 'change of ownership' requires the consent of the ACCC.\"\n  },\n  {\n    \"id\": \"GR-0362\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states a negative rule (it is not possible to change the ownership of a collective trade mark), which connects the two concepts. As there is no specific predicate for an absolute prohibition of a procedural step, 'related' is appropriate.\"\n  },\n  {\n    \"id\": \"GR-0368\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence connects the two concepts by explaining that a request to record a claim on a protected international trade mark is recorded in the Record of International Registrations.\"\n  },\n  {\n    \"id\": \"GR-0369\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence connects the holder to the Record of International Registrations as the holder is the party taking action to have it rectified.\"\n  },\n  {\n    \"id\": \"GR-0370\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence mentions 'international registration' and the 'Record of International Registration', establishing a valid relation when IP Australia must amend the Record upon the registration's cessation or limitation.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "5972f05c19b459f42f1a32e408e3f75eeb56e0a2ca8137dd33281475c2ee4a62",
+ "response_id": "72LIat-WKZ6J6dkPipzPiAI",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7506,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5787,
+  "output_tokens_details": {
+   "reasoning_tokens": 4850
+  }
+ }
+}

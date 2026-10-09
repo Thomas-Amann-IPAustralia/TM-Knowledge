@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.062105,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0154..GR-0161",
+ "job": "audit",
+ "key": "b827294a5d10a0908f58d42c160a0c374adf9ecfa87d9389ec63bba366f8f095",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0154\",\n    \"status\": \"wrong\",\n    \"corrected_subject\": \"GC-0009\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0002\",\n    \"remove\": false,\n    \"problem\": \"The sentence does not support a direct relationship between a claim to Indigenous origin and the relevant market. Instead, it describes the relevant market as the context in which consumers would be likely to be deceived or confused.\",\n    \"reason\": \"The sentence specifies that the likelihood to deceive or confuse is assessed among consumers 'within the relevant market', meaning the relevant market qualifies the test for likelihood of deception or confusion.\"\n  },\n  {\n    \"id\": \"GR-0155\",\n    \"status\": \"sound\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that 'This type of material' (referring to claims to Indigenous origin like 'Aboriginal designed') 'can form a connotation', directly supporting that it may give rise to a connotation.\"\n  },\n  {\n    \"id\": \"GR-0156\",\n    \"status\": \"wrong\",\n    \"corrected_subject\": \"GC-0001\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0002\",\n    \"remove\": false,\n    \"problem\": \"The sentence does not state that the reference to Indigenous people directly gives rise to the likelihood of deception; rather, it states that a connotation arising from the mark is what would be likely to deceive or confuse.\",\n    \"reason\": \"The text says 'a connotation arises from the mark that would be likely to deceive or confuse', meaning it is the connotation that gives rise to the likelihood of deception or confusion.\"\n  },\n  {\n    \"id\": \"GR-0157\",\n    \"status\": \"wrong\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"problem\": \"The sentence uses the exact phrasing 'likely to deceive or confuse', which maps directly to the concept 'likely to deceive or cause confusion' rather than just 'confusion'. It is also the connotation, not the claim itself, that gives rise to it in this sentence.\",\n    \"reason\": \"The relationship is better captured by mapping the connotation to 'likely to deceive or cause confusion', rendering this mapping to 'confusion' incorrect and redundant.\"\n  },\n  {\n    \"id\": \"GR-0158\",\n    \"status\": \"sound\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that a 'notice of opposition' is defined as including '(a) a notice of intention to oppose', meaning the latter is a required element of the former.\"\n  },\n  {\n    \"id\": \"GR-0159\",\n    \"status\": \"sound\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly mentions 'a decision on the opposition' by the Registrar, establishing a valid connection between the Registrar's decision and an opposition.\"\n  },\n  {\n    \"id\": \"GR-0160\",\n    \"status\": \"wrong\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"problem\": \"The provided text is merely a section heading and does not form a complete sentence stating a relationship between the Madrid Protocol and an opposition.\",\n    \"reason\": \"A heading alone does not articulate a substantive relationship that can be evaluated.\"\n  },\n  {\n    \"id\": \"GR-0161\",\n    \"status\": \"wrong\",\n    \"corrected_subject\": \"GC-0103\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0095\",\n    \"remove\": false,\n    \"problem\": \"The sentence explicitly identifies the filing of a 'notice of opposition', not the 'opposition' proceedings generally, as the trigger for revocation.\",\n    \"reason\": \"The text states that revocation of registration can occur 'within one month of a component of a notice of opposition being filed', linking the notice of opposition directly to the revocation.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "e8fe8e5d8660ecf27705689a86bd76d9ceec4a6b2b6ac657ecd2f7543d6aa32a",
+ "response_id": "72LIavSQKJXQz7IPmfP74AY",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7655,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 9075,
+  "output_tokens_details": {
+   "reasoning_tokens": 8009
+  }
+ }
+}

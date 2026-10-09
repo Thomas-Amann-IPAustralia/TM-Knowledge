@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.039079,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0668..GR-0675",
+ "job": "audit",
+ "key": "5d217cb6cd511412ab42a95370fcdecc333318ebb4de2b0382b135782a905d7c",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0668\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly notes that a trade mark attorney can assist in preparing and supplying evidence of use, fitting the 'related' predicate as they are connected in this specific context without a more specific structural relationship applying.\"\n  },\n  {\n    \"id\": \"GR-0669\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly defines a trade mark as a sign (with specific requirements), supporting that a trade mark is a narrower kind of sign.\"\n  },\n  {\n    \"id\": \"GR-0670\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence states that a registered trade mark means a trade mark whose particulars are entered in the Register, establishing that a registered trade mark is a narrower kind of trade mark.\"\n  },\n  {\n    \"id\": \"GR-0671\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence defines a certification trade mark as a sign used to distinguish goods or services, making a certification trade mark a narrower kind of sign.\"\n  },\n  {\n    \"id\": \"GR-0672\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly states that the provisions of the Act relating to trade marks apply equally to certification trade marks, precisely matching the definition of the 'extendsTo' predicate.\"\n  },\n  {\n    \"id\": \"GR-0673\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence defines a collective trade mark as a sign used by members of an association, establishing it as a narrower kind of sign.\"\n  },\n  {\n    \"id\": \"GR-0674\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence provides that a trade mark may be \\\"registered as a defensive trade mark\\\", which plainly implies that a defensive trade mark is a type of registered trade mark.\"\n  },\n  {\n    \"id\": \"GR-0675\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence establishes the applicant as the person in whose name the application proceeds, making the applicant a party to the application.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "d97726125c32c4c883a201ea7c9144db4e3dfa3011a6eb7b596c2f59057cde59",
+ "response_id": "72LIao27KZCzqtsPm6-n0Q0",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7015,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5344,
+  "output_tokens_details": {
+   "reasoning_tokens": 4511
+  }
+ }
+}

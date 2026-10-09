@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.05204,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0512..GR-0521",
+ "job": "audit",
+ "key": "16953e18e2c6e1a7d9c1ff04872441159e4279637e12a1ae925bae489757b13d",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0512\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence directly connects the registered owner and the registered trade mark in the context of notices of prohibition, and no sharper predicate applies.\"\n  },\n  {\n    \"id\": \"GR-0514\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence clearly relates the original owner of the trade mark to the assignment process by describing what the owner retains during a partial assignment.\"\n  },\n  {\n    \"id\": \"GR-0515\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that the application (to assign a certification trade mark) is made to the Commission, supporting that the task or matter of the assignment application is allocated to the Commission.\"\n  },\n  {\n    \"id\": \"GR-0516\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly brings up the Commission and transmission together to state that consent from the Commission is not required. Denying a requirement establishes a related link.\"\n  },\n  {\n    \"id\": \"GR-0517\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence relates the Register of Trade Marks to a registered trade mark by explaining that a record in the Register regarding an interest in a registered trade mark is not proof of that interest.\"\n  },\n  {\n    \"id\": \"GR-0519\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence notes that an authorised user may take an action for infringement of a registered trade mark, effectively linking the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0520\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0081\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0109\",\n    \"remove\": false,\n    \"reason\": \"As noted in the instructions, this relationship incorrectly uses the 'qualifies' predicate simply because the text uses the phrase 'qualifies for registration'. The text establishes that the extent of use is a consideration for registering a defensive trade mark, which supports a basic 'related' link.\"\n  },\n  {\n    \"id\": \"GR-0521\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence relates the old register to the new Register of Trade Marks by explaining how disclaimers were transferred from the old register to the new one.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "91ca88a23aa2de04f38e5c64137b84e55d5566ab693d44b3105ffbe0d7d13f02",
+ "response_id": "72LIauzyKcmi_PUP_5DM4QI",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7586,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 7409,
+  "output_tokens_details": {
+   "reasoning_tokens": 6540
+  }
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.050313,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0437..GR-0446",
+ "job": "audit",
+ "key": "96b7060cad6849acaf35d74022f6c189e5af7365f055303529863a3c7f506374",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0437\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly refers to 'the owner or authorised user of the phoneword', directly relating the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0438\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0031\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0001\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that a phoneword can develop a secondary meaning (connotation) through use over time, not that the phoneword itself causes or gives rise to the connotation.\"\n  },\n  {\n    \"id\": \"GR-0439\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence instructs the examiner to consider the material apart from the numerical element and does not explicitly mention or support a relationship with phonewords.\"\n  },\n  {\n    \"id\": \"GR-0440\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence plainly states that a trade mark containing material likely to be viewed as a phoneword can lead to (give rise to) a section 43 ground for rejection if the applicant is not the owner.\"\n  },\n  {\n    \"id\": \"GR-0441\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence directly connects a generic TLD and the trade mark application, stating the latter must be considered when determining if material connotes the former.\"\n  },\n  {\n    \"id\": \"GR-0442\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly links the owner of the trade mark to operating with the radio call sign.\"\n  },\n  {\n    \"id\": \"GR-0443\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence clearly states that confusion would be created (given rise to) if the owner operated with that radio call sign without a license.\"\n  },\n  {\n    \"id\": \"GR-0446\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence demonstrates that assessing the trade mark as a whole affects or bears upon the test for inherent adaptation to distinguish.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "900675fc3cf16add6215e295d3bd62eb0d7c59af943d80c2b75569823a1c76cb",
+ "response_id": "72LIasC1KZGL_uMP2ZCLyAQ",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8001,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 7052,
+  "output_tokens_details": {
+   "reasoning_tokens": 6219
+  }
+ }
+}

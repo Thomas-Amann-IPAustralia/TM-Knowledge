@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.063343,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0293..GR-0303",
+ "job": "audit",
+ "key": "3e4907091b53a3b46598b62a628226b52b92239dd4edb9a3906d39f55650cbca",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0293\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong direction and predicate\",\n    \"corrected_subject\": \"GC-0123\",\n    \"corrected_predicate\": \"allocatesTo\",\n    \"corrected_object\": \"GC-0046\",\n    \"remove\": false,\n    \"reason\": \"The sentence allocates the task of handling and publishing the withdrawal to the Registrar. Thus 'allocatesTo' is the correct predicate, with the matter (withdrawal) as the subject and the role (Registrar) as the object.\"\n  },\n  {\n    \"id\": \"GR-0294\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The text explicitly names an opponent as a party involved in opposition proceedings.\"\n  },\n  {\n    \"id\": \"GR-0296\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence describes a procedural request an opponent can make to the Registrar, which states a power or procedural action. The 'related' predicate strictly excludes statements of power, and no other predicate fits this interaction.\"\n  },\n  {\n    \"id\": \"GR-0298\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence states that an application requires a demonstrated capacity to distinguish to proceed despite having no inherent adaptation. It does not state that the legal test of no inherent adaptation itself requires a capacity to distinguish to apply.\"\n  },\n  {\n    \"id\": \"GR-0299\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong object\",\n    \"corrected_subject\": \"GC-0061\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0059\",\n    \"remove\": false,\n    \"reason\": \"The determination described as a two-part process is for deciding 'to what extent is the applicant's trade mark inherently adapted to distinguish', making 'inherent adaptation to distinguish' (GC-0059) the correct object being qualified.\"\n  },\n  {\n    \"id\": \"GR-0300\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0120\",\n    \"corrected_predicate\": \"isOvercomeBy\",\n    \"corrected_object\": \"GC-0041\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that an applicant needs to show sufficient evidence of use to proceed when their mark has no inherent adaptation to distinguish, meaning the ground/finding is overcome by the evidence.\"\n  },\n  {\n    \"id\": \"GR-0301\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that specifications should be framed using the terms listed in the NICE classification, showing the specification depends on this external source.\"\n  },\n  {\n    \"id\": \"GR-0303\",\n    \"verdict\": \"vague\",\n    \"problem\": \"the main fault\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The relationship is valid but too weak; a sharper predicate like 'allocatesTo' would better capture that the task of considering the classification falls on the examiner.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "411da49205be0e3a3435ecb3dba67505eb6722772f55cac138c116e147ca1a85",
+ "response_id": "72LIauChKZKm_PUP8Pr7mAo",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7363,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 9330,
+  "output_tokens_details": {
+   "reasoning_tokens": 8392
+  }
+ }
+}

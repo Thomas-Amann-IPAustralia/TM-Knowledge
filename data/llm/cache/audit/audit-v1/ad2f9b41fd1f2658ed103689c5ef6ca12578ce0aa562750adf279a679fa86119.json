@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.04041,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0636..GR-0643",
+ "job": "audit",
+ "key": "ad2f9b41fd1f2658ed103689c5ef6ca12578ce0aa562750adf279a679fa86119",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0636\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that a match on the Wine Register (a term protected under the Wine Australia Act) may trigger a ground for rejection, which the passage goes on to clarify is because use of the trade mark may contravene the Act (use contrary to law).\"\n  },\n  {\n    \"id\": \"GR-0637\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong\",\n    \"corrected_subject\": \"GC-0019\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0107\",\n    \"remove\": false,\n    \"reason\": \"The sentence mentions 'geographical origin' (GC-0019), not a 'geographical indication' (GC-0018). Furthermore, it states that a certification trade mark indicates a geographical origin rather than giving it legal protection, so 'related' is the appropriate predicate.\"\n  },\n  {\n    \"id\": \"GR-0638\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that a Deputy Registrar's powers and functions are 'Subject to any direction by the Registrar', perfectly matching the definition of actsUnderDirectionOf.\"\n  },\n  {\n    \"id\": \"GR-0639\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that the Registrar may delegate powers by signed instrument, which establishes that the person receiving those powers (the delegate) holds a delegation from the Registrar.\"\n  },\n  {\n    \"id\": \"GR-0640\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly requires a delegate to exercise delegated powers 'under the direction or supervision of: (a) the Registrar', which exactly matches the definition of actsUnderDirectionOf.\"\n  },\n  {\n    \"id\": \"GR-0641\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly refers to a Hearing Officer 'acting under delegation from the Registrar', matching the definition of holdsDelegationFrom.\"\n  },\n  {\n    \"id\": \"GR-0642\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that a hearing is 'conducted by... a Hearing Officer', meaning the task or matter falls on that role, which matches the definition of allocatesTo.\"\n  },\n  {\n    \"id\": \"GR-0643\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence lists Examiners among the 'people currently delegated to accept trade mark applications', establishing that an examiner is a kind of delegate.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "88a21a25be87b78de2410b37aedd81a0aa6fcee87f0caa8b0b3a4ed6c45cd70f",
+ "response_id": "72LIaqf6KKmkqtsProyE4AE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7488,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5487,
+  "output_tokens_details": {
+   "reasoning_tokens": 4803
+  }
+ }
+}

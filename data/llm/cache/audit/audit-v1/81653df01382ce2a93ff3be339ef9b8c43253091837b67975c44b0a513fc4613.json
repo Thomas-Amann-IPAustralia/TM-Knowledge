@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.029481,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0211..GR-0219",
+ "job": "audit",
+ "key": "81653df01382ce2a93ff3be339ef9b8c43253091837b67975c44b0a513fc4613",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0211\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0060\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0073\",\n    \"remove\": false,\n    \"reason\": \"The predicate appliesTo is used for provisions, rules, or schemes that govern an object. 'Ordinary signification' is a legal test or attribute of a sign, not a rule that governs it; therefore, they are merely related.\"\n  },\n  {\n    \"id\": \"GR-0212\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that the presence of a 'primary meaning' (denotation) affects what the ordinary signification of the sign is, which matches the definition of 'qualifies'.\"\n  },\n  {\n    \"id\": \"GR-0213\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explains that the likelihood of other traders' legitimate desire to use the mark is determined for that 'ordinary signification', showing that the ordinary signification qualifies the test for legitimate desire.\"\n  },\n  {\n    \"id\": \"GR-0214\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence indicates that other traders' legitimate desire to use the trade mark is determined in connection with their 'similar goods or services', making it a factor that qualifies the test.\"\n  },\n  {\n    \"id\": \"GR-0215\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence directly refers to 'a contrary to law ground for rejection', establishing that 'contrary to law' is a kind of ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0216\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence merely uses the word 'examination' as part of a table header ('Trade mark under examination') and asks 'Contrary to law?'. It does not state that the ground applies to the examination process itself.\"\n  },\n  {\n    \"id\": \"GR-0218\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence lists 'prescribed signs' and 'contrary to law' together as alternative grounds for rejection, making 'related' appropriate as the weakest statement of connection.\"\n  },\n  {\n    \"id\": \"GR-0219\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence and its surrounding passage explain that providing evidence of 'PRIOR USE' before the priority date of a 'conflicting trade mark' is a way to overcome that conflict.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "37bcf83161b93ee75519feacb5fd500f40b84fd3f66d434518ea3197fd2712db",
+ "response_id": "72LIasi5KMzxz7IP4a6p0Q8",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7803,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 3613,
+  "output_tokens_details": {
+   "reasoning_tokens": 2713
+  }
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.034221,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0237..GR-0245",
+ "job": "audit",
+ "key": "f9cd8464fa21ab7609284a0e989ef5519f1c17b38fb0307113f5c8de0fb08058",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0237\",\n    \"verdict\": \"vague\",\n    \"problem\": \"a statement true only of the one case the sentence describes.\",\n    \"reason\": \"The sentence explicitly limits its observation to \\\"In this case\\\", noting that context determines if a domain name acts as a sign, rather than stating a general rule that an internet domain name is a kind of sign.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0238\",\n    \"verdict\": \"sound\",\n    \"problem\": \"\",\n    \"reason\": \"The sentence directly refers to \\\"certain signs ... [that are] prohibited\\\", which plainly implies that a prohibited sign is a kind of sign.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0239\",\n    \"verdict\": \"sound\",\n    \"problem\": \"\",\n    \"reason\": \"The sentence is a heading that groups \\\"scent trade marks\\\" under the broader category of \\\"Non-traditional signs\\\", plainly implying it is a kind of non-traditional sign.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0240\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"reason\": \"The sentence states that series applications can consist of non-traditional signs and should be assessed on their merits; it does not state that the treatment of a series of trade marks extends to non-traditional signs.\",\n    \"corrected_subject\": \"GC-0079\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0074\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0241\",\n    \"verdict\": \"sound\",\n    \"problem\": \"\",\n    \"reason\": \"The sentence explicitly refers to scent trade marks being indexed as the \\\"kind of sign 'scent'\\\", plainly implying that a scent trade mark is a kind of sign.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0242\",\n    \"verdict\": \"sound\",\n    \"problem\": \"\",\n    \"reason\": \"The sentence sets out that an application for a series of trade marks may be made if the trade marks resemble each other in material particulars, establishing it as a required element.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0243\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"reason\": \"A divisional application is a procedural step, not a provision, rule or scheme that governs an object, so 'appliesTo' is incorrect. The sentence merely mentions them together in the context of making a divisional application from a series application.\",\n    \"corrected_subject\": \"GC-0043\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0079\",\n    \"remove\": false\n  },\n  {\n    \"id\": \"GR-0245\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"reason\": \"Neither the sentence nor the surrounding passage mentions a \\\"series of trade marks\\\"; it is discussing linked divisional applications and convention claims.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "c7529decff1f29990312b7f04c03d75ed0fc85888a9409cc2ef7e8bf0b28e252",
+ "response_id": "C2PIarqVEpfUz7IPoMGjyAE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7383,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 4473,
+  "output_tokens_details": {
+   "reasoning_tokens": 3556
+  }
+ }
+}

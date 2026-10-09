@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.042821,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0263..GR-0270",
+ "job": "audit",
+ "key": "42cad01df463b871a0ca915e9e0b0c6f890150c3886dce7b503b9e36b56fc97c",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0263\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence discusses a \\\"geographical limitation\\\" being entered as an endorsement, but does not mention a \\\"condition of registration\\\" or provide a clear relationship between the mapped concepts.\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence refers to a geographical limitation rather than explicitly naming a condition of registration. Additionally, 'related' is too vague for how a limitation is entered as an endorsement, but no other predicate cleanly fits.\"\n  },\n  {\n    \"id\": \"GR-0264\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence does not contain the concept \\\"prima facie capable of distinguishing\\\".\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence provided does not mention \\\"prima facie capable of distinguishing\\\", as this concept appears in a previous sentence in the passage.\"\n  },\n  {\n    \"id\": \"GR-0265\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly connects an endorsement and a limitation to the specification of goods and services as alternative ways to mitigate the risk of deception.\"\n  },\n  {\n    \"id\": \"GR-0266\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The predicate appliesTo is incorrect because \\\"rectification of the Register\\\" is a procedural step, not a provision, rule, or scheme.\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The appliesTo predicate requires the subject to be a provision, rule, or scheme that governs the object. A procedural step like rectification does not fit this definition, and no other predicate captures this syntactic link.\"\n  },\n  {\n    \"id\": \"GR-0267\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence states that a rectification action is a ground upon which deferment can be sought, meaning the former gives rise to the latter.\"\n  },\n  {\n    \"id\": \"GR-0268\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence does not contain the concept \\\"renewal of registration\\\".\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence refers to \\\"this status\\\" but does not explicitly name \\\"renewal of registration\\\", relying on previous sentences in the passage which violates the rule that the sentence itself must support the relationship.\"\n  },\n  {\n    \"id\": \"GR-0269\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The filing date qualifies the renewal of registration because it serves as the anchor date from which the ten-year renewal intervals are calculated.\"\n  },\n  {\n    \"id\": \"GR-0270\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The list heading explicitly associates an Article of the Madrid Protocol with the renewal of an international registration, showing that the scheme applies to and governs the renewal.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "29c97824a390abfc6c759dfd48031743b41b5304c255d95da6f5288221040085",
+ "response_id": "72LIasDtJ4Xoz7IPx4Od-A0",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7385,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5906,
+  "output_tokens_details": {
+   "reasoning_tokens": 4982
+  }
+ }
+}

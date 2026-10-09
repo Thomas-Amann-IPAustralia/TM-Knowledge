@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.041498,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0493..GR-0503",
+ "job": "audit",
+ "key": "2aa436f31580b5161df7d3808fb27c34b9cd0c61878588b0b652bb0ddfff6f5f",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0493\",\n    \"sound\": true,\n    \"vague\": false,\n    \"wrong\": false,\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence specifies that relying on prior use by a predecessor in title introduces an additional requirement, indicating that the predecessor in title qualifies how prior use is assessed.\"\n  },\n  {\n    \"id\": \"GR-0495\",\n    \"sound\": true,\n    \"vague\": false,\n    \"wrong\": false,\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence clearly states that the Registrar may accept the application subject to conditions or limitations, so a condition of registration qualifies acceptance.\"\n  },\n  {\n    \"id\": \"GR-0497\",\n    \"sound\": true,\n    \"vague\": false,\n    \"wrong\": false,\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly links the concepts of similar goods and closely related goods as parallel considerations in an enquiry.\"\n  },\n  {\n    \"id\": \"GR-0498\",\n    \"sound\": false,\n    \"vague\": false,\n    \"wrong\": true,\n    \"problem\": \"a relationship the sentence does not state\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence happens to contain the phrases 'similar goods' and 'registered trade mark' but states no meaningful relationship between the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0499\",\n    \"sound\": false,\n    \"vague\": false,\n    \"wrong\": true,\n    \"problem\": \"a concept the sentence is not about\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0081\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0004\",\n    \"reason\": \"The sentence states that the 'use' of the trade mark would result in confusion, not that the legal test of similarity of goods and services itself gives rise to confusion.\"\n  },\n  {\n    \"id\": \"GR-0500\",\n    \"sound\": false,\n    \"vague\": false,\n    \"wrong\": true,\n    \"problem\": \"a concept the sentence is not about\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence does not mention an application for removal; it only discusses what constitutes use in good faith.\"\n  },\n  {\n    \"id\": \"GR-0501\",\n    \"sound\": true,\n    \"vague\": false,\n    \"wrong\": false,\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly lists a colour trade mark as a 'kind of sign', which directly supports the broader relationship.\"\n  },\n  {\n    \"id\": \"GR-0503\",\n    \"sound\": false,\n    \"vague\": false,\n    \"wrong\": true,\n    \"problem\": \"a concept the sentence is not about\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence does not mention non-traditional signs; that concept is introduced only in a subsequent sentence in the passage.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "1c8fe866c348304bb0999747c4a5dddf0eba53bda3bbca089751ec0dce86aaf7",
+ "response_id": "72LIao6XKKmkqtsProyE4AE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7880,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5603,
+  "output_tokens_details": {
+   "reasoning_tokens": 4667
+  }
+ }
+}

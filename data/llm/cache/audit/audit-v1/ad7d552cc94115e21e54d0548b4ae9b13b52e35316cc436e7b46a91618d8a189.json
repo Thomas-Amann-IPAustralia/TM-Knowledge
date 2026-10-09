@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.037297,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0600..GR-0607",
+ "job": "audit",
+ "key": "ad7d552cc94115e21e54d0548b4ae9b13b52e35316cc436e7b46a91618d8a189",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0600\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly mentions \\\"the holder's Office of origin\\\", establishing a general relationship between the holder of an international registration and the Office of origin.\"\n  },\n  {\n    \"id\": \"GR-0601\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that in the event of a dispute between the two bodies, \\\"the opinion of the IB stands\\\", which exactly matches the definition of prevailsOver.\"\n  },\n  {\n    \"id\": \"GR-0602\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence describes how the features of a convention application (specifically multiple priority claims) affect how the effective date of registration is assessed, fitting the definition of qualifies.\"\n  },\n  {\n    \"id\": \"GR-0603\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence links the accrual of rights in a registered trade mark to its date of registration, which supports a relationship between the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0604\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0040\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0142\",\n    \"remove\": false,\n    \"reason\": \"The predicate 'appliesTo' is restricted to a provision, rule, or scheme governing an object. 'Opposition' is a procedural step. The sentence instead supports a general 'related' link because a person may oppose a non-use application.\"\n  },\n  {\n    \"id\": \"GR-0605\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0040\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0142\",\n    \"remove\": false,\n    \"reason\": \"The predicate 'appliesTo' can only have a provision, rule, or scheme as its subject. 'Opposition' is a procedural step. The sentence states that a notice of intention to oppose (opposition) is directed 'to the non-use application', which supports a 'related' link.\"\n  },\n  {\n    \"id\": \"GR-0606\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0103\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0143\",\n    \"remove\": false,\n    \"reason\": \"The predicate 'appliesTo' requires the subject to be a provision, rule, or scheme. A 'notice of opposition' is an instrument or record. The sentence instead supports a 'related' link by stating the notice is the instrument used to oppose an extension of protection.\"\n  },\n  {\n    \"id\": \"GR-0607\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly connects the concepts by defining an IRDA as a request for an extension of protection, which supports a basic related link since no more specific predicate applies.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "4cad31592768703576d79ddcd77c05f37565012af6cf9e96e29c90585ab80069",
+ "response_id": "72LIapvIKcD5qtsPxPKVkAE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7291,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5001,
+  "output_tokens_details": {
+   "reasoning_tokens": 4042
+  }
+ }
+}

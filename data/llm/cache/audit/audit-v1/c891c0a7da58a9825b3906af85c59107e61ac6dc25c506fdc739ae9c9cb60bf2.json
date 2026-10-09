@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.024507,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0700..GR-0702",
+ "job": "audit",
+ "key": "c891c0a7da58a9825b3906af85c59107e61ac6dc25c506fdc739ae9c9cb60bf2",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0700\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly states that a section 43 ground for rejection will generally not arise in respect of long deceased historical figures (a form of deceased person), matching the 'doesNotGiveRiseTo' predicate in the correct direction.\"\n  },\n  {\n    \"id\": \"GR-0701\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence plainly states that deception or confusion is not likely to occur if the geographic reference is ambiguous or fanciful, supporting the 'doesNotGiveRiseTo' relationship from the reference to the test.\"\n  },\n  {\n    \"id\": \"GR-0702\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence states that the ground for rejection will be reconsidered if the applicant provides information confirming they are the owner or authorised user. This means the factor of being the owner or authorised user affects how the ground is assessed, accurately fitting the definition of 'qualifies'.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "071438d1dc1910e1bb8d36492ef8e96cedb7e032c30859bba883d895482a3aad",
+ "response_id": "72LIatOqK9KQ_uMPkZLJoAY",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6075,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 3072,
+  "output_tokens_details": {
+   "reasoning_tokens": 2712
+  }
+ }
+}

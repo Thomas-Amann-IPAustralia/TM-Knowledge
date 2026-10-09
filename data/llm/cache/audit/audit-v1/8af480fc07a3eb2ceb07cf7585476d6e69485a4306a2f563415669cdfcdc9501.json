@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.060858,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0134..GR-0141",
+ "job": "audit",
+ "key": "8af480fc07a3eb2ceb07cf7585476d6e69485a4306a2f563415669cdfcdc9501",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0134\",\n    \"sound\": false,\n    \"vague\": false,\n    \"wrong\": true,\n    \"problem\": \"wrong subject\",\n    \"corrected_subject\": \"GC-0081\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0004\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that the 'use' of the trade mark is what gives rise to deception or confusion, rather than the International Non-Proprietary Name itself.\"\n  },\n  {\n    \"id\": \"GR-0135\",\n    \"sound\": true,\n    \"vague\": false,\n    \"wrong\": false,\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence clearly indicates that the meaning of the trade mark as a whole acts as a factor that qualifies whether a stem is included meaningfully.\"\n  },\n  {\n    \"id\": \"GR-0136\",\n    \"sound\": false,\n    \"vague\": false,\n    \"wrong\": true,\n    \"problem\": \"wrong direction and predicate\",\n    \"corrected_subject\": \"GC-0002\",\n    \"corrected_predicate\": \"requiresElement\",\n    \"corrected_object\": \"GC-0024\",\n    \"remove\": false,\n    \"reason\": \"The sentence establishes that if the presence of the stem is not meaningful, it will not lead to deception or confusion. This logically implies that deception or confusion requires a meaningful inclusion of the stem.\"\n  },\n  {\n    \"id\": \"GR-0137\",\n    \"sound\": false,\n    \"vague\": false,\n    \"wrong\": true,\n    \"problem\": \"wrong direction and predicate\",\n    \"corrected_subject\": \"GC-0003\",\n    \"corrected_predicate\": \"requiresElement\",\n    \"corrected_object\": \"GC-0024\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that a lack of meaningful inclusion will not lead to deception, meaning that deception requires the meaningful inclusion of the INN stem.\"\n  },\n  {\n    \"id\": \"GR-0138\",\n    \"sound\": false,\n    \"vague\": false,\n    \"wrong\": true,\n    \"problem\": \"wrong subject\",\n    \"corrected_subject\": \"GC-0001\",\n    \"corrected_predicate\": \"excludesBasis\",\n    \"corrected_object\": \"GC-0130\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that it is the 'connotation' that must not be drawn from external considerations like a reputation in another trade mark, rather than the implied endorsement itself.\"\n  },\n  {\n    \"id\": \"GR-0139\",\n    \"sound\": true,\n    \"vague\": false,\n    \"wrong\": false,\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence outlines that the extent to which the reference is well known (reputation) is an important consideration, thereby qualifying how the implied endorsement is assessed.\"\n  },\n  {\n    \"id\": \"GR-0140\",\n    \"sound\": true,\n    \"vague\": false,\n    \"wrong\": false,\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence grammatically links 'registrant or authorised user' to 'Internet domain name', and since there is no sharper predicate for owning or holding a role over a domain name, 'related' is completely sound.\"\n  },\n  {\n    \"id\": \"GR-0141\",\n    \"sound\": false,\n    \"vague\": false,\n    \"wrong\": true,\n    \"problem\": \"the sentence does not state this relationship\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence describes the 'use' of a domain name constituting the use of a trade mark. It does not state that the internet domain name itself gives rise to the use of a trade mark, and there is no concept for the use of a domain name to correct this to.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "82ca7643bc739fe42ec591fb8b35152fd81264eaeb8331d0785d3c7e4a9219ba",
+ "response_id": "72LIasHEKcmi_PUP_5DM4QI",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7950,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 8818,
+  "output_tokens_details": {
+   "reasoning_tokens": 7752
+  }
+ }
+}

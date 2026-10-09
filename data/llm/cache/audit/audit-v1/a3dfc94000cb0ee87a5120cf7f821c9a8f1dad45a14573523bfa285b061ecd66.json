@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.036336,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0126..GR-0133",
+ "job": "audit",
+ "key": "a3dfc94000cb0ee87a5120cf7f821c9a8f1dad45a14573523bfa285b061ecd66",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0126\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence does not state that surrounding circumstances qualify a geographical reference; rather, they qualify the risk of confusion.\",\n    \"corrected_subject\": \"GC-0011\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0004\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that surrounding circumstances can 'mitigate the risk of confusion', showing they are a factor that qualifies the assessment of 'confusion', not the 'geographical reference'.\"\n  },\n  {\n    \"id\": \"GR-0127\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence does not support a direct relationship between 'sign' and 'geographical origin'.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence uses 'sign' generically to describe what a trade mark consists of, stating that if it indicates a geographical origin it lacks inherent adaptation. It does not establish an ontological relationship between 'sign' and 'geographical origin'.\"\n  },\n  {\n    \"id\": \"GR-0128\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that a reference to origin (geographical origin) means the trade mark 'has no inherent adaptation to distinguish', establishing that the former may give rise to the latter.\"\n  },\n  {\n    \"id\": \"GR-0129\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence supports a sharper relationship to 'no inherent adaptation to distinguish' rather than merely qualifying 'inherent adaptation to distinguish'.\",\n    \"corrected_subject\": \"GC-0019\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0120\",\n    \"remove\": false,\n    \"reason\": \"The text states that trade marks indicating a geographical origin 'are not inherently adapted to distinguish', supporting 'may give rise to' 'no inherent adaptation to distinguish'.\"\n  },\n  {\n    \"id\": \"GR-0130\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that 'deception or confusion could arise in regard to the ... geographical origin', supporting the 'may give rise to' relationship.\"\n  },\n  {\n    \"id\": \"GR-0131\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence plainly states that a trade mark that connotes a notified INN 'would be likely to give rise to deception or confusion'.\"\n  },\n  {\n    \"id\": \"GR-0132\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence states a condition of registration may overcome a ground for rejection, but establishes no direct ontological relationship between the condition and the INN.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence mentions the relevant INN simply as the substance the condition of registration will limit use to, without establishing a direct relationship between 'condition of registration' and 'International Non-Proprietary Name'.\"\n  },\n  {\n    \"id\": \"GR-0133\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that a trade mark connoting a notified INN 'would be likely to give rise to deception or confusion', supporting the relationship to 'deception'.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "0c7ff36bab6085cc387a94639d86b40e1c5af0ff3216613b760de73c80d1de14",
+ "response_id": "72LIavfUKcyz_PUPm8GMqQo",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 8214,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 4687,
+  "output_tokens_details": {
+   "reasoning_tokens": 3696
+  }
+ }
+}

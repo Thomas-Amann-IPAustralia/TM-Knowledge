@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.032699,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0162..GR-0169",
+ "job": "audit",
+ "key": "76399655cbf462b5915caaae8bea102e71c3caae62379470e66fc739c2626dbb",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0162\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence lists 'evidence' (which context establishes as evidence of use) and 'other circumstances' as alternatives, connecting them in a way that fits the 'related' predicate.\"\n  },\n  {\n    \"id\": \"GR-0163\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence links 'evidence' and 'honest concurrent use' as 'evidence of honest concurrent use', making them related.\"\n  },\n  {\n    \"id\": \"GR-0164\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence refers to taking 'evidence' in general (such as oral testimony), not specifically 'evidence of use' (GC-0041).\"\n  },\n  {\n    \"id\": \"GR-0165\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence refers to 'evidence in reply' during an opposition process, which does not necessarily equate to 'evidence of use' (GC-0041).\"\n  },\n  {\n    \"id\": \"GR-0166\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a relationship the sentence does not state\",\n    \"remove\": true,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence does not mention 'acceptance' or link it to 'revocation', as it only contains the word 'revocation'.\"\n  },\n  {\n    \"id\": \"GR-0167\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly pairs 'revocation of acceptance' with 're-examination', establishing a relationship between the concepts.\"\n  },\n  {\n    \"id\": \"GR-0168\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence states that 'relevant circumstances' (GC-0011) must be taken into account when concluding whether it is reasonable to revoke acceptance, meaning they qualify that test.\"\n  },\n  {\n    \"id\": \"GR-0169\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explains how the 'priority date' is determined for a 'divisional application', establishing a relationship between them that is best captured by the 'related' predicate.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "d8e6649201e948ce937fe369c9d2a4d296dc3604f319c76da687855201f24fdc",
+ "response_id": "EGPIaqbmK9Sa6dkPg8_20AM",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7523,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 4196,
+  "output_tokens_details": {
+   "reasoning_tokens": 3333
+  }
+ }
+}

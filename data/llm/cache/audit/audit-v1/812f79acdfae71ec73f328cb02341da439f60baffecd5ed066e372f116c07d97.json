@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.024752,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0331..GR-0338",
+ "job": "audit",
+ "key": "812f79acdfae71ec73f328cb02341da439f60baffecd5ed066e372f116c07d97",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0331\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence links the concepts 'deceptively similar' and 'closely related goods and services' by describing them as the two key enquiries under section 44.\"\n  },\n  {\n    \"id\": \"GR-0332\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence uses the word 'pending' to refer to a legal action in a prescribed court, not a 'pending application' for a trade mark (GC-0155).\"\n  },\n  {\n    \"id\": \"GR-0333\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that deferment (deferment of acceptance) is possible if a conflicting trade mark is pending (a pending application), meaning the latter may give rise to the former.\"\n  },\n  {\n    \"id\": \"GR-0334\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that the statement of grounds and particulars requires the element of being filed in an approved form.\"\n  },\n  {\n    \"id\": \"GR-0335\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that the notice of intention to defend must be filed in an approved form.\"\n  },\n  {\n    \"id\": \"GR-0336\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0097\",\n    \"corrected_predicate\": \"requiresElement\",\n    \"corrected_object\": \"GC-0156\",\n    \"remove\": false,\n    \"reason\": \"An approved form is an instrument or record, not a rule that 'applies to' an extension of time. Instead, an extension of time requires the element of an approved form.\"\n  },\n  {\n    \"id\": \"GR-0337\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0087\",\n    \"corrected_predicate\": \"requiresElement\",\n    \"corrected_object\": \"GC-0156\",\n    \"remove\": false,\n    \"reason\": \"An approved form is an instrument or record, not a rule that 'applies to' an application for transmission. Rather, a transmission requires an approved form.\"\n  },\n  {\n    \"id\": \"GR-0338\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a relationship the sentence does not state\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The passage connects 'predecessor in title' to evidence of use, and 'evidence of use' (via a declaration) to 'approved form'. It does not state a direct relationship between a predecessor in title and an approved form.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "87920b800e62feb995ee8730bf3f91a1d4ffe3a3a00cf3683307b35e6ba7cef4",
+ "response_id": "72LIau3IKpup_PUPlpjgqAo",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6950,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 2967,
+  "output_tokens_details": {
+   "reasoning_tokens": 2067
+  }
+ }
+}

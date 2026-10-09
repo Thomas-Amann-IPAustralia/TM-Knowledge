@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.046013,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0692..GR-0699",
+ "job": "audit",
+ "key": "7cc3a68bf2addd82d43c54277e9a1c5b64e0c38378f1448eae4b53e468e6cd53",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0692\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that an application must be rejected if the trade mark is not capable of distinguishing, making \\\"capable of distinguishing\\\" the legal test (threshold) that must be met to avoid the section 41 ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0693\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that sections 39 to 43 cover absolute grounds for rejection, making the ground under section 41 a specific kind of ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0694\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that sections 39 to 43 cover absolute grounds for rejection, making the ground under section 39 a specific kind of ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0695\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly groups sections 39 to 43 as covering absolute grounds for rejection, establishing that the section 43 ground is a kind of ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0696\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"TMA1995/s39\",\n    \"corrected_predicate\": \"appliesTo\",\n    \"corrected_object\": \"GC-0131\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that an application for the registration of a trade mark must be rejected under certain conditions, meaning the provision governs or applies to the trade mark application, rather than applying to the ground itself.\"\n  },\n  {\n    \"id\": \"GR-0697\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that a geographical section 43 objection can be overcome by a specification amendment (a limitation of the specification).\"\n  },\n  {\n    \"id\": \"GR-0698\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong concept\",\n    \"corrected_subject\": \"GC-0014\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0003\",\n    \"remove\": false,\n    \"reason\": \"The sentence does not mention the section 43 ground for rejection; rather, it states that an endorsement mitigates the risk of deception, meaning the endorsement qualifies how deception is assessed.\"\n  },\n  {\n    \"id\": \"GR-0699\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong concept\",\n    \"corrected_subject\": \"GC-0020\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0006\",\n    \"remove\": false,\n    \"reason\": \"The sentence refers broadly to a general \\\"ground for rejection\\\" rather than specifically to the section 43 ground, and \\\"rarely apply\\\" indicates a weak relationship rather than an absolute rule that it does not give rise to the ground.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "a20df27bdabb425ef765adf57636f05503c0c7c5d139b6d3e780eeb284e3bd6b",
+ "response_id": "72LIauPCKZfUz7IPoMGjyAE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7517,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 6416,
+  "output_tokens_details": {
+   "reasoning_tokens": 5626
+  }
+ }
+}

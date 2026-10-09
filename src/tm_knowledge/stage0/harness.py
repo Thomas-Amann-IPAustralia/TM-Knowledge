@@ -809,9 +809,16 @@ def _authored_corrections(authored: AuthoredSet, gold: GoldSet) -> Iterator[Find
             f"correction(s) made on the owner's instruction: {', '.join(sorted(targets))}. "
             "Each correction is unreviewed; eval/gold/ keeps every one of them exactly as signed",
         )
+    retired = {**gold.retired_ids, **authored.retired_ids}
     for identifier, meta in sorted(authored.retired_ids.items()):
         replaced = meta.get("replaced_by")
-        if replaced and not (
+        # A chain is history, not a dangling pointer: merged into B, then B withdrawn (or
+        # merged on) in its turn. Follow it to where it ends — a held record or a withdrawal.
+        seen = {identifier}
+        while replaced and replaced in retired and replaced not in seen:
+            seen.add(replaced)
+            replaced = retired[replaced].get("replaced_by") or ""
+        if replaced and replaced not in seen and not (
             any(str(r.get("id")) == replaced for _, r in gold.all_records())
             or replaced in authored.identifiers()
         ):

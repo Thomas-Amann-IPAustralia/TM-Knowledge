@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.03382,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0108..GR-0117",
+ "job": "audit",
+ "key": "8f18b86c6d4fa240fe8e350270ecea69ee389ef2a4b2c4c5724299cb43381854",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0108\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly connects the endorsement and the specification when discussing references to goods or services and priority dates.\"\n  },\n  {\n    \"id\": \"GR-0111\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about (a word matched in another sense)\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence mentions 'specification amendment' (which corresponds to limitation of the specification, GC-0015), not the specification itself, and merely lists it alongside condition of registration as an alternative remedy, without stating a relationship between the two.\"\n  },\n  {\n    \"id\": \"GR-0112\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that conditions or limitations are applied in order to overcome grounds for rejection raised under section 43.\"\n  },\n  {\n    \"id\": \"GR-0113\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The condition of registration applies to the trade mark or its use, not to the geographical indication itself; the GI is simply referenced within the text of the condition.\"\n  },\n  {\n    \"id\": \"GR-0114\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The specification does not qualify the endorsement as a test or concept; rather, the sentence states a rule about what information from the specification should be omitted from the endorsement.\"\n  },\n  {\n    \"id\": \"GR-0115\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that an application for a colour trade mark must include a description of the trade mark as an endorsement, supporting the requiresElement relationship.\"\n  },\n  {\n    \"id\": \"GR-0116\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0015\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0012\",\n    \"remove\": false,\n    \"reason\": \"The predicate appliesTo is for provisions, rules, or schemes that govern an object. A limitation of the specification is a procedural step, so 'related' is the correct predicate for their connection here.\"\n  },\n  {\n    \"id\": \"GR-0117\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a relationship the sentence does not state\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence does not mention 'amendment of an application', so it cannot support a 'broader' relationship between it and limitation of the specification.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "967a3eaf3f791d59df7025dd260df8ea5d117107bbdd141ac12359726164dd58",
+ "response_id": "72LIaqKxKKmkqtsProyE4AE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7162,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 4443,
+  "output_tokens_details": {
+   "reasoning_tokens": 3654
+  }
+ }
+}

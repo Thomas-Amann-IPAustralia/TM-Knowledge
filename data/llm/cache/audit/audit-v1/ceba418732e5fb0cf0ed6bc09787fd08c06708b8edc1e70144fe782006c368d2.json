@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.072431,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0579..GR-0590",
+ "job": "audit",
+ "key": "ceba418732e5fb0cf0ed6bc09787fd08c06708b8edc1e70144fe782006c368d2",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0579\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly contrasts the process of withdrawal with lapsing, establishing a clear relationship between the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0580\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence relates withdrawal to an opposition proceeding by describing withdrawal as a way an opposition proceeding may be ended.\"\n  },\n  {\n    \"id\": \"GR-0583\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The passage notes that 'variety' (which it lists as synonymous with plant variety name) has a specific meaning in the context of plant mark examination, linking the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0585\",\n    \"verdict\": \"vague\",\n    \"problem\": \"vague\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The 'related' link is too weak because the sentence describes only one specific scenario (appealing a dismissal of opposition) rather than a general relationship between all Registrar's decisions and the ART.\"\n  },\n  {\n    \"id\": \"GR-0587\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0093\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0131\",\n    \"remove\": false,\n    \"reason\": \"The predicate 'appliesTo' governs provisions, rules, or schemes. Acceptance is a procedural step, not a provision, so it cannot 'apply to' an application under the strict definition. The sentence merely relates the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0588\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0006\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0131\",\n    \"remove\": false,\n    \"reason\": \"The predicate 'appliesTo' is restricted to provisions, rules, or schemes. A ground for rejection is a ground of refusal, so it cannot 'apply to' an application under this definition. The sentence supports a 'related' link.\"\n  },\n  {\n    \"id\": \"GR-0589\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence describes the Registrar's general duty to report on a trade mark application during examination, establishing a valid relationship with no sharper predicate available.\"\n  },\n  {\n    \"id\": \"GR-0590\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a relationship the sentence does not state\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence merely uses 'trade mark application' as a hypothetical example of what an oppressively wide subpoena might refer to. This does not establish a valid relationship between the concepts in the ontology.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "e23dd99085fe7581ed50a42dfef89ed75a0f8357a14fcaa3d9dc14a4445e5cac",
+ "response_id": "72LIap_zKfahqtsPodHg8QE",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7589,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 10807,
+  "output_tokens_details": {
+   "reasoning_tokens": 9899
+  }
+ }
+}

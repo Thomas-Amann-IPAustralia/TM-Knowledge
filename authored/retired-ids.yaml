@@ -700,3 +700,1122 @@
     is called a cessation. GC-0135 lists "removal for non-use" as not the same concept, and
     no written affirmation could be given, so the D4 check refuses it.
   ruling: review/rulings/2026-10-09-chat-approvals.yaml#D4
+- id: GR-0061
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The passage establishes
+    that a "real and tangible danger" (or "real and obvious danger") is the threshold test
+    for the likelihood of deception or confusion, not the threshold for the connotation itself.
+    — and its corrected reading is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0063
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence explains
+    that material within a trade mark may connote a generic top level domain; it does not
+    state that an internet domain name gives rise to a connotation. — and the second model
+    found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0068
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence refers specifically
+    to the 'risk of confusion', which aligns with the concept of 'confusion' (GC-0004) rather
+    than the full legal test of 'likely to deceive or cause confusion' (GC-0002). — and its
+    corrected reading is what GR-0103 already states.
+  replaced_by: GR-0103
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0069
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence specifies
+    that if a connotation is 'likely to deceive or confuse' (which is GC-0002, not just 'deception'),
+    then a section 43 ground for rejection should be raised. — and its corrected reading is
+    what GR-0065 already states.
+  replaced_by: GR-0065
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0070
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence refers to
+    whether the trade mark would 'potentially deceive or confuse' (which matches GC-0002),
+    rather than 'deception' alone (GC-0003), making grounds for rejection appropriate. — and
+    its corrected reading is what GR-0065 already states.
+  replaced_by: GR-0065
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0071
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states a
+    threshold for the public being ''deceived and/or confused'', which corresponds to GC-0002
+    (''likely to deceive or cause confusion''), not just ''deception'' (GC-0003). — and its
+    corrected reading is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0072
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence explicitly
+    states that a geographical reference is considered when assessing a 'real likelihood of
+    deception or confusion', which maps to GC-0002, not merely 'deception' (GC-0003). — and
+    its corrected reading is what GR-0079 already states.
+  replaced_by: GR-0079
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0073
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    indicating an endorsement (implied endorsement) may result in consumers being ''deceived
+    and confused'', which maps to GC-0002, rather than just ''deception'' (GC-0003). — and
+    its corrected reading is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0074
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    a connotation leads to 'likely deception or confusion', which matches GC-0002, not just
+    'confusion' (GC-0004) alone. — and its corrected reading is what GR-0064 already states.
+  replaced_by: GR-0064
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0076
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    wording connoting a connection can lead consumers to incorrectly believe there is an endorsement;
+    it does not state that implied endorsement is a kind of connotation. — and the second
+    model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0077
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence and passage
+    discuss whether consumers will assume an association with the well-known person, but do
+    not mention or explicitly apply the 'connotation' test. — and the second model found no
+    relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0089
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence explicitly
+    states that a section 43 ground for rejection is overcome by providing written permission,
+    whereas the endorsement merely makes that permission clear. — and its corrected reading
+    is what GR-0687 already states.
+  replaced_by: GR-0687
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0094
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The relevant market affects
+    how the test for 'likely to deceive or cause confusion' is assessed, not the connotation.
+    — and its corrected reading is what GR-0067 already states.
+  replaced_by: GR-0067
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0097
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The passage discusses
+    the decision maker in one sentence and the relevant market in the next, without connecting
+    them to each other. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0102
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    surrounding circumstances are taken into consideration when assessing the likelihood of
+    deception or confusion, but it does not mention a real and tangible danger. — and its
+    corrected reading is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0111
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence mentions
+    'specification amendment' (which corresponds to limitation of the specification, GC-0015),
+    not the specification itself, and merely lists it alongside condition of registration
+    as an alternative remedy, without stating a relationship between the two. — and the second
+    model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0113
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The condition of registration
+    applies to the trade mark or its use, not to the geographical indication itself; the GI
+    is simply referenced within the text of the condition. — and the second model found no
+    relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0114
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The specification does
+    not qualify the endorsement as a test or concept; rather, the sentence states a rule about
+    what information from the specification should be omitted from the endorsement. — and
+    the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0117
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence does not
+    mention 'amendment of an application', so it cannot support a 'broader' relationship between
+    it and limitation of the specification. — and the second model found no relationship the
+    sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0120
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The priority date of
+    the conflicting trade mark is the threshold date before which prior use must be shown;
+    it qualifies the assessment of prior use, not the conflict with other signs itself. —
+    and its corrected reading is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0121
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The date of the application
+    (priority date) sets the point in time at which the rights of the parties are determined;
+    it does not qualify the surrounding circumstances. — and the second model found no relationship
+    the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0124
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence does not
+    state that reputation qualifies the geographical reference itself; rather, it describes
+    a causal chain where what a geographical reference is known for (its reputation) gives
+    rise to a connotation. — and its corrected reading is refused: the sentence does not name
+    both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0126
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence explicitly
+    states that surrounding circumstances can 'mitigate the risk of confusion', showing they
+    are a factor that qualifies the assessment of 'confusion', not the 'geographical reference'.
+    — and its corrected reading is what GR-0103 already states.
+  replaced_by: GR-0103
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0127
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence uses 'sign'
+    generically to describe what a trade mark consists of, stating that if it indicates a
+    geographical origin it lacks inherent adaptation. It does not establish an ontological
+    relationship between 'sign' and 'geographical origin'. — and the second model found no
+    relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0129
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The text states that
+    trade marks indicating a geographical origin ''are not inherently adapted to distinguish'',
+    supporting ''may give rise to'' ''no inherent adaptation to distinguish''. — and its corrected
+    reading is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0132
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence mentions
+    the relevant INN simply as the substance the condition of registration will limit use
+    to, without establishing a direct relationship between 'condition of registration' and
+    'International Non-Proprietary Name'. — and the second model found no relationship the
+    sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0134
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    the ''use'' of the trade mark is what gives rise to deception or confusion, rather than
+    the International Non-Proprietary Name itself. — and its corrected reading is refused:
+    the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0141
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence describes
+    the 'use' of a domain name constituting the use of a trade mark. It does not state that
+    the internet domain name itself gives rise to the use of a trade mark, and there is no
+    concept for the use of a domain name to correct this to. — and the second model found
+    no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0145
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The specification of
+    goods and services does not qualify the top level domain itself; rather, it qualifies
+    the test for ''connotation'' when determining whether the material connotes a generic
+    TLD. — and its corrected reading is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0147
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence simply instructs
+    the examiner to consult a list of top level domains. It does not establish a conceptual
+    relationship between the examiner and a top level domain that would be useful in this
+    ontology. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0150
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence sets out
+    the conditions (such as a letter of consent) under which an application containing a plant
+    variety name may be accepted, but it does not state that the plant variety name itself
+    qualifies the concept of acceptance. — and the second model found no relationship the
+    sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0151
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The provided sentence
+    discusses the average consumer's awareness of accepted naming conventions, but it does
+    not explicitly mention or establish a relationship with a 'plant variety name'. — and
+    the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0154
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence specifies
+    that the likelihood to deceive or confuse is assessed among consumers 'within the relevant
+    market', meaning the relevant market qualifies the test for likelihood of deception or
+    confusion. — and its corrected reading is what GR-0067 already states.
+  replaced_by: GR-0067
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0156
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The text says 'a connotation
+    arises from the mark that would be likely to deceive or confuse', meaning it is the connotation
+    that gives rise to the likelihood of deception or confusion. — and its corrected reading
+    is what GR-0064 already states.
+  replaced_by: GR-0064
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0157
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The relationship is better
+    captured by mapping the connotation to 'likely to deceive or cause confusion', rendering
+    this mapping to 'confusion' incorrect and redundant. — and the second model found no relationship
+    the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0160
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — A heading alone does not
+    articulate a substantive relationship that can be evaluated. — and the second model found
+    no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0164
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence refers to
+    taking 'evidence' in general (such as oral testimony), not specifically 'evidence of use'
+    (GC-0041). — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0165
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence refers to
+    'evidence in reply' during an opposition process, which does not necessarily equate to
+    'evidence of use' (GC-0041). — and the second model found no relationship the sentence
+    supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0166
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence does not
+    mention 'acceptance' or link it to 'revocation', as it only contains the word 'revocation'.
+    — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0170
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The lapsing of the parent
+    application qualifies the requirement for the Registrar to amend the parent application,
+    not the divisional application itself. The sentence only supports a general relationship
+    between the two concepts. — and its corrected reading is what GR-0535 already states.
+  replaced_by: GR-0535
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0172
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The term "decision maker"
+    does not appear in the sentence provided. While the Registrar acts as a decision maker,
+    the sentence itself does not state or support a relationship using the distinct "decision
+    maker" concept. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0178
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    section 43 would be triggered only if there is a 'real and tangible danger', making it
+    the threshold for a section 43 ground for rejection. — and its corrected reading is what
+    GR-0683 already states.
+  replaced_by: GR-0683
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0179
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence is about
+    removing trade marks from a specification and providing a generic description, which is
+    unrelated to the concept of descriptive matter in a sign. — and the second model found
+    no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0181
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    a connotation must be likely to deceive or confuse 'consumers within the relevant market',
+    showing that the relevant market qualifies the test of whether a mark is likely to deceive
+    or cause confusion. — and its corrected reading is what GR-0067 already states.
+  replaced_by: GR-0067
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0182
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The passage provides
+    the text of section 43, which dictates that an application must be rejected if ''because
+    of some connotation'', making a connotation an essential element for a section 43 ground
+    for rejection. — and its corrected reading is refused: the sentence does not name both
+    concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0183
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence explicitly
+    states that it is necessary to be satisfied that the trade mark would be likely to deceive
+    or cause confusion for it to be caught by ''these provisions'' (section 43). — and its
+    corrected reading is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0184
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — Deception is mentioned
+    as part of the overall legal test required for the provisions to apply, but the sentence
+    does not support a direct relationship where deception alone qualifies the section's application.
+    — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0185
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — Confusion is mentioned
+    as part of the overall legal test required for the provisions to apply, but the sentence
+    does not support a direct relationship where confusion alone qualifies the section's application.
+    — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0188
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    research informs the careful consideration of factors, but does not state a direct relationship
+    between the research and the person's reputation or what they are well known for. — and
+    the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0190
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    research informs the careful consideration of factors, but does not state a direct relationship
+    between the research and the well-known person themselves. — and the second model found
+    no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0191
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence merely refers
+    to grounds for rejection as occurring 'during examination' to identify them, which does
+    not state a meaningful ontological relationship between the two concepts. — and the second
+    model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0192
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    a mark that is not capable of distinguishing gives rise to a ground for rejection. The
+    relationship reads as if being capable of distinguishing gives rise to the rejection,
+    which reverses the meaning, and no other predicate correctly links the positive test to
+    the ground here. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0193
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence explicitly
+    states that it is the ''lack of inherent adaptation to distinguish'' that requires grounds
+    for rejection to be raised, not inherent adaptation itself. — and its corrected reading
+    is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0197
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The predicate 'extendsTo'
+    is meant for subjects whose treatment applies equally to the object. 'So nearly resembling'
+    is a legal test, not an equivalent entity to a prescribed sign. — and the second model
+    found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0200
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The predicate 'appliesTo'
+    is for a provision or rule governing an object. 'So nearly resembling' is a legal test,
+    and the sentence merely uses the word 'sign' without establishing a rule relationship
+    between the two. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0203
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence does not
+    mention 'so nearly resembling' (GC-0056); it is about overcoming a section 42(b) ground
+    for rejection by obtaining written permission. — and the second model found no relationship
+    the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0205
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence does not
+    contain 'capable of distinguishing' as an independent concept, nor does it state that
+    'prima facie capable of distinguishing' is a kind of it. — and the second model found
+    no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0207
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence contains
+    the concept 'no inherent adaptation to distinguish' but not 'inherent adaptation to distinguish'
+    as a separate concept; this is a substring match error. — and the second model found no
+    relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0216
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence merely uses
+    the word 'examination' as part of a table header ('Trade mark under examination') and
+    asks 'Contrary to law?'. It does not state that the ground applies to the examination
+    process itself. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0245
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — Neither the sentence nor
+    the surrounding passage mentions a "series of trade marks"; it is discussing linked divisional
+    applications and convention claims. — and the second model found no relationship the sentence
+    supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0263
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence refers to
+    a geographical limitation rather than explicitly naming a condition of registration. Additionally,
+    'related' is too vague for how a limitation is entered as an endorsement, but no other
+    predicate cleanly fits. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0264
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence provided
+    does not mention "prima facie capable of distinguishing", as this concept appears in a
+    previous sentence in the passage. — and the second model found no relationship the sentence
+    supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0266
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The appliesTo predicate
+    requires the subject to be a provision, rule, or scheme that governs the object. A procedural
+    step like rectification does not fit this definition, and no other predicate captures
+    this syntactic link. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0268
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence refers to
+    "this status" but does not explicitly name "renewal of registration", relying on previous
+    sentences in the passage which violates the rule that the sentence itself must support
+    the relationship. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0274
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence merely contrasts
+    the assignability of collective trade marks and certification trade marks; it does not
+    state a direct relationship between the two distinct types of marks. — and the second
+    model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0284
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — Opposition is a procedural
+    step, not a provision, rule or scheme, so it does not apply to an IRDA under the predicate's
+    definition. The text connects them, supporting a related link. — and its corrected reading
+    is what GR-0283 already states.
+  replaced_by: GR-0283
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0296
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence describes
+    a procedural request an opponent can make to the Registrar, which states a power or procedural
+    action. The 'related' predicate strictly excludes statements of power, and no other predicate
+    fits this interaction. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0298
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    an application requires a demonstrated capacity to distinguish to proceed despite having
+    no inherent adaptation. It does not state that the legal test of no inherent adaptation
+    itself requires a capacity to distinguish to apply. — and the second model found no relationship
+    the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0299
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The determination described
+    as a two-part process is for deciding ''to what extent is the applicant''s trade mark
+    inherently adapted to distinguish'', making ''inherent adaptation to distinguish'' (GC-0059)
+    the correct object being qualified. — and its corrected reading is refused: the sentence
+    does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0305
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence does not
+    describe a classification governing a substance; rather, it states that claims for pharmaceutical
+    or veterinary goods may trigger the provisions of section 43, meaning the substance may
+    give rise to a section 43 ground for rejection. — and its corrected reading is refused:
+    the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0306
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence provided
+    describes applications being 'examined ahead of time' but does not contain the concept
+    'expedited examination', which is introduced only in the subsequent sentence. — and the
+    second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0313
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence discusses
+    ''use'', which matches ''use of a trade mark'' rather than ''evidence of use''. It states
+    that use is an important measure of reputation, meaning it operates as a factor that qualifies
+    how reputation is assessed. — and its corrected reading is refused: the sentence does
+    not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0325
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence mentions
+    the ART as the body reviewing the Registrar's decision to dismiss an opposition. It does
+    not state a direct relationship between the ART and the statement of grounds and particulars.
+    — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0329
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence is merely
+    a heading for a specific example case where a mark was found deceptively similar. It does
+    not state a general relationship between the concepts. — and the second model found no
+    relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0332
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence uses the
+    word 'pending' to refer to a legal action in a prescribed court, not a 'pending application'
+    for a trade mark (GC-0155). — and the second model found no relationship the sentence
+    supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0338
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The passage connects 'predecessor
+    in title' to evidence of use, and 'evidence of use' (via a declaration) to 'approved form'.
+    It does not state a direct relationship between a predecessor in title and an approved
+    form. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0360
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence defines 'transmission',
+    not 'change of ownership'. It states that transmission includes devolution on the personal
+    representative of a deceased person. — and its corrected reading is what GR-0428 already
+    states.
+  replaced_by: GR-0428
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0361
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence does not
+    state that the certification trade mark requires the consent of the ACCC; rather, it states
+    that the ''change of ownership'' requires the consent of the ACCC. — and its corrected
+    reading is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0373
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence discusses
+    when an international registration 'ceases or is limited', but it does not mention or
+    refer to a 'condition of registration' (GC-0013). — and the second model found no relationship
+    the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0380
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence itself is
+    about 'the necessary documents' generally and does not name or specifically refer to the
+    certificate of verification to form a direct relationship. — and the second model found
+    no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0381
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence describes
+    the Registrar providing 'the necessary documents' but does not explicitly name the certificate
+    of verification to establish a direct relationship. — and the second model found no relationship
+    the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0388
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The text refers to a likelihood
+    of 'deception or confusion' (GC-0002), not 'deception' alone (GC-0003). Furthermore, the
+    concept of originating does not itself give rise to it; rather, the false connotation
+    that goods originate from a specific place does. — and the second model found no relationship
+    the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0389
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The passage discusses
+    the potential to 'deceive or confuse' Australian consumers, which corresponds to 'likely
+    to deceive or cause confusion' (GC-0002), not merely 'deception' (GC-0003). — and its
+    corrected reading is what GR-0387 already states.
+  replaced_by: GR-0387
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0391
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence specifies
+    that a connotation 'likely to deceive or confuse' (GC-0002) gives rise to the ground for
+    rejection under s43, rather than 'confusion' (GC-0004) alone. — and its corrected reading
+    is what GR-0065 already states.
+  replaced_by: GR-0065
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0392
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence describes
+    a causal relationship ('confusion will result'), which excludes the 'related' predicate.
+    However, 'originate' itself is not the cause of confusion (a misdescriptive statement
+    of origin is), so no other predicate correctly links these concepts. — and the second
+    model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0409
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence explains
+    the rule for determining the priority date of a divisional application, but the application
+    itself does not 'qualify' the date. 'Related' is the correct predicate. — and its corrected
+    reading is what GR-0169 already states.
+  replaced_by: GR-0169
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0414
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence does not
+    mention or refer to a geographical origin; it is a general statement about the threshold
+    for triggering section 43. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0415
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The predicate appliesTo
+    is only for a provision, rule or scheme governing an object, which does not fit 'geographical
+    origin'. Furthermore, the sentence mentions 'goods or services' generally, rather than
+    specifically 'services of a person', so no other relationship directly applies here. —
+    and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0429
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence discusses
+    an agency's FOI 'access grant decision', not a Trade Marks Registrar's decision (GC-0127).
+    — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0430
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — It is the assignment
+    of the certification trade mark, rather than the mark itself, that requires the consent
+    of the Commission. — and its corrected reading is refused: the sentence does not name
+    both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0431
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence is about
+    the consent of the Commission required for assignment; ''written permission'' (GC-0029)
+    is not mentioned and usually refers to personal consent rather than statutory ACCC consent.
+    — and its corrected reading is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0433
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence specifically
+    states that written permission can overcome a section 43 ground for rejection, rather
+    than generally applying to an image of a person. — and its corrected reading is what GR-0687
+    already states.
+  replaced_by: GR-0687
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0434
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence references
+    a heading about marks suggesting endorsement, but it does not describe creating a register
+    endorsement (GC-0014); instead, it supports that an image of a famous person may trigger
+    a section 43 ground for rejection. — and its corrected reading is refused: the sentence
+    does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0436
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — Fame or reputation does
+    not qualify the image itself; rather, it is a factor that determines whether the section
+    43 ground for rejection is triggered. — and its corrected reading is refused: the sentence
+    does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0439
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence instructs
+    the examiner to consider the material apart from the numerical element and does not explicitly
+    mention or support a relationship with phonewords. — and the second model found no relationship
+    the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0451
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — An opposition is not a
+    provision or rule, making 'appliesTo' incorrect. The sentence links a notice of opposition
+    to proceedings involving a removal applicant, which supports a general 'related' connection
+    between opposition and removal for non-use. — and its corrected reading is what GR-0550
+    already states.
+  replaced_by: GR-0550
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0461
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The 'current marketplace'
+    is a context to be considered, not a rule, provision, or principle that can act as the
+    subject of 'constrainsRole'. The sentence does not support any defined relationship directly
+    between these two concepts. — and the second model found no relationship the sentence
+    supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0465
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    the presumption of registrability governs the Registrar's actions, mandating acceptance
+    when no grounds for rejection exist. It does not establish a useful 'related' link between
+    the Registrar and the application itself. — and its corrected reading is what GR-0091
+    already states.
+  replaced_by: GR-0091
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0467
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence directly
+    states that a fanciful or unrealistic description is taken into account when considering
+    a connotation, not when considering the real and tangible danger test directly. — and
+    its corrected reading is what GR-0384 already states.
+  replaced_by: GR-0384
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0468
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    a fanciful description is taken into account when considering a trade mark's connotation.
+    It does not directly link it to the test of being likely to deceive or cause confusion
+    in this specific sentence. — and its corrected reading is what GR-0384 already states.
+  replaced_by: GR-0384
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0471
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The ''appliesTo'' predicate
+    is for rules governing things. The sentence instead supports that the current marketplace
+    is a context that qualifies the assessment of the section 43 ground for rejection. — and
+    its corrected reading is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0481
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    grounds for rejection under section 39 may arise in relation to specific flags, but only
+    mentions "prohibited signs" as part of the title of a cross-reference, rather than establishing
+    a rule for the concept itself. — and the second model found no relationship the sentence
+    supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0487
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The concept 'prima facie
+    capable of distinguishing' does not appear in this sentence; it is discussed in the subsequent
+    sentence in the passage. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0491
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The specific concept 'ground
+    for rejection' does not appear in this sentence, which only states the consequence that
+    the application 'must be rejected'. — and the second model found no relationship the sentence
+    supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0498
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence happens to
+    contain the phrases 'similar goods' and 'registered trade mark' but states no meaningful
+    relationship between the two concepts. — and the second model found no relationship the
+    sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0499
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    the ''use'' of the trade mark would result in confusion, not that the legal test of similarity
+    of goods and services itself gives rise to confusion. — and its corrected reading is refused:
+    the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0500
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence does not
+    mention an application for removal; it only discusses what constitutes use in good faith.
+    — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0503
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence does not
+    mention non-traditional signs; that concept is introduced only in a subsequent sentence
+    in the passage. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0524
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence discusses
+    ''use'' (use of a trade mark), not ''evidence of use''. It states that this use must be
+    before the filing date, meaning the filing date qualifies how the use of a trade mark
+    is assessed. — and its corrected reading is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0527
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence simply uses
+    the term 'revoke acceptance' and does not state a relationship between the distinct concepts
+    of revocation of acceptance and acceptance. The predicate 'appliesTo' is also incorrect
+    for a procedural step. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0532
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The rules for 'related'
+    forbid its use when a sentence states a requirement or cause (sending rules to the Commission
+    causes mandatory deferment). However, since the Commission itself does not directly cause
+    the deferment, no available predicate validly connects these two concepts. — and the second
+    model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0543
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The predicate 'appliesTo'
+    applies only when the subject is a provision, rule, or scheme. Since 'opposition' is a
+    procedural step, the correct predicate for connecting these concepts is 'related'. — and
+    its corrected reading is what GR-0450 already states.
+  replaced_by: GR-0450
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0558
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The predicate 'qualifies'
+    is for a relevant factor that bears on a test without deciding it. A 'divisional application'
+    is a procedural step/application type that definitively sets (decides) the filing date
+    rule, rather than being a qualifying factor. 'Related' is the appropriate predicate. —
+    and its corrected reading is what GR-0456 already states.
+  replaced_by: GR-0456
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0588
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The predicate 'appliesTo'
+    is restricted to provisions, rules, or schemes. A ground for rejection is a ground of
+    refusal, so it cannot 'apply to' an application under this definition. The sentence supports
+    a 'related' link. — and its corrected reading is what GR-0397 already states.
+  replaced_by: GR-0397
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0590
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence merely uses
+    'trade mark application' as a hypothetical example of what an oppressively wide subpoena
+    might refer to. This does not establish a valid relationship between the concepts in the
+    ontology. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0597
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence explicitly
+    applies the treatment of the removal of a trade mark (removal for non-use) to the cessation
+    of protection, not the application for it. — and its corrected reading is refused: the
+    sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0605
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The predicate 'appliesTo'
+    can only have a provision, rule, or scheme as its subject. 'Opposition' is a procedural
+    step. The sentence states that a notice of intention to oppose (opposition) is directed
+    'to the non-use application', which supports a 'related' link. — and its corrected reading
+    is what GR-0604 already states.
+  replaced_by: GR-0604
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0616
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence discusses
+    "designated goods or services" but does not mention the distinct concept of the "services
+    of a person", nor does it support a relationship between it and the use of a trade mark.
+    — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0622
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence does not
+    mention or imply 'notice of opposition', so it does not support a relationship involving
+    this concept. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0631
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The provided sentence
+    does not mention the repealed Act, so it cannot support a relationship involving it. —
+    and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0632
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The provided text is merely
+    a list fragment of specific geographical indications; it does not state a taxonomic (broader)
+    relationship between wine geographical indications and geographical indications generally.
+    — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0633
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The provided sentence
+    does not mention 'wine geographical indication' or a 'term protected under the Wine Australia
+    Act', and does not state any relationship between them. — and the second model found no
+    relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0634
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence mentions
+    the Register but does not contain the concept 'wine geographical indication'. — and the
+    second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0635
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence discusses
+    categories of terms on the Register but does not specifically refer to a 'term protected
+    under the Wine Australia Act'. — and the second model found no relationship the sentence
+    supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0651
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence does not
+    mention or refer to acceptance officers, as that concept is only introduced in the following
+    sentence, so it cannot support a relationship involving them. — and the second model found
+    no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0654
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence describes
+    what a delegate of the Registrar will do, but does not mention an examiner or a decision
+    maker. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0656
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The passage names the
+    Federal Court and the Federal Circuit and Family Court of Australia, but mapping these
+    to the concept of a 'prescribed court' would require outside knowledge not present in
+    the text. — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0657
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The passage sets out the
+    rule in section 33 that constrains how the Registrar must act, but it does not use the
+    phrase 'presumption of registrability', which would require outside knowledge to introduce.
+    — and the second model found no relationship the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0660
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence lists roles
+    that hold a delegation to accept applications, but it does not state or imply that an
+    examiner escalates matters to a senior examiner. — and the second model found no relationship
+    the sentence supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0661
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence only lists
+    roles with the delegation to accept applications; it says nothing about senior examiners
+    escalating to team leaders. — and the second model found no relationship the sentence
+    supports.
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0663
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The passage directs that
+    applications with items difficult to classify be referred for advice. As this is an instruction
+    for classification, it is the examiner, not the delegate generally, who consults the subject
+    matter experts. — and its corrected reading is refused: the sentence does not name both
+    concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0676
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence defines the
+    registered owner "in relation to" a registered trade mark, making the 'related' predicate
+    the most accurate representation of the text without overstretching the legal meaning
+    of being a "party to" something. — and its corrected reading is what GR-0512 already states.
+  replaced_by: GR-0512
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0677
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: A second model (gemini-3.1-pro-preview) judged it wrong — The sentence simply defines
+    the term "in relation to" the international registration. The 'related' predicate captures
+    this connection exactly as stated. — and its corrected reading is what GR-0591 already
+    states.
+  replaced_by: GR-0591
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0691
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The provision establishes
+    the section 41 ground for rejection, rather than applying to it. The sentence states that
+    the provision governs a trade mark application, stipulating when it must be rejected.
+    — and its corrected reading is refused: the sentence does not name both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5
+- id: GR-0696
+  record_type: gold_relationship
+  retired_on: '2026-10-09'
+  reason: 'A second model (gemini-3.1-pro-preview) judged it wrong — The sentence states that
+    an application for the registration of a trade mark must be rejected under certain conditions,
+    meaning the provision governs or applies to the trade mark application, rather than applying
+    to the ground itself. — and its corrected reading is refused: the sentence does not name
+    both concepts.'
+  ruling: review/rulings/2026-10-09-chat-approvals.yaml#D5

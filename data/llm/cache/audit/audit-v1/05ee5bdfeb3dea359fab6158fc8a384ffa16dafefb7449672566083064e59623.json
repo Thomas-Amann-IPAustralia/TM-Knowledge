@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.033176,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0591..GR-0599",
+ "job": "audit",
+ "key": "05ee5bdfeb3dea359fab6158fc8a384ffa16dafefb7449672566083064e59623",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0591\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence directly connects the holder to their international registration, and no other predicate from the list fits this relationship.\"\n  },\n  {\n    \"id\": \"GR-0592\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence links the holder of an international registration to the concept of protection being extended, supporting a general relationship between the holder and the extension of protection.\"\n  },\n  {\n    \"id\": \"GR-0593\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that a decision by the Commission is appealable to a prescribed court, which directly supports the prescribed court hearing appeals from the Commission.\"\n  },\n  {\n    \"id\": \"GR-0594\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"Read in the context of its passage, the sentence is part of a list of matters where the ART reviews decisions made by the Commission.\"\n  },\n  {\n    \"id\": \"GR-0595\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The passage establishes that the ART reviews decisions concerning certification trade marks, establishing a relationship between the tribunal and the subject matter. No sharper predicate applies between these two specific concepts.\"\n  },\n  {\n    \"id\": \"GR-0597\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence states that references to 'the removal of a trade mark' extend to the cessation of protection, not the 'application for removal'.\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0104\",\n    \"corrected_predicate\": \"extendsTo\",\n    \"corrected_object\": \"GC-0135\",\n    \"reason\": \"The sentence explicitly applies the treatment of the removal of a trade mark (removal for non-use) to the cessation of protection, not the application for it.\"\n  },\n  {\n    \"id\": \"GR-0598\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The predicate 'appliesTo' is strictly defined for provisions, rules, or schemes governing an object, whereas 'cessation of protection' is a procedural step.\",\n    \"remove\": false,\n    \"corrected_subject\": \"GC-0135\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0114\",\n    \"reason\": \"Since 'cessation of protection' is a procedural step, it cannot be the subject of 'appliesTo'. The sentence does support a general relationship between the procedural step and the protected international trade mark it affects.\"\n  },\n  {\n    \"id\": \"GR-0599\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence links the date of receipt by the Office of origin to the date of the resulting international registration, clearly relating the two concepts.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "9b323a57952d649f1a61e882ca7454d41fa0b0b00d6f03157804e8c0b3e59c02",
+ "response_id": "72LIaoT-KZCzqtsPm6-n0Q0",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7610,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 4261,
+  "output_tokens_details": {
+   "reasoning_tokens": 3525
+  }
+ }
+}

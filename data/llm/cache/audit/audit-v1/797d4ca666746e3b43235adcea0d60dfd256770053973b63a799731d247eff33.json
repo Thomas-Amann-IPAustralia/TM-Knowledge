@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.055127,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0170..GR-0177",
+ "job": "audit",
+ "key": "797d4ca666746e3b43235adcea0d60dfd256770053973b63a799731d247eff33",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0170\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0098\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0043\",\n    \"remove\": false,\n    \"reason\": \"The lapsing of the parent application qualifies the requirement for the Registrar to amend the parent application, not the divisional application itself. The sentence only supports a general relationship between the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0171\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that there is no discretion to accept a trade mark caught by the provisions, which establishes a mandatory rule that constrains how the decision maker may act.\"\n  },\n  {\n    \"id\": \"GR-0172\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The term \\\"decision maker\\\" does not appear in the sentence provided. While the Registrar acts as a decision maker, the sentence itself does not state or support a relationship using the distinct \\\"decision maker\\\" concept.\"\n  },\n  {\n    \"id\": \"GR-0173\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence connects the decision maker to descriptive terms (descriptive matter), noting they may have to tolerate confusion surrounding them.\"\n  },\n  {\n    \"id\": \"GR-0174\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that a decision maker must be clearly satisfied that the use of a trade mark would be likely to deceive, supporting a relationship between the decision maker and deception.\"\n  },\n  {\n    \"id\": \"GR-0175\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence describes the Registrar taking an action regarding an undefended opposition, supporting a relationship between the Registrar and an opposition.\"\n  },\n  {\n    \"id\": \"GR-0176\",\n    \"verdict\": \"vague\",\n    \"problem\": \"too weak\",\n    \"corrected_subject\": \"GC-0097\",\n    \"corrected_predicate\": \"allocatesTo\",\n    \"corrected_object\": \"GC-0046\",\n    \"remove\": false,\n    \"reason\": \"The sentence mentions the Registrar refusing (or granting) an extension of time. This shows that the task or matter of an extension of time is handled by the Registrar, supporting the sharper 'allocatesTo' predicate.\"\n  },\n  {\n    \"id\": \"GR-0177\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that the Registrar has discretion over whether a hearing is oral or by written submissions, linking the Registrar to a hearing.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "07eca190de447429f136296e517cec7e7aa7ddf36322060a82ebdc86f94ca0c4",
+ "response_id": "FmPIasLyD-eO6dkPqYTJmAM",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7697,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 7905,
+  "output_tokens_details": {
+   "reasoning_tokens": 7011
+  }
+ }
+}

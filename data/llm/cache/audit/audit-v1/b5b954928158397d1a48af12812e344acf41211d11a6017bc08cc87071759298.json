@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.025653,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0220..GR-0228",
+ "job": "audit",
+ "key": "b5b954928158397d1a48af12812e344acf41211d11a6017bc08cc87071759298",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0220\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence clearly states that a citation (conflict with other signs) can be overcome by filing evidence of honest concurrent use, which may allow the application to be re-accepted.\"\n  },\n  {\n    \"id\": \"GR-0221\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"Read in the context of the passage (a table of deferment grounds), the sentence indicates that a section 44 citation gives the applicant a 6-month deferment to gather evidence against it, supporting the `mayGiveRiseTo` relationship.\"\n  },\n  {\n    \"id\": \"GR-0222\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that a conflicting application (conflict with other signs) may lead the Registrar to revoke the acceptance of an application.\"\n  },\n  {\n    \"id\": \"GR-0224\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence links both concepts together as part of the two key enquiries under section 44, which correctly supports a `related` relationship.\"\n  },\n  {\n    \"id\": \"GR-0225\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence connects 'substantially identical' to 'relevant circumstance' (surrounding circumstances), making `related` the appropriate relationship.\"\n  },\n  {\n    \"id\": \"GR-0226\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence indicates that whether a mark is 'substantially identical' is a parameter that affects how 'evidence of use' is assessed, correctly supporting `qualifies`.\"\n  },\n  {\n    \"id\": \"GR-0227\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0065\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0088\",\n    \"remove\": false,\n    \"reason\": \"The predicate `appliesTo` is reserved for provisions, rules, or schemes applying to what they govern. 'Substantially identical' is a legal test. The sentence simply mentions the two concepts together in the context of section 102, making `related` the correct predicate.\"\n  },\n  {\n    \"id\": \"GR-0228\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence brings both concepts together as the two key components of a section 44 enquiry, supporting a `related` connection.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "819ef014c21e5254c1e3245992442c567ef8226e497a0ab6a5921ea34ce7835c",
+ "response_id": "72LIap_rKYjD_PUP2biy6QI",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7581,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 3012,
+  "output_tokens_details": {
+   "reasoning_tokens": 2341
+  }
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.04774,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0465..GR-0474",
+ "job": "audit",
+ "key": "7464fa906f4b833206a01463c627966b6b2747eb8f4e32d8362da779f0748e3b",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0465\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate and concepts\",\n    \"corrected_subject\": \"GC-0007\",\n    \"corrected_predicate\": \"constrainsRole\",\n    \"corrected_object\": \"GC-0046\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that the presumption of registrability governs the Registrar's actions, mandating acceptance when no grounds for rejection exist. It does not establish a useful 'related' link between the Registrar and the application itself.\"\n  },\n  {\n    \"id\": \"GR-0467\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong object\",\n    \"corrected_subject\": \"GC-0048\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0001\",\n    \"remove\": false,\n    \"reason\": \"The sentence directly states that a fanciful or unrealistic description is taken into account when considering a connotation, not when considering the real and tangible danger test directly.\"\n  },\n  {\n    \"id\": \"GR-0468\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong object\",\n    \"corrected_subject\": \"GC-0048\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0001\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that a fanciful description is taken into account when considering a trade mark's connotation. It does not directly link it to the test of being likely to deceive or cause confusion in this specific sentence.\"\n  },\n  {\n    \"id\": \"GR-0469\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that each application must be considered in the current marketplace, which qualifies the assessment of deception.\"\n  },\n  {\n    \"id\": \"GR-0470\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence establishes that the current marketplace is the context in which the possibility of confusion must be assessed.\"\n  },\n  {\n    \"id\": \"GR-0471\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate and object\",\n    \"corrected_subject\": \"GC-0049\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0168\",\n    \"remove\": false,\n    \"reason\": \"The 'appliesTo' predicate is for rules governing things. The sentence instead supports that the current marketplace is a context that qualifies the assessment of the section 43 ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0472\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The passage explains that the current marketplace context must be considered, as changes in the market may mean a ground for rejection no longer applies.\"\n  },\n  {\n    \"id\": \"GR-0474\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence clearly states that the likelihood of confusion depends on the reputation of the opponent's trade mark, showing reputation qualifies the confusion test.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "a96a88726aaf91570437c662890241ce4ba16456f7853668131cfc154e70fbfc",
+ "response_id": "72LIasuEKZCzqtsPm6-n0Q0",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7798,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 6657,
+  "output_tokens_details": {
+   "reasoning_tokens": 5742
+  }
+ }
+}

@@ -75,7 +75,37 @@ PRICES_PER_MTOK: dict[str, dict[str, dict[str, float]]] = {
     },
     "text-embedding-3-small": {"default": {"input": 0.02, "cached_input": 0.02, "output": 0.0}},
     "text-embedding-3-large": {"default": {"input": 0.13, "cached_input": 0.13, "output": 0.0}},
+    # Google's pricing page on 2026-10-09, prompts up to 200k tokens (ADR-0127). Batch is
+    # half of standard; thinking tokens bill as output. 3.8 Flash's prices are
+    # introductory until 31 December 2026 and double from 1 January 2027.
+    "gemini-3.1-pro-preview": {
+        "default": {"input": 2.00, "cached_input": 0.20, "output": 12.00},
+        "batch": {"input": 1.00, "cached_input": 0.20, "output": 6.00},
+    },
+    "gemini-3.8-flash": {
+        "default": {"input": 0.75, "cached_input": 0.075, "output": 3.75},
+        "batch": {"input": 0.375, "cached_input": 0.0375, "output": 1.875},
+    },
 }
+
+#: The Gemini endpoint, pinned for the same reason as OpenAI's. The owner bought
+#: Gemini capacity and approved Gemini 3.1 Pro for the D5 edge audit: "Alternative
+#: approved for step 1, the use of Gemini 3.1 Pro" (ADR-0125). Only the Batch API is
+#: used: a thinking model's answer outlives the proxy's ~30-second cut (Q-66), and
+#: batch is half price.
+GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta"
+
+#: The Gemini credential's variable. As with OpenAI, the session proxy supplies the
+#: real key whatever this holds, and the value appears nowhere in the repository.
+GEMINI_API_KEY_VAR = "GEMINI_API_KEY"
+
+#: The second model that judges every machine-written relationship (D5).
+AUDIT_MODEL = "gemini-3.1-pro-preview"
+
+
+def gemini_api_key() -> str:
+    """The Gemini credential, or a placeholder the session proxy replaces."""
+    return os.environ.get(GEMINI_API_KEY_VAR, "").strip() or "proxy-supplied"
 
 
 def authoring_model() -> str:

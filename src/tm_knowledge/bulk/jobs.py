@@ -197,6 +197,43 @@ def append_records(path: Path, records: list[dict[str, Any]], header: str) -> No
         path.write_text(header + text, encoding="utf-8")
 
 
+def rewrite_records(path: Path, replace: dict[str, dict[str, Any]] | None = None,
+                    remove: set[str] | frozenset[str] = frozenset()) -> None:
+    """Replace or remove records by id, block by block, leaving every other byte alone.
+
+    A YAML round-trip re-wraps and re-quotes records nobody touched, so a one-record
+    change becomes a thousand-line diff that hides it (Q-76). A block is the text from
+    one line starting `- id: ` to the next.
+    """
+    replace = replace or {}
+    lines = path.read_text(encoding="utf-8").splitlines(keepends=True)
+    head: list[str] = []
+    blocks: list[tuple[str, list[str]]] = []
+    for line in lines:
+        found = re.match(r"^- id: '?\"?([A-Z]+-\d+)", line)
+        if found:
+            blocks.append((found.group(1), [line]))
+        elif blocks:
+            blocks[-1][1].append(line)
+        else:
+            head.append(line)
+    held = {identifier for identifier, _ in blocks}
+    missing = (set(replace) | set(remove)) - held
+    if missing:
+        raise KeyError(f"{path.name} holds no record {sorted(missing)}")
+    out = list(head)
+    for identifier, block in blocks:
+        if identifier in remove:
+            continue
+        if identifier in replace:
+            out.append(yaml.dump([replace[identifier]], Dumper=_PlainDumper, sort_keys=False,
+                                 allow_unicode=True, width=88))
+        else:
+            out.extend(block)
+    path.write_text("".join(out), encoding="utf-8")
+    yaml.safe_load(path.read_text(encoding="utf-8"))  # still a list of records
+
+
 def _strict(properties: dict[str, Any]) -> dict[str, Any]:
     """An object schema in OpenAI's strict form: every property required."""
     return {"type": "object", "additionalProperties": False,
@@ -1160,6 +1197,224 @@ def _write_answers(records: dict[str, list[dict[str, Any]]]) -> list[Path]:
 # ---------------------------------------------------------------------------
 
 
+# ---------------------------------------------------------------------------
+# audit — a second model judges every machine-written relationship (D5)
+# ---------------------------------------------------------------------------
+
+AUDIT_DIR = REPO_ROOT / "data" / "derived" / "audit"
+AUDIT_PATH = AUDIT_DIR / "edges.yaml"
+#: Relationships judged per call. Each call carries the whole dictionary and the
+#: concept list, so fewer, larger calls are cheaper; eight keeps an answer short.
+AUDIT_PER_CALL = 8
+AUDIT_VERDICTS = ("sound", "vague", "wrong")
+AUDIT_PROBLEMS = ("none", "direction", "predicate", "subject", "object", "unsupported", "too_general")
+
+
+def _audit_items(ctx: Context) -> list[Item]:
+    """Every sound machine-written relationship, eight to a call, in id order."""
+    ids = sorted(e.record_id for e in ctx.authored.of("gold_relationship") if e.sound)
+    return [Item(key=f"{chunk[0]}..{chunk[-1]}", payload={"edges": chunk})
+            for chunk in (ids[i:i + AUDIT_PER_CALL] for i in range(0, len(ids), AUDIT_PER_CALL))]
+
+
+def _audit_term(ctx: Context, value: str) -> str:
+    concept = ctx.links.concepts.get(value)
+    return f"{value} “{concept.pref_label}”" if concept else value
+
+
+def _audit_render(ctx: Context, item: Item) -> str:
+    records = {e.record_id: e.record for e in ctx.authored.of("gold_relationship") if e.sound}
+    edges = [records[rid] for rid in item.payload["edges"] if rid in records]
+    lines = ["RELATIONS — what each predicate means; every triple reads subject first:"]
+    for name in sorted(PREDICATES):
+        entry = PREDICATES[name]
+        lines.append(f"- {name}: {entry.definition} Reads: {entry.reading}. Not: {entry.counter_example}")
+    lines += ["", "CONCEPTS — every concept in the ontology, with its kind:",
+              "; ".join(f"{c.id} {c.pref_label} [{c.group or 'untyped'}]" for c in ctx.links.concepts.values()),
+              "", "THE CONCEPTS THESE RELATIONSHIPS NAME:"]
+    named = dict.fromkeys(v for r in edges for v in (str(r["subject"]), str(r["object"])) if v in ctx.links.concepts)
+    for cid in named:
+        c = ctx.links.concepts[cid]
+        also = [label for label in c.labels if label != c.pref_label]
+        bits = [f"{cid} “{c.pref_label}” — kind: {c.group or 'untyped'}"]
+        if also:
+            bits.append("also: " + "; ".join(also[:5]))
+        if c.not_labels:
+            bits.append("not the same as: " + "; ".join(c.not_labels[:5]))
+        lines.append("- " + " — ".join(bits))
+    lines += ["", "RELATIONSHIPS TO JUDGE:"]
+    for r in edges:
+        ref = str(r["source_ref"])
+        authority = "the Act or Regulations (law)" if ref.startswith(("TMA", "TMR")) else "the Manual (practice)"
+        lines.append(f"[{r['id']}] {_audit_term(ctx, str(r['subject']))} —{r['predicate']}→ "
+                     f"{_audit_term(ctx, str(r['object']))} · modality: {r.get('modality') or 'none'} · "
+                     f"source: {ref}, {authority}")
+        lines.append(f"SENTENCE: {defang(str(r['supporting_text']))}")
+        passage = passage_at(ctx.corpus, ref)
+        if passage is not None and passage.text:
+            span = r.get("span") or [0, 0]
+            lines.append(passage_block(ref, passage.text, 900, int(span[0])))
+        lines.append("")
+    return "\n".join(lines)
+
+
+_AUDIT_INSTRUCTIONS = PREAMBLE + """
+
+Task: you are a second, independent reviewer of relationships another model wrote. \
+For each relationship under RELATIONSHIPS TO JUDGE, decide whether its SENTENCE, read in \
+its passage, supports it — with the predicate's definition and direction from RELATIONS:
+- sound: the sentence states or plainly implies this relationship, the right way round, \
+between these two concepts.
+- vague: not wrong, but too weak to help an examiner — a `related` link where the \
+sentence states something sharper, or a statement true only of the one case the \
+sentence describes.
+- wrong: the sentence does not support it — wrong direction, wrong predicate, a concept \
+the sentence is not about (a word matched in another sense), or a relationship the \
+sentence does not state.
+problem: the main fault, or none when sound.
+For wrong, give the corrected reading in corrected_subject, corrected_predicate and \
+corrected_object, using only ids from CONCEPTS (or a provision ref already given as \
+the subject) and predicate names from RELATIONS; `broader` reads narrower → broader. \
+If the sentence supports no relationship between these concepts, set remove to true \
+and leave the corrected reading empty. Otherwise leave all three empty and remove false.
+reason: one or two sentences a trade marks examiner could check against the sentence.
+Judge only what the sentence and its passage support; where outside knowledge would be \
+needed, say so in the reason rather than use it. Return one verdict per relationship, \
+by its id."""
+
+_AUDIT_SCHEMA = _strict({"verdicts": {"type": "array", "items": _strict({
+    "edge": STR,
+    "verdict": {"type": "string", "enum": list(AUDIT_VERDICTS)},
+    "problem": {"type": "string", "enum": list(AUDIT_PROBLEMS)},
+    "reason": STR,
+    "corrected_subject": STR, "corrected_predicate": STR, "corrected_object": STR,
+    "remove": {"type": "boolean"},
+    "confidence": NUM,
+})}})
+
+
+def _audit_problem(text: str, verdict: str) -> str:
+    """The problem as one word, from however the model put it."""
+    t = text.lower()
+    for name in ("direction", "predicate", "subject", "object"):
+        if name in t:
+            return name
+    if "not about" in t or "another sense" in t:
+        return "concept"
+    if "not state" in t or "unsupported" in t or "does not support" in t:
+        return "unsupported"
+    if "general" in t or "weak" in t or "vague" in t:
+        return "too_general"
+    return "none" if verdict == "sound" or t in ("", "none") else "other"
+
+
+#: The order the instructions name the fields in, which is the order Gemini used when
+#: it answered with a bare list per edge (Q-83).
+_AUDIT_POSITIONS = ("verdict", "problem", "corrected_subject", "corrected_predicate", "corrected_object",
+                    "remove", "reason")
+
+
+def _audit_rows(parsed: dict[str, Any]) -> list[dict[str, Any]]:
+    """Every verdict in the answer as a dict with the schema's field names.
+
+    Gemini answered in the shape the instructions describe rather than the schema it
+    was given (Q-83): a bare list, `id` or `[GR-0618]` for `edge`, `status` for
+    `verdict`, three true/false flags in place of one verdict, and once an object keyed
+    by edge whose values list the fields in the instructions' order. Each is read only
+    where its shape leaves no doubt — a renamed field, never a changed verdict; anything
+    else is refused by the caller."""
+    rows = parsed.get("verdicts") or parsed.get("_list")
+    if rows is None:
+        rows = []
+        for key, value in parsed.items():
+            if isinstance(value, dict):
+                rows.append({"edge": key, **value})
+            elif (isinstance(value, list) and len(value) == len(_AUDIT_POSITIONS)
+                  and isinstance(value[5], bool) and all(isinstance(x, str) for x in value[:5] + value[6:])):
+                rows.append({"edge": key, **dict(zip(_AUDIT_POSITIONS, value))})
+    out = []
+    for v in rows:
+        if not isinstance(v, dict):
+            continue
+        v = dict(v)
+        v["edge"] = str(v.get("edge") or v.get("id") or "").strip().strip("[]\"' ")
+        verdict = v.get("verdict") or v.get("status")
+        if not verdict:
+            flagged = [name for name in AUDIT_VERDICTS if v.get(name) is True]
+            verdict = flagged[0] if len(flagged) == 1 else ""
+        v["verdict"] = str(verdict).strip().lower()
+        out.append(v)
+    return out
+
+
+def _audit_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict[str, Any]) -> Outcome:
+    """One row per relationship: the verdict, why, and a corrected reading that names
+    only concepts and predicates the ontology holds. The reading is checked here and
+    applied, or not, by `bulk.audit` — never by this job."""
+    outcome = Outcome()
+    wanted = list(item.payload["edges"])
+    records = {e.record_id: e.record for e in ctx.authored.of("gold_relationship") if e.sound}
+    seen: set[str] = set()
+    for v in _audit_rows(parsed):
+        outcome.proposed += 1
+        edge = v["edge"]
+        if edge not in wanted or edge in seen:
+            outcome.refused.append(f"{item.key}: verdict for {edge!r}, not an edge sent (or twice)")
+            continue
+        seen.add(edge)
+        verdict = v["verdict"]
+        if verdict not in AUDIT_VERDICTS:
+            outcome.refused.append(f"{edge}: verdict {verdict!r} is not one of {AUDIT_VERDICTS}")
+            continue
+        corrected = None
+        triple = (str(v.get("corrected_subject") or "").strip(), str(v.get("corrected_predicate") or "").strip(),
+                  str(v.get("corrected_object") or "").strip())
+        if any(triple):
+            subject, predicate, obj = triple
+            original = records.get(edge, {})
+            ends_ok = all(x in ctx.links.concepts or x == str(original.get("subject")) for x in (subject, obj))
+            if predicate in PREDICATES and ends_ok:
+                corrected = {"subject": subject, "predicate": predicate, "object": obj}
+            else:
+                outcome.notes.append(f"{edge}: corrected reading {triple} names something the ontology does not hold")
+        judged = records.get(edge, {})
+        outcome.records.setdefault("audit", []).append({
+            "edge": edge,
+            # What was judged, so a verdict is never applied to a record that has since changed.
+            "judged": {k: str(judged.get(k)) for k in ("subject", "predicate", "object")},
+            "verdict": verdict, "problem": _audit_problem(str(v.get("problem") or "none"), verdict),
+            "problem_text": str(v.get("problem") or "none"),
+            "reason": " ".join(str(v.get("reason") or "").split()),
+            "corrected": corrected, "remove": bool(v.get("remove")) and verdict == "wrong",
+            "confidence": (round(max(0.0, min(1.0, float(v["confidence"]))), 2)
+                           if isinstance(v.get("confidence"), (int, float)) else None),
+            "model": entry["model_reported"], "prompt_version": entry.get("prompt_version", "audit-v1"),
+            "date": date.today().isoformat(),
+        })
+    for edge in wanted:
+        if edge not in seen:
+            outcome.refused.append(f"{edge}: no verdict returned")
+    return outcome
+
+
+def _write_audit(records: dict[str, list[dict[str, Any]]]) -> list[Path]:
+    rows = records.get("audit") or []
+    if not rows:
+        return []
+    existing = (yaml.safe_load(AUDIT_PATH.read_text(encoding="utf-8")) or {}).get("verdicts", []) \
+        if AUDIT_PATH.exists() else []
+    merged = {r["edge"]: r for r in existing}
+    merged.update({r["edge"]: r for r in rows})
+    AUDIT_DIR.mkdir(parents=True, exist_ok=True)
+    AUDIT_PATH.write_text(yaml.safe_dump(
+        {"note": "A second model's verdict on every machine-written relationship (review D5, ADR-0127): "
+                 "sound, vague or wrong, with a corrected reading for wrong ones. Machine-written, "
+                 "unreviewed; a model judging a model, not an expert. Applied by `tmk-bulk audit-apply`.",
+         "verdicts": [merged[k] for k in sorted(merged)]},
+        sort_keys=False, allow_unicode=True, width=100), encoding="utf-8")
+    return [AUDIT_PATH]
+
+
 def registry(ctx: Context) -> dict[str, Job]:
     return {
         # v2: the predicates come from the defined dictionary, not the first signed
@@ -1183,12 +1438,21 @@ def registry(ctx: Context) -> dict[str, Job]:
         "answer": Job("answer", "answer-v2", "measurement", _ANSWER_INSTRUCTIONS, _ANSWER_SCHEMA,
                       10000, lambda ctx: [], _answer_render, _answer_accept, _write_answers,
                       "A cited answer to one question"),
+        # D5: a second model, chosen by the owner (Gemini 3.1 Pro, ADR-0125), judges
+        # every machine-written relationship against its sentence and the dictionary.
+        "audit": Job("audit", "audit-v1", "measurement", _AUDIT_INSTRUCTIONS, _AUDIT_SCHEMA,
+                     12000, _audit_items, _audit_render, _audit_accept, _write_audit,
+                     "A second model's verdict on every machine-written relationship"),
     }
 
 
 def parse(entry: dict[str, Any]) -> dict[str, Any] | None:
+    """The answer as a dict. A bare JSON list — which Gemini returned for the audit
+    while ignoring its schema (Q-83) — comes back as `{"_list": [...]}`."""
     try:
         value = json.loads(entry.get("output_text") or "")
     except json.JSONDecodeError:
         return None
+    if isinstance(value, list):
+        return {"_list": value}
     return value if isinstance(value, dict) else None

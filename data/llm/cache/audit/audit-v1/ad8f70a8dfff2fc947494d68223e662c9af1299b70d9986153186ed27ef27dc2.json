@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.036954,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0349..GR-0357",
+ "job": "audit",
+ "key": "ad8f70a8dfff2fc947494d68223e662c9af1299b70d9986153186ed27ef27dc2",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0349\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence states that the IB advises the Office of origin of the IR number (registration number), establishing a clear relationship between the two concepts.\"\n  },\n  {\n    \"id\": \"GR-0350\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence refers to the \\\"international registration number\\\", which directly links the concept of a registration number to an international registration.\"\n  },\n  {\n    \"id\": \"GR-0351\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence directly connects placing the application on the International Register with allocating it a registration number.\"\n  },\n  {\n    \"id\": \"GR-0353\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that the international registration is recorded in the International Register.\"\n  },\n  {\n    \"id\": \"GR-0354\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence links the two concepts by stating that the applicant becomes known as the holder after the registration is recorded in the International Register.\"\n  },\n  {\n    \"id\": \"GR-0355\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0113\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0161\",\n    \"remove\": false,\n    \"reason\": \"The predicate 'dependsOnExternalSource' requires the subject to be a rule or provision that is applied, not a subject matter like an international registration designating Australia. The sentence simply indicates a relationship between the two.\"\n  },\n  {\n    \"id\": \"GR-0356\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"reason\": \"The sentence explicitly states that transmission of a trade mark is known as a change of ownership under the Madrid Protocol, making it a kind of change of ownership.\"\n  },\n  {\n    \"id\": \"GR-0357\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0162\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0114\",\n    \"remove\": false,\n    \"reason\": \"The predicate 'appliesTo' is restricted to a provision, rule, or scheme governing an object. A 'change of ownership' is a procedural step, not a rule or scheme, so 'related' is the correct predicate.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "aaa42442be8d97a50e044394f58d8b5590a513c79d2b8c046a27ca30d2d86d27",
+ "response_id": "72LIauHhJ6jRz7IPztGi2Q4",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7398,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 4926,
+  "output_tokens_details": {
+   "reasoning_tokens": 4260
+  }
+ }
+}

@@ -264,6 +264,135 @@ def output_text(response: dict[str, Any]) -> str:
     return "".join(parts)
 
 
+# ---------------------------------------------------------------------------
+# Gemini — the second model for the D5 edge audit (ADR-0125, ADR-0127)
+# ---------------------------------------------------------------------------
+
+
+def provider(model: str) -> str:
+    """Which API a model is called through. Gemini only through its Batch API."""
+    return "gemini" if model.startswith("gemini-") else "openai"
+
+
+def _gemini_body(rq: dict[str, Any]) -> dict[str, Any]:
+    """A `generateContent` request: the same instructions, input and schema as OpenAI's.
+
+    Thinking is the model's own, at the level `effort` names (low, medium or high);
+    thinking tokens bill as output and count against `maxOutputTokens`.
+    """
+    config_: dict[str, Any] = {
+        "responseMimeType": "application/json",
+        "responseJsonSchema": rq["schema"],
+        "maxOutputTokens": rq["max_output_tokens"],
+    }
+    if rq.get("effort") and rq["effort"] != "none":
+        config_["thinkingConfig"] = {"thinkingLevel": str(rq["effort"]).upper()}
+    return {
+        "systemInstruction": {"parts": [{"text": rq["instructions"]}]},
+        "contents": [{"role": "user", "parts": [{"text": rq["input_text"]}]}],
+        "generationConfig": config_,
+    }
+
+
+def _gemini_usage(meta: dict[str, Any] | None) -> dict[str, Any]:
+    """Gemini's `usageMetadata` in the shape `cost_usd` reads. Thinking bills as output."""
+    meta = meta or {}
+    thoughts = int(meta.get("thoughtsTokenCount") or 0)
+    return {
+        "input_tokens": int(meta.get("promptTokenCount") or 0),
+        "input_tokens_details": {"cached_tokens": int(meta.get("cachedContentTokenCount") or 0)},
+        "output_tokens": int(meta.get("candidatesTokenCount") or 0) + thoughts,
+        "output_tokens_details": {"reasoning_tokens": thoughts},
+    }
+
+
+def _gemini_text(response: dict[str, Any]) -> tuple[str, str]:
+    """(answer text, status) from a `GenerateContentResponse`. Thought parts are not the answer."""
+    candidates = response.get("candidates") or []
+    if not candidates:
+        return "", "failed"
+    first = candidates[0]
+    text = "".join(part.get("text") or "" for part in (first.get("content") or {}).get("parts") or ()
+                   if not part.get("thought"))
+    reason = str(first.get("finishReason") or "")
+    if reason in ("", "STOP") and text:
+        return text, "completed"
+    return text, "incomplete" if reason == "MAX_TOKENS" else "failed"
+
+
+def _gemini_http(method: str, path: str, body: dict[str, Any] | None = None) -> dict[str, Any]:
+    """One short request to the pinned Gemini endpoint. The session proxy supplies the key."""
+    request = urllib.request.Request(
+        config.GEMINI_BASE_URL + path,
+        data=None if body is None else json.dumps(body).encode("utf-8"),
+        headers={"Content-Type": "application/json", "x-goog-api-key": config.gemini_api_key()},
+        method=method,
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=120) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as error:
+        detail = error.read().decode("utf-8", "replace")[:800]
+        raise RuntimeError(f"Gemini {method} {path} returned HTTP {error.code}: {detail}") from error
+
+
+def _find_inlined(node: Any) -> list[dict[str, Any]] | None:
+    """The list of inline responses wherever the batch status puts it.
+
+    Google's own documentation gives two paths for it (`response.inlinedResponses`
+    and `dest.inlinedResponses`) and nests the list one level further in places, so
+    this looks rather than assumes.
+    """
+    if isinstance(node, dict):
+        for key, value in node.items():
+            if key == "inlinedResponses":
+                if isinstance(value, list):
+                    return value
+                if isinstance(value, dict) and isinstance(value.get("inlinedResponses"), list):
+                    return value["inlinedResponses"]
+            found = _find_inlined(value)
+            if found is not None:
+                return found
+    elif isinstance(node, list):
+        for value in node:
+            found = _find_inlined(value)
+            if found is not None:
+                return found
+    return None
+
+
+#: Gemini batch states that end a batch. Google has used both prefixes.
+GEMINI_FINAL = {f"{p}_{s}" for p in ("JOB_STATE", "BATCH_STATE")
+                for s in ("SUCCEEDED", "FAILED", "CANCELLED", "EXPIRED")}
+
+
+class GeminiBatchAPI:
+    """Submit, poll and collect a Gemini batch of inline requests. Replaced only in tests."""
+
+    def submit(self, model: str, entries: list[tuple[str, dict[str, Any]]]) -> str:
+        body = {"batch": {"display_name": f"tmk-{entries[0][0][:16]}", "input_config": {"requests": {
+            "requests": [{"request": request, "metadata": {"key": key}} for key, request in entries]}}}}
+        return str(_gemini_http("POST", f"/models/{model}:batchGenerateContent", body)["name"])
+
+    def status(self, name: str) -> dict[str, Any]:
+        return _gemini_http("GET", f"/{name}")
+
+    @staticmethod
+    def state(status: dict[str, Any]) -> str:
+        return str((status.get("metadata") or {}).get("state") or status.get("state")
+                   or ("JOB_STATE_SUCCEEDED" if status.get("done") else "JOB_STATE_RUNNING"))
+
+    def collect(self, status: dict[str, Any], keys: list[str]) -> dict[str, dict[str, Any]]:
+        """key -> {"response": ...} or {"error": ...}. Matched by the echoed key, else by order."""
+        items = _find_inlined(status) or []
+        out: dict[str, dict[str, Any]] = {}
+        for position, item in enumerate(items):
+            key = (item.get("metadata") or {}).get("key") or (keys[position] if position < len(keys) else None)
+            if key:
+                out[str(key)] = item
+        return out
+
+
 def respond(
     *,
     job: str,
@@ -283,6 +412,9 @@ def respond(
 ) -> tuple[dict[str, Any] | None, Estimate]:
     """One structured call. Returns (cache entry or None on a dry run, estimate)."""
     model = model or config.authoring_model()
+    if provider(model) == "gemini":
+        raise RuntimeError(f"{job}/{item}: {model} is called through its Batch API only — use --tier batch "
+                           "(a thinking model's answer outlives the proxy's 30-second cut, Q-66)")
     effort = effort or config.DEFAULT_AUTHORING_EFFORT
     cache = cache or Cache()
     body: dict[str, Any] = {
@@ -522,15 +654,55 @@ def _record_batch(cache: "Cache", entry: dict[str, Any], outputs: dict[str, dict
         })
 
 
+def _record_gemini_batch(cache: "Cache", entry: dict[str, Any], outputs: dict[str, dict], state: str) -> None:
+    """A ledger entry for every request in a finished Gemini batch, answered or not."""
+    for key, meta in entry["requests"].items():
+        if cache.get(meta["job"], meta["prompt_version"], key) is not None:
+            continue
+        item = outputs.get(key) or {}
+        response = item.get("response") or {}
+        text, status = _gemini_text(response) if response else ("", "failed")
+        error = item.get("error") or (None if response else {"code": "missing_from_batch", "batch": entry["id"],
+                                                              "state": state})
+        usage = _gemini_usage(response.get("usageMetadata"))
+        model = str(response.get("modelVersion") or meta["model"])
+        cache.put({
+            "job": meta["job"], "prompt_version": meta["prompt_version"], "key": key, "item": meta["item"],
+            "request_sha256": meta["request_sha256"], "response_id": response.get("responseId"),
+            "batch_id": entry["id"], "provider": "gemini",
+            "model_requested": meta["model"], "model_reported": model, "effort": meta["effort"],
+            "service_tier": "batch", "max_output_tokens": meta["max_output_tokens"],
+            "status": status, "incomplete_details": ({"reason": "MAX_TOKENS"} if status == "incomplete" else None),
+            "error": error, "usage": usage,
+            "cost_usd": round(cost_usd(model, "batch", usage), 6),
+            "created_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "output_text": text,
+        })
+
+
 def collect_batches(cache: "Cache | None" = None, api: BatchAPI | None = None,
-                    progress: Callable[[str], None] = print) -> list[str]:
+                    progress: Callable[[str], None] = print,
+                    gemini_api: "GeminiBatchAPI | None" = None) -> list[str]:
     """Poll every open batch once; record and close the finished ones. Returns open ids."""
     cache = cache or Cache()
     api = api or BatchAPI()
+    gemini_api = gemini_api or GeminiBatchAPI()
     batches = _load_batches(cache)
     still_open = []
     for entry in batches:
         if entry.get("collected") is not None:
+            continue
+        if entry.get("provider") == "gemini":
+            status = gemini_api.status(entry["id"])
+            state = gemini_api.state(status)
+            entry["status"] = state
+            if state in GEMINI_FINAL:
+                _record_gemini_batch(cache, entry, gemini_api.collect(status, list(entry["requests"])), state)
+                entry["collected"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+                progress(f"batch {entry['id']} ({entry['job']}): {state}, recorded")
+            else:
+                still_open.append(entry["id"])
+                progress(f"batch {entry['id']} ({entry['job']}): {state}")
             continue
         status = api.status(entry["id"])
         counts = status.get("request_counts") or {}
@@ -550,20 +722,31 @@ def collect_batches(cache: "Cache | None" = None, api: BatchAPI | None = None,
 def batch_respond(
     requests: list[dict[str, Any]], *, confirm: bool = False, dry_run: bool = False,
     cache: Cache | None = None, poll: float = 30.0, progress: Callable[[str], None] = print,
-    api: BatchAPI | None = None, wait: bool = True,
+    api: BatchAPI | None = None, wait: bool = True, gemini_api: "GeminiBatchAPI | None" = None,
 ) -> list[tuple[dict[str, Any] | None, Estimate]]:
     """Many structured calls through the Batch API, each cached and priced as one call.
 
     Restart-safe: a submitted batch is written to `data/llm/batches.json` before it
     is waited on, its worst case counts against the cap until it is collected, and
-    a request already in an open batch is waited for, never sent twice.
+    a request already in an open batch is waited for, never sent twice. OpenAI and
+    Gemini models both run here; a Gemini request is keyed on its model as well as
+    its body, because Gemini names the model in the URL rather than the body.
+
+    When the worst case of the next batch would pass the cap, the open batches are
+    waited for and collected first — their real cost replaces their worst case —
+    and the next one is then submitted; the cap is never raised to fit a run.
     """
     cache = cache or Cache()
     api = api or BatchAPI()
+    gemini_api = gemini_api or GeminiBatchAPI()
     prepared = []
     for rq in requests:
-        body = _request_body(rq)
-        key = cache_key(body, rq["prompt_version"])
+        if provider(rq["model"]) == "gemini":
+            body = _gemini_body(rq)
+            key = cache_key({"model": rq["model"], **body}, rq["prompt_version"])
+        else:
+            body = _request_body(rq)
+            key = cache_key(body, rq["prompt_version"])
         prices = _prices(rq["model"], "batch")
         est_in = estimate_tokens(rq["instructions"] + rq["input_text"] + _canonical(rq["schema"]))
         estimate = Estimate(est_in, rq["max_output_tokens"],
@@ -574,7 +757,7 @@ def batch_respond(
         return cache.get(rq["job"], rq["prompt_version"], key)
 
     if not dry_run:
-        collect_batches(cache, api, progress)
+        collect_batches(cache, api, progress, gemini_api)
     queued = {key for b in _load_batches(cache) if b.get("collected") is None for key in b["requests"]}
     todo, seen = [], set()
     for rq, body, key, estimate in prepared:
@@ -587,17 +770,39 @@ def batch_respond(
     if todo and not confirm:
         raise NotConfirmed(f"{len(todo)} paid calls need --confirm")
 
+    def open_keys() -> set[str]:
+        return {key for b in _load_batches(cache) if b.get("collected") is None for key in b["requests"]}
+
+    chunks: list[list[tuple]] = []
     for start in range(0, len(todo), BATCH_CHUNK):
         chunk = todo[start:start + BATCH_CHUNK]
+        # One model per batch: Gemini names it in the URL.
+        for model in dict.fromkeys(rq["model"] for rq, *_ in chunk):
+            chunks.append([row for row in chunk if row[0]["model"] == model])
+    for chunk in chunks:
         worst = sum(est.worst_case_usd for *_, est in chunk)
-        token = _reserve(cache, worst, f"batch of {len(chunk)}")
+        while True:
+            try:
+                token = _reserve(cache, worst, f"batch of {len(chunk)}")
+                break
+            except BudgetExceeded:
+                if not open_keys():
+                    raise
+                progress(f"the next batch's worst case would pass the cap; waiting for the open ones")
+                time.sleep(poll)
+                collect_batches(cache, api, progress, gemini_api)
+        gemini = provider(chunk[0][0]["model"]) == "gemini"
         try:
-            batch_id = api.submit([{"custom_id": key, "method": "POST", "url": "/v1/responses", "body": body}
-                                   for _, body, key, _ in chunk])
+            if gemini:
+                batch_id = gemini_api.submit(chunk[0][0]["model"], [(key, body) for _, body, key, _ in chunk])
+            else:
+                batch_id = api.submit([{"custom_id": key, "method": "POST", "url": "/v1/responses", "body": body}
+                                       for _, body, key, _ in chunk])
             with _LOCK:
                 batches = _load_batches(cache)
                 batches.append({
                     "id": batch_id, "job": chunk[0][0]["job"], "worst": worst, "collected": None,
+                    "provider": "gemini" if gemini else "openai", "model": chunk[0][0]["model"],
                     "submitted": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                     "requests": {key: {"job": rq["job"], "prompt_version": rq["prompt_version"],
                                        "item": rq["item"], "model": rq["model"], "effort": rq["effort"],
@@ -611,11 +816,11 @@ def batch_respond(
         progress(f"batch {batch_id}: {len(chunk)} {chunk[0][0]['job']} requests submitted")
 
     while wait:
-        waiting = {key for b in _load_batches(cache) if b.get("collected") is None for key in b["requests"]}
+        waiting = open_keys()
         if not any(key in waiting for _, _, key, _ in prepared):
             break
         time.sleep(poll)
-        collect_batches(cache, api, progress)
+        collect_batches(cache, api, progress, gemini_api)
 
     out = []
     for rq, _, key, estimate in prepared:

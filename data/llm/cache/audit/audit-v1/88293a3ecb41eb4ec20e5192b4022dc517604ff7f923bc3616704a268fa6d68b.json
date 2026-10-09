@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.047078,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0178..GR-0185",
+ "job": "audit",
+ "key": "88293a3ecb41eb4ec20e5192b4022dc517604ff7f923bc3616704a268fa6d68b",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0178\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence establishes 'real and tangible danger' as the threshold for triggering a section 43 objection, it does not qualify descriptive matter.\",\n    \"corrected_subject\": \"GC-0008\",\n    \"corrected_predicate\": \"statesThresholdFor\",\n    \"corrected_object\": \"GC-0168\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that section 43 would be triggered only if there is a 'real and tangible danger', making it the threshold for a section 43 ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0179\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence mentions providing a 'generic description' when deleting a trade mark from a specification; it does not relate to 'descriptive matter' as a type of sign content.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence is about removing trade marks from a specification and providing a generic description, which is unrelated to the concept of descriptive matter in a sign.\"\n  },\n  {\n    \"id\": \"GR-0180\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that a certain risk of confusion due to a descriptive element may be accepted, showing that the presence of descriptive matter affects how confusion is assessed.\"\n  },\n  {\n    \"id\": \"GR-0181\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The relevant market does not qualify the mandatory application of the section; rather, it is the group by which the likelihood to deceive or confuse is assessed.\",\n    \"corrected_subject\": \"GC-0009\",\n    \"corrected_predicate\": \"qualifies\",\n    \"corrected_object\": \"GC-0002\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that a connotation must be likely to deceive or confuse 'consumers within the relevant market', showing that the relevant market qualifies the test of whether a mark is likely to deceive or cause confusion.\"\n  },\n  {\n    \"id\": \"GR-0182\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence, which quotes section 43, establishes connotation as an element required for a section 43 ground for rejection, not for the section's mandatory application.\",\n    \"corrected_subject\": \"GC-0168\",\n    \"corrected_predicate\": \"requiresElement\",\n    \"corrected_object\": \"GC-0001\",\n    \"remove\": false,\n    \"reason\": \"The passage provides the text of section 43, which dictates that an application must be rejected if 'because of some connotation', making a connotation an essential element for a section 43 ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0183\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"Being likely to deceive or cause confusion is a requirement to be 'caught by these provisions' (a section 43 ground for rejection), rather than a requirement for the mandatory application of the section.\",\n    \"corrected_subject\": \"GC-0168\",\n    \"corrected_predicate\": \"requiresElement\",\n    \"corrected_object\": \"GC-0002\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that it is necessary to be satisfied that the trade mark would be likely to deceive or cause confusion for it to be caught by 'these provisions' (section 43).\"\n  },\n  {\n    \"id\": \"GR-0184\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence sets out the combined test of being likely to deceive or cause confusion; it does not support deception by itself qualifying the mandatory application of the section.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"Deception is mentioned as part of the overall legal test required for the provisions to apply, but the sentence does not support a direct relationship where deception alone qualifies the section's application.\"\n  },\n  {\n    \"id\": \"GR-0185\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence sets out the combined test of being likely to deceive or cause confusion; it does not support confusion by itself qualifying the mandatory application of the section.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"Confusion is mentioned as part of the overall legal test required for the provisions to apply, but the sentence does not support a direct relationship where confusion alone qualifies the section's application.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "a04a68ef164d34912f780eb53311f3c09c696d5aa26f0290427c62b9dee98ce0",
+ "response_id": "72LIavCnKYjD_PUP2biy6QI",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7724,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 6559,
+  "output_tokens_details": {
+   "reasoning_tokens": 5397
+  }
+ }
+}

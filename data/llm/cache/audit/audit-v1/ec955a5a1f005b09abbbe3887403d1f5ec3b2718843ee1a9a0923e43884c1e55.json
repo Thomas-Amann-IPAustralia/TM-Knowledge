@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/4lyatxckg78pm43cbvvshd4jhx2y2l7177qs",
+ "cost_usd": 0.066083,
+ "created_utc": "2026-10-09T03:45:34Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0676..GR-0683",
+ "job": "audit",
+ "key": "ec955a5a1f005b09abbbe3887403d1f5ec3b2718843ee1a9a0923e43884c1e55",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0676\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence does not support a \\\"party to\\\" relationship. A person is the owner of a trade mark rather than a party to it, and the sentence explicitly connects them using the phrase \\\"in relation to\\\".\",\n    \"corrected_subject\": \"GC-0084\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0088\",\n    \"remove\": false,\n    \"reason\": \"The sentence defines the registered owner \\\"in relation to\\\" a registered trade mark, making the 'related' predicate the most accurate representation of the text without overstretching the legal meaning of being a \\\"party to\\\" something.\"\n  },\n  {\n    \"id\": \"GR-0677\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"A holder is the owner of an international registration rather than being a \\\"party to\\\" it as one would be to a proceeding or contract.\",\n    \"corrected_subject\": \"GC-0132\",\n    \"corrected_predicate\": \"related\",\n    \"corrected_object\": \"GC-0150\",\n    \"remove\": false,\n    \"reason\": \"The sentence simply defines the term \\\"in relation to\\\" the international registration. The 'related' predicate captures this connection exactly as stated.\"\n  },\n  {\n    \"id\": \"GR-0678\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence does not state that section 43 applies to the section 43 ground for rejection; it simply notes that the section's application is mandatory.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence discusses the mandatory nature of the section but does not establish an 'appliesTo' relationship between the provision and its own ground for rejection.\"\n  },\n  {\n    \"id\": \"GR-0679\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that a connotation may result from (which equates to being caused by) the whole trade mark.\"\n  },\n  {\n    \"id\": \"GR-0680\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence does not mention reputation. It refers to a connection in the minds of the buying public, and outside knowledge would be needed to equate this directly with reputation.\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"Without relying on external knowledge, the text's phrase \\\"connection in the minds of the buying public\\\" cannot be strictly mapped to the concept of reputation.\"\n  },\n  {\n    \"id\": \"GR-0681\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly declares that the Registrar must be satisfied a ground for rejection exists before section 33(3) can be applied.\"\n  },\n  {\n    \"id\": \"GR-0682\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence does not mention the presumption of registrability. Instead, it describes how the ground for rejection depends on the existence of a connotation.\",\n    \"corrected_subject\": \"GC-0168\",\n    \"corrected_predicate\": \"requiresElement\",\n    \"corrected_object\": \"GC-0001\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that the ground for rejection (read in context as the section 43 ground) should not be raised if there is doubt a connotation exists, meaning the ground requires a connotation.\"\n  },\n  {\n    \"id\": \"GR-0683\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"The sentence does not mention the section 43 ground for rejection as the object of the threshold; it establishes the threshold for the public being deceived or confused.\",\n    \"corrected_subject\": \"GC-0008\",\n    \"corrected_predicate\": \"statesThresholdFor\",\n    \"corrected_object\": \"GC-0002\",\n    \"remove\": false,\n    \"reason\": \"The text explicitly states that a real and obvious danger is the standard/threshold that must be met for the buying public to be \\\"deceived and/or confused\\\".\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "bde8303255be922f218452f365ed0e7356f8219f16499f1520741cffaffe57f0",
+ "response_id": "72LIapuyKdOImtkP4Yac4Qk",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 6929,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 9859,
+  "output_tokens_details": {
+   "reasoning_tokens": 8764
+  }
+ }
+}

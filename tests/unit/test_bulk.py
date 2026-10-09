@@ -369,3 +369,133 @@ def test_a_request_in_an_open_batch_is_waited_for_never_sent_twice(tmp_path):
     client.batch_respond(requests, confirm=True, cache=cache, api=api, poll=0, progress=lambda s: None)
     assert len(api.submitted) == 1
     assert client._in_flight(cache) == 0 and client.Cache(tmp_path / "cache").spent_usd() > 0
+
+
+# ---------------------------------------------------------------------------
+# Gemini — the D5 edge audit's second model, through its Batch API only
+# ---------------------------------------------------------------------------
+
+
+class _FakeGemini:
+    """A Gemini batch that finishes on the second poll and echoes each key."""
+
+    def __init__(self, text='{"answer": "ok"}'):
+        self.submitted: list[tuple[str, list]] = []
+        self.polls = 0
+        self.text = text
+
+    def submit(self, model, entries):
+        self.submitted.append((model, entries))
+        return f"batches/{len(self.submitted)}"
+
+    def status(self, name):
+        self.polls += 1
+        done = self.polls > 1
+        status = {"name": name, "metadata": {"state": "JOB_STATE_SUCCEEDED" if done else "JOB_STATE_RUNNING"}}
+        if done:
+            _, entries = self.submitted[int(name.split("/")[1]) - 1]
+            status["response"] = {"inlinedResponses": {"inlinedResponses": [
+                {"metadata": {"key": key}, "response": {
+                    "modelVersion": "gemini-3.1-pro-preview",
+                    "candidates": [{"finishReason": "STOP", "content": {"parts": [
+                        {"text": "thinking out loud", "thought": True}, {"text": self.text}]}}],
+                    "usageMetadata": {"promptTokenCount": 2000, "candidatesTokenCount": 100,
+                                      "thoughtsTokenCount": 900}}}
+                for key, _ in entries]}}
+        return status
+
+    state = staticmethod(client.GeminiBatchAPI.state)
+    collect = client.GeminiBatchAPI.collect
+
+
+GRQ = dict(RQ, model="gemini-3.1-pro-preview", effort="high")
+
+
+def test_a_gemini_request_carries_the_schema_and_the_thinking_level():
+    body = client._gemini_body(dict(GRQ, item="a", input_text="One?"))
+    assert body["generationConfig"]["responseJsonSchema"] == SCHEMA
+    assert body["generationConfig"]["responseMimeType"] == "application/json"
+    assert body["generationConfig"]["thinkingConfig"] == {"thinkingLevel": "HIGH"}
+    assert body["systemInstruction"]["parts"][0]["text"] == "Be brief."
+
+
+def test_gemini_runs_through_its_batch_and_bills_thinking_as_output(tmp_path):
+    cache = client.Cache(tmp_path / "cache")
+    gemini = _FakeGemini()
+    requests = [dict(GRQ, item="a", input_text="One?"), dict(GRQ, item="b", input_text="Two?")]
+    results = client.batch_respond(requests, confirm=True, cache=cache, gemini_api=gemini, poll=0,
+                                   progress=lambda s: None)
+    entry = results[0][0]
+    assert entry["status"] == "completed" and entry["output_text"] == '{"answer": "ok"}'
+    assert entry["model_reported"] == "gemini-3.1-pro-preview" and entry["provider"] == "gemini"
+    assert entry["cost_usd"] == pytest.approx((2000 * 1.00 + 1000 * 6.00) / 1_000_000)
+    assert gemini.submitted[0][0] == "gemini-3.1-pro-preview"
+    again = client.batch_respond(requests, confirm=True, cache=cache, gemini_api=gemini, poll=0,
+                                 progress=lambda s: None)
+    assert len(gemini.submitted) == 1 and all(e["from_cache"] for e, _ in again)
+
+
+def test_a_gemini_model_is_never_called_outside_its_batch(tmp_path):
+    with pytest.raises(RuntimeError, match="Batch API only"):
+        client.respond(job="t", prompt_version="t-v1", item="a", instructions="x", input_text="y",
+                       schema=SCHEMA, max_output_tokens=10, model="gemini-3.1-pro-preview",
+                       confirm=True, cache=client.Cache(tmp_path))
+
+
+def test_the_inline_responses_are_found_wherever_the_status_puts_them():
+    item = {"response": {"candidates": []}}
+    for status in ({"response": {"inlinedResponses": [item]}},
+                   {"dest": {"inlinedResponses": {"inlinedResponses": [item]}}},
+                   {"metadata": {"output": {"inlinedResponses": {"inlinedResponses": [item]}}}}):
+        assert client.GeminiBatchAPI().collect(status, ["k"]) == {"k": item}
+
+
+def test_the_audit_keeps_a_verdict_and_checks_the_corrected_reading():
+    from tm_knowledge.bulk import jobs
+
+    concepts = {
+        "GC-0013": links_module.Concept("GC-0013", "condition of registration", ("condition of registration",), "signed"),
+        "GC-0014": links_module.Concept("GC-0014", "endorsement", ("endorsement",), "signed"),
+    }
+    record = {"id": "GR-0110", "subject": "GC-0014", "predicate": "broader", "object": "GC-0013"}
+    ctx = SimpleNamespace(
+        links=links_module.Links(concepts=concepts, mentions={}, passages=1),
+        authored=SimpleNamespace(of=lambda kind: (SimpleNamespace(record_id="GR-0110", record=record, sound=True),)),
+    )
+    item = jobs.Item("GR-0110..GR-0111", {"edges": ["GR-0110", "GR-0111"]})
+    parsed = {"verdicts": [
+        {"edge": "GR-0110", "verdict": "wrong", "problem": "predicate", "reason": "«r»",
+         "corrected_subject": "GC-0014", "corrected_predicate": "related", "corrected_object": "GC-0013",
+         "remove": False, "confidence": 0.8},
+    ]}
+    outcome = jobs._audit_accept(ctx, item, parsed, {"model_reported": "gemini-3.1-pro-preview"})
+    (row,) = outcome.records["audit"]
+    assert row["corrected"] == {"subject": "GC-0014", "predicate": "related", "object": "GC-0013"}
+    assert row["model"] == "gemini-3.1-pro-preview" and row["remove"] is False
+    assert outcome.refused == ["GR-0111: no verdict returned"]
+
+    bad = {"verdicts": [dict(parsed["verdicts"][0], corrected_predicate="isSortOf")]}
+    outcome = jobs._audit_accept(ctx, item, bad, {"model_reported": "m"})
+    assert outcome.records["audit"][0]["corrected"] is None and outcome.notes
+
+
+def test_the_audit_reads_every_shape_gemini_answered_in():
+    """Q-83: a renamed field is read; a shape that leaves the verdict in doubt is not."""
+    from tm_knowledge.bulk import jobs
+
+    rows = jobs._audit_rows({"_list": [
+        {"id": "[GR-0001]", "verdict": "Sound"},
+        {"id": "GR-0002", "status": "wrong"},
+        {"id": "GR-0003", "sound": False, "vague": False, "wrong": True},
+        {"id": "GR-0004", "sound": True, "vague": False, "wrong": True},  # two flags: no verdict
+    ]})
+    assert [(r["edge"], r["verdict"]) for r in rows] == [
+        ("GR-0001", "sound"), ("GR-0002", "wrong"), ("GR-0003", "wrong"), ("GR-0004", "")]
+
+    keyed = jobs._audit_rows({
+        "GR-0005": ["wrong", "wrong predicate", "GC-0001", "related", "GC-0002", False, "«why»"],
+        "GR-0006": ["sound", "none"],  # not the instructions' seven fields: not read
+    })
+    assert keyed == [{"edge": "GR-0005", "verdict": "wrong", "problem": "wrong predicate",
+                      "corrected_subject": "GC-0001", "corrected_predicate": "related",
+                      "corrected_object": "GC-0002", "remove": False, "reason": "«why»"}]

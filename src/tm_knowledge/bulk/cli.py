@@ -6,6 +6,7 @@
     tmk-bulk run JOB --confirm --write       the same, and write what passed checks
     tmk-bulk spend                           recorded spend against the cap
     tmk-bulk quote --write                   price the full runs from what was measured
+    tmk-bulk audit-apply [--write]           act on the edge audit: re-read or withdraw the wrong ones
 
 A run with `--confirm` and without `--write` still caches every response, so
 writing afterwards is free: read the smoke run's report first (KB SOP §6).
@@ -349,6 +350,35 @@ def _measure(args: argparse.Namespace) -> int:
     return 0
 
 
+def _audit_apply(args: argparse.Namespace) -> int:
+    """Act on the second model's verdicts (D5): re-read or withdraw every wrong one."""
+    from tm_knowledge.bulk import audit
+
+    verdicts = audit.load_verdicts()
+    if not verdicts:
+        print("no verdicts yet: run `tmk-bulk run audit --tier batch --confirm --write` first", file=sys.stderr)
+        return 1
+    ctx = _context()
+    entries = ctx.authored.of("gold_relationship")
+    authors = {e.record_id: e.authored_by or "?" for e in entries}
+    predicates = {e.record_id: str(e.record.get("predicate")) for e in entries}
+    actions = audit.plan(ctx, verdicts)
+    counts = Counter(a.kind for a in actions)
+    print(f"audit: {len(verdicts)} verdicts, {sum(1 for v in verdicts if v['verdict'] == 'wrong')} wrong — "
+          f"{counts['reread']} to re-read, {counts['withdraw']} to withdraw, {counts['keep']} kept as entailing "
+          f"the correction, {counts['skip']} skipped")
+    if not args.write:
+        print("(dry run — nothing written. Pass --write.)")
+        return 0
+    text = audit.render(verdicts, authors, predicates, actions)
+    done = audit.apply(actions)
+    audit.REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    audit.REPORT_PATH.write_text(text, encoding="utf-8")
+    print(f"re-read {done['reread']}, withdrew {done['withdrawn']}; wrote "
+          f"{audit.REPORT_PATH.relative_to(REPO_ROOT)}. Rebuild the graph next.")
+    return 0
+
+
 def _spend(args: argparse.Namespace) -> int:
     cache = client.Cache()
     by_job: Counter[str] = Counter()
@@ -406,12 +436,15 @@ def main(argv: list[str] | None = None) -> int:
     p = sub.add_parser("measure", help="score the systems from the judged pools")
     p.add_argument("--write", action="store_true")
     sub.add_parser("collect", help="record every finished batch")
+    p = sub.add_parser("audit-apply", help="re-read or withdraw what the edge audit found wrong")
+    p.add_argument("--write", action="store_true")
     sub.add_parser("spend", help="recorded spend against the cap")
     p = sub.add_parser("quote", help="price the full runs")
     p.add_argument("--write", action="store_true")
     args = parser.parse_args(argv)
     return {"links": _links, "run": _run, "embed": _embed, "pools": _pools_cmd, "measure": _measure,
             "collect": lambda a: (print("open:", client.collect_batches()) or 0),
+            "audit-apply": _audit_apply,
             "spend": _spend, "quote": _quote}[args.command](args)
 
 

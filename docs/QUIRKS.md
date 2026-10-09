@@ -1467,3 +1467,13 @@ signed note says every geographical indication is a geographical reference and s
 "geographical indication" as a not-label. So a not-label naming the other end of a "kind
 of" link is not a contradiction by itself — the D4 check refuses one only until
 `authored/kind-of-affirmed.yaml` says why both hold (ADR-0125).
+
+### Q-83 — Gemini's batch answers ignore `responseJsonSchema`
+
+The audit sends a JSON schema with every request (`generationConfig.responseJsonSchema`,
+`responseMimeType: application/json`), and Gemini 3.1 Pro still answered with a bare list,
+`id` where the schema says `edge`, and the problem as a sentence rather than one of the
+enum values. OpenAI's strict schemas never did this. `jobs.parse` now hands a bare list
+back as `{"_list": [...]}`, the audit reads `id` as `edge`, and `_audit_problem` maps a
+sentence onto the enum. Do not "fix" it by changing the request: the cache key is the
+request, so any change re-pays for every answer already held.

@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.048985,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0455..GR-0462",
+ "job": "audit",
+ "key": "d6280113578eef8c557ed5f9c26c2ff47b423ef10093e33711ed3a32cb939d46",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0455\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence mentions the revocation of acceptance and the Contracting Party of the holder as parts of the same procedural process, without stating a sharper relationship (like a requirement, cause, or remedy) directly between them.\"\n  },\n  {\n    \"id\": \"GR-0456\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence connects the two concepts by explaining how the filing date of a divisional application is determined. No sharper predicate applies to a definition or property relationship like this.\"\n  },\n  {\n    \"id\": \"GR-0457\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence links the two concepts by stating how the date of registration is calculated for divisional applications, which fits the general 'related' predicate as no sharper relationship is stated.\"\n  },\n  {\n    \"id\": \"GR-0458\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0181\",\n    \"corrected_predicate\": \"allocatesTo\",\n    \"corrected_object\": \"GC-0044\",\n    \"remove\": false,\n    \"reason\": \"The sentence states a requirement for the examiner to raise the ground for rejection. The 'related' predicate is not used where the sentence states a requirement; instead, this is a matter or task allocated to the examiner.\"\n  },\n  {\n    \"id\": \"GR-0459\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0006\",\n    \"corrected_predicate\": \"allocatesTo\",\n    \"corrected_object\": \"GC-0044\",\n    \"remove\": false,\n    \"reason\": \"The sentence refers to the ground for rejection being raised by the examiner, which indicates this is a task or burden that falls on the examiner. The 'related' predicate is excluded where a power or task allocation is stated.\"\n  },\n  {\n    \"id\": \"GR-0460\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence places the examiner within the contextual setting of an examination without directly stating a requirement, power, or allocation between the two concepts, making 'related' appropriate.\"\n  },\n  {\n    \"id\": \"GR-0461\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The 'current marketplace' is a context to be considered, not a rule, provision, or principle that can act as the subject of 'constrainsRole'. The sentence does not support any defined relationship directly between these two concepts.\"\n  },\n  {\n    \"id\": \"GR-0462\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that the tribunal (identified in the passage as the ART) can exercise all of the powers open to the original decision maker, which perfectly matches the definition of 'exercisesPowersOf'.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "72cb88b728b5aac56d543fa0fa41e9a8ddf1a09368d4295476d60e3724d82a06",
+ "response_id": "9GLIarv1LIjD_PUP2biy6QI",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7687,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 6883,
+  "output_tokens_details": {
+   "reasoning_tokens": 5943
+  }
+ }
+}

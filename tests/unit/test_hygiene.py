@@ -182,3 +182,149 @@ def test_nothing_ranks_or_filters_by_confidence():
             if ranking.search(line) or comparing.search(line):
                 offenders.append(f"{path.relative_to(REPO_ROOT)}:{number}: {line.strip()}")
     assert offenders == []
+
+
+# ---------------------------------------------------------------------- D5 apply
+
+
+def _audit_ctx(tmp_path, records):
+    """An authored store on disk holding `records`, and a context over it."""
+    from tm_knowledge.bulk import jobs
+
+    env = {"review_status": "unreviewed", "authored_by": "gpt-6.1-sol", "authored_date": "2026-10-07",
+           "authoring_basis": "corpus_explicit", "confidence": 0.9, "reasoning": "«first»",
+           "evidence": [{"ref": "TMM/Part1/1#1", "span": [0, 10], "content_hash": "sha256:" + "a" * 64,
+                         "quote": "«a quote»"}],
+           "alternatives_considered": [], "expert_should_check": None}
+    rows = [{**r, "source_ref": "TMM/Part1/1#1", "span": [0, 10], "source_content_hash": "sha256:" + "a" * 64,
+             "tier": 3, "modality": None, "approved_by": None, "approved_date": None, "authored": env}
+            for r in records]
+    (tmp_path / "relationships.yaml").write_text(
+        "# header\n" + yaml.dump(rows, sort_keys=False, allow_unicode=True), encoding="utf-8")
+    (tmp_path / authored_store.RETIRED_IDS_FILE).write_text("[]\n", encoding="utf-8")
+    concepts = {
+        "GC-0013": _concept("GC-0013", "condition of registration", origin="signed"),
+        "GC-0014": _concept("GC-0014", "endorsement", origin="signed"),
+        "GC-0168": _concept("GC-0168", "section 43 ground for rejection"),
+        "GC-0006": _concept("GC-0006", "ground for rejection", origin="signed"),
+    }
+    store = authored_store.load(tmp_path)
+    return SimpleNamespace(links=links_module.Links(concepts=concepts, mentions={}, passages=1),
+                           authored=store, gold={"gold_relationship": ()}), jobs
+
+
+def test_a_wrong_edge_is_re_read_when_its_correction_passes_and_withdrawn_when_not(tmp_path):
+    from tm_knowledge.bulk import audit
+
+    text = "A section 43 ground for rejection may be overcome by an endorsement."
+    ctx, _ = _audit_ctx(tmp_path, [
+        {"id": "GR-0001", "subject": "GC-0014", "predicate": "qualifies", "object": "GC-0168",
+         "supporting_text": text},
+        {"id": "GR-0002", "subject": "GC-0014", "predicate": "related", "object": "GC-0013",
+         "supporting_text": "An endorsement is entered."},
+    ])
+    verdicts = [
+        {"edge": "GR-0001", "judged": {"subject": "GC-0014", "predicate": "qualifies", "object": "GC-0168"},
+         "verdict": "wrong", "problem": "direction", "reason": "«overcome»", "remove": False, "confidence": 0.9,
+         "corrected": {"subject": "GC-0168", "predicate": "isOvercomeBy", "object": "GC-0014"},
+         "model": "gemini-3.1-pro-preview"},
+        # names a concept the sentence does not: refused, so withdrawn
+        {"edge": "GR-0002", "judged": {"subject": "GC-0014", "predicate": "related", "object": "GC-0013"},
+         "verdict": "wrong", "problem": "object", "reason": "«no»", "remove": False, "confidence": 0.7,
+         "corrected": {"subject": "GC-0014", "predicate": "related", "object": "GC-0168"},
+         "model": "gemini-3.1-pro-preview"},
+        {"edge": "GR-0003", "verdict": "wrong", "remove": True, "model": "m"},  # no longer held
+    ]
+    actions = {a.edge: a for a in audit.plan(ctx, verdicts)}
+    assert actions["GR-0001"].kind == "reread"
+    assert actions["GR-0002"].kind == "withdraw" and "does not name both" in actions["GR-0002"].why
+    assert actions["GR-0003"].kind == "skip"
+
+    done = audit.apply(list(actions.values()), root=tmp_path)
+    assert done == {"reread": 1, "withdrawn": 1}
+    reread = authored_store.load(tmp_path).of("gold_relationship")
+    (only,) = [e for e in reread if e.record_id == "GR-0001"]
+    assert (only.record["subject"], only.record["predicate"], only.record["object"]) == \
+        ("GC-0168", "isOvercomeBy", "GC-0014")
+    assert only.envelope["authored_by"] == "gemini-3.1-pro-preview"
+    assert "gpt-6.1-sol" in only.envelope["alternatives_considered"][0]
+    assert only.record["approved_by"] is None and only.envelope["review_status"] == "unreviewed"
+    ledger = yaml.safe_load((tmp_path / authored_store.RETIRED_IDS_FILE).read_text(encoding="utf-8"))
+    assert [row["id"] for row in ledger] == ["GR-0002"]
+
+
+def test_a_verdict_on_a_record_that_has_since_changed_is_not_applied(tmp_path):
+    from tm_knowledge.bulk import audit
+
+    ctx, _ = _audit_ctx(tmp_path, [{"id": "GR-0001", "subject": "GC-0014", "predicate": "related",
+                                   "object": "GC-0013", "supporting_text": "x"}])
+    verdict = {"edge": "GR-0001", "judged": {"subject": "GC-0014", "predicate": "broader", "object": "GC-0013"},
+               "verdict": "wrong", "remove": True, "model": "m"}
+    (action,) = audit.plan(ctx, [verdict])
+    assert action.kind == "skip" and "changed" in action.why
+
+
+def _wrong(edge, judged, corrected=None, remove=False):
+    return {"edge": edge, "judged": dict(zip(("subject", "predicate", "object"), judged)), "verdict": "wrong",
+            "problem": "predicate", "reason": "«why»", "remove": remove, "confidence": None,
+            "corrected": dict(zip(("subject", "predicate", "object"), corrected)) if corrected else None,
+            "model": "gemini-3.1-pro-preview"}
+
+
+def test_a_correction_may_keep_a_concept_both_models_read_the_sentence_as_about(tmp_path):
+    from tm_knowledge.bulk import audit
+
+    text = "It is entered as a note on the Register."  # names neither concept
+    ctx, _ = _audit_ctx(tmp_path, [
+        {"id": "GR-0001", "subject": "GC-0014", "predicate": "qualifies", "object": "GC-0013", "supporting_text": text},
+        {"id": "GR-0002", "subject": "GC-0014", "predicate": "appliesTo", "object": "GC-0013", "supporting_text": text},
+    ])
+    actions = {a.edge: a for a in audit.plan(ctx, [
+        _wrong("GR-0001", ("GC-0014", "qualifies", "GC-0013"), ("GC-0014", "related", "GC-0013")),
+        # brings in a concept the sentence does not name: still refused
+        _wrong("GR-0002", ("GC-0014", "appliesTo", "GC-0013"), ("GC-0168", "related", "GC-0013")),
+    ])}
+    assert actions["GR-0001"].kind == "reread"
+    assert actions["GR-0002"].kind == "withdraw" and "does not name both" in actions["GR-0002"].why
+    record = actions["GR-0001"].record
+    assert record["authored"]["confidence"] is None  # the second model rated nothing; no default stands in
+
+
+def test_a_correction_that_only_widens_an_end_leaves_the_record_standing(tmp_path):
+    from tm_knowledge.bulk import audit
+
+    ctx, _ = _audit_ctx(tmp_path, [
+        {"id": "GR-0001", "subject": "GC-0014", "predicate": "mayGiveRiseTo", "object": "GC-0168",
+         "supporting_text": "An endorsement may give rise to a ground for rejection."},
+        {"id": "GR-0004", "subject": "GC-0168", "predicate": "broader", "object": "GC-0006", "supporting_text": "x"},
+    ])
+    (action,) = audit.plan(ctx, [_wrong("GR-0001", ("GC-0014", "mayGiveRiseTo", "GC-0168"),
+                                        ("GC-0014", "mayGiveRiseTo", "GC-0006"))])
+    assert action.kind == "keep" and "GC-0168 to GC-0006" in action.why
+    assert audit.apply([action], root=tmp_path) == {"reread": 0, "withdrawn": 0}
+
+
+def test_the_audit_never_changes_a_record_serving_for_a_signed_one(tmp_path, monkeypatch):
+    from tm_knowledge.bulk import audit
+
+    ctx, _ = _audit_ctx(tmp_path, [{"id": "GR-0001", "subject": "GC-0014", "predicate": "related",
+                                   "object": "GC-0013", "supporting_text": "x"}])
+    monkeypatch.setattr(audit.corrections_module, "load",
+                        lambda root: SimpleNamespace(replacements=lambda: {"GR-0018": "GR-0001"}))
+    (action,) = audit.plan(ctx, [_wrong("GR-0001", ("GC-0014", "related", "GC-0013"), remove=True)])
+    assert action.kind == "keep" and "signed GR-0018" in action.why
+
+
+def test_a_withdrawal_chain_is_history_not_a_dangling_pointer(tmp_path):
+    (tmp_path / authored_store.RETIRED_IDS_FILE).write_text(yaml.dump([
+        {"id": "GR-0146", "record_type": "gold_relationship", "retired_on": "2026-10-08",
+         "reason": "«merged»", "replaced_by": "GR-0145"},
+        {"id": "GR-0145", "record_type": "gold_relationship", "retired_on": "2026-10-09",
+         "reason": "«judged wrong by a second model»"},
+        {"id": "GR-0147", "record_type": "gold_relationship", "retired_on": "2026-10-09",
+         "reason": "«merged»", "replaced_by": "GR-9998"},
+    ], sort_keys=False), encoding="utf-8")
+    authored = authored_store.load(tmp_path)
+    gold = SimpleNamespace(retired_ids={}, all_records=lambda: iter(()))
+    found = [f.subject for f in harness._authored_corrections(authored, gold) if f.check == "authored-ids"]
+    assert found == ["GR-0147"]

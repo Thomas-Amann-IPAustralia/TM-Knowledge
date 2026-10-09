@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/bwlz4bcu6rhhhjwllv9mcncf3h9fpiqppsl9",
+ "cost_usd": 0.039076,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0412..GR-0419",
+ "job": "audit",
+ "key": "5ddb9ac7284c3c1d71ff91de27ab99ce665e73a18e156c1628898f9df7c46c0b",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0412\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that if a trade mark is identical or similar to a listed EU GI, it would potentially make grounds for rejection under s 43 appropriate, supporting that a geographical indication may give rise to the ground.\"\n  },\n  {\n    \"id\": \"GR-0413\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that use of a trade mark identical or similar to a listed EU GI would potentially deceive or confuse consumers, supporting the mayGiveRiseTo relationship.\"\n  },\n  {\n    \"id\": \"GR-0414\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"a concept the sentence is not about\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The sentence does not mention or refer to a geographical origin; it is a general statement about the threshold for triggering section 43.\"\n  },\n  {\n    \"id\": \"GR-0415\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": true,\n    \"reason\": \"The predicate appliesTo is only for a provision, rule or scheme governing an object, which does not fit 'geographical origin'. Furthermore, the sentence mentions 'goods or services' generally, rather than specifically 'services of a person', so no other relationship directly applies here.\"\n  },\n  {\n    \"id\": \"GR-0416\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence establishes a general connection by stating that an INN stem describes families of pharmacologically related substances (matching pharmaceutical or veterinary substance). As no other predicate fits 'describes', 'related' is appropriate.\"\n  },\n  {\n    \"id\": \"GR-0417\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence explicitly states that improper use of an INN stem 'may lead to deception or confusion', perfectly matching the definition of mayGiveRiseTo.\"\n  },\n  {\n    \"id\": \"GR-0418\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"remove\": false,\n    \"reason\": \"The sentence states that a section 43 ground for rejection exists where a trade mark consists of an INN stem, demonstrating that the INN stem gives rise to the ground.\"\n  },\n  {\n    \"id\": \"GR-0419\",\n    \"verdict\": \"wrong\",\n    \"problem\": \"wrong predicate\",\n    \"corrected_subject\": \"GC-0024\",\n    \"corrected_predicate\": \"mayGiveRiseTo\",\n    \"corrected_object\": \"GC-0004\",\n    \"remove\": false,\n    \"reason\": \"The sentence says that a presence that is not meaningful would not 'lead to' confusion. This directly implies a cause-and-effect relationship where a meaningful inclusion of an INN stem may give rise to confusion, rather than merely qualifying how confusion is assessed.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "fc968b0d94efb2c6dbe676b8eac33f4aef30da17ceccc17b710e5f610f24dacd",
+ "response_id": "72LIaoDAKOHqz7IPr8nWyAQ",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7636,
+  "input_tokens_details": {
+   "cached_tokens": 0
+  },
+  "output_tokens": 5240,
+  "output_tokens_details": {
+   "reasoning_tokens": 4307
+  }
+ }
+}

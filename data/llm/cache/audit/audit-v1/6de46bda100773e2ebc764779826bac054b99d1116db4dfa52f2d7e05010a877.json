@@ -1,0 +1,31 @@
+{
+ "batch_id": "batches/n9kll89hv4x15zf9or7amcwe1sypwsrqapds",
+ "cost_usd": 0.028154,
+ "created_utc": "2026-10-09T03:45:33Z",
+ "effort": "high",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GR-0229..GR-0236",
+ "job": "audit",
+ "key": "6de46bda100773e2ebc764779826bac054b99d1116db4dfa52f2d7e05010a877",
+ "max_output_tokens": 12000,
+ "model_reported": "gemini-3.1-pro-preview",
+ "model_requested": "gemini-3.1-pro-preview",
+ "output_text": "[\n  {\n    \"id\": \"GR-0229\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence explicitly states that it is possible to \\\"overcome a citation\\\" (a conflict with other signs) by filing evidence of \\\"other circumstances\\\".\"\n  },\n  {\n    \"id\": \"GR-0230\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence mentions deferment of acceptance being requested to gather evidence for \\\"other circumstances\\\", establishing a connection between the two concepts where no more specific predicate fits.\"\n  },\n  {\n    \"id\": \"GR-0231\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence provides that if the examiner is satisfied by the evidence and \\\"the circumstances\\\" (other circumstances), the application can be \\\"accepted\\\", supporting the mayGiveRiseTo relationship.\"\n  },\n  {\n    \"id\": \"GR-0232\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence shows that whether a deletion removes all \\\"closely related goods and services\\\" determines whether it removes all \\\"conflict\\\" with the earlier trade mark, meaning the former qualifies how the latter is assessed.\"\n  },\n  {\n    \"id\": \"GR-0233\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence states that meeting the test for \\\"closely related goods and services\\\" makes it easier to make a case for \\\"defensive registration\\\", indicating that the former qualifies the latter.\"\n  },\n  {\n    \"id\": \"GR-0234\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence refers to a \\\"sign that is a ... non-traditional sign\\\", directly classifying a non-traditional sign as a kind of sign.\"\n  },\n  {\n    \"id\": \"GR-0235\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence compares shapes as trade marks to \\\"any other kind of sign\\\", which implies that a shape trade mark is itself a kind of sign.\"\n  },\n  {\n    \"id\": \"GR-0236\",\n    \"verdict\": \"sound\",\n    \"problem\": \"none\",\n    \"remove\": false,\n    \"corrected_subject\": \"\",\n    \"corrected_predicate\": \"\",\n    \"corrected_object\": \"\",\n    \"reason\": \"The sentence mentions the \\\"primary meaning [denotation] of the sign\\\", linking the two concepts in a general relationship.\"\n  }\n]",
+ "prompt_version": "audit-v1",
+ "provider": "gemini",
+ "request_sha256": "83905c96f5f058f0aaaae8c9e8579f208441d4d31e5a326bda0d8a530a16d514",
+ "response_id": "72LIasTlJ_7Bz7IP---IiQ4",
+ "service_tier": "batch",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 7621,
+  "input_tokens_details": {
+   "cached_tokens": 4026
+  },
+  "output_tokens": 3959,
+  "output_tokens_details": {
+   "reasoning_tokens": 3114
+  }
+ }
+}
