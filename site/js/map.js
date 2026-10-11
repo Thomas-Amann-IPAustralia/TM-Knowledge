@@ -166,6 +166,12 @@ export async function render(root, { ontology, params }) {
       { selector: "edge.cites", style: { "line-color": manual, "target-arrow-shape": "none", opacity: 0.35, width: 1 } },
       { selector: "edge.basis.act", style: { "line-color": act, "target-arrow-shape": "none", opacity: 0.55, width: 1.4 } },
       { selector: "edge.basis.regs", style: { "line-color": regs, "target-arrow-shape": "none", opacity: 0.55, width: 1.4 } },
+      { selector: "edge.basis.says", style: { "target-arrow-shape": "triangle", "target-arrow-color": "data(col)" } },
+      // On the text level every line says what it is.
+      { selector: "edge.labelled", style: {
+        label: "data(label)", "font-size": 12, color: ink2, "text-background-color": bg, "text-background-opacity": 0.85,
+        "text-background-padding": 2, "text-background-shape": "round-rectangle", "text-rotation": "autorotate",
+        "min-zoomed-font-size": 6, opacity: 0.8 } },
       { selector: ".faded", style: { opacity: 0.1, "text-opacity": 0.15 } },
       { selector: "node.faded.family, node.faded.kind:parent", style: { opacity: 0.45, "text-opacity": 0.6 } },
       { selector: "edge.hl", style: { opacity: 1, width: 2.4, "line-color": ink, "target-arrow-color": ink, "z-index": 9 } },
@@ -266,7 +272,8 @@ export async function render(root, { ontology, params }) {
       if (!els.some((e) => e.data.id === other)) {
         els.push({ data: { id: other, label: o.label, col: css(`--k-${o.kind}`), size: conceptSize(o) }, classes: "concept near" });
       }
-      els.push({ data: { id: r.id, source: r.s, target: r.o, pred: ontology.predicates[r.p]?.label || r.p, rel: r.id }, classes: "rel" });
+      const pred = ontology.predicates[r.p]?.label || r.p;
+      els.push({ data: { id: r.id, source: r.s, target: r.o, pred, label: pred, rel: r.id }, classes: "rel labelled" });
     }
     const refs = [...new Set(search.mentions[id] || [])];
     const evidence = new Set([...x.evidence.map((e) => e.ref), ...x.sources]);
@@ -284,19 +291,29 @@ export async function render(root, { ontology, params }) {
       const quoted = list.filter((r) => evidence.has(r)).length;
       els.push({ data: { id: pid, parent: "grp:manual", label: `${part.replace("Part", "Part ")} · ${list.length}${quoted ? ` · ${quoted} quoted` : ""}`,
         size: 150 + Math.min(40, list.length), part }, classes: "part" });
-      els.push({ data: { id: `e:${pid}`, source: id, target: pid }, classes: "cites" });
+      els.push({ data: { id: `e:${pid}`, source: id, target: pid, label: "is named in" }, classes: "cites labelled" });
       if (state.parts.has(part)) {
         for (const ref of list) els.push({ data: { id: `psg:${ref}`, parent: pid, ref, label: refLabel(ref) }, classes: `psg${evidence.has(ref) ? " evidence" : ""}` });
       }
     }
-    const laws = [...new Set([...x.basis, ...(relOf.get(id) || []).flatMap((r) => [r.s, r.o]).filter(isLaw)])];
+    // A provision is here as the idea's legislative basis, or as the other end of
+    // one of its connections; each line says which, and a connection keeps its arrow.
+    const lawRels = (relOf.get(id) || []).filter((r) => (isLaw(r.s) || isLaw(r.o)) && (state.loose || !LOOSE.has(r.p)));
+    const laws = [...new Set([...x.basis, ...lawRels.flatMap((r) => [r.s, r.o]).filter(isLaw)])];
     for (const src of ["act", "regs"]) {
       const list = laws.filter((ref) => sourceOf(ref) === src);
       if (!list.length) continue;
       els.push({ data: { id: `grp:${src}`, label: `${SOURCES[src].name} · law\n${list.length} provision${list.length === 1 ? "" : "s"}` }, classes: `group ${src}` });
       for (const ref of list) {
         els.push({ data: { id: `law:${ref}`, parent: `grp:${src}`, ref, label: refLabel(ref) }, classes: `law ${src}` });
-        els.push({ data: { id: `e:law:${ref}`, source: id, target: `law:${ref}` }, classes: `basis ${src}` });
+        if (x.basis.includes(ref)) {
+          els.push({ data: { id: `e:law:${ref}`, source: id, target: `law:${ref}`, label: "has legislative basis" }, classes: `basis ${src} labelled` });
+        }
+        for (const r of lawRels.filter((r) => r.s === ref || r.o === ref)) {
+          const pred = ontology.predicates[r.p]?.label || r.p;
+          els.push({ data: { id: `e:${r.id}`, source: r.s === ref ? `law:${ref}` : id, target: r.o === ref ? `law:${ref}` : id,
+            pred, label: pred, rel: r.id, col: css(`--${src}`) }, classes: `basis says ${src} labelled` });
+        }
       }
     }
     return els;
@@ -495,7 +512,7 @@ export async function render(root, { ontology, params }) {
     draw();
   });
   cy.on("tap", "node.concept", (e) => selectConcept(e.target.id()));
-  cy.on("tap", "edge.rel", (e) => { side.innerHTML = relationCard(relById.get(e.target.data("rel"))); bindSide(); });
+  cy.on("tap", "edge[rel]", (e) => { side.innerHTML = relationCard(relById.get(e.target.data("rel"))); bindSide(); });
   cy.on("tap", "edge.meta", (e) => showMeta(e.target.data("meta")));
   cy.on("tap", "node.part", (e) => {
     const part = e.target.data("part");
