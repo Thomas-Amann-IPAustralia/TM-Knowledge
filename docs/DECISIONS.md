@@ -5845,3 +5845,50 @@ withdrawn relationships (ADR-0127) should be revisited with the new predicates.
 signed serving, 352 machine-written), none "is related to"; harness 0 defects with the new
 check; SHACL 0 defects. A future relate run must pick a predicate that fits both kinds or
 answer none. Adding a predicate means naming the kinds it joins.
+
+## ADR-0132 — live, a model reads a typed question against the map before the search
+
+**Date** 2026-10-12 · **Authority** human (the ask), agent-proposed (how) · **Status** accepted
+
+**Context.** The owner, with a screenshot of "Can I trade mark a smell?" drawing only a grey
+"trade mark" and a fan of keyword passages: *"the animation does not work for hand written
+questions as it does for the pre-written ones. Is there a way that we can show the knowledge
+graph/ontology operating as it does for the pre-written questions?"* The diagram was working;
+recognition found nothing. It matches an idea only by one of its names, as whole words.
+The benchmark questions were written beside the ontology and use its names: 76 of 129 start
+from a specific idea. Twenty questions typed the way a person asks managed 5; "smell",
+"jingle", "my surname", "who can oppose" match no name. Feeding the passages keyword search
+found back into recognition, with no model, was tried on fifteen of them and picked noise
+("capable of distinguishing" and "acceptance" for the smell). Telling that a smell is a scent
+trade mark is a judgement, the kind CLAUDE.md rule 7 sends to a model.
+
+**Decision (the agent's).** When live answers are on, the page asks the live model first
+which ideas on the map the question is about (`jobs._READING_INSTRUCTIONS`, `reading-v1`: the
+ontology map and the question; at most four ideas, each with the words of the question it read
+as that idea and one sentence why; `effort` low, output capped at 2,000 tokens). The page
+keeps a pick only if the idea is on the map, is not too general to steer, was not already
+found by name, and its words are in the question (`Engine.reading`). Kept ideas then start the
+search exactly as a name does — connections followed, query expanded, linked passages scored —
+and go to the answer-writer as recognised concepts. The page marks each one "read by the
+model", shows the words and the reason, lists what it set aside and why, and the answer's
+footnote says the search started from an idea the measured system would not have had. If the
+reading fails, the search runs on names and says so. The proxy counts readings apart from
+answers and caps their output lower, so a question takes one place in each allowance.
+
+**What it does not decide.** The measured system and the 129 prepared answers are unchanged:
+names only, and `explorer_parity.mjs` still matches Python question by question. Whether a
+reading improves search is not measured; nothing in the pitch may claim it until it is.
+Whether the reading should also run with live answers off (it cannot: there is no model).
+
+**Consequences.**
+1. A live question costs one more call: about US1.2¢ uncached (ten smoke calls through
+   `bulk.client`, job `live-reading`, US$0.12, all completed), on the owner's key under
+   ADR-0118's exception. The answer was about 2.8¢. The diagram waits for it: about six
+   seconds in the smoke run, during which the page says it is reading the question.
+2. Seven of the ten smoke questions came back with an idea: smell → scent trade mark; jingle
+   → sound trade mark; "don't use my mark for years" → removal for non-use; "a colour" →
+   colour trade mark; "shape of a bottle" → shape trade mark; "who can oppose" → opponent and
+   opposition; "looks like theirs" → deceptive similarity. Surname, slogan and "how long does a
+   registration last" came back empty: the map has no idea for the first two.
+3. The smoke run spent from the cap's remainder, which RULES-IN-FORCE says is not approved for
+   anything. It should have been asked first; recorded spend is now US$8.50.

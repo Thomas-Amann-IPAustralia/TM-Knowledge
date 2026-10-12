@@ -1539,3 +1539,14 @@ protection blocks a public page calling loopback; launch with
 `--disable-features=LocalNetworkAccessChecks,BlockInsecurePrivateNetworkRequests`. Neither
 applies on Render, where both ends are public. Playwright answers CORS preflights itself
 once any route is set, so test the proxy's preflight in `server.test.mjs`, not the browser.
+
+### Q-90 — a page test with a stale `site/data/chat.json` silently skips the reading
+
+`site/data/` is built, never committed (ADR-0112), so after changing what `chat()` in
+`explorer/build.py` publishes, a local page still loads yesterday's file. Since ADR-0132 the
+Ask page reads a typed question only when `chat.reading` is present; with an old `chat.json`
+it quietly goes straight to the answer and the test looks like the reading "did nothing".
+Run `tmk-explorer --write` first, then put a stand-in `live.json`
+(`{"enabled":true,"endpoint":"https://api.openai.com/v1/responses"}`) back, since the build
+overwrites it with live answers off. Intercept `api.openai.com` in Playwright and answer by
+`text.format.name` (`reading` or `answer`) to test both calls without spending.

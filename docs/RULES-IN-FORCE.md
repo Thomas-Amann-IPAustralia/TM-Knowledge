@@ -23,7 +23,9 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
 - **The published site is for trade marks examiners** (`site/`, the explorer); the
   owner's workbench is at `/workbench/`, linked from nothing an examiner opens. A live
   chatbot answers examiners' own questions with the owner's key, unprotected — the
-  owner's decision, and the key is recoverable from the page (ADR-0118).
+  owner's decision, and the key is recoverable from the page (ADR-0118). Before searching,
+  it has the model read a typed question for ideas named in other words, each checked and
+  marked "read by the model"; the measured system never does (ADR-0132).
 - **On the site, an expert's review is marked, never featured.** Machine-written
   records keep "Machine · unreviewed" everywhere; reviewed ones say "Reviewed", grey,
   with no name; pictures draw every record alike. The Manual, the Act and the
@@ -114,7 +116,7 @@ and an ADR disagree, the ADR wins and this page is the bug — fix it.
   spent US$3.21 of its US$6.00 (`config.SPEND_CAP_USD`, ADR-0114, ADR-0125, ADR-0127).
   An amount the owner names binds, not the count a quote estimated: hold the run to it
   with `TMK_SPEND_CAP_USD` (ADR-0128, ADR-0129). Price from completed calls, never
-  attempts (Q-85). Recorded US$8.37; the rest under the cap is not approved for anything.
+  attempts (Q-85). Recorded US$8.50 (S034's unasked US$0.12 smoke test included, ADR-0132); the rest under the cap is not approved for anything.
   Every paid call goes through `tm_knowledge.bulk`: dry-run, `--confirm`,
   `--limit`, a committed cache, the cap checked before each call. **One exception:**
   the explorer's live answers are made from readers' browsers on the owner's key,
