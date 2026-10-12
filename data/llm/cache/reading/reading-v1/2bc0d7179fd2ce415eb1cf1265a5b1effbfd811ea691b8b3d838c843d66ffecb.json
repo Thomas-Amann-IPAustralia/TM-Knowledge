@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006268,
+ "created_utc": "2026-10-12T05:19:40Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0060",
+ "job": "reading",
+ "key": "2bc0d7179fd2ce415eb1cf1265a5b1effbfd811ea691b8b3d838c843d66ffecb",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0004\",\"why\":\"These words raise confusion between trade marks.\",\"words\":\"confusion\"},{\"id\":\"GC-0041\",\"why\":\"These words refer to the evidence to be considered.\",\"words\":\"evidence\"},{\"id\":\"GC-0045\",\"why\":\"This asks who assesses the evidence, raising the decision maker's role.\",\"words\":\"Who looks at all the evidence\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "f811f067a55b64d9d3e4aa831aabf7ae2d3037643f2d9ddf5d237da29adab570",
+ "response_id": "resp_0f2b89a1ac2764eb006acc6de6bb8887d2bf8d933c83d375df",
+ "seconds": 6.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4651,
+  "input_tokens_details": {
+   "cache_write_tokens": 4648,
+   "cached_tokens": 0
+  },
+  "output_tokens": 91,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4742
+ }
+}

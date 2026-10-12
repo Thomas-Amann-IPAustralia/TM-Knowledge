@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006699,
+ "created_utc": "2026-10-12T05:19:46Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0062",
+ "job": "reading",
+ "key": "38c6031fbac89b6f41a011a8637a1c3152359625bd279eddb705503c59aa2cae",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0066\",\"why\":\"Enquiries and reasons for use despite knowledge of an earlier mark raise the honesty aspect of honest concurrent use.\",\"words\":\"enquiries and reasons for using mine\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "f468a403cb102936d91d8f5db270ee7a93e04c8e4fa169287da6afb2126107b0",
+ "response_id": "resp_0193f1f29095b1c8006acc6de7b1e087d291962e0f66cfa9fe",
+ "seconds": 10.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4660,
+  "input_tokens_details": {
+   "cache_write_tokens": 4657,
+   "cached_tokens": 0
+  },
+  "output_tokens": 175,
+  "output_tokens_details": {
+   "reasoning_tokens": 120
+  },
+  "total_tokens": 4835
+ }
+}

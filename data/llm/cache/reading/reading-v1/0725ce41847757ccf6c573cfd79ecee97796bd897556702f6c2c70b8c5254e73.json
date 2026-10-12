@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006534,
+ "created_utc": "2026-10-12T05:19:15Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0037",
+ "job": "reading",
+ "key": "0725ce41847757ccf6c573cfd79ecee97796bd897556702f6c2c70b8c5254e73",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0169\",\"why\":\"Champagne is raised as a wine geographical indication, although the question calls it a wine term.\",\"words\":\"champagne\"},{\"id\":\"GC-0012\",\"why\":\"The goods list refers to the specification of goods and services.\",\"words\":\"goods list\"},{\"id\":\"GC-0047\",\"why\":\"These words raise the proposed descriptive function of the wine term.\",\"words\":\"describe the style of wine\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "98374055a5869d20cc5396719e309b29b65ff7465193aca951a912fad204a88b",
+ "response_id": "resp_0f518934c922ec31006acc6dcdc8f887d2a0fdec9fb57d7ca9",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4660,
+  "input_tokens_details": {
+   "cache_write_tokens": 4657,
+   "cached_tokens": 0
+  },
+  "output_tokens": 142,
+  "output_tokens_details": {
+   "reasoning_tokens": 39
+  },
+  "total_tokens": 4802
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001456,
+ "created_utc": "2026-10-12T08:56:28Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0077",
+ "job": "judge",
+ "key": "199954a6c23cf31e3e92ea0240c4ee00bdbe23205b85366a77fef20ac33cfa40",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part32A/x-annex-5---case-law-summaries/ogen-trade-mark-1977-rpc-529\",\"grade\":3},{\"ref\":\"TMM/Part32A/2/6#1~1\",\"grade\":2}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "b59e842cf4ac4b1fd97246b5b92ce0c855ff260c91963af07abcbdef7c730af3",
+ "response_id": "resp_01882a5a28f34501006acca0b60dc087d2bc34062c3853a87a",
+ "seconds": 6.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 921,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 107,
+  "output_tokens_details": {
+   "reasoning_tokens": 36
+  },
+  "total_tokens": 1028
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00617,
+ "created_utc": "2026-10-12T05:20:54Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0010",
+ "job": "reading",
+ "key": "d63d6fc31762a7e0d4690a8ea8805b59796bab5deb05924908c6da52c064bbac",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0001\",\"why\":\"The question asks for the meaning of connotation.\",\"words\":\"connotation\"},{\"id\":\"GC-0168\",\"why\":\"The reference to section 43 places the question in the context of that section's ground for rejection.\",\"words\":\"section 43\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "ad73a23dab301bdcfa7db1cc10c91c83b60daacb50dd7bbf3e9afa7eafbe2097",
+ "response_id": "resp_069108dd7a1cd9c6006acc6e300e7087d2b6a9b34031453ec3",
+ "seconds": 6.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4649,
+  "input_tokens_details": {
+   "cache_write_tokens": 4646,
+   "cached_tokens": 0
+  },
+  "output_tokens": 72,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4721
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006272,
+ "created_utc": "2026-10-12T05:19:49Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0067",
+ "job": "reading",
+ "key": "aabe84b129a1d4240193b7e2c6fd6fd81d9d07c1ae9643a1e05e0216f999c90f",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0043\",\"why\":\"The question expressly concerns the validity of a divisional application.\",\"words\":\"divisional application\"},{\"id\":\"GC-0124\",\"why\":\"Being ‘fixed’ raises amendment of the application to remedy its invalidity.\",\"words\":\"fixed\"},{\"id\":\"GC-0040\",\"why\":\"The question asks about publication for opposition.\",\"words\":\"opposition\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "e8398e2c1b328251a2e1b55dc3f485d7d1fcde5019d672feede0bafa97252875",
+ "response_id": "resp_05ecfbcc43b9c0a6006acc6ded216487d2bb868986cd353b3b",
+ "seconds": 8.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4658,
+  "input_tokens_details": {
+   "cache_write_tokens": 4655,
+   "cached_tokens": 0
+  },
+  "output_tokens": 90,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4748
+ }
+}

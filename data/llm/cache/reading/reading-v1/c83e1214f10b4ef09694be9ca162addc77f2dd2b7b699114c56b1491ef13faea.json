@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006309,
+ "created_utc": "2026-10-12T05:20:54Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0011",
+ "job": "reading",
+ "key": "c83e1214f10b4ef09694be9ca162addc77f2dd2b7b699114c56b1491ef13faea",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0004\",\"why\":\"These words expressly raise possible consumer confusion.\",\"words\":\"consumers may be confused\"},{\"id\":\"GC-0168\",\"why\":\"The question asks whether section 43 is the relevant ground for rejection.\",\"words\":\"section 43\"},{\"id\":\"GC-0154\",\"why\":\"Similarity between marks linked to consumer confusion raises deceptive similarity.\",\"words\":\"Two marks are similar and consumers may be confused\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "e21bdaeebcd5f419ec2453aacdfad37016be92d88bce540a986ce9fc30e586bd",
+ "response_id": "resp_0776a652ee2f4edf006acc6e3107cc87d2a374c3e4d2ae7392",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4652,
+  "input_tokens_details": {
+   "cache_write_tokens": 4649,
+   "cached_tokens": 0
+  },
+  "output_tokens": 99,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4751
+ }
+}

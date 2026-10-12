@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00677,
+ "created_utc": "2026-10-12T05:20:11Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0087",
+ "job": "reading",
+ "key": "7f8c911905f7d1c2429c7f3fd0964d063bd4029b051492b589dc5cd36f3fbb55",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0130\",\"why\":\"These words raise the reputation of a trade mark.\",\"words\":\"well known mark\"},{\"id\":\"GC-0070\",\"why\":\"These words raise the relationship between goods by specifying that they are unrelated.\",\"words\":\"unrelated goods\"},{\"id\":\"GC-0081\",\"why\":\"These words refer to use of the mark on goods.\",\"words\":\"used on unrelated goods\"},{\"id\":\"GC-0084\",\"why\":\"This word identifies the mark's owner, although registration is not specified.\",\"words\":\"owner\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "c6c42c97a9b11c59848150c2c3a8ba4a0f33c546c855e13f45a1cf0cfafecc3e",
+ "response_id": "resp_082b2bb2db5c0dd0006acc6e059bbc87d2a3e8a4e4d43c00ca",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4657,
+  "input_tokens_details": {
+   "cache_write_tokens": 4654,
+   "cached_tokens": 0
+  },
+  "output_tokens": 190,
+  "output_tokens_details": {
+   "reasoning_tokens": 67
+  },
+  "total_tokens": 4847
+ }
+}

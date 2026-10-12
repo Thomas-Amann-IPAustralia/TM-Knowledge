@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006698,
+ "created_utc": "2026-10-12T05:19:33Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0051",
+ "job": "reading",
+ "key": "6d770f1b349fc954f1cb161eb562e0fc350e37b1e9ce120fd617cb5c8d506ff4",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0043\",\"why\":\"These words expressly raise a divisional application.\",\"words\":\"divisional\"},{\"id\":\"GC-0071\",\"why\":\"These words ask whether the goods are closely related to retail services.\",\"words\":\"goods automatically close to retail services\"},{\"id\":\"GC-0111\",\"why\":\"These words raise a claim for priority, although its basis is not specified.\",\"words\":\"priority claim\"},{\"id\":\"GC-0015\",\"why\":\"These words suggest restricting the goods covered by the application.\",\"words\":\"narrow the application\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "829103de99eefb1a0db35893f63d6a523b44f447c6ba6a5ebeeeb1d5fa5b5793",
+ "response_id": "resp_0af229d72db7f3a5006acc6ddfcecc87d2ac310af8a076c5cb",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4675,
+  "input_tokens_details": {
+   "cache_write_tokens": 4672,
+   "cached_tokens": 0
+  },
+  "output_tokens": 171,
+  "output_tokens_details": {
+   "reasoning_tokens": 46
+  },
+  "total_tokens": 4846
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006152,
+ "created_utc": "2026-10-12T05:19:40Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0059",
+ "job": "reading",
+ "key": "9015db82c7712223665a702aeb5bc73a118227020eaf4fa258d5daff7acd9fc6",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0078\",\"why\":\"A scent mark is an olfactory trade mark.\",\"words\":\"scent mark\"},{\"id\":\"GC-0057\",\"why\":\"The picture and written description raise the concept of graphical representation.\",\"words\":\"a picture and a written description\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "f4f7bf07a98e3883830b69d68e0ca995e22d0b4079ba466c3e3c076ac7d86584",
+ "response_id": "resp_08fc46a838dd7722006acc6de66ed487d2a7eafd34288925dc",
+ "seconds": 6.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4650,
+  "input_tokens_details": {
+   "cache_write_tokens": 4647,
+   "cached_tokens": 0
+  },
+  "output_tokens": 68,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4718
+ }
+}

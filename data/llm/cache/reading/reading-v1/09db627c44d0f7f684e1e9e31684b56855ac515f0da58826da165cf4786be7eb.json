@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006272,
+ "created_utc": "2026-10-12T05:19:09Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0030",
+ "job": "reading",
+ "key": "09db627c44d0f7f684e1e9e31684b56855ac515f0da58826da165cf4786be7eb",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0124\",\"why\":\"Changing the description raises amendment of an application.\",\"words\":\"change my description\"},{\"id\":\"GC-0075\",\"why\":\"The question refers to the shape as a feature of the trade mark.\",\"words\":\"shape\"},{\"id\":\"GC-0076\",\"why\":\"The question refers to colour as a feature of the trade mark.\",\"words\":\"colour\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "9a3ce0a81bf8f5a16aa2242dcce05939e3cb319f984c33eb03c18df19a0dd2db",
+ "response_id": "resp_053b3e18b28fe0fa006acc6dc7351c87d2a39d01b7e8c1c23a",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4658,
+  "input_tokens_details": {
+   "cache_write_tokens": 4655,
+   "cached_tokens": 0
+  },
+  "output_tokens": 90,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4748
+ }
+}

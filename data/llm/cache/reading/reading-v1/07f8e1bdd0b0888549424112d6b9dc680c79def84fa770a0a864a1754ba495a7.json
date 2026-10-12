@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006178,
+ "created_utc": "2026-10-12T05:19:40Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0061",
+ "job": "reading",
+ "key": "07f8e1bdd0b0888549424112d6b9dc680c79def84fa770a0a864a1754ba495a7",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0121\",\"why\":\"The question asks which goods and services classes the terms belong in.\",\"words\":\"which classes\"},{\"id\":\"GC-0012\",\"why\":\"The question seeks alternative wording for services in a specification.\",\"words\":\"alternative terms can I use instead of monitoring services\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "ea67ebefe8db4ca085a32682febb0f09d19095c8e2c9ddab691303b4e245af2d",
+ "response_id": "resp_0dc1ba991408f180006acc6de703d487d2957fbc5626a041d8",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4655,
+  "input_tokens_details": {
+   "cache_write_tokens": 4652,
+   "cached_tokens": 0
+  },
+  "output_tokens": 72,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4727
+ }
+}

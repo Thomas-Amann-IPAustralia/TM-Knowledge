@@ -1,0 +1,2229 @@
+note: 'The live model''s reading of each benchmark question (ADR-0133): the ideas it says
+  the question raises, as it gave them — machine-written, unreviewed, unchecked. The search
+  checks them (`Systems.reading`) where it uses them.'
+readings:
+- key: BN-0001
+  kind: lookup
+  question: Which Act sections and regulations do I need to check for a collective trade mark
+    application?
+  picks:
+  - id: GC-0108
+    words: collective trade mark
+    why: These words identify the collective trade mark category.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_01da1928f1becd15006acc6d7b682487d2a27a39d70d040d67
+  review_status: unreviewed
+- key: BN-0002
+  kind: problem
+  question: Can the Registrar make me hand over documents in a trade marks dispute, and when
+    does that go too far?
+  picks:
+  - id: GC-0144
+    words: make me hand over documents
+    why: Compulsory production of documents is the aspect of a subpoena raised by these words.
+  - id: GC-0046
+    words: Registrar
+    why: The question expressly identifies the Registrar as the person exercising the power.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0346d61f4cb33ab2006acc6d7bf2c887d2ad8021d747766d62
+  review_status: unreviewed
+- key: BN-0003
+  kind: cross_part
+  question: If goods and services are closely related, can the specification be restricted
+    to stop confusion?
+  picks:
+  - id: GC-0071
+    words: goods and services are closely related
+    why: These words raise the relationship between closely related goods and services.
+  - id: GC-0015
+    words: the specification be restricted
+    why: These words ask about restricting the specification.
+  - id: GC-0004
+    words: confusion
+    why: This word identifies confusion as the outcome to be prevented.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0033bffc73234c2a006acc6d7ef44c87d282222522fc742ebb
+  review_status: unreviewed
+- key: BN-0004
+  kind: impact
+  question: If my goods list is too broad, what do I have to change or confirm?
+  picks:
+  - id: GC-0012
+    words: goods list
+    why: The goods list refers to the specification of goods and services.
+  - id: GC-0015
+    words: too broad, what do I have to change
+    why: Changing a goods list because it is too broad raises limitation of the specification.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0c5a9dd9ef289b36006acc6dae090487d2871f6e535ab448dc
+  review_status: unreviewed
+- key: BN-0005
+  kind: lookup
+  question: Can we suspend the opposition evidence timetable after the cooling-off period,
+    and do both sides have to agree?
+  picks:
+  - id: GC-0040
+    words: opposition
+    why: The question concerns the timetable in opposition proceedings.
+  - id: GC-0041
+    words: evidence
+    why: The question expressly concerns the timing of evidence.
+  - id: GC-0029
+    words: both sides have to agree
+    why: Asking whether both sides must agree raises the requirement for consent.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0e378aa875ea39bd006acc6dad86bc87d28ddfd0bd7f63c753
+  review_status: unreviewed
+- key: BN-0006
+  kind: problem
+  question: I missed the deadline to oppose a trade mark — what do I need to lodge to ask
+    for more time?
+  picks:
+  - id: GC-0097
+    words: more time
+    why: Asking for more time after a missed deadline raises an extension of time.
+  - id: GC-0040
+    words: oppose a trade mark
+    why: Opposing a trade mark refers to opposition proceedings.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_04f5be976f7065eb006acc6dad972087d2b8cf1f5253a04840
+  review_status: unreviewed
+- key: BN-0007
+  kind: cross_part
+  question: If my extension request was filed late, what has to be shown before it can be
+    granted?
+  picks:
+  - id: GC-0097
+    words: extension request
+    why: An extension request asks for an extension of time.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0f2490fbb544e079006acc6dad8d9487d286e69e65bdb036ca
+  review_status: unreviewed
+- key: BN-0008
+  kind: impact
+  question: What happens to the time left on a deferred acceptance date when the reason for
+    the deferment ends?
+  picks:
+  - id: GC-0096
+    words: deferred acceptance date
+    why: These words refer to postponing acceptance and the timing when that deferment ends.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_09643835fde3a421006acc6dadfe8887d2918300c038222448
+  review_status: unreviewed
+- key: BN-0009
+  kind: lookup
+  question: What happens if a required fee is underpaid and the Registrar does not tell us
+    within 14 working days?
+  picks:
+  - id: GC-0046
+    words: Registrar
+    why: These words identify the Registrar as the person responsible for notifying the fee
+      underpayment.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_066c1939b20bd3a7006acc6daddda887d2be8259de86dd929e
+  review_status: unreviewed
+- key: BN-0010
+  kind: problem
+  question: I want to file a moving logo—what do I need to show so the motion is properly
+    described?
+  picks:
+  - id: GC-0074
+    words: moving logo
+    why: A moving logo raises a non-traditional sign involving motion.
+  - id: GC-0057
+    words: motion is properly described
+    why: The question about properly describing motion raises how the sign can be represented
+      graphically.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0e0faca3dce8989d006acc6db4143487d2864397884c798354
+  review_status: unreviewed
+- key: BN-0011
+  kind: cross_part
+  question: How does having a logo, or not having one, affect whether a sign is deceptively
+    similar and likely to confuse people?
+  picks:
+  - id: GC-0154
+    words: deceptively similar
+    why: These words expressly raise the deceptively similar test.
+  - id: GC-0002
+    words: likely to confuse people
+    why: These words raise the likelihood of confusion.
+  - id: GC-0038
+    words: having a logo, or not having one
+    why: The presence or absence of a logo raises the effect of other features of the sign
+      as a whole.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_05ea8c1a3f5327f5006acc6db42b0487d296bde6170eb5d7eb
+  review_status: unreviewed
+- key: BN-0012
+  kind: impact
+  question: If a plant mark is registered with a condition about varietal names, who has to
+    follow it and what changes in how the mark is used?
+  picks:
+  - id: GC-0013
+    words: condition about varietal names
+    why: These words raise a condition attached to registration.
+  - id: GC-0036
+    words: varietal names
+    why: These words refer to plant variety names.
+  - id: GC-0081
+    words: how the mark is used
+    why: These words ask about use of the trade mark.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_025288282edfcca4006acc6db418b887d2b63f8d5eafdc8014
+  review_status: unreviewed
+- key: BN-0013
+  kind: lookup
+  question: Which INN stems are listed under the -g entries?
+  picks:
+  - id: GC-0023
+    words: INN stems
+    why: These words expressly identify INN stems as the subject of the question.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_09f07d74782e1eec006acc6db446c887d2a85776dd85d06456
+  review_status: unreviewed
+- key: BN-0014
+  kind: problem
+  question: If my logo is a picture that looks common in the trade, how is its ability to
+    distinguish my goods or services assessed?
+  picks:
+  - id: GC-0058
+    words: ability to distinguish
+    why: These words ask about the logo's capacity to distinguish the goods or services.
+  - id: GC-0059
+    words: looks common in the trade
+    why: These words raise whether the logo has inherent distinguishing capacity given its
+      commonplace appearance in the trade.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0911cdb6e956ab1e006acc6db4656087d2b71f607a12d5b313
+  review_status: unreviewed
+- key: BN-0015
+  kind: cross_part
+  question: Can I apply for a certification trade mark in a business name, and who can use
+    the mark once it is registered?
+  picks:
+  - id: GC-0107
+    words: certification trade mark
+    why: These words expressly identify a certification trade mark.
+  - id: GC-0020
+    words: business name
+    why: These words identify a name used to identify a business.
+  - id: GC-0081
+    words: use the mark
+    why: These words ask about use of the mark after registration.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0498a146a724df59006acc6db4b11087d2b9e63fc2869c3687
+  review_status: unreviewed
+- key: BN-0016
+  kind: impact
+  question: If a refusal on a certification trade mark matter is reviewable by the ART, who
+    can take part in the review and what happens to the original decision?
+  picks:
+  - id: GC-0134
+    words: ART
+    why: The question expressly asks about review by the Administrative Review Tribunal.
+  - id: GC-0107
+    words: certification trade mark
+    why: The question identifies the matter as concerning a certification trade mark.
+  - id: GC-0127
+    words: original decision
+    why: In this review context, the original decision refers to the Registrar's decision
+      under review.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_08e541714c6ee177006acc6dba559087d2a2428617ab0e41a6
+  review_status: unreviewed
+- key: BN-0017
+  kind: lookup
+  question: Does using a well-known person's name in my trade mark raise a refusal if my goods
+    are in their field?
+  picks:
+  - id: GC-0026
+    words: well-known person's
+    why: These words identify a person known to the public whose name is used in the mark.
+  - id: GC-0006
+    words: refusal
+    why: A refusal refers to a possible ground for rejecting the application.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0cbfd3e45bf4ac43006acc6dba7d0c87d2976ba459e0259225
+  review_status: unreviewed
+- key: BN-0018
+  kind: problem
+  question: What can I do if the examiner takes a long time to answer my response and my deadline
+    is getting close?
+  picks:
+  - id: GC-0044
+    words: examiner
+    why: The question expressly identifies the examiner as the person whose response is delayed.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0fce5e443ec0ca03006acc6dba96d087d2a57beb5f5e66229e
+  review_status: unreviewed
+- key: BN-0019
+  kind: cross_part
+  question: Where can I check the current rules for identifying an applicant and make sure
+    I’m using the latest version of the Manual?
+  picks:
+  - id: GC-0116
+    words: an applicant
+    why: These words identify the applicant as the person whose identity must be established.
+  - id: GC-0180
+    words: current rules
+    why: These words ask about current Manual practice rather than a particular legislative
+      provision.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_025a839579218ea5006acc6dbb1ec087d2aae5b121c59a263d
+  review_status: unreviewed
+- key: BN-0020
+  kind: impact
+  question: If I delete some goods from my application to get around a conflict, what happens
+    to the rest of the specification?
+  picks:
+  - id: GC-0015
+    words: delete some goods
+    why: Deleting goods from an application describes restricting its specification.
+  - id: GC-0064
+    words: conflict
+    why: The conflict is raised as the reason for restricting the goods claimed.
+  - id: GC-0012
+    words: specification
+    why: The question expressly asks about the remaining specification.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0a320ca7b3f9df40006acc6dbad73087d2ba45ea782652e5a3
+  review_status: unreviewed
+- key: BN-0021
+  kind: lookup
+  question: Do I need to give evidence if there have been any actual confusion incidents,
+    and what does that mean for my application?
+  picks:
+  - id: GC-0004
+    words: actual confusion incidents
+    why: These words raise confusion that has actually occurred.
+  - id: GC-0041
+    words: give evidence
+    why: These words ask whether evidence needs to be provided.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_067416cd7da36ea2006acc6dbafed887d2a24321b40f8dd17f
+  review_status: unreviewed
+- key: BN-0022
+  kind: problem
+  question: Can I register a brand name that is almost the same as a protected wine region
+    name, if it’s only a slight spelling change?
+  picks:
+  - id: GC-0169
+    words: protected wine region name
+    why: A protected wine region name refers to a wine geographical indication.
+  - id: GC-0056
+    words: almost the same
+    why: These words raise resemblance to the protected name despite a spelling change.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0aa9003d134590ef006acc6dc08d7087d2890ce670c29aa313
+  review_status: unreviewed
+- key: BN-0023
+  kind: cross_part
+  question: If I give a general consent for future applications, do I still have to name the
+    applicant, and what if there are formality issues to fix?
+  picks:
+  - id: GC-0029
+    words: general consent
+    why: A general consent is a form of written permission for future applications.
+  - id: GC-0116
+    words: applicant
+    why: The question expressly asks whether the applicant must be named.
+  - id: GC-0124
+    words: formality issues to fix
+    why: Fixing formality issues appears to refer to amending an application.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_09c17fa9a9f57316006acc6dc0c0fc87d2992a391f420b178b
+  review_status: unreviewed
+- key: BN-0024
+  kind: impact
+  question: If a Deputy Registrar handles my matter, is that treated as a Registrar decision?
+  picks:
+  - id: GC-0159
+    words: Deputy Registrar
+    why: These words name the Deputy Registrar role handling the matter.
+  - id: GC-0127
+    words: Registrar decision
+    why: These words ask whether the decision is treated as a decision of the Registrar.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_05aee570c37313ca006acc6dc10c4887d290b85b41c3354bcd
+  review_status: unreviewed
+- key: BN-0025
+  kind: lookup
+  question: What other class terms can I use instead of just 'cases'?
+  picks:
+  - id: GC-0121
+    words: class terms
+    why: “class terms” refers to terminology used in classifying goods and services.
+  - id: GC-0012
+    words: '''cases'''
+    why: “'cases'” is the goods term the question seeks to replace in a specification.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_04a822e87ec8038a006acc6dc1357c87d2870b154a12f78d35
+  review_status: unreviewed
+- key: BN-0026
+  kind: problem
+  question: Can I file 'virtual goods' on its own, or do I need to say exactly what kind of
+    digital item it is?
+  picks:
+  - id: GC-0012
+    words: '''virtual goods'' on its own'
+    why: These words ask how specifically the goods must be described in the specification.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_053bf1280b8f6220006acc6dc1a0e087d2aff4d67635765abb
+  review_status: unreviewed
+- key: BN-0027
+  kind: cross_part
+  question: If my mark is a barcode and I always use it in green and blue, do I need a colour
+    limitation as well?
+  picks:
+  - id: GC-0013
+    words: colour limitation
+    why: A colour limitation is raised as a possible condition of registration.
+  - id: GC-0076
+    words: in green and blue
+    why: These words raise the colours in which the mark is presented.
+  - id: GC-0081
+    words: always use it
+    why: These words refer to the mark’s consistent use in trade.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0c50d1d62a40503c006acc6dc1daec87d297abdcf6c6cc6299
+  review_status: unreviewed
+- key: BN-0028
+  kind: impact
+  question: If a mark suggests a place like Tuscany, who is affected by that and what changes
+    in how shoppers see the goods?
+  picks:
+  - id: GC-0017
+    words: a place like Tuscany
+    why: These words raise a reference to a geographical place in the mark.
+  - id: GC-0001
+    words: suggests
+    why: This word raises the implied meaning conveyed by the mark.
+  - id: GC-0009
+    words: shoppers
+    why: These words identify the buying public whose perception of the goods is in question.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0ff826d743cca5bd006acc6dc6bb3087d2927a48c867cdb03a
+  review_status: unreviewed
+- key: BN-0029
+  kind: lookup
+  question: How long do I have to notify a provisional refusal if it is based on an opposition?
+  picks:
+  - id: GC-0040
+    words: opposition
+    why: These words expressly identify opposition as the basis for the provisional refusal.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0cb9466ef6e4bf17006acc6dc6f97487d28982d5a0550ac768
+  review_status: unreviewed
+- key: BN-0030
+  kind: problem
+  question: Can I change my description to include the words shown on my trade mark, not just
+    the shape or colour?
+  picks:
+  - id: GC-0124
+    words: change my description
+    why: Changing the description raises amendment of an application.
+  - id: GC-0075
+    words: shape
+    why: The question refers to the shape as a feature of the trade mark.
+  - id: GC-0076
+    words: colour
+    why: The question refers to colour as a feature of the trade mark.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_053b3e18b28fe0fa006acc6dc7351c87d2a39d01b7e8c1c23a
+  review_status: unreviewed
+- key: BN-0031
+  kind: cross_part
+  question: In an opposition, can the other side get the earlier application papers and can
+    late evidence still be considered?
+  picks:
+  - id: GC-0040
+    words: opposition
+    why: These words expressly identify opposition proceedings.
+  - id: GC-0041
+    words: late evidence
+    why: These words raise evidence and whether it can be considered despite being late.
+  - id: GC-0131
+    words: earlier application papers
+    why: These words refer to the earlier application record sought by the other side.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_011ab0433f4b53da006acc6dc75ca487d296d248068f4f40e4
+  review_status: unreviewed
+- key: BN-0032
+  kind: impact
+  question: What happens to my application’s acceptance deadline if I ask for a hearing or
+    appeal the examiner’s decision?
+  picks:
+  - id: GC-0128
+    words: hearing
+    why: These words expressly raise the hearing procedure.
+  - id: GC-0093
+    words: acceptance deadline
+    why: These words raise the timing of acceptance of the application.
+  - id: GC-0044
+    words: examiner
+    why: These words identify the examiner whose decision is being challenged.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_09d2d9fc0910661a006acc6dc7faa487d2aac4b3f67b8e7af7
+  review_status: unreviewed
+- key: BN-0033
+  kind: lookup
+  question: Which Trade Marks Regulations cover filing an application, the goods and services
+    specification, priority claims, declarations and fee notices?
+  picks:
+  - id: GC-0012
+    words: goods and services specification
+    why: These words name the specification of goods and services.
+  - id: GC-0111
+    words: priority claims
+    why: These words refer to claims for priority.
+  - id: GC-0131
+    words: filing an application
+    why: These words raise the filing of a trade mark application, rather than merely mentioning
+      an application.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_00ef5948fec9854d006acc6dc8147887d281ecfffee3549876
+  review_status: unreviewed
+- key: BN-0034
+  kind: problem
+  question: What do I do if the goods and services wording in my international trade mark
+    application does not fit the usual classification terms?
+  picks:
+  - id: GC-0012
+    words: goods and services wording
+    why: These words refer to the specification describing the goods and services claimed.
+  - id: GC-0121
+    words: classification terms
+    why: These words raise the classification terminology for goods and services.
+  - id: GC-0150
+    words: international trade mark application
+    why: These words identify the international registration context of the application.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_01438c403cfa8b19006acc6dcd3d3887d28c646b6da385de8e
+  review_status: unreviewed
+- key: BN-0035
+  kind: cross_part
+  question: Can a published goods or services description be corrected later, and do I need
+    to give more detail if the goods or services cannot be described clearly?
+  picks:
+  - id: GC-0012
+    words: goods or services description
+    why: These words identify the description of goods or services in the specification.
+  - id: GC-0124
+    words: corrected later
+    why: Correcting the description later raises amendment of an application.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_009674b6b3c4a41c006acc6dcd6c4887d28b4f82839348e6ce
+  review_status: unreviewed
+- key: BN-0036
+  kind: impact
+  question: Who has to file evidence first in a trade mark opposition, and what happens if
+    they do not want to rely on evidence in support?
+  picks:
+  - id: GC-0041
+    words: evidence
+    why: The question asks about filing evidence and choosing not to rely on it.
+  - id: GC-0040
+    words: opposition
+    why: The question concerns the procedure in a trade mark opposition.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_09fda3d78fc4b425006acc6dcda46887d28a27beb9c377ad02
+  review_status: unreviewed
+- key: BN-0037
+  kind: lookup
+  question: Can I keep a wine term like champagne in the goods list if it is only meant to
+    describe the style of wine?
+  picks:
+  - id: GC-0169
+    words: champagne
+    why: Champagne is raised as a wine geographical indication, although the question calls
+      it a wine term.
+  - id: GC-0012
+    words: goods list
+    why: The goods list refers to the specification of goods and services.
+  - id: GC-0047
+    words: describe the style of wine
+    why: These words raise the proposed descriptive function of the wine term.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0f518934c922ec31006acc6dcdc8f887d2a0fdec9fb57d7ca9
+  review_status: unreviewed
+- key: BN-0038
+  kind: problem
+  question: What if my late extension request says I could not file earlier, but the declaration
+    does not really prove it?
+  picks:
+  - id: GC-0097
+    words: late extension request
+    why: The request seeks an extension of time to file.
+  - id: GC-0041
+    words: declaration does not really prove it
+    why: The declaration and its ability to prove the explanation raise evidence.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_031a42eeebc8c146006acc6dce73c887d2b299045fc74f490b
+  review_status: unreviewed
+- key: BN-0039
+  kind: cross_part
+  question: If my mark contains a prescribed sign, do they still have to look at whether it
+    is actually likely to deceive or confuse?
+  picks:
+  - id: GC-0055
+    words: prescribed sign
+    why: The question expressly concerns a prescribed sign within the mark.
+  - id: GC-0002
+    words: likely to deceive or confuse
+    why: These words raise the likelihood of deception or confusion test.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0e92207165c7d4f6006acc6dd3457887d2a8944a98011438ad
+  review_status: unreviewed
+- key: BN-0040
+  kind: impact
+  question: If I register a defensive trade mark, do I still have to show intention to use
+    and can it be removed for non-use?
+  picks:
+  - id: GC-0109
+    words: defensive trade mark
+    why: These words expressly identify a defensive trade mark.
+  - id: GC-0104
+    words: removed for non-use
+    why: These words ask about removal of a trade mark for non-use.
+  - id: GC-0081
+    words: intention to use
+    why: These words raise intended use of the trade mark.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_094adfba0bb24aab006acc6dd36cd887d2a93105f4f93b04b9
+  review_status: unreviewed
+- key: BN-0041
+  kind: lookup
+  question: Is confusion or deception assessed against the current market, not how things
+    were years ago?
+  picks:
+  - id: GC-0004
+    words: confusion
+    why: These words expressly raise confusion as the subject of assessment.
+  - id: GC-0003
+    words: deception
+    why: This word expressly raises deception as the subject of assessment.
+  - id: GC-0049
+    words: current market
+    why: These words ask whether assessment uses present marketplace conditions rather than
+      historical ones.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0800c0d088ed957e006acc6dd3a13887d2ba8eb66fc84fc494
+  review_status: unreviewed
+- key: BN-0042
+  kind: problem
+  question: Could a name or symbol in my mark be left out if it is likely to confuse people?
+  picks:
+  - id: GC-0002
+    words: likely to confuse people
+    why: These words raise the likelihood of confusion caused by an element of the mark.
+  - id: GC-0124
+    words: be left out
+    why: Leaving an element out of the mark raises amendment of an application.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_02e8e5d1d59ae28e006acc6dd4031887d2b412ec3617983c17
+  review_status: unreviewed
+- key: BN-0043
+  kind: cross_part
+  question: If a company wants a defensive trade mark, do I need to check its legal status
+    as well as the old registration?
+  picks:
+  - id: GC-0109
+    words: defensive trade mark
+    why: These words expressly identify a defensive trade mark.
+  - id: GC-0088
+    words: old registration
+    why: These words refer to an existing registered trade mark.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0db47f7fdadfe38e006acc6dd46bfc87d289b33e4139986b82
+  review_status: unreviewed
+- key: BN-0044
+  kind: impact
+  question: What happens if the fee is not paid, and can the fee be refunded?
+  picks: []
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0bd33747ed35f29b006acc6dd4bb5887d29635fdc23bab882b
+  review_status: unreviewed
+- key: BN-0045
+  kind: lookup
+  question: When I compare a word mark with a device mark, what exactly should I look at to
+    judge whether they are deceptively similar?
+  picks:
+  - id: GC-0154
+    words: deceptively similar
+    why: The question expressly asks about the test of deceptive similarity.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_008d0cd1b810e4fb006acc6dd98ef887d2be0d945bedf054ba
+  review_status: unreviewed
+- key: BN-0046
+  kind: problem
+  question: If someone is using my trade mark with my permission, what do I need to show about
+    my control over that use?
+  picks:
+  - id: GC-0082
+    words: using my trade mark with my permission
+    why: Use with the owner's permission, together with the question about control, raises
+      authorised use.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0f5a254133b6cb47006acc6dd9b2ac87d29f18a8c2c57eda52
+  review_status: unreviewed
+- key: BN-0047
+  kind: cross_part
+  question: If a trade mark is transferred to the estate of a well-known deceased person,
+    do I need to record the ownership change and does the estate’s ongoing control of the
+    name still matter?
+  picks:
+  - id: GC-0162
+    words: ownership change
+    why: These words expressly raise recording a change in ownership.
+  - id: GC-0087
+    words: transferred to the estate
+    why: Transfer to an estate appears to raise transmission, although the mechanism of transfer
+      is unclear.
+  - id: GC-0027
+    words: deceased person
+    why: These words identify a person who has died.
+  - id: GC-0026
+    words: well-known deceased person
+    why: These words identify the deceased person as well-known.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_04138628f2b68ce2006acc6dda1a2887d28df74fc90cefff3d
+  review_status: unreviewed
+- key: BN-0048
+  kind: impact
+  question: What happens to my application if the Registrar thinks an earlier trade mark ground
+    applies?
+  picks:
+  - id: GC-0064
+    words: earlier trade mark ground
+    why: An earlier trade mark ground refers to a conflict with another trade mark.
+  - id: GC-0046
+    words: Registrar
+    why: The question expressly identifies the Registrar as assessing the ground.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_000391fab695560b006acc6dda5b2c87d2aca5645d2f3a1b61
+  review_status: unreviewed
+- key: BN-0049
+  kind: lookup
+  question: How will a disclaimer be shown on the Register if it was requested voluntarily?
+  picks:
+  - id: GC-0099
+    words: disclaimer
+    why: The question asks how a voluntarily requested disclaimer is recorded.
+  - id: GC-0089
+    words: Register
+    why: The question identifies the Register as the record on which the disclaimer is shown.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0922c3dc27ec9486006acc6dda9d3c87d2b80d480701ed08a1
+  review_status: unreviewed
+- key: BN-0050
+  kind: problem
+  question: Can I rely on website stats or other figures instead of sales figures if my business
+    does not have much turnover?
+  picks:
+  - id: GC-0041
+    words: website stats or other figures instead of sales figures
+    why: These words raise the question of what evidence of business activity can be relied
+      on as evidence of use.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_047580ac42a11ca3006acc6ddb560487d2bd4817c2a2b02409
+  review_status: unreviewed
+- key: BN-0051
+  kind: cross_part
+  question: If my goods are sold through wholesalers or shops and I later narrow the application
+    into a divisional, do I still need to change the priority claim and are those goods automatically
+    close to retail services?
+  picks:
+  - id: GC-0043
+    words: divisional
+    why: These words expressly raise a divisional application.
+  - id: GC-0071
+    words: goods automatically close to retail services
+    why: These words ask whether the goods are closely related to retail services.
+  - id: GC-0111
+    words: priority claim
+    why: These words raise a claim for priority, although its basis is not specified.
+  - id: GC-0015
+    words: narrow the application
+    why: These words suggest restricting the goods covered by the application.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0af229d72db7f3a5006acc6ddfcecc87d2ac310af8a076c5cb
+  review_status: unreviewed
+- key: BN-0052
+  kind: impact
+  question: Which Registrar decisions can I take to court, and what happens if there is no
+    appeal right in the Act?
+  picks:
+  - id: GC-0127
+    words: Registrar decisions
+    why: These words refer to decisions made by the Registrar.
+  - id: GC-0139
+    words: court
+    why: This word refers to the court that could review a Registrar decision, although the
+      question does not specify a prescribed court.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0615eca23c8335f9006acc6ddfde9c87d28525d832e796191f
+  review_status: unreviewed
+- key: BN-0053
+  kind: lookup
+  question: What has to be satisfied before acceptance of my trade mark application can be
+    revoked before registration?
+  picks:
+  - id: GC-0042
+    words: acceptance of my trade mark application can be revoked
+    why: These words ask about revocation of acceptance before registration.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_09fd2d7086425226006acc6de04d1487d287423fa5e3a94bad
+  review_status: unreviewed
+- key: BN-0054
+  kind: problem
+  question: How does IP Australia check that trade mark examination work is being done properly?
+  picks:
+  - id: GC-0092
+    words: examination work
+    why: These words identify examination as the work whose quality is being checked.
+  - id: GC-0177
+    words: IP Australia
+    why: These words name the organisation carrying out the checks.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_06bb8d09a008c90e006acc6de07c7087d29352ba74800e7e53
+  review_status: unreviewed
+- key: BN-0055
+  kind: cross_part
+  question: Can I use a defensive trade mark for an international application and still claim
+    priority from an earlier filing?
+  picks:
+  - id: GC-0109
+    words: defensive trade mark
+    why: These words expressly identify a defensive trade mark.
+  - id: GC-0150
+    words: international application
+    why: These words refer to seeking international registration of a trade mark.
+  - id: GC-0111
+    words: claim priority from an earlier filing
+    why: These words raise a priority claim based on an earlier filing.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0a236fc89d8e566d006acc6de0b7ec87d28078fafa0f4900e5
+  review_status: unreviewed
+- key: BN-0056
+  kind: impact
+  question: If my trade mark is for plants or plant material, what kind of evidence do I need
+    to give and what has it got to show?
+  picks:
+  - id: GC-0041
+    words: evidence
+    why: The question asks what evidence must be provided and what it must demonstrate.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_006c639c7a3e544c006acc6de18e5c87d2ba8817007d920f68
+  review_status: unreviewed
+- key: BN-0057
+  kind: lookup
+  question: What do I need to show to get more time to file evidence in an opposition?
+  picks:
+  - id: GC-0097
+    words: more time
+    why: Getting more time refers to an extension of time.
+  - id: GC-0041
+    words: evidence
+    why: The question concerns evidence to be filed.
+  - id: GC-0040
+    words: opposition
+    why: The question expressly places the filing in an opposition.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_05dc9ca5be59f4b3006acc6de5ea9487d291d151edf225a145
+  review_status: unreviewed
+- key: BN-0058
+  kind: problem
+  question: Can the same trade mark with a city name or number be filed as a set?
+  picks:
+  - id: GC-0079
+    words: filed as a set
+    why: Filing the same mark as a set suggests a series of trade marks.
+  - id: GC-0017
+    words: city name
+    why: A city name is a reference to a geographical location.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_08da25b3a00cfd9e006acc6de61b9887d2a61d0d015782966a
+  review_status: unreviewed
+- key: BN-0059
+  kind: cross_part
+  question: Do I need a picture and a written description for a scent mark?
+  picks:
+  - id: GC-0078
+    words: scent mark
+    why: A scent mark is an olfactory trade mark.
+  - id: GC-0057
+    words: a picture and a written description
+    why: The picture and written description raise the concept of graphical representation.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_08fc46a838dd7722006acc6de66ed487d2a7eafd34288925dc
+  review_status: unreviewed
+- key: BN-0060
+  kind: impact
+  question: Who looks at all the evidence when there could be confusion between trade marks?
+  picks:
+  - id: GC-0004
+    words: confusion
+    why: These words raise confusion between trade marks.
+  - id: GC-0041
+    words: evidence
+    why: These words refer to the evidence to be considered.
+  - id: GC-0045
+    words: Who looks at all the evidence
+    why: This asks who assesses the evidence, raising the decision maker's role.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0f2b89a1ac2764eb006acc6de6bb8887d2bf8d933c83d375df
+  review_status: unreviewed
+- key: BN-0061
+  kind: lookup
+  question: What alternative terms can I use instead of monitoring services, and which classes
+    do they belong in?
+  picks:
+  - id: GC-0121
+    words: which classes
+    why: The question asks which goods and services classes the terms belong in.
+  - id: GC-0012
+    words: alternative terms can I use instead of monitoring services
+    why: The question seeks alternative wording for services in a specification.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0dc1ba991408f180006acc6de703d487d2957fbc5626a041d8
+  review_status: unreviewed
+- key: BN-0062
+  kind: problem
+  question: If I knew about an earlier trade mark, what do I need to explain about my enquiries
+    and reasons for using mine?
+  picks:
+  - id: GC-0066
+    words: enquiries and reasons for using mine
+    why: Enquiries and reasons for use despite knowledge of an earlier mark raise the honesty
+      aspect of honest concurrent use.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0193f1f29095b1c8006acc6de7b1e087d291962e0f66cfa9fe
+  review_status: unreviewed
+- key: BN-0063
+  kind: cross_part
+  question: How narrow do I need to make my goods list if I want to cover drinks in classes
+    32 and 33?
+  picks:
+  - id: GC-0012
+    words: goods list
+    why: The goods list refers to the specification of goods to be covered.
+  - id: GC-0121
+    words: classes 32 and 33
+    why: These words identify the classification of the drinks by class.
+  - id: GC-0015
+    words: How narrow do I need to make my goods list
+    why: Making the goods list narrow raises restriction of the specification.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_089e0e2ed3e87f9b006acc6dec2a1c87d28e08041c19645487
+  review_status: unreviewed
+- key: BN-0064
+  kind: impact
+  question: If a trade mark is likely to mislead customers, what happens to the application
+    and who has to refuse it?
+  picks:
+  - id: GC-0002
+    words: likely to mislead customers
+    why: These words raise the likelihood of deception of customers.
+  - id: GC-0006
+    words: refuse it
+    why: Refusing the application raises rejection as the consequence being asked about.
+  - id: GC-0045
+    words: who has to refuse it
+    why: The question asks which decision maker is responsible for refusing the application.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0e97ce024a6f9455006acc6dec66e487d29c70edf7b31029c6
+  review_status: unreviewed
+- key: BN-0065
+  kind: lookup
+  question: How long do I have to ask for internal review, and who is allowed to apply?
+  picks: []
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_053e3f429443d418006acc6decf47887d287a0137790670627
+  review_status: unreviewed
+- key: BN-0066
+  kind: problem
+  question: Why does searching for CAR show CARS but not CARPET?
+  picks: []
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0db697a2d608e839006acc6ded08c087d2a00f441d1544b3f8
+  review_status: unreviewed
+- key: BN-0067
+  kind: cross_part
+  question: If a divisional application was not valid when filed, can it still be fixed and
+    then published for opposition?
+  picks:
+  - id: GC-0043
+    words: divisional application
+    why: The question expressly concerns the validity of a divisional application.
+  - id: GC-0124
+    words: fixed
+    why: Being ‘fixed’ raises amendment of the application to remedy its invalidity.
+  - id: GC-0040
+    words: opposition
+    why: The question asks about publication for opposition.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_05ecfbcc43b9c0a6006acc6ded216487d2bb868986cd353b3b
+  review_status: unreviewed
+- key: BN-0068
+  kind: impact
+  question: What does treating an invented shape like an invented word mean for people trying
+    to register a shape as a trade mark?
+  picks:
+  - id: GC-0075
+    words: register a shape as a trade mark
+    why: These words identify a shape as the subject of trade mark registration.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_02d887475f19cad8006acc6df2811087d283ae925853852b44
+  review_status: unreviewed
+- key: BN-0069
+  kind: lookup
+  question: Do class 5 pharmaceutical or veterinary goods need to be checked against the INN
+    list and INN stems?
+  picks:
+  - id: GC-0025
+    words: class 5 pharmaceutical or veterinary goods
+    why: These words identify pharmaceutical or veterinary goods as the subject of the check.
+  - id: GC-0022
+    words: INN list
+    why: These words refer to International Non-Proprietary Names against which goods are
+      to be checked.
+  - id: GC-0023
+    words: INN stems
+    why: These words explicitly identify INN stems as another subject of the check.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0b8fd1a98929e4a1006acc6df2b93887d293975509256063db
+  review_status: unreviewed
+- key: BN-0070
+  kind: cross_part
+  question: If I need to split off some goods from a parent application and I also have a
+    late costs filing, what do I have to lodge and when?
+  picks:
+  - id: GC-0043
+    words: split off some goods from a parent application
+    why: Splitting goods off from a parent application refers to a divisional application.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_05bb9603398c1082006acc6df2f32087d29ed43402c3224302
+  review_status: unreviewed
+- key: BN-0071
+  kind: impact
+  question: Who can ask for a disclaimer, and what changes when it is recorded?
+  picks:
+  - id: GC-0099
+    words: disclaimer
+    why: The question asks who can request a disclaimer and what effect recording it has.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0518fd38dd8c431c006acc6df3623087d2a0e29fa693dd0f13
+  review_status: unreviewed
+- key: BN-0072
+  kind: lookup
+  question: If my mark uses the name of a plant variety, can it be rejected for plants from
+    the same or a closely related genus?
+  picks:
+  - id: GC-0036
+    words: name of a plant variety
+    why: These words identify a plant variety name used in the mark.
+  - id: GC-0006
+    words: can it be rejected
+    why: These words ask whether there is a ground for rejecting the mark.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_02fd6653d0f99818006acc6df3ee0087d2b7372e2124fcd4a2
+  review_status: unreviewed
+- key: BN-0073
+  kind: problem
+  question: Do I need to list the border leaves and scrolls in this logo, or only the main
+    picture?
+  picks:
+  - id: GC-0038
+    words: border leaves and scrolls
+    why: The question asks whether peripheral features of the logo count alongside its main
+      picture.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0adbe223d6515589006acc6df5e93887d286bbc4bcba220b45
+  review_status: unreviewed
+- key: BN-0074
+  kind: cross_part
+  question: When two series marks use the same common surname and initial, is that usually
+    the part people focus on to compare them?
+  picks:
+  - id: GC-0079
+    words: series marks
+    why: The question expressly identifies the marks as series marks.
+  - id: GC-0038
+    words: the part people focus on to compare them
+    why: Asking whether people focus on one shared part raises how that part relates to comparison
+      of the marks as a whole.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0221b0e30f5540d6006acc6df8eeac87d2b5f46a92f416bbe7
+  review_status: unreviewed
+- key: BN-0075
+  kind: impact
+  question: If a mark is opposed, can the opponent rely on the same grounds used in examination,
+    and who has to prove them?
+  picks:
+  - id: GC-0040
+    words: opposed
+    why: These words raise opposition to registration.
+  - id: GC-0006
+    words: grounds
+    why: These words refer to grounds raised against registration.
+  - id: GC-0092
+    words: examination
+    why: This word expressly identifies examination.
+  - id: GC-0117
+    words: opponent
+    why: This word identifies the party opposing registration.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0db114c1a5a5b8fd006acc6df906ec87d2a659272c1c51c3e8
+  review_status: unreviewed
+- key: BN-0076
+  kind: lookup
+  question: Does advertising count as use if the goods are not yet for sale?
+  picks:
+  - id: GC-0081
+    words: use
+    why: The question asks whether advertising qualifies as use of a trade mark before goods
+      are available for sale.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0731ecb3cae61e88006acc6df925a887d2a41007176bd59d99
+  review_status: unreviewed
+- key: BN-0077
+  kind: problem
+  question: Can a rose variety name also be my trade mark?
+  picks:
+  - id: GC-0036
+    words: rose variety name
+    why: A rose variety name is a plant variety name.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0ef24adf4d9158a6006acc6df9601c87d2859d30be2818dbe7
+  review_status: unreviewed
+- key: BN-0078
+  kind: cross_part
+  question: Can I file one trade mark application in more than one class?
+  picks:
+  - id: GC-0121
+    words: more than one class
+    why: The question asks whether one application can cover multiple classes of goods and
+      services.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_06d5dccfaf1dad49006acc6dfa26c887d2a7d96a6547c415f5
+  review_status: unreviewed
+- key: BN-0079
+  kind: impact
+  question: Does the target market matter for an offensive trade mark?
+  picks:
+  - id: GC-0062
+    words: offensive
+    why: An offensive trade mark raises the concept of scandalous matter.
+  - id: GC-0009
+    words: target market
+    why: The target market refers to the relevant sector of the public.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0deb423f47a6555d006acc6dfc19a887d2ad51be21b69a5ca5
+  review_status: unreviewed
+- key: BN-0080
+  kind: lookup
+  question: How are single letters, letter groups and acronyms recorded in a trade mark search?
+  picks:
+  - id: GC-0073
+    words: single letters, letter groups and acronyms
+    why: Single letters, letter groups and acronyms are forms of signs used in trade marks.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_026f03fdac237dea006acc6dfc6cf487d2bca072a058f51139
+  review_status: unreviewed
+- key: BN-0081
+  kind: problem
+  question: If goods have a prohibition notice on them and I buy them without knowing about
+    it, can that still matter for the trade mark?
+  picks: []
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0d116274ca4e0ad9006acc6dff24d887d29505242224110adf
+  review_status: unreviewed
+- key: BN-0082
+  kind: cross_part
+  question: Does putting a prohibition notice on goods count as use of the trade mark for
+    infringement purposes?
+  picks:
+  - id: GC-0081
+    words: use of the trade mark
+    why: The question asks whether putting a notice on goods constitutes use of a trade mark.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_092177cf86d4ed8a006acc6dff546887d29bf2e76d7b6791b9
+  review_status: unreviewed
+- key: BN-0083
+  kind: impact
+  question: Who has to pay extra when an opposition statement includes more grounds or more
+    trade marks than the free limit?
+  picks:
+  - id: GC-0153
+    words: opposition statement
+    why: These words refer to the statement setting out the grounds of an opposition.
+  - id: GC-0040
+    words: opposition
+    why: This word identifies the opposition procedure whose extra charges are queried.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_01658b4dbadbf6d5006acc6dff6fbc87d2b12cdf9dc985a17d
+  review_status: unreviewed
+- key: BN-0084
+  kind: lookup
+  question: What are the suggested class terms for mouldings?
+  picks:
+  - id: GC-0121
+    words: class terms
+    why: These words ask about terms used to classify goods.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_06ce016ca27744d9006acc6e00516887d2b9186283e49f2477
+  review_status: unreviewed
+- key: BN-0085
+  kind: problem
+  question: Can I object if the problem is really about a similar business name, not what’s
+    in the mark itself?
+  picks:
+  - id: GC-0064
+    words: similar business name
+    why: A problem involving a similar business name raises a possible conflict with another
+      sign.
+  - id: GC-0020
+    words: business name
+    why: A business name is a business identifier, although the question places it outside
+      the mark itself.
+  - id: GC-0006
+    words: object
+    why: “Object” raises an objection, though the question does not specify its procedural
+      basis.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_04ac3baae9d7568f006acc6e02717c87d2b34c33d0e0d609cb
+  review_status: unreviewed
+- key: BN-0086
+  kind: cross_part
+  question: If my shape also has a design registration, do I still need to check for a divisional
+    trade mark citation?
+  picks:
+  - id: GC-0064
+    words: citation
+    why: ‘citation’ raises a potential conflict with another trade mark.
+  - id: GC-0043
+    words: divisional
+    why: ‘divisional’ identifies the divisional application concept.
+  - id: GC-0075
+    words: shape
+    why: ‘shape’ identifies the form of the trade mark being discussed.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_03beea8744a41243006acc6e0574c487d29c25afc4fbe97bb6
+  review_status: unreviewed
+- key: BN-0087
+  kind: impact
+  question: Who is affected when a well known mark is used on unrelated goods, and what must
+    the owner show?
+  picks:
+  - id: GC-0130
+    words: well known mark
+    why: These words raise the reputation of a trade mark.
+  - id: GC-0070
+    words: unrelated goods
+    why: These words raise the relationship between goods by specifying that they are unrelated.
+  - id: GC-0081
+    words: used on unrelated goods
+    why: These words refer to use of the mark on goods.
+  - id: GC-0084
+    words: owner
+    why: This word identifies the mark's owner, although registration is not specified.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_082b2bb2db5c0dd0006acc6e059bbc87d2a3e8a4e4d43c00ca
+  review_status: unreviewed
+- key: BN-0088
+  kind: lookup
+  question: If my extension to file evidence in reply is refused in an opposition, what happens
+    next?
+  picks:
+  - id: GC-0097
+    words: extension to file evidence in reply
+    why: The extension sought concerns additional time to file evidence.
+  - id: GC-0040
+    words: opposition
+    why: The question expressly places the refusal in opposition proceedings.
+  - id: GC-0041
+    words: evidence in reply
+    why: The question concerns filing evidence in reply.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0fd42da9b57d1b11006acc6e05adac87d2885177e6fa9b1ebf
+  review_status: unreviewed
+- key: BN-0089
+  kind: problem
+  question: If the other side files a bill of costs after the case is over, do I get a chance
+    to comment before it is taxed?
+  picks: []
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0e3b5f466c49c7e9006acc6e06b62887d2909814bf91864e66
+  review_status: unreviewed
+- key: BN-0090
+  kind: cross_part
+  question: When I file a Madrid application through IP Australia, who decides any class dispute,
+    and what happens if the Office of origin and the International Bureau disagree?
+  picks:
+  - id: GC-0121
+    words: class dispute
+    why: A class dispute raises the classification of goods and services.
+  - id: GC-0112
+    words: Madrid application
+    why: A Madrid application refers to the Madrid Protocol system.
+  - id: GC-0136
+    words: Office of origin
+    why: The question expressly identifies the Office of origin as a party to the disagreement.
+  - id: GC-0138
+    words: International Bureau
+    why: The question expressly identifies the International Bureau as the other party to
+      the disagreement.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_00ea0028eb037da2006acc6e07359c87d2af266d6f89d10924
+  review_status: unreviewed
+- key: BN-0091
+  kind: impact
+  question: What does it mean for goods to be of the same description under the Act?
+  picks:
+  - id: GC-0070
+    words: goods to be of the same description
+    why: These words ask about the goods comparison described by this legal test.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_07c5d3e748690c80006acc6e0bc7b087d2b41832caa8073fb2
+  review_status: unreviewed
+- key: BN-0092
+  kind: lookup
+  question: If my file has sensitive business or personal information, will I get a chance
+    to argue it should not be released before the documents go out?
+  picks: []
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_036be96676f5bcde006acc6e0bdd6887d2837d8bd5d55c168b
+  review_status: unreviewed
+- key: BN-0093
+  kind: problem
+  question: My goods are just described as powder — how should I word them so they fit the
+    right class?
+  picks:
+  - id: GC-0121
+    words: fit the right class
+    why: These words ask about placing the goods in the appropriate classification class.
+  - id: GC-0012
+    words: goods are just described as powder
+    why: These words raise the wording of the goods description in the specification.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0d772089d0f6c1e8006acc6e0bf43887d2b5cf61ca168b953d
+  review_status: unreviewed
+- key: BN-0094
+  kind: cross_part
+  question: Can I rely on honest concurrent use if my trade mark's own meaning might still
+    mislead people?
+  picks:
+  - id: GC-0066
+    words: honest concurrent use
+    why: These words expressly raise honest concurrent use.
+  - id: GC-0001
+    words: own meaning
+    why: These words raise the trade mark's own implied meaning as the source of possible
+      deception.
+  - id: GC-0003
+    words: mislead people
+    why: These words raise possible deception of people.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0d687d3444940f69006acc6e0cdcc887d28ae9cf30f1da405e
+  review_status: unreviewed
+- key: BN-0095
+  kind: impact
+  question: Who has to give an Australia or New Zealand service address when filing a trade
+    mark-related document?
+  picks: []
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0538df82b8e0b1a2006acc6e0d4a6087d290facd5790e7933a
+  review_status: unreviewed
+- key: BN-0096
+  kind: lookup
+  question: Can a scent be accepted only if it is something added to the goods and not just
+    their natural smell?
+  picks:
+  - id: GC-0078
+    words: scent
+    why: The question concerns a scent as the subject of trade mark protection.
+  - id: GC-0093
+    words: accepted
+    why: The question asks whether acceptance depends on the scent being added rather than
+      natural.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0d6d4de9b519e21d006acc6e0d60e887d2a4ddc9d432832df6
+  review_status: unreviewed
+- key: BN-0097
+  kind: problem
+  question: If I missed the acceptance deadline and need more time, what do I do to extend
+    it?
+  picks:
+  - id: GC-0097
+    words: need more time
+    why: Needing more time and asking to extend the deadline raises an extension of time.
+  - id: GC-0093
+    words: acceptance
+    why: The deadline is expressly identified as the deadline for acceptance.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0a6191336476206e006acc6e120e6487d2bbdca060f7f9f443
+  review_status: unreviewed
+- key: BN-0098
+  kind: cross_part
+  question: If my specification has goods in the wrong class and also says “all goods”, what
+    does the examiner ask me to fix?
+  picks:
+  - id: GC-0012
+    words: specification
+    why: These words identify the specification whose goods wording is questioned.
+  - id: GC-0121
+    words: wrong class
+    why: These words raise the classification of goods into classes.
+  - id: GC-0015
+    words: fix
+    why: In context, these words ask about correcting or restricting the specification.
+  - id: GC-0044
+    words: examiner
+    why: This word identifies the examiner as the person requesting corrections.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0520e4b02f198b17006acc6e12154087d2aa5f93af9d26b6e2
+  review_status: unreviewed
+- key: BN-0099
+  kind: impact
+  question: Which documents become public, and does that include a TM Headstart before the
+    Part 2 fee is paid?
+  picks: []
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0064401395a6e09a006acc6e1241d887d29e0a06d49c0174ec
+  review_status: unreviewed
+- key: BN-0100
+  kind: lookup
+  question: Can a non-use removal application go ahead in someone else’s name after the original
+    filer’s right has passed to them, and do I need to tell the Registrar or the court in
+    writing?
+  picks:
+  - id: GC-0142
+    words: non-use removal application
+    why: These words identify an application seeking removal for non-use.
+  - id: GC-0087
+    words: original filer’s right has passed to them
+    why: These words appear to describe transmission of the original filer's right to another
+      person, although the mechanism is unspecified.
+  - id: GC-0046
+    words: Registrar
+    why: The question expressly identifies the Registrar as a possible recipient of notice.
+  - id: GC-0139
+    words: court
+    why: The question identifies a court as a possible recipient of notice, although it does
+      not specify whether it is a prescribed court.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_07660a26afd76fee006acc6e1375a887d2a6de85f90bef8df8
+  review_status: unreviewed
+- key: BN-0101
+  kind: problem
+  question: Can I base an international trade mark application on my existing mark if it has
+    the same owner and is the same mark, even if I only want some of the same goods or services?
+  picks:
+  - id: GC-0150
+    words: international trade mark application
+    why: These words raise international registration of a trade mark.
+  - id: GC-0084
+    words: same owner
+    why: These words raise the identity of the trade mark's owner.
+  - id: GC-0012
+    words: some of the same goods or services
+    why: These words raise the scope of goods and services claimed.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_024998386a578376006acc6e138e5887d28f8dbd7baf79ab4d
+  review_status: unreviewed
+- key: BN-0102
+  kind: cross_part
+  question: When I file a trade mark application, do I have to pay fees to bodies other than
+    IP Australia, and what extra files or description do I need for a sound, shape or other
+    non-traditional mark?
+  picks:
+  - id: GC-0077
+    words: sound
+    why: These words identify a sound trade mark.
+  - id: GC-0075
+    words: shape
+    why: This word identifies a shape trade mark.
+  - id: GC-0074
+    words: non-traditional mark
+    why: These words expressly identify a non-traditional trade mark.
+  - id: GC-0177
+    words: IP Australia
+    why: These words name the agency contrasted with other possible fee recipients.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_016777e76a05cf9a006acc6e13c5b887d285ced56eb60ee7b9
+  review_status: unreviewed
+- key: BN-0103
+  kind: impact
+  question: If a trade marks matter is inter partes, who gets to be heard and what kinds of
+    proceedings does that include?
+  picks:
+  - id: GC-0128
+    words: gets to be heard
+    why: These words raise participation in a hearing in an inter partes matter.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0b987124fa7352a9006acc6e184cd087d2a081c8fdeab3510e
+  review_status: unreviewed
+- key: BN-0104
+  kind: lookup
+  question: Can an ordinary picture of the goods themselves distinguish my product from other
+    traders' goods?
+  picks:
+  - id: GC-0058
+    words: distinguish my product from other traders' goods
+    why: The question asks whether the picture can distinguish one trader's product from other
+      traders' goods.
+  - id: GC-0047
+    words: picture of the goods themselves
+    why: A picture of the goods themselves raises descriptive matter depicting those goods.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0c5fa9c3a45be99d006acc6e18639487d2a80d0364d3848bd0
+  review_status: unreviewed
+- key: BN-0105
+  kind: problem
+  question: If my trade mark is basically a web address with a common word in it, will that
+    be a problem?
+  picks:
+  - id: GC-0032
+    words: web address
+    why: A web address refers to an internet domain name.
+  - id: GC-0047
+    words: common word
+    why: A common word may refer to descriptive matter, although the question does not make
+      that clear.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0f94903f16c86e4a006acc6e1885ac87d28472d90fd8b5b562
+  review_status: unreviewed
+- key: BN-0106
+  kind: cross_part
+  question: If part of my sign is descriptive but it is also used as my brand, can I get past
+    a place-based objection by narrowing the goods or services?
+  picks:
+  - id: GC-0015
+    words: narrowing the goods or services
+    why: Narrowing the goods or services refers to restricting the specification.
+  - id: GC-0047
+    words: descriptive
+    why: These words identify descriptive content in the sign.
+  - id: GC-0017
+    words: place-based
+    why: A place-based objection raises a geographical reference in the sign.
+  - id: GC-0081
+    words: used as my brand
+    why: Use as a brand refers to use of the sign as a trade mark.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0f1172e4ce23ec20006acc6e19a10c87d284de61897e0b9ca8
+  review_status: unreviewed
+- key: BN-0107
+  kind: impact
+  question: Who has to sign the supporting declaration for an application, and what does it
+    need to say about other traders using the mark?
+  picks:
+  - id: GC-0061
+    words: other traders using the mark
+    why: These words raise the question of other traders wishing to use the mark.
+  - id: GC-0041
+    words: supporting declaration
+    why: A supporting declaration is raised as evidence supporting the application.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0a22ac3d0d5c22aa006acc6e19c51087d2b6649fcc232bfe57
+  review_status: unreviewed
+- key: BN-0108
+  kind: lookup
+  question: Where can I access the Trade Marks Classification Search as an examiner or as
+    an external user?
+  picks:
+  - id: GC-0121
+    words: Trade Marks Classification Search
+    why: The named search tool concerns classification of goods and services.
+  - id: GC-0044
+    words: examiner
+    why: The question expressly asks about access as an examiner.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0c485688428f5a5e006acc6e1a194887d299da083ad5ed31fe
+  review_status: unreviewed
+- key: BN-0109
+  kind: problem
+  question: Will a mark with a common surname and a description of the services be hard to
+    distinguish?
+  picks:
+  - id: GC-0058
+    words: hard to distinguish
+    why: These words ask about the mark's capacity to distinguish.
+  - id: GC-0047
+    words: description of the services
+    why: These words identify descriptive matter concerning the services.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0ab65b1fa6dabdae006acc6e1e855887d2800ba4a884297246
+  review_status: unreviewed
+- key: BN-0110
+  kind: cross_part
+  question: If outside information raises doubts about a mark, can the examiner ask for more
+    material to clearly define a movement mark before any revocation step starts?
+  picks:
+  - id: GC-0074
+    words: movement mark
+    why: A movement mark is a non-traditional type of sign.
+  - id: GC-0041
+    words: more material
+    why: The request for more material raises the concept of supporting evidence.
+  - id: GC-0042
+    words: revocation step
+    why: In this examination context, this may refer to revocation of acceptance, although
+      acceptance is not specified.
+  - id: GC-0044
+    words: examiner
+    why: These words expressly identify the examiner as the actor.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0980f2fb544a61f0006acc6e1ecf2887d2be839e98c82833c0
+  review_status: unreviewed
+- key: BN-0111
+  kind: impact
+  question: Who is affected by the listed rules on fees, filing, lapsing and extensions of
+    time?
+  picks:
+  - id: GC-0098
+    words: lapsing
+    why: ‘lapsing’ refers to the lapsing of an application.
+  - id: GC-0097
+    words: extensions of time
+    why: ‘extensions of time’ directly names the extension of time procedure.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0742627ee25cf7df006acc6e1ef44487d2a22a837883fe9775
+  review_status: unreviewed
+- key: BN-0112
+  kind: lookup
+  question: Is a geographical indication protected in Australia by registering it as a certification
+    trade mark?
+  picks:
+  - id: GC-0018
+    words: geographical indication
+    why: These words expressly identify a geographical indication.
+  - id: GC-0107
+    words: certification trade mark
+    why: These words identify the type of trade mark proposed as a means of protection.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_04b6d4478e311b3f006acc6e1fd3f487d2b2d850e3bf57cbef
+  review_status: unreviewed
+- key: BN-0113
+  kind: problem
+  question: Can I split off part of a series application if one of the trade marks in the
+    parent is wrong?
+  picks:
+  - id: GC-0043
+    words: split off part
+    why: Splitting off part of a parent application raises the concept of a divisional application.
+  - id: GC-0079
+    words: series application
+    why: These words expressly identify a series of trade marks application.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_02f391738f5988e4006acc6e2012ac87d2807d60be738e4198
+  review_status: unreviewed
+- key: BN-0114
+  kind: cross_part
+  question: Can narrowing the goods list fix a trade mark that seems to suggest a false connection
+    or origin?
+  picks:
+  - id: GC-0015
+    words: narrowing the goods list
+    why: Narrowing the goods list means restricting the specification of goods.
+  - id: GC-0001
+    words: seems to suggest
+    why: What the mark seems to suggest is its implied meaning or connotation.
+  - id: GC-0003
+    words: false connection or origin
+    why: A false connection or origin raises the concept of deception.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0af9cc9a7adaf08c006acc6e20671887d2b202c490d4e05ef5
+  review_status: unreviewed
+- key: BN-0115
+  kind: impact
+  question: If the Registrar issues a notice to produce, who gets it and what has to happen
+    next?
+  picks:
+  - id: GC-0046
+    words: Registrar
+    why: The question expressly identifies the Registrar as the person issuing the notice.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0a77e8d91f07b2fb006acc6e249f3c87d2867f0a00f431b24d
+  review_status: unreviewed
+- key: BN-0116
+  kind: lookup
+  question: What class wording should I use instead of just "powders"?
+  picks:
+  - id: GC-0012
+    words: class wording
+    why: The question asks how to word the goods specification rather than merely naming powders.
+  - id: GC-0121
+    words: class
+    why: The reference to a class raises classification of goods and services.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_08a8f3ec1c348423006acc6e2515e487d2b05d193a801be620
+  review_status: unreviewed
+- key: BN-0117
+  kind: problem
+  question: Can I rely on use made before I bought the business, or by someone I authorised
+    to use the mark?
+  picks:
+  - id: GC-0067
+    words: use made before I bought the business
+    why: The question asks about relying on use predating the purchase of the business.
+  - id: GC-0085
+    words: before I bought the business
+    why: The reference to use before buying the business raises use by a predecessor in title.
+  - id: GC-0082
+    words: by someone I authorised to use the mark
+    why: The question expressly raises use made with the questioner's authorisation.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0e016600a7fc8757006acc6e25fad087d29f29cca879212f46
+  review_status: unreviewed
+- key: BN-0118
+  kind: cross_part
+  question: If a registration is cancelled, does the trading name on the application still
+    own the trade mark?
+  picks:
+  - id: GC-0095
+    words: registration is cancelled
+    why: Cancellation of a registration appears to refer to revocation of registration, although
+      the mechanism is unspecified.
+  - id: GC-0084
+    words: own the trade mark
+    why: These words raise ownership of the trade mark.
+  - id: GC-0020
+    words: trading name
+    why: A trading name is a business identifier named on the application.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0d58271f16251f2e006acc6e263ff487d2a978471d197d10fd
+  review_status: unreviewed
+- key: BN-0119
+  kind: impact
+  question: Who needs written permission before using the Red Cross or Red Crescent signs?
+  picks:
+  - id: GC-0029
+    words: written permission
+    why: These words expressly ask about permission in writing.
+  - id: GC-0054
+    words: Red Cross or Red Crescent signs
+    why: The named Red Cross and Red Crescent signs raise the concept of prohibited signs.
+  - id: GC-0081
+    words: using
+    why: The question asks about using the named signs.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_06e41a863a2f10b2006acc6e2695c087d2b1f24c358a5fe9e6
+  review_status: unreviewed
+- key: GA-0001
+  kind: signed
+  question: What is the test under section 43 and where does it come from?
+  picks:
+  - id: GC-0168
+    words: test under section 43
+    why: The reference to the test under section 43 raises the section 43 ground for rejection.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0c9847a97842b8fc006acc6e29c13887d29a2fd6dca8313510
+  review_status: unreviewed
+- key: GA-0003
+  kind: signed
+  question: Is this connotation strong enough for a ground for rejection?
+  picks:
+  - id: GC-0001
+    words: connotation
+    why: The question expressly asks about the strength of a connotation.
+  - id: GC-0006
+    words: ground for rejection
+    why: The question asks whether that connotation supports a ground for rejection.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0815898942e41860006acc6e2ad29487d2b8a0e3196051d475
+  review_status: unreviewed
+- key: GA-0004
+  kind: signed
+  question: When does a place name in a mark cause confusion?
+  picks:
+  - id: GC-0017
+    words: place name
+    why: A place name is a geographical reference in the mark.
+  - id: GC-0004
+    words: cause confusion
+    why: These words expressly raise confusion caused by the mark.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_092e8f7cabdd4f09006acc6e2b547c87d295779c0cc43c37b6
+  review_status: unreviewed
+- key: GA-0005
+  kind: signed
+  question: What endorsement is used where a mark contains an INN stem?
+  picks:
+  - id: GC-0014
+    words: endorsement
+    why: The question asks about endorsement wording.
+  - id: GC-0023
+    words: INN stem
+    why: The question expressly identifies an INN stem contained in a mark.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0556e8a48c211dc3006acc6e2c399c87d2841248be7e28aa23
+  review_status: unreviewed
+- key: GA-0007
+  kind: signed
+  question: Does a country name in a mark always need a limitation?
+  picks:
+  - id: GC-0017
+    words: country name
+    why: A country name is a reference to a geographical location.
+  - id: GC-0013
+    words: limitation
+    why: The question asks whether the mark needs a limitation as a condition of registration.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0c0bef8d23dfdd06006acc6e2c691887d2a79a0b568189f84a
+  review_status: unreviewed
+- key: GA-0009
+  kind: signed
+  question: How have the courts treated the difference between denotation and connotation?
+  picks:
+  - id: GC-0005
+    words: denotation
+    why: The question expressly asks about denotation and its distinction from connotation.
+  - id: GC-0001
+    words: connotation
+    why: The question expressly asks about connotation and its distinction from denotation.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_031734c86026ef48006acc6e2e18f887d288b00ca010354172
+  review_status: unreviewed
+- key: GA-0010
+  kind: signed
+  question: What does connotation mean for the purposes of section 43?
+  picks:
+  - id: GC-0001
+    words: connotation
+    why: The question asks for the meaning of connotation.
+  - id: GC-0168
+    words: section 43
+    why: The reference to section 43 places the question in the context of that section's
+      ground for rejection.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_069108dd7a1cd9c6006acc6e300e7087d2b6a9b34031453ec3
+  review_status: unreviewed
+- key: GA-0011
+  kind: signed
+  question: Two marks are similar and consumers may be confused. Is that section 43?
+  picks:
+  - id: GC-0004
+    words: consumers may be confused
+    why: These words expressly raise possible consumer confusion.
+  - id: GC-0168
+    words: section 43
+    why: The question asks whether section 43 is the relevant ground for rejection.
+  - id: GC-0154
+    words: Two marks are similar and consumers may be confused
+    why: Similarity between marks linked to consumer confusion raises deceptive similarity.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0776a652ee2f4edf006acc6e3107cc87d2a374c3e4d2ae7392
+  review_status: unreviewed
+- key: GA-0012
+  kind: signed
+  question: Can other elements in the mark neutralise a problematic connotation?
+  picks:
+  - id: GC-0038
+    words: other elements in the mark
+    why: These words refer to features of the mark considered together that might mitigate
+      its meaning.
+  - id: GC-0001
+    words: connotation
+    why: The question expressly raises a problematic secondary or implied meaning.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_03c4899e944ea898006acc6e31dc8887d29b7c40c89f5c37e8
+  review_status: unreviewed
+- key: GA-0013
+  kind: signed
+  question: The mark contains letters that appear on the INN stem list. What follows?
+  picks:
+  - id: GC-0023
+    words: INN stem
+    why: The question expressly identifies letters appearing on the INN stem list.
+  model: gpt-6.1-sol
+  effort: low
+  prompt_version: reading-v1
+  date: '2026-10-12'
+  response_id: resp_0ba7bf63dfeca64d006acc6e3269a887d2a41b22778232f3fc
+  review_status: unreviewed

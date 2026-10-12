@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006289,
+ "created_utc": "2026-10-12T05:19:34Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0055",
+ "job": "reading",
+ "key": "2ca4a3ae87d1ac579501e80272071ac173f9738d93fbf1d5ebacd39a61762c3f",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0109\",\"why\":\"These words expressly identify a defensive trade mark.\",\"words\":\"defensive trade mark\"},{\"id\":\"GC-0150\",\"why\":\"These words refer to seeking international registration of a trade mark.\",\"words\":\"international application\"},{\"id\":\"GC-0111\",\"why\":\"These words raise a priority claim based on an earlier filing.\",\"words\":\"claim priority from an earlier filing\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "3fd604a2cc3d8110c583e4e77fffdaf0b2913847a8e07263ddc6726ab6223f4a",
+ "response_id": "resp_0a236fc89d8e566d006acc6de0b7ec87d28078fafa0f4900e5",
+ "seconds": 6.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4656,
+  "input_tokens_details": {
+   "cache_write_tokens": 4653,
+   "cached_tokens": 0
+  },
+  "output_tokens": 94,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4750
+ }
+}

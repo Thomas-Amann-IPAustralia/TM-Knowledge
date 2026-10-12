@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006271,
+ "created_utc": "2026-10-12T05:19:21Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0041",
+ "job": "reading",
+ "key": "66f50fbede567d27346f737a2582d64b4b9c211ca4c64235aa5a967aa48e2e05",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0004\",\"why\":\"These words expressly raise confusion as the subject of assessment.\",\"words\":\"confusion\"},{\"id\":\"GC-0003\",\"why\":\"This word expressly raises deception as the subject of assessment.\",\"words\":\"deception\"},{\"id\":\"GC-0049\",\"why\":\"These words ask whether assessment uses present marketplace conditions rather than historical ones.\",\"words\":\"current market\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "ceeb0d5a49eb0cce30fa22f0e22ad73008188599eca18d236217dec66e3f8a35",
+ "response_id": "resp_0800c0d088ed957e006acc6dd3a13887d2ba8eb66fc84fc494",
+ "seconds": 6.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4653,
+  "input_tokens_details": {
+   "cache_write_tokens": 4650,
+   "cached_tokens": 0
+  },
+  "output_tokens": 91,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4744
+ }
+}

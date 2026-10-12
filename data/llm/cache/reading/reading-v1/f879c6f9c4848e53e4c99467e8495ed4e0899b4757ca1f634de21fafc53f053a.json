@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006312,
+ "created_utc": "2026-10-12T05:19:02Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0023",
+ "job": "reading",
+ "key": "f879c6f9c4848e53e4c99467e8495ed4e0899b4757ca1f634de21fafc53f053a",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0029\",\"why\":\"A general consent is a form of written permission for future applications.\",\"words\":\"general consent\"},{\"id\":\"GC-0116\",\"why\":\"The question expressly asks whether the applicant must be named.\",\"words\":\"applicant\"},{\"id\":\"GC-0124\",\"why\":\"Fixing formality issues appears to refer to amending an application.\",\"words\":\"formality issues to fix\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "8dd2b6e5f8cbb9c632049be10842d9b1c4b03d9167cda0dce244e92d7e327535",
+ "response_id": "resp_09c17fa9a9f57316006acc6dc0c0fc87d2992a391f420b178b",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4666,
+  "input_tokens_details": {
+   "cache_write_tokens": 4663,
+   "cached_tokens": 0
+  },
+  "output_tokens": 96,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4762
+ }
+}

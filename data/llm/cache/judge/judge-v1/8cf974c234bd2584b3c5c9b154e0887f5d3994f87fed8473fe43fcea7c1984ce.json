@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004213,
+ "created_utc": "2026-10-12T08:53:47Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0004",
+ "job": "judge",
+ "key": "8cf974c234bd2584b3c5c9b154e0887f5d3994f87fed8473fe43fcea7c1984ce",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part11/5/5/2/3\",\"grade\":1},{\"ref\":\"TMM/Part29/4#1\",\"grade\":1},{\"ref\":\"TMM/Part60/3/3/4\",\"grade\":0},{\"ref\":\"TMM/Part12/3/3/3~2\",\"grade\":1},{\"ref\":\"TMM/Part12/x-annex-a1-divisional-checklist-for-divisional-applications-filed-on-or-after-27-march-2007#1\",\"grade\":1},{\"ref\":\"TMM/Part9/x-relevant-legislation23#1\",\"grade\":1},{\"ref\":\"TMM/Part12/4#1\",\"grade\":0},{\"ref\":\"TMM/Part12/2#1\",\"grade\":1},{\"ref\":\"TMM/Part14/8#1\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "c9716b16a666c770a0d522a10f01b81b87a6596e13302d921ec3822d53ae9098",
+ "response_id": "resp_0b988835cd79af59006acca010dc8c87d282c78ddb1967edc9",
+ "seconds": 11.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2247,
+  "input_tokens_details": {
+   "cache_write_tokens": 2244,
+   "cached_tokens": 0
+  },
+  "output_tokens": 281,
+  "output_tokens_details": {
+   "reasoning_tokens": 85
+  },
+  "total_tokens": 2528
+ }
+}

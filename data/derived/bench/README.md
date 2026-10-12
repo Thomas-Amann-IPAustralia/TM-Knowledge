@@ -10,7 +10,13 @@ and keeps its grade; when a re-pooled question gains passages, only those go to 
 judge, recorded under `later` with the date and model (ADR-0127).
 `results.json` — per-question scores and the summary `data/derived/reports/measure.md`
 renders. `answers.yaml` — "Ask the Manual" answers with verified citations.
-All machine-written and unreviewed.
+
+The live reading (ADR-0132, measured by ADR-0133): `readings.yaml` — the live model's
+picks for each question, raw and unchecked, stamped with model, prompt and date.
+`reading-pools.yaml` — each question's top ten from the page's three systems (no
+vectors): keyword, names, and names plus the checked reading; graded into the same
+`judgements.yaml`. `reading-results.json` — the scores `reports/measure-reading.md`
+renders. All machine-written and unreviewed.
 
 **Kept apart from `eval/gold/` on purpose**: the 190 signed records stay frozen
 as the one independent yardstick (ADR-0080), and the expert's 10 signed retrieval

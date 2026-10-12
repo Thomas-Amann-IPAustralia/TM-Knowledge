@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006411,
+ "created_utc": "2026-10-12T05:19:55Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0073",
+ "job": "reading",
+ "key": "d4e2595b65ad115c1dd64155f3890c65aadad73beb044c8c96141d518de59c55",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0038\",\"why\":\"The question asks whether peripheral features of the logo count alongside its main picture.\",\"words\":\"border leaves and scrolls\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "71a14b2a2c6d9aad2926e1d5d606abca8dda51125382ae867bb18bcc9682e3e0",
+ "response_id": "resp_0adbe223d6515589006acc6df5e93887d286bbc4bcba220b45",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4657,
+  "input_tokens_details": {
+   "cache_write_tokens": 4654,
+   "cached_tokens": 0
+  },
+  "output_tokens": 118,
+  "output_tokens_details": {
+   "reasoning_tokens": 71
+  },
+  "total_tokens": 4775
+ }
+}

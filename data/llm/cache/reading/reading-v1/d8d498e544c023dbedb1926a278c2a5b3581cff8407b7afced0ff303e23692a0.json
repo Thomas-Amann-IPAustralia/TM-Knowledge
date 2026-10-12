@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006149,
+ "created_utc": "2026-10-12T05:20:37Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0112",
+ "job": "reading",
+ "key": "d8d498e544c023dbedb1926a278c2a5b3581cff8407b7afced0ff303e23692a0",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0018\",\"why\":\"These words expressly identify a geographical indication.\",\"words\":\"geographical indication\"},{\"id\":\"GC-0107\",\"why\":\"These words identify the type of trade mark proposed as a means of protection.\",\"words\":\"certification trade mark\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "61690c45ee55816373a0514be2f6a799ef5a1b9eb5617e73e9ea4804a728b82f",
+ "response_id": "resp_04b6d4478e311b3f006acc6e1fd3f487d2b2d850e3bf57cbef",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4652,
+  "input_tokens_details": {
+   "cache_write_tokens": 4649,
+   "cached_tokens": 0
+  },
+  "output_tokens": 67,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4719
+ }
+}

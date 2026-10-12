@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006176,
+ "created_utc": "2026-10-12T05:18:49Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0010",
+ "job": "reading",
+ "key": "71f52258ece942617184d46937347db9c6b18aae3da44a1c67da17e224f04c1f",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0074\",\"why\":\"A moving logo raises a non-traditional sign involving motion.\",\"words\":\"moving logo\"},{\"id\":\"GC-0057\",\"why\":\"The question about properly describing motion raises how the sign can be represented graphically.\",\"words\":\"motion is properly described\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "19bb724e6568037e8cd33e7525b301709247a2eba652698ef3648396aa1c4c3a",
+ "response_id": "resp_0e0faca3dce8989d006acc6db4143487d2864397884c798354",
+ "seconds": 6.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4657,
+  "input_tokens_details": {
+   "cache_write_tokens": 4654,
+   "cached_tokens": 0
+  },
+  "output_tokens": 71,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4728
+ }
+}

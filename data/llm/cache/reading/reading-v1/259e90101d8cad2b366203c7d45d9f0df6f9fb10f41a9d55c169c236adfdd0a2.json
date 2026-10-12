@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006387,
+ "created_utc": "2026-10-12T05:20:43Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0117",
+ "job": "reading",
+ "key": "259e90101d8cad2b366203c7d45d9f0df6f9fb10f41a9d55c169c236adfdd0a2",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0067\",\"why\":\"The question asks about relying on use predating the purchase of the business.\",\"words\":\"use made before I bought the business\"},{\"id\":\"GC-0085\",\"why\":\"The reference to use before buying the business raises use by a predecessor in title.\",\"words\":\"before I bought the business\"},{\"id\":\"GC-0082\",\"why\":\"The question expressly raises use made with the questioner's authorisation.\",\"words\":\"by someone I authorised to use the mark\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "f9ce24ec52bedf24ad2c804403e77f42a9b941dd584282a3e39bbe067c70d486",
+ "response_id": "resp_0e016600a7fc8757006acc6e25fad087d29f29cca879212f46",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4658,
+  "input_tokens_details": {
+   "cache_write_tokens": 4655,
+   "cached_tokens": 0
+  },
+  "output_tokens": 113,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4771
+ }
+}

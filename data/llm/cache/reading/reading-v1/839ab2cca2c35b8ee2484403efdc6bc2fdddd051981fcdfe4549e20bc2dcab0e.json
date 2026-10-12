@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006121,
+ "created_utc": "2026-10-12T05:20:50Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0005",
+ "job": "reading",
+ "key": "839ab2cca2c35b8ee2484403efdc6bc2fdddd051981fcdfe4549e20bc2dcab0e",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0014\",\"why\":\"The question asks about endorsement wording.\",\"words\":\"endorsement\"},{\"id\":\"GC-0023\",\"why\":\"The question expressly identifies an INN stem contained in a mark.\",\"words\":\"INN stem\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "16ba913ffeaaa5229eeacb3653a02e3a2f0d77ec6044cc3b81f60ceb53fc1cdc",
+ "response_id": "resp_0556e8a48c211dc3006acc6e2c399c87d2841248be7e28aa23",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4649,
+  "input_tokens_details": {
+   "cache_write_tokens": 4646,
+   "cached_tokens": 0
+  },
+  "output_tokens": 62,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4711
+ }
+}

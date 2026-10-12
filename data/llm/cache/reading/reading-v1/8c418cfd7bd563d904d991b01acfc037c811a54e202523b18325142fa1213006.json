@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006391,
+ "created_utc": "2026-10-12T05:20:23Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0098",
+ "job": "reading",
+ "key": "8c418cfd7bd563d904d991b01acfc037c811a54e202523b18325142fa1213006",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0012\",\"why\":\"These words identify the specification whose goods wording is questioned.\",\"words\":\"specification\"},{\"id\":\"GC-0121\",\"why\":\"These words raise the classification of goods into classes.\",\"words\":\"wrong class\"},{\"id\":\"GC-0015\",\"why\":\"In context, these words ask about correcting or restricting the specification.\",\"words\":\"fix\"},{\"id\":\"GC-0044\",\"why\":\"This word identifies the examiner as the person requesting corrections.\",\"words\":\"examiner\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "cee04158451685351038ccf678d1e64828f7664bc868e3482b9723eb50714ecc",
+ "response_id": "resp_0520e4b02f198b17006acc6e12154087d2aa5f93af9d26b6e2",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4661,
+  "input_tokens_details": {
+   "cache_write_tokens": 4658,
+   "cached_tokens": 0
+  },
+  "output_tokens": 113,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4774
+ }
+}

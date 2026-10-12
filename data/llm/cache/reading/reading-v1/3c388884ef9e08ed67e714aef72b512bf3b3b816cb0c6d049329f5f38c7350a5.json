@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006118,
+ "created_utc": "2026-10-12T05:20:49Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0004",
+ "job": "reading",
+ "key": "3c388884ef9e08ed67e714aef72b512bf3b3b816cb0c6d049329f5f38c7350a5",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0017\",\"why\":\"A place name is a geographical reference in the mark.\",\"words\":\"place name\"},{\"id\":\"GC-0004\",\"why\":\"These words expressly raise confusion caused by the mark.\",\"words\":\"cause confusion\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "90f261ea0bdf8015af26fe1d89ffda1fac92a28036e287f61216538c8eef3634",
+ "response_id": "resp_092e8f7cabdd4f09006acc6e2b547c87d295779c0cc43c37b6",
+ "seconds": 6.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4647,
+  "input_tokens_details": {
+   "cache_write_tokens": 4644,
+   "cached_tokens": 0
+  },
+  "output_tokens": 62,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4709
+ }
+}

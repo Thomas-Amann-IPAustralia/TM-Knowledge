@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006161,
+ "created_utc": "2026-10-12T05:20:19Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0096",
+ "job": "reading",
+ "key": "9615a30fb5f5fc0a61db95bf30ba177f077dae685c0b5311f697791bdbd7fe83",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0078\",\"why\":\"The question concerns a scent as the subject of trade mark protection.\",\"words\":\"scent\"},{\"id\":\"GC-0093\",\"why\":\"The question asks whether acceptance depends on the scent being added rather than natural.\",\"words\":\"accepted\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "2b6369535b0c4a27ac7817685f62e5b108f9dfedae2465e12701ce5cc17a2b07",
+ "response_id": "resp_0d6d4de9b519e21d006acc6e0d60e887d2a4ddc9d432832df6",
+ "seconds": 6.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4657,
+  "input_tokens_details": {
+   "cache_write_tokens": 4654,
+   "cached_tokens": 0
+  },
+  "output_tokens": 68,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4725
+ }
+}

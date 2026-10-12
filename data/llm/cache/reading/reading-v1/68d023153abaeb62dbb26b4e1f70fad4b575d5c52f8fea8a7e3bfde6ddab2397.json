@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006044,
+ "created_utc": "2026-10-12T05:18:43Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0008",
+ "job": "reading",
+ "key": "68d023153abaeb62dbb26b4e1f70fad4b575d5c52f8fea8a7e3bfde6ddab2397",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0096\",\"why\":\"These words refer to postponing acceptance and the timing when that deferment ends.\",\"words\":\"deferred acceptance date\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "7e8478baa8cc1847aa9c1200fbae1923d9fe022c1b1e6ba8bd584ba0bb720d49",
+ "response_id": "resp_09643835fde3a421006acc6dadfe8887d2918300c038222448",
+ "seconds": 6.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4656,
+  "input_tokens_details": {
+   "cache_write_tokens": 4653,
+   "cached_tokens": 0
+  },
+  "output_tokens": 45,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4701
+ }
+}

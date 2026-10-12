@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002489,
+ "created_utc": "2026-10-12T08:56:16Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0072",
+ "job": "judge",
+ "key": "2ecbf73ebe8e77a495dfeb3a4c4aae6c5f71db233cb1f55ad6167eaef677232a",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part26/1#1\",\"grade\":1},{\"ref\":\"TMM/Part32A/1/1/1\",\"grade\":2},{\"ref\":\"TMM/Part32A/2/1/2-1-1-a-plain-word-trade-marks\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "aab6835c81cc6643542bb5496f6c0d2eaeee0e678a2e1792a7d7710cd48dd3e4",
+ "response_id": "resp_07d6c4657d525c57006acca0aa2a9887d2b86991759357b833",
+ "seconds": 6.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1260,
+  "input_tokens_details": {
+   "cache_write_tokens": 1257,
+   "cached_tokens": 0
+  },
+  "output_tokens": 183,
+  "output_tokens_details": {
+   "reasoning_tokens": 103
+  },
+  "total_tokens": 1443
+ }
+}

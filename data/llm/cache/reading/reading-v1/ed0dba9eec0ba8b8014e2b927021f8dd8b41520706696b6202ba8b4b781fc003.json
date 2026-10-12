@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006333,
+ "created_utc": "2026-10-12T05:20:30Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0103",
+ "job": "reading",
+ "key": "ed0dba9eec0ba8b8014e2b927021f8dd8b41520706696b6202ba8b4b781fc003",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0128\",\"why\":\"These words raise participation in a hearing in an inter partes matter.\",\"words\":\"gets to be heard\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "137143fa0797721268af9aad70c625917b6b1b8df248fbf10d84b32c32c0c46b",
+ "response_id": "resp_0b987124fa7352a9006acc6e184cd087d2a081c8fdeab3510e",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4659,
+  "input_tokens_details": {
+   "cache_write_tokens": 4656,
+   "cached_tokens": 0
+  },
+  "output_tokens": 102,
+  "output_tokens_details": {
+   "reasoning_tokens": 58
+  },
+  "total_tokens": 4761
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00271,
+ "created_utc": "2026-10-12T08:58:03Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0117",
+ "job": "judge",
+ "key": "74131ef26c0d9d45e71ab229fa26a040ef42edafe9c48ad618866050d9c1df8a",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part22/x-annex-a1-section-41-prior-to-raising-the-bar#1~2\",\"grade\":2},{\"ref\":\"TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2\",\"grade\":2},{\"ref\":\"TMM/Part28/6#1\",\"grade\":3},{\"ref\":\"TMM/Part19A/x-relevant-legislation16/the-act\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "f21e9fa1208ba8d65ded4bacc8c1b78e44635f0e307e5ae7943ff38e4a70f590",
+ "response_id": "resp_0799075707d11be4006acca1100f6c87d2978ba85da21084c9",
+ "seconds": 11.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1353,
+  "input_tokens_details": {
+   "cache_write_tokens": 1350,
+   "cached_tokens": 0
+  },
+  "output_tokens": 204,
+  "output_tokens_details": {
+   "reasoning_tokens": 91
+  },
+  "total_tokens": 1557
+ }
+}

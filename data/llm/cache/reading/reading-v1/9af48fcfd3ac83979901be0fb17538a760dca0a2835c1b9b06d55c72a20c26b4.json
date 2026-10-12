@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006137,
+ "created_utc": "2026-10-12T05:20:36Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0109",
+ "job": "reading",
+ "key": "9af48fcfd3ac83979901be0fb17538a760dca0a2835c1b9b06d55c72a20c26b4",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0058\",\"why\":\"These words ask about the mark's capacity to distinguish.\",\"words\":\"hard to distinguish\"},{\"id\":\"GC-0047\",\"why\":\"These words identify descriptive matter concerning the services.\",\"words\":\"description of the services\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "61b56f37148993669171dd2a2b661bcc18e12540a6a3e7cb4fe52fe977af46b8",
+ "response_id": "resp_0ab65b1fa6dabdae006acc6e1e855887d2800ba4a884297246",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4654,
+  "input_tokens_details": {
+   "cache_write_tokens": 4651,
+   "cached_tokens": 0
+  },
+  "output_tokens": 64,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4718
+ }
+}

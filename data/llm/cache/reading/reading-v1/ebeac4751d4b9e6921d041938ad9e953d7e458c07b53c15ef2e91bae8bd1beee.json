@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006184,
+ "created_utc": "2026-10-12T05:20:17Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0093",
+ "job": "reading",
+ "key": "ebeac4751d4b9e6921d041938ad9e953d7e458c07b53c15ef2e91bae8bd1beee",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0121\",\"why\":\"These words ask about placing the goods in the appropriate classification class.\",\"words\":\"fit the right class\"},{\"id\":\"GC-0012\",\"why\":\"These words raise the wording of the goods description in the specification.\",\"words\":\"goods are just described as powder\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "0efaf9e8fe386efe0e07e88bb49ff5d7f06da1644a7b8c1f956e9561d520321f",
+ "response_id": "resp_0d772089d0f6c1e8006acc6e0bf43887d2b5cf61ca168b953d",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4656,
+  "input_tokens_details": {
+   "cache_write_tokens": 4653,
+   "cached_tokens": 0
+  },
+  "output_tokens": 73,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4729
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006631,
+ "created_utc": "2026-10-12T05:19:03Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0027",
+ "job": "reading",
+ "key": "14cf53955d0b7b58c2d77acff5a4fab52d7f8124d4abf76c2fbf9562a2029ceb",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0013\",\"why\":\"A colour limitation is raised as a possible condition of registration.\",\"words\":\"colour limitation\"},{\"id\":\"GC-0076\",\"why\":\"These words raise the colours in which the mark is presented.\",\"words\":\"in green and blue\"},{\"id\":\"GC-0081\",\"why\":\"These words refer to the mark’s consistent use in trade.\",\"words\":\"always use it\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "45025ee6b9f69d5840c777716df60a9492b3a053a036ff28c83af9223c21762d",
+ "response_id": "resp_0c50d1d62a40503c006acc6dc1daec87d297abdcf6c6cc6299",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4661,
+  "input_tokens_details": {
+   "cache_write_tokens": 4658,
+   "cached_tokens": 0
+  },
+  "output_tokens": 161,
+  "output_tokens_details": {
+   "reasoning_tokens": 65
+  },
+  "total_tokens": 4822
+ }
+}

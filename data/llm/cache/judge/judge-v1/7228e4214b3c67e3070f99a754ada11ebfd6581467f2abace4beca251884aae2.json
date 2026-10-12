@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003334,
+ "created_utc": "2026-10-12T08:57:41Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0110",
+ "job": "judge",
+ "key": "7228e4214b3c67e3070f99a754ada11ebfd6581467f2abace4beca251884aae2",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part22/x-registrability-of-various-kinds-of-signs#1\",\"grade\":1},{\"ref\":\"TMM/Part47/1/1/2/5~1\",\"grade\":0},{\"ref\":\"TMM/Part52/2/2/3\",\"grade\":1},{\"ref\":\"TMM/Part18/2/2/2\",\"grade\":0},{\"ref\":\"TMM/Part9/4/4/7/1\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "d62e4241975b3208df857c87ddbf4827c1966545090de42dc986abfe573c6cd4",
+ "response_id": "resp_0dd1e8f2c77620f1006acca0fb44ec87d299f7853f8abd6ae5",
+ "seconds": 10.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1576,
+  "input_tokens_details": {
+   "cache_write_tokens": 1573,
+   "cached_tokens": 0
+  },
+  "output_tokens": 273,
+  "output_tokens_details": {
+   "reasoning_tokens": 155
+  },
+  "total_tokens": 1849
+ }
+}

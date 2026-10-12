@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006144,
+ "created_utc": "2026-10-12T05:20:48Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0003",
+ "job": "reading",
+ "key": "198c06a468014ab670edeb436cf0edb157dfa936a0dc4d1ae6f0d1ecb2419d60",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0001\",\"why\":\"The question expressly asks about the strength of a connotation.\",\"words\":\"connotation\"},{\"id\":\"GC-0006\",\"why\":\"The question asks whether that connotation supports a ground for rejection.\",\"words\":\"ground for rejection\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "0063948d53178dc799e5f14268fe2bc80c0ab2d935026edce2a84208f3ab63d5",
+ "response_id": "resp_0815898942e41860006acc6e2ad29487d2b8a0e3196051d475",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4648,
+  "input_tokens_details": {
+   "cache_write_tokens": 4645,
+   "cached_tokens": 0
+  },
+  "output_tokens": 67,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4715
+ }
+}

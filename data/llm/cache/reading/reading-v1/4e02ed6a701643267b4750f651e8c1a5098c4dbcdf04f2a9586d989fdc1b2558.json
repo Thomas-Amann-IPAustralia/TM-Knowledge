@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00649,
+ "created_utc": "2026-10-12T05:20:30Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0104",
+ "job": "reading",
+ "key": "4e02ed6a701643267b4750f651e8c1a5098c4dbcdf04f2a9586d989fdc1b2558",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0058\",\"why\":\"The question asks whether the picture can distinguish one trader's product from other traders' goods.\",\"words\":\"distinguish my product from other traders' goods\"},{\"id\":\"GC-0047\",\"why\":\"A picture of the goods themselves raises descriptive matter depicting those goods.\",\"words\":\"picture of the goods themselves\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "834df53521a940dce15bf862a2039c224865cc1dd66023ec13f39bef02377c57",
+ "response_id": "resp_0c5fa9c3a45be99d006acc6e18639487d2a80d0364d3848bd0",
+ "seconds": 6.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4653,
+  "input_tokens_details": {
+   "cache_write_tokens": 4650,
+   "cached_tokens": 0
+  },
+  "output_tokens": 135,
+  "output_tokens_details": {
+   "reasoning_tokens": 50
+  },
+  "total_tokens": 4788
+ }
+}

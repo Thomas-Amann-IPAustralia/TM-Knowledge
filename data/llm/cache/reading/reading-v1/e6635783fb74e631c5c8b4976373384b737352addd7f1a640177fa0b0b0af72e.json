@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006158,
+ "created_utc": "2026-10-12T05:19:16Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0036",
+ "job": "reading",
+ "key": "e6635783fb74e631c5c8b4976373384b737352addd7f1a640177fa0b0b0af72e",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0041\",\"why\":\"The question asks about filing evidence and choosing not to rely on it.\",\"words\":\"evidence\"},{\"id\":\"GC-0040\",\"why\":\"The question concerns the procedure in a trade mark opposition.\",\"words\":\"opposition\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "cbe5e58953af5325e9e1e6c4b3a9522259d7fa55feceb9efa86a1ca9d0cfed79",
+ "response_id": "resp_09fda3d78fc4b425006acc6dcda46887d28a27beb9c377ad02",
+ "seconds": 6.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4663,
+  "input_tokens_details": {
+   "cache_write_tokens": 4660,
+   "cached_tokens": 0
+  },
+  "output_tokens": 66,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4729
+ }
+}

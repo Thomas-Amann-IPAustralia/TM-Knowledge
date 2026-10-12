@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005998,
+ "created_utc": "2026-10-12T05:19:56Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0077",
+ "job": "reading",
+ "key": "836ecad9e2638fa46059edca5b613d79794c83edb12c69938f532d68c8dd0598",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0036\",\"why\":\"A rose variety name is a plant variety name.\",\"words\":\"rose variety name\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "e0aa9c8375a5b872eeb0d752c1d7072c410bef49f67da9cfb268e3c13111fc95",
+ "response_id": "resp_0ef24adf4d9158a6006acc6df9601c87d2859d30be2818dbe7",
+ "seconds": 3.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4647,
+  "input_tokens_details": {
+   "cache_write_tokens": 4644,
+   "cached_tokens": 0
+  },
+  "output_tokens": 38,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4685
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006263,
+ "created_utc": "2026-10-12T05:18:56Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0020",
+ "job": "reading",
+ "key": "634d118fc5b3fd739738c319e99f7e76991a041be95581898ee9aae17f35772d",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0015\",\"why\":\"Deleting goods from an application describes restricting its specification.\",\"words\":\"delete some goods\"},{\"id\":\"GC-0064\",\"why\":\"The conflict is raised as the reason for restricting the goods claimed.\",\"words\":\"conflict\"},{\"id\":\"GC-0012\",\"why\":\"The question expressly asks about the remaining specification.\",\"words\":\"specification\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "d147316def63e734ea7bd4036cddf36e03401436f5e38b54432da4f5e51867c6",
+ "response_id": "resp_0a320ca7b3f9df40006acc6dbad73087d2ba45ea782652e5a3",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4659,
+  "input_tokens_details": {
+   "cache_write_tokens": 4656,
+   "cached_tokens": 0
+  },
+  "output_tokens": 88,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4747
+ }
+}

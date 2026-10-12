@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00628,
+ "created_utc": "2026-10-12T05:19:09Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0031",
+ "job": "reading",
+ "key": "8d792d543532eba449335a56f5df5b5207da65705ff96daa0f5c204e03b155e0",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0040\",\"why\":\"These words expressly identify opposition proceedings.\",\"words\":\"opposition\"},{\"id\":\"GC-0041\",\"why\":\"These words raise evidence and whether it can be considered despite being late.\",\"words\":\"late evidence\"},{\"id\":\"GC-0131\",\"why\":\"These words refer to the earlier application record sought by the other side.\",\"words\":\"earlier application papers\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "6cb973df7327b507a636a27a6a0442881669070704267d00db379c063612184d",
+ "response_id": "resp_011ab0433f4b53da006acc6dc75ca487d296d248068f4f40e4",
+ "seconds": 6.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4657,
+  "input_tokens_details": {
+   "cache_write_tokens": 4654,
+   "cached_tokens": 0
+  },
+  "output_tokens": 92,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4749
+ }
+}

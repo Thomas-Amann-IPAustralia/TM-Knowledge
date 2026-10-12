@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006032,
+ "created_utc": "2026-10-12T05:18:43Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0009",
+ "job": "reading",
+ "key": "4d063730e67b7f7dfe36d9bf07d7bda9da4694d18a4d8856aea8a98ff1f782ba",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0046\",\"why\":\"These words identify the Registrar as the person responsible for notifying the fee underpayment.\",\"words\":\"Registrar\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "2196098be6837dc8a4059c446ca0b4ba239fc5e80dcd440035211c324880d98b",
+ "response_id": "resp_066c1939b20bd3a7006acc6daddda887d2be8259de86dd929e",
+ "seconds": 6.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4658,
+  "input_tokens_details": {
+   "cache_write_tokens": 4655,
+   "cached_tokens": 0
+  },
+  "output_tokens": 42,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4700
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006158,
+ "created_utc": "2026-10-12T05:20:36Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0111",
+ "job": "reading",
+ "key": "bd56c182658bf377b76d3b3fb2a61f6904411ba5d5343c9acf312322bc137cc5",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0098\",\"why\":\"‘lapsing’ refers to the lapsing of an application.\",\"words\":\"lapsing\"},{\"id\":\"GC-0097\",\"why\":\"‘extensions of time’ directly names the extension of time procedure.\",\"words\":\"extensions of time\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "097dbdccb2d23fe1811b4fad37a399c4b17c72e32bd53652c65bc9e4afbd5041",
+ "response_id": "resp_0742627ee25cf7df006acc6e1ef44487d2a22a837883fe9775",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4655,
+  "input_tokens_details": {
+   "cache_write_tokens": 4652,
+   "cached_tokens": 0
+  },
+  "output_tokens": 68,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4723
+ }
+}

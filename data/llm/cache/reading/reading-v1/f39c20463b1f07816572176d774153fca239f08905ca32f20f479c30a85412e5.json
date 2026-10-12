@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006327,
+ "created_utc": "2026-10-12T05:17:53Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0002",
+ "job": "reading",
+ "key": "f39c20463b1f07816572176d774153fca239f08905ca32f20f479c30a85412e5",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0144\",\"why\":\"Compulsory production of documents is the aspect of a subpoena raised by these words.\",\"words\":\"make me hand over documents\"},{\"id\":\"GC-0046\",\"why\":\"The question expressly identifies the Registrar as the person exercising the power.\",\"words\":\"Registrar\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "de02ba8f6ff229b8f2317b9ce4e31ddc74fe229522625f768ba54415f53282be",
+ "response_id": "resp_0346d61f4cb33ab2006acc6d7bf2c887d2ad8021d747766d62",
+ "seconds": 7.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4658,
+  "input_tokens_details": {
+   "cache_write_tokens": 4655,
+   "cached_tokens": 0
+  },
+  "output_tokens": 101,
+  "output_tokens_details": {
+   "reasoning_tokens": 26
+  },
+  "total_tokens": 4759
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006292,
+ "created_utc": "2026-10-12T05:19:21Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0040",
+ "job": "reading",
+ "key": "e82e70245770be58a7821297db3f530c6c2c9f1de98307b7280e9d3a31773173",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0109\",\"why\":\"These words expressly identify a defensive trade mark.\",\"words\":\"defensive trade mark\"},{\"id\":\"GC-0104\",\"why\":\"These words ask about removal of a trade mark for non-use.\",\"words\":\"removed for non-use\"},{\"id\":\"GC-0081\",\"why\":\"These words raise intended use of the trade mark.\",\"words\":\"intention to use\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "fa1e095a5a5dcc3314454777b1c20c1fc39a541b72e0146e6e5881c5958ca539",
+ "response_id": "resp_094adfba0bb24aab006acc6dd36cd887d2a93105f4f93b04b9",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4662,
+  "input_tokens_details": {
+   "cache_write_tokens": 4659,
+   "cached_tokens": 0
+  },
+  "output_tokens": 93,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4755
+ }
+}

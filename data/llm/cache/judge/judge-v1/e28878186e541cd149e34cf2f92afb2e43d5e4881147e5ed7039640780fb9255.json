@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002582,
+ "created_utc": "2026-10-12T08:56:34Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0082",
+ "job": "judge",
+ "key": "e28878186e541cd149e34cf2f92afb2e43d5e4881147e5ed7039640780fb9255",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part19A/2/2/2~2\",\"grade\":2},{\"ref\":\"TMM/Part34/3#1\",\"grade\":1},{\"ref\":\"TMM/Part23/3/3/1\",\"grade\":1},{\"ref\":\"TMM/Part19A/x-relevant-legislation16/the-act\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "a79a9f669aec874cf7fea3cd0de41416cccfe8bcfdbd7fe1454e60628baf6b61",
+ "response_id": "resp_04663aa0c3cb98c1006acca0bc65a087d2a49d3a2f53cdca38",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1354,
+  "input_tokens_details": {
+   "cache_write_tokens": 1351,
+   "cached_tokens": 0
+  },
+  "output_tokens": 178,
+  "output_tokens_details": {
+   "reasoning_tokens": 88
+  },
+  "total_tokens": 1532
+ }
+}

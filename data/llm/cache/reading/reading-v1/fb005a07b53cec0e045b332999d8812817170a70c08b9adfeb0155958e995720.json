@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006053,
+ "created_utc": "2026-10-12T05:20:47Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0001",
+ "job": "reading",
+ "key": "fb005a07b53cec0e045b332999d8812817170a70c08b9adfeb0155958e995720",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0168\",\"why\":\"The reference to the test under section 43 raises the section 43 ground for rejection.\",\"words\":\"test under section 43\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "efde6c5eda4af9c5f1c71a4efde540995ab07656508b3ec12f3b224a42a0e411",
+ "response_id": "resp_0c9847a97842b8fc006acc6e29c13887d29a2fd6dca8313510",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4651,
+  "input_tokens_details": {
+   "cache_write_tokens": 4648,
+   "cached_tokens": 0
+  },
+  "output_tokens": 48,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4699
+ }
+}

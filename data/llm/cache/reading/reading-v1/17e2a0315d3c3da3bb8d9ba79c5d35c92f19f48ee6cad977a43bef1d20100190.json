@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00628,
+ "created_utc": "2026-10-12T05:18:49Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0012",
+ "job": "reading",
+ "key": "17e2a0315d3c3da3bb8d9ba79c5d35c92f19f48ee6cad977a43bef1d20100190",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0013\",\"why\":\"These words raise a condition attached to registration.\",\"words\":\"condition about varietal names\"},{\"id\":\"GC-0036\",\"why\":\"These words refer to plant variety names.\",\"words\":\"varietal names\"},{\"id\":\"GC-0081\",\"why\":\"These words ask about use of the trade mark.\",\"words\":\"how the mark is used\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "09d5ca954855b78bb50cdb4a93cf09e5ca44496232efec3b0a0317dc712f4e7f",
+ "response_id": "resp_025288282edfcca4006acc6db418b887d2b63f8d5eafdc8014",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4665,
+  "input_tokens_details": {
+   "cache_write_tokens": 4662,
+   "cached_tokens": 0
+  },
+  "output_tokens": 90,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4755
+ }
+}

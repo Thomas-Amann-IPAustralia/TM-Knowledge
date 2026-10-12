@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006048,
+ "created_utc": "2026-10-12T05:19:52Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0068",
+ "job": "reading",
+ "key": "8159eff7812136975920899d8e0fc0ecde1117428d95e402e2272bb58bbbb5be",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0075\",\"why\":\"These words identify a shape as the subject of trade mark registration.\",\"words\":\"register a shape as a trade mark\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "32ebbc6cc0e392027a00480a417dca380ae3415a85bad9e3f5333aa5463283c1",
+ "response_id": "resp_02d887475f19cad8006acc6df2811087d283ae925853852b44",
+ "seconds": 6.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4659,
+  "input_tokens_details": {
+   "cache_write_tokens": 4656,
+   "cached_tokens": 0
+  },
+  "output_tokens": 45,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4704
+ }
+}

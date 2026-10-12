@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.007282,
+ "created_utc": "2026-10-12T05:20:12Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0085",
+ "job": "reading",
+ "key": "11f4e796eceaa344047a6af2835db0b1591fac6803719ceb8e30f60c731e4948",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0064\",\"why\":\"A problem involving a similar business name raises a possible conflict with another sign.\",\"words\":\"similar business name\"},{\"id\":\"GC-0020\",\"why\":\"A business name is a business identifier, although the question places it outside the mark itself.\",\"words\":\"business name\"},{\"id\":\"GC-0006\",\"why\":\"“Object” raises an objection, though the question does not specify its procedural basis.\",\"words\":\"object\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "9cf2705fb68dbdd7c1caac9efb87954d3036e05f0ab7fc5dd7c0230af9dd822d",
+ "response_id": "resp_04ac3baae9d7568f006acc6e02717c87d2b34c33d0e0d609cb",
+ "seconds": 10.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4658,
+  "input_tokens_details": {
+   "cache_write_tokens": 4655,
+   "cached_tokens": 0
+  },
+  "output_tokens": 292,
+  "output_tokens_details": {
+   "reasoning_tokens": 185
+  },
+  "total_tokens": 4950
+ }
+}

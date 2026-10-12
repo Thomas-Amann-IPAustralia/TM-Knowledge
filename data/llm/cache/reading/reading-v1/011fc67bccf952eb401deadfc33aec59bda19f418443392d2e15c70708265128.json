@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006269,
+ "created_utc": "2026-10-12T05:18:50Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0015",
+ "job": "reading",
+ "key": "011fc67bccf952eb401deadfc33aec59bda19f418443392d2e15c70708265128",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0107\",\"why\":\"These words expressly identify a certification trade mark.\",\"words\":\"certification trade mark\"},{\"id\":\"GC-0020\",\"why\":\"These words identify a name used to identify a business.\",\"words\":\"business name\"},{\"id\":\"GC-0081\",\"why\":\"These words ask about use of the mark after registration.\",\"words\":\"use the mark\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "7181eb193848072861104e0cba9c5f706cfed8cb3864a665178c65fb441445a3",
+ "response_id": "resp_0498a146a724df59006acc6db4b11087d2b9e63fc2869c3687",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4660,
+  "input_tokens_details": {
+   "cache_write_tokens": 4657,
+   "cached_tokens": 0
+  },
+  "output_tokens": 89,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4749
+ }
+}

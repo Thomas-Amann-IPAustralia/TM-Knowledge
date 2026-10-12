@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006137,
+ "created_utc": "2026-10-12T05:19:09Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0029",
+ "job": "reading",
+ "key": "e8031ba3259680dd05b814ef65d458d83cef1f4f064779893f0352976a087515",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0040\",\"why\":\"These words expressly identify opposition as the basis for the provisional refusal.\",\"words\":\"opposition\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "00f8b04c6582d4b2fc0e50d0b7c9db338b1e138d10db865ad8e222587549539e",
+ "response_id": "resp_0cb9466ef6e4bf17006acc6dc6f97487d28982d5a0550ac768",
+ "seconds": 6.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4654,
+  "input_tokens_details": {
+   "cache_write_tokens": 4651,
+   "cached_tokens": 0
+  },
+  "output_tokens": 64,
+  "output_tokens_details": {
+   "reasoning_tokens": 22
+  },
+  "total_tokens": 4718
+ }
+}

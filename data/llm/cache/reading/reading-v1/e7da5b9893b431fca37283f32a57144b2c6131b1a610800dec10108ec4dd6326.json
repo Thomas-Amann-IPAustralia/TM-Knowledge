@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006154,
+ "created_utc": "2026-10-12T05:19:28Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0048",
+ "job": "reading",
+ "key": "e7da5b9893b431fca37283f32a57144b2c6131b1a610800dec10108ec4dd6326",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0064\",\"why\":\"An earlier trade mark ground refers to a conflict with another trade mark.\",\"words\":\"earlier trade mark ground\"},{\"id\":\"GC-0046\",\"why\":\"The question expressly identifies the Registrar as assessing the ground.\",\"words\":\"Registrar\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "9c583c0ee83a1527f3407264d85a999c10feae36412ddf260b53f47ff8d7a910",
+ "response_id": "resp_000391fab695560b006acc6dda5b2c87d2aca5645d2f3a1b61",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4652,
+  "input_tokens_details": {
+   "cache_write_tokens": 4649,
+   "cached_tokens": 0
+  },
+  "output_tokens": 68,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4720
+ }
+}

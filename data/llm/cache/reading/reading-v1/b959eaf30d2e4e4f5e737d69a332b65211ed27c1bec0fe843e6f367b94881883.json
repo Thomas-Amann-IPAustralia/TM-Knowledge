@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006635,
+ "created_utc": "2026-10-12T05:20:25Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0101",
+ "job": "reading",
+ "key": "b959eaf30d2e4e4f5e737d69a332b65211ed27c1bec0fe843e6f367b94881883",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0150\",\"why\":\"These words raise international registration of a trade mark.\",\"words\":\"international trade mark application\"},{\"id\":\"GC-0084\",\"why\":\"These words raise the identity of the trade mark's owner.\",\"words\":\"same owner\"},{\"id\":\"GC-0012\",\"why\":\"These words raise the scope of goods and services claimed.\",\"words\":\"some of the same goods or services\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "acdf2fced1539ceae04329efa66ddbd5feaf51ce968e1a0926e5608865ee864c",
+ "response_id": "resp_024998386a578376006acc6e138e5887d28f8dbd7baf79ab4d",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4673,
+  "input_tokens_details": {
+   "cache_write_tokens": 4670,
+   "cached_tokens": 0
+  },
+  "output_tokens": 159,
+  "output_tokens_details": {
+   "reasoning_tokens": 62
+  },
+  "total_tokens": 4832
+ }
+}

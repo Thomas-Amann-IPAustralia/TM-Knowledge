@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006437,
+ "created_utc": "2026-10-12T05:20:12Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0090",
+ "job": "reading",
+ "key": "f767e2c29e9603468a036e1893f3dc3242de4ceab069ddc7c1a72630fc6c56c3",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0121\",\"why\":\"A class dispute raises the classification of goods and services.\",\"words\":\"class dispute\"},{\"id\":\"GC-0112\",\"why\":\"A Madrid application refers to the Madrid Protocol system.\",\"words\":\"Madrid application\"},{\"id\":\"GC-0136\",\"why\":\"The question expressly identifies the Office of origin as a party to the disagreement.\",\"words\":\"Office of origin\"},{\"id\":\"GC-0138\",\"why\":\"The question expressly identifies the International Bureau as the other party to the disagreement.\",\"words\":\"International Bureau\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "8b31e02a219559703595ddeef5acc2b543e007630a6298790ad2d46dc7af500f",
+ "response_id": "resp_00ea0028eb037da2006acc6e07359c87d2af266d6f89d10924",
+ "seconds": 5.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4666,
+  "input_tokens_details": {
+   "cache_write_tokens": 4663,
+   "cached_tokens": 0
+  },
+  "output_tokens": 121,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4787
+ }
+}

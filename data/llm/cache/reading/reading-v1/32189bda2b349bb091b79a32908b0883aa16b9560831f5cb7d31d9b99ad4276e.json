@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006144,
+ "created_utc": "2026-10-12T05:19:35Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0056",
+ "job": "reading",
+ "key": "32189bda2b349bb091b79a32908b0883aa16b9560831f5cb7d31d9b99ad4276e",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0041\",\"why\":\"The question asks what evidence must be provided and what it must demonstrate.\",\"words\":\"evidence\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "6f20a275de3d06e1ff91646863f80b4dcc1016847f50d6c0264131cce2cca90a",
+ "response_id": "resp_006c639c7a3e544c006acc6de18e5c87d2ba8817007d920f68",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4664,
+  "input_tokens_details": {
+   "cache_write_tokens": 4661,
+   "cached_tokens": 0
+  },
+  "output_tokens": 63,
+  "output_tokens_details": {
+   "reasoning_tokens": 20
+  },
+  "total_tokens": 4727
+ }
+}

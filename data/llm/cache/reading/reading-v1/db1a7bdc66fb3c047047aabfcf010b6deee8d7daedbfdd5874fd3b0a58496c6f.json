@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006039,
+ "created_utc": "2026-10-12T05:20:17Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0091",
+ "job": "reading",
+ "key": "db1a7bdc66fb3c047047aabfcf010b6deee8d7daedbfdd5874fd3b0a58496c6f",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0070\",\"why\":\"These words ask about the goods comparison described by this legal test.\",\"words\":\"goods to be of the same description\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "98101af0240dd614090ea5f3e9b38ce738364fff1fe5fabd6810f5fbb143f643",
+ "response_id": "resp_07c5d3e748690c80006acc6e0bc7b087d2b41832caa8073fb2",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4652,
+  "input_tokens_details": {
+   "cache_write_tokens": 4649,
+   "cached_tokens": 0
+  },
+  "output_tokens": 45,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4697
+ }
+}

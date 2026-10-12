@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006315,
+ "created_utc": "2026-10-12T05:19:58Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0075",
+ "job": "reading",
+ "key": "877eb97e40ab9037abb61980bddd4c685bc783468e3960834e9e131614940cf0",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0040\",\"why\":\"These words raise opposition to registration.\",\"words\":\"opposed\"},{\"id\":\"GC-0006\",\"why\":\"These words refer to grounds raised against registration.\",\"words\":\"grounds\"},{\"id\":\"GC-0092\",\"why\":\"This word expressly identifies examination.\",\"words\":\"examination\"},{\"id\":\"GC-0117\",\"why\":\"This word identifies the party opposing registration.\",\"words\":\"opponent\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "b16747960c02353618e56a40a7ddc504fae8975efaef7f3ac2750d065f19abbf",
+ "response_id": "resp_0db114c1a5a5b8fd006acc6df906ec87d2a659272c1c51c3e8",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4661,
+  "input_tokens_details": {
+   "cache_write_tokens": 4658,
+   "cached_tokens": 0
+  },
+  "output_tokens": 98,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4759
+ }
+}

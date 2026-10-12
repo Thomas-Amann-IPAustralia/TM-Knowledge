@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006169,
+ "created_utc": "2026-10-12T05:18:57Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0019",
+ "job": "reading",
+ "key": "36b186e9262e155b19a99189d7794d3cc13119442e7318c9e2854811534ac997",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0116\",\"why\":\"These words identify the applicant as the person whose identity must be established.\",\"words\":\"an applicant\"},{\"id\":\"GC-0180\",\"why\":\"These words ask about current Manual practice rather than a particular legislative provision.\",\"words\":\"current rules\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "9e9367c0561665c716d88e72d97d8762b19b74cd3ea0c009bef7b71ef4c522e1",
+ "response_id": "resp_025a839579218ea5006acc6dbb1ec087d2aae5b121c59a263d",
+ "seconds": 7.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4660,
+  "input_tokens_details": {
+   "cache_write_tokens": 4657,
+   "cached_tokens": 0
+  },
+  "output_tokens": 69,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4729
+ }
+}

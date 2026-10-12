@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006177,
+ "created_utc": "2026-10-12T05:19:29Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0050",
+ "job": "reading",
+ "key": "d09921ff3baf2d81273d2d7499c25d4d2f8d6965327c107c9917b22c97194785",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0041\",\"why\":\"These words raise the question of what evidence of business activity can be relied on as evidence of use.\",\"words\":\"website stats or other figures instead of sales figures\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "64695dff7d5cc55b836f9c67233778e31aac556f7ecde2d33037d5fa15a7c89a",
+ "response_id": "resp_047580ac42a11ca3006acc6ddb560487d2bd4817c2a2b02409",
+ "seconds": 6.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4658,
+  "input_tokens_details": {
+   "cache_write_tokens": 4655,
+   "cached_tokens": 0
+  },
+  "output_tokens": 71,
+  "output_tokens_details": {
+   "reasoning_tokens": 15
+  },
+  "total_tokens": 4729
+ }
+}

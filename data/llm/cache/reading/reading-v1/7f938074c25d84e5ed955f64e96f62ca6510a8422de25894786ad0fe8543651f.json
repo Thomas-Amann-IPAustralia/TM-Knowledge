@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006362,
+ "created_utc": "2026-10-12T05:19:52Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0069",
+ "job": "reading",
+ "key": "7f938074c25d84e5ed955f64e96f62ca6510a8422de25894786ad0fe8543651f",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0025\",\"why\":\"These words identify pharmaceutical or veterinary goods as the subject of the check.\",\"words\":\"class 5 pharmaceutical or veterinary goods\"},{\"id\":\"GC-0022\",\"why\":\"These words refer to International Non-Proprietary Names against which goods are to be checked.\",\"words\":\"INN list\"},{\"id\":\"GC-0023\",\"why\":\"These words explicitly identify INN stems as another subject of the check.\",\"words\":\"INN stems\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "2e1384deeefd81b7bf4d74976d38ba4a123a4e0316d71dfa33c4f82e4df951c5",
+ "response_id": "resp_0b8fd1a98929e4a1006acc6df2b93887d293975509256063db",
+ "seconds": 6.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4658,
+  "input_tokens_details": {
+   "cache_write_tokens": 4655,
+   "cached_tokens": 0
+  },
+  "output_tokens": 108,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4766
+ }
+}

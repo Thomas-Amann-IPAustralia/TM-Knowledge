@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006167,
+ "created_utc": "2026-10-12T05:19:16Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0038",
+ "job": "reading",
+ "key": "1bfdedfcd2170c7ca76c19832d1e88335694a981458fb31868834cb67705175e",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0097\",\"why\":\"The request seeks an extension of time to file.\",\"words\":\"late extension request\"},{\"id\":\"GC-0041\",\"why\":\"The declaration and its ability to prove the explanation raise evidence.\",\"words\":\"declaration does not really prove it\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "509764241b32128cbfedba611a98c2879898bd88405b7a3407b27458c27eb5a0",
+ "response_id": "resp_031a42eeebc8c146006acc6dce73c887d2b299045fc74f490b",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4658,
+  "input_tokens_details": {
+   "cache_write_tokens": 4655,
+   "cached_tokens": 0
+  },
+  "output_tokens": 69,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4727
+ }
+}

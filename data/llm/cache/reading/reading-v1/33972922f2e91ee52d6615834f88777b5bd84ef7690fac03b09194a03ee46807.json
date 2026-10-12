@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006027,
+ "created_utc": "2026-10-12T05:19:27Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0045",
+ "job": "reading",
+ "key": "33972922f2e91ee52d6615834f88777b5bd84ef7690fac03b09194a03ee46807",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0154\",\"why\":\"The question expressly asks about the test of deceptive similarity.\",\"words\":\"deceptively similar\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "f848fea8279fc9e4c987766c6aa6e1e301d13ef79b4c91bec73633a745899c0e",
+ "response_id": "resp_008d0cd1b810e4fb006acc6dd98ef887d2be0d945bedf054ba",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4662,
+  "input_tokens_details": {
+   "cache_write_tokens": 4659,
+   "cached_tokens": 0
+  },
+  "output_tokens": 40,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4702
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006266,
+ "created_utc": "2026-10-12T05:18:43Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0005",
+ "job": "reading",
+ "key": "9ae25e1c2acd6a0a0b1dc3217f64eeb30f93258a4dbb3e1b0bc3edf24f5040ba",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0040\",\"why\":\"The question concerns the timetable in opposition proceedings.\",\"words\":\"opposition\"},{\"id\":\"GC-0041\",\"why\":\"The question expressly concerns the timing of evidence.\",\"words\":\"evidence\"},{\"id\":\"GC-0029\",\"why\":\"Asking whether both sides must agree raises the requirement for consent.\",\"words\":\"both sides have to agree\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "6e43b790b4e4aa96148ac67aa1dedd3fd5d96f6c9983118510b8b56bc922b91e",
+ "response_id": "resp_0e378aa875ea39bd006acc6dad86bc87d28ddfd0bd7f63c753",
+ "seconds": 6.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4657,
+  "input_tokens_details": {
+   "cache_write_tokens": 4654,
+   "cached_tokens": 0
+  },
+  "output_tokens": 89,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4746
+ }
+}
