@@ -3,7 +3,9 @@
 
    Retrieval runs in the browser (engine.js, the same ranking Python measured,
    less the vectors). The answer comes from the model only when the site was
-   built with live answers on; the 129 prepared answers always work. Every
+   built with live answers on; the 129 prepared answers always work. Live, the
+   model first reads a typed question against the map, so a question in everyday
+   words ("a smell") still starts from ideas on it (ADR-0132). Every
    answer is stamped unreviewed, keeps the Manual and the legislation apart, and
    declines to say how an application would be decided. */
 
@@ -11,7 +13,7 @@ import { esc, fmt, load, kindColour, refChip, refLabel, isLaw, sourceOf, srcClas
 import { svg, curve, wrapText, wait } from "./graph.js";
 import { Engine, Recogniser, authorityFlags } from "./engine.js";
 import { miniMap } from "./minimap.js";
-import { answer as callModel, cost, partialField, viaProxy, wake } from "./live.js";
+import { answer as callModel, read as readModel, cost, partialField, viaProxy, wake } from "./live.js";
 import * as lib from "./lib.js";
 
 /** Markdown → sanitised HTML, with bracketed refs turned into passage chips. */
@@ -48,6 +50,7 @@ const countOne = () => { try { localStorage.setItem(todayKey(), String(usedToday
 export async function render(root, { ontology, params }) {
   const [examples, chat, live] = await Promise.all([load("examples"), load("chat"), load("live").catch(() => ({ enabled: false }))]);
   wake(live);
+  const answersOn = !!live.enabled; // `live` is shadowed below, where it means "a typed question"
   const byId = new Map(ontology.concepts.map((c) => [c.id, c]));
   const prepared = new Map(examples.answers.map((a) => [a.key, a]));
   let controller = null, mini = null, maps = 0;
@@ -137,23 +140,44 @@ export async function render(root, { ontology, params }) {
     if (controller) controller.abort();
     controller = new AbortController();
     const signal = controller.signal;
+    const canAnswer = live.enabled && usedToday() < chat.daily_limit;
+    const reads = canAnswer && !!chat.reading;
+    if (canAnswer) { countOne(); liveStatus(); }
+    // The reading and the Manual's text load side by side: neither needs the other.
+    const reading = reads ? readModel(live, chat, question, signal).then((reply) => ({ reply }), (error) => ({ error })) : Promise.resolve(null);
     const eng = await getEngine(loadStatus);
-    const prep = eng.prepare(question, chat);
+    if (signal.aborted) return;
     history.replaceState(null, "", "#/ask");
     const view = frame(question, "live");
-    const linkedCount = prep.weight ? prep.weight.size : 0;
-    const graph = {
-      question,
-      recognised: prep.trace.recognised.map((r) => ({ id: r.id, matched: question.slice(r.start, r.end), name: r.label, start: r.start, end: r.end, everyday: r.alias, generic: eng.generic.has(r.id) })),
-      paths: prep.paths.map(([s, p, o, record, origin]) => ({ s, p, o, record, origin })),
-      followed: prep.trace.paths.map(([s, p, o, record, origin]) => ({ s, p, o, record, origin })),
-      passages: prep.passages, legislation: prep.legislation, plain: prep.plain, mentions: eng.s.mentions,
-    };
-    const steps = describe(graph, { linkedCount, live: true });
-    explain(view, graph, { live: true });
-    renderCompare(view.compare, prep.plain, prep.passages, prep.hits);
-    const canAnswer = live.enabled && usedToday() < chat.daily_limit;
-    const animation = animate(view, graph, steps);
+    // A proxy that has slept says nothing for up to a minute while it wakes.
+    let sleepy = reads && viaProxy(live) ? setTimeout(() => {
+      const status = view.steps.querySelector(".reading-status") || view.body.querySelector(".thinking-text");
+      if (status) status.textContent = "Waiting for the answer service — after a quiet spell it can take up to a minute to wake…";
+    }, 10000) : null;
+    const ready = reading.then((outcome) => {
+      clearTimeout(sleepy);
+      if (signal.aborted) return null;
+      const read = outcome?.reply ? {
+        ...eng.reading(question, outcome.reply.parsed, chat.reading.max_ideas),
+        model: outcome.reply.model, cost: cost(outcome.reply.usage, chat.prices),
+      } : outcome?.error ? { kept: [], dropped: [], error: String(outcome.error.message || outcome.error).replace(/\.+$/, "") } : null;
+      const prep = eng.prepare(question, chat, read?.kept || []);
+      const graph = {
+        question, reading: read,
+        recognised: prep.trace.recognised.map((r) => ({ id: r.id, matched: question.slice(r.start, r.end), name: r.label, start: r.start, end: r.end, everyday: r.alias, read: !!r.read, why: r.why, generic: eng.generic.has(r.id) })),
+        paths: prep.paths.map(([s, p, o, record, origin]) => ({ s, p, o, record, origin })),
+        followed: prep.trace.paths.map(([s, p, o, record, origin]) => ({ s, p, o, record, origin })),
+        passages: prep.passages, legislation: prep.legislation, plain: prep.plain, mentions: eng.s.mentions,
+      };
+      explain(view, graph, { live: true });
+      renderCompare(view.compare, prep.plain, prep.passages, prep.hits);
+      return { prep, g: graph, steps: describe(graph, { linkedCount: prep.weight ? prep.weight.size : 0, live: true }) };
+    });
+    const animation = animate(view, question, ready, { reading: reads });
+    const built = await ready;
+    if (!built) return;
+    const { prep, g } = built;
+    clearTimeout(sleepy);
     if (!live.enabled) {
       await animation;
       view.body.innerHTML = `<p class="muted">Everything on the left — the ideas recognised, the connections followed and the passages ranked — ran in your browser.</p>
@@ -167,11 +191,9 @@ export async function render(root, { ontology, params }) {
     }
     view.body.innerHTML = `<div class="thinking"><span class="spinner"></span><span class="thinking-text">Reading the ${prep.passages.length} passages${prep.legislation.length ? ` and ${prep.legislation.length} provisions` : ""}…</span></div>
       <div class="answer streaming"></div>`;
-    countOne(); liveStatus();
     // Stream: the model chooses its citations first, then writes the answer.
     let lastPaint = 0, painting = false;
-    // A proxy that has slept says nothing for up to a minute while it wakes.
-    const sleepy = viaProxy(live) ? setTimeout(() => {
+    sleepy = viaProxy(live) && !g.reading?.model ? setTimeout(() => {
       const status = view.body.querySelector(".thinking-text");
       if (status) status.textContent = "Waiting for the answer service — after a quiet spell it can take up to a minute to wake…";
     }, 10000) : null;
@@ -197,10 +219,12 @@ export async function render(root, { ontology, params }) {
       clearTimeout(sleepy);
       await animation;
       const checked = eng.verify(reply.parsed.citations, prep);
+      const spent = cost(reply.usage, chat.prices);
       showAnswer(view, {
         answer: reply.parsed.answer, citations: checked.kept, dropped: checked.dropped,
         declined: reply.parsed.declined, decline_reason: reply.parsed.decline_reason,
-        model: reply.model, when: "just now", live: true, seconds: reply.seconds, cost: cost(reply.usage, chat.prices),
+        model: reply.model, when: "just now", live: true, seconds: reply.seconds,
+        cost: spent == null ? null : spent + (g.reading?.cost || 0), readingCost: g.reading?.cost, reading: g.reading,
       });
     } catch (error) {
       clearTimeout(sleepy);
@@ -240,8 +264,7 @@ export async function render(root, { ontology, params }) {
       .map((e) => [e[3], { s: e[0], p: e[1], o: e[2], record: e[3], origin: e[4] }])).values()] : graph.paths;
     renderCompare(view.compare, graph.plain, a.passages, null, true);
     explain(view, graph, { live: false });
-    const animation = animate(view, graph, describe(graph, { live: false }));
-    await animation;
+    await animate(view, a.question, { g: graph, steps: describe(graph, { live: false }) });
     showAnswer(view, { ...a, live: false, when: a.date });
   }
 
@@ -255,10 +278,19 @@ export async function render(root, { ontology, params }) {
     const neighbours = new Set(followed.map((p) => (recIds.has(p.s) ? p.o : p.s)).filter((id) => !recIds.has(id)));
     const plainSet = new Set((g.plain || []).slice(0, 10));
     const beyond = g.passages.filter((r) => !plainSet.has(r)).length;
-    const name = (r) => `<b>${esc(byId.get(r.id)?.label || r.id)}</b>${r.matched && r.matched.toLowerCase() !== (byId.get(r.id)?.label || "").toLowerCase() ? ` <span class="muted">(“${esc(r.matched)}”${r.everyday ? ", an everyday phrasing" : ""})</span>` : ""}`;
+    const name = (r) => {
+      const label = byId.get(r.id)?.label || r.id;
+      const note = r.read ? `“${esc(r.matched)}”, read by the model`
+        : r.matched && r.matched.toLowerCase() !== label.toLowerCase() ? `“${esc(r.matched)}”${r.everyday ? ", an everyday phrasing" : ""}` : "";
+      return `<b>${esc(label)}</b>${note ? ` <span class="muted">(${note})</span>` : ""}`;
+    };
+    const read = g.reading;
+    const readNote = !live ? "" : read?.error ? ` <span class="muted">(The model could not read the question for ideas in other words, so only names were matched.)</span>`
+      : !read && !rec.length && !answersOn ? ` <span class="muted">With live answers on, a model also reads the question for ideas it raises in other words.</span>` : "";
     return [
-      rec.length ? `Recognised ${rec.length} idea${rec.length > 1 ? "s" : ""} in the question: ${rec.slice(0, 5).map(name).join(", ")}${rec.length > 5 ? "…" : ""}.${generic.length ? ` <span class="muted">(<i>${generic.map((r) => esc(byId.get(r.id)?.label)).join("</i>, <i>")}</i> ${generic.length > 1 ? "are" : "is"} named so often it is not used to steer.)</span>` : ""}`
-        : `Recognised no specific idea in the question, so this is plain keyword search.`,
+      (rec.length ? `Recognised ${rec.length} idea${rec.length > 1 ? "s" : ""} in the question: ${rec.slice(0, 5).map(name).join(", ")}${rec.length > 5 ? "…" : ""}.${generic.length ? ` <span class="muted">(<i>${generic.map((r) => esc(byId.get(r.id)?.label)).join("</i>, <i>")}</i> ${generic.length > 1 ? "are" : "is"} named so often it is not used to steer.)</span>` : ""}`
+        : read?.model ? `Found no specific idea in the question, by name or in the model's reading, so this is plain keyword search.`
+        : `Recognised no specific idea in the question, so this is plain keyword search.`) + readNote,
       followed.length ? `Followed ${followed.length > 1 ? `all ${followed.length} connections` : "the one connection"} from ${rec.length > 1 ? "them" : "it"}, one step out, to ${neighbours.size} related idea${neighbours.size === 1 ? "" : "s"}${followed.length > g.paths.length ? `; ${g.paths.length} of them go to the answer-writer` : ""}.${(() => { const old = g.paths.filter((p) => ontology.retired_predicates?.[p.p]).length; return old ? ` <span class="muted">Prepared before the ontology was restructured on 9 October 2026: ${old} of the connections drawn below said only "is related to" and have since been re-read or withdrawn.</span>` : ""; })()}`
         : rec.length ? `The map records no connections for ${rec.length > 1 ? "these ideas" : "this idea"}, so there were none to follow.` : `No connections to follow.`,
       live ? `Gathered ${fmt(linkedCount)} passages linked to those ideas${g.legislation.length ? `, and ${g.legislation.length} provision${g.legislation.length > 1 ? "s" : ""} of the legislation` : ""}.`
@@ -268,9 +300,9 @@ export async function render(root, { ontology, params }) {
     ];
   }
 
-  async function animate(view, g, steps) {
-    view.steps.innerHTML = steps.map((s) => `<li><span>${s}</span></li>`).join("");
-    const items = [...view.steps.children];
+  /** Draw the hop diagram. `ready` is the graph and its steps, or a promise of them
+      while the model reads the question; the question is drawn at once either way. */
+  async function animate(view, question, ready, { reading = false } = {}) {
     const Wd = 1000, Ht = 540;
     const pic = svg("svg", { viewBox: `0 0 ${Wd} ${Ht}`, role: "img", "aria-label": "How the question was answered: ideas, connections, passages" });
     view.hop.appendChild(pic);
@@ -284,11 +316,32 @@ export async function render(root, { ontology, params }) {
     pic.classList.add("hop");
 
     // 1. question
-    const qText = wrapText(g.question || "", 20, 8);
+    const qText = wrapText(question || "", 20, 8);
     const qg = svg("g", { opacity: 0 }, nodes);
     svg("rect", { x: cols.q - 92, y: Ht / 2 - 20 - qText.length * 9, width: 184, height: 26 + qText.length * 18, rx: 12, fill: "var(--panel-2)", stroke: "var(--line)" }, qg);
     qText.forEach((line, i) => svg("text", { x: cols.q, y: Ht / 2 - qText.length * 9 + 4 + i * 18, "text-anchor": "middle", style: "font-size:13.5px;fill:var(--ink)" }, qg).textContent = line);
     const qAnchor = { x: cols.q + 92, y: Ht / 2 };
+
+    // While the model reads the question against the map, say so, and show the map's
+    // ideas as a column of faint dots being looked over.
+    let pending = null;
+    if (reading) {
+      view.steps.innerHTML = `<li class="on"><span class="reading-status">Reading your question against the map's ${fmt(ontology.concepts.length)} ideas, for the ones it raises in other words…</span></li>`;
+      pending = svg("g", { class: "reading" }, nodes);
+      for (let i = 0; i < 9; i++) {
+        const y = spread(i, 9, 90, Ht - 70);
+        svg("path", { d: curve(qAnchor, { x: cols.rec, y }, 0, 8, 0.05).d, class: "edge", "stroke-opacity": 0.12, "stroke-dasharray": "2 4" }, pending);
+        svg("circle", { cx: cols.rec, cy: y, r: 5, style: `animation-delay:${(i * 0.12).toFixed(2)}s` }, pending);
+      }
+      svg("text", { x: cols.rec + 14, y: Ht / 2 + 4, class: "reading-label" }, pending).textContent = "reading the question…";
+    }
+    qg.style.transition = "opacity .45s"; qg.setAttribute("opacity", 1);
+    const built = await ready;
+    pending?.remove();
+    if (!built) return;
+    const { g, steps } = built;
+    view.steps.innerHTML = steps.map((s) => `<li><span>${s}</span></li>`).join("");
+    const items = [...view.steps.children];
 
     // 2. recognised ideas
     const rec = g.recognised.slice(0, 7);
@@ -309,13 +362,20 @@ export async function render(root, { ontology, params }) {
 
     const ideaNode = (id, at, extra) => {
       const concept = byId.get(id);
-      const gg = svg("g", { class: "node", style: `--c:${kindColour(concept?.kind)}`, transform: `translate(${at.x},${at.y})`, opacity: 0 }, nodes);
+      const gg = svg("g", { class: `node${extra?.read ? " read" : ""}`, style: `--c:${kindColour(concept?.kind)}`, transform: `translate(${at.x},${at.y})`, opacity: 0 }, nodes);
       svg("circle", { r: 9, class: "body" }, gg);
       svg("text", { x: 14, y: 4, style: extra?.generic ? "fill:var(--ink-3)" : "" }, gg).textContent = (concept?.label || id).slice(0, 30);
-      if (extra?.matched && extra.matched.toLowerCase() !== (concept?.label || "").toLowerCase()) svg("text", { x: 14, y: 17, style: "font-size:11.5px;fill:var(--ink-3)" }, gg).textContent = `“${extra.matched}”`;
+      const said = (n) => (extra.matched.length > n ? `“${extra.matched.slice(0, n - 1)}…”` : `“${extra.matched}”`);
+      // A reading is noted on the question's side of the idea, clear of the connection labels.
+      if (extra?.read && extra.matched) {
+        svg("text", { x: -14, y: -2, "text-anchor": "end", style: "font-size:11.5px;fill:var(--ink-2)" }, gg).textContent = said(20);
+        svg("text", { x: -14, y: 11, "text-anchor": "end", style: "font-size:10.5px;fill:var(--ink-3);font-style:italic" }, gg).textContent = "read by the model";
+      } else if (extra?.matched && extra.matched.toLowerCase() !== (concept?.label || "").toLowerCase()) svg("text", { x: 14, y: 17, style: "font-size:11.5px;fill:var(--ink-3)" }, gg).textContent = said(24);
       if (extra?.generic) gg.style.filter = "grayscale(1)";
       gg.addEventListener("click", () => { location.hash = `#/map/ideas/${id}`; });
-      svg("title", {}, gg).textContent = `${concept?.label} — open on the map`;
+      svg("title", {}, gg).textContent = extra?.read
+        ? `${concept?.label} — the model read “${extra.matched}” as this idea${extra.why ? `: ${extra.why}` : ""} (a machine's reading, unreviewed). Click to open on the map.`
+        : `${concept?.label} — open on the map`;
       return gg;
     };
 
@@ -401,24 +461,35 @@ export async function render(root, { ontology, params }) {
     const label = (id) => byId.get(id)?.label || id;
     const nameKind = (r) => {
       const c = byId.get(r.id);
+      if (r.read) return `read by the model${r.why ? `: ${r.why}` : ""}`;
       if (!r.name) return "";
       if (r.everyday) return "an everyday phrasing a machine added to it";
       if (r.name.toLowerCase() === (c?.label || "").toLowerCase()) return "its main name";
       return "another of its names";
     };
     const row = (r) => `<li><span class="said">“${esc(r.matched || label(r.id))}”</span><span class="arrow">→</span>
-      <span><b>${esc(label(r.id))}</b>${r.name ? ` <span class="muted">· ${esc(nameKind(r))}</span>` : ""}
+      <span><b>${esc(label(r.id))}</b>${r.name || r.read ? ` <span class="muted">· ${esc(nameKind(r))}</span>` : ""}
       ${r.generic ? `<br><span class="muted">named in ${fmt((g.mentions?.[r.id] || []).length)} passages — more than one in five — so it is recognised but not used to steer</span>` : ""}</span></li>`;
     // A longer name does not hide a shorter one inside it.
-    const nested = g.recognised.filter((a) => a.start != null && g.recognised.some((b) => b !== a && b.start != null && b.start <= a.start && b.end >= a.end && b.end - b.start > a.end - a.start));
+    const nested = g.recognised.filter((a) => !a.read && a.start != null && g.recognised.some((b) => b !== a && !b.read && b.start != null && b.start <= a.start && b.end >= a.end && b.end - b.start > a.end - a.start));
+    const reading = g.reading;
+    const byModel = rec.filter((r) => r.read).length;
+    const readingNote = !reading ? ""
+      : reading.error ? `<p class="small">A model was also asked to read the question for ideas it raises in other words, but could not (${esc(reading.error)}), so only names were matched.</p>`
+      : `<p>Then, because a question in your own words rarely uses the map's names, a model (<code>${esc(reading.model || chat.model)}</code>) reads it against the list of all
+        ${fmt(ontology.concepts.length)} ideas and picks up to ${chat.reading.max_ideas} it is about — each with the words of your question it read as that idea, which the page
+        checks are really there. That is a machine's judgement, unreviewed: ${byModel ? `the ${byModel === 1 ? "idea" : `${byModel} ideas`} it found ${byModel === 1 ? "is" : "are"} marked “read by the model”` : "here it found none the names had not already found"}.
+        The prepared answers were searched by names alone.</p>
+        ${reading.dropped?.length ? `<p class="tiny">Set aside from the model's reading: ${reading.dropped.map((d) => `${esc(byId.get(d.id)?.label || d.id || "an unnamed idea")}${d.words ? ` (“${esc(d.words.slice(0, 60))}”)` : ""}, because ${esc(d.reason)}`).join("; ")}.</p>` : ""}`;
     view.why.innerHTML = `
       <h4>How it chose</h4>
       <div class="why-step"><span class="n">1</span><div>
-        <b>Where it starts: names in your words</b>
+        <b>Where it starts: ${reading?.model ? "the ideas in your words" : "names in your words"}</b>
         <p>Your question is compared with the name of every idea in the map — its main name, its other names, and the everyday phrasings a machine
         added. An idea is a starting point when one of its names appears in the question as whole words (capitals ignored; names under four letters
         skipped). It is plain matching: no model, no guessing at what you meant.</p>
-        ${g.recognised.length ? `<ul class="said-list">${[...rec, ...generic].map(row).join("")}</ul>` : `<p class="muted">No idea's name appears in this question, so nothing on the map steered the search: it ran on your words alone.</p>`}
+        ${readingNote}
+        ${g.recognised.length ? `<ul class="said-list">${[...rec, ...generic].map(row).join("")}</ul>` : `<p class="muted">No idea's name appears in this question${reading?.model ? ", and the model found none it raises in other words" : ""}, so nothing on the map steered the search: it ran on your words alone.</p>`}
         ${nested.length ? `<p class="tiny">A longer name does not hide a shorter one inside it: “${esc(nested[0].matched)}” is part of a longer match, and counts as well.</p>` : ""}
       </div></div>
       <div class="why-step"><span class="n">2</span><div>
@@ -500,7 +571,7 @@ export async function render(root, { ontology, params }) {
       </div>
       <div class="stamp" style="margin-top:1rem">${stampIcon}<span>Written by a machine (<code>${esc(a.model || "")}</code>${a.live ? "" : `, ${esc(a.when || "")}`}) from the passages shown, and not reviewed by a trade marks expert.
         The Manual states the Registrar's practice; it is not law. This is not advice and not an examination decision.</span></div>
-      <p class="tiny" style="margin-top:.5rem">${a.live ? `Live answer · ${a.seconds ? a.seconds.toFixed(0) + " s" : ""}${a.cost != null ? ` · about US${(a.cost * 100).toFixed(1)}¢` : ""} · ${esc(chat.effort)} reasoning effort (the prepared answers used ${esc(chat.measured_effort)}) · search ran without the meaning-vectors the measured system also used.`
+      <p class="tiny" style="margin-top:.5rem">${a.live ? `Live answer · ${a.seconds ? a.seconds.toFixed(0) + " s" : ""}${a.cost != null ? ` · about US${(a.cost * 100).toFixed(1)}¢${a.readingCost ? `, ${(a.readingCost * 100).toFixed(1)}¢ of it reading the question` : ""}` : ""} · ${esc(chat.effort)} reasoning effort (the prepared answers used ${esc(chat.measured_effort)}) · search ran without the meaning-vectors the measured system also used${a.reading?.kept?.length ? `, and started from ${a.reading.kept.length === 1 ? "an idea" : `${a.reading.kept.length} ideas`} the model read in the question, which the measured system did not do` : ""}.`
         : `Prepared answer, written ${esc(a.when || "")} with ${esc(chat.measured_effort)} reasoning effort by the same pipeline.`}</p>`;
   }
 

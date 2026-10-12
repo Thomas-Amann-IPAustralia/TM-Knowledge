@@ -391,6 +391,12 @@ svg.hop .node text { font-size: 12.5px; }
 svg.hop .psg text { font-size: 12px; }
 svg.hop .edge-label { font-size: 11px; }
 svg.hop .family-label { font-size: 12px; }
+/* An idea the model read in the question, not a name the question used (ADR-0132). */
+svg.hop .node.read circle.body { fill: color-mix(in srgb, var(--c) 35%, var(--panel)); stroke-dasharray: 3 2; }
+/* While the model reads the question: the map's ideas as faint dots, looked over in turn. */
+svg.hop .reading circle { fill: var(--ink-3); opacity: .15; animation: hop-read 1.1s ease-in-out infinite; }
+svg.hop .reading .reading-label { font-size: 12.5px; fill: var(--ink-3); font-style: italic; }
+@keyframes hop-read { 0%, 100% { opacity: .15; } 50% { opacity: .75; } }
 .hop-steps { list-style: none; padding: 0; margin: .4rem 0 0; counter-reset: s; }
 .hop-steps li { counter-increment: s; display: grid; grid-template-columns: 1.6rem 1fr; gap: .4rem; padding: .35rem 0; font-size: .9rem; color: var(--ink-3); transition: color .3s; }
 .hop-steps li::before { content: counter(s); width: 1.35rem; height: 1.35rem; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; font-size: .72rem; font-weight: 700; }

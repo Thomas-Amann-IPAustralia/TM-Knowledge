@@ -27,7 +27,7 @@ Generated: everything under `data/`, written by `tmk-explorer --write` from
 | `data/stability.json` | the Manual's amendment history and what rests on each page |
 | `data/tour.json` | the Manual by Part, ideas named many ways, one worked example |
 | `data/examples.json` | the 129 prepared answers and each search system's score |
-| `data/chat.json` | the measured answer prompt, verbatim, for live questions |
+| `data/chat.json` | the measured answer prompt, verbatim, for live questions; and the live-only reading prompt (ADR-0132) |
 | `data/live.json` | whether live answers are on — and, if so, the masked key. **Never commit it.** |
 
 ## What does not belong here
@@ -99,6 +99,12 @@ answers still show.
 network or an extension stopped the request; a wrong key or model is a reply, and shows
 OpenAI's message). Through a proxy, the Ask page knocks on its `/health` as it opens, and
 says so when an answer is slow to start, since a free host sleeps when idle.
+
+Before the search, a live question is read by the model against the map (ADR-0132): which
+ideas it raises in other words ("a smell" is a scent trade mark). Each pick is checked —
+on the map, specific, its words in the question — and starts the search as a name would,
+marked "read by the model" in the diagram. The prepared answers, and the measured system
+the page is checked against, recognise by names alone.
 
 ## Running it locally
 

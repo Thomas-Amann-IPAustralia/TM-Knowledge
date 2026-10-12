@@ -12,7 +12,12 @@
    The measured "ontology" system also fused a vector ranking. The page never has
    the passage vectors, so the live configuration is keyword + ontology and the
    page says so. `tests/explorer_parity.mjs` runs this under Node so the tests can
-   compare its rankings with Python's, question by question. */
+   compare its rankings with Python's, question by question.
+
+   Live, a model may also read the question against the map (ADR-0132) and name
+   ideas it raises in other words. Those arrive as `read`, checked by `reading`,
+   and start the search exactly as a name would. Without them every method here
+   is the measured one. */
 
 const K1 = 1.2;
 const B = 0.75;
@@ -154,8 +159,29 @@ export class Engine {
     return this.recogniser.recognise(question);
   }
 
-  trace(question) {
+  /** The model's reading of a typed question, checked: each idea must be on the map,
+      specific enough to steer, not already found by name, and its words must be in
+      the question. Live only (ADR-0132). */
+  reading(question, parsed, max = 4) {
+    const named = new Set(this.recognise(question).map((r) => r.id));
+    const kept = [], dropped = [];
+    for (const pick of Array.isArray(parsed?.concepts) ? parsed.concepts : []) {
+      const id = String(pick?.id ?? "").trim(), words = String(pick?.words ?? "").trim(), why = String(pick?.why ?? "").trim();
+      if (named.has(id) || kept.some((k) => k.id === id)) continue;
+      const span = findWords(question, words);
+      const reason = !Object.hasOwn(this.s.concepts, id) ? "it is not an idea on the map"
+        : this.generic.has(id) ? "it is named too often to steer"
+        : !span ? "its words are not in the question"
+        : kept.length >= max ? `only the first ${max} are used` : null;
+      if (reason) { dropped.push({ id, words, why, reason }); continue; }
+      kept.push({ id, start: span[0], end: span[1], label: question.slice(span[0], span[1]), alias: false, read: true, why });
+    }
+    return { kept, dropped };
+  }
+
+  trace(question, read = []) {
     const recognised = this.recognise(question);
+    for (const r of read) if (!recognised.some((x) => x.id === r.id)) recognised.push(r);
     const ids = recognised.map((r) => r.id);
     const specific = ids.filter((c) => !this.generic.has(c));
     const paths = [];
@@ -184,8 +210,8 @@ export class Engine {
       .map(([ref, score]) => ({ ref, score, why: why.get(ref) }));
   }
 
-  ontology(question, k = 10) {
-    const trace = this.trace(question);
+  ontology(question, k = 10, read = []) {
+    const trace = this.trace(question, read);
     const depth = this.s.depth;
     const rankings = [["keyword", this.keywordRanking(question, depth).map((h) => h.ref)]];
     if (!trace.specific.length) return { hits: this.fuse(rankings, k), trace, linked: [] };
@@ -204,8 +230,8 @@ export class Engine {
   }
 
   /** Everything the answer prompt needs, as `bulk.cli._measurement_items` builds it. */
-  prepare(question, chat) {
-    const { hits, trace, weight } = this.ontology(question, chat.passages_k);
+  prepare(question, chat, read = []) {
+    const { hits, trace, weight } = this.ontology(question, chat.passages_k, read);
     const passages = hits.map((h) => h.ref);
     const cited = [];
     for (const ref of passages.slice(0, 3)) for (const id of (this.chunks[this.row.get(ref)]?.[4] || [])) cited.push(id);
@@ -329,6 +355,20 @@ function normalised(text) {
     out.push(ch); index.push(i);
   }
   return [out.join(""), index];
+}
+
+/** Where the reading's words sit in the question: capitals, curly marks and spacing
+    ignored, and any quotation marks or end punctuation the model put round them. */
+export function findWords(question, words) {
+  const lower = (text) => {
+    const [n, index] = normalised(text);
+    return [n.split("").map((ch) => ch.toLowerCase()[0] ?? ch).join(""), index];
+  };
+  const [nq, index] = lower(question);
+  const w = lower(String(words || ""))[0].trim().replace(/^["'(\[]+|["').,;:!?\]]+$/g, "").trim();
+  if (w.length < 2) return null;
+  const at = nq.indexOf(w);
+  return at < 0 ? null : [index[at], index[at + w.length - 1] + 1];
 }
 
 /** Where a quote sits in a passage, exactly or after normalising spaces and marks. */
