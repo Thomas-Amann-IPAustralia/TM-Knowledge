@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.004654,
+ "created_utc": "2026-10-12T08:55:04Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0034",
+ "job": "judge",
+ "key": "7fbbb71edfdc01419380d7887607ba4d006f20bfe7db30fdded35ee10cdfb947",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part14/4/4/8/2~1\",\"grade\":2},{\"ref\":\"TMM/Part14/4/4/3/1\",\"grade\":2},{\"ref\":\"TMM/Part46/x-relevant-legislation5#1\",\"grade\":1},{\"ref\":\"TMM/Part60/x-glossary#1\",\"grade\":1},{\"ref\":\"TMM/Part60/4/25/4/25/2\",\"grade\":0},{\"ref\":\"TMM/Part60/4/1#1\",\"grade\":2},{\"ref\":\"TMM/Part5/2/2/3\",\"grade\":2},{\"ref\":\"TMM/Part60/1/1/6\",\"grade\":0},{\"ref\":\"TMM/Part60/4/10/4/10/2\",\"grade\":2}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "6c106644a55afd327a952c9f1a0f42106fbfcc335354fd3e1925a9ff938ea043",
+ "response_id": "resp_0ba2f7aad67c8963006acca05deb8887d298b5a8e9416fbd19",
+ "seconds": 11.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 2380,
+  "input_tokens_details": {
+   "cache_write_tokens": 2377,
+   "cached_tokens": 0
+  },
+  "output_tokens": 336,
+  "output_tokens_details": {
+   "reasoning_tokens": 144
+  },
+  "total_tokens": 2716
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006262,
+ "created_utc": "2026-10-12T05:20:11Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0088",
+ "job": "reading",
+ "key": "a17007653f044c9a77bbfb393d6a9d74a100e49aa548e7d733aeba6e22a716a9",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0097\",\"why\":\"The extension sought concerns additional time to file evidence.\",\"words\":\"extension to file evidence in reply\"},{\"id\":\"GC-0040\",\"why\":\"The question expressly places the refusal in opposition proceedings.\",\"words\":\"opposition\"},{\"id\":\"GC-0041\",\"why\":\"The question concerns filing evidence in reply.\",\"words\":\"evidence in reply\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "f177ff158ea811b63f3a73daa4eb4010fbb0e425dcb435b4ef849fe34606fbeb",
+ "response_id": "resp_0fd42da9b57d1b11006acc6e05adac87d2885177e6fa9b1ebf",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4654,
+  "input_tokens_details": {
+   "cache_write_tokens": 4651,
+   "cached_tokens": 0
+  },
+  "output_tokens": 89,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4743
+ }
+}

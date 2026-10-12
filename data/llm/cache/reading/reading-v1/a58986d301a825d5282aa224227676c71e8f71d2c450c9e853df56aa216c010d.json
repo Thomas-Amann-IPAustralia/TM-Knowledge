@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006367,
+ "created_utc": "2026-10-12T05:19:33Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0052",
+ "job": "reading",
+ "key": "a58986d301a825d5282aa224227676c71e8f71d2c450c9e853df56aa216c010d",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0127\",\"why\":\"These words refer to decisions made by the Registrar.\",\"words\":\"Registrar decisions\"},{\"id\":\"GC-0139\",\"why\":\"This word refers to the court that could review a Registrar decision, although the question does not specify a prescribed court.\",\"words\":\"court\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "5bda3543a572e2bfc8cea439775618d1e016e8672dd4822ed30796301b3a8143",
+ "response_id": "resp_0615eca23c8335f9006acc6ddfde9c87d28525d832e796191f",
+ "seconds": 6.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4658,
+  "input_tokens_details": {
+   "cache_write_tokens": 4655,
+   "cached_tokens": 0
+  },
+  "output_tokens": 109,
+  "output_tokens_details": {
+   "reasoning_tokens": 34
+  },
+  "total_tokens": 4767
+ }
+}

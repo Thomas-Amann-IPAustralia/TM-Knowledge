@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006165,
+ "created_utc": "2026-10-12T05:19:39Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0058",
+ "job": "reading",
+ "key": "b56129273f77cabeb63284b4fb2cfd1696f160443cda0d7d9196b8e504a6423c",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0079\",\"why\":\"Filing the same mark as a set suggests a series of trade marks.\",\"words\":\"filed as a set\"},{\"id\":\"GC-0017\",\"why\":\"A city name is a reference to a geographical location.\",\"words\":\"city name\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "060905c219a1c98ed84d398205817b9987a203614ee316aae1bf6b376f953122",
+ "response_id": "resp_08da25b3a00cfd9e006acc6de61b9887d2a61d0d015782966a",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4653,
+  "input_tokens_details": {
+   "cache_write_tokens": 4650,
+   "cached_tokens": 0
+  },
+  "output_tokens": 70,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4723
+ }
+}

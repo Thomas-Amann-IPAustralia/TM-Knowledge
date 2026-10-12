@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006027,
+ "created_utc": "2026-10-12T05:20:05Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0081",
+ "job": "reading",
+ "key": "588ea374819cac2b9663aee9ff95bed854e40df3e28325f398452b03a9ef852f",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\": []}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "26b82efbf775d62fa9901ef91118d9fd18e66a0bfc30ac7af2b585c2cef9bed4",
+ "response_id": "resp_0d116274ca4e0ad9006acc6dff24d887d29505242224110adf",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4662,
+  "input_tokens_details": {
+   "cache_write_tokens": 4659,
+   "cached_tokens": 0
+  },
+  "output_tokens": 40,
+  "output_tokens_details": {
+   "reasoning_tokens": 25
+  },
+  "total_tokens": 4702
+ }
+}

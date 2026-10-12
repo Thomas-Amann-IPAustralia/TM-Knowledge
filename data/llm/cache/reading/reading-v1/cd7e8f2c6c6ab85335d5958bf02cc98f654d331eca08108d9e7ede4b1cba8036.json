@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006303,
+ "created_utc": "2026-10-12T05:19:02Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0022",
+ "job": "reading",
+ "key": "cd7e8f2c6c6ab85335d5958bf02cc98f654d331eca08108d9e7ede4b1cba8036",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0169\",\"why\":\"A protected wine region name refers to a wine geographical indication.\",\"words\":\"protected wine region name\"},{\"id\":\"GC-0056\",\"why\":\"These words raise resemblance to the protected name despite a spelling change.\",\"words\":\"almost the same\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "6908697433b4bb2c9692543a4d2075fceb728b6a25c3cca5ecdea74745201d44",
+ "response_id": "resp_0aa9003d134590ef006acc6dc08d7087d2890ce670c29aa313",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4663,
+  "input_tokens_details": {
+   "cache_write_tokens": 4660,
+   "cached_tokens": 0
+  },
+  "output_tokens": 95,
+  "output_tokens_details": {
+   "reasoning_tokens": 24
+  },
+  "total_tokens": 4758
+ }
+}

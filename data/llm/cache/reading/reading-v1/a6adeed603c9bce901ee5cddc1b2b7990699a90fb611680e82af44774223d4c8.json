@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006267,
+ "created_utc": "2026-10-12T05:20:45Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0119",
+ "job": "reading",
+ "key": "a6adeed603c9bce901ee5cddc1b2b7990699a90fb611680e82af44774223d4c8",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0029\",\"why\":\"These words expressly ask about permission in writing.\",\"words\":\"written permission\"},{\"id\":\"GC-0054\",\"why\":\"The named Red Cross and Red Crescent signs raise the concept of prohibited signs.\",\"words\":\"Red Cross or Red Crescent signs\"},{\"id\":\"GC-0081\",\"why\":\"The question asks about using the named signs.\",\"words\":\"using\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "9dc57155c1a73bd6d7122191e9931e221191b21ff9cb70a5bbbf73ff14a9e280",
+ "response_id": "resp_06e41a863a2f10b2006acc6e2695c087d2b1f24c358a5fe9e6",
+ "seconds": 7.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4650,
+  "input_tokens_details": {
+   "cache_write_tokens": 4647,
+   "cached_tokens": 0
+  },
+  "output_tokens": 91,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4741
+ }
+}

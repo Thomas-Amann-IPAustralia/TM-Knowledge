@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006318,
+ "created_utc": "2026-10-12T05:18:56Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0016",
+ "job": "reading",
+ "key": "868ccf126b63cce590e0fa92caa04d04030893447c7e4e823fcce4fde1365263",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0134\",\"why\":\"The question expressly asks about review by the Administrative Review Tribunal.\",\"words\":\"ART\"},{\"id\":\"GC-0107\",\"why\":\"The question identifies the matter as concerning a certification trade mark.\",\"words\":\"certification trade mark\"},{\"id\":\"GC-0127\",\"why\":\"In this review context, the original decision refers to the Registrar's decision under review.\",\"words\":\"original decision\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "8d687c7b781932cafd3108f0f38e13f924c3fad278dbaed389947196284c981e",
+ "response_id": "resp_08e541714c6ee177006acc6dba559087d2a2428617ab0e41a6",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4667,
+  "input_tokens_details": {
+   "cache_write_tokens": 4664,
+   "cached_tokens": 0
+  },
+  "output_tokens": 97,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4764
+ }
+}

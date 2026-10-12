@@ -5,7 +5,9 @@
    OpenAI; this adds the key, forwards it and streams the reply back unchanged. It
    answers only what the page asks: POST /v1/responses, from the explorer's origin,
    for the allowed model, carrying only the fields the page sends, capped in size,
-   output and count. None of that stops someone determined — an Origin header can
+   output and count. A live question is two requests — a short reading of the
+   question against the map (ADR-0132), then the answer — so readings are counted
+   apart and capped lower, and a question takes one place in each allowance. None of that stops someone determined — an Origin header can
    be forged outside a browser — so the OpenAI project's own monthly budget is the
    real limit. No dependencies; Node 20 or later. Deployment: README.md. */
 
@@ -25,6 +27,7 @@ export function configFrom(env) {
     origins: new Set(list(env.ALLOWED_ORIGINS, "https://thomas-amann-ipaustralia.github.io")),
     models: new Set(list(env.ALLOWED_MODELS, "gpt-6.1-sol")),
     maxOutputTokens: Number(env.MAX_OUTPUT_TOKENS || 10000),
+    maxReadingOutputTokens: Number(env.MAX_READING_OUTPUT_TOKENS || 2000),
     maxBodyBytes: Number(env.MAX_BODY_BYTES || 200000),
     perAddressPerHour: Number(env.PER_ADDRESS_PER_HOUR || 30),
     perDay: Number(env.PER_DAY || 300),
@@ -33,8 +36,9 @@ export function configFrom(env) {
 }
 
 export function createProxy(config = configFrom(process.env)) {
-  const recent = new Map(); // address → times of its questions in the last hour
-  let day = "", today = 0;
+  // Per kind of request: address → times of its requests in the last hour, and today's count.
+  const counts = { answer: { recent: new Map(), today: 0 }, reading: { recent: new Map(), today: 0 } };
+  let day = "";
 
   function cors(req) {
     const origin = req.headers.origin;
@@ -51,15 +55,16 @@ export function createProxy(config = configFrom(process.env)) {
     res.end(JSON.stringify({ error: { message, type: "proxy_error" } }));
   }
 
-  function allow(address) {
+  function allow(address, kind) {
     const now = Date.now(), date = new Date(now).toISOString().slice(0, 10);
-    if (date !== day) { day = date; today = 0; recent.clear(); }
-    if (today >= config.perDay) return `the answer service has answered ${config.perDay} questions today, its daily limit`;
-    const times = (recent.get(address) || []).filter((t) => now - t < 3600000);
+    if (date !== day) { day = date; for (const c of Object.values(counts)) { c.today = 0; c.recent.clear(); } }
+    const count = counts[kind];
+    if (count.today >= config.perDay) return `the answer service has answered ${config.perDay} questions today, its daily limit`;
+    const times = (count.recent.get(address) || []).filter((t) => now - t < 3600000);
     if (times.length >= config.perAddressPerHour) return `${config.perAddressPerHour} questions have come from this address in the last hour, the limit`;
     times.push(now);
-    recent.set(address, times);
-    today += 1;
+    count.recent.set(address, times);
+    count.today += 1;
     return null;
   }
 
@@ -85,12 +90,14 @@ export function createProxy(config = configFrom(process.env)) {
       return fail(res, 400, `the answer service only uses ${[...config.models].join(", ")}`);
     }
     const address = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim();
-    const refused = allow(address);
+    const kind = asked.text?.format?.name === "reading" ? "reading" : "answer";
+    const refused = allow(address, kind);
     if (refused) return fail(res, 429, refused);
 
     const body = Object.fromEntries(FIELDS.filter((f) => f in asked).map((f) => [f, asked[f]]));
     body.store = false;
-    body.max_output_tokens = Math.min(Number(asked.max_output_tokens) || config.maxOutputTokens, config.maxOutputTokens);
+    const cap = kind === "reading" ? config.maxReadingOutputTokens : config.maxOutputTokens;
+    body.max_output_tokens = Math.min(Number(asked.max_output_tokens) || cap, cap);
     if (asked.reasoning) body.reasoning = { effort: String(asked.reasoning.effort || "low") };
 
     const abort = new AbortController();
@@ -128,7 +135,7 @@ export function createProxy(config = configFrom(process.env)) {
     finally {
       if (beat) clearInterval(beat);
       res.end();
-      console.log(`${new Date().toISOString()} ${upstream.status} ${asked.model} ${((Date.now() - started) / 1000).toFixed(1)}s · ${today} today`);
+      console.log(`${new Date().toISOString()} ${upstream.status} ${kind} ${asked.model} ${((Date.now() - started) / 1000).toFixed(1)}s · ${counts[kind].today} today`);
     }
   }
 

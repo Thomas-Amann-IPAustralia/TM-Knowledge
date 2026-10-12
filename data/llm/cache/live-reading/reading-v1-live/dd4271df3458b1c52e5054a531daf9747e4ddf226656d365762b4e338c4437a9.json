@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012021,
+ "created_utc": "2026-10-12T03:42:49Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "smoke-00",
+ "job": "live-reading",
+ "key": "dd4271df3458b1c52e5054a531daf9747e4ddf226656d365762b4e338c4437a9",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0078\",\"why\":\"A smell identifies the subject matter of a scent trade mark.\",\"words\":\"smell\"}]}",
+ "prompt_version": "reading-v1-live",
+ "request_sha256": "77c4f230cb31258bc5b45f6b75092921771990dff6ec02ce5a47e72ea3baaa6b",
+ "response_id": "resp_0f5a24ff4d337e55006acc5733eb0887d2a220a6f047f23730",
+ "seconds": 7.2,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4645,
+  "input_tokens_details": {
+   "cache_write_tokens": 4642,
+   "cached_tokens": 0
+  },
+  "output_tokens": 41,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4686
+ }
+}

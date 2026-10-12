@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006031,
+ "created_utc": "2026-10-12T05:19:59Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0078",
+ "job": "reading",
+ "key": "c24c5c48706a149463c5765bdc87256a2e592dc41f79352272ea5ed2711e8cb4",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0121\",\"why\":\"The question asks whether one application can cover multiple classes of goods and services.\",\"words\":\"more than one class\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "3832b8360728ab466a2a5257515f80571a409cc2a8abeaba131578ece3deec46",
+ "response_id": "resp_06d5dccfaf1dad49006acc6dfa26c887d2a7d96a6547c415f5",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4649,
+  "input_tokens_details": {
+   "cache_write_tokens": 4646,
+   "cached_tokens": 0
+  },
+  "output_tokens": 44,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4693
+ }
+}

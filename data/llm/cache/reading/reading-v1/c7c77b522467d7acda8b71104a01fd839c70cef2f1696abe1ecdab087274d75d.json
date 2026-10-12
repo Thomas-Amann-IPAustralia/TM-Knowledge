@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.005992,
+ "created_utc": "2026-10-12T05:20:06Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0084",
+ "job": "reading",
+ "key": "c7c77b522467d7acda8b71104a01fd839c70cef2f1696abe1ecdab087274d75d",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0121\",\"why\":\"These words ask about terms used to classify goods.\",\"words\":\"class terms\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "2e66df311b5bcf042831cc4b3c0d8b40828e2e7908cf947856281fd05cdd2aa2",
+ "response_id": "resp_06ce016ca27744d9006acc6e00516887d2b9186283e49f2477",
+ "seconds": 6.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4646,
+  "input_tokens_details": {
+   "cache_write_tokens": 4643,
+   "cached_tokens": 0
+  },
+  "output_tokens": 37,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4683
+ }
+}

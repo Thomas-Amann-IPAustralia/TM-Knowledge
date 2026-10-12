@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006165,
+ "created_utc": "2026-10-12T05:20:55Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0012",
+ "job": "reading",
+ "key": "d92fd1d329c94c7aff55cc515529d3ac41db39c79a600d0fc09c3808fa282f28",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0038\",\"why\":\"These words refer to features of the mark considered together that might mitigate its meaning.\",\"words\":\"other elements in the mark\"},{\"id\":\"GC-0001\",\"why\":\"The question expressly raises a problematic secondary or implied meaning.\",\"words\":\"connotation\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "9aea403f3a4e90c018f5fd9df1acead59cf3a396ef99673a9dd0f5586920e2a6",
+ "response_id": "resp_03c4899e944ea898006acc6e31dc8887d29b7c40c89f5c37e8",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4649,
+  "input_tokens_details": {
+   "cache_write_tokens": 4646,
+   "cached_tokens": 0
+  },
+  "output_tokens": 71,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4720
+ }
+}

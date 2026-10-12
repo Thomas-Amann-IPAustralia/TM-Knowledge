@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006129,
+ "created_utc": "2026-10-12T05:18:57Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0021",
+ "job": "reading",
+ "key": "4c51ec89f17351acc2a400032b74f4d990ea54a9a13b18a6a7f9de7ecd9bf3ef",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0004\",\"why\":\"These words raise confusion that has actually occurred.\",\"words\":\"actual confusion incidents\"},{\"id\":\"GC-0041\",\"why\":\"These words ask whether evidence needs to be provided.\",\"words\":\"give evidence\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "3f0eae2a36c426222afa37b1315f898f6f5c61d777961d8abe16ca11e51e1f89",
+ "response_id": "resp_067416cd7da36ea2006acc6dbafed887d2a24321b40f8dd17f",
+ "seconds": 6.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4660,
+  "input_tokens_details": {
+   "cache_write_tokens": 4657,
+   "cached_tokens": 0
+  },
+  "output_tokens": 61,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4721
+ }
+}

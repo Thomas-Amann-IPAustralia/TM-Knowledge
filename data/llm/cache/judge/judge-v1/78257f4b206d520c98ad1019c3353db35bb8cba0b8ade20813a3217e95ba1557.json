@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002559,
+ "created_utc": "2026-10-12T08:53:59Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0012",
+ "job": "judge",
+ "key": "78257f4b206d520c98ad1019c3353db35bb8cba0b8ade20813a3217e95ba1557",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part32A/2/1/section-53-infringement-of-pbr\",\"grade\":1},{\"ref\":\"TMM/Part29/9/9/5\",\"grade\":1},{\"ref\":\"TMM/Part32A/x-annex-6---how-to-supply-evidence-of-use-of-a-trade-mark-for-plants-and-or-plant-material#1~1\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "3eef695e5db6d418c2f257ab09867dc7e3f5ac9b8ea35a686572c3f8da1ce857",
+ "response_id": "resp_0cfc5414809ef24f006acca01d464087d2832547bdc3aadd35",
+ "seconds": 10.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1056,
+  "input_tokens_details": {
+   "cache_write_tokens": 1053,
+   "cached_tokens": 0
+  },
+  "output_tokens": 248,
+  "output_tokens_details": {
+   "reasoning_tokens": 144
+  },
+  "total_tokens": 1304
+ }
+}

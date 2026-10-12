@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006023,
+ "created_utc": "2026-10-12T05:19:53Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0071",
+ "job": "reading",
+ "key": "90ee5c7d3b5ffbea531c4d5b6e12cbc3abf9f392fab8acc02cd95c3a9c2ad7dd",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0099\",\"why\":\"The question asks who can request a disclaimer and what effect recording it has.\",\"words\":\"disclaimer\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "b42c22eaea58e3a1df2bd70fe4e38272561fe078f4380dd5fa93a2de5f08770b",
+ "response_id": "resp_0518fd38dd8c431c006acc6df3623087d2a0e29fa693dd0f13",
+ "seconds": 5.9,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4651,
+  "input_tokens_details": {
+   "cache_write_tokens": 4648,
+   "cached_tokens": 0
+  },
+  "output_tokens": 42,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4693
+ }
+}

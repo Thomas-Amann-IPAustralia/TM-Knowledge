@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012289,
+ "created_utc": "2026-10-12T03:43:33Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "smoke-07",
+ "job": "live-reading",
+ "key": "9b90be857d266ce22ecc0c471fb0e236c083a9c2eba0c18f65ae73d6cdaad17c",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0117\",\"why\":\"“Who can oppose” asks who may act as an opponent.\",\"words\":\"Who can oppose\"},{\"id\":\"GC-0040\",\"why\":\"“oppose” refers to opposition to the application.\",\"words\":\"oppose\"}]}",
+ "prompt_version": "reading-v1-live",
+ "request_sha256": "3a6179a05ea30c384d804db4828b5daac44fa5225b9be479bb9ab0d13669596c",
+ "response_id": "resp_0919f205b5550195006acc575ff1f487d2bbd1665b7fd3c64b",
+ "seconds": 6.1,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4644,
+  "input_tokens_details": {
+   "cache_write_tokens": 4641,
+   "cached_tokens": 0
+  },
+  "output_tokens": 68,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4712
+ }
+}

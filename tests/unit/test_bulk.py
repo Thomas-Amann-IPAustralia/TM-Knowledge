@@ -523,3 +523,33 @@ def test_a_re_pooled_question_sends_only_its_ungraded_passages(tmp_path, monkeyp
     row = yaml.safe_load((tmp_path / "judgements.yaml").read_text(encoding="utf-8"))["judgements"][0]
     assert row["grades"] == {"a": 2, "b": 0, "c": 3}  # a grade once given stands
     assert row["later"] == [{"date": "2026-10-09", "model": "m2", "refs": ["c"]}]
+
+
+def test_a_reading_is_kept_as_the_model_gave_it_and_the_judge_can_grade_another_pool(tmp_path, monkeypatch):
+    """ADR-0133: the benchmark's readings are stored raw, stamped and unreviewed — the
+    search checks them where it uses them — and the judge grades the reading pools'
+    ungraded passages, leaving every grade already given."""
+    from tm_knowledge.bulk import cli, jobs
+
+    monkeypatch.setattr(jobs, "READINGS_PATH", tmp_path / "readings.yaml")
+    monkeypatch.setattr(jobs, "BENCH_DIR", tmp_path)
+    item = jobs.Item("Q1", {"key": "Q1", "kind": "problem", "question": "Can I trade mark a smell?"})
+    entry = {"model_reported": "gpt-6.1-sol", "effort": "low", "prompt_version": jobs.READING_VERSION,
+             "created_utc": "2026-10-12T06:00:00Z", "response_id": "resp_1"}
+    outcome = jobs._reading_accept(None, item, {"concepts": [
+        {"id": "GC-0078", "words": "smell", "why": "a scent"}, {"id": "GC-9999", "words": "x", "why": "none"}]}, entry)
+    assert outcome.proposed == 2
+    jobs._write_readings(outcome.records)
+    row = yaml.safe_load((tmp_path / "readings.yaml").read_text(encoding="utf-8"))["readings"][0]
+    assert row["picks"][1]["id"] == "GC-9999", "nothing is checked or dropped on the way in"
+    assert row["review_status"] == "unreviewed" and row["model"] == "gpt-6.1-sol" and row["date"] == "2026-10-12"
+
+    monkeypatch.setattr(cli, "_questions", lambda ctx: [
+        {"key": "Q1", "kind": "problem", "question": "q", "narrative": "«n»", "required": []}])
+    (tmp_path / "reading-pools.yaml").write_text(yaml.safe_dump({"pools": [{"key": "Q1", "pool": ["a", "b"]}]}),
+                                                 encoding="utf-8")
+    (tmp_path / "judgements.yaml").write_text(yaml.safe_dump({"judgements": [
+        {"need": "Q1", "grades": {"a": 2}, "model": "m", "date": "2026-10-07"}]}), encoding="utf-8")
+    items = cli._measurement_items("judge", SimpleNamespace(), tmp_path / "reading-pools.yaml")
+    assert [(i.key, i.payload["pool"]) for i in items] == [("Q1", ["b"])]
+    assert [i.key for i in cli._measurement_items("reading", SimpleNamespace())] == ["Q1"]

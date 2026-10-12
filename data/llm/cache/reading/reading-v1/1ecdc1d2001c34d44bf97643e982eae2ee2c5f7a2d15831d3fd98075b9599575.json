@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006154,
+ "created_utc": "2026-10-12T05:19:02Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0024",
+ "job": "reading",
+ "key": "1ecdc1d2001c34d44bf97643e982eae2ee2c5f7a2d15831d3fd98075b9599575",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0159\",\"why\":\"These words name the Deputy Registrar role handling the matter.\",\"words\":\"Deputy Registrar\"},{\"id\":\"GC-0127\",\"why\":\"These words ask whether the decision is treated as a decision of the Registrar.\",\"words\":\"Registrar decision\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "c98d60a4f74a6932e7bb03d01af7ea04c7f9222c5540541ea22936ac77a92fde",
+ "response_id": "resp_05aee570c37313ca006acc6dc10c4887d290b85b41c3354bcd",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4652,
+  "input_tokens_details": {
+   "cache_write_tokens": 4649,
+   "cached_tokens": 0
+  },
+  "output_tokens": 68,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4720
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006802,
+ "created_utc": "2026-10-12T05:20:25Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0100",
+ "job": "reading",
+ "key": "7a2e6161da4cf84bcda0e2d90bbf0ab895f8252484769558e37c0402e59cacb6",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0142\",\"why\":\"These words identify an application seeking removal for non-use.\",\"words\":\"non-use removal application\"},{\"id\":\"GC-0087\",\"why\":\"These words appear to describe transmission of the original filer's right to another person, although the mechanism is unspecified.\",\"words\":\"original filer’s right has passed to them\"},{\"id\":\"GC-0046\",\"why\":\"The question expressly identifies the Registrar as a possible recipient of notice.\",\"words\":\"Registrar\"},{\"id\":\"GC-0139\",\"why\":\"The question identifies a court as a possible recipient of notice, although it does not specify whether it is a prescribed court.\",\"words\":\"court\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "e9444bfec76e6da0b8e98583725b5a8dcd7a768b5830ba9bd772eea501d3fbb8",
+ "response_id": "resp_07660a26afd76fee006acc6e1375a887d2a6de85f90bef8df8",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4674,
+  "input_tokens_details": {
+   "cache_write_tokens": 4671,
+   "cached_tokens": 0
+  },
+  "output_tokens": 192,
+  "output_tokens_details": {
+   "reasoning_tokens": 45
+  },
+  "total_tokens": 4866
+ }
+}

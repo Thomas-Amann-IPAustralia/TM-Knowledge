@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002087,
+ "created_utc": "2026-10-12T08:55:35Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0052",
+ "job": "judge",
+ "key": "c24eb6a614ba75470511d204cec8300ac95ee0bd47f657a81c7add0d16d25bf1",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part52/1#1~1\",\"grade\":2},{\"ref\":\"TMM/Part17/x-annex-a1---deferment-of-acceptance-date---grounds-and-time-limits#1\",\"grade\":0},{\"ref\":\"TMM/Part62/8#1\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "2555ffb055b68eabbd07060852b398f1c553f503984c4d12cf92a5b1af3f0065",
+ "response_id": "resp_074a8681cffc1dd2006acca0818ef087d2a3bd2899dd70e7f9",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1174,
+  "input_tokens_details": {
+   "cache_write_tokens": 1171,
+   "cached_tokens": 0
+  },
+  "output_tokens": 124,
+  "output_tokens_details": {
+   "reasoning_tokens": 42
+  },
+  "total_tokens": 1298
+ }
+}

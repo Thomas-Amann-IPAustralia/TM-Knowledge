@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006013,
+ "created_utc": "2026-10-12T05:20:42Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0115",
+ "job": "reading",
+ "key": "af858cb0f84802cad2633e4f5d513012aab695c8771365b5fdc6b96ee66f025f",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0046\",\"why\":\"The question expressly identifies the Registrar as the person issuing the notice.\",\"words\":\"Registrar\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "14950bac0d64cea5bf20b87085ede4d7f5f0cbf294428e97864b80721cbc56a7",
+ "response_id": "resp_0a77e8d91f07b2fb006acc6e249f3c87d2867f0a00f431b24d",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4655,
+  "input_tokens_details": {
+   "cache_write_tokens": 4652,
+   "cached_tokens": 0
+  },
+  "output_tokens": 39,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4694
+ }
+}

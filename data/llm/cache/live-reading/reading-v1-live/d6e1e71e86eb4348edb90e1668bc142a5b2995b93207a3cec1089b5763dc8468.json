@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012186,
+ "created_utc": "2026-10-12T03:42:56Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "smoke-01",
+ "job": "live-reading",
+ "key": "d6e1e71e86eb4348edb90e1668bc142a5b2995b93207a3cec1089b5763dc8468",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\": []}",
+ "prompt_version": "reading-v1-live",
+ "request_sha256": "db335e980f0bd408a488f31cf7b32cd60c0207ba8c98908bf97ce7cd0ad4405c",
+ "response_id": "resp_0d6b6b68b7167661006acc573a23e487d28e2971b4048f0d4d",
+ "seconds": 6.1,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4647,
+  "input_tokens_details": {
+   "cache_write_tokens": 4644,
+   "cached_tokens": 0
+  },
+  "output_tokens": 57,
+  "output_tokens_details": {
+   "reasoning_tokens": 40
+  },
+  "total_tokens": 4704
+ }
+}

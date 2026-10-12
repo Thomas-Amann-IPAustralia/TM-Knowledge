@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006145,
+ "created_utc": "2026-10-12T05:20:43Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0116",
+ "job": "reading",
+ "key": "5495a31a38504206ad058bc7dc4fa01b546d32bb47966cf8f6da5d7b3fe7c40a",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0012\",\"why\":\"The question asks how to word the goods specification rather than merely naming powders.\",\"words\":\"class wording\"},{\"id\":\"GC-0121\",\"why\":\"The reference to a class raises classification of goods and services.\",\"words\":\"class\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "0d56544c7a0f320fd6b97f0acb06758a185189e077c717034245bc22643f8235",
+ "response_id": "resp_08a8f3ec1c348423006acc6e2515e487d2b05d193a801be620",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4649,
+  "input_tokens_details": {
+   "cache_write_tokens": 4646,
+   "cached_tokens": 0
+  },
+  "output_tokens": 67,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4716
+ }
+}

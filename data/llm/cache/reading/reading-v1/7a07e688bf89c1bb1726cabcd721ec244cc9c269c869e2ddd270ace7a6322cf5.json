@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006718,
+ "created_utc": "2026-10-12T05:20:38Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0114",
+ "job": "reading",
+ "key": "7a07e688bf89c1bb1726cabcd721ec244cc9c269c869e2ddd270ace7a6322cf5",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0015\",\"why\":\"Narrowing the goods list means restricting the specification of goods.\",\"words\":\"narrowing the goods list\"},{\"id\":\"GC-0001\",\"why\":\"What the mark seems to suggest is its implied meaning or connotation.\",\"words\":\"seems to suggest\"},{\"id\":\"GC-0003\",\"why\":\"A false connection or origin raises the concept of deception.\",\"words\":\"false connection or origin\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "e9988c34a3a10627401bda20062eb55608c9e2844c2d6b5023704ce727b3d98e",
+ "response_id": "resp_0af9cc9a7adaf08c006acc6e20671887d2b202c490d4e05ef5",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4655,
+  "input_tokens_details": {
+   "cache_write_tokens": 4652,
+   "cached_tokens": 0
+  },
+  "output_tokens": 180,
+  "output_tokens_details": {
+   "reasoning_tokens": 77
+  },
+  "total_tokens": 4835
+ }
+}

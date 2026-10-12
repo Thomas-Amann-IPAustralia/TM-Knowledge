@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006167,
+ "created_utc": "2026-10-12T05:20:30Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0105",
+ "job": "reading",
+ "key": "ba60cb57c3b022b1502d40bf36dbe5725b89635d1d87b5da94df3de1ec8bcc81",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0032\",\"why\":\"A web address refers to an internet domain name.\",\"words\":\"web address\"},{\"id\":\"GC-0047\",\"why\":\"A common word may refer to descriptive matter, although the question does not make that clear.\",\"words\":\"common word\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "20000aa315a6da017ca904f7646a89c461fa9e46702434da00047d54f5cb26d5",
+ "response_id": "resp_0f94903f16c86e4a006acc6e1885ac87d28472d90fd8b5b562",
+ "seconds": 6.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4658,
+  "input_tokens_details": {
+   "cache_write_tokens": 4655,
+   "cached_tokens": 0
+  },
+  "output_tokens": 69,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4727
+ }
+}

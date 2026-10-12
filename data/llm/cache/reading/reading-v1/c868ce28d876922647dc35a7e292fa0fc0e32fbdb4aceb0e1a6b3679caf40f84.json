@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006274,
+ "created_utc": "2026-10-12T05:20:19Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0094",
+ "job": "reading",
+ "key": "c868ce28d876922647dc35a7e292fa0fc0e32fbdb4aceb0e1a6b3679caf40f84",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0066\",\"why\":\"These words expressly raise honest concurrent use.\",\"words\":\"honest concurrent use\"},{\"id\":\"GC-0001\",\"why\":\"These words raise the trade mark's own implied meaning as the source of possible deception.\",\"words\":\"own meaning\"},{\"id\":\"GC-0003\",\"why\":\"These words raise possible deception of people.\",\"words\":\"mislead people\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "b308d4675bfd7eaa553ccb4078bc4f4172ce65e7471b3f14370ebe6bfffbd71a",
+ "response_id": "resp_0d687d3444940f69006acc6e0cdcc887d28ae9cf30f1da405e",
+ "seconds": 6.4,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4656,
+  "input_tokens_details": {
+   "cache_write_tokens": 4653,
+   "cached_tokens": 0
+  },
+  "output_tokens": 91,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4747
+ }
+}

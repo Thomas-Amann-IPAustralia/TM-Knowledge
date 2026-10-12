@@ -100,6 +100,19 @@ test("the daily limit refuses with a message", async () => {
   assert.match((await last.json()).error.message, /daily limit/);
 });
 
+test("a reading is counted apart from answers, and its output capped lower", async () => {
+  reply = (req, res) => { res.writeHead(200, { "Content-Type": "application/json" }); res.end("{}"); };
+  seen.length = 0;
+  // The daily limit for answers was spent by the test before; a reading has its own.
+  const reading = { ...question, text: { format: { type: "json_schema", name: "reading", schema: {}, strict: true } } };
+  const res = await ask(reading);
+  assert.equal(res.status, 200);
+  await res.text();
+  assert.equal(seen[0].body.max_output_tokens, 2000);
+  const refused = await ask(question);
+  assert.equal(refused.status, 429, "answers are still at their limit");
+});
+
 test("health answers without calling OpenAI", async () => {
   const res = await fetch(`${base}/health`);
   assert.equal(res.status, 200);

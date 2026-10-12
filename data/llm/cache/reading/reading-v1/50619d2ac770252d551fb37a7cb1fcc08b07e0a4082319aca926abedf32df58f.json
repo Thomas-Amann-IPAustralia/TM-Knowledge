@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00623,
+ "created_utc": "2026-10-12T05:19:39Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0057",
+ "job": "reading",
+ "key": "50619d2ac770252d551fb37a7cb1fcc08b07e0a4082319aca926abedf32df58f",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0097\",\"why\":\"Getting more time refers to an extension of time.\",\"words\":\"more time\"},{\"id\":\"GC-0041\",\"why\":\"The question concerns evidence to be filed.\",\"words\":\"evidence\"},{\"id\":\"GC-0040\",\"why\":\"The question expressly places the filing in an opposition.\",\"words\":\"opposition\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "065a1ab13f74d2230b68a1f56a352a7e59fd88f9ccb8ac5934db00ee826db03e",
+ "response_id": "resp_05dc9ca5be59f4b3006acc6de5ea9487d291d151edf225a145",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4653,
+  "input_tokens_details": {
+   "cache_write_tokens": 4650,
+   "cached_tokens": 0
+  },
+  "output_tokens": 83,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4736
+ }
+}

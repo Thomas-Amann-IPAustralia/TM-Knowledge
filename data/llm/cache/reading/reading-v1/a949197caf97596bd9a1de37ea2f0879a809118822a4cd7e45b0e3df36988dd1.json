@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006143,
+ "created_utc": "2026-10-12T05:19:28Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0049",
+ "job": "reading",
+ "key": "a949197caf97596bd9a1de37ea2f0879a809118822a4cd7e45b0e3df36988dd1",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0099\",\"why\":\"The question asks how a voluntarily requested disclaimer is recorded.\",\"words\":\"disclaimer\"},{\"id\":\"GC-0089\",\"why\":\"The question identifies the Register as the record on which the disclaimer is shown.\",\"words\":\"Register\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "a4950c72fb90cb8e310a369e939570ef4917331bfec70b7249ee3b6f1b0d2aa2",
+ "response_id": "resp_0922c3dc27ec9486006acc6dda9d3c87d2b80d480701ed08a1",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4651,
+  "input_tokens_details": {
+   "cache_write_tokens": 4648,
+   "cached_tokens": 0
+  },
+  "output_tokens": 66,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4717
+ }
+}

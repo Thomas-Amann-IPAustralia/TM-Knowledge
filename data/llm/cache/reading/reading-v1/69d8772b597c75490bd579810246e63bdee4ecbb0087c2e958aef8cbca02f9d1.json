@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006356,
+ "created_utc": "2026-10-12T05:20:05Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0083",
+ "job": "reading",
+ "key": "69d8772b597c75490bd579810246e63bdee4ecbb0087c2e958aef8cbca02f9d1",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0153\",\"why\":\"These words refer to the statement setting out the grounds of an opposition.\",\"words\":\"opposition statement\"},{\"id\":\"GC-0040\",\"why\":\"This word identifies the opposition procedure whose extra charges are queried.\",\"words\":\"opposition\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "da7c8f7b09862276ba4ef6be79c8d9d587176475aac5b16f1f62ea70bce5c303",
+ "response_id": "resp_01658b4dbadbf6d5006acc6dff6fbc87d2b12cdf9dc985a17d",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4657,
+  "input_tokens_details": {
+   "cache_write_tokens": 4654,
+   "cached_tokens": 0
+  },
+  "output_tokens": 107,
+  "output_tokens_details": {
+   "reasoning_tokens": 37
+  },
+  "total_tokens": 4764
+ }
+}

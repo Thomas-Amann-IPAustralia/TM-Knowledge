@@ -209,3 +209,73 @@ def test_the_browser_engine_matches_python(files, tmp_path):
                                         "paths": [list(p) for p in trace8.paths][:12],
                                         "passages": passages, "legislation": legislation[:3]})
             assert js["prompt"] == jobs._answer_render(ctx, item), q["key"]
+
+
+@needs_snapshot
+def test_the_live_reading_prompt_is_the_one_in_bulk_jobs(files):
+    from tm_knowledge.bulk import jobs
+
+    reading = files["chat.json"]["reading"]
+    assert reading["instructions"] == jobs._READING_INSTRUCTIONS
+    assert reading["schema"] == jobs._READING_SCHEMA
+    assert reading["max_ideas"] == jobs.READING_MAX_IDEAS
+
+
+@needs_snapshot
+@pytest.mark.skipif(shutil.which("node") is None, reason="needs Node to run the browser engine")
+def test_the_page_checks_the_models_reading_before_it_steers(files, tmp_path):
+    """ADR-0132: an idea the model reads in a typed question starts the search only
+    if it is on the map, specific enough to steer, and its words are in the question.
+    Without one, the search is the measured one."""
+    from tm_knowledge.bulk import jobs
+
+    explorer.write(files, tmp_path)
+    smell = "Can I trade mark a smell?"
+    cases = [
+        {"question": smell, "reply": {"concepts": [
+            {"id": "GC-0078", "words": "“smell”", "why": "a scent"},
+            {"id": "GC-9999", "words": "smell", "why": "not on the map"},
+            {"id": "GC-0072", "words": "trade mark", "why": "named already, so not a pick"},
+            {"id": "GC-0116", "words": "smell", "why": "too general"},
+            {"id": "GC-0077", "words": "a jingle", "why": "not in the question"},
+            {"id": "GC-0078", "words": "smell", "why": "a repeat"},
+        ]}},
+        {"question": "Can I protect a jingle?", "reply": {"concepts": [{"id": f"GC-00{n}", "words": "jingle", "why": ""}
+                                                                    for n in (74, 75, 76, 77, 78)]}},
+        {"question": "What is a divisional application?", "reply": {"concepts": [
+            {"id": "GC-0043", "words": "divisional application", "why": "named already"}]}},
+        {"question": smell, "reply": {"not": "the expected shape"}},
+    ]
+    (tmp_path / "cases.json").write_text(json.dumps(cases), encoding="utf-8")
+    result = subprocess.run(["node", str(REPO_ROOT / "tests" / "explorer_reading.mjs"), str(tmp_path),
+                             str(tmp_path / "cases.json")], capture_output=True, text=True, check=True)
+    browser = json.loads(result.stdout)
+    smelt, jingle, named, garbled = browser
+
+    # The same check and the same ranking in Python, where the reading is measured (ADR-0133).
+    from tm_knowledge.bulk import links as links_module
+    from tm_knowledge.search.index import KeywordIndex, Systems, relations_from
+    from tm_knowledge.upstream.loader import load_corpus
+
+    corpus = load_corpus()
+    ctx = jobs.Context(corpus=corpus, links=links_module.link(corpus))
+    systems = Systems(KeywordIndex(corpus), ctx.links, None, jobs.load_aliases(corpus, ctx.links.concepts),
+                      relations_from(ctx.gold, ctx.authored))
+    for case, js in zip(cases, browser):
+        kept, dropped = systems.reading(case["question"], case["reply"], jobs.READING_MAX_IDEAS)
+        assert [[k["id"], k["words"]] for k in kept] == js["kept"], case["question"]
+        assert [[d["id"], d["reason"]] for d in dropped] == js["dropped"], case["question"]
+        hits, trace = systems.ontology(case["question"], 10, [k["id"] for k in kept])
+        assert [h.ref for h in hits] == js["ontology"] and trace.recognised == js["recognised"], case["question"]
+
+    assert smelt["kept"] == [["GC-0078", "smell"]]
+    assert [reason for _, reason in smelt["dropped"]] == [
+        "it is not an idea on the map", "it is named too often to steer", "its words are not in the question"]
+    assert smelt["recognised"] == ["GC-0072", "GC-0078"] and smelt["paths"] > 0
+    assert smelt["passages"] != smelt["plain"], "the idea read in the question steers the search"
+    assert smelt["input"] == jobs.reading_input(files["chat.json"]["ontology_map"], smell)
+
+    assert len(jingle["kept"]) == jobs.READING_MAX_IDEAS
+    assert jingle["dropped"] == [["GC-0078", f"only the first {jobs.READING_MAX_IDEAS} are used"]]
+    assert named["kept"] == [] and named["dropped"] == [] and named["passages"] == named["plain"]
+    assert garbled["kept"] == [] and garbled["passages"] == garbled["plain"]

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006275,
+ "created_utc": "2026-10-12T05:17:56Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0003",
+ "job": "reading",
+ "key": "2a4903f89a02f3c73119bdad7587a425a0ddca348e847b1da185194294e656aa",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0071\",\"why\":\"These words raise the relationship between closely related goods and services.\",\"words\":\"goods and services are closely related\"},{\"id\":\"GC-0015\",\"why\":\"These words ask about restricting the specification.\",\"words\":\"the specification be restricted\"},{\"id\":\"GC-0004\",\"why\":\"This word identifies confusion as the outcome to be prevented.\",\"words\":\"confusion\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "403ef3c90437dd527c9dcf210c31302af26491e669e82b5ab88d0f08f4717490",
+ "response_id": "resp_0033bffc73234c2a006acc6d7ef44c87d282222522fc742ebb",
+ "seconds": 10.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4653,
+  "input_tokens_details": {
+   "cache_write_tokens": 4650,
+   "cached_tokens": 0
+  },
+  "output_tokens": 92,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4745
+ }
+}

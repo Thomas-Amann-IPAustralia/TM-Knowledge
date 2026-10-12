@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00634,
+ "created_utc": "2026-10-12T05:18:50Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0011",
+ "job": "reading",
+ "key": "a9ed8d05a0e42d8975c1c9ac01461050ca981ec2a685f452ddb02ed51cd8169e",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0154\",\"why\":\"These words expressly raise the deceptively similar test.\",\"words\":\"deceptively similar\"},{\"id\":\"GC-0002\",\"why\":\"These words raise the likelihood of confusion.\",\"words\":\"likely to confuse people\"},{\"id\":\"GC-0038\",\"why\":\"The presence or absence of a logo raises the effect of other features of the sign as a whole.\",\"words\":\"having a logo, or not having one\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "08aa6ea1e9e115f8d37f5177ffc8e98a3f6be72901af71ae4277b2c301a5130d",
+ "response_id": "resp_05ea8c1a3f5327f5006acc6db42b0487d296bde6170eb5d7eb",
+ "seconds": 6.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4661,
+  "input_tokens_details": {
+   "cache_write_tokens": 4658,
+   "cached_tokens": 0
+  },
+  "output_tokens": 103,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4764
+ }
+}

@@ -15,6 +15,11 @@ Every ranking is fused by reciprocal rank with equal weights. **Nothing here was
 tuned on the benchmark**: the design was fixed before a passage was judged, so the
 comparison measures the design, not a fit to the test (KB SOP §7.2). When the
 ontology recognises nothing, `ontology` returns exactly what `hybrid` does.
+
+The live page may also start from ideas a model read in the question (ADR-0132):
+`reading` checks the model's picks exactly as `Engine.reading` does in the browser,
+and `trace`/`ontology` take the kept ids as `read`. With `read` empty — the
+default — every system here is the one measured before the reading existed.
 """
 
 from __future__ import annotations
@@ -134,8 +139,33 @@ class Systems:
     def _dense(self, question: str) -> list[tuple[str, float]]:
         return self.dense.search(question, DEPTH) if self.dense is not None else []
 
-    def trace(self, question: str) -> Trace:
+    def reading(self, question: str, parsed: Any, max_ideas: int = 4) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+        """The model's reading of a question, checked — `Engine.reading`, rule for rule:
+        an idea must be on the map, specific enough to steer, not already found by name,
+        and its words must be in the question. Returns (kept, set aside)."""
+        named = set(self.recognise(question))
+        kept: list[dict[str, Any]] = []
+        dropped: list[dict[str, Any]] = []
+        picks = parsed.get("concepts") if isinstance(parsed, dict) else None
+        for pick in picks if isinstance(picks, list) else []:
+            pick = pick if isinstance(pick, dict) else {}
+            cid, words, why = (str(pick.get(k) if pick.get(k) is not None else "").strip() for k in ("id", "words", "why"))
+            if cid in named or any(k["id"] == cid for k in kept):
+                continue
+            span = find_words(question, words)
+            reason = ("it is not an idea on the map" if cid not in self.links.concepts
+                      else "it is named too often to steer" if cid in self.links.generic
+                      else "its words are not in the question" if span is None
+                      else f"only the first {max_ideas} are used" if len(kept) >= max_ideas else None)
+            if reason:
+                dropped.append({"id": cid, "words": words, "why": why, "reason": reason})
+                continue
+            kept.append({"id": cid, "start": span[0], "end": span[1], "words": question[span[0]:span[1]], "why": why})
+        return kept, dropped
+
+    def trace(self, question: str, read: Iterable[str] = ()) -> Trace:
         recognised = self.recognise(question)
+        recognised += [c for c in dict.fromkeys(read) if c not in recognised]
         specific = [c for c in recognised if c not in self.links.generic]
         paths = [e for c in specific for e in self._edges.get(c, ())]
         neighbours = sorted({e[2] if e[0] in specific else e[0] for e in paths} - set(specific))
@@ -154,8 +184,8 @@ class Systems:
             rankings.append(("vector", [ref for ref, _ in dense]))
         return _fuse(rankings, k)
 
-    def ontology(self, question: str, k: int = 10) -> tuple[list[Hit], Trace]:
-        trace = self.trace(question)
+    def ontology(self, question: str, k: int = 10, read: Iterable[str] = ()) -> tuple[list[Hit], Trace]:
+        trace = self.trace(question, read)
         specific = [c for c in trace.recognised if c not in self.links.generic]
         rankings = [("keyword", [h.ref for h in self.index.search(question, DEPTH)])]
         dense = self._dense(question)
@@ -182,6 +212,24 @@ class Systems:
         linked = sorted(weight, key=lambda r: (-weight[r], -similarity.get(r, 0.0), r))[:DEPTH]
         rankings.append(("linked", linked))
         return _fuse(rankings, k), trace
+
+
+def find_words(question: str, words: str) -> tuple[int, int] | None:
+    """Where the reading's words sit in the question — `findWords` in `engine.js`:
+    capitals, curly marks and spacing ignored, and any quotation marks or end
+    punctuation the model put round them."""
+    from tm_knowledge.bulk.jobs import _normalised
+
+    def lowered(text: str) -> tuple[str, list[int]]:
+        out, index = _normalised(text)
+        return "".join((ch.lower() or ch)[0] for ch in out), index
+
+    text, index = lowered(question)
+    wanted = re.sub(r"""^["'(\[]+|["').,;:!?\]]+$""", "", lowered(words or "")[0].strip()).strip()
+    if len(wanted) < 2:
+        return None
+    at = text.find(wanted)
+    return None if at < 0 else (index[at], index[at + len(wanted) - 1] + 1)
 
 
 def relations_from(gold: Any, authored: Any) -> list[tuple[str, str, str, str, str]]:

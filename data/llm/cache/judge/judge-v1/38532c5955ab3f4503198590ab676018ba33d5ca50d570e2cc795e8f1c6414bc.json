@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.003483,
+ "created_utc": "2026-10-12T08:57:05Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0096",
+ "job": "judge",
+ "key": "38532c5955ab3f4503198590ab676018ba33d5ca50d570e2cc795e8f1c6414bc",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part20/x-relevant-legislation28#1\",\"grade\":0},{\"ref\":\"TMM/Part16/1/1/1\",\"grade\":0},{\"ref\":\"TMM/Part17/1#1\",\"grade\":0},{\"ref\":\"TMM/Part20/4/4/1\",\"grade\":1},{\"ref\":\"TMM/Part22/x-registrability-of-various-kinds-of-signs#1\",\"grade\":1},{\"ref\":\"TMM/Part20/5/5/2\",\"grade\":1},{\"ref\":\"TMM/Part21/5/5/1\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "b64bf8c95256781ab8174b24f691350fe324ad1fd6a1cf8117096f5dc55039ef",
+ "response_id": "resp_07dcccedc386ab29006acca0d6746c87d2993e704844232c83",
+ "seconds": 11.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1819,
+  "input_tokens_details": {
+   "cache_write_tokens": 1816,
+   "cached_tokens": 0
+  },
+  "output_tokens": 242,
+  "output_tokens_details": {
+   "reasoning_tokens": 94
+  },
+  "total_tokens": 2061
+ }
+}

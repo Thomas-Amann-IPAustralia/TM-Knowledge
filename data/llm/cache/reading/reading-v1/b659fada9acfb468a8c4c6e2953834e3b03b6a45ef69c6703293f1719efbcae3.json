@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006268,
+ "created_utc": "2026-10-12T05:20:11Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0086",
+ "job": "reading",
+ "key": "b659fada9acfb468a8c4c6e2953834e3b03b6a45ef69c6703293f1719efbcae3",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0064\",\"why\":\"‘citation’ raises a potential conflict with another trade mark.\",\"words\":\"citation\"},{\"id\":\"GC-0043\",\"why\":\"‘divisional’ identifies the divisional application concept.\",\"words\":\"divisional\"},{\"id\":\"GC-0075\",\"why\":\"‘shape’ identifies the form of the trade mark being discussed.\",\"words\":\"shape\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "2e5d1dd36452bd7b8de83acfc7bba2af0a4c58c656602747ebc7afa62873c21b",
+ "response_id": "resp_03beea8744a41243006acc6e0574c487d29c25afc4fbe97bb6",
+ "seconds": 6.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4659,
+  "input_tokens_details": {
+   "cache_write_tokens": 4656,
+   "cached_tokens": 0
+  },
+  "output_tokens": 89,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4748
+ }
+}

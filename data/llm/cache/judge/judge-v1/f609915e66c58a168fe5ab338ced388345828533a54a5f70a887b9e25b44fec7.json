@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001629,
+ "created_utc": "2026-10-12T08:55:42Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0056",
+ "job": "judge",
+ "key": "f609915e66c58a168fe5ab338ced388345828533a54a5f70a887b9e25b44fec7",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part32A/x-annex-5---case-law-summaries/p-a-and-e-v-strauss-1999-47-ipr-191-tropical-birch\",\"grade\":2},{\"ref\":\"TMM/Part22/25/25/6\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "8a4e8dd7f7d649bace87b93a1e0fb897d4dd8d07f1e2994ef99d1eaf1f49650a",
+ "response_id": "resp_0de31f11388f6766006acca089003c87d2b8f7cb4fb59fd345",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 954,
+  "input_tokens_details": {
+   "cache_write_tokens": 0,
+   "cached_tokens": 0
+  },
+  "output_tokens": 135,
+  "output_tokens_details": {
+   "reasoning_tokens": 57
+  },
+  "total_tokens": 1089
+ }
+}

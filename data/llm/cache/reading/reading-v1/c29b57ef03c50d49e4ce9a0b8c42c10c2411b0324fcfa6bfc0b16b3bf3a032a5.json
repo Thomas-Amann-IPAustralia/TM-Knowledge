@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006313,
+ "created_utc": "2026-10-12T05:19:46Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0064",
+ "job": "reading",
+ "key": "c29b57ef03c50d49e4ce9a0b8c42c10c2411b0324fcfa6bfc0b16b3bf3a032a5",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0002\",\"why\":\"These words raise the likelihood of deception of customers.\",\"words\":\"likely to mislead customers\"},{\"id\":\"GC-0006\",\"why\":\"Refusing the application raises rejection as the consequence being asked about.\",\"words\":\"refuse it\"},{\"id\":\"GC-0045\",\"why\":\"The question asks which decision maker is responsible for refusing the application.\",\"words\":\"who has to refuse it\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "0e99ac12297af8c39b601926fb683c8fbbe876c505f620c0634adc8852a48936",
+ "response_id": "resp_0e97ce024a6f9455006acc6dec66e487d29c70edf7b31029c6",
+ "seconds": 6.6,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4659,
+  "input_tokens_details": {
+   "cache_write_tokens": 4656,
+   "cached_tokens": 0
+  },
+  "output_tokens": 98,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4757
+ }
+}

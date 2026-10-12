@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012101,
+ "created_utc": "2026-10-12T03:43:21Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "smoke-05",
+ "job": "live-reading",
+ "key": "1b3497dc58ab01df7ac30c895fd85248b02c8483b414eeffed7cb5be371e64f4",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0104\",\"why\":\"Not using a mark for years raises the concept of removal for non-use.\",\"words\":\"don't use my mark for years\"}]}",
+ "prompt_version": "reading-v1-live",
+ "request_sha256": "be1b6819b05e89a1e7de4497bd201aeecfdd22b7a18e247bf050875c14446325",
+ "response_id": "resp_08834a5f932933c8006acc5753866c87d29d312ab96dcd7c59",
+ "seconds": 6.0,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4649,
+  "input_tokens_details": {
+   "cache_write_tokens": 4646,
+   "cached_tokens": 0
+  },
+  "output_tokens": 48,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4697
+ }
+}

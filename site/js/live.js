@@ -1,8 +1,10 @@
-/* The live model call, made from the reader's browser, streamed.
+/* The live model calls, made from the reader's browser, streamed.
 
-   The request is the one `bulk.client.respond` sends for the `answer` job — the
+   The answer is the request `bulk.client.respond` sends for the `answer` job — the
    same instructions, JSON schema and input shape (built by engine.prompt) — with
-   `stream: true`, so the page can show the answer as it is written. When the site
+   `stream: true`, so the page can show the answer as it is written. Before it, the
+   reading (ADR-0132) asks the same model which ideas on the map a typed question
+   is about, with the prompt `bulk.jobs` keeps for it. When the site
    is built with a key, the key is in the page: the owner's decision (ADR-0118).
    It is masked against pattern-matching scrapers; that is not security, and
    anyone reading this file can recover it. */
@@ -47,18 +49,38 @@ export function partialField(json, key) {
   return out;
 }
 
-export async function answer(live, chat, input, signal, onText = null) {
+/** The cited answer, from the prompt engine.prompt builds. */
+export function answer(live, chat, input, signal, onText = null) {
+  return respond(live, {
+    model: chat.model, instructions: chat.instructions, schema: chat.schema, name: "answer",
+    input, max_output_tokens: chat.max_output_tokens, effort: chat.effort,
+  }, signal, onText);
+}
+
+/** The reading's input — `bulk.jobs.reading_input`, character for character. */
+export const readingInput = (chat, question) => `ONTOLOGY (one line per concept):\n${chat.ontology_map}\n\nQUESTION: ${question}`;
+
+/** Which ideas on the map a typed question is about, in the model's reading. */
+export function read(live, chat, question, signal) {
+  const r = chat.reading;
+  return respond(live, {
+    model: chat.model, instructions: r.instructions, schema: r.schema, name: "reading",
+    input: readingInput(chat, question), max_output_tokens: r.max_output_tokens, effort: r.effort,
+  }, signal);
+}
+
+async function respond(live, request, signal, onText = null) {
   const key = reveal(live);
   const body = {
-    model: chat.model,
-    instructions: chat.instructions,
-    input,
-    text: { format: { type: "json_schema", name: "answer", schema: chat.schema, strict: true } },
-    max_output_tokens: chat.max_output_tokens,
+    model: request.model,
+    instructions: request.instructions,
+    input: request.input,
+    text: { format: { type: "json_schema", name: request.name, schema: request.schema, strict: true } },
+    max_output_tokens: request.max_output_tokens,
     store: false,
     stream: true,
   };
-  if (chat.effort && chat.effort !== "none") body.reasoning = { effort: chat.effort };
+  if (request.effort && request.effort !== "none") body.reasoning = { effort: request.effort };
   const started = performance.now();
   const host = new URL(live.endpoint).host;
   let response;
@@ -97,7 +119,7 @@ export async function answer(live, chat, input, signal, onText = null) {
     let chunk;
     try { chunk = await reader.read(); } catch (error) {
       if (signal?.aborted) throw error;
-      throw new Error(`the connection to the model service (${host}) dropped while the answer was being written`);
+      throw new Error(`the connection to the model service (${host}) dropped while the reply was being written`);
     }
     const { value, done } = chunk;
     if (done) break;
@@ -109,9 +131,9 @@ export async function answer(live, chat, input, signal, onText = null) {
   let parsed = null;
   try { parsed = JSON.parse(text); } catch { /* reported below */ }
   if (!parsed || typeof parsed !== "object") {
-    throw new Error(final?.status === "incomplete" ? "the answer was cut off before it finished" : "the model's reply was not in the expected shape");
+    throw new Error(final?.status === "incomplete" ? "the reply was cut off before it finished" : "the model's reply was not in the expected shape");
   }
-  return { parsed, model: final?.model || chat.model, usage: final?.usage || {}, seconds: (performance.now() - started) / 1000 };
+  return { parsed, model: final?.model || request.model, usage: final?.usage || {}, seconds: (performance.now() - started) / 1000 };
 }
 
 /** What a call cost, from the usage the API reported and the prices in chat.json. */

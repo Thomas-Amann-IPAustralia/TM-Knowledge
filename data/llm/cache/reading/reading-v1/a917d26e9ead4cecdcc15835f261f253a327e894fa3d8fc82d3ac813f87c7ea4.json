@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006047,
+ "created_utc": "2026-10-12T05:19:34Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0053",
+ "job": "reading",
+ "key": "a917d26e9ead4cecdcc15835f261f253a327e894fa3d8fc82d3ac813f87c7ea4",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0042\",\"why\":\"These words ask about revocation of acceptance before registration.\",\"words\":\"acceptance of my trade mark application can be revoked\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "f165160b1227feb6ab7821203af10b79b50ab1af475489c0dbb6bd3b157fa578",
+ "response_id": "resp_09fd2d7086425226006acc6de04d1487d287423fa5e3a94bad",
+ "seconds": 6.0,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4654,
+  "input_tokens_details": {
+   "cache_write_tokens": 4651,
+   "cached_tokens": 0
+  },
+  "output_tokens": 46,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4700
+ }
+}

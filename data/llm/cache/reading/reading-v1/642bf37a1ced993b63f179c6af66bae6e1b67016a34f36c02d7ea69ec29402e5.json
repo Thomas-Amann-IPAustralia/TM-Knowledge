@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006458,
+ "created_utc": "2026-10-12T05:20:31Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0106",
+ "job": "reading",
+ "key": "642bf37a1ced993b63f179c6af66bae6e1b67016a34f36c02d7ea69ec29402e5",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0015\",\"why\":\"Narrowing the goods or services refers to restricting the specification.\",\"words\":\"narrowing the goods or services\"},{\"id\":\"GC-0047\",\"why\":\"These words identify descriptive content in the sign.\",\"words\":\"descriptive\"},{\"id\":\"GC-0017\",\"why\":\"A place-based objection raises a geographical reference in the sign.\",\"words\":\"place-based\"},{\"id\":\"GC-0081\",\"why\":\"Use as a brand refers to use of the sign as a trade mark.\",\"words\":\"used as my brand\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "c9ef224c0706610b064aa66e325d800b7f550854498d20883b1b929ce8b7c897",
+ "response_id": "resp_0f1172e4ce23ec20006acc6e19a10c87d284de61897e0b9ca8",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4667,
+  "input_tokens_details": {
+   "cache_write_tokens": 4664,
+   "cached_tokens": 0
+  },
+  "output_tokens": 125,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4792
+ }
+}

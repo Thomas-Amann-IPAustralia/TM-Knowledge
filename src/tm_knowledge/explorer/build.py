@@ -648,7 +648,9 @@ def chat(ctx: jobs.Context) -> dict[str, Any]:
 
     The instructions, the schema and the ontology map come from `bulk.jobs`, the
     code that wrote the 129 prepared answers; the browser assembles the input in
-    the shape `_answer_render` does.
+    the shape `_answer_render` does. `reading` is the live page's own step before
+    the search (ADR-0132): which ideas a typed question is about, in the model's
+    reading. The measured system never had it.
     """
     return {
         "model": CHAT_MODEL, "effort": CHAT_EFFORT, "max_output_tokens": CHAT_MAX_OUTPUT_TOKENS,
@@ -658,6 +660,11 @@ def chat(ctx: jobs.Context) -> dict[str, Any]:
         "passages_k": 8, "legislation_k": 3, "paths_k": 12, "plain_k": 5, "passage_chars": 1600,
         "daily_limit": DAILY_LIMIT,
         "prices": config.PRICES_PER_MTOK[CHAT_MODEL]["default"],
+        "reading": {
+            "prompt_version": jobs.READING_VERSION, "instructions": jobs._READING_INSTRUCTIONS,
+            "schema": jobs._READING_SCHEMA, "effort": CHAT_EFFORT,
+            "max_output_tokens": jobs.READING_MAX_OUTPUT_TOKENS, "max_ideas": jobs.READING_MAX_IDEAS,
+        },
     }
 
 

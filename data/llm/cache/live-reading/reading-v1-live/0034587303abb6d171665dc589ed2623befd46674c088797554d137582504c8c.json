@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012804,
+ "created_utc": "2026-10-12T03:43:48Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "smoke-09",
+ "job": "live-reading",
+ "key": "0034587303abb6d171665dc589ed2623befd46674c088797554d137582504c8c",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0154\",\"why\":\"These words raise resemblance to another person's mark, potentially engaging deceptive similarity.\",\"words\":\"looks like theirs\"},{\"id\":\"GC-0081\",\"why\":\"These words concern using a sign as a trade mark.\",\"words\":\"using a logo\"}]}",
+ "prompt_version": "reading-v1-live",
+ "request_sha256": "2c63166a68e6e0c6698b0b5263e8722a33f336863fa3594704f9ad7a503c2ba4",
+ "response_id": "resp_0694f2508a4c3ea0006acc576cde6c87d28967a40d825dca13",
+ "seconds": 7.9,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4650,
+  "input_tokens_details": {
+   "cache_write_tokens": 4647,
+   "cached_tokens": 0
+  },
+  "output_tokens": 118,
+  "output_tokens_details": {
+   "reasoning_tokens": 46
+  },
+  "total_tokens": 4768
+ }
+}

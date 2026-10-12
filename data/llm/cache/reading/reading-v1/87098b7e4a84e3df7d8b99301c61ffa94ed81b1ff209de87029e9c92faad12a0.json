@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006294,
+ "created_utc": "2026-10-12T05:19:15Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0034",
+ "job": "reading",
+ "key": "87098b7e4a84e3df7d8b99301c61ffa94ed81b1ff209de87029e9c92faad12a0",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0012\",\"why\":\"These words refer to the specification describing the goods and services claimed.\",\"words\":\"goods and services wording\"},{\"id\":\"GC-0121\",\"why\":\"These words raise the classification terminology for goods and services.\",\"words\":\"classification terms\"},{\"id\":\"GC-0150\",\"why\":\"These words identify the international registration context of the application.\",\"words\":\"international trade mark application\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "58ce47af44552c13e8c241515274baffeee01346245f626687bbb59122cdbcf3",
+ "response_id": "resp_01438c403cfa8b19006acc6dcd3d3887d28c646b6da385de8e",
+ "seconds": 6.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4660,
+  "input_tokens_details": {
+   "cache_write_tokens": 4657,
+   "cached_tokens": 0
+  },
+  "output_tokens": 94,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4754
+ }
+}

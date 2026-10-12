@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006478,
+ "created_utc": "2026-10-12T05:20:44Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0118",
+ "job": "reading",
+ "key": "0da9b72dd34b8cf886edd27219a4913a48e77a5ff9841112231e304e4e7507b6",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0095\",\"why\":\"Cancellation of a registration appears to refer to revocation of registration, although the mechanism is unspecified.\",\"words\":\"registration is cancelled\"},{\"id\":\"GC-0084\",\"why\":\"These words raise ownership of the trade mark.\",\"words\":\"own the trade mark\"},{\"id\":\"GC-0020\",\"why\":\"A trading name is a business identifier named on the application.\",\"words\":\"trading name\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "9748830c44c8151104fc7aef5b8d2ef739904841dbc2d3feff477cb69c3ae05b",
+ "response_id": "resp_0d58271f16251f2e006acc6e263ff487d2a978471d197d10fd",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4655,
+  "input_tokens_details": {
+   "cache_write_tokens": 4652,
+   "cached_tokens": 0
+  },
+  "output_tokens": 132,
+  "output_tokens_details": {
+   "reasoning_tokens": 31
+  },
+  "total_tokens": 4787
+ }
+}

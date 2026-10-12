@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006304,
+ "created_utc": "2026-10-12T05:19:08Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0028",
+ "job": "reading",
+ "key": "8c3baf4b081b38c8ca957e87163cae09dc84445b438a2cc0d5107693b149a1f5",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0017\",\"why\":\"These words raise a reference to a geographical place in the mark.\",\"words\":\"a place like Tuscany\"},{\"id\":\"GC-0001\",\"why\":\"This word raises the implied meaning conveyed by the mark.\",\"words\":\"suggests\"},{\"id\":\"GC-0009\",\"why\":\"These words identify the buying public whose perception of the goods is in question.\",\"words\":\"shoppers\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "a544b6920d86f2fbde7f37119e3a7b2cf58c7ebb773c3da9cc969f6433a5b6ad",
+ "response_id": "resp_0ff826d743cca5bd006acc6dc6bb3087d2927a48c867cdb03a",
+ "seconds": 6.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4660,
+  "input_tokens_details": {
+   "cache_write_tokens": 4657,
+   "cached_tokens": 0
+  },
+  "output_tokens": 96,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4756
+ }
+}

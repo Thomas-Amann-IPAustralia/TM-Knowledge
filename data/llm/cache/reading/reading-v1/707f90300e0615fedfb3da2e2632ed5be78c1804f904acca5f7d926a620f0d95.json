@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006052,
+ "created_utc": "2026-10-12T05:19:03Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0026",
+ "job": "reading",
+ "key": "707f90300e0615fedfb3da2e2632ed5be78c1804f904acca5f7d926a620f0d95",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0012\",\"why\":\"These words ask how specifically the goods must be described in the specification.\",\"words\":\"'virtual goods' on its own\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "e5617c0dad36ad727bb7e0d152d4b9522ef5e6724bbde4d46dfb9a440e9ffbc5",
+ "response_id": "resp_053bf1280b8f6220006acc6dc1a0e087d2aff4d67635765abb",
+ "seconds": 6.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4662,
+  "input_tokens_details": {
+   "cache_write_tokens": 4659,
+   "cached_tokens": 0
+  },
+  "output_tokens": 45,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4707
+ }
+}

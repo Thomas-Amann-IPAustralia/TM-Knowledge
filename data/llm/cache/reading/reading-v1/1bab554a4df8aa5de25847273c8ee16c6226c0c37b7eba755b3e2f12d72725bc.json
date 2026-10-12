@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006176,
+ "created_utc": "2026-10-12T05:20:31Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0107",
+ "job": "reading",
+ "key": "1bab554a4df8aa5de25847273c8ee16c6226c0c37b7eba755b3e2f12d72725bc",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0061\",\"why\":\"These words raise the question of other traders wishing to use the mark.\",\"words\":\"other traders using the mark\"},{\"id\":\"GC-0041\",\"why\":\"A supporting declaration is raised as evidence supporting the application.\",\"words\":\"supporting declaration\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "f0d10ae8349f17f2854d4a02723e2cb931729ba1e6d2d76f2b34bad30ffd6b26",
+ "response_id": "resp_0a22ac3d0d5c22aa006acc6e19c51087d2b6649fcc232bfe57",
+ "seconds": 6.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4661,
+  "input_tokens_details": {
+   "cache_write_tokens": 4658,
+   "cached_tokens": 0
+  },
+  "output_tokens": 70,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4731
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006182,
+ "created_utc": "2026-10-12T05:19:53Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0072",
+ "job": "reading",
+ "key": "d86683863d7b2361ad9ca81f4892b87ee3539a18311eab557f6fd87608db7fe8",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0036\",\"why\":\"These words identify a plant variety name used in the mark.\",\"words\":\"name of a plant variety\"},{\"id\":\"GC-0006\",\"why\":\"These words ask whether there is a ground for rejecting the mark.\",\"words\":\"can it be rejected\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "5bbb821379e1b996eadf39259d15ec8e6ba8392daf7b55e51e4b57c950ef786d",
+ "response_id": "resp_02fd6653d0f99818006acc6df3ee0087d2b7372e2124fcd4a2",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4662,
+  "input_tokens_details": {
+   "cache_write_tokens": 4659,
+   "cached_tokens": 0
+  },
+  "output_tokens": 71,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4733
+ }
+}

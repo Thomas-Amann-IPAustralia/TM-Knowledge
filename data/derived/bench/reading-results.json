@@ -1,0 +1,1797 @@
+{
+ "changed": {
+  "n": 101,
+  "n:ndcg:names-keyword": 101,
+  "n:ndcg:reading-keyword": 101,
+  "n:ndcg:reading-names": 101,
+  "n:recall:names-keyword": 100,
+  "n:recall:reading-keyword": 100,
+  "n:recall:reading-names": 100,
+  "ndcg:keyword": 0.6747606446453129,
+  "ndcg:names": 0.6376062746396184,
+  "ndcg:names-keyword": [
+   -0.03715437000569458,
+   -0.06548953386465525,
+   -0.008683917146426794
+  ],
+  "ndcg:reading": 0.6886261139284211,
+  "ndcg:reading-keyword": [
+   0.013865469283108075,
+   -0.031126982415060053,
+   0.05833057447851117
+  ],
+  "ndcg:reading-names": [
+   0.05101983928880265,
+   0.012334719015505152,
+   0.08948379153987063
+  ],
+  "no_relevant": 1,
+  "recall:keyword": 0.5407329417658365,
+  "recall:names": 0.4703747716708243,
+  "recall:names-keyword": [
+   -0.0703581700950122,
+   -0.11677300477300477,
+   -0.026768665544981335
+  ],
+  "recall:reading": 0.5327468528060634,
+  "recall:reading-keyword": [
+   -0.00798608895977317,
+   -0.07463530085898508,
+   0.05475060027691607
+  ],
+  "recall:reading-names": [
+   0.06237208113523903,
+   -0.005885017760017761,
+   0.12742050858498227
+  ]
+ },
+ "coverage": {
+  "all": {
+   "added": 182,
+   "n": 129,
+   "named": 76,
+   "only_read": 45,
+   "set_aside": 0,
+   "touched": 101
+  },
+  "cross_part": {
+   "added": 58,
+   "n": 30,
+   "named": 20,
+   "only_read": 10,
+   "set_aside": 0,
+   "touched": 29
+  },
+  "impact": {
+   "added": 42,
+   "n": 30,
+   "named": 17,
+   "only_read": 10,
+   "set_aside": 0,
+   "touched": 23
+  },
+  "lookup": {
+   "added": 34,
+   "n": 30,
+   "named": 19,
+   "only_read": 9,
+   "set_aside": 0,
+   "touched": 22
+  },
+  "problem": {
+   "added": 40,
+   "n": 29,
+   "named": 13,
+   "only_read": 13,
+   "set_aside": 0,
+   "touched": 22
+  },
+  "signed": {
+   "added": 8,
+   "n": 10,
+   "named": 7,
+   "only_read": 3,
+   "set_aside": 0,
+   "touched": 5
+  }
+ },
+ "rows": [
+  {
+   "key": "BN-0001",
+   "kind": "lookup",
+   "ndcg:keyword": 0.6979617233087799,
+   "ndcg:names": 0.45269195682795743,
+   "ndcg:reading": 0.8341377692479385,
+   "recall:keyword": 0.5714285714285714,
+   "recall:names": 0.42857142857142855,
+   "recall:reading": 0.5714285714285714,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0002",
+   "kind": "problem",
+   "ndcg:keyword": 0.49332425757718157,
+   "ndcg:names": 0.18285273361929053,
+   "ndcg:reading": 0.18285273361929053,
+   "recall:keyword": 0.5,
+   "recall:names": 0.0,
+   "recall:reading": 0.0,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0003",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.8919319919813765,
+   "ndcg:names": 0.7427312692039655,
+   "ndcg:reading": 0.7757767149882592,
+   "recall:keyword": 0.5,
+   "recall:names": 0.3125,
+   "recall:reading": 0.375,
+   "relevant": 16
+  },
+  {
+   "key": "BN-0004",
+   "kind": "impact",
+   "ndcg:keyword": 0.22923304007788126,
+   "ndcg:names": 0.22923304007788126,
+   "ndcg:reading": 0.5043889988945984,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 0.0,
+   "relevant": 1
+  },
+  {
+   "key": "BN-0005",
+   "kind": "lookup",
+   "ndcg:keyword": 0.7097548547795044,
+   "ndcg:names": 0.5513878630315331,
+   "ndcg:reading": 0.5397474248168974,
+   "recall:keyword": 0.75,
+   "recall:names": 0.5,
+   "recall:reading": 0.25,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0006",
+   "kind": "problem",
+   "ndcg:keyword": 0.40562278392105267,
+   "ndcg:names": 0.5890067692564168,
+   "ndcg:reading": 0.6579531524411368,
+   "recall:keyword": 0.0,
+   "recall:names": 0.25,
+   "recall:reading": 0.5,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0007",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.7532583011598041,
+   "ndcg:names": 0.7532583011598041,
+   "ndcg:reading": 0.7740053016519804,
+   "recall:keyword": 0.5,
+   "recall:names": 0.5,
+   "recall:reading": 0.42857142857142855,
+   "relevant": 14
+  },
+  {
+   "key": "BN-0008",
+   "kind": "impact",
+   "ndcg:keyword": 0.8746445221163974,
+   "ndcg:names": 0.9410786248670509,
+   "ndcg:reading": 0.9410786248670509,
+   "recall:keyword": 0.8333333333333334,
+   "recall:names": 0.8333333333333334,
+   "recall:reading": 0.8333333333333334,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0009",
+   "kind": "lookup",
+   "ndcg:keyword": 0.7111498379361267,
+   "ndcg:names": 0.2049626270088835,
+   "ndcg:reading": 0.2049626270088835,
+   "recall:keyword": 0.5555555555555556,
+   "recall:names": 0.1111111111111111,
+   "recall:reading": 0.1111111111111111,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0010",
+   "kind": "problem",
+   "ndcg:keyword": 0.4816955806838605,
+   "ndcg:names": 0.41546575547595394,
+   "ndcg:reading": 0.5688814363810456,
+   "recall:keyword": 0.4444444444444444,
+   "recall:names": 0.3333333333333333,
+   "recall:reading": 0.4444444444444444,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0011",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.7563334124823566,
+   "ndcg:names": 0.6297064942401516,
+   "ndcg:reading": 0.5585371078504306,
+   "recall:keyword": 0.35714285714285715,
+   "recall:names": 0.2857142857142857,
+   "recall:reading": 0.2857142857142857,
+   "relevant": 14
+  },
+  {
+   "key": "BN-0012",
+   "kind": "impact",
+   "ndcg:keyword": 0.8591130715410661,
+   "ndcg:names": 0.8591130715410661,
+   "ndcg:reading": 0.7337418666528414,
+   "recall:keyword": 0.8,
+   "recall:names": 0.8,
+   "recall:reading": 0.6,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0013",
+   "kind": "lookup",
+   "ndcg:keyword": 0.694355946562825,
+   "ndcg:names": 0.694355946562825,
+   "ndcg:reading": 0.6461459647339004,
+   "recall:keyword": 0.0,
+   "recall:names": 0.0,
+   "recall:reading": 0.0,
+   "relevant": 1
+  },
+  {
+   "key": "BN-0014",
+   "kind": "problem",
+   "ndcg:keyword": 0.533722464892509,
+   "ndcg:names": 0.38421795919685947,
+   "ndcg:reading": 0.76354759098041,
+   "recall:keyword": 0.2727272727272727,
+   "recall:names": 0.18181818181818182,
+   "recall:reading": 0.45454545454545453,
+   "relevant": 11
+  },
+  {
+   "key": "BN-0015",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.6826039612664936,
+   "ndcg:names": 0.43950657752406963,
+   "ndcg:reading": 0.4121514271239059,
+   "recall:keyword": 0.625,
+   "recall:names": 0.25,
+   "recall:reading": 0.25,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0016",
+   "kind": "impact",
+   "ndcg:keyword": 0.8279870801489959,
+   "ndcg:names": 0.7135362854919387,
+   "ndcg:reading": 0.8889011221026962,
+   "recall:keyword": 0.8,
+   "recall:names": 0.4,
+   "recall:reading": 0.8,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0017",
+   "kind": "lookup",
+   "ndcg:keyword": 0.8382563938477572,
+   "ndcg:names": 0.9735681895734682,
+   "ndcg:reading": 0.6700170278336353,
+   "recall:keyword": 0.8,
+   "recall:names": 1.0,
+   "recall:reading": 0.4,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0018",
+   "kind": "problem",
+   "ndcg:keyword": 0.7619480479587543,
+   "ndcg:names": 0.48079735535498086,
+   "ndcg:reading": 0.48079735535498086,
+   "recall:keyword": 1.0,
+   "recall:names": 0.5,
+   "recall:reading": 0.5,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0019",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.45232893278816033,
+   "ndcg:names": 0.45232893278816033,
+   "ndcg:reading": 0.39320063658059345,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 0.5,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0020",
+   "kind": "impact",
+   "ndcg:keyword": 0.6651530489937767,
+   "ndcg:names": 0.5151308751107464,
+   "ndcg:reading": 0.7582149447492005,
+   "recall:keyword": 0.3333333333333333,
+   "recall:names": 0.16666666666666666,
+   "recall:reading": 0.8333333333333334,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0021",
+   "kind": "lookup",
+   "ndcg:keyword": 0.47123591280882926,
+   "ndcg:names": 0.5456196628816502,
+   "ndcg:reading": 0.47403802336162265,
+   "recall:keyword": 0.3333333333333333,
+   "recall:names": 0.0,
+   "recall:reading": 0.0,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0022",
+   "kind": "problem",
+   "ndcg:keyword": 0.8427358054047729,
+   "ndcg:names": 0.8427358054047729,
+   "ndcg:reading": 0.8269033828281823,
+   "recall:keyword": 0.8,
+   "recall:names": 0.8,
+   "recall:reading": 1.0,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0023",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.8496680230821286,
+   "ndcg:names": 0.8496680230821286,
+   "ndcg:reading": 0.44193204877015424,
+   "recall:keyword": 0.75,
+   "recall:names": 0.75,
+   "recall:reading": 0.5,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0024",
+   "kind": "impact",
+   "ndcg:keyword": 0.7935876992662333,
+   "ndcg:names": 0.6352363165194673,
+   "ndcg:reading": 0.7799856614522904,
+   "recall:keyword": 1.0,
+   "recall:names": 0.0,
+   "recall:reading": 1.0,
+   "relevant": 1
+  },
+  {
+   "key": "BN-0025",
+   "kind": "lookup",
+   "ndcg:keyword": 0.2943952830082039,
+   "ndcg:names": 0.2943952830082039,
+   "ndcg:reading": 0.6461459647339004,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 0.0,
+   "relevant": 1
+  },
+  {
+   "key": "BN-0026",
+   "kind": "problem",
+   "ndcg:keyword": 0.556997580793813,
+   "ndcg:names": 0.556997580793813,
+   "ndcg:reading": 0.648661411773637,
+   "recall:keyword": 0.3333333333333333,
+   "recall:names": 0.3333333333333333,
+   "recall:reading": 0.6666666666666666,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0027",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.9596712513650809,
+   "ndcg:names": 0.9596712513650809,
+   "ndcg:reading": 0.6148412593558407,
+   "recall:keyword": 0.875,
+   "recall:names": 0.875,
+   "recall:reading": 0.5,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0028",
+   "kind": "impact",
+   "ndcg:keyword": 0.34948284920873157,
+   "ndcg:names": 0.34948284920873157,
+   "ndcg:reading": 0.9105407871080394,
+   "recall:keyword": 0.25,
+   "recall:names": 0.25,
+   "recall:reading": 1.0,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0029",
+   "kind": "lookup",
+   "ndcg:keyword": 0.7119039099941492,
+   "ndcg:names": 0.7828238341916645,
+   "ndcg:reading": 0.7828238341916645,
+   "recall:keyword": 0.5,
+   "recall:names": 0.6,
+   "recall:reading": 0.6,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0030",
+   "kind": "problem",
+   "ndcg:keyword": 0.7612559886232686,
+   "ndcg:names": 0.7612559886232686,
+   "ndcg:reading": 0.719976033187823,
+   "recall:keyword": 0.375,
+   "recall:names": 0.375,
+   "recall:reading": 0.625,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0031",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.3211534464704161,
+   "ndcg:names": 0.5470354884523242,
+   "ndcg:reading": 0.516008009644662,
+   "recall:keyword": 0.42857142857142855,
+   "recall:names": 0.2857142857142857,
+   "recall:reading": 0.14285714285714285,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0032",
+   "kind": "impact",
+   "ndcg:keyword": 0.8316300590340351,
+   "ndcg:names": 0.7954427843364603,
+   "ndcg:reading": 0.7954427843364603,
+   "recall:keyword": 0.8333333333333334,
+   "recall:names": 0.5,
+   "recall:reading": 0.5,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0033",
+   "kind": "lookup",
+   "ndcg:keyword": 0.8050654861361963,
+   "ndcg:names": 0.6773613341680238,
+   "ndcg:reading": 0.7386830436501182,
+   "recall:keyword": 0.38461538461538464,
+   "recall:names": 0.15384615384615385,
+   "recall:reading": 0.46153846153846156,
+   "relevant": 13
+  },
+  {
+   "key": "BN-0034",
+   "kind": "problem",
+   "ndcg:keyword": 0.5465176397291128,
+   "ndcg:names": 0.7373522989485495,
+   "ndcg:reading": 0.7130399155240315,
+   "recall:keyword": 0.21052631578947367,
+   "recall:names": 0.42105263157894735,
+   "recall:reading": 0.3157894736842105,
+   "relevant": 19
+  },
+  {
+   "key": "BN-0035",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.12957248499601234,
+   "ndcg:names": 0.12957248499601234,
+   "ndcg:reading": 0.6038057618452759,
+   "recall:keyword": 0.1,
+   "recall:names": 0.1,
+   "recall:reading": 0.6,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0036",
+   "kind": "impact",
+   "ndcg:keyword": 0.9064432670257093,
+   "ndcg:names": 0.6951740156260119,
+   "ndcg:reading": 0.6619567802448046,
+   "recall:keyword": 0.75,
+   "recall:names": 0.5,
+   "recall:reading": 0.375,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0037",
+   "kind": "lookup",
+   "ndcg:keyword": 0.7835281790963998,
+   "ndcg:names": 0.7835281790963998,
+   "ndcg:reading": 0.8241185552000071,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0038",
+   "kind": "problem",
+   "ndcg:keyword": 0.8530310711297682,
+   "ndcg:names": 0.8530310711297682,
+   "ndcg:reading": 0.5441075858814632,
+   "recall:keyword": 0.7777777777777778,
+   "recall:names": 0.7777777777777778,
+   "recall:reading": 0.2222222222222222,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0039",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.683699889680483,
+   "ndcg:names": 0.6194784253113985,
+   "ndcg:reading": 0.6194784253113985,
+   "recall:keyword": 0.7142857142857143,
+   "recall:names": 0.5714285714285714,
+   "recall:reading": 0.5714285714285714,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0040",
+   "kind": "impact",
+   "ndcg:keyword": 0.7782291086723041,
+   "ndcg:names": 0.9506963277483996,
+   "ndcg:reading": 0.7449888980384513,
+   "recall:keyword": 0.5714285714285714,
+   "recall:names": 0.8571428571428571,
+   "recall:reading": 0.7142857142857143,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0041",
+   "kind": "lookup",
+   "ndcg:keyword": 0.9597093503628127,
+   "ndcg:names": 0.6332937830193569,
+   "ndcg:reading": 0.7726765303096802,
+   "recall:keyword": 1.0,
+   "recall:names": 0.0,
+   "recall:reading": 0.5,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0042",
+   "kind": "problem",
+   "ndcg:keyword": 0.7456390622217693,
+   "ndcg:names": 0.7383743507639372,
+   "ndcg:reading": 0.7429068178711254,
+   "recall:keyword": 0.4166666666666667,
+   "recall:names": 0.4166666666666667,
+   "recall:reading": 0.4166666666666667,
+   "relevant": 12
+  },
+  {
+   "key": "BN-0043",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.6283128411949584,
+   "ndcg:names": 0.6807599535697686,
+   "ndcg:reading": 0.6261418650983223,
+   "recall:keyword": 0.42857142857142855,
+   "recall:names": 0.5714285714285714,
+   "recall:reading": 0.42857142857142855,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0044",
+   "kind": "impact",
+   "ndcg:keyword": 0.8898102420327176,
+   "ndcg:names": 0.8898102420327176,
+   "ndcg:reading": 0.8898102420327176,
+   "recall:keyword": 0.7272727272727273,
+   "recall:names": 0.7272727272727273,
+   "recall:reading": 0.7272727272727273,
+   "relevant": 11
+  },
+  {
+   "key": "BN-0045",
+   "kind": "lookup",
+   "ndcg:keyword": 0.7960420112934496,
+   "ndcg:names": 0.6821528349978085,
+   "ndcg:reading": 0.6821528349978085,
+   "recall:keyword": 0.3333333333333333,
+   "recall:names": 0.3333333333333333,
+   "recall:reading": 0.3333333333333333,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0046",
+   "kind": "problem",
+   "ndcg:keyword": 0.7000292752521878,
+   "ndcg:names": 0.7000292752521878,
+   "ndcg:reading": 0.9826868679868519,
+   "recall:keyword": 0.6666666666666666,
+   "recall:names": 0.6666666666666666,
+   "recall:reading": 1.0,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0047",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.9421647879145743,
+   "ndcg:names": 0.9257545924879343,
+   "ndcg:reading": 0.9601998040127186,
+   "recall:keyword": 0.5714285714285714,
+   "recall:names": 0.5714285714285714,
+   "recall:reading": 0.6428571428571429,
+   "relevant": 14
+  },
+  {
+   "key": "BN-0048",
+   "kind": "impact",
+   "ndcg:keyword": 0.3043333428210272,
+   "ndcg:names": 0.32749109630648704,
+   "ndcg:reading": 0.8676757000842558,
+   "recall:keyword": 0.25,
+   "recall:names": 0.25,
+   "recall:reading": 0.5833333333333334,
+   "relevant": 12
+  },
+  {
+   "key": "BN-0049",
+   "kind": "lookup",
+   "ndcg:keyword": 0.9005944730351809,
+   "ndcg:names": 0.7755974239992355,
+   "ndcg:reading": 0.7755974239992355,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0050",
+   "kind": "problem",
+   "ndcg:keyword": 0.8124380673943875,
+   "ndcg:names": 0.8124380673943875,
+   "ndcg:reading": 0.7531200813198925,
+   "recall:keyword": 0.6666666666666666,
+   "recall:names": 0.6666666666666666,
+   "recall:reading": 0.6666666666666666,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0051",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.6002799710870971,
+   "ndcg:names": 0.690457981418956,
+   "ndcg:reading": 0.6824097104635265,
+   "recall:keyword": 0.5,
+   "recall:names": 0.5,
+   "recall:reading": 0.375,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0052",
+   "kind": "impact",
+   "ndcg:keyword": 0.6118578590631344,
+   "ndcg:names": 0.7150371547400531,
+   "ndcg:reading": 0.628554520957371,
+   "recall:keyword": 0.5,
+   "recall:names": 0.6,
+   "recall:reading": 0.5,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0053",
+   "kind": "lookup",
+   "ndcg:keyword": 0.8201367149491171,
+   "ndcg:names": 0.6633855257242047,
+   "ndcg:reading": 0.8514567876065097,
+   "recall:keyword": 0.7142857142857143,
+   "recall:names": 0.2857142857142857,
+   "recall:reading": 0.7142857142857143,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0054",
+   "kind": "problem",
+   "ndcg:keyword": 0.5913819000399001,
+   "ndcg:names": 0.7253164510862772,
+   "ndcg:reading": 0.7253164510862772,
+   "recall:keyword": 0.3333333333333333,
+   "recall:names": 0.6666666666666666,
+   "recall:reading": 0.6666666666666666,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0055",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.884103404042055,
+   "ndcg:names": 0.807702461980192,
+   "ndcg:reading": 0.9593939523921701,
+   "recall:keyword": 0.6,
+   "recall:names": 0.4,
+   "recall:reading": 1.0,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0056",
+   "kind": "impact",
+   "ndcg:keyword": 0.8005801439086161,
+   "ndcg:names": 0.8005801439086161,
+   "ndcg:reading": 0.9090124782590354,
+   "recall:keyword": 0.42857142857142855,
+   "recall:names": 0.42857142857142855,
+   "recall:reading": 0.8571428571428571,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0057",
+   "kind": "lookup",
+   "ndcg:keyword": 0.5876477470009699,
+   "ndcg:names": 0.5643725162911833,
+   "ndcg:reading": 0.5608645852634466,
+   "recall:keyword": 0.25,
+   "recall:names": 0.25,
+   "recall:reading": 0.25,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0058",
+   "kind": "problem",
+   "ndcg:keyword": 0.0,
+   "ndcg:names": 0.0,
+   "ndcg:reading": 0.5144066841097525,
+   "recall:keyword": 0.0,
+   "recall:names": 0.0,
+   "recall:reading": 0.3333333333333333,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0059",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.7670168118561301,
+   "ndcg:names": 0.7670168118561301,
+   "ndcg:reading": 0.9546036265099966,
+   "recall:keyword": 0.5555555555555556,
+   "recall:names": 0.5555555555555556,
+   "recall:reading": 0.8888888888888888,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0060",
+   "kind": "impact",
+   "ndcg:keyword": 0.8106083306620322,
+   "ndcg:names": 0.8106083306620322,
+   "ndcg:reading": 0.6240661200820422,
+   "recall:keyword": 0.5454545454545454,
+   "recall:names": 0.5454545454545454,
+   "recall:reading": 0.36363636363636365,
+   "relevant": 11
+  },
+  {
+   "key": "BN-0061",
+   "kind": "lookup",
+   "ndcg:keyword": 0.823586844669514,
+   "ndcg:names": 0.5821032065260975,
+   "ndcg:reading": 0.6973636979109683,
+   "recall:keyword": 1.0,
+   "recall:names": 0.0,
+   "recall:reading": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0062",
+   "kind": "problem",
+   "ndcg:keyword": 0.6726044426256772,
+   "ndcg:names": 0.6726044426256772,
+   "ndcg:reading": 0.8332939853264204,
+   "recall:keyword": 0.5,
+   "recall:names": 0.5,
+   "recall:reading": 0.8333333333333334,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0063",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.867813031281027,
+   "ndcg:names": 0.5423985690119049,
+   "ndcg:reading": 0.5380276458491546,
+   "recall:keyword": 0.75,
+   "recall:names": 0.375,
+   "recall:reading": 0.375,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0064",
+   "kind": "impact",
+   "ndcg:keyword": 0.15644807018024612,
+   "ndcg:names": 0.8234885560685902,
+   "ndcg:reading": 0.8619255597116141,
+   "recall:keyword": 0.08333333333333333,
+   "recall:names": 0.5,
+   "recall:reading": 0.5,
+   "relevant": 12
+  },
+  {
+   "key": "BN-0065",
+   "kind": "lookup",
+   "ndcg:keyword": 1.0,
+   "ndcg:names": 1.0,
+   "ndcg:reading": 1.0,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 1.0,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0066",
+   "kind": "problem",
+   "ndcg:keyword": 0.8401851084845681,
+   "ndcg:names": 0.8401851084845681,
+   "ndcg:reading": 0.8401851084845681,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0067",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.8443141618969313,
+   "ndcg:names": 0.34519603397854753,
+   "ndcg:reading": 0.4254643603728084,
+   "recall:keyword": 0.75,
+   "recall:names": 0.25,
+   "recall:reading": 0.25,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0068",
+   "kind": "impact",
+   "ndcg:keyword": 0.4593696409469785,
+   "ndcg:names": 0.4593696409469785,
+   "ndcg:reading": 0.6167319918754003,
+   "recall:keyword": 0.4,
+   "recall:names": 0.4,
+   "recall:reading": 0.5,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0069",
+   "kind": "lookup",
+   "ndcg:keyword": 0.9351885419275077,
+   "ndcg:names": 0.9351885419275077,
+   "ndcg:reading": 0.9629749696660748,
+   "recall:keyword": 0.8888888888888888,
+   "recall:names": 0.8888888888888888,
+   "recall:reading": 1.0,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0070",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.6533124175738572,
+   "ndcg:names": 0.6533124175738572,
+   "ndcg:reading": 0.7514116586187596,
+   "recall:keyword": 0.5555555555555556,
+   "recall:names": 0.5555555555555556,
+   "recall:reading": 0.5555555555555556,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0071",
+   "kind": "impact",
+   "ndcg:keyword": 0.9215091422906759,
+   "ndcg:names": 0.9661478556466591,
+   "ndcg:reading": 0.9661478556466591,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 1.0,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0072",
+   "kind": "lookup",
+   "ndcg:keyword": 0.8934676746179602,
+   "ndcg:names": 0.8934676746179602,
+   "ndcg:reading": 0.9077753594956167,
+   "recall:keyword": 0.5,
+   "recall:names": 0.5,
+   "recall:reading": 0.75,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0073",
+   "kind": "problem",
+   "ndcg:keyword": 0.7177026217924811,
+   "ndcg:names": 0.47913081746330893,
+   "ndcg:reading": 0.47150491944856104,
+   "recall:keyword": 0.6666666666666666,
+   "recall:names": 0.6666666666666666,
+   "recall:reading": 0.3333333333333333,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0074",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.6571201875114528,
+   "ndcg:names": 0.8391115876854858,
+   "ndcg:reading": 0.7179666204182155,
+   "recall:keyword": 0.4444444444444444,
+   "recall:names": 0.5555555555555556,
+   "recall:reading": 0.5555555555555556,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0075",
+   "kind": "impact",
+   "ndcg:keyword": 0.8352413840492925,
+   "ndcg:names": 0.5851679034803119,
+   "ndcg:reading": 0.5157406908131581,
+   "recall:keyword": 0.5555555555555556,
+   "recall:names": 0.3333333333333333,
+   "recall:reading": 0.2222222222222222,
+   "relevant": 9
+  },
+  {
+   "key": "BN-0076",
+   "kind": "lookup",
+   "ndcg:keyword": 0.7144732299003436,
+   "ndcg:names": 0.7144732299003436,
+   "ndcg:reading": 0.7742552867680437,
+   "recall:keyword": 0.625,
+   "recall:names": 0.625,
+   "recall:reading": 0.5,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0077",
+   "kind": "problem",
+   "ndcg:keyword": 0.7289706108012708,
+   "ndcg:names": 0.7983258978732595,
+   "ndcg:reading": 0.7983258978732595,
+   "recall:keyword": 0.3888888888888889,
+   "recall:names": 0.5,
+   "recall:reading": 0.5,
+   "relevant": 18
+  },
+  {
+   "key": "BN-0078",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.3242311721289475,
+   "ndcg:names": 0.22360850948908934,
+   "ndcg:reading": 0.5275949966116411,
+   "recall:keyword": 0.14285714285714285,
+   "recall:names": 0.14285714285714285,
+   "recall:reading": 0.5714285714285714,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0079",
+   "kind": "impact",
+   "ndcg:keyword": 0.7797544275579142,
+   "ndcg:names": 0.7797544275579142,
+   "ndcg:reading": 0.1528018841237257,
+   "recall:keyword": 0.6,
+   "recall:names": 0.6,
+   "recall:reading": 0.4,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0080",
+   "kind": "lookup",
+   "ndcg:keyword": 0.8981335190790164,
+   "ndcg:names": 0.8981335190790164,
+   "ndcg:reading": 0.552444994441619,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 0.16666666666666666,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0081",
+   "kind": "problem",
+   "ndcg:keyword": 0.8262346571285599,
+   "ndcg:names": 0.8262346571285599,
+   "ndcg:reading": 0.8262346571285599,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 1.0,
+   "relevant": 1
+  },
+  {
+   "key": "BN-0082",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.7986251771020477,
+   "ndcg:names": 0.7986251771020477,
+   "ndcg:reading": 0.6852611061967083,
+   "recall:keyword": 0.42857142857142855,
+   "recall:names": 0.42857142857142855,
+   "recall:reading": 0.42857142857142855,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0083",
+   "kind": "impact",
+   "ndcg:keyword": 0.6735844326565442,
+   "ndcg:names": 0.6332937830193569,
+   "ndcg:reading": 0.7172105586442366,
+   "recall:keyword": 0.5,
+   "recall:names": 0.0,
+   "recall:reading": 0.5,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0084",
+   "kind": "lookup",
+   "ndcg:keyword": 0.7095113889527495,
+   "ndcg:names": 0.7095113889527495,
+   "ndcg:reading": 0.9397983401779808,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 0.6666666666666666,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0085",
+   "kind": "problem",
+   "ndcg:keyword": 0.48471198902551854,
+   "ndcg:names": 0.48471198902551854,
+   "ndcg:reading": 0.5677211578528083,
+   "recall:keyword": null,
+   "recall:names": null,
+   "recall:reading": null,
+   "relevant": 0
+  },
+  {
+   "key": "BN-0086",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.7928880736148995,
+   "ndcg:names": 0.7995190796372481,
+   "ndcg:reading": 0.7995190796372481,
+   "recall:keyword": 0.5,
+   "recall:names": 0.8333333333333334,
+   "recall:reading": 0.8333333333333334,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0087",
+   "kind": "impact",
+   "ndcg:keyword": 0.8644221146438875,
+   "ndcg:names": 0.8644221146438875,
+   "ndcg:reading": 0.7331031343992769,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0088",
+   "kind": "lookup",
+   "ndcg:keyword": 0.8071884738577423,
+   "ndcg:names": 0.686757409062844,
+   "ndcg:reading": 0.5894098559154516,
+   "recall:keyword": 0.5,
+   "recall:names": 0.5,
+   "recall:reading": 0.3333333333333333,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0089",
+   "kind": "problem",
+   "ndcg:keyword": 0.8851994699253537,
+   "ndcg:names": 0.8851994699253537,
+   "ndcg:reading": 0.8851994699253537,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 1.0,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0090",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.9133679811305536,
+   "ndcg:names": 0.8064259903533747,
+   "ndcg:reading": 0.7879165837530907,
+   "recall:keyword": 0.9,
+   "recall:names": 0.8,
+   "recall:reading": 0.6,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0091",
+   "kind": "impact",
+   "ndcg:keyword": 0.5807257406547516,
+   "ndcg:names": 0.5807257406547516,
+   "ndcg:reading": 0.6499450681888607,
+   "recall:keyword": 0.25,
+   "recall:names": 0.25,
+   "recall:reading": 0.75,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0092",
+   "kind": "lookup",
+   "ndcg:keyword": 0.8316114133348735,
+   "ndcg:names": 0.8316114133348735,
+   "ndcg:reading": 0.8316114133348735,
+   "recall:keyword": 0.75,
+   "recall:names": 0.75,
+   "recall:reading": 0.75,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0093",
+   "kind": "problem",
+   "ndcg:keyword": 0.5055415026297475,
+   "ndcg:names": 0.5055415026297475,
+   "ndcg:reading": 0.4159210083990842,
+   "recall:keyword": 0.42857142857142855,
+   "recall:names": 0.42857142857142855,
+   "recall:reading": 0.2857142857142857,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0094",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.48574490719222113,
+   "ndcg:names": 0.6038127402026374,
+   "ndcg:reading": 0.8126968641476373,
+   "recall:keyword": 0.0625,
+   "recall:names": 0.25,
+   "recall:reading": 0.4375,
+   "relevant": 16
+  },
+  {
+   "key": "BN-0095",
+   "kind": "impact",
+   "ndcg:keyword": 0.9157816106937342,
+   "ndcg:names": 0.9157816106937342,
+   "ndcg:reading": 0.9157816106937342,
+   "recall:keyword": 0.9,
+   "recall:names": 0.9,
+   "recall:reading": 0.9,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0096",
+   "kind": "lookup",
+   "ndcg:keyword": 0.8826663660122922,
+   "ndcg:names": 0.6451765021029439,
+   "ndcg:reading": 0.6623733849863578,
+   "recall:keyword": 1.0,
+   "recall:names": 0.6666666666666666,
+   "recall:reading": 0.6666666666666666,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0097",
+   "kind": "problem",
+   "ndcg:keyword": 0.7381769492380982,
+   "ndcg:names": 0.8516173108565721,
+   "ndcg:reading": 0.8516173108565721,
+   "recall:keyword": 0.5,
+   "recall:names": 0.5,
+   "recall:reading": 0.5,
+   "relevant": 14
+  },
+  {
+   "key": "BN-0098",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.7977565431029979,
+   "ndcg:names": 0.6478199371960183,
+   "ndcg:reading": 0.6345355387002324,
+   "recall:keyword": 0.6153846153846154,
+   "recall:names": 0.3076923076923077,
+   "recall:reading": 0.46153846153846156,
+   "relevant": 13
+  },
+  {
+   "key": "BN-0099",
+   "kind": "impact",
+   "ndcg:keyword": 0.7637250577484144,
+   "ndcg:names": 0.7637250577484144,
+   "ndcg:reading": 0.7637250577484144,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 1.0,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0100",
+   "kind": "lookup",
+   "ndcg:keyword": 0.9585201933634447,
+   "ndcg:names": 0.8205327781067021,
+   "ndcg:reading": 0.6654151029494252,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 1.0,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0101",
+   "kind": "problem",
+   "ndcg:keyword": 0.7887514430636225,
+   "ndcg:names": 0.8441374369455147,
+   "ndcg:reading": 0.770255775219898,
+   "recall:keyword": 0.625,
+   "recall:names": 0.75,
+   "recall:reading": 0.625,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0102",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.7669030228327155,
+   "ndcg:names": 0.49260414749889153,
+   "ndcg:reading": 0.6999481373198917,
+   "recall:keyword": 0.46153846153846156,
+   "recall:names": 0.38461538461538464,
+   "recall:reading": 0.5384615384615384,
+   "relevant": 13
+  },
+  {
+   "key": "BN-0103",
+   "kind": "impact",
+   "ndcg:keyword": 0.8424910341768647,
+   "ndcg:names": 0.8424910341768647,
+   "ndcg:reading": 0.832549232492526,
+   "recall:keyword": 0.7,
+   "recall:names": 0.7,
+   "recall:reading": 0.7,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0104",
+   "kind": "lookup",
+   "ndcg:keyword": 0.6066317881331335,
+   "ndcg:names": 0.6066317881331335,
+   "ndcg:reading": 0.6158128468342661,
+   "recall:keyword": 0.6,
+   "recall:names": 0.6,
+   "recall:reading": 0.4,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0105",
+   "kind": "problem",
+   "ndcg:keyword": 0.5462287028767652,
+   "ndcg:names": 0.5462287028767652,
+   "ndcg:reading": 0.6716258017402276,
+   "recall:keyword": 0.16666666666666666,
+   "recall:names": 0.16666666666666666,
+   "recall:reading": 0.6666666666666666,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0106",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.9286474753101561,
+   "ndcg:names": 0.600253360481616,
+   "ndcg:reading": 0.8312384597951912,
+   "recall:keyword": 0.42105263157894735,
+   "recall:names": 0.2631578947368421,
+   "recall:reading": 0.42105263157894735,
+   "relevant": 19
+  },
+  {
+   "key": "BN-0107",
+   "kind": "impact",
+   "ndcg:keyword": 0.6919471499682002,
+   "ndcg:names": 0.39797198624621727,
+   "ndcg:reading": 0.49356011135108674,
+   "recall:keyword": 0.375,
+   "recall:names": 0.0,
+   "recall:reading": 0.125,
+   "relevant": 8
+  },
+  {
+   "key": "BN-0108",
+   "kind": "lookup",
+   "ndcg:keyword": 0.5870104632923209,
+   "ndcg:names": 0.47840321727742335,
+   "ndcg:reading": 0.47840321727742335,
+   "recall:keyword": 0.3333333333333333,
+   "recall:names": 0.6666666666666666,
+   "recall:reading": 0.6666666666666666,
+   "relevant": 3
+  },
+  {
+   "key": "BN-0109",
+   "kind": "problem",
+   "ndcg:keyword": 0.9220944493879247,
+   "ndcg:names": 0.9220944493879247,
+   "ndcg:reading": 0.8502380012239545,
+   "recall:keyword": 0.8,
+   "recall:names": 0.8,
+   "recall:reading": 0.8,
+   "relevant": 5
+  },
+  {
+   "key": "BN-0110",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.6164331412913517,
+   "ndcg:names": 0.5578343455477044,
+   "ndcg:reading": 0.6867041246291223,
+   "recall:keyword": 0.42857142857142855,
+   "recall:names": 0.2857142857142857,
+   "recall:reading": 0.42857142857142855,
+   "relevant": 7
+  },
+  {
+   "key": "BN-0111",
+   "kind": "impact",
+   "ndcg:keyword": 0.8655505867784571,
+   "ndcg:names": 0.9008636626471189,
+   "ndcg:reading": 0.9339091084314125,
+   "recall:keyword": 0.3333333333333333,
+   "recall:names": 0.37037037037037035,
+   "recall:reading": 0.37037037037037035,
+   "relevant": 27
+  },
+  {
+   "key": "BN-0112",
+   "kind": "lookup",
+   "ndcg:keyword": 0.9237462009050439,
+   "ndcg:names": 0.6561709361507524,
+   "ndcg:reading": 0.6561709361507524,
+   "recall:keyword": 1.0,
+   "recall:names": 0.5,
+   "recall:reading": 0.5,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0113",
+   "kind": "problem",
+   "ndcg:keyword": 0.7447189069355834,
+   "ndcg:names": 0.8961872597973625,
+   "ndcg:reading": 0.8032109534263516,
+   "recall:keyword": 0.45454545454545453,
+   "recall:names": 0.6363636363636364,
+   "recall:reading": 0.45454545454545453,
+   "relevant": 11
+  },
+  {
+   "key": "BN-0114",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.4095667004599782,
+   "ndcg:names": 0.4095667004599782,
+   "ndcg:reading": 0.8877281956783528,
+   "recall:keyword": 0.16666666666666666,
+   "recall:names": 0.16666666666666666,
+   "recall:reading": 0.75,
+   "relevant": 12
+  },
+  {
+   "key": "BN-0115",
+   "kind": "impact",
+   "ndcg:keyword": 0.5723310632718406,
+   "ndcg:names": 0.04772916729311707,
+   "ndcg:reading": 0.04772916729311707,
+   "recall:keyword": 0.5,
+   "recall:names": 0.0,
+   "recall:reading": 0.0,
+   "relevant": 4
+  },
+  {
+   "key": "BN-0116",
+   "kind": "lookup",
+   "ndcg:keyword": 0.6237384169953659,
+   "ndcg:names": 0.6237384169953659,
+   "ndcg:reading": 0.667513955120834,
+   "recall:keyword": 0.5,
+   "recall:names": 0.5,
+   "recall:reading": 0.5,
+   "relevant": 2
+  },
+  {
+   "key": "BN-0117",
+   "kind": "problem",
+   "ndcg:keyword": 0.5379273603045354,
+   "ndcg:names": 0.5379273603045354,
+   "ndcg:reading": 0.8195654487324586,
+   "recall:keyword": 0.3,
+   "recall:names": 0.3,
+   "recall:reading": 0.6,
+   "relevant": 10
+  },
+  {
+   "key": "BN-0118",
+   "kind": "cross_part",
+   "ndcg:keyword": 0.665187833801765,
+   "ndcg:names": 0.665187833801765,
+   "ndcg:reading": 0.5971053298633456,
+   "recall:keyword": 0.3333333333333333,
+   "recall:names": 0.3333333333333333,
+   "recall:reading": 0.5,
+   "relevant": 6
+  },
+  {
+   "key": "BN-0119",
+   "kind": "impact",
+   "ndcg:keyword": 0.7203599681946073,
+   "ndcg:names": 0.5418099386280563,
+   "ndcg:reading": 0.6069946139299428,
+   "recall:keyword": 0.8,
+   "recall:names": 0.8,
+   "recall:reading": 1.0,
+   "relevant": 5
+  },
+  {
+   "key": "GA-0001",
+   "kind": "signed",
+   "ndcg:keyword": 0.44919434018378335,
+   "ndcg:names": 0.44919434018378335,
+   "ndcg:reading": 0.5798236108406921,
+   "recall:keyword": 0.6,
+   "recall:names": 0.6,
+   "recall:reading": 0.4,
+   "relevant": 5
+  },
+  {
+   "key": "GA-0003",
+   "kind": "signed",
+   "ndcg:keyword": 0.8165951292044206,
+   "ndcg:names": 0.8197470591872634,
+   "ndcg:reading": 0.8197470591872634,
+   "recall:keyword": 0.4666666666666667,
+   "recall:names": 0.6,
+   "recall:reading": 0.6,
+   "relevant": 15
+  },
+  {
+   "key": "GA-0004",
+   "kind": "signed",
+   "ndcg:keyword": 0.7208989147899345,
+   "ndcg:names": 0.8103427778510314,
+   "ndcg:reading": 0.8103427778510314,
+   "recall:keyword": 0.4444444444444444,
+   "recall:names": 0.5555555555555556,
+   "recall:reading": 0.5555555555555556,
+   "relevant": 9
+  },
+  {
+   "key": "GA-0005",
+   "kind": "signed",
+   "ndcg:keyword": 0.8994443598279865,
+   "ndcg:names": 0.7496933155162617,
+   "ndcg:reading": 0.7496933155162617,
+   "recall:keyword": 1.0,
+   "recall:names": 1.0,
+   "recall:reading": 1.0,
+   "relevant": 4
+  },
+  {
+   "key": "GA-0007",
+   "kind": "signed",
+   "ndcg:keyword": 0.1283184662463504,
+   "ndcg:names": 0.1283184662463504,
+   "ndcg:reading": 0.5187903918940779,
+   "recall:keyword": 0.2,
+   "recall:names": 0.2,
+   "recall:reading": 0.6,
+   "relevant": 10
+  },
+  {
+   "key": "GA-0009",
+   "kind": "signed",
+   "ndcg:keyword": 0.7940116633854013,
+   "ndcg:names": 0.8604680271267885,
+   "ndcg:reading": 0.8604680271267885,
+   "recall:keyword": 0.75,
+   "recall:names": 0.75,
+   "recall:reading": 0.75,
+   "relevant": 4
+  },
+  {
+   "key": "GA-0010",
+   "kind": "signed",
+   "ndcg:keyword": 0.8293839270853463,
+   "ndcg:names": 0.7940708512166845,
+   "ndcg:reading": 0.7627968187686696,
+   "recall:keyword": 0.6,
+   "recall:names": 0.5,
+   "recall:reading": 0.4,
+   "relevant": 10
+  },
+  {
+   "key": "GA-0011",
+   "kind": "signed",
+   "ndcg:keyword": 0.40502226091658544,
+   "ndcg:names": 0.40502226091658544,
+   "ndcg:reading": 0.6140968277628228,
+   "recall:keyword": 0.0,
+   "recall:names": 0.0,
+   "recall:reading": 0.45454545454545453,
+   "relevant": 11
+  },
+  {
+   "key": "GA-0012",
+   "kind": "signed",
+   "ndcg:keyword": 0.6236462499937437,
+   "ndcg:names": 0.8385061583767022,
+   "ndcg:reading": 0.8775538807394614,
+   "recall:keyword": 0.2727272727272727,
+   "recall:names": 0.7272727272727273,
+   "recall:reading": 0.7272727272727273,
+   "relevant": 11
+  },
+  {
+   "key": "GA-0013",
+   "kind": "signed",
+   "ndcg:keyword": 0.8796328250488205,
+   "ndcg:names": 0.8885480484454287,
+   "ndcg:reading": 0.8885480484454287,
+   "recall:keyword": 1.0,
+   "recall:names": 0.8571428571428571,
+   "recall:reading": 0.8571428571428571,
+   "relevant": 7
+  }
+ ],
+ "summary": {
+  "all": {
+   "n": 129,
+   "n:ndcg:names-keyword": 129,
+   "n:ndcg:reading-keyword": 129,
+   "n:ndcg:reading-names": 129,
+   "n:recall:names-keyword": 128,
+   "n:recall:reading-keyword": 128,
+   "n:recall:reading-names": 128,
+   "ndcg:keyword": 0.7019278654392955,
+   "ndcg:names": 0.661128878080062,
+   "ndcg:names-keyword": [
+    -0.040798987359233534,
+    -0.06682169121085978,
+    -0.014445160463281193
+   ],
+   "ndcg:reading": 0.7010746437247835,
+   "ndcg:reading-keyword": [
+    -0.0008532217145120744,
+    -0.038662781562380594,
+    0.03648420114510961
+   ],
+   "ndcg:reading-names": [
+    0.03994576564472146,
+    0.009249106306232048,
+    0.06984783878239803
+   ],
+   "no_relevant": 1,
+   "recall:keyword": 0.5854458971903462,
+   "recall:names": 0.5192186561686973,
+   "recall:names-keyword": [
+    -0.06622724102164891,
+    -0.10743356435687851,
+    -0.027998409325506367
+   ],
+   "recall:reading": 0.5679468445556027,
+   "recall:reading-keyword": [
+    -0.017499052634743426,
+    -0.07159730536580866,
+    0.03374132378038628
+   ],
+   "recall:reading-names": [
+    0.04872818838690549,
+    -0.0039569468588794236,
+    0.10010592705905205
+   ]
+  },
+  "cross_part": {
+   "n": 30,
+   "n:ndcg:names-keyword": 30,
+   "n:ndcg:reading-keyword": 30,
+   "n:ndcg:reading-names": 30,
+   "n:recall:names-keyword": 30,
+   "n:recall:reading-keyword": 30,
+   "n:recall:reading-names": 30,
+   "ndcg:keyword": 0.6941337112532676,
+   "ndcg:names": 0.6326641826485414,
+   "ndcg:names-keyword": [
+    -0.06146952860472622,
+    -0.11804915884969722,
+    -0.009334255919705738
+   ],
+   "ndcg:reading": 0.6758534784396878,
+   "ndcg:reading-keyword": [
+    -0.018280232813579825,
+    -0.0970161109616387,
+    0.06343867361413771
+   ],
+   "ndcg:reading-names": [
+    0.043189295791146394,
+    -0.02267569996172196,
+    0.11143939025700919
+   ],
+   "no_relevant": 0,
+   "recall:keyword": 0.515534375468586,
+   "recall:names": 0.4486940909967226,
+   "recall:names-keyword": [
+    -0.06684028447186341,
+    -0.1290742079557869,
+    -0.00882733007733007
+   ],
+   "recall:reading": 0.506515246449457,
+   "recall:reading-keyword": [
+    -0.00901912901912902,
+    -0.11351241351241351,
+    0.09726597476597477
+   ],
+   "recall:reading-names": [
+    0.05782115545273439,
+    -0.02847374847374848,
+    0.15218623481781374
+   ]
+  },
+  "impact": {
+   "n": 30,
+   "n:ndcg:names-keyword": 30,
+   "n:ndcg:reading-keyword": 30,
+   "n:ndcg:reading-names": 30,
+   "n:recall:names-keyword": 30,
+   "n:recall:reading-keyword": 30,
+   "n:recall:reading-names": 30,
+   "ndcg:keyword": 0.7058645029461689,
+   "ndcg:names": 0.6776797879209878,
+   "ndcg:names-keyword": [
+    -0.02818471502518115,
+    -0.09006444214079729,
+    0.04127208260266921
+   ],
+   "ndcg:reading": 0.7148738391735007,
+   "ndcg:reading-keyword": [
+    0.009009336227331775,
+    -0.08700816090269423,
+    0.10905089468788826
+   ],
+   "ndcg:reading-names": [
+    0.037194051252512926,
+    -0.03953136571517161,
+    0.11282299754520428
+   ],
+   "no_relevant": 0,
+   "recall:keyword": 0.6206649831649832,
+   "recall:names": 0.523738175404842,
+   "recall:names-keyword": [
+    -0.09692680776014109,
+    -0.19417989417989417,
+    -0.009589947089947091
+   ],
+   "recall:reading": 0.6218310084976753,
+   "recall:reading-keyword": [
+    0.001166025332691998,
+    -0.12261904761904763,
+    0.11825837742504408
+   ],
+   "recall:reading-names": [
+    0.09809283309283309,
+    -0.0357034632034632,
+    0.2262012987012987
+   ]
+  },
+  "lookup": {
+   "n": 30,
+   "n:ndcg:names-keyword": 30,
+   "n:ndcg:reading-keyword": 30,
+   "n:ndcg:reading-names": 30,
+   "n:recall:names-keyword": 30,
+   "n:recall:reading-keyword": 30,
+   "n:recall:reading-names": 30,
+   "ndcg:keyword": 0.7659070779720537,
+   "ndcg:names": 0.6787132327516704,
+   "ndcg:names-keyword": [
+    -0.08719384522038327,
+    -0.13693079992148102,
+    -0.041242271495290674
+   ],
+   "ndcg:reading": 0.7001630585994979,
+   "ndcg:reading-keyword": [
+    -0.06574401937255582,
+    -0.12694547785873758,
+    -0.006618804734103867
+   ],
+   "ndcg:reading-names": [
+    0.021449825847827456,
+    -0.03026041184587141,
+    0.07267092791018039
+   ],
+   "no_relevant": 0,
+   "recall:keyword": 0.6963258038258038,
+   "recall:names": 0.5619932844932846,
+   "recall:names-keyword": [
+    -0.13433251933251933,
+    -0.2436975986975987,
+    -0.0367928367928368
+   ],
+   "recall:reading": 0.5363899063899065,
+   "recall:reading-keyword": [
+    -0.15993589743589745,
+    -0.26777065527065524,
+    -0.05743589743589742
+   ],
+   "recall:reading-names": [
+    -0.0256033781033781,
+    -0.15520146520146522,
+    0.10371387871387873
+   ]
+  },
+  "problem": {
+   "n": 29,
+   "n:ndcg:names-keyword": 29,
+   "n:ndcg:reading-keyword": 29,
+   "n:ndcg:reading-names": 29,
+   "n:recall:names-keyword": 28,
+   "n:recall:reading-keyword": 28,
+   "n:recall:reading-names": 28,
+   "ndcg:keyword": 0.6560478530980016,
+   "ndcg:names": 0.6506895816422459,
+   "ndcg:names-keyword": [
+    -0.005358271455755624,
+    -0.049856347280255564,
+    0.03437301853358406
+   ],
+   "ndcg:reading": 0.6975881722753097,
+   "ndcg:reading-keyword": [
+    0.04154031917730805,
+    -0.0250481971220532,
+    0.10917515547025541
+   ],
+   "ndcg:reading-names": [
+    0.046898590633063675,
+    -0.008046344486123812,
+    0.10679389636423148
+   ],
+   "no_relevant": 1,
+   "recall:keyword": 0.5224100565265979,
+   "recall:names": 0.5227589400991657,
+   "recall:names-keyword": [
+    0.0003488835725677831,
+    -0.06661540214171793,
+    0.05900404420141263
+   ],
+   "recall:reading": 0.5860926667317645,
+   "recall:reading-keyword": [
+    0.06368261020516659,
+    -0.041872945350388956,
+    0.1613453276047261
+   ],
+   "recall:reading-names": [
+    0.06333372663259881,
+    -0.020659128882813096,
+    0.14319483774370995
+   ]
+  },
+  "signed": {
+   "n": 10,
+   "n:ndcg:names-keyword": 10,
+   "n:ndcg:reading-keyword": 10,
+   "n:ndcg:reading-names": 10,
+   "n:recall:names-keyword": 10,
+   "n:recall:reading-keyword": 10,
+   "n:recall:reading-names": 10,
+   "ndcg:keyword": 0.6546148136682373,
+   "ndcg:names": 0.674391130506688,
+   "ndcg:names-keyword": [
+    0.019776316838450703,
+    -0.032691779910859656,
+    0.0754246530142439
+   ],
+   "ndcg:reading": 0.7481860758132497,
+   "ndcg:reading-keyword": [
+    0.0935712621450125,
+    0.0025300408972424695,
+    0.18870142784192556
+   ],
+   "ndcg:reading-names": [
+    0.07379494530656179,
+    0.004682141227750347,
+    0.16104748526552226
+   ],
+   "no_relevant": 0,
+   "recall:keyword": 0.5333838383838383,
+   "recall:names": 0.578997113997114,
+   "recall:names-keyword": [
+    0.04561327561327562,
+    -0.03841269841269842,
+    0.15191919191919195
+   ],
+   "recall:reading": 0.6344516594516595,
+   "recall:reading-keyword": [
+    0.10106782106782108,
+    -0.047619047619047616,
+    0.25535353535353533
+   ],
+   "recall:reading-names": [
+    0.05545454545454546,
+    -0.04999999999999999,
+    0.18636363636363634
+   ]
+  }
+ }
+}

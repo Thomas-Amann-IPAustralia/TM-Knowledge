@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006037,
+ "created_utc": "2026-10-12T05:19:59Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0076",
+ "job": "reading",
+ "key": "8ffe7701d27a9a1d3a23784a1e20fb65984a20d365bc10c823285b6a404f6c93",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0081\",\"why\":\"The question asks whether advertising qualifies as use of a trade mark before goods are available for sale.\",\"words\":\"use\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "8568eb94ff2dd932baf2cfe9255128dfdbdfbd334054b4e0bd9e7528f58e1664",
+ "response_id": "resp_0731ecb3cae61e88006acc6df925a887d2a41007176bd59d99",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4650,
+  "input_tokens_details": {
+   "cache_write_tokens": 4647,
+   "cached_tokens": 0
+  },
+  "output_tokens": 45,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4695
+ }
+}

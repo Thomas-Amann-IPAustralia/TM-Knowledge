@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00617,
+ "created_utc": "2026-10-12T05:19:15Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0035",
+ "job": "reading",
+ "key": "82cf2deb6559498d3f248c14a40d09aaaf44bcdc7a9c98e8e93fda18ed2c28bb",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0012\",\"why\":\"These words identify the description of goods or services in the specification.\",\"words\":\"goods or services description\"},{\"id\":\"GC-0124\",\"why\":\"Correcting the description later raises amendment of an application.\",\"words\":\"corrected later\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "0f6da3c4a491e8531b9b13d6f80aea5f925162b5a10e51722ee8de43d0162990",
+ "response_id": "resp_009674b6b3c4a41c006acc6dcd6c4887d28b4f82839348e6ce",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4665,
+  "input_tokens_details": {
+   "cache_write_tokens": 4662,
+   "cached_tokens": 0
+  },
+  "output_tokens": 68,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4733
+ }
+}

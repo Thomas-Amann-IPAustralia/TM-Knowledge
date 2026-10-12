@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.00617,
+ "created_utc": "2026-10-12T05:20:37Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0113",
+ "job": "reading",
+ "key": "f2bf972da95779a6688c60ab581354e6ca31f528a0bda587735dde2f37f22370",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0043\",\"why\":\"Splitting off part of a parent application raises the concept of a divisional application.\",\"words\":\"split off part\"},{\"id\":\"GC-0079\",\"why\":\"These words expressly identify a series of trade marks application.\",\"words\":\"series application\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "865da27a287d9508787ea9d8410b7045cb4b6a29c4ddbc032e59ce71b1fa8e9b",
+ "response_id": "resp_02f391738f5988e4006acc6e2012ac87d2807d60be738e4198",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4657,
+  "input_tokens_details": {
+   "cache_write_tokens": 4654,
+   "cached_tokens": 0
+  },
+  "output_tokens": 70,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4727
+ }
+}

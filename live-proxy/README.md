@@ -19,7 +19,10 @@ and forwards the question. This is that service. Use it when:
 
 It answers `POST /v1/responses` from the explorer's origin, for the allowed model,
 passing on only the fields the page sends (`tools` and the like are dropped),
-with `store: false` and output capped. It streams OpenAI's reply back unchanged,
+with `store: false` and output capped. A live question is two requests: a short reading of
+the question against the map (`text.format.name` "reading", ADR-0132), then the answer.
+Readings are counted apart from answers, so the limits below are per question. It streams
+OpenAI's reply back unchanged,
 with a comment line every 15 seconds while the model is quiet, which the page
 ignores. OpenAI's own errors come back as they were; its own refusals use
 OpenAI's error shape, so the page prints them after "No answer:". `GET /health`
@@ -35,6 +38,7 @@ budget is the real limit** — set one.
 | `ALLOWED_ORIGINS` | `https://thomas-amann-ipaustralia.github.io` | Comma-separated |
 | `ALLOWED_MODELS` | `gpt-6.1-sol` | Must include `CHAT_MODEL` in `src/tm_knowledge/explorer/build.py` |
 | `MAX_OUTPUT_TOKENS` | `10000` | A higher request is lowered to this |
+| `MAX_READING_OUTPUT_TOKENS` | `2000` | The same, for a reading |
 | `PER_ADDRESS_PER_HOUR` | `30` | Per reader address; resets when the service restarts |
 | `PER_DAY` | `300` | All readers together, per UTC day |
 | `PORT` | `10000` | Set by the host |

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006177,
+ "created_utc": "2026-10-12T05:18:56Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0017",
+ "job": "reading",
+ "key": "75d1c5b574641dac1083f3a5d30c25ebec18c0c025ca789ab73fcb221d4b0cbe",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0026\",\"why\":\"These words identify a person known to the public whose name is used in the mark.\",\"words\":\"well-known person's\"},{\"id\":\"GC-0006\",\"why\":\"A refusal refers to a possible ground for rejecting the application.\",\"words\":\"refusal\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "a83fc3fadcc895ff3242f6db6bc99997b405464b9b9f937f04bfe7adb41628a9",
+ "response_id": "resp_0cbfd3e45bf4ac43006acc6dba7d0c87d2976ba459e0259225",
+ "seconds": 6.5,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4658,
+  "input_tokens_details": {
+   "cache_write_tokens": 4655,
+   "cached_tokens": 0
+  },
+  "output_tokens": 71,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4729
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.001962,
+ "created_utc": "2026-10-12T08:55:30Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0050",
+ "job": "judge",
+ "key": "5e7c9e69de20a9d4fff814a166db58648bb4356d4f32c4d735d8565bf8539685",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part23/5/5/2\",\"grade\":1},{\"ref\":\"TMM/Part22/25/25/6\",\"grade\":1},{\"ref\":\"TMM/Part28/x-annex-a1---information-sheet-for-trade-mark-applicants#1~2\",\"grade\":1}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "ae52c1d5e3d103f1e7227c08e021f8669d24a10369fe850071892569fdaf0cc6",
+ "response_id": "resp_02cab1f4a50309c5006acca07d067487d28ba0ba626e03b86e",
+ "seconds": 6.1,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1086,
+  "input_tokens_details": {
+   "cache_write_tokens": 1083,
+   "cached_tokens": 0
+  },
+  "output_tokens": 121,
+  "output_tokens_details": {
+   "reasoning_tokens": 40
+  },
+  "total_tokens": 1207
+ }
+}

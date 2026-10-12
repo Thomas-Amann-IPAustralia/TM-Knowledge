@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006334,
+ "created_utc": "2026-10-12T05:19:46Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0063",
+ "job": "reading",
+ "key": "378dc4a95b0d7df63305d9890e5e8ed891b9e24807f345665c5ef0e37b320c8d",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0012\",\"why\":\"The goods list refers to the specification of goods to be covered.\",\"words\":\"goods list\"},{\"id\":\"GC-0121\",\"why\":\"These words identify the classification of the drinks by class.\",\"words\":\"classes 32 and 33\"},{\"id\":\"GC-0015\",\"why\":\"Making the goods list narrow raises restriction of the specification.\",\"words\":\"How narrow do I need to make my goods list\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "0c65de731f4efee03b4626fc57348feaeb1e118a1652b115779e067b4145f008",
+ "response_id": "resp_089e0e2ed3e87f9b006acc6dec2a1c87d28e08041c19645487",
+ "seconds": 6.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4660,
+  "input_tokens_details": {
+   "cache_write_tokens": 4657,
+   "cached_tokens": 0
+  },
+  "output_tokens": 102,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4762
+ }
+}

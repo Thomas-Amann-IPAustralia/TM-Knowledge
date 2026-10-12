@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.002629,
+ "created_utc": "2026-10-12T08:56:10Z",
+ "effort": "medium",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0067",
+ "job": "judge",
+ "key": "6441a14f1507c109a80b9c276b5c3b853467e2a73249f668520be027c8294a38",
+ "max_output_tokens": 8000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"grades\":[{\"ref\":\"TMM/Part9/2#1~1\",\"grade\":1},{\"ref\":\"TMM/Part47/1/1/3/6~2\",\"grade\":0},{\"ref\":\"TMM/Part15/2/2/1/2\",\"grade\":0},{\"ref\":\"TMM/Part48/4#1~1\",\"grade\":0}]}",
+ "prompt_version": "judge-v1",
+ "request_sha256": "93bebb556b368d53b35e954119d533b74f8ad97358da899139cd209e718d045d",
+ "response_id": "resp_02c07c8a1f84a2ed006acca0a04efc87d2b84c2dfdb221bbd5",
+ "seconds": 10.8,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 1512,
+  "input_tokens_details": {
+   "cache_write_tokens": 1509,
+   "cached_tokens": 0
+  },
+  "output_tokens": 148,
+  "output_tokens_details": {
+   "reasoning_tokens": 56
+  },
+  "total_tokens": 1660
+ }
+}

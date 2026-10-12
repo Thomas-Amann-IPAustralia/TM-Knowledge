@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006676,
+ "created_utc": "2026-10-12T05:20:06Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0080",
+ "job": "reading",
+ "key": "00a82138f7d20eb1e3b7d9dee2e86404fd76c66a19149e3870a5e9de2ce55571",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0073\",\"why\":\"Single letters, letter groups and acronyms are forms of signs used in trade marks.\",\"words\":\"single letters, letter groups and acronyms\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "0dcbe0f8ef118ddc3e2ac7564604559beab45b9dc80a252d8a0aff86c93f1976",
+ "response_id": "resp_026f03fdac237dea006acc6dfc6cf487d2bca072a058f51139",
+ "seconds": 10.7,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4653,
+  "input_tokens_details": {
+   "cache_write_tokens": 4650,
+   "cached_tokens": 0
+  },
+  "output_tokens": 172,
+  "output_tokens_details": {
+   "reasoning_tokens": 120
+  },
+  "total_tokens": 4825
+ }
+}

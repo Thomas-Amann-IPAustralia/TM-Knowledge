@@ -1,143 +1,131 @@
 # HANDOFF
 
-**Last updated:** 2026-10-12 · S033 (end) · branch `claude/ecstatic-brown-xt4wxm`
+**Last updated:** 2026-10-12 · S034 (end) · branch `claude/keen-clarke-o43tnq`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
 
-**S033 found why live answers fail, and built the way round it.** The owner's screenshot
-reads "No answer: Failed to fetch." — the browser's error when `fetch` gets no reply at
-all; a wrong key, model or credit is a reply with CORS headers and shows OpenAI's message.
-Reproduced in Chromium against the published site, request intercepted, no spend: the
-request is well-formed; a blocked network gives exactly the screenshot. The owner agrees
-it is their network. A session cannot test the published key (Q-88). Then, on the owner's
-ask ("I've got a free Render account. Could I set up the proxy through that?"):
-- **`live-proxy/`**: a no-dependency Node service that holds the key and forwards the
-  page's Responses request, streaming the reply back; only the explorer's origin, the
-  allowed model, the page's own fields, `store: false`, output capped, 30 per address an
-  hour and 300 a day. Not security — the OpenAI project budget is (README). 7 `node --test`
-  cases, run by `tests/unit/test_live_proxy.py`. Its README has the Render steps.
-- **The build publishes no key when `TMK_LIVE_ENDPOINT` is set**, even with the secret
-  still there — as ADR-0118 already said; the code had published both.
-- **The page**: says in words when it cannot reach the service; through a proxy it knocks
-  on `/health` as it opens and says so when the first answer is slow (Render's free plan
-  sleeps after 15 minutes and takes about a minute to wake). Checked end to end in
-  Chromium: page → proxy → a stand-in OpenAI (Q-89). No ADR: ADR-0118 provided for this.
+**S034: a typed question now drives the graph the way a prepared one does** (ADR-0132).
+The owner's screenshot: "Can I trade mark a smell?" drew only a grey "trade mark" and a fan of
+keyword passages. Live answers work. Recognition is by names only, and people do not use
+the map's names: 5 of 20 typed questions found a specific idea, against 76 of 129 benchmark
+questions. Feeding keyword hits back into recognition, with no model, picked noise.
+- **The reading**: before the search, the live model reads the question against the ontology
+  map (`jobs._READING_INSTRUCTIONS`, `reading-v1`; published in `chat.json` as `reading`) and
+  names up to four ideas, each with its words and a reason. `Engine.reading` keeps a pick only
+  if it is on the map, specific, new, and its words are in the question; kept ideas start the
+  search exactly as names do (`trace`/`ontology`/`prepare` take `read`, default empty, so the
+  measured path and the parity test are unchanged).
+- **The page**: the question appears, then a column of faint dots "reading the question…",
+  then the hop diagram as before. Read ideas carry a dashed ring and "“smell” · read by the
+  model"; "How it chose" explains the reading, lists what it set aside, and says the prepared
+  answers used names alone; the footnote gives the reading's share of the cost. A failed
+  reading falls back to names and says so. Checked in Chromium with stand-in replies (Q-90).
+- **The proxy** counts readings apart from answers (`text.format.name`), output capped at
+  2,000. An old proxy still works; it just counts a question twice against its limits.
+- **Smoke run on the real model**: 10 questions, US$0.12 (`data/llm/cache/live-reading/`), about
+  1.2¢ and 6 s each; 7 of 10 found an idea. **Spent from the cap's remainder without asking**
+  (approved for nothing); told the owner.
 
-**S031 labelled every line on the map's text level** (connections carry their predicate;
-idea → Part "is named in"; idea → provision "has legislative basis"). Answered in chat: "Nothing
-on the map quotes this page" counts quoted evidence only — 307 of 500 pages hold no quote but
-282 of them name an idea; only 25 pages name nothing. The wording conflates the two.
+**S034, after the owner's answers (ADR-0133, CHAT-0074 to 0076):** "read by the model" stands, the
+cost per question is approved, and US$1.60 was approved to measure the reading on all 129
+benchmark questions. Spent US$1.13 of it (reading US$0.79, judging 551 new passages US$0.33), held
+by `TMK_SPEND_CAP_USD`. Measured the page's own configuration (no vectors), report
+`data/derived/reports/measure-reading.md`:
+- **The reading helps**: nDCG@10 reading − names **+0.040 [+0.009, +0.070]**; +0.051 on the 101
+  questions it changed. No pick failed a check.
+- **The page's ontology search by names is below plain keyword search**: −0.041 [−0.067, −0.014];
+  with the reading it is level (−0.001). Same pattern as the measured system against hybrid.
+- New: `tmk-bulk run reading`, `reading-pools`, `run judge --pools`, `measure --reading`;
+  `Systems.reading` and `find_words` (Python twins of the page's), parity-tested.
+- **Recorded spend US$9.63, above the US$9.49 cap**: every paid call is refused until the owner
+  names an amount.
 
-**S030 added "As a table"** (`#/table`, `site/js/table.js`): Kinds, Ideas, Connections tabs
-with filters and a CSV carrying the trust columns. No record changed; no ADR.
-
-**S029 restructured the ontology on the owner's instruction** (ADR-0131, CHAT-0071 to
-CHAT-0073, `review/returned/261009-owner-chat-ontology-structure.md`): *"Not having elements
-connect seems like a bit of a cop out. Similarly 'is related to' is about as non-descript as
-you can get. … Apply common sense to the structures"*.
-- **Three families are TBox classes**, each kind a subclass of one; every predicate names the
-  kinds it joins and the harness refuses a machine-written edge outside them (Q-86).
-- **"Is related to" retired**; 23 predicates admitted (process, time, evidence). Every edge
-  judged by hand in `data/derived/audit/restructure.yaml`, applied by `tmk-bulk restructure
-  --write`: **130 re-read, 96 withdrawn**. Report: `data/derived/reports/restructure.md`.
-- **An eleventh kind, `principle`**; seven concepts re-kinded; signed hierarchy fixed outside
-  the signature (GK-0030 to GK-0036); twelve new edges; **164 of 164 concepts in one piece**.
-- **Explorer** follows: kinds level keeps each kind's strongest link; circles view joins families.
-Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352 authored
-(was 436). Harness 0 defects; SHACL 0 defects; graph matches a rebuild; 699 tests pass.
-**Spend unchanged: US$8.37 of the US$9.49 cap**; nothing in S029 called a model.
+**S033 built `live-proxy/`** (Render, holds the key) and the build publishes no key when
+`TMK_LIVE_ENDPOINT` is set. **S031** labelled every line on the map's text level. **S030**
+added "As a table". **S029 restructured the ontology** (ADR-0131): three families as classes, 23
+predicates, "is related to" retired, `principle` added, 164 of 164 concepts connected. Counts:
+52 signed + 112 authored concepts; 20 signed + 352 authored relationships. Harness 0 defects;
+SHACL 0 defects.
 
 ## Waiting on the owner
 
-1. **Is the restructure what you meant?** The families, the 23 predicates and the eleventh
-   kind are agent-proposed inside your instruction (ADR-0131). The quickest look: the explorer's
-   "At a glance" and "The map" first level; the reasoning per edge is in `restructure.md`.
-2. **OQ-0029 — which results the pitch claims** (unchanged). Search was measured before S029;
-   the restructure changed 226 edges, so re-measure before quoting numbers (next actions).
-3. **The four disputed signed readings** (`edge-audit.md`) — a person's call; unchanged.
-4. **Deploy the proxy** — the owner is doing it, from `live-proxy/README.md`: merge this
-   branch, a new OpenAI key with a budget, a Render web service (root `live-proxy`,
-   Singapore, `/health`), check `/health` from the work network, set the repository variable
-   `TMK_LIVE_ENDPOINT`, delete the `OPENAI_API_KEY` secret, run `pages` by hand, then revoke
-   the old key (it was public in the page). If `onrender.com` is blocked too, the proxy does
-   not help there: present from a hotspot or use the prepared answers.
+1. **Merge this branch** to publish the reading; the Pages workflow rebuilds `chat.json`. If the
+   proxy is on Render with auto-deploy, it picks up the separate counting on merge.
+2. **OQ-0029 — which results the pitch claims**, now with ADR-0133's two findings: the reading
+   helps, and the page's ontology search alone does not beat keyword search on these questions.
+3. **Whether to change the page's blend** (next action 1) — a design change, so the owner's to
+   order; then it needs re-measuring, which needs an amount (the cap is spent).
+4. **Is the restructure what you meant?** (ADR-0131, agent-proposed inside your instruction.)
+5. **The four disputed signed readings** (`edge-audit.md`) — a person's call; unchanged.
+6. **Proxy deployment** (S033): if not done, `live-proxy/README.md` has the steps; revoke the
+   old key once the proxy serves.
 
 ## Next actions
 
-1. **Re-measure search** (`tmk-bulk pools --keep-previous`, then judge only new passages,
-   `measure`): 96 edges withdrawn and 130 re-typed change what the ontology system follows.
-   Grading new passages needs a quote first (small: most pooled passages are graded).
-2. **The prepared answers** (`data/derived/bench/answers.yaml`) were written against the old
-   edges; their "followed connections" text may name `related`. Re-run only with a quote.
-3. Search's blend (S028's next action 1) still stands: concept-linked passages push out
-   hybrid's good hits on a few questions. Free to try; `engine.js` changes with `search.index`.
-4. Show each relationship's audit verdict and a re-read's first reading on its explorer card.
-5. The signed concepts' own `related` lists (77 links, the expert's thesaurus see-also) still
-   serve as `skos:related` in the approved graph. Not shown in the explorer. If the owner wants
-   them typed too, each needs a sentence; `restructure.yaml` can carry the lines.
-6. **The map's idea card shows a case as a Manual chip**: `refChip` gives anything not
-   `TMA1995/`/`TMR1995/` the blue square, and some relationships end at a `CASE/…` ref.
-   `table.js` draws a case as a grey chip; `map.js`'s `showConcept` still uses `refChip`.
-7. `data/derived/reports/concept-typing.md` and its workbook were last generated 2026-09-09
-   (parked apparatus); `tmk-typing --write` refreshes them — a large diff, so its own commit.
-8. B2, B3, B6 stay postponed (B3 — the presumption — is now `principle`; say so if asked);
-   D7 is decided (ADR-0131); F4, F5 deferred.
+1. **The blend**: concept-linked passages crowd out good keyword and vector hits (ADR-0133 c4,
+   ADR-0127). Candidates: weight the linked list below keyword, or drop it when the expansion
+   already holds the ideas. Any change must be fixed before re-measuring, never tuned on these
+   questions; `engine.js` and `search/index.py` change together.
+2. **Re-measure search** (`tmk-bulk pools --keep-previous`, judge new passages, `measure`):
+   S029 withdrew 96 edges and re-typed 130. Needs a quote.
+3. **The prepared answers** (`answers.yaml`) predate S029; their "followed connections" text may
+   name `related`. Re-run only with a quote.
+4. Ideas the reading could not find: the map has nothing for a personal name or surname, a
+   slogan, or how long registration lasts. Candidates for `define`, if the owner wants them.
+5. Show each relationship's audit verdict on its explorer card; type the signed `related` lists
+   if the owner wants them (77 links).
+6. `map.js`'s `showConcept` draws a `CASE/…` ref as a Manual chip; `table.js` draws it grey.
+7. Small: live answers off, step 5 of a typed question still says "Wrote an answer…"; and
+   "Gathered 0 passages linked to those ideas" reads oddly when nothing was recognised.
+8. B2, B3, B6 postponed; F4, F5 deferred.
 
 ## What to distrust
 
-- **Every S029 judgement is one agent's reading of one sentence**, stamped
-  `claude-code-agent-S029`, unreviewed. Weakest calls: GR-0122 (priority date *may give rise
-  to* expedited examination), GR-0167 (revocation of acceptance *precedes* examination),
-  GR-0521 (old register *becomes* the Register), GR-0495 (acceptance *results in* a condition).
-- **The kind schema is a judgement too.** `qualifies` takes subject matter and use in trade as
-  objects (for defensive registration and prior use); widen or narrow with care — every edge
-  is re-checked by the harness.
-- **`owns` from "owner or authorised user"** (GR-0140, GR-0437) reads as "holds the domain or
-  phoneword"; the concept merges owner and authorised user, which ruling A4 keeps apart elsewhere.
+- **The reading is a model's judgement per question, unreviewed.** Measured once on model-written
+  questions with a model judge (ADR-0133); each question read once. BN-0015's three passages are
+  ungraded, scored 0 (the judge's answer was refused); it moves nothing.
+- **A live answer is no longer what the measured system would have produced** when the reading
+  found an idea: different starting ideas, different passages. The footnote says so.
+- **Every S029 judgement is one agent's reading of one sentence**, unreviewed. Weakest:
+  GR-0122, GR-0167, GR-0521, GR-0495. `owns` from "owner or authorised user" (GR-0140, GR-0437).
 - **The published `site/data/ontology.json` still carries the reviewer's initials** (S028).
-- **Everything machine-written is unreviewed**, as before; the edge audit is a model judging
-  models, and S029 is an agent judging both.
-- **GC-0001's signed `narrower: [GC-0045]`** is now withdrawn by GK-0030 — it serves corrected.
-- **Neither key is tested by a session.** The published one cannot be (Q-88); the proxy's
-  first live question is the test. The proxy was tested against a stand-in, never OpenAI.
+- **Neither key is tested by a session** (Q-88); the proxy was tested against a stand-in.
 - **22 legislative bases are unverified** (harness note). The benchmark is model-written.
 
 ## Things a session will trip on
 
-- **`python3 -m pytest`, not `pytest`** (Q-29); about ten minutes, 699 tests.
+- **`python3 -m pytest`, not `pytest`** (Q-29); install with `pip install -e ".[rdf,test]"`;
+  about ten minutes.
+- **Test the page after `tmk-explorer --write`**, then restore a stand-in `live.json` (Q-90).
+- **`engine.js` and `search/index.py` change together**, as do `links.find_mentions` and
+  `Recogniser`, and `search.authority` and `authorityFlags`. The reading (`read`) is the one
+  live-only input; leave its default empty.
+- **The reading's prompt lives in `bulk/jobs.py`**, its input is built twice
+  (`jobs.reading_input`, `live.readingInput`); `test_explorer.py` holds them equal.
+- **Re-scoring the reading**: `tmk-bulk measure --reading --allow-ungraded 3 --write` (BN-0015's three
+  passages are ungraded); `reading-pools` needs `bench/readings.yaml`, which is spend to rebuild.
 - **Off-kind edge? Check the kinds first** (Q-86). **Relabelled in a ledger?** Q-87.
-- **`tmk-bulk restructure` is idempotent**: add lines to the ledger and re-run; a line already
-  applied is counted, not re-applied. It writes nothing while any line is refused.
-- **Edit record files block by block**, never a YAML round-trip (Q-76).
+- **`tmk-bulk restructure` is idempotent.** **Edit record files block by block** (Q-76).
 - **Gemini ignores its schema** (Q-83); **price from completed calls** (Q-85);
   **hold a paid run to the owner's amount** with `TMK_SPEND_CAP_USD` (ADR-0128).
 - **`tmk-graph --check` needs `--rules`.** Pass `authored.root` to `corrections.load` (Q-77).
 - **`served_gold()` for what serves; `goldset.load()` for what measures.**
-- **`engine.js` and `search/index.py` change together**, as do `links.find_mentions` and
-  `Recogniser`, and `search.authority` and `authorityFlags`.
-- **The explorer needs the snapshot**: `tmk-fetch-upstream` (a read of the public
-  `manual-XtrACTor`; the session needed no attach), then `tmk-explorer --write`.
+- **The explorer needs the snapshot**: `tmk-fetch-upstream`, then `tmk-explorer --write`.
 - **`site/data/live.json` can hold a key.** Git-ignored; keep it that way.
-- **A session's live test proves nothing about the published key** (Q-88).
-- **`ontology.kinds` drops `none_of_these` when empty**: count kinds with `kindCount()` in
-  `app.js`, never `kinds.length - 1`.
+- **Playwright against a local proxy**: Q-89. **Count kinds with `kindCount()`** in `app.js`.
 
 ## Open items (agent-proposed, provisional)
 
-- S033's proxy limits (30 questions per address an hour, 300 a day, one model, output
-  capped at 10,000 tokens): environment variables on Render, each a one-line change.
-- S030's table view: its name ("As a table"), Kinds as the first tab, hierarchy hidden by
-  default, the CSV's columns. Each a one-line change.
-
-- ADR-0131's agent parts: the family classes, the 23 predicates and their kinds, `principle`,
-  the nine re-typings, the two relabels, the four hierarchy corrections, the explorer's
-  "strongest link" rule and family lines.
-- ADR-0130's agent parts ("Reviewed" in grey; initials kept in the JSON; the plum hexagon;
-  "At a glance").
+- ADR-0133's measurement choices: the page's configuration without vectors, flex tier, one reading
+  per question, BN-0015 scored 0.
+- ADR-0132's engineering: the reading's prompt and its four-idea cap, the checks, running it on every
+  live question (not only when names find nothing), the dashed ring, the proxy's separate counting and 2,000-token cap.
+- S033's proxy limits (30 an hour per address, 300 a day, 10,000 output tokens).
+- S030's table view: its name, tab order, hidden hierarchy, the CSV's columns.
+- ADR-0131's agent parts; ADR-0130's ("Reviewed" in grey; the plum hexagon; "At a glance").
 - ADR-0127 entire; the agent parts of ADR-0125, ADR-0126, ADR-0128, ADR-0129.
-- ADR-0122 (corrections); the agent parts of ADR-0120, ADR-0123, ADR-0124.
-- Which labels are "too general" (E1); ADR-0113, ADR-0115, ADR-0117, and the agent parts of
-  ADR-0118 and ADR-0119.
+- ADR-0122; the agent parts of ADR-0120, ADR-0123, ADR-0124.
+- "Too general" labels (E1); ADR-0113, ADR-0115, ADR-0117; agent parts of ADR-0118, ADR-0119.

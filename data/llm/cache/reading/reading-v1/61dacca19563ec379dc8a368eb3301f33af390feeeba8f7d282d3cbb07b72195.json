@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006019,
+ "created_utc": "2026-10-12T05:20:56Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "GA-0013",
+ "job": "reading",
+ "key": "61dacca19563ec379dc8a368eb3301f33af390feeeba8f7d282d3cbb07b72195",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0023\",\"why\":\"The question expressly identifies letters appearing on the INN stem list.\",\"words\":\"INN stem\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "40a49a39cb2d2dd10f5ee6aa2a011318bda334bffec5d170908005aa6df51ef4",
+ "response_id": "resp_0ba7bf63dfeca64d006acc6e3269a887d2a41b22778232f3fc",
+ "seconds": 6.3,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4652,
+  "input_tokens_details": {
+   "cache_write_tokens": 4649,
+   "cached_tokens": 0
+  },
+  "output_tokens": 41,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4693
+ }
+}

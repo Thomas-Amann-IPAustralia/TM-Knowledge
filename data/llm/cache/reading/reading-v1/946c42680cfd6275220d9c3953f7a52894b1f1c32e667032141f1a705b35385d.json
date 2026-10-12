@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.006526,
+ "created_utc": "2026-10-12T05:19:14Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "BN-0032",
+ "job": "reading",
+ "key": "946c42680cfd6275220d9c3953f7a52894b1f1c32e667032141f1a705b35385d",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0128\",\"why\":\"These words expressly raise the hearing procedure.\",\"words\":\"hearing\"},{\"id\":\"GC-0093\",\"why\":\"These words raise the timing of acceptance of the application.\",\"words\":\"acceptance deadline\"},{\"id\":\"GC-0044\",\"why\":\"These words identify the examiner whose decision is being challenged.\",\"words\":\"examiner\"}]}",
+ "prompt_version": "reading-v1",
+ "request_sha256": "8217d53317571c84b00e70e4131e921eda90d869388d2438ebca6aff185c9f16",
+ "response_id": "resp_09d2d9fc0910661a006acc6dc7faa487d2aac4b3f67b8e7af7",
+ "seconds": 11.2,
+ "service_tier": "flex",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4657,
+  "input_tokens_details": {
+   "cache_write_tokens": 4654,
+   "cached_tokens": 0
+  },
+  "output_tokens": 141,
+  "output_tokens_details": {
+   "reasoning_tokens": 53
+  },
+  "total_tokens": 4798
+ }
+}
