@@ -196,7 +196,7 @@ export async function render(root, { ontology, params }) {
       });
     } catch (error) {
       if (signal.aborted) return;
-      view.body.innerHTML = `<p class="err">No answer: ${esc(error.message)}.</p><p class="tiny">The passages on the left are still what the ontology found.</p>`;
+      view.body.innerHTML = `<p class="err">No answer: ${esc(String(error.message).replace(/\.+$/, ""))}.</p><p class="tiny">The passages on the left are still what the ontology found, and the prepared questions above still work.</p>`;
     }
   }
 
