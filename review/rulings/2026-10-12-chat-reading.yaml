@@ -1,0 +1,48 @@
+# A decision the repo owner made in a chat session. Hand-transcribed by the S034 agent;
+# no issue behind it. The artefact is `review/returned/261012-owner-chat-reading.md`.
+schema: tmk-ruling/1-manual
+received_utc: '2026-10-12T06:00:00Z'
+questions_updated: '2026-10-12'
+source:
+  kind: chat
+  artefact: review/returned/261012-owner-chat-reading.md
+  author: Thomas-Amann-IPAustralia
+  relayed_by: S034 agent
+  title: The live reading as shown, its cost per question, and US$1.60 to measure it on 129 questions
+applied:
+  session: S034
+  date: '2026-10-12'
+  branch: claude/keen-clarke-o43tnq
+  what_changed: >-
+    The display and the cost per question stand as built (ADR-0132). The reading measured on all 129
+    benchmark questions for US$1.13 of the US$1.60, held by a run cap of the recorded spend plus $1.60
+    (ADR-0133): reading - names nDCG@10 +0.040 [+0.009, +0.070]; names alone below keyword search,
+    -0.041 [-0.067, -0.014]. Report data/derived/reports/measure-reading.md.
+answers:
+- id: CHAT-0074
+  item: reading-display
+  question: Is "read by the model" how the ideas the model reads in a typed question should be shown?
+  kind: choice
+  value: as_built
+  label: Yes, as built (ADR-0132)
+  quote: Read by the model is fine
+  recorded_as:
+  - ADR-0133
+- id: CHAT-0075
+  item: reading-cost
+  question: Is about 1.2 US cents more per live question fine, for the reading?
+  kind: choice
+  value: approved
+  label: Yes
+  quote: yes, the extra spend per question is fine
+  recorded_as:
+  - ADR-0133
+- id: CHAT-0076
+  item: reading-measurement
+  question: Measure the reading on the benchmark — about US$1.60 for all 129 questions, beyond the cap's remainder?
+  kind: choice
+  value: approved_all_129
+  label: All 129 benchmark questions, about US$1.60
+  quote: Approved expenditure for all 129 benchmark questions
+  recorded_as:
+  - ADR-0133

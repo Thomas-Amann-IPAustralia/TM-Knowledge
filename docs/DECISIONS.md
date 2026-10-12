@@ -5892,3 +5892,54 @@ Whether the reading should also run with live answers off (it cannot: there is n
    registration last" came back empty: the map has no idea for the first two.
 3. The smoke run spent from the cap's remainder, which RULES-IN-FORCE says is not approved for
    anything. It should have been asked first; recorded spend is now US$8.50.
+
+## ADR-0133 — the live reading kept as shown, its cost approved, and measured on the benchmark
+
+**Date** 2026-10-12 · **Authority** human (the approvals), agent-proposed (how it was measured) · **Status** accepted
+
+**Context.** ADR-0132 added the live reading and left three questions to the owner: how it is
+shown, its cost per question, and whether to measure it (quoted at about US$1.60 for all 129
+benchmark questions, beyond the cap's remainder). The owner answered (CHAT-0074 to CHAT-0076,
+`review/returned/261012-owner-chat-reading.md`): *"Read by the model is fine"*; *"yes, the extra
+spend per question is fine"*; *"Approved expenditure for all 129 benchmark questions"*.
+
+**Decision (the owner's).** ADR-0132's display stands. The reading's cost per live question, about
+US1.2¢ on the owner's key, is approved. Up to US$1.60 is approved to measure the reading on the
+129 benchmark questions.
+
+**Decision (the agent's, inside it).**
+1. *Held to the amount*: `TMK_SPEND_CAP_USD` at the recorded spend plus US$1.60 (10.0952).
+2. *The page's configuration is what was measured*: keyword, **names** (the ontology system from
+   names alone) and **reading** (the same, plus the checked reading), all with no vectors — the
+   page has none, and none are in the container. `Systems.reading` is `Engine.reading` in Python,
+   and `test_explorer.py` holds the two equal, check and ranking, on cases that exercise every rule.
+3. *Each question read once* by the live prompt (`reading-v1`, `gpt-6.1-sol`, effort low) on the
+   flex tier, which halves the price and does not change the model; raw picks in
+   `bench/readings.yaml`, checked where they are used.
+4. *Graded by the existing judge* (`judge-v1`, `gpt-6.1-sol`, medium, flex), only the passages not
+   already graded (ADR-0127), so old and new grades come from one judge.
+5. *BN-0015*: the judge's answer graded its three passages and 14 refs not in its pool, and was
+   refused as the job refuses any such answer; a re-run replays the cached answer. The three are
+   scored 0 and the report says so; scoring them with that answer's grades moves nothing.
+
+**What it does not decide.** What the pitch claims (OQ-0029, the owner's). Whether the page should
+change its blend; nothing was tuned on these questions.
+
+**Consequences.**
+1. Spent **US$1.13 of the US$1.60**: the reading US$0.79 (129 calls, 0.6¢ each), the judge US$0.33
+   (117 calls, 551 new grades). The other US$0.47 is not approved for anything else. Recorded spend
+   **US$9.63, above the US$9.49 cap in `config`**: every further paid call is refused until the owner
+   names an amount.
+2. The reading added an idea to **101 of 129** questions (182 ideas; 45 questions had no specific idea
+   by name), and none of its picks failed the checks: every id on the map, every word in the question.
+3. **The reading helps**: nDCG@10 reading − names **+0.040 [+0.009, +0.070]**, established; on the 101
+   questions it changed, +0.051 [+0.012, +0.089]. Per kind every interval but `signed` (+0.074
+   [+0.005, +0.161]) includes zero. Recall@10 +0.049 [−0.004, +0.100], not established.
+4. **The page's ontology search alone is below plain keyword search**: names − keyword **−0.041
+   [−0.067, −0.014]**, established the wrong way (lookup −0.087, cross-part −0.061). With the reading it
+   is level with keyword (−0.001 [−0.039, +0.036]), not above it. The measured system with vectors
+   showed the same pattern against hybrid (−0.041, ADR-0127): concept-linked passages crowd out good
+   hits. The page labels some passages "via the ontology"; on these questions that is not, on
+   average, better than keyword search. This is for the owner's pitch decision, not to be quietly
+   fixed by tuning on the benchmark.
+5. Report: `data/derived/reports/measure-reading.md`; data under `data/derived/bench/`.
