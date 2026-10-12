@@ -1,0 +1,15 @@
+{
+  "name": "tmk-live-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Holds the OpenAI key for the explorer's live answers, so the published page does not (ADR-0118).",
+  "type": "module",
+  "main": "server.mjs",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test"
+  }
+}

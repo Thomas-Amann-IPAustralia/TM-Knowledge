@@ -109,6 +109,8 @@ consequence 3).
 | `shapes/` | SHACL shapes | 6 | Gate before publication. Every shape has a violating fixture |
 | `queries/` | SPARQL queries, `CONSTRUCT` rules, regression queries | 6, 9 | Each rule needs an approval record; both current rules are `PENDING` |
 | `tests/` | pytest: unit, SPARQL regression, retrieval benchmarks | all | Includes the prohibited-inference tests |
+| `site/` | The examiner explorer, published to GitHub Pages | D2, D4 | Data under `site/data/` generated on deploy, not committed (ADR-0112) |
+| `live-proxy/` | The service that holds the OpenAI key for live answers (ADR-0118) | D2 | Deployed by the owner (Render); no key in the repository |
 
 ## 4. Ontology modules (Stage 5)
 

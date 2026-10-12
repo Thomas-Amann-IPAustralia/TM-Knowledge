@@ -89,9 +89,16 @@ kinds diagram; `minimap.js` is the embedded map; `graph.js` holds small SVG help
 On when the Pages workflow has the `OPENAI_API_KEY` secret (ADR-0118). The key is then
 **in the published page**, masked against scrapers but recoverable by anyone who reads
 it — so it should be a dedicated, restricted, budget-limited key. Setting the repository
-variable `TMK_LIVE_ENDPOINT` to a proxy that holds the key publishes no key instead. With
+variable `TMK_LIVE_ENDPOINT` to a proxy that holds the key publishes no key instead, even
+if the secret is still set: `live-proxy/` is that proxy, and its README says how to run it
+on Render's free plan. It also gets through networks that block `api.openai.com`. With
 neither, the site works with live answers off: retrieval still runs and the 129 prepared
 answers still show.
+
+`live.js` turns the browser's bare "Failed to fetch" into words (no reply came back, so the
+network or an extension stopped the request; a wrong key or model is a reply, and shows
+OpenAI's message). Through a proxy, the Ask page knocks on its `/health` as it opens, and
+says so when an answer is slow to start, since a free host sleeps when idle.
 
 ## Running it locally
 

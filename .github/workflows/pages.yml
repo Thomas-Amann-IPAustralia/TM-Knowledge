@@ -15,8 +15,10 @@
 # job can read it — the explorer is built with live answers on and the key is
 # published, masked, in `data/live.json`. Anyone who reads the page can recover
 # it; the owner accepted that. Set the repository variable `TMK_LIVE_ENDPOINT`
-# to a proxy URL instead to answer through a proxy that holds the key. With
+# to a proxy URL (`live-proxy/`, e.g. on Render) to answer through a proxy that
+# holds the key: then no key is published, even if the secret is still set. With
 # neither, the site publishes with live answers off and everything else works.
+# A secret or variable change does not redeploy: run this workflow by hand.
 #
 # One job, under the `github-pages` environment, so the environment secret is in
 # reach of the step that needs it. One-time repository setting: Settings → Pages

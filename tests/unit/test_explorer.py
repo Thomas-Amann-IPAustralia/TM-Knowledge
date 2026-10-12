@@ -95,6 +95,13 @@ def test_a_proxy_endpoint_publishes_no_key():
     assert payload == {"enabled": True, "endpoint": "https://proxy.example/answer"}
 
 
+def test_a_proxy_endpoint_publishes_no_key_even_with_a_key_set():
+    """ADR-0118: a proxy that holds the key means no key in the page, even if the
+    OPENAI_API_KEY secret is still set on the Pages environment."""
+    payload = explorer.live_payload("sk-proj-abcDEF0123456789", "https://proxy.example/v1/responses")
+    assert payload == {"enabled": True, "endpoint": "https://proxy.example/v1/responses"}
+
+
 def test_predicate_labels_come_from_the_relation_list():
     labels = explorer.predicate_labels()
     assert labels["mayGiveRiseTo"] == "may give rise to"

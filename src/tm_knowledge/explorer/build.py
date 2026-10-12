@@ -667,13 +667,14 @@ def live_payload(key: str | None, endpoint: str | None = None) -> dict[str, Any]
     With a key, the key is published in the page (the owner's decision,
     ADR-0118). It is masked so that pattern-matching scrapers do not find an
     `sk-` string — which is obfuscation, not security: anyone who reads the
-    page's code can recover it. With an endpoint and no key, the browser calls a
-    proxy that holds the key instead, and nothing secret is published.
+    page's code can recover it. With an endpoint, the browser calls a proxy that
+    holds the key instead (`live-proxy/`), and nothing secret is published — even
+    if a key is in the environment too, as ADR-0118 says.
     """
     if not key and not endpoint:
         return {"enabled": False}
     out: dict[str, Any] = {"enabled": True, "endpoint": endpoint or OPENAI_RESPONSES}
-    if key:
+    if key and not endpoint:
         raw = key.strip().encode("utf-8")
         mask = secrets.token_bytes(len(raw))
         mixed = bytes(a ^ b for a, b in zip(raw, mask))[::-1]

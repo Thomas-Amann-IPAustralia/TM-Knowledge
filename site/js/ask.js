@@ -11,7 +11,7 @@ import { esc, fmt, load, kindColour, refChip, refLabel, isLaw, sourceOf, srcClas
 import { svg, curve, wrapText, wait } from "./graph.js";
 import { Engine, Recogniser, authorityFlags } from "./engine.js";
 import { miniMap } from "./minimap.js";
-import { answer as callModel, cost, partialField } from "./live.js";
+import { answer as callModel, cost, partialField, viaProxy, wake } from "./live.js";
 import * as lib from "./lib.js";
 
 /** Markdown → sanitised HTML, with bracketed refs turned into passage chips. */
@@ -47,6 +47,7 @@ const countOne = () => { try { localStorage.setItem(todayKey(), String(usedToday
 
 export async function render(root, { ontology, params }) {
   const [examples, chat, live] = await Promise.all([load("examples"), load("chat"), load("live").catch(() => ({ enabled: false }))]);
+  wake(live);
   const byId = new Map(ontology.concepts.map((c) => [c.id, c]));
   const prepared = new Map(examples.answers.map((a) => [a.key, a]));
   let controller = null, mini = null, maps = 0;
@@ -169,7 +170,13 @@ export async function render(root, { ontology, params }) {
     countOne(); liveStatus();
     // Stream: the model chooses its citations first, then writes the answer.
     let lastPaint = 0, painting = false;
+    // A proxy that has slept says nothing for up to a minute while it wakes.
+    const sleepy = viaProxy(live) ? setTimeout(() => {
+      const status = view.body.querySelector(".thinking-text");
+      if (status) status.textContent = "Waiting for the answer service — after a quiet spell it can take up to a minute to wake…";
+    }, 10000) : null;
     const onText = async (text) => {
+      clearTimeout(sleepy);
       const now = performance.now();
       if (painting || now - lastPaint < 120) return;
       painting = true; lastPaint = now;
@@ -187,6 +194,7 @@ export async function render(root, { ontology, params }) {
     };
     try {
       const reply = await callModel(live, chat, eng.prompt(prep, chat), signal, onText);
+      clearTimeout(sleepy);
       await animation;
       const checked = eng.verify(reply.parsed.citations, prep);
       showAnswer(view, {
@@ -195,8 +203,9 @@ export async function render(root, { ontology, params }) {
         model: reply.model, when: "just now", live: true, seconds: reply.seconds, cost: cost(reply.usage, chat.prices),
       });
     } catch (error) {
+      clearTimeout(sleepy);
       if (signal.aborted) return;
-      view.body.innerHTML = `<p class="err">No answer: ${esc(error.message)}.</p><p class="tiny">The passages on the left are still what the ontology found.</p>`;
+      view.body.innerHTML = `<p class="err">No answer: ${esc(String(error.message).replace(/\.+$/, ""))}.</p><p class="tiny">The passages on the left are still what the ontology found, and the prepared questions above still work.</p>`;
     }
   }
 
