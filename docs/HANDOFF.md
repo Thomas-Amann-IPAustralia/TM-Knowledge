@@ -7,17 +7,24 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 
 ## Where things stand
 
-**S033 found why live answers fail: the owner's browser never reaches `api.openai.com`.**
-The owner's screenshot reads "No answer: Failed to fetch." — the browser's own error when
-`fetch` gets no reply at all. It is not the key, model or credit: OpenAI's error replies
-carry CORS headers, so those arrive as OpenAI's message. Reproduced in Chromium against the
-published site with the request intercepted (no spend): the page sends a well-formed request
-(`/v1/responses`, a 164-character `sk-proj-` key, `gpt-6.1-sol`, 28.7 KB); a blocked network
-gives exactly the screenshot. So the owner's network, a filter or an extension stops it (a
-managed or government network that blocks AI services is the likeliest). S032's "it works
-from the session" could not test the published key: the session proxy swaps it for its own
-(Q-88). `live.js` now says in words that the browser could not reach the service, and a
-dropped stream says so; `ask.js` no longer prints a double full stop. No ADR.
+**S033 found why live answers fail, and built the way round it.** The owner's screenshot
+reads "No answer: Failed to fetch." — the browser's error when `fetch` gets no reply at
+all; a wrong key, model or credit is a reply with CORS headers and shows OpenAI's message.
+Reproduced in Chromium against the published site, request intercepted, no spend: the
+request is well-formed; a blocked network gives exactly the screenshot. The owner agrees
+it is their network. A session cannot test the published key (Q-88). Then, on the owner's
+ask ("I've got a free Render account. Could I set up the proxy through that?"):
+- **`live-proxy/`**: a no-dependency Node service that holds the key and forwards the
+  page's Responses request, streaming the reply back; only the explorer's origin, the
+  allowed model, the page's own fields, `store: false`, output capped, 30 per address an
+  hour and 300 a day. Not security — the OpenAI project budget is (README). 7 `node --test`
+  cases, run by `tests/unit/test_live_proxy.py`. Its README has the Render steps.
+- **The build publishes no key when `TMK_LIVE_ENDPOINT` is set**, even with the secret
+  still there — as ADR-0118 already said; the code had published both.
+- **The page**: says in words when it cannot reach the service; through a proxy it knocks
+  on `/health` as it opens and says so when the first answer is slow (Render's free plan
+  sleeps after 15 minutes and takes about a minute to wake). Checked end to end in
+  Chromium: page → proxy → a stand-in OpenAI (Q-89). No ADR: ADR-0118 provided for this.
 
 **S031 labelled every line on the map's text level** (connections carry their predicate;
 idea → Part "is named in"; idea → provision "has legislative basis"). Answered in chat: "Nothing
@@ -51,13 +58,12 @@ Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352
 2. **OQ-0029 — which results the pitch claims** (unchanged). Search was measured before S029;
    the restructure changed 226 edges, so re-measure before quoting numbers (next actions).
 3. **The four disputed signed readings** (`edge-audit.md`) — a person's call; unchanged.
-4. **Live answers where the pitch is shown.** Your browser could not reach `api.openai.com`.
-   Check in that browser: open `https://api.openai.com/v1/models` — a JSON "You didn't provide
-   an API key" means it is reachable; a block page or "can't be reached" means the network
-   stops it. If the pitch room's network blocks it: present from a phone hotspot, answer
-   through a proxy on an allowed address (`TMK_LIVE_ENDPOINT`, already supported — new and
-   outward-facing, so yours to approve), or rely on the 129 prepared answers. Once it is
-   reachable, the key itself is still untested (Q-88).
+4. **Deploy the proxy** — the owner is doing it, from `live-proxy/README.md`: merge this
+   branch, a new OpenAI key with a budget, a Render web service (root `live-proxy`,
+   Singapore, `/health`), check `/health` from the work network, set the repository variable
+   `TMK_LIVE_ENDPOINT`, delete the `OPENAI_API_KEY` secret, run `pages` by hand, then revoke
+   the old key (it was public in the page). If `onrender.com` is blocked too, the proxy does
+   not help there: present from a hotspot or use the prepared answers.
 
 ## Next actions
 
@@ -95,8 +101,8 @@ Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352
 - **Everything machine-written is unreviewed**, as before; the edge audit is a model judging
   models, and S029 is an agent judging both.
 - **GC-0001's signed `narrower: [GC-0045]`** is now withdrawn by GK-0030 — it serves corrected.
-- **The published key is untested.** No session can test it (Q-88); the first live
-  question from an unblocked network is the test.
+- **Neither key is tested by a session.** The published one cannot be (Q-88); the proxy's
+  first live question is the test. The proxy was tested against a stand-in, never OpenAI.
 - **22 legislative bases are unverified** (harness note). The benchmark is model-written.
 
 ## Things a session will trip on
@@ -121,6 +127,8 @@ Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352
 
 ## Open items (agent-proposed, provisional)
 
+- S033's proxy limits (30 questions per address an hour, 300 a day, one model, output
+  capped at 10,000 tokens): environment variables on Render, each a one-line change.
 - S030's table view: its name ("As a table"), Kinds as the first tab, hierarchy hidden by
   default, the CSV's columns. Each a one-line change.
 

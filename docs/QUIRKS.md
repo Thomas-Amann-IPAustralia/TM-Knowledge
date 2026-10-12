@@ -1528,3 +1528,14 @@ key with no credit or a wrong model reaches the page as OpenAI's own message. A 
 extension stopped the request. Since S033 `live.js` says so in words. To reproduce without
 spending, intercept the request in Playwright (`page.route("https://api.openai.com/**")`)
 and `abort` it or `fulfill` a stand-in.
+
+### Q-89 — testing the page against a local proxy: Playwright sends loopback through the session proxy
+
+To run the published page against `live-proxy/` on `127.0.0.1`, two things get in the way.
+Playwright adds `<-loopback>` to Chromium's proxy bypass list, so even `127.0.0.1` goes to
+the session's egress proxy, which answers 405 and the page reports a CORS failure; set
+`PLAYWRIGHT_DISABLE_FORCED_CHROMIUM_PROXIED_LOOPBACK=1`. And Chromium's local-network
+protection blocks a public page calling loopback; launch with
+`--disable-features=LocalNetworkAccessChecks,BlockInsecurePrivateNetworkRequests`. Neither
+applies on Render, where both ends are public. Playwright answers CORS preflights itself
+once any route is set, so test the proxy's preflight in `server.test.mjs`, not the browser.
