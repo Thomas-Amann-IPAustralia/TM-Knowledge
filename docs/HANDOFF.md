@@ -16,10 +16,9 @@ both directions, limits, a build recipe, FAQ, glossary, fact sheet and storyboar
 `video-overview-prompt.md` has the settings, steering prompts and a review checklist. Every
 figure came from `tmk-explorer --write` on the pinned snapshot or a committed report. No
 expert notes, owner's words or reviewer initials (ADR-0088). No record changed; no ADR.
-- The video skipped most of it, so `docs/explainer/ontology-explainer.html` now makes the source
-  interactive: one self-contained page (~620 KB) with every idea and connection and its quote,
-  the page-change explorer, three answers, the measurement and a quiz. Built by
-  `docs/explainer/page/`; checked headless at 1360 and 390, light and dark: no errors.
+- The video skipped most of it, so `docs/explainer/ontology-explainer.html` is now a hand-written,
+  plain-words page with toys (owner: "much more simple and explanatory"); an earlier data-heavy
+  version was replaced. Checked headless at 1280 and 390, light and dark: no errors, no overflow.
 - Found while writing: the tour's step 2 says 56 passages name *written permission*, 54 of
   them by "consent", a label on the too-general list (Q-88). The explainer uses
   *specification of goods and services* instead. The tour still opens on the inflated case.

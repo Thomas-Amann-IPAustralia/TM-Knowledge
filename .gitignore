@@ -55,5 +55,3 @@ data/llm/reservations/
 # (ADR-0112, ADR-0117). live.json can hold the published chat key: never commit it.
 site/workbench/data/
 
-# The explainer page build writes its data here; regenerated, never committed
-docs/explainer/page/data.json

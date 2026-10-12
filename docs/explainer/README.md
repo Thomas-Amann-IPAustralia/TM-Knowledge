@@ -2,13 +2,13 @@
 
 An "explain it like I'm five" account of what an ontology is and why to build one, in two
 forms: a source for the Video Overview feature in Gemini Notebook (formerly NotebookLM), and
-an interactive page made from the same source after the video came out thin. Written
+an interactive, plain-words page made after the video came out thin. Written
 2026-10-12 (S033), from the demonstrator as it then stood.
 
 | File | What it is |
 |---|---|
 | `ontology-explainer-grounding.md` | **The only source to upload.** Plain English: the problem, the six ingredients of an ontology, five worked examples, the examiner and applicant use cases, the measurement in both directions, limits, a build recipe, FAQ, glossary, fact sheet, storyboard and presenter notes |
-| `ontology-explainer.html` | **The interactive explainer**, one self-contained file (no external loads): thirteen stops from "the Manual is text" to a quiz, every example drawn from the real records. Open it in any browser. Its source is `page/` |
+| `ontology-explainer.html` | **The interactive explainer**: one hand-written, self-contained page (about 70 KB, no external loads) in plain words, with toys: search by words vs by idea, sorting names into jars and ideas onto shelves, building arrows that need a receipt, asking a question, editing a sentence to see what gets flagged, and a quiz. Every quote is the Manual's or the Act's own words; every count is from the demonstrator as at 2026-10-12. Open it in any browser. (A longer, data-heavy version, commit 3c0737e, was replaced at the owner's request for something simpler.) |
 | `video-overview-prompt.md` | The settings, a full and a compact steering prompt, variants, and a checklist for reviewing the generated video |
 
 ## What belongs here
