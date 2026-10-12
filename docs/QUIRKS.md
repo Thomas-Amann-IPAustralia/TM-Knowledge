@@ -1515,3 +1515,16 @@ recognition holds *now*. A concept the same ledger relabels (S029: GC-0149, GC-0
 matched by its new labels only through `restructure._relabelled`, a plain substring test —
 so a new edge for a relabelled concept passes on a looser check than any other. Read such
 lines yourself; after `--write`, `tmk-bulk links --write` brings the mention index up to date.
+
+### Q-88 — a session cannot test the published OpenAI key, and "Failed to fetch" is never the key
+
+The session's egress proxy *replaces* the `Authorization` header on every request to
+`api.openai.com` with the session's own key: a request carrying `Bearer sk-bogus` gets a
+200 (S033). So a live question asked from a session's browser or `curl` proves the page,
+the model and CORS work — never that the key in `live.json` does. Separately, OpenAI's
+error replies (401, 404, 429) carry `Access-Control-Allow-Origin: *`, so a revoked key, a
+key with no credit or a wrong model reaches the page as OpenAI's own message. A bare
+"Failed to fetch" means no reply arrived at all: the reader's network, a filter or an
+extension stopped the request. Since S033 `live.js` says so in words. To reproduce without
+spending, intercept the request in Playwright (`page.route("https://api.openai.com/**")`)
+and `abort` it or `fulfill` a stand-in.

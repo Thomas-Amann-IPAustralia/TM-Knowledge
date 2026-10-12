@@ -1,33 +1,28 @@
 # HANDOFF
 
-**Last updated:** 2026-10-12 · S032 (end) · branch `claude/fervent-fermat-ukb0sg`
+**Last updated:** 2026-10-12 · S033 (end) · branch `claude/ecstatic-brown-xt4wxm`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
 
-**S032 diagnosed "the chat doesn't work" and removed the "live answers off" notices** (owner's
-request). The published `live.json` (deploy of 11 Oct) carries a 164-character key; the model,
-streaming and CORS all work from the session's OpenAI connection. So a live failure is the
-key itself (revoked, another project, no credit) or a secret changed after that deploy — a
-secret change does not redeploy; run the `pages` workflow by hand. The page prints OpenAI's
-own error after "No answer:". With live off, the status line is now blank and About says
-nothing; a live question still explains that only the left-hand side ran. No ADR.
+**S033 found why live answers fail: the owner's browser never reaches `api.openai.com`.**
+The owner's screenshot reads "No answer: Failed to fetch." — the browser's own error when
+`fetch` gets no reply at all. It is not the key, model or credit: OpenAI's error replies
+carry CORS headers, so those arrive as OpenAI's message. Reproduced in Chromium against the
+published site with the request intercepted (no spend): the page sends a well-formed request
+(`/v1/responses`, a 164-character `sk-proj-` key, `gpt-6.1-sol`, 28.7 KB); a blocked network
+gives exactly the screenshot. So the owner's network, a filter or an extension stops it (a
+managed or government network that blocks AI services is the likeliest). S032's "it works
+from the session" could not test the published key: the session proxy swaps it for its own
+(Q-88). `live.js` now says in words that the browser could not reach the service, and a
+dropped stream says so; `ask.js` no longer prints a double full stop. No ADR.
 
-**S031 labelled every line on the map's text level** (owner: the edges "do not carry their
-connection label"). Connections between ideas show their predicate; idea → Part says "is named
-in"; idea → provision says "has legislative basis" (`tmk:legislativeBasis`). A connection that
-ends at a provision (e.g. connotation *requires element* / *excludes basis*) was drawn as a
-plain basis line and lost its predicate: it is now its own arrow, labelled, and opens its
-card on click. The ideas level is unchanged (too dense to label). No record changed; no ADR.
-Checked in Chromium at 1440 and 390, light and dark: no JS errors, no overflow.
-- The owner also asked (no change wanted yet) why so many pages on "When the text changes"
-  say "Nothing on the map quotes this page". Answer given in chat: that panel counts only
-  **quoted evidence** (a record's `ref`/evidence span), not mentions. 307 of 500 pages hold no
-  quote, but 282 of them name an idea (132 distinct ideas); only 25 pages, 33 passages
-  (annexes, flowcharts, reference lists), name nothing. 295 distinct passages are quoted;
-  1,649 of 2,460 are linked by mention. The wording conflates the two — a candidate fix.
+**S031 labelled every line on the map's text level** (connections carry their predicate;
+idea → Part "is named in"; idea → provision "has legislative basis"). Answered in chat: "Nothing
+on the map quotes this page" counts quoted evidence only — 307 of 500 pages hold no quote but
+282 of them name an idea; only 25 pages name nothing. The wording conflates the two.
 
 **S030 added "As a table"** (`#/table`, `site/js/table.js`): Kinds, Ideas, Connections tabs
 with filters and a CSV carrying the trust columns. No record changed; no ADR.
@@ -36,38 +31,14 @@ with filters and a CSV carrying the trust columns. No record changed; no ADR.
 CHAT-0073, `review/returned/261009-owner-chat-ontology-structure.md`): *"Not having elements
 connect seems like a bit of a cop out. Similarly 'is related to' is about as non-descript as
 you can get. … Apply common sense to the structures"*.
-- **The top level connects.** The three families are TBox classes (`tmk:LegalQuestion`,
-  `tmk:ExaminedMatter`, `tmk:ProcessElement`), each kind a subclass of one. Every predicate
-  names the kinds it joins (`Predicate.subjects`/`.objects`; `tmk:expectedSubjectKind` in
-  `relations.ttl`); the harness refuses a machine-written edge outside them
-  (`authored-kinds`). Unaided, the check flags exactly the five signed records corrections
-  already replace as backwards (Q-86).
-- **"Is related to" is retired** (`predicates.RETIRED`; gone from the relate prompt, now
-  `relate-v3`). Twenty-three predicates admitted for the process (`performs`, `files`,
-  `issues`, `keeps`, `operatesOn`, `resultsIn`, `isRecordedIn`, `isCommencedBy`, `precedes`,
-  `prevents`, …), time (`isFixedBy`, `keepsEarlierDate`, `runsFrom`) and evidence
-  (`establishes`, `indicates`, `isAttributedTo`, `isDistinguishedFrom`).
-- **Every edge judged by hand**: 202 "related" + 24 off-kind, in
-  `data/derived/audit/restructure.yaml` (one line of reasoning each), applied by
-  `tmk-bulk restructure --write`: **130 re-read, 96 withdrawn** (a co-mention is not a
-  relationship). Report: `data/derived/reports/restructure.md`.
-- **Kinds**: an eleventh, `principle` (presumption of registrability, mandatory application,
-  office practice); `none_of_these` empty; date of registration → context, pending application
-  → instrument or record, repealed Act → external instrument (now "statute or treaty outside
-  the 1995 Act"), owner or authorised user → process role, international registration →
-  subject matter, "originate" → context.
-- **Signed hierarchy fixed outside the signature** (GK-0030 to GK-0036): decision maker is not a
-  kind of connotation; geographical origin not a kind of geographical reference (now
-  *indicates*); top level domain *is part of* a domain name; ordinary consumer not a kind of
-  relevant market (no sentence names both, so no replacement).
-- **Connected**: twelve new edges from passages naming both ends; "Contracting Party of the
-  holder" relabelled to its Office (the only thing the corpus speaks of); "protected term"
-  added as a label of GC-0126. **164 of 164 concepts in one piece** (was 158).
-- **Explorer**: the map's kinds level keeps each kind's strongest link (none floats), lists
-  how the families connect; the circles view joins families, and a family's kinds, with
-  labelled lines; "Principle" has a colour and a place. Checked in Chromium at 1440 and 390,
-  light and dark: no JS errors, no horizontal overflow.
-
+- **Three families are TBox classes**, each kind a subclass of one; every predicate names the
+  kinds it joins and the harness refuses a machine-written edge outside them (Q-86).
+- **"Is related to" retired**; 23 predicates admitted (process, time, evidence). Every edge
+  judged by hand in `data/derived/audit/restructure.yaml`, applied by `tmk-bulk restructure
+  --write`: **130 re-read, 96 withdrawn**. Report: `data/derived/reports/restructure.md`.
+- **An eleventh kind, `principle`**; seven concepts re-kinded; signed hierarchy fixed outside
+  the signature (GK-0030 to GK-0036); twelve new edges; **164 of 164 concepts in one piece**.
+- **Explorer** follows: kinds level keeps each kind's strongest link; circles view joins families.
 Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352 authored
 (was 436). Harness 0 defects; SHACL 0 defects; graph matches a rebuild; 699 tests pass.
 **Spend unchanged: US$8.37 of the US$9.49 cap**; nothing in S029 called a model.
@@ -80,7 +51,13 @@ Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352
 2. **OQ-0029 — which results the pitch claims** (unchanged). Search was measured before S029;
    the restructure changed 226 edges, so re-measure before quoting numbers (next actions).
 3. **The four disputed signed readings** (`edge-audit.md`) — a person's call; unchanged.
-4. If live questions still fail after S032's redeploy: the text after "No answer:".
+4. **Live answers where the pitch is shown.** Your browser could not reach `api.openai.com`.
+   Check in that browser: open `https://api.openai.com/v1/models` — a JSON "You didn't provide
+   an API key" means it is reachable; a block page or "can't be reached" means the network
+   stops it. If the pitch room's network blocks it: present from a phone hotspot, answer
+   through a proxy on an allowed address (`TMK_LIVE_ENDPOINT`, already supported — new and
+   outward-facing, so yours to approve), or rely on the 129 prepared answers. Once it is
+   reachable, the key itself is still untested (Q-88).
 
 ## Next actions
 
@@ -118,6 +95,8 @@ Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352
 - **Everything machine-written is unreviewed**, as before; the edge audit is a model judging
   models, and S029 is an agent judging both.
 - **GC-0001's signed `narrower: [GC-0045]`** is now withdrawn by GK-0030 — it serves corrected.
+- **The published key is untested.** No session can test it (Q-88); the first live
+  question from an unblocked network is the test.
 - **22 legislative bases are unverified** (harness note). The benchmark is model-written.
 
 ## Things a session will trip on
@@ -136,6 +115,7 @@ Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352
 - **The explorer needs the snapshot**: `tmk-fetch-upstream` (a read of the public
   `manual-XtrACTor`; the session needed no attach), then `tmk-explorer --write`.
 - **`site/data/live.json` can hold a key.** Git-ignored; keep it that way.
+- **A session's live test proves nothing about the published key** (Q-88).
 - **`ontology.kinds` drops `none_of_these` when empty**: count kinds with `kindCount()` in
   `app.js`, never `kinds.length - 1`.
 
