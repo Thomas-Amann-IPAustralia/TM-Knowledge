@@ -1,17 +1,19 @@
-# docs/explainer/ — source material for an explainer video
+# docs/explainer/ — explaining the ontology to people new to it
 
-Material for an "explain it like I'm five" video on what an ontology is and why to
-build one, made with the Video Overview feature in Gemini Notebook (formerly
-NotebookLM). Written 2026-10-12 (S033), from the demonstrator as it then stood.
+An "explain it like I'm five" account of what an ontology is and why to build one, in two
+forms: a source for the Video Overview feature in Gemini Notebook (formerly NotebookLM), and
+an interactive page made from the same source after the video came out thin. Written
+2026-10-12 (S033), from the demonstrator as it then stood.
 
 | File | What it is |
 |---|---|
 | `ontology-explainer-grounding.md` | **The only source to upload.** Plain English: the problem, the six ingredients of an ontology, five worked examples, the examiner and applicant use cases, the measurement in both directions, limits, a build recipe, FAQ, glossary, fact sheet, storyboard and presenter notes |
+| `ontology-explainer.html` | **The interactive explainer**, one self-contained file (no external loads): thirteen stops from "the Manual is text" to a quiz, every example drawn from the real records. Open it in any browser. Its source is `page/` |
 | `video-overview-prompt.md` | The settings, a full and a compact steering prompt, variants, and a checklist for reviewing the generated video |
 
 ## What belongs here
 
-Text meant to be read by an outside model. It quotes only the published Manual and
+Text meant for people new to the project, or for an outside model to read. It quotes only the published Manual and
 legislation, plus the project's own counts, all regenerable with `tmk-explorer --write`.
 
 ## What must not
