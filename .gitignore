@@ -54,3 +54,6 @@ data/llm/reservations/
 # The explorer's data and the workbench's data — both generated at deploy
 # (ADR-0112, ADR-0117). live.json can hold the published chat key: never commit it.
 site/workbench/data/
+
+# live-proxy/ has no dependencies; the host runs npm install itself.
+node_modules/
