@@ -1,11 +1,19 @@
 # HANDOFF
 
-**Last updated:** 2026-10-09 · S031 (end) · branch `claude/clever-hamilton-10r4tn`
+**Last updated:** 2026-10-12 · S032 (end) · branch `claude/fervent-fermat-ukb0sg`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
+
+**S032 diagnosed "the chat doesn't work" and removed the "live answers off" notices** (owner's
+request). The published `live.json` (deploy of 11 Oct) carries a 164-character key; the model,
+streaming and CORS all work from the session's OpenAI connection. So a live failure is the
+key itself (revoked, another project, no credit) or a secret changed after that deploy — a
+secret change does not redeploy; run the `pages` workflow by hand. The page prints OpenAI's
+own error after "No answer:". With live off, the status line is now blank and About says
+nothing; a live question still explains that only the left-hand side ran. No ADR.
 
 **S031 labelled every line on the map's text level** (owner: the edges "do not carry their
 connection label"). Connections between ideas show their predicate; idea → Part says "is named
@@ -72,7 +80,7 @@ Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352
 2. **OQ-0029 — which results the pitch claims** (unchanged). Search was measured before S029;
    the restructure changed 226 edges, so re-measure before quoting numbers (next actions).
 3. **The four disputed signed readings** (`edge-audit.md`) — a person's call; unchanged.
-4. If not done: the key as an environment secret (`github-pages` → `OPENAI_API_KEY`).
+4. If live questions still fail after S032's redeploy: the text after "No answer:".
 
 ## Next actions
 

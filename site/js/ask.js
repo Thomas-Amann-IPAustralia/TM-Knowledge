@@ -89,10 +89,7 @@ export async function render(root, { ontology, params }) {
 
   function liveStatus() {
     const el = root.querySelector(".live-status");
-    if (!live.enabled) {
-      el.innerHTML = `Live answers are <b>off</b> on this copy of the site — your question will still show the ideas, connections and passages it finds.`;
-      return;
-    }
+    if (!live.enabled) { el.innerHTML = ""; return; }
     const left = Math.max(0, chat.daily_limit - usedToday());
     el.innerHTML = `Live answers <b>on</b> · <code>${esc(chat.model)}</code> · ${left} of ${chat.daily_limit} questions left today in this browser`;
   }
@@ -158,8 +155,7 @@ export async function render(root, { ontology, params }) {
     const animation = animate(view, graph, steps);
     if (!live.enabled) {
       await animation;
-      view.body.innerHTML = `<p class="muted">Live answers are switched off on this copy of the site, so no answer is written. Everything on the left —
-        the ideas recognised, the connections followed and the passages ranked — ran in your browser.</p>
+      view.body.innerHTML = `<p class="muted">Everything on the left — the ideas recognised, the connections followed and the passages ranked — ran in your browser.</p>
         <p class="muted small">Try a prepared question above to see the answer the same pipeline wrote in advance.</p>`;
       return;
     }
