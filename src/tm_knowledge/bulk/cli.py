@@ -8,6 +8,11 @@
     tmk-bulk quote --write                   price the full runs from what was measured
     tmk-bulk audit-apply [--write]           act on the edge audit: re-read or withdraw the wrong ones
     tmk-bulk restructure [--write]           apply the structure review's ledger (ADR-0131)
+    tmk-bulk run reading --effort low --confirm --write
+                                             the live reading of every benchmark question (ADR-0133)
+    tmk-bulk reading-pools [--write]         the page's three rankings, with and without the reading
+    tmk-bulk run judge --pools data/derived/bench/reading-pools.yaml --confirm --write
+    tmk-bulk measure --reading [--write]     score them
 
 A run with `--confirm` and without `--write` still caches every response, so
 writing afterwards is free: read the smoke run's report first (KB SOP §6).
@@ -71,6 +76,7 @@ def _questions(ctx: jobs.Context) -> list[dict[str, Any]]:
 
 
 POOLS_PATH = jobs.BENCH_DIR / "pools.yaml"
+READING_POOLS_PATH = jobs.BENCH_DIR / "reading-pools.yaml"
 
 
 def _require_vectors(systems: Any, questions: list[dict[str, Any]]) -> None:
@@ -117,12 +123,16 @@ def _graded() -> dict[str, dict[str, int]]:
     return {r["need"]: {k: int(v) for k, v in r["grades"].items()} for r in rows}
 
 
-def _measurement_items(job: str, ctx: jobs.Context) -> list[jobs.Item]:
+def _measurement_items(job: str, ctx: jobs.Context, pools_path: Path | None = None) -> list[jobs.Item]:
+    pools_path = pools_path or POOLS_PATH
     questions = {q["key"]: q for q in _questions(ctx)}
+    if job == "reading":
+        return [jobs.Item(q["key"], q) for q in questions.values()]
     if job == "judge":
-        if not POOLS_PATH.exists():
-            raise SystemExit("no pools yet: run `tmk-bulk pools --write` after the ontology and vectors are in")
-        pools = (yaml.safe_load(POOLS_PATH.read_text(encoding="utf-8")) or {}).get("pools", [])
+        if not pools_path.exists():
+            raise SystemExit(f"no pools yet: run `tmk-bulk {'reading-pools' if pools_path.name == 'reading-pools.yaml' else 'pools'}"
+                             " --write` first")
+        pools = (yaml.safe_load(pools_path.read_text(encoding="utf-8")) or {}).get("pools", [])
         # Only what nobody has graded: a re-pooled question sends its new passages, and a
         # grade once given stands, so a re-measurement costs only what changed (ADR-0127).
         graded = _graded()
@@ -172,7 +182,8 @@ def _run(args: argparse.Namespace) -> int:
     job = registry[args.job]
     if args.touching:
         ctx.touching = {cid.strip() for cid in args.touching.split(",") if cid.strip()}
-    all_items = _measurement_items(args.job, ctx) if args.job in ("judge", "answer") else job.items(ctx)
+    all_items = (_measurement_items(args.job, ctx, Path(args.pools) if args.pools else None)
+                 if args.job in ("judge", "answer", "reading") else job.items(ctx))
     items = _select(all_items, args)
     model = args.model or config.authoring_model()
     effort = args.effort or config.DEFAULT_AUTHORING_EFFORT
@@ -368,10 +379,119 @@ def _pools_cmd(args: argparse.Namespace) -> int:
     return 0
 
 
+def live_systems(ctx: jobs.Context):
+    """The page's systems: those of `search.index` with no vectors, as `engine.js` runs them."""
+    from tm_knowledge.search.index import KeywordIndex, Systems, relations_from
+
+    return Systems(KeywordIndex(ctx.corpus), ctx.links, None, jobs.load_aliases(ctx.corpus, ctx.links.concepts),
+                   relations_from(ctx.gold, ctx.authored))
+
+
+def _reading_pools(ctx: jobs.Context) -> dict[str, Any]:
+    """Every question's top ten from the page's three systems — keyword, names, and
+    names plus the checked reading — and the pool the judge grades (ADR-0133)."""
+    if not jobs.READINGS_PATH.exists():
+        raise SystemExit("no readings yet: run `tmk-bulk run reading --effort low --confirm --write` first")
+    readings = {r["key"]: r for r in (yaml.safe_load(jobs.READINGS_PATH.read_text(encoding="utf-8")) or {})
+                .get("readings", [])}
+    systems = live_systems(ctx)
+    pools, missing = [], []
+    for q in _questions(ctx):
+        reading = readings.get(q["key"])
+        if reading is None:
+            missing.append(q["key"])
+            continue
+        kept, dropped = systems.reading(q["question"], {"concepts": reading["picks"]}, jobs.READING_MAX_IDEAS)
+        read = [k["id"] for k in kept]
+        ranked = {
+            "keyword": [h.ref for h in systems.keyword(q["question"], 10)],
+            "names": [h.ref for h in systems.ontology(q["question"], 10)[0]],
+            "reading": [h.ref for h in systems.ontology(q["question"], 10, read)[0]],
+        }
+        pooled = {ref for refs in ranked.values() for ref in refs}
+        pools.append({
+            "key": q["key"], "kind": q["kind"], "question": q["question"],
+            "named": [c for c in systems.recognise(q["question"]) if c not in ctx.links.generic],
+            "read": [{"id": k["id"], "words": k["words"]} for k in kept],
+            "set_aside": [{"id": d["id"], "words": d["words"], "reason": d["reason"]} for d in dropped],
+            "systems": ranked,
+            "pool": sorted(pooled, key=lambda r: hashlib.sha256((q["key"] + r).encode()).hexdigest()),
+        })
+    if missing:
+        raise SystemExit(f"{len(missing)} questions have no reading (first: {missing[0]}): run the reading job first")
+    first = next(iter(readings.values()))
+    return {"note": "Each question's top ten from the page's three systems (no vectors), and the pool the judge "
+                    "grades (ADR-0133). `read` is the live reading as checked by `Systems.reading`.",
+            "measured": date.today().isoformat(),
+            "reading": {k: first[k] for k in ("model", "effort", "prompt_version")},
+            "pools": pools}
+
+
+def _reading_pools_cmd(args: argparse.Namespace) -> int:
+    ctx = _context()
+    document = _reading_pools(ctx)
+    pools = document["pools"]
+    graded = _graded()
+    todo = sum(1 for p in pools for ref in p["pool"] if ref not in graded.get(p["key"], {}))
+    changed = sum(1 for p in pools if p["read"])
+    print(f"reading pools: {len(pools)} questions, the reading added an idea to {changed}; "
+          f"{sum(len(p['pool']) for p in pools)} passages pooled, {todo} not yet graded")
+    if args.write:
+        READING_POOLS_PATH.write_text(yaml.safe_dump(document, sort_keys=False, allow_unicode=True, width=100),
+                                      encoding="utf-8")
+        print(f"wrote {READING_POOLS_PATH.relative_to(REPO_ROOT)}")
+    return 0
+
+
+def _measure_reading(args: argparse.Namespace) -> int:
+    import json
+
+    from tm_knowledge.search import measure
+
+    document = yaml.safe_load(READING_POOLS_PATH.read_text(encoding="utf-8")) or {}
+    pools = document.get("pools", [])
+    path = jobs.BENCH_DIR / "judgements.yaml"
+    rows = (yaml.safe_load(path.read_text(encoding="utf-8")) or {}).get("judgements", []) if path.exists() else []
+    judgements = {r["need"]: {k: int(v) for k, v in r["grades"].items()} for r in rows}
+    ungraded = [(p["key"], ref) for p in pools for ref in p["pool"] if ref not in judgements.get(p["key"], {})]
+    if len(ungraded) > args.allow_ungraded:
+        raise SystemExit(f"{len(ungraded)} pooled passages have no grade (first: {ungraded[0]}): "
+                         "run the judge on the reading pools first (or --allow-ungraded N to score them 0)")
+    models = sorted({r.get("model", "?") for r in rows} | {x.get("model", "?") for r in rows for x in r.get("later") or ()})
+    scored = measure.score(pools, judgements, measure.READING_SYSTEMS)
+    summary = measure.summarise(scored["rows"], (), measure.READING_SYSTEMS, measure.READING_COMPARISONS)
+    changed = {p["key"] for p in pools if p["read"]}
+    touched = measure.summarise([{**r, "kind": "changed"} for r in scored["rows"] if r["key"] in changed], (),
+                                measure.READING_SYSTEMS, measure.READING_COMPARISONS)
+    coverage = {}
+    for kind in summary:
+        subset = [p for p in pools if kind == "all" or p["kind"] == kind]
+        coverage[kind] = {"n": len(subset), "named": sum(1 for p in subset if p["named"]),
+                          "touched": sum(1 for p in subset if p["read"]),
+                          "only_read": sum(1 for p in subset if p["read"] and not p["named"]),
+                          "added": sum(len(p["read"]) for p in subset),
+                          "set_aside": sum(len(p["set_aside"]) for p in subset)}
+    judged = sum(1 for p in pools for _ in p["pool"])
+    text = measure.render_reading(summary, {"all": touched.get("all", {})} if changed else {}, coverage=coverage,
+                                  judged=judged - len(ungraded), judge_model=", ".join(models),
+                                  reading=document["reading"], measured=document.get("measured"), ungraded=ungraded)
+    print(text)
+    if args.write:
+        (REPORTS_DIR / "measure-reading.md").write_text(text, encoding="utf-8")
+        (jobs.BENCH_DIR / "reading-results.json").write_text(json.dumps(
+            {"summary": summary, "changed": touched.get("all"), "coverage": coverage, "rows": scored["rows"]},
+            indent=1, sort_keys=True) + "\n", encoding="utf-8")
+        print("wrote data/derived/reports/measure-reading.md and data/derived/bench/reading-results.json")
+    return 0
+
+
 def _measure(args: argparse.Namespace) -> int:
     import json
 
     from tm_knowledge.search import measure
+
+    if args.reading:
+        return _measure_reading(args)
 
     pools = (yaml.safe_load(POOLS_PATH.read_text(encoding="utf-8")) or {}).get("pools", [])
     path = jobs.BENCH_DIR / "judgements.yaml"
@@ -511,6 +631,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--retries", type=int, default=12, help="retries of an overloaded flex call")
     p.add_argument("--touching", help="relate only: just the pairs that touch these concept ids, "
                                       "so a pass for new concepts can run beside another pass")
+    p.add_argument("--pools", help="judge only: the pools file to grade (default data/derived/bench/pools.yaml)")
     p = sub.add_parser("embed", help="vectors for every passage and benchmark question")
     p.add_argument("--dry-run", action="store_true")
     p.add_argument("--confirm", action="store_true")
@@ -522,6 +643,11 @@ def main(argv: list[str] | None = None) -> int:
                    help="also score these rankings (YAML: note, rankings: {question key: [refs]})")
     p = sub.add_parser("measure", help="score the systems from the judged pools")
     p.add_argument("--write", action="store_true")
+    p.add_argument("--reading", action="store_true", help="score the reading pools instead (ADR-0133)")
+    p.add_argument("--allow-ungraded", type=int, default=0, metavar="N",
+                   help="with --reading: score up to N ungraded pooled passages as 0, and say so")
+    p = sub.add_parser("reading-pools", help="the page's three rankings, with and without the live reading")
+    p.add_argument("--write", action="store_true")
     sub.add_parser("collect", help="record every finished batch")
     p = sub.add_parser("audit-apply", help="re-read or withdraw what the edge audit found wrong")
     p.add_argument("--write", action="store_true")
@@ -532,6 +658,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--write", action="store_true")
     args = parser.parse_args(argv)
     return {"links": _links, "run": _run, "embed": _embed, "pools": _pools_cmd, "measure": _measure,
+            "reading-pools": _reading_pools_cmd,
             "collect": lambda a: (print("open:", client.collect_batches()) or 0),
             "audit-apply": _audit_apply, "restructure": _restructure,
             "spend": _spend, "quote": _quote}[args.command](args)

@@ -15,6 +15,7 @@ for (const c of JSON.parse(readFileSync(casesPath, "utf8"))) {
   const prepared = engine.prepare(c.question, chat, checked.kept);
   out.push({
     kept: checked.kept.map((k) => [k.id, c.question.slice(k.start, k.end)]),
+    ontology: engine.ontology(c.question, 10, checked.kept).hits.map((h) => h.ref),
     dropped: checked.dropped.map((d) => [d.id, d.reason]),
     recognised: prepared.trace.ids, paths: prepared.trace.paths.length,
     plain: engine.prepare(c.question, chat).passages, passages: prepared.passages,

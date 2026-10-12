@@ -249,7 +249,24 @@ def test_the_page_checks_the_models_reading_before_it_steers(files, tmp_path):
     (tmp_path / "cases.json").write_text(json.dumps(cases), encoding="utf-8")
     result = subprocess.run(["node", str(REPO_ROOT / "tests" / "explorer_reading.mjs"), str(tmp_path),
                              str(tmp_path / "cases.json")], capture_output=True, text=True, check=True)
-    smelt, jingle, named, garbled = json.loads(result.stdout)
+    browser = json.loads(result.stdout)
+    smelt, jingle, named, garbled = browser
+
+    # The same check and the same ranking in Python, where the reading is measured (ADR-0133).
+    from tm_knowledge.bulk import links as links_module
+    from tm_knowledge.search.index import KeywordIndex, Systems, relations_from
+    from tm_knowledge.upstream.loader import load_corpus
+
+    corpus = load_corpus()
+    ctx = jobs.Context(corpus=corpus, links=links_module.link(corpus))
+    systems = Systems(KeywordIndex(corpus), ctx.links, None, jobs.load_aliases(corpus, ctx.links.concepts),
+                      relations_from(ctx.gold, ctx.authored))
+    for case, js in zip(cases, browser):
+        kept, dropped = systems.reading(case["question"], case["reply"], jobs.READING_MAX_IDEAS)
+        assert [[k["id"], k["words"]] for k in kept] == js["kept"], case["question"]
+        assert [[d["id"], d["reason"]] for d in dropped] == js["dropped"], case["question"]
+        hits, trace = systems.ontology(case["question"], 10, [k["id"] for k in kept])
+        assert [h.ref for h in hits] == js["ontology"] and trace.recognised == js["recognised"], case["question"]
 
     assert smelt["kept"] == [["GC-0078", "smell"]]
     assert [reason for _, reason in smelt["dropped"]] == [

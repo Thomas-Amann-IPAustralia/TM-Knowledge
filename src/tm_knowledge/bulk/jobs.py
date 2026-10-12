@@ -1141,10 +1141,11 @@ _ANSWER_SCHEMA = _strict({
     "concepts_used": STRS, "declined": {"type": "boolean"}, "decline_reason": STR,
 })
 
-# The live page's reading of a typed question (ADR-0132). Not a job and never part of
-# the measured system: the page asks it before searching, so that a question in
-# everyday words still starts from ideas on the map. The browser checks each pick
-# (`Engine.reading`): the id must be on the map and its words in the question.
+# The live page's reading of a typed question (ADR-0132): the page asks it before
+# searching, so that a question in everyday words still starts from ideas on the map.
+# The browser checks each pick (`Engine.reading`, and `Systems.reading` here): the id
+# must be on the map and its words in the question. The `reading` job asks the same
+# prompt of the benchmark questions, so the reading can be measured (ADR-0133).
 READING_VERSION = "reading-v1"
 READING_MAX_IDEAS = 4
 READING_MAX_OUTPUT_TOKENS = 2000
@@ -1174,6 +1175,45 @@ _READING_SCHEMA = _strict({
 def reading_input(ontology_lines: str, question: str) -> str:
     """The reading's input, as the browser assembles it (`live.read`)."""
     return f"ONTOLOGY (one line per concept):\n{ontology_lines}\n\nQUESTION: {question}"
+
+
+def _reading_render(ctx: Context, item: Item) -> str:
+    return reading_input(ontology_map(ctx), item.payload["question"])
+
+
+def _reading_accept(ctx: Context, item: Item, parsed: dict[str, Any], entry: dict[str, Any]) -> Outcome:
+    """The model's picks, as it gave them. Checking them is the search's job
+    (`Systems.reading`), done where they are used, so the raw reading is kept."""
+    picks = parsed.get("concepts") if isinstance(parsed.get("concepts"), list) else []
+    row = {
+        "key": item.key, "kind": item.payload.get("kind"), "question": item.payload["question"],
+        "picks": [{k: str(p.get(k) or "") for k in ("id", "words", "why")} for p in picks if isinstance(p, dict)],
+        "model": entry["model_reported"], "effort": entry.get("effort"), "prompt_version": entry["prompt_version"],
+        "date": str(entry.get("created_utc") or date.today().isoformat())[:10], "response_id": entry.get("response_id"),
+        "review_status": "unreviewed",
+    }
+    return Outcome(records={"readings": [row]}, proposed=len(row["picks"]))
+
+
+READINGS_PATH = BENCH_DIR / "readings.yaml"
+
+
+def _write_readings(records: dict[str, list[dict[str, Any]]]) -> list[Path]:
+    rows = records.get("readings") or []
+    if not rows:
+        return []
+    existing = (yaml.safe_load(READINGS_PATH.read_text(encoding="utf-8")) or {}).get("readings", []) \
+        if READINGS_PATH.exists() else []
+    merged = {r["key"]: r for r in existing}
+    merged.update({r["key"]: r for r in rows})
+    READINGS_PATH.parent.mkdir(parents=True, exist_ok=True)
+    READINGS_PATH.write_text(yaml.dump(
+        {"note": "The live model's reading of each benchmark question (ADR-0133): the ideas it says the question "
+                 "raises, as it gave them — machine-written, unreviewed, unchecked. The search checks them "
+                 "(`Systems.reading`) where it uses them.",
+         "readings": [merged[k] for k in sorted(merged)]},
+        Dumper=_PlainDumper, sort_keys=False, allow_unicode=True, width=88), encoding="utf-8")
+    return [READINGS_PATH]
 
 
 def _excerpt(ctx: Context, ref: str, limit: int = 320) -> dict[str, str]:
@@ -1485,6 +1525,10 @@ def registry(ctx: Context) -> dict[str, Job]:
         "answer": Job("answer", "answer-v2", "measurement", _ANSWER_INSTRUCTIONS, _ANSWER_SCHEMA,
                       10000, lambda ctx: [], _answer_render, _answer_accept, _write_answers,
                       "A cited answer to one question"),
+        # The live page's reading (ADR-0132), asked of the benchmark to measure it (ADR-0133).
+        "reading": Job("reading", READING_VERSION, "measurement", _READING_INSTRUCTIONS, _READING_SCHEMA,
+                       READING_MAX_OUTPUT_TOKENS, lambda ctx: [], _reading_render, _reading_accept,
+                       _write_readings, "Which ideas on the map a benchmark question raises, in the live reading"),
         # D5: a second model, chosen by the owner (Gemini 3.1 Pro, ADR-0125), judges
         # every machine-written relationship against its sentence and the dictionary.
         "audit": Job("audit", "audit-v1", "measurement", _AUDIT_INSTRUCTIONS, _AUDIT_SCHEMA,

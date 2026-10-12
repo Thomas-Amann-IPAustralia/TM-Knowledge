@@ -53,7 +53,8 @@ def bootstrap(differences: list[float], resamples: int = RESAMPLES, seed: int = 
     return sum(differences) / n, means[int(0.025 * resamples)], means[int(0.975 * resamples) - 1]
 
 
-def score(pools: list[dict[str, Any]], judgements: dict[str, dict[str, int]]) -> dict[str, Any]:
+def score(pools: list[dict[str, Any]], judgements: dict[str, dict[str, int]],
+          systems: tuple[str, ...] = SYSTEMS) -> dict[str, Any]:
     """Per-question metrics for every question that has both a pool and grades.
 
     A variant — another ranking scored on the same grades, such as the ontology system as
@@ -66,7 +67,7 @@ def score(pools: list[dict[str, Any]], judgements: dict[str, dict[str, int]]) ->
         if grades is None:
             continue
         row = {"key": q["key"], "kind": q["kind"], "relevant": sum(1 for g in grades.values() if g >= 2)}
-        for system in SYSTEMS:
+        for system in systems:
             ranking = q["systems"][system]
             row[f"ndcg:{system}"] = ndcg(ranking, grades)
             row[f"recall:{system}"] = recall(ranking, grades)
@@ -79,17 +80,19 @@ def score(pools: list[dict[str, Any]], judgements: dict[str, dict[str, int]]) ->
     return {"rows": rows, "variants": variants}
 
 
-def summarise(rows: list[dict[str, Any]], variants: list[str] | tuple[str, ...] = ()) -> dict[str, Any]:
+def summarise(rows: list[dict[str, Any]], variants: list[str] | tuple[str, ...] = (),
+              systems: tuple[str, ...] = SYSTEMS,
+              comparisons: tuple[tuple[str, str], ...] = COMPARISONS) -> dict[str, Any]:
     kinds = ["all"] + sorted({r["kind"] for r in rows})
     out: dict[str, Any] = {}
     for kind in kinds:
         subset = rows if kind == "all" else [r for r in rows if r["kind"] == kind]
         entry: dict[str, Any] = {"n": len(subset), "no_relevant": sum(1 for r in subset if r["relevant"] == 0)}
         for metric in ("ndcg", "recall"):
-            for system in (*SYSTEMS, *variants):
+            for system in (*systems, *variants):
                 values = [r[f"{metric}:{system}"] for r in subset if r.get(f"{metric}:{system}") is not None]
                 entry[f"{metric}:{system}"] = sum(values) / len(values) if values else None
-            for a, b in (*COMPARISONS, *(("ontology", v) for v in variants)):
+            for a, b in (*comparisons, *(("ontology", v) for v in variants)):
                 pairs = [(r[f"{metric}:{a}"], r[f"{metric}:{b}"]) for r in subset
                          if r.get(f"{metric}:{a}") is not None and r.get(f"{metric}:{b}") is not None]
                 entry[f"{metric}:{a}-{b}"] = bootstrap([x - y for x, y in pairs])
@@ -209,4 +212,75 @@ def render(summary: dict[str, Any], *, judged: int, pooled: int, judge_model: st
             lines += ["", f"## {title}", "", "| Question | Kind | hybrid | ontology |", "|---|---|---|---|"]
             lines += [f"| {c['question']} | {c['kind']} | {c['hybrid']:.3f} | {c['ontology']:.3f} |"
                       for c in cases[key]]
+    return "\n".join(lines) + "\n"
+
+
+# ---------------------------------------------------------------------------
+# The live reading (ADR-0132, ADR-0133)
+# ---------------------------------------------------------------------------
+
+#: The page's own configuration, which has no vectors: plain keyword search, the
+#: ontology system starting from names alone, and the same starting also from the
+#: ideas the live model read in the question.
+READING_SYSTEMS = ("keyword", "names", "reading")
+READING_COMPARISONS = (("reading", "names"), ("names", "keyword"), ("reading", "keyword"))
+
+
+def render_reading(summary: dict[str, Any], touched: dict[str, Any], *, coverage: dict[str, Any],
+                   judged: int, judge_model: str, reading: dict[str, Any], measured: str | None,
+                   ungraded: list[tuple[str, str]] = ()) -> str:
+    """The reading's measurement: does starting from the ideas a model read help?"""
+    kinds = list(summary)
+    lines = [
+        "# The live reading — does a model's reading of the question make search better?",
+        "",
+        (f"Rankings taken on {measured}. " if measured else "")
+        + f"{summary['all']['n']} benchmark questions, each read once by `{reading['model']}` "
+        f"(prompt `{reading['prompt_version']}`, effort {reading['effort']}), the picks checked as the page "
+        f"checks them. Every passage any of the three systems ranks in its top ten is graded 0–3 by "
+        f"`{judge_model}` ({judged} grades). The systems are the page's own, with no vectors: **keyword** (BM25), "
+        "**names** (the ontology system starting from ideas named in the question) and **reading** (the same, "
+        "starting also from the ideas the model read). Intervals are paired bootstrap 95%; ✓ means the "
+        "difference is established, ✗ that it is established the other way."
+        + (f" **{len(ungraded)} pooled passages have no grade** ({', '.join(sorted({k for k, _ in ungraded}))}) and "
+           "score 0: the judge's answer for them was refused because it also graded passages not in its pool."
+           if ungraded else ""),
+        "",
+        "## What the reading found",
+        "",
+        "| Questions | n | a specific idea by name | the reading added an idea | of those, none by name | "
+        "ideas added | set aside |",
+        "|---|---|---|---|---|---|---|",
+    ]
+    for kind in kinds:
+        c = coverage[kind]
+        lines.append(f"| {kind} | {c['n']} | {c['named']} | {c['touched']} | {c['only_read']} | {c['added']} | "
+                     f"{c['set_aside']} |")
+    for title, metric, count in (("nDCG@10 — the quality of the top ten", "ndcg", "n"),
+                                 ("Recall@10 — the share of relevant passages found in the top ten", "recall", None)):
+        lines += ["", f"## {title}", "",
+                  "| Questions | n | keyword | names | reading | reading − names | names − keyword | reading − keyword |",
+                  "|---|---|---|---|---|---|---|---|"]
+        for kind in kinds:
+            e = summary[kind]
+            n = e["n"] if count else e["n"] - e["no_relevant"]
+            lines.append(f"| {kind} | {n} | {_cell(e[f'{metric}:keyword'])} | {_cell(e[f'{metric}:names'])} | "
+                         f"{_cell(e[f'{metric}:reading'])} | {_diff(e[f'{metric}:reading-names'])} | "
+                         f"{_diff(e[f'{metric}:names-keyword'])} | {_diff(e[f'{metric}:reading-keyword'])} |")
+    if touched.get("all", {}).get("n"):
+        e = touched["all"]
+        lines += ["", "## Only the questions the reading changed", "",
+                  "On a question where the reading added no idea, *reading* and *names* rank the same passages, "
+                  "so the difference is zero there by construction. Here are the questions where it added one.", "",
+                  "| n | names | reading | reading − names (nDCG@10) | reading − names (Recall@10) |", "|---|---|---|---|---|",
+                  f"| {e['n']} | {_cell(e['ndcg:names'])} | {_cell(e['ndcg:reading'])} | "
+                  f"{_diff(e['ndcg:reading-names'])} | {_diff(e['recall:reading-names'])} |"]
+    lines += ["", "## What this does not show", "",
+              "- The page's search has no meaning-vectors; the measured system (`measure.md`) has. These numbers "
+              "are for the page's configuration and are not comparable with that report's.",
+              "- The benchmark questions were written beside the ontology and often use its names, so the "
+              "reading has less to add here than on a question typed the way a person asks.",
+              "- The grades are a model's, and the questions are model-written. `signed` is the expert's ten "
+              "retrieval questions, run as a cross-check.",
+              "- Each question was read once; a second reading could pick differently."]
     return "\n".join(lines) + "\n"
