@@ -1,0 +1,989 @@
+<title>Trade Mark Ontology Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap">
+<style>
+/* Layout: a reading column with a sticky contents rail on wide screens; each layer of the
+   ontology gets one section, with the record shown three ways (plain English, record, graph). */
+:root {
+  --bg: #f7f6f2; --panel: #ffffff; --panel-2: #f1efe9;
+  --ink: #1c2229; --ink-2: #4a5360; --ink-3: #6e7682;
+  --line: #dcd8cf; --line-2: #e9e6df;
+  --accent: #1b5f8a; --accent-ink: #ffffff; --accent-bg: #e3edf4;
+  --ok: #2f7d4a; --ok-bg: #e4f1e8; --warn: #a8551a; --warn-bg: #f7e8dc; --bad: #a3303b; --bad-bg: #f6e1e3;
+  --manual: #36648b; --manual-bg: #e6eef6;
+  --act: #7d5a0f; --act-bg: #f6eed9;
+  --regs: #7b3f73; --regs-bg: #f3e6f0;
+  --fam-q: #b4423f; --fam-q-bg: #f7e5e3;
+  --fam-e: #1b7a74; --fam-e-bg: #e0f1ef;
+  --fam-p: #5a5f9e; --fam-p-bg: #e8e9f5;
+  --code-bg: #f1efe9; --code-ink: #26303a; --code-com: #7a7466; --code-key: #1b5f8a; --code-str: #7d5a0f;
+  --serif: "Source Serif 4", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --radius: 10px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121418; --panel: #1a1d23; --panel-2: #22262d;
+    --ink: #e8eaed; --ink-2: #b6bcc5; --ink-3: #8d949e;
+    --line: #343943; --line-2: #2a2e36;
+    --accent: #6fb0dc; --accent-ink: #0d1116; --accent-bg: #1c2a36;
+    --ok: #6cc08a; --ok-bg: #1b2c22; --warn: #e39a5c; --warn-bg: #33241a; --bad: #e8707a; --bad-bg: #351c20;
+    --manual: #8db8de; --manual-bg: #1f2b38;
+    --act: #e1bd6a; --act-bg: #33291a;
+    --regs: #d79bcb; --regs-bg: #33202f;
+    --fam-q: #e8807c; --fam-q-bg: #361e1e;
+    --fam-e: #4fbdb5; --fam-e-bg: #17302e;
+    --fam-p: #a3a8e6; --fam-p-bg: #24263b;
+    --code-bg: #191c21; --code-ink: #d6dbe1; --code-com: #8c8676; --code-key: #7fbbe3; --code-str: #e1bd6a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121418; --panel: #1a1d23; --panel-2: #22262d;
+  --ink: #e8eaed; --ink-2: #b6bcc5; --ink-3: #8d949e;
+  --line: #343943; --line-2: #2a2e36;
+  --accent: #6fb0dc; --accent-ink: #0d1116; --accent-bg: #1c2a36;
+  --ok: #6cc08a; --ok-bg: #1b2c22; --warn: #e39a5c; --warn-bg: #33241a; --bad: #e8707a; --bad-bg: #351c20;
+  --manual: #8db8de; --manual-bg: #1f2b38;
+  --act: #e1bd6a; --act-bg: #33291a;
+  --regs: #d79bcb; --regs-bg: #33202f;
+  --fam-q: #e8807c; --fam-q-bg: #361e1e;
+  --fam-e: #4fbdb5; --fam-e-bg: #17302e;
+  --fam-p: #a3a8e6; --fam-p-bg: #24263b;
+  --code-bg: #191c21; --code-ink: #d6dbe1; --code-com: #8c8676; --code-key: #7fbbe3; --code-str: #e1bd6a;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-inline: 20px; padding-block: 0 80px; }
+@media (max-width: 480px) { .wrap { padding-inline: 16px; } }
+
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 600; line-height: 1.2; text-wrap: balance; margin: 0; letter-spacing: -.005em; }
+h1 { font-size: clamp(2rem, 5vw, 3.1rem); }
+h2 { font-size: clamp(1.5rem, 3.2vw, 2rem); }
+h3 { font-size: 1.22rem; }
+h4 { font-size: 1.02rem; }
+p { margin: 0; }
+a { color: var(--accent); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+code, .mono { font-family: var(--mono); font-size: .86em; }
+:not(pre) > code { background: var(--panel-2); border: 1px solid var(--line-2); padding: .05em .35em; border-radius: 4px; overflow-wrap: anywhere; }
+.eyebrow { font-size: .74rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3); }
+
+/* ---------- hero ---------- */
+.hero { padding-block: 56px 36px; border-bottom: 1px solid var(--line); display: grid; gap: 18px; }
+.hero .lede { font-family: var(--serif); font-size: clamp(1.1rem, 2.1vw, 1.3rem); color: var(--ink-2); max-width: 64ch; }
+.hero .who { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: .9rem; color: var(--ink-2); }
+.hero .who span b { color: var(--ink); font-weight: 600; }
+.stamp { display: inline-flex; align-items: center; gap: 8px; font-size: .8rem; font-weight: 600; color: var(--warn); background: var(--warn-bg); border-radius: 999px; padding: 4px 12px; width: fit-content; }
+.stamp::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--warn); }
+
+/* ---------- layout with rail ---------- */
+.layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding-top: 36px; }
+@media (max-width: 900px) { .layout { grid-template-columns: minmax(0, 1fr); gap: 0; } }
+.rail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 20px); align-self: start; font-size: .88rem; }
+.rail ol { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 2px; counter-reset: s; }
+.rail li a { display: grid; grid-template-columns: 22px 1fr; padding: 5px 8px; border-radius: 6px; color: var(--ink-2); text-decoration: none; counter-increment: s; }
+.rail li a::before { content: counter(s); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.rail li a:hover { background: var(--panel-2); color: var(--ink); }
+@media (max-width: 900px) {
+  .rail { position: static; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 28px; }
+  .rail ol { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+}
+
+main { min-width: 0; display: grid; gap: 64px; }
+section { display: grid; gap: 18px; scroll-margin-top: 20px; }
+section > p, .prose p, .prose li { max-width: 68ch; }
+section > p { color: var(--ink); }
+.muted { color: var(--ink-2); }
+.small { font-size: .88rem; }
+.sec-head { display: grid; gap: 6px; }
+.sec-head .eyebrow { color: var(--accent); }
+ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+
+/* ---------- source marks: square = Manual, diamond = Act, hexagon = Regulations ---------- */
+.mark { display: inline-block; width: .7em; height: .7em; vertical-align: .02em; margin-right: .35em; }
+.mark.manual { background: var(--manual); }
+.mark.act { background: var(--act); transform: rotate(45deg) scale(.85); }
+.mark.regs { background: var(--regs); clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0 50%); }
+.src { display: inline-flex; align-items: center; font-family: var(--mono); font-size: .8rem; padding: 1px 8px; border-radius: 5px; white-space: nowrap; }
+.src.manual { color: var(--manual); background: var(--manual-bg); }
+.src.act { color: var(--act); background: var(--act-bg); }
+.src.regs { color: var(--regs); background: var(--regs-bg); }
+
+/* ---------- pipeline ---------- */
+.pipe { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.pipe .st { padding: 16px 14px 18px; display: grid; gap: 6px; align-content: start; position: relative; border-right: 1px solid var(--line-2); }
+.pipe .st:last-child { border-right: 0; }
+.pipe .st .n { font-family: var(--mono); font-size: .74rem; color: var(--ink-3); }
+.pipe .st h4 { font-size: .98rem; }
+.pipe .st p { font-size: .82rem; color: var(--ink-2); line-height: 1.45; }
+.pipe .st .where { font-family: var(--mono); font-size: .72rem; color: var(--accent); overflow-wrap: anywhere; }
+.pipe .st.you { background: var(--accent-bg); }
+.pipe .st.you::after { content: "people work here"; position: absolute; top: 10px; right: 10px; font-size: .64rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+.pipe .st:not(:last-child)::before { content: "→"; position: absolute; right: -9px; top: 14px; z-index: 1; background: var(--panel); color: var(--ink-3); font-size: .9rem; line-height: 1; padding: 2px 0; }
+@media (max-width: 980px) {
+  .pipe { grid-template-columns: minmax(0, 1fr); }
+  .pipe .st { border-right: 0; border-bottom: 1px solid var(--line-2); }
+  .pipe .st:last-child { border-bottom: 0; }
+  .pipe .st:not(:last-child)::before { content: "↓"; right: auto; left: 14px; top: auto; bottom: -9px; padding: 0 4px; }
+}
+.callout { border-left: 3px solid var(--accent); background: var(--accent-bg); padding: 12px 16px; border-radius: 0 8px 8px 0; max-width: 72ch; }
+.callout.warn { border-color: var(--warn); background: var(--warn-bg); }
+.callout p + p { margin-top: 8px; }
+
+/* ---------- triple sentence ---------- */
+.triple { display: flex; flex-wrap: wrap; align-items: stretch; gap: 0; font-size: .95rem; max-width: 100%; }
+.triple > div { padding: 10px 14px; border: 1px solid var(--line); background: var(--panel); display: grid; gap: 2px; min-width: 0; }
+.triple > div + div { border-left: 0; }
+.triple > div:first-child { border-radius: 8px 0 0 8px; }
+.triple > div:last-child { border-radius: 0 8px 8px 0; }
+.triple .lab { font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+.triple .val { font-family: var(--serif); font-size: 1.05rem; }
+.triple .pred { background: var(--accent-bg); }
+.triple .pred .val { color: var(--accent); font-style: italic; }
+@media (max-width: 560px) {
+  .triple { flex-direction: column; }
+  .triple > div + div { border-left: 1px solid var(--line); border-top: 0; }
+  .triple > div:first-child { border-radius: 8px 8px 0 0; }
+  .triple > div:last-child { border-radius: 0 0 8px 8px; }
+}
+
+/* ---------- standards ---------- */
+.stds { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
+.std { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.std header { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.std h3 { font-size: 1.15rem; }
+.std .body-std { font-size: .74rem; color: var(--ink-3); white-space: nowrap; }
+.std p { font-size: .9rem; }
+.std .like { font-size: .88rem; color: var(--ink-2); font-family: var(--serif); font-style: italic; }
+.std .here { font-family: var(--mono); font-size: .74rem; color: var(--accent); overflow-wrap: anywhere; }
+
+/* ---------- code ---------- */
+pre { margin: 0; background: var(--code-bg); color: var(--code-ink); border: 1px solid var(--line-2); border-radius: 8px; padding: 14px 16px; overflow-x: auto; font-family: var(--mono); font-size: .8rem; line-height: 1.6; tab-size: 2; }
+pre .c { color: var(--code-com); font-style: italic; }
+pre .k { color: var(--code-key); }
+pre .s { color: var(--code-str); }
+
+/* ---------- three-view record ---------- */
+.views { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; min-width: 0; }
+.views .bar { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; padding: 8px 10px; border-bottom: 1px solid var(--line); background: var(--panel-2); }
+.views .bar .title { font-size: .82rem; font-weight: 600; margin-right: auto; padding: 4px 6px; color: var(--ink-2); }
+.views button[role="tab"] { font: inherit; font-size: .82rem; border: 1px solid transparent; background: transparent; color: var(--ink-2); padding: 5px 11px; border-radius: 6px; cursor: pointer; }
+.views button[role="tab"]:hover { color: var(--ink); background: var(--panel); }
+.views button[role="tab"][aria-selected="true"] { background: var(--panel); border-color: var(--line); color: var(--ink); font-weight: 600; }
+.views .pane { padding: 16px; display: grid; gap: 12px; }
+.views .pane pre { border: 0; }
+.views .file { font-family: var(--mono); font-size: .74rem; color: var(--ink-3); }
+.english { display: grid; gap: 10px; }
+.english dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; font-size: .92rem; }
+.english dt { color: var(--ink-3); font-size: .82rem; padding-top: 2px; }
+.english dd { margin: 0; min-width: 0; }
+@media (max-width: 560px) { .english dl { grid-template-columns: 1fr; } .english dt { padding-top: 6px; } }
+q.quote { font-family: var(--serif); font-style: italic; quotes: "“" "”"; }
+
+/* ---------- families ---------- */
+.fams { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 820px) { .fams { grid-template-columns: minmax(0, 1fr); } }
+.fam { border-radius: var(--radius); padding: 16px; display: grid; gap: 10px; align-content: start; border: 1px solid var(--line); background: var(--panel); border-top: 4px solid var(--c); }
+.fam.q { --c: var(--fam-q); --cb: var(--fam-q-bg); }
+.fam.e { --c: var(--fam-e); --cb: var(--fam-e-bg); }
+.fam.p { --c: var(--fam-p); --cb: var(--fam-p-bg); }
+.fam h4 { color: var(--c); }
+.fam .cls { font-family: var(--mono); font-size: .72rem; color: var(--ink-3); }
+.fam ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.fam li { background: var(--cb); border-radius: 6px; padding: 7px 10px; font-size: .88rem; display: grid; gap: 1px; }
+.fam li b { font-weight: 600; }
+.fam li span { font-size: .78rem; color: var(--ink-2); }
+.links { display: grid; gap: 6px; font-size: .9rem; }
+.link-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.chip { font-size: .8rem; padding: 2px 9px; border-radius: 999px; background: var(--cb); color: var(--c); font-weight: 600; white-space: nowrap; }
+.chip.q { --c: var(--fam-q); --cb: var(--fam-q-bg); }
+.chip.e { --c: var(--fam-e); --cb: var(--fam-e-bg); }
+.chip.p { --c: var(--fam-p); --cb: var(--fam-p-bg); }
+.verb { font-family: var(--serif); font-style: italic; color: var(--accent); }
+
+/* ---------- tables ---------- */
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
+table { border-collapse: collapse; width: 100%; font-size: .88rem; }
+th, td { text-align: left; padding: 9px 14px; border-bottom: 1px solid var(--line-2); vertical-align: top; }
+th { font-size: .72rem; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); font-weight: 600; background: var(--panel-2); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td .mono { font-size: .8rem; }
+.pill { display: inline-block; font-size: .72rem; font-weight: 600; padding: 1px 8px; border-radius: 999px; white-space: nowrap; }
+.pill.law { color: var(--act); background: var(--act-bg); }
+.pill.practice { color: var(--manual); background: var(--manual-bg); }
+.pill.none { color: var(--ink-3); background: var(--panel-2); }
+.pill.ok { color: var(--ok); background: var(--ok-bg); }
+.pill.warn { color: var(--warn); background: var(--warn-bg); }
+.pill.bad { color: var(--bad); background: var(--bad-bg); }
+
+/* ---------- states & graphs ---------- */
+.states { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 760px) { .states { grid-template-columns: minmax(0, 1fr); } }
+.state { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; display: grid; gap: 8px; align-content: start; }
+.state .pill { justify-self: start; }
+.state p { font-size: .9rem; }
+.state .where { font-family: var(--mono); font-size: .74rem; color: var(--ink-3); }
+.graphs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 860px) { .graphs { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .graphs { grid-template-columns: minmax(0, 1fr); } }
+.g { border: 1px dashed var(--line); border-radius: var(--radius); padding: 14px; display: grid; gap: 6px; align-content: start; background: var(--bg); }
+.g .file { font-family: var(--mono); font-size: .78rem; color: var(--accent); }
+.g h4 { font-size: 1rem; }
+.g p { font-size: .84rem; color: var(--ink-2); }
+.g .count { font-size: .8rem; font-variant-numeric: tabular-nums; color: var(--ink); }
+
+/* ---------- facts ---------- */
+.facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.fact { background: var(--panel); padding: 12px 14px; display: grid; gap: 2px; }
+.fact b { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.fact span { font-size: .8rem; color: var(--ink-2); line-height: 1.35; }
+
+/* ---------- checklist ---------- */
+.check { display: grid; gap: 22px; }
+.check-group { display: grid; gap: 10px; }
+.check-group > h3 { display: flex; align-items: baseline; gap: 10px; }
+.check-group > h3 .tag { font-family: var(--sans); font-size: .72rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); }
+.items { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.items li { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px 12px 44px; position: relative; display: grid; gap: 4px; }
+.items li::before { content: ""; position: absolute; left: 15px; top: 15px; width: 15px; height: 15px; border: 1.5px solid var(--ink-3); border-radius: 4px; }
+.items li b { font-weight: 600; }
+.items li p { font-size: .88rem; color: var(--ink-2); max-width: none; }
+.items li .who { font-size: .76rem; color: var(--accent); font-weight: 600; }
+
+/* ---------- roles ---------- */
+.roles { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 12px; }
+.role { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 14px 16px; display: grid; gap: 6px; align-content: start; }
+.role h4 { font-size: 1.02rem; }
+.role .skill { font-size: .76rem; color: var(--ink-3); }
+.role p { font-size: .88rem; }
+
+/* ---------- glossary ---------- */
+.gloss { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 0 28px; margin: 0; }
+.gloss div { padding: 10px 0; border-bottom: 1px solid var(--line-2); display: grid; gap: 2px; }
+.gloss dt { font-weight: 600; font-size: .92rem; }
+.gloss dd { margin: 0; font-size: .88rem; color: var(--ink-2); }
+
+footer.foot { border-top: 1px solid var(--line); padding-top: 20px; font-size: .82rem; color: var(--ink-3); display: grid; gap: 6px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .views .pane { animation: fade .18s ease-out; }
+  @keyframes fade { from { opacity: .4; } to { opacity: 1; } }
+}
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">TM-Knowledge · for trade marks experts planning a Manual uplift</div>
+  <h1>How the Trade Mark Ontology is built, and what it takes to run</h1>
+  <p class="lede">The ontology is a set of plain text files that describe the Manual, the Act and the Regulations as a network of ideas, each tied to the passage it came from. This guide walks through how those files are structured, which public standards they follow, and the work an office would take on to adopt and maintain them.</p>
+  <div class="who">
+    <span><b>Reading time</b> about 25 minutes</span>
+    <span><b>Assumes</b> you know the Manual well, and no programming</span>
+    <span><b>Figures as at</b> 12 October 2026, snapshot <span class="mono">c490a99</span></span>
+  </div>
+  <div class="stamp">The ontology is a draft. No part of it has been approved by an examiner panel yet.</div>
+</header>
+
+<div class="layout">
+<nav class="rail" aria-label="Contents">
+  <div class="eyebrow">Contents</div>
+  <ol>
+    <li><a href="#overview">The whole system on one line</a></li>
+    <li><a href="#standards">The standards it uses</a></li>
+    <li><a href="#source">Layer 1: the source text</a></li>
+    <li><a href="#concepts">Layer 2: concepts</a></li>
+    <li><a href="#relationships">Layer 3: relationships</a></li>
+    <li><a href="#trust">Who wrote it</a></li>
+    <li><a href="#gates">The quality gates</a></li>
+    <li><a href="#questions">Asking the graph questions</a></li>
+    <li><a href="#adopt">What adoption involves</a></li>
+    <li><a href="#maintain">What maintenance involves</a></li>
+    <li><a href="#limits">Limits to know first</a></li>
+    <li><a href="#glossary">Glossary</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- 1 -->
+<section id="overview">
+  <div class="sec-head">
+    <span class="eyebrow">1 · Overview</span>
+    <h2>The whole system on one line</h2>
+  </div>
+  <p>Nobody types the knowledge graph directly. People and models write <b>records</b>: short, structured entries such as "this concept, with these labels, drawn from these passages". A program then <b>builds</b> the graph from the records, checks it against a set of rules, and publishes it. If the graph is wrong, you fix the record and rebuild. This one habit is what keeps the system auditable.</p>
+
+  <div class="pipe" role="list">
+    <div class="st" role="listitem">
+      <span class="n">01</span>
+      <h4>Published sources</h4>
+      <p>The Trade Marks Manual (web pages) and the <i>Trade Marks Act 1995</i> and Regulations.</p>
+      <span class="where">IP Australia website · Federal Register</span>
+    </div>
+    <div class="st" role="listitem">
+      <span class="n">02</span>
+      <h4>Snapshot</h4>
+      <p>A separate tool cuts every page into numbered passages and every provision into units, with no interpretation. One fixed version is pinned.</p>
+      <span class="where">manual-XtrACTor · data/pin.json</span>
+    </div>
+    <div class="st you" role="listitem">
+      <span class="n">03</span>
+      <h4>Records</h4>
+      <p>Concepts, types and relationships, each with its evidence. Expert-signed and machine-written records live in separate folders.</p>
+      <span class="where">eval/gold/ · authored/ (YAML)</span>
+    </div>
+    <div class="st" role="listitem">
+      <span class="n">04</span>
+      <h4>Build</h4>
+      <p>A Python program turns records and snapshot into graph statements, using the class and relationship definitions in the ontology modules.</p>
+      <span class="where">tmk-graph · ontology/draft/</span>
+    </div>
+    <div class="st" role="listitem">
+      <span class="n">05</span>
+      <h4>Check</h4>
+      <p>Rules the graph must pass before it is published, plus automated tests. A failure stops publication.</p>
+      <span class="where">shapes/ · tests/ · CI</span>
+    </div>
+    <div class="st" role="listitem">
+      <span class="n">06</span>
+      <h4>Use</h4>
+      <p>Questions run against the graph; the examiner explorer and "Ask the Manual" read a copy of it.</p>
+      <span class="where">queries/ · site/</span>
+    </div>
+  </div>
+
+  <div class="facts" aria-label="Current size">
+    <div class="fact"><b>2,460</b><span>Manual passages in the snapshot, from 500 pages in 54 Parts</span></div>
+    <div class="fact"><b>52 + 112</b><span>concepts: signed by an expert, and machine-written (kept apart)</span></div>
+    <div class="fact"><b>35 + 352</b><span>relationships: signed, and machine-written (kept apart)</span></div>
+    <div class="fact"><b>52</b><span>relationship types on the closed list</span></div>
+    <div class="fact"><b>11</b><span>kinds of concept, in three families</span></div>
+    <div class="fact"><b>0</b><span>defects at the last rule check (25 rules in 5 files)</span></div>
+  </div>
+  <p class="small muted">The two numbers in each pair are never added together anywhere in the system. "How much of this has a person read?" is the question a reader has, and a single total would answer it in the flattering direction.</p>
+</section>
+
+<!-- 2 -->
+<section id="standards">
+  <div class="sec-head">
+    <span class="eyebrow">2 · Standards</span>
+    <h2>The standards it uses, in plain terms</h2>
+  </div>
+  <p>Almost everything is built on open standards from the World Wide Web Consortium (W3C), the body that also maintains HTML. That matters for adoption: the files are not tied to one vendor, any compliant tool can read them, and staff with "semantic web" or "linked data" skills will recognise them.</p>
+  <p>The core idea is simple. <b>Every fact is a three-part sentence</b>: a subject, a relationship, and an object. This is called a <b>triple</b>.</p>
+  <div class="triple" aria-label="Example triple">
+    <div><span class="lab">Subject</span><span class="val">geographical reference</span></div>
+    <div class="pred"><span class="lab">Predicate (relationship)</span><span class="val">may give rise to</span></div>
+    <div><span class="lab">Object</span><span class="val">connotation</span></div>
+  </div>
+  <p>A knowledge graph is just a large collection of these sentences. Because the objects of some sentences are the subjects of others, they join up into a network you can walk through.</p>
+
+  <div class="stds">
+    <article class="std">
+      <header><h3>RDF</h3><span class="body-std">W3C · 2004, 2014</span></header>
+      <p>The rule that every fact is a triple. Every other standard here is built on it.</p>
+      <p class="like">Like a register where every entry has exactly three columns.</p>
+      <span class="here">all files in graph/</span>
+    </article>
+    <article class="std">
+      <header><h3>IRI</h3><span class="body-std">IETF · 2005</span></header>
+      <p>A permanent web-style address that names one thing, so two systems agree they mean the same section or passage. Ours are built from the Manual's and Act's own reference numbers.</p>
+      <p class="like">Like a trade mark number: one identifier, never reused.</p>
+      <span class="here">src/tm_knowledge/refs.py · docs/IDENTIFIERS.md</span>
+    </article>
+    <article class="std">
+      <header><h3>Turtle and N-Quads</h3><span class="body-std">W3C · 2014</span></header>
+      <p>Two text formats for writing triples down. Turtle (<code>.ttl</code>) is readable by people. N-Quads (<code>.nq</code>) puts all four graphs in one file for software.</p>
+      <p class="like">Like the same register printed as a report, or exported as a spreadsheet.</p>
+      <span class="here">graph/*.ttl · graph/dataset.nq</span>
+    </article>
+    <article class="std">
+      <header><h3>RDFS and OWL 2 RL</h3><span class="body-std">W3C · 2004, 2012</span></header>
+      <p>The schema: what kinds of thing exist ("a ground of refusal is a kind of legal concept"), which can never overlap ("a Manual passage is never a legislative provision"), and simple rules a computer can apply. RL is a deliberately limited profile that runs fast and predictably.</p>
+      <p class="like">Like the Manual's own definitions section, written for a machine.</p>
+      <span class="here">ontology/draft/ (9 modules)</span>
+    </article>
+    <article class="std">
+      <header><h3>SKOS</h3><span class="body-std">W3C · 2009</span></header>
+      <p>The standard for thesauri and controlled vocabularies: one preferred label, any number of alternative labels, and "broader" for "is a kind of". We add one field SKOS lacks: <b>not-label</b>, a term that must never be read as this concept.</p>
+      <p class="like">Like a thesaurus with "see also" and "do not confuse with".</p>
+      <span class="here">every concept node</span>
+    </article>
+    <article class="std">
+      <header><h3>PROV-O</h3><span class="body-std">W3C · 2013</span></header>
+      <p>A vocabulary for provenance: who or what produced a statement, when, and from what. The project's own fields (review status, model, evidence span) extend it.</p>
+      <p class="like">Like the history panel on a file in a case management system.</p>
+      <span class="here">ontology/draft/provenance.ttl</span>
+    </article>
+    <article class="std">
+      <header><h3>SHACL</h3><span class="body-std">W3C · 2017</span></header>
+      <p>"Shapes": rules the data must satisfy, each with a plain-language message. A violation blocks publication; a warning is reported for a person to look at.</p>
+      <p class="like">Like a formalities check that runs on every filing, every time.</p>
+      <span class="here">shapes/ (5 files, 25 shapes)</span>
+    </article>
+    <article class="std">
+      <header><h3>SPARQL</h3><span class="body-std">W3C · 2008, 2013</span></header>
+      <p>The query language for graphs. A query is a pattern of triples with blanks; the answer is every way the graph can fill them in. CONSTRUCT queries also write new statements, which is how rules are expressed.</p>
+      <p class="like">Like a search of the register by any combination of fields.</p>
+      <span class="here">queries/competency/ · queries/rules/</span>
+    </article>
+    <article class="std">
+      <header><h3>Named graphs</h3><span class="body-std">part of RDF 1.1</span></header>
+      <p>A label on a set of triples saying which collection it belongs to. We use four: source text, expert-signed, machine-written, and machine-inferred. A query has to ask for a collection by name to see it.</p>
+      <p class="like">Like separate physical files for approved and pending matters.</p>
+      <span class="here">graph/README.md</span>
+    </article>
+  </div>
+  <p class="small muted">Around the standards sits ordinary engineering: <b>YAML</b> for the records people edit, <b>Python</b> with the open-source libraries <b>rdflib</b> (reads and writes RDF) and <b>pySHACL</b> (runs the shapes), <b>pytest</b> for tests, <b>Git</b> for history and <b>GitHub Actions</b> to run every check on every change. Nothing is licensed software.</p>
+</section>
+
+<!-- 3 -->
+<section id="source">
+  <div class="sec-head">
+    <span class="eyebrow">3 · Layer 1</span>
+    <h2>The source text: passages, provisions and citations</h2>
+  </div>
+  <p>The bottom layer restates the Manual and the legislation without interpreting them. It comes from a separate extraction tool that splits each Manual page into <b>chunks</b> (passages) and each provision into <b>units</b>, and gives every piece a stable reference. Those references are the keys that everything else hangs off.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Source</th><th>Reference form</th><th>Example</th><th>Mark used on screen</th></tr></thead>
+      <tbody>
+        <tr><td>Manual passage</td><td class="mono">TMM/Part‹n›/…</td><td><span class="src manual">TMM/Part31/1#1</span></td><td><span class="mark manual"></span>square</td></tr>
+        <tr><td>Act provision</td><td class="mono">TMA1995/s‹n›…</td><td><span class="src act">TMA1995/s39(1)</span></td><td><span class="mark act"></span>diamond</td></tr>
+        <tr><td>Regulation</td><td class="mono">TMR1995/r‹n›…</td><td><span class="src regs">TMR1995/r3A.3</span></td><td><span class="mark regs"></span>hexagon</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Each reference becomes an address by adding a fixed prefix. <span class="src manual">TMM/Part31/1#1</span> becomes <code>https://data.ipaustralia.gov.au/tmk/ref/TMM/Part31/1%231</code>. The <code>#</code> is the only character that has to be rewritten (as <code>%23</code>), because on the web it means "a part of this page". One passage reference in five contains one.</p>
+
+  <div class="views" data-views>
+    <div class="bar" role="tablist" aria-label="Manual passage, three ways">
+      <span class="title">One Manual passage, three ways</span>
+      <button role="tab" aria-selected="true" aria-controls="v1a" id="t1a">Plain English</button>
+      <button role="tab" aria-selected="false" aria-controls="v1b" id="t1b" tabindex="-1">In the graph</button>
+    </div>
+    <div class="pane" role="tabpanel" id="v1a" aria-labelledby="t1a">
+      <div class="english">
+        <dl>
+          <dt>What it is</dt><dd>Passage 1 of Manual Part 31.1, "Prohibited signs – subsection 39(1)". It is a <b>Manual passage</b>, so its authority is <span class="pill practice">practice</span>.</dd>
+          <dt>Fingerprint</dt><dd>A content hash (<span class="mono">sha256:ddc789…</span>) computed from the exact text. If IP Australia changes one character, the fingerprint changes.</dd>
+          <dt>Cites</dt><dd><span class="src act">TMA1995/s18</span> and <span class="src act">TMA1995/s39(1)</span>. The Manual's authors linked both themselves.</dd>
+          <dt>Taken from</dt><dd>Snapshot <span class="mono">c490a99</span> of the extraction tool.</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="pane" role="tabpanel" id="v1b" aria-labelledby="t1b" hidden>
+      <span class="file">graph/source.ttl (abridged)</span>
+<pre><span class="k">tmkr:TMM/Part31/1%231</span> a tmk:Chunk , tmk:ManualPassage ;
+    tmk:authorityKind   <span class="s">"practice"</span> ;
+    tmk:headingPath     <span class="s">"31.1. Prohibited signs - subsection 39(1)"</span> ;
+    tmk:contentHash     <span class="s">"sha256:ddc789a4…2b0e"</span> ;
+    tmk:capturedIn      tmk:snapshot-c490a9927f1a ;
+    tmk:citesProvision  <span class="k">tmkr:TMA1995/s18</span> , <span class="k">tmkr:TMA1995/s39(1)</span> ;
+    tmk:hasCitation     <span class="k">…/cite/TMM/Part31/1%231/prov/1</span> .
+
+<span class="c"># A citation is its own node, so it can carry how it was found.</span>
+<span class="k">…/cite/TMM/Part31/1%231/prov/1</span> a tmk:Citation ;
+    tmk:citingPassage   <span class="k">tmkr:TMM/Part31/1%231</span> ;
+    tmk:citedAuthority  <span class="k">tmkr:TMA1995/s39(1)</span> ;
+    tmk:mention         <span class="s">"Subsection 39(1)"</span> ;
+    tmk:extraction      <span class="s">"href"</span> .   <span class="c"># the Manual's own hyperlink</span></pre>
+    </div>
+  </div>
+
+  <h3>Why a citation is a separate object, not a plain link</h3>
+  <p>The extraction tool records <i>how</i> it found each reference. <code>href</code> means the Manual's authors hyperlinked it. <code>regex</code> means software read it out of the prose, and then <code>certainty</code> says how sure: <code>explicit</code>, <code>default</code> (a bare "section 43" assumed to mean the Act), or <code>ambiguous</code> (several instruments could be meant, and the tool refused to guess). A plain link would lose that, so each of the 2,236 citations in the graph is stored as its own small record. The system never resolves an ambiguous one by guessing; it puts the passage in front of a person.</p>
+
+  <div class="callout">
+    <p><b>The Manual is practice, not law, and the model enforces it.</b> A Manual passage and a legislative provision are declared <i>disjoint</i> classes: nothing can be both. Every passage also carries the text label <code>practice</code>, <code>law</code> or <code>decision</code>, which survives even when data is copied out of the graph. This matters because the Manual quotes the Act in places, so a passage can look like law while being practice.</p>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="concepts">
+  <div class="sec-head">
+    <span class="eyebrow">4 · Layer 2</span>
+    <h2>Concepts: the vocabulary of examination</h2>
+  </div>
+  <p>A <b>concept</b> is one idea from trade marks practice: <i>connotation</i>, <i>prescribed sign</i>, <i>priority date</i>, <i>the Registrar</i>. Each is a SKOS concept with labels, links to the passages it is drawn from, and the provisions it operates under. Concepts are what connect a question in an examiner's words to the right passages.</p>
+
+  <div class="views" data-views>
+    <div class="bar" role="tablist" aria-label="A concept, three ways">
+      <span class="title">GC-0054 "prohibited sign", three ways</span>
+      <button role="tab" aria-selected="true" aria-controls="v2a" id="t2a">Plain English</button>
+      <button role="tab" aria-selected="false" aria-controls="v2b" id="t2b" tabindex="-1">The record</button>
+      <button role="tab" aria-selected="false" aria-controls="v2c" id="t2c" tabindex="-1">In the graph</button>
+    </div>
+    <div class="pane" role="tabpanel" id="v2a" aria-labelledby="t2a">
+      <div class="english">
+        <dl>
+          <dt>Name</dt><dd><b>prohibited sign</b>, also "prohibited signs" and "sign that is not to be used as a trade mark"</dd>
+          <dt>Never confuse with</dt><dd>prescribed sign · scandalous matter · sign so nearly resembling</dd>
+          <dt>Drawn from</dt><dd><span class="src manual">TMM/Part31/1#1</span></dd>
+          <dt>Operates under</dt><dd><span class="src act">TMA1995/s39(1)</span> <span class="src act">TMA1995/s18</span></dd>
+          <dt>Evidence quoted</dt><dd><q class="quote">There are currently no regulations made for the purposes of section 18, which means grounds for rejection under s 39(1) are not raised during examination.</q> Characters 215 to 369 of that passage.</dd>
+          <dt>Why</dt><dd>The Act names the class; the Manual says no regulations exist. So the concept is recorded as real in law and inert in practice.</dd>
+          <dt>Please check</dt><dd>Whether "prohibited sign" is the right preferred label.</dd>
+          <dt>Status</dt><dd><span class="pill warn">Machine-written · unreviewed</span> by a model on 9 September 2026, confidence 0.85. Approved by: nobody.</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="pane" role="tabpanel" id="v2b" aria-labelledby="t2b" hidden>
+      <span class="file">authored/concepts.yaml (abridged)</span>
+<pre>- id: <span class="s">GC-0054</span>
+  pref_label: <span class="s">prohibited sign</span>
+  alt_labels: [<span class="s">prohibited signs</span>, <span class="s">sign that is not to be used as a trade mark</span>]
+  not_labels: [<span class="s">prescribed sign</span>, <span class="s">scandalous matter</span>, <span class="s">sign so nearly resembling</span>]
+  definition_sources: [<span class="s">TMM/Part31/1#1</span>]
+  legislative_basis:  [<span class="s">TMA1995/s39(1)</span>, <span class="s">TMA1995/s18</span>]
+  approved_by: null            <span class="c"># only a person ever fills this</span>
+  approved_date: null
+  authored:                    <span class="c"># the "envelope": who wrote it, on what evidence</span>
+    review_status: <span class="s">unreviewed</span>
+    authored_by: <span class="s">claude-opus-5</span>
+    authored_date: <span class="s">'2026-09-09'</span>
+    authoring_basis: <span class="s">corpus_explicit</span>
+    evidence:
+    - ref: <span class="s">TMM/Part31/1#1</span>
+      span: [215, 369]
+      content_hash: <span class="s">sha256:ddc789a4…2b0e</span>
+      quote: <span class="s">There are currently no regulations made for the purposes of section 18, …</span>
+    confidence: 0.85
+    reasoning: <span class="s">Section 39(1) names the class by reference to regulations …</span>
+    alternatives_considered: [<span class="s">Not holding the concept at all …</span>]
+    expert_should_check: <span class="s">Whether 'prohibited sign' is the right preferred label …</span></pre>
+    </div>
+    <div class="pane" role="tabpanel" id="v2c" aria-labelledby="t2c" hidden>
+      <span class="file">graph/authored.ttl (abridged, generated from the record)</span>
+<pre><span class="k">tmkc:GC-0054</span> a skos:Concept , tmk:LegalConcept , tmk:SignContent ;
+    skos:prefLabel       <span class="s">"prohibited sign"@en-AU</span> ;
+    skos:altLabel        <span class="s">"prohibited signs"@en-AU</span> ,
+                         <span class="s">"sign that is not to be used as a trade mark"@en-AU</span> ;
+    tmk:notLabel         <span class="s">"prescribed sign"@en-AU</span> , <span class="s">"scandalous matter"@en-AU</span> , … ;
+    skos:broader         <span class="k">tmkc:GC-0073</span> ;
+    tmk:definitionSource <span class="k">tmkr:TMM/Part31/1%231</span> ;
+    tmk:legislativeBasis <span class="k">tmkr:TMA1995/s39(1)</span> , <span class="k">tmkr:TMA1995/s18</span> ;
+    tmk:origin           <span class="s">"authored"</span> ;      <span class="c"># stamped on every node,</span>
+    tmk:reviewStatus     <span class="s">"unreviewed"</span> ;    <span class="c"># so it survives being copied out</span>
+    tmk:authoredBy       <span class="s">"claude-opus-5"</span> ;
+    tmk:confidence       0.85 .</pre>
+    </div>
+  </div>
+  <p>Notice what changed between the record and the graph. Field names became standard terms (<code>pref_label</code> became <code>skos:prefLabel</code>), references became addresses, and the provenance became a stamp on the node itself. Labels carry a language tag, <code>@en-AU</code>, because the system compares names in Australian English.</p>
+
+  <h3>The not-label, the field SKOS does not have</h3>
+  <p>"Deceptively similar" is a not-label of the signed concept <i>likely to deceive or cause confusion</i>. Both are about confusion, but one belongs to section 43 and the other to section 44. A search tool that treated them as synonyms would send an examiner to the wrong test, and the mistake would be invisible. Two checks follow from this: a term cannot be both a label and a not-label of the same concept (a defect), and a term that is one concept's not-label and another's preferred label is reported so a person can see the boundary (expected, not a defect).</p>
+
+  <h3>Eleven kinds of concept, in three families</h3>
+  <p>Each concept is given one <b>kind</b> by a separate typing record, so the decision "is this a test or a principle?" carries its own evidence and author. The kinds are grouped into three families, and the families are classes in the schema too.</p>
+  <div class="fams">
+    <div class="fam q">
+      <h4>The law's questions</h4>
+      <span class="cls">tmk:LegalQuestion</span>
+      <ul>
+        <li><b>Ground of refusal</b><span>a statutory basis to reject</span></li>
+        <li><b>Legal test</b><span>a question the decision maker must answer</span></li>
+        <li><b>Principle</b><span>onus, standard, presumption of registrability</span></li>
+      </ul>
+    </div>
+    <div class="fam e">
+      <h4>What they are asked about</h4>
+      <span class="cls">tmk:ExaminedMatter</span>
+      <ul>
+        <li><b>Subject matter</b><span>the mark and its kinds: shape, certification mark</span></li>
+        <li><b>Sign content</b><span>what it contains or conveys: a geographical reference</span></li>
+        <li><b>Context</b><span>the goods, the market, a reputation, a date</span></li>
+        <li><b>Use in trade</b><span>using, authorising use, prior use</span></li>
+      </ul>
+    </div>
+    <div class="fam p">
+      <h4>The process</h4>
+      <span class="cls">tmk:ProcessElement</span>
+      <ul>
+        <li><b>Process role</b><span>the Registrar, a delegate, the applicant</span></li>
+        <li><b>Procedural step</b><span>examination, acceptance, lapsing</span></li>
+        <li><b>Instrument or record</b><span>the Register, an endorsement, a notice</span></li>
+        <li><b>External instrument</b><span>the Madrid Protocol, the WHO's INN list</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout">
+    <p><b>What a concept <i>is</i> is its kind. What it <i>does</i> is a relationship.</b> "Relevant factor", "exception" and "remedy" are not kinds you file a concept under. The schema defines them by their links: anything that <span class="verb">qualifies</span> a test is a relevant factor; anything that <span class="verb">does not by itself give rise to</span> a ground is an exception; anything a ground <span class="verb">is overcome by</span> is a remedy. The computer works the class out from the link (OWL "equivalent class" restrictions), so a concept is a factor only because something says what it is a factor <i>for</i>.</p>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="relationships">
+  <div class="sec-head">
+    <span class="eyebrow">5 · Layer 3</span>
+    <h2>Relationships: a closed dictionary of 52 verbs</h2>
+  </div>
+  <p>Relationships are the predicates in the triples, the verbs that join concepts, provisions, passages and decisions. The list is <b>closed</b>: a record may only use a relationship that is in the dictionary. With an open list, a wrong relationship and a new one would look the same, and accuracy could not be measured.</p>
+  <p>Every entry in the dictionary carries six things: a <b>definition</b>, how it <b>reads</b> aloud (subject first), an <b>example</b> from a real record, a <b>counter-example</b> saying what it is not for, whether its authority is <span class="pill law">law</span> or <span class="pill practice">practice</span>, and which <b>kinds</b> it may join. A machine-written relationship whose ends are the wrong kinds is refused.</p>
+
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Relationship</th><th>Reads as</th><th>Authority</th><th>Why it is on the list</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">requiresElement</td><td>‹ground› requires ‹element›</td><td><span class="pill none">neither</span></td><td>used by signed records</td></tr>
+        <tr><td class="mono">qualifies</td><td>‹factor› qualifies ‹test or concept›</td><td><span class="pill none">neither</span></td><td>used by signed records</td></tr>
+        <tr><td class="mono">mayGiveRiseTo</td><td>‹cause› may give rise to ‹effect›</td><td><span class="pill none">neither</span></td><td>used by signed records</td></tr>
+        <tr><td class="mono">doesNotGiveRiseTo</td><td>‹subject› does not by itself give rise to ‹object›</td><td><span class="pill none">neither</span></td><td>used by signed records</td></tr>
+        <tr><td class="mono">isOvercomeBy</td><td>‹ground› is overcome by ‹remedy›</td><td><span class="pill none">neither</span></td><td>used by signed records</td></tr>
+        <tr><td class="mono">interprets</td><td>‹decision› interprets ‹provision›</td><td><span class="pill none">neither</span></td><td>used by signed records</td></tr>
+        <tr><td class="mono">broader</td><td>‹narrower› is a kind of ‹broader›</td><td><span class="pill none">neither</span></td><td>SKOS standard</td></tr>
+        <tr><td class="mono">holdsDelegationFrom</td><td>‹delegate› holds a delegation from ‹delegator›</td><td><span class="pill law">law</span></td><td>owner's ruling, 8 Oct 2026</td></tr>
+        <tr><td class="mono">hearsAppealsFrom</td><td>‹court› hears appeals from ‹decision maker›</td><td><span class="pill law">law</span></td><td>owner's ruling, 8 Oct 2026</td></tr>
+        <tr><td class="mono">consults</td><td>‹delegate› consults ‹adviser›</td><td><span class="pill practice">practice</span></td><td>owner's ruling, 8 Oct 2026</td></tr>
+        <tr><td class="mono">performs</td><td>‹role› performs ‹step›</td><td><span class="pill none">neither</span></td><td>owner's ruling, 9 Oct 2026</td></tr>
+        <tr><td class="mono">precedes</td><td>‹step› comes before ‹step›</td><td><span class="pill none">neither</span></td><td>owner's ruling, 9 Oct 2026</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small muted">12 of 52 shown. The full list is 14 relationships used by expert-signed records, 1 from SKOS, 14 authority and structural relationships and 23 process relationships added on the owner's rulings. It lives in one Python file, <code>src/tm_knowledge/ontology/predicates.py</code>, and the schema file <code>relations.ttl</code> is generated from it. A test fails if anyone edits the generated file by hand. "Is related to" was retired: it only said a passage mentions two ideas, which the passage index already records.</p>
+
+  <h4>How the families connect</h4>
+  <div class="links">
+    <div class="link-row"><span class="chip e">Sign content</span><span class="verb">may give rise to</span><span class="chip q">Ground of refusal</span></div>
+    <div class="link-row"><span class="chip e">Context</span><span class="verb">qualifies</span><span class="chip q">Legal test</span></div>
+    <div class="link-row"><span class="chip q">Ground of refusal</span><span class="verb">is assessed in</span><span class="chip p">Procedural step</span></div>
+    <div class="link-row"><span class="chip p">Process role</span><span class="verb">performs</span><span class="chip p">Procedural step</span><span class="verb">results in</span><span class="chip p">Instrument or record</span></div>
+    <div class="link-row"><span class="chip q">Principle</span><span class="verb">constrains</span><span class="chip p">Process role</span></div>
+  </div>
+
+  <h3>Every relationship is stored twice</h3>
+  <p>A relationship goes into the graph as a plain triple, which is fast to search, and as an <b>assertion record</b> about that triple, which holds the evidence and who wrote it. Technically this is called <i>reification</i>. Either alone fails: the plain triple is anonymous, and the assertion alone is slow to query. A rule check fails the graph if a plain triple appears in the signed collection with no signed assertion behind it.</p>
+
+  <div class="views" data-views>
+    <div class="bar" role="tablist" aria-label="A relationship, three ways">
+      <span class="title">GR-0062, three ways</span>
+      <button role="tab" aria-selected="true" aria-controls="v3a" id="t3a">Plain English</button>
+      <button role="tab" aria-selected="false" aria-controls="v3b" id="t3b" tabindex="-1">The record</button>
+      <button role="tab" aria-selected="false" aria-controls="v3c" id="t3c" tabindex="-1">In the graph</button>
+    </div>
+    <div class="pane" role="tabpanel" id="v3a" aria-labelledby="t3a">
+      <div class="english">
+        <dl>
+          <dt>Says</dt><dd><b>geographical reference</b> <span class="verb">may give rise to</span> <b>connotation</b></dd>
+          <dt>Evidence</dt><dd><span class="src manual">TMM/Part32B/2/2#1</span>, characters 481 to 777: <q class="quote">For example, a geographical reference can connote that: The grapes are grown at that location or within that region; …</q></dd>
+          <dt>Why</dt><dd>The Manual says geographical references can convey these connotations. It does not say every one does, hence "may".</dd>
+          <dt>Rejected reading</dt><dd>"requiresElement": that a geographical connotation needs words such as "made in".</dd>
+          <dt>Please check</dt><dd>Whether the relationship needs a wine-specific scope.</dd>
+          <dt>Status</dt><dd><span class="pill warn">Machine-written · unreviewed</span> by a model on 7 October 2026, confidence 0.99. Approved by: nobody.</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="pane" role="tabpanel" id="v3b" aria-labelledby="t3b" hidden>
+      <span class="file">authored/relationships.yaml (abridged)</span>
+<pre>- id: <span class="s">GR-0062</span>
+  subject: <span class="s">GC-0017</span>          <span class="c"># geographical reference</span>
+  predicate: <span class="s">mayGiveRiseTo</span>
+  object: <span class="s">GC-0001</span>           <span class="c"># connotation</span>
+  source_ref: <span class="s">TMM/Part32B/2/2#1</span>
+  span: [481, 777]
+  source_content_hash: <span class="s">sha256:67189295…a520f</span>
+  approved_by: null
+  authored:
+    review_status: <span class="s">unreviewed</span>
+    authored_by: <span class="s">gpt-6.1-sol</span>
+    authored_date: <span class="s">'2026-10-07'</span>
+    confidence: 0.99
+    reasoning: <span class="s">The Manual expressly identifies geographical references as capable …</span>
+    alternatives_considered: [<span class="s">'requiresElement: … qualifying words such as "made in".'</span>]
+    expert_should_check: <span class="s">Whether the relationship needs a wine-specific scope.</span></pre>
+    </div>
+    <div class="pane" role="tabpanel" id="v3c" aria-labelledby="t3c" hidden>
+      <span class="file">graph/authored.ttl (abridged)</span>
+<pre><span class="c"># 1. the plain triple, for searching and reasoning</span>
+<span class="k">tmkc:GC-0017</span>  tmk:mayGiveRiseTo  <span class="k">tmkc:GC-0001</span> .
+
+<span class="c"># 2. the assertion about it, for audit</span>
+<span class="k">tmka:GR-0062</span> a tmk:AuthoredAssertion ;      <span class="c"># never tmk:ApprovedAssertion</span>
+    tmk:assertionSubject   <span class="k">tmkc:GC-0017</span> ;
+    tmk:assertionPredicate tmk:mayGiveRiseTo ;
+    tmk:assertionObject    <span class="k">tmkc:GC-0001</span> ;
+    tmk:sourcePassage      <span class="k">tmkr:TMM/Part32B/2/2%231</span> ;
+    tmk:spanStart 481 ; tmk:spanEnd 777 ;
+    tmk:sourceContentHash  <span class="s">"sha256:67189295…a520f"</span> ;
+    tmk:isStale            false ;
+    tmk:extractionMethod   <span class="s">"agent_authoring"</span> ;
+    tmk:origin <span class="s">"authored"</span> ; tmk:reviewStatus <span class="s">"unreviewed"</span> ;
+    tmk:authoredBy <span class="s">"gpt-6.1-sol"</span> ; tmk:confidence 0.99 .</pre>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section id="trust">
+  <div class="sec-head">
+    <span class="eyebrow">6 · Provenance</span>
+    <h2>Who wrote it: three states that never blur</h2>
+  </div>
+  <p>Since September 2026 a model has been allowed to write legal content (definitions, types, relationships), provided nothing it writes can be mistaken for something an expert signed. This is the rule the whole structure is built around, and it is enforced in four independent places: the folder, the named graph, a stamp on every node, and the rule checks.</p>
+  <div class="states">
+    <div class="state">
+      <span class="pill warn">Authored</span>
+      <p>Written by a model or an agent. No person has looked at it. May be shown to examiners, always labelled "Machine · unreviewed".</p>
+      <span class="where">authored/ → graph/authored.ttl</span>
+    </div>
+    <div class="state">
+      <span class="pill ok">Approved</span>
+      <p>A named expert read and signed it on a date. The 190 records signed so far are frozen as the yardstick for measuring everything else.</p>
+      <span class="where">eval/gold/ → graph/approved.ttl</span>
+    </div>
+    <div class="state">
+      <span class="pill bad">Rejected</span>
+      <p>A named expert threw it out. Its identifier is retired with the reason and never reused.</p>
+      <span class="where">retired-ids.yaml</span>
+    </div>
+  </div>
+  <p>A record moves from authored to approved only through a recorded human decision: a reviewer marks up a workbook, and one program (<code>tmk-transcribe</code>) reads the signed workbook. Age, silence and an agent's opinion never promote a record. The field <code>approved_by</code> on a machine-written record is a violation that blocks publication.</p>
+
+  <h3>The envelope every machine-written record carries</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Field</th><th>What it holds</th><th>Why a reviewer cares</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">review_status</td><td><code>unreviewed</code>, <code>approved</code> or <code>rejected</code></td><td>The one thing to read first</td></tr>
+        <tr><td class="mono">authored_by</td><td>The model the provider reported, or the agent session</td><td>Errors cluster by author</td></tr>
+        <tr><td class="mono">authored_date</td><td>The date written</td><td>Ties it to a snapshot</td></tr>
+        <tr><td class="mono">authoring_basis</td><td><code>corpus_explicit</code>, <code>corpus_inferred</code> or <code>general_knowledge</code> (always flagged)</td><td>Says how far the record goes beyond the words</td></tr>
+        <tr><td class="mono">evidence</td><td>Reference, character span, content hash, and the exact quote at that span</td><td>You can check it in seconds; a quote that does not match the text is refused</td></tr>
+        <tr><td class="mono">confidence</td><td>0 to 1, in the extraction, never in a legal conclusion</td><td>Never compared across different models</td></tr>
+        <tr><td class="mono">reasoning</td><td>The argument for the reading</td><td>Correcting an argument is quicker than composing one</td></tr>
+        <tr><td class="mono">alternatives_considered</td><td>Readings rejected, and why</td><td>Shows the near-misses</td></tr>
+        <tr><td class="mono">expert_should_check</td><td>What the author most expects to have got wrong</td><td>Where to spend review time</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Four named graphs</h3>
+  <div class="graphs">
+    <div class="g"><span class="file">source.ttl</span><h4>Source</h4><p>Passages, provisions, decisions and citations, restated from the snapshot. No interpretation.</p><span class="count">1,056 passages · 2,236 citations</span></div>
+    <div class="g"><span class="file">approved.ttl</span><h4>Approved</h4><p>What a named expert signed.</p><span class="count">52 concepts · 35 relationships</span></div>
+    <div class="g"><span class="file">authored.ttl</span><h4>Authored</h4><p>What a machine wrote. Validated by nobody.</p><span class="count">112 concepts · 352 relationships</span></div>
+    <div class="g"><span class="file">inferred.ttl</span><h4>Inferred</h4><p>Produced by rules from the others. Each names the rule and facts behind it.</p><span class="count">2 rules, both awaiting approval</span></div>
+  </div>
+  <p class="small muted">The source graph holds every passage that some record speaks about, plus the other passages on the same pages, plus every passage with an ambiguous citation. It grows automatically as concepts are written about new Parts. All four graphs are committed to the repository (about 6.5 MB) so the graph can be read without building it.</p>
+</section>
+
+<!-- 7 -->
+<section id="gates">
+  <div class="sec-head">
+    <span class="eyebrow">7 · Quality</span>
+    <h2>The quality gates</h2>
+  </div>
+  <p>Every change to the repository runs the same sequence of checks automatically. A failure stops the change from being published. The shapes are not loosened to make a build pass; the data is fixed, or the reason the rule was wrong is written down as a decision.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Check</th><th>What it catches</th><th>Tool</th></tr></thead>
+      <tbody>
+        <tr><td>Record validation</td><td>A record missing its envelope, a quote that does not match its span, an unknown relationship. Malformed records are refused and named, never skipped.</td><td class="mono">authored.store</td></tr>
+        <tr><td>Harness</td><td>A relationship whose ends are the wrong kinds; ids reused; stores summed</td><td class="mono">tmk-harness</td></tr>
+        <tr><td>Provenance shapes</td><td>An assertion with no source passage, method, span, hash or status; a machine-written one with <code>approvedBy</code> filled</td><td class="mono">shapes/provenance.ttl</td></tr>
+        <tr><td>Authority shapes</td><td>A node typed as both practice and law; Manual words attributed to the Act</td><td class="mono">shapes/authority.ttl</td></tr>
+        <tr><td>Vocabulary shapes</td><td>Two preferred labels; a concept that is its own ancestor; a term both label and not-label; two concepts with the same name</td><td class="mono">shapes/vocabulary.ttl</td></tr>
+        <tr><td>Temporal and inference shapes</td><td>Superseded material with no status date; an inferred fact that does not name its rule</td><td class="mono">shapes/temporal.ttl · inference.ttl</td></tr>
+        <tr><td>Graph drift</td><td>The committed graph differs from a fresh build, meaning someone edited it by hand or forgot to rebuild</td><td class="mono">tmk-graph --check</td></tr>
+        <tr><td>Tests</td><td>Including "prohibited inference" tests: conclusions the system must never draw</td><td class="mono">pytest</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Here is one shape, with its translation. Each shape has a test file that deliberately breaks it, to prove it fires, and where possible a near-miss that must <i>not</i> fire.</p>
+<pre><span class="c"># shapes/provenance.ttl (abridged)</span>
+tmk:AuthoredAssertionShape a sh:NodeShape ;
+    sh:targetClass tmk:AuthoredAssertion ;        <span class="c"># check every machine-written relationship</span>
+    sh:property [
+        sh:path tmk:approvedBy ;
+        sh:maxCount 0 ;                           <span class="c"># it may have no approver at all</span>
+        sh:message <span class="s">"A name in approvedBy on an authored assertion. It means a person
+                    read this and signed it, and no agent writes it."</span> ;
+    ] .</pre>
+  <div class="callout">
+    <p><b>Severities.</b> A <span class="pill bad">violation</span> is a defect: publication stops. A <span class="pill warn">warning</span> is a gap for a person to look at. A <span class="pill none">note</span> is information, such as the list of concept pairs where one's not-label is another's name.</p>
+  </div>
+</section>
+
+<!-- 8 -->
+<section id="questions">
+  <div class="sec-head">
+    <span class="eyebrow">8 · Use</span>
+    <h2>Asking the graph questions</h2>
+  </div>
+  <p>The ontology was designed backwards from <b>competency questions</b>: questions it must be able to answer, written before the model. Thirteen are written as SPARQL queries today. Each file states the question, then its limits in plain words, then the query.</p>
+<pre><span class="c"># question: CQ-0017</span>
+<span class="c"># answers: If section 43 were amended, which parts of the Manual would need reviewing?</span>
+<span class="c"># limits: Reviewing effort, not reviewing outcome. A Part appears because a passage</span>
+<span class="c">#   in it cites the provision, not because an amendment would change its meaning. …</span>
+
+SELECT ?part (COUNT(DISTINCT ?chunk) AS ?passages)
+       (SUM(IF(?extraction = <span class="s">"href"</span>, 1, 0)) AS ?authored)    <span class="c"># linked by the Manual's authors</span>
+       (SUM(IF(?certainty  = <span class="s">"default"</span>, 1, 0)) AS ?inferred) <span class="c"># read out of prose</span>
+WHERE {
+  GRAPH tmkg:source {
+    ?citation a tmk:Citation ;
+              tmk:citingPassage  ?chunk ;
+              tmk:citedAuthority <span class="k">tmkr:TMA1995/s43</span> ;
+              tmk:extraction     ?extraction .
+    ?chunk tmk:partId ?part .
+  }
+}
+GROUP BY ?part</pre>
+  <p>In plain words: <i>find every citation in the source collection that points at section 43, take the passage it sits in, and count passages per Manual Part, splitting those the authors linked from those software inferred.</i> This is the query an amendment would start from.</p>
+  <p><b>Rules</b> are queries that write new facts. RULE-0001 flags a Manual passage that mixes quoted legislation with the Registrar's practice, so anything built from it must keep the two apart. Both rules are marked <code>PENDING</code>: until an owner approves them, everything they produce is stamped as a candidate.</p>
+  <p><b>The examiner explorer and "Ask the Manual"</b> do not query the graph live. When the site is published, a build step exports the concepts, relationships and passages to JSON files, and the browser searches those. The search code exists twice, in Python for measurement and in JavaScript for the page, and a test holds the two identical.</p>
+</section>
+
+<!-- 9 -->
+<section id="adopt">
+  <div class="sec-head">
+    <span class="eyebrow">9 · Adoption</span>
+    <h2>What adoption involves</h2>
+  </div>
+  <p>Taking the ontology into a Manual uplift project means owning four things: some decisions only the office can make, a small amount of infrastructure, a set of roles, and a review effort. None of it needs new licensed software.</p>
+
+  <div class="check">
+    <div class="check-group">
+      <h3>Decisions the office has to make <span class="tag">before go-live</span></h3>
+      <ul class="items">
+        <li><b>Confirm the permanent web address</b><p>Every identifier is built on <code>https://data.ipaustralia.gov.au/tmk/</code>, which is proposed and not confirmed. Permanent addresses need control of the domain. Changing it later is a configuration change and a rebuild, but anything outside that has stored the old addresses breaks.</p><span class="who">Office, with web and records management</span></li>
+        <li><b>Decide who signs</b><p>The plan is a panel of examiners who review the whole ontology at once. Name the panel, the sign-off form (today a workbook) and what a signature means.</p><span class="who">Content owner</span></li>
+        <li><b>Approve or replace the draft schema</b><p>The nine modules in <code>ontology/draft/</code> are a proposal. Each is promoted to <code>ontology/</code> on a recorded decision by an ontology specialist and a domain expert, one module at a time.</p><span class="who">Content owner and ontology steward</span></li>
+        <li><b>Rule on the open modelling questions</b><p>The two pending rules; whether any relationship should be restricted to particular kinds of subject (each carries counts of what it has actually joined, as evidence); four disputed signed readings.</p><span class="who">Content owner</span></li>
+        <li><b>Decide whether models keep writing</b><p>If yes: which model, a spending cap, and the rule already in force that an expert's own review notes never go into a prompt.</p><span class="who">Content owner, with budget holder</span></li>
+      </ul>
+    </div>
+    <div class="check-group">
+      <h3>Infrastructure <span class="tag">modest</span></h3>
+      <ul class="items">
+        <li><b>A Git repository with automated checks</b><p>GitHub with GitHub Actions today; any agency Git and CI service will do. Every change runs the tests, the graph drift check and the rule checks.</p><span class="who">Data engineer</span></li>
+        <li><b>The upstream extraction tool</b><p><code>manual-XtrACTor</code> produces the snapshot. Someone has to run it when the Manual or the Act changes and pin the new version.</p><span class="who">Data engineer</span></li>
+        <li><b>Python 3 with open-source libraries</b><p>rdflib, pySHACL and pytest. A full test run takes about ten minutes.</p><span class="who">Data engineer</span></li>
+        <li><b>Static web hosting for the explorer</b><p>Plus, if live answers stay on, a small service that holds the model key so it is never in the page.</p><span class="who">Data engineer</span></li>
+        <li><b>Later, optionally: a triple store and a search engine</b><p>The roadmap names Apache Jena Fuseki (to query the graph live) and OpenSearch (keyword plus meaning-based search). Neither is needed for the current files and both are deliberately not built yet.</p><span class="who">Architecture decision</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Roles</h3>
+  <div class="roles">
+    <div class="role"><h4>Content owner</h4><span class="skill">Senior trade marks expert</span><p>Decides what concepts and relationship types mean, approves schema modules, and rules on disputes. Every ruling is recorded verbatim with a date.</p></div>
+    <div class="role"><h4>Review panel</h4><span class="skill">Examiners</span><p>Read machine-written records against their quoted evidence and sign, correct or reject them. The records are arranged so most checks take seconds.</p></div>
+    <div class="role"><h4>Ontology steward</h4><span class="skill">Knowledge engineer; RDF, SKOS, SHACL</span><p>Keeps the relationship dictionary, the classes and the shapes coherent. Turns the owner's rulings into schema changes and new checks.</p></div>
+    <div class="role"><h4>Data engineer</h4><span class="skill">Python, Git, CI</span><p>Runs the extraction, the build and the checks; keeps the pipeline and site deployed; looks after model spend if models are used.</p></div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section id="maintain">
+  <div class="sec-head">
+    <span class="eyebrow">10 · Maintenance</span>
+    <h2>What maintenance involves</h2>
+  </div>
+  <p>Most maintenance is triggered by a change in the source text or a decision about meaning. The system does the detection; people do the judgement.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>When this happens</th><th>The system does</th><th>A person does</th><th>Who</th></tr></thead>
+      <tbody>
+        <tr><td><b>The Manual is updated</b></td><td>New snapshot pinned and graph rebuilt. Every record's content hash is compared with the new text; records whose passage changed are marked stale.</td><td>Re-reads each stale record against the new wording; confirms, corrects or retires it.</td><td>Engineer, then panel</td></tr>
+        <tr><td><b>The Act or Regulations are amended</b></td><td>The same, plus a query like CQ-0017 lists every Manual Part that cites the amended provision.</td><td>Decides which Manual passages and concepts the amendment affects.</td><td>Content owner, panel</td></tr>
+        <tr><td><b>A new idea is needed</b></td><td>Checks the new concept record: evidence quoted exactly, no name clash, valid kind.</td><td>Writes the record, or has a model draft it, citing the passages it rests on.</td><td>Anyone; stays unreviewed until signed</td></tr>
+        <tr><td><b>A new kind of relationship is needed</b></td><td>Regenerates <code>relations.ttl</code> from the dictionary; refuses records that join the wrong kinds.</td><td>Writes the definition, reading, example, counter-example, authority and allowed kinds. Recorded as an owner decision.</td><td>Owner rules; steward implements</td></tr>
+        <tr><td><b>A signed record turns out to be wrong</b></td><td>Applies a correction record when serving; measurement still reads the signed original.</td><td>Writes the correction, naming the ruling. The signed file is never edited.</td><td>Steward, on the owner's ruling</td></tr>
+        <tr><td><b>A review round finishes</b></td><td><code>tmk-transcribe</code> moves signed decisions into the approved collection; rejected ids are retired.</td><td>Signs the workbook.</td><td>Panel</td></tr>
+        <tr><td><b>Any change at all</b></td><td>Runs tests, graph drift and rule checks; refuses to publish on a defect.</td><td>Fixes the data, never the rule, unless the rule is shown wrong and that is recorded.</td><td>Engineer</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <p><b>Why the content hash is the heart of maintenance.</b> Every piece of evidence stores a fingerprint of the exact passage text it quoted. When the Manual changes, the system does not need to understand what changed; it only needs to see that the fingerprint no longer matches. That turns "re-check the whole ontology after every Manual release" into "re-check these specific records".</p>
+  </div>
+</section>
+
+<!-- 11 -->
+<section id="limits">
+  <div class="sec-head">
+    <span class="eyebrow">11 · Limits</span>
+    <h2>Limits to know before you commit</h2>
+  </div>
+  <ul class="plain prose">
+    <li><b>Nothing in the schema is approved.</b> All nine modules are drafts, and 112 concepts and 352 relationships are machine-written and unreviewed.</li>
+    <li><b>It never states an examination outcome.</b> It finds the right concepts and passages and cites them. Deciding whether a ground applies stays with the examiner, by design.</li>
+    <li><b>No "as at a date" questions.</b> The snapshot has no version history, so "what was the practice on 1 March 2024?" cannot be answered. That needs a different data strategy.</li>
+    <li><b>Complex legal rules are out of scope.</b> Rules with exceptions to exceptions (the LegalRuleML standard) were deliberately deferred.</li>
+    <li><b>Coverage follows the records.</b> The source graph holds 1,056 of the 2,460 Manual passages: those something has been written about, and their neighbours. Passages nobody has spoken about are in the snapshot but not yet in the graph.</li>
+    <li><b>The permanent address is unconfirmed</b>, and the relationship dictionary's definitions are themselves machine-written and unreviewed.</li>
+  </ul>
+</section>
+
+<!-- 12 -->
+<section id="glossary">
+  <div class="sec-head">
+    <span class="eyebrow">12 · Reference</span>
+    <h2>Glossary</h2>
+  </div>
+  <dl class="gloss">
+    <div><dt>Assertion</dt><dd>A record about a fact: who stated it, from which passage, and its review status.</dd></div>
+    <div><dt>Chunk</dt><dd>One passage of a Manual page, the smallest unit the system cites.</dd></div>
+    <div><dt>Class</dt><dd>A kind of thing in the schema, such as Ground of refusal or Manual passage.</dd></div>
+    <div><dt>Closed list</dt><dd>A fixed set of allowed values. Records may only use relationships on it.</dd></div>
+    <div><dt>Competency question</dt><dd>A question the ontology must be able to answer; the test of whether it is fit for purpose.</dd></div>
+    <div><dt>Content hash</dt><dd>A fingerprint of a passage's exact text. Any edit changes it.</dd></div>
+    <div><dt>CI</dt><dd>Continuous integration: checks that run automatically on every change.</dd></div>
+    <div><dt>Disjoint</dt><dd>Two classes that can share no member. A Manual passage is never a legislative provision.</dd></div>
+    <div><dt>Envelope</dt><dd>The provenance block on every machine-written record.</dd></div>
+    <div><dt>IRI</dt><dd>A permanent web-style address that names one thing.</dd></div>
+    <div><dt>Named graph</dt><dd>A labelled collection of triples. We have source, approved, authored and inferred.</dd></div>
+    <div><dt>Not-label</dt><dd>A term that must never be read as a given concept.</dd></div>
+    <div><dt>Ontology</dt><dd>The schema: classes, relationships and rules that say what can be stated and how.</dd></div>
+    <div><dt>Predicate</dt><dd>The middle of a triple: the relationship.</dd></div>
+    <div><dt>Ref</dt><dd>The extraction tool's stable reference for a passage or provision, such as <span class="mono">TMA1995/s43</span>.</dd></div>
+    <div><dt>Reification</dt><dd>Making a statement about a statement, so a fact can carry its evidence.</dd></div>
+    <div><dt>Shape</dt><dd>A SHACL rule the data must satisfy before publication.</dd></div>
+    <div><dt>Snapshot / pin</dt><dd>One fixed version of the extracted Manual and legislation, identified by a commit number.</dd></div>
+    <div><dt>Stale</dt><dd>A record whose passage text has changed since it was written.</dd></div>
+    <div><dt>Triple</dt><dd>One fact as subject, predicate, object.</dd></div>
+  </dl>
+</section>
+
+<footer class="foot">
+  <p>Drawn from the TM-Knowledge repository: <span class="mono">ontology/draft/</span>, <span class="mono">shapes/</span>, <span class="mono">graph/</span>, <span class="mono">authored/</span>, <span class="mono">src/tm_knowledge/ontology/predicates.py</span> and <span class="mono">docs/</span>. Counts are from the committed graph on 12 October 2026, snapshot <span class="mono">manual-XtrACTor@c490a99</span>.</p>
+  <p>Signed and machine-written figures are shown side by side and never added together. This guide is itself machine-written and has not been reviewed.</p>
+</footer>
+
+</main>
+</div>
+</div>
+
+<script>
+(function () {
+  document.querySelectorAll('[data-views]').forEach(function (box) {
+    var tabs = Array.prototype.slice.call(box.querySelectorAll('[role="tab"]'));
+    function select(tab) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        var pane = document.getElementById(t.getAttribute('aria-controls'));
+        if (pane) pane.hidden = !on;
+      });
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t); });
+      t.addEventListener('keydown', function (e) {
+        var j = null;
+        if (e.key === 'ArrowRight') j = (i + 1) % tabs.length;
+        if (e.key === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+        if (j !== null) { e.preventDefault(); tabs[j].focus(); select(tabs[j]); }
+      });
+    });
+  });
+})();
+</script>

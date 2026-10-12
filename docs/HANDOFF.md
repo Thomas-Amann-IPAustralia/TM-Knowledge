@@ -7,6 +7,11 @@ Rewritten every session, under 150 lines (ADR-0110). History is in the git log a
 
 ## Where things stand
 
+**S035 (short): `docs/ontology-explainer.html`**, a plain-language guide for a trade marks expert to how
+the ontology is built (standards, records → graph, gates) and what adopting and maintaining it would
+involve. Published as a private artifact for the owner. Machine-written, unreviewed; no records changed.
+Its counts are from the committed graph on 2026-10-12; update them if the graph changes.
+
 **S034: a typed question now drives the graph the way a prepared one does** (ADR-0132).
 The owner's screenshot: "Can I trade mark a smell?" drew only a grey "trade mark" and a fan of
 keyword passages. Live answers work. Recognition is by names only, and people do not use
