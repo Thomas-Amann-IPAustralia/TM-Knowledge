@@ -1515,3 +1515,16 @@ recognition holds *now*. A concept the same ledger relabels (S029: GC-0149, GC-0
 matched by its new labels only through `restructure._relabelled`, a plain substring test —
 so a new edge for a relabelled concept passes on a looser check than any other. Read such
 lines yourself; after `--write`, `tmk-bulk links --write` brings the mention index up to date.
+
+### Q-88 — the tour's "wordings" counts raw label matches, not the mention index
+
+`explorer.build._wordings` counts every passage whose text matches a label by regex. It
+ignores the not-labels and `authored/too-general-labels.yaml`, which the mention index
+(`links.mentions`, a concept's `mentions`) applies. The `common` guard only drops a wording
+found in more than 120 passages. So the tour's step 2 opens on *written permission* (GC-0029)
+and says 56 passages name it, 54 of them by "consent". But "consent" is on the too-general
+list because most uses are section 44 letters of consent, the ACCC's or a Minister's, and the
+mention index gives GC-0029 six passages. Before quoting a tour figure anywhere, check the
+label against the too-general list. *Specification of goods and services* (3 by the formal
+term, 109 in all; "specification" is listed under `kept:`) is the sound example, and
+S033's explainer source uses it instead.

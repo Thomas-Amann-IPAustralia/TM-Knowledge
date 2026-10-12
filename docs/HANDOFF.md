@@ -1,36 +1,32 @@
 # HANDOFF
 
-**Last updated:** 2026-10-12 · S032 (end) · branch `claude/fervent-fermat-ukb0sg`
+**Last updated:** 2026-10-12 · S033 (end) · branch `claude/festive-cray-tbfa4r`
 
 Rewritten every session, under 150 lines (ADR-0110). History is in the git log and
 `docs/history/`. Rules are in `docs/RULES-IN-FORCE.md`.
 
 ## Where things stand
 
-**S032 diagnosed "the chat doesn't work" and removed the "live answers off" notices** (owner's
-request). The published `live.json` (deploy of 11 Oct) carries a 164-character key; the model,
-streaming and CORS all work from the session's OpenAI connection. So a live failure is the
-key itself (revoked, another project, no credit) or a secret changed after that deploy — a
-secret change does not redeploy; run the `pages` workflow by hand. The page prints OpenAI's
-own error after "No answer:". With live off, the status line is now blank and About says
-nothing; a live question still explains that only the left-hand side ran. No ADR.
+**S033 wrote source material for an explainer video** (owner's request): `docs/explainer/`.
+It holds `ontology-explainer-grounding.md`, a plain-English source for Gemini Notebook's Video
+Overview: what an ontology is, five worked examples, the examiner use case (research and
+decision support) and the applicant use case (understanding requirements, process and
+objections; described as a possible next step, not built). It also has the measurement in
+both directions, limits, a build recipe, FAQ, glossary, fact sheet and storyboard.
+`video-overview-prompt.md` has the settings, steering prompts and a review checklist. Every
+figure came from `tmk-explorer --write` on the pinned snapshot or a committed report. No
+expert notes, owner's words or reviewer initials (ADR-0088). No record changed; no ADR.
+- Found while writing: the tour's step 2 says 56 passages name *written permission*, 54 of
+  them by "consent", a label on the too-general list (Q-88). The explainer uses
+  *specification of goods and services* instead. The tour still opens on the inflated case.
 
-**S031 labelled every line on the map's text level** (owner: the edges "do not carry their
-connection label"). Connections between ideas show their predicate; idea → Part says "is named
-in"; idea → provision says "has legislative basis" (`tmk:legislativeBasis`). A connection that
-ends at a provision (e.g. connotation *requires element* / *excludes basis*) was drawn as a
-plain basis line and lost its predicate: it is now its own arrow, labelled, and opens its
-card on click. The ideas level is unchanged (too dense to label). No record changed; no ADR.
-Checked in Chromium at 1440 and 390, light and dark: no JS errors, no overflow.
-- The owner also asked (no change wanted yet) why so many pages on "When the text changes"
-  say "Nothing on the map quotes this page". Answer given in chat: that panel counts only
-  **quoted evidence** (a record's `ref`/evidence span), not mentions. 307 of 500 pages hold no
-  quote, but 282 of them name an idea (132 distinct ideas); only 25 pages, 33 passages
-  (annexes, flowcharts, reference lists), name nothing. 295 distinct passages are quoted;
-  1,649 of 2,460 are linked by mention. The wording conflates the two — a candidate fix.
-
-**S030 added "As a table"** (`#/table`, `site/js/table.js`): Kinds, Ideas, Connections tabs
-with filters and a CSV carrying the trust columns. No record changed; no ADR.
+**S032** diagnosed "the chat doesn't work": the published `live.json` (11 Oct) carries a key;
+a live failure is the key itself or a secret changed after that deploy (a secret change does
+not redeploy; run `pages` by hand). The "live answers off" notices are gone. **S031** labelled
+every line on the map's text level with its predicate. The owner's question about "Nothing on
+the map quotes this page" was answered in chat: that panel counts only quoted evidence, not
+mentions (307 of 500 pages hold no quote; only 25 name no idea). The wording conflates the
+two. **S030** added "As a table" (`#/table`). None changed a record.
 
 **S029 restructured the ontology on the owner's instruction** (ADR-0131, CHAT-0071 to
 CHAT-0073, `review/returned/261009-owner-chat-ontology-structure.md`): *"Not having elements
@@ -51,22 +47,10 @@ you can get. … Apply common sense to the structures"*.
   `data/derived/audit/restructure.yaml` (one line of reasoning each), applied by
   `tmk-bulk restructure --write`: **130 re-read, 96 withdrawn** (a co-mention is not a
   relationship). Report: `data/derived/reports/restructure.md`.
-- **Kinds**: an eleventh, `principle` (presumption of registrability, mandatory application,
-  office practice); `none_of_these` empty; date of registration → context, pending application
-  → instrument or record, repealed Act → external instrument (now "statute or treaty outside
-  the 1995 Act"), owner or authorised user → process role, international registration →
-  subject matter, "originate" → context.
-- **Signed hierarchy fixed outside the signature** (GK-0030 to GK-0036): decision maker is not a
-  kind of connotation; geographical origin not a kind of geographical reference (now
-  *indicates*); top level domain *is part of* a domain name; ordinary consumer not a kind of
-  relevant market (no sentence names both, so no replacement).
-- **Connected**: twelve new edges from passages naming both ends; "Contracting Party of the
-  holder" relabelled to its Office (the only thing the corpus speaks of); "protected term"
-  added as a label of GC-0126. **164 of 164 concepts in one piece** (was 158).
-- **Explorer**: the map's kinds level keeps each kind's strongest link (none floats), lists
-  how the families connect; the circles view joins families, and a family's kinds, with
-  labelled lines; "Principle" has a colour and a place. Checked in Chromium at 1440 and 390,
-  light and dark: no JS errors, no horizontal overflow.
+- **Kinds**: an eleventh, `principle`; `none_of_these` empty; six concepts re-typed (ADR-0131).
+  Signed hierarchy fixed outside the signature (GK-0030 to GK-0036). Twelve new edges from
+  passages naming both ends: **164 of 164 concepts in one piece**. Explorer's kinds level and
+  circles view join families with labelled lines; checked in Chromium, light and dark.
 
 Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352 authored
 (was 436). Harness 0 defects; SHACL 0 defects; graph matches a rebuild; 699 tests pass.
@@ -81,6 +65,8 @@ Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352
    the restructure changed 226 edges, so re-measure before quoting numbers (next actions).
 3. **The four disputed signed readings** (`edge-audit.md`) — a person's call; unchanged.
 4. If live questions still fail after S032's redeploy: the text after "No answer:".
+5. **The explainer video** (`docs/explainer/`): whether its search figures go in (they predate
+   S029; part of OQ-0029), and who sees an applicant-focused cut of something not built.
 
 ## Next actions
 
@@ -95,12 +81,14 @@ Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352
 5. The signed concepts' own `related` lists (77 links, the expert's thesaurus see-also) still
    serve as `skos:related` in the approved graph. Not shown in the explorer. If the owner wants
    them typed too, each needs a sentence; `restructure.yaml` can carry the lines.
-6. **The map's idea card shows a case as a Manual chip**: `refChip` gives anything not
+6. **The tour's wordings step** (Q-88): skip a label on the too-general list in
+   `explorer.build._wordings`, or open on *specification of goods and services*. One function.
+7. **The map's idea card shows a case as a Manual chip**: `refChip` gives anything not
    `TMA1995/`/`TMR1995/` the blue square, and some relationships end at a `CASE/…` ref.
    `table.js` draws a case as a grey chip; `map.js`'s `showConcept` still uses `refChip`.
-7. `data/derived/reports/concept-typing.md` and its workbook were last generated 2026-09-09
+8. `data/derived/reports/concept-typing.md` and its workbook were last generated 2026-09-09
    (parked apparatus); `tmk-typing --write` refreshes them — a large diff, so its own commit.
-8. B2, B3, B6 stay postponed (B3 — the presumption — is now `principle`; say so if asked);
+9. B2, B3, B6 stay postponed (B3 — the presumption — is now `principle`; say so if asked);
    D7 is decided (ADR-0131); F4, F5 deferred.
 
 ## What to distrust
@@ -140,6 +128,9 @@ Counts: concepts 52 signed + 112 authored; relationships 20 signed serving + 352
   `app.js`, never `kinds.length - 1`.
 
 ## Open items (agent-proposed, provisional)
+
+- S033's explainer: the city-map analogy, the five worked examples, describing the applicant
+  use as "a possible next step", and the recommended Custom whiteboard style.
 
 - S030's table view: its name ("As a table"), Kinds as the first tab, hierarchy hidden by
   default, the CSV's columns. Each a one-line change.
