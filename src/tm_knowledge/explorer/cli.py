@@ -28,7 +28,7 @@ def main(argv: list[str] | None = None) -> int:
           f"{len(files['passages.json']['legislation'])} provisions and units; "
           f"{len(files['examples.json']['answers'])} prepared answers")
     live = files["live.json"]
-    print("live chat: " + ("on, " + ("key published in the page" if "m" in live else "through a proxy")
+    print("live chat: " + ("on, " + ("key published in the page" if "m" in live else f"through the proxy at {live['endpoint']}")
                            if live["enabled"] else f"off (set {build_module.KEY_ENV} to turn it on)"))
     if args.write:
         for path in build_module.write(files, args.out):
