@@ -7,7 +7,7 @@ import { esc, fmt, load, kindColour } from "./app.js";
 import * as lib from "./lib.js";
 
 export async function render(root, { ontology }) {
-  const [examples, chat, live, Plot] = await Promise.all([load("examples"), load("chat"), load("live").catch(() => ({ enabled: false })), lib.plot()]);
+  const [examples, chat, Plot] = await Promise.all([load("examples"), load("chat"), lib.plot()]);
   const c = ontology.counts;
   const s = examples.summary || {};
   const kinds = examples.kinds;
@@ -52,7 +52,7 @@ export async function render(root, { ontology }) {
       <li><b>Answer.</b> A model writes an answer from those passages only, citing each claim. Code then checks every quote word for word against the
       passage, and drops any it cannot find. The model is told never to say how an application would be decided, and to keep practice and law apart.</li>
     </ol>
-    <p class="small muted">Live answers use <code>${esc(chat.model)}</code> at ${esc(chat.effort)} reasoning effort${live.enabled ? "" : " (switched off on this copy of the site)"}.
+    <p class="small muted">Live answers use <code>${esc(chat.model)}</code> at ${esc(chat.effort)} reasoning effort.
     The ${examples.answers.length} prepared answers used the same instructions at ${esc(chat.measured_effort)} effort. Search in your browser runs without the
     meaning-vectors the measured system also used.</p>
 
