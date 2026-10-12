@@ -14,6 +14,18 @@ function reveal(live) {
   return new TextDecoder().decode(mixed.map((b, i) => b ^ mask[i]));
 }
 
+/** Whether answers go through a proxy (`live-proxy/`) rather than straight to OpenAI. */
+export function viaProxy(live) {
+  try { return !!live?.enabled && new URL(live.endpoint).hostname !== "api.openai.com"; } catch { return false; }
+}
+
+/** A proxy on a free host sleeps when idle and takes about a minute to wake; knock
+    as the page opens, so it is awake by the time a question is asked. */
+export function wake(live) {
+  if (!viaProxy(live)) return;
+  try { fetch(new URL("/health", live.endpoint), { mode: "no-cors", cache: "no-store" }).catch(() => {}); } catch { /* bad URL: the question will say so */ }
+}
+
 /** The value of a string field in JSON that may still be arriving. */
 export function partialField(json, key) {
   const m = new RegExp(`"${key}"\\s*:\\s*"`).exec(json);
