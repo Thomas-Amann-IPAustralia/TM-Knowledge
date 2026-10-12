@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012031,
+ "created_utc": "2026-10-12T03:43:15Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "smoke-04",
+ "job": "live-reading",
+ "key": "40d73eb26db65106912c92fd625741e9cbf00a4f9d7010a4dadad6e19a8fb28c",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0077\",\"why\":\"A jingle is a sound potentially used as a trade mark.\",\"words\":\"jingle\"}]}",
+ "prompt_version": "reading-v1-live",
+ "request_sha256": "4eab09a6bddb5d28d77867a077c3f9a1330d9b929f9f280835d24ee8c585f107",
+ "response_id": "resp_0305162349279316006acc574d187087d2b5a30214b29e3cd9",
+ "seconds": 6.3,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4645,
+  "input_tokens_details": {
+   "cache_write_tokens": 4642,
+   "cached_tokens": 0
+  },
+  "output_tokens": 42,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4687
+ }
+}

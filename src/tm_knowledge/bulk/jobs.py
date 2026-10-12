@@ -1141,6 +1141,40 @@ _ANSWER_SCHEMA = _strict({
     "concepts_used": STRS, "declined": {"type": "boolean"}, "decline_reason": STR,
 })
 
+# The live page's reading of a typed question (ADR-0132). Not a job and never part of
+# the measured system: the page asks it before searching, so that a question in
+# everyday words still starts from ideas on the map. The browser checks each pick
+# (`Engine.reading`): the id must be on the map and its words in the question.
+READING_VERSION = "reading-v1"
+READING_MAX_IDEAS = 4
+READING_MAX_OUTPUT_TOKENS = 2000
+
+_READING_INSTRUCTIONS = PREAMBLE + f"""
+
+Task: read a QUESTION someone typed about Australian trade marks and name the \
+ONTOLOGY concepts it is about, so that a search can start from them and follow \
+the ontology's connections.
+- People rarely use the ontology's names. Read for meaning: an everyday word for \
+something the ontology names in technical terms counts.
+- Choose only concepts the question itself raises, most central first, at most \
+{READING_MAX_IDEAS}. Do not add concepts an answer might need that the question does \
+not raise. Do not choose "trade mark" or "trade mark application" for those words \
+alone: nearly every question says them.
+- words: the words of the QUESTION you read as that concept, copied character for \
+character — the shortest run that carries it. A concept whose words are not in the \
+QUESTION is discarded.
+- why: one short sentence on why those words are that concept.
+- If no concept fits, return an empty list. Do not answer the question."""
+
+_READING_SCHEMA = _strict({
+    "concepts": {"type": "array", "items": _strict({"id": STR, "words": STR, "why": STR})},
+})
+
+
+def reading_input(ontology_lines: str, question: str) -> str:
+    """The reading's input, as the browser assembles it (`live.read`)."""
+    return f"ONTOLOGY (one line per concept):\n{ontology_lines}\n\nQUESTION: {question}"
+
 
 def _excerpt(ctx: Context, ref: str, limit: int = 320) -> dict[str, str]:
     chunk = ctx.corpus.chunks.get(ref)

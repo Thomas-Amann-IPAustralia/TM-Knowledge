@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012028,
+ "created_utc": "2026-10-12T03:43:27Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "smoke-06",
+ "job": "live-reading",
+ "key": "8d989a041da3bf4804120a67796991934cd7d13a59fac451acd33453842947cd",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0076\",\"why\":\"The question asks about registering a colour as a trade mark.\",\"words\":\"a colour\"}]}",
+ "prompt_version": "reading-v1-live",
+ "request_sha256": "b9144681257ba11de1aae48d9b4eb2ddf1dcf76a19e76164aab6c74a93ae596a",
+ "response_id": "resp_094180e3b30072be006acc5759a60c87d2875ffc8c8080e1df",
+ "seconds": 6.2,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4648,
+  "input_tokens_details": {
+   "cache_write_tokens": 4645,
+   "cached_tokens": 0
+  },
+  "output_tokens": 41,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4689
+ }
+}

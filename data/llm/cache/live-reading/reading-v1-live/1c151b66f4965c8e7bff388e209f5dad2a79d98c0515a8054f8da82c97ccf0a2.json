@@ -1,0 +1,32 @@
+{
+ "cost_usd": 0.012086,
+ "created_utc": "2026-10-12T03:43:40Z",
+ "effort": "low",
+ "error": null,
+ "incomplete_details": null,
+ "item": "smoke-08",
+ "job": "live-reading",
+ "key": "1c151b66f4965c8e7bff388e209f5dad2a79d98c0515a8054f8da82c97ccf0a2",
+ "max_output_tokens": 2000,
+ "model_reported": "gpt-6.1-sol",
+ "model_requested": "gpt-6.1-sol",
+ "output_text": "{\"concepts\":[{\"id\":\"GC-0075\",\"why\":\"The question asks about protecting a bottle’s three-dimensional shape as a trade mark.\",\"words\":\"shape of a bottle\"}]}",
+ "prompt_version": "reading-v1-live",
+ "request_sha256": "075245a94f15c190b9aaa142a5b8dc3713c7d487d27f9f0c1e1c44131f39cab4",
+ "response_id": "resp_01838002f26561f5006acc57661a3c87d2ada911a46a1bad19",
+ "seconds": 6.4,
+ "service_tier": "default",
+ "status": "completed",
+ "usage": {
+  "input_tokens": 4647,
+  "input_tokens_details": {
+   "cache_write_tokens": 4644,
+   "cached_tokens": 0
+  },
+  "output_tokens": 47,
+  "output_tokens_details": {
+   "reasoning_tokens": 0
+  },
+  "total_tokens": 4694
+ }
+}
