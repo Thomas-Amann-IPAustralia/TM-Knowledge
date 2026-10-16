@@ -1550,3 +1550,26 @@ Run `tmk-explorer --write` first, then put a stand-in `live.json`
 (`{"enabled":true,"endpoint":"https://api.openai.com/v1/responses"}`) back, since the build
 overwrites it with live answers off. Intercept `api.openai.com` in Playwright and answer by
 `text.format.name` (`reading` or `answer`) to test both calls without spending.
+
+### Q-91: re-running `tmk-bulk measure` does not reproduce `measure.md`
+
+`tmk-bulk measure` scores the stored 9 October rankings against the whole of
+`data/derived/bench/judgements.yaml`, which has grown since: 2,344 grades when the report was
+written, 2,892 after the 548 added on 12 October for the reading run. New grades raise each
+question's ideal ranking, so the same rankings now score keyword 0.702, hybrid 0.812 and
+ontology 0.773, against the committed report's 0.725, 0.844 and 0.803. Nothing is broken, and the
+differences between systems barely move. Do not `--write` over the committed report without
+saying it is a re-score on new grades; to reproduce a report exactly, check out the commit it was
+written at (`docs/ONTOLOGY-REVIEW-RESPONSE.md`, F11).
+
+### Q-92: an OWL reasoner over `graph/` reports contradictions that are declaration bugs
+
+Closing `ontology/draft/*.ttl` plus the graph under OWL RL (owlrl, or a reasoner in Protégé)
+makes a Manual chunk and a section of the Act `owl:sameAs` (the functional `tmk:sourcePassage`
+holds two values on 25 subjects), reports their disjointness clash, types every concept as a
+`tmk:Assertion` (the provenance properties' `rdfs:domain`), clashes the `xsd:double` confidences
+with their `xsd:decimal` range, and classifies every `doesNotGiveRiseTo` subject as a
+`tmk:Exception`. Some reasoners also refuse `xsd:date`, which is outside OWL 2's datatype map.
+These are defects in the declarations, recorded in `docs/ONTOLOGY-REVIEW-RESPONSE.md` (F01, F07,
+F15); nothing in the product runs a reasoner (`validate.run` uses `inference="none"`). Until they
+are fixed, do not read a reasoner's output as a finding about the data.
