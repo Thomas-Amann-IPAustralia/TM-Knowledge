@@ -23,11 +23,13 @@ from tm_knowledge.ontology.build import build
 from tm_knowledge.ontology.namespaces import (
     APPROVED_GRAPH,
     AUTHORED_GRAPH,
+    INFERRED_GRAPH,
     SOURCE_GRAPH,
+    TMK,
     bind_all,
 )
 
-__all__ = ["SHAPES_DIR", "Finding", "ValidationReport", "load_shapes", "run"]
+__all__ = ["SHAPES_DIR", "PLACEMENT_SHAPE", "Finding", "ValidationReport", "load_shapes", "placement", "run"]
 
 SHAPES_DIR = REPO_ROOT / "shapes"
 
@@ -118,11 +120,66 @@ def load_shapes(directory: Path | None = None) -> Graph:
     return bind_all(graph)
 
 
+#: The name a placement finding reports under, as a shape's label would.
+PLACEMENT_SHAPE = "Each kind of record sits in its own named graph"
+
+#: The kinds of record each named graph may hold, and the origin its nodes are
+#: stamped with. The named graphs are the governance boundary (CLAUDE.md rule 4):
+#: signed records in `approved`, machine-written ones and corrections in
+#: `authored`, a rule's output in `inferred`, the corpus in `source`. A signed
+#: concept with a machine-written type appears in both stores' graphs, which is
+#: why this is about the record classes and the origin stamp, not the subjects.
+_RECORD_CLASSES = (
+    TMK.ApprovedAssertion, TMK.AuthoredAssertion, TMK.CandidateAssertion,
+    TMK.InferredAssertion, TMK.Correction, TMK.ReasoningExpectation, TMK.EntityMention,
+)
+_PLACEMENT: dict = {
+    SOURCE_GRAPH: ((), None),
+    APPROVED_GRAPH: ((TMK.ApprovedAssertion, TMK.ReasoningExpectation, TMK.EntityMention), "approved"),
+    AUTHORED_GRAPH: ((TMK.AuthoredAssertion, TMK.Correction, TMK.ReasoningExpectation, TMK.EntityMention), "authored"),
+    INFERRED_GRAPH: ((TMK.InferredAssertion,), None),
+}
+
+
+def placement(dataset: Dataset) -> list[Finding]:
+    """What flattening cannot see: a record in a named graph it may not sit in.
+
+    Read before the union, because after it a machine-written assertion in the
+    approved graph is indistinguishable from the same node in the authored one
+    (the review response, F02). Every finding is a defect.
+    """
+    out = []
+    for graph_name, (allowed, origin) in _PLACEMENT.items():
+        graph = dataset.graph(graph_name)
+        where = str(graph_name).rsplit("/", 1)[-1]
+        for cls in _RECORD_CLASSES:
+            if cls in allowed:
+                continue
+            for node in graph.subjects(RDF.type, cls):
+                out.append(Finding(
+                    severity="defect", shape=PLACEMENT_SHAPE, node=str(node), path="type",
+                    value=str(cls).rsplit("/", 1)[-1],
+                    message=f"A {str(cls).rsplit('/', 1)[-1]} in the {where} graph. Signed, "
+                            f"machine-written and inferred records never share a named graph "
+                            f"(CLAUDE.md rule 4).",
+                ))
+        for node, stamp in graph.subject_objects(TMK.origin):
+            if str(stamp) != origin:
+                out.append(Finding(
+                    severity="defect", shape=PLACEMENT_SHAPE, node=str(node), path="origin",
+                    value=str(stamp),
+                    message=f"A node stamped origin \"{stamp}\" in the {where} graph. The stamp "
+                            f"and the named graph must agree, or no later audit can tell the "
+                            f"stores apart (ADR-0080).",
+                ))
+    return out
+
+
 def _flatten(dataset: Dataset) -> Graph:
     """The graphs the shapes run over, as one graph.
 
-    Source, approved and authored together, because several constraints span
-    them: a proposition's authority kind lives in the source graph and the
+    All four named graphs and the default one together, because several
+    constraints span them: a proposition's authority kind lives in the source graph and the
     proposition in the approved one, and a validator that saw only one would
     pass PU-0004 by not being able to see it.
 
@@ -133,12 +190,16 @@ def _flatten(dataset: Dataset) -> Graph:
     published unchecked would be the Tier 3 gate removed and nothing put in its
     place.
 
+    **The inferred graph is validated too.** Until S036 it was left out, so the
+    shapes written for a rule's output, `BoundedReasoningShape` among them, never
+    saw one (the review response, F02).
+
     Flattening loses the separation the named graphs carry, which is why every
-    node stamps its own `tmk:origin` and why `tmk:OriginConsistencyShape`
-    exists: after the union, that stamp is what tells the two apart.
+    node stamps its own `tmk:origin`, why `tmk:OriginConsistencyShape` exists,
+    and why `placement()` reads the dataset before it is flattened.
     """
     graph = bind_all(Graph())
-    for name in (SOURCE_GRAPH, APPROVED_GRAPH, AUTHORED_GRAPH):
+    for name in (SOURCE_GRAPH, APPROVED_GRAPH, AUTHORED_GRAPH, INFERRED_GRAPH):
         for triple in dataset.graph(name):
             graph.add(triple)
     for triple in dataset.default_graph:
@@ -221,4 +282,11 @@ def run(
         meta_shacl=False,
         allow_warnings=True,
     )
-    return ValidationReport(conforms=conforms, findings=_findings(results, shapes))
+    misplaced = placement(dataset)
+    return ValidationReport(
+        conforms=conforms and not misplaced,
+        findings=sorted(
+            [*_findings(results, shapes), *misplaced],
+            key=lambda finding: (finding.severity, finding.shape, finding.node, finding.value or ""),
+        ),
+    )
