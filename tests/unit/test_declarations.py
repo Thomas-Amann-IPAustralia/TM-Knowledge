@@ -11,7 +11,11 @@ So this test reads the committed graph against the declarations directly:
 1. **A functional property has at most one value per subject.** Until S036
    `tmk:sourcePassage` was functional and 67 subjects carried two or more, which a
    reasoner reads as Manual chunk `owl:sameAs` section of the Act.
-2. **Every subject of a property with a declared domain is already in that class.**
+2. **Every literal is of its property's declared datatype.** Until S036 all 647
+   confidences were `xsd:double` against an `xsd:decimal` range, which OWL RL
+   reports as a clash, and 12 properties declared `xsd:string` held `@en-AU` text
+   (the review response, F07).
+3. **Every subject of a property with a declared domain is already in that class.**
    A domain that would reclassify a subject is a declaration bug: until S036 the
    provenance stamps made every concept a `tmk:Assertion`, `tmk:derivedFrom` made a
    reasoning expectation an inferred assertion, and `evidence.ttl`'s stale
@@ -109,4 +113,25 @@ def test_no_domain_reclassifies_a_subject(tbox, data):
         "subjects a domain would reclassify (property, domain): "
         f"{dict(sorted(found.items()))}. A domain is an inference, not a check; "
         "put the constraint in a shape."
+    )
+
+
+def test_every_literal_is_of_its_declared_datatype(tbox, data):
+    from rdflib import Literal
+    from rdflib.namespace import RDF, RDFS, XSD
+
+    found = defaultdict(int)
+    for prop, _, declared in tbox.triples((None, RDFS.range, None)):
+        if not (str(declared).startswith(str(XSD)) or declared == RDF.langString):
+            continue
+        for _, _, value in data.triples((None, prop, None)):
+            if not isinstance(value, Literal):
+                found[(_name(prop), _name(declared), "not a literal")] += 1
+                continue
+            actual = RDF.langString if value.language else (value.datatype or XSD.string)
+            if actual != declared:
+                found[(_name(prop), _name(declared), _name(actual))] += 1
+    assert not found, (
+        "literals not of their declared datatype (property, declared, found): "
+        f"{dict(sorted(found.items()))}"
     )

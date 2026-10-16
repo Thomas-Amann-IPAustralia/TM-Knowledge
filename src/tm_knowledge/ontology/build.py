@@ -38,6 +38,8 @@ no longer matches the pinned snapshot gets `tmk:isStale true` and is reported.
 
 from __future__ import annotations
 
+from decimal import Decimal
+
 import tempfile
 from dataclasses import dataclass, field
 from datetime import date
@@ -710,7 +712,9 @@ def _origin(graph: Graph, node: URIRef, record: dict, store: Store) -> None:
     if envelope.get("supersedes_rejected"):
         graph.add((node, TMK.supersedesRejected, _lit(envelope["supersedes_rejected"])))
     if envelope.get("confidence") is not None:
-        graph.add((node, TMK.confidence, _lit(float(envelope["confidence"]))))
+        # A decimal, as tmk:confidence declares: rdflib types a float xsd:double,
+        # and the two are disjoint value spaces under OWL (the review response, F07).
+        graph.add((node, TMK.confidence, _lit(Decimal(str(envelope["confidence"])), XSD.decimal)))
     for item in envelope.get("evidence") or ():
         if isinstance(item, dict) and isinstance(item.get("ref"), str):
             graph.add((node, TMK.sourcePassage, ref_node(item["ref"])))

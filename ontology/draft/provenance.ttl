@@ -247,12 +247,12 @@ tmk:authoringBasis a owl:DatatypeProperty ;
     rdfs:comment "What the judgement rests on: \"corpus_explicit\" — the corpus states it in terms; \"corpus_inferred\" — the corpus supports it but the reading is the machine's; \"general_knowledge\" — the corpus does not say it. The third is permitted and flagged, never hidden: an unevidenced assertion is not thereby wrong, it is thereby unevidenced, and no count may present it as equivalent to an evidenced one (ADR-0079 guard 2)."@en-AU .
 
 tmk:authoringReasoning a owl:DatatypeProperty ;
-    rdfs:range xsd:string ;
+    rdfs:range rdf:langString ;
     rdfs:label "authoring reasoning"@en-AU ;
     rdfs:comment "Why this reading and not the obvious alternative, written for the expert who will disagree with it. The field that makes correction cheap, which is the entire premise of ADR-0079."@en-AU .
 
 tmk:expertShouldCheck a owl:DatatypeProperty ;
-    rdfs:range xsd:string ;
+    rdfs:range rdf:langString ;
     rdfs:label "expert should check"@en-AU ;
     rdfs:comment "The specific thing most likely to be wrong here. A pointer, not a disclaimer."@en-AU .
 

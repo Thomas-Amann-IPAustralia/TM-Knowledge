@@ -279,7 +279,7 @@ tmk:ConceptScheme a owl:Class ;
 
 tmk:notLabel a owl:DatatypeProperty ;
     rdfs:domain tmk:LegalConcept ;
-    rdfs:range xsd:string ;
+    rdfs:range rdf:langString ;
     rdfs:label "not label"@en-AU ;
     rdfs:comment """A term this concept must NOT be conflated with. There is no SKOS property for
 this and it is the most valuable field on the record.
