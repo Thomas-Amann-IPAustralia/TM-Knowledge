@@ -144,6 +144,16 @@ def _ours(envelope: Any, ledger: dict[str, Any]) -> bool:
     return bool(envelope) and str(envelope.get("authored_by")) == str(ledger["authored_by"])
 
 
+def _read_since(envelope: Any, ledger: dict[str, Any]) -> bool:
+    """Whether a later ledger has re-read a record this one wrote: its kept alternatives
+    hold this ledger's reading. Then this ledger's line is done, and running it again must
+    not read the record back (S029's ledger would have undone S036's re-reads)."""
+    if not envelope or _ours(envelope, ledger):
+        return False
+    stamp = f"As first written by {ledger['authored_by']} "
+    return any(str(alt).startswith(stamp) for alt in envelope.get("alternatives_considered") or ())
+
+
 def _replaced_here(ctx: jobs.Context, edge: str, ledger: dict[str, Any]) -> bool:
     meta = ctx.authored.retired_ids.get(edge) or {}
     return str(meta.get("ruling", "")).startswith(str(ledger["ruling"]))
@@ -212,6 +222,9 @@ def plan(ctx: jobs.Context, ledger: dict[str, Any]) -> Plan:
             out.kept.append((edge, old, str(row["keep"])))
             continue
         if "to" in row and old == tuple(str(x) for x in row["to"]) and _ours(entry.envelope, ledger):
+            out.done += 1
+            continue
+        if "to" in row and _read_since(entry.envelope, ledger):
             out.done += 1
             continue
         if existing.get(old) == edge:

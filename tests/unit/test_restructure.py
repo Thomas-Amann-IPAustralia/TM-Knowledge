@@ -186,3 +186,20 @@ def test_a_second_ledger_reports_to_its_own_file_and_names_its_own_ruling(tmp_pa
     retired = yaml.safe_load((tmp_path / authored_store.RETIRED_IDS_FILE).read_text(encoding="utf-8"))
     assert retired[0]["ruling"].endswith("#CHAT-0073")
     assert retired[0]["reason"].startswith("The review response's worklist (S036)")
+
+
+def test_an_earlier_ledger_never_undoes_a_later_ones_reading(tmp_path):
+    """S029's ledger counted a line as applied only when the record carried S029's stamp,
+    so once S036 re-read a record, running S029's ledger again would have re-read it back,
+    undoing the later judgement. A record whose kept alternatives hold the earlier
+    ledger's reading has been read since: that line is done."""
+    ctx = _ctx(tmp_path, [
+        {"id": "GR-0001", "subject": "GC-0046", "predicate": "related", "object": "GC-0040", "supporting_text": TEXT},
+    ])
+    first = dict(LEDGER, edges=[{"edge": "GR-0001", "to": ["GC-0046", "performs", "GC-0040"], "why": "«decides»"}])
+    restructure.apply(restructure.plan(ctx, first), root=tmp_path)
+    later = dict(S036, edges=[{"edge": "GR-0001", "to": ["GC-0046", "performs", "GC-0040"], "modality": "may",
+                                "why": "«its discretion»"}])
+    restructure.apply(restructure.plan(_ctx_from_disk(tmp_path, ctx), later), root=tmp_path)
+    again = restructure.plan(_ctx_from_disk(tmp_path, ctx), first)
+    assert again.ok and not again.rereads and again.done == 1
