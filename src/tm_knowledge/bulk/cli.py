@@ -475,13 +475,17 @@ def _measure_reading(args: argparse.Namespace) -> int:
     text = measure.render_reading(summary, {"all": touched.get("all", {})} if changed else {}, coverage=coverage,
                                   judged=judged - len(ungraded), judge_model=", ".join(models),
                                   reading=document["reading"], measured=document.get("measured"), ungraded=ungraded)
+    named = measure.inputs(path, READING_POOLS_PATH)
+    text = measure.stamp(text, named, f"tmk-bulk measure --reading --allow-ungraded {args.allow_ungraded}")
     print(text)
     if args.write:
-        (REPORTS_DIR / "measure-reading.md").write_text(text, encoding="utf-8")
-        (jobs.BENCH_DIR / "reading-results.json").write_text(json.dumps(
+        # Never over a report scored on other grades or rankings (F11): a dated one beside it.
+        written = measure.write_report(REPORTS_DIR / "measure-reading.md", text, named, today=date.today().isoformat())
+        results = jobs.BENCH_DIR / f"reading-results{written.stem[len('measure-reading'):]}.json"
+        results.write_text(json.dumps(
             {"summary": summary, "changed": touched.get("all"), "coverage": coverage, "rows": scored["rows"]},
             indent=1, sort_keys=True) + "\n", encoding="utf-8")
-        print("wrote data/derived/reports/measure-reading.md and data/derived/bench/reading-results.json")
+        print(f"wrote {written.relative_to(REPO_ROOT)} and {results.relative_to(REPO_ROOT)}")
     return 0
 
 
@@ -510,14 +514,18 @@ def _measure(args: argparse.Namespace) -> int:
     text = measure.render(summary, judged=sum(len(g) for g in judgements.values()), pooled=len(judgements),
                           judge_model=", ".join(models), cases=cases, variants=document.get("variants") or {},
                           measured=document.get("measured"), evidence=evidence)
+    named = measure.inputs(path, POOLS_PATH)
+    text = measure.stamp(text, named)
     print(text)
     if args.write:
-        (REPORTS_DIR / "measure.md").write_text(text, encoding="utf-8")
-        (jobs.BENCH_DIR / "results.json").write_text(json.dumps(
+        # Never over a report scored on other grades or rankings (F11): a dated one beside it.
+        written = measure.write_report(REPORTS_DIR / "measure.md", text, named, today=date.today().isoformat())
+        results = jobs.BENCH_DIR / f"results{written.stem[len('measure'):]}.json"
+        results.write_text(json.dumps(
             {"summary": summary, "rows": scored["rows"], "cases": cases, "by_evidence": evidence}, indent=1,
             sort_keys=True) + "\n",
             encoding="utf-8")
-        print("wrote data/derived/reports/measure.md and data/derived/bench/results.json")
+        print(f"wrote {written.relative_to(REPO_ROOT)} and {results.relative_to(REPO_ROOT)}")
     return 0
 
 

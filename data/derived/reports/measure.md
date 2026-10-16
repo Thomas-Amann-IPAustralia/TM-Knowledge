@@ -1,4 +1,7 @@
 # The value measurement — does the ontology make search better?
+<!-- scored-on: commit=a255063dbe1b grades=sha256:5d0974ab3271ba09ca239b13f2331c7fcdd3cb657862c44589d751660ba386a2 grade-count=2344 rankings=sha256:8be66724095d3c40aa7c5a5cfa21e29da391621e044c57df5ee0e9de18fe3cf1 -->
+
+*Scored at commit `a255063dbe1b` on 2344 grades (`sha256:5d0974ab3271…`) and rankings `sha256:8be66724095d…`. To reproduce: `git checkout a255063dbe1b`, then `tmk-bulk measure`.*
 
 Rankings taken on 2026-10-09. 129 questions, every pooled passage graded 0–3 by `gpt-6.1-sol` (2344 grades over 129 pools). Three systems, fixed before any passage was judged: **keyword** (BM25), **hybrid** (keyword + vectors — good search with no ontology) and **ontology** (hybrid + concept recognition, query expansion and concept-linked passages). Intervals are paired bootstrap 95%; ✓ means the difference is established, ✗ that it is established the other way.
 
